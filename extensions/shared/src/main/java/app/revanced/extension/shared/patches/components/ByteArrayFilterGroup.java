@@ -63,7 +63,8 @@ public class ByteArrayFilterGroup extends FilterGroup<byte[]> {
     }
 
     private synchronized void buildFailurePatterns() {
-        if (failurePatterns != null) return; // Thread race and another thread already initialized the search.
+        if (failurePatterns != null)
+            return; // Thread race and another thread already initialized the search.
         Logger.printDebug(() -> "Building failure array for: " + this);
         int[][] failurePatterns = new int[filters.length][];
         int i = 0;

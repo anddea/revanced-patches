@@ -1,36 +1,61 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
+    <string name="gms_core_offline_account_login_error">If you recently changed your account login details, then uninstall and reinstall GmsCore.</string>
+    <string name="revanced_advanced_video_quality_menu_summary_off">Advanced video quality menu is not shown.</string>
+    <string name="revanced_advanced_video_quality_menu_summary_on">Advanced video quality menu is shown.</string>
+    <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>
+    <string name="revanced_advanced_video_quality_menu_type_summary_off">Old style flyout menu is used.</string>
+    <string name="revanced_advanced_video_quality_menu_type_summary_on">Custom dialog is used.</string>
+    <string name="revanced_advanced_video_quality_menu_type_title">Advanced video quality menu type in Shorts</string>
+    <string name="revanced_append_time_stamp_information_playback_speed_menu_type_title">Playback speed menu type</string>
+    <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">Old style flyout menu is used.</string>
+    <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">Custom dialog is used.</string>
+    <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Video quality menu type</string>
     <string name="revanced_cancel">Cancel</string>
     <string name="revanced_color_invalid_toast">Invalid color</string>
     <string name="revanced_copy">Copy</string>
     <string name="revanced_copy_error">Failed to copy text</string>
-    <string name="revanced_default_playback_speed_shorts_title">Default playback speed on Shorts</string>
-    <string name="revanced_default_video_quality_mobile_shorts_title">Default Shorts quality on mobile network</string>
-    <string name="revanced_default_video_quality_wifi_shorts_title">Default Shorts quality on Wi-Fi network</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"App layout reverts to the layout it was using when it was first installed.
+    <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Custom (Legacy)</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">Custom (Modern)</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">Custom (No theme)</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_youtube_legacy">YouTube legacy</string>
+    <string name="revanced_debug_export_logs_to_clipboard_summary">Copies RVX debug logs to the clipboard.</string>
+    <string name="revanced_debug_export_logs_to_clipboard_title">Copy debug logs</string>
+    <string name="revanced_debug_export_logs_to_file_summary">Export RVX debug logs to a file.</string>
+    <string name="revanced_debug_export_logs_to_file_title">Export debug logs</string>
+    <string name="revanced_debug_logs_clear_buffer_summary">Clears all stored RVX debug logs.</string>
+    <string name="revanced_debug_logs_clear_buffer_title">Clear debug logs</string>
+    <string name="revanced_debug_logs_clear_toast">Logs cleared.</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">Logs copied.</string>
+    <string name="revanced_debug_logs_disabled">Debug logging is disabled.</string>
+    <string name="revanced_debug_logs_export_success">Logs were successfully exported.</string>
+    <string name="revanced_debug_logs_failed_to_export">Failed to export logs: $s.</string>
+    <string name="revanced_debug_logs_none_found">No logs found.</string>
+    <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer.</string>
+    <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer.</string>
+    <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
+    <string name="revanced_debug_spannable_summary_off">Debug logs do not include spannable.</string>
+    <string name="revanced_debug_spannable_summary_on">Debug logs include spannable.</string>
+    <string name="revanced_debug_spannable_title">Log spannable</string>
+    <string name="revanced_debug_summary_off">Debug logs are disabled.</string>
+    <string name="revanced_debug_summary_on">Debug logs are enabled.</string>
+    <string name="revanced_debug_title">Enable debug logging</string>
+    <string name="revanced_debug_toast_on_error_summary_off">Toast is not shown if error occurs.</string>
+    <string name="revanced_debug_toast_on_error_summary_on">Toast is shown if error occurs.</string>
+    <string name="revanced_debug_toast_on_error_title">Show toast on RVX error</string>
+    <string name="revanced_disable_auto_audio_tracks_not_available">To use this feature, change \'Default client (Spoof streaming data)\' to iOS TV.</string>
+    <string name="revanced_enable_shorts_clear_mode_summary_off">Clear mode is disabled.</string>
+    <string name="revanced_enable_shorts_clear_mode_summary_on">"Clear mode is enabled.
 
-Some server-side layouts may not revert.
-
-Changes include:
-• Components in the player flyout menu (or related settings) may not work.
-• Rolling numbers are not animated.
-• The Library tab is used.
-• The Music section of video description may not work.
-• Account switch button may not appear on the Library tab. Use the 'Enable wide search bar in You tab' setting."</string>
-    <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continue watching&lt;/b&gt; will resume on app startup.&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;Continue watching&lt;/b&gt; is the YouTube Premium feature.&lt;br&gt;• This setting does not force &lt;b&gt;Continue watching&lt;/b&gt; to be enabled.</string>
-    <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Continue watching&lt;/b&gt; will not resume on app startup.</string>
-    <string name="revanced_disable_translucent_status_bar_user_dialog_message">For some manufacturer ROMs running Android 12+, enabling this feature may make the system navigation bar transparent.</string>
-    <string name="revanced_enable_swipe_seek_summary_off">Fullscreen seek swipe is disabled.</string>
-    <string name="revanced_enable_swipe_seek_summary_on">"Fullscreen seek swipe is enabled.
-
-Seek the video by swiping horizontally on the top half of the screen."</string>
-    <string name="revanced_enable_swipe_seek_title">Enable seek gesture</string>
-    <string name="revanced_enable_swipe_speed_summary_off">Fullscreen speed swipe is disabled.</string>
-    <string name="revanced_enable_swipe_speed_summary_on">"Fullscreen speed swipe is enabled.
-
-Adjust speed by swiping horizontally on the bottom half of the screen."</string>
-    <string name="revanced_enable_swipe_speed_title">Enable speed gesture</string>
+Click on the player background to hide the UI."</string>
+    <string name="revanced_enable_shorts_clear_mode_title">Enable clear mode</string>
+    <string name="revanced_extended_restart">Restart</string>
+    <string name="revanced_extended_restart_dialog_message">Restart the app for this change to take effect.</string>
+    <string name="revanced_extended_restart_title">Restart required</string>
+    <string name="revanced_extended_settings_color_invalid">Invalid color.</string>
+    <string name="revanced_extended_settings_color_picker">Color picker</string>
+    <string name="revanced_extended_settings_reset_color">Reset color</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_gemini_cancelled">Canceled</string>
@@ -66,13 +91,57 @@ Adjust speed by swiping horizontally on the bottom half of the screen."</string>
     <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
     <string name="revanced_gradient_seekbar_positions_summary">Gradient start and end positions from 0 to 1 separated by comma.</string>
     <string name="revanced_gradient_seekbar_positions_title">Gradient seekbar bounds</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">Filter if matches.&lt;br&gt;&lt;br&gt;To hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; as keywords.</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">Filter if contains.&lt;br&gt;&lt;br&gt;To hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can use &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; or &lt;b&gt;\'Premium\'&lt;/b&gt; as keywords.</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Filter if matches.&lt;br&gt;&lt;br&gt;To hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Play next in queue\'&lt;/b&gt; as keywords.</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filter if contains.&lt;br&gt;&lt;br&gt;To hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can use &lt;b&gt;\'Play next\'&lt;/b&gt; or &lt;b&gt;\'in queue\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_ai_chat_summary_summary_off">AI Chat summary is shown.</string>
+    <string name="revanced_hide_ai_chat_summary_summary_on">AI Chat summary is hidden.</string>
+    <string name="revanced_hide_ai_chat_summary_title">Hide AI Chat summary</string>
+    <string name="revanced_hide_category_bar_in_history_summary_off">Shown in watch history.</string>
+    <string name="revanced_hide_category_bar_in_history_summary_on">Hidden in watch history.</string>
+    <string name="revanced_hide_category_bar_in_history_title">Hide in watch history</string>
+    <string name="revanced_hide_creator_store_shelf_summary_off">Creator store shelf under videos is shown.</string>
+    <string name="revanced_hide_creator_store_shelf_summary_on">Creator store shelf under videos is hidden.</string>
+    <string name="revanced_hide_creator_store_shelf_title">Hide creator store shelf</string>
+    <string name="revanced_hide_expandable_card_summary_off">Expandable card under videos is shown.</string>
+    <string name="revanced_hide_expandable_card_summary_on">Expandable card under videos is hidden.</string>
+    <string name="revanced_hide_expandable_card_title">Hide expandable card</string>
+    <string name="revanced_hide_links_preview_summary_off">Links preview is shown.</string>
+    <string name="revanced_hide_links_preview_summary_on">Links preview is hidden.</string>
+    <string name="revanced_hide_links_preview_title">Hide links preview</string>
+    <string name="revanced_hide_members_shelf_summary_off">Members shelf is shown.</string>
+    <string name="revanced_hide_members_shelf_summary_on">Members shelf is hidden.</string>
+    <string name="revanced_hide_members_shelf_title">Hide members shelf</string>
+    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Audio track menu is hidden.
+
+To show the Audio track menu, change \'Default client (Spoof streaming data)\' to iOS TV."</string>
+    <string name="revanced_hide_related_videos_overlay_summary_off">More videos section in quick actions container and related videos overlay are shown.</string>
+    <string name="revanced_hide_related_videos_overlay_summary_on">More videos section in quick actions container and related videos overlay are hidden.</string>
+    <string name="revanced_hide_related_videos_overlay_title">Hide related videos overlay</string>
+    <string name="revanced_hide_shorts_buy_super_thanks_button_summary_off">Buy Super Thanks button is shown.</string>
+    <string name="revanced_hide_shorts_buy_super_thanks_button_summary_on">Buy Super Thanks button is hidden.</string>
+    <string name="revanced_hide_shorts_buy_super_thanks_button_title">Hide Buy Super Thanks button</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_off">New posts button is shown.</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_on">New posts button is hidden.</string>
     <string name="revanced_hide_shorts_new_posts_button_title">Hide new posts button</string>
+    <string name="revanced_hide_shorts_use_this_template_button_summary_off">Use this template button is shown.</string>
+    <string name="revanced_hide_shorts_use_this_template_button_summary_on">Use this template button is hidden.</string>
+    <string name="revanced_hide_shorts_use_this_template_button_title">Hide Use this template button</string>
+    <string name="revanced_hide_shorts_video_link_label_summary_off">Video link label is shown.</string>
+    <string name="revanced_hide_shorts_video_link_label_summary_on">Video link label is hidden.</string>
+    <string name="revanced_hide_shorts_video_link_label_title">Hide video link label</string>
+    <string name="revanced_hide_stop_ads_button_summary_off">Stop ads button is shown.</string>
+    <string name="revanced_hide_stop_ads_button_summary_on">Stop ads button is hidden.</string>
+    <string name="revanced_hide_stop_ads_button_title">Hide Stop ads</string>
+    <string name="revanced_hide_subscribed_channels_bar_summary_off">Subscribed channels bar is shown.</string>
+    <string name="revanced_hide_subscribed_channels_bar_summary_on">Subscribed channels bar is hidden.</string>
+    <string name="revanced_hide_subscribed_channels_bar_title">Hide subscribed channels bar</string>
+    <string name="revanced_hide_surveys_summary_off">Surveys are shown.</string>
+    <string name="revanced_hide_surveys_summary_on">Surveys are hidden.</string>
+    <string name="revanced_hide_surveys_title">Hide surveys</string>
+    <string name="revanced_hide_visit_store_button_summary_off">Visit store button is shown.</string>
+    <string name="revanced_hide_visit_store_button_summary_on">Visit store button is hidden.</string>
+    <string name="revanced_hide_visit_store_button_title">Hide Visit store button</string>
+    <string name="revanced_hide_visual_spacers_summary_off">Visual spacers are shown.</string>
+    <string name="revanced_hide_visual_spacers_summary_on">Visual spacers are hidden.</string>
+    <string name="revanced_hide_visual_spacers_title">Hide visual spacers</string>
     <string name="revanced_icon_mmt_blue">MMT Blue</string>
     <string name="revanced_icon_mmt_green">MMT Green</string>
     <string name="revanced_icon_mmt_orange">MMT Orange</string>
@@ -86,15 +155,12 @@ Adjust speed by swiping horizontally on the bottom half of the screen."</string>
     <string name="revanced_icon_xisr_special">Xisr Special</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>
-    <string name="revanced_language_AM">"Amharic
-<small>አማርኛ</small>"</string>
-    <string name="revanced_language_BE">"Belarusian
-<small>беларуская</small>"</string>
-    <string name="revanced_language_SQ">"Albanian
-<small>Shqip</small>"</string>
+    <string name="revanced_language_GA">"Gaeilge
+<small>Gaeilge</small>"</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Not overridden</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_invalid_toast">Litho thread pool max size must be between 1-3.</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_title">Litho thread pool max size</string>
     <string name="revanced_minimize">Minimize</string>
-    <string name="revanced_overlay_button_external_downloader_queue_manager_summary">Instead of launching an external downloader, open the queue manager.</string>
-    <string name="revanced_overlay_button_external_downloader_queue_manager_title">Queue manager</string>
     <string name="revanced_overlay_button_gemini_about_summary">"Parsing the video may take a while depending on its length. Transcribing long videos may exceed Gemini's limits.
 
 AI-generated responses may contain inaccurate information.
@@ -108,32 +174,24 @@ Tap here to get an API key."</string>
 
 Summarized and transcribed results are saved unless you closed the app or used Gemini on another video. Tap the button again to view results."</string>
     <string name="revanced_overlay_button_gemini_summarize_title">Show Gemini button</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_summary_off">Playback speed changes only apply to the current Short.</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_summary_on">"Playback speed changes apply to all Shorts.
+    <string name="revanced_overlay_button_speed_dialog_type_title">Speed dialog type</string>
+    <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"Native playlist download button, if shown, opens your external downloader.
 
-Info:
-• The only way to change the playback speed in the Shorts player is to use the 'Speed ​​dialog' in 'Custom actions'.
-• If you didn't include the 'Shorts components' patch, this wouldn't be available."</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_title">Remember playback speed changes on Shorts</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_off">A toast will not be shown when changing the default playback speed on Shorts.</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_on">A toast will be shown when changing the default playback speed on Shorts.</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_title">Show a toast</string>
-    <string name="revanced_remember_playback_speed_toast_shorts">Changed default Shorts playback speed to: %s.</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_summary_off">Quality changes only apply to the current Short.</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_summary_on">Quality changes apply to all Shorts.</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_title">Remember Shorts quality changes</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_off">A toast will not be shown when changing the default Shorts quality.</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_on">A toast will be shown when changing the default Shorts quality.</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_toast_title">Show a toast</string>
-    <string name="revanced_remember_video_quality_toast">Changed default %1$s quality to: %2$s.</string>
-    <string name="revanced_remember_video_quality_toast_shorts">Changed Shorts %1$s quality to: %2$s.</string>
+To show the native playlist download button, turn on \'Spoof app version\' and change \'Spoof app version target\' to \'19.28.42\' or earlier."</string>
+    <string name="revanced_preference_group_sb_title">SponsorBlock</string>
+    <string name="revanced_preference_screen_channel_page_summary">Hide or show components in channel page.</string>
+    <string name="revanced_preference_screen_channel_page_title">Channel page</string>
+    <string name="revanced_preference_screen_debugging_summary">Enable or disable debugging options.</string>
+    <string name="revanced_preference_screen_debugging_title">Debugging</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
     <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
     <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
     <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
     <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
-    <string name="revanced_sb_vote_segment_time_to_from">%1$s to %2$s</string>
+    <string name="revanced_sb_square_layout">Use square layout</string>
+    <string name="revanced_sb_square_layout_sum_off">Buttons and controls are rounded.</string>
+    <string name="revanced_sb_square_layout_sum_on">Buttons and controls are square.</string>
     <string name="revanced_search_clear_confirm_message">Are you sure you want to clear your entire search history?</string>
     <string name="revanced_search_clear_confirm_title">Clear Search History</string>
     <string name="revanced_search_clear_history_title">Clear History</string>
@@ -157,40 +215,75 @@ Info:
     <string name="revanced_shorts_custom_actions_gemini_summary_off">Gemini summary menu is hidden.</string>
     <string name="revanced_shorts_custom_actions_gemini_summary_on">Gemini summary menu is shown.</string>
     <string name="revanced_shorts_custom_actions_gemini_title">Show Gemini summary menu</string>
-    <string name="revanced_shorts_custom_actions_speed_dialog_label">Speed dialog</string>
-    <string name="revanced_shorts_custom_actions_speed_dialog_summary_off">Speed dialog menu is hidden.</string>
-    <string name="revanced_shorts_custom_actions_speed_dialog_summary_on">Speed dialog menu is shown.</string>
-    <string name="revanced_shorts_custom_actions_speed_dialog_title">Show speed dialog menu</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_type_title">Speed dialog type</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message">Modern speed ​dialog may not work on YouTube 19.01-19.34.</string>
     <string name="revanced_shorts_custom_actions_speed_label">Playback speed</string>
     <string name="revanced_shorts_custom_actions_speed_summary_off">Playback speed menu is hidden.\n\nInfo:\n• Shorts default playback speed should be enabled.\n• The selected speed will be applied to the next video.</string>
     <string name="revanced_shorts_custom_actions_speed_summary_on">Playback speed menu is shown.\n\nInfo:\n• Shorts default playback speed should be enabled.\n• The selected speed will be applied to the next video.</string>
     <string name="revanced_shorts_custom_actions_speed_title">Show playback speed menu</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
+    <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Restore old playlist header</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• Whole ASNs/IP ranges may be blocked by the server.</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_type_ios_user_dialog_message">"When requesting YouTube API endpoints using iOS, you will need the Auth tokens issued by the iOS device and the PoTokens issued by iOSGuard.
+    <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_off">VR audio track button is not shown.</string>
+    <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_on">VR audio track button is shown.</string>
+    <string name="revanced_spoof_streaming_data_vr_audio_track_button_title">Show VR audio track button</string>
+    <string name="revanced_spoof_streaming_data_vr_audio_track_button_user_dialog_message">"Prerequisites:
+• The client used to fetch the streaming data is 'Android VR (No auth)'.
+• A video with multiple audio tracks is being played.
 
-This means that streaming requests via iOS will be missing both the Auth tokens and the PoTokens, and the server may consider the user as a bot and block the entire ASN/IP range.
+Known issues:
+• If the app language is changed in YouTube settings and the app is not restarted, the language used in audio track dialog may not change.
+• Sometimes the wrong language is selected in audio track dialog.
+• Some audio tracks, such as 'English descriptive', are not supported.
 
-USE AT YOUR OWN RISK!"</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Swipe opacity must be between 0-100.</string>
-    <string name="revanced_swipe_overlay_background_opacity_summary">Opacity value between 0-100.</string>
-    <string name="revanced_swipe_overlay_background_opacity_title">Swipe overlay background opacity</string>
+This feature is still in development, so it may break at any time due to server-side changes."</string>
+    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Video codec is determined automatically.</string>
+    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Video codec is AVC (H.264) or VP9.</string>
+    <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Disable VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_language_title">VR default audio stream language</string>
+    <string name="revanced_swipe_brightness_summary_off">Fullscreen brightness swipe is disabled</string>
+    <string name="revanced_swipe_brightness_summary_on">"Fullscreen brightness swipe is enabled.
+
+Adjust brightness by swiping vertically on the left side of the screen."</string>
+    <string name="revanced_swipe_brightness_title">Enable brightness gesture</string>
+    <string name="revanced_swipe_haptic_feedback_summary_off">Haptic feedback is disabled.</string>
+    <string name="revanced_swipe_haptic_feedback_summary_on">Haptic feedback is enabled.</string>
+    <string name="revanced_swipe_haptic_feedback_title">Enable haptic feedback</string>
+    <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Lowest value of the brightness gesture does not activate auto-brightness.</string>
+    <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Lowest value of the brightness gesture activates auto-brightness.</string>
+    <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Enable auto-brightness gesture</string>
     <string name="revanced_swipe_overlay_progress_seek_color_summary">The color of the progress bar for seek controls</string>
     <string name="revanced_swipe_overlay_progress_seek_color_title">Swipe overlay seek color</string>
     <string name="revanced_swipe_overlay_progress_speed_color_summary">The color of the progress bar for speed controls</string>
     <string name="revanced_swipe_overlay_progress_speed_color_title">Swipe overlay speed color</string>
-    <string name="revanced_swipe_seek_sensitivity_invalid_toast">Seek swipe sensitivity must be between 1-1000 (%).</string>
-    <string name="revanced_swipe_seek_sensitivity_summary" formatted="false">Configure the minimum distance for seek swiping between 1 and 1000 (%).</string>
-    <string name="revanced_swipe_seek_sensitivity_title">Seek swipe sensitivity</string>
-    <string name="revanced_swipe_speed_sensitivity_invalid_toast">Speed swipe sensitivity must be between 1-1000 (%).</string>
-    <string name="revanced_swipe_speed_sensitivity_summary" formatted="false">Configure the minimum distance for speed swiping between 1 and 1000 (%).</string>
-    <string name="revanced_swipe_speed_sensitivity_title">Speed swipe sensitivity</string>
+    <string name="revanced_swipe_overlay_style_entry_0">Legacy overlay</string>
+    <string name="revanced_swipe_press_to_engage_summary_off">Press to swipe is disabled.</string>
+    <string name="revanced_swipe_press_to_engage_summary_on">Press to swipe is enabled.</string>
+    <string name="revanced_swipe_press_to_engage_title">Enable press to swipe gesture</string>
+    <string name="revanced_swipe_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen.</string>
+    <string name="revanced_swipe_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen.</string>
+    <string name="revanced_swipe_save_and_restore_brightness_title">Save and restore brightness</string>
+    <string name="revanced_swipe_seek_summary_off">Fullscreen seek swipe is disabled.</string>
+    <string name="revanced_swipe_seek_summary_on">"Fullscreen seek swipe is enabled.
+
+Seek the video by swiping horizontally on the top half of the screen."</string>
+    <string name="revanced_swipe_seek_title">Enable seek gesture</string>
+    <string name="revanced_swipe_speed_summary_off">Fullscreen speed swipe is disabled.</string>
+    <string name="revanced_swipe_speed_summary_on">"Fullscreen speed swipe is enabled.
+
+Adjust speed by swiping horizontally on the bottom half of the screen."</string>
+    <string name="revanced_swipe_speed_title">Enable speed gesture</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">The seek swipe gesture zone is at the top, the speed zone is at the bottom.</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">The speed swipe gesture zone is at the top, the seek zone is at the bottom.</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Switch speed and seek gestures</string>
+    <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur.</string>
+    <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
+    <string name="revanced_swipe_volume_summary_off">Fullscreen volume swipe is disabled.</string>
+    <string name="revanced_swipe_volume_summary_on">"Fullscreen volume swipe is enabled.
+
+Adjust volume by swiping vertically on the right side of the screen."</string>
+    <string name="revanced_swipe_volume_title">Enable volume gesture</string>
     <string name="revanced_yandex_error_download_subs_failed">Failed to download subtitle file (Code: %1$d)</string>
     <string name="revanced_yandex_error_internal_no_chosen_url">Internal Error: Chosen track has no URL</string>
     <string name="revanced_yandex_error_internal_null_subs_response">Internal error: Failed to get final subtitles</string>

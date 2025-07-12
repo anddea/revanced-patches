@@ -28,7 +28,6 @@ public class VideoQualityPatch {
      */
     public static void newVideoStarted() {
         VideoInformation.qualityNeedsUpdating = true;
-        VideoInformation.videoQualities = null;
         setVideoQuality(250);
     }
 
@@ -73,7 +72,7 @@ public class VideoQualityPatch {
         }
     }
 
-    private static void userSelectedVideoQuality(final int defaultQuality) {
+    public static void userSelectedVideoQuality(final int defaultQuality) {
         if (defaultQuality != DEFAULT_YOUTUBE_VIDEO_QUALITY) {
             final Utils.NetworkType networkType = Utils.getNetworkType();
             String networkTypeMessage = networkType == Utils.NetworkType.MOBILE

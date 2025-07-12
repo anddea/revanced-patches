@@ -106,6 +106,18 @@
         <item>SINGLE_PLAY</item>
         <item>END_SCREEN</item>
     </string-array>
+    <string-array name="revanced_custom_playback_speed_menu_type_entries">
+        <item>@string/revanced_custom_playback_speed_menu_type_entry_youtube_legacy</item>
+        <item>@string/revanced_custom_playback_speed_menu_type_entry_custom_no_theme</item>
+        <item>@string/revanced_custom_playback_speed_menu_type_entry_custom_legacy</item>
+        <item>@string/revanced_custom_playback_speed_menu_type_entry_custom_modern</item>
+    </string-array>
+    <string-array name="revanced_custom_playback_speed_menu_type_entry_values">
+        <item>YOUTUBE_LEGACY</item>
+        <item>CUSTOM_NO_THEME</item>
+        <item>CUSTOM_LEGACY</item>
+        <item>CUSTOM_MODERN</item>
+    </string-array>
     <string-array name="revanced_default_video_quality_entries">
         <item>@string/quality_auto</item>
         <item>144p</item>
@@ -234,6 +246,7 @@
         <item>@string/revanced_language_FA</item>
         <item>@string/revanced_language_FI</item>
         <item>@string/revanced_language_FR</item>
+        <item>@string/revanced_language_GA</item>
         <item>@string/revanced_language_GU</item>
         <item>@string/revanced_language_HE</item>
         <item>@string/revanced_language_HI</item>
@@ -292,6 +305,7 @@
         <item>FA</item>
         <item>FI</item>
         <item>FR</item>
+        <item>GA</item>
         <item>GU</item>
         <item>HE</item>
         <item>HI</item>
@@ -330,6 +344,18 @@
         <item>UR</item>
         <item>VI</item>
         <item>ZH</item>
+    </string-array>
+    <string-array name="revanced_litho_layout_thread_pool_max_size_entries">
+        <item>@string/revanced_litho_layout_thread_pool_max_size_entry_0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="revanced_litho_layout_thread_pool_max_size_entry_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
     <string-array name="revanced_miniplayer_type_20_03_entries">
         <item>@string/revanced_miniplayer_type_entry_0</item>
@@ -452,6 +478,7 @@
     <string-array name="revanced_spoof_app_version_target_entry_values">
     </string-array>
     <string-array name="revanced_swipe_overlay_style_entries">
+        <item>@string/revanced_swipe_overlay_style_entry_0</item>
         <item>@string/revanced_swipe_overlay_style_entry_1</item>
         <item>@string/revanced_swipe_overlay_style_entry_2</item>
         <item>@string/revanced_swipe_overlay_style_entry_3</item>
@@ -461,6 +488,7 @@
         <item>@string/revanced_swipe_overlay_style_entry_7</item>
     </string-array>
     <string-array name="revanced_swipe_overlay_style_entry_values">
+        <item>LEGACY</item>
         <item>HORIZONTAL</item>
         <item>HORIZONTAL_MINIMAL_TOP</item>
         <item>HORIZONTAL_MINIMAL_CENTER</item>

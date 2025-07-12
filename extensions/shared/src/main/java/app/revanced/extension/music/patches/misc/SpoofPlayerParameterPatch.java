@@ -1,6 +1,5 @@
 package app.revanced.extension.music.patches.misc;
 
-import static app.revanced.extension.music.shared.VideoInformation.parameterIsAgeRestricted;
 import static app.revanced.extension.music.shared.VideoInformation.parameterIsSample;
 
 import androidx.annotation.GuardedBy;
@@ -26,16 +25,18 @@ public class SpoofPlayerParameterPatch {
     /**
      * Parameter to fix playback issues.
      * Used in YouTube Music Samples.
+     * <p>
+     * Music history is not saved to Recent searches or Speed dial.
      */
-    private static final String PLAYER_PARAMETER_SAMPLES =
-            "8AEB2AUBogYVAUY4C8W9wrM-FdhjSW4MnCgH44uhkAcI";
+    private static final String PLAYER_PARAMETER_SAMPLES = "8AEB2AUB";
 
     /**
      * Parameter to fix playback issues.
      * Used in YouTube Shorts.
+     * <p>
+     * Music history is saved to Recent searches or Speed dial.
      */
-    private static final String PLAYER_PARAMETER_SHORTS =
-            "8AEByAMkuAQ0ogYVAePzwRN3uesV1sPI2x4-GkDYlvqUkAcC";
+    private static final String PLAYER_PARAMETER_SHORTS = "8AEByAMkuAQ0";
 
     /**
      * On app first start, the first video played usually contains a single non-default window setting value
@@ -77,9 +78,8 @@ public class SpoofPlayerParameterPatch {
                     Logger.printDebug(() -> "New video loaded (videoId: " + videoId + ", isSamples: " + isSamples + ")");
                 }
             }
-            return parameterIsAgeRestricted(parameter)
-                    ? PLAYER_PARAMETER_SHORTS
-                    : PLAYER_PARAMETER_SAMPLES;
+
+            return PLAYER_PARAMETER_SHORTS;
         }
         return parameter;
     }

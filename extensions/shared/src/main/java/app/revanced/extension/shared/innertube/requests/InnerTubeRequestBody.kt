@@ -52,7 +52,7 @@ object InnerTubeRequestBody {
         botGuardPoToken: String = "",
         visitorId: String = "",
         setLocale: Boolean = false,
-        language: String = BaseSettings.SPOOF_STREAMING_DATA_LANGUAGE.get().language,
+        language: String = BaseSettings.SPOOF_STREAMING_DATA_VR_LANGUAGE.get().language,
     ): ByteArray {
         val innerTubeBody = JSONObject()
 
@@ -340,7 +340,7 @@ object InnerTubeRequestBody {
 
         if (requestHeader != null) {
             for (key in REQUEST_HEADER_KEYS) {
-                var value = requestHeader[key]
+                val value = requestHeader[key]
                 if (value != null) {
                     if (key == AUTHORIZATION_HEADER) {
                         if (!supportsCookies) {

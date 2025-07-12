@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_PATH
+import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
@@ -55,6 +56,7 @@ val layoutComponentsPatch = bytecodePatch(
     dependsOn(
         settingsPatch,
         lithoFilterPatch,
+        lithoLayoutPatch,
         sharedResourceIdPatch,
         settingsMenuPatch,
         viewGroupMarginLayoutParamsHookPatch,

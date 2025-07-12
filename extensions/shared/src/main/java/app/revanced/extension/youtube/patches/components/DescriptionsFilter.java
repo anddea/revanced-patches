@@ -18,7 +18,6 @@ public final class DescriptionsFilter extends Filter {
     private final StringFilterGroup horizontalShelf;
     private final StringFilterGroup infoCardsSection;
     private final StringFilterGroup macroMarkerShelf;
-    private final StringFilterGroup shoppingLinks;
 
     public DescriptionsFilter() {
         // game section, music section and places section now use the same identifier in the latest version.
@@ -42,7 +41,7 @@ public final class DescriptionsFilter extends Filter {
 
         final StringFilterGroup videoSummarySection = new StringFilterGroup(
                 Settings.HIDE_AI_GENERATED_VIDEO_SUMMARY_SECTION,
-                "cell_expandable_metadata.eml-js"
+                "cell_expandable_metadata.eml"
         );
 
         addIdentifierCallbacks(
@@ -79,19 +78,12 @@ public final class DescriptionsFilter extends Filter {
                 "macro_markers_carousel.eml"
         );
 
-        shoppingLinks = new StringFilterGroup(
-                Settings.HIDE_SHOPPING_LINKS,
-                "expandable_list.",
-                "shopping_description_shelf"
-        );
-
         addPathCallbacks(
                 askSection,
                 howThisWasMadeSection,
                 horizontalShelf,
                 infoCardsSection,
-                macroMarkerShelf,
-                shoppingLinks
+                macroMarkerShelf
         );
 
         macroMarkerShelfGroupList.addAll(
@@ -110,7 +102,7 @@ public final class DescriptionsFilter extends Filter {
     public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // Check for the index because of likelihood of false positives.
-        if (matchedGroup == howThisWasMadeSection || matchedGroup == infoCardsSection || matchedGroup == shoppingLinks) {
+        if (matchedGroup == howThisWasMadeSection || matchedGroup == infoCardsSection) {
             if (contentIndex != 0) {
                 return false;
             }

@@ -65,8 +65,11 @@ public final class OpenChannelOfLiveAvatarPatch {
                 return;
             }
             // Check content description (accessibility labels) of the live ring.
-            final String contentDescription = componentHost.getContentDescription().toString();
-            final boolean match = liveRingDescription.equals(contentDescription);
+            final CharSequence contentDescription = componentHost.getContentDescription();
+            if (contentDescription == null) {
+                return;
+            }
+            final boolean match = liveRingDescription.equals(contentDescription.toString());
             Logger.printDebug(() -> "resource description: '" + liveRingDescription + "', litho description: '" + contentDescription + "', match: " + match);
             if (!match) {
                 // Sometimes it may not match:

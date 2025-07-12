@@ -32,7 +32,7 @@ import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.EnumSetting;
 import app.revanced.extension.shared.settings.Setting;
-import app.revanced.extension.shared.settings.preference.ColorPreference;
+import app.revanced.extension.shared.settings.preference.LogBufferManager;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.StringRef;
@@ -53,6 +53,7 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.regex.Pattern;
 
+import static app.revanced.extension.shared.patches.PatchStatus.PatchVersion;
 import static app.revanced.extension.shared.settings.BaseSettings.SPOOF_STREAMING_DATA_TYPE;
 import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.showRestartDialog;
 import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.updateListPreferenceSummary;
@@ -67,6 +68,7 @@ import static app.revanced.extension.youtube.settings.Settings.*;
 public class ReVancedPreferenceFragment extends PreferenceFragment {
     private static final int READ_REQUEST_CODE = 42;
     private static final int WRITE_REQUEST_CODE = 43;
+    boolean settingExportInProgress = false;
 
     /**
      * XML tag name for PreferenceScreen.
@@ -234,13 +236,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     listPreference.setEntries(SpoofStreamingDataPatch.getEntries());
                     listPreference.setEntryValues(SpoofStreamingDataPatch.getEntryValues());
                 }
-                if (!(mPreference instanceof app.revanced.extension.youtube.settings.preference.SegmentCategoryListPreference)) {
-                    updateListPreferenceSummary(listPreference, setting);
-                }
-            } else if (mPreference instanceof ColorPreference) {
-                if (!settingImportInProgress) {
-                    Logger.printDebug(() -> "StringSetting preference updated: " + str + ", value: " + setting.get());
-                }
+                updateListPreferenceSummary(listPreference, setting);
             } else {
                 Logger.printException(() -> "Setting cannot be handled: " + mPreference.getClass() + " " + mPreference);
                 return;
@@ -392,9 +388,6 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         if (pref instanceof ListPreference listPref) {
             return listPref.getValue().equals(defaultValueString);
         }
-        if (pref instanceof ColorPreference) {
-            return setting.get().equals(defaultValueString);
-        }
 
         throw new IllegalStateException("Must override method to handle preference type: " + pref.getClass());
     }
@@ -414,15 +407,19 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         if (context != null && userDialogMessage != null) {
             showingUserDialogMessage = true;
 
-            new AlertDialog.Builder(context)
-                    .setTitle(str("revanced_extended_confirm_user_dialog_title"))
-                    .setMessage(userDialogMessage.toString())
-                    .setPositiveButton(android.R.string.ok, (dialog, id) -> {
+            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                    context,
+                    str("revanced_extended_confirm_user_dialog_title"), // Title.
+                    userDialogMessage.toString(), // No message.
+                    null, // No EditText.
+                    null, // OK button text.
+                    () -> {
                         if (setting.rebootApp) {
                             showRestartDialog(context);
                         }
-                    })
-                    .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
+                    },
+                    () -> {
+                        // Cancel button action. Restore whatever the setting was before the change.
                         // Restore whatever the setting was before the change.
                         if (setting instanceof BooleanSetting booleanSetting &&
                                 pref instanceof SwitchPreference switchPreference) {
@@ -432,10 +429,15 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                             listPreference.setValue(enumSetting.defaultValue.toString());
                             updateListPreferenceSummary(listPreference, setting);
                         }
-                    })
-                    .setOnDismissListener(dialog -> showingUserDialogMessage = false)
-                    .setCancelable(false)
-                    .show();
+                    },
+                    null, // No Neutral button.
+                    null, // No Neutral button action.
+                    true  // Dismiss dialog when onNeutralClick.
+            );
+
+            Dialog dialog = dialogPair.first;
+            dialog.setOnShowListener(d -> showingUserDialogMessage = false);
+            dialog.show();
         }
     }
 
@@ -509,6 +511,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             mPreferenceScreen.setOnPreferenceClickListener(
                     preferenceScreen -> {
                         Dialog preferenceScreenDialog = mPreferenceScreen.getDialog();
+                        if (preferenceScreenDialog == null) return false;
+
                         ViewGroup rootView = (ViewGroup) preferenceScreenDialog
                                 .findViewById(android.R.id.content)
                                 .getParent();
@@ -531,8 +535,10 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
 
                         TextView toolbarTextView = getChildView(toolbar, TextView.class::isInstance);
                         if (toolbarTextView != null) {
-                            toolbarTextView.setTextColor(ThemeUtils.getForegroundColor());
+                            toolbarTextView.setTextColor(ThemeUtils.getAppForegroundColor());
                         }
+
+                        LicenseActivityHook.setToolbarLayoutParams(toolbar);
 
                         rootView.addView(toolbar, 0);
 
@@ -572,6 +578,17 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             String searchQuery = (searchView != null) ? searchView.getQuery().toString() : "";
             if (!searchQuery.isEmpty()) filterPreferences(searchQuery);
         });
+
+        int margin = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics()
+        );
+        toolbar.setTitleMargin(margin, 0, margin, 0);
+
+        TextView toolbarTextView = getChildView(toolbar, TextView.class::isInstance);
+        if (toolbarTextView != null) {
+            toolbarTextView.setTextColor(ThemeUtils.getAppForegroundColor());
+        }
+
         return toolbar;
     }
 
@@ -1447,6 +1464,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         });
 
         findPreference("revanced_extended_settings_export").setOnPreferenceClickListener(pref -> {
+            settingExportInProgress = true;
             exportActivity();
             return false;
         });
@@ -1456,17 +1474,39 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * Invoke the SAF(Storage Access Framework) to export settings
      */
     private void exportActivity() {
-        @SuppressLint("SimpleDateFormat") final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        if (!settingExportInProgress && !BaseSettings.DEBUG.get()) {
+            Utils.showToastShort(str("revanced_debug_logs_disabled"));
+            return;
+        }
+
+        @SuppressLint("SimpleDateFormat")
+        final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         final String appName = ExtendedUtils.getAppLabel();
         final String versionName = ExtendedUtils.getAppVersionName();
         final String formatDate = dateFormat.format(new Date(System.currentTimeMillis()));
-        final String fileName = String.format("%s_v%s_%s.txt", appName, versionName, formatDate);
+        final StringBuilder sb = new StringBuilder();
+        sb.append(appName);
+        sb.append("_v");
+        sb.append(versionName);
+        String patchVersion = PatchVersion();
+        if (!"Unknown".equals(patchVersion)) {
+            sb.append("_rvp_v");
+            sb.append(patchVersion);
+        }
+        sb.append("_");
+        if (settingExportInProgress) {
+            sb.append("settings");
+        } else {
+            sb.append("log");
+        }
+        sb.append("_");
+        sb.append(formatDate);
 
         final Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TITLE, fileName);
+        intent.putExtra(Intent.EXTRA_TITLE, sb.toString());
         startActivityForResult(intent, WRITE_REQUEST_CODE);
     }
 
@@ -1480,14 +1520,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         startActivityForResult(intent, READ_REQUEST_CODE);
     }
 
-    /**
-     * Exports settings to a text file using the provided URI.
-     *
-     * @param uri The URI of the file to write settings to.
-     */
     private void exportText(Uri uri) {
         final Context context = this.getActivity();
-
         try {
             @SuppressLint("Recycle")
             FileWriter jsonFileWriter =
@@ -1498,21 +1532,33 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                                     .getFileDescriptor()
                     );
             PrintWriter printWriter = new PrintWriter(jsonFileWriter);
-            printWriter.write(Setting.exportToJson(context));
+            if (settingExportInProgress) {
+                printWriter.write(Setting.exportToJson(context));
+            } else {
+                String message = LogBufferManager.exportToString();
+                if (message != null) {
+                    printWriter.write(message);
+                }
+            }
             printWriter.close();
             jsonFileWriter.close();
 
-            showToastShort(str("revanced_extended_settings_export_success"));
+            if (settingExportInProgress) {
+                showToastShort(str("revanced_extended_settings_export_success"));
+            } else {
+                showToastShort(str("revanced_debug_logs_export_success"));
+            }
         } catch (IOException e) {
-            showToastShort(str("revanced_extended_settings_export_failed"));
+            if (settingExportInProgress) {
+                showToastShort(str("revanced_extended_settings_export_failed"));
+            } else {
+                showToastShort(String.format(str("revanced_debug_logs_failed_to_export"), e.getMessage()));
+            }
+        } finally {
+            settingExportInProgress = false;
         }
     }
 
-    /**
-     * Imports settings from a text file using the provided URI.
-     *
-     * @param uri The URI of the file to read settings from.
-     */
     private void importText(Uri uri) {
         final Context context = this.getActivity();
         StringBuilder sb = new StringBuilder();
@@ -1567,7 +1613,6 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
 
             // Initialize ReVanced settings
             ReVancedSettingsPreference.initializeReVancedSettings();
-            SponsorBlockSettingsPreference.init(getActivity());
 
             // Import/export
             setBackupRestorePreference();
@@ -1605,9 +1650,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                         listPreference.setEntries(SpoofStreamingDataPatch.getEntries());
                         listPreference.setEntryValues(SpoofStreamingDataPatch.getEntryValues());
                     }
-                    if (!(preference instanceof app.revanced.extension.youtube.settings.preference.SegmentCategoryListPreference)) {
-                        updateListPreferenceSummary(listPreference, setting);
-                    }
+                    updateListPreferenceSummary(listPreference, setting);
                 }
             }
 
@@ -1618,7 +1661,6 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             copyPreferences(getPreferenceScreen(), originalPreferenceScreen);
 
             sortPreferenceListMenu(Settings.CHANGE_START_PAGE);
-            sortPreferenceListMenu(Settings.SPOOF_STREAMING_DATA_LANGUAGE);
             sortPreferenceListMenu(BaseSettings.REVANCED_LANGUAGE);
         } catch (Exception th) {
             Logger.printException(() -> "Error during onCreate()", th);
@@ -1657,8 +1699,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      *
      * @param currentQuery The current search query string.
      * @return {@code true} if the back press should exit the activity (by calling
-     *         {@code super.onBackPressed()} in {@code LicenseActivity}), <br>
-     *         {@code false} if the back press is handled internally.
+     * {@code super.onBackPressed()} in {@code LicenseActivity}), <br>
+     * {@code false} if the back press is handled internally.
      */
     public boolean handleOnBackPressed(String currentQuery) {
         // First, handle navigation out of sub-screens
@@ -1881,7 +1923,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             ViewGroup container = (ViewGroup) view;
             LinearLayout layout = new LinearLayout(getContext());
             layout.setOrientation(LinearLayout.HORIZONTAL);
-            // layout.setPadding(dpToPx(4), dpToPx(4), dpToPx(4), dpToPx(4));
+            // layout.setPadding(dipToPixels(4), dipToPixels(4), dipToPixels(4), dipToPixels(4));
             layout.setGravity(Gravity.CENTER_VERTICAL);
 
             // Clear existing widget frame to avoid overlap
@@ -1895,17 +1937,17 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             ImageView iconView = new ImageView(getContext());
             Drawable iconDrawable = ResourceUtils.getDrawable("yt_outline_arrow_time_vd_theme_24");
             if (iconDrawable != null) {
-                iconDrawable.setTint(ThemeUtils.getForegroundColor());
+                iconDrawable.setTint(ThemeUtils.getAppForegroundColor());
                 iconView.setImageDrawable(iconDrawable);
-                int iconSize = dpToPx(24);
+                int iconSize = dipToPixels(24);
                 LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(iconSize, iconSize);
-                iconParams.setMargins(0, 0, dpToPx(8), 0); // Margin between icon and title
+                iconParams.setMargins(0, 0, dipToPixels(8), 0); // Margin between icon and title
                 iconView.setLayoutParams(iconParams);
                 layout.addView(iconView);
             } else {
                 // Fallback to a generic drawable with tint
                 iconView.setImageResource(android.R.drawable.ic_menu_recent_history);
-                iconView.setColorFilter(ThemeUtils.getForegroundColor());
+                iconView.setColorFilter(ThemeUtils.getAppForegroundColor());
                 Logger.printException(() -> "Failed to load drawable: yt_outline_arrow_time_vd_theme_24, using fallback");
             }
 
@@ -1913,7 +1955,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             TextView titleView = new TextView(getContext());
             titleView.setText(query);
             titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-            titleView.setTextColor(ThemeUtils.getForegroundColor());
+            titleView.setTextColor(ThemeUtils.getAppForegroundColor());
             LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
             layout.addView(titleView, titleParams);
 
@@ -1921,7 +1963,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             ImageView closeButton = new ImageView(getContext());
             closeButton.setImageDrawable(ThemeUtils.getTrashButtonDrawable());
             closeButton.setContentDescription(str("revanced_search_delete_entry"));
-            int size = dpToPx(24);
+            int size = dipToPixels(24);
             LinearLayout.LayoutParams closeParams = new LinearLayout.LayoutParams(size, size);
             closeButton.setLayoutParams(closeParams);
             closeButton.setOnClickListener(v -> {

@@ -285,6 +285,8 @@ Keterbatasan:
     <string name="revanced_hide_promotion_alert_banner_title">Sembunyikan banner peringatan promosi</string>
     <string name="revanced_hide_samples_shelf_summary">Menyembunyikan rak Sampel di feed.</string>
     <string name="revanced_hide_samples_shelf_title">Sembunyikan rak Sampel</string>
+    <string name="revanced_hide_search_button_summary">Menyembunyikan tombol pencarian di toolbar.</string>
+    <string name="revanced_hide_search_button_title">Sembunyikan tombol pencarian</string>
     <string name="revanced_hide_settings_menu_about_title">Sembunyikan menu Tentang</string>
     <string name="revanced_hide_settings_menu_data_saving_title">Sembunyikan menu penghematan Data</string>
     <string name="revanced_hide_settings_menu_downloads_and_storage_title">Sembunyikan menu Unduhan &amp; penyimpanan</string>
@@ -350,6 +352,18 @@ Ini tidak mengabaikan pembatasan usia. Ini hanya menerimanya secara otomatis."</
     <string name="revanced_replace_flyout_menu_report_only_player_title">Simpan Laporkan di komentar</string>
     <string name="revanced_replace_flyout_menu_report_summary">Menggantikan menu Laporkan dengan menu Kecepatan pemutaran.</string>
     <string name="revanced_replace_flyout_menu_report_title">Ganti menu Laporkan</string>
+    <string name="revanced_replace_navigation_button_about_summary">"Fitur ini bersifat uji coba.
+Terdapat batasan struktural pada patch ini, karena Aktivitas seperti Pencarian dan Pengaturan di YouTube Music tidak bersifat publik.
+
+Masalah yang diketahui:
+• Saat Aktivitas yang diganti seperti Pencarian dan Pengaturan ditutup, halaman awal akan terbuka.
+
+Klik untuk membuka pengaturan ‘Ubah halaman awal’."</string>
+    <string name="revanced_replace_navigation_button_about_title">Tentang tombol ganti</string>
+    <string name="revanced_replace_navigation_samples_button_summary">Menggantikan tombol Sampel dengan tombol Pencarian.</string>
+    <string name="revanced_replace_navigation_samples_button_title">Ganti tombol Sampel</string>
+    <string name="revanced_replace_navigation_upgrade_button_summary">Menggantikan tombol Upgrade dengan tombol Pengaturan.</string>
+    <string name="revanced_replace_navigation_upgrade_button_title">Ganti tombol Upgrade</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Memulihkan panel sembulan komentar ke gaya lama.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Pulihkan panel sembulan komentar lama</string>
     <string name="revanced_restore_old_player_background_summary">Mengembalikan latar belakang pemutar ke gaya lama.</string>
@@ -459,6 +473,8 @@ Klik untuk melihat cara menerbitkan kunci API."</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Matikan Lirik real-time</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Nonaktifkan lirik real-time</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Pulihkan bilah tindakan lama</string>
+    <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - Bagian komentar tidak muncul di feed beranda</string>
+    <string name="revanced_spoof_app_version_target_invalid_toast">Versi aplikasi spoof tidak valid: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Pilih target pemalsuan versi aplikasi.</string>
     <string name="revanced_spoof_app_version_target_title">Target pemalsuan versi aplikasi</string>
     <string name="revanced_spoof_app_version_title">Palsukan versi aplikasi</string>
@@ -470,6 +486,11 @@ Klik untuk melihat cara menerbitkan kunci API."</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">Musik iOS 7.04</string>
     <string name="revanced_spoof_client_type_summary">Menentukan klien bawaan untuk pemalsuan.</string>
     <string name="revanced_spoof_client_type_title">Klien bawaan</string>
+    <string name="revanced_spoof_player_parameter_summary">"Palsukan parameter pemutar untuk mencegah masalah pemutaran.
+
+Efek samping:
+• Terkadang subtitel terletak di bagian atas pemutar, bukan di bagian bawah."</string>
+    <string name="revanced_spoof_player_parameter_title">Palsukan parameter pemutar</string>
     <string name="revanced_watch_history_type_entry_1">Asli</string>
     <string name="revanced_watch_history_type_entry_2">Ganti domain</string>
     <string name="revanced_watch_history_type_entry_3">Blokir riwayat tontonan</string>

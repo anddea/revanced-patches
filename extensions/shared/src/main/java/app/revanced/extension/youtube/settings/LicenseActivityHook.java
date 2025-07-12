@@ -33,6 +33,7 @@ public class LicenseActivityHook {
     public static WeakReference<ReVancedPreferenceFragment> fragmentRef = new WeakReference<>(null);
     @SuppressLint("StaticFieldLeak")
     private static Toolbar mainActivityToolbar;
+    private static ViewGroup.LayoutParams toolbarLayoutParams;
 
     /**
      * Initializes the LicenseActivity with the ReVanced settings UI, including theme, layout, toolbar, and search view.
@@ -80,6 +81,19 @@ public class LicenseActivityHook {
     }
 
     /**
+     * Applies the standard toolbar layout parameters to a given toolbar.
+     * This ensures consistency for toolbars created dynamically in sub-screen dialogs.
+     * @param toolbar The toolbar to configure.
+     */
+    public static void setToolbarLayoutParams(Toolbar toolbar) {
+        if (toolbarLayoutParams != null) {
+            toolbar.setLayoutParams(toolbarLayoutParams);
+        } else {
+            Logger.printException(() -> "toolbarLayoutParams is null. It was not captured during initial toolbar creation.");
+        }
+    }
+
+    /**
      * Creates and configures the toolbar for the LicenseActivity.
      * <p>
      * This method sets up the toolbar by removing any existing dummy toolbar, applying the theme, setting navigation
@@ -96,18 +110,14 @@ public class LicenseActivityHook {
             return;
         }
 
-        // Remove dummy toolbar if present and capture its layout params
         ViewGroup dummyToolbar = toolBarParent.findViewById(ResourceUtils.getIdIdentifier("revanced_toolbar"));
-        ViewGroup.LayoutParams toolbarLayoutParams;
         if (dummyToolbar != null) {
             toolbarLayoutParams = dummyToolbar.getLayoutParams();
             toolBarParent.removeView(dummyToolbar);
         } else {
-            // If dummy toolbar was not found, initialize toolbarLayoutParams with default MATCH_PARENT values
-            // This prevents NullPointerException if the layout has no dummy toolbar, or it's removed by other means.
             toolbarLayoutParams = new ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
-                    (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 56, activity.getResources().getDisplayMetrics()) // Common toolbar height
+                    (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 56, activity.getResources().getDisplayMetrics())
             );
         }
 
@@ -132,7 +142,7 @@ public class LicenseActivityHook {
 
         TextView toolbarTextView = Utils.getChildView(toolbar, view -> view instanceof TextView);
         if (toolbarTextView != null) {
-            toolbarTextView.setTextColor(ThemeUtils.getForegroundColor());
+            toolbarTextView.setTextColor(ThemeUtils.getAppForegroundColor());
         }
 
         toolbar.setLayoutParams(toolbarLayoutParams);

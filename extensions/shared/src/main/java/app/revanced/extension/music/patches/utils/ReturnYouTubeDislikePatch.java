@@ -12,6 +12,7 @@ import app.revanced.extension.music.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.shared.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
 
 /**
  * Handles all interaction of UI patch components.
@@ -118,6 +119,11 @@ public class ReturnYouTubeDislikePatch {
                 return;
             }
             if (videoIdIsSame(currentVideoData, videoId)) {
+                return;
+            }
+            if (!Utils.isNetworkConnected()) {
+                Logger.printDebug(() -> "Cannot fetch RYD, network is not connected");
+                currentVideoData = null;
                 return;
             }
             currentVideoData = ReturnYouTubeDislike.getFetchForVideoId(videoId);

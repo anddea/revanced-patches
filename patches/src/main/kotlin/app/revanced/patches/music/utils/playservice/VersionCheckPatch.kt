@@ -49,6 +49,8 @@ var is_8_15_or_greater = false
     private set
 var is_8_16_or_greater = false
     private set
+var is_8_17_or_greater = false
+    private set
 var is_8_19_or_greater = false
     private set
 
@@ -88,6 +90,7 @@ val versionCheckPatch = resourcePatch(
         is_8_05_or_greater = 250599000 <= playStoreServicesVersion
         is_8_15_or_greater = 251530000 <= playStoreServicesVersion
         is_8_16_or_greater = 251630000 <= playStoreServicesVersion
+        is_8_17_or_greater = 251730000 <= playStoreServicesVersion
         is_8_19_or_greater = 251930000 <= playStoreServicesVersion
     }
 }

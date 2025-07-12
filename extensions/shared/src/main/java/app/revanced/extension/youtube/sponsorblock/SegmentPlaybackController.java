@@ -7,7 +7,6 @@ import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.text.TextUtils;
-import android.util.TypedValue;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -112,7 +111,6 @@ public class SegmentPlaybackController {
     private static int toastNumberOfSegmentsSkipped;
     @Nullable
     private static SponsorSegment toastSegmentSkipped;
-    private static int highlightSegmentTimeBarScreenWidth = -1; // actual pixel width to use
 
     @Nullable
     static SponsorSegment[] getSegments() {
@@ -220,7 +218,7 @@ public class SegmentPlaybackController {
                 Logger.printDebug(() -> "ignoring Short");
                 return;
             }
-            if (Utils.isNetworkNotConnected()) {
+            if (!Utils.isNetworkConnected()) {
                 Logger.printDebug(() -> "Network not connected, ignoring video");
                 return;
             }
@@ -821,14 +819,11 @@ public class SegmentPlaybackController {
         }
     }
 
-    private static int getHighlightSegmentTimeBarScreenWidth() {
-        if (highlightSegmentTimeBarScreenWidth == -1) {
-            highlightSegmentTimeBarScreenWidth = (int) TypedValue.applyDimension(
-                    TypedValue.COMPLEX_UNIT_DIP, HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH,
-                    Objects.requireNonNull(Utils.getContext()).getResources().getDisplayMetrics());
-        }
-        return highlightSegmentTimeBarScreenWidth;
-    }
+    /**
+     * Actual screen pixel width to use for the highlight segment time bar.
+     */
+    private static final int highlightSegmentTimeBarScreenWidth
+            = Utils.dipToPixels(HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH);
 
     /**
      * Injection point.
@@ -848,7 +843,7 @@ public class SegmentPlaybackController {
                 final float left = leftPadding + segment.start * videoMillisecondsToPixels;
                 final float right;
                 if (segment.category == SegmentCategory.HIGHLIGHT) {
-                    right = left + getHighlightSegmentTimeBarScreenWidth();
+                    right = left + highlightSegmentTimeBarScreenWidth;
                 } else {
                     right = leftPadding + segment.end * videoMillisecondsToPixels;
                 }

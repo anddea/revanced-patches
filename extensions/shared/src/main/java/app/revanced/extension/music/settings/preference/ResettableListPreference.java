@@ -13,13 +13,16 @@ import org.apache.commons.lang3.ArrayUtils;
 import java.util.Locale;
 
 import app.revanced.extension.shared.settings.EnumSetting;
+import app.revanced.extension.shared.settings.IntegerSetting;
+import app.revanced.extension.shared.settings.LongSetting;
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.utils.Logger;
 
 public class ResettableListPreference {
     private static int mClickedDialogEntryIndex;
 
-    public static void showDialog(Activity mActivity, @NonNull Setting<String> setting, int defaultIndex) {
+    public static void showDialog(Activity mActivity, @NonNull Setting<?> setting, int defaultIndex) {
         try {
             final String settingsKey = setting.key;
 
@@ -28,7 +31,7 @@ public class ResettableListPreference {
             final String[] mEntries = getStringArray(entryKey);
             final String[] mEntryValues = getStringArray(entryValueKey);
 
-            final int findIndex = ArrayUtils.indexOf(mEntryValues, setting.get());
+            final int findIndex = ArrayUtils.indexOf(mEntryValues, setting.get().toString());
             mClickedDialogEntryIndex = findIndex >= 0 ? findIndex : defaultIndex;
 
             getDialogBuilder(mActivity)
@@ -41,7 +44,14 @@ public class ResettableListPreference {
                         ReVancedPreferenceFragment.showRebootDialog();
                     })
                     .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                        setting.save(mEntryValues[mClickedDialogEntryIndex]);
+                        String value = mEntryValues[mClickedDialogEntryIndex];
+                        if (setting instanceof StringSetting stringSetting) {
+                            stringSetting.save(value);
+                        } else if (setting instanceof IntegerSetting integerSetting) {
+                            integerSetting.save(Integer.parseInt(value));
+                        } else if (setting instanceof LongSetting longSetting) {
+                            longSetting.save(Long.parseLong(value));
+                        }
                         ReVancedPreferenceFragment.showRebootDialog();
                     })
                     .show();

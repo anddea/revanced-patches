@@ -2,16 +2,14 @@ package app.revanced.patches.youtube.utils.settings
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableLongEncodedValue
+import app.revanced.patches.shared.extension.Constants.EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
-import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_PATH
 import app.revanced.patches.shared.mainactivity.injectConstructorMethodCall
 import app.revanced.patches.shared.mainactivity.injectOnCreateMethodCall
+import app.revanced.patches.shared.settings.baseSettingsPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.fix.attributes.themeAttributesPatch
@@ -30,17 +28,15 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
-import com.android.tools.smali.dexlib2.immutable.value.ImmutableLongEncodedValue
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
 import java.nio.file.Files
-import java.util.jar.Manifest
 
 private const val EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR =
     "$UTILS_PATH/InitializationPatch;"
 
 private const val EXTENSION_THEME_METHOD_DESCRIPTOR =
-    "$EXTENSION_UTILS_PATH/BaseThemeUtils;->setTheme(Ljava/lang/Enum;)V"
+    "$EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR->setTheme(Ljava/lang/Enum;)V"
 
 private lateinit var bytecodeContext: BytecodePatchContext
 
@@ -54,6 +50,7 @@ private val settingsBytecodePatch = bytecodePatch(
         sharedResourceIdPatch,
         mainActivityResolvePatch,
         versionCheckPatch,
+        baseSettingsPatch,
     )
 
     execute {
@@ -73,22 +70,11 @@ private val settingsBytecodePatch = bytecodePatch(
 
         injectOnCreateMethodCall(
             EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR,
-            "setExtendedUtils"
-        )
-        injectOnCreateMethodCall(
-            EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR,
             "onCreate"
         )
         injectConstructorMethodCall(
             EXTENSION_UTILS_CLASS_DESCRIPTOR,
             "setActivity"
-        )
-
-        findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
-            name == "PatchedTime"
-        }.replaceInstruction(
-            0,
-            "const-wide v0, ${MutableLongEncodedValue(ImmutableLongEncodedValue(System.currentTimeMillis()))}L"
         )
 
         // Modify the license activity and remove all existing layout code.
@@ -329,10 +315,15 @@ val settingsPatch = resourcePatch(
             ResourceGroup(
                 "drawable",
                 "revanced_cursor.xml",
+                "revanced_settings_custom_checkmark.xml",
+                "revanced_settings_rounded_corners_background.xml",
             ),
             ResourceGroup(
                 "layout",
                 "revanced_color_picker.xml",
+                "revanced_custom_list_item_checked.xml",
+                "revanced_preference_with_icon_no_search_result.xml",
+                "revanced_search_suggestion_item.xml",
                 "revanced_settings_preferences_category.xml",
                 "revanced_settings_with_toolbar.xml",
             ),
@@ -386,18 +377,6 @@ val settingsPatch = resourcePatch(
                 }
             }
         }
-
-        /**
-         * set revanced-patches version
-         */
-        val patchManifest = object {}.javaClass.classLoader.getResources("META-INF/MANIFEST.MF")
-        while (patchManifest.hasMoreElements())
-            ResourceUtils.updatePatchStatusSettings(
-                "ReVanced Patches",
-                Manifest(patchManifest.nextElement().openStream())
-                    .mainAttributes
-                    .getValue("Version") + ""
-            )
 
         // Modify the manifest and add a data intent filter to the LicenseActivity.
         // Some devices freak out if undeclared data is passed to an intent,

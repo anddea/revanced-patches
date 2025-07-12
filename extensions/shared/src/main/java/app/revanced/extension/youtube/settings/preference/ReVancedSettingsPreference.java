@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.settings.preference;
 
+import static app.revanced.extension.shared.patches.PatchStatus.PatchVersion;
+import static app.revanced.extension.shared.patches.PatchStatus.PatchedTime;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 
@@ -80,7 +82,7 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
                 Settings.HIDE_COMMUNITY_POSTS_HOME_RELATED_VIDEOS,
                 Settings.HIDE_COMMUNITY_POSTS_SUBSCRIPTIONS,
                 Settings.HIDE_MIX_PLAYLISTS,
-                Settings.HIDE_RELATED_VIDEO_OVERLAY,
+                Settings.HIDE_RELATED_VIDEOS_OVERLAY,
                 Settings.SHOW_VIDEO_TITLE_SECTION
         );
     }
@@ -91,7 +93,7 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
     private static void FullScreenPanelPreferenceLinks() {
         enableDisablePreferences(
                 Settings.DISABLE_ENGAGEMENT_PANEL.get(),
-                Settings.HIDE_RELATED_VIDEO_OVERLAY,
+                Settings.HIDE_RELATED_VIDEOS_OVERLAY,
                 Settings.HIDE_QUICK_ACTIONS,
                 Settings.HIDE_QUICK_ACTIONS_COMMENT_BUTTON,
                 Settings.HIDE_QUICK_ACTIONS_DISLIKE_BUTTON,
@@ -158,9 +160,13 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
         if (appVersionPreference != null) {
             appVersionPreference.setSummary(ExtendedUtils.getAppVersionName());
         }
+        Preference patchesVersion = mPreferenceManager.findPreference("revanced_patches_version");
+        if (patchesVersion != null) {
+            patchesVersion.setSummary(PatchVersion());
+        }
         Preference patchedDatePreference = mPreferenceManager.findPreference("revanced_patched_date");
         if (patchedDatePreference != null) {
-            long patchedTime = PatchStatus.PatchedTime();
+            long patchedTime = PatchedTime();
             Date date = new Date(patchedTime);
             patchedDatePreference.setSummary(date.toLocaleString());
         }

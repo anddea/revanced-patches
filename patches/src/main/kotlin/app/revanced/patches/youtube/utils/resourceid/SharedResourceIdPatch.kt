@@ -104,11 +104,11 @@ var fullScreenButton = -1L
     private set
 var fullScreenEngagementAdContainer = -1L
     private set
-var fullScreenEngagementOverlay = -1L
-    private set
 var fullScreenEngagementPanel = -1L
     private set
 var horizontalCardList = -1L
+    private set
+var icOfflineNoContentUpsideDown = -1L
     private set
 var imageOnlyTab = -1L
     private set
@@ -125,8 +125,6 @@ var interstitialsContainer = -1L
 var insetElementsWrapper = -1L
     private set
 var menuItemView = -1L
-    private set
-var metaPanel = -1L
     private set
 var miniplayerMaxSize = -1L
     private set
@@ -145,6 +143,8 @@ var musicAppDeeplinkButtonView = -1L
 var notificationBigPictureIconWidth = -1L
     private set
 var offlineActionsVideoDeletedUndoSnackbarText = -1L
+    private set
+var offlineNoContentBodyTextNotOfflineEligible = -1L
     private set
 var playerCollapseButton = -1L
     private set
@@ -181,8 +181,6 @@ var reelRightDislikeIcon = -1L
 var reelRightLikeIcon = -1L
     private set
 var reelTimeBarPlayedColor = -1L
-    private set
-var reelVodTimeStampsContainer = -1L
     private set
 var reelWatchPlayer = -1L
     private set
@@ -314,9 +312,9 @@ internal val sharedResourceIdPatch = resourcePatch(
         floatyBarTopMargin = getResourceId(DIMEN, "floaty_bar_button_top_margin")
         fullScreenButton = getResourceId(ID, "fullscreen_button")
         fullScreenEngagementAdContainer = getResourceId(ID, "fullscreen_engagement_ad_container")
-        fullScreenEngagementOverlay = getResourceId(LAYOUT, "fullscreen_engagement_overlay")
         fullScreenEngagementPanel = getResourceId(ID, "fullscreen_engagement_panel_holder")
         horizontalCardList = getResourceId(LAYOUT, "horizontal_card_list")
+        icOfflineNoContentUpsideDown = getResourceId(DRAWABLE, "ic_offline_no_content_upside_down")
         imageOnlyTab = getResourceId(LAYOUT, "image_only_tab")
         inlineTimeBarColorizedBarPlayedColorDark =
             getResourceId(COLOR, "inline_time_bar_colorized_bar_played_color_dark")
@@ -327,7 +325,6 @@ internal val sharedResourceIdPatch = resourcePatch(
         interstitialsContainer = getResourceId(ID, "interstitials_container")
         insetElementsWrapper = getResourceId(LAYOUT, "inset_elements_wrapper")
         menuItemView = getResourceId(ID, "menu_item_view")
-        metaPanel = getResourceId(ID, "metapanel")
         miniplayerMaxSize = getResourceId(DIMEN, "miniplayer_max_size")
         modernMiniPlayerClose = getResourceId(ID, "modern_miniplayer_close")
         modernMiniPlayerExpand = getResourceId(ID, "modern_miniplayer_expand")
@@ -340,6 +337,8 @@ internal val sharedResourceIdPatch = resourcePatch(
             getResourceId(DIMEN, "notification_big_picture_icon_width")
         offlineActionsVideoDeletedUndoSnackbarText =
             getResourceId(STRING, "offline_actions_video_deleted_undo_snackbar_text")
+        offlineNoContentBodyTextNotOfflineEligible =
+            getResourceId(STRING, "offline_no_content_body_text_not_offline_eligible")
         playerCollapseButton = getResourceId(ID, "player_collapse_button")
         playerControlPreviousButtonTouchArea =
             getResourceId(ID, "player_control_previous_button_touch_area")
@@ -360,7 +359,6 @@ internal val sharedResourceIdPatch = resourcePatch(
         reelRightDislikeIcon = getResourceId(DRAWABLE, "reel_right_dislike_icon")
         reelRightLikeIcon = getResourceId(DRAWABLE, "reel_right_like_icon")
         reelTimeBarPlayedColor = getResourceId(COLOR, "reel_time_bar_played_color")
-        reelVodTimeStampsContainer = getResourceId(ID, "reel_vod_timestamps_container")
         reelWatchPlayer = getResourceId(ID, "reel_watch_player")
         relatedChipCloudMargin = getResourceId(LAYOUT, "related_chip_cloud_reduced_margins")
         rightComment = getResourceId(DRAWABLE, "ic_right_comment_32c")

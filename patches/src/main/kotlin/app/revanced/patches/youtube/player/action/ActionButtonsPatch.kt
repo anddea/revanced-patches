@@ -2,12 +2,14 @@ package app.revanced.patches.youtube.player.action
 
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.shared.conversionContextFingerprintToString2
 import app.revanced.patches.shared.litho.addLithoFilter
-import app.revanced.patches.shared.litho.emptyComponentsFingerprint
+import app.revanced.patches.shared.litho.componentContextSubParserFingerprint2
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_PATH
+import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_ACTION_BUTTONS
 import app.revanced.patches.youtube.utils.playservice.is_20_20_or_greater
 import app.revanced.patches.youtube.utils.request.buildRequestPatch
@@ -39,6 +41,7 @@ val actionButtonsPatch = bytecodePatch(
     dependsOn(
         settingsPatch,
         lithoFilterPatch,
+        lithoLayoutPatch,
         videoInformationPatch,
         buildRequestPatch,
     )
@@ -49,12 +52,8 @@ val actionButtonsPatch = bytecodePatch(
         // region patch for hide action buttons by index
 
         if (!is_20_20_or_greater) {
-            componentListFingerprint.methodOrThrow(emptyComponentsFingerprint).apply {
-                val conversionContextToStringMethod =
-                    findMethodOrThrow(parameters[1].type) {
-                        name == "toString"
-                    }
-                val identifierReference = with(conversionContextToStringMethod) {
+            componentListFingerprint.methodOrThrow(componentContextSubParserFingerprint2).apply {
+                val identifierReference = with(conversionContextFingerprintToString2.methodOrThrow()) {
                     val identifierStringIndex =
                         indexOfFirstStringInstructionOrThrow(", identifierProperty=")
                     val identifierStringAppendIndex =

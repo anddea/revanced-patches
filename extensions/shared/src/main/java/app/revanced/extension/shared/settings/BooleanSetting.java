@@ -55,6 +55,10 @@ public class BooleanSetting extends Setting<Boolean> {
      */
     public static void privateSetValue(@NonNull BooleanSetting setting, @NonNull Boolean newValue) {
         setting.value = Objects.requireNonNull(newValue);
+
+        if (setting.isSetToDefault()) {
+            setting.removeFromPreferences();
+        }
     }
 
     @Override
@@ -73,16 +77,14 @@ public class BooleanSetting extends Setting<Boolean> {
     }
 
     @Override
-    public void save(@NonNull Boolean newValue) {
-        // Must set before saving to preferences (otherwise importing fails to update UI correctly).
-        value = Objects.requireNonNull(newValue);
-        preferences.saveBoolean(key, newValue);
-    }
-
-    @Override
     public void saveValueFromString(@NonNull String newValue) {
         setValueFromString(newValue);
         preferences.saveString(key, newValue);
+    }
+
+    @Override
+    public void saveToPreferences() {
+        preferences.saveBoolean(key, value);
     }
 
     @NonNull

@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.SHARED_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.revanced.patches.youtube.utils.resourceid.reelWatchPlayer
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.util.addStaticFieldToExtension
@@ -49,6 +50,7 @@ val playerTypeHookPatch = bytecodePatch(
         sharedExtensionPatch,
         sharedResourceIdPatch,
         lithoFilterPatch,
+        lithoLayoutPatch,
     )
 
     execute {

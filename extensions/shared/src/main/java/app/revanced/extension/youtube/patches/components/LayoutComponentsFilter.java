@@ -9,11 +9,12 @@ import app.revanced.extension.youtube.settings.Settings;
 @SuppressWarnings("unused")
 public final class LayoutComponentsFilter extends Filter {
     private static final String ACCOUNT_HEADER_PATH = "account_header.eml";
+    private static final String HANDLE_PATH = "|CellType|ContainerType|ContainerType|ContainerType|TextType|";
 
     public LayoutComponentsFilter() {
         addIdentifierCallbacks(
                 new StringFilterGroup(
-                        Settings.HIDE_GRAY_SEPARATOR,
+                        Settings.HIDE_VISUAL_SPACERS,
                         "cell_divider"
                 )
         );
@@ -21,7 +22,7 @@ public final class LayoutComponentsFilter extends Filter {
         addPathCallbacks(
                 new StringFilterGroup(
                         Settings.HIDE_HANDLE,
-                        "|CellType|ContainerType|ContainerType|ContainerType|TextType|"
+                        ACCOUNT_HEADER_PATH
                 )
         );
     }
@@ -29,7 +30,7 @@ public final class LayoutComponentsFilter extends Filter {
     @Override
     public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (contentType == FilterContentType.PATH && !path.startsWith(ACCOUNT_HEADER_PATH)) {
+        if (contentType == FilterContentType.PATH && (contentIndex != 0 || !path.contains(HANDLE_PATH))) {
             return false;
         }
 

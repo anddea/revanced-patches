@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
@@ -14,6 +15,16 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$PATCHES_PATH/SanitizeUrlQueryPatch;"
+
+internal fun MutableMethod.hookQueryParameters(index: Int) {
+    val invokeInstruction = getInstruction(index) as FiveRegisterInstruction
+
+    replaceInstruction(
+        index,
+        "invoke-static {v${invokeInstruction.registerC}, v${invokeInstruction.registerD}, v${invokeInstruction.registerE}}, " +
+                "$EXTENSION_CLASS_DESCRIPTOR->stripQueryParameters(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/String;)V"
+    )
+}
 
 val baseSanitizeUrlQueryPatch = bytecodePatch(
     description = "baseSanitizeUrlQueryPatch"
@@ -48,16 +59,9 @@ val baseSanitizeUrlQueryPatch = bytecodePatch(
                     if (getInstruction(index + 1).opcode != Opcode.GOTO)
                         continue
 
-                    val invokeInstruction = instruction as FiveRegisterInstruction
-
-                    replaceInstruction(
-                        index,
-                        "invoke-static {v${invokeInstruction.registerC}, v${invokeInstruction.registerD}, v${invokeInstruction.registerE}}, " +
-                                "$EXTENSION_CLASS_DESCRIPTOR->stripQueryParameters(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/String;)V"
-                    )
+                    hookQueryParameters(index)
                 }
             }
         }
     }
 }
-

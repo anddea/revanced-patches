@@ -19,12 +19,14 @@ BLACKLISTED_STRINGS: set[str] = {
     "revanced_remember_video_quality_mobile",
     "revanced_remember_video_quality_wifi",
     "revanced_sb_api_url_sum",
-    "revanced_sb_enabled",
     "revanced_sb_enabled_sum",
-    "revanced_sb_toast_on_skip",
+    "revanced_sb_enabled",
     "revanced_sb_toast_on_skip_sum",
+    "revanced_sb_toast_on_skip",
     "revanced_spoof_streaming_data_type_entry_android_creator",
     "revanced_third_party_youtube_music_not_installed_dialog_title",
+    "revanced_whitelist_playback_speed",
+    "revanced_whitelist_sponsor_block",
 }
 
 PREFIX_TO_IGNORE: tuple[str, ...] = (

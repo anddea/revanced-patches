@@ -2,21 +2,25 @@ package app.revanced.extension.youtube.settings.preference;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
 
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.preference.Preference;
 import android.util.AttributeSet;
+import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import org.apache.commons.lang3.BooleanUtils;
 
 import java.util.ArrayList;
 
+import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
+import app.revanced.extension.youtube.utils.ExtendedUtils;
 import app.revanced.extension.youtube.utils.ThemeUtils;
 import app.revanced.extension.youtube.whitelist.VideoChannel;
 import app.revanced.extension.youtube.whitelist.Whitelist;
@@ -85,47 +89,133 @@ public class WhitelistedChannelsPreference extends Preference implements Prefere
     }
 
     public static void showWhitelistedChannelDialog(Context context) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(str("revanced_whitelist_settings_title"));
-        builder.setItems(mEntries, (dialog, which) -> showWhitelistedChannelDialog(context, mEntryValues[which]));
-        builder.setNegativeButton(android.R.string.cancel, null);
-        builder.show();
+        // Create the custom dialog.
+        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                context,
+                str("revanced_whitelist_settings_title"), // Title.
+                null, // No message (replaced by contentLayout).
+                null, // No EditText.
+                null, // OK button text.
+                null, // OK button action.
+                () -> {
+                }, // Cancel button action (dismiss only).
+                null, // No Neutral button text.
+                null, // Neutral button action.
+                false // Do not dismiss dialog on Neutral button click.
+        );
+        Dialog dialog = dialogPair.first;
+
+        // Create the main layout for the dialog content.
+        LinearLayout contentLayout = new LinearLayout(context);
+        contentLayout.setOrientation(LinearLayout.VERTICAL);
+
+        for (int i = 0; i < mEntries.length; i++) {
+            int finalI = i;
+            LinearLayout itemLayout = ExtendedUtils.createItemLayout(context, mEntries[finalI]);
+            itemLayout.setOnClickListener(v -> {
+                showWhitelistedChannelDialog(context, mEntryValues[finalI]);
+                dialog.dismiss();
+            });
+            contentLayout.addView(itemLayout);
+        }
+
+        // Create ScrollView to wrap the content layout.
+        ScrollView contentScrollView = new ScrollView(context);
+        contentScrollView.setVerticalScrollBarEnabled(false); // Disable vertical scrollbar.
+        contentScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER); // Disable overscroll effect.
+        LinearLayout.LayoutParams scrollViewParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                0,
+                1.0f
+        );
+        contentScrollView.setLayoutParams(scrollViewParams);
+        contentScrollView.addView(contentLayout);
+
+        // Add the ScrollView to the dialog's main layout.
+        LinearLayout dialogMainLayout = dialogPair.second;
+        dialogMainLayout.addView(contentScrollView, dialogMainLayout.getChildCount() - 1);
+
+        dialog.show();
     }
 
     private static void showWhitelistedChannelDialog(Context context, WhitelistType whitelistType) {
         final ArrayList<VideoChannel> mEntries = Whitelist.getWhitelistedChannels(whitelistType);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(whitelistType.getFriendlyName());
+        // Create the main layout for the dialog content.
+        LinearLayout contentLayout = new LinearLayout(context);
+        contentLayout.setOrientation(LinearLayout.VERTICAL);
 
         if (mEntries.isEmpty()) {
-            TextView emptyView = new TextView(context);
-            emptyView.setText(str("revanced_whitelist_empty"));
-            emptyView.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
-            emptyView.setTextSize(16);
-            emptyView.setPadding(60, 40, 60, 0);
-            builder.setView(emptyView);
+            TextView textView = new TextView(context);
+            textView.setText(str("revanced_whitelist_empty"));
+            textView.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+            textView.setTextSize(16);
+            textView.setPadding(60, 40, 60, 0);
+            contentLayout.addView(textView);
         } else {
-            LinearLayout entriesContainer = new LinearLayout(context);
-            entriesContainer.setOrientation(LinearLayout.VERTICAL);
-            for (final VideoChannel entry : mEntries) {
+            for (VideoChannel entry : mEntries) {
                 String author = entry.getChannelName();
-                View entryView = getEntryView(context, author, v -> new AlertDialog.Builder(context)
-                        .setMessage(str("revanced_whitelist_remove_dialog_message", author, whitelistType.getFriendlyName()))
-                        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                            Whitelist.removeFromWhitelist(whitelistType, entry.getChannelId());
-                            entriesContainer.removeView(entriesContainer.findViewWithTag(author));
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show());
+                Runnable runnable = () -> {
+                    // Create the custom dialog.
+                    Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                            context,
+                            null, // No title.
+                            str("revanced_whitelist_remove_dialog_message", author, whitelistType.getFriendlyName()), // Message.
+                            null, // No EditText.
+                            null, // OK button text.
+                            () -> {
+                                // OK button action.
+                                Whitelist.removeFromWhitelist(whitelistType, entry.getChannelId());
+                                contentLayout.removeView(contentLayout.findViewWithTag(author));
+                            }, // OK button action (dismiss only).
+                            () -> {
+                            }, // Cancel button action (dismiss only).
+                            null, // No Neutral button text.
+                            null, // Neutral button action.
+                            false // Do not dismiss dialog on Neutral button click.
+                    );
+
+                    dialogPair.first.show();
+                };
+                View entryView = getEntryView(context, author, v -> runnable.run());
                 entryView.setTag(author);
-                entriesContainer.addView(entryView);
+                contentLayout.addView(entryView);
             }
-            builder.setView(entriesContainer);
         }
 
-        builder.setPositiveButton(android.R.string.ok, null);
-        builder.show();
+        // Create ScrollView to wrap the content layout.
+        ScrollView contentScrollView = new ScrollView(context);
+        contentScrollView.setVerticalScrollBarEnabled(false); // Disable vertical scrollbar.
+        contentScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER); // Disable overscroll effect.
+        LinearLayout.LayoutParams scrollViewParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                0,
+                1.0f
+        );
+        contentScrollView.setLayoutParams(scrollViewParams);
+        contentScrollView.addView(contentLayout);
+
+        // Create the custom dialog.
+        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                context,
+                whitelistType.getFriendlyName(), // Title.
+                null, // No message (replaced by contentLayout).
+                null, // No EditText.
+                null, // OK button text.
+                () -> {
+                }, // OK button action (dismiss only).
+                () -> {
+                }, // Cancel button action (dismiss only).
+                null, // No Neutral button text.
+                null, // Neutral button action.
+                false // Do not dismiss dialog on Neutral button click.
+        );
+
+        // Add the ScrollView to the dialog's main layout.
+        LinearLayout dialogMainLayout = dialogPair.second;
+        dialogMainLayout.addView(contentScrollView, dialogMainLayout.getChildCount() - 1);
+
+        dialogPair.first.show();
     }
 
     private static View getEntryView(Context context, CharSequence entry, View.OnClickListener onDeleteClickListener) {

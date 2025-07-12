@@ -41,7 +41,7 @@ public final class SearchLinksFilter extends Filter {
     @Override
     public boolean skip(String conversionContext, SpannableString spannableString, Object span,
                         int start, int end, int flags, boolean isWord, SpanType spanType, StringFilterGroup matchedGroup) {
-        if (isWord && isSearchLinks(spannableString, end)) {
+        if (isSearchLinks(spannableString, end)) {
             if (spanType == SpanType.IMAGE) {
                 hideSpan(spannableString, start, end, flags);
             }

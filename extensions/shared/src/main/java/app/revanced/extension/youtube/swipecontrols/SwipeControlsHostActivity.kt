@@ -136,7 +136,7 @@ class SwipeControlsHostActivity : Activity() {
         }
 
         // create swipe zone controller
-        zones = SwipeZonesController(this) {
+        zones = SwipeZonesController(config, this) {
             Rectangle(
                 contentRoot.x.toInt(),
                 contentRoot.y.toInt(),

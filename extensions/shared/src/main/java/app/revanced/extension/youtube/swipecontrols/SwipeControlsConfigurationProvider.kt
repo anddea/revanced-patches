@@ -1,25 +1,23 @@
 package app.revanced.extension.youtube.swipecontrols
 
 import android.graphics.Color
-import androidx.core.graphics.toColorInt
-import app.revanced.extension.shared.settings.StringSetting
-import app.revanced.extension.shared.utils.Logger
-import app.revanced.extension.shared.utils.StringRef.str
-import app.revanced.extension.shared.utils.Utils
+import app.revanced.extension.shared.utils.Utils.validateColor
+import app.revanced.extension.shared.utils.Utils.validateValue
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.LockModeState
 import app.revanced.extension.youtube.shared.PlayerType
 
 /**
- * Provides configuration settings for volume, brightness, speed, and seek swipe controls in the YouTube player.
+ * Provides configuration settings for volume and brightness swipe controls in the YouTube player.
  * Manages enabling/disabling gestures, overlay appearance, and behavior preferences.
  */
 class SwipeControlsConfigurationProvider {
+
     // region swipe enable
 
     /**
      * Indicates whether swipe controls are enabled globally.
-     * Returns true if any control (volume, brightness, speed, or seek) is enabled and the video is in fullscreen mode.
+     * Returns true if either volume or brightness controls are enabled and the video is in fullscreen mode.
      */
     val enableSwipeControls: Boolean
         get() = (enableVolumeControls || enableBrightnessControl || enableSpeedControl || enableSeekControl) && isFullscreenVideo
@@ -51,15 +49,13 @@ class SwipeControlsConfigurationProvider {
         get() = PlayerType.current == PlayerType.WATCH_WHILE_FULLSCREEN
 
     /**
-     * Checks if the video player is currently in lock mode.
+     * is the video player currently in lock mode?
      */
     val isScreenLocked: Boolean
         get() = LockModeState.current.isLocked()
 
-    /**
-     * Indicates whether swipe controls are enabled in lock mode.
-     */
-    val enableSwipeControlsLockMode = Settings.SWIPE_LOCK_MODE.get()
+    val enableSwipeControlsLockMode: Boolean
+        get() = Settings.SWIPE_LOCK_MODE.get()
 
     // endregion
 
@@ -88,61 +84,23 @@ class SwipeControlsConfigurationProvider {
     val swipeMagnitudeThreshold = Settings.SWIPE_MAGNITUDE_THRESHOLD.get()
 
     /**
-     * The sensitivity of brightness swipe gestures, determining how much brightness changes per swipe.
-     * Range: 1–1000; resets to default if invalid.
-     */
-    val brightnessDistance: Float by lazy {
-        val sensitivity = Settings.SWIPE_BRIGHTNESS_SENSITIVITY.get()
-        if (sensitivity < 1 || sensitivity > 1000) {
-            Utils.showToastLong(str("revanced_swipe_brightness_sensitivity_invalid_toast"))
-            return@lazy Settings.SWIPE_BRIGHTNESS_SENSITIVITY.resetToDefault().toFloat() / 100
-        }
-        sensitivity.toFloat() / 100
-    }
-
-    /**
      * The sensitivity of volume swipe gestures, determining how much volume changes per swipe.
-     * Range: 1–1000; resets to default if invalid.
+     * Resets to default if set to 0, as it would disable swiping.
      */
-    val volumeDistance: Float by lazy {
-        val sensitivity = Settings.SWIPE_VOLUME_SENSITIVITY.get()
-        if (sensitivity < 1 || sensitivity > 1000) {
-            Utils.showToastLong(str("revanced_swipe_volume_sensitivity_invalid_toast"))
-            return@lazy Settings.SWIPE_VOLUME_SENSITIVITY.resetToDefault().toFloat() / 100 * 10
-        }
-        sensitivity.toFloat() / 100 * 10
-    }
-
-    /**
-     * The sensitivity of speed swipe gestures, determining how much playback speed changes per swipe.
-     * Range: 1–1000; resets to default if invalid.
-     */
-    val speedDistance: Float by lazy {
-        val sensitivity = Settings.SWIPE_SPEED_SENSITIVITY.get()
-        if (sensitivity < 1 || sensitivity > 1000) {
-            Utils.showToastLong(str("revanced_swipe_speed_sensitivity_invalid_toast"))
-            return@lazy Settings.SWIPE_SPEED_SENSITIVITY.resetToDefault().toFloat() / 100 * 10
-        }
-        sensitivity.toFloat() / 100 * 10
-    }
-
-    /**
-     * The sensitivity of seek swipe gestures, determining how much seek time changes per swipe.
-     * Range: 1–1000; resets to default if invalid.
-     */
-    val seekDistance: Float by lazy {
-        val sensitivity = Settings.SWIPE_SEEK_SENSITIVITY.get()
-        if (sensitivity < 1 || sensitivity > 1000) {
-            Utils.showToastLong(str("revanced_swipe_seek_sensitivity_invalid_toast"))
-            return@lazy Settings.SWIPE_SEEK_SENSITIVITY.resetToDefault().toFloat() / 100 * 10
-        }
-        sensitivity.toFloat() / 100 * 10
+    val volumeSwipeSensitivity: Int by lazy {
+        validateValue(
+            Settings.SWIPE_VOLUMES_SENSITIVITY,
+            1,
+            1000,
+            "revanced_swipe_volume_sensitivity_invalid_toast"
+        )
     }
 
     // endregion
 
     // region overlay adjustments
 
+    //region overlay adjustments
     /**
      * Indicates whether haptic feedback should be enabled for swipe control interactions.
      */
@@ -158,12 +116,12 @@ class SwipeControlsConfigurationProvider {
      * Resets to default and shows a toast if the value is out of range.
      */
     val overlayBackgroundOpacity: Int by lazy {
-        var opacity = Settings.SWIPE_OVERLAY_OPACITY.get()
-
-        if (opacity < 0 || opacity > 100) {
-            Utils.showToastLong(str("revanced_swipe_overlay_background_opacity_invalid_toast"))
-            opacity = Settings.SWIPE_OVERLAY_OPACITY.resetToDefault()
-        }
+        var opacity = validateValue(
+            Settings.SWIPE_OVERLAY_OPACITY,
+            0,
+            100,
+            "revanced_swipe_overlay_background_opacity_invalid_toast"
+        )
 
         opacity = opacity * 255 / 100
         Color.argb(opacity, 0, 0, 0)
@@ -174,7 +132,8 @@ class SwipeControlsConfigurationProvider {
      * Resets to default and shows a toast if the color string is invalid or empty.
      */
     val overlayBrightnessProgressColor: Int by lazy {
-        getSettingColor(Settings.SWIPE_OVERLAY_BRIGHTNESS_COLOR)
+        // Use lazy to avoid repeat parsing. Changing color requires app restart.
+        validateColor(Settings.SWIPE_OVERLAY_BRIGHTNESS_COLOR)
     }
 
     /**
@@ -182,7 +141,7 @@ class SwipeControlsConfigurationProvider {
      * Resets to default and shows a toast if the color string is invalid or empty.
      */
     val overlayVolumeProgressColor: Int by lazy {
-        getSettingColor(Settings.SWIPE_OVERLAY_VOLUME_COLOR)
+        validateColor(Settings.SWIPE_OVERLAY_VOLUME_COLOR)
     }
 
     /**
@@ -190,7 +149,7 @@ class SwipeControlsConfigurationProvider {
      * Resets to default and shows a toast if the color string is invalid or empty.
      */
     val overlaySpeedProgressColor: Int by lazy {
-        getSettingColor(Settings.SWIPE_OVERLAY_SPEED_COLOR)
+        validateColor(Settings.SWIPE_OVERLAY_SPEED_COLOR)
     }
 
     /**
@@ -198,19 +157,7 @@ class SwipeControlsConfigurationProvider {
      * Resets to default and shows a toast if the color string is invalid or empty.
      */
     val overlaySeekProgressColor: Int by lazy {
-        getSettingColor(Settings.SWIPE_OVERLAY_SEEK_COLOR)
-    }
-
-    private fun getSettingColor(setting: StringSetting): Int {
-        try {
-            val color = setting.get().toColorInt()
-            return (0xBF000000.toInt() or (color and 0x00FFFFFF))
-        } catch (ex: IllegalArgumentException) {
-            Logger.printDebug({ "Could not parse color: $setting" }, ex)
-            Utils.showToastLong(str("revanced_settings_color_invalid"))
-            setting.resetToDefault()
-            return getSettingColor(setting) // Recursively return
-        }
+        validateColor(Settings.SWIPE_OVERLAY_SEEK_COLOR)
     }
 
     /**
@@ -228,12 +175,24 @@ class SwipeControlsConfigurationProvider {
      * Must be between 1 and 30 dp; resets to default and shows a toast if invalid.
      */
     val overlayTextSize: Int by lazy {
-        val size = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
-        if (size < 1 || size > 30) {
-            Utils.showToastLong(str("revanced_swipe_text_overlay_size_invalid_toast"))
-            return@lazy Settings.SWIPE_OVERLAY_TEXT_SIZE.resetToDefault()
-        }
-        size
+        validateValue(
+            Settings.SWIPE_OVERLAY_TEXT_SIZE,
+            1,
+            30,
+            "revanced_swipe_text_overlay_size_invalid_toast"
+        )
+    }
+
+    /**
+     * Percentage of swipeable screen area.
+     */
+    val overlayRectSize: Int by lazy {
+        validateValue(
+            Settings.SWIPE_OVERLAY_RECT_SIZE,
+            0,
+            50,
+            "revanced_swipe_overlay_rect_size_invalid_toast"
+        )
     }
 
     /**
@@ -246,17 +205,50 @@ class SwipeControlsConfigurationProvider {
      */
     @Suppress("unused")
     enum class SwipeOverlayStyle(
+        val isLegacy: Boolean = false,
         val isMinimal: Boolean = false,
         val isHorizontalMinimalCenter: Boolean = false,
         val isCircular: Boolean = false,
         val isVertical: Boolean = false
     ) {
+        /**
+         * Legacy style used until 2024.
+         */
+        LEGACY(isLegacy = true),
+
+        /**
+         * A full horizontal progress bar with detailed indicators.
+         */
         HORIZONTAL,
+
+        /**
+         * A minimal horizontal progress bar positioned at the top.
+         */
         HORIZONTAL_MINIMAL_TOP(isMinimal = true),
+
+        /**
+         * A minimal horizontal progress bar centered vertically.
+         */
         HORIZONTAL_MINIMAL_CENTER(isMinimal = true, isHorizontalMinimalCenter = true),
+
+        /**
+         * A full circular progress bar with detailed indicators.
+         */
         CIRCULAR(isCircular = true),
+
+        /**
+         * A minimal circular progress bar.
+         */
         CIRCULAR_MINIMAL(isMinimal = true, isCircular = true),
+
+        /**
+         * A full vertical progress bar with detailed indicators.
+         */
         VERTICAL(isVertical = true),
+
+        /**
+         * A minimal vertical progress bar.
+         */
         VERTICAL_MINIMAL(isMinimal = true, isVertical = true)
     }
 
@@ -277,7 +269,8 @@ class SwipeControlsConfigurationProvider {
     /**
      * Indicates whether auto-brightness should be enabled when the brightness gesture reaches its lowest value.
      */
-    val shouldLowestValueEnableAutoBrightness = Settings.SWIPE_LOWEST_VALUE_ENABLE_AUTO_BRIGHTNESS.get()
+    val shouldLowestValueEnableAutoBrightness =
+        Settings.SWIPE_LOWEST_VALUE_ENABLE_AUTO_BRIGHTNESS.get()
 
     /**
      * The saved brightness value for the swipe gesture, used to restore brightness in fullscreen mode.
@@ -287,4 +280,5 @@ class SwipeControlsConfigurationProvider {
         set(value) = Settings.SWIPE_BRIGHTNESS_VALUE.save(value)
 
     // endregion
+
 }

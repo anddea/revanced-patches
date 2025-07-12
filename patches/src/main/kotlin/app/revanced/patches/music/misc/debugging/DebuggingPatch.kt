@@ -12,6 +12,9 @@ import app.revanced.patches.music.utils.settings.settingsPatch
 val debuggingPatch = resourcePatch(
     ENABLE_DEBUG_LOGGING.title,
     ENABLE_DEBUG_LOGGING.summary,
+    // Unlike YouTube, YouTube Music's Litho components do not change very often.
+    // That's why it seems better to selectively include patches for only those users who need them.
+    false,
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
@@ -20,14 +23,20 @@ val debuggingPatch = resourcePatch(
     execute {
         addSwitchPreference(
             CategoryType.MISC,
-            "revanced_enable_debug_logging",
+            "revanced_debug",
             "false"
         )
         addSwitchPreference(
             CategoryType.MISC,
-            "revanced_enable_debug_buffer_logging",
+            "revanced_debug_protobuffer",
             "false",
-            "revanced_enable_debug_logging"
+            "revanced_debug"
+        )
+        addSwitchPreference(
+            CategoryType.MISC,
+            "revanced_debug_spannable",
+            "false",
+            "revanced_debug"
         )
 
         updatePatchStatus(ENABLE_DEBUG_LOGGING)
