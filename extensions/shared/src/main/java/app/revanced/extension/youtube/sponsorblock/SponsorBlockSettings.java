@@ -2,9 +2,11 @@ package app.revanced.extension.youtube.sponsorblock;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
 
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.util.Pair;
 import android.util.Patterns;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,9 +20,9 @@ import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.settings.preference.SponsorBlockSettingsPreference;
 import app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory;
+import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
 public class SponsorBlockSettings {
     /**
@@ -32,7 +34,7 @@ public class SponsorBlockSettings {
         @Override
         public void settingsImported(@Nullable Context context) {
             SegmentCategory.loadAllCategoriesFromSettings();
-            SponsorBlockSettingsPreference.updateSegmentCategories();
+            SponsorBlockPreferenceGroup.settingsImported = true;
         }
 
         @Override
@@ -57,7 +59,7 @@ public class SponsorBlockSettings {
                 }
             }
 
-            for (int i = 0; i < categorySelectionsArray.length(); i++) {
+            for (int i = 0, length = categorySelectionsArray.length(); i < length; i++) {
                 JSONObject categorySelectionObject = categorySelectionsArray.getJSONObject(i);
 
                 String categoryKey = categorySelectionObject.getString("name");
@@ -182,13 +184,26 @@ public class SponsorBlockSettings {
         // If user has a SponsorBlock user id then show a warning.
         if (dialogContext != null && SponsorBlockSettings.userHasSBPrivateId()
                 && !Settings.SB_HIDE_EXPORT_WARNING.get()) {
-            new AlertDialog.Builder(dialogContext)
-                    .setMessage(str("revanced_sb_settings_revanced_export_user_id_warning"))
-                    .setNeutralButton(str("revanced_sb_settings_revanced_export_user_id_warning_dismiss"),
-                            (dialog, which) -> Settings.SB_HIDE_EXPORT_WARNING.save(true))
-                    .setPositiveButton(android.R.string.ok, null)
-                    .setCancelable(false)
-                    .show();
+            // Create the custom dialog.
+            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                    dialogContext,
+                    null, // No title.
+                    str("revanced_sb_settings_revanced_export_user_id_warning"), // Message.
+                    null, // No EditText.
+                    null, // OK button text.
+                    () -> {
+                    }, // OK button action (dismiss only).
+                    null, // No cancel button action.
+                    str("revanced_sb_settings_revanced_export_user_id_warning_dismiss"), // Neutral button text.
+                    () -> Settings.SB_HIDE_EXPORT_WARNING.save(true), // Neutral button action.
+                    true // Dismiss dialog when onNeutralClick.
+            );
+
+            // Set dialog as non-cancelable.
+            dialogPair.first.setCancelable(false);
+
+            // Show the dialog.
+            dialogPair.first.show();
         }
     }
 

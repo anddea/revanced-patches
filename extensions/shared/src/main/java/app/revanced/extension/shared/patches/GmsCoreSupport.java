@@ -7,6 +7,7 @@ import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.ContentProviderClient;
 import android.content.Context;
@@ -16,13 +17,15 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.PowerManager;
 import android.provider.Settings;
+import android.util.Pair;
+import android.widget.LinearLayout;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import app.revanced.extension.shared.settings.BooleanSetting;
+import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
@@ -59,25 +62,48 @@ public class GmsCoreSupport {
     private static void showBatteryOptimizationDialog(Activity context,
                                                       String dialogMessageRef,
                                                       String positiveButtonTextRef,
-                                                      BooleanSetting setting,
                                                       DialogInterface.OnClickListener onPositiveClickListener,
                                                       boolean showNegativeButton) {
         // Use a delay to allow the activity to finish initializing.
         // Otherwise, if device is in dark mode the dialog is shown with wrong color scheme.
         Utils.runOnMainThreadDelayed(() -> {
-            // Do not set cancelable to false, to allow using back button to skip the action,
-            // just in case the battery change can never be satisfied.
-            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context)
-                    .setIconAttribute(android.R.attr.alertDialogIcon)
-                    .setTitle(str("gms_core_dialog_title"))
-                    .setMessage(str(dialogMessageRef))
-                    .setPositiveButton(str(positiveButtonTextRef), onPositiveClickListener);
+            if (BaseThemeUtils.isSupportModernDialog) {
+                // Create the custom dialog.
+                Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                        context,
+                        str("gms_core_dialog_title"), // Title.
+                        str(dialogMessageRef),        // Message.
+                        null,                         // No EditText.
+                        str(positiveButtonTextRef),   // OK button text.
+                        () -> onPositiveClickListener.onClick(null, 0), // OK button action
+                        null,                         // onCancelClick: We don't want a "Cancel" button.
+                        showNegativeButton ? str("gms_core_dialog_dismiss_text") : null, // Use neutral button for custom "Dismiss" text.
+                        showNegativeButton ? () -> GMS_SHOW_DIALOG.save(false) : null,  // Action for the neutral/dismiss button.
+                        true                          // Dismiss dialog when onNeutralClick.
+                );
 
-            if (showNegativeButton) {
-                dialogBuilder.setNegativeButton(str("gms_core_dialog_dismiss_text"), (dialog, which) -> setting.save(false));
+                Dialog dialog = dialogPair.first;
+
+                // Do not set cancelable to false, to allow using back button to skip the action,
+                // just in case the battery change can never be satisfied.
+                dialog.setCancelable(true);
+
+                // Show the dialog
+                Utils.showDialog(context, dialog);
+            } else {
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context)
+                        .setIconAttribute(android.R.attr.alertDialogIcon)
+                        .setTitle(str("gms_core_dialog_title"))
+                        .setMessage(str(dialogMessageRef))
+                        .setPositiveButton(str(positiveButtonTextRef), onPositiveClickListener);
+
+                if (showNegativeButton) {
+                    dialogBuilder.setNegativeButton(str("gms_core_dialog_dismiss_text"), (dialog, which) -> GMS_SHOW_DIALOG.save(false));
+                }
+
+                dialogBuilder.setCancelable(true);
+                dialogBuilder.show();
             }
-
-            dialogBuilder.show();
         }, 100);
     }
 
@@ -99,6 +125,7 @@ public class GmsCoreSupport {
                 // opening another activity), then on some devices such as Pixel phone Android 10
                 // no toast will be shown and the app will continually be relaunched
                 // with the appearance of a hung app.
+                return;
             }
 
             // Verify GmsCore is installed.
@@ -120,9 +147,8 @@ public class GmsCoreSupport {
                 showBatteryOptimizationDialog(mActivity,
                         "gms_core_dialog_not_whitelisted_not_allowed_in_background_message",
                         "gms_core_dialog_open_website_text",
-                        null,
                         (dialog, id) -> open(mActivity, DONT_KILL_MY_APP_LINK),
-                        false);  // Do not show the negative button
+                        false);
                 return;
             }
 
@@ -137,9 +163,8 @@ public class GmsCoreSupport {
                     showBatteryOptimizationDialog(mActivity,
                             "gms_core_dialog_not_whitelisted_using_battery_optimizations_message",
                             "gms_core_dialog_continue_text",
-                            GMS_SHOW_DIALOG,
                             (dialog, id) -> openGmsCoreDisableBatteryOptimizationsIntent(mActivity),
-                            true);  // Show the negative button
+                            true);
                 }
             }
         } catch (Exception ex) {

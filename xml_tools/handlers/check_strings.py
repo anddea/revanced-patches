@@ -1,26 +1,35 @@
 """Check missing strings keys."""
 
+from __future__ import annotations
+
 import logging
 import re
-from pathlib import Path
+from typing import TYPE_CHECKING
 
 from config.settings import Settings
 
+if TYPE_CHECKING:
+    from pathlib import Path
+
 logger = logging.getLogger("xml_tools")
 BLACKLIST: set[str] = {
-    # Not merged from RVX
-    "revanced_swipe_overlay_alternative_ui_summary_off",
-    "revanced_swipe_overlay_alternative_ui_summary_on",
-    "revanced_swipe_overlay_alternative_ui_title",
-    # Removed
     "revanced_custom_seekbar_color_invalid_toast",
+    "revanced_extended_settings_search_hint",
+    "revanced_extended_settings_search_history_summary_off",
+    "revanced_extended_settings_search_history_summary_on",
+    "revanced_extended_settings_search_history_title",
+    "revanced_extended_settings_search_no_results_summary",
+    "revanced_extended_settings_search_no_results_title",
+    "revanced_extended_settings_search_remove_message",
     "revanced_preference_category_po_token_visitor_data",
+    "revanced_sb_share_copy_settings_success",
     "revanced_spoof_streaming_data_po_token_summary",
     "revanced_spoof_streaming_data_po_token_title",
     "revanced_spoof_streaming_data_po_token_visitor_data_about_summary",
     "revanced_spoof_streaming_data_po_token_visitor_data_about_title",
     "revanced_spoof_streaming_data_visitor_data_summary",
     "revanced_spoof_streaming_data_visitor_data_title",
+    "revanced_swipe_lowest_value_auto_brightness_overlay_text",
 }
 
 
@@ -69,8 +78,8 @@ def process(app: str, base_dir: Path) -> None:
 
     # Log results
     if missing_keys:
-        logger.info("Missing keys found:")
+        logger.info("❌  Missing keys found:")
         for key in sorted(missing_keys):
             logger.info(key)
     else:
-        logger.info("No missing keys found")
+        logger.info("✅  No missing keys found")

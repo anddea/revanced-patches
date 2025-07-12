@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.utils.dismiss.hookDismissObserver
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.VIDEO_PATH
+import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.revanced.patches.youtube.utils.fix.shortsplayback.shortsPlaybackPatch
 import app.revanced.patches.youtube.utils.flyoutmenu.flyoutMenuHookPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.VIDEO_PLAYBACK
@@ -30,21 +31,31 @@ import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.*
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
-import app.revanced.util.*
 import app.revanced.util.fingerprint.*
+import app.revanced.util.findMethodOrThrow
+import app.revanced.util.fingerprint.definingClassOrThrow
+import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
+import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 private const val PLAYBACK_SPEED_MENU_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/PlaybackSpeedMenuFilter;"
 private const val VIDEO_QUALITY_MENU_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/VideoQualityMenuFilter;"
-private const val EXTENSION_AV1_CODEC_CLASS_DESCRIPTOR =
-    "$VIDEO_PATH/AV1CodecPatch;"
+private const val EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR =
+    "$VIDEO_PATH/AdvancedVideoQualityMenuPatch;"
 private const val EXTENSION_VP9_CODEC_CLASS_DESCRIPTOR =
     "$VIDEO_PATH/VP9CodecPatch;"
 private const val EXTENSION_CUSTOM_PLAYBACK_SPEED_CLASS_DESCRIPTOR =
@@ -55,8 +66,6 @@ private const val EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR =
     "$VIDEO_PATH/PlaybackSpeedPatch;"
 private const val EXTENSION_RELOAD_VIDEO_CLASS_DESCRIPTOR =
     "$VIDEO_PATH/ReloadVideoPatch;"
-private const val EXTENSION_RESTORE_OLD_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR =
-    "$VIDEO_PATH/RestoreOldVideoQualityMenuPatch;"
 private const val EXTENSION_SPOOF_DEVICE_DIMENSIONS_CLASS_DESCRIPTOR =
     "$VIDEO_PATH/SpoofDeviceDimensionsPatch;"
 private const val EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR =
@@ -77,6 +86,7 @@ val videoPlaybackPatch = bytecodePatch(
         ),
         flyoutMenuHookPatch,
         lithoFilterPatch,
+        lithoLayoutPatch,
         dismissPlayerHookPatch,
         playerTypeHookPatch,
         recyclerViewTreeObserverPatch,
@@ -240,42 +250,51 @@ val videoPlaybackPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for restore old video quality menu
+        // region patch for show advanced video quality menu
 
-        qualityMenuViewInflateFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.CHECK_CAST)
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+        qualityMenuViewInflateFingerprint.methodOrThrow().apply {
+            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.CHECK_CAST)
+            val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                addInstruction(
-                    insertIndex + 1,
-                    "invoke-static { v$insertRegister }, " +
-                            "$EXTENSION_RESTORE_OLD_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->restoreOldVideoQualityMenu(Landroid/widget/ListView;)V"
-                )
-            }
-            val onItemClickMethod =
-                it.classDef.methods.find { method -> method.name == "onItemClick" }
+            addInstruction(
+                insertIndex + 1,
+                "invoke-static { v$insertRegister }, " +
+                        "$EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->showAdvancedVideoQualityMenu(Landroid/widget/ListView;)V"
+            )
+        }
 
-            onItemClickMethod?.apply {
-                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
+        qualityMenuViewInflateOnItemClickFingerprint
+            .methodOrThrow(qualityMenuViewInflateFingerprint)
+            .apply {
+                val contextIndex = indexOfContextInstruction(this)
+                val contextField =
+                    getInstruction<ReferenceInstruction>(contextIndex).reference as FieldReference
+                val castIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.CHECK_CAST &&
+                            getReference<TypeReference>()?.type == contextField.definingClass
+                }
+                val castRegister = getInstruction<OneRegisterInstruction>(castIndex).registerA
+
+                val insertIndex = indexOfFirstInstructionOrThrow(castIndex, Opcode.IGET_OBJECT)
                 val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
-                val jumpIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.IGET_OBJECT
-                            && this.getReference<FieldReference>()?.type == qualitySetterFingerprint.definingClassOrThrow()
+                val jumpIndex = indexOfFirstInstructionReversedOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "dismiss"
                 }
 
                 addInstructionsWithLabels(
                     insertIndex, """
-                        invoke-static {}, $EXTENSION_RESTORE_OLD_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->restoreOldVideoQualityMenu()Z
+                        iget-object v$insertRegister, v$castRegister, $contextField
+                        invoke-static {v$insertRegister}, $EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->showAdvancedVideoQualityMenu(Landroid/content/Context;)Z
                         move-result v$insertRegister
-                        if-nez v$insertRegister, :show
-                        """, ExternalLabel("show", getInstruction(jumpIndex))
+                        if-nez v$insertRegister, :dismiss
+                        """, ExternalLabel("dismiss", getInstruction(jumpIndex))
                 )
-            } ?: throw PatchException("Failed to find onItemClick method")
-        }
+            }
 
-        recyclerViewTreeObserverHook("$EXTENSION_RESTORE_OLD_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
+
+        recyclerViewTreeObserverHook("$EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
         addLithoFilter(VIDEO_QUALITY_MENU_FILTER_CLASS_DESCRIPTOR)
 
         // endregion
@@ -300,25 +319,6 @@ val videoPlaybackPatch = bytecodePatch(
         )
 
         // endregion
-
-        // region patch for disable AV1 codec
-
-        // replace av1 codec
-
-        if (av1CodecFingerprint.resolvable()) {
-            av1CodecFingerprint.methodOrThrow().apply {
-                val insertIndex = indexOfFirstStringInstructionOrThrow("video/av01")
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                addInstructions(
-                    insertIndex + 1, """
-                        invoke-static/range {v$insertRegister .. v$insertRegister}, $EXTENSION_AV1_CODEC_CLASS_DESCRIPTOR->replaceCodec(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$insertRegister
-                        """
-                )
-            }
-            settingArray += "SETTINGS: REPLACE_AV1_CODEC"
-        }
 
         // region patch for disable VP9 codec
 

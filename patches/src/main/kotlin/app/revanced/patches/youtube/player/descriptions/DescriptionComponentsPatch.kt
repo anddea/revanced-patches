@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.DESCRIPTION_COMPONENTS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_18_49_or_greater
@@ -45,6 +46,7 @@ val descriptionComponentsPatch = bytecodePatch(
     dependsOn(
         settingsPatch,
         lithoFilterPatch,
+        lithoLayoutPatch,
         playerTypeHookPatch,
         recyclerViewTreeObserverPatch,
         engagementPanelHookPatch,

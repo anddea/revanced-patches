@@ -14,7 +14,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +33,6 @@ import com.google.android.apps.youtube.app.settings.SettingsActivity;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
@@ -52,56 +50,37 @@ public class GeneralPatch {
 
     // region [Disable auto audio tracks] patch
 
-    private static final String DEFAULT_AUDIO_TRACKS_IDENTIFIER = "original";
-    private static ArrayList<Object> formatStreamModelArray;
+    private static final String DEFAULT_AUDIO_TRACKS_SUFFIX = ".4";
 
     /**
-     * Find the stream format containing the parameter {@link GeneralPatch#DEFAULT_AUDIO_TRACKS_IDENTIFIER}, and save to the array.
-     *
-     * @param formatStreamModel stream format model including audio tracks.
+     * Injection point.
      */
-    public static void setFormatStreamModelArray(final Object formatStreamModel) {
-        if (!Settings.DISABLE_AUTO_AUDIO_TRACKS.get()) {
-            return;
+    public static boolean isDefaultAudioStream(boolean isDefault, String audioTrackId, String audioTrackDisplayName) {
+        try {
+            if (!Settings.DISABLE_AUTO_AUDIO_TRACKS.get()) {
+                return isDefault;
+            }
+
+            if (audioTrackId.isEmpty()) {
+                // Older app targets can have empty audio tracks and these might be placeholders.
+                // The real audio tracks are called after these.
+                return isDefault;
+            }
+
+            Logger.printDebug(() -> "default: " + String.format("%-5s", isDefault) + " id: "
+                    + String.format("%-8s", audioTrackId) + " name:" + audioTrackDisplayName);
+
+            final boolean isOriginal = audioTrackId.endsWith(DEFAULT_AUDIO_TRACKS_SUFFIX);
+            if (isOriginal) {
+                Logger.printDebug(() -> "Using audio: " + audioTrackId);
+            }
+
+            return isOriginal;
+        } catch (Exception ex) {
+            Logger.printException(() -> "isDefaultAudioStream failure", ex);
+
+            return isDefault;
         }
-
-        // Ignoring, as the stream format model array has already been added.
-        if (formatStreamModelArray != null) {
-            return;
-        }
-
-        // Ignoring, as it is not an original audio track.
-        if (!formatStreamModel.toString().contains(DEFAULT_AUDIO_TRACKS_IDENTIFIER)) {
-            return;
-        }
-
-        // For some reason, when YouTube handles formatStreamModelArray,
-        // it uses an array with duplicate values at the first and second indices.
-        formatStreamModelArray = new ArrayList<>();
-        formatStreamModelArray.add(formatStreamModel);
-        formatStreamModelArray.add(formatStreamModel);
-    }
-
-    /**
-     * Returns an array of stream format models containing the default audio tracks.
-     *
-     * @param localizedFormatStreamModelArray stream format model array consisting of audio tracks in the system's language.
-     * @return stream format model array consisting of original audio tracks.
-     */
-    public static ArrayList<Object> getFormatStreamModelArray(final ArrayList<Object> localizedFormatStreamModelArray) {
-        if (!Settings.DISABLE_AUTO_AUDIO_TRACKS.get()) {
-            return localizedFormatStreamModelArray;
-        }
-
-        // Ignoring, as the stream format model array is empty.
-        if (formatStreamModelArray == null || formatStreamModelArray.isEmpty()) {
-            return localizedFormatStreamModelArray;
-        }
-
-        // Initialize the array before returning it.
-        ArrayList<Object> defaultFormatStreamModelArray = formatStreamModelArray;
-        formatStreamModelArray = null;
-        return defaultFormatStreamModelArray;
     }
 
     // endregion
@@ -476,11 +455,11 @@ public class GeneralPatch {
             final int paddingRight = searchBarView.getPaddingRight();
             final int paddingTop = searchBarView.getPaddingTop();
             final int paddingBottom = searchBarView.getPaddingBottom();
-            final int paddingStart = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8f, Utils.getResources().getDisplayMetrics());
+            final int paddingStart = Utils.dipToPixels(8f);
 
             // In RelativeLayout, paddingStart cannot be assigned programmatically.
             // Check RTL layout and set left padding or right padding.
-            if (Utils.isRightToLeftTextLayout()) {
+            if (Utils.isRightToLeftLocale()) {
                 searchBarView.setPadding(paddingLeft, paddingTop, paddingStart, paddingBottom);
             } else {
                 searchBarView.setPadding(paddingStart, paddingTop, paddingRight, paddingBottom);

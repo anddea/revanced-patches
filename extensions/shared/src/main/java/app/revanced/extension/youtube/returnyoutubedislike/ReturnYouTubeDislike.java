@@ -6,7 +6,6 @@ import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 import static app.revanced.extension.shared.utils.Utils.newSpanUsingStylingOfAnotherSpan;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
 
-import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -25,8 +24,6 @@ import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.ReplacementSpan;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
 
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
@@ -121,17 +118,13 @@ public class ReturnYouTubeDislike {
     private static final ShapeDrawable leftSeparatorShape;
 
     static {
-        final Resources resources = Utils.getResources();
-        DisplayMetrics dp = resources.getDisplayMetrics();
-
         leftSeparatorBounds = new Rect(0, 0,
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1.2f, dp),
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 14, dp));
-        final int middleSeparatorSize =
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3.7f, dp);
+                Utils.dipToPixels(1.2f),
+                Utils.dipToPixels(14f));
+        final int middleSeparatorSize = Utils.dipToPixels(3.7f);
         middleSeparatorBounds = new Rect(0, 0, middleSeparatorSize, middleSeparatorSize);
 
-        leftSeparatorShapePaddingPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8.4f, dp);
+        leftSeparatorShapePaddingPixels = Utils.dipToPixels(8.4f);
 
         leftSeparatorShape = new ShapeDrawable(new RectShape());
         leftSeparatorShape.setBounds(leftSeparatorBounds);
@@ -191,12 +184,12 @@ public class ReturnYouTubeDislike {
      */
     private static int getSeparatorColor() {
         if (IS_SPOOFING_TO_OLD_SEPARATOR_COLOR) {
-            return ThemeUtils.isDarkTheme()
+            return ThemeUtils.isDarkModeEnabled()
                     ? 0x29AAAAAA  // transparent dark gray
                     : 0xFFD9D9D9; // light gray
         }
 
-        return ThemeUtils.isDarkTheme()
+        return ThemeUtils.isDarkModeEnabled()
                 ? 0x33FFFFFF
                 : 0xFFD9D9D9;
     }
@@ -248,7 +241,7 @@ public class ReturnYouTubeDislike {
         final boolean compactLayout = Settings.RYD_COMPACT_LAYOUT.get();
 
         if (!compactLayout) {
-            String leftSeparatorString = getTextDirectionString();
+            String leftSeparatorString = Utils.getTextDirectionString();
             final Spannable leftSeparatorSpan;
             if (isRollingNumber) {
                 leftSeparatorSpan = new SpannableString(leftSeparatorString);
@@ -290,12 +283,6 @@ public class ReturnYouTubeDislike {
         builder.append(newSpannableWithDislikes(oldSpannable, voteData));
 
         return new SpannableString(builder);
-    }
-
-    private static @NonNull String getTextDirectionString() {
-        return Utils.isRightToLeftTextLayout()
-                ? "\u200F"  // u200F = right to left character
-                : "\u200E"; // u200E = left to right character
     }
 
     /**
@@ -575,6 +562,17 @@ public class ReturnYouTubeDislike {
                     return original;
                 }
 
+                // prevents reproducible bugs with the following steps:
+                // (user is using YouTube with RollingNumber applied)
+                // 1. opened a video
+                // 2. switched to fullscreen
+                // 3. click video's title to open the video description
+                // 4. dislike count may be replaced in the like count area or view count area of the video description
+                if (PlayerType.getCurrent().isFullScreenOrSlidingFullScreen()) {
+                    Logger.printDebug(() -> "Ignoring fullscreen video description panel: " + videoId);
+                    return original;
+                }
+
                 if (spanIsForLikes) {
                     if (!Utils.containsNumber(original)) {
                         if (!Settings.RYD_ESTIMATED_LIKE.get()) {
@@ -586,7 +584,7 @@ public class ReturnYouTubeDislike {
                     }
 
                     // Scrolling Shorts does not cause the Spans to be reloaded,
-                    // so there is no need to cache the likes for this situations.
+                    // so there is no need to cache the likes for these situations.
                     Logger.printDebug(() -> "Creating likes span for: " + votingData.videoId);
                     return newSpannableWithLikes(original, votingData);
                 }
@@ -709,7 +707,7 @@ class VerticallyCenteredImageSpan extends ImageSpan {
 
     /**
      * @param useOriginalWidth Use the original layout width of the text this span is applied to,
-     *                         and not the bounds of the Drawable. Drawable is always displayed using it's own bounds,
+     *                         and not the bounds of the Drawable. Drawable is always displayed using its own bounds,
      *                         and this setting only affects the layout width of the entire span.
      */
     public VerticallyCenteredImageSpan(Drawable drawable, boolean useOriginalWidth) {

@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.SPANS_PATH
+import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_COMMENTS_COMPONENTS
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -39,6 +40,7 @@ val commentsComponentPatch = bytecodePatch(
         settingsPatch,
         inclusiveSpanPatch,
         lithoFilterPatch,
+        lithoLayoutPatch,
         sharedResourceIdPatch,
     )
 

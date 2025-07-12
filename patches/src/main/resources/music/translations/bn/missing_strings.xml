@@ -62,6 +62,12 @@ Use dark colors if possible, as the app does not support light themes."</string>
 Use dark colors if possible, as the app does not support light themes."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Player background secondary color</string>
     <string name="revanced_custom_player_background_invalid_toast">Invalid player background color.</string>
+    <string name="revanced_debug_protobuffer_summary">Includes proto buffer in the debug log.</string>
+    <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
+    <string name="revanced_debug_spannable_summary">Includes spannable in the debug log.</string>
+    <string name="revanced_debug_spannable_title">Log spannable</string>
+    <string name="revanced_debug_summary">Prints the debug log.</string>
+    <string name="revanced_debug_title">Enable debug logging</string>
     <string name="revanced_default_app_settings_summary">To open YouTube Music links in RVX Music, enable Open supported links and enable all the Supported web addresses.</string>
     <string name="revanced_default_app_settings_title">Open default app settings</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Disables Cairo splash animation when the app starts up.</string>
@@ -260,6 +266,12 @@ This hides not only the YT Music settings menu, but also the ReVanced Extended s
     <string name="revanced_hide_tap_to_update_button_title">Hide Tap to update button</string>
     <string name="revanced_hide_voice_search_button_summary">Hides the voice search button in the search bar.</string>
     <string name="revanced_hide_voice_search_button_title">Hide voice search button</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Not overridden</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_invalid_toast">Litho thread pool max size must be between 1-3.</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_summary">"Changes the max size of the Litho thread pool.
+
+A larger value may improve the performance of loading Litho layouts, but may drain more battery."</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_title">Litho thread pool max size</string>
     <string name="revanced_preference_screen_account_title">Account</string>
     <string name="revanced_preference_screen_action_bar_title">Action bar</string>
     <string name="revanced_preference_screen_ads_title">Ads</string>

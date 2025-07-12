@@ -13,8 +13,18 @@ import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.extension.Constants.GENERAL_PATH
 import app.revanced.patches.music.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
-import app.revanced.patches.music.utils.playservice.*
-import app.revanced.patches.music.utils.resourceid.*
+import app.revanced.patches.music.utils.patch.PatchList.LITHO_FILTER
+import app.revanced.patches.music.utils.playservice.is_6_39_or_greater
+import app.revanced.patches.music.utils.playservice.is_6_42_or_greater
+import app.revanced.patches.music.utils.playservice.is_6_48_or_greater
+import app.revanced.patches.music.utils.playservice.is_8_05_or_greater
+import app.revanced.patches.music.utils.playservice.is_8_15_or_greater
+import app.revanced.patches.music.utils.playservice.versionCheckPatch
+import app.revanced.patches.music.utils.resourceid.musicTasteBuilderShelf
+import app.revanced.patches.music.utils.resourceid.playerOverlayChip
+import app.revanced.patches.music.utils.resourceid.searchButton
+import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
+import app.revanced.patches.music.utils.resourceid.topBarMenuItemImageView
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
@@ -330,11 +340,6 @@ val layoutComponentsPatch = bytecodePatch(
         )
         addSwitchPreference(
             CategoryType.GENERAL,
-            "revanced_hide_playlist_card_shelf",
-            "false"
-        )
-        addSwitchPreference(
-            CategoryType.GENERAL,
             "revanced_hide_cast_button",
             "true"
         )
@@ -362,6 +367,11 @@ val layoutComponentsPatch = bytecodePatch(
         }
         addSwitchPreference(
             CategoryType.GENERAL,
+            "revanced_hide_playlist_card_shelf",
+            "false"
+        )
+        addSwitchPreference(
+            CategoryType.GENERAL,
             "revanced_hide_samples_shelf",
             "false"
         )
@@ -377,13 +387,11 @@ val layoutComponentsPatch = bytecodePatch(
                 "false"
             )
         }
-        if (is_8_15_or_greater) {
-            addSwitchPreference(
-                CategoryType.GENERAL,
-                "revanced_hide_tap_to_update_button",
-                "false"
-            )
-        }
+        addSwitchPreference(
+            CategoryType.GENERAL,
+            "revanced_hide_tap_to_update_button",
+            "false"
+        )
         addSwitchPreference(
             CategoryType.GENERAL,
             "revanced_hide_voice_search_button",
@@ -453,6 +461,7 @@ val layoutComponentsPatch = bytecodePatch(
         )
 
         updatePatchStatus(HIDE_LAYOUT_COMPONENTS)
+        updatePatchStatus(LITHO_FILTER)
 
     }
 }

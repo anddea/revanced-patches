@@ -57,9 +57,9 @@ class ScreenBrightnessController(
     /**
      * wrapper for the raw screen brightness in [WindowManager.LayoutParams.screenBrightness]
      */
-    private var rawScreenBrightness: Float
+    var rawScreenBrightness: Float
         get() = host.window.attributes.screenBrightness
-        set(value) {
+        private set(value) {
             val attr = host.window.attributes
             attr.screenBrightness = value
             host.window.attributes = attr

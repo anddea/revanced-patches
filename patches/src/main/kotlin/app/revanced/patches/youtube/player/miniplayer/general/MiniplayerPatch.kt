@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_26_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_29_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_36_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_43_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_20_03_or_greater
@@ -128,6 +129,9 @@ val miniplayerPatch = bytecodePatch(
 
         // From 19.15 to 19.16 using mixed up drawables for tablet modern.
         val shouldFixMixedUpDrawables = ytOutlineXWhite > 0 && ytOutlinePictureInPictureWhite > 0
+
+        // From 19.15 to 19.34 swipe to dismiss miniplayer is not working.
+        val shouldFixSwipeToDismiss = is_19_15_or_greater && !is_19_34_or_greater
 
         // region Enable tablet miniplayer.
 
@@ -325,6 +329,17 @@ val miniplayerPatch = bytecodePatch(
                     replaceInstruction(imageResourceIndex, "const v$register, $replacementResource")
                 }
             }
+        }
+
+        // endregion
+
+        // region Fix 19.16 swiping down miniplayer does not dismiss.
+
+        if (shouldFixSwipeToDismiss) {
+            miniplayerModernSwipeToDismissFingerprint.injectLiteralInstructionBooleanCall(
+                MINIPLAYER_SWIPE_TO_DISMISS_FEATURE_KEY,
+                "0x0"
+            )
         }
 
         // endregion

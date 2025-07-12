@@ -10,7 +10,7 @@ import kotlin.math.sign
  * @param callback callback function for when unit distance is reached
  */
 class ScrollDistanceHelper(
-    private val unitDistance: Double,
+    private val unitDistance: Int,
     private val callback: (oldDistance: Double, newDistance: Double, direction: Int) -> Unit,
 ) {
 

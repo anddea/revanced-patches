@@ -23,8 +23,8 @@ public final class QuickActionFilter extends Filter {
         addIdentifierCallbacks(quickActionRule);
         bufferFilterPathRule = new StringFilterGroup(
                 null,
-                "|ContainerType|button.eml|",
-                "|fullscreen_video_action_button.eml|"
+                "|ContainerType|button.eml",
+                "|fullscreen_video_action_button.eml"
         );
 
         liveChatReplay = new StringFilterGroup(
@@ -56,7 +56,7 @@ public final class QuickActionFilter extends Filter {
                         "|overflow_menu_button"
                 ),
                 new StringFilterGroup(
-                        Settings.HIDE_RELATED_VIDEO_OVERLAY,
+                        Settings.HIDE_RELATED_VIDEOS_OVERLAY,
                         "fullscreen_related_videos"
                 ),
                 bufferFilterPathRule

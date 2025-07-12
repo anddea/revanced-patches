@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.swipe.controls
 
 import app.revanced.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.revanced.patches.youtube.utils.resourceid.autoNavScrollCancelPadding
-import app.revanced.patches.youtube.utils.resourceid.fullScreenEngagementOverlay
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
@@ -12,12 +11,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-
-internal val fullScreenEngagementOverlayFingerprint = legacyFingerprint(
-    name = "fullScreenEngagementOverlayFingerprint",
-    returnType = "V",
-    literals = listOf(fullScreenEngagementOverlay),
-)
 
 internal val hdrBrightnessFingerprint = legacyFingerprint(
     name = "hdrBrightnessFingerprint",

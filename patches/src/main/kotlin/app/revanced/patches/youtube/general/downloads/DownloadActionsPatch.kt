@@ -154,7 +154,7 @@ val downloadActionsPatch = bytecodePatch(
 
                     addInstructions(
                         insertIndex, """
-                            invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->overridePlaylistDownloadButtonVisibility()Z
+                            invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->overridePlaylistDownloadButtonVisibility(Z)Z
                             move-result v$insertRegister
                             """
                     )

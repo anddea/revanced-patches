@@ -9,6 +9,7 @@ import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.MISC_PATH
+import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.CHANGE_SHARE_SHEET
 import app.revanced.patches.youtube.utils.resourceid.bottomSheetRecyclerView
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -38,6 +39,7 @@ val shareSheetPatch = bytecodePatch(
     dependsOn(
         settingsPatch,
         lithoFilterPatch,
+        lithoLayoutPatch,
         sharedResourceIdPatch,
     )
 

@@ -16,3 +16,10 @@ internal object Utils {
     internal fun printWarn(msg: String) =
         logger.warning(msg)
 }
+
+internal fun Boolean.toHexString(): String = if (this) "0x1" else "0x0"
+
+internal val String.className: String
+    get() = if (startsWith("L") && endsWith(";"))
+        substring(1, length - 1).replace('/', '.')
+    else replace('/', '.')

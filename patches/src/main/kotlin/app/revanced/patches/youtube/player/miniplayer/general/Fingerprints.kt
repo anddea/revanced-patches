@@ -74,6 +74,10 @@ internal const val MINIPLAYER_INITIAL_SIZE_FEATURE_KEY = 45640023L
 internal const val MINIPLAYER_DISABLED_FEATURE_KEY = 45657015L
 internal const val MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY = 45644360L
 
+// If the value of this flag is FALSE, dismissing the miniplayer via swipe down is allowed.
+// Currently, only YouTube 19.16.39 requires overriding this flag.
+internal const val MINIPLAYER_SWIPE_TO_DISMISS_FEATURE_KEY = 45622882L
+
 internal val miniplayerModernConstructorFingerprint = legacyFingerprint(
     name = "miniplayerModernConstructorFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
@@ -185,6 +189,11 @@ internal val miniplayerOnCloseHandlerFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Z",
     literals = listOf(MINIPLAYER_DISABLED_FEATURE_KEY),
+)
+
+internal val miniplayerModernSwipeToDismissFingerprint = legacyFingerprint(
+    name = "miniplayerModernSwipeToDismissFingerprint",
+    literals = listOf(MINIPLAYER_SWIPE_TO_DISMISS_FEATURE_KEY),
 )
 
 internal const val YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME =

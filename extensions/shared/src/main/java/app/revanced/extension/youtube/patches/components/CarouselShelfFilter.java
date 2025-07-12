@@ -19,6 +19,7 @@ public final class CarouselShelfFilter extends Filter {
     private static final String BROWSE_ID_COURSES = "FEcourses_destination";
     private static final String BROWSE_ID_HOME = "FEwhat_to_watch";
     private static final String BROWSE_ID_LIBRARY = "FElibrary";
+    private static final String BROWSE_ID_LIBRARY_PLAYLIST = "FEplaylist_aggregation";
     private static final String BROWSE_ID_MOVIE = "FEstorefront";
     private static final String BROWSE_ID_NEWS = "FEnews_destination";
     private static final String BROWSE_ID_NOTIFICATION = "FEactivity";
@@ -39,6 +40,7 @@ public final class CarouselShelfFilter extends Filter {
             BROWSE_ID_CLIP,
             BROWSE_ID_COURSES,
             BROWSE_ID_LIBRARY,
+            BROWSE_ID_LIBRARY_PLAYLIST,
             BROWSE_ID_MOVIE,
             BROWSE_ID_NEWS,
             BROWSE_ID_NOTIFICATION_INBOX,
@@ -84,10 +86,11 @@ public final class CarouselShelfFilter extends Filter {
         if (selectedNavButton == NavigationButton.HOME && browseId.equals(BROWSE_ID_NOTIFICATION_INBOX)) {
             return true;
         }
-        // Sometimes the browserId is empty. In this case, check the navigation button.
-        if (browseId.isEmpty()) {
-            return selectedNavButton != NavigationButton.LIBRARY;
+        // Fixes a very rare bug in library.
+        if (selectedNavButton == NavigationButton.LIBRARY) {
+            return whitelistBrowseId.get().noneMatch(browseId::equals);
         }
+
         return knownBrowseId.get().anyMatch(browseId::equals) || whitelistBrowseId.get().noneMatch(browseId::equals);
     }
 

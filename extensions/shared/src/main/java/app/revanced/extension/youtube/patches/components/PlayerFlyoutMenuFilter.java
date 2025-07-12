@@ -12,12 +12,15 @@ import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 public final class PlayerFlyoutMenuFilter extends Filter {
+    private static final String CAPTIONS_FOOTER_PATH = "|ContainerType|ContainerType|TextType|";
+
     private final ByteArrayFilterGroupList flyoutFilterGroupList = new ByteArrayFilterGroupList();
 
     private final ByteArrayFilterGroup byteArrayException;
     private final StringTrieSearch pathBuilderException = new StringTrieSearch();
     private final StringTrieSearch playerFlyoutMenuFooter = new StringTrieSearch();
     private final StringFilterGroup playerFlyoutMenu;
+    private final StringFilterGroup captionsSheet;
     private final StringFilterGroup qualityHeader;
 
     public PlayerFlyoutMenuFilter() {
@@ -32,6 +35,13 @@ public final class PlayerFlyoutMenuFilter extends Filter {
                 "captions_sheet_content.eml",
                 "quality_sheet_content.eml"
         );
+
+        captionsSheet = new StringFilterGroup(
+                Settings.HIDE_PLAYER_FLYOUT_MENU_CAPTIONS_FOOTER,
+                "captions_sheet_content.eml"
+        );
+
+        addIdentifierCallbacks(captionsSheet);
 
         final StringFilterGroup captionsFooter = new StringFilterGroup(
                 Settings.HIDE_PLAYER_FLYOUT_MENU_CAPTIONS_FOOTER,
@@ -50,7 +60,7 @@ public final class PlayerFlyoutMenuFilter extends Filter {
                 "quality_sheet_header.eml"
         );
 
-        playerFlyoutMenu = new StringFilterGroup(null, "overflow_menu_item.eml|");
+        playerFlyoutMenu = new StringFilterGroup(null, "overflow_menu_item.eml");
 
         // Using pathFilterGroupList due to new flyout panel(A/B)
         addPathCallbacks(
@@ -159,6 +169,9 @@ public final class PlayerFlyoutMenuFilter extends Filter {
         } else {
             // Components other than the footer separator are not filtered.
             if (pathBuilderException.matches(path) || !playerFlyoutMenuFooter.matches(path)) {
+                return false;
+            }
+            if (matchedGroup == captionsSheet && !path.endsWith(CAPTIONS_FOOTER_PATH)) {
                 return false;
             }
             // Super class handles logging.

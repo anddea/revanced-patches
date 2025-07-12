@@ -104,6 +104,7 @@ internal val videoQualityArrayFingerprint = legacyFingerprint(
 private val VIDEO_QUALITY_ARRAY_STARTS_WITH_PARAMETER_LIST = listOf(
     "Ljava/util/List;"
 )
+
 private val VIDEO_QUALITY_ARRAY_ENDS_WITH_PARAMETER_LIST = listOf(
     "Ljava/lang/String;",
     "L"

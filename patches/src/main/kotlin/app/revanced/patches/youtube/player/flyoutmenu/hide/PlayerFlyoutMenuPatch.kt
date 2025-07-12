@@ -10,6 +10,7 @@ import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.revanced.patches.youtube.utils.indexOfAddHeaderViewInstruction
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_PLAYER_FLYOUT_MENU
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
@@ -45,6 +46,7 @@ val playerFlyoutMenuPatch = bytecodePatch(
     dependsOn(
         settingsPatch,
         lithoFilterPatch,
+        lithoLayoutPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
         versionCheckPatch

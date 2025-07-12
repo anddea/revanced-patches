@@ -25,7 +25,10 @@ public class ShareSheetPatch {
                 if (!(recyclerView.getChildAt(0) instanceof ViewGroup shareContainer)) {
                     return;
                 }
-                if (!(shareContainer.getChildAt(shareContainer.getChildCount() - 1) instanceof ViewGroup shareWithOtherAppsView)) {
+                if (!(shareContainer.getChildAt(shareContainer.getChildCount() - 1) instanceof ViewGroup shareWithOtherAppsViewGroup)) {
+                    return;
+                }
+                if (!(shareWithOtherAppsViewGroup.getChildAt(shareWithOtherAppsViewGroup.getChildCount() - 1) instanceof ViewGroup shareWithOtherAppsView)) {
                     return;
                 }
                 ShareSheetMenuFilter.isShareSheetMenuVisible = false;

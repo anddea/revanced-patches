@@ -65,7 +65,8 @@ public final class FeedVideoViewsFilter extends Filter {
     @Override
     public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (hideFeedVideoViewsSettingIsActive() && filterByViews(protobufBufferArray)) {
+        if (hideFeedVideoViewsSettingIsActive() &&
+                filterByViews(protobufBufferArray)) {
             return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
         }
 

@@ -1,15 +1,10 @@
 package app.revanced.extension.youtube.patches.swipe;
 
-import android.view.View;
-
-import java.lang.ref.WeakReference;
-
+import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class SwipeControlsPatch {
-    private static WeakReference<View> fullscreenEngagementOverlayViewRef = new WeakReference<>(null);
-
     /**
      * Injection point.
      */
@@ -45,18 +40,35 @@ public class SwipeControlsPatch {
         return !Settings.DISABLE_SWIPE_TO_EXIT_FULLSCREEN_MODE.get() && original;
     }
 
-    /**
-     * Injection point.
-     *
-     * @param fullscreenEngagementOverlayView R.layout.fullscreen_engagement_overlay
-     */
-    public static void setFullscreenEngagementOverlayView(View fullscreenEngagementOverlayView) {
-        fullscreenEngagementOverlayViewRef = new WeakReference<>(fullscreenEngagementOverlayView);
+    public static final class SwipeOverlayBrightnessColorAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return Settings.SWIPE_BRIGHTNESS.get() &&
+                    !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
+        }
     }
 
-    public static boolean isEngagementOverlayVisible() {
-        final View engagementOverlayView = fullscreenEngagementOverlayViewRef.get();
-        return engagementOverlayView != null && engagementOverlayView.getVisibility() == View.VISIBLE;
+    public static final class SwipeOverlayVolumeColorAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return Settings.SWIPE_VOLUME.get() &&
+                    !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
+        }
     }
 
+    public static final class SwipeOverlaySpeedColorAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return Settings.SWIPE_SPEED.get() &&
+                    !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
+        }
+    }
+
+    public static final class SwipeOverlaySeekColorAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return Settings.SWIPE_SEEK.get() &&
+                    !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
+        }
+    }
 }

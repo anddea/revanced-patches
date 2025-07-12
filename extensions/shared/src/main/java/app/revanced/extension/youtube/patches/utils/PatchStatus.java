@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.patches.utils;
 import app.revanced.extension.shared.utils.Utils;
 
 public class PatchStatus {
+    public static final String SPOOF_APP_VERSION_TARGET_DEFAULT_VALUE = "18.17.43";
 
     public static boolean ImageSearchButton() {
         // Replace this with true if the Hide image search buttons patch succeeds
@@ -50,17 +51,18 @@ public class PatchStatus {
         return false;
     }
 
-    public static long PatchedTime() {
-        return 0L;
-    }
-
     public static String SpoofAppVersionDefaultString() {
-        return "18.17.43";
+        return SPOOF_APP_VERSION_TARGET_DEFAULT_VALUE;
     }
 
     // Modified by a patch. Do not touch.
     public static String RVXMusicPackageName() {
         return "com.google.android.apps.youtube.music";
+    }
+
+    // Modified by a patch. Do not touch.
+    public static String TargetActivityClass() {
+        return "";
     }
 
 }

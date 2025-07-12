@@ -9,7 +9,6 @@ import static app.revanced.extension.youtube.utils.VideoUtils.openPlaylist;
 import android.content.Context;
 import android.view.KeyEvent;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
@@ -176,11 +175,7 @@ public class PlaylistPatch extends AuthUtils {
     }
 
     private static void buildBottomSheetDialog(QueueManager[] queueManagerEntries) {
-        ScrollView mScrollView = new ScrollView(mContext);
-        LinearLayout mLinearLayout = new LinearLayout(mContext);
-        mLinearLayout.setOrientation(LinearLayout.VERTICAL);
-        mLinearLayout.setPadding(0, 0, 0, 0);
-
+        LinearLayout mainLayout = ExtendedUtils.prepareMainLayout(mContext);
         Map<LinearLayout, Runnable> actionsMap = new LinkedHashMap<>(queueManagerEntries.length);
 
         for (QueueManager queueManager : queueManagerEntries) {
@@ -189,12 +184,10 @@ public class PlaylistPatch extends AuthUtils {
             Runnable action = queueManager.onClickAction;
             LinearLayout itemLayout = ExtendedUtils.createItemLayout(mContext, title, iconId);
             actionsMap.putIfAbsent(itemLayout, action);
-            mLinearLayout.addView(itemLayout);
+            mainLayout.addView(itemLayout);
         }
 
-        mScrollView.addView(mLinearLayout);
-
-        ExtendedUtils.showBottomSheetDialog(mContext, mScrollView, actionsMap);
+        ExtendedUtils.showBottomSheetDialog(mContext, mainLayout, actionsMap);
     }
 
     private static void fetchQueue(boolean remove, boolean openPlaylist,
@@ -281,13 +274,8 @@ public class PlaylistPatch extends AuthUtils {
                 if (request != null) {
                     Pair<String, String>[] playlists = request.getPlaylists();
                     if (playlists != null) {
-                        ScrollView mScrollView = new ScrollView(mContext);
-                        LinearLayout mLinearLayout = new LinearLayout(mContext);
-                        mLinearLayout.setOrientation(LinearLayout.VERTICAL);
-                        mLinearLayout.setPadding(0, 0, 0, 0);
-
+                        LinearLayout mainLayout = ExtendedUtils.prepareMainLayout(mContext);
                         Map<LinearLayout, Runnable> actionsMap = new LinkedHashMap<>(playlists.length);
-
                         int libraryIconId = QueueManager.SAVE_QUEUE.drawableId;
 
                         for (Pair<String, String> playlist : playlists) {
@@ -296,12 +284,10 @@ public class PlaylistPatch extends AuthUtils {
                             Runnable action = () -> saveToPlaylist(playlistId, title);
                             LinearLayout itemLayout = ExtendedUtils.createItemLayout(mContext, title, libraryIconId);
                             actionsMap.putIfAbsent(itemLayout, action);
-                            mLinearLayout.addView(itemLayout);
+                            mainLayout.addView(itemLayout);
                         }
 
-                        mScrollView.addView(mLinearLayout);
-
-                        ExtendedUtils.showBottomSheetDialog(mContext, mScrollView, actionsMap);
+                        ExtendedUtils.showBottomSheetDialog(mContext, mainLayout, actionsMap);
                         GetPlaylistsRequest.clear();
                     }
                 }

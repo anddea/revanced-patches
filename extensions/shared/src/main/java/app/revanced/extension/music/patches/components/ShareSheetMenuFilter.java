@@ -8,7 +8,7 @@ import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
 
 /**
- * Abuse LithoFilter for {@link ShareSheetPatch}.
+ * LithoFilter for {@link ShareSheetPatch}.
  */
 public final class ShareSheetMenuFilter extends Filter {
     // Must be volatile or synchronized, as litho filtering runs off main thread and this field is then access from the main thread.

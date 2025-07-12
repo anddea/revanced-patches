@@ -90,7 +90,7 @@ public class FullscreenAdsPatch {
                 // Dismiss dialog.
                 dialog.dismiss();
 
-                if (BaseSettings.ENABLE_DEBUG_LOGGING.get()) {
+                if (BaseSettings.DEBUG_TOAST_ON_ERROR.get()) {
                     Utils.showToastShort(str("revanced_fullscreen_ads_closed_toast"));
                 }
             }

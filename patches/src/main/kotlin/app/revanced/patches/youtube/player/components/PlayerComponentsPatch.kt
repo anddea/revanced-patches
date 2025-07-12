@@ -21,6 +21,7 @@ import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.SPANS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.revanced.patches.youtube.utils.fix.suggestedvideoendscreen.suggestedVideoEndScreenPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.PLAYER_COMPONENTS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
@@ -308,6 +309,7 @@ val playerComponentsPatch = bytecodePatch(
         controlsOverlayConfigPatch,
         inclusiveSpanPatch,
         lithoFilterPatch,
+        lithoLayoutPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
         speedOverlayPatch,

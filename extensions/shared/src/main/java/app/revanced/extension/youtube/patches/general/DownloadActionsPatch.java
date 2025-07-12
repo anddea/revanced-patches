@@ -101,8 +101,8 @@ public final class DownloadActionsPatch {
     /**
      * Injection point.
      */
-    public static boolean overridePlaylistDownloadButtonVisibility() {
-        return OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON;
+    public static boolean overridePlaylistDownloadButtonVisibility(boolean original) {
+        return OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON || original;
     }
 
 }

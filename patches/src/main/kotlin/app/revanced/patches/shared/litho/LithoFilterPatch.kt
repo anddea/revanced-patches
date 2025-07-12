@@ -2,35 +2,27 @@ package app.revanced.patches.shared.litho
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.conversionContextFingerprintToString2
 import app.revanced.patches.shared.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_20_05_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_20_20_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_20_22_or_greater
-import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
+import app.revanced.patches.youtube.utils.playservice.*
 import app.revanced.util.*
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.fingerprint.mutableClassOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.util.logging.Logger
@@ -57,7 +49,7 @@ val lithoFilterPatch = bytecodePatch(
 
     execute {
         // `componentContextSubParserFingerprint` is specific to the YouTube app.
-        isYouTube = conversionContextFingerprintToString.originalClassDefOrNull != null
+        isYouTube = conversionContextFingerprintToString.originalClassDefOrNull != null && is_20_13_or_greater
         // print("isYouTube: $isYouTube\n")
 
         if (isYouTube) {
@@ -81,117 +73,113 @@ val lithoFilterPatch = bytecodePatch(
 
             // region Pass the buffer into extension.
 
-            protobufBufferReferenceFingerprint.method.addInstruction(
+            // if (is_19_25_or_greater) {
+            //     // Hook method that bridges between UPB buffer native code and FB Litho.
+            //     protobufBufferReferenceFingerprint.let {
+            //         // Hook the buffer after the call to jniDecode().
+            //         it.method.addInstruction(
+            //             it.patternMatch!!.endIndex + 1,
+            //             "invoke-static { p1 }, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->setProtoBuffer([B)V",
+            //         )
+            //     }
+            // }
+
+            // Legacy non-native buffer.
+            protobufBufferReferenceLegacyFingerprint.method.addInstruction(
                 0,
                 "invoke-static { p2 }, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
             )
 
             // endregion
 
-            // region Hook the method that parses bytes into a ComponentContext.
 
-            // 20.20+ has combined the two methods together,
-            // and the sub parser fingerprint identifies the method to patch.
-            val contextParserMethodToModifyFingerprint =
-                if (is_20_20_or_greater) componentContextSubParserFingerprint
-                else componentContextParserFingerprint
+            // region Modify the create component method and
+            // if the component is filtered then return an empty component.
 
-            // Allow the method to run to completion, and override the
-            // return value with an empty component if it should be filtered.
-            // It is important to allow the original code to always run to completion,
-            // otherwise memory leaks and poor app performance can occur.
-            //
-            // The extension filtering result needs to be saved off somewhere, but cannot
-            // save to a class field since the target class is called by multiple threads.
-            // It would be great if there was a way to change the register count of the
-            // method implementation and save the result to a high register to later use
-            // in the method, but there is no simple way to do that.
-            // Instead, save the extension filter result to a thread local and check the
-            // filtering result at each method return index.
-            // String field for the litho identifier.
-            contextParserMethodToModifyFingerprint.method.apply {
-                val conversionContextClass = conversionContextFingerprintToString.originalClassDef
-
-                val conversionContextIdentifierField = componentContextSubParserFingerprint.match(
-                    contextParserMethodToModifyFingerprint.originalClassDef
-                ).let {
-                    // Identifier field is loaded just before the string declaration.
-                    val index = it.method.indexOfFirstInstructionReversedOrThrow(
-                        it.stringMatches!!.first().index
-                    ) {
-                        val reference = getReference<FieldReference>()
-                        reference?.definingClass == conversionContextClass.type
-                                && reference.type == "Ljava/lang/String;"
-                    }
-                    it.method.getInstruction<ReferenceInstruction>(index).getReference<FieldReference>()
+            // Find the identifier/path fields of the conversion context.
+            val conversionContextIdentifierField = componentContextParserFingerprint.let {
+                // Identifier field is loaded just before the string declaration.
+                val index = it.method.indexOfFirstInstructionReversedOrThrow(
+                    it.stringMatches!!.first().index
+                ) {
+                    val reference = getReference<FieldReference>()
+                    reference?.definingClass == conversionContextFingerprintToString.originalClassDef.type
+                            && reference.type == "Ljava/lang/String;"
                 }
 
-                // StringBuilder field for the litho path.
-                val conversionContextPathBuilderField = conversionContextClass.fields
-                    .single { field -> field.type == "Ljava/lang/StringBuilder;" }
+                it.method.getInstruction<ReferenceInstruction>(index).getReference<FieldReference>()!!
+            }
 
-                val conversionContextResultIndex = indexOfFirstInstructionOrThrow {
-                    val reference = getReference<MethodReference>()
-                    reference?.returnType == conversionContextClass.type
-                } + 1
+            val conversionContextPathBuilderField = conversionContextFingerprintToString.originalClassDef
+                .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
 
-                val conversionContextResultRegister = getInstruction<OneRegisterInstruction>(
-                    conversionContextResultIndex
-                ).registerA
+            // Find class and methods to create an empty component.
+            val builderMethodDescriptor = emptyComponentFingerprint.classDef.methods.single {
+                // The only static method in the class.
+                    method -> AccessFlags.STATIC.isSet(method.accessFlags)
+            }
+            val emptyComponentField = classBy {
+                // Only one field that matches.
+                it.type == builderMethodDescriptor.returnType
+            }!!.immutableClass.fields.single()
 
-                val identifierRegister = findFreeRegister(
-                    conversionContextResultIndex, conversionContextResultRegister
-                )
-                val stringBuilderRegister = findFreeRegister(
-                    conversionContextResultIndex, conversionContextResultRegister, identifierRegister
-                )
+            emptyComponentLabel = """
+                move-object/from16 v0, p1
+                invoke-static {v0}, $builderMethodDescriptor
+                move-result-object v0
+                iget-object v0, v0, $emptyComponentField
+                return-object v0
+            """
 
-                // Check if the component should be filtered, and save the result to a thread local.
+            componentCreateFingerprint.methodOrThrow().apply {
+                val insertIndex = if (is_19_17_or_greater) {
+                    indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
+                } else {
+                    // 19.16 clobbers p2 so must check at start of the method and not at the return index.
+                    0
+                }
+
+                val freeRegister = findFreeRegister(insertIndex)
+                val identifierRegister = findFreeRegister(insertIndex, freeRegister)
+                val pathRegister = findFreeRegister(insertIndex, freeRegister, identifierRegister)
+
                 addInstructionsAtControlFlowLabel(
-                    conversionContextResultIndex + 1,
+                    insertIndex,
                     """
-                        iget-object v$identifierRegister, v$conversionContextResultRegister, $conversionContextIdentifierField
-                        iget-object v$stringBuilderRegister, v$conversionContextResultRegister, $conversionContextPathBuilderField
-                        invoke-static { v$identifierRegister, v$stringBuilderRegister, v$conversionContextResultRegister }, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;Ljava/lang/Object;)V
-                    """
-                )
-
-                // Get the only static method in the class.
-                val builderMethodDescriptor = emptyComponentFingerprint.classDef.methods.single { method ->
-                    AccessFlags.STATIC.isSet(method.accessFlags)
-                }
-                // Only one field.
-                val emptyComponentField = classBy { classDef ->
-                    classDef.type == builderMethodDescriptor.returnType
-                }!!.immutableClass.fields.single()
-
-                // Check at each return value if the component is filtered,
-                // and return an empty component if filtering is needed.
-                findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { returnIndex ->
-                    val freeRegister = findFreeRegister(returnIndex)
-
-                    emptyComponentLabel = """
-                        invoke-static { }, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->shouldFilter()Z
+                        move-object/from16 v$freeRegister, p2
+    
+                        # Required for YouTube Music.
+                        check-cast v$freeRegister, ${conversionContextIdentifierField.definingClass}
+    
+                        iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
+                        iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
+                        invoke-static {v$pathRegister, v$identifierRegister, v$freeRegister}, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->shouldFilter(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :unfiltered
-        
-                        move-object/from16 v$freeRegister, p1
-                        invoke-static { v$freeRegister }, $builderMethodDescriptor
-                        move-result-object v$freeRegister
-                        iget-object v$freeRegister, v$freeRegister, $emptyComponentField
-                        return-object v$freeRegister
-        
+                        """ + emptyComponentLabel + """
                         :unfiltered
-                        nop    
+                        nop
                     """
-
-                    addInstructionsAtControlFlowLabel(
-                        returnIndex, emptyComponentLabel
-                    )
-                }
+                )
             }
 
             // endregion
+
+
+            // region Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube.
+
+            lithoThreadExecutorFingerprint.methodOrThrow().addInstructions(
+                0,
+                """
+                    invoke-static { p1 }, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->getExecutorCorePoolSize(I)I
+                    move-result p1
+                    invoke-static { p2 }, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->getExecutorMaxThreads(I)I
+                    move-result p2
+                """
+            )
+
+            // endregion
+
 
             // region A/B test of new Litho native code.
 
@@ -201,30 +189,23 @@ val lithoFilterPatch = bytecodePatch(
             // Flag was removed in 20.05. It appears a new flag might be used instead (45660109L),
             // but if the flag is forced on then litho filtering still works correctly.
             if (is_19_25_or_greater && !is_20_05_or_greater) {
-                lithoComponentNameUpbFeatureFlagFingerprint.method.apply {
-                    // Don't use return early, so the debug patch logs if this was originally on.
-                    val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN)
-                    val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                    addInstruction(insertIndex, "const/4 v$register, 0x0")
-                }
+                lithoComponentNameUpbFeatureFlagFingerprint.method.returnLate(false)
             }
 
             // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
-            // If this is enabled, then the litho protobuf hook will always show an empty buffer
-            // since it's no longer handled by the hooked Java code.
-            lithoConverterBufferUpbFeatureFlagFingerprint.let { it ->
+            lithoConverterBufferUpbFeatureFlagFingerprint.let {
+                // FIXME: Protocol buffer has changed in 20.22, and UPB native code is now always enabled.
                 if (is_20_22_or_greater) {
                     Logger.getLogger(this::class.java.name).severe(
-                        "Litho filtering does not yet support 20.22+ Many UI components will not be hidden."
-                    )
+                        "\n!!!\n!!! Litho filtering does not yet support 20.22+  Many UI components will not be hidden.\n!!!")
                 }
-                it.method.apply {
-                    val override = if (is_20_22_or_greater) 0x1 else 0x0
-                    val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
-                    addInstruction(index + 1, "const/4 v$register, $override")
-                }
+
+                // // 20.22 the flag is still enabled in one location, but what it does is not clear.
+                // // Disable it anyway.
+                // it.method.insertLiteralOverride(
+                //     it.patternMatch!!.startIndex - 1,
+                //     false
+                // )
             }
 
             // endregion
@@ -238,106 +219,107 @@ val lithoFilterPatch = bytecodePatch(
 
             // endregion
 
-            var (emptyComponentMethod, emptyComponentLabel) =
-                emptyComponentsFingerprint.matchOrThrow().let {
-                    with(it.method) {
-                        val emptyComponentMethodIndex = it.patternMatch!!.startIndex + 1
-                        val emptyComponentMethodReference =
-                            getInstruction<ReferenceInstruction>(emptyComponentMethodIndex).reference
-                        val emptyComponentFieldReference =
-                            getInstruction<ReferenceInstruction>(emptyComponentMethodIndex + 2).reference
+            // region Hook the method that parses bytes into a ComponentContext.
 
-                        val label = """
-                        move-object/from16 v0, p1
-                        invoke-static {v0}, $emptyComponentMethodReference
-                        move-result-object v0
-                        iget-object v0, v0, $emptyComponentFieldReference
-                        return-object v0
-                        """
+            // Allow the method to run to completion, and override the
+            // return value with an empty component if it should be filtered.
+            // It is important to allow the original code to always run to completion,
+            // otherwise high memory usage and poor app performance can occur.
 
-                        emptyComponentLabel = label
+            // Find the identifier/path fields of the conversion context.
+            val conversionContextClass = conversionContextFingerprintToString2
+                .matchOrThrow()
+                .originalClassDef
 
-                        Pair(this, label)
-                    }
+            val conversionContextIdentifierField = componentContextParserFingerprint2.matchOrThrow().let {
+                // Identifier field is loaded just before the string declaration.
+                val index = it.method.indexOfFirstInstructionReversedOrThrow(
+                    it.stringMatches!!.first().index
+                ) {
+                    val reference = getReference<FieldReference>()
+                    reference?.definingClass == conversionContextClass.type
+                            && reference.type == "Ljava/lang/String;"
                 }
 
-            fun checkMethodSignatureMatch(pathBuilder: MutableMethod) = emptyComponentMethod.apply {
-                if (!MethodUtil.methodSignaturesMatch(pathBuilder, this)) {
-                    implementation!!.instructions
-                        .withIndex()
-                        .filter { (_, instruction) ->
-                            val reference = (instruction as? ReferenceInstruction)?.reference
-                            reference is MethodReference &&
-                                    MethodUtil.methodSignaturesMatch(pathBuilder, reference)
-                        }
-                        .map { (index, _) -> index }
-                        .reversed()
-                        .forEach { index ->
-                            val insertInstruction = getInstruction(index + 1)
-                            if (insertInstruction is OneRegisterInstruction) {
-                                val insertRegister =
-                                    insertInstruction.registerA
-                                val insertIndex = index + 2
-
-                                addInstructionsWithLabels(
-                                    insertIndex, """
-                                    if-nez v$insertRegister, :ignore
-                                    """ + emptyComponentLabel,
-                                    ExternalLabel("ignore", getInstruction(insertIndex))
-                                )
-                            }
-                        }
-
-                    emptyComponentLabel = """
-                    const/4 v0, 0x0
-                    return-object v0
-                    """
-                }
+                it.method.getInstruction<ReferenceInstruction>(index).getReference<FieldReference>()!!
             }
 
-            pathBuilderFingerprint.methodOrThrow().apply {
-                checkMethodSignatureMatch(this)
+            val conversionContextPathBuilderField = conversionContextClass
+                .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
 
-                val stringBuilderIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.IPUT_OBJECT &&
-                            getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
+            // Find class and methods to create an empty component.
+            val builderMethodDescriptor = emptyComponentFingerprint2
+                .mutableClassOrThrow()
+                .methods
+                .single {
+                    // The only static method in the class.
+                        method ->
+                    AccessFlags.STATIC.isSet(method.accessFlags)
                 }
-                val stringBuilderRegister =
-                    getInstruction<TwoRegisterInstruction>(stringBuilderIndex).registerA
+            val emptyComponentField = classBy {
+                // Only one field that matches.
+                it.type == builderMethodDescriptor.returnType
+            }!!.immutableClass.fields.single()
 
-                val emptyStringIndex = indexOfFirstStringInstruction("")
-                val relativeIndex = if (emptyStringIndex > -1) {
-                    emptyStringIndex
+            emptyComponentLabel = """
+            move-object/from16 v0, p1
+            invoke-static {v0}, $builderMethodDescriptor
+            move-result-object v0
+            iget-object v0, v0, $emptyComponentField
+            return-object v0
+            """
+
+            val isLegacyMethod = MethodUtil.methodSignaturesMatch(
+                componentContextParserLegacyFingerprint.methodOrThrow(),
+                componentContextParserFingerprint2.methodOrThrow()
+            )
+
+            componentCreateFingerprint.methodOrThrow().apply {
+                val insertIndex = if (isLegacyMethod) {
+                    // YT 19.16 and YTM 6.51 clobbers p2 so must check at start of the method and not at the return index.
+                    0
                 } else {
-                    val separatorIndex = indexOfFirstStringInstructionOrThrow("|")
-                    indexOfFirstInstructionOrThrow(separatorIndex) {
-                        opcode == Opcode.NEW_INSTANCE &&
-                                getReference<TypeReference>()?.type == "Ljava/lang/StringBuilder;"
-                    }
+                    indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
                 }
 
-                val identifierRegister = getInstruction<TwoRegisterInstruction>(
-                    indexOfFirstInstructionReversedOrThrow(relativeIndex) {
-                        opcode == Opcode.IPUT_OBJECT
-                                && getReference<FieldReference>()?.type == "Ljava/lang/String;"
-                    }
-                ).registerA
-                val objectRegister = getInstruction<FiveRegisterInstruction>(
-                    indexOfFirstInstructionOrThrow(relativeIndex, Opcode.INVOKE_VIRTUAL)
-                ).registerC
+                val freeRegister = findFreeRegister(insertIndex)
+                val identifierRegister = findFreeRegister(insertIndex, freeRegister)
+                val pathRegister = findFreeRegister(insertIndex, freeRegister, identifierRegister)
 
-                val insertIndex = stringBuilderIndex + 1
+                addInstructionsAtControlFlowLabel(
+                    insertIndex,
+                    """
+                    move-object/from16 v$freeRegister, p2
 
-                addInstructionsWithLabels(
-                    insertIndex, """
-                    invoke-static { v$identifierRegister, v$stringBuilderRegister, v$objectRegister }, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;Ljava/lang/Object;)V
-                    invoke-static {}, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->shouldFilter()Z
-                    move-result v$stringBuilderRegister
-                    if-eqz v$stringBuilderRegister, :filter
-                    """ + emptyComponentLabel,
-                    ExternalLabel("filter", getInstruction(insertIndex))
+                    # Required for YouTube Music.
+                    check-cast v$freeRegister, ${conversionContextIdentifierField.definingClass}
+
+                    iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
+                    iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
+                    invoke-static {v$pathRegister, v$identifierRegister, v$freeRegister}, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->shouldFilter(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
+                    move-result v$freeRegister
+                    if-eqz v$freeRegister, :unfiltered
+                    """ + emptyComponentLabel + """
+                    :unfiltered
+                    nop
+                    """
                 )
             }
+
+            // endregion
+
+            // region Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube.
+
+            lithoThreadExecutorFingerprint.methodOrThrow().addInstructions(
+                0, """
+                invoke-static { p1 }, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->getExecutorCorePoolSize(I)I
+                move-result p1
+                invoke-static { p2 }, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->getExecutorMaxThreads(I)I
+                move-result p2
+                """
+            )
+
+            // endregion
 
             // region A/B test of new Litho native code.
 

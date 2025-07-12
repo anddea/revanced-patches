@@ -30,32 +30,49 @@ public class ThemeUtils extends BaseThemeUtils {
     private static boolean lastThemeWasDark; // Tracks the last theme to detect changes
 
     public static int getThemeId() {
-        final String themeName = isDarkTheme()
+        final String themeName = isDarkModeEnabled()
                 ? "Theme.YouTube.Settings.Dark"
                 : "Theme.YouTube.Settings";
         return ResourceUtils.getStyleIdentifier(themeName);
     }
 
     public static Drawable getBackButtonDrawable() {
-        final String drawableName = isDarkTheme()
+        final String drawableName = isDarkModeEnabled()
                 ? "yt_outline_arrow_left_white_24"
                 : "yt_outline_arrow_left_black_24";
         return ResourceUtils.getDrawable(drawableName);
     }
 
     public static Drawable getTrashButtonDrawable() {
-        final String drawableName = isDarkTheme()
+        final String drawableName = isDarkModeEnabled()
                 ? "yt_outline_trash_can_white_24"
                 : "yt_outline_trash_can_black_24";
         return ResourceUtils.getDrawable(drawableName);
     }
 
     public static int getDialogBackgroundColor() {
-        final String colorName = isDarkTheme()
+        final String colorName = isDarkModeEnabled()
                 ? "yt_black1"
                 : "yt_white1";
 
         return Utils.getColorFromString(colorName);
+    }
+
+    /**
+     * Adjusts the background color based on the current theme.
+     *
+     * @param isHandleBar If true, applies a stronger darkening factor (0.9) for the handle bar in light theme;
+     *                    if false, applies a standard darkening factor (0.95) for other elements in light theme.
+     * @return A modified background color, lightened by 20% for dark themes or darkened by 5% (or 10% for handle bar)
+     * for light themes to ensure visual contrast.
+     */
+    public static int getAdjustedBackgroundColor(boolean isHandleBar) {
+        final int baseColor = getDialogBackgroundColor();
+        float darkThemeFactor = isHandleBar ? 1.25f : 1.115f; // 1.25f for handleBar, 1.115f for others in dark theme.
+        float lightThemeFactor = isHandleBar ? 0.9f : 0.95f; // 0.9f for handleBar, 0.95f for others in light theme.
+        return isDarkModeEnabled()
+                ? adjustColorBrightness(baseColor, darkThemeFactor)  // Lighten for dark theme.
+                : adjustColorBrightness(baseColor, lightThemeFactor); // Darken for light theme.
     }
 
     /**
@@ -65,7 +82,7 @@ public class ThemeUtils extends BaseThemeUtils {
      * @return toolbar background color.
      */
     public static int getToolbarBackgroundColor() {
-        final String colorName = isDarkTheme()
+        final String colorName = isDarkModeEnabled()
                 ? "yt_black3"
                 : "yt_white1";
         return ResourceUtils.getColor(colorName);
@@ -78,7 +95,7 @@ public class ThemeUtils extends BaseThemeUtils {
      * @return The background color for the current theme.
      */
     public static int getBackgroundColor() {
-        boolean isDark = isDarkTheme();
+        boolean isDark = isDarkModeEnabled();
         // Check if theme has changed to invalidate cache if needed
         if (lastThemeWasDark != isDark) {
             lightThemeColor = null;
@@ -115,14 +132,14 @@ public class ThemeUtils extends BaseThemeUtils {
 
     public static int getPressedElementColor() {
         int baseColor = getBackgroundColor();
-        float factor = isDarkTheme() ? 1.15f : 0.85f;
+        float factor = isDarkModeEnabled() ? 1.15f : 0.85f;
         return adjustColorBrightness(baseColor, factor);
     }
 
     public static GradientDrawable getSearchViewShape() {
         GradientDrawable shape = new GradientDrawable();
         int baseColor = getBackgroundColor();
-        int adjustedColor = isDarkTheme()
+        int adjustedColor = isDarkModeEnabled()
                 ? adjustColorBrightness(baseColor, 1.15f)
                 : adjustColorBrightness(baseColor, 0.85f);
         shape.setColor(adjustedColor);
@@ -151,7 +168,7 @@ public class ThemeUtils extends BaseThemeUtils {
                     Logger.printDebug(() -> "Invalid highlight color: " + hexColor + ", using background color");
                 }
             }
-            float factor = isDarkTheme() ? 1.30f : 0.90f; // Match new code's factors
+            float factor = isDarkModeEnabled() ? 1.30f : 0.90f; // Match new code's factors
             cachedHighlightColor = adjustColorBrightness(baseColor, factor);
             Logger.printDebug(() -> "Cached highlight color: " + cachedHighlightColor);
         }

@@ -25,7 +25,7 @@ public final class ActionButtonsFilter extends Filter {
 
         bufferFilterPathRule = new StringFilterGroup(
                 null,
-                "|ContainerType|button.eml|"
+                "|ContainerType|button.eml"
         );
         final StringFilterGroup downloadButton = new StringFilterGroup(
                 Settings.HIDE_ACTION_BUTTON_DOWNLOAD,

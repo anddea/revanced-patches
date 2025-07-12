@@ -161,8 +161,8 @@ public class YandexVotUtils {
                 .build();
 
         try (Response response = httpClient.newCall(request).execute()) {
-            if (!response.isSuccessful() || response.body() == null) {
-                String bodyString = response.body() != null ? response.body().string() : "<failed>";
+            if (!response.isSuccessful()) {
+                String bodyString = response.body().string();
                 Logger.printException(() -> "VOT: Failed to create session: " + response.code() + " " + response.message() + ", Body: " + bodyString);
                 throw new IOException("Failed to create session: " + response.code());
             }
@@ -467,8 +467,8 @@ public class YandexVotUtils {
                 .build();
 
         try (Response response = httpClient.newCall(request).execute()) {
-            if (!response.isSuccessful() || response.body() == null) {
-                String bodyString = response.body() != null ? response.body().string() : "<failed>";
+            if (!response.isSuccessful()) {
+                String bodyString = response.body().string();
                 Logger.printException(() -> "VOT: Translation request failed: " + response.code() + " " + response.message() + ", Body: " + bodyString);
                 throw new IOException("API Error: " + response.code());
             }
@@ -502,8 +502,8 @@ public class YandexVotUtils {
                 .build();
 
         try (Response response = httpClient.newCall(request).execute()) {
-            if (!response.isSuccessful() || response.body() == null) {
-                String bodyString = response.body() != null ? response.body().string() : "<failed>";
+            if (!response.isSuccessful()) {
+                String bodyString = response.body().string();
                 Logger.printException(() -> "VOT: Failed to get subtitle tracks: " + response.code() + " " + response.message() + ", Body: " + bodyString);
                 return null;
             }
@@ -555,7 +555,7 @@ public class YandexVotUtils {
 
         try (Response response = httpClient.newCall(request).execute()) {
             if (!response.isSuccessful()) {
-                String bodyString = response.body() != null ? response.body().string() : "<failed>";
+                String bodyString = response.body().string();
                 Logger.printException(() -> "VOT: Failed fail-audio-js request: " + response.code() + " " + response.message() + ", Body: " + bodyString);
             } else {
                 Logger.printDebug(() -> "VOT: Successfully sent fail-audio-js request: " + response.code());
@@ -591,7 +591,7 @@ public class YandexVotUtils {
 
             try (Response response = httpClient.newCall(request).execute()) {
                 if (!response.isSuccessful()) {
-                    String bodyString = response.body() != null ? response.body().string() : "<failed>";
+                    String bodyString = response.body().string();
                     Logger.printException(() -> "VOT: Failed /audio request: " + response.code() + " " + response.message() + ", Body: " + bodyString);
                 } else {
                     Logger.printDebug(() -> "VOT: Successfully sent /audio request: " + response.code());
@@ -756,8 +756,8 @@ public class YandexVotUtils {
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) {
                 try (ResponseBody body = response.body()) {
-                    if (!response.isSuccessful() || body == null) {
-                        String bodyPreview = body != null ? body.source().peek().readString(1024, StandardCharsets.UTF_8) : "<failed>";
+                    if (!response.isSuccessful()) {
+                        String bodyPreview = body.source().peek().readString(1024, StandardCharsets.UTF_8);
                         Logger.printException(() -> "VOT: Failed to download subtitle: " + response.code() + " " + response.message() + ", Preview: " + bodyPreview);
                         postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_download_subs_failed", response.code())));
                         return;

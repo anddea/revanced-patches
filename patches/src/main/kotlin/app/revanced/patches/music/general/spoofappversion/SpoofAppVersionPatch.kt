@@ -72,7 +72,7 @@ val spoofAppVersionPatch = resourcePatch(
             "7.16.53",
             "7.25.53",
             "8.05.51",
-            "8.10.52",
+            "8.12.53",
         ),
     )
 

@@ -12,6 +12,20 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
+internal val conversionContextFingerprintToString2 = legacyFingerprint(
+    name = "conversionContextFingerprintToString2",
+    parameters = emptyList(),
+    strings = listOf(
+        // YTM 6.20: "ConversionContext{container="
+        // Others:   "ConversionContext{containerInternal="
+        "ConversionContext{container",
+        ", identifierProperty="
+    ),
+    customFingerprint = { method, _ ->
+        method.name == "toString"
+    }
+)
+
 internal val createPlayerRequestBodyWithModelFingerprint = legacyFingerprint(
     name = "createPlayerRequestBodyWithModelFingerprint",
     returnType = "L",

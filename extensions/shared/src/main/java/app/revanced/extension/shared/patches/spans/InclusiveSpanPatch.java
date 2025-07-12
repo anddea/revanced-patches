@@ -127,7 +127,7 @@ public final class InclusiveSpanPatch {
             filterUsingCallbacks(filter, filter.callbacks);
         }
 
-        if (BaseSettings.ENABLE_DEBUG_BUFFER_LOGGING.get()) {
+        if (BaseSettings.DEBUG_SPANNABLE.get()) {
             Logger.printDebug(() -> "Using: "
                     + searchTree.numberOfPatterns() + " conversion context filters"
                     + " (" + searchTree.getEstimatedMemorySize() + " KB)");
@@ -172,7 +172,7 @@ public final class InclusiveSpanPatch {
             LithoFilterParameters parameter =
                     new LithoFilterParameters(conversionContext, spannableString, span, start, end, flags);
 
-            if (BaseSettings.ENABLE_DEBUG_BUFFER_LOGGING.get()) {
+            if (BaseSettings.DEBUG_SPANNABLE.get()) {
                 Logger.printDebug(() -> "Searching...\n\u200B\n" + parameter);
             }
 

@@ -3,10 +3,6 @@ package app.revanced.extension.shared.settings.preference;
 import static app.revanced.extension.shared.utils.StringRef.str;
 
 import android.app.Activity;
-import android.graphics.Point;
-import android.view.Display;
-import android.view.Window;
-import android.view.WindowManager;
 
 import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.utils.Logger;
@@ -42,17 +38,6 @@ public class YouTubeDataAPIDialogBuilder {
             Utils.runOnMainThreadNowOrLater(() -> {
                 WebViewDialog webViewDialog = new WebViewDialog(mActivity, htmlDialog);
                 webViewDialog.show();
-
-                final Window window = webViewDialog.getWindow();
-                if (window == null) return;
-                Display display = mActivity.getWindowManager().getDefaultDisplay();
-                Point size = new Point();
-                display.getSize(size);
-
-                WindowManager.LayoutParams params = window.getAttributes();
-                params.height = (int) (size.y * 0.6);
-
-                window.setAttributes(params);
             });
         } catch (Exception ex) {
             Logger.printException(() -> "dialogBuilder failure", ex);
