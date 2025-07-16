@@ -92,9 +92,12 @@ val lithoFilterPatch = bytecodePatch(
 
             // endregion
 
+            // region Hook the method that parses bytes into a ComponentContext.
 
-            // region Modify the create component method and
-            // if the component is filtered then return an empty component.
+            // Allow the method to run to completion, and override the
+            // return value with an empty component if it should be filtered.
+            // It is important to allow the original code to always run to completion,
+            // otherwise high memory usage and poor app performance can occur.
 
             // Find the identifier/path fields of the conversion context.
             val conversionContextIdentifierField = componentContextParserFingerprint.let {
@@ -189,23 +192,30 @@ val lithoFilterPatch = bytecodePatch(
             // Flag was removed in 20.05. It appears a new flag might be used instead (45660109L),
             // but if the flag is forced on then litho filtering still works correctly.
             if (is_19_25_or_greater && !is_20_05_or_greater) {
-                lithoComponentNameUpbFeatureFlagFingerprint.method.returnLate(false)
+                lithoComponentNameUpbFeatureFlagFingerprint.method.apply {
+                    // Don't use return early, so the debug patch logs if this was originally on.
+                    val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN)
+                    val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                    addInstruction(insertIndex, "const/4 v$register, 0x0")
+                }
             }
 
             // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
-            lithoConverterBufferUpbFeatureFlagFingerprint.let {
-                // FIXME: Protocol buffer has changed in 20.22, and UPB native code is now always enabled.
+            // If this is enabled, then the litho protobuffer hook will always show an empty buffer
+            // since it's no longer handled by the hooked Java code.
+            lithoConverterBufferUpbFeatureFlagFingerprint.let { it ->
                 if (is_20_22_or_greater) {
                     Logger.getLogger(this::class.java.name).severe(
-                        "\n!!!\n!!! Litho filtering does not yet support 20.22+  Many UI components will not be hidden.\n!!!")
+                        "Litho filtering does not yet support 20.22+ Many UI components will not be hidden."
+                    )
                 }
-
-                // // 20.22 the flag is still enabled in one location, but what it does is not clear.
-                // // Disable it anyway.
-                // it.method.insertLiteralOverride(
-                //     it.patternMatch!!.startIndex - 1,
-                //     false
-                // )
+                it.method.apply {
+                    val override = if (is_20_22_or_greater) 0x1 else 0x0
+                    val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+                    addInstruction(index + 1, "const/4 v$register, $override")
+                }
             }
 
             // endregion
