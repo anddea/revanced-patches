@@ -1594,6 +1594,38 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         }
     }
 
+    /**
+     * Set Preference to Debug settings submenu
+     */
+    private void setDebugLogPreference() {
+        Preference clearLog = findPreference("revanced_debug_logs_clear_buffer");
+        if (clearLog == null) {
+            return;
+        }
+        clearLog.setOnPreferenceClickListener(pref -> {
+            LogBufferManager.clearLogBuffer();
+            return false;
+        });
+
+        Preference exportLogToClipboard = findPreference("revanced_debug_export_logs_to_clipboard");
+        if (exportLogToClipboard == null) {
+            return;
+        }
+        exportLogToClipboard.setOnPreferenceClickListener(pref -> {
+            LogBufferManager.exportToClipboard();
+            return false;
+        });
+
+        Preference exportLogToFile = findPreference("revanced_debug_export_logs_to_file");
+        if (exportLogToFile == null) {
+            return;
+        }
+        exportLogToFile.setOnPreferenceClickListener(pref -> {
+            exportActivity();
+            return false;
+        });
+    }
+
     // endregion Import/Export
 
     @SuppressLint("ResourceType")
@@ -1616,6 +1648,9 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
 
             // Import/export
             setBackupRestorePreference();
+
+            // Debug log
+            setDebugLogPreference();
 
             // Store all preferences and their dependencies for search
             initializeCustomDependencies();
