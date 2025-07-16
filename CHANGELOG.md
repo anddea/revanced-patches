@@ -1,3 +1,10 @@
+# [3.10.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.6...v3.10.0-dev.7) (2025-07-16)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix hiding some elements in newer versions ([908d4a3](https://github.com/anddea/revanced-patches/commit/908d4a35a158c1b8e936be25a44b34552962c6fc))
+
 # [3.10.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.5...v3.10.0-dev.6) (2025-07-16)
 
 

@@ -1564,26 +1564,6 @@
     ]
   },
   {
-    "name": "Hex",
-    "description": "Replaces a hexadecimal patterns of bytes of files in an APK.",
-    "use": false,
-    "dependencies": [
-      "RawResourcePatch"
-    ],
-    "compatiblePackages": null,
-    "options": [
-      {
-        "key": "replacements",
-        "title": "Replacements",
-        "description": "Hexadecimal patterns to search for and replace with another in a target file.\n\nA pattern is a sequence of case insensitive strings, each representing hexadecimal bytes, separated by spaces.\nAn example pattern is \u0027aa 01 02 FF\u0027.\n\nEvery pattern must be followed by a pipe (\u0027|\u0027), the replacement pattern,\nanother pipe (\u0027|\u0027), and the path to the file to make the changes in relative to the APK root. \nThe replacement pattern must be shorter or equal in length to the pattern.\n\nFull example of a valid replacement:\n\u002701 02 aa FF|03 04|path/to/file\u0027",
-        "required": true,
-        "type": "kotlin.collections.List\u003ckotlin.String\u003e",
-        "default": null,
-        "values": null
-      }
-    ]
-  },
-  {
     "name": "Hide Create button",
     "description": "Hides the \"Create\" button in the navigation bar.",
     "use": true,
