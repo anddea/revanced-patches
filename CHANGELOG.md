@@ -1,3 +1,16 @@
+# [3.10.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.5...v3.10.0-dev.6) (2025-07-16)
+
+
+### Bug Fixes
+
+* **Spotify - Lyrics search:** Add persistence for floating lyrics search button position across sessions ([02658ff](https://github.com/anddea/revanced-patches/commit/02658ff15e1bf477673493691211fad41c36af96))
+
+
+### Features
+
+* Align with RVX ([v5.7.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.7.1)) ([2d9f71c](https://github.com/anddea/revanced-patches/commit/2d9f71cf0f446438929a0eb747c0cf88058e154a))
+* **Spotify:** Add `Spoof client` patch ([bb74b5c](https://github.com/anddea/revanced-patches/commit/bb74b5c886fb9a8f0bcf735ebdb69a1da8ffe04e))
+
 # [3.10.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.4...v3.10.0-dev.5) (2025-06-22)
 
 
