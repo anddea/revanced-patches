@@ -21,7 +21,7 @@ val debuggingPatch = bytecodePatch(
 
         addPreference(
             arrayOf(
-                "SETTINGS: ENABLE_DEBUG_LOGGING"
+                "SETTINGS: DEBUGGING"
             ),
             ENABLE_DEBUG_LOGGING
         )

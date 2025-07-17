@@ -53,7 +53,7 @@ public class PackageUtils extends Utils {
     }
 
     public static int getSmallestScreenWidthDp() {
-        return getContext().getResources().getConfiguration().smallestScreenWidthDp;
+        return getResources(false).getConfiguration().smallestScreenWidthDp;
     }
 
     // utils

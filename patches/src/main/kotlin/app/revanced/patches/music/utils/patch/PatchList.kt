@@ -71,7 +71,7 @@ internal enum class PatchList(
     ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
-        "Adds an option to enable debug logging."
+        "Adds an option for debugging."
     ),
     ENABLE_LANDSCAPE_MODE(
         "Enable landscape mode",
@@ -176,5 +176,11 @@ internal enum class PatchList(
     WATCH_HISTORY(
         "Watch history",
         "Adds an option to change the domain of the watch history or check its status."
+    ),
+
+    // Not shown in README.md.
+    LITHO_FILTER(
+        "Litho filter",
+        "Adds an option to hide or debug litho components."
     )
 }

@@ -1,14 +1,12 @@
 package app.revanced.extension.youtube.swipecontrols.controller.gesture.core
 
-import android.content.Context
-import android.util.TypedValue
+import app.revanced.extension.shared.utils.Utils.dipToPixels
 import app.revanced.extension.youtube.patches.video.PlaybackSpeedPatch.userSelectedPlaybackSpeed
 import app.revanced.extension.youtube.shared.VideoInformation
 import app.revanced.extension.youtube.swipecontrols.controller.AudioVolumeController
 import app.revanced.extension.youtube.swipecontrols.controller.ScreenBrightnessController
 import app.revanced.extension.youtube.swipecontrols.misc.ScrollDistanceHelper
 import app.revanced.extension.youtube.swipecontrols.misc.SwipeControlsOverlay
-import app.revanced.extension.youtube.swipecontrols.misc.applyDimension
 import kotlin.math.roundToInt
 import kotlin.math.roundToLong
 
@@ -53,48 +51,44 @@ interface VolumeAndBrightnessScroller {
 /**
  * handles scrolling of volume and brightness, adjusts them using the provided controllers and updates the overlay
  *
- * @param context context to create the scrollers in
  * @param volumeController volume controller instance. if null, volume control is disabled
  * @param screenController screen brightness controller instance. if null, brightness control is disabled
  * @param overlayController overlay controller instance
  * @param volumeDistance unit distance for volume scrolling, in dp
  * @param brightnessDistance unit distance for brightness scrolling, in dp
+ * @param volumeSwipeSensitivity how much volume will change by single swipe
  */
 class VolumeAndBrightnessScrollerImpl(
-    context: Context,
     private val volumeController: AudioVolumeController?,
     private val screenController: ScreenBrightnessController?,
     private val overlayController: SwipeControlsOverlay,
-    volumeDistance: Float = 10.0f,
-    brightnessDistance: Float = 1.0f,
+    volumeDistance: Float = 10f,
+    brightnessDistance: Float = 1f,
     speedDistance: Float = 10.0f,
     seekDistance: Float = 10.0f,
+    private val volumeSwipeSensitivity: Int,
 ) : VolumeAndBrightnessScroller {
 
     // region volume
     private val volumeScroller =
         ScrollDistanceHelper(
-            volumeDistance.applyDimension(
-                context,
-                TypedValue.COMPLEX_UNIT_DIP,
-            ),
+            dipToPixels(volumeDistance),
         ) { _, _, direction ->
             volumeController?.run {
-                volume += direction
+                volume += direction * volumeSwipeSensitivity
                 overlayController.onVolumeChanged(volume, maxVolume)
             }
         }
 
     override fun scrollVolume(distance: Double) = volumeScroller.add(distance)
+
     // endregion
 
     // region brightness
+
     private val brightnessScroller =
         ScrollDistanceHelper(
-            brightnessDistance.applyDimension(
-                context,
-                TypedValue.COMPLEX_UNIT_DIP,
-            ),
+            dipToPixels(brightnessDistance),
         ) { _, _, direction ->
             screenController?.run {
                 val shouldAdjustBrightness =
@@ -118,12 +112,9 @@ class VolumeAndBrightnessScrollerImpl(
 
     // region speed
     private val speedScroller = ScrollDistanceHelper(
-        speedDistance.applyDimension(
-            context,
-            TypedValue.COMPLEX_UNIT_DIP,
-        ),
+        dipToPixels(speedDistance),
     ) { _, _, direction ->
-        val currentSpeed = VideoInformation.getPlaybackSpeed().toFloat()
+        val currentSpeed = VideoInformation.getPlaybackSpeed()
 
         // Convert current speed to an integer representation (multiply by 100)
         // in order to fix a floating-point imprecision (1.04999 instead of 1.05)
@@ -145,10 +136,7 @@ class VolumeAndBrightnessScrollerImpl(
 
     // region seek
     private val seekScroller = ScrollDistanceHelper(
-        seekDistance.applyDimension(
-            context,
-            TypedValue.COMPLEX_UNIT_DIP,
-        ),
+        dipToPixels(seekDistance),
     ) { _, _, direction ->
         val seekAmountMillis = (direction * -500.0).roundToLong()
 

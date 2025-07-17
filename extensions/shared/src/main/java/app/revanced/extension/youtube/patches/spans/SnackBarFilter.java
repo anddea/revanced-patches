@@ -35,11 +35,11 @@ public final class SnackBarFilter extends Filter {
 
     private ForegroundColorSpan getForegroundColorSpan() {
         if (INVERT_SNACK_BAR_THEME) {
-            return ThemeUtils.isDarkTheme()
+            return ThemeUtils.isDarkModeEnabled()
                     ? foregroundColorSpanWhite
                     : foregroundColorSpanBlack;
         }
-        return ThemeUtils.isDarkTheme()
+        return ThemeUtils.isDarkModeEnabled()
                 ? foregroundColorSpanBlack
                 : foregroundColorSpanWhite;
     }

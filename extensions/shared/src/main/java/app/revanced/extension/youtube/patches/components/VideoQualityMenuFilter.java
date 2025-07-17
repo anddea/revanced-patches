@@ -4,11 +4,11 @@ import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
-import app.revanced.extension.youtube.patches.video.RestoreOldVideoQualityMenuPatch;
+import app.revanced.extension.youtube.patches.video.AdvancedVideoQualityMenuPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 /**
- * Abuse LithoFilter for {@link RestoreOldVideoQualityMenuPatch}.
+ * LithoFilter for {@link AdvancedVideoQualityMenuPatch}.
  */
 public final class VideoQualityMenuFilter extends Filter {
     // Must be volatile or synchronized, as litho filtering runs off main thread and this field is then access from the main thread.
@@ -17,7 +17,7 @@ public final class VideoQualityMenuFilter extends Filter {
     public VideoQualityMenuFilter() {
         addPathCallbacks(
                 new StringFilterGroup(
-                        Settings.RESTORE_OLD_VIDEO_QUALITY_MENU,
+                        Settings.ADVANCED_VIDEO_QUALITY_MENU,
                         "quick_quality_sheet_content.eml-js"
                 )
         );

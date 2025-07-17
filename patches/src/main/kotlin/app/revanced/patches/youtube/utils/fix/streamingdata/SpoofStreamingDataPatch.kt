@@ -16,17 +16,33 @@ import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
 import app.revanced.patches.shared.formatStreamModelConstructorFingerprint
 import app.revanced.patches.shared.spoof.blockrequest.blockRequestPatch
 import app.revanced.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
+import app.revanced.patches.youtube.utils.audiotracks.audioTracksHookPatch
+import app.revanced.patches.youtube.utils.audiotracks.hookAudioTrackId
+import app.revanced.patches.youtube.utils.auth.authHookPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
+import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.SPOOF_STREAMING_DATA
+import app.revanced.patches.youtube.utils.playercontrols.addTopControl
+import app.revanced.patches.youtube.utils.playercontrols.hookTopControlButton
+import app.revanced.patches.youtube.utils.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_50_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_20_10_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_14_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.request.buildRequestPatch
 import app.revanced.patches.youtube.utils.request.hookBuildRequest
+import app.revanced.patches.youtube.utils.settings.ResourceUtils
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.patches.youtube.video.information.hookBackgroundPlayVideoInformation
+import app.revanced.patches.youtube.video.information.videoInformationPatch
+import app.revanced.patches.youtube.video.playerresponse.Hook
+import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
+import app.revanced.patches.youtube.video.videoid.videoIdPatch
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.definingClassOrThrow
@@ -60,6 +76,20 @@ val spoofStreamingDataPatch = bytecodePatch(
         blockRequestPatch,
         buildRequestPatch,
         versionCheckPatch,
+        playerControlsPatch,
+        videoIdPatch,
+        videoInformationPatch,
+        audioTracksHookPatch,
+        authHookPatch,
+        dismissPlayerHookPatch,
+    )
+
+    val outlineIcon by booleanOption(
+        key = "outlineIcon",
+        default = false,
+        title = "Outline icons",
+        description = "Apply the outline icon.",
+        required = true
     )
 
     val useIOSClient by booleanOption(
@@ -352,7 +382,8 @@ val spoofStreamingDataPatch = bytecodePatch(
                     "$EXTENSION_CLASS_DESCRIPTOR->usePlaybackStartFeatureFlag(Z)Z"
                 )
 
-                if (is_20_10_or_greater) {
+                // In 20.14 the flag was merged with 20.03 start playback flag.
+                if (is_20_10_or_greater && !is_20_14_or_greater) {
                     onesieEncryptionAlternativeFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
                         ONESIE_ENCRYPTION_ALTERNATIVE_FEATURE_FLAG,
                         "$EXTENSION_CLASS_DESCRIPTOR->skipResponseEncryption(Z)Z"
@@ -370,6 +401,34 @@ val spoofStreamingDataPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for audio track button
+
+        val spoofPath = app.revanced.patches.youtube.utils.extension.Constants.SPOOF_PATH
+        addPlayerResponseMethodHook(
+            Hook.PlayerParameterBeforeVideoId(
+                "$spoofPath/AudioTrackPatch;->newPlayerResponseParameter(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;"
+            )
+        )
+        hookAudioTrackId("$spoofPath/AudioTrackPatch;->setAudioTrackId(Ljava/lang/String;)V")
+        hookBackgroundPlayVideoInformation("$spoofPath/AudioTrackPatch;->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+        hookTopControlButton("$spoofPath/ui/AudioTrackButtonController;")
+
+        val directory = if (outlineIcon == true)
+            "outline"
+        else
+            "default"
+
+        arrayOf(
+            ResourceGroup(
+                "drawable",
+                "revanced_audio_track.xml",
+            )
+        ).forEach { resourceGroup ->
+            ResourceUtils.getContext().copyResources("youtube/spoof/$directory", resourceGroup)
+        }
+
+        // endregion
+
         patchStatusArray.forEach { methodName ->
             findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
                 name == methodName
@@ -382,6 +441,15 @@ val spoofStreamingDataPatch = bytecodePatch(
         addPreference(
             settingArray,
             SPOOF_STREAMING_DATA
+        )
+    }
+
+    // Add the audio track button last in order to place it to the left of the subtitle button.
+    finalize {
+        addTopControl(
+            "youtube/spoof/shared",
+            "@+id/revanced_audio_track_button",
+            "@+id/revanced_audio_track_button"
         )
     }
 }

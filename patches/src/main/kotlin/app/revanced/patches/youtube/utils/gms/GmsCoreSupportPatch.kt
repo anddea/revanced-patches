@@ -57,5 +57,6 @@ private fun gmsCoreSupportResourcePatch(
         baseSpoofUserAgentPatch(YOUTUBE_PACKAGE_NAME),
         spoofStreamingDataPatch,
         settingsPatch,
+        accountCredentialsInvalidTextPatch,
     )
 }

@@ -37,11 +37,11 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Disable resuming Shorts on startup` | Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched. | 19.05.36 ~ 19.47.53 |
 | `Disable splash animation` | Adds an option to disable the splash animation on app startup. | 19.05.36 ~ 19.47.53 |
 | `Enable OPUS codec` | Adds an option to enable the OPUS audio codec if the player response includes it. | 19.05.36 ~ 19.47.53 |
-| `Enable debug logging` | Adds an option to enable debug logging. | 19.05.36 ~ 19.47.53 |
+| `Enable debug logging` | Adds an option for debugging and exporting RVX logs to the clipboard. | 19.05.36 ~ 19.47.53 |
 | `Enable gradient loading screen` | Adds an option to enable the gradient loading screen. | 19.05.36 ~ 19.47.53 |
 | `Force player buttons background` | Changes the dark background surrounding the video player controls at compile time. | 19.05.36 ~ 19.47.53 |
 | `Fullscreen components` | Adds options to hide or change components related to fullscreen. | 19.05.36 ~ 19.47.53 |
-| `GmsCore support` | Allows patched Google apps to run without root and under a different package name by using GmsCore instead of Google Play Services. | 19.05.36 ~ 19.47.53 |
+| `GmsCore support` | Allows the app to work without root by using a different package name when patched using a GmsCore instead of Google Play Services. | 19.05.36 ~ 19.47.53 |
 | `Hide Shorts dimming` | Removes, at compile time, the dimming effect at the top and bottom of Shorts videos. | 19.05.36 ~ 19.47.53 |
 | `Hide accessibility controls dialog` | Removes, at compile time, accessibility controls dialog 'Turn on accessibility controls for the video player?'. | 19.05.36 ~ 19.47.53 |
 | `Hide action buttons` | Adds options to hide action buttons under videos. | 19.05.36 ~ 19.47.53 |
@@ -103,10 +103,10 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 6.20.51 ~ 8.12.53 |
 | `Disable music video in album` | Adds option to redirect music videos from albums for non-premium users. | 6.20.51 ~ 8.12.53 |
 | `Enable OPUS codec` | Adds an option to enable the OPUS audio codec if the player response includes it. | 6.20.51 ~ 8.12.53 |
-| `Enable debug logging` | Adds an option to enable debug logging. | 6.20.51 ~ 8.12.53 |
+| `Enable debug logging` | Adds an option for debugging. | 6.20.51 ~ 8.12.53 |
 | `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 6.20.51 ~ 8.12.53 |
 | `Flyout menu components` | Adds options to hide or change flyout menu components. | 6.20.51 ~ 8.12.53 |
-| `GmsCore support` | Allows patched Google apps to run without root and under a different package name by using GmsCore instead of Google Play Services. | 6.20.51 ~ 8.12.53 |
+| `GmsCore support` | Allows the app to work without root by using a different package name when patched using a GmsCore instead of Google Play Services. | 6.20.51 ~ 8.12.53 |
 | `Hide account components` | Adds options to hide components related to the account menu. | 6.20.51 ~ 8.12.53 |
 | `Hide action bar components` | Adds options to hide action bar components and replace the offline download button with an external download button. | 6.20.51 ~ 8.12.53 |
 | `Hide ads` | Adds options to hide ads. | 6.20.51 ~ 8.12.53 |
@@ -123,7 +123,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 6.20.51 ~ 8.12.53 |
 | `Settings for YouTube Music` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 6.20.51 ~ 8.12.53 |
 | `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections. | 6.20.51 ~ 8.12.53 |
-| `Spoof app version` | Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features. | 6.51.53 ~ 8.10.52 |
+| `Spoof app version` | Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features. | 6.51.53 ~ 8.12.53 |
 | `Spoof player parameter` | Adds options to spoof player parameter to allow playback. | 6.20.51 ~ 8.12.53 |
 | `Translations for YouTube Music` | Add translations or remove string resources. | 6.20.51 ~ 8.12.53 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 6.20.51 ~ 8.12.53 |
@@ -156,21 +156,16 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `Change lyrics provider` | Changes the lyrics provider to a custom one. | ALL |
+| `Custom branding name for Spotify` | Changes the Spotify app name to the name specified in patch options. | ALL |
 | `Custom theme` | Applies a custom theme (defaults to amoled black) | ALL |
+| `Fix Facebook login` | Fix logging in with Facebook when the app is patched by always opening the login in a web browser window. | ALL |
 | `Fix third party launchers widgets` | Fixes Spotify widgets not working in third party launchers, like Nova Launcher. | ALL |
+| `Hide Create button` | Hides the "Create" button in the navigation bar. | ALL |
 | `Lyrics search` | Displays a "Search Lyrics" panel in the Main Activity that searches for lyrics on Google, and song meanings on Songtell. The activity is set to SpotifyMainActivity, so the "Search Lyrics" panel won't be shown in NowPlayingActivity (Player view) or possibly other activities. | ALL |
-| `Remove Create tab` | Removes the 'Create' (Plus) tab from the bottom navigation bar. | ALL |
 | `Sanitize sharing links` | Removes the tracking query parameters from links before they are shared. | ALL |
-| `Spoof package info` | Spoofs the package info of the app to fix various functions of the app. | ALL |
-| `Unlock Spotify Premium` | Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked. | ALL |
-</details>
-
-### [📦 `com.spotify.lite`](https://play.google.com/store/apps/details?id=com.spotify.lite)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `Enable on demand` | Enables listening to songs on-demand, allowing to play any song from playlists, albums or artists without limitations. This does not remove ads. | ALL |
+| `Spoof client` | Spoofs the client to fix various functions of the app. | ALL |
+| `Unlock Premium` | Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked. | ALL |
 </details>
 
 

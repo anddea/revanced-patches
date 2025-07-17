@@ -1,6 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
+    <string name="revanced_debug_protobuffer_summary">Includes proto buffer in the debug log.</string>
+    <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
+    <string name="revanced_debug_spannable_summary">Includes spannable in the debug log.</string>
+    <string name="revanced_debug_spannable_title">Log spannable</string>
+    <string name="revanced_debug_summary">Prints the debug log.</string>
+    <string name="revanced_debug_title">Enable debug logging</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Not overridden</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_invalid_toast">Litho thread pool max size must be between 1-3.</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_summary">"Changes the max size of the Litho thread pool.
+
+A larger value may improve the performance of loading Litho layouts, but may drain more battery."</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_title">Litho thread pool max size</string>
 </resources>

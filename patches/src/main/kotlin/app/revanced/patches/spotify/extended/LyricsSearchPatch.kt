@@ -45,7 +45,7 @@ val lyricsSearchPatch = bytecodePatch(
         val returnVoidIndex = targetConstructor.indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID)
 
         val smaliCodeToInsert = """
-            invoke-static {p2, p5}, $TRACK_LOGGER_CLASS_DESCRIPTOR->processTrackMetadata(Ljava/lang/Object;Ljava/lang/Object;)V
+            invoke-static {p2, p6}, $TRACK_LOGGER_CLASS_DESCRIPTOR->processTrackMetadata(Ljava/lang/Object;Ljava/lang/Object;)V
         """.trimIndent()
 
         targetConstructor.addInstructions(returnVoidIndex, smaliCodeToInsert)

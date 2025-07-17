@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.sponsorblock;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
+import static app.revanced.extension.shared.utils.Utils.setAlertDialogThemeAndShow;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
@@ -102,13 +103,14 @@ public class SponsorBlockUtils {
                 }
 
                 newUserCreatedSegmentCategory = null;
-                new AlertDialog.Builder(context)
+                AlertDialog.Builder builder = new AlertDialog.Builder(context)
                         .setTitle(str("revanced_sb_new_segment_choose_category"))
                         .setSingleChoiceItems(titles, -1, segmentTypeListener)
                         .setNegativeButton(android.R.string.cancel, null)
-                        .setPositiveButton(android.R.string.ok, segmentCategorySelectedDialogListener)
-                        .show()
-                        .getButton(DialogInterface.BUTTON_POSITIVE)
+                        .setPositiveButton(android.R.string.ok, segmentCategorySelectedDialogListener);
+
+                AlertDialog alertDialog = setAlertDialogThemeAndShow(builder);
+                alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
                         .setEnabled(false);
             } catch (Exception ex) {
                 Logger.printException(() -> "segmentReadyDialogButtonListener failure", ex);
@@ -138,13 +140,13 @@ public class SponsorBlockUtils {
 
             editByHandSaveDialogListener.settingStart = isStart;
             editByHandSaveDialogListener.editTextRef = new WeakReference<>(textView);
-            new AlertDialog.Builder(context)
+            AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setTitle(str(isStart ? "revanced_sb_new_segment_time_start" : "revanced_sb_new_segment_time_end"))
                     .setView(textView)
                     .setNegativeButton(android.R.string.cancel, null)
                     .setNeutralButton(str("revanced_sb_new_segment_now"), editByHandSaveDialogListener)
-                    .setPositiveButton(android.R.string.ok, editByHandSaveDialogListener)
-                    .show();
+                    .setPositiveButton(android.R.string.ok, editByHandSaveDialogListener);
+            setAlertDialogThemeAndShow(builder);
 
             dialog.dismiss();
         } catch (Exception ex) {
@@ -181,7 +183,7 @@ public class SponsorBlockUtils {
                 items[i] = title;
             }
 
-            new AlertDialog.Builder(context).setItems(items, (dialog1, which1) -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context).setItems(items, (dialog1, which1) -> {
                 SegmentVote voteOption = voteOptions[which1];
                 switch (voteOption) {
                     case UPVOTE:
@@ -192,7 +194,8 @@ public class SponsorBlockUtils {
                         onNewCategorySelect(segment, context);
                         break;
                 }
-            }).show();
+            });
+            setAlertDialogThemeAndShow(builder);
         } catch (Exception ex) {
             Logger.printException(() -> "segmentVoteClickListener failure", ex);
         }
@@ -238,14 +241,14 @@ public class SponsorBlockUtils {
             Utils.verifyOnMainThread();
             newSponsorSegmentDialogShownMillis = VideoInformation.getVideoTime();
 
-            new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
+            AlertDialog.Builder builder = new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
                     .setTitle(str("revanced_sb_new_segment_title"))
                     .setMessage(str("revanced_sb_new_segment_mark_current_time_as_question",
                             formatSegmentTime(newSponsorSegmentDialogShownMillis)))
                     .setNeutralButton(android.R.string.cancel, null)
                     .setNegativeButton(str("revanced_sb_new_segment_mark_start"), newSponsorSegmentDialogListener)
-                    .setPositiveButton(str("revanced_sb_new_segment_mark_end"), newSponsorSegmentDialogListener)
-                    .show();
+                    .setPositiveButton(str("revanced_sb_new_segment_mark_end"), newSponsorSegmentDialogListener);
+            setAlertDialogThemeAndShow(builder);
         } catch (Exception ex) {
             Logger.printException(() -> "onMarkLocationClicked failure", ex);
         }
@@ -262,15 +265,15 @@ public class SponsorBlockUtils {
                 Utils.showToastLong(str("revanced_sb_new_segment_preview_segment_first"));
             } else {
                 final long segmentLength = (newSponsorSegmentEndMillis - newSponsorSegmentStartMillis) / 1000;
-                new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
+                AlertDialog.Builder builder = new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
                         .setTitle(str("revanced_sb_new_segment_confirm_title"))
                         .setMessage(str("revanced_sb_new_segment_confirm_contents",
                                 formatSegmentTime(newSponsorSegmentStartMillis),
                                 formatSegmentTime(newSponsorSegmentEndMillis),
                                 getTimeSavedString(segmentLength)))
                         .setNegativeButton(android.R.string.no, null)
-                        .setPositiveButton(android.R.string.yes, segmentReadyDialogButtonListener)
-                        .show();
+                        .setPositiveButton(android.R.string.yes, segmentReadyDialogButtonListener);
+                setAlertDialogThemeAndShow(builder);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "onPublishClicked failure", ex);
@@ -322,7 +325,8 @@ public class SponsorBlockUtils {
                 titles[i] = spannableBuilder;
             }
 
-            new AlertDialog.Builder(context).setItems(titles, segmentVoteClickListener).show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(context).setItems(titles, segmentVoteClickListener);
+            setAlertDialogThemeAndShow(builder);
         } catch (Exception ex) {
             Logger.printException(() -> "onVotingClicked failure", ex);
         }
@@ -337,10 +341,10 @@ public class SponsorBlockUtils {
                 titles[i] = values[i].getTitleWithColorDot();
             }
 
-            new AlertDialog.Builder(context)
+            AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setTitle(str("revanced_sb_new_segment_choose_category"))
-                    .setItems(titles, (dialog, which) -> SBRequester.voteToChangeCategoryOnBackgroundThread(segment, values[which]))
-                    .show();
+                    .setItems(titles, (dialog, which) -> SBRequester.voteToChangeCategoryOnBackgroundThread(segment, values[which]));
+            setAlertDialogThemeAndShow(builder);
         } catch (Exception ex) {
             Logger.printException(() -> "onNewCategorySelect failure", ex);
         }
@@ -381,25 +385,25 @@ public class SponsorBlockUtils {
     }
 
     public static void showErrorDialog(String dialogMessage) {
-        Utils.runOnMainThreadNowOrLater(() ->
-                new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
-                        .setMessage(dialogMessage)
-                        .setPositiveButton(android.R.string.ok, null)
-                        .setCancelable(false)
-                        .show()
-        );
+        Utils.runOnMainThreadNowOrLater(() -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
+                    .setMessage(dialogMessage)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .setCancelable(false);
+            setAlertDialogThemeAndShow(builder);
+        });
     }
 
     public static void onEditByHandClicked() {
         try {
             Utils.verifyOnMainThread();
-            new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
+            AlertDialog.Builder builder = new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
                     .setTitle(str("revanced_sb_new_segment_edit_by_hand_title"))
                     .setMessage(str("revanced_sb_new_segment_edit_by_hand_content"))
                     .setNeutralButton(android.R.string.cancel, null)
                     .setNegativeButton(str("revanced_sb_new_segment_mark_start"), editByHandDialogListener)
-                    .setPositiveButton(str("revanced_sb_new_segment_mark_end"), editByHandDialogListener)
-                    .show();
+                    .setPositiveButton(str("revanced_sb_new_segment_mark_end"), editByHandDialogListener);
+            setAlertDialogThemeAndShow(builder);
         } catch (Exception ex) {
             Logger.printException(() -> "onEditByHandClicked failure", ex);
         }

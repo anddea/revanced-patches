@@ -13,6 +13,7 @@ import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.shared.formatStreamModelConstructorFingerprint
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -53,6 +54,11 @@ val DrcAudioPatch = bytecodePatch(
                 )
             }
         }
+
+        volumeNormalizationConfigFingerprint.injectLiteralInstructionBooleanCall(
+            VOLUME_NORMALIZATION_EXPERIMENTAL_FEATURE_FLAG,
+            "$EXTENSION_CLASS_DESCRIPTOR->disableDrcAudioFeatureFlag(Z)Z"
+        )
 
         addSwitchPreference(
             CategoryType.MISC,

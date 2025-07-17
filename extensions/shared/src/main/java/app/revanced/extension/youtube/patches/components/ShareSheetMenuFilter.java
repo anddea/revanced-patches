@@ -8,7 +8,7 @@ import app.revanced.extension.youtube.patches.misc.ShareSheetPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 /**
- * Abuse LithoFilter for {@link ShareSheetPatch}.
+ * LithoFilter for {@link ShareSheetPatch}.
  */
 public final class ShareSheetMenuFilter extends Filter {
     // Must be volatile or synchronized, as litho filtering runs off main thread and this field is then access from the main thread.

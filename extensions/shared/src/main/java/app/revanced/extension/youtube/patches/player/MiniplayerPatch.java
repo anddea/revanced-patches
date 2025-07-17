@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.patches.player;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
+import static app.revanced.extension.shared.utils.Utils.validateValue;
 import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.DEFAULT;
 import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.DISABLED;
 import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_1;
@@ -12,7 +13,6 @@ import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_21_OR_GRE
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_29_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_34_OR_GREATER;
-import static app.revanced.extension.youtube.utils.ExtendedUtils.validateValue;
 
 import android.content.Context;
 import android.content.res.Resources;

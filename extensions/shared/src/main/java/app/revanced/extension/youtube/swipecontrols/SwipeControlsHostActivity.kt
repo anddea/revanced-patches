@@ -22,9 +22,7 @@ import java.lang.ref.WeakReference
 
 /**
  * The main controller for volume and brightness swipe controls.
- * note that the superclass is overwritten to the superclass of the MainActivity at patch time
- *
- * @smali Lapp/revanced/extension/youtube/swipecontrols/SwipeControlsHostActivity;
+ * note that the superclass is overwritten to the superclass of the MainActivity at patch time.
  */
 class SwipeControlsHostActivity : Activity() {
     /**
@@ -126,7 +124,7 @@ class SwipeControlsHostActivity : Activity() {
     private fun initialize() {
         // create controllers
         printDebug { "initializing swipe controls controllers" }
-        config = SwipeControlsConfigurationProvider(this)
+        config = SwipeControlsConfigurationProvider()
         keys = VolumeKeysController(this)
         audio = createAudioController()
         screen = createScreenController()
@@ -138,7 +136,7 @@ class SwipeControlsHostActivity : Activity() {
         }
 
         // create swipe zone controller
-        zones = SwipeZonesController(this) {
+        zones = SwipeZonesController(config, this) {
             Rectangle(
                 contentRoot.x.toInt(),
                 contentRoot.y.toInt(),

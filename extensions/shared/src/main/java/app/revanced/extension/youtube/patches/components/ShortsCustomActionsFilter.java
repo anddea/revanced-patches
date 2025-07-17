@@ -57,12 +57,16 @@ public final class ShortsCustomActionsFilter extends Filter {
     public ShortsCustomActionsFilter() {
         likeDislikeButton = new StringFilterGroup(
                 null,
-                "|shorts_like_button.eml",
-                "|shorts_dislike_button.eml"
+                "shorts_like_button.eml",
+                "reel_like_button.eml",
+                "reel_like_toggled_button.eml",
+                "shorts_dislike_button.eml",
+                "reel_dislike_button.eml",
+                "reel_dislike_toggled_button.eml"
         );
         playerFlyoutMenu = new StringFilterGroup(
                 null,
-                "overflow_menu_item.eml|"
+                "overflow_menu_item.eml"
         );
 
         addIdentifierCallbacks(playerFlyoutMenu);
@@ -70,8 +74,13 @@ public final class ShortsCustomActionsFilter extends Filter {
 
         // After the button identifiers is binary data and then the video id for that specific short.
         videoIdFilterGroup.addAll(
-                new ByteArrayFilterGroup(null, "id.reel_like_button"),
-                new ByteArrayFilterGroup(null, "id.reel_dislike_button")
+                new ByteArrayFilterGroup(
+                        null,
+                        "id.reel_like_button",
+                        "id.reel_dislike_button",
+                        "ic_right_like",
+                        "ic_right_dislike"
+                )
         );
     }
 

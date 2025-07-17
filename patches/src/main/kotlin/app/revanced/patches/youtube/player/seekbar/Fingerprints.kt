@@ -50,7 +50,6 @@ internal val playerSeekbarHandleColorPrimaryFingerprint = legacyFingerprint(
 internal val playerSeekbarHandleColorSecondaryFingerprint = legacyFingerprint(
     name = "playerSeekbarHandleColorSecondaryFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    parameters = listOf("Landroid/content/Context;"),
     literals = listOf(inlineTimeBarLiveSeekAbleRange, ytStaticBrandRed),
 )
 

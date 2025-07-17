@@ -12,6 +12,7 @@ import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.extension.Constants.FLYOUT_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.flyoutmenu.flyoutMenuHookPatch
 import app.revanced.patches.music.utils.patch.PatchList.FLYOUT_MENU_COMPONENTS
+import app.revanced.patches.music.utils.patch.PatchList.LITHO_FILTER
 import app.revanced.patches.music.utils.playservice.is_6_36_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.endButtonsContainer
@@ -467,6 +468,7 @@ val flyoutMenuComponentsPatch = bytecodePatch(
         )
 
         updatePatchStatus(FLYOUT_MENU_COMPONENTS)
+        updatePatchStatus(LITHO_FILTER)
 
     }
 }

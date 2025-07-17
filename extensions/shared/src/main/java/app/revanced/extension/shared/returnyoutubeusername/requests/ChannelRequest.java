@@ -129,9 +129,9 @@ public class ChannelRequest {
     private static String authorBadgeBuilder(@NonNull String handle, @NonNull String userName, Boolean userNameFirst) {
         if (userNameFirst == null) {
             return userName;
-        } else if (TRUE.equals(userNameFirst)) {
+        } else if (userNameFirst) {
             handle = String.format(Locale.ENGLISH, PARENTHESES_FORMAT, handle);
-            if (!Utils.isRightToLeftTextLayout()) {
+            if (!Utils.isRightToLeftLocale()) {
                 return String.format(Locale.ENGLISH, AUTHOR_BADGE_FORMAT, userName, handle);
             }
         } else {

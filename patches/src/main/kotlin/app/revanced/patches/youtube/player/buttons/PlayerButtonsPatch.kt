@@ -11,22 +11,21 @@ import app.revanced.patches.youtube.utils.castbutton.hookPlayerCastButton
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.fix.bottomui.cfBottomUIPatch
+import app.revanced.patches.youtube.utils.inflateControlsGroupLayoutStubFingerprint
 import app.revanced.patches.youtube.utils.layoutConstructorFingerprint
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_PLAYER_BUTTONS
 import app.revanced.patches.youtube.utils.playservice.is_18_31_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_13_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
-import app.revanced.patches.youtube.utils.resourceid.autoNavToggle
-import app.revanced.patches.youtube.utils.resourceid.fullScreenButton
-import app.revanced.patches.youtube.utils.resourceid.playerCollapseButton
-import app.revanced.patches.youtube.utils.resourceid.playerControlPreviousButtonTouchArea
-import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.revanced.patches.youtube.utils.resourceid.titleAnchor
+import app.revanced.patches.youtube.utils.resourceid.*
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.util.findFreeRegister
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -79,18 +78,25 @@ val playerButtonsPatch = bytecodePatch(
 
         if (is_18_31_or_greater) {
             lithoSubtitleButtonConfigFingerprint.methodOrThrow().apply {
-                val insertIndex = implementation!!.instructions.lastIndex
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                val (insertIndex, insertRegister) = when {
+                    is_20_13_or_greater -> {
+                        val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
+                        index + 1 to getInstruction<OneRegisterInstruction>(index).registerA
+                    }
+                    else -> {
+                        val index = implementation!!.instructions.lastIndex
+                        index to getInstruction<OneRegisterInstruction>(index).registerA
+                    }
+                }
 
                 addInstructions(
                     insertIndex, """
                         invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->hideCaptionsButton(Z)Z
                         move-result v$insertRegister
-                        """
+                    """
                 )
             }
         }
-
 
         youtubeControlsOverlaySubtitleButtonFingerprint.methodOrThrow().apply {
             val insertIndex = implementation!!.instructions.lastIndex
@@ -202,6 +208,33 @@ val playerButtonsPatch = bytecodePatch(
                         """
                 )
             }
+        }
+
+        // endregion
+
+        // region Hide player control buttons background.
+
+        inflateControlsGroupLayoutStubFingerprint.method.apply {
+            val controlsButtonGroupLayoutStubResIdConstIndex =
+                indexOfFirstLiteralInstructionOrThrow(youTubeControlsButtonGroupLayoutStub)
+            val inflateControlsGroupLayoutStubIndex =
+                indexOfFirstInstruction(controlsButtonGroupLayoutStubResIdConstIndex) {
+                    getReference<MethodReference>()?.name == "inflate"
+                }
+
+            val freeRegister = findFreeRegister(inflateControlsGroupLayoutStubIndex)
+            val hidePlayerControlButtonsBackgroundDescriptor =
+                "$PLAYER_CLASS_DESCRIPTOR->hidePlayerControlButtonsBackground(Landroid/view/View;)V"
+
+            addInstructions(
+                inflateControlsGroupLayoutStubIndex + 1,
+                """
+                   # Move the inflated layout to a temporary register.
+                   # The result of the inflate method is by default not moved to a register after the method is called.
+                   move-result-object v$freeRegister
+                   invoke-static { v$freeRegister }, $hidePlayerControlButtonsBackgroundDescriptor
+                """
+            )
         }
 
         // endregion

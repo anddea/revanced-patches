@@ -100,7 +100,8 @@ val subRedditDialogPatch = bytecodePatch(
                                     getReference<MethodReference>()?.name == "show"
                         }
                         if (showIndex >= 0) {
-                            val dialogRegister = getInstruction<OneRegisterInstruction>(showIndex + 1).registerA
+                            val dialogRegister =
+                                getInstruction<OneRegisterInstruction>(showIndex + 1).registerA
 
                             addInstruction(
                                 showIndex + 2,

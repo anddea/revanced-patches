@@ -11,6 +11,7 @@ import app.revanced.patches.music.utils.actionBarPositionFeatureFlagFingerprint
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.extension.Constants.ACTIONBAR_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
+import app.revanced.patches.music.utils.patch.PatchList.LITHO_FILTER
 import app.revanced.patches.music.utils.patch.PatchList.HIDE_ACTION_BAR_COMPONENTS
 import app.revanced.patches.music.utils.playservice.is_7_17_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_25_or_greater
@@ -252,6 +253,7 @@ val actionBarComponentsPatch = bytecodePatch(
         )
 
         updatePatchStatus(HIDE_ACTION_BAR_COMPONENTS)
+        updatePatchStatus(LITHO_FILTER)
 
     }
 }

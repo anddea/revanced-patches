@@ -29,7 +29,7 @@ public final class ActionButtonsFilter extends Filter {
 
         bufferFilterPathRule = new StringFilterGroup(
                 null,
-                "|ContainerType|button.eml|"
+                "|ContainerType|button.eml"
         );
         likeSubscribeGlow = new StringFilterGroup(
                 Settings.DISABLE_LIKE_DISLIKE_GLOW,
@@ -42,11 +42,11 @@ public final class ActionButtonsFilter extends Filter {
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_DOWNLOAD_BUTTON,
-                        "|download_button.eml|"
+                        "|download_button.eml"
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_CLIP_BUTTON,
-                        "|clip_button.eml|"
+                        "|clip_button.eml"
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_PLAYLIST_BUTTON,
@@ -74,12 +74,24 @@ public final class ActionButtonsFilter extends Filter {
                         "yt_outline_youtube_shorts_plus"
                 ),
                 new ByteArrayFilterGroup(
+                        Settings.HIDE_THANKS_BUTTON,
+                        "yt_outline_dollar_sign_heart"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_ASK_BUTTON,
+                        "yt_fill_spark"
+                ),
+                new ByteArrayFilterGroup(
                         Settings.HIDE_SHOP_BUTTON,
                         "yt_outline_bag"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_THANKS_BUTTON,
-                        "yt_outline_dollar_sign_heart"
+                        Settings.HIDE_STOP_ADS_BUTTON,
+                        "yt_outline_slash_circle_left"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_CLIP_BUTTON,
+                        "yt_outline_scissors"
                 )
         );
     }

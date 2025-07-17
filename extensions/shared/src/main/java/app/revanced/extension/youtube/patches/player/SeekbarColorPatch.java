@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.patches.player;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
+import static app.revanced.extension.shared.utils.Utils.clamp;
 
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -59,7 +60,7 @@ public class SeekbarColorPatch {
      * this is the color value of {@link Settings#CUSTOM_SEEKBAR_COLOR_PRIMARY}.
      * Otherwise, this is {@link #ORIGINAL_SEEKBAR_COLOR}.
      */
-    private static int customSeekbarColor = ORIGINAL_SEEKBAR_COLOR;
+    private static final int customSeekbarColor;
 
     /**
      * If {@link Settings#ENABLE_CUSTOM_SEEKBAR_COLOR} is enabled,
@@ -83,26 +84,28 @@ public class SeekbarColorPatch {
         Color.colorToHSV(ORIGINAL_SEEKBAR_COLOR, hsv);
         ORIGINAL_SEEKBAR_COLOR_BRIGHTNESS = hsv[2];
 
-        if (CUSTOM_SEEKBAR_COLOR_ENABLED) {
-            loadCustomSeekbarColor();
-        }
+        customSeekbarColor = CUSTOM_SEEKBAR_COLOR_ENABLED
+                ? loadCustomSeekbarColor()
+                : ORIGINAL_SEEKBAR_COLOR;
     }
 
-    private static void loadCustomSeekbarColor() {
+    private static int loadCustomSeekbarColor() {
         try {
-            customSeekbarColor = Color.parseColor(Settings.CUSTOM_SEEKBAR_COLOR_PRIMARY.get());
-            Color.colorToHSV(customSeekbarColor, customSeekbarColorHSV);
-
+            final int color = Color.parseColor(Settings.CUSTOM_SEEKBAR_COLOR_PRIMARY.get());
+            Color.colorToHSV(color, customSeekbarColorHSV);
             customSeekbarColorAccent = Color.parseColor(Settings.CUSTOM_SEEKBAR_COLOR_ACCENT.get());
-            customSeekbarColorGradient[0] = customSeekbarColor;
+
+            customSeekbarColorGradient[0] = color;
             customSeekbarColorGradient[1] = customSeekbarColorAccent;
+
+            return color;
         } catch (Exception ex) {
             Utils.showToastShort(str("revanced_color_invalid_toast"));
             Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
             Settings.CUSTOM_SEEKBAR_COLOR_PRIMARY.resetToDefault();
             Settings.CUSTOM_SEEKBAR_COLOR_ACCENT.resetToDefault();
 
-            loadCustomSeekbarColor();
+            return loadCustomSeekbarColor();
         }
     }
 
@@ -133,6 +136,7 @@ public class SeekbarColorPatch {
                 : (int) channel3Bits;
     }
 
+    @SuppressWarnings("SameParameterValue")
     private static String get9BitStyleIdentifier(int color24Bit) {
         final int r3 = colorChannelTo3Bits(Color.red(color24Bit));
         final int g3 = colorChannelTo3Bits(Color.green(color24Bit));
@@ -221,6 +225,20 @@ public class SeekbarColorPatch {
 
     /**
      * Injection point.
+     * 19.49+
+     */
+    public static int[] getPlayerLinearGradient(int[] original, int x0, int y1) {
+        // This hook is used for both the player and the feed.
+        // Feed usage always has x0 and y1 value of zero, and the player is always non zero.
+        if (HIDE_SEEKBAR_THUMBNAIL_ENABLED && x0 == 0 && y1 == 0) {
+            return HIDDEN_SEEKBAR_GRADIENT_COLORS;
+        }
+        return getPlayerLinearGradient(original);
+    }
+
+    /**
+     * Injection point.
+     * Pre 19.49
      */
     public static int[] getPlayerLinearGradient(int[] original) {
         return CUSTOM_SEEKBAR_COLOR_ENABLED
@@ -370,19 +388,5 @@ public class SeekbarColorPatch {
             Logger.printException(() -> "getSeekbarColorValue failure", ex);
             return originalColor;
         }
-    }
-
-    /**
-     * @noinspection SameParameterValue
-     */
-    private static int clamp(int value, int lower, int upper) {
-        return Math.max(lower, Math.min(value, upper));
-    }
-
-    /**
-     * @noinspection SameParameterValue
-     */
-    private static float clamp(float value, float lower, float upper) {
-        return Math.max(lower, Math.min(value, upper));
     }
 }

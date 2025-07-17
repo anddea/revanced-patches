@@ -13,10 +13,12 @@ import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.extension.Constants.GENERAL_PATH
 import app.revanced.patches.music.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
+import app.revanced.patches.music.utils.patch.PatchList.LITHO_FILTER
 import app.revanced.patches.music.utils.playservice.is_6_39_or_greater
 import app.revanced.patches.music.utils.playservice.is_6_42_or_greater
 import app.revanced.patches.music.utils.playservice.is_6_48_or_greater
 import app.revanced.patches.music.utils.playservice.is_8_05_or_greater
+import app.revanced.patches.music.utils.playservice.is_8_15_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.musicTasteBuilderShelf
 import app.revanced.patches.music.utils.resourceid.playerOverlayChip
@@ -243,16 +245,18 @@ val layoutComponentsPatch = bytecodePatch(
 
         // region patch for hide tap to update button
 
-        contentPillFingerprint.methodOrThrow().apply {
-            addInstructionsWithLabels(
-                0,
-                """
+        if (!is_8_15_or_greater) {
+            contentPillFingerprint.methodOrThrow().apply {
+                addInstructionsWithLabels(
+                    0,
+                    """
                     invoke-static {}, $GENERAL_CLASS_DESCRIPTOR->hideTapToUpdateButton()Z
                     move-result v0
                     if-eqz v0, :show
                     return-void
-                    """, ExternalLabel("show", getInstruction(0))
-            )
+                """, ExternalLabel("show", getInstruction(0))
+                )
+            }
         }
 
         // endregion
@@ -336,11 +340,6 @@ val layoutComponentsPatch = bytecodePatch(
         )
         addSwitchPreference(
             CategoryType.GENERAL,
-            "revanced_hide_playlist_card_shelf",
-            "false"
-        )
-        addSwitchPreference(
-            CategoryType.GENERAL,
             "revanced_hide_cast_button",
             "true"
         )
@@ -366,6 +365,11 @@ val layoutComponentsPatch = bytecodePatch(
                 "false"
             )
         }
+        addSwitchPreference(
+            CategoryType.GENERAL,
+            "revanced_hide_playlist_card_shelf",
+            "false"
+        )
         addSwitchPreference(
             CategoryType.GENERAL,
             "revanced_hide_samples_shelf",
@@ -457,6 +461,7 @@ val layoutComponentsPatch = bytecodePatch(
         )
 
         updatePatchStatus(HIDE_LAYOUT_COMPONENTS)
+        updatePatchStatus(LITHO_FILTER)
 
     }
 }

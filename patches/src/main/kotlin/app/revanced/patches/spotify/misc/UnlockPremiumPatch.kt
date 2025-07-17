@@ -1,7 +1,9 @@
 package app.revanced.patches.spotify.misc
 
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
@@ -10,12 +12,9 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import app.revanced.util.toPublicAccessFlags
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -23,18 +22,25 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
-import java.util.logging.Logger
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/UnlockPremiumPatch;"
+internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/UnlockPremiumPatch;"
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
-    name = "Unlock Spotify Premium",
+    name = "Unlock Premium",
     description = "Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked.",
 ) {
     compatibleWith("com.spotify.music")
 
-    dependsOn(sharedExtensionPatch)
+    dependsOn(
+        sharedExtensionPatch,
+        // Currently there is no easy way to make a mandatory patch,
+        // so for now this is a dependent of this patch.
+        //
+        // FIXME: Modifying string resources (such as adding patch strings)
+        // is currently failing with ReVanced Manager.
+        // checkEnvironmentPatch,
+    )
 
     execute {
         fun MutableClass.publicizeField(fieldName: String) {
@@ -55,7 +61,7 @@ val unlockPremiumPatch = bytecodePatch(
             addInstruction(
                 getAttributesMapIndex + 1,
                 "invoke-static { v$attributesMapRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->overrideAttribute(Ljava/util/Map;)V"
+                        "$EXTENSION_CLASS_DESCRIPTOR->overrideAttributes(Ljava/util/Map;)V"
             )
         }
 
@@ -66,15 +72,7 @@ val unlockPremiumPatch = bytecodePatch(
                 buildQueryParametersFingerprint.stringMatches!!.first().index, Opcode.IF_EQZ
             )
 
-            replaceInstruction(addQueryParameterConditionIndex, "nop")
-        }
-
-
-        if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            Logger.getLogger(this::class.java.name).warning(
-                "Patching a legacy Spotify version. Patch functionality may be limited."
-            )
-            return@execute
+            removeInstruction(addQueryParameterConditionIndex)
         }
 
 
@@ -114,55 +112,154 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
 
-        // Disable the "Spotify Premium" upsell experiment in context menus.
-        contextMenuExperimentsFingerprint.method.apply {
-            val moveIsEnabledIndex = indexOfFirstInstructionOrThrow(
-                contextMenuExperimentsFingerprint.stringMatches!!.first().index, Opcode.MOVE_RESULT
+        val contextMenuViewModelClassDef = contextMenuViewModelClassFingerprint.originalClassDef
+
+        // Patch used in versions older than "9.0.60.128".
+        // Hook the method which adds context menu items and return before adding if the item is a Premium ad.
+        oldContextMenuViewModelAddItemFingerprint.matchOrNull(contextMenuViewModelClassDef)?.method?.apply {
+            val contextMenuItemInterfaceName = parameterTypes.first()
+            val contextMenuItemInterfaceClassDef = classes.find {
+                it.type == contextMenuItemInterfaceName
+            } ?: throw PatchException("Could not find context menu item interface.")
+
+            // The class returned by ContextMenuItem->getViewModel, which represents the actual context menu item we
+            // need to stringify.
+            val viewModelClassType =
+                getViewModelFingerprint.match(contextMenuItemInterfaceClassDef).originalMethod.returnType
+
+            // The instruction where the normal method logic starts.
+            val firstInstruction = getInstruction(0)
+
+            val isFilteredContextMenuItemDescriptor =
+                "$EXTENSION_CLASS_DESCRIPTOR->isFilteredContextMenuItem(Ljava/lang/Object;)Z"
+
+            addInstructionsWithLabels(
+                0,
+                """
+                    # The first parameter is the context menu item being added.
+                    # Invoke getViewModel to get the actual context menu item.
+                    invoke-interface { p1 }, $contextMenuItemInterfaceName->getViewModel()$viewModelClassType
+                    move-result-object v0
+
+                    # Check if this context menu item should be filtered out.
+                    invoke-static { v0 }, $isFilteredContextMenuItemDescriptor
+                    move-result v0
+
+                    # If this context menu item should not be filtered out, jump to the normal method logic.
+                    if-eqz v0, :normal-method-logic
+                    return-void
+                """,
+                ExternalLabel("normal-method-logic", firstInstruction)
             )
-            val isUpsellEnabledRegister = getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
-
-            replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
         }
 
+        // Patch for newest versions.
+        // Overwrite the context menu items list with a filtered version which does not include items which are
+        // Premium ads.
+        if (oldContextMenuViewModelAddItemFingerprint.matchOrNull(contextMenuViewModelClassDef) == null) {
+            // Replace the placeholder context menu item interface name and the return value of getViewModel to the
+            // minified names used at runtime. The instructions need to match the original names so we can call the
+            // method in the extension.
+            extensionFilterContextMenuItemsFingerprint.method.apply {
+                val contextMenuItemInterfaceClassDef = removeAdsContextMenuItemClassFingerprint
+                    .originalClassDef
+                    .interfaces
+                    .firstOrNull()
+                    ?.let { interfaceName -> classes.find { it.type == interfaceName } }
+                    ?: throw PatchException("Could not find context menu item interface.")
 
-        val protobufListClassDef = with(protobufListsFingerprint.originalMethod) {
-            val emptyProtobufListGetIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
-            // Find the protobuffer list class using the definingClass which contains the empty list static value.
-            val classType = getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
+                val contextMenuItemViewModelClassName = getViewModelFingerprint
+                    .matchOrNull(contextMenuItemInterfaceClassDef)
+                    ?.originalMethod
+                    ?.returnType
+                    ?: throw PatchException("Could not find context menu item view model class.")
 
-            classes.find { it.type == classType } ?: throw PatchException("Could not find protobuffer list class.")
-        }
+                val castContextMenuItemStubIndex = indexOfFirstInstructionOrThrow {
+                    getReference<TypeReference>()?.type == CONTEXT_MENU_ITEM_CLASS_DESCRIPTOR_PLACEHOLDER
+                }
+                val contextMenuItemRegister = getInstruction<OneRegisterInstruction>(castContextMenuItemStubIndex)
+                    .registerA
+                val getContextMenuItemStubViewModelIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.definingClass == CONTEXT_MENU_ITEM_CLASS_DESCRIPTOR_PLACEHOLDER
+                }
 
-        // Need to allow mutation of the list so the home ads sections can be removed.
-        // Protobuffer list has an 'isMutable' boolean parameter that sets the mutability.
-        // Forcing that always on breaks unrelated code in strange ways.
-        // Instead, remove the method call that checks if the list is unmodifiable.
-        protobufListRemoveFingerprint.match(protobufListClassDef).method.apply {
-            val invokeThrowUnmodifiableIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        reference?.returnType == "V" && reference.parameterTypes.isEmpty()
+                val getViewModelDescriptor =
+                    "$contextMenuItemInterfaceClassDef->getViewModel()$contextMenuItemViewModelClassName"
+
+                replaceInstruction(
+                    castContextMenuItemStubIndex,
+                    "check-cast v$contextMenuItemRegister, $contextMenuItemInterfaceClassDef"
+                )
+                replaceInstruction(
+                    getContextMenuItemStubViewModelIndex,
+                    "invoke-interface { v$contextMenuItemRegister }, $getViewModelDescriptor"
+                )
             }
 
-            // Remove the method call that throws an exception if the list is not mutable.
-            removeInstruction(invokeThrowUnmodifiableIndex)
+            contextMenuViewModelConstructorFingerprint.match(contextMenuViewModelClassDef).method.apply {
+                val itemsListParameter = parameters.indexOfFirst { it.type == "Ljava/util/List;" } + 1
+                val filterContextMenuItemsDescriptor =
+                    "$EXTENSION_CLASS_DESCRIPTOR->filterContextMenuItems(Ljava/util/List;)Ljava/util/List;"
+
+                addInstructions(
+                    0,
+                    """
+                        invoke-static { p$itemsListParameter }, $filterContextMenuItemsDescriptor
+                        move-result-object p$itemsListParameter
+                    """
+                )
+            }
         }
 
 
-        // Make featureTypeCase_ accessible so we can check the home section type in the extension.
-        homeSectionFingerprint.classDef.publicizeField("featureTypeCase_")
+        val protobufArrayListClassDef = with(protobufListsFingerprint.originalMethod) {
+            val emptyProtobufListGetIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
+            // Find the protobuf array list class using the definingClass which contains the empty list static value.
+            val classType = getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
 
-        // Remove ads sections from home.
-        homeStructureGetSectionsFingerprint.method.apply {
+            classes.find { it.type == classType } ?: throw PatchException("Could not find protobuf array list class.")
+        }
+
+        val abstractProtobufListClassDef = classes.find {
+            it.type == protobufArrayListClassDef.superclass
+        } ?: throw PatchException("Could not find abstract protobuf list class.")
+
+        // Need to allow mutation of the list so the home ads sections can be removed.
+        // Protobuf array list has an 'isMutable' boolean parameter that sets the mutability.
+        // Forcing that always on breaks unrelated code in strange ways.
+        // Instead, return early in the method that throws an error if the list is immutable.
+        abstractProtobufListEnsureIsMutableFingerprint.match(abstractProtobufListClassDef)
+            .method.returnEarly()
+
+        fun MutableMethod.injectRemoveSectionCall(
+            sectionFingerprint: Fingerprint,
+            sectionTypeFieldName: String,
+            injectedMethodName: String
+        ) {
+            // Make field accessible so we can check the home/browse section type in the extension.
+            sectionFingerprint.classDef.publicizeField(sectionTypeFieldName)
+
             val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
             val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
 
             addInstruction(
                 getSectionsIndex + 1,
                 "invoke-static { v$sectionsRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->removeHomeSections(Ljava/util/List;)V"
+                        "$EXTENSION_CLASS_DESCRIPTOR->$injectedMethodName(Ljava/util/List;)V"
             )
         }
+
+        homeStructureGetSectionsFingerprint.method.injectRemoveSectionCall(
+            homeSectionFingerprint,
+            "featureTypeCase_",
+            "removeHomeSections"
+        )
+
+        browseStructureGetSectionsFingerprint.method.injectRemoveSectionCall(
+            browseSectionFingerprint,
+            "sectionTypeCase_",
+            "removeBrowseSections"
+        )
 
 
         // Replace a fetch request that returns and maps Singles with their static onErrorReturn value.
@@ -198,8 +295,8 @@ val unlockPremiumPatch = bytecodePatch(
                 onErrorReturnCallIndex,
                 "invoke-static { v$onErrorReturnValueRegister }, " +
                         "$singleClassName->just(Ljava/lang/Object;)$singleClassName\n" +
-                "move-result-object v$onErrorReturnValueRegister\n" +
-                "return-object v$onErrorReturnValueRegister"
+                        "move-result-object v$onErrorReturnValueRegister\n" +
+                        "return-object v$onErrorReturnValueRegister"
             )
 
             // Remove every instruction from the request call to right before the error static value construction.

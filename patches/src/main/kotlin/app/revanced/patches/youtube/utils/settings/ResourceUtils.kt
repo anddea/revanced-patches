@@ -62,12 +62,7 @@ internal object ResourceUtils {
         )
     }
 
-    fun addPreference(patch: PatchList) {
-        patch.included = true
-        updatePatchStatus(patch.title.replace(" for YouTube", ""))
-    }
-
-    fun addPreference(settingArray: Array<String>, patch: PatchList) {
+    fun addPreference(settingArray: Array<String>) {
         settingArray.forEach preferenceLoop@{ preference ->
             rvxSettingFile.writeText(
                 rvxSettingFile.readText()
@@ -75,7 +70,15 @@ internal object ResourceUtils {
                     .replace("$preference -->", "")
             )
         }
+    }
 
+    fun addPreference(patch: PatchList) {
+        patch.included = true
+        updatePatchStatus(patch.title.replace(" for YouTube", ""))
+    }
+
+    fun addPreference(settingArray: Array<String>, patch: PatchList) {
+        addPreference(settingArray)
         addPreference(patch)
     }
 
@@ -110,7 +113,7 @@ internal object ResourceUtils {
 
     fun addPreferenceFragment(key: String, insertKey: String) = context.apply {
         val targetClass =
-            "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity"
+            "com.google.android.libraries.social.licenses.LicenseActivity"
 
         document(YOUTUBE_SETTINGS_PATH).use { document ->
             with(document) {

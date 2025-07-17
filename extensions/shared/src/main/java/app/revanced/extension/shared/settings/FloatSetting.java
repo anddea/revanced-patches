@@ -63,16 +63,14 @@ public class FloatSetting extends Setting<Float> {
     }
 
     @Override
-    public void save(@NonNull Float newValue) {
-        // Must set before saving to preferences (otherwise importing fails to update UI correctly).
-        value = Objects.requireNonNull(newValue);
-        preferences.saveFloatString(key, newValue);
-    }
-
-    @Override
     public void saveValueFromString(@NonNull String newValue) {
         setValueFromString(newValue);
         preferences.saveString(key, newValue);
+    }
+
+    @Override
+    public void saveToPreferences() {
+        preferences.saveFloatString(key, value);
     }
 
     @NonNull

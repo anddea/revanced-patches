@@ -23,10 +23,6 @@ public final class VideoInformation {
     private static final int DEFAULT_YOUTUBE_MUSIC_VIDEO_QUALITY = -2;
     private static final String DEFAULT_YOUTUBE_MUSIC_VIDEO_QUALITY_STRING = getString("quality_auto");
     /**
-     * Prefix present in all Age-restricted music player parameters signature.
-     */
-    private static final String AGE_RESTRICTED_PLAYER_PARAMETER = "ygYQ";
-    /**
      * Prefix present in all Sample player parameters signature.
      */
     private static final String SAMPLES_PLAYER_PARAMETERS = "8AEB";
@@ -130,13 +126,6 @@ public final class VideoInformation {
         if (!playerResponseVideoId.equals(videoId)) {
             playerResponseVideoId = videoId;
         }
-    }
-
-    /**
-     * @return If the player parameter is for a Age-restricted video.
-     */
-    public static boolean parameterIsAgeRestricted(@Nullable String parameter) {
-        return parameter != null && parameter.startsWith(AGE_RESTRICTED_PLAYER_PARAMETER);
     }
 
     /**

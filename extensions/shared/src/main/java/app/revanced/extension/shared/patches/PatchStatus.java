@@ -15,4 +15,12 @@ public class PatchStatus {
     public static boolean SpoofStreamingDataIOS() {
         return false;
     }
+
+    public static String PatchVersion() {
+        return "Unknown";
+    }
+
+    public static long PatchedTime() {
+        return 0L;
+    }
 }

@@ -1,25 +1,14 @@
 package app.revanced.patches.youtube.utils
 
+import app.revanced.patcher.fingerprint
 import app.revanced.patches.youtube.player.components.playerComponentsPatch
-import app.revanced.patches.youtube.utils.resourceid.autoNavPreviewStub
-import app.revanced.patches.youtube.utils.resourceid.autoNavToggle
-import app.revanced.patches.youtube.utils.resourceid.fadeDurationFast
-import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
-import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
-import app.revanced.patches.youtube.utils.resourceid.insetOverlayViewLayout
-import app.revanced.patches.youtube.utils.resourceid.menuItemView
-import app.revanced.patches.youtube.utils.resourceid.playerControlNextButtonTouchArea
-import app.revanced.patches.youtube.utils.resourceid.playerControlPreviousButtonTouchArea
-import app.revanced.patches.youtube.utils.resourceid.scrimOverlay
-import app.revanced.patches.youtube.utils.resourceid.seekUndoEduOverlayStub
-import app.revanced.patches.youtube.utils.resourceid.totalTime
-import app.revanced.patches.youtube.utils.resourceid.varispeedUnavailableTitle
-import app.revanced.patches.youtube.utils.resourceid.videoQualityBottomSheet
+import app.revanced.patches.youtube.utils.resourceid.*
 import app.revanced.patches.youtube.utils.sponsorblock.sponsorBlockBytecodePatch
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.literal
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -54,15 +43,15 @@ internal val layoutConstructorFingerprint = legacyFingerprint(
     name = "layoutConstructorFingerprint",
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = emptyList(),
-    strings = listOf("1.0x"),
-    literals = listOf(
-        autoNavToggle,
-        autoNavPreviewStub,
-        playerControlPreviousButtonTouchArea,
-        playerControlNextButtonTouchArea
-    ),
+    literals = listOf(playerControlPreviousButtonTouchArea, playerControlNextButtonTouchArea),
 )
+
+internal val inflateControlsGroupLayoutStubFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters()
+    returns("V")
+    literal { youTubeControlsButtonGroupLayoutStub }
+}
 
 internal val playbackRateBottomSheetBuilderFingerprint = legacyFingerprint(
     name = "playbackRateBottomSheetBuilderFingerprint",

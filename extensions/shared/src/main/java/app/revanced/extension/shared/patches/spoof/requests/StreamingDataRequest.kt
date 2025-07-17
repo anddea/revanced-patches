@@ -5,6 +5,7 @@ import app.revanced.extension.shared.innertube.client.YouTubeAppClient
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createApplicationRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
 import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_STREAMING_DATA
+import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup
 import app.revanced.extension.shared.settings.BaseSettings
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.StringRef.str
@@ -21,6 +22,7 @@ import java.util.concurrent.ExecutionException
 import java.util.concurrent.Future
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
+
 
 /**
  * Video streaming data.  Fetching is tied to the behavior YT uses,
@@ -92,8 +94,16 @@ class StreamingDataRequest private constructor(
             YouTubeAppClient.availableClientTypes(SPOOF_STREAMING_DATA_TYPE)
         private val DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH: Boolean =
             SPOOF_STREAMING_DATA_TYPE == YouTubeAppClient.ClientType.ANDROID_VR_NO_AUTH
-
+        private val liveStreams: ByteArrayFilterGroup =
+            ByteArrayFilterGroup(
+                null,
+                "yt_live_broadcast",
+                "yt_premiere_broadcast"
+            )
         private var lastSpoofedClientFriendlyName: String? = null
+
+        // When this value is not empty, it is used as the preferred language when creating the RequestBody.
+        private var overrideLanguage: String = ""
 
         @GuardedBy("itself")
         val cache: MutableMap<String, StreamingDataRequest> = Collections.synchronizedMap(
@@ -114,6 +124,11 @@ class StreamingDataRequest private constructor(
                     "Unknown"
                 }
             }
+
+        @JvmStatic
+        fun overrideLanguage(language: String) {
+            overrideLanguage = language
+        }
 
         @JvmStatic
         fun fetchRequest(
@@ -166,6 +181,7 @@ class StreamingDataRequest private constructor(
                     clientType = clientType,
                     videoId = videoId,
                     setLocale = DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH,
+                    language = overrideLanguage.ifEmpty { BaseSettings.SPOOF_STREAMING_DATA_VR_LANGUAGE.get().language }
                 )
 
                 connection.setFixedLengthStreamingMode(requestBody.size)
@@ -228,8 +244,18 @@ class StreamingDataRequest private constructor(
                                     ) {
                                         stream.write(buffer, 0, bytesRead)
                                     }
-                                    lastSpoofedClientFriendlyName = clientType.friendlyName
-                                    return ByteBuffer.wrap(stream.toByteArray())
+                                    // Android Creator can't play livestreams, but it doesn't have an empty response (no formats available).
+                                    // Since it doesn't have an empty response, the app doesn't try to fetch with another client, and it tries to play the livestream.
+                                    // However, the response doesn't contain any formats available, so an exception is thrown.
+                                    // As a workaround for this issue, if Android Creator is used for fetching, it should check if the video is a livestream.
+                                    if (clientType == YouTubeAppClient.ClientType.ANDROID_CREATOR
+                                        && liveStreams.check(buffer).isFiltered //
+                                    ) {
+                                        Logger.printDebug { "Ignore Android Studio spoofing as it is a livestream (video: $videoId)" }
+                                    } else {
+                                        lastSpoofedClientFriendlyName = clientType.friendlyName
+                                        return ByteBuffer.wrap(stream.toByteArray())
+                                    }
                                 }
                             }
                         }
@@ -239,11 +265,16 @@ class StreamingDataRequest private constructor(
                 }
             }
 
-            handleConnectionError(str("revanced_spoof_streaming_data_failed_forbidden"), null, true)
+            val showToast = BaseSettings.DEBUG_TOAST_ON_ERROR.get()
+            handleConnectionError(
+                str("revanced_spoof_streaming_data_failed_forbidden"),
+                null,
+                showToast
+            )
             handleConnectionError(
                 str("revanced_spoof_streaming_data_failed_forbidden_suggestion"),
                 null,
-                true
+                showToast
             )
             return null
         }

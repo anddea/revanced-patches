@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.utils.extension.Constants.SHARED_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -74,6 +75,16 @@ val navigationBarHookPatch = bytecodePatch(
                     getReference<MethodReference>() ?: return@predicate false,
                     drawableTabMethod,
                 )
+            }
+
+            if (is_20_21_or_greater) {
+                val imageResourceIntTabMethod = pivotBarButtonsCreateResourceIntViewFingerprint.originalMethod
+                addHook(Hook.NAVIGATION_TAB_LOADED) predicate@{
+                    MethodUtil.methodSignaturesMatch(
+                        getReference<MethodReference>() ?: return@predicate false,
+                        imageResourceIntTabMethod,
+                    )
+                }
             }
 
             val imageResourceTabMethod =

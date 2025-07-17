@@ -12,4 +12,8 @@ public class DrcAudioPatch {
         }
         return original;
     }
+
+    public static boolean disableDrcAudioFeatureFlag(boolean original) {
+        return !DISABLE_DRC_AUDIO && original;
+    }
 }

@@ -1,7 +1,8 @@
 package app.revanced.patches.youtube.shorts.components
 
+import app.revanced.patcher.extensions.InstructionExtensions.instructionsOrNull
+import app.revanced.patcher.fingerprint
 import app.revanced.patches.youtube.utils.resourceid.badgeLabel
-import app.revanced.patches.youtube.utils.resourceid.metaPanel
 import app.revanced.patches.youtube.utils.resourceid.reelDynRemix
 import app.revanced.patches.youtube.utils.resourceid.reelDynShare
 import app.revanced.patches.youtube.utils.resourceid.reelFeedbackLike
@@ -11,15 +12,16 @@ import app.revanced.patches.youtube.utils.resourceid.reelForcedMuteButton
 import app.revanced.patches.youtube.utils.resourceid.reelPlayerFooter
 import app.revanced.patches.youtube.utils.resourceid.reelRightDislikeIcon
 import app.revanced.patches.youtube.utils.resourceid.reelRightLikeIcon
-import app.revanced.patches.youtube.utils.resourceid.reelVodTimeStampsContainer
 import app.revanced.patches.youtube.utils.resourceid.rightComment
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.literal
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -107,6 +109,47 @@ internal val reelPlaybackRepeatFingerprint = legacyFingerprint(
     returnType = "V",
     parameters = listOf("L"),
     strings = listOf("YoutubePlayerState is in throwing an Error.")
+)
+
+/**
+ * YouTube 20.16+
+ */
+// internal val reelPlaybackRepeatFingerprint2016 = fingerprint {
+//     returns("V")
+//     parameters("L")
+//     opcodes(
+//         Opcode.INVOKE_STATIC,
+//         Opcode.MOVE_RESULT_OBJECT,
+//         Opcode.IPUT_OBJECT
+//     )
+//     custom { _, classDef ->
+//         classDef.methods.any { classMethod ->
+//             classMethod.instructionsOrNull?.any { instruction ->
+//                 instruction.opcode == Opcode.CONST_STRING &&
+//                         (instruction as? ReferenceInstruction)?.reference?.toString() == "Reels[%s] Playback Time: %d ms"
+//             } == true
+//         }
+//     }
+// }
+
+internal val reelPlaybackRepeatFingerprint2016 = legacyFingerprint(
+    name = "reelPlaybackRepeatFingerprint2016",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    returnType = "V",
+    opcodes = listOf(
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IPUT_OBJECT
+    ),
+    customFingerprint = { _, classDef ->
+        classDef.methods.any { classMethod ->
+            classMethod.instructionsOrNull?.any { instruction ->
+                instruction.opcode == Opcode.CONST_STRING &&
+                        (instruction as? ReferenceInstruction)?.reference?.toString() == "Reels[%s] Playback Time: %d ms"
+            } == true
+        }
+    }
 )
 
 internal val reelPlaybackFingerprint = legacyFingerprint(
@@ -215,33 +258,59 @@ internal val shortsSubscriptionsTabletParentFingerprint = legacyFingerprint(
     literals = listOf(reelPlayerFooter),
 )
 
-internal val shortsTimeStampConstructorFingerprint = legacyFingerprint(
-    name = "shortsTimeStampConstructorFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    literals = listOf(reelVodTimeStampsContainer),
-)
+// Used to show timestamps in Shorts.
+internal const val TIME_STAMP_PRIMARY_FEATURE_FLAG = 45627350L
+internal const val TIME_STAMP_SECONDARY_FEATURE_FLAG = 45638282L
+internal const val TIME_STAMP_TERTIARY_FEATURE_FLAG = 45638187L
+internal const val TIME_STAMP_QUATERNARY_FEATURE_FLAG = 45643039L
 
-internal val shortsTimeStampMetaPanelFingerprint = legacyFingerprint(
-    name = "shortsTimeStampMetaPanelFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    literals = listOf(metaPanel),
-)
+// Used to make Shorts played on a channel show timestamp.
+internal const val TIME_STAMP_RELATIVE_INDEX_LITERAL = 10002L
 
-internal val shortsTimeStampPrimaryFingerprint = legacyFingerprint(
-    name = "shortsTimeStampPrimaryFingerprint",
+// If this feature flag is not disabled, clear mode will be forcibly enabled after passing to the previous Shorts.
+internal const val TIME_STAMP_CLEAR_DISPLAY_FEATURE_FLAG = 45649743L
+
+// Prerequisites: Enable Shorts timestamp.
+internal const val CLEAR_MODE_FEATURE_FLAG = 45643040L
+
+internal val shortsTimeStampPrimarySecondaryFingerprint = legacyFingerprint(
+    name = "shortsTimeStampPrimarySecondaryFingerprint",
     returnType = "I",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("I"),
-    literals = listOf(45627350L, 45638282L, 10002L),
+    literals = listOf(
+        TIME_STAMP_PRIMARY_FEATURE_FLAG,
+        TIME_STAMP_SECONDARY_FEATURE_FLAG,
+        TIME_STAMP_RELATIVE_INDEX_LITERAL,
+    ),
 )
 
-internal val shortsTimeStampSecondaryFingerprint = legacyFingerprint(
-    name = "shortsTimeStampSecondaryFingerprint",
+internal val shortsTimeStampTertiaryFingerprint = legacyFingerprint(
+    name = "shortsTimeStampTertiaryFingerprint",
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    literals = listOf(45638187L),
+    literals = listOf(TIME_STAMP_TERTIARY_FEATURE_FLAG),
+)
+
+internal val shortsTimeStampQuaternaryFingerprint = legacyFingerprint(
+    name = "shortsTimeStampQuaternaryFingerprint",
+    returnType = "Z",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    literals = listOf(TIME_STAMP_QUATERNARY_FEATURE_FLAG),
+)
+
+internal val shortsTimeStampClearDisplayFingerprint = legacyFingerprint(
+    name = "shortsTimeStampClearDisplayFingerprint",
+    returnType = "Z",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    literals = listOf(TIME_STAMP_CLEAR_DISPLAY_FEATURE_FLAG),
+)
+
+internal val shortsClearModeFingerprint = legacyFingerprint(
+    name = "shortsClearModeFingerprint",
+    returnType = "Z",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    literals = listOf(CLEAR_MODE_FEATURE_FLAG),
 )
 
 internal val shortsToolBarFingerprint = legacyFingerprint(
@@ -263,3 +332,21 @@ internal val shortsFullscreenFeatureFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     literals = listOf(FULLSCREEN_FEATURE_FLAG),
 )
+
+internal val shortsExperimentalPlayerFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    literal {
+        45677719L
+    }
+}
+
+internal val renderNextUIFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    literal {
+        45649743L
+    }
+}

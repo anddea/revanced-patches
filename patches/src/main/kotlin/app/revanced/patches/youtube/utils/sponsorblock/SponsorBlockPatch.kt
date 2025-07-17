@@ -298,7 +298,11 @@ val sponsorBlockPatch = resourcePatch(
         /**
          * merge xml nodes from the host to their real xml files
          */
-        addTopControl("youtube/sponsorblock")
+        addTopControl(
+            "youtube/sponsorblock/shared",
+            "@+id/revanced_sb_voting_button",
+            "@+id/revanced_sb_create_segment_button"
+        )
 
         /**
          * Add settings

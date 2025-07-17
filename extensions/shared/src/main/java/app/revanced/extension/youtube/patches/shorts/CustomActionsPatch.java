@@ -1,5 +1,11 @@
 package app.revanced.extension.youtube.patches.shorts;
 
+import static app.revanced.extension.shared.utils.ResourceUtils.getString;
+import static app.revanced.extension.shared.utils.StringRef.str;
+import static app.revanced.extension.youtube.patches.components.ShortsCustomActionsFilter.isShortsFlyoutMenuVisible;
+import static app.revanced.extension.youtube.shared.RootView.isShortsActive;
+import static app.revanced.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
+
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
@@ -8,19 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import app.revanced.extension.shared.settings.BooleanSetting;
-import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.shared.utils.ResourceUtils;
-import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.youtube.patches.components.ShortsCustomActionsFilter;
-import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.utils.ExtendedUtils;
+
 import app.revanced.extension.youtube.utils.GeminiManager;
-import app.revanced.extension.youtube.utils.VideoUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.ref.WeakReference;
@@ -28,11 +27,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import static app.revanced.extension.shared.utils.ResourceUtils.getString;
-import static app.revanced.extension.shared.utils.StringRef.str;
-import static app.revanced.extension.youtube.patches.components.ShortsCustomActionsFilter.isShortsFlyoutMenuVisible;
-import static app.revanced.extension.youtube.shared.RootView.isShortsActive;
-import static app.revanced.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
+import app.revanced.extension.shared.settings.BooleanSetting;
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.ResourceUtils;
+import app.revanced.extension.shared.utils.Utils;
+import app.revanced.extension.youtube.patches.components.ShortsCustomActionsFilter;
+import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.utils.ExtendedUtils;
+import app.revanced.extension.youtube.utils.VideoUtils;
 
 @SuppressWarnings("unused")
 public final class CustomActionsPatch {
@@ -80,11 +82,7 @@ public final class CustomActionsPatch {
     }
 
     private static void showMoreButtonDialog(Context mContext) {
-        ScrollView mScrollView = new ScrollView(mContext);
-        LinearLayout mLinearLayout = new LinearLayout(mContext);
-        mLinearLayout.setOrientation(LinearLayout.VERTICAL);
-        mLinearLayout.setPadding(0, 0, 0, 0);
-
+        LinearLayout mainLayout = ExtendedUtils.prepareMainLayout(mContext, false);
         Map<LinearLayout, Runnable> actionsMap = new LinkedHashMap<>(arrSize);
 
         for (CustomAction customAction : CustomAction.values()) {
@@ -94,13 +92,11 @@ public final class CustomActionsPatch {
                 Runnable action = customAction.getOnClickAction();
                 LinearLayout itemLayout = ExtendedUtils.createItemLayout(mContext, title, iconId);
                 actionsMap.putIfAbsent(itemLayout, action);
-                mLinearLayout.addView(itemLayout);
+                mainLayout.addView(itemLayout);
             }
         }
 
-        mScrollView.addView(mLinearLayout);
-
-        ExtendedUtils.showBottomSheetDialog(mContext, mScrollView, actionsMap);
+        ExtendedUtils.showBottomSheetDialog(mContext, mainLayout, actionsMap);
     }
 
     private static boolean isMoreButton(String enumString) {
@@ -328,7 +324,7 @@ public final class CustomActionsPatch {
         SPEED_DIALOG(
                 Settings.SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG,
                 "yt_outline_play_arrow_half_circle_black_24",
-                () -> VideoUtils.showPlaybackSpeedDialog(contextRef.get())
+                () -> VideoUtils.showPlaybackSpeedDialog(contextRef.get(), Settings.SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG_TYPE)
         ),
         GEMINI(
                 Settings.SHORTS_CUSTOM_ACTIONS_GEMINI,

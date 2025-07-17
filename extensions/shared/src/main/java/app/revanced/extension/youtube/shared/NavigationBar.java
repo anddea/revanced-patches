@@ -144,7 +144,7 @@ public final class NavigationBar {
 
             // Log the unknown tab as exception level, only if debug is enabled.
             // This is because unknown tabs do no harm, and it's only relevant to developers.
-            if (Settings.ENABLE_DEBUG_LOGGING.get()) {
+            if (Settings.DEBUG.get()) {
                 Logger.printException(() -> "Unknown tab: " + lastEnumName
                         + " view: " + navigationButtonGroup.getClass());
             }
@@ -182,7 +182,7 @@ public final class NavigationBar {
 
             if (button == null) { // An unknown tab was selected.
                 // Show a toast only if debug mode is enabled.
-                if (Settings.ENABLE_DEBUG_LOGGING.get()) {
+                if (Settings.DEBUG.get()) {
                     Logger.printException(() -> "Unknown navigation view selected: " + navButtonImageView);
                 }
 

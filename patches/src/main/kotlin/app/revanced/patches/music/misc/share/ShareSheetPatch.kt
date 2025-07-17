@@ -7,6 +7,7 @@ import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKA
 import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.extension.Constants.MISC_PATH
 import app.revanced.patches.music.utils.patch.PatchList.CHANGE_SHARE_SHEET
+import app.revanced.patches.music.utils.patch.PatchList.LITHO_FILTER
 import app.revanced.patches.music.utils.resourceid.bottomSheetRecyclerView
 import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.CategoryType
@@ -61,6 +62,7 @@ val shareSheetPatch = bytecodePatch(
         )
 
         updatePatchStatus(CHANGE_SHARE_SHEET)
+        updatePatchStatus(LITHO_FILTER)
 
     }
 }

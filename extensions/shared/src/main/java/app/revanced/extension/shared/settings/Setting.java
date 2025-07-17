@@ -30,7 +30,7 @@ public abstract class Setting<T> {
     /**
      * Indicates if a {@link Setting} is available to edit and use.
      * Typically this is dependent upon other BooleanSetting(s) set to 'true',
-     * but this can be used to call into integrations code and check other conditions.
+     * but this can be used to call into extension code and check other conditions.
      */
     public interface Availability {
         boolean isAvailable();
@@ -39,16 +39,14 @@ public abstract class Setting<T> {
     /**
      * Availability based on a single parent setting being enabled.
      */
-    @NonNull
-    public static Availability parent(@NonNull BooleanSetting parent) {
+    public static Availability parent(BooleanSetting parent) {
         return parent::get;
     }
 
     /**
      * Availability based on all parents being enabled.
      */
-    @NonNull
-    public static Availability parentsAll(@NonNull BooleanSetting... parents) {
+    public static Availability parentsAll(BooleanSetting... parents) {
         return () -> {
             for (BooleanSetting parent : parents) {
                 if (!parent.get()) return false;
@@ -60,8 +58,7 @@ public abstract class Setting<T> {
     /**
      * Availability based on any parent being enabled.
      */
-    @NonNull
-    public static Availability parentsAny(@NonNull BooleanSetting... parents) {
+    public static Availability parentsAny(BooleanSetting... parents) {
         return () -> {
             for (BooleanSetting parent : parents) {
                 if (parent.get()) return true;
@@ -90,7 +87,7 @@ public abstract class Setting<T> {
     /**
      * Adds a callback for {@link #importFromJSON(Context, String)} and {@link #exportToJson(Context)}.
      */
-    public static void addImportExportCallback(@NonNull ImportExportCallback callback) {
+    public static void addImportExportCallback(ImportExportCallback callback) {
         importExportCallbacks.add(Objects.requireNonNull(callback));
     }
 
@@ -111,14 +108,13 @@ public abstract class Setting<T> {
     public static final SharedPrefCategory preferences = new SharedPrefCategory("revanced");
 
     @Nullable
-    public static Setting<?> getSettingFromPath(@NonNull String str) {
+    public static Setting<?> getSettingFromPath(String str) {
         return PATH_TO_SETTINGS.get(str);
     }
 
     /**
      * @return All settings that have been created.
      */
-    @NonNull
     public static List<Setting<?>> allLoadedSettings() {
         return Collections.unmodifiableList(SETTINGS);
     }
@@ -141,13 +137,11 @@ public abstract class Setting<T> {
     /**
      * The key used to store the value in the shared preferences.
      */
-    @NonNull
     public final String key;
 
     /**
      * The default value of the setting.
      */
-    @NonNull
     public final T defaultValue;
 
     /**
@@ -178,7 +172,6 @@ public abstract class Setting<T> {
     /**
      * The value of the setting.
      */
-    @NonNull
     protected volatile T value;
 
     public Setting(String key, T defaultValue) {
@@ -223,8 +216,8 @@ public abstract class Setting<T> {
      * @param userDialogMessage       Confirmation message to display, if the user tries to change the setting from the default value.
      * @param availability            Condition that must be true, for this setting to be available to configure.
      */
-    public Setting(@NonNull String key,
-                   @NonNull T defaultValue,
+    public Setting(String key,
+                   T defaultValue,
                    boolean rebootApp,
                    boolean includeWithImportExport,
                    @Nullable String userDialogMessage,
@@ -251,10 +244,8 @@ public abstract class Setting<T> {
     /**
      * Migrate a setting value if the path is renamed but otherwise the old and new settings are identical.
      */
-    public static <T> void migrateOldSettingToNew(@NonNull Setting<T> oldSetting, @NonNull Setting<T> newSetting) {
-        if (oldSetting == newSetting) {
-            throw new IllegalArgumentException();
-        }
+    public static <T> void migrateOldSettingToNew(Setting<T> oldSetting, Setting<T> newSetting) {
+        if (oldSetting == newSetting) throw new IllegalArgumentException();
 
         if (!oldSetting.isSetToDefault()) {
             Logger.printInfo(() -> "Migrating old setting value: " + oldSetting + " into replacement setting: " + newSetting);
@@ -269,7 +260,7 @@ public abstract class Setting<T> {
      * This method will be deleted in the future.
      */
     @SuppressWarnings("rawtypes")
-    public static void migrateFromOldPreferences(@NonNull SharedPrefCategory oldPrefs, @NonNull Setting setting, String settingKey) {
+    public static void migrateFromOldPreferences(SharedPrefCategory oldPrefs, Setting setting, String settingKey) {
         if (!oldPrefs.preferences.contains(settingKey)) {
             return; // Nothing to do.
         }
@@ -311,14 +302,21 @@ public abstract class Setting<T> {
      * This intentionally is a static method to deter
      * accidental usage when {@link #save(Object)} was intended.
      */
-    public static void privateSetValueFromString(@NonNull Setting<?> setting, @NonNull String newValue) {
+    public static void privateSetValueFromString(Setting<?> setting, String newValue) {
         setting.setValueFromString(newValue);
+
+        // Clear the preference value since default is used, to allow changing
+        // the changing the default for a future release.  Without this after upgrading
+        // the saved value will be whatever was the default when the app was first installed.
+        if (setting.isSetToDefault()) {
+            setting.removeFromPreferences();
+        }
     }
 
     /**
      * Sets the value of {@link #value}, but do not save to {@link #preferences}.
      */
-    protected abstract void setValueFromString(@NonNull String newValue);
+    protected abstract void setValueFromString(String newValue);
 
     /**
      * Load and set the value of {@link #value}.
@@ -328,21 +326,50 @@ public abstract class Setting<T> {
     /**
      * Persistently saves the value.
      */
-    public abstract void save(@NonNull T newValue);
+    public final void save(T newValue) {
+        if (value.equals(newValue)) {
+            return;
+        }
+
+        // Must set before saving to preferences (otherwise importing fails to update UI correctly).
+        value = Objects.requireNonNull(newValue);
+
+        if (defaultValue.equals(newValue)) {
+            removeFromPreferences();
+        } else {
+            saveToPreferences();
+        }
+    }
 
     /**
      * Persistently saves the value using strings.
      */
-    public abstract void saveValueFromString(@NonNull String newValue);
+    public abstract void saveValueFromString(String newValue);
+
+    /**
+     * Save {@link #value} to {@link #preferences}.
+     */
+    protected abstract void saveToPreferences();
+
+    /**
+     * Remove {@link #value} from {@link #preferences}.
+     */
+    protected final void removeFromPreferences() {
+        Logger.printDebug(() -> "Clearing stored preference value (reset to default): " + key);
+        preferences.removeKey(key);
+    }
 
     @NonNull
     public abstract T get();
 
     /**
      * Identical to calling {@link #save(Object)} using {@link #defaultValue}.
+     *
+     * @return The newly saved default value.
      */
-    public void resetToDefault() {
+    public T resetToDefault() {
         save(defaultValue);
+        return defaultValue;
     }
 
     /**
@@ -354,7 +381,6 @@ public abstract class Setting<T> {
 
     /**
      * @return if the currently set value is the same as {@link #defaultValue}
-     * @noinspection BooleanMethodIsAlwaysInverted
      */
     public boolean isSetToDefault() {
         return value.equals(defaultValue);
@@ -402,7 +428,6 @@ public abstract class Setting<T> {
         json.put(importExportKey, value);
     }
 
-    @NonNull
     public static String exportToJson(@Nullable Context alertDialogContext) {
         try {
             JSONObject json = new JSONObject();
@@ -441,7 +466,7 @@ public abstract class Setting<T> {
     /**
      * @return if any settings that require a reboot were changed.
      */
-    public static boolean importFromJSON(@NonNull Context alertDialogContext, @NonNull String settingsJsonString) {
+    public static boolean importFromJSON(Context alertDialogContext, String settingsJsonString) {
         try {
             if (!settingsJsonString.matches("[\\s\\S]*\\{")) {
                 settingsJsonString = '{' + settingsJsonString + '}'; // Restore outer JSON braces

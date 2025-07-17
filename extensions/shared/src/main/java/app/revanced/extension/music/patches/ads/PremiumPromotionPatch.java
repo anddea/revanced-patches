@@ -86,7 +86,7 @@ public class PremiumPromotionPatch {
             if (foregroundTime < 1000L) {
                 promotionDialogShown = true;
                 dialog.setOnShowListener(DialogInterface::dismiss);
-                if (BaseSettings.ENABLE_DEBUG_LOGGING.get()) {
+                if (BaseSettings.DEBUG.get()) {
                     Utils.showToastShort(str("revanced_hide_premium_promotion_closed_toast"));
                 }
                 return;

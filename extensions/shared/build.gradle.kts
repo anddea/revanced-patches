@@ -2,6 +2,10 @@ extension {
     name = "extensions/shared.rve"
 }
 
+plugins {
+    alias(libs.plugins.protobuf)
+}
+
 android {
     namespace = "app.revanced.extension"
     compileSdk = 34
@@ -29,5 +33,24 @@ dependencies {
 
     implementation(libs.okhttp)
 
+    implementation(libs.nanohttpd)
+    implementation(libs.protobuf.javalite)
+
     compileOnly(project(":extensions:shared:stub"))
+}
+
+protobuf {
+    protoc {
+        artifact = libs.protobuf.protoc.get().toString()
+    }
+
+    generateProtoTasks {
+        all().forEach { task ->
+            task.builtins {
+                create("java") {
+                    option("lite")
+                }
+            }
+        }
+    }
 }

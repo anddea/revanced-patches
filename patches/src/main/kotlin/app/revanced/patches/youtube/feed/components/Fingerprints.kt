@@ -1,15 +1,6 @@
 package app.revanced.patches.youtube.feed.components
 
-import app.revanced.patches.youtube.utils.resourceid.bar
-import app.revanced.patches.youtube.utils.resourceid.barContainerHeight
-import app.revanced.patches.youtube.utils.resourceid.captionToggleContainer
-import app.revanced.patches.youtube.utils.resourceid.channelListSubMenu
-import app.revanced.patches.youtube.utils.resourceid.contentPill
-import app.revanced.patches.youtube.utils.resourceid.drawerResults
-import app.revanced.patches.youtube.utils.resourceid.expandButtonDown
-import app.revanced.patches.youtube.utils.resourceid.filterBarHeight
-import app.revanced.patches.youtube.utils.resourceid.horizontalCardList
-import app.revanced.patches.youtube.utils.resourceid.relatedChipCloudMargin
+import app.revanced.patches.youtube.utils.resourceid.*
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -28,7 +19,6 @@ internal val breakingNewsFingerprint = legacyFingerprint(
 internal val captionsButtonFingerprint = legacyFingerprint(
     name = "captionsButtonFingerprint",
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
     literals = listOf(captionToggleContainer),
 )

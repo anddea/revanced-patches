@@ -1,16 +1,7 @@
 package app.revanced.extension.youtube.patches.video;
 
-import static app.revanced.extension.shared.utils.StringRef.str;
-import static app.revanced.extension.youtube.shared.RootView.isShortsActive;
-
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
-
-import org.apache.commons.lang3.BooleanUtils;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.FloatSetting;
 import app.revanced.extension.shared.utils.Logger;
@@ -20,6 +11,13 @@ import app.revanced.extension.youtube.patches.video.requests.MusicRequest;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.VideoInformation;
 import app.revanced.extension.youtube.whitelist.Whitelist;
+import org.apache.commons.lang3.BooleanUtils;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import static app.revanced.extension.shared.utils.StringRef.str;
+import static app.revanced.extension.youtube.shared.RootView.isShortsActive;
 
 @SuppressWarnings("unused")
 public class PlaybackSpeedPatch {
@@ -74,7 +72,7 @@ public class PlaybackSpeedPatch {
         boolean isWhitelisted = Whitelist.isChannelWhitelistedPlaybackSpeed(newlyLoadedChannelId);
 
         if (newlyLoadedLiveStreamValue || isMusic || isWhitelisted) {
-            synchronized(ignoredPlaybackSpeedVideoIds) {
+            synchronized (ignoredPlaybackSpeedVideoIds) {
                 if (!ignoredPlaybackSpeedVideoIds.containsKey(newlyLoadedVideoId)) {
                     lastSelectedPlaybackSpeed = 1.0f;
                     ignoredPlaybackSpeedVideoIds.put(newlyLoadedVideoId, lastSelectedPlaybackSpeed);
@@ -123,21 +121,24 @@ public class PlaybackSpeedPatch {
 
         if (defaultPlaybackSpeed < 0) { // If the default playback speed is 'Auto', it will be overridden to the last used playback speed.
             float finalPlaybackSpeed = isShorts ? lastSelectedShortsPlaybackSpeed : lastSelectedPlaybackSpeed;
-            VideoInformation.overridePlaybackSpeed(finalPlaybackSpeed);
+            if (isShorts) {
+                VideoInformation.setPlaybackSpeed(lastSelectedShortsPlaybackSpeed);
+            } else {
+                VideoInformation.overridePlaybackSpeed(lastSelectedPlaybackSpeed);
+            }
             Logger.printDebug(() -> "changing playback speed to: " + finalPlaybackSpeed);
             return finalPlaybackSpeed;
         } else { // Otherwise the default playback speed is used.
             synchronized (ignoredPlaybackSpeedVideoIds) {
-                if (isShorts) {
-                    // For Shorts, the VideoInformation.overridePlaybackSpeed() method is not used, so manually save the playback speed in VideoInformation.
-                    VideoInformation.setPlaybackSpeed(defaultPlaybackSpeed);
-                } else if (ignoredPlaybackSpeedVideoIds.containsKey(videoId)) {
+                if (!isShorts && ignoredPlaybackSpeedVideoIds.containsKey(videoId)) {
                     // For general videos, check whether the default video playback speed should not be applied.
                     Logger.printDebug(() -> "changing playback speed to: 1.0");
                     return 1.0f;
                 }
             }
 
+            // Sometimes VideoInformation.overridePlaybackSpeed() method is not used, so manually save the playback speed in VideoInformation.
+            VideoInformation.setPlaybackSpeed(defaultPlaybackSpeed);
             Logger.printDebug(() -> "changing playback speed to: " + defaultPlaybackSpeed);
             return defaultPlaybackSpeed;
         }
@@ -177,10 +178,10 @@ public class PlaybackSpeedPatch {
                         : Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_TOAST;
 
                 if (rememberPlaybackSpeedLastSelectedSetting.get()) {
-                    // With the 0.05x menu, if the speed is set by integrations to higher than 2.0x
+                    // With the 0.05x menu, if the speed is set by a patch to higher than 2.0x
                     // then the menu will allow increasing without bounds but the max speed is
-                    // still capped to under 8.0x.
-                    playbackSpeed = Math.min(playbackSpeed, CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MAXIMUM - 0.05f);
+                    // still capped to 8.0x.
+                    playbackSpeed = Math.min(playbackSpeed, CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MAXIMUM);
 
                     // Prevent toast spamming if using the 0.05x adjustments.
                     // Show exactly one toast after the user stops interacting with the speed menu.
