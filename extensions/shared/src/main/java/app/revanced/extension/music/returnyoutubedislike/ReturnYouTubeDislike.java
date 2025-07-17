@@ -19,8 +19,6 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
 
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
@@ -192,7 +190,6 @@ public class ReturnYouTubeDislike {
         final boolean compactLayout = Settings.RYD_COMPACT_LAYOUT.get();
 
         if (middleSeparatorBounds == null) {
-            final DisplayMetrics dp = Utils.getResources().getDisplayMetrics();
             final int unit;
             if (isNewActionBar) {
                 unit = 15;
@@ -202,10 +199,9 @@ public class ReturnYouTubeDislike {
                 unit = 25;
             }
             leftSeparatorBounds = new Rect(0, 0,
-                    (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1.2f, dp),
-                    (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, unit, dp));
-            final int middleSeparatorSize =
-                    (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3.7f, dp);
+                    Utils.dipToPixels(1.2f),
+                    Utils.dipToPixels(unit));
+            final int middleSeparatorSize = Utils.dipToPixels(3.7f);
             middleSeparatorBounds = new Rect(0, 0, middleSeparatorSize, middleSeparatorSize);
         }
 

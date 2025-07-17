@@ -8,7 +8,7 @@ import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 /**
- * Abuse LithoFilter for {@link CustomPlaybackSpeedPatch}.
+ * LithoFilter for {@link CustomPlaybackSpeedPatch}.
  */
 public final class PlaybackSpeedMenuFilter extends Filter {
     /**

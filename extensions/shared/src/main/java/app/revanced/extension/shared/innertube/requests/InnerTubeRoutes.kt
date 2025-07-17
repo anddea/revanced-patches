@@ -57,6 +57,12 @@ object InnerTubeRoutes {
     )
 
     @JvmField
+    val GET_STREAMING_DATA_JSON = compileRoute(
+        endpoint = "player",
+        fields = "streamingData.adaptiveFormats.audioTrack"
+    )
+
+    @JvmField
     val GET_VIDEO_ACTION_BUTTON = compileRoute(
         endpoint = "next",
         fields = "contents.singleColumnWatchNextResults." +
@@ -79,12 +85,12 @@ object InnerTubeRoutes {
         alt: String? = null,
         prettier: Boolean = false,
     ): CompiledRoute {
-        var query = Array<String>(4) { "&" }
+        val query = Array(4) { "&" }
         var i = 0
         query[i] = "?"
 
         val sb = StringBuilder(endpoint)
-        if (prettier == false) {
+        if (!prettier) {
             sb.append(query[i++])
             sb.append("prettyPrint=false")
         }

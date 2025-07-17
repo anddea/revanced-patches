@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.GradientDrawable;
@@ -22,6 +23,8 @@ import app.revanced.extension.shared.utils.Utils;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+
+import static app.revanced.extension.shared.utils.ResourceUtils.getColor;
 
 /**
  * Manages the display and interaction of a floating lyrics search overlay
@@ -44,11 +47,16 @@ public class LyricsSearchManager {
     private static final int BUTTON_CORNER_RADIUS_DP = 20; // For main search button
     private static final int ICON_BUTTON_MARGIN_DP = 5; // Margin between icons
 
-    private static final String COLOR_PRIMARY_ACCENT = "#1ED760"; // Spotify Green
-    private static final String COLOR_DARK_BACKGROUND = "#282828"; // Dark Gray bg (ARGB: 200, 40, 40, 40)
-    private static final String COLOR_ICON_BACKGROUND = "#404040"; // Slightly lighter gray for icon bg
-    private static final String COLOR_TEXT_ON_ACCENT = "#000000"; // Black text on green button
-    private static final String COLOR_ICON_TINT = "#B3B3B3"; // White icons
+    private static final int COLOR_PRIMARY_ACCENT = getColor("spotify_green_157"); // Spotify Green
+    private static final int COLOR_DARK_BACKGROUND = Color.parseColor("#282828"); // Dark Gray bg (ARGB: 200, 40, 40, 40)
+    private static final int COLOR_ICON_BACKGROUND = Color.parseColor("#404040"); // Slightly lighter gray for icon bg
+    private static final int COLOR_TEXT_ON_ACCENT = Color.parseColor("#000000"); // Black text on green button
+    private static final int COLOR_ICON_TINT = Color.parseColor("#B3B3B3"); // White icons
+
+    // --- SharedPreferences Keys ---
+    private static final String PREFS_NAME = "LyricsSearchPrefs";
+    private static final String KEY_TOP_MARGIN = "last_known_top_margin";
+    private static final String KEY_SNAPPED_EDGE = "last_snapped_edge";
 
     // --- State Variables ---
     private static String currentSearchTitle = null;
@@ -113,8 +121,7 @@ public class LyricsSearchManager {
 
     /**
      * Creates, updates, or re-attaches the overlay to the current Activity's DecorView.
-     * Handles cases where the overlay might exist but be detached (e.g., after activity recreation).
-     * This method MUST be called on the main UI thread.
+     * Loads saved position before creating the overlay.
      */
     @SuppressLint({"SetTextI18n", "ClickableViewAccessibility"})
     private static void showOrUpdateOverlay() {
@@ -136,6 +143,8 @@ public class LyricsSearchManager {
                 screenHeight = displayMetrics.heightPixels;
                 Logger.printDebug(() -> TAG + ": Screen height initialized: " + screenHeight);
             }
+
+            loadSavedPosition(currentActivity);
 
             boolean needsCreation = lyricsButtonContainer == null;
             boolean needsReattaching = !needsCreation && (lyricsButtonContainer.getParent() != decorView || !lyricsButtonContainer.isAttachedToWindow());
@@ -187,27 +196,27 @@ public class LyricsSearchManager {
             expandedLayout.setGravity(Gravity.CENTER_VERTICAL);
 
             GradientDrawable expandedBg = new GradientDrawable();
-            expandedBg.setColor(Color.parseColor(COLOR_DARK_BACKGROUND));
-            expandedBg.setCornerRadius(Utils.dpToPx(BUTTON_CORNER_RADIUS_DP * 2));
+            expandedBg.setColor(COLOR_DARK_BACKGROUND);
+            expandedBg.setCornerRadius(Utils.dipToPixels(BUTTON_CORNER_RADIUS_DP * 2));
             expandedLayout.setBackground(expandedBg);
-            int expandedPaddingPx = Utils.dpToPx(EXPANDED_LAYOUT_PADDING_DP);
+            int expandedPaddingPx = Utils.dipToPixels(EXPANDED_LAYOUT_PADDING_DP);
             expandedLayout.setPadding(expandedPaddingPx, expandedPaddingPx, expandedPaddingPx, expandedPaddingPx);
 
-            int buttonHeightPx = Utils.dpToPx(BUTTON_HEIGHT_DP);
-            int iconButtonSizePx = Utils.dpToPx(ICON_BUTTON_SIZE_DP);
-            int iconPaddingPx = Utils.dpToPx(BUTTON_INTERNAL_PADDING_DP);
-            int iconMarginPx = Utils.dpToPx(ICON_BUTTON_MARGIN_DP);
+            int buttonHeightPx = Utils.dipToPixels(BUTTON_HEIGHT_DP);
+            int iconButtonSizePx = Utils.dipToPixels(ICON_BUTTON_SIZE_DP);
+            int iconPaddingPx = Utils.dipToPixels(BUTTON_INTERNAL_PADDING_DP);
+            int iconMarginPx = Utils.dipToPixels(ICON_BUTTON_MARGIN_DP);
 
             // --- Google Search Button ---
             googleSearchButton = new Button(context);
             googleSearchButton.setText("Search Lyrics");
             googleSearchButton.setAllCaps(false);
-            googleSearchButton.setTextColor(Color.parseColor(COLOR_TEXT_ON_ACCENT));
-            googleSearchButton.setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
+            googleSearchButton.setTextColor(COLOR_TEXT_ON_ACCENT);
+            googleSearchButton.setPadding(Utils.dipToPixels(16), 0, Utils.dipToPixels(16), 0);
             GradientDrawable searchBg = new GradientDrawable();
             searchBg.setShape(GradientDrawable.RECTANGLE);
-            searchBg.setColor(Color.parseColor(COLOR_PRIMARY_ACCENT));
-            searchBg.setCornerRadius(Utils.dpToPx(BUTTON_CORNER_RADIUS_DP));
+            searchBg.setColor(COLOR_PRIMARY_ACCENT);
+            searchBg.setCornerRadius(Utils.dipToPixels(BUTTON_CORNER_RADIUS_DP));
             googleSearchButton.setBackground(searchBg);
             LinearLayout.LayoutParams searchParams = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT, buttonHeightPx);
@@ -236,7 +245,7 @@ public class LyricsSearchManager {
             minimizeParams.setMarginStart(iconMarginPx);
             minimizeButton.setLayoutParams(minimizeParams);
 
-            // Add buttons to expanded layout in order
+            // Add buttons to expanded layout
             expandedLayout.addView(googleSearchButton);
             expandedLayout.addView(songtellButton);
             expandedLayout.addView(minimizeButton);
@@ -262,7 +271,7 @@ public class LyricsSearchManager {
                 if (parentView == null) return false;
 
                 final int action = event.getActionMasked();
-                final int edgePaddingPx = Utils.dpToPx(EDGE_PADDING_DP);
+                final int edgePaddingPx = Utils.dipToPixels(EDGE_PADDING_DP);
 
                 switch (action) {
                     case MotionEvent.ACTION_DOWN:
@@ -289,7 +298,7 @@ public class LyricsSearchManager {
 
                             int viewHeight = lyricsButtonContainer.getHeight();
                             if (viewHeight <= 0)
-                                viewHeight = Utils.dpToPx(ICON_BUTTON_SIZE_DP);
+                                viewHeight = Utils.dipToPixels(ICON_BUTTON_SIZE_DP);
                             newY = Math.max(edgePaddingPx, Math.min(newY, parentView.getHeight() - viewHeight - edgePaddingPx));
 
                             params.topMargin = newY;
@@ -307,6 +316,7 @@ public class LyricsSearchManager {
                             // Drag finished -> Snap to nearest edge horizontally
                             Logger.printDebug(() -> TAG + ": Dragging finished. Snapping to edge.");
                             snapToNearestEdge(lyricsButtonContainer, parentView, params);
+                            savePosition(context);
                         } else {
                             // Treat as a click -> Expand
                             Logger.printDebug(() -> TAG + ": Expand button clicked (no drag).");
@@ -321,6 +331,7 @@ public class LyricsSearchManager {
                             // Snap back if dragging was cancelled mid-drag
                             Logger.printDebug(() -> TAG + ": Dragging cancelled. Snapping to edge.");
                             snapToNearestEdge(lyricsButtonContainer, parentView, params);
+                            savePosition(context);
                         }
                         isDragging = false;
                         return true;
@@ -328,8 +339,7 @@ public class LyricsSearchManager {
                 return false;
             });
 
-            // --- Add Views to Container FrameLayout ---
-            // Expanded layout sits inside the container
+            // Add views to container
             FrameLayout.LayoutParams expandedParams = new FrameLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             expandedParams.gravity = Gravity.CENTER;
@@ -342,43 +352,85 @@ public class LyricsSearchManager {
 
             // Set initial position if not previously set
             if (lastKnownTopMarginForMinimized == -1 && screenHeight > 0) {
-                int buttonSize = Utils.dpToPx(ICON_BUTTON_SIZE_DP);
+                int buttonSize = Utils.dipToPixels(ICON_BUTTON_SIZE_DP);
                 // Position roughly 2x bottom margin + button size up from bottom
-                int safeBottomMargin = Utils.dpToPx(DEFAULT_BOTTOM_MARGIN_DP * 2);
+                int safeBottomMargin = Utils.dipToPixels(DEFAULT_BOTTOM_MARGIN_DP * 2);
                 lastKnownTopMarginForMinimized = screenHeight - buttonSize - safeBottomMargin;
                 Logger.printDebug(() -> TAG + ": Initial minimized Y position set to: " + lastKnownTopMarginForMinimized);
             }
 
         } catch (Exception e) {
             Logger.printException(() -> TAG + ": Failed to create overlay views", e);
-            // Ensure cleanup if something goes wrong during creation
             removeOverlayInternal();
+        }
+    }
+
+    /**
+     * Saves the current position (top margin and snapped edge) to SharedPreferences.
+     */
+    private static void savePosition(Context context) {
+        synchronized (buttonLock) {
+            Context appContext = context.getApplicationContext();
+            if (appContext == null) {
+                Logger.printException(() -> TAG + ": Cannot save position, application context is null.");
+                return;
+            }
+
+            SharedPreferences prefs = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt(KEY_TOP_MARGIN, lastKnownTopMarginForMinimized);
+            editor.putString(KEY_SNAPPED_EDGE, lastSnappedEdge.name());
+            editor.apply();
+            Logger.printDebug(() -> TAG + ": Saved position: TopMargin=" + lastKnownTopMarginForMinimized + ", SnappedEdge=" + lastSnappedEdge);
+        }
+    }
+
+    /**
+     * Loads the saved position (top margin and snapped edge) from SharedPreferences.
+     */
+    private static void loadSavedPosition(Context context) {
+        synchronized (buttonLock) {
+            Context appContext = context.getApplicationContext();
+            if (appContext == null) {
+                Logger.printException(() -> TAG + ": Cannot load position, application context is null.");
+                return;
+            }
+
+            SharedPreferences prefs = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+            lastKnownTopMarginForMinimized = prefs.getInt(KEY_TOP_MARGIN, -1);
+            String edgeName = prefs.getString(KEY_SNAPPED_EDGE, SnapEdge.RIGHT.name());
+            try {
+                lastSnappedEdge = SnapEdge.valueOf(edgeName);
+            } catch (IllegalArgumentException e) {
+                lastSnappedEdge = SnapEdge.RIGHT;
+                Logger.printException(() -> TAG + ": Invalid saved snapped edge, defaulting to RIGHT", e);
+            }
+            Logger.printDebug(() -> TAG + ": Loaded position: TopMargin=" + lastKnownTopMarginForMinimized + ", SnappedEdge=" + lastSnappedEdge);
         }
     }
 
     /**
      * Helper to create a circular ImageButton with consistent styling.
      */
-    private static ImageButton createCircularImageButton(Context context, int iconResId, int sizePx, int paddingPx, String bgColor, String tintColor) {
+    private static ImageButton createCircularImageButton(Context context, int iconResId, int sizePx, int paddingPx, int bgColor, int tintColor) {
         ImageButton button = new ImageButton(context);
         if (iconResId != 0) {
             button.setImageResource(iconResId);
         }
-        button.setColorFilter(Color.parseColor(tintColor), PorterDuff.Mode.SRC_IN);
+        button.setColorFilter(tintColor, PorterDuff.Mode.SRC_IN);
         button.setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
 
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.OVAL);
-        background.setColor(Color.parseColor(bgColor));
-        background.setSize(sizePx, sizePx); // Ensure the oval is a circle
+        background.setColor(bgColor);
+        background.setSize(sizePx, sizePx);
         button.setBackground(background);
 
         return button;
     }
 
     /**
-     * Ensures the overlay is in the correct state (visibility, position)
-     * without changing the current minimized/expanded state. Called when overlay exists.
+     * Ensures the overlay is in the correct state (visibility, position).
      */
     private static void ensureOverlayState() {
         synchronized (buttonLock) {
@@ -386,7 +438,6 @@ public class LyricsSearchManager {
                 Logger.printDebug(() -> TAG + ": Ensuring overlay state is correct (Visibility).");
                 updateVisibilityBasedOnState();
             } else {
-                // Not attached or null, attempt to show/update which handles re-attachment
                 Logger.printDebug(() -> TAG + ": Ensure state found detached/null overlay, triggering show/update.");
                 showOrUpdateOverlay();
             }
@@ -407,23 +458,24 @@ public class LyricsSearchManager {
     }
 
     /**
-     * Gets appropriate LayoutParams based on the current state (Minimized/Snapped or Expanded/Centered-Bottom).
+     * Gets appropriate LayoutParams based on the current state.
      */
     private static FrameLayout.LayoutParams getLayoutParamsForCurrentState(Context context) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
         );
-        int iconSizePx = Utils.dpToPx(ICON_BUTTON_SIZE_DP);
-        int edgePaddingPx = Utils.dpToPx(EDGE_PADDING_DP);
+        int iconSizePx = Utils.dipToPixels(ICON_BUTTON_SIZE_DP);
+        int edgePaddingPx = Utils.dipToPixels(EDGE_PADDING_DP);
 
         if (lastKnownTopMarginForMinimized <= edgePaddingPx) {
             if (screenHeight > 0) {
-                int safeBottomMargin = Utils.dpToPx(DEFAULT_BOTTOM_MARGIN_DP * 2);
+                int safeBottomMargin = Utils.dipToPixels(DEFAULT_BOTTOM_MARGIN_DP * 2);
                 lastKnownTopMarginForMinimized = Math.max(edgePaddingPx, screenHeight - iconSizePx - safeBottomMargin);
             } else {
-                lastKnownTopMarginForMinimized = Utils.dpToPx(400); // Fallback if screen height unknown
+                lastKnownTopMarginForMinimized = Utils.dipToPixels(400); // Fallback if screen height unknown
             }
             Logger.printDebug(() -> TAG + ": Default minimized Y position recalculated: " + lastKnownTopMarginForMinimized);
+            savePosition(context);
         }
 
         if (currentOverlayState == OverlayState.MINIMIZED) {
@@ -445,13 +497,12 @@ public class LyricsSearchManager {
                 params.leftMargin = Math.max(edgePaddingPx, parentWidth - iconSizePx - edgePaddingPx);
             }
             Logger.printDebug(() -> TAG + ": Layout Params: Minimized, Snap " + lastSnappedEdge + ", Top: " + params.topMargin + ", Left: " + params.leftMargin);
-
         } else {
             // --- EXPANDED STATE ---
             params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
             params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
             params.gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
-            params.bottomMargin = Utils.dpToPx(DEFAULT_BOTTOM_MARGIN_DP);
+            params.bottomMargin = Utils.dipToPixels(DEFAULT_BOTTOM_MARGIN_DP);
 
             // Reset margins as gravity handles positioning
             params.leftMargin = 0;
@@ -475,12 +526,12 @@ public class LyricsSearchManager {
             return displayMetrics.widthPixels;
         } else {
             Logger.printException(() -> TAG + ": Could not get parent width, using default 1080.");
-            return 1080; // Last resort
+            return 1080;
         }
     }
 
     /**
-     * Snaps the container to the nearest edge (left or right) after dragging, preserving vertical position.
+     * Snaps the container to the nearest edge after dragging.
      */
     private static void snapToNearestEdge(FrameLayout container, ViewGroup parentView, FrameLayout.LayoutParams params) {
         if (container == null || parentView == null || params == null || currentOverlayState != OverlayState.MINIMIZED)
@@ -496,11 +547,11 @@ public class LyricsSearchManager {
         }
 
         int viewWidth = container.getWidth();
-        if (viewWidth <= 0) viewWidth = Utils.dpToPx(ICON_BUTTON_SIZE_DP);
+        if (viewWidth <= 0) viewWidth = Utils.dipToPixels(ICON_BUTTON_SIZE_DP);
 
         int currentLeftMargin = params.leftMargin;
         int viewCenterX = currentLeftMargin + viewWidth / 2;
-        int edgePaddingPx = Utils.dpToPx(EDGE_PADDING_DP);
+        int edgePaddingPx = Utils.dipToPixels(EDGE_PADDING_DP);
 
         params.gravity = Gravity.NO_GRAVITY;
 
@@ -515,6 +566,7 @@ public class LyricsSearchManager {
         Logger.printDebug(() -> TAG + ": Snapped to " + lastSnappedEdge + " edge. Top: " + params.topMargin + ", Left: " + params.leftMargin);
 
         container.setLayoutParams(params);
+        savePosition(container.getContext());
     }
 
     /**
@@ -665,9 +717,9 @@ public class LyricsSearchManager {
      * @param query   The search term (will be URL-encoded).
      */
     private static void launchWebSearch(String baseUrl, String query) {
-        Context context = Utils.getContext(); // Try application context first
+        Context context = Utils.getContext();
         if (context == null) {
-            Activity act = Utils.getActivity(); // Fallback to activity context
+            Activity act = Utils.getActivity();
             if (act != null) context = act;
         }
 

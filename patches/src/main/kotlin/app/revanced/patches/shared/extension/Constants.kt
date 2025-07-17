@@ -9,6 +9,9 @@ internal object Constants {
     const val SPOOF_PATH = "$PATCHES_PATH/spoof"
 
     const val EXTENSION_UTILS_PATH = "$EXTENSION_PATH/utils"
+    const val EXTENSION_PATCH_STATUS_CLASS_DESCRIPTOR = "$PATCHES_PATH/PatchStatus;"
     const val EXTENSION_SETTING_CLASS_DESCRIPTOR = "$EXTENSION_PATH/settings/Setting;"
     const val EXTENSION_UTILS_CLASS_DESCRIPTOR = "$EXTENSION_UTILS_PATH/Utils;"
+    const val EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR =
+        "$EXTENSION_UTILS_PATH/BaseThemeUtils;"
 }

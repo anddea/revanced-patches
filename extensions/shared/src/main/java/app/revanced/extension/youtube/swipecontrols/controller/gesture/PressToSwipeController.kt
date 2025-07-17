@@ -1,7 +1,6 @@
 package app.revanced.extension.youtube.swipecontrols.controller.gesture
 
 import android.view.MotionEvent
-import app.revanced.extension.youtube.patches.swipe.SwipeControlsPatch.isEngagementOverlayVisible
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsHostActivity
 import app.revanced.extension.youtube.swipecontrols.controller.gesture.core.BaseGestureController
@@ -75,11 +74,7 @@ class PressToSwipeController(
         distanceY: Double,
     ): Boolean {
         // cancel if locked
-        if (!config.enableSwipeControlsLockMode && config.isScreenLocked)
-            return false
-        // ignore gestures when engagement overlay is visible
-        if (!isInSwipeSession || isEngagementOverlayVisible())
-            return false
+        if (!config.enableSwipeControlsLockMode && config.isScreenLocked) return false
         if (currentSwipe == SwipeDetector.SwipeDirection.VERTICAL) {
             return when (from.toPoint()) {
                 in controller.zones.volume -> {
@@ -89,8 +84,8 @@ class PressToSwipeController(
 
                 in controller.zones.brightness -> {
                     scrollBrightness(distanceY)
-                    true
-                }
+                    true}
+
 
                 else -> false
             }

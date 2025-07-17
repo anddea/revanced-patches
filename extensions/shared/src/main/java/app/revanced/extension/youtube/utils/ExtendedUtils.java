@@ -1,34 +1,47 @@
 package app.revanced.extension.youtube.utils;
 
-import static app.revanced.extension.shared.utils.StringRef.str;
+import static app.revanced.extension.shared.utils.ResourceUtils.getAnimation;
+import static app.revanced.extension.shared.utils.ResourceUtils.getInteger;
 
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.view.Gravity;
-import android.view.ViewGroup;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import java.lang.ref.WeakReference;
 import java.util.Map;
 
 import app.revanced.extension.shared.settings.BooleanSetting;
-import app.revanced.extension.shared.settings.FloatSetting;
-import app.revanced.extension.shared.settings.IntegerSetting;
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.PackageUtils;
+import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.PlayerType;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class ExtendedUtils extends PackageUtils {
 
@@ -45,32 +58,6 @@ public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_19_29_OR_GREATER = isVersionOrGreater("19.29.00");
     public static final boolean IS_19_34_OR_GREATER = isVersionOrGreater("19.34.00");
     public static final boolean IS_20_09_OR_GREATER = isVersionOrGreater("20.09.00");
-
-    public static int validateValue(IntegerSetting settings, int min, int max, String message) {
-        int value = settings.get();
-
-        if (value < min || value > max) {
-            showToastShort(str(message));
-            showToastShort(str("revanced_extended_reset_to_default_toast"));
-            settings.resetToDefault();
-            value = settings.defaultValue;
-        }
-
-        return value;
-    }
-
-    public static float validateValue(FloatSetting settings, float min, float max, String message) {
-        float value = settings.get();
-
-        if (value < min || value > max) {
-            showToastShort(str(message));
-            showToastShort(str("revanced_extended_reset_to_default_toast"));
-            settings.resetToDefault();
-            value = settings.defaultValue;
-        }
-
-        return value;
-    }
 
     public static boolean isFullscreenHidden() {
         return Settings.DISABLE_ENGAGEMENT_PANEL.get() || Settings.HIDE_QUICK_ACTIONS.get();
@@ -140,72 +127,250 @@ public class ExtendedUtils extends PackageUtils {
         return additionalSettingsEnabled;
     }
 
-    public static void showBottomSheetDialog(Context mContext, ScrollView mScrollView,
-                                             Map<LinearLayout, Runnable> actionsMap) {
-        runOnMainThreadDelayed(() -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-            builder.setView(mScrollView);
+    public static LinearLayout prepareMainLayout(Context mContext) {
+        return prepareMainLayout(mContext, false);
+    }
 
-            AlertDialog dialog = builder.create();
-            dialog.show();
+    public static LinearLayout prepareMainLayout(Context mContext, boolean wideBottomMargins) {
+        // Create main vertical LinearLayout for dialog content.
+        LinearLayout mainLayout = new LinearLayout(mContext);
+        mainLayout.setOrientation(LinearLayout.VERTICAL);
 
-            actionsMap.forEach((view, action) ->
-                    view.setOnClickListener(v -> {
-                        action.run();
-                        dialog.dismiss();
-                    })
-            );
-            actionsMap.clear();
+        // Preset size constants.
+        final int dip4 = dipToPixels(4);   // Height for handle bar.
+        final int dip5 = dipToPixels(5);
+        final int dip8 = dipToPixels(8);   // Padding for mainLayout from left and right.
+        final int dip20 = dipToPixels(20);
+        final int dip40 = dipToPixels(40); // Width for handle bar.
 
-            Window window = dialog.getWindow();
-            if (window == null) {
-                return;
+        mainLayout.setPadding(dip5, dip8, dip5, dip8);
+
+        // Set rounded rectangle background for the main layout.
+        RoundRectShape roundRectShape = new RoundRectShape(
+                Utils.createCornerRadii(12), null, null);
+        ShapeDrawable background = new ShapeDrawable(roundRectShape);
+        background.getPaint().setColor(ThemeUtils.getDialogBackgroundColor());
+        mainLayout.setBackground(background);
+
+        // Add handle bar at the top.
+        View handleBar = new View(mContext);
+        ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(
+                Utils.createCornerRadii(4), null, null));
+        handleBackground.getPaint().setColor(ThemeUtils.getAdjustedBackgroundColor(true));
+        handleBar.setBackground(handleBackground);
+        LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(
+                dip40, // handle bar width.
+                dip4   // handle bar height.
+        );
+        handleParams.gravity = Gravity.CENTER_HORIZONTAL; // Center horizontally.
+        handleParams.setMargins(0, 0, 0, wideBottomMargins ? dip20 : dip8);
+        handleBar.setLayoutParams(handleParams);
+        // Add handle bar view to main layout.
+        mainLayout.addView(handleBar);
+
+        return mainLayout;
+    }
+
+    public static void showBottomSheetDialog(Context mContext, LinearLayout mainLayout) {
+        showBottomSheetDialog(mContext, mainLayout, null);
+    }
+
+    public static void showBottomSheetDialog(Context mContext, LinearLayout mainLayout,
+                                             @Nullable Map<LinearLayout, Runnable> actionsMap) {
+        // Create a dialog without a theme for custom appearance.
+        Dialog dialog = new Dialog(mContext);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
+
+        // Enable dismissing the dialog when tapping outside.
+        dialog.setCanceledOnTouchOutside(true);
+
+        final int dip6 = dipToPixels(6);   // Padding for mainLayout from bottom.
+        final int dip8 = dipToPixels(8);   // Padding for mainLayout from left and right.
+
+        // Wrap mainLayout in another LinearLayout for side margins.
+        LinearLayout wrapperLayout = new LinearLayout(mContext);
+        wrapperLayout.setOrientation(LinearLayout.VERTICAL);
+        wrapperLayout.setPadding(dip8, 0, dip8, 0); // 8dp side margins.
+        wrapperLayout.addView(mainLayout);
+
+        ScrollView scrollView = new ScrollView(mContext);
+        scrollView.addView(wrapperLayout);
+
+        dialog.setContentView(scrollView);
+
+        // Configure dialog window to appear at the bottom.
+        Window window = dialog.getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams params = window.getAttributes();
+            params.gravity = Gravity.BOTTOM; // Position at bottom of screen.
+            params.y = dip6; // 6dp margin from bottom.
+            // In landscape, use the smaller dimension (height) as portrait width.
+            int portraitWidth = mContext.getResources().getDisplayMetrics().widthPixels;
+            if (isLandscapeOrientation()) {
+                portraitWidth = Math.min(
+                        portraitWidth,
+                        mContext.getResources().getDisplayMetrics().heightPixels);
+            }
+            params.width = portraitWidth; // Use portrait width.
+            params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            window.setAttributes(params);
+            window.setBackgroundDrawable(null); // Remove default dialog background.
+        }
+
+        // Apply slide-in animation when showing the dialog.
+        final int fadeDurationFast = getInteger("fade_duration_fast");
+        Animation slideInABottomAnimation = getAnimation("slide_in_bottom");
+        if (slideInABottomAnimation != null) {
+            slideInABottomAnimation.setDuration(fadeDurationFast);
+        }
+        mainLayout.startAnimation(slideInABottomAnimation);
+
+        // Animate dialog off-screen and dismiss.
+        final float remainingDistance = mContext.getResources().getDisplayMetrics().heightPixels
+                - mainLayout.getTop();
+        TranslateAnimation slideOut = new TranslateAnimation(
+                0, 0, mainLayout.getTranslationY(), remainingDistance);
+        slideOut.setDuration(fadeDurationFast);
+        slideOut.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
             }
 
-            // round corners
-            GradientDrawable dialogBackground = new GradientDrawable();
-            dialogBackground.setCornerRadius(32);
-            window.setBackgroundDrawable(dialogBackground);
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                dialog.dismiss();
+            }
 
-            // fit screen width
-            int dialogWidth = (int) (mContext.getResources().getDisplayMetrics().widthPixels * 0.95);
-            window.setLayout(dialogWidth, ViewGroup.LayoutParams.WRAP_CONTENT);
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+        });
 
-            // move dialog to bottom
-            WindowManager.LayoutParams layoutParams = window.getAttributes();
-            layoutParams.gravity = Gravity.BOTTOM;
+        // Set touch listener on mainLayout to enable drag-to-dismiss.
+        //noinspection ClickableViewAccessibility
+        mainLayout.setOnTouchListener(new View.OnTouchListener() {
+            /** Threshold for dismissing the dialog. */
+            final float dismissThreshold = dipToPixels(100); // Distance to drag to dismiss.
+            /** Store initial Y position of touch. */
+            float touchY;
+            /** Track current translation. */
+            float translationY;
 
-            // adjust the vertical offset
-            layoutParams.y = dpToPx(5);
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // Capture initial Y position of touch.
+                        touchY = event.getRawY();
+                        translationY = mainLayout.getTranslationY();
+                        return true;
+                    case MotionEvent.ACTION_MOVE:
+                        // Calculate drag distance and apply translation downwards only.
+                        final float deltaY = event.getRawY() - touchY;
+                        // Only allow downward drag (positive deltaY).
+                        if (deltaY >= 0) {
+                            mainLayout.setTranslationY(translationY + deltaY);
+                        }
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_CANCEL:
+                        // Check if dialog should be dismissed based on drag distance.
+                        if (mainLayout.getTranslationY() > dismissThreshold) {
+                            mainLayout.startAnimation(slideOut);
+                        } else {
+                            // Animate back to original position if not dragged far enough.
+                            TranslateAnimation slideBack = new TranslateAnimation(
+                                    0, 0, mainLayout.getTranslationY(), 0);
+                            slideBack.setDuration(fadeDurationFast);
+                            mainLayout.startAnimation(slideBack);
+                            mainLayout.setTranslationY(0);
+                        }
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
 
-            window.setAttributes(layoutParams);
-        }, 250);
+        // Store the dialog reference.
+        Function1<PlayerType, Unit> playerTypeObserver = getPlayerTypeUnitFunction(dialog);
+
+        // Add observer to dismiss dialog when entering PiP mode.
+        PlayerType.getOnChange().addObserver(playerTypeObserver);
+
+        // Remove observer when dialog is dismissed.
+        if (actionsMap != null) {
+            dialog.setOnShowListener(d -> actionsMap.forEach((view, action) ->
+                    view.setOnClickListener(v -> {
+                        PlayerType.getOnChange().removeObserver(playerTypeObserver);
+                        mainLayout.startAnimation(slideOut);
+                        action.run();
+                    })
+            ));
+        }
+
+        // Remove observer when dialog is dismissed.
+        dialog.setOnDismissListener(d -> {
+            PlayerType.getOnChange().removeObserver(playerTypeObserver);
+            Logger.printDebug(() -> "PlayerType observer removed on dialog dismiss");
+        });
+
+        dialog.show(); // Display the dialog.
+    }
+
+    @NonNull
+    private static Function1<PlayerType, Unit> getPlayerTypeUnitFunction(Dialog dialog) {
+        WeakReference<Dialog> currentDialog = new WeakReference<>(dialog);
+
+        // Create observer for PlayerType changes.
+        // Should never happen.
+        return new Function1<>() {
+            @Override
+            public Unit invoke(PlayerType type) {
+                Dialog current = currentDialog.get();
+                if (current == null || !current.isShowing()) {
+                    // Should never happen.
+                    PlayerType.getOnChange().removeObserver(this);
+                    Logger.printException(() -> "Removing player type listener as dialog is null or closed");
+                } else if (type == PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE) {
+                    current.dismiss();
+                    Logger.printDebug(() -> "Playback speed dialog dismissed due to PiP mode");
+                }
+                return Unit.INSTANCE;
+            }
+        };
+    }
+
+    public static LinearLayout createItemLayout(Context mContext, String title) {
+        return createItemLayout(mContext, title, 0);
     }
 
     public static LinearLayout createItemLayout(Context mContext, String title, int iconId) {
         // Item Layout
         LinearLayout itemLayout = new LinearLayout(mContext);
         itemLayout.setOrientation(LinearLayout.HORIZONTAL);
-        itemLayout.setPadding(dpToPx(16), dpToPx(12), dpToPx(16), dpToPx(12));
+        itemLayout.setPadding(dipToPixels(16), dipToPixels(12), dipToPixels(16), dipToPixels(12));
         itemLayout.setGravity(Gravity.CENTER_VERTICAL);
         itemLayout.setClickable(true);
         itemLayout.setFocusable(true);
 
         // Create a StateListDrawable for the background
         StateListDrawable background = new StateListDrawable();
-        ColorDrawable pressedDrawable = new ColorDrawable(ThemeUtils.getPressedElementColor());
-        ColorDrawable defaultDrawable = new ColorDrawable(ThemeUtils.getBackgroundColor());
+        ColorDrawable pressedDrawable = new ColorDrawable(ThemeUtils.getAdjustedBackgroundColor(true));
+        ColorDrawable defaultDrawable = new ColorDrawable(Color.TRANSPARENT);
         background.addState(new int[]{android.R.attr.state_pressed}, pressedDrawable);
         background.addState(new int[]{}, defaultDrawable);
         itemLayout.setBackground(background);
 
         // Icon
-        ColorFilter cf = new PorterDuffColorFilter(ThemeUtils.getForegroundColor(), PorterDuff.Mode.SRC_ATOP);
+        ColorFilter cf = new PorterDuffColorFilter(ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_ATOP);
         ImageView iconView = new ImageView(mContext);
-        iconView.setImageResource(iconId);
+        if (iconId != 0) {
+            iconView.setImageResource(iconId);
+        }
         iconView.setColorFilter(cf);
-        LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(dpToPx(24), dpToPx(24));
-        iconParams.setMarginEnd(dpToPx(16));
+        LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(dipToPixels(24), dipToPixels(24));
+        iconParams.setMarginEnd(dipToPixels(16));
         iconView.setLayoutParams(iconParams);
         itemLayout.addView(iconView);
 
@@ -215,7 +380,7 @@ public class ExtendedUtils extends PackageUtils {
         TextView titleView = new TextView(mContext);
         titleView.setText(title);
         titleView.setTextSize(16);
-        titleView.setTextColor(ThemeUtils.getForegroundColor());
+        titleView.setTextColor(ThemeUtils.getAppForegroundColor());
         textContainer.addView(titleView);
 
         itemLayout.addView(textContainer);
@@ -223,4 +388,17 @@ public class ExtendedUtils extends PackageUtils {
         return itemLayout;
     }
 
+    public static void updateRadioGroup(RadioGroup mRadioGroup, RadioGroup.OnCheckedChangeListener onCheckedChangeListener,
+                                        String[] mEntries, int mClickedDialogEntryIndex) {
+        if (mRadioGroup != null) {
+            mRadioGroup.setOnCheckedChangeListener(null);
+            for (int i = 0; i < mEntries.length; i++) {
+                if (mRadioGroup.getChildAt(i) instanceof RadioButton radioButton) {
+                    radioButton.setEnabled(true);
+                    radioButton.setChecked(i == mClickedDialogEntryIndex);
+                }
+            }
+            mRadioGroup.setOnCheckedChangeListener(onCheckedChangeListener);
+        }
+    }
 }

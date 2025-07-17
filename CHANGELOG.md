@@ -1,3 +1,85 @@
+# [3.10.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.6...v3.10.0-dev.7) (2025-07-16)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix hiding some elements in newer versions ([908d4a3](https://github.com/anddea/revanced-patches/commit/908d4a35a158c1b8e936be25a44b34552962c6fc))
+
+# [3.10.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.5...v3.10.0-dev.6) (2025-07-16)
+
+
+### Bug Fixes
+
+* **Spotify - Lyrics search:** Add persistence for floating lyrics search button position across sessions ([02658ff](https://github.com/anddea/revanced-patches/commit/02658ff15e1bf477673493691211fad41c36af96))
+
+
+### Features
+
+* Align with RVX ([v5.7.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.7.1)) ([2d9f71c](https://github.com/anddea/revanced-patches/commit/2d9f71cf0f446438929a0eb747c0cf88058e154a))
+* **Spotify:** Add `Spoof client` patch ([bb74b5c](https://github.com/anddea/revanced-patches/commit/bb74b5c886fb9a8f0bcf735ebdb69a1da8ffe04e))
+
+# [3.10.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.4...v3.10.0-dev.5) (2025-06-22)
+
+
+### Bug Fixes
+
+* **YouTube - Hide feed components:** Fix the issue of related videos overlapping the seekbar in fullscreen mode ([11096d2](https://github.com/anddea/revanced-patches/commit/11096d280eee01b095b8c0683670ef8b75ebb616))
+
+
+### Features
+
+* **YouTube Music:** Add support for a wider range of versions (up to 8.24) ([ffbb73a](https://github.com/anddea/revanced-patches/commit/ffbb73ab2241bd8c0c0b48053a98391263cda8a7))
+
+# [3.10.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.3...v3.10.0-dev.4) (2025-06-13)
+
+
+### Bug Fixes
+
+* **YouTube - Toolbar components:** The `Replace Create button` setting did not update the icon in some versions ([3600699](https://github.com/anddea/revanced-patches/commit/3600699dddb73c6003cde12a419cabf1f71f7c75))
+
+
+### Features
+
+* **Spotify:** Add `Change lyrics provider` patch ([d3a7a69](https://github.com/anddea/revanced-patches/commit/d3a7a69f41a415f65a6ac9b3b996a545d6789b7e))
+* **YouTube - Hide player buttons:** Add `Hide player control buttons background` setting ([9e869e8](https://github.com/anddea/revanced-patches/commit/9e869e83787757041a32f4e15b3f34fcb25b6cc6))
+* **YouTube - Shorts Components:** Add `Hide hashtag button` setting ([b68d4f3](https://github.com/anddea/revanced-patches/commit/b68d4f350bc65ca5479a4320bfe93df649586204))
+
+# [3.10.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.2...v3.10.0-dev.3) (2025-06-07)
+
+
+### Bug Fixes
+
+* **YouTube Music:** 8.16+ crashed on like/dislike ([4ac726e](https://github.com/anddea/revanced-patches/commit/4ac726e367f828d92b2bb8309b65179657e77029))
+
+
+### Features
+
+* **YouTube - Shorts components:** Add `Hide new posts button` setting ([6e4a191](https://github.com/anddea/revanced-patches/commit/6e4a191ae4d3f3eca7df0715cd396a1d92d8806c))
+
+# [3.10.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.1...v3.10.0-dev.2) (2025-06-06)
+
+
+### Bug Fixes
+
+* **YouTube:** Support A/B Shorts layout for RYD and component hiding ([1bc7eac](https://github.com/anddea/revanced-patches/commit/1bc7eac9a19ab7ce82935bf0bf232fc234be2630))
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add "Hide preview comment" option ([cb94178](https://github.com/anddea/revanced-patches/commit/cb94178be4ff5a11ac3a7692fe83d655ad589675))
+* **YouTube - Playback Speed:** Use modern custom speed dialog ([556a6f0](https://github.com/anddea/revanced-patches/commit/556a6f012b7cd0097fd492e867c6701022c36777))
+* **YouTube Music:** Add support for a wider range of versions (up to 8.18) ([a6ae82f](https://github.com/anddea/revanced-patches/commit/a6ae82f7381f9e61e6b98b1d3123da9984999e5c))
+* **YouTube:** Add support for a wider range of versions (up to 20.21) ([3a726b3](https://github.com/anddea/revanced-patches/commit/3a726b3556dca35ed186c6f10c115079345a8eef))
+
+# [3.10.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.9.0...v3.10.0-dev.1) (2025-05-31)
+
+
+### Features
+
+* **Spotify:** Add `Fix Facebook login` patch ([ef1aff8](https://github.com/anddea/revanced-patches/commit/ef1aff87effe7a32a8305a6d4828f9f54f8bbd48))
+* **YouTube - Swipe controls:** Add more customizations ([f1519ad](https://github.com/anddea/revanced-patches/commit/f1519ad099fa74565f68923c1efb4b9a443c7af1))
+* **YouTube:** Add support for a wider range of versions (up to 20.16) ([568261e](https://github.com/anddea/revanced-patches/commit/568261e315a3a639129c790430f8dabacf2322ba))
+
 # [3.9.0](https://github.com/anddea/revanced-patches/compare/v3.8.0...v3.9.0) (2025-05-22)
 
 

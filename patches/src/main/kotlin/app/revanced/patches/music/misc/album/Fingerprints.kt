@@ -29,8 +29,5 @@ internal fun indexOfAudioVideoSwitchSetOnClickListenerInstruction(method: Method
 
 internal val snackBarParentFingerprint = legacyFingerprint(
     name = "snackBarParentFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "V",
-    parameters = listOf("L"),
     strings = listOf("No suitable parent found from the given view. Please provide a valid view.")
 )

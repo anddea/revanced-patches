@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.utils.playerButtonsResourcesFingerprint
 import app.revanced.patches.youtube.utils.playerButtonsVisibilityFingerprint
 import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_19_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
@@ -178,7 +179,7 @@ private val playerControlsBytecodePatch = bytecodePatch(
 
         // endregion
 
-        if (is_19_25_or_greater) {
+        if (is_19_25_or_greater && !is_20_19_or_greater) {
             playerTopControlsExperimentalLayoutFeatureFlagFingerprint.methodOrThrow().apply {
                 val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -232,8 +233,10 @@ internal fun hookTopControlButton(classDescriptor: String) {
  */
 @Suppress("KDocUnresolvedReference")
 // Internal until this is modified to work with any patch (and not just SponsorBlock).
-internal lateinit var addTopControl: (String) -> Unit
+internal lateinit var addTopControl: (String, String, String) -> Unit
     private set
+
+private var insertElementId = "@id/player_video_heading"
 
 val playerControlsPatch = resourcePatch(
     description = "playerControlsPatch"
@@ -241,30 +244,39 @@ val playerControlsPatch = resourcePatch(
     dependsOn(playerControlsBytecodePatch)
 
     execute {
-        addTopControl = { resourceDirectoryName ->
-            val resourceFileName = "shared/host/layout/youtube_controls_layout.xml"
+        addTopControl = { resourceDirectoryName, startElementId, endElementId ->
+            val resourceFileName = "host/layout/youtube_controls_layout.xml"
             val hostingResourceStream = inputStreamFromBundledResourceOrThrow(
                 resourceDirectoryName,
                 resourceFileName,
             )
 
             val document = document("res/layout/youtube_controls_layout.xml")
+            val androidId = "android:id"
+            val androidLayoutToStartOf = "android:layout_toStartOf"
 
             "RelativeLayout".copyXmlNode(
                 document(hostingResourceStream),
                 document,
             ).use {
-                val element = document.childNodes.findElementByAttributeValueOrThrow(
-                    "android:id",
-                    "@id/player_video_heading",
+                val insertElement = document.childNodes.findElementByAttributeValueOrThrow(
+                    androidId,
+                    insertElementId,
+                )
+                val endElement = document.childNodes.findElementByAttributeValueOrThrow(
+                    androidId,
+                    endElementId,
                 )
 
-                // FIXME: This uses hard coded values that only works with SponsorBlock.
-                // If other top buttons are added by other patches, this code must be changed.
-                // voting button id from the voting button view from the youtube_controls_layout.xml host file
-                val votingButtonId = "@+id/revanced_sb_voting_button"
-                element.attributes.getNamedItem("android:layout_toStartOf").nodeValue =
-                    votingButtonId
+                val insertElementLayoutToStartOf =
+                    insertElement.attributes.getNamedItem(androidLayoutToStartOf).nodeValue!!
+
+                insertElement.attributes.getNamedItem(androidLayoutToStartOf).nodeValue =
+                    startElementId
+                endElement.attributes.getNamedItem(androidLayoutToStartOf).nodeValue =
+                    insertElementLayoutToStartOf
+
+                insertElementId = endElementId
             }
         }
     }

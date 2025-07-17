@@ -61,7 +61,7 @@ public abstract class Filter {
      */
     public boolean skip(String conversionContext, SpannableString spannableString, Object span, int start, int end,
                         int flags, boolean isWord, SpanType spanType, StringFilterGroup matchedGroup) {
-        if (BaseSettings.ENABLE_DEBUG_BUFFER_LOGGING.get()) {
+        if (BaseSettings.DEBUG.get()) {
             String filterSimpleName = getClass().getSimpleName();
             Logger.printDebug(() -> filterSimpleName + " Removed setSpan: " + spanType.type);
         }

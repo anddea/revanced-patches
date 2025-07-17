@@ -3,10 +3,10 @@ package app.revanced.extension.youtube.patches.player;
 import static app.revanced.extension.shared.utils.Utils.hideViewBy0dpUnderCondition;
 import static app.revanced.extension.shared.utils.Utils.hideViewByRemovingFromParentUnderCondition;
 import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
-import static app.revanced.extension.youtube.utils.ExtendedUtils.validateValue;
+import static app.revanced.extension.shared.utils.Utils.validateValue;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -67,7 +67,7 @@ public class PlayerPatch {
                 "revanced_quick_actions_top_margin_invalid_toast"
         );
 
-        QUICK_ACTIONS_MARGIN_TOP = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) topMargin, Utils.getResources().getDisplayMetrics());
+        QUICK_ACTIONS_MARGIN_TOP = Utils.dipToPixels(topMargin);
     }
 
     // region [Ambient mode control] patch
@@ -251,7 +251,7 @@ public class PlayerPatch {
     }
 
     public static boolean hideRelatedVideoOverlay() {
-        return Settings.HIDE_RELATED_VIDEO_OVERLAY.get();
+        return Settings.HIDE_RELATED_VIDEOS_OVERLAY.get();
     }
 
     public static void hideQuickActions(View view) {
@@ -414,6 +414,34 @@ public class PlayerPatch {
 
     public static boolean hideMusicButton() {
         return Settings.HIDE_PLAYER_YOUTUBE_MUSIC_BUTTON.get();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void hidePlayerControlButtonsBackground(View rootView) {
+        try {
+            if (!Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
+                return;
+            }
+
+            // Each button is an ImageView with a background set to another drawable.
+            removeImageViewsBackgroundRecursive(rootView);
+        } catch (Exception ex) {
+            Logger.printException(() -> "removePlayerControlButtonsBackground failure", ex);
+        }
+    }
+
+    private static void removeImageViewsBackgroundRecursive(View currentView) {
+        if (currentView instanceof ImageView imageView) {
+            imageView.setBackground(null);
+        }
+
+        if (currentView instanceof ViewGroup viewGroup) {
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                removeImageViewsBackgroundRecursive(viewGroup.getChildAt(i));
+            }
+        }
     }
 
     // endregion
@@ -684,7 +712,28 @@ public class PlayerPatch {
         );
 
         if (Settings.REPLACE_TIME_STAMP_ACTION.get()) {
-            containerView.setOnClickListener(timeStampContainerView -> VideoUtils.showFlyoutMenu());
+            View.OnClickListener listener = v -> {
+                Context context = v.getContext();
+                if (Settings.APPEND_TIME_STAMP_INFORMATION_TYPE.get()) {
+                    if (Settings.APPEND_TIME_STAMP_INFORMATION_VIDEO_QUALITY_MENU_TYPE.get()) {
+                        VideoUtils.showCustomVideoQualityFlyoutMenu(context);
+                    } else {
+                        VideoUtils.showYouTubeLegacyVideoQualityFlyoutMenu();
+                    }
+                } else {
+                    switch (Settings.APPEND_TIME_STAMP_INFORMATION_PLAYBACK_SPEED_MENU_TYPE.get()) {
+                        case YOUTUBE_LEGACY ->
+                                VideoUtils.showYouTubeLegacyPlaybackSpeedFlyoutMenu();
+                        case CUSTOM_NO_THEME ->
+                                VideoUtils.showCustomNoThemePlaybackSpeedDialog(context);
+                        case CUSTOM_LEGACY ->
+                                VideoUtils.showCustomLegacyPlaybackSpeedDialog(context);
+                        case CUSTOM_MODERN ->
+                                VideoUtils.showCustomModernPlaybackSpeedDialog(context);
+                    }
+                }
+            };
+            containerView.setOnClickListener(listener);
         }
     }
 

@@ -4,6 +4,7 @@ import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
@@ -48,3 +49,28 @@ internal val dislikeButtonOnClickListenerAlternativeFingerprint = legacyFingerpr
     }
 )
 
+/**
+ * Finds the dislike handler method in the main player UI (8.19+).
+ */
+internal val dislikeUiHandlerFingerprint = legacyFingerprint(
+    name = "dislikeUiHandlerFingerprint",
+    returnType = "V",
+    parameters = listOf("L", "Ljava/util/Map;"),
+    customFingerprint = { method, _ ->
+        val instructions = method.implementation?.instructions ?: return@legacyFingerprint false
+
+        val hasLikeEndpointAccess = instructions.any { instruction ->
+            instruction.opcode == Opcode.SGET_OBJECT &&
+                    (instruction as? ReferenceInstruction)?.reference?.toString()?.contains(
+                        "Lcom/google/protos/youtube/api/innertube/LikeEndpointOuterClass\$LikeEndpoint;->likeEndpoint"
+                    ) == true
+        }
+
+        val hasStringEqualsCall = instructions.any { instruction ->
+            instruction.opcode == Opcode.INVOKE_VIRTUAL &&
+                    (instruction as? ReferenceInstruction)?.reference?.toString() == "Ljava/lang/String;->equals(Ljava/lang/Object;)Z"
+        }
+
+        hasLikeEndpointAccess && hasStringEqualsCall
+    }
+)

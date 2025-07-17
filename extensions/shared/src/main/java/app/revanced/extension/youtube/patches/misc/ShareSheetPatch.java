@@ -36,16 +36,19 @@ public class ShareSheetPatch {
                 if (!ShareSheetMenuFilter.isShareSheetMenuVisible) {
                     return;
                 }
-                if (!(recyclerView.getChildAt(0) instanceof ViewGroup parentView4th)) {
+                if (!(recyclerView.getChildAt(0) instanceof ViewGroup parentView5th)) {
                     return;
                 }
-                if (parentView4th.getChildAt(0) instanceof ViewGroup parentView3rd &&
-                        parentView3rd.getChildAt(0) instanceof RecyclerView appsContainerRecyclerView) {
-                    clickSystemShareButton(recyclerView, appsContainerRecyclerView);
-                } else if (parentView4th.getChildAt(1) instanceof ViewGroup parentView3rd &&
-                        parentView3rd.getChildAt(0) instanceof RecyclerView appsContainerRecyclerView) {
-                    clickSystemShareButton(recyclerView, appsContainerRecyclerView);
+                if (!(parentView5th.getChildAt(1) instanceof ViewGroup parentView4th)) {
+                    return;
                 }
+                if (!(parentView4th.getChildAt(0) instanceof ViewGroup parentView3rd)) {
+                    return;
+                }
+                if (!(parentView3rd.getChildAt(0) instanceof RecyclerView appsContainerRecyclerView)) {
+                    return;
+                }
+                clickSystemShareButton(recyclerView, appsContainerRecyclerView);
             } catch (Exception ex) {
                 Logger.printException(() -> "onShareSheetMenuCreate failure", ex);
             }

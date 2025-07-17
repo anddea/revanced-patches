@@ -27,6 +27,8 @@ import kotlin.Unit;
 
 @SuppressWarnings("unused")
 public class SponsorBlockViewController {
+    public static final int ROUNDED_LAYOUT_MARGIN = 12;
+
     private static WeakReference<RelativeLayout> inlineSponsorOverlayRef = new WeakReference<>(null);
     private static WeakReference<ViewGroup> youtubeOverlaysLayoutRef = new WeakReference<>(null);
     private static WeakReference<SkipSponsorButton> skipHighlightButtonRef = new WeakReference<>(null);
@@ -98,8 +100,10 @@ public class SponsorBlockViewController {
                     Objects.requireNonNull(getChildView(layout, "revanced_sb_skip_highlight_button")));
             skipSponsorButtonRef = new WeakReference<>(
                     Objects.requireNonNull(getChildView(layout, "revanced_sb_skip_sponsor_button")));
-            newSegmentLayoutRef = new WeakReference<>(
-                    Objects.requireNonNull(getChildView(layout, "revanced_sb_new_segment_view")));
+            NewSegmentLayout newSegmentLayout = Objects.requireNonNull(
+                    getChildView(layout, "revanced_sb_new_segment_view"));
+            newSegmentLayoutRef = new WeakReference<>(newSegmentLayout);
+            newSegmentLayout.updateLayout();
 
             newSegmentLayoutVisible = false;
             skipHighlight = null;
@@ -113,6 +117,23 @@ public class SponsorBlockViewController {
         hideSkipHighlightButton();
         hideSkipSegmentButton();
         hideNewSegmentLayout();
+    }
+
+    public static void updateLayout() {
+        SkipSponsorButton button = skipSponsorButtonRef.get();
+        if (button != null) {
+            button.updateLayout();
+        }
+
+        button = skipHighlightButtonRef.get();
+        if (button != null) {
+            button.updateLayout();
+        }
+
+        NewSegmentLayout newSegmentLayout = newSegmentLayoutRef.get();
+        if (newSegmentLayout != null) {
+            newSegmentLayout.updateLayout();
+        }
     }
 
     public static void showSkipHighlightButton(@NonNull SponsorSegment segment) {

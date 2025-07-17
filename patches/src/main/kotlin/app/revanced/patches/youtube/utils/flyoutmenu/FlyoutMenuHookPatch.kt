@@ -30,7 +30,7 @@ val flyoutMenuHookPatch = bytecodePatch(
 
             addStaticFieldToExtension(
                 EXTENSION_VIDEO_UTILS_CLASS_DESCRIPTOR,
-                "showPlaybackSpeedFlyoutMenu",
+                "showYouTubeLegacyPlaybackSpeedFlyoutMenu",
                 "playbackRateBottomSheetClass",
                 definingClass,
                 smaliInstructions
@@ -49,7 +49,7 @@ val flyoutMenuHookPatch = bytecodePatch(
 
             addStaticFieldToExtension(
                 EXTENSION_VIDEO_UTILS_CLASS_DESCRIPTOR,
-                "showVideoQualityFlyoutMenu",
+                "showYouTubeLegacyVideoQualityFlyoutMenu",
                 "videoQualityBottomSheetClass",
                 definingClass,
                 smaliInstructions

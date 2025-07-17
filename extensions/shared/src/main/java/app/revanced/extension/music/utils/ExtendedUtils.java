@@ -45,10 +45,10 @@ public class ExtendedUtils extends PackageUtils {
     public static FrameLayout.LayoutParams getLayoutParams() {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        int left_margin = dpToPx(20);
-        int top_margin = dpToPx(10);
-        int right_margin = dpToPx(20);
-        int bottom_margin = dpToPx(4);
+        int left_margin = dipToPixels(20);
+        int top_margin = dipToPixels(10);
+        int right_margin = dipToPixels(20);
+        int bottom_margin = dipToPixels(4);
         params.setMargins(left_margin, top_margin, right_margin, bottom_margin);
 
         return params;

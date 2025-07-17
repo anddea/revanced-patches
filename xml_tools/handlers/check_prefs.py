@@ -14,6 +14,7 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger("xml_tools")
 BLACKLIST: set[str] = {
+    "revanced_extended_settings_search_history",
     "revanced_swipe_overlay_alternative_ui",
     "revanced_swipe_overlay_text_size",
 }
@@ -88,6 +89,7 @@ def _get_default_key_only_check() -> list[str]:
         "revanced_change_shorts_repeat_state",
         "revanced_custom_seekbar_color_accent",
         "revanced_custom_seekbar_color_primary",
+        "revanced_hide_player_youtube_music_button",
         "revanced_overlay_button_external_downloader_queue_manager",
         "revanced_override_video_download_button_queue_manager",
         "revanced_override_youtube_music_button_about_prerequisite",
@@ -190,22 +192,22 @@ def _log_comparison_results(
     if missing_keys:
         logger.info("Missing keys found in file2 (full line check):")
         for key in sorted(missing_keys):
-            logger.info("  Key: %s, Line: %s", key, key_lines_1[key])
+            logger.info("  ❌  Key: %s, Line: %s", key, key_lines_1[key])
 
     if missing_key_only:
         logger.info("Missing keys found in file2 (existence-only check):")
         for key in sorted(missing_key_only):
-            logger.info("  Key: %s", key)
+            logger.info("  ❌  Key: %s", key)
 
     if different_lines:
         logger.info("Different lines found for common keys (after ignoring specified attributes):")
         for key, lines in different_lines.items():
-            logger.info("  Key: %s", key)
+            logger.info("  ❌  Key: %s", key)
             diff_output = _fine_grained_colored_diff(lines["file1"], lines["file2"])
             logger.info("    Diff:\n%s", diff_output)
 
     if not missing_keys and not missing_key_only and not different_lines:
-        logger.info("No missing or different preferences found (after specified checks).")
+        logger.info("✅  No missing or different preferences found (after specified checks).")
 
 
 def process(

@@ -6,7 +6,8 @@ import static app.revanced.extension.shared.utils.Utils.getFormattedTimeStamp;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.lang.reflect.Field;
+import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +48,11 @@ public final class VideoInformation {
     private static boolean videoIsLiveStream;
     private static long videoTime = -1;
 
+    /**
+     * Whether the regular player has ever been opened.
+     */
+    private static boolean playerInitialized = false;
+
     @NonNull
     private static volatile String playerResponseVideoId = "";
     private static volatile boolean playerResponseVideoIdIsShort;
@@ -62,14 +68,23 @@ public final class VideoInformation {
      */
     private static int videoQuality = DEFAULT_YOUTUBE_VIDEO_QUALITY;
     /**
-     * The current video quality string
+     * The current video quality string (e.g. '2160p60 HDR', '1080p Premium', '1080p60')
      */
     private static String videoQualityString = DEFAULT_YOUTUBE_VIDEO_QUALITY_STRING;
     /**
-     * The available qualities of the current video in human readable form: [1080, 720, 480]
+     * The current video quality simplified string (e.g. '2160p', '1080p', '720s')
+     */
+    private static String videoQualitySimplifiedString = DEFAULT_YOUTUBE_VIDEO_QUALITY_STRING;
+    /**
+     * The available quality labels of the current video in human readable form: [1080p60, 720p60, 480p]
      */
     @Nullable
-    public static volatile List<Integer> videoQualities;
+    public static volatile List<String> videoQualityEntries;
+    /**
+     * The available quality values of the current video in human readable form: [1080, 720, 480]
+     */
+    @Nullable
+    public static volatile List<Integer> videoQualityEntryValues;
 
     public static volatile boolean qualityNeedsUpdating;
 
@@ -178,6 +193,22 @@ public final class VideoInformation {
             Logger.printException(() -> "Failed to seek relative", ex);
             return false;
         }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void newVideoStarted(@NonNull String newlyLoadedChannelId, @NonNull String newlyLoadedChannelName,
+                                       @NonNull String newlyLoadedVideoId, @NonNull String newlyLoadedVideoTitle,
+                                       final long newlyLoadedVideoLength, boolean newlyLoadedLiveStreamValue) {
+        if (!playerInitialized &&
+                PlayerType.getCurrent() != PlayerType.INLINE_MINIMAL) {
+            playerInitialized = true;
+        }
+    }
+
+    public static boolean isPlayerInitialized() {
+        return playerInitialized;
     }
 
     /**
@@ -383,55 +414,35 @@ public final class VideoInformation {
     }
 
     /**
-     * @return The current video quality string.
+     * @return The current video quality simplified string.
      */
-    public static String getVideoQualityString() {
-        return videoQualityString;
+    public static String getVideoQualitySimplifiedString() {
+        return videoQualitySimplifiedString;
     }
 
     /**
      * Injection point.
      *
-     * @param newlyLoadedQuality The current video quality string.
+     * @param newlyLoadedVideoQuality The current video quality.
      */
-    public static void setVideoQuality(String newlyLoadedQuality) {
-        if (newlyLoadedQuality == null) {
+    public static void setVideoQuality(VideoQuality newlyLoadedVideoQuality) {
+        if (newlyLoadedVideoQuality == null) {
             return;
         }
         try {
-            String splitVideoQuality;
-            if (newlyLoadedQuality.contains("p")) {
-                splitVideoQuality = newlyLoadedQuality.split("p")[0];
-                videoQuality = Integer.parseInt(splitVideoQuality);
-                videoQualityString = splitVideoQuality + "p";
-            } else if (newlyLoadedQuality.contains("s")) {
-                splitVideoQuality = newlyLoadedQuality.split("s")[0];
-                videoQuality = Integer.parseInt(splitVideoQuality);
-                videoQualityString = splitVideoQuality + "s";
+            videoQuality = newlyLoadedVideoQuality.a;
+            videoQualityString = newlyLoadedVideoQuality.b;
+
+            if (videoQualityString.contains("p")) {
+                videoQualitySimplifiedString = videoQuality + "p";
+            } else if (videoQualityString.contains("s")) {
+                videoQualitySimplifiedString = videoQuality + "s";
             } else {
-                videoQuality = DEFAULT_YOUTUBE_VIDEO_QUALITY;
-                videoQualityString = DEFAULT_YOUTUBE_VIDEO_QUALITY_STRING;
+                videoQualitySimplifiedString = videoQualityString;
             }
-        } catch (NumberFormatException ignored) {
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to set video quality", ex);
         }
-    }
-
-    /**
-     * @return available video quality.
-     */
-    public static int getAvailableVideoQuality(int preferredQuality) {
-        if (!qualityNeedsUpdating || videoQualities == null) {
-            return preferredQuality;
-        }
-        qualityNeedsUpdating = false;
-
-        int qualityToUse = videoQualities.get(0); // first element is automatic mode
-        for (Integer quality : videoQualities) {
-            if (quality <= preferredQuality && qualityToUse < quality) {
-                qualityToUse = quality;
-            }
-        }
-        return qualityToUse;
     }
 
     /**
@@ -439,24 +450,46 @@ public final class VideoInformation {
      *
      * @param qualities Video qualities available, ordered from largest to smallest, with index 0 being the 'automatic' value of -2
      */
-    public static void setVideoQualityList(Object[] qualities) {
+    public static void setAvailableVideoQuality(VideoQuality[] qualities) {
+        if (qualities == null) {
+            return;
+        }
         try {
-            if (videoQualities == null || videoQualities.size() != qualities.length) {
-                videoQualities = new ArrayList<>(qualities.length);
-                for (Object streamQuality : qualities) {
-                    for (Field field : streamQuality.getClass().getFields()) {
-                        if (field.getType().isAssignableFrom(Integer.TYPE)
-                                && field.getName().length() <= 2) {
-                            videoQualities.add(field.getInt(streamQuality));
-                        }
+            if (videoQualityEntries == null || videoQualityEntries.size() != qualities.length) {
+                videoQualityEntries = new ArrayList<>(qualities.length);
+                videoQualityEntryValues = new ArrayList<>(qualities.length);
+                for (VideoQuality videoQuality : qualities) {
+                    if (videoQuality != null) {
+                        videoQualityEntries.add(videoQuality.b);
+                        videoQualityEntryValues.add(videoQuality.a);
                     }
                 }
-                qualityNeedsUpdating = true;
-                Logger.printDebug(() -> "videoQualities: " + videoQualities);
+                if (videoQualityEntries != null && videoQualityEntries.size() > 0) {
+                    qualityNeedsUpdating = true;
+                    Logger.printDebug(() -> "videoQualityEntries: " + videoQualityEntries + "\nvideoQualityEntryValues: " + videoQualityEntryValues);
+                }
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "Failed to set quality list", ex);
+            Logger.printException(() -> "Failed to set video quality array", ex);
         }
+    }
+
+    /**
+     * @return available video quality.
+     */
+    public static int getAvailableVideoQuality(int preferredQuality) {
+        if (!qualityNeedsUpdating || videoQualityEntryValues == null) {
+            return preferredQuality;
+        }
+        qualityNeedsUpdating = false;
+
+        int qualityToUse = videoQualityEntryValues.get(0); // first element is automatic mode
+        for (Integer quality : videoQualityEntryValues) {
+            if (quality <= preferredQuality && qualityToUse < quality) {
+                qualityToUse = quality;
+            }
+        }
+        return qualityToUse;
     }
 
     /**

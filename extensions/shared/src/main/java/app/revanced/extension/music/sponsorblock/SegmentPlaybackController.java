@@ -94,7 +94,7 @@ public class SegmentPlaybackController {
             if (!Settings.SB_ENABLED.get()) {
                 return;
             }
-            if (Utils.isNetworkNotConnected()) {
+            if (!Utils.isNetworkConnected()) {
                 Logger.printDebug(() -> "Network not connected, ignoring video");
                 return;
             }

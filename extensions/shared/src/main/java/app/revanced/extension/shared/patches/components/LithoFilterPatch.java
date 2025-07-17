@@ -1,5 +1,7 @@
 package app.revanced.extension.shared.patches.components;
 
+import static app.revanced.extension.shared.utils.Utils.validateValue;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -38,7 +40,7 @@ public final class LithoFilterPatch {
             builder.append(identifier);
             builder.append("\nPath: ");
             builder.append(path);
-            if (BaseSettings.ENABLE_DEBUG_BUFFER_LOGGING.get()) {
+            if (BaseSettings.DEBUG_PROTOBUFFER.get()) {
                 builder.append("\nBufferStrings: ");
                 findAsciiStrings(builder, protoBuffer);
             }
@@ -49,7 +51,7 @@ public final class LithoFilterPatch {
         /**
          * Search through a byte array for all ASCII strings.
          */
-        private static void findAsciiStrings(StringBuilder builder, byte[] buffer) {
+        static void findAsciiStrings(StringBuilder builder, byte[] buffer) {
             // Valid ASCII values (ignore control characters).
             final int minimumAscii = 32;  // 32 = space character
             final int maximumAscii = 126; // 127 = delete character
@@ -75,8 +77,29 @@ public final class LithoFilterPatch {
         }
     }
 
+
+    /**
+     * Litho layout fixed thread pool size override.
+     * <p>
+     * Unpatched YouTube uses a layout fixed thread pool between 1 and 3 threads:
+     * <pre>
+     * 0 thread - > Do not override thread pool size
+     * 1 thread - > Device has less than 6 cores
+     * 2 threads -> Device has over 6 cores and less than 6GB of memory
+     * 3 threads -> Device has over 6 cores and more than 6GB of memory
+     * </pre>
+     * <p>
+     * Using more than 1 thread causes layout issues such as the You tab watch/playlist shelf
+     * that is sometimes incorrectly hidden (ReVanced is not hiding it), and seems to
+     * fix a race issue if using the active navigation tab status with litho filtering.
+     */
+    private static boolean CHANGE_LITHO_LAYOUT_THREAD_POOL_SIZE;
+    private static int LITHO_LAYOUT_THREAD_POOL_MAX_SIZE;
+
+    private static boolean initialized = false;
+
     private static final Filter[] filters = new Filter[]{
-            new DummyFilter() // Replaced by patch.
+            new DummyFilter() // Replaced patching, do not touch.
     };
 
     private static final StringTrieSearch pathSearchTree = new StringTrieSearch();
@@ -86,12 +109,24 @@ public final class LithoFilterPatch {
     private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
     /**
-     * Because litho filtering is multi-threaded and the buffer is passed in from a different injection point,
+     * Because litho filtering is multithreaded and the buffer is passed in from a different injection point,
      * the buffer is saved to a ThreadLocal so each calling thread does not interfere with other threads.
      */
-    private static final ThreadLocal<ByteBuffer> bufferThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<byte[]> bufferThreadLocal = new ThreadLocal<>();
 
-    static {
+    private static synchronized void initialize() {
+        if (initialized) {
+            return;
+        }
+
+        LITHO_LAYOUT_THREAD_POOL_MAX_SIZE = validateValue(
+                BaseSettings.LITHO_LAYOUT_THREAD_POOL_MAX_SIZE,
+                0,
+                3,
+                "revanced_litho_layout_thread_pool_max_size_invalid_toast"
+        );
+        CHANGE_LITHO_LAYOUT_THREAD_POOL_SIZE = LITHO_LAYOUT_THREAD_POOL_MAX_SIZE != 0;
+
         for (Filter filter : filters) {
             filterUsingCallbacks(identifierSearchTree, filter,
                     filter.identifierCallbacks, Filter.FilterContentType.IDENTIFIER);
@@ -106,6 +141,8 @@ public final class LithoFilterPatch {
                 + " (" + identifierSearchTree.getEstimatedMemorySize() + " KB), "
                 + pathSearchTree.numberOfPatterns() + " path filters"
                 + " (" + pathSearchTree.getEstimatedMemorySize() + " KB)");
+
+        initialized = true;
     }
 
     private static void filterUsingCallbacks(StringTrieSearch pathSearchTree,
@@ -130,35 +167,48 @@ public final class LithoFilterPatch {
     /**
      * Injection point.  Called off the main thread.
      */
-    public static void setProtoBuffer(@Nullable ByteBuffer protobufBuffer) {
+    public static void setProtoBuffer(byte[] buffer) {
         // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.
         // This is intentional, as it appears the buffer can be set once and then filtered multiple times.
         // The buffer will be cleared from memory after a new buffer is set by the same thread,
         // or when the calling thread eventually dies.
-        bufferThreadLocal.set(protobufBuffer);
+        bufferThreadLocal.set(buffer);
+    }
+
+    /**
+     * Injection point.  Called off the main thread.
+     * Targets 20.21 and lower.
+     */
+    public static void setProtoBuffer(@Nullable ByteBuffer buffer) {
+        // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.
+        // This is intentional, as it appears the buffer can be set once and then filtered multiple times.
+        // The buffer will be cleared from memory after a new buffer is set by the same thread,
+        // or when the calling thread eventually dies.
+        if (buffer == null || !buffer.hasArray()) {
+            // It appears the buffer can be cleared out just before the call to #filter()
+            // Ignore this null value and retain the last buffer that was set.
+            Logger.printDebug(() -> "Ignoring null or empty buffer: " + buffer);
+        } else {
+            setProtoBuffer(buffer.array());
+        }
     }
 
     /**
      * Injection point.  Called off the main thread, and commonly called by multiple threads at the same time.
      */
-    public static boolean filter(@NonNull StringBuilder pathBuilder, @Nullable String identifier, @NonNull Object object) {
+    public static boolean shouldFilter(StringBuilder pathBuilder, @Nullable String identifier, @NonNull Object object) {
+        if (!initialized) initialize();
+
         try {
             if (pathBuilder.length() == 0) {
                 return false;
             }
 
-            ByteBuffer protobufBuffer = bufferThreadLocal.get();
-            final byte[] bufferArray;
+            byte[] bufferArray = bufferThreadLocal.get();
             // Potentially the buffer may have been null or never set up until now.
-            // Use an empty buffer so the litho id or path filters still work correctly.
-            if (protobufBuffer == null) {
-                Logger.printDebug(() -> "Proto buffer is null, using an empty buffer array");
+            // Use an empty buffer so the litho id/path filters still work correctly.
+            if (bufferArray == null) {
                 bufferArray = EMPTY_BYTE_ARRAY;
-            } else if (!protobufBuffer.hasArray()) {
-                Logger.printDebug(() -> "Proto buffer does not have an array, using an empty buffer array");
-                bufferArray = EMPTY_BYTE_ARRAY;
-            } else {
-                bufferArray = protobufBuffer.array();
             }
 
             LithoFilterParameters parameter = new LithoFilterParameters(pathBuilder.toString(), identifier,
@@ -181,6 +231,46 @@ public final class LithoFilterPatch {
         }
 
         return false;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int getExecutorCorePoolSize(int originalCorePoolSize) {
+        if (!initialized) initialize();
+
+        if (!CHANGE_LITHO_LAYOUT_THREAD_POOL_SIZE) {
+            return originalCorePoolSize;
+        }
+
+        final int finalCorePoolSize =
+                Math.min(originalCorePoolSize, LITHO_LAYOUT_THREAD_POOL_MAX_SIZE);
+        if (originalCorePoolSize != finalCorePoolSize) {
+            Logger.printDebug(() -> "Overriding core thread pool size from: " + originalCorePoolSize
+                    + " to: " + finalCorePoolSize);
+        }
+
+        return finalCorePoolSize;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int getExecutorMaxThreads(int originalMaxThreads) {
+        if (!initialized) initialize();
+
+        if (!CHANGE_LITHO_LAYOUT_THREAD_POOL_SIZE) {
+            return originalMaxThreads;
+        }
+
+        final int finalMaxThreads =
+                Math.min(originalMaxThreads, LITHO_LAYOUT_THREAD_POOL_MAX_SIZE);
+        if (originalMaxThreads != finalMaxThreads) {
+            Logger.printDebug(() -> "Overriding max thread pool size from: " + originalMaxThreads
+                    + " to: " + finalMaxThreads);
+        }
+
+        return finalMaxThreads;
     }
 }
 

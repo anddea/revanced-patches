@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import java.util.Arrays;
 
 import app.revanced.extension.shared.utils.Logger;
@@ -20,22 +22,37 @@ import app.revanced.extension.youtube.utils.VideoUtils;
 
 @SuppressWarnings("unused")
 public class CustomPlaybackSpeedPatch {
-    private static final float PLAYBACK_SPEED_AUTO = Settings.DEFAULT_PLAYBACK_SPEED.defaultValue;
+
+    public enum PlaybackSpeedMenuType {
+        YOUTUBE_LEGACY,
+        CUSTOM_NO_THEME,
+        CUSTOM_LEGACY,
+        CUSTOM_MODERN,
+    }
 
     /**
-     * Maximum playback speed, exclusive value.  Custom speeds must be less than this value.
+     * Maximum playback speed, inclusive.  Custom speeds must be this or less.
      * <p>
      * Going over 8x does not increase the actual playback speed any higher,
      * and the UI selector starts flickering and acting weird.
      * Over 10x and the speeds show up out of order in the UI selector.
      */
     public static final float PLAYBACK_SPEED_MAXIMUM = 8;
-    private static final String[] defaultSpeedEntries;
-    private static final String[] defaultSpeedEntryValues;
+
+    /**
+     * How much +/- speed adjustment buttons change the current speed.
+     */
+    public static final double SPEED_ADJUSTMENT_CHANGE = 0.05;
+
     /**
      * Custom playback speeds.
      */
-    private static float[] playbackSpeeds;
+    private static float[] customPlaybackSpeeds;
+    private static final float[] playbackSpeeds = {0.25f, 1.0f, 1.25f, 1.5f, 2.0f};
+
+    private static final String[] defaultSpeedEntries;
+    private static final String[] defaultSpeedEntryValues;
+
     private static String[] customSpeedEntries;
     private static String[] customSpeedEntryValues;
 
@@ -50,22 +67,29 @@ public class CustomPlaybackSpeedPatch {
     static {
         defaultSpeedEntries = new String[]{getString("quality_auto"), "0.25x", "0.5x", "0.75x", getString("revanced_playback_speed_normal"), "1.25x", "1.5x", "1.75x", "2.0x"};
         defaultSpeedEntryValues = new String[]{"-2.0", "0.25", "0.5", "0.75", "1.0", "1.25", "1.5", "1.75", "2.0"};
-
         loadCustomSpeeds();
+    }
+
+    public static float[] getArray() {
+        return getArray(playbackSpeeds);
     }
 
     /**
      * Injection point.
      */
     public static float[] getArray(float[] original) {
-        return isCustomPlaybackSpeedEnabled() ? playbackSpeeds : original;
+        return isCustomPlaybackSpeedEnabled() ? customPlaybackSpeeds : original;
+    }
+
+    public static int getLength() {
+        return getLength(playbackSpeeds.length);
     }
 
     /**
      * Injection point.
      */
     public static int getLength(int original) {
-        return isCustomPlaybackSpeedEnabled() ? playbackSpeeds.length : original;
+        return isCustomPlaybackSpeedEnabled() ? customPlaybackSpeeds.length : original;
     }
 
     /**
@@ -73,6 +97,24 @@ public class CustomPlaybackSpeedPatch {
      */
     public static int getSize(int original) {
         return isCustomPlaybackSpeedEnabled() ? 0 : original;
+    }
+
+    public static float[] getPlaybackSpeeds() {
+        return isCustomPlaybackSpeedEnabled()
+                ? customPlaybackSpeeds
+                : playbackSpeeds;
+    }
+
+    public static float getPlaybackSpeedMinimum() {
+        return isCustomPlaybackSpeedEnabled()
+                ? customPlaybackSpeeds[0]
+                : 0.25f;
+    }
+
+    public static float getPlaybackSpeedMaximum() {
+        return isCustomPlaybackSpeedEnabled()
+                ? customPlaybackSpeeds[customPlaybackSpeeds.length - 1]
+                : 2.0f;
     }
 
     public static String[] getEntries() {
@@ -122,11 +164,11 @@ public class CustomPlaybackSpeedPatch {
             if (speedStrings.length == 0) {
                 throw new IllegalArgumentException();
             }
-            playbackSpeeds = new float[speedStrings.length];
+            customPlaybackSpeeds = new float[speedStrings.length];
             int i = 0;
             for (String speedString : speedStrings) {
                 final float speedFloat = Float.parseFloat(speedString);
-                if (speedFloat <= 0 || arrayContains(playbackSpeeds, speedFloat)) {
+                if (speedFloat <= 0 || ArrayUtils.contains(customPlaybackSpeeds, speedFloat)) {
                     throw new IllegalArgumentException();
                 }
 
@@ -136,19 +178,19 @@ public class CustomPlaybackSpeedPatch {
                     return;
                 }
 
-                playbackSpeeds[i] = speedFloat;
+                customPlaybackSpeeds[i] = speedFloat;
                 i++;
             }
 
             if (customSpeedEntries != null) return;
 
-            customSpeedEntries = new String[playbackSpeeds.length + 1];
-            customSpeedEntryValues = new String[playbackSpeeds.length + 1];
+            customSpeedEntries = new String[customPlaybackSpeeds.length + 1];
+            customSpeedEntryValues = new String[customPlaybackSpeeds.length + 1];
             customSpeedEntries[0] = getString("quality_auto");
             customSpeedEntryValues[0] = "-2.0";
 
             i = 1;
-            for (float speed : playbackSpeeds) {
+            for (float speed : customPlaybackSpeeds) {
                 String speedString = String.valueOf(speed);
                 customSpeedEntries[i] = speed != 1.0f
                         ? speedString + "x"
@@ -157,21 +199,16 @@ public class CustomPlaybackSpeedPatch {
                 i++;
             }
         } catch (Exception ex) {
-            Logger.printInfo(() -> "parse error", ex);
+            Logger.printInfo(() -> "Parse error", ex);
             resetCustomSpeeds(str("revanced_custom_playback_speeds_parse_exception"));
             loadCustomSpeeds();
         }
     }
 
-    private static boolean arrayContains(float[] array, float value) {
-        for (float arrayValue : array) {
-            if (arrayValue == value) return true;
-        }
-        return false;
-    }
-
     private static boolean isCustomPlaybackSpeedEnabled() {
-        return Settings.ENABLE_CUSTOM_PLAYBACK_SPEED.get() && playbackSpeeds != null;
+        return Settings.ENABLE_CUSTOM_PLAYBACK_SPEED.get() &&
+                customPlaybackSpeeds != null &&
+                customPlaybackSpeeds.length > 0;
     }
 
     /**
@@ -211,11 +248,11 @@ public class CustomPlaybackSpeedPatch {
             return false;
         }
 
-        if (!(recyclerView.getChildAt(0) instanceof ViewGroup PlaybackSpeedParentView)) {
+        if (!(recyclerView.getChildAt(0) instanceof ViewGroup playbackSpeedParentView)) {
             return false;
         }
 
-        if (PlaybackSpeedParentView.getChildCount() != expectedChildCount) {
+        if (playbackSpeedParentView.getChildCount() != expectedChildCount) {
             return false;
         }
 
@@ -256,13 +293,6 @@ public class CustomPlaybackSpeedPatch {
         }
         lastTimeOldPlaybackMenuInvoked = now;
 
-        if (Settings.CUSTOM_PLAYBACK_SPEED_MENU_TYPE.get()) {
-            // Open playback speed dialog
-            VideoUtils.showPlaybackSpeedDialog(context);
-        } else {
-            // Open old style flyout menu
-            VideoUtils.showPlaybackSpeedFlyoutMenu();
-        }
+        VideoUtils.showPlaybackSpeedDialog(context, Settings.CUSTOM_PLAYBACK_SPEED_MENU_TYPE);
     }
-
 }

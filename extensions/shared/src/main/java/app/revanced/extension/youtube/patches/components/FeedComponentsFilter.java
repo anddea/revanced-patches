@@ -9,6 +9,7 @@ import app.revanced.extension.shared.patches.components.StringFilterGroupList;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.StringTrieSearch;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
 @SuppressWarnings("unused")
 public final class FeedComponentsFilter extends Filter {
@@ -33,8 +34,11 @@ public final class FeedComponentsFilter extends Filter {
     private static final StringTrieSearch mixPlaylistsContextExceptions = new StringTrieSearch();
     private static final StringTrieSearch communityPostsFeedGroupSearch = new StringTrieSearch();
     private final StringFilterGroup channelProfile;
+    private final StringFilterGroup chipBar;
     private final StringFilterGroup communityPosts;
-    private final StringFilterGroup expandableChip;
+    private final StringFilterGroup expandableCard;
+    private final StringFilterGroup horizontalShelves;
+    private final ByteArrayFilterGroup ticketShelf;
     private final ByteArrayFilterGroup visitStoreButton;
     private final StringFilterGroupList communityPostsFeedGroup = new StringFilterGroupList();
 
@@ -62,6 +66,7 @@ public final class FeedComponentsFilter extends Filter {
                 "images_post_root",
                 "images_post_slim",
                 "poll_post_root",
+                "post_responsive_root",
                 "post_shelf_slim",
                 "text_post_root",
                 "videos_post_root"
@@ -78,7 +83,7 @@ public final class FeedComponentsFilter extends Filter {
         );
 
         final StringFilterGroup tasteBuilder = new StringFilterGroup(
-                Settings.HIDE_FEED_SURVEY,
+                Settings.HIDE_SURVEYS,
                 "selectable_item.eml",
                 "cell_button.eml"
         );
@@ -100,7 +105,7 @@ public final class FeedComponentsFilter extends Filter {
         );
 
         channelProfile = new StringFilterGroup(
-                Settings.HIDE_BROWSE_STORE_BUTTON,
+                Settings.HIDE_VISIT_STORE_BUTTON,
                 "channel_profile.eml",
                 "page_header.eml" // new layout
         );
@@ -110,26 +115,26 @@ public final class FeedComponentsFilter extends Filter {
                 "header_store_button"
         );
 
-        final StringFilterGroup channelMemberShelf = new StringFilterGroup(
-                Settings.HIDE_CHANNEL_MEMBER_SHELF,
+        final StringFilterGroup membersShelf = new StringFilterGroup(
+                Settings.HIDE_MEMBERS_SHELF,
                 "member_recognition_shelf"
         );
 
-        final StringFilterGroup channelProfileLinks = new StringFilterGroup(
-                Settings.HIDE_CHANNEL_PROFILE_LINKS,
+        final StringFilterGroup linksPreview = new StringFilterGroup(
+                Settings.HIDE_LINKS_PREVIEW,
                 "channel_header_links",
                 "attribution.eml" // new layout
         );
 
-        expandableChip = new StringFilterGroup(
-                Settings.HIDE_EXPANDABLE_CHIP,
+        expandableCard = new StringFilterGroup(
+                Settings.HIDE_EXPANDABLE_CARD,
                 INLINE_EXPANSION_PATH,
                 "inline_expander",
                 "expandable_metadata.eml"
         );
 
-        final StringFilterGroup feedSurvey = new StringFilterGroup(
-                Settings.HIDE_FEED_SURVEY,
+        final StringFilterGroup surveys = new StringFilterGroup(
+                Settings.HIDE_SURVEYS,
                 "feed_nudge",
                 "_survey"
         );
@@ -169,8 +174,8 @@ public final class FeedComponentsFilter extends Filter {
                 "mini_game_card.eml"
         );
 
-        final StringFilterGroup subscriptionsChannelBar = new StringFilterGroup(
-                Settings.HIDE_SUBSCRIPTIONS_CAROUSEL,
+        final StringFilterGroup subscribedChannelsBar = new StringFilterGroup(
+                Settings.HIDE_SUBSCRIBED_CHANNELS_BAR,
                 "subscriptions_channel_bar"
         );
 
@@ -179,28 +184,48 @@ public final class FeedComponentsFilter extends Filter {
                 "subscriptions_chip_bar"
         );
 
-        final StringFilterGroup ticketShelf = new StringFilterGroup(
+        chipBar = new StringFilterGroup(
+                Settings.HIDE_CATEGORY_BAR_IN_HISTORY,
+                "chip_bar"
+        );
+
+        final StringFilterGroup ticketShelfLegacy = new StringFilterGroup(
                 Settings.HIDE_TICKET_SHELF,
                 "ticket_horizontal_shelf",
                 "ticket_shelf"
         );
 
+        horizontalShelves = new StringFilterGroup(
+                Settings.HIDE_TICKET_SHELF,
+                "horizontal_video_shelf.eml",
+                "horizontal_shelf.eml",
+                "horizontal_shelf_inline.eml",
+                "horizontal_tile_shelf.eml"
+        );
+
+        ticketShelf = new ByteArrayFilterGroup(
+                Settings.HIDE_TICKET_SHELF,
+                "ticket.eml"
+        );
+
         addPathCallbacks(
                 albumCard,
                 channelProfile,
-                channelMemberShelf,
-                channelProfileLinks,
-                expandableChip,
-                feedSurvey,
+                chipBar,
+                expandableCard,
                 forYouShelf,
+                horizontalShelves,
                 imageShelf,
                 latestPosts,
+                linksPreview,
+                membersShelf,
                 movieShelf,
                 notifyMe,
                 playables,
-                subscriptionsChannelBar,
+                subscribedChannelsBar,
                 subscriptionsCategoryBar,
-                ticketShelf
+                surveys,
+                ticketShelfLegacy
         );
 
         final StringFilterGroup communityPostsHomeAndRelatedVideos =
@@ -247,6 +272,11 @@ public final class FeedComponentsFilter extends Filter {
                 return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
             return false;
+        } else if (matchedGroup == chipBar) {
+            if (contentIndex == 0 && NavigationButton.getSelectedNavigationButton() == NavigationButton.LIBRARY) {
+                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            }
+            return false;
         } else if (matchedGroup == communityPosts) {
             if (!communityPostsFeedGroupSearch.matches(allValue) && Settings.HIDE_COMMUNITY_POSTS_CHANNEL.get()) {
                 return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
@@ -255,8 +285,13 @@ public final class FeedComponentsFilter extends Filter {
                 return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
             return false;
-        } else if (matchedGroup == expandableChip) {
+        } else if (matchedGroup == expandableCard) {
             if (path.startsWith(FEED_VIDEO_PATH)) {
+                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            }
+            return false;
+        } else if (matchedGroup == horizontalShelves) {
+            if (contentIndex == 0 && ticketShelf.check(protobufBufferArray).isFiltered()) {
                 return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
             return false;

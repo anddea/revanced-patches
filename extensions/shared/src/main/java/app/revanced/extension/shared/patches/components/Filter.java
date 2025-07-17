@@ -91,7 +91,7 @@ public abstract class Filter {
      */
     public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (BaseSettings.ENABLE_DEBUG_LOGGING.get()) {
+        if (BaseSettings.DEBUG.get()) {
             String filterSimpleName = getClass().getSimpleName();
             if (contentType == FilterContentType.IDENTIFIER) {
                 Logger.printDebug(() -> filterSimpleName + " Filtered identifier: " + identifier);

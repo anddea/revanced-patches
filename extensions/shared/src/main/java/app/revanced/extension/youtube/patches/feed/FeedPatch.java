@@ -1,30 +1,42 @@
 package app.revanced.extension.youtube.patches.feed;
 
-import static app.revanced.extension.shared.utils.Utils.hideViewBy0dpUnderCondition;
-import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
 import androidx.annotation.Nullable;
-
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.PlayerType;
+
+import static app.revanced.extension.shared.utils.Utils.hideViewBy0dpUnderCondition;
+import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
 
 @SuppressWarnings("unused")
 public class FeedPatch {
 
     // region [Hide feed components] patch
 
+    private static FrameLayout.LayoutParams layoutParams;
+    private static int minimumHeight = -1;
+    private static int paddingLeft = 12;
+    private static int paddingTop = 0;
+    private static int paddingRight = 12;
+    private static int paddingBottom = 0;
+
     public static int hideCategoryBarInFeed(final int height) {
         return Settings.HIDE_CATEGORY_BAR_IN_FEED.get() ? 0 : height;
     }
 
     public static void hideCategoryBarInRelatedVideos(final View chipView) {
+        boolean isFullscreen = PlayerType.getCurrent() == PlayerType.WATCH_WHILE_FULLSCREEN;
         Utils.hideViewBy0dpUnderCondition(
-                Settings.HIDE_CATEGORY_BAR_IN_RELATED_VIDEOS.get() || Settings.HIDE_RELATED_VIDEOS.get(),
+                !isFullscreen && Settings.HIDE_CATEGORY_BAR_IN_RELATED_VIDEOS.get() || Settings.HIDE_RELATED_VIDEOS.get(),
+                chipView
+        );
+
+        Utils.hideViewUnderCondition(
+                isFullscreen && Settings.HIDE_CATEGORY_BAR_IN_RELATED_VIDEOS.get(),
                 chipView
         );
     }
@@ -87,19 +99,12 @@ public class FeedPatch {
     }
 
     public static boolean hideSubscriptionsChannelSection() {
-        return Settings.HIDE_SUBSCRIPTIONS_CAROUSEL.get();
+        return Settings.HIDE_SUBSCRIBED_CHANNELS_BAR.get();
     }
 
     public static void hideSubscriptionsChannelSection(View view) {
-        hideViewUnderCondition(Settings.HIDE_SUBSCRIPTIONS_CAROUSEL, view);
+        hideViewBy0dpUnderCondition(Settings.HIDE_SUBSCRIBED_CHANNELS_BAR, view);
     }
-
-    private static FrameLayout.LayoutParams layoutParams;
-    private static int minimumHeight = -1;
-    private static int paddingLeft = 12;
-    private static int paddingTop = 0;
-    private static int paddingRight = 12;
-    private static int paddingBottom = 0;
 
     /**
      * expandButtonContainer is used in channel profiles as well as search results.

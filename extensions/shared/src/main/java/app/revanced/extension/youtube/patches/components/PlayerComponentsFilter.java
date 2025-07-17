@@ -101,7 +101,7 @@ public final class PlayerComponentsFilter extends Filter {
         final StringFilterGroup joinMembership = new StringFilterGroup(
                 Settings.HIDE_JOIN_BUTTON,
                 "compact_sponsor_button",
-                "|ContainerType|button.eml|"
+                "|ContainerType|button.eml"
         );
 
         final StringFilterGroup startTrial = new StringFilterGroup(

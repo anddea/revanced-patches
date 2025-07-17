@@ -106,3 +106,13 @@ internal val shortsTextViewFingerprint = legacyFingerprint(
     }
 )
 
+internal const val LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG = 45675738L
+
+internal val textComponentFeatureFlagFingerprint = legacyFingerprint(
+    name = "textComponentFeatureFlagFingerprint",
+    accessFlags = AccessFlags.FINAL.value,
+    returnType = "Z",
+    parameters = emptyList(),
+    literals = listOf(LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG)
+)
+

@@ -79,8 +79,12 @@ public class EnumSetting<T extends Enum<?>> extends Setting<T> {
         json.put(importExportKey, value.name().toLowerCase(Locale.ENGLISH));
     }
 
-    @NonNull
-    private T getEnumFromString(String enumName) {
+    /**
+     * @param enumName Enum name.  Casing does not matter.
+     * @return Enum of this type with the same declared name.
+     * @throws IllegalArgumentException if the name is not a valid enum of this type.
+     */
+    protected T getEnumFromString(String enumName) {
         //noinspection ConstantConditions
         for (Enum<?> value : defaultValue.getClass().getEnumConstants()) {
             if (value.name().equalsIgnoreCase(enumName)) {
@@ -88,6 +92,7 @@ public class EnumSetting<T extends Enum<?>> extends Setting<T> {
                 return (T) value;
             }
         }
+
         throw new IllegalArgumentException("Unknown enum value: " + enumName);
     }
 
@@ -97,16 +102,14 @@ public class EnumSetting<T extends Enum<?>> extends Setting<T> {
     }
 
     @Override
-    public void save(@NonNull T newValue) {
-        // Must set before saving to preferences (otherwise importing fails to update UI correctly).
-        value = Objects.requireNonNull(newValue);
-        preferences.saveEnumAsString(key, newValue);
-    }
-
-    @Override
     public void saveValueFromString(@NonNull String newValue) {
         setValueFromString(newValue);
         preferences.saveString(key, newValue);
+    }
+
+    @Override
+    public void saveToPreferences() {
+        preferences.saveEnumAsString(key, value);
     }
 
     @NonNull
@@ -119,7 +122,9 @@ public class EnumSetting<T extends Enum<?>> extends Setting<T> {
      * Availability based on if this setting is currently set to any of the provided types.
      */
     @SafeVarargs
-    public final Setting.Availability availability(@NonNull T... types) {
+    public final Setting.Availability availability(T... types) {
+        Objects.requireNonNull(types);
+
         return () -> {
             T currentEnumType = get();
             for (T enumType : types) {

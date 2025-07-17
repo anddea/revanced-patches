@@ -35,7 +35,6 @@ internal val fullScreenButtonFingerprint = legacyFingerprint(
  */
 internal val lithoSubtitleButtonConfigFingerprint = legacyFingerprint(
     name = "lithoSubtitleButtonConfigFingerprint",
-    returnType = "Z",
     literals = listOf(45421555L),
 )
 

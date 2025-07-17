@@ -18,6 +18,7 @@ import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.extension.Constants.EXTENSION_PATH
 import app.revanced.patches.music.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.mainactivity.mainActivityResolvePatch
+import app.revanced.patches.music.utils.patch.PatchList.LITHO_FILTER
 import app.revanced.patches.music.utils.patch.PatchList.PLAYER_COMPONENTS
 import app.revanced.patches.music.utils.pendingIntentReceiverFingerprint
 import app.revanced.patches.music.utils.playservice.is_6_27_or_greater
@@ -1199,6 +1200,7 @@ val playerComponentsPatch = bytecodePatch(
         // endregion
 
         updatePatchStatus(PLAYER_COMPONENTS)
+        updatePatchStatus(LITHO_FILTER)
 
     }
 }

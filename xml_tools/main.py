@@ -13,6 +13,7 @@ import click
 from config import Settings
 from core import log_process, setup_logging
 from handlers import (
+    check_icons,
     check_prefs,
     check_prefs_reverse,
     check_strings,
@@ -69,6 +70,7 @@ def is_rvx_dir_needed(options: dict[str, Any]) -> bool:
 @click.option("-c", "--check", is_flag=True, help="Run missing strings check")
 @click.option("-p", "--prefs", is_flag=True, help="Run missing preferences check")
 @click.option("-pr", "--reverse", is_flag=True, help="Run missing preferences check (reverse)")
+@click.option("--icons", is_flag=True, help="Check icon preference keys against XML.")
 @click.option(
     "--update-file",
     type=click.Path(exists=True, dir_okay=False, readable=True, path_type=Path),
@@ -109,6 +111,7 @@ def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
         "prefs",
         "reverse",
         "update_file",
+        "icons",
     ]
     if kwargs.get("run_all"):
         process_all(ctx.obj)
@@ -151,6 +154,7 @@ def process_all(config: CLIConfig) -> None:
         ("Missing Prefs Check (Reverse)", check_prefs_reverse.process, ["youtube", base_dir]),
         ("Missing Strings Check (YouTube)", check_strings.process, ["youtube", base_dir]),
         ("Missing Strings Check (YouTube Music)", check_strings.process, ["music", base_dir]),
+        ("Check Icon Preferences", check_icons.process, ["youtube"]),
     ]
 
     for name, handler, args in handlers:
@@ -195,6 +199,7 @@ def handle_individual_operations(config: CLIConfig, options: dict[str, Any]) -> 
         ("prefs", "Check Preferences", check_prefs.process, (app, base_dir)),
         ("reverse", "Check Preferences (Reverse)", check_prefs_reverse.process, (app, base_dir)),
         ("update_file", "Update Strings from File", update_strings.process, (app, options.get("update_file"))),
+        ("icons", "Check Icon Preferences", check_icons.process, (app,)),
     ]
 
     something_processed = False

@@ -63,16 +63,14 @@ public class StringSetting extends Setting<String> {
     }
 
     @Override
-    public void save(@NonNull String newValue) {
-        // Must set before saving to preferences (otherwise importing fails to update UI correctly).
-        value = Objects.requireNonNull(newValue);
+    public void saveValueFromString(@NonNull String newValue) {
+        setValueFromString(newValue);
         preferences.saveString(key, newValue);
     }
 
     @Override
-    public void saveValueFromString(@NonNull String newValue) {
-        setValueFromString(newValue);
-        preferences.saveString(key, newValue);
+    public void saveToPreferences() {
+        preferences.saveString(key, value);
     }
 
     @NonNull

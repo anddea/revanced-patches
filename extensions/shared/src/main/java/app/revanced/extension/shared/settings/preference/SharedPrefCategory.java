@@ -138,7 +138,6 @@ public class SharedPrefCategory {
             if (value != null) {
                 return Integer.valueOf(value);
             }
-            return _default;
         } catch (ClassCastException | NumberFormatException ex) {
             try {
                 // Old data previously stored as primitive.
