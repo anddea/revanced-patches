@@ -29,7 +29,7 @@ public class GeminiUtils {
     private static final ExecutorService executor = Executors.newSingleThreadExecutor();
     private static final String BASE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
     private static final String SUMMARIZATION_GEMINI_MODEL = "gemini-2.0-flash";
-    private static final String TRANSCRIPTION_GEMINI_MODEL = "gemini-2.5-flash-preview-04-17";
+    private static final String TRANSCRIPTION_GEMINI_MODEL = "gemini-2.5-flash";
     private static final String ACTION = ":generateContent?key=";
     private static final AtomicReference<Future<?>> currentTask = new AtomicReference<>(null);
     private static final Handler mainThreadHandler = new Handler(Looper.getMainLooper());
