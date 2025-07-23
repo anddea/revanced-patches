@@ -188,8 +188,8 @@ public class GeminiUtils {
 
                 // Include generationConfig only for models that support thinkingConfig (e.g., transcription model)
                 JSONObject thinkingConfig = new JSONObject().put("thinkingBudget", 0);
-JSONObject generationConfig = new JSONObject().put("thinkingConfig", thinkingConfig);
-requestBody.put("generationConfig", generationConfig);
+                JSONObject generationConfig = new JSONObject().put("thinkingConfig", thinkingConfig);
+                requestBody.put("generationConfig", generationConfig);
 
 
                 String jsonInputString = requestBody.toString();
