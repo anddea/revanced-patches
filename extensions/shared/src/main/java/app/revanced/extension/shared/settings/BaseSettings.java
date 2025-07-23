@@ -69,7 +69,7 @@ public class BaseSettings {
     public static final EnumSetting<DisplayFormat> RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT = new EnumSetting<>("revanced_return_youtube_username_display_format", DisplayFormat.USERNAME_ONLY,
             true, parent(RETURN_YOUTUBE_USERNAME_ENABLED));
     public static final StringSetting RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY = new StringSetting("revanced_return_youtube_username_youtube_data_api_v3_developer_key", "",
-            true, false, null, parent(RETURN_YOUTUBE_USERNAME_ENABLED));
+            true, true, null, parent(RETURN_YOUTUBE_USERNAME_ENABLED));
 
     /**
      * @noinspection DeprecatedIsStillUsed
