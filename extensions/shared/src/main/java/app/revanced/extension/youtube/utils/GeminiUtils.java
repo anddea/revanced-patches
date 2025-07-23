@@ -28,8 +28,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class GeminiUtils {
     private static final ExecutorService executor = Executors.newSingleThreadExecutor();
     private static final String BASE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
-    private static final String SUMMARIZATION_GEMINI_MODEL = "gemini-2.0-flash";
-    private static final String TRANSCRIPTION_GEMINI_MODEL = "gemini-2.5-flash-preview-04-17";
+    private static final String GEMINI_MODEL = "gemini-2.5-flash";
     private static final String ACTION = ":generateContent?key=";
     private static final AtomicReference<Future<?>> currentTask = new AtomicReference<>(null);
     private static final Handler mainThreadHandler = new Handler(Looper.getMainLooper());
@@ -47,7 +46,7 @@ public class GeminiUtils {
         String langName = getLanguageName();
         String prompt = "Summarize the key points of this video in " + langName + ". Skip any preamble, intro phrases, or explanations — output only the summary.";
         Logger.printDebug(() -> "GeminiUtils (SUMMARY): Sending Prompt: " + prompt);
-        generateContent(videoUrl, apiKey, prompt, SUMMARIZATION_GEMINI_MODEL, callback);
+        generateContent(videoUrl, apiKey, prompt, GEMINI_MODEL, callback);
     }
 
     /**
@@ -62,7 +61,7 @@ public class GeminiUtils {
         String langName = getLanguageName();
         String prompt = "Transcribe this video precisely in " + langName + ", including spoken words, written words in the video and significant sounds. Provide timestamps for each segment in the format [HH:MM:SS.mmm - HH:MM:SS.mmm]: Text. Skip any preamble, intro phrases, or explanations — output only the transcription.";
         Logger.printDebug(() -> "GeminiUtils (TRANSCRIPTION): Sending Prompt: " + prompt);
-        generateContent(videoUrl, apiKey, prompt, TRANSCRIPTION_GEMINI_MODEL, callback);
+        generateContent(videoUrl, apiKey, prompt, GEMINI_MODEL, callback);
     }
 
     /**
@@ -113,7 +112,7 @@ public class GeminiUtils {
         String prompt = "Translate ONLY the string values associated with the \"text\" keys within the following JSON subtitle data to " + targetLangName + ". Preserve the exact JSON structure, including all keys (like \"startMs\", \"endMs\", \"durationMs\") and their original numeric values. Output ONLY the fully translated JSON data, without any introductory text, explanations, comments, or markdown formatting (like ```json ... ```).\n\nInput JSON:\n" + yandexJson;
 
         Logger.printDebug(() -> "GeminiUtils (JSON TRANSLATE): Sending Translation Prompt for target '" + targetLangName + "'.");
-        generateContent(null, apiKey, prompt, TRANSCRIPTION_GEMINI_MODEL, callback);
+        generateContent(null, apiKey, prompt, GEMINI_MODEL, callback);
     }
 
     /**
@@ -188,11 +187,10 @@ public class GeminiUtils {
                 */
 
                 // Include generationConfig only for models that support thinkingConfig (e.g., transcription model)
-                if (model.equals(TRANSCRIPTION_GEMINI_MODEL)) {
-                    JSONObject thinkingConfig = new JSONObject().put("thinkingBudget", 0);
-                    JSONObject generationConfig = new JSONObject().put("thinkingConfig", thinkingConfig);
-                    requestBody.put("generationConfig", generationConfig);
-                }
+                JSONObject thinkingConfig = new JSONObject().put("thinkingBudget", 0);
+                JSONObject generationConfig = new JSONObject().put("thinkingConfig", thinkingConfig);
+                requestBody.put("generationConfig", generationConfig);
+
 
                 String jsonInputString = requestBody.toString();
 
