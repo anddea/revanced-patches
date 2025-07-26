@@ -24,8 +24,8 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.0.0-custom
-          name: Custom Build with Voice-Over
+          tag_name: v1.0.1-custom
+          name: Custom Build with Voice-Over (v2)
           body: ${{ steps.generate_body.outputs.body }}
           files: |
             patches.json
