@@ -1,0 +1,106 @@
+name: Build Voice-Over Translation Patches
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up JDK 11
+      uses: actions/setup-java@v4
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        
+    - name: Cache Gradle packages
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+          
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+      
+    - name: Build patches with Gradle
+      run: |
+        ./gradlew clean build --no-daemon --stacktrace
+        
+    - name: Create patches bundle
+      run: |
+        # Создаем папку для релиза
+        mkdir -p release-bundle
+        
+        # Копируем patches.json
+        cp patches.json release-bundle/
+        
+        # Создаем RVP файл из build/libs
+        cd build/libs
+        if [ -f *.jar ]; then
+          # Переименовываем JAR в RVP
+          cp *.jar ../../release-bundle/patches.rvp
+        fi
+        cd ../..
+        
+        # Добавляем ресурсы
+        if [ -d "patches/src/main/resources" ]; then
+          cd patches/src/main/resources
+          zip -r ../../../../release-bundle/patches.rvp . -u
+          cd ../../../..
+        fi
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: voice-over-patches
+        path: release-bundle/
+        
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          release-bundle/patches.json
+          release-bundle/patches.rvp
+        draft: false
+        prerelease: false
+        name: "Voice-Over Translation Patches ${{ github.ref_name }}"
+        body: |
+          ## 🎉 Voice-Over Translation Patches Release
+          
+          ### ✨ Features:
+          - 🎵 Автоматический голосовой перевод видео YouTube
+          - ⚙️ Настройки в меню YouTube
+          - 🌍 Поддержка множества языков
+          - 🔧 Интеграция с ReVanced Manager
+          
+          ### 📱 Как использовать:
+          1. Скачайте файлы из этого релиза
+          2. Добавьте в RVX Manager источник:
+             ```
+             https://api.github.com/repos/${{ github.repository }}/releases/latest
+             ```
+          3. Соберите YouTube APK с патчем "Voice-Over Translation"
+          
+          ### 🔧 Технические детали:
+          - **patches.json**: Метаданные патчей
+          - **patches.rvp**: Скомпилированные патчи и ресурсы
+          
+          ### 🎯 Совместимость:
+          - YouTube версии: 19.05.36, 19.16.39, 19.43.41, 19.44.39, 19.47.53, 20.30.35
+          - Требует: RVX Manager или ReVanced Manager
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 

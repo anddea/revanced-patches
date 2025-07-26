@@ -1,18 +1,10 @@
-rootProject.name = "revanced-patches"
+rootProject.name = "voice-over-translation-patches"
 
 pluginManagement {
     repositories {
-        mavenLocal()
         gradlePluginPortal()
         google()
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/revanced/registry")
-            credentials {
-                username = providers.gradleProperty("gpr.user").getOrElse(System.getenv("GITHUB_ACTOR"))
-                password = providers.gradleProperty("gpr.key").getOrElse(System.getenv("GITHUB_TOKEN"))
-            }
-        }
+        mavenCentral()
     }
 }
 

@@ -10,9 +10,11 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.patches.youtube.utils.settings.ResourceUtils
 import app.revanced.patches.youtube.utils.integrations.IntegrationsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -65,13 +67,14 @@ class VoiceOverTranslationPatch : BytecodePatch(
             )
         } ?: return PatchResultError("AudioManagerFingerprint не найден")
 
-        // Добавляем настройки
-        SettingsPatch.addPreference(
+        // ИСПРАВЛЕННАЯ часть - правильное добавление настроек
+        ResourceUtils.addPreference(
             arrayOf(
-                "PREFERENCE: SETTINGS",
-                "voice_over_translation_settings",
-                "Настройки голосового перевода",
-                "Настройте параметры автоматического перевода видео"
+                "PREFERENCE_SCREEN: VOICE_OVER_TRANSLATION",
+                "PREFERENCE: VOICE_OVER_TRANSLATION_ENABLED",
+                "PREFERENCE: VOICE_OVER_TARGET_LANGUAGE", 
+                "PREFERENCE: VOICE_OVER_AUTO_TRANSLATE",
+                "PREFERENCE: VOICE_OVER_NOTIFICATIONS"
             )
         )
 
