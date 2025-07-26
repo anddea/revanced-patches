@@ -6,11 +6,11 @@ on:
     branches:
       - main
       - dev
+      - voice-over-patch # Добавляем нашу ветку
 
 jobs:
   release:
-    name: Release
-    if: github.repository_owner == 'anddea'
+    name: Build and Release Artifacts
     permissions:
       contents: write
       issues: write
@@ -21,9 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # Make sure the release step uses its own credentials:
-          # https://github.com/cycjimmy/semantic-release-action#private-packages
-          persist-credentials: false
           fetch-depth: 0
 
       - name: Setup Java
@@ -35,29 +32,11 @@ jobs:
       - name: Cache Gradle
         uses: burrunan/gradle-cache-action@v3
 
-      - name: Build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # To update `README.md` and `patches.json`, the command `./gradlew generatePatchesFiles clean` should be used instead of the command `./gradlew build clean`
-        run: ./gradlew generatePatchesFiles clean
+      - name: Build Jar
+        run: ./gradlew clean jar --no-daemon
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Upload Jar Artifact
+        uses: actions/upload-artifact@v4
         with:
-          node-version: "lts/*"
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Import GPG key
-        uses: crazy-max/ghaction-import-gpg@v6
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.GPG_PASSPHRASE }}
-          fingerprint: ${{ env.GPG_FINGERPRINT }}
-
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm exec semantic-release
+          name: revanced-patches-jar
+          path: build/libs/*.jar
