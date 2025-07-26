@@ -3606,5 +3606,23 @@
       ]
     },
     "options": []
+  },
+  {
+    "name": "Voice-Over Translation",
+    "description": "Adds automatic voice-over translation for videos in different languages using the voice-over-translation API.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "options": []
   }
 ]
