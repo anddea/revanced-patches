@@ -1,42 +1,33 @@
 name: Release
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Позволяет запускать вручную
   push:
     branches:
-      - main
-      - dev
-      - voice-over-patch # Добавляем нашу ветку
+      - voice-over-patch
 
 jobs:
   release:
-    name: Build and Release Artifacts
+    name: Create GitHub Release
     permissions:
       contents: write
-      issues: write
-      pull-requests: write
-      packages: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Generate Release Body
+        id: generate_body
+        run: |
+          echo "body=This release contains the custom Voice-Over Translation patch." >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
         with:
-          fetch-depth: 0
-
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: "temurin"
-          java-version: "17"
-
-      - name: Cache Gradle
-        uses: burrunan/gradle-cache-action@v3
-
-      - name: Build Jar
-        run: ./gradlew clean jar --no-daemon
-
-      - name: Upload Jar Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: revanced-patches-jar
-          path: build/libs/*.jar
+          tag_name: v1.0.0-custom
+          name: Custom Build with Voice-Over
+          body: ${{ steps.generate_body.outputs.body }}
+          files: |
+            patches.json
+          draft: false
+          prerelease: false
