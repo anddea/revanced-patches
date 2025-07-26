@@ -31,7 +31,7 @@ jobs:
       - name: Build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew build --no-daemon
+        run: ./gradlew clean build jar --no-daemon
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
