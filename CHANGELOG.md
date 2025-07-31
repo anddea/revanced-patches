@@ -1,3 +1,11 @@
+# [3.11.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.11.0-dev.1...v3.11.0-dev.2) (2025-07-31)
+
+
+### Features
+
+* Align with RVX [[v5.8.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.8.1)] ([6fbd725](https://github.com/anddea/revanced-patches/commit/6fbd72559373786ca6058491ae8de645b999541b))
+* **YouTube - Hide feed components:** Add `Hide "Most relevant" shelf` setting ([9785104](https://github.com/anddea/revanced-patches/commit/9785104949265692e5d65b1296d5db53b0d3b386))
+
 # [3.11.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.10.0...v3.11.0-dev.1) (2025-07-23)
 
 

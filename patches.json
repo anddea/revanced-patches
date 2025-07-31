@@ -1684,6 +1684,7 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
+      "BytecodePatch",
       "BytecodePatch"
     ],
     "compatiblePackages": {
@@ -1782,7 +1783,10 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
-      "ResourcePatch"
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch",
+      "BytecodePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -1805,6 +1809,8 @@
       "BytecodePatch",
       "ResourcePatch",
       "Settings for YouTube",
+      "BytecodePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch"
@@ -2260,7 +2266,8 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
-      "ResourcePatch",
+      "BytecodePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch",
       "Settings for YouTube"
@@ -2289,28 +2296,6 @@
         }
       },
       {
-        "key": "bottomMargin",
-        "title": "Bottom margin",
-        "description": "The bottom margin for the overlay buttons and timestamp.",
-        "required": true,
-        "type": "kotlin.String",
-        "default": "2.5dip",
-        "values": {
-          "Default": "2.5dip",
-          "Minimum": "0.1dip",
-          "Wider": "5.0dip"
-        }
-      },
-      {
-        "key": "widerButtonsSpace",
-        "title": "Wider between-buttons space",
-        "description": "Prevent adjacent button presses by increasing the horizontal spacing between buttons.",
-        "required": true,
-        "type": "kotlin.Boolean",
-        "default": false,
-        "values": null
-      },
-      {
         "key": "changeTopButtons",
         "title": "Change top buttons",
         "description": "Change the icons at the top of the player.",
@@ -2329,6 +2314,7 @@
       "Settings for YouTube Music",
       "ResourcePatch",
       "ResourcePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch"
@@ -2358,8 +2344,8 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
-      "ResourcePatch",
       "BytecodePatch",
+      "ResourcePatch",
       "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch",
@@ -2630,7 +2616,7 @@
         "description": "A list of parameters to be removed from sharing links, separated by commas.",
         "required": true,
         "type": "kotlin.String",
-        "default": "si, utm_source, context",
+        "default": "context, pi, si, utm_source",
         "values": null
       }
     ]
@@ -2867,6 +2853,7 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
+      "BytecodePatch",
       "ResourcePatch",
       "BytecodePatch",
       "ResourcePatch",
@@ -2999,7 +2986,7 @@
     "description": "Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as sponsored content.",
     "use": true,
     "dependencies": [
-      "ResourcePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "Settings for YouTube"
     ],
@@ -3165,12 +3152,14 @@
     "description": "Adds options to spoof the streaming data to allow playback.",
     "use": true,
     "dependencies": [
+      "RawResourcePatch",
       "Settings for YouTube",
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch",
       "ResourcePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
@@ -3252,7 +3241,7 @@
   {
     "name": "Theme",
     "description": "Changes the app\u0027s themes to the values specified in patch options.",
-    "use": true,
+    "use": false,
     "dependencies": [
       "ResourcePatch",
       "Settings for YouTube"
