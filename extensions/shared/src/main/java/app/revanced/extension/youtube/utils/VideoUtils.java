@@ -386,6 +386,30 @@ public class VideoUtils extends IntentUtils {
         return !isExternalDownloaderLaunched.get() && original;
     }
 
+    public static void reloadVideo() {
+        reloadVideo(VideoInformation.getVideoId());
+    }
+
+    public static void reloadVideo(@NonNull String videoId) {
+        reloadVideo(videoId, VideoInformation.getPlaylistId());
+    }
+
+    /**
+     * Available only when dismissPlayerHookPatch is included.
+     * If the player is not active, the layout may break.
+     * Use it only when it is guaranteed to be used in situations where the player is active.
+     */
+    public static void reloadVideo(@NonNull String videoId, @NonNull String playlistId) {
+        dismissPlayer();
+
+        // Open the video.
+        if (playlistId.isEmpty()) {
+            openVideo(videoId);
+        } else { // If the video is playing from a playlist, the url must include the playlistId.
+            openPlaylist(playlistId, videoId, true);
+        }
+    }
+
     /**
      * Rest of the implementation added by patch.
      */

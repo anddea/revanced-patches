@@ -65,6 +65,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_MERCHANDISE_SHELF = new BooleanSetting("revanced_hide_merchandise_shelf", TRUE);
     public static final BooleanSetting HIDE_PAID_PROMOTION_LABEL = new BooleanSetting("revanced_hide_paid_promotion_label", TRUE);
     public static final BooleanSetting HIDE_SELF_SPONSOR_CARDS = new BooleanSetting("revanced_hide_self_sponsor_cards", TRUE);
+    public static final BooleanSetting HIDE_SHOPPING_LINKS = new BooleanSetting("revanced_hide_shopping_links", TRUE);
     public static final BooleanSetting HIDE_VIDEO_ADS = new BooleanSetting("revanced_hide_video_ads", TRUE, true);
     public static final BooleanSetting HIDE_VIEW_PRODUCTS = new BooleanSetting("revanced_hide_view_products", TRUE);
     public static final BooleanSetting HIDE_WEB_SEARCH_RESULTS = new BooleanSetting("revanced_hide_web_search_results", TRUE);
@@ -114,8 +115,9 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_CHANNEL_TAB = new BooleanSetting("revanced_hide_channel_tab", FALSE);
     public static final StringSetting HIDE_CHANNEL_TAB_FILTER_STRINGS = new StringSetting("revanced_hide_channel_tab_filter_strings", "", true, parent(HIDE_CHANNEL_TAB));
     public static final BooleanSetting HIDE_FOR_YOU_SHELF = new BooleanSetting("revanced_hide_for_you_shelf", TRUE);
-    public static final BooleanSetting HIDE_MEMBERS_SHELF = new BooleanSetting("revanced_hide_members_shelf", TRUE);
     public static final BooleanSetting HIDE_LINKS_PREVIEW = new BooleanSetting("revanced_hide_links_preview", TRUE);
+    public static final BooleanSetting HIDE_MEMBERS_SHELF = new BooleanSetting("revanced_hide_members_shelf", TRUE);
+    public static final BooleanSetting HIDE_VISIT_COMMUNITY_BUTTON = new BooleanSetting("revanced_hide_visit_community_button", TRUE);
     public static final BooleanSetting HIDE_VISIT_STORE_BUTTON = new BooleanSetting("revanced_hide_visit_store_button", TRUE);
 
     // PreferenceScreen: Feed - Community posts
@@ -151,6 +153,7 @@ public class Settings extends BaseSettings {
 
     // Experimental Flags
     public static final BooleanSetting HIDE_RELATED_VIDEOS = new BooleanSetting("revanced_hide_related_videos", FALSE, true, "revanced_hide_related_videos_user_dialog_message");
+    public static final BooleanSetting HIDE_RELATED_VIDEOS_TYPE = new BooleanSetting("revanced_hide_related_videos_type", FALSE, true, parent(HIDE_RELATED_VIDEOS));
     public static final IntegerSetting RELATED_VIDEOS_OFFSET = new IntegerSetting("revanced_related_videos_offset", 2, true, parent(HIDE_RELATED_VIDEOS));
 
 
@@ -270,6 +273,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_CROWDFUNDING_BOX = new BooleanSetting("revanced_hide_crowdfunding_box", TRUE, true);
     public static final BooleanSetting HIDE_DOUBLE_TAP_OVERLAY_FILTER = new BooleanSetting("revanced_hide_double_tap_overlay_filter", FALSE, true);
     public static final BooleanSetting HIDE_END_SCREEN_CARDS = new BooleanSetting("revanced_hide_end_screen_cards", FALSE, true);
+    public static final BooleanSetting HIDE_END_SCREEN_SUGGESTED_VIDEO = new BooleanSetting("revanced_hide_end_screen_suggested_video", TRUE, true);
+    public static final BooleanSetting SKIP_AUTOPLAY_COUNTDOWN = new BooleanSetting("revanced_skip_autoplay_countdown", FALSE, true, parent(HIDE_END_SCREEN_SUGGESTED_VIDEO));
     public static final BooleanSetting HIDE_FILMSTRIP_OVERLAY = new BooleanSetting("revanced_hide_filmstrip_overlay", FALSE, true);
     public static final BooleanSetting HIDE_INFO_CARDS = new BooleanSetting("revanced_hide_info_cards", FALSE, true);
     public static final BooleanSetting HIDE_INFO_PANEL = new BooleanSetting("revanced_hide_info_panel", TRUE);
@@ -277,8 +282,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SEEK_MESSAGE = new BooleanSetting("revanced_hide_seek_message", FALSE, true);
     public static final BooleanSetting HIDE_SEEK_UNDO_MESSAGE = new BooleanSetting("revanced_hide_seek_undo_message", FALSE, true);
     public static final BooleanSetting HIDE_SUGGESTED_ACTION = new BooleanSetting("revanced_hide_suggested_actions", TRUE, true);
-    public static final BooleanSetting HIDE_SUGGESTED_VIDEO_END_SCREEN = new BooleanSetting("revanced_hide_suggested_video_end_screen", TRUE, true);
-    public static final BooleanSetting SKIP_AUTOPLAY_COUNTDOWN = new BooleanSetting("revanced_skip_autoplay_countdown", FALSE, true, parent(HIDE_SUGGESTED_VIDEO_END_SCREEN));
     public static final BooleanSetting HIDE_TIMED_REACTIONS = new BooleanSetting("revanced_hide_timed_reactions", TRUE);
     public static final BooleanSetting HIDE_ZOOM_OVERLAY = new BooleanSetting("revanced_hide_zoom_overlay", FALSE, true);
     public static final BooleanSetting SANITIZE_VIDEO_SUBTITLE = new BooleanSetting("revanced_sanitize_video_subtitle", FALSE);
@@ -288,6 +291,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting DISABLE_LIKE_DISLIKE_GLOW = new BooleanSetting("revanced_disable_like_dislike_glow", FALSE);
     public static final BooleanSetting HIDE_ASK_BUTTON = new BooleanSetting("revanced_hide_ask_button", FALSE);
     public static final BooleanSetting HIDE_CLIP_BUTTON = new BooleanSetting("revanced_hide_clip_button", FALSE);
+    public static final BooleanSetting HIDE_COMMENTS_BUTTON = new BooleanSetting("revanced_hide_comments_button", FALSE);
     public static final BooleanSetting HIDE_DOWNLOAD_BUTTON = new BooleanSetting("revanced_hide_download_button", FALSE);
     public static final BooleanSetting HIDE_LIKE_DISLIKE_BUTTON = new BooleanSetting("revanced_hide_like_dislike_button", FALSE);
     public static final BooleanSetting HIDE_PLAYLIST_BUTTON = new BooleanSetting("revanced_hide_playlist_button", FALSE);
@@ -313,19 +317,21 @@ public class Settings extends BaseSettings {
 
     // PreferenceScreen: Player - Comments
     public static final BooleanSetting HIDE_AI_CHAT_SUMMARY = new BooleanSetting("revanced_hide_ai_chat_summary", FALSE);
+    public static final BooleanSetting HIDE_AI_COMMENTS_SUMMARY = new BooleanSetting("revanced_hide_ai_comments_summary", FALSE);
     public static final BooleanSetting HIDE_CHANNEL_GUIDELINES = new BooleanSetting("revanced_hide_channel_guidelines", TRUE);
     public static final BooleanSetting HIDE_COMMENTS_BY_MEMBERS = new BooleanSetting("revanced_hide_comments_by_members", FALSE);
     public static final BooleanSetting HIDE_COMMENTS_SECTION = new BooleanSetting("revanced_hide_comments_section", FALSE);
     public static final BooleanSetting HIDE_COMMENTS_SECTION_IN_HOME_FEED = new BooleanSetting("revanced_hide_comments_section_in_home_feed", FALSE);
-    public static final BooleanSetting HIDE_COMMENT_CREATE_SHORTS_BUTTON = new BooleanSetting("revanced_hide_comment_create_shorts_button", FALSE);
-    public static final BooleanSetting HIDE_COMMENT_TIMESTAMP_AND_EMOJI_BUTTONS = new BooleanSetting("revanced_hide_comment_timestamp_and_emoji_buttons", FALSE);
-    public static final BooleanSetting HIDE_COMMENT_HIGHLIGHTED_SEARCH_LINKS = new BooleanSetting("revanced_hide_comment_highlighted_search_links", FALSE, true);
+    public static final BooleanSetting HIDE_COMMENTS_CREATE_A_SHORT_BUTTON = new BooleanSetting("revanced_hide_comments_create_a_short_button", FALSE);
+    public static final BooleanSetting HIDE_COMMENTS_EMOJI_AND_TIMESTAMP_BUTTONS = new BooleanSetting("revanced_hide_comments_emoji_and_timestamp_buttons", FALSE);
+    public static final BooleanSetting HIDE_COMMENTS_HIGHLIGHTED_SEARCH_LINKS = new BooleanSetting("revanced_hide_comments_highlighted_search_links", FALSE, true);
     public static final BooleanSetting HIDE_LIVE_CHAT_MESSAGES = new BooleanSetting("revanced_hide_live_chat_messages", FALSE);
     public static final BooleanSetting HIDE_PREVIEW_COMMENT = new BooleanSetting("revanced_hide_preview_comment", FALSE);
     public static final BooleanSetting HIDE_PREVIEW_COMMENT_TYPE = new BooleanSetting("revanced_hide_preview_comment_type", FALSE, parent(HIDE_PREVIEW_COMMENT));
     public static final BooleanSetting HIDE_PREVIEW_COMMENT_OLD_METHOD = new BooleanSetting("revanced_hide_preview_comment_old_method", FALSE);
     public static final BooleanSetting HIDE_PREVIEW_COMMENT_NEW_METHOD = new BooleanSetting("revanced_hide_preview_comment_new_method", FALSE);
-    public static final BooleanSetting HIDE_COMMENT_THANKS_BUTTON = new BooleanSetting("revanced_hide_comment_thanks_button", FALSE, true);
+    public static final BooleanSetting HIDE_COMMENTS_THANKS_BUTTON = new BooleanSetting("revanced_hide_comments_thanks_button", FALSE, true);
+    public static final BooleanSetting SANITIZE_COMMENTS_CATEGORY_BAR = new BooleanSetting("revanced_sanitize_comments_category_bar", FALSE);
 
     // PreferenceScreen: Player - Flyout menu
     public static final BooleanSetting CHANGE_PLAYER_FLYOUT_MENU_TOGGLE = new BooleanSetting("revanced_change_player_flyout_menu_toggle", FALSE, true);
@@ -423,14 +429,15 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting OVERLAY_BUTTON_PLAY_ALL = new BooleanSetting("revanced_overlay_button_play_all", FALSE);
     public static final EnumSetting<PlaylistIdPrefix> OVERLAY_BUTTON_PLAY_ALL_TYPE = new EnumSetting<>("revanced_overlay_button_play_all_type", PlaylistIdPrefix.ALL_CONTENTS_WITH_TIME_DESCENDING, parent(OVERLAY_BUTTON_PLAY_ALL));
     public static final BooleanSetting OVERLAY_BUTTON_WHITELIST = new BooleanSetting("revanced_overlay_button_whitelist", FALSE);
-    public static final BooleanSetting OVERLAY_BUTTON_GEMINI_SUMMARIZE = new BooleanSetting("revanced_overlay_button_gemini_summarize", FALSE);
-    public static final StringSetting GEMINI_API_KEY = new StringSetting("revanced_overlay_button_gemini_summarize_api_key", "", true, parent(OVERLAY_BUTTON_GEMINI_SUMMARIZE));
-    public static final IntegerSetting GEMINI_TRANSCRIBE_SUBTITLES_FONT_SIZE = new IntegerSetting("revanced_gemini_transcribe_subtitles_font_size", 14, true, parent(OVERLAY_BUTTON_GEMINI_SUMMARIZE));
-    public static final BooleanSetting YANDEX_TRANSCRIBE_SUBTITLES = new BooleanSetting("revanced_yandex_transcribe_subtitles", TRUE, parent(OVERLAY_BUTTON_GEMINI_SUMMARIZE));
-    public static final StringSetting YANDEX_TRANSCRIBE_SUBTITLES_LANGUAGE = new StringSetting("revanced_yandex_transcribe_subtitles_language", "app", true, parent(OVERLAY_BUTTON_GEMINI_SUMMARIZE));
 
     public static final StringSetting OVERLAY_BUTTON_WHITELIST_SPONSORBLOCK = new StringSetting("revanced_overlay_button_whitelist_sponsorblock", "", true);
     public static final StringSetting OVERLAY_BUTTON_WHITELIST_PLAYBACK_SPEED = new StringSetting("revanced_overlay_button_whitelist_playback_speed", "", true);
+
+    public static final BooleanSetting OVERLAY_BUTTON_GEMINI = new BooleanSetting("revanced_overlay_button_gemini_summarize", FALSE);
+    public static final StringSetting GEMINI_API_KEY = new StringSetting("revanced_overlay_button_gemini_summarize_api_key", "", true, parent(OVERLAY_BUTTON_GEMINI));
+    public static final IntegerSetting GEMINI_TRANSCRIBE_SUBTITLES_FONT_SIZE = new IntegerSetting("revanced_gemini_transcribe_subtitles_font_size", 14, true, parent(OVERLAY_BUTTON_GEMINI));
+    public static final BooleanSetting YANDEX_TRANSCRIBE_SUBTITLES = new BooleanSetting("revanced_yandex_transcribe_subtitles", TRUE, parent(OVERLAY_BUTTON_GEMINI));
+    public static final StringSetting YANDEX_TRANSCRIBE_SUBTITLES_LANGUAGE = new StringSetting("revanced_yandex_transcribe_subtitles_language", "app", true, parent(OVERLAY_BUTTON_GEMINI));
 
     // PreferenceScreen: Player - Seekbar
     public static final BooleanSetting APPEND_TIME_STAMP_INFORMATION = new BooleanSetting("revanced_append_time_stamp_information", TRUE, true);
@@ -463,7 +470,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_PODCAST_SECTION = new BooleanSetting("revanced_hide_podcast_section", FALSE);
     public static final BooleanSetting HIDE_INFO_CARDS_SECTION = new BooleanSetting("revanced_hide_info_cards_section", FALSE);
     public static final BooleanSetting HIDE_KEY_CONCEPTS_SECTION = new BooleanSetting("revanced_hide_key_concepts_section", FALSE);
-    public static final BooleanSetting HIDE_SHOPPING_LINKS = new BooleanSetting("revanced_hide_shopping_links", TRUE);
     public static final BooleanSetting HIDE_TRANSCRIPT_SECTION = new BooleanSetting("revanced_hide_transcript_section", FALSE);
     public static final BooleanSetting DISABLE_VIDEO_DESCRIPTION_INTERACTION = new BooleanSetting("revanced_disable_video_description_interaction", FALSE, true);
     public static final BooleanSetting EXPAND_VIDEO_DESCRIPTION = new BooleanSetting("revanced_expand_video_description", FALSE, true);
@@ -478,6 +484,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SHORTS_SHELF_HOME_RELATED_VIDEOS = new BooleanSetting("revanced_hide_shorts_shelf_home_related_videos", TRUE, parent(HIDE_SHORTS_SHELF));
     public static final BooleanSetting HIDE_SHORTS_SHELF_SEARCH = new BooleanSetting("revanced_hide_shorts_shelf_search", TRUE, parent(HIDE_SHORTS_SHELF));
     public static final BooleanSetting HIDE_SHORTS_SHELF_SUBSCRIPTIONS = new BooleanSetting("revanced_hide_shorts_shelf_subscriptions", TRUE, parent(HIDE_SHORTS_SHELF));
+    public static final BooleanSetting HIDE_SHORTS_SHELF_VIDEO_DESCRIPTION = new BooleanSetting("revanced_hide_shorts_shelf_video_description", TRUE, parent(HIDE_SHORTS_SHELF));
     public static final BooleanSetting HIDE_SHORTS_SHELF_HISTORY = new BooleanSetting("revanced_hide_shorts_shelf_history", FALSE, parent(HIDE_SHORTS_SHELF));
     public static final EnumSetting<ShortsLoopBehavior> CHANGE_SHORTS_BACKGROUND_REPEAT_STATE = new EnumSetting<>("revanced_change_shorts_background_repeat_state", ShortsLoopBehavior.UNKNOWN);
     public static final EnumSetting<ShortsLoopBehavior> CHANGE_SHORTS_REPEAT_STATE = new EnumSetting<>("revanced_change_shorts_repeat_state", ShortsLoopBehavior.UNKNOWN);
@@ -561,17 +568,17 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SWIPE_LOWEST_VALUE_ENABLE_AUTO_BRIGHTNESS = new BooleanSetting("revanced_swipe_lowest_value_enable_auto_brightness", TRUE, true,
             parent(SWIPE_BRIGHTNESS));
     public static final BooleanSetting SWIPE_PRESS_TO_ENGAGE = new BooleanSetting("revanced_swipe_press_to_engage", FALSE, true,
-            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME, SWIPE_SPEED, SWIPE_SEEK));
     public static final BooleanSetting SWIPE_HAPTIC_FEEDBACK = new BooleanSetting("revanced_swipe_haptic_feedback", TRUE, true,
-            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME, SWIPE_SPEED, SWIPE_SEEK));
     public static final BooleanSetting SWIPE_SAVE_AND_RESTORE_BRIGHTNESS = new BooleanSetting("revanced_swipe_save_and_restore_brightness", TRUE, true,
             parent(SWIPE_BRIGHTNESS));
     public static final BooleanSetting SWIPE_LOCK_MODE = new BooleanSetting("revanced_swipe_gestures_lock_mode", FALSE, true,
-            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME, SWIPE_SPEED, SWIPE_SEEK));
     public static final IntegerSetting SWIPE_MAGNITUDE_THRESHOLD = new IntegerSetting("revanced_swipe_threshold", 30, true,
-            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME, SWIPE_SPEED, SWIPE_SEEK));
     public static final EnumSetting<SwipeOverlayStyle> SWIPE_OVERLAY_STYLE = new EnumSetting<>("revanced_swipe_overlay_style", SwipeOverlayStyle.HORIZONTAL, true,
-            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME, SWIPE_SPEED, SWIPE_SEEK));
     public static final StringSetting SWIPE_OVERLAY_BRIGHTNESS_COLOR = new StringSetting("revanced_swipe_overlay_progress_brightness_color", "#FFFFFF", true,
             new SwipeOverlayBrightnessColorAvailability());
     public static final StringSetting SWIPE_OVERLAY_VOLUME_COLOR = new StringSetting("revanced_swipe_overlay_progress_volume_color", "#FFFFFF", true,
@@ -581,13 +588,13 @@ public class Settings extends BaseSettings {
     public static final StringSetting SWIPE_OVERLAY_SEEK_COLOR = new StringSetting("revanced_swipe_overlay_progress_seek_color", "#FFFFFF", true,
             new SwipeOverlaySeekColorAvailability());
     public static final IntegerSetting SWIPE_OVERLAY_OPACITY = new IntegerSetting("revanced_swipe_overlay_background_opacity", 60, true,
-            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME, SWIPE_SPEED, SWIPE_SEEK));
     public static final IntegerSetting SWIPE_OVERLAY_RECT_SIZE = new IntegerSetting("revanced_swipe_overlay_rect_size", 20, true,
-            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME, SWIPE_SPEED, SWIPE_SEEK));
     public static final IntegerSetting SWIPE_OVERLAY_TEXT_SIZE = new IntegerSetting("revanced_swipe_text_overlay_size", 14, true,
-            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME, SWIPE_SPEED, SWIPE_SEEK));
     public static final LongSetting SWIPE_OVERLAY_TIMEOUT = new LongSetting("revanced_swipe_overlay_timeout", 500L, true,
-            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME, SWIPE_SPEED, SWIPE_SEEK));
     public static final IntegerSetting SWIPE_VOLUMES_SENSITIVITY = new IntegerSetting("revanced_swipe_volumes_sensitivity", 1, true, parent(SWIPE_VOLUME));
     public static final FloatSetting SWIPE_BRIGHTNESS_VALUE = new FloatSetting("revanced_swipe_brightness_value", -1f);
 

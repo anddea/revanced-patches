@@ -9,222 +9,28 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.utils.fullscreen.enterFullscreenMethods
-import app.revanced.patches.youtube.utils.fullscreen.fullscreenButtonHookPatch
-import app.revanced.patches.youtube.utils.playerButtonsResourcesFingerprint
-import app.revanced.patches.youtube.utils.playerButtonsVisibilityFingerprint
-import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_36_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_20_19_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
+import app.revanced.patches.youtube.utils.resourceid.fullScreenButton
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionReversedOrThrow
 import app.revanced.util.inputStreamFromBundledResourceOrThrow
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-
-private const val EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR =
-    "$UTILS_PATH/PlayerControlsPatch;"
-
-private const val EXTENSION_PLAYER_CONTROLS_VISIBILITY_HOOK_CLASS_DESCRIPTOR =
-    "$UTILS_PATH/PlayerControlsVisibilityHookPatch;"
-
-lateinit var changeVisibilityMethod: MutableMethod
-lateinit var changeVisibilityNegatedImmediatelyMethod: MutableMethod
-lateinit var initializeBottomControlButtonMethod: MutableMethod
-lateinit var initializeTopControlButtonMethod: MutableMethod
-
-private val playerControlsBytecodePatch = bytecodePatch(
-    description = "playerControlsBytecodePatch"
-) {
-    dependsOn(
-        sharedExtensionPatch,
-        sharedResourceIdPatch,
-        versionCheckPatch,
-        fullscreenButtonHookPatch,
-    )
-
-    execute {
-
-        // region patch for hook player controls visibility
-
-        playerControlsVisibilityEntityModelFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val startIndex = it.patternMatch!!.startIndex
-                val iGetReference = getInstruction<ReferenceInstruction>(startIndex).reference
-                val staticReference = getInstruction<ReferenceInstruction>(startIndex + 1).reference
-
-                it.classDef.methods.find { method -> method.name == "<init>" }?.apply {
-                    val targetIndex = indexOfFirstInstructionOrThrow(Opcode.IPUT_OBJECT)
-                    val targetRegister =
-                        getInstruction<TwoRegisterInstruction>(targetIndex).registerA
-
-                    addInstructions(
-                        targetIndex + 1, """
-                            iget v$targetRegister, v$targetRegister, $iGetReference
-                            invoke-static {v$targetRegister}, $staticReference
-                            move-result-object v$targetRegister
-                            invoke-static {v$targetRegister}, $EXTENSION_PLAYER_CONTROLS_VISIBILITY_HOOK_CLASS_DESCRIPTOR->setPlayerControlsVisibility(Ljava/lang/Enum;)V
-                            """
-                    )
-                } ?: throw PatchException("Constructor method not found")
-            }
-        }
-
-        // endregion
-
-        // region patch for hook visibility of play control buttons (e.g. pause, play button, etc)
-
-        playerButtonsVisibilityFingerprint.methodOrThrow(playerButtonsResourcesFingerprint).apply {
-            val viewIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_INTERFACE)
-            val viewRegister = getInstruction<FiveRegisterInstruction>(viewIndex).registerD
-
-            addInstruction(
-                viewIndex + 1,
-                "invoke-static {p1, p2, v$viewRegister}, $EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR->changeVisibility(ZZLandroid/view/View;)V"
-            )
-        }
-
-        // endregion
-
-        // region patch for hook visibility of play controls layout
-
-        playerControlsVisibilityFingerprint.methodOrThrow(youtubeControlsOverlayFingerprint)
-            .addInstruction(
-                0,
-                "invoke-static {p1}, $EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR->changeVisibility(Z)V"
-            )
-
-        // endregion
-
-        // region patch for detecting motion events in play controls layout
-
-        motionEventFingerprint.methodOrThrow(youtubeControlsOverlayFingerprint).apply {
-            val insertIndex = indexOfTranslationInstruction(this) + 1
-
-            addInstruction(
-                insertIndex,
-                "invoke-static {}, $EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate()V"
-            )
-        }
-
-        // endregion
-
-        // region patch for fix buttons do not hide immediately when fullscreen button is clicked
-
-        // Reproduced only in RVX
-        if (is_19_23_or_greater) {
-            enterFullscreenMethods.forEach { method ->
-                method.addInstruction(
-                    0,
-                    "invoke-static {}, $EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediately()V"
-                )
-            }
-        }
-
-        // endregion
-
-        // region patch initialize of overlay button or SponsorBlock button
-
-        mapOf(
-            bottomControlsInflateFingerprint to "initializeBottomControlButton",
-            controlsLayoutInflateFingerprint to "initializeTopControlButton"
-        ).forEach { (fingerprint, methodName) ->
-            fingerprint.matchOrThrow().let {
-                it.method.apply {
-                    val endIndex = it.patternMatch!!.endIndex
-                    val viewRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
-
-                    addInstruction(
-                        endIndex + 1,
-                        "invoke-static {v$viewRegister}, $EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V"
-                    )
-                }
-            }
-        }
-
-        // endregion
-
-        // region set methods to inject into extension
-
-        changeVisibilityMethod =
-            findMethodOrThrow(EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR) {
-                name == "changeVisibility" &&
-                        parameters == listOf("Z", "Z")
-            }
-
-        changeVisibilityNegatedImmediatelyMethod =
-            findMethodOrThrow(EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR) {
-                name == "changeVisibilityNegatedImmediately"
-            }
-
-        initializeBottomControlButtonMethod =
-            findMethodOrThrow(EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR) {
-                name == "initializeBottomControlButton"
-            }
-
-        initializeTopControlButtonMethod =
-            findMethodOrThrow(EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR) {
-                name == "initializeTopControlButton"
-            }
-
-        // endregion
-
-        if (is_19_25_or_greater && !is_20_19_or_greater) {
-            playerTopControlsExperimentalLayoutFeatureFlagFingerprint.methodOrThrow().apply {
-                val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-                addInstructions(
-                    index + 1,
-                    """
-                        invoke-static { v$register }, $EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR->getPlayerTopControlsLayoutResourceName(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$register
-                        """,
-                )
-            }
-        }
-    }
-}
-
-private fun MutableMethod.initializeHook(classDescriptor: String) =
-    addInstruction(
-        0,
-        "invoke-static {p0}, $classDescriptor->initialize(Landroid/view/View;)V"
-    )
-
-internal fun changeVisibilityHook(classDescriptor: String) =
-    changeVisibilityMethod.addInstruction(
-        0,
-        "invoke-static {p0, p1}, $classDescriptor->changeVisibility(ZZ)V"
-    )
-
-internal fun changeVisibilityNegatedImmediateHook(classDescriptor: String) =
-    changeVisibilityNegatedImmediatelyMethod.addInstruction(
-        0,
-        "invoke-static {}, $classDescriptor->changeVisibilityNegatedImmediate()V"
-    )
-
-internal fun hookBottomControlButton(classDescriptor: String) {
-    initializeBottomControlButtonMethod.initializeHook(classDescriptor)
-    changeVisibilityHook(classDescriptor)
-    changeVisibilityNegatedImmediateHook(classDescriptor)
-}
-
-internal fun hookTopControlButton(classDescriptor: String) {
-    initializeTopControlButtonMethod.initializeHook(classDescriptor)
-    changeVisibilityHook(classDescriptor)
-    changeVisibilityNegatedImmediateHook(classDescriptor)
-}
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 /**
  * Add a new top to the bottom of the YouTube player.
@@ -238,11 +44,7 @@ internal lateinit var addTopControl: (String, String, String) -> Unit
 
 private var insertElementId = "@id/player_video_heading"
 
-val playerControlsPatch = resourcePatch(
-    description = "playerControlsPatch"
-) {
-    dependsOn(playerControlsBytecodePatch)
-
+val playerControlsResourcePatch = resourcePatch {
     execute {
         addTopControl = { resourceDirectoryName, startElementId, endElementId ->
             val resourceFileName = "host/layout/youtube_controls_layout.xml"
@@ -277,6 +79,199 @@ val playerControlsPatch = resourcePatch(
                     insertElementLayoutToStartOf
 
                 insertElementId = endElementId
+            }
+        }
+    }
+}
+
+/**
+ * @param descriptor The descriptor of the method which should be called.
+ * @param topControl Whether the button is positioned at the top.
+ * @param initialize Whether the control needs to be initialized.
+ */
+fun injectControl(
+    descriptor: String,
+    topControl: Boolean = true,
+    initialize: Boolean = true
+) {
+    if (initialize) {
+        // Injects the code to initialize the controls.
+        if (topControl) {
+            inflateTopControlMethod.addInstruction(
+                inflateTopControlInsertIndex++,
+                "invoke-static { v$inflateTopControlRegister }, $descriptor->initializeButton(Landroid/view/View;)V",
+            )
+        } else {
+            inflateBottomControlMethod.addInstruction(
+                inflateBottomControlInsertIndex++,
+                "invoke-static { v$inflateBottomControlRegister }, $descriptor->initializeButton(Landroid/view/View;)V",
+            )
+        }
+    }
+
+    visibilityMethod.addInstruction(
+        visibilityInsertIndex++,
+        "invoke-static { p1 , p2 }, $descriptor->setVisibility(ZZ)V",
+    )
+
+    if (!visibilityImmediateCallbacksExistModified) {
+        visibilityImmediateCallbacksExistModified = true
+        visibilityImmediateCallbacksExistMethod.returnEarly(true)
+    }
+
+    visibilityImmediateMethod.addInstruction(
+        visibilityImmediateInsertIndex++,
+        "invoke-static { p0 }, $descriptor->setVisibilityImmediate(Z)V",
+    )
+
+    visibilityNegatedImmediateMethod.addInstruction(
+        visibilityNegatedImmediateInsertIndex++,
+        "invoke-static { }, $descriptor->setVisibilityNegatedImmediate()V",
+    )
+}
+
+internal const val EXTENSION_CLASS_DESCRIPTOR =
+    "$UTILS_PATH/PlayerControlsPatch;"
+
+private const val EXTENSION_PLAYER_CONTROLS_VISIBILITY_HOOK_CLASS_DESCRIPTOR =
+    "$UTILS_PATH/PlayerControlsVisibilityHookPatch;"
+
+private lateinit var inflateTopControlMethod: MutableMethod
+private var inflateTopControlInsertIndex: Int = -1
+private var inflateTopControlRegister: Int = -1
+
+private lateinit var inflateBottomControlMethod: MutableMethod
+private var inflateBottomControlInsertIndex: Int = -1
+private var inflateBottomControlRegister: Int = -1
+
+private lateinit var visibilityMethod: MutableMethod
+private var visibilityInsertIndex: Int = 0
+
+private var visibilityImmediateCallbacksExistModified = false
+private lateinit var visibilityImmediateCallbacksExistMethod : MutableMethod
+
+private lateinit var visibilityImmediateMethod: MutableMethod
+private var visibilityImmediateInsertIndex: Int = 0
+
+private lateinit var visibilityNegatedImmediateMethod: MutableMethod
+private var visibilityNegatedImmediateInsertIndex: Int = 0
+
+val playerControlsPatch = bytecodePatch(
+    description = "playerControlsPatch",
+) {
+    dependsOn(
+        playerControlsResourcePatch,
+        sharedExtensionPatch,
+        sharedResourceIdPatch,
+        versionCheckPatch,
+    )
+
+    execute {
+        playerControlsVisibilityEntityModelFingerprint.matchOrThrow().let {
+            it.method.apply {
+                val startIndex = it.patternMatch!!.startIndex
+                val iGetReference = getInstruction<ReferenceInstruction>(startIndex).reference
+                val staticReference = getInstruction<ReferenceInstruction>(startIndex + 1).reference
+
+                it.classDef.methods.find { method -> method.name == "<init>" }?.apply {
+                    val targetIndex = indexOfFirstInstructionOrThrow(Opcode.IPUT_OBJECT)
+                    val targetRegister =
+                        getInstruction<TwoRegisterInstruction>(targetIndex).registerA
+
+                    addInstructions(
+                        targetIndex + 1, """
+                            iget v$targetRegister, v$targetRegister, $iGetReference
+                            invoke-static {v$targetRegister}, $staticReference
+                            move-result-object v$targetRegister
+                            invoke-static {v$targetRegister}, $EXTENSION_PLAYER_CONTROLS_VISIBILITY_HOOK_CLASS_DESCRIPTOR->setPlayerControlsVisibility(Ljava/lang/Enum;)V
+                            """
+                    )
+                } ?: throw PatchException("Constructor method not found")
+            }
+        }
+
+        motionEventFingerprint.methodOrThrow(youtubeControlsOverlayFingerprint).apply {
+            visibilityNegatedImmediateMethod = this
+            visibilityNegatedImmediateInsertIndex = indexOfTranslationInstruction(this) + 1
+        }
+
+        fun MutableMethod.indexOfFirstViewInflateOrThrow() = indexOfFirstInstructionOrThrow {
+            val reference = getReference<MethodReference>()
+            reference?.definingClass == "Landroid/view/ViewStub;" &&
+                    reference.name == "inflate"
+        }
+
+        playerBottomControlsInflateFingerprint.methodOrThrow().apply {
+            inflateBottomControlMethod = this
+
+            val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
+            inflateBottomControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
+            inflateBottomControlInsertIndex = inflateReturnObjectIndex + 1
+        }
+
+        playerTopControlsInflateFingerprint.methodOrThrow().apply {
+            inflateTopControlMethod = this
+
+            val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
+            inflateTopControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
+            inflateTopControlInsertIndex = inflateReturnObjectIndex + 1
+        }
+
+        visibilityMethod = controlsOverlayVisibilityFingerprint.methodOrThrow(
+            playerTopControlsInflateFingerprint,
+        )
+
+        // Hook the fullscreen close button.  Used to fix visibility
+        // when seeking and other situations.
+        overlayViewInflateFingerprint.methodOrThrow().apply {
+            val resourceIndex = indexOfFirstLiteralInstructionReversedOrThrow(fullScreenButton)
+
+            val index = indexOfFirstInstructionOrThrow(resourceIndex) {
+                opcode == Opcode.CHECK_CAST &&
+                        getReference<TypeReference>()?.type ==
+                        "Landroid/widget/ImageView;"
+            }
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstruction(
+                index + 1,
+                "invoke-static { v$register }, " +
+                        "$EXTENSION_CLASS_DESCRIPTOR->setFullscreenCloseButton(Landroid/widget/ImageView;)V",
+            )
+        }
+
+        visibilityImmediateCallbacksExistMethod = playerControlsExtensionHookListenersExistFingerprint.methodOrThrow()
+        visibilityImmediateMethod = playerControlsExtensionHookFingerprint.methodOrThrow()
+
+        // A/B test for a slightly different bottom overlay controls,
+        // that uses layout file youtube_video_exploder_controls_bottom_ui_container.xml
+        // The change to support this is simple and only requires adding buttons to both layout files,
+        // but for now force this different layout off since it's still an experimental test.
+        if (is_19_36_or_greater) {
+            playerBottomControlsExploderFeatureFlagFingerprint.methodOrThrow().returnEarly()
+        }
+
+        // A/B test of new top overlay controls. Two different layouts can be used:
+        // youtube_cf_navigation_improvement_controls_layout.xml
+        // youtube_cf_minimal_impact_controls_layout.xml
+        //
+        // Visually there is no noticeable difference between either of these compared to the default.
+        // There is additional logic that is active when youtube_cf_navigation_improvement_controls_layout
+        // is active, but what it does is not entirely clear.
+        //
+        // For now force this a/b feature off as it breaks the top player buttons.
+        if (is_19_25_or_greater && !is_20_19_or_greater) {
+            playerTopControlsExperimentalLayoutFeatureFlagFingerprint.methodOrThrow().apply {
+                val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1,
+                    """
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerTopControlsLayoutResourceName(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$register
+                    """,
+                )
             }
         }
     }

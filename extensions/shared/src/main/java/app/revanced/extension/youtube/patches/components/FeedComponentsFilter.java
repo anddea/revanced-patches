@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.patches.components;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
+import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
 import app.revanced.extension.shared.patches.components.StringFilterGroupList;
@@ -11,37 +12,33 @@ import app.revanced.extension.shared.utils.StringTrieSearch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "FieldCanBeLocal"})
 public final class FeedComponentsFilter extends Filter {
-    private static final String CONVERSATION_CONTEXT_FEED_IDENTIFIER =
+    private final String CONVERSATION_CONTEXT_FEED_IDENTIFIER =
             "horizontalCollectionSwipeProtector=null";
-    private static final String CONVERSATION_CONTEXT_SUBSCRIPTIONS_IDENTIFIER =
+    private final String CONVERSATION_CONTEXT_SUBSCRIPTIONS_IDENTIFIER =
             "heightConstraint=null";
-    private static final String INLINE_EXPANSION_PATH = "inline_expansion";
-    private static final String FEED_VIDEO_PATH = "video_lockup_with_attachment";
+    private final String INLINE_EXPANSION_PATH = "inline_expansion";
+    private final String FEED_VIDEO_PATH = "video_lockup_with_attachment";
 
-    private static final ByteArrayFilterGroup mixPlaylists =
-            new ByteArrayFilterGroup(
-                    null,
-                    "&list="
-            );
-    private static final ByteArrayFilterGroup mixPlaylistsBufferExceptions =
-            new ByteArrayFilterGroup(
-                    null,
-                    "cell_description_body",
-                    "channel_profile"
-            );
-    private static final StringTrieSearch mixPlaylistsContextExceptions = new StringTrieSearch();
-    private static final StringTrieSearch communityPostsFeedGroupSearch = new StringTrieSearch();
+    private final StringTrieSearch communityPostsFeedGroupSearch = new StringTrieSearch();
     private final StringFilterGroup channelProfile;
+    private final ByteArrayFilterGroupList channelProfileGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup chipBar;
     private final StringFilterGroup communityPosts;
     private final StringFilterGroup expandableCard;
     private final StringFilterGroup horizontalShelves;
-    private final ByteArrayFilterGroup ticketShelf;
-    private final ByteArrayFilterGroup visitStoreButton;
+    private final ByteArrayFilterGroup playablesBuffer;
+    private final ByteArrayFilterGroup ticketShelfBuffer;
     private final StringFilterGroupList communityPostsFeedGroup = new StringFilterGroupList();
 
+    private static final ByteArrayFilterGroup mixPlaylists = new ByteArrayFilterGroup(null, "&list=");
+    private static final ByteArrayFilterGroup mixPlaylistsBufferExceptions = new ByteArrayFilterGroup(
+            null,
+            "cell_description_body",
+            "channel_profile"
+    );
+    private static final StringTrieSearch mixPlaylistsContextExceptions = new StringTrieSearch();
 
     public FeedComponentsFilter() {
         communityPostsFeedGroupSearch.addPatterns(
@@ -88,12 +85,18 @@ public final class FeedComponentsFilter extends Filter {
                 "cell_button.eml"
         );
 
+        final StringFilterGroup ticketShelfIdentifier = new StringFilterGroup(
+                Settings.HIDE_TICKET_SHELF,
+                "ticket_"
+        );
+
         addIdentifierCallbacks(
                 chipsShelf,
                 communityPosts,
                 expandableShelf,
                 feedSearchBar,
-                tasteBuilder
+                tasteBuilder,
+                ticketShelfIdentifier
         );
 
         // Paths.
@@ -105,14 +108,20 @@ public final class FeedComponentsFilter extends Filter {
         );
 
         channelProfile = new StringFilterGroup(
-                Settings.HIDE_VISIT_STORE_BUTTON,
+                null,
                 "channel_profile.eml",
                 "page_header.eml" // new layout
         );
 
-        visitStoreButton = new ByteArrayFilterGroup(
-                null,
-                "header_store_button"
+        channelProfileGroupList.addAll(
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_VISIT_COMMUNITY_BUTTON,
+                        "community_button"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_VISIT_STORE_BUTTON,
+                        "header_store_button"
+                )
         );
 
         final StringFilterGroup membersShelf = new StringFilterGroup(
@@ -189,23 +198,28 @@ public final class FeedComponentsFilter extends Filter {
                 "chip_bar"
         );
 
-        final StringFilterGroup ticketShelfLegacy = new StringFilterGroup(
+        final StringFilterGroup ticketShelfPath = new StringFilterGroup(
                 Settings.HIDE_TICKET_SHELF,
                 "ticket_horizontal_shelf",
                 "ticket_shelf"
         );
 
         horizontalShelves = new StringFilterGroup(
-                Settings.HIDE_TICKET_SHELF,
+                null,
                 "horizontal_video_shelf.eml",
                 "horizontal_shelf.eml",
                 "horizontal_shelf_inline.eml",
                 "horizontal_tile_shelf.eml"
         );
 
-        ticketShelf = new ByteArrayFilterGroup(
+        playablesBuffer = new ByteArrayFilterGroup(
+                Settings.HIDE_PLAYABLES,
+                "mini_game"
+        );
+
+        ticketShelfBuffer = new ByteArrayFilterGroup(
                 Settings.HIDE_TICKET_SHELF,
-                "ticket.eml"
+                "ticket_item"
         );
 
         addPathCallbacks(
@@ -213,8 +227,8 @@ public final class FeedComponentsFilter extends Filter {
                 channelProfile,
                 chipBar,
                 expandableCard,
-                forYouShelf,
                 horizontalShelves,
+                forYouShelf,
                 imageShelf,
                 latestPosts,
                 linksPreview,
@@ -225,7 +239,7 @@ public final class FeedComponentsFilter extends Filter {
                 subscribedChannelsBar,
                 subscriptionsCategoryBar,
                 surveys,
-                ticketShelfLegacy
+                ticketShelfPath
         );
 
         final StringFilterGroup communityPostsHomeAndRelatedVideos =
@@ -268,7 +282,7 @@ public final class FeedComponentsFilter extends Filter {
     public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == channelProfile) {
-            if (contentIndex == 0 && visitStoreButton.check(protobufBufferArray).isFiltered()) {
+            if (contentIndex == 0 && channelProfileGroupList.check(protobufBufferArray).isFiltered()) {
                 return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
             return false;
@@ -291,8 +305,11 @@ public final class FeedComponentsFilter extends Filter {
             }
             return false;
         } else if (matchedGroup == horizontalShelves) {
-            if (contentIndex == 0 && ticketShelf.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            if (contentIndex == 0) {
+                if (playablesBuffer.check(protobufBufferArray).isFiltered()
+                        || ticketShelfBuffer.check(protobufBufferArray).isFiltered()) {
+                    return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+                }
             }
             return false;
         }

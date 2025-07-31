@@ -17,47 +17,47 @@ def parse_keys_from_kotlin(file_path: Path) -> set[str]:
         logger.error("Kotlin file not found at '%s'", file_path)
         return set()
 
-    logger.info("Parsing Kotlin file: %s", file_path)
+    logger.debug("Parsing Kotlin file: %s", file_path)
     with Path.open(file_path, encoding="utf-8") as f:
         content = f.read()
 
     # Parse rvxPreferenceKey
     map_block_match = re.search(r"private val rvxPreferenceKey = mapOf\((.*?)\)", content, re.DOTALL)
-    rvx_keys = set()
+    rvx_keys: set[str] = set()
     if not map_block_match:
         logger.warning("Could not find 'rvxPreferenceKey' map in the Kotlin file.")
     else:
         map_block = map_block_match.group(1)
         rvx_keys.update(re.findall(r'"(revanced_[^"]+)"\s*to', map_block))
-    logger.info("Found %d keys in rvxPreferenceKey.", len(rvx_keys))
+    logger.debug("Found %d keys in rvxPreferenceKey.", len(rvx_keys))
 
     # Parse emptyTitles
     set_block_match = re.search(r"private val emptyTitles = setOf\((.*?)\)", content, re.DOTALL)
-    empty_title_keys = set()
+    empty_title_keys: set[str] = set()
     if not set_block_match:
         logger.warning("Could not find 'emptyTitles' set in the Kotlin file.")
     else:
         set_block = set_block_match.group(1)
         empty_title_keys.update(re.findall(r'"([^"]+)"', set_block))
-    logger.info("Found %d keys in emptyTitles.", len(empty_title_keys))
+    logger.debug("Found %d keys in emptyTitles.", len(empty_title_keys))
 
     all_keys = rvx_keys.union(empty_title_keys)
-    logger.info("Total unique keys to check: %d.", len(all_keys))
+    logger.debug("Total unique keys to check: %d.", len(all_keys))
     return all_keys
 
 
-def check_keys_in_xml_with_regex(file_path: Path, keys_to_check: set[str]) -> tuple[set, set]:
+def check_keys_in_xml_with_regex(file_path: Path, keys_to_check: set[str]) -> tuple[set[str], set[str]]:
     """Scan the raw text of an XML file for preference keys using regex."""
     if not file_path.exists():
         logger.error("XML file not found at '%s'", file_path)
         return set(), keys_to_check
 
-    logger.info("Scanning XML file %s", file_path)
+    logger.debug("Scanning XML file %s", file_path)
     with Path.open(file_path, encoding="utf-8") as f:
         xml_content = f.read()
 
-    found_keys = set()
-    missing_keys = set()
+    found_keys: set[str] = set()
+    missing_keys: set[str] = set()
 
     for key in keys_to_check:
         pattern = f"android:key\\s*=\\s*[\"']{re.escape(key)}[\"']"
@@ -66,7 +66,7 @@ def check_keys_in_xml_with_regex(file_path: Path, keys_to_check: set[str]) -> tu
         else:
             missing_keys.add(key)
 
-    logger.info("Checked %d keys against the XML file content.", len(keys_to_check))
+    logger.debug("Checked %d keys against the XML file content.", len(keys_to_check))
     return found_keys, missing_keys
 
 
@@ -94,11 +94,7 @@ def process(app: str) -> None:
     if not kotlin_keys:
         return
 
-    logger.info("-" * 40)
-
     found_keys, missing_keys = check_keys_in_xml_with_regex(xml_file_path, kotlin_keys)
-
-    logger.info("--- Verification Results ---")
 
     # ruff: noqa: ERA001
     # if found_keys:

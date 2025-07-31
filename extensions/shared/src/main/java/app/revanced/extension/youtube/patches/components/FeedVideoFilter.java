@@ -11,29 +11,22 @@ import app.revanced.extension.shared.utils.StringTrieSearch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.RootView;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "FieldCanBeLocal"})
 public final class FeedVideoFilter extends Filter {
-    private static final String CONVERSATION_CONTEXT_FEED_IDENTIFIER =
+    private final String CONVERSATION_CONTEXT_FEED_IDENTIFIER =
             "horizontalCollectionSwipeProtector=null";
-    private static final String ENDORSEMENT_FOOTER_PATH = "endorsement_header_footer";
+    private final String ENDORSEMENT_FOOTER_PATH = "endorsement_header_footer";
 
-    private static final StringTrieSearch feedOnlyVideoPattern = new StringTrieSearch();
+    private final StringTrieSearch feedOnlyVideoPattern = new StringTrieSearch();
     // In search results, vertical video with shorts labels mostly include videos with gray descriptions.
     // Filters without check process.
     private final StringFilterGroup inlineShorts;
     // Used for home, related videos, subscriptions, and search results.
-    private final StringFilterGroup videoLockup = new StringFilterGroup(
-            null,
-            "video_lockup_with_attachment.eml"
-    );
+    private final StringFilterGroup videoLockup;
     private final ByteArrayFilterGroupList feedAndDrawerGroupList = new ByteArrayFilterGroupList();
     private final ByteArrayFilterGroupList feedOnlyGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroupList videoLockupFilterGroup = new StringFilterGroupList();
-    private static final ByteArrayFilterGroup relatedVideo =
-            new ByteArrayFilterGroup(
-                    Settings.HIDE_RELATED_VIDEOS,
-                    "relatedH"
-            );
+    private final ByteArrayFilterGroup relatedVideo;
 
     public FeedVideoFilter() {
         feedOnlyVideoPattern.addPattern(CONVERSATION_CONTEXT_FEED_IDENTIFIER);
@@ -42,6 +35,9 @@ public final class FeedVideoFilter extends Filter {
                 Settings.HIDE_RECOMMENDED_VIDEO,
                 "inline_shorts.eml" // vertical video with shorts label
         );
+
+        relatedVideo = new ByteArrayFilterGroup(null, "relatedH");
+        videoLockup = new StringFilterGroup(Settings.HIDE_RELATED_VIDEOS, "video_lockup_with_attachment.eml");
 
         addIdentifierCallbacks(inlineShorts);
 

@@ -7,6 +7,10 @@
     <string name="revanced_debug_spannable_title">Log spannable</string>
     <string name="revanced_debug_summary">Prints the debug log.</string>
     <string name="revanced_debug_title">Enable debug logging</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"Clicking on the comment panel title ('Comments') scrolls to the top.
+
+Limitations: Does not apply to comment replies."</string>
+    <string name="revanced_enable_comments_scroll_top_title">Enable scroll to top in comments</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
     <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Not overridden</string>
@@ -21,8 +25,4 @@ A larger value may improve the performance of loading Litho layouts, but may dra
 
 • When used with 'Spoof client', playback issues may occur."</string>
     <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_summary">Defines a default client that fetches streaming data.</string>
 </resources>

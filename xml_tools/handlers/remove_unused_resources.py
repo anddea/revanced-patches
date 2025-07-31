@@ -14,8 +14,10 @@ ALLOWED_EXTENSIONS: tuple[str, ...] = (".kt", ".java", ".xml")
 SEARCH_DIRECTORIES: list[str] = [str(Settings().BASE_DIR.parent / "revanced-patches")]
 # Prefixes of resource names to exclude from removal
 PREFIX_BLACKLIST: tuple[str, ...] = (
-    "yt_wordmark_header",
+    ".DS_Store",
+    "missing_strings",
     "yt_premium_wordmark_header",
+    "yt_wordmark_header",
 )
 
 
@@ -56,7 +58,7 @@ def search_in_files(directories: list[str], resource_names: set[str]) -> dict[st
 
     for directory in directories:
         abs_dir: Path = Path(directory).resolve()
-        logger.info("Searching in directory: %s (exists: %s)", abs_dir, abs_dir.exists())
+        logger.debug("Searching in directory: %s (exists: %s)", abs_dir, abs_dir.exists())
 
         try:
             for root, dirs, files in os.walk(directory):
@@ -153,7 +155,7 @@ def remove_unused_resource_files(app: str) -> None:
     try:
         # Get all resource names (without extensions)
         resource_names: set[str] = get_resource_names(resources_dir)
-        logger.info("Found %d resource names in %s", len(resource_names), resources_dir)
+        logger.debug("Found %d resource names in %s", len(resource_names), resources_dir)
 
         # Find where each resource name is used
         search_results: dict[str, list[str]] = search_in_files(SEARCH_DIRECTORIES, resource_names)
@@ -164,7 +166,11 @@ def remove_unused_resource_files(app: str) -> None:
             for name, files in search_results.items()
             if not files and not any(name.startswith(prefix) for prefix in PREFIX_BLACKLIST)
         }
-        logger.info("Found %d unused resources", len(unused_resources))
+
+        if not unused_resources:
+            logger.info("✅  Found 0 unused resources")
+        else:
+            logger.info("❌  Found %d unused resources: %s", len(unused_resources), ", ".join(unused_resources))
 
         # Process the resources directory to remove unused files
         for item in resources_dir.rglob("*"):
@@ -192,5 +198,4 @@ def process(app: str) -> None:
         app: The application identifier (e.g., 'youtube', 'music').
 
     """
-    logger.info("Starting process: Remove Unused Resources")
     remove_unused_resource_files(app)

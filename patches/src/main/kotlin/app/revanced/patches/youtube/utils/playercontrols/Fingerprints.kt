@@ -2,6 +2,8 @@ package app.revanced.patches.youtube.utils.playercontrols
 
 import app.revanced.patches.youtube.utils.resourceid.bottomUiContainerStub
 import app.revanced.patches.youtube.utils.resourceid.controlsLayoutStub
+import app.revanced.patches.youtube.utils.resourceid.fullScreenButton
+import app.revanced.patches.youtube.utils.resourceid.heatseekerViewstub
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversed
@@ -11,31 +13,71 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val bottomControlsInflateFingerprint = legacyFingerprint(
-    name = "bottomControlsInflateFingerprint",
-    returnType = "Ljava/lang/Object;",
+internal val playerControlsVisibilityEntityModelFingerprint = legacyFingerprint(
+    name = "playerControlsVisibilityEntityModelFingerprint",
+    returnType = "L",
+    accessFlags = AccessFlags.PUBLIC.value,
     parameters = emptyList(),
     opcodes = listOf(
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT
+        Opcode.IGET,
+        Opcode.INVOKE_STATIC
     ),
-    literals = listOf(bottomUiContainerStub),
+    customFingerprint = { method, _ -> method.name == "getPlayerControlsVisibility" }
 )
 
-internal val controlsLayoutInflateFingerprint = legacyFingerprint(
-    name = "controlsLayoutInflateFingerprint",
-    returnType = "V",
+internal val playerTopControlsInflateFingerprint = legacyFingerprint(
+    name = "playerTopControlsInflateFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
     parameters = emptyList(),
-    opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT
-    ),
-    literals = listOf(controlsLayoutStub),
+    literals = listOf(controlsLayoutStub)
+)
+
+internal val playerControlsExtensionHookListenersExistFingerprint = legacyFingerprint(
+    name = "playerControlsExtensionHookListenersExistFingerprint",
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
+    returnType = "Z",
+    parameters = emptyList(),
+    customFingerprint = { method, classDef ->
+        method.name == "fullscreenButtonVisibilityCallbacksExist" &&
+                classDef.type == EXTENSION_CLASS_DESCRIPTOR
+    }
+)
+
+internal val playerControlsExtensionHookFingerprint = legacyFingerprint(
+    name = "playerControlsExtensionHookFingerprint",
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
+    returnType = "V",
+    parameters = listOf("Z"),
+    customFingerprint = { method, classDef ->
+        method.name == "fullscreenButtonVisibilityChanged" &&
+                classDef.type == EXTENSION_CLASS_DESCRIPTOR
+    }
+)
+
+internal val playerBottomControlsInflateFingerprint = legacyFingerprint(
+    name = "playerBottomControlsInflateFingerprint",
+    returnType = "Ljava/lang/Object;",
+    parameters = emptyList(),
+    literals = listOf(bottomUiContainerStub)
+)
+
+internal val overlayViewInflateFingerprint = legacyFingerprint(
+    name = "overlayViewInflateFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("Landroid/view/View;"),
+    literals = listOf(fullScreenButton, heatseekerViewstub)
+)
+
+/**
+ * Resolves to the class found in [playerTopControlsInflateFingerprint].
+ */
+internal val controlsOverlayVisibilityFingerprint = legacyFingerprint(
+    name = "controlsOverlayVisibilityFingerprint",
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("Z", "Z")
 )
 
 internal val motionEventFingerprint = legacyFingerprint(
@@ -52,22 +94,12 @@ internal fun indexOfTranslationInstruction(method: Method) =
         getReference<MethodReference>()?.name == "setTranslationY"
     }
 
-internal val playerControlsVisibilityEntityModelFingerprint = legacyFingerprint(
-    name = "playerControlsVisibilityEntityModelFingerprint",
-    accessFlags = AccessFlags.PUBLIC.value,
+internal val playerBottomControlsExploderFeatureFlagFingerprint = legacyFingerprint(
+    name = "playerBottomControlsExploderFeatureFlagFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Z",
     parameters = emptyList(),
-    opcodes = listOf(
-        Opcode.IGET,
-        Opcode.INVOKE_STATIC
-    ),
-    customFingerprint = { method, _ -> method.name == "getPlayerControlsVisibility" }
-)
-
-internal val playerControlsVisibilityFingerprint = legacyFingerprint(
-    name = "playerControlsVisibilityFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    parameters = listOf("Z", "Z")
+    literals = listOf(45643739L),
 )
 
 internal const val PLAYER_TOP_CONTROLS_EXPERIMENTAL_LAYOUT_FEATURE_FLAG = 45629424L

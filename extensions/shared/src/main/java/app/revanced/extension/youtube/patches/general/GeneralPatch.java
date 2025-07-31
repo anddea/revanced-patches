@@ -45,7 +45,7 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.utils.ExtendedUtils;
 import app.revanced.extension.youtube.utils.ThemeUtils;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"deprecation", "unused"})
 public class GeneralPatch {
 
     // region [Disable auto audio tracks] patch
@@ -137,12 +137,24 @@ public class GeneralPatch {
 
     private static String[] accountMenuBlockList;
 
-    static {
-        accountMenuBlockList = Settings.HIDE_ACCOUNT_MENU_FILTER_STRINGS.get().split("\\n");
-        // Some settings should not be hidden.
-        accountMenuBlockList = Arrays.stream(accountMenuBlockList)
-                .filter(item -> !Objects.equals(item, str("settings")))
-                .toArray(String[]::new);
+    private static String[] getAccountMenuBlockList(Context mContext) {
+        if (accountMenuBlockList == null) {
+            int settingsIdentifier = ResourceUtils.getIdentifier("settings", ResourceUtils.ResourceType.STRING, mContext);
+            if (settingsIdentifier != 0) {
+                String settings = mContext.getResources().getString(settingsIdentifier);
+                accountMenuBlockList = Settings.HIDE_ACCOUNT_MENU_FILTER_STRINGS.get().split("\\n");
+                // Some settings should not be hidden.
+                accountMenuBlockList = Arrays.stream(accountMenuBlockList)
+                        .filter(item -> !Objects.equals(item, settings))
+                        .toArray(String[]::new);
+            }
+        }
+        //noinspection ReplaceNullCheck
+        if (accountMenuBlockList != null) {
+            return accountMenuBlockList;
+        } else {
+            return Settings.HIDE_ACCOUNT_MENU_FILTER_STRINGS.get().split("\\n");
+        }
     }
 
     /**
@@ -178,7 +190,7 @@ public class GeneralPatch {
     }
 
     private static void hideAccountMenu(ViewGroup viewGroup, String menuTitleString) {
-        for (String filter : accountMenuBlockList) {
+        for (String filter : getAccountMenuBlockList(viewGroup.getContext())) {
             if (!filter.isEmpty()) {
                 if (Settings.HIDE_ACCOUNT_MENU_FILTER_TYPE.get()) {
                     if (menuTitleString.contains(filter))

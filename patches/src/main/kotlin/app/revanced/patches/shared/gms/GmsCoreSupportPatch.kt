@@ -242,7 +242,7 @@ fun gmsCoreSupportPatch(
             toPackageName: String
         ): (String) -> String? = { string ->
             when (string) {
-                "$fromPackageName.SuggestionsProvider",
+                "$fromPackageName.SuggestionProvider",
                 "$fromPackageName.fileprovider",
                     -> string.replace(fromPackageName, toPackageName)
 
@@ -326,7 +326,7 @@ fun gmsCoreSupportPatch(
         val earlyReturnFingerprints = mutableListOf(
             castContextFetchFingerprint,
             googlePlayUtilityFingerprint,
-            serviceCheckFingerprint
+            serviceCheckFingerprint,
         )
 
         if (patchAllManifestEnabled) {

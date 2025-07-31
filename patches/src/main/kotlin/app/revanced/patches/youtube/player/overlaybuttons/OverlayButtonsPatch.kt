@@ -8,12 +8,13 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
 import app.revanced.patches.youtube.utils.extension.Constants.OVERLAY_BUTTONS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.fix.bottomui.cfBottomUIPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.OVERLAY_BUTTONS
 import app.revanced.patches.youtube.utils.pip.pipStateHookPatch
-import app.revanced.patches.youtube.utils.playercontrols.hookBottomControlButton
+import app.revanced.patches.youtube.utils.playercontrols.injectControl
 import app.revanced.patches.youtube.utils.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.utils.playlist.playlistPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -22,7 +23,6 @@ import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.videoEndMethod
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.ResourceGroup
-import app.revanced.util.Utils.printWarn
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
 import app.revanced.util.doRecursively
@@ -57,10 +57,6 @@ private val overlayButtonsBytecodePatch = bytecodePatch(
     }
 }
 
-private const val MARGIN_MINIMUM = "0.1dip"
-private const val MARGIN_DEFAULT = "2.5dip"
-private const val MARGIN_WIDER = "5.0dip"
-
 private const val DEFAULT_ICON = "rounded"
 
 @Suppress("unused")
@@ -73,6 +69,7 @@ val overlayButtonsPatch = resourcePatch(
     dependsOn(
         overlayButtonsBytecodePatch,
         cfBottomUIPatch,
+        dismissPlayerHookPatch,
         pipStateHookPatch,
         playerControlsPatch,
         playlistPatch,
@@ -93,27 +90,6 @@ val overlayButtonsPatch = resourcePatch(
         required = true
     )
 
-    val bottomMarginOption = stringOption(
-        key = "bottomMargin",
-        default = MARGIN_DEFAULT,
-        values = mapOf(
-            "Default" to MARGIN_DEFAULT,
-            "Minimum" to MARGIN_MINIMUM,
-            "Wider" to MARGIN_WIDER,
-        ),
-        title = "Bottom margin",
-        description = "The bottom margin for the overlay buttons and timestamp.",
-        required = true
-    )
-
-    val widerButtonsSpace by booleanOption(
-        key = "widerButtonsSpace",
-        default = false,
-        title = "Wider between-buttons space",
-        description = "Prevent adjacent button presses by increasing the horizontal spacing between buttons.",
-        required = true
-    )
-
     val changeTopButtons by booleanOption(
         key = "changeTopButtons",
         default = false,
@@ -122,41 +98,27 @@ val overlayButtonsPatch = resourcePatch(
         required = true
     )
 
+    // TODO: Resize buttons and restore bottom margin options.
+
     execute {
 
         // Check patch options first.
         val iconType = iconTypeOption
             .lowerCaseOrThrow()
 
-        var marginBottom = bottomMarginOption
-            .lowerCaseOrThrow()
-
-        try {
-            val marginBottomFloat = marginBottom.split("dip")[0].toFloat()
-            if (marginBottomFloat <= 0f) {
-                printWarn("Patch option \"Bottom margin\" must be greater than 0, fallback to minimum.")
-                marginBottom = MARGIN_MINIMUM
-            }
-        } catch (_: Exception) {
-            printWarn("Patch option \"Bottom margin\" failed validation, fallback to default.")
-            marginBottom = MARGIN_DEFAULT
-        }
-
-        val useWiderButtonsSpace = widerButtonsSpace == true
-
         // Inject hooks for overlay buttons.
         setOf(
-            "AlwaysRepeat;",
-            "CopyVideoUrl;",
-            "CopyVideoUrlTimestamp;",
-            "MuteVolume;",
-            "ExternalDownload;",
-            "PlayAll;",
-            "SpeedDialog;",
-            "Whitelists;",
-            "GeminiSummarize;"
+            "AlwaysRepeatButton",
+            "CopyVideoUrlButton",
+            "CopyVideoUrlTimestampButton",
+            "ExternalDownloadButton",
+            "GeminiButton",
+            "MuteVolumeButton",
+            "PlayAllButton",
+            "PlaybackSpeedDialogButton",
+            "WhitelistButton",
         ).forEach { className ->
-            hookBottomControlButton("$OVERLAY_BUTTONS_PATH/$className")
+            injectControl("$OVERLAY_BUTTONS_PATH/${className};", false)
         }
 
         // Copy necessary resources for the overlay buttons.
@@ -190,10 +152,10 @@ val overlayButtonsPatch = resourcePatch(
                     "quantum_ic_fullscreen_white_24.png",
                     "revanced_copy_button.png",
                     "revanced_copy_timestamp_button.png",
-                    "revanced_download_button.png",
+                    "revanced_external_download_button.png",
                     "revanced_gemini_button.png",
                     "revanced_play_all_button.png",
-                    "revanced_speed_button.png",
+                    "revanced_playback_speed_dialog_button.png",
                     "revanced_volume_muted_button.png",
                     "revanced_volume_unmuted_button.png",
                     "revanced_whitelist_button.png",
@@ -215,14 +177,6 @@ val overlayButtonsPatch = resourcePatch(
             )
         }
 
-        copyResources(
-            "youtube/overlaybuttons/shared/host",
-            ResourceGroup(
-                "layout",
-                "revanced_subtitle_overlay_layout.xml"
-            )
-        )
-
         // Merge XML nodes from the host to their respective XML files.
         copyXmlNode(
             "youtube/overlaybuttons/shared/host",
@@ -230,80 +184,17 @@ val overlayButtonsPatch = resourcePatch(
             "android.support.constraint.ConstraintLayout"
         )
 
-        arrayOf(
-            "youtube_controls_bottom_ui_container.xml",
-            "youtube_controls_fullscreen_button.xml",
-            "youtube_controls_cf_fullscreen_button.xml"
-        ).forEach { xmlFile ->
-            val targetXml = get("res").resolve("layout").resolve(xmlFile)
-            if (targetXml.exists()) {
-                document("res/layout/$xmlFile").use { document ->
-                    document.doRecursively loop@{ node ->
-                        if (node !is Element) return@loop
+        document("res/layout/youtube_controls_bottom_ui_container.xml").use { document ->
+            document.doRecursively loop@{ node ->
+                if (node !is Element) return@loop
 
-                        // Change the relationship between buttons
-                        node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
-                            ?.let { attribute ->
-                                if (attribute.textContent == "@id/fullscreen_button") {
-                                    attribute.textContent = "@+id/gemini_summarize_button"
-                                }
-                            }
-
-                        node.getAttributeNode("yt:layout_constraintBottom_toTopOf")
-                            ?.let { attribute ->
-                                if (attribute.textContent == "@id/quick_actions_container") {
-                                    attribute.textContent = "@+id/bottom_margin"
-                                }
-                            }
-
-                        val (id, height, width) = Triple(
-                            node.getAttribute("android:id"),
-                            node.getAttribute("android:layout_height"),
-                            node.getAttribute("android:layout_width")
-                        )
-                        val (heightIsNotZero, widthIsNotZero) = Pair(
-                            height != "0.0dip",
-                            width != "0.0dip",
-                        )
-
-                        val isButton =
-                            id.endsWith("_button") && id != "@id/multiview_button" || id == "@id/youtube_controls_fullscreen_button_stub"
-
-                        // Adjust TimeBar and Chapter bottom padding
-                        val timBarItem = mutableMapOf(
-                            "@id/time_bar_chapter_title" to "16.0dip",
-                            "@id/timestamps_container" to "14.0dip"
-                        )
-
-                        val layoutHeightWidth = if (useWiderButtonsSpace)
-                            "56.0dip"
-                        else
-                            "48.0dip"
-
-                        if (isButton) {
-                            node.setAttribute("android:paddingLeft", "0.0dip")
-                            node.setAttribute("android:paddingRight", "0.0dip")
-                            node.setAttribute("android:paddingBottom", "22.0dip")
-                            if (heightIsNotZero && widthIsNotZero) {
-                                node.setAttribute("android:layout_height", layoutHeightWidth)
-                                node.setAttribute("android:layout_width", layoutHeightWidth)
-                            }
-                        } else if (timBarItem.containsKey(id)) {
-                            if (!useWiderButtonsSpace) {
-                                node.setAttribute("android:paddingBottom", timBarItem.getValue(id))
-                            }
-                        }
-
-                        if (id.equals("@+id/bottom_margin")) {
-                            node.setAttribute("android:layout_height", marginBottom)
-                        } else if (id.equals("@id/time_bar_reference_view")) {
-                            node.setAttribute(
-                                "yt:layout_constraintBottom_toTopOf",
-                                "@id/quick_actions_container"
-                            )
+                // Change the relationship between buttons
+                node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
+                    ?.let { attribute ->
+                        if (attribute.textContent == "@id/fullscreen_button") {
+                            attribute.textContent = "@+id/revanced_gemini_button"
                         }
                     }
-                }
             }
         }
 

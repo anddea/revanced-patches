@@ -127,9 +127,9 @@ def setup_logging(log_file: Path | None = None, *, debug: bool = True) -> loggin
     logger.addHandler(exit_handler)
 
     # Log initial setup
-    logger.debug("Logging system initialized")
+    logger.info("Logging system initialized")
     if log_file:
-        logger.debug("Log file created at: %s", log_file)
+        logger.info("Log file created at: %s", log_file)
 
     return logger
 

@@ -14,10 +14,7 @@ enum class BottomSheetState {
 
         @JvmStatic
         fun set(enum: BottomSheetState) {
-            if (current != enum) {
-                Logger.printDebug { "BottomSheetState changed to: ${enum.name}" }
-                current = enum
-            }
+            current = enum
         }
 
         /**
@@ -26,9 +23,13 @@ enum class BottomSheetState {
         @JvmStatic
         var current
             get() = currentBottomSheetState
-            private set(value) {
-                currentBottomSheetState = value
-                onChange(currentBottomSheetState)
+            private set(type) {
+                if (currentBottomSheetState != type) {
+                    Logger.printDebug { "Changed to: $type" }
+
+                    currentBottomSheetState = type
+                    onChange(type)
+                }
             }
 
         @Volatile // Read/write from different threads.

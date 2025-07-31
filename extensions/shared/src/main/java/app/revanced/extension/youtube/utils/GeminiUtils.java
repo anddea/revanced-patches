@@ -191,7 +191,6 @@ public class GeminiUtils {
                 JSONObject generationConfig = new JSONObject().put("thinkingConfig", thinkingConfig);
                 requestBody.put("generationConfig", generationConfig);
 
-
                 String jsonInputString = requestBody.toString();
 
                 String logIdentifier = (videoUrl != null) ? "VIDEO" : "TEXT/JSON";

@@ -23,6 +23,20 @@ object InnerTubeRoutes {
     )
 
     @JvmField
+    val GET_ADAPTIVE_FORMATS = compileRoute(
+        endpoint = "player",
+        fields = "streamingData.adaptiveFormats.signatureCipher," +
+                "streamingData.adaptiveFormats.url," +
+                "streamingData.initialAuthorizedDrmTrackTypes"
+    )
+
+    @JvmField
+    val GET_AUDIO_TRACK = compileRoute(
+        endpoint = "player",
+        fields = "streamingData.adaptiveFormats.audioTrack"
+    )
+
+    @JvmField
     val GET_CATEGORY = compileRoute(
         endpoint = "player",
         fields = "microformat.playerMicroformatRenderer.category",
@@ -53,13 +67,6 @@ object InnerTubeRoutes {
         endpoint = "player",
         fields = "streamingData",
         alt = "proto",
-        prettier = true,
-    )
-
-    @JvmField
-    val GET_STREAMING_DATA_JSON = compileRoute(
-        endpoint = "player",
-        fields = "streamingData.adaptiveFormats.audioTrack"
     )
 
     @JvmField
@@ -68,7 +75,8 @@ object InnerTubeRoutes {
         fields = "contents.singleColumnWatchNextResults." +
                 "results.results.contents.slimVideoMetadataSectionRenderer." +
                 "contents.elementRenderer.newElement.type.componentType." +
-                "model.videoActionBarModel.buttons.buttonViewModel"
+                "model.videoActionBarModel.videoActionBarData.buttons." +
+                "buttonViewModel"
     )
 
     @JvmField

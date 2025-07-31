@@ -54,7 +54,6 @@ import java.util.function.Consumer;
 import java.util.regex.Pattern;
 
 import static app.revanced.extension.shared.patches.PatchStatus.PatchVersion;
-import static app.revanced.extension.shared.settings.BaseSettings.SPOOF_STREAMING_DATA_TYPE;
 import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.showRestartDialog;
 import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.updateListPreferenceSummary;
 import static app.revanced.extension.shared.utils.ResourceUtils.getXmlIdentifier;
@@ -231,10 +230,6 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 if (setting.equals(DEFAULT_PLAYBACK_SPEED) || setting.equals(DEFAULT_PLAYBACK_SPEED_SHORTS)) {
                     listPreference.setEntries(CustomPlaybackSpeedPatch.getEntries());
                     listPreference.setEntryValues(CustomPlaybackSpeedPatch.getEntryValues());
-                }
-                if (setting.equals(SPOOF_STREAMING_DATA_TYPE)) {
-                    listPreference.setEntries(SpoofStreamingDataPatch.getEntries());
-                    listPreference.setEntryValues(SpoofStreamingDataPatch.getEntryValues());
                 }
                 updateListPreferenceSummary(listPreference, setting);
             } else {
@@ -1680,10 +1675,6 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     if (setting.equals(DEFAULT_PLAYBACK_SPEED) || setting.equals(DEFAULT_PLAYBACK_SPEED_SHORTS)) {
                         listPreference.setEntries(CustomPlaybackSpeedPatch.getEntries());
                         listPreference.setEntryValues(CustomPlaybackSpeedPatch.getEntryValues());
-                    }
-                    if (setting.equals(SPOOF_STREAMING_DATA_TYPE)) {
-                        listPreference.setEntries(SpoofStreamingDataPatch.getEntries());
-                        listPreference.setEntryValues(SpoofStreamingDataPatch.getEntryValues());
                     }
                     updateListPreferenceSummary(listPreference, setting);
                 }

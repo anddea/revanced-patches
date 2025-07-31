@@ -21,6 +21,7 @@ import java.util.Objects;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.PlayerControlsVisibility;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.shared.VideoInformation;
 import app.revanced.extension.youtube.shared.VideoState;
@@ -542,12 +543,17 @@ public class SegmentPlaybackController {
         SponsorBlockViewController.showSkipSegmentButton(segment);
     }
 
-    public static void changeVisibility(boolean showing, boolean animation) {
-        onPlayerControlsVisibilityChanged(showing, false);
+    public static void setVisibility(boolean visible, boolean animated) {
+        onPlayerControlsVisibilityChanged(visible, false);
     }
 
-    public static void changeVisibilityNegatedImmediate() {
-        onPlayerControlsVisibilityChanged(false, true);
+    public static void setVisibilityImmediate(boolean visible) {
+        onPlayerControlsVisibilityChanged(visible, true);
+    }
+
+    public static void setVisibilityNegatedImmediate() {
+        if (PlayerControlsVisibility.getCurrent() == PlayerControlsVisibility.PLAYER_CONTROLS_VISIBILITY_HIDDEN)
+            onPlayerControlsVisibilityChanged(false, true);
     }
 
     /**

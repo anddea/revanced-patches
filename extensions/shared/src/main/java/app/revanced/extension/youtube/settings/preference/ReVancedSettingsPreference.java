@@ -5,12 +5,15 @@ import static app.revanced.extension.shared.patches.PatchStatus.PatchedTime;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.SwitchPreference;
 
 import java.util.Date;
 
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.youtube.patches.general.ChangeFormFactorPatch;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
 import app.revanced.extension.youtube.patches.utils.ReturnYouTubeDislikePatch;
@@ -53,6 +56,7 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
         SeekBarPreferenceLinks();
         ShortsPreferenceLinks();
         SpeedOverlayPreferenceLinks();
+        SpoofStreamingDataPreferenceLinks();
         QuickActionsPreferenceLinks();
         TabletLayoutLinks();
         WhitelistPreferenceLinks();
@@ -82,7 +86,6 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
                 Settings.HIDE_COMMUNITY_POSTS_HOME_RELATED_VIDEOS,
                 Settings.HIDE_COMMUNITY_POSTS_SUBSCRIPTIONS,
                 Settings.HIDE_MIX_PLAYLISTS,
-                Settings.HIDE_RELATED_VIDEOS_OVERLAY,
                 Settings.SHOW_VIDEO_TITLE_SECTION
         );
     }
@@ -93,7 +96,6 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
     private static void FullScreenPanelPreferenceLinks() {
         enableDisablePreferences(
                 Settings.DISABLE_ENGAGEMENT_PANEL.get(),
-                Settings.HIDE_RELATED_VIDEOS_OVERLAY,
                 Settings.HIDE_QUICK_ACTIONS,
                 Settings.HIDE_QUICK_ACTIONS_COMMENT_BUTTON,
                 Settings.HIDE_QUICK_ACTIONS_DISLIKE_BUTTON,
@@ -237,6 +239,30 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
                 Settings.DISABLE_SPEED_OVERLAY.get(),
                 Settings.SPEED_OVERLAY_VALUE
         );
+    }
+
+    private static void SpoofStreamingDataPreferenceLinks() {
+        if (mPreferenceManager.findPreference(BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.key) instanceof ListPreference listPreference) {
+            boolean useIOS = app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingDataIOS() && BaseSettings.SPOOF_STREAMING_DATA_USE_IOS.get();
+            boolean useTV = BaseSettings.SPOOF_STREAMING_DATA_USE_TV.get();
+
+            String entriesKey = "revanced_spoof_streaming_data_default_client_entries";
+            String entryValueKey = "revanced_spoof_streaming_data_default_client_entry_values";
+
+            if (useIOS && !useTV) {
+                entriesKey = "revanced_spoof_streaming_data_default_client_with_ios_entries";
+                entryValueKey = "revanced_spoof_streaming_data_default_client_with_ios_entry_values";
+            } else if (!useIOS && useTV) {
+                entriesKey = "revanced_spoof_streaming_data_default_client_with_tv_entries";
+                entryValueKey = "revanced_spoof_streaming_data_default_client_with_tv_entry_values";
+            } else if (useIOS && useTV) {
+                entriesKey = "revanced_spoof_streaming_data_default_client_with_ios_tv_entries";
+                entryValueKey = "revanced_spoof_streaming_data_default_client_with_ios_tv_entry_values";
+            }
+
+            listPreference.setEntries(ResourceUtils.getArrayIdentifier(entriesKey));
+            listPreference.setEntryValues(ResourceUtils.getArrayIdentifier(entryValueKey));
+        }
     }
 
     private static void WhitelistPreferenceLinks() {

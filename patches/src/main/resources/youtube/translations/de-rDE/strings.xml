@@ -395,8 +395,13 @@ Einschränkung: Funktioniert nicht, wenn der Player minimiert ist, im PiP Modus 
     <string name="revanced_expand_video_description_title">Videobeschreibungen erweitern</string>
     <string name="revanced_extended_confirm_user_dialog_title">Möchtest Du fortfahren?</string>
     <string name="revanced_extended_reset_to_default_toast">Auf Standardwerte zurücksetzen.</string>
+    <string name="revanced_extended_restart">Neustart</string>
+    <string name="revanced_extended_restart_dialog_message">Starte die App neu, um diese Änderung anzuwenden.</string>
     <string name="revanced_extended_restart_first_run">Neustarten um das Layout zu laden</string>
     <string name="revanced_extended_restart_message">Aktualisieren und Neustarten</string>
+    <string name="revanced_extended_restart_title">Neustart benötigt</string>
+    <string name="revanced_extended_settings_color_invalid">Ungültige Farbe.</string>
+    <string name="revanced_extended_settings_color_picker">Farbauswahl</string>
     <string name="revanced_extended_settings_export_failed">Fehler beim Exportieren der Einstellungen.</string>
     <string name="revanced_extended_settings_export_success">Einstellungen wurden erfolgreich exportiert.</string>
     <string name="revanced_extended_settings_export_summary">Exportiere Einstellungen zu Datei.</string>
@@ -411,6 +416,7 @@ Einschränkung: Funktioniert nicht, wenn der Player minimiert ist, im PiP Modus 
     <string name="revanced_extended_settings_import_summary">Einstellungen aus Datei Importieren</string>
     <string name="revanced_extended_settings_import_title">Einstellungen importieren</string>
     <string name="revanced_extended_settings_reset">Zurücksetzen</string>
+    <string name="revanced_extended_settings_reset_color">Farbe zurücksetzen</string>
     <string name="revanced_extended_settings_search_title">Suche %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Externer Downloader</string>
@@ -507,15 +513,6 @@ Store"</string>
     <string name="revanced_hide_clip_button_summary_off">Clip-Button wird angezeigt.</string>
     <string name="revanced_hide_clip_button_summary_on">Clip-Button wird versteckt.</string>
     <string name="revanced_hide_clip_button_title">Verstecke Clip-Button</string>
-    <string name="revanced_hide_comment_create_shorts_button_summary_off">Erstelle Short-Schaltfläche wird angezeigt.</string>
-    <string name="revanced_hide_comment_create_shorts_button_summary_on">Erstelle Short-Schaltfläche ist ausgeblendet.</string>
-    <string name="revanced_hide_comment_create_shorts_button_title">Verstecke das Erstellen der Short-Schaltfläche</string>
-    <string name="revanced_hide_comment_highlighted_search_links_summary_off">Hervorgehobene Suchlinks werden angezeigt.</string>
-    <string name="revanced_hide_comment_highlighted_search_links_summary_on">Hervorgehobene Suchlinks sind versteckt.</string>
-    <string name="revanced_hide_comment_highlighted_search_links_title">Markierte Suchlinks ausblenden</string>
-    <string name="revanced_hide_comment_thanks_button_summary_off">\"Danke\" Schaltfläche wird angezeigt.</string>
-    <string name="revanced_hide_comment_thanks_button_summary_on">\"Danke\" Schaltfläche wird versteckt.</string>
-    <string name="revanced_hide_comment_thanks_button_title">Verstecke \"Danke\" Schaltfläche</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Emoji und Zeitstempeltasten werden angezeigt.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Emoji und Zeitstempeltasten sind ausgeblendet.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Emoji und Zeitstempel ausblenden</string>
@@ -540,6 +537,9 @@ Store"</string>
     <string name="revanced_hide_contents_section_summary_off">Wie dieser Inhalt erstellt wurde Abschnitt angezeigt.</string>
     <string name="revanced_hide_contents_section_summary_on">Wie dieser Inhalt erstellt wurde, wird ausgeblendet.</string>
     <string name="revanced_hide_contents_section_title">Inhaltsbereich ausblenden</string>
+    <string name="revanced_hide_creator_store_shelf_summary_off">Ersteller Shop Regal unter Videos wird angezeigt.</string>
+    <string name="revanced_hide_creator_store_shelf_summary_on">Ersteller Shop Regal unter Videos ist versteckt.</string>
+    <string name="revanced_hide_creator_store_shelf_title">Verstecke Ersteller Shop Regal</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding-Box wird angezeigt</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding-Box ist versteckt</string>
     <string name="revanced_hide_crowdfunding_box_title">Verstecke Crowdfunding-Box</string>
@@ -555,6 +555,9 @@ Store"</string>
     <string name="revanced_hide_end_screen_store_banner_summary_off">Store-Banner wird angezeigt.</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">Store-Banner ist ausgeblendet.</string>
     <string name="revanced_hide_end_screen_store_banner_title">Abspann Store Banner ausblenden</string>
+    <string name="revanced_hide_expandable_card_summary_off">Ausklappbare Karte unter Videos wird angezeigt.</string>
+    <string name="revanced_hide_expandable_card_summary_on">Ausklappbare Karte unter Videos ist versteckt.</string>
+    <string name="revanced_hide_expandable_card_title">Verstecke ausklappbare Karte</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Erweiterbare Regale werden angezeigt.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Erweiterbare Regale sind ausgeblendet.</string>
     <string name="revanced_hide_expandable_shelf_title">Erweiterbare Regale ausblenden</string>
@@ -961,8 +964,8 @@ Wenn sich das Layout des Wiedergabebildschirms aufgrund serverseitiger Änderung
     <string name="revanced_hide_shorts_dislike_button_summary_off">Dislike-Button wird angezeigt.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Dislike-Button ist versteckt.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Verstecke den Dislike-Button</string>
-    <string name="revanced_hide_shorts_floating_button_summary_off">"Schwebende Schaltflächen wie 'Diesen Ton verwenden' werden im Tab 'Kurzkanal' angezeigt."</string>
-    <string name="revanced_hide_shorts_floating_button_summary_on">"Schwebende Schaltflächen wie 'Diesen Ton verwenden' werden im Tab Kurzkanal ausgeblendet."</string>
+    <string name="revanced_hide_shorts_floating_button_summary_off">Schwebende Schaltflächen wie \'Diesen Ton verwenden\' werden im Tab \'Kurzkanal\' angezeigt.</string>
+    <string name="revanced_hide_shorts_floating_button_summary_on">Schwebende Schaltflächen wie \'Diesen Ton verwenden\' werden im Tab Kurzkanal ausgeblendet.</string>
     <string name="revanced_hide_shorts_floating_button_title">Schwebende Taste ausblenden</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_off">Green-Screen-Button wird angezeigt.</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">Green-Screen-Button ist ausgeblendet.</string>
@@ -1033,9 +1036,9 @@ Info:
     <string name="revanced_hide_shorts_shelf_subscriptions_summary_off">Community-Beiträge im Abonnement-Feed werden angezeigt.</string>
     <string name="revanced_hide_shorts_shelf_subscriptions_summary_on">Community-Beiträge im Abonnement-Feed sind versteckt.</string>
     <string name="revanced_hide_shorts_shelf_subscriptions_title">Community-Beiträge im Abo-Feed verstecken</string>
-    <string name="revanced_hide_shorts_shelf_summary">"Verstecke Shorts Regale.
+    <string name="revanced_hide_shorts_shelf_summary">Verstecke Shorts Regale.
 
-Nebeneffekt: Offizielle Kopfzeilen in Suchergebnissen werden ausgeblendet."</string>
+Nebeneffekt: Offizielle Kopfzeilen in Suchergebnissen werden ausgeblendet.</string>
     <string name="revanced_hide_shorts_shelf_title">Verstecke Ausschnitte aus Shorts in Kanälen</string>
     <string name="revanced_hide_shorts_shop_button_summary_off">Shop-Schaltfläche wird angezeigt.</string>
     <string name="revanced_hide_shorts_shop_button_summary_on">Shop-Schaltfläche wird versteckt.</string>
@@ -1082,18 +1085,6 @@ Nebeneffekt: Offizielle Kopfzeilen in Suchergebnissen werden ausgeblendet."</str
     <string name="revanced_hide_suggested_actions_summary_off">Empfohlene Aktionen werden angezeigt</string>
     <string name="revanced_hide_suggested_actions_summary_on">Vorgeschlagene Aktionen sind versteckt</string>
     <string name="revanced_hide_suggested_actions_title">Verstecke empfohlene Vorschläge</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary">"This setting has been deprecated.
-
-Instead, use the 'Settings → Autoplay → Autoplay next video' setting.
-
-Note:
-• If you have any issues with 'Suggested video end screen', try restarting the app."</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary_off">Empfohlene Videos Endbildschirm wird angezeigt.</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary_on">"Der Endbildschirm für vorgeschlagene Videos ist ausgeblendet, wenn die Autoplay-Funktion deaktiviert ist.
-
-Autoplay kann in den YouTube-Einstellungen geändert werden:
-Einstellungen → Autoplay → Nächstes Video automatisch abspielen"</string>
-    <string name="revanced_hide_suggested_video_end_screen_title">Verstecke vorgeschlagenes Video-End-Bildschirm</string>
     <string name="revanced_hide_thanks_button_summary_off">\"Danke\" Schaltfläche wird angezeigt.</string>
     <string name="revanced_hide_thanks_button_summary_on">\"Danke\" Schaltfläche wird versteckt.</string>
     <string name="revanced_hide_thanks_button_title">Verstecke \"Danke\" Schaltfläche</string>
@@ -1201,6 +1192,7 @@ Wenn ein YouTube Doodle gerade in deiner Region angezeigt wird und diese Einstel
     <string name="revanced_language_FA">""</string>
     <string name="revanced_language_FI">""</string>
     <string name="revanced_language_FR">""</string>
+    <string name="revanced_language_GA">"<small>Gaeilge</small>"</string>
     <string name="revanced_language_GU">""</string>
     <string name="revanced_language_HE">""</string>
     <string name="revanced_language_HI">""</string>
@@ -1878,40 +1870,12 @@ AVC hat eine maximale Auflösung von 1080p, Opus-Audiocodec ist nicht verfügbar
 • Filme oder bezahlte Videos können nicht abgespielt werden.
 • Kindervideos können nicht abgespielt werden, wenn sie ausgeloggt oder im Inkognito-Modus sind."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Nebenwirkungen des Spoofings</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Onesie Antwortverschlüsselung nicht überspringen.
-
-• Einige Benutzer können ein neues Wiedergabeproblem erleben."</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Onesie Antwortverschlüsselung überspringen.
-
-• Behebt einen neuen Typ von Wiedergabefehler, mit dem einige Benutzer konfrontiert sind.
-• AV1 Codec ist möglicherweise nicht verfügbar."</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Onesie-Antwort-Verschlüsselung überspringen</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client zum Abrufen von Streaming-Daten wird in Statistiken für Nerds versteckt.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Der Client zum Abrufen von Streaming-Daten wird in Statistiken für Nerds angezeigt.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Zeigt Statistiken für Nerds</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Streaming-Daten sind nicht gefälscht. Videowiedergabe funktioniert möglicherweise nicht."</string>
-    <string name="revanced_spoof_streaming_data_summary_on">Streaming-Daten sind gefälscht.</string>
+    <string name="revanced_spoof_streaming_data_summary_on">"Streaming-Daten sind gefälscht."</string>
     <string name="revanced_spoof_streaming_data_title">Spoof Streamingdaten</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">"Android TV
-<small>(Anmeldung erforderlich)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_vr_no_auth">"Android VR
-<small>(Keine Authentizität)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_deprecated">"iOS
-<small>(veraltet)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
-<small>(Login erforderlich)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_ios_summary_off">iOS-Client wurde nicht zu verfügbaren Clients hinzugefügt.</string>
-    <string name="revanced_spoof_streaming_data_type_ios_summary_on">"iOS-Client zu verfügbaren Clients hinzugefügt.
-
-WARNUNG: iOS-Client ist veraltet. Alle Probleme, die während der Nutzung auftreten, gehen auf Ihr eigenes Risiko."</string>
-    <string name="revanced_spoof_streaming_data_type_ios_title">Verwende iOS-Client</string>
-    <string name="revanced_spoof_streaming_data_type_ios_user_dialog_message">"Wenn Sie YouTube-API-Endpunkte mit iOS anfordern, benötigen Sie die Auth Token des iOS-Geräts und die von iOSGuard herausgegebenen PoToken.
-
-Das bedeutet, dass Streaming-Anfragen über iOS sowohl die Auth Token als auch die PoTokens fehlen und der Server kann den Benutzer als Bot betrachten und den gesamten ASN/IP-Bereich blockieren.
-
-BENUTZEN AUF IHREM EIGENEN RISK!"</string>
-    <string name="revanced_spoof_streaming_data_type_title">Standard-Client</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Das Deaktivieren dieser Einstellung kann zu Videowiedergabeproblemen führen.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Wischgesten sind im Sperrbildschirmmodus deaktiviert.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Wischgesten sind im Sperrbildschirm-Modus aktiviert.</string>
