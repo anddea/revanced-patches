@@ -311,6 +311,10 @@ public final class FeedComponentsFilter extends Filter {
                     return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
                 }
             }
+
+            if (Settings.HIDE_MOST_RELEVANT_SHELF.get() && NavigationButton.getSelectedNavigationButton() == NavigationButton.SUBSCRIPTIONS)
+                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+
             return false;
         }
 
