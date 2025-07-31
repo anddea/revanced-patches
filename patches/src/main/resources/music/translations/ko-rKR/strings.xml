@@ -94,16 +94,21 @@
 
 앨범에서 뮤직 비디오가 재생되는 것이 감지되면 정식 음원을 찾아줍니다.
 
-알려진 문제점:
+제한 사항:
 • Kids 동영상은 리다이렉션되지 않을 수 있습니다."</string>
     <string name="revanced_disable_music_video_in_album_title">앨범에서 뮤직 비디오 비활성화</string>
     <string name="revanced_disable_player_gesture_summary">플레이어에서 스와이프하여 트랙을 변경할 수 없습니다.</string>
     <string name="revanced_disable_player_gesture_title">플레이어 제스처 비활성화</string>
     <string name="revanced_disable_quic_protocol_summary">"QUIC 프로토콜을 비활성화합니다.\n동영상 로딩 속도가 개선될 수 있습니다."</string>
     <string name="revanced_disable_quic_protocol_title">QUIC 프로토콜 비활성화</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"댓글 패널 제목(‘댓글’)을 누르면 상단으로 스크롤됩니다.
+
+제한 사항:
+• 댓글 답글에는 적용되지 않습니다."</string>
+    <string name="revanced_enable_comments_scroll_top_title">댓글에서 맨 위로 스크롤 활성화</string>
     <string name="revanced_enable_compact_dialog_summary">"휴대폰에서 소형 메뉴 구성요소를 활성화합니다.
 
-알려진 문제점:
+제한 사항:
 • 보관함 탭에서 앨범 아트가 그리드로 구성될 때 작아집니다.
 • 취침 타이머 레이아웃이 비정상적으로 보일 수 있습니다."</string>
     <string name="revanced_enable_compact_dialog_title">소형 다이얼로그 활성화</string>
@@ -133,7 +138,7 @@
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">스와이프하여 미니 플레이어 닫기 활성화</string>
     <string name="revanced_enable_thick_seekbar_summary">"두꺼운 재생바를 활성화합니다.
 
-알려진 문제점:
+제한 사항:
 • 재생바에서 SponsorBlock 구간이 표시되지 않습니다."</string>
     <string name="revanced_enable_thick_seekbar_title">두꺼운 재생바 활성화</string>
     <string name="revanced_enable_trim_silence_summary">"재생 속도 메뉴 구성요소에 '무음 건너뛰기' 스위치를 추가합니다.
@@ -252,7 +257,7 @@
     <string name="revanced_hide_flyout_menu_view_song_credit_title">노래 크레딧 보기 메뉴 제거</string>
     <string name="revanced_hide_fullscreen_ads_summary">"전체 화면 광고를 숨깁니다.
 
-알려진 문제점:
+제한 사항:
 • 간혹 홈 피드 대신 검은색 빈 화면이 표시될 수 있습니다."</string>
     <string name="revanced_hide_fullscreen_ads_title">전체 화면 광고 제거</string>
     <string name="revanced_hide_fullscreen_share_button_summary">전체 화면에서 공유 버튼을 숨깁니다.</string>
@@ -369,7 +374,7 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
     <string name="revanced_replace_navigation_button_about_summary">"이 기능은 실험 기능입니다.
 YouTube Music의 검색 및 설정과 같은 활동은 공개되지 않으므로 패치에는 구조적인 제한이 있습니다.
 
-알려진 문제:
+제한 사항:
 • 검색 및 설정과 같은 교체된 활동이 닫히면 앱 시작 페이지가 열립니다.
 
 앱 시작 페이지 설정을 열려면 여기를 누르세요."</string>
@@ -511,11 +516,6 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
 
 • '클라이언트 변경'과 함께 사용할 경우에 재생 문제가 발생할 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_title">스트리밍 데이터 변경</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_summary">스트리밍 데이터를 가져오는 데 사용되는 기본 클라이언트를 정의할 수 있습니다.</string>
-    <string name="revanced_spoof_streaming_data_type_title">기본 클라이언트</string>
     <string name="revanced_watch_history_type_entry_1">기본값</string>
     <string name="revanced_watch_history_type_entry_2">도메인 변경</string>
     <string name="revanced_watch_history_type_entry_3">검색 기록 차단</string>

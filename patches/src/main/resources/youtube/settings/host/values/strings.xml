@@ -229,7 +229,7 @@ Limitation: Back button on the toolbar may not work."</string>
     <string name="revanced_disable_ambient_mode_summary_off">Ambient mode is enabled.</string>
     <string name="revanced_disable_ambient_mode_summary_on">Ambient mode is disabled.</string>
     <string name="revanced_disable_ambient_mode_title">Disable Ambient mode</string>
-    <string name="revanced_disable_auto_audio_tracks_not_available">To use this feature, change \'Default client (Spoof streaming data)\' to iOS TV.</string>
+    <string name="revanced_disable_auto_audio_tracks_not_available">To use this feature, change \'Default client (Spoof streaming data)\' to TV or iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Forced auto audio tracks are enabled.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Forced auto audio tracks are disabled.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disable forced auto audio tracks</string>
@@ -306,8 +306,8 @@ Changes include:
     <string name="revanced_disable_rolling_number_animations_summary_off">Rolling numbers are animated.</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">Rolling numbers are not animated.</string>
     <string name="revanced_disable_rolling_number_animations_title">Disable Rolling number animations</string>
-    <string name="revanced_disable_seekbar_chapters_summary_off">Chapters are enabled in seekbar.</string>
-    <string name="revanced_disable_seekbar_chapters_summary_on">Chapters are disabled in seekbar.</string>
+    <string name="revanced_disable_seekbar_chapters_summary_off">Seekbar chapters are enabled.</string>
+    <string name="revanced_disable_seekbar_chapters_summary_on">Seekbar chapters are disabled.</string>
     <string name="revanced_disable_seekbar_chapters_title">Disable seekbar chapters</string>
     <string name="revanced_disable_shorts_background_playback_summary_off">Shorts background play is enabled.</string>
     <string name="revanced_disable_shorts_background_playback_summary_on">Shorts background play is disabled.</string>
@@ -358,6 +358,13 @@ Info:
 
 Side effect: Cairo theme is also applied to notification dots."</string>
     <string name="revanced_enable_cairo_seekbar_title">Enable gradient seekbar</string>
+    <string name="revanced_enable_comments_scroll_top_summary_off">"Clicking on the comment panel title ('Comments') does nothing."</string>
+    <string name="revanced_enable_comments_scroll_top_summary_on">"Clicking on the comment panel title ('Comments') scrolls to the top.
+
+Limitations:
+• Does not apply to comment replies.
+• In 'Timed', clicking the comment panel title ('Comments') scrolls to the bottom."</string>
+    <string name="revanced_enable_comments_scroll_top_title">Enable scroll to top in comments</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Controls overlay fills the fullscreen.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Controls overlay does not fill the fullscreen.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Enable compact controls overlay</string>
@@ -542,9 +549,12 @@ Info:
 • Wrong action buttons may be hidden, or action buttons may not be hidden.
 • Hiding action buttons leaves no empty space."</string>
     <string name="revanced_hide_action_button_index_title">Hide action button by index</string>
-    <string name="revanced_hide_ai_chat_summary_summary_off">AI Chat summary is shown.</string>
-    <string name="revanced_hide_ai_chat_summary_summary_on">AI Chat summary is hidden.</string>
-    <string name="revanced_hide_ai_chat_summary_title">Hide AI Chat summary</string>
+    <string name="revanced_hide_ai_chat_summary_summary_off">AI chat summary is shown.</string>
+    <string name="revanced_hide_ai_chat_summary_summary_on">AI chat summary is hidden.</string>
+    <string name="revanced_hide_ai_chat_summary_title">Hide AI chat summary</string>
+    <string name="revanced_hide_ai_comments_summary_summary_off">AI comments summary is shown.</string>
+    <string name="revanced_hide_ai_comments_summary_summary_on">AI comments summary is hidden.</string>
+    <string name="revanced_hide_ai_comments_summary_title">Hide AI comments summary</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI-generated video summary section is shown.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI-generated video summary section is hidden.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Hide AI-generated video summary section</string>
@@ -615,27 +625,35 @@ Store"</string>
     <string name="revanced_hide_clip_button_summary_off">Clip button is shown.</string>
     <string name="revanced_hide_clip_button_summary_on">Clip button is hidden.</string>
     <string name="revanced_hide_clip_button_title">Hide Clip button</string>
-    <string name="revanced_hide_comment_create_shorts_button_summary_off">Create a Short button is shown.</string>
-    <string name="revanced_hide_comment_create_shorts_button_summary_on">Create a Short button is hidden.</string>
-    <string name="revanced_hide_comment_create_shorts_button_title">Hide Create a Short button</string>
-    <string name="revanced_hide_comment_highlighted_search_links_summary_off">Highlighted search links are shown.</string>
-    <string name="revanced_hide_comment_highlighted_search_links_summary_on">Highlighted search links are hidden.</string>
-    <string name="revanced_hide_comment_highlighted_search_links_title">Hide highlighted search links</string>
-    <string name="revanced_hide_comment_thanks_button_summary_off">Thanks button is shown.</string>
-    <string name="revanced_hide_comment_thanks_button_summary_on">Thanks button is hidden.</string>
-    <string name="revanced_hide_comment_thanks_button_title">Hide Thanks button</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Emoji and timestamp buttons are shown.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Emoji and timestamp buttons are hidden.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Hide emoji and timestamp buttons</string>
+    <string name="revanced_hide_comments_button_summary_off">Comments button is shown.</string>
+    <string name="revanced_hide_comments_button_summary_on">Comments button is hidden.</string>
+    <string name="revanced_hide_comments_button_title">Hide Comments button</string>
     <string name="revanced_hide_comments_by_members_summary_off">Comments by members banner is shown.</string>
     <string name="revanced_hide_comments_by_members_summary_on">Comments by members banner is hidden.</string>
     <string name="revanced_hide_comments_by_members_title">Hide Comments by members banner</string>
+    <string name="revanced_hide_comments_create_a_short_button_summary_off">Create a Short button is shown.</string>
+    <string name="revanced_hide_comments_create_a_short_button_summary_on">Create a Short button is hidden.</string>
+    <string name="revanced_hide_comments_create_a_short_button_title">Hide Create a Short button</string>
+    <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emoji and timestamp buttons are shown.</string>
+    <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emoji and timestamp buttons are hidden.</string>
+    <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Hide emoji and timestamp buttons</string>
+    <string name="revanced_hide_comments_highlighted_search_links_summary_off">Highlighted search links are shown.</string>
+    <string name="revanced_hide_comments_highlighted_search_links_summary_on">"Highlighted search links are hidden.
+
+Limitation: Some highlighted search links that do not have a default text style may not be hidden."</string>
+    <string name="revanced_hide_comments_highlighted_search_links_title">Hide highlighted search links</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_off">Comments section is shown in Home feed.</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_on">Comments section is hidden in Home feed.</string>
     <string name="revanced_hide_comments_section_in_home_feed_title">Hide Comments section in Home feed</string>
     <string name="revanced_hide_comments_section_summary_off">Comments section is shown.</string>
     <string name="revanced_hide_comments_section_summary_on">Comments section is hidden.</string>
     <string name="revanced_hide_comments_section_title">Hide Comments section</string>
+    <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is shown.</string>
+    <string name="revanced_hide_comments_thanks_button_summary_on">Thanks button is hidden.</string>
+    <string name="revanced_hide_comments_thanks_button_title">Hide Thanks button</string>
     <string name="revanced_hide_community_posts_channel_summary_off">Shown in channel page.</string>
     <string name="revanced_hide_community_posts_channel_summary_on">Hidden in channel page.</string>
     <string name="revanced_hide_community_posts_channel_title">Hide in channel page</string>
@@ -666,6 +684,12 @@ Store"</string>
     <string name="revanced_hide_end_screen_store_banner_summary_off">End screen store banner is shown.</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">End screen store banner is hidden.</string>
     <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
+    <string name="revanced_hide_end_screen_suggested_video_summary_off">End screen suggested video is shown.</string>
+    <string name="revanced_hide_end_screen_suggested_video_summary_on">"End screen suggested video is hidden when autoplay is turned off.
+
+Autoplay can be changed in YouTube settings:
+Settings → Autoplay / Playback → Autoplay next video"</string>
+    <string name="revanced_hide_end_screen_suggested_video_title">Hide end screen suggested video</string>
     <string name="revanced_hide_expandable_card_summary_off">Expandable card under videos is shown.</string>
     <string name="revanced_hide_expandable_card_summary_on">Expandable card under videos is hidden.</string>
     <string name="revanced_hide_expandable_card_title">Hide expandable card</string>
@@ -775,12 +799,12 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_links_preview_summary_off">Links preview is shown.</string>
     <string name="revanced_hide_links_preview_summary_on">Links preview is hidden.</string>
     <string name="revanced_hide_links_preview_title">Hide links preview</string>
-    <string name="revanced_hide_live_chat_messages_summary_off">Live Chat messages are shown.</string>
-    <string name="revanced_hide_live_chat_messages_summary_on">Live Chat messages are hidden.\n\nThis setting applies to Shorts live videos too.</string>
-    <string name="revanced_hide_live_chat_messages_title">Hide Live Chat messages</string>
-    <string name="revanced_hide_live_chat_replay_button_summary_off">Live Chat replay button is shown.\n\nIt appears in fullscreen when closing Live Chat.</string>
-    <string name="revanced_hide_live_chat_replay_button_summary_on">Live Chat replay button is hidden.\n\nIt appears in fullscreen when closing Live Chat.</string>
-    <string name="revanced_hide_live_chat_replay_button_title">Hide Live Chat replay button</string>
+    <string name="revanced_hide_live_chat_messages_summary_off">Live chat messages are shown.</string>
+    <string name="revanced_hide_live_chat_messages_summary_on">Live chat messages are hidden.\n\nThis setting applies to Shorts live streams too.</string>
+    <string name="revanced_hide_live_chat_messages_title">Hide live chat messages</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_off">Live chat replay button in video overlay is shown.</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_on">Live chat replay button in video overlay is hidden.</string>
+    <string name="revanced_hide_live_chat_replay_button_title">Hide live chat replay button</string>
     <string name="revanced_hide_low_views_video_summary">"Hide videos with less than 1,000 views from Home feeds that have been uploaded from unsubscribed channels.
 
 This filter may no longer work, use 'View count filter' instead."</string>
@@ -853,7 +877,7 @@ This filter may no longer work, use 'View count filter' instead."</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Hide Ambient mode menu</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Audio track menu is hidden.
 
-To show the Audio track menu, change \'Default client (Spoof streaming data)\' to iOS TV."</string>
+To show the Audio track menu, change \'Default client (Spoof streaming data)\' to TV or iOS TV."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Audio track menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Audio track menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Hide Audio track menu</string>
@@ -929,8 +953,8 @@ To show the Audio track menu, change \'Default client (Spoof streaming data)\' t
     <string name="revanced_hide_preview_comment_off">Preview comment is shown.</string>
     <string name="revanced_hide_preview_comment_on">Preview comment is hidden.</string>
     <string name="revanced_hide_preview_comment_title">Hide preview comment</string>
-    <string name="revanced_hide_preview_comment_type_off">Size of the comments section is changed, making it impossible to open Live Chat replay.</string>
-    <string name="revanced_hide_preview_comment_type_on">Size of the comments section is unchanged, making it possible to open Live Chat replay.</string>
+    <string name="revanced_hide_preview_comment_type_off">Size of the comments section is changed, making it impossible to open live chat replay.</string>
+    <string name="revanced_hide_preview_comment_type_on">Size of the comments section is unchanged, making it possible to open live chat replay.</string>
     <string name="revanced_hide_preview_comment_type_title">Hide preview comment type</string>
     <string name="revanced_hide_promotion_alert_banner_summary_off">Promotion alert banner is shown.</string>
     <string name="revanced_hide_promotion_alert_banner_summary_on">Promotion alert banner is hidden.</string>
@@ -944,9 +968,9 @@ To show the Audio track menu, change \'Default client (Spoof streaming data)\' t
     <string name="revanced_hide_quick_actions_like_button_summary_off">Like button is shown.</string>
     <string name="revanced_hide_quick_actions_like_button_summary_on">Like button is hidden.</string>
     <string name="revanced_hide_quick_actions_like_button_title">Hide Like button</string>
-    <string name="revanced_hide_quick_actions_live_chat_button_summary_off">Live Chat button is shown.</string>
-    <string name="revanced_hide_quick_actions_live_chat_button_summary_on">Live Chat button is hidden.</string>
-    <string name="revanced_hide_quick_actions_live_chat_button_title">Hide Live Chat button</string>
+    <string name="revanced_hide_quick_actions_live_chat_button_summary_off">Live chat button is shown.</string>
+    <string name="revanced_hide_quick_actions_live_chat_button_summary_on">Live chat button is hidden.</string>
+    <string name="revanced_hide_quick_actions_live_chat_button_title">Hide live chat button</string>
     <string name="revanced_hide_quick_actions_more_button_summary_off">More button is shown.</string>
     <string name="revanced_hide_quick_actions_more_button_summary_on">More button is hidden.</string>
     <string name="revanced_hide_quick_actions_more_button_title">Hide More button</string>
@@ -975,6 +999,14 @@ To show the Audio track menu, change \'Default client (Spoof streaming data)\' t
     <string name="revanced_hide_related_videos_summary_off">Related videos are shown.</string>
     <string name="revanced_hide_related_videos_summary_on">Related videos are hidden.</string>
     <string name="revanced_hide_related_videos_title">Hide related videos</string>
+    <string name="revanced_hide_related_videos_type_summary_off">"The number of layouts loaded on screen is not remembered when the video starts.
+
+• The feed scroll position may be reset."</string>
+    <string name="revanced_hide_related_videos_type_summary_on">"The number of layouts loaded on screen is remembered when the video starts.
+
+• Partially fixes an issue where the feed scroll position is reset.
+• Related videos may not be completely filtered."</string>
+    <string name="revanced_hide_related_videos_type_title">Hide related videos type</string>
     <string name="revanced_hide_related_videos_user_dialog_message">"This setting limits the maximum number of layouts that can be loaded on the player screen.
 
 If the layout of the player screen changes due to server-side changes, unintended layouts may be hidden on the player screen."</string>
@@ -996,15 +1028,15 @@ If the layout of the player screen changes due to server-side changes, unintende
     <string name="revanced_hide_seek_undo_message_summary_off">Seek undo message is shown.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Seek undo message is hidden.</string>
     <string name="revanced_hide_seek_undo_message_title">Hide seek undo message</string>
-    <string name="revanced_hide_seekbar_chapter_label_summary_off">Chapter labels next to the seekbar are shown.</string>
-    <string name="revanced_hide_seekbar_chapter_label_summary_on">Chapter labels next to the seekbar are hidden.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_off">Seekbar chapter labels are shown.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_on">Seekbar chapter labels are hidden.</string>
     <string name="revanced_hide_seekbar_chapter_label_title">Hide seekbar chapter labels</string>
     <string name="revanced_hide_seekbar_summary_off">Video player seekbar is shown.</string>
     <string name="revanced_hide_seekbar_summary_on">Video player seekbar is hidden.</string>
-    <string name="revanced_hide_seekbar_thumbnail_summary_off">Thumbnail seekbar is shown.</string>
-    <string name="revanced_hide_seekbar_thumbnail_summary_on">Thumbnail seekbar is hidden.</string>
-    <string name="revanced_hide_seekbar_thumbnail_title">Hide seekbar in video thumbnails</string>
-    <string name="revanced_hide_seekbar_title">Hide seekbar in video player</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_off">Video thumbnail seekbar is shown.</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_on">Video thumbnail seekbar is hidden.</string>
+    <string name="revanced_hide_seekbar_thumbnail_title">Hide video thumbnail seekbar</string>
+    <string name="revanced_hide_seekbar_title">Hide video player seekbar</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">Self sponsored cards are shown.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Self sponsored cards are hidden.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Hide self sponsored cards</string>
@@ -1097,9 +1129,9 @@ If the layout of the player screen changes due to server-side changes, unintende
     <string name="revanced_hide_shorts_dislike_button_summary_off">Dislike button is shown.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Dislike button is hidden.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Hide Dislike button</string>
-    <string name="revanced_hide_shorts_floating_button_summary_off">"Floating buttons like 'Use this sound' are shown in the Shorts channel tab."</string>
-    <string name="revanced_hide_shorts_floating_button_summary_on">"Floating buttons like 'Use this sound' are hidden in the Shorts channel tab."</string>
-    <string name="revanced_hide_shorts_floating_button_title">Hide floating button</string>
+    <string name="revanced_hide_shorts_floating_button_summary_off">Floating buttons in Shorts pages are shown.</string>
+    <string name="revanced_hide_shorts_floating_button_summary_on">Floating buttons in Shorts pages are hidden.</string>
+    <string name="revanced_hide_shorts_floating_button_title">Hide floating buttons</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_off">Green screen button is shown.</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">Green screen button is hidden.</string>
     <string name="revanced_hide_shorts_green_screen_button_title">Hide Green screen button</string>
@@ -1115,9 +1147,9 @@ If the layout of the player screen changes due to server-side changes, unintende
     <string name="revanced_hide_shorts_like_button_summary_off">Like button is shown.</string>
     <string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden.</string>
     <string name="revanced_hide_shorts_like_button_title">Hide Like button</string>
-    <string name="revanced_hide_shorts_live_header_summary_off">Live Chat header is shown.</string>
-    <string name="revanced_hide_shorts_live_header_summary_on">Live Chat header is hidden.\n\nBack button in header will not be hidden.</string>
-    <string name="revanced_hide_shorts_live_header_title">Hide Live Chat header</string>
+    <string name="revanced_hide_shorts_live_header_summary_off">Live chat header is shown.</string>
+    <string name="revanced_hide_shorts_live_header_summary_on">Live chat header is hidden.\n\nBack button in header will not be hidden.</string>
+    <string name="revanced_hide_shorts_live_header_title">Hide live chat header</string>
     <string name="revanced_hide_shorts_location_button_summary_off">Location button is shown.</string>
     <string name="revanced_hide_shorts_location_button_summary_on">Location button is hidden.</string>
     <string name="revanced_hide_shorts_location_button_title">Hide location button</string>
@@ -1173,10 +1205,11 @@ Side effect: Official headers in search results will be hidden."</string>
     <string name="revanced_hide_shorts_shelf_subscriptions_summary_off">Shown in Subscriptions feed.</string>
     <string name="revanced_hide_shorts_shelf_subscriptions_summary_on">Hidden in Subscriptions feed.</string>
     <string name="revanced_hide_shorts_shelf_subscriptions_title">Hide in Subscriptions feed</string>
-    <string name="revanced_hide_shorts_shelf_summary">"Enables hiding Shorts shelves.
-
-Side effect: Official headers in search results will be hidden."</string>
-    <string name="revanced_hide_shorts_shelf_title">Enable Shorts shelves hiding</string>
+    <string name="revanced_hide_shorts_shelf_summary">Enables hiding Shorts shelves.</string>
+    <string name="revanced_hide_shorts_shelf_title">Enable hiding Shorts shelves</string>
+    <string name="revanced_hide_shorts_shelf_video_description_summary_off">Shown in video description.</string>
+    <string name="revanced_hide_shorts_shelf_video_description_summary_on">Hidden in video description.</string>
+    <string name="revanced_hide_shorts_shelf_video_description_title">Hide in video description</string>
     <string name="revanced_hide_shorts_shop_button_summary_off">Shop button is shown.</string>
     <string name="revanced_hide_shorts_shop_button_summary_on">Shop button is hidden.</string>
     <string name="revanced_hide_shorts_shop_button_title">Hide Shop button</string>
@@ -1234,18 +1267,6 @@ Side effect: Official headers in search results will be hidden."</string>
     <string name="revanced_hide_suggested_actions_summary_off">Suggested actions are shown.</string>
     <string name="revanced_hide_suggested_actions_summary_on">Suggested actions are hidden.</string>
     <string name="revanced_hide_suggested_actions_title">Hide suggested actions</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary">"This setting has been deprecated.
-
-Instead, use the 'Settings → Autoplay → Autoplay next video' setting.
-
-Note:
-• If you have any issues with 'Suggested video end screen', try restarting the app."</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary_off">Suggested video end screen is shown.</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary_on">"Suggested video end screen is hidden when autoplay is turned off.
-
-Autoplay can be changed in YouTube settings:
-Settings → Autoplay / Playback → Autoplay next video"</string>
-    <string name="revanced_hide_suggested_video_end_screen_title">Hide suggested video end screen</string>
     <string name="revanced_hide_surveys_summary_off">Surveys are shown.</string>
     <string name="revanced_hide_surveys_summary_on">Surveys are hidden.</string>
     <string name="revanced_hide_surveys_title">Hide surveys</string>
@@ -1303,6 +1324,9 @@ Limitations:
     <string name="revanced_hide_view_products_summary_off">View products banner in video overlay is shown.</string>
     <string name="revanced_hide_view_products_summary_on">View products banner in video overlay is hidden.</string>
     <string name="revanced_hide_view_products_title">Hide view products banner</string>
+    <string name="revanced_hide_visit_community_button_summary_off">Visit Community button is shown.</string>
+    <string name="revanced_hide_visit_community_button_summary_on">Visit Community button is hidden.</string>
+    <string name="revanced_hide_visit_community_button_title">Hide Visit Community button</string>
     <string name="revanced_hide_visit_store_button_summary_off">Visit store button is shown.</string>
     <string name="revanced_hide_visit_store_button_summary_on">Visit store button is hidden.</string>
     <string name="revanced_hide_visit_store_button_title">Hide Visit store button</string>
@@ -1608,6 +1632,7 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_preference_category_action_buttons">Action buttons</string>
     <string name="revanced_preference_category_additional_settings">Additional settings</string>
+    <string name="revanced_preference_category_android_vr">Android VR</string>
     <string name="revanced_preference_category_animation_feedback">Animation / Feedback</string>
     <string name="revanced_preference_category_app_info">App info</string>
     <string name="revanced_preference_category_codec">Codec</string>
@@ -1617,6 +1642,7 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_category_image_region_restrictions">Image region restrictions</string>
     <string name="revanced_preference_category_import_export_as_file">Import / Export as file</string>
     <string name="revanced_preference_category_import_export_as_text">Import / Export as text</string>
+    <string name="revanced_preference_category_ios">iOS</string>
     <string name="revanced_preference_category_keyword_filter">Keyword filter</string>
     <string name="revanced_preference_category_others">Others</string>
     <string name="revanced_preference_category_overlay_buttons">Overlay buttons</string>
@@ -1626,6 +1652,7 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_category_recommended_video">Recommended video</string>
     <string name="revanced_preference_category_shorts_shelf">Shorts shelves</string>
     <string name="revanced_preference_category_suggested_actions">Suggested actions</string>
+    <string name="revanced_preference_category_tv">TV (WIP)</string>
     <string name="revanced_preference_category_video_quality">Video quality</string>
     <string name="revanced_preference_category_view_counts_filter">View count filter</string>
     <string name="revanced_preference_group_sb_title">SponsorBlock</string>
@@ -1637,11 +1664,11 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_screen_alt_thumbnails_title">Alternative thumbnails</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Disable Ambient mode or bypass Ambient mode restrictions.</string>
     <string name="revanced_preference_screen_ambient_mode_title">Ambient mode</string>
-    <string name="revanced_preference_screen_category_bar_summary">Hide or show the category bar in feeds, related videos, search results, and watch history.</string>
+    <string name="revanced_preference_screen_category_bar_summary">Hide or show category bar in feeds, related videos, search results, and watch history.</string>
     <string name="revanced_preference_screen_category_bar_title">Category bar</string>
-    <string name="revanced_preference_screen_channel_bar_summary">Hide or show components of channel bar under videos.</string>
+    <string name="revanced_preference_screen_channel_bar_summary">Hide or show channel bar components under videos.</string>
     <string name="revanced_preference_screen_channel_bar_title">Channel bar</string>
-    <string name="revanced_preference_screen_channel_page_summary">Hide or show components in channel page.</string>
+    <string name="revanced_preference_screen_channel_page_summary">Hide or show channel page components.</string>
     <string name="revanced_preference_screen_channel_page_title">Channel page</string>
     <string name="revanced_preference_screen_comments_summary">Hide or show comments section components.</string>
     <string name="revanced_preference_screen_comments_title">Comments</string>
@@ -1651,10 +1678,10 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_screen_custom_filter_title">Custom filter</string>
     <string name="revanced_preference_screen_debugging_summary">Enable or disable debugging options.</string>
     <string name="revanced_preference_screen_debugging_title">Debugging</string>
-    <string name="revanced_preference_screen_feed_flyout_menu_summary">Hide or show components of the flyout menu in feed.</string>
+    <string name="revanced_preference_screen_feed_flyout_menu_summary">Hide or show feed flyout menu components.</string>
     <string name="revanced_preference_screen_feed_flyout_menu_title">Flyout menu</string>
     <string name="revanced_preference_screen_feed_title">Feed</string>
-    <string name="revanced_preference_screen_fullscreen_summary">Hide or change components related to fullscreen.</string>
+    <string name="revanced_preference_screen_fullscreen_summary">Hide or change fullscreen related components.</string>
     <string name="revanced_preference_screen_fullscreen_title">Fullscreen</string>
     <string name="revanced_preference_screen_general_title">General</string>
     <string name="revanced_preference_screen_haptic_feedback_summary">Disable or enable haptic feedback.</string>
@@ -1663,34 +1690,34 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_screen_hook_buttons_title">Hook buttons</string>
     <string name="revanced_preference_screen_import_export_summary">Import / Export RVX settings.</string>
     <string name="revanced_preference_screen_import_export_title">Import / Export settings</string>
-    <string name="revanced_preference_screen_miniplayer_summary">Hide or change components related to Miniplayer.</string>
+    <string name="revanced_preference_screen_miniplayer_summary">Hide or change Miniplayer related components.</string>
     <string name="revanced_preference_screen_miniplayer_title">Miniplayer</string>
     <string name="revanced_preference_screen_misc_title">Miscellaneous</string>
-    <string name="revanced_preference_screen_navigation_bar_summary">Hide or show navigation bar section components.</string>
+    <string name="revanced_preference_screen_navigation_bar_summary">Hide or show navigation bar components.</string>
     <string name="revanced_preference_screen_navigation_bar_title">Navigation bar</string>
     <string name="revanced_preference_screen_patch_information_summary">Information about applied patches.</string>
     <string name="revanced_preference_screen_patch_information_title">Patch information</string>
     <string name="revanced_preference_screen_player_buttons_summary">Hide or show buttons in video player.</string>
     <string name="revanced_preference_screen_player_buttons_title">Player buttons</string>
-    <string name="revanced_preference_screen_player_flyout_menu_summary">Hide or change components of the flyout menu in video player.</string>
+    <string name="revanced_preference_screen_player_flyout_menu_summary">Hide or change video player flyout menu components.</string>
     <string name="revanced_preference_screen_player_flyout_menu_title">Flyout menu</string>
     <string name="revanced_preference_screen_player_title">Player</string>
     <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
-    <string name="revanced_preference_screen_seekbar_summary">Customize the seekbar components.</string>
+    <string name="revanced_preference_screen_seekbar_summary">Hide or customize seekbar components.</string>
     <string name="revanced_preference_screen_seekbar_title">Seekbar</string>
     <string name="revanced_preference_screen_settings_menu_summary">Hide elements of the YouTube settings menu.</string>
     <string name="revanced_preference_screen_settings_menu_title">Settings menu</string>
-    <string name="revanced_preference_screen_shorts_player_summary">Hide or show components in Shorts player.</string>
+    <string name="revanced_preference_screen_shorts_player_summary">Hide or show Shorts player components.</string>
     <string name="revanced_preference_screen_shorts_player_title">Shorts player</string>
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
-    <string name="revanced_preference_screen_snack_bar_summary">Hide or change components related to snack bar.</string>
+    <string name="revanced_preference_screen_snack_bar_summary">Hide or change snack bar related components.</string>
     <string name="revanced_preference_screen_snack_bar_title">Snack bar</string>
     <string name="revanced_preference_screen_spoof_streaming_data_summary">Spoof the streaming data to prevent playback issues.</string>
     <string name="revanced_preference_screen_spoof_streaming_data_title">Spoof streaming data</string>
     <string name="revanced_preference_screen_swipe_controls_title">Swipe controls</string>
-    <string name="revanced_preference_screen_toolbar_summary">Hide or change components located on the toolbar, such as the search bar, toolbar buttons, and header.</string>
+    <string name="revanced_preference_screen_toolbar_summary">Hide or change toolbar components, such as the header, search bar, and toolbar buttons.</string>
     <string name="revanced_preference_screen_toolbar_title">Toolbar</string>
     <string name="revanced_preference_screen_video_description_summary">Hide or show video description components.</string>
     <string name="revanced_preference_screen_video_description_title">Video description</string>
@@ -1843,6 +1870,9 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is unavailable.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is unavailable</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
+    <string name="revanced_sanitize_comments_category_bar_summary_off">Category buttons are shown in the comment category bar.</string>
+    <string name="revanced_sanitize_comments_category_bar_summary_on">"Category buttons except 'Top' and 'Newest' are hidden in the comment category bar."</string>
+    <string name="revanced_sanitize_comments_category_bar_title">Sanitize category bar</string>
     <string name="revanced_sanitize_sharing_links_summary">Sanitizes sharing links by removing tracking query parameters.</string>
     <string name="revanced_sanitize_sharing_links_title">Sanitize sharing links</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' are shown from the video subtitles."</string>
@@ -2168,6 +2198,20 @@ Info:
 • High quality may be unlocked on some videos that require high device dimensions, but not all videos.
 • This setting is not available if 'Spoof streaming data' is turned on."</string>
     <string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_unplugged">"Android TV
+<small>(Login required)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_no_auth">"Android VR
+<small>(No auth)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
+<small>(Deprecated)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ios_unplugged">"iOS TV
+<small>(Login required)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">"TV
+<small>(WIP)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">"TV Simply
+<small>(WIP)</small>"</string>
+    <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">You may not be logged in.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Video codec is determined automatically.</string>
@@ -2176,6 +2220,12 @@ Info:
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Enabling this might improve battery life and fix playback stuttering.
 
 AVC has a maximum resolution of 1080p, Opus audio codec is not available, and video playback will use more internet data than VP9 or AV1."</string>
+    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">Reload video button is shown when loading spinner showing.</string>
+    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">Reload video button is always shown.</string>
+    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">Always show reload video button</string>
+    <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">Reload video button is hidden.</string>
+    <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Reload video button is shown.</string>
+    <string name="revanced_spoof_streaming_data_reload_video_button_title">Show reload video button</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Audio track menu is missing.
 • Stable volume is not available.
 • Disable forced auto audio tracks is not available.
@@ -2193,51 +2243,67 @@ AVC has a maximum resolution of 1080p, Opus audio codec is not available, and vi
 • Movies or paid videos may not play.
 • Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Spoofing side effects</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv">"• If deobfuscation fails, playback may fail.
+• Sometimes the video will not play even after 10 seconds, in which case you'll need to click the reload video button.
+• Video may start late."</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video may not play.</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Do not skip Onesie response encryption.
-
-• Some users may experience a new type of playback issue."</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Skip Onesie response encryption.
-
-• Fixes a new type of playback issue that some users are experiencing.
-• AV1 codec may not be available."</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Skip Onesie response encryption</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client used to fetch streaming data is hidden in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client used to fetch streaming data is shown in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Streaming data is not spoofed. Video playback may not work."</string>
-    <string name="revanced_spoof_streaming_data_summary_on">Streaming data is spoofed.</string>
+    <string name="revanced_spoof_streaming_data_summary_on">"Streaming data is spoofed.
+
+If you are a YouTube Premium user or have excluded the 'GmsCore support' patch, this setting may not be necessary."</string>
     <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_tv_use_latest_js_summary_off">"JavaScript for deobfuscation is not kept up to date.
+
+• JavaScript that succeeds in deobfuscation is used, but it is still somewhat server-dependent."</string>
+    <string name="revanced_spoof_streaming_data_tv_use_latest_js_summary_on">"JavaScript for deobfuscation is kept up to date.
+
+• It is highly server-dependent, and the success or failure of deobfuscation depends on the JavaScript currently used on the server."</string>
+    <string name="revanced_spoof_streaming_data_tv_use_latest_js_title">Use latest JavaScript</string>
+    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_summary_off">"JavaScript does not run in native libraries.
+
+• Powered by JavaTube."</string>
+    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_summary_on">"JavaScript runs in native libraries.
+
+• Powered by SmartTube."</string>
+    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_title">Use V8 JavaScript engine</string>
+    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_user_dialog_message">If the V8 JavaScript engine is not used, it takes more time to deobfuscate the streaming URL, causing the video to start 10 seconds late.</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">"Android TV
-<small>(Login required)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_vr_no_auth">"Android VR
-<small>(No auth)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
-<small>(PoToken required)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_deprecated">"iOS
-<small>(Deprecated)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
-<small>(Login required)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_ios_summary_off">iOS client not added to available clients.</string>
-    <string name="revanced_spoof_streaming_data_type_ios_summary_on">"iOS client added to available clients.
+    <string name="revanced_spoof_streaming_data_use_ios_summary_off">iOS client not added to available clients.</string>
+    <string name="revanced_spoof_streaming_data_use_ios_summary_on">"iOS client added to available clients.
 
 WARNING: iOS client is deprecated. Any issues that arise while using it are at your own risk."</string>
-    <string name="revanced_spoof_streaming_data_type_ios_title">Use iOS client</string>
-    <string name="revanced_spoof_streaming_data_type_ios_user_dialog_message">"When requesting YouTube API endpoints using iOS, you will need the Auth tokens issued by the iOS device and the PoTokens issued by iOSGuard.
+    <string name="revanced_spoof_streaming_data_use_ios_title">Use iOS client</string>
+    <string name="revanced_spoof_streaming_data_use_ios_user_dialog_message">"When requesting YouTube API endpoints using iOS, you will need the Auth tokens issued by the iOS device and the PoTokens issued by iOSGuard.
 
 This means that streaming requests via iOS will be missing both the Auth tokens and the PoTokens, and the server may consider the user as a bot and block the entire ASN/IP range.
 
 USE AT YOUR OWN RISK!"</string>
-    <string name="revanced_spoof_streaming_data_type_title">Default client</string>
+    <string name="revanced_spoof_streaming_data_use_tv_all_summary_off">"TV client is not used for some videos that require fast playback:
+
+• Autoplay in feed
+• Clips
+• Shorts"</string>
+    <string name="revanced_spoof_streaming_data_use_tv_all_summary_on">"TV client is used regardless of video type.
+
+• TV client still cannot play some videos."</string>
+    <string name="revanced_spoof_streaming_data_use_tv_all_title">Use TV client for all videos</string>
+    <string name="revanced_spoof_streaming_data_use_tv_summary_off">TV client not added to available clients.</string>
+    <string name="revanced_spoof_streaming_data_use_tv_summary_on">TV client added to available clients.</string>
+    <string name="revanced_spoof_streaming_data_use_tv_title">Use TV client</string>
+    <string name="revanced_spoof_streaming_data_use_tv_user_dialog_message">"The app uses more system resources to find or decode the n-sig pattern, and the video starts more slowly.
+
+The n-sig pattern changes quite frequently on YouTube servers, and playback may fail if the regex fails to find the n-sig pattern.
+
+This feature is still WIP, so please use it for debugging purposes only."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Turning off this setting may cause video playback issues.</string>
     <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_off">VR audio track button is not shown.</string>
     <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_on">VR audio track button is shown.</string>
     <string name="revanced_spoof_streaming_data_vr_audio_track_button_title">Show VR audio track button</string>
     <string name="revanced_spoof_streaming_data_vr_audio_track_button_user_dialog_message">"Prerequisites:
-• The client used to fetch the streaming data is 'Android VR (No auth)'.
+• The audio client used to fetch the streaming data is 'Android VR (No auth)'.
 • A video with multiple audio tracks is being played.
 
 Known issues:
@@ -2361,6 +2427,7 @@ If this setting do not take effect, try switching to Incognito mode."</string>
     <string name="revanced_whitelist_failure_generic">Failed to load channel information.</string>
     <string name="revanced_whitelist_included">Added to whitelist.</string>
     <string name="revanced_whitelist_playback_speed">Playback speed</string>
+    <string name="revanced_whitelist_reload_video">Would you like to reload the video now?</string>
     <string name="revanced_whitelist_remove_dialog_message">Remove channel \'%1$s\' from %2$s whitelist?</string>
     <string name="revanced_whitelist_remove_failed">Failed to remove channel \'%1$s\' from the %2$s whitelist.</string>
     <string name="revanced_whitelist_removed">Channel \'%1$s\' was removed from the %2$s whitelist.</string>

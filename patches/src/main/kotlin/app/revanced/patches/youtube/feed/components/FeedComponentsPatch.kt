@@ -13,6 +13,8 @@ import app.revanced.patches.shared.litho.emptyComponentLabel
 import app.revanced.patches.shared.mainactivity.onCreateMethod
 import app.revanced.patches.youtube.utils.bottomsheet.bottomSheetHookPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
+import app.revanced.patches.youtube.utils.dismiss.hookDismissObserver
 import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.FEED_CLASS_DESCRIPTOR
@@ -33,6 +35,7 @@ import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.scrollTopParentFingerprint
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.fingerprint.injectLiteralInstructionViewCall
 import app.revanced.util.fingerprint.matchOrThrow
@@ -78,7 +81,9 @@ val feedComponentsPatch = bytecodePatch(
         sharedResourceIdPatch,
         settingsPatch,
         bottomSheetHookPatch,
+        dismissPlayerHookPatch,
         engagementPanelHookPatch,
+        videoInformationPatch,
         versionCheckPatch,
     )
     execute {
@@ -188,6 +193,8 @@ val feedComponentsPatch = bytecodePatch(
                 )
             }
         }
+
+        hookDismissObserver("$RELATED_VIDEO_CLASS_DESCRIPTOR->onDismiss()V")
 
         // endregion
 

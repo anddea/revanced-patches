@@ -2,9 +2,9 @@ package app.revanced.extension.youtube.patches.utils;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.runOnMainThreadDelayed;
-import static app.revanced.extension.youtube.utils.VideoUtils.dismissPlayer;
 import static app.revanced.extension.youtube.utils.VideoUtils.launchVideoExternalDownloader;
 import static app.revanced.extension.youtube.utils.VideoUtils.openPlaylist;
+import static app.revanced.extension.youtube.utils.VideoUtils.reloadVideo;
 
 import android.content.Context;
 import android.view.KeyEvent;
@@ -24,6 +24,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import app.revanced.extension.shared.innertube.utils.AuthUtils;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
@@ -35,16 +36,18 @@ import app.revanced.extension.youtube.patches.utils.requests.SavePlaylistRequest
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.shared.VideoInformation;
-import app.revanced.extension.youtube.utils.AuthUtils;
 import app.revanced.extension.youtube.utils.ExtendedUtils;
 import kotlin.Pair;
 
 // TODO: Implement sync queue and clean up code.
 @SuppressWarnings({"unused", "StaticFieldLeak"})
-public class PlaylistPatch extends AuthUtils {
+public class PlaylistPatch {
     private static final boolean QUEUE_MANAGER =
             Settings.OVERLAY_BUTTON_EXTERNAL_DOWNLOADER_QUEUE_MANAGER.get()
                     || Settings.OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER.get();
+
+    private static volatile String playlistId = "";
+    private static volatile String videoId = "";
 
     private static Context mContext;
 
@@ -143,7 +146,7 @@ public class PlaylistPatch extends AuthUtils {
      * Invoked by extension.
      */
     public static void prepareDialogBuilder(@NonNull String currentVideoId) {
-        if (authorization.isEmpty() || (dataSyncId.isEmpty() && isIncognito)) {
+        if (AuthUtils.isNotLoggedIn()) {
             handleCheckError(checkFailedAuth);
             return;
         }
@@ -197,7 +200,7 @@ public class PlaylistPatch extends AuthUtils {
             String currentVideoId = videoId;
             synchronized (lastVideoIds) {
                 if (currentPlaylistId.isEmpty()) { // Queue is empty, create new playlist.
-                    CreatePlaylistRequest.fetchRequestIfNeeded(currentVideoId, requestHeader, dataSyncId);
+                    CreatePlaylistRequest.fetchRequestIfNeeded(currentVideoId, AuthUtils.getRequestHeader());
                     runOnMainThreadDelayed(() -> {
                         CreatePlaylistRequest request = CreatePlaylistRequest.getRequestForVideoId(currentVideoId);
                         if (request != null) {
@@ -221,7 +224,7 @@ public class PlaylistPatch extends AuthUtils {
                     }, 1000);
                 } else { // Queue is not empty, add or remove video.
                     String setVideoId = lastVideoIds.get(currentVideoId);
-                    EditPlaylistRequest.fetchRequestIfNeeded(currentVideoId, currentPlaylistId, setVideoId, requestHeader, dataSyncId);
+                    EditPlaylistRequest.fetchRequestIfNeeded(currentVideoId, currentPlaylistId, setVideoId, AuthUtils.getRequestHeader());
 
                     runOnMainThreadDelayed(() -> {
                         EditPlaylistRequest request = EditPlaylistRequest.getRequestForVideoId(currentVideoId);
@@ -268,7 +271,7 @@ public class PlaylistPatch extends AuthUtils {
             return;
         }
         try {
-            GetPlaylistsRequest.fetchRequestIfNeeded(currentPlaylistId, requestHeader, dataSyncId);
+            GetPlaylistsRequest.fetchRequestIfNeeded(currentPlaylistId, AuthUtils.getRequestHeader());
             runOnMainThreadDelayed(() -> {
                 GetPlaylistsRequest request = GetPlaylistsRequest.getRequestForPlaylistId(currentPlaylistId);
                 if (request != null) {
@@ -303,7 +306,7 @@ public class PlaylistPatch extends AuthUtils {
                 handleCheckError(checkFailedPlaylistId);
                 return;
             }
-            SavePlaylistRequest.fetchRequestIfNeeded(playlistId, libraryId, requestHeader, dataSyncId);
+            SavePlaylistRequest.fetchRequestIfNeeded(playlistId, libraryId, AuthUtils.getRequestHeader());
 
             runOnMainThreadDelayed(() -> {
                 SavePlaylistRequest request = SavePlaylistRequest.getRequestForLibraryId(libraryId);
@@ -329,7 +332,7 @@ public class PlaylistPatch extends AuthUtils {
             return;
         }
         try {
-            DeletePlaylistRequest.fetchRequestIfNeeded(currentPlaylistId, requestHeader, dataSyncId);
+            DeletePlaylistRequest.fetchRequestIfNeeded(currentPlaylistId, AuthUtils.getRequestHeader());
             runOnMainThreadDelayed(() -> {
                 DeletePlaylistRequest request = DeletePlaylistRequest.getRequestForPlaylistId(currentPlaylistId);
                 if (request != null) {
@@ -380,8 +383,7 @@ public class PlaylistPatch extends AuthUtils {
                 // Since the Queue is not automatically synced, a 'reload' action has been added as a workaround.
                 // The 'reload' action simply closes the video and reopens it.
                 // It is important to close the video, otherwise the Queue will not be updated.
-                dismissPlayer();
-                openPlaylist(currentPlaylistId, VideoInformation.getVideoId(), true);
+                reloadVideo(VideoInformation.getVideoId(), currentPlaylistId);
             } else {
                 openPlaylist(currentPlaylistId, currentVideoId);
             }

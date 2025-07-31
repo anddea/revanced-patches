@@ -46,11 +46,11 @@ Pulsa aquí para saber más sobre DeArrow."</string>
     <string name="revanced_alt_thumbnail_player_title">Listas de reproducción, recomendaciones</string>
     <string name="revanced_alt_thumbnail_search_title">Resultados de búsqueda</string>
     <string name="revanced_alt_thumbnail_stills">Capturas de vídeo</string>
-    <string name="revanced_alt_thumbnail_stills_about_summary">Las capturas fijas se toman del principio / mitad / final de cada vídeo. Estas imágenes están integradas en YouTube y no se utiliza ninguna API externa.</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">Las capturas de imágenes fijas se toman del principio, la mitad o el final de cada vídeo. Estas imágenes están integradas en YouTube y no se utiliza ninguna API externa.</string>
     <string name="revanced_alt_thumbnail_stills_about_title">Capturas de vídeo fijas</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">Utilizando capturas fijas de alta calidad.</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">Utilizando capturas fijas de calidad media. Las miniaturas se cargarán más rápido, pero los vídeos en directo, inéditos o muy antiguos pueden mostrar miniaturas en blanco.</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">Usar capturas fijas rápidas</string>
+    <string name="revanced_alt_thumbnail_stills_fast_title">Usar capturas de imágenes fijas</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Principio del vídeo</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Mitad del vídeo</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Final del vídeo</string>
@@ -345,6 +345,13 @@ Nota:
 
 Efecto secundario: El tema Cairo también se aplica a los puntos de notificación."</string>
     <string name="revanced_enable_cairo_seekbar_title">Activar barra de progreso Cairo</string>
+    <string name="revanced_enable_comments_scroll_top_summary_off">"Al pulsar en el título del panel de comentarios («Comentarios») no se realiza ninguna acción."</string>
+    <string name="revanced_enable_comments_scroll_top_summary_on">"Al pulsar en el título del panel de comentarios («Comentarios»), se desplaza hacia arriba.
+
+Limitaciones:
+• No se aplica a las respuestas a los comentarios.
+• En «Temporizado», al pulsar en el título del panel de comentarios («Comentarios») se desplaza hasta la parte inferior."</string>
+    <string name="revanced_enable_comments_scroll_top_title">Activar desplazamiento hacia arriba en comentarios</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">La superposición de controles ocupa la pantalla completa.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">La superposición de controles no ocupa la pantalla completa.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Activar superposición compacta de controles</string>
@@ -498,6 +505,9 @@ Información:
     <string name="revanced_hide_ai_chat_summary_summary_off">El resumen del chat de IA está visible.</string>
     <string name="revanced_hide_ai_chat_summary_summary_on">El resumen del chat de IA está oculto.</string>
     <string name="revanced_hide_ai_chat_summary_title">Ocultar resumen del chat de IA</string>
+    <string name="revanced_hide_ai_comments_summary_summary_off">El resumen de comentarios de la IA está visible.</string>
+    <string name="revanced_hide_ai_comments_summary_summary_on">El resumen de comentarios de la IA está oculto.</string>
+    <string name="revanced_hide_ai_comments_summary_title">Ocultar resumen de comentarios de la IA</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sección de resumen de vídeo generado por IA está visible.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sección de resumen de vídeo generado por IA está oculta.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Ocultar sección de resumen de vídeo generado por IA</string>
@@ -567,27 +577,33 @@ Tienda"</string>
     <string name="revanced_hide_clip_button_summary_off">El botón de clip está visible.</string>
     <string name="revanced_hide_clip_button_summary_on">El botón de clip está oculto.</string>
     <string name="revanced_hide_clip_button_title">Ocultar botón de clip</string>
-    <string name="revanced_hide_comment_create_shorts_button_summary_off">El botón de crear Shorts está visible.</string>
-    <string name="revanced_hide_comment_create_shorts_button_summary_on">El botón de crear Shorts está oculto.</string>
-    <string name="revanced_hide_comment_create_shorts_button_title">Ocultar botón de crear Shorts</string>
-    <string name="revanced_hide_comment_highlighted_search_links_summary_off">Los enlaces de búsqueda destacados están visibles.</string>
-    <string name="revanced_hide_comment_highlighted_search_links_summary_on">Los enlaces de búsqueda destacados están ocultos.</string>
-    <string name="revanced_hide_comment_highlighted_search_links_title">Ocultar enlaces de búsqueda destacados</string>
-    <string name="revanced_hide_comment_thanks_button_summary_off">El botón de gracias está visible.</string>
-    <string name="revanced_hide_comment_thanks_button_summary_on">El botón de gracias está oculto.</string>
-    <string name="revanced_hide_comment_thanks_button_title">Ocultar botón de gracias</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Los botones de marca de tiempo y emoji están visibles.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Los botones de marca de tiempo y emoji están ocultos.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Ocultar botones de marca de tiempo y emoji</string>
+    <string name="revanced_hide_comments_button_summary_off">El botón «Comentarios» está visible.</string>
+    <string name="revanced_hide_comments_button_summary_on">El botón «Comentarios» está oculto.</string>
+    <string name="revanced_hide_comments_button_title">Ocultar botón «Comentarios»</string>
     <string name="revanced_hide_comments_by_members_summary_off">El banner de comentarios de los miembros está visible.</string>
     <string name="revanced_hide_comments_by_members_summary_on">El banner de comentarios de los miembros está oculto.</string>
     <string name="revanced_hide_comments_by_members_title">Ocultar banner de comentarios de los miembros</string>
+    <string name="revanced_hide_comments_create_a_short_button_summary_off">El botón «Crear un Short» está visible.</string>
+    <string name="revanced_hide_comments_create_a_short_button_summary_on">El botón «Crear un Short» está oculto.</string>
+    <string name="revanced_hide_comments_create_a_short_button_title">Ocultar botón «Crear un Short»</string>
+    <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Los botones de emoji y marca de tiempo están visibles.</string>
+    <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Los botones de emoji y marca de tiempo están ocultos.</string>
+    <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Ocultar botones de emoji y marca de tiempo</string>
+    <string name="revanced_hide_comments_highlighted_search_links_summary_off">Los enlaces de búsqueda destacados están visibles.</string>
+    <string name="revanced_hide_comments_highlighted_search_links_summary_on">"Los enlaces de búsqueda destacados están ocultos."</string>
+    <string name="revanced_hide_comments_highlighted_search_links_title">Ocultar enlaces de búsqueda destacados</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_off">La sección de comentarios está visible en el feed de inicio.</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_on">La sección de comentarios está oculta en el feed de inicio.</string>
     <string name="revanced_hide_comments_section_in_home_feed_title">Ocultar sección de comentarios en feed de inicio</string>
     <string name="revanced_hide_comments_section_summary_off">La sección de comentarios está visible.</string>
     <string name="revanced_hide_comments_section_summary_on">La sección de comentarios está oculta.</string>
     <string name="revanced_hide_comments_section_title">Ocultar sección de comentarios</string>
+    <string name="revanced_hide_comments_thanks_button_summary_off">El botón «Gracias» está visible.</string>
+    <string name="revanced_hide_comments_thanks_button_summary_on">El botón «Gracias» está oculto.</string>
+    <string name="revanced_hide_comments_thanks_button_title">Ocultar botón «Gracias»</string>
     <string name="revanced_hide_community_posts_channel_summary_off">Visible en el canal.</string>
     <string name="revanced_hide_community_posts_channel_summary_on">Oculto en el canal.</string>
     <string name="revanced_hide_community_posts_channel_title">Ocultar en canal</string>
@@ -618,6 +634,12 @@ Tienda"</string>
     <string name="revanced_hide_end_screen_store_banner_summary_off">El banner de la tienda está visible.</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">El banner de la tienda está oculto.</string>
     <string name="revanced_hide_end_screen_store_banner_title">Ocultar banner de tienda de pantalla final</string>
+    <string name="revanced_hide_end_screen_suggested_video_summary_off">El vídeo sugerido en la pantalla final está visible.</string>
+    <string name="revanced_hide_end_screen_suggested_video_summary_on">"El vídeo sugerido en la pantalla final se oculta cuando la reproducción automática está desactivada.
+
+La reproducción automática se puede cambiar en la configuración de YouTube:
+Configuración → Reproducción → Reproducción automática del siguiente vídeo"</string>
+    <string name="revanced_hide_end_screen_suggested_video_title">Ocultar vídeo sugerido en pantalla final</string>
     <string name="revanced_hide_expandable_card_summary_off">La tarjeta expandible debajo de los vídeos está visible.</string>
     <string name="revanced_hide_expandable_card_summary_on">La tarjeta expandible debajo de los vídeos está oculta.</string>
     <string name="revanced_hide_expandable_card_title">Ocultar tarjeta expandible</string>
@@ -878,7 +900,7 @@ Para mostrar el menú de la pista de audio, cambie «Cliente predeterminado (fal
     <string name="revanced_hide_preview_comment_title">Ocultar vista previa de comentarios</string>
     <string name="revanced_hide_preview_comment_type_off">Esto cambia el tamaño de la sección de comentarios, por lo que es imposible abrir una repetición del chat en directo en la sección de comentarios.</string>
     <string name="revanced_hide_preview_comment_type_on">Esto no cambia el tamaño de la sección de comentarios, por lo que es posible abrir la repetición del chat en directo en la sección de comentarios.</string>
-    <string name="revanced_hide_preview_comment_type_title">Ocultar vista previa de tipo de comentarios</string>
+    <string name="revanced_hide_preview_comment_type_title">Tipo de ocultación de vista previa de comentarios</string>
     <string name="revanced_hide_promotion_alert_banner_summary_off">El banner de alerta de promoción está visible.</string>
     <string name="revanced_hide_promotion_alert_banner_summary_on">El banner de alerta de promoción está oculto.</string>
     <string name="revanced_hide_promotion_alert_banner_title">Ocultar banner de alerta de promoción</string>
@@ -924,6 +946,14 @@ Para mostrar el menú de la pista de audio, cambie «Cliente predeterminado (fal
     <string name="revanced_hide_related_videos_summary_off">Los vídeos relacionados están visibles.</string>
     <string name="revanced_hide_related_videos_summary_on">Los vídeos relacionados están ocultos.</string>
     <string name="revanced_hide_related_videos_title">Ocultar vídeos relacionados</string>
+    <string name="revanced_hide_related_videos_type_summary_off">"El número de diseños cargados en la pantalla no se recuerda cuando se inicia el vídeo.
+
+• La posición de desplazamiento del feed puede restablecerse."</string>
+    <string name="revanced_hide_related_videos_type_summary_on">"El número de diseños cargados en la pantalla se recuerda cuando se inicia el vídeo.
+
+• Soluciona parcialmente un problema en el que se restablece la posición de desplazamiento del feed.
+• Los vídeos relacionados pueden no estar completamente filtrados."</string>
+    <string name="revanced_hide_related_videos_type_title">Ocultar tipo de vídeos relacionados</string>
     <string name="revanced_hide_related_videos_user_dialog_message">"Este ajuste limita el número máximo de diseños que se pueden cargar en la pantalla del reproductor. 
 
 Si el diseño de la pantalla del reproductor cambia debido a cambios en el servidor, es posible que se oculten diseños no deseados en la pantalla del reproductor."</string>
@@ -960,68 +990,68 @@ Si el diseño de la pantalla del reproductor cambia debido a cambios en el servi
     <string name="revanced_hide_server_side_snack_bar_summary_off">La barra de notificaciones del lado del servidor está visible.</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">La barra de notificaciones del lado del servidor está oculta.</string>
     <string name="revanced_hide_server_side_snack_bar_title">Ocultar barra de notificaciones del lado del servidor</string>
-    <string name="revanced_hide_settings_menu_about_summary_off">El menú \"Información\" está visible.</string>
-    <string name="revanced_hide_settings_menu_about_summary_on">El menú \"Información\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_about_title">Ocultar menú \"Información\"</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_off">El menú \"Accesibilidad\" está visible.</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_on">El menú \"Accesibilidad\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_accessibility_title">Ocultar menú \"Accesibilidad\"</string>
-    <string name="revanced_hide_settings_menu_account_summary_off">El menú \"Cuenta\" está visible.</string>
-    <string name="revanced_hide_settings_menu_account_summary_on">El menú \"Cuenta\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_account_title">Ocultar menú \"Cuenta\"</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">El menú de reproducción automática está visible.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">El menú de reproducción automática está oculto.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">Ocultar menú \"Reproducción automática\"</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">El menú \"Facturación y pagos\" está visible.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">El menú \"Facturación y pagos\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_title">Ocultar menú \"Facturación y pagos\"</string>
-    <string name="revanced_hide_settings_menu_captions_summary_off">El menú \"Subtítulos\" está visible.</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">El menú \"Subtítulos\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_captions_title">Ocultar menú \"Subtítulos\"</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">El menú \"Aplicaciones conectadas\" está visible.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">El menú \"Aplicaciones conectadas\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_title">Ocultar menú \"Aplicaciones conectadas\"</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_off">El menú \"Ahorro de datos\" está visible.</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_on">El menú \"Ahorro de datos\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Ocultar menú \"Ahorro de datos\"</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">El menú \"General\" está visible.</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">El menú \"General\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_general_title">Ocultar menú \"General\"</string>
-    <string name="revanced_hide_settings_menu_history_summary_off">El menú \"Gestionar todo el historial\" está visible.</string>
-    <string name="revanced_hide_settings_menu_history_summary_on">El menú \"Gestionar todo el historial\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_history_title">Ocultar menú \"Gestionar todo el historial\"</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_off">El menú \"Chat en directo\" está visible.</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_on">El menú \"Chat en directo\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_live_chat_title">Ocultar menú \"Chat en directo\"</string>
-    <string name="revanced_hide_settings_menu_notification_summary_off">El menú \"Notificaciones\" está visible.</string>
-    <string name="revanced_hide_settings_menu_notification_summary_on">El menú \"Notificaciones\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_notification_title">Ocultar menú \"Notificaciones\"</string>
-    <string name="revanced_hide_settings_menu_offline_summary_off">El menú \"Segundo plano\" está visible.</string>
-    <string name="revanced_hide_settings_menu_offline_summary_on">El menú \"Segundo plano\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_offline_title">Ocultar menú \"Segundo plano\"</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">El menú \"Ver en la televisión\" está visible.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">El menú \"Ver en la televisión\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">Ocultar menú \"Ver en la televisión\"</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">El menú \"Centro Familiar\" está visible.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">El menú \"Centro Familiar\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Ocultar menú \"Centro Familiar\"</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">El menú \"Prueba las nuevas funciones experimentales\" está visible.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">El menú \"Prueba las nuevas funciones experimentales\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_title">Ocultar menú \"Prueba las nuevas funciones experimentales\"</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_off">El menú \"Privacidad\" está visible.</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_on">El menú \"Privacidad\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_privacy_title">Ocultar menú \"Privacidad\"</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_off">El menú \"Compras y suscripciones\" está visible.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_on">El menú \"Compras y suscripciones\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_title">Ocultar menú \"Compras y suscripciones\"</string>
+    <string name="revanced_hide_settings_menu_about_summary_off">El menú «Información» está visible.</string>
+    <string name="revanced_hide_settings_menu_about_summary_on">El menú «Información» está oculto.</string>
+    <string name="revanced_hide_settings_menu_about_title">Ocultar menú «Información»</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_off">El menú «Accesibilidad» está visible.</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_on">El menú «Accesibilidad» está oculto.</string>
+    <string name="revanced_hide_settings_menu_accessibility_title">Ocultar menú «Accesibilidad»</string>
+    <string name="revanced_hide_settings_menu_account_summary_off">El menú «Cambiar de cuenta» está visible.</string>
+    <string name="revanced_hide_settings_menu_account_summary_on">El menú «Cambiar de cuenta» está oculto.</string>
+    <string name="revanced_hide_settings_menu_account_title">Ocultar menú «Cambiar de cuenta»</string>
+    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">El menú «Reproducción» está visible.</string>
+    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">El menú «Reproducción» está oculto.</string>
+    <string name="revanced_hide_settings_menu_autoplay_playback_title">Ocultar menú «Reproducción»</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">El menú «Facturación y pagos» está visible.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">El menú «Facturación y pagos» está oculto.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_title">Ocultar menú «Facturación y pagos»</string>
+    <string name="revanced_hide_settings_menu_captions_summary_off">El menú «Subtítulos» está visible.</string>
+    <string name="revanced_hide_settings_menu_captions_summary_on">El menú «Subtítulos» está oculto.</string>
+    <string name="revanced_hide_settings_menu_captions_title">Ocultar menú «Subtítulos»</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">El menú «Aplicaciones conectadas» está visible.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">El menú «Aplicaciones conectadas» está oculto.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_title">Ocultar menú «Aplicaciones conectadas»</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_off">El menú «Ahorro de datos» está visible.</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_on">El menú «Ahorro de datos» está oculto.</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Ocultar menú «Ahorro de datos»</string>
+    <string name="revanced_hide_settings_menu_general_summary_off">El menú «General» está visible.</string>
+    <string name="revanced_hide_settings_menu_general_summary_on">El menú «General» está oculto.</string>
+    <string name="revanced_hide_settings_menu_general_title">Ocultar menú «General»</string>
+    <string name="revanced_hide_settings_menu_history_summary_off">El menú «Gestionar todo el historial» está visible.</string>
+    <string name="revanced_hide_settings_menu_history_summary_on">El menú «Gestionar todo el historial» está oculto.</string>
+    <string name="revanced_hide_settings_menu_history_title">Ocultar menú «Gestionar todo el historial»</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_off">El menú «Chat en directo» está visible.</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_on">El menú «Chat en directo» está oculto.</string>
+    <string name="revanced_hide_settings_menu_live_chat_title">Ocultar menú «Chat en directo»</string>
+    <string name="revanced_hide_settings_menu_notification_summary_off">El menú «Notificaciones» está visible.</string>
+    <string name="revanced_hide_settings_menu_notification_summary_on">El menú «Notificaciones» está oculto.</string>
+    <string name="revanced_hide_settings_menu_notification_title">Ocultar menú «Notificaciones»</string>
+    <string name="revanced_hide_settings_menu_offline_summary_off">El menú «Segundo plano» está visible.</string>
+    <string name="revanced_hide_settings_menu_offline_summary_on">El menú «Segundo plano» está oculto.</string>
+    <string name="revanced_hide_settings_menu_offline_title">Ocultar menú «Segundo plano»</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">El menú «Ver en la televisión» está visible.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">El menú «Ver en la televisión» está oculto.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_title">Ocultar menú «Ver en la televisión»</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_off">El menú «Centro Familiar» está visible.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_on">El menú «Centro Familiar» está oculto.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Ocultar menú «Centro Familiar»</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">El menú «Prueba las nuevas funciones experimentales» está visible.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">El menú «Prueba las nuevas funciones experimentales» está oculto.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_title">Ocultar menú «Prueba las nuevas funciones experimentales»</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_off">El menú «Privacidad» está visible.</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_on">El menú «Privacidad» está oculto.</string>
+    <string name="revanced_hide_settings_menu_privacy_title">Ocultar menú «Privacidad»</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_off">El menú «Compras y suscripciones» está visible.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_on">El menú «Compras y suscripciones» está oculto.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_title">Ocultar menú «Compras y suscripciones»</string>
     <string name="revanced_hide_settings_menu_summary">Ocultar elementos del menú de configuración de YouTube.</string>
     <string name="revanced_hide_settings_menu_title">Ocultar menú de configuración de YouTube</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_off">El menú \"Preferencias de calidad de vídeo\" está visible.</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_on">El menú \"Preferencias de calidad de vídeo\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_video_quality_title">Ocultar menú \"Preferencias de calidad de vídeo\"</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_off">El menú \"Tus datos en YouTube\" está visible.</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_on">El menú \"Tus datos en YouTube\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_your_data_title">Ocultar menú \"Tus datos en YouTube\"</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_off">El menú «Preferencias de calidad de vídeo» está visible.</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_on">El menú «Preferencias de calidad de vídeo» está oculto.</string>
+    <string name="revanced_hide_settings_menu_video_quality_title">Ocultar menú «Preferencias de calidad de vídeo»</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_off">El menú «Tus datos en YouTube» está visible.</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_on">El menú «Tus datos en YouTube» está oculto.</string>
+    <string name="revanced_hide_settings_menu_your_data_title">Ocultar menú «Tus datos en YouTube»</string>
     <string name="revanced_hide_share_button_summary_off">El botón de compartir está visible.</string>
     <string name="revanced_hide_share_button_summary_on">El botón de compartir está oculto.</string>
     <string name="revanced_hide_share_button_title">Ocultar botón de compartir</string>
@@ -1043,8 +1073,8 @@ Si el diseño de la pantalla del reproductor cambia debido a cambios en el servi
     <string name="revanced_hide_shorts_dislike_button_summary_off">El botón de no me gusta está visible.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">El botón de no me gusta está oculto.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Ocultar botón de no me gusta</string>
-    <string name="revanced_hide_shorts_floating_button_summary_off">"Los botones flotantes como \"Utilizar este sonido\" se muestran en la pestaña Shorts del canal."</string>
-    <string name="revanced_hide_shorts_floating_button_summary_on">"Los botones flotantes como \"Utilizar este sonido\" se ocultan en la pestaña Shorts del canal."</string>
+    <string name="revanced_hide_shorts_floating_button_summary_off">Los botones flotantes como \"Utilizar este sonido\" se muestran en la pestaña Shorts del canal.</string>
+    <string name="revanced_hide_shorts_floating_button_summary_on">Los botones flotantes como \"Utilizar este sonido\" se ocultan en la pestaña Shorts del canal.</string>
     <string name="revanced_hide_shorts_floating_button_title">Ocultar botón flotante</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_off">El botón de la pantalla verde está visible.</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">El botón de la pantalla verde está oculto.</string>
@@ -1115,10 +1145,13 @@ Información:
     <string name="revanced_hide_shorts_shelf_subscriptions_summary_off">Visible en el feed de suscripciones.</string>
     <string name="revanced_hide_shorts_shelf_subscriptions_summary_on">Oculto en el feed de suscripciones.</string>
     <string name="revanced_hide_shorts_shelf_subscriptions_title">Ocultar en feed de suscripciones</string>
-    <string name="revanced_hide_shorts_shelf_summary">"Oculta los estantes de Shorts.
+    <string name="revanced_hide_shorts_shelf_summary">Oculta los estantes de Shorts.
 
-Limitación: las cabeceras oficiales en los resultados de búsqueda estarán ocultas."</string>
+Limitación: las cabeceras oficiales en los resultados de búsqueda estarán ocultas.</string>
     <string name="revanced_hide_shorts_shelf_title">Ocultar estantes de Shorts</string>
+    <string name="revanced_hide_shorts_shelf_video_description_summary_off">Visible en la descripción del vídeo.</string>
+    <string name="revanced_hide_shorts_shelf_video_description_summary_on">Oculto en la descripción del vídeo.</string>
+    <string name="revanced_hide_shorts_shelf_video_description_title">Ocultar en descripción del vídeo</string>
     <string name="revanced_hide_shorts_shop_button_summary_off">El botón de comprar está visible.</string>
     <string name="revanced_hide_shorts_shop_button_summary_on">El botón de comprar está oculto.</string>
     <string name="revanced_hide_shorts_shop_button_title">Ocultar botón de comprar</string>
@@ -1146,9 +1179,9 @@ Limitación: las cabeceras oficiales en los resultados de búsqueda estarán ocu
     <string name="revanced_hide_shorts_trends_button_summary_off">El botón de tendencias está visible.</string>
     <string name="revanced_hide_shorts_trends_button_summary_on">El botón de tendencias está oculto.</string>
     <string name="revanced_hide_shorts_trends_button_title">Ocultar botón de tendencias</string>
-    <string name="revanced_hide_shorts_use_this_sound_button_summary_off">El botón de utilizar este sonido está visible.</string>
-    <string name="revanced_hide_shorts_use_this_sound_button_summary_on">El botón de utilizar este sonido está oculto.</string>
-    <string name="revanced_hide_shorts_use_this_sound_button_title">Ocultar botón de utilizar este sonido</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_off">El botón «Usar este sonido» está visible.</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_on">El botón «Usar este sonido» está oculto.</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_title">Ocultar botón «Usar este sonido»</string>
     <string name="revanced_hide_shorts_use_this_template_button_summary_off">El botón «Usar esta plantilla» está visible.</string>
     <string name="revanced_hide_shorts_use_this_template_button_summary_on">El botón «Usar esta plantilla» está oculto.</string>
     <string name="revanced_hide_shorts_use_this_template_button_title">Ocultar botón «Usar esta plantilla»</string>
@@ -1176,15 +1209,6 @@ Limitación: las cabeceras oficiales en los resultados de búsqueda estarán ocu
     <string name="revanced_hide_suggested_actions_summary_off">Las acciones sugeridas están visibles.</string>
     <string name="revanced_hide_suggested_actions_summary_on">Las acciones sugeridas están ocultas.</string>
     <string name="revanced_hide_suggested_actions_title">Ocultar acciones sugeridas</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary">"Este ajuste ha quedado obsoleto.
-
-En su lugar, utiliza la configuración \"Configuración → Reproducción automática → Reproducción automática del siguiente vídeo\"."</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary_off">La pantalla final del vídeo sugerido está visible.</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary_on">"La pantalla final del vídeo sugerido se oculta cuando la reproducción automática está desactivada.
-
-La reproducción automática se puede cambiar en la configuración de YouTube:
-\"Configuración → Reproducción automática → Reproducción automática del siguiente vídeo\""</string>
-    <string name="revanced_hide_suggested_video_end_screen_title">Ocultar vídeo sugerido en pantalla final</string>
     <string name="revanced_hide_surveys_summary_off">Las encuestas están visibles.</string>
     <string name="revanced_hide_surveys_summary_on">Las encuestas están ocultas.</string>
     <string name="revanced_hide_surveys_title">Ocultar encuestas</string>
@@ -1242,6 +1266,9 @@ Limitaciones:
     <string name="revanced_hide_view_products_summary_off">El banner de ver productos está visible.</string>
     <string name="revanced_hide_view_products_summary_on">El banner de ver productos está oculto.</string>
     <string name="revanced_hide_view_products_title">Ocultar banner de ver productos</string>
+    <string name="revanced_hide_visit_community_button_summary_off">El botón «Visitar comunidad» está visible.</string>
+    <string name="revanced_hide_visit_community_button_summary_on">El botón «Visitar comunidad» está oculto.</string>
+    <string name="revanced_hide_visit_community_button_title">Ocultar botón «Visitar comunidad»</string>
     <string name="revanced_hide_visit_store_button_summary_off">El botón «Visitar tienda» está visible.</string>
     <string name="revanced_hide_visit_store_button_summary_on">El botón «Visitar tienda» está oculto.</string>
     <string name="revanced_hide_visit_store_button_title">Ocultar botón «Visitar tienda»</string>
@@ -1520,6 +1547,7 @@ Para mostrar el botón de descarga nativo de la lista de reproducción, activa �
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_preference_category_action_buttons">Botones de acción</string>
     <string name="revanced_preference_category_additional_settings">Ajustes adicionales</string>
+    <string name="revanced_preference_category_android_vr">Android VR</string>
     <string name="revanced_preference_category_animation_feedback">Animación / Comentarios</string>
     <string name="revanced_preference_category_app_info">Información de la app</string>
     <string name="revanced_preference_category_codec">Códec</string>
@@ -1529,6 +1557,7 @@ Para mostrar el botón de descarga nativo de la lista de reproducción, activa �
     <string name="revanced_preference_category_image_region_restrictions">Restricciones de región de imágenes</string>
     <string name="revanced_preference_category_import_export_as_file">Importar / Exportar como archivo</string>
     <string name="revanced_preference_category_import_export_as_text">Importar / Exportar como texto</string>
+    <string name="revanced_preference_category_ios">iOS</string>
     <string name="revanced_preference_category_keyword_filter">Filtro de palabras clave</string>
     <string name="revanced_preference_category_others">Otros</string>
     <string name="revanced_preference_category_overlay_buttons">Botones superpuestos</string>
@@ -1538,6 +1567,7 @@ Para mostrar el botón de descarga nativo de la lista de reproducción, activa �
     <string name="revanced_preference_category_recommended_video">Vídeos recomendados</string>
     <string name="revanced_preference_category_shorts_shelf">Estantes de Shorts</string>
     <string name="revanced_preference_category_suggested_actions">Acciones sugeridas</string>
+    <string name="revanced_preference_category_tv">TV (todavía en desarrollo)</string>
     <string name="revanced_preference_category_video_quality">Calidad de vídeo</string>
     <string name="revanced_preference_category_view_counts_filter">Filtro de contador de visualizaciones</string>
     <string name="revanced_preference_group_sb_title">SponsorBlock</string>
@@ -1756,6 +1786,9 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Se muestra el mensaje si Return YouTube Dislike no está disponible.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Mostrar mensaje si la API no está disponible</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
+    <string name="revanced_sanitize_comments_category_bar_summary_off">Los botones de categorías se muestran en la barra de categorías de comentarios.</string>
+    <string name="revanced_sanitize_comments_category_bar_summary_on">"Los botones de categorías, excepto «Mejores» y «Más recientes», están ocultos en la barra de categorías de comentarios."</string>
+    <string name="revanced_sanitize_comments_category_bar_title">Desinfectar barra de categorías</string>
     <string name="revanced_sanitize_sharing_links_summary">Elimina los parámetros de consulta de seguimiento de las URL al compartir enlaces.</string>
     <string name="revanced_sanitize_sharing_links_title">Desinfectar enlaces compartidos</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Frases como \"#\", \"Tienda\" y \"N productos\" se muestran en los subtítulos de vídeo."</string>
@@ -1836,13 +1869,13 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_sb_new_segment_title">Nuevo segmento de SponsorBlock</string>
     <string name="revanced_sb_reset">Restablecer</string>
     <string name="revanced_sb_reset_color">Restablecer color</string>
-    <string name="revanced_sb_segments_filler">Tangente de relleno / Chistes</string>
+    <string name="revanced_sb_segments_filler">Tangente de relleno / Bromas</string>
     <string name="revanced_sb_segments_filler_sum">Escenas tangenciales añadidas solo para relleno o humor que no son necesarias para entender el contenido principal del vídeo. No incluye segmentos que proporcionen contexto o detalles de fondo.</string>
     <string name="revanced_sb_segments_highlight">Destacado</string>
     <string name="revanced_sb_segments_highlight_sum">La parte del vídeo que la mayoría de la gente busca.</string>
     <string name="revanced_sb_segments_interaction">Recordatorio de interacción (suscripción)</string>
     <string name="revanced_sb_segments_interaction_sum">Un breve recordatorio para que des me gusta, te suscribas o les sigas en medio del contenido. Si es largo o trata sobre algo específico, debería ir en la sección de promoción propia.</string>
-    <string name="revanced_sb_segments_intro">Intermedio / Animación de introducción</string>
+    <string name="revanced_sb_segments_intro">Interrupción / Animación de introducción</string>
     <string name="revanced_sb_segments_intro_sum">Un intervalo sin contenido real. Puede ser una pausa, un fotograma estático o una animación que se repite. No incluye transiciones que contengan información.</string>
     <string name="revanced_sb_segments_nomusic">Música: sección sin música</string>
     <string name="revanced_sb_segments_nomusic_sum">Solo para utilizar en vídeos musicales. Secciones de vídeos musicales sin música, que no estén ya cubiertas por otra categoría.</string>
@@ -2046,6 +2079,20 @@ Información:
 • La alta calidad puede ser desbloqueada en algunos vídeos que requieren altas dimensiones del dispositivo, pero no en todos los vídeos.
 • Este ajuste no está disponible si está activada la opción 'Falsificar datos de streaming'."</string>
     <string name="revanced_spoof_device_dimensions_title">Falsificar dimensiones del dispositivo</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_unplugged">"Android TV
+<small>(Inicio de sesión requerido)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_no_auth">"Android VR
+<small>(Sin inicio de sesión)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
+<small>(Obsoleto)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ios_unplugged">"iOS TV
+<small>(Inicio de sesión requerido)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">"TV
+<small>(todavía en desarrollo)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">"TV simple
+<small>(todavía en desarrollo)</small>"</string>
+    <string name="revanced_spoof_streaming_data_default_client_title">Cliente predeterminado</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">No se han podido obtener las transmisiones de ningún cliente.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Puede que no hayas iniciado sesión.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">El códec de vídeo se determina automáticamente.</string>
@@ -2054,10 +2101,16 @@ Información:
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Activar este ajuste podría mejorar la duración de la batería y solucionar el problema de la reproducción entrecortada.
 
 AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está disponible y la reproducción de vídeo utilizará más datos de Internet que VP9 o AV1."</string>
+    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">El botón de recarga de vídeo está visible cuando el icono giratorio de carga está visible.</string>
+    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">El botón de recarga de vídeo siempre está visible.</string>
+    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">Mostrar siempre el botón de recarga de vídeo</string>
+    <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">El botón de recarga de vídeo está oculto.</string>
+    <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">El botón de recarga de vídeo está visible.</string>
+    <string name="revanced_spoof_streaming_data_reload_video_button_title">Mostrar botón de recarga de vídeo</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Falta el menú de la pista de audio.
 • El volumen estable no está disponible.
-• Desactivar pistas de audio automáticas forzadas no está disponible.
-• Es posible que los vídeos infantiles no se reproduzcan al cerrar la sesión o en modo incógnito."</string>
+• La opción de desactivar las pistas de audio automáticas forzadas no está disponible.
+• Es posible que los vídeos para niños no se reproduzcan cuando se cierra la sesión o en modo incógnito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Falta el menú \"Pista de audio\".
 • \"Regular volumen\" no está disponible."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Falta el menú \"Pista de audio\".
@@ -2065,48 +2118,66 @@ AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está dis
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Puede haber problemas de reproducción (PoToken requerido).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• El servidor puede bloquear ASN/rangos de IP completos.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Los vídeos pueden terminar 1 segundo antes.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Es posible que las películas o los vídeos de pago no se reproduzcan.
-• Es posible que los vídeos infantiles no se reproduzcan al cerrar la sesión o en modo incógnito."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• El volumen estable no está disponible.
+• Es posible que no se reproduzcan películas o vídeos de pago.
+• Es posible que los vídeos para niños no se reproduzcan cuando se cierra la sesión o en modo incógnito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efectos secundarios de falsificación</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv">"• El códec AVC (H.264) puede no estar disponible.
+• Si la desofuscación falla, la reproducción puede fallar.
+• A veces, el vídeo no se reproducirá incluso después de 10 segundos, en cuyo caso deberás pulsar en el botón de recargar vídeo.
+• El vídeo puede comenzar tarde."</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• El vídeo no puede reproducirse.</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"No omite el cifrado de respuesta de Onesie.
-
-• Algunos usuarios pueden experimentar un nuevo tipo de problema de reproducción."</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Omite el cifrado de respuesta de Onesie.
-
-• Corrige un nuevo tipo de problema de reproducción que algunos usuarios están experimentando.
-• El código AV1 puede no estar disponible."</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Omitir cifrado de respuesta de Onesie</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El cliente utilizado para obtener datos de transmisión no se muestra en estadísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">El cliente utilizado para obtener datos de transmisión se muestra en estadísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostrar en estadísticas para nerds</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Los datos de transmisión no están falsificados. Es posible que la reproducción de vídeo no funcione."</string>
-    <string name="revanced_spoof_streaming_data_summary_on">Los datos de transmisión están falsificados.</string>
+    <string name="revanced_spoof_streaming_data_summary_on">"Los datos de transmisión están falsificados."</string>
     <string name="revanced_spoof_streaming_data_title">Falsificar datos de transmisión</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_tv_use_latest_js_summary_off">"El JavaScript para la desofuscación no se mantiene actualizado.
+
+• Incluso si la desofuscación tiene éxito, puede que falte calidad de vídeo o códecs.
+• Se utiliza JavaScript que logra la desofuscación, pero sigue dependiendo en cierta medida del servidor."</string>
+    <string name="revanced_spoof_streaming_data_tv_use_latest_js_summary_on">"El JavaScript para la desofuscación se mantiene actualizado.
+
+• Si la desofuscación tiene éxito, no habrá pérdida de calidad de vídeo ni de códecs.
+• Depende en gran medida del servidor, y el éxito o el fracaso de la desofuscación depende del JavaScript que se utilice en el servidor."</string>
+    <string name="revanced_spoof_streaming_data_tv_use_latest_js_title">Usar última versión de JavaScript</string>
+    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_summary_off">"JavaScript no se ejecuta en bibliotecas nativas.
+
+• Desarrollado por JavaTube."</string>
+    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_summary_on">"JavaScript se ejecuta en bibliotecas nativas.
+
+• Desarrollado por SmartTube."</string>
+    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_title">Usar motor V8 JavaScript</string>
+    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_user_dialog_message">Si no se utiliza el motor V8 JavaScript, se tarda más en desofuscar la URL de transmisión, lo que hace que el vídeo se inicie 10 segundos tarde.</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Creador de Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">"Android TV
-<small>(Inicio de sesión requerido)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_vr_no_auth">"Android VR
-<small>(Sin inicio de sesión)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
-<small>(PoToken requerido)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_deprecated">"iOS
-<small>(Obsoleto)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
-<small>(Inicio de sesión requerido)</small>"</string>
-    <string name="revanced_spoof_streaming_data_type_ios_summary_off">El cliente iOS no se ha añadido a los clientes disponibles.</string>
-    <string name="revanced_spoof_streaming_data_type_ios_summary_on">"El cliente iOS se ha añadido a los clientes disponibles.
+    <string name="revanced_spoof_streaming_data_use_ios_summary_off">El cliente iOS no se ha añadido a los clientes disponibles.</string>
+    <string name="revanced_spoof_streaming_data_use_ios_summary_on">"El cliente de iOS se ha añadido a los clientes disponibles.
 
-ADVERTENCIA: El cliente iOS está obsoleto. Cualquier problema que surja al utilizarlo es bajo tu propia responsabilidad."</string>
-    <string name="revanced_spoof_streaming_data_type_ios_title">Utilizar cliente iOS</string>
-    <string name="revanced_spoof_streaming_data_type_ios_user_dialog_message">"Al solicitar puntos finales de la API de YouTube mediante iOS, necesitarás los tokens de autenticación emitidos por el dispositivo iOS y los PoTokens emitidos por iOSGuard.
+ADVERTENCIA: El cliente de iOS está obsoleto. Cualquier problema que surja al utilizarlo es bajo tu propia responsabilidad."</string>
+    <string name="revanced_spoof_streaming_data_use_ios_title">Usar cliente de iOS</string>
+    <string name="revanced_spoof_streaming_data_use_ios_user_dialog_message">"Al solicitar puntos finales de la API de YouTube utilizando iOS, necesitarás los tokens de autenticación emitidos por el dispositivo iOS y los PoTokens emitidos por iOSGuard.
 
-Esto significa que las solicitudes de streaming a través de iOS carecerán tanto de los tokens de autenticación como de los PoTokens, y el servidor puede considerar al usuario como un bot y bloquear todo el rango ASN/IP.
+Esto significa que las solicitudes de transmisión a través de iOS carecerán tanto de los tokens de autenticación como de los PoTokens, y el servidor puede considerar al usuario como un bot y bloquear todo el rango de ASN/IP.
 
-¡UTILÍZALO BAJO TU PROPIO RIESGO!"</string>
-    <string name="revanced_spoof_streaming_data_type_title">Cliente predeterminado</string>
+¡ÚSALO BAJO TU PROPIA RESPONSABILIDAD!"</string>
+    <string name="revanced_spoof_streaming_data_use_tv_all_summary_off">"El cliente de TV no se utiliza para algunos vídeos que requieren una reproducción rápida:
+
+• Reproducción automática en el feed
+• Clips
+• Shorts"</string>
+    <string name="revanced_spoof_streaming_data_use_tv_all_summary_on">"El cliente de TV se utiliza independientemente del tipo de vídeo.
+
+• El cliente de TV todavía no puede reproducir algunos vídeos."</string>
+    <string name="revanced_spoof_streaming_data_use_tv_all_title">Usar cliente de TV para todos los vídeos</string>
+    <string name="revanced_spoof_streaming_data_use_tv_summary_off">El cliente de TV no se ha añadido a los clientes disponibles.</string>
+    <string name="revanced_spoof_streaming_data_use_tv_summary_on">El cliente de TV se ha añadido a los clientes disponibles.</string>
+    <string name="revanced_spoof_streaming_data_use_tv_title">Usar cliente de TV</string>
+    <string name="revanced_spoof_streaming_data_use_tv_user_dialog_message">"La aplicación utiliza más recursos del sistema para encontrar o decodificar el patrón n-sig, y el vídeo se inicia más lentamente.
+
+El patrón n-sig cambia con bastante frecuencia en los servidores de YouTube, y la reproducción puede fallar si el regex no encuentra el patrón n-sig.
+
+Esta función todavía está en desarrollo, así que úsala solo para fines de depuración."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Desactivar este ajuste puede causar problemas de reproducción de vídeo.</string>
     <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_off">El botón de la pista de audio de VR está oculto.</string>
     <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_on">El botón de la pista de audio de VR está visible.</string>
@@ -2219,6 +2290,7 @@ Si este ajuste no surte efecto, prueba a cambiar al modo incógnito."</string>
     <string name="revanced_whitelist_failure_generic">Error al cargar la información del canal.</string>
     <string name="revanced_whitelist_included">Añadido a esta lista.</string>
     <string name="revanced_whitelist_playback_speed">Velocidad de reproducción</string>
+    <string name="revanced_whitelist_reload_video">¿Quieres volver a cargar el vídeo ahora?</string>
     <string name="revanced_whitelist_remove_dialog_message">¿Eliminar el canal %1$s de la lista %2$s?</string>
     <string name="revanced_whitelist_remove_failed">Error al eliminar el canal %1$s de la lista %2$s.</string>
     <string name="revanced_whitelist_removed">El canal %1$s fue eliminado de la lista %2$s.</string>

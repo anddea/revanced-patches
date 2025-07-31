@@ -288,11 +288,12 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     public static void updateListPreferenceSummary(ListPreference listPreference, Setting<?> setting) {
         String objectStringValue = setting.get().toString();
         int entryIndex = listPreference.findIndexOfValue(objectStringValue);
-        if (entryIndex >= 0) {
+        if (entryIndex < 0) {
+            listPreference.setSummary(objectStringValue);
+        } else {
             listPreference.setValue(objectStringValue);
-            objectStringValue = listPreference.getEntries()[entryIndex].toString();
+            listPreference.setSummary(listPreference.getEntries()[entryIndex]);
         }
-        listPreference.setSummary(objectStringValue);
     }
 
     public static void showRestartDialog(@NonNull Context context) {

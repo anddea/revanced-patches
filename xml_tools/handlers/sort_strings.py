@@ -29,7 +29,7 @@ def sort_file(path: Path) -> None:
             new_root.append(string_elem)
 
         XMLProcessor.write_file(path, new_root)
-        logger.info("Sorted strings in %s", path)
+        logger.debug("Sorted strings in %s", path)
 
     except Exception:
         logger.exception("Failed to sort %s: ", path)

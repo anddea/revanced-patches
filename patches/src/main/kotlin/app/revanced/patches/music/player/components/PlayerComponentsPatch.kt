@@ -46,6 +46,7 @@ import app.revanced.patches.music.utils.videotype.videoTypeHookPatch
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.shared.mainactivity.getMainActivityMethod
+import app.revanced.patches.shared.scrolltop.commentsScrollTopPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.addStaticFieldToExtension
 import app.revanced.util.adoptChild
@@ -200,6 +201,7 @@ val playerComponentsPatch = bytecodePatch(
         lithoFilterPatch,
         mainActivityResolvePatch,
         videoTypeHookPatch,
+        commentsScrollTopPatch,
     )
 
     execute {
@@ -774,6 +776,16 @@ val playerComponentsPatch = bytecodePatch(
             CategoryType.PLAYER,
             "revanced_enable_swipe_to_dismiss_miniplayer",
             "true"
+        )
+
+        // endregion
+
+        // region patch for enable scroll to top in comments
+
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_enable_comments_scroll_top",
+            "false"
         )
 
         // endregion

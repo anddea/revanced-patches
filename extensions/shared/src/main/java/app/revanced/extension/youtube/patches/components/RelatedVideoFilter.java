@@ -47,8 +47,9 @@ public final class RelatedVideoFilter extends Filter {
     public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (PlayerType.getCurrent() == PlayerType.WATCH_WHILE_MINIMIZED &&
-                isActionBarVisible.compareAndSet(false, true))
-            Utils.runOnMainThreadDelayed(() -> isActionBarVisible.compareAndSet(true, false), 750);
+                isActionBarVisible.compareAndSet(false, true)) {
+            Utils.runOnMainThreadDelayed(() -> isActionBarVisible.compareAndSet(true, false), 1000);
+        }
 
         return false;
     }

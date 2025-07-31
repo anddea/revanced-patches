@@ -24,13 +24,11 @@ import java.util.concurrent.TimeoutException
 class CreatePlaylistRequest private constructor(
     private val videoId: String,
     private val requestHeader: Map<String, String>,
-    private val dataSyncId: String,
 ) {
     private val future: Future<Pair<String, String>> = Utils.submitOnBackgroundThread {
         fetch(
             videoId,
             requestHeader,
-            dataSyncId,
         )
     }
 
@@ -83,7 +81,6 @@ class CreatePlaylistRequest private constructor(
         fun fetchRequestIfNeeded(
             videoId: String,
             requestHeader: Map<String, String>,
-            dataSyncId: String,
         ) {
             Objects.requireNonNull(videoId)
             synchronized(cache) {
@@ -91,7 +88,6 @@ class CreatePlaylistRequest private constructor(
                     cache[videoId] = CreatePlaylistRequest(
                         videoId,
                         requestHeader,
-                        dataSyncId,
                     )
                 }
             }
@@ -111,7 +107,6 @@ class CreatePlaylistRequest private constructor(
         private fun sendCreatePlaylistRequest(
             videoId: String,
             requestHeader: Map<String, String>,
-            dataSyncId: String,
         ): JSONObject? {
             Objects.requireNonNull(videoId)
 
@@ -126,7 +121,6 @@ class CreatePlaylistRequest private constructor(
                     CREATE_PLAYLIST,
                     clientType,
                     requestHeader,
-                    dataSyncId,
                 )
 
                 val requestBody = createPlaylistRequestBody(videoId = videoId)
@@ -159,7 +153,6 @@ class CreatePlaylistRequest private constructor(
             videoId: String,
             playlistId: String,
             requestHeader: Map<String, String>,
-            dataSyncId: String,
         ): JSONObject? {
             Objects.requireNonNull(playlistId)
 
@@ -174,7 +167,6 @@ class CreatePlaylistRequest private constructor(
                     GET_SET_VIDEO_ID,
                     clientType,
                     requestHeader,
-                    dataSyncId,
                 )
 
                 val requestBody = createApplicationRequestBody(
@@ -250,12 +242,10 @@ class CreatePlaylistRequest private constructor(
         private fun fetch(
             videoId: String,
             requestHeader: Map<String, String>,
-            dataSyncId: String,
         ): Pair<String, String>? {
             val createPlaylistJson = sendCreatePlaylistRequest(
                 videoId,
                 requestHeader,
-                dataSyncId
             )
             if (createPlaylistJson != null) {
                 val playlistId = parseCreatePlaylistResponse(createPlaylistJson)
@@ -264,7 +254,6 @@ class CreatePlaylistRequest private constructor(
                         videoId,
                         playlistId,
                         requestHeader,
-                        dataSyncId
                     )
                     if (setVideoIdJson != null) {
                         val setVideoId = parseSetVideoIdResponse(setVideoIdJson)

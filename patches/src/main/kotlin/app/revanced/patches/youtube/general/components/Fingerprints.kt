@@ -5,6 +5,7 @@ import app.revanced.patches.youtube.utils.resourceid.compactLink
 import app.revanced.patches.youtube.utils.resourceid.compactListItem
 import app.revanced.patches.youtube.utils.resourceid.editSettingsAction
 import app.revanced.patches.youtube.utils.resourceid.fab
+import app.revanced.patches.youtube.utils.resourceid.pairWithTVKey
 import app.revanced.patches.youtube.utils.resourceid.toolTipContentView
 import app.revanced.patches.youtube.utils.resourceid.ytCallToAction
 import app.revanced.util.fingerprint.legacyFingerprint
@@ -103,6 +104,17 @@ internal fun indexOfPreferenceScreenInstruction(method: Method) =
                 reference?.returnType == "Landroidx/preference/PreferenceScreen;" &&
                 reference.parameterTypes.isEmpty()
     }
+
+internal val preferencePairWithTVFingerprint = legacyFingerprint(
+    name = "preferencePairWithTVFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Ljava/lang/Object;"),
+    literals = listOf(pairWithTVKey),
+    customFingerprint = { method, classDef ->
+        AccessFlags.SYNTHETIC.isSet(classDef.accessFlags)
+    }
+)
 
 internal val tooltipContentFullscreenFingerprint = legacyFingerprint(
     name = "tooltipContentFullscreenFingerprint",
