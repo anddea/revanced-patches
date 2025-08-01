@@ -1,3 +1,10 @@
+# [3.11.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.11.0-dev.2...v3.11.0-dev.3) (2025-08-01)
+
+
+### Features
+
+* **Spotify - Custom theme:** Add `Icon color` and `Enable secondary background color` patch options ([56b851b](https://github.com/anddea/revanced-patches/commit/56b851bccb755f4a502ebdfdf8e81f196ba9674b))
+
 # [3.11.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.11.0-dev.1...v3.11.0-dev.2) (2025-07-31)
 
 
