@@ -773,6 +773,15 @@
         "values": null
       },
       {
+        "key": "enableBackgroundColorSecondary",
+        "title": "Enable secondary background color",
+        "description": "The option to enable the secondary background color.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": false,
+        "values": null
+      },
+      {
         "key": "backgroundColorSecondary",
         "title": "Secondary background color",
         "description": "The secondary background color. (e.g. playlist list in home, player artist, song credits). Can be a hex color or a resource reference.\",",
@@ -797,6 +806,15 @@
         "required": true,
         "type": "kotlin.String",
         "default": "#FF1ABC54",
+        "values": null
+      },
+      {
+        "key": "iconColor",
+        "title": "Icon color",
+        "description": "Apply the accent color to the launcher icon.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": true,
         "values": null
       }
     ]
