@@ -65,7 +65,7 @@ def is_rvx_dir_needed(options: dict[str, Any]) -> bool:
 @click.option("-m", "--missing", is_flag=True, help="Run missing strings check")
 @click.option("-r", "--replace", is_flag=True, help="Run replace strings operation")
 @click.option("--remove", is_flag=True, help="Remove unused strings")
-@click.option("--remove-resources", is_flag=True, help="Remove unused resource files")  # Add this line
+@click.option("--remove-resources", is_flag=True, help="Remove unused resource files")
 @click.option("-s", "--sort", is_flag=True, help="Sort strings in XML files")
 @click.option("-c", "--check", is_flag=True, help="Run missing strings check")
 @click.option("-p", "--prefs", is_flag=True, help="Run missing preferences check")
@@ -77,6 +77,7 @@ def is_rvx_dir_needed(options: dict[str, Any]) -> bool:
     help="Create updated_strings.xml from keys listed in the specified file.",
 )
 @click.option("--youtube/--music", default=True, help="Process YouTube or Music strings")
+@click.option("--debug", is_flag=True, help="Enable debug logging")
 @click.pass_context
 def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
     """CLI tool for processing XML commands."""
@@ -84,8 +85,9 @@ def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
     log_file = log_file if isinstance(log_file, str) else None
 
     app: str = "youtube" if kwargs.get("youtube") else "music"
+    debug: bool = bool(kwargs.get("debug", False))
 
-    logger = setup_logging(Path(log_file) if log_file else None)
+    logger = setup_logging(Path(log_file) if log_file else None, debug=debug)
 
     rvx_base_dir = kwargs.get("rvx_base_dir")
     rvx_base_dir = rvx_base_dir if isinstance(rvx_base_dir, str) else None
@@ -144,12 +146,12 @@ def process_all(config: CLIConfig) -> None:
         ("Replace Strings (YouTube Music)", replace_strings.process, ["music", base_dir]),
         ("Remove Unused Strings (YouTube)", remove_unused_strings.process, ["youtube"]),
         ("Remove Unused Strings (YouTube Music)", remove_unused_strings.process, ["music"]),
-        ("Remove Unused Resources (YouTube)", remove_unused_resources.process, ["youtube"]),
-        ("Remove Unused Resources (YouTube Music)", remove_unused_resources.process, ["music"]),
         ("Sort Strings (YouTube)", sort_strings.process, ["youtube"]),
         ("Sort Strings (YouTube Music)", sort_strings.process, ["music"]),
         ("Missing Strings Creation (YouTube)", missing_strings.process, ["youtube"]),
         ("Missing Strings Creation (YouTube Music)", missing_strings.process, ["music"]),
+        ("Remove Unused Resources (YouTube)", remove_unused_resources.process, ["youtube"]),
+        ("Remove Unused Resources (YouTube Music)", remove_unused_resources.process, ["music"]),
         ("Missing Prefs Check", check_prefs.process, ["youtube", base_dir]),
         ("Missing Prefs Check (Reverse)", check_prefs_reverse.process, ["youtube", base_dir]),
         ("Missing Strings Check (YouTube)", check_strings.process, ["youtube", base_dir]),

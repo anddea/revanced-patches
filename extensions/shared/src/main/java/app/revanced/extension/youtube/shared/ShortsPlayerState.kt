@@ -14,10 +14,7 @@ enum class ShortsPlayerState {
 
         @JvmStatic
         fun set(enum: ShortsPlayerState) {
-            if (current != enum) {
-                Logger.printDebug { "ShortsPlayerState changed to: ${enum.name}" }
-                current = enum
-            }
+            current = enum
         }
 
         /**
@@ -26,9 +23,13 @@ enum class ShortsPlayerState {
         @JvmStatic
         var current
             get() = currentShortsPlayerState
-            private set(value) {
-                currentShortsPlayerState = value
-                onChange(value)
+            private set(type) {
+                if (currentShortsPlayerState != type) {
+                    Logger.printDebug { "Changed to: $type" }
+
+                    currentShortsPlayerState = type
+                    onChange(type)
+                }
             }
 
         @Volatile // Read/write from different threads.

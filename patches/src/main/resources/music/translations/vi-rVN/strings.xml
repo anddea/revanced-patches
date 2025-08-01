@@ -102,6 +102,10 @@ Hạn chế: Video dành cho trẻ em có thể không được chuyển hướn
     <string name="revanced_disable_player_gesture_title">Tắt cử chỉ trình phát</string>
     <string name="revanced_disable_quic_protocol_summary">"Vô hiệu hoá giao thức QUIC của CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Vô hiệu hoá giao thức QUIC</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"Nhấn vào tiêu đề Bình luận để cuộn lên đầu trang.
+
+Hạn chế: Không áp dụng trong trang phản hồi bình luận."</string>
+    <string name="revanced_enable_comments_scroll_top_title">Cuộn lên đầu trang trong bình luận</string>
     <string name="revanced_enable_compact_dialog_summary">"Bật trình đơn tuỳ chọn dạng hộp thoại.
 
 Hạn chế:
@@ -144,7 +148,7 @@ Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên 
     <string name="revanced_enable_trim_silence_title">Cắt bỏ khoảng lặng</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Chế độ tập trung cho Podcast.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Chế độ tập trung cho Podcast</string>
-    <string name="revanced_enable_zen_mode_summary">Thay đổi nền của trình phát thành màu xám nhạt để giúp mắt của bạn thư giãn hơn.</string>
+    <string name="revanced_enable_zen_mode_summary">Thay đổi nền của trình phát thành màu xám nhạt để giúp bạn giảm mỏi mắt và tập trung hơn.</string>
     <string name="revanced_enable_zen_mode_title">Chế độ tập trung</string>
     <string name="revanced_extended_reset_to_default_toast">Đặt lại về giá trị mặc định.</string>
     <string name="revanced_extended_restart_first_run">Vui lòng khởi động lại ứng dụng để các tính năng hoạt động bình thường</string>
@@ -171,8 +175,8 @@ Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên 
     <string name="revanced_external_downloader_dialog_title">Trình tải xuống bên ngoài</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"Có vẻ như %1$s chưa được cài đặt.
  Vui lòng tải xuống %2$s từ trang web."</string>
-    <string name="revanced_external_downloader_not_installed_dialog_title">Chú ý</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s chưa được cài đặt. Hãy cài đặt và thử lại.</string>
+    <string name="revanced_external_downloader_not_installed_dialog_title">Cảnh báo</string>
+    <string name="revanced_external_downloader_not_installed_warning">Hiện %s chưa được cài đặt. Hãy cài đặt và thử lại.</string>
     <string name="revanced_external_downloader_package_name_summary">Nhập tên gói ứng dụng trình tải xuống đã cài đặt trên thiết bị của bạn, chẳng hạn như NewPipe hoặc YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Tên gói ứng dụng trình tải xuống</string>
     <string name="revanced_fullscreen_ads_closed_toast">Quảng cáo toàn màn hình đã đóng.</string>
@@ -199,7 +203,7 @@ Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên 
     <string name="revanced_hide_action_button_share_summary">Ẩn nút Chia sẻ trong thanh tương tác.</string>
     <string name="revanced_hide_action_button_share_title">Ẩn nút Chia sẻ</string>
     <string name="revanced_hide_action_button_song_video_summary">"Ẩn nút chuyển đổi giữa Bài hát và Video trên thanh tương tác.
-(Nút này chỉ có sẵn với một số người dùng)"</string>
+(Nút chỉ có sẵn với một số người dùng)"</string>
     <string name="revanced_hide_action_button_song_video_title">Ẩn nút chuyển đổi giữa Bài hát và Video</string>
     <string name="revanced_hide_audio_video_switch_toggle_summary">Ẩn nút chuyển đổi giữa Bài hát và Video trong trình phát.</string>
     <string name="revanced_hide_audio_video_switch_toggle_title">Ẩn nút chuyển đổi giữa Bài hát và Video</string>
@@ -318,7 +322,7 @@ Khi bật không những ẩn mục Cài đặt YT Music, mà còn ẩn mục C�
     <string name="revanced_hide_terms_container_title">Ẩn mục Bảo mật và Điều khoản</string>
     <string name="revanced_hide_voice_search_button_summary">Ẩn nút Tìm kiếm bằng giọng nói kế bên thanh tìm kiếm.</string>
     <string name="revanced_hide_voice_search_button_title">Ẩn nút Tìm kiếm bằng giọng nói</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Chưa ghi đè</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Không ghi đè</string>
     <string name="revanced_litho_layout_thread_pool_max_size_invalid_toast">Số luồng tối đa của Litho phải nằm trong khoảng từ 1 đến 3.</string>
     <string name="revanced_litho_layout_thread_pool_max_size_summary">"Chọn số luồng tối đa mà Litho có thể sử dụng.
 
@@ -379,14 +383,14 @@ Bạn có thể mở Thay đổi cài đặt trang khởi động bằng cách n
     <string name="revanced_replace_navigation_upgrade_button_summary">Thay thế nút Nâng cấp bằng nút Cài đặt.</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Thay thế nút Nâng cấp</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Khôi phục bảng bình luận kiểu cũ.</string>
-    <string name="revanced_restore_old_comments_popup_panels_title">Bảng bình luận kiểu cũ</string>
+    <string name="revanced_restore_old_comments_popup_panels_title">Khôi phục bảng bình luận cũ</string>
     <string name="revanced_restore_old_player_background_summary">Khôi phục nền của trình phát về kiểu cũ.</string>
     <string name="revanced_restore_old_player_background_title">Nền trình phát kiểu cũ</string>
     <string name="revanced_restore_old_player_layout_summary">"Khôi phục bố cục trình phát về kiểu cũ.
 Một số tính năng có thể không hoạt động bình thường trong bố cục trình phát kiểu cũ."</string>
-    <string name="revanced_restore_old_player_layout_title">Bố cục trình phát kiểu cũ</string>
+    <string name="revanced_restore_old_player_layout_title">Khôi phục bố cục trình phát cũ</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Khôi phục lại thẻ Thư viện về kiểu cũ. (Thử nghiệm)</string>
-    <string name="revanced_restore_old_style_library_shelf_title">Thẻ Thư viện cũ</string>
+    <string name="revanced_restore_old_style_library_shelf_title">Khôi phục thẻ thư viện cũ</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@handle (Tên người dùng)</string>
     <string name="revanced_return_youtube_username_display_format_summary">Chọn định dạng hiển thị tên người dùng.</string>
     <string name="revanced_return_youtube_username_display_format_title">Định dạng hiển thị</string>
@@ -511,11 +515,6 @@ Hạn chế:
 
 • Khi được sử dụng đồng thời với \"Giả mạo ứng dụng khách\", có thể gây ra sự cố phát."</string>
     <string name="revanced_spoof_streaming_data_title">Giả mạo luồng dữ liệu trực tuyến</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_summary">Xác định một ứng dụng khách mặc định để nạp luồng dữ liệu trực tuyến.</string>
-    <string name="revanced_spoof_streaming_data_type_title">Ứng dụng khách mặc định</string>
     <string name="revanced_watch_history_type_entry_1">Gốc</string>
     <string name="revanced_watch_history_type_entry_2">Thay thế miền</string>
     <string name="revanced_watch_history_type_entry_3">Chặn nhật ký</string>

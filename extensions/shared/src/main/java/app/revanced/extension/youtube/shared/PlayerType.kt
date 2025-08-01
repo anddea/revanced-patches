@@ -20,9 +20,6 @@ enum class PlayerType {
 
     /**
      * A regular video is minimized.
-     *
-     * When spoofing to 16.x YouTube and watching a short with a regular video in the background,
-     * the type can be this (and not [HIDDEN]).
      */
     WATCH_WHILE_MINIMIZED,
     WATCH_WHILE_MAXIMIZED,
@@ -54,8 +51,7 @@ enum class PlayerType {
             val newType = nameToPlayerType[enumName]
             if (newType == null) {
                 Logger.printException { "Unknown PlayerType encountered: $enumName" }
-            } else if (current != newType) {
-                Logger.printDebug { "PlayerType changed to: $newType" }
+            } else {
                 current = newType
             }
         }
@@ -66,9 +62,13 @@ enum class PlayerType {
         @JvmStatic
         var current
             get() = currentPlayerType
-            private set(value) {
-                currentPlayerType = value
-                onChange(value)
+            private set(type) {
+                if (currentPlayerType != type) {
+                    Logger.printDebug { "Changed to: $type" }
+
+                    currentPlayerType = type
+                    onChange(type)
+                }
             }
 
         @Volatile // Read/write from different threads.

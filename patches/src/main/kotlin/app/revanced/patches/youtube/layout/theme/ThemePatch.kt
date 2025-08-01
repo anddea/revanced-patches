@@ -14,6 +14,7 @@ import org.w3c.dom.Element
 val themePatch = resourcePatch(
     THEME.title,
     THEME.summary,
+    false,
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 

@@ -153,8 +153,14 @@ val navigationBarComponentsPatch = bytecodePatch(
                     "invoke-static {v$pivotTabRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V"
                 )
 
+                val mapPutIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                    opcode == Opcode.INVOKE_INTERFACE &&
+                            getReference<MethodReference>()?.name == "put" &&
+                            getReference<MethodReference>()?.definingClass == "Ljava/util/Map;"
+                }
+
                 addInstructions(
-                    componentIndex + 1, """
+                    mapPutIndex, """
                         const-string v$enumRegister, "$fieldName"
                         invoke-static {v$componentRegister, v$browseIdRegister, v$enumRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceBrowseId(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$browseIdRegister

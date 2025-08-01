@@ -38,7 +38,7 @@ def compare_and_update(source_path: Path, dest_path: Path, missing_path: Path) -
 
             # Write missing strings file
             XMLProcessor.write_file(missing_path, root)
-            logger.info("Modified missing strings file: %s", missing_path)
+            logger.debug("Modified missing strings file: %s", missing_path)
         elif missing_path.exists():
             missing_path.unlink()
             logger.info("Removed empty missing strings file: %s", missing_path)

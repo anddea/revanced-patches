@@ -2,13 +2,13 @@ package app.revanced.extension.youtube.patches.shorts;
 
 import static app.revanced.extension.shared.utils.ResourceUtils.getRawIdentifier;
 import static app.revanced.extension.youtube.patches.shorts.AnimationFeedbackPatch.AnimationType.ORIGINAL;
+import static app.revanced.extension.youtube.patches.utils.LottieAnimationViewPatch.setLottieAnimationRawResources;
 
 import androidx.annotation.Nullable;
 
 import com.airbnb.lottie.LottieAnimationView;
 
 import app.revanced.extension.shared.utils.ResourceUtils;
-import app.revanced.extension.youtube.patches.utils.LottieAnimationViewPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -37,14 +37,19 @@ public final class AnimationFeedbackPatch {
         }
     }
 
-    private static final AnimationType CURRENT_TYPE = Settings.ANIMATION_TYPE.get();
+    private static final AnimationType CURRENT_TYPE =
+            Settings.ANIMATION_TYPE.get();
 
-    private static final boolean HIDE_PLAY_PAUSE_FEEDBACK = Settings.HIDE_SHORTS_PLAY_PAUSE_BUTTON_BACKGROUND.get();
+    /**
+     * Injection point.
+     */
+    public static int getShortsLikeFeedbackId(int originalId) {
+        if (CURRENT_TYPE == ORIGINAL || CURRENT_TYPE.rawRes == 0) {
+            return originalId;
+        }
 
-    private static int PAUSE_TAP_FEEDBACK_HIDDEN = 0;
-
-    private static int PLAY_TAP_FEEDBACK_HIDDEN = 0;
-
+        return CURRENT_TYPE.rawRes;
+    }
 
     /**
      * Injection point.
@@ -54,21 +59,23 @@ public final class AnimationFeedbackPatch {
             return;
         }
 
-        LottieAnimationViewPatch.setLottieAnimationRawResources(lottieAnimationView, CURRENT_TYPE.rawRes);
+        setLottieAnimationRawResources(lottieAnimationView, CURRENT_TYPE.rawRes);
     }
 
     /**
      * Injection point.
      */
     public static void setShortsPauseFeedback(LottieAnimationView lottieAnimationView) {
-        if (!HIDE_PLAY_PAUSE_FEEDBACK) {
+        if (!Settings.HIDE_SHORTS_PLAY_PAUSE_BUTTON_BACKGROUND.get()) {
             return;
         }
-        if (PAUSE_TAP_FEEDBACK_HIDDEN == 0) {
-            PAUSE_TAP_FEEDBACK_HIDDEN = ResourceUtils.getRawIdentifier("pause_tap_feedback_hidden");
-        }
-        if (PAUSE_TAP_FEEDBACK_HIDDEN != 0) {
-            LottieAnimationViewPatch.setLottieAnimationRawResources(lottieAnimationView, PAUSE_TAP_FEEDBACK_HIDDEN);
+        int pauseTapFeedbackHidden =
+                ResourceUtils.getRawIdentifier("pause_tap_feedback_hidden");
+        if (pauseTapFeedbackHidden != 0) {
+            setLottieAnimationRawResources(
+                    lottieAnimationView,
+                    pauseTapFeedbackHidden
+            );
         }
     }
 
@@ -76,14 +83,16 @@ public final class AnimationFeedbackPatch {
      * Injection point.
      */
     public static void setShortsPlayFeedback(LottieAnimationView lottieAnimationView) {
-        if (!HIDE_PLAY_PAUSE_FEEDBACK) {
+        if (!Settings.HIDE_SHORTS_PLAY_PAUSE_BUTTON_BACKGROUND.get()) {
             return;
         }
-        if (PLAY_TAP_FEEDBACK_HIDDEN == 0) {
-            PLAY_TAP_FEEDBACK_HIDDEN = ResourceUtils.getRawIdentifier("play_tap_feedback_hidden");
-        }
-        if (PLAY_TAP_FEEDBACK_HIDDEN != 0) {
-            LottieAnimationViewPatch.setLottieAnimationRawResources(lottieAnimationView, PLAY_TAP_FEEDBACK_HIDDEN);
+        int playTapFeedbackHidden =
+                ResourceUtils.getRawIdentifier("play_tap_feedback_hidden");
+        if (playTapFeedbackHidden != 0) {
+            setLottieAnimationRawResources(
+                    lottieAnimationView,
+                    playTapFeedbackHidden
+            );
         }
     }
 

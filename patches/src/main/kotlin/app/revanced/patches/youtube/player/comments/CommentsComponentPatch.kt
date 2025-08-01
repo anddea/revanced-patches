@@ -6,14 +6,18 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
+import app.revanced.patches.shared.scrolltop.commentsScrollTopPatch
 import app.revanced.patches.shared.spans.addSpanFilter
 import app.revanced.patches.shared.spans.inclusiveSpanPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.componentlist.hookElementList
+import app.revanced.patches.youtube.utils.componentlist.lazilyConvertedElementHookPatch
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.SPANS_PATH
 import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_COMMENTS_COMPONENTS
+import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
@@ -41,7 +45,10 @@ val commentsComponentPatch = bytecodePatch(
         inclusiveSpanPatch,
         lithoFilterPatch,
         lithoLayoutPatch,
+        lazilyConvertedElementHookPatch,
+        playerTypeHookPatch,
         sharedResourceIdPatch,
+        commentsScrollTopPatch,
     )
 
     execute {
@@ -84,6 +91,7 @@ val commentsComponentPatch = bytecodePatch(
 
         addSpanFilter(SEARCH_LINKS_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(COMMENTS_FILTER_CLASS_DESCRIPTOR)
+        hookElementList("$PLAYER_CLASS_DESCRIPTOR->sanitizeCommentsCategoryBar")
 
         // region add settings
 

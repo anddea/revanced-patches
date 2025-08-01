@@ -20,12 +20,7 @@ enum class VideoState {
         @JvmStatic
         fun setFromString(enumName: String) {
             val state = nameToVideoState[enumName]
-            if (state == null) {
-                Logger.printException { "Unknown VideoState encountered: $enumName" }
-            } else if (current != state) {
-                Logger.printDebug { "VideoState changed to: $state" }
-                current = state
-            }
+            current = state
         }
 
         /**
@@ -35,8 +30,12 @@ enum class VideoState {
         @JvmStatic
         var current
             get() = currentVideoState
-            private set(value) {
-                currentVideoState = value
+            private set(type) {
+                if (currentVideoState != type) {
+                    Logger.printDebug { "Changed to: $type" }
+
+                    currentVideoState = type
+                }
             }
 
         @Volatile // Read/write from different threads.

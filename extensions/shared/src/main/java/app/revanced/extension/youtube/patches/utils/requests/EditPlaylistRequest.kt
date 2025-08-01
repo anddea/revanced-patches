@@ -24,7 +24,6 @@ class EditPlaylistRequest private constructor(
     private val playlistId: String,
     private val setVideoId: String?,
     private val requestHeader: Map<String, String>,
-    private val dataSyncId: String,
 ) {
     private val future: Future<String> = Utils.submitOnBackgroundThread {
         fetch(
@@ -32,7 +31,6 @@ class EditPlaylistRequest private constructor(
             playlistId,
             setVideoId,
             requestHeader,
-            dataSyncId,
         )
     }
 
@@ -94,7 +92,6 @@ class EditPlaylistRequest private constructor(
             playlistId: String,
             setVideoId: String?,
             requestHeader: Map<String, String>,
-            dataSyncId: String,
         ) {
             Objects.requireNonNull(videoId)
             synchronized(cache) {
@@ -104,7 +101,6 @@ class EditPlaylistRequest private constructor(
                         playlistId,
                         setVideoId,
                         requestHeader,
-                        dataSyncId,
                     )
                 }
             }
@@ -126,7 +122,6 @@ class EditPlaylistRequest private constructor(
             playlistId: String,
             setVideoId: String?,
             requestHeader: Map<String, String>,
-            dataSyncId: String,
         ): JSONObject? {
             Objects.requireNonNull(videoId)
 
@@ -141,7 +136,6 @@ class EditPlaylistRequest private constructor(
                     EDIT_PLAYLIST,
                     clientType,
                     requestHeader,
-                    dataSyncId
                 )
 
                 val requestBody = editPlaylistRequestBody(
@@ -205,14 +199,12 @@ class EditPlaylistRequest private constructor(
             playlistId: String,
             setVideoId: String?,
             requestHeader: Map<String, String>,
-            dataSyncId: String,
         ): String? {
             val json = sendRequest(
                 videoId,
                 playlistId,
                 setVideoId,
                 requestHeader,
-                dataSyncId,
             )
             if (json != null) {
                 return parseResponse(json, setVideoId != null && setVideoId.isNotEmpty())

@@ -22,13 +22,11 @@ import java.util.concurrent.TimeoutException
 class GetPlaylistsRequest private constructor(
     private val playlistId: String,
     private val requestHeader: Map<String, String>,
-    private val dataSyncId: String,
 ) {
     private val future: Future<Array<Pair<String, String>>> = Utils.submitOnBackgroundThread {
         fetch(
             playlistId,
             requestHeader,
-            dataSyncId,
         )
     }
 
@@ -81,7 +79,6 @@ class GetPlaylistsRequest private constructor(
         fun fetchRequestIfNeeded(
             playlistId: String,
             requestHeader: Map<String, String>,
-            dataSyncId: String,
         ) {
             Objects.requireNonNull(playlistId)
             synchronized(cache) {
@@ -89,7 +86,6 @@ class GetPlaylistsRequest private constructor(
                     cache[playlistId] = GetPlaylistsRequest(
                         playlistId,
                         requestHeader,
-                        dataSyncId,
                     )
                 }
             }
@@ -109,7 +105,6 @@ class GetPlaylistsRequest private constructor(
         private fun sendRequest(
             playlistId: String,
             requestHeader: Map<String, String>,
-            dataSyncId: String,
         ): JSONObject? {
             Objects.requireNonNull(playlistId)
 
@@ -124,7 +119,6 @@ class GetPlaylistsRequest private constructor(
                     GET_PLAYLISTS,
                     clientType,
                     requestHeader,
-                    dataSyncId
                 )
 
                 val requestBody = getPlaylistsRequestBody(playlistId)
@@ -209,9 +203,8 @@ class GetPlaylistsRequest private constructor(
         private fun fetch(
             playlistId: String,
             requestHeader: Map<String, String>,
-            dataSyncId: String,
         ): Array<Pair<String, String>>? {
-            val json = sendRequest(playlistId, requestHeader, dataSyncId)
+            val json = sendRequest(playlistId, requestHeader)
             if (json != null) {
                 return parseResponse(json)
             }

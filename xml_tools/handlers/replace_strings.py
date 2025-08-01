@@ -106,7 +106,7 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
 
         # Write updated file
         XMLProcessor.write_file(target_path, target_root)
-        logger.info("Updated strings in %s", target_path)
+        logger.debug("Updated strings in %s", target_path)
 
     except Exception:
         logger.exception("Failed to update strings in %s: ", target_path)

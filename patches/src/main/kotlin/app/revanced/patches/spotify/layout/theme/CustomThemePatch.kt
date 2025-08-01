@@ -103,6 +103,14 @@ val customThemePatch = resourcePatch(
         required = false,
     )
 
+    val enableBackgroundColorSecondary by booleanOption(
+        key = "enableBackgroundColorSecondary",
+        default = false,
+        title = "Enable secondary background color",
+        description = "The option to enable the secondary background color.",
+        required = true,
+    )
+
     val backgroundColorSecondary by stringOption(
         key = "backgroundColorSecondary",
         default = "#FF121212",
@@ -126,6 +134,14 @@ val customThemePatch = resourcePatch(
         title = "Pressed accent color",
         description = "The color when accented buttons are pressed, by default slightly darker than accent. " +
                 "Can be a hex color or a resource reference.",
+        required = true,
+    )
+
+    val iconColor by booleanOption(
+        key = "iconColor",
+        default = true,
+        title = "Icon color",
+        description = "Apply the accent color to the launcher icon.",
         required = true,
     )
 
@@ -162,15 +178,16 @@ val customThemePatch = resourcePatch(
                     "image_placeholder_color",
                         -> backgroundColor
 
-                    // "About the artist" background color in song player.
-                    "gray_15",
-                    // Track credits, merch background color in song player.
-                    "track_credits_card_bg", "benefit_list_default_color", "merch_card_background",
-                    // Playlist list background in home page.
-                    "opacity_white_10",
-                    // "What's New" pills background.
-                    "dark_base_background_tinted_highlight"
-                        -> backgroundColorSecondary
+                    in setOf(
+                        // "About the artist" background color in song player.
+                        "gray_15",
+                        // Track credits, merch background color in song player.
+                        "track_credits_card_bg", "benefit_list_default_color", "merch_card_background",
+                        // Playlist list background in home page.
+                        "opacity_white_10",
+                        // "What's New" pills background.
+                        "dark_base_background_tinted_highlight"
+                    ) -> if (enableBackgroundColorSecondary!!) backgroundColorSecondary else continue
 
                     "dark_brightaccent_background_base",
                     "dark_base_text_brightaccent",
@@ -192,6 +209,13 @@ val customThemePatch = resourcePatch(
 
             gradientNode.setAttribute("android:startColor", "@color/gray_7")
             gradientNode.setAttribute("android:endColor", "@color/gray_7")
+        }
+
+        if (iconColor!!) {
+            document("res/drawable/ic_launcher_renaissance_foreground.xml").use { document ->
+                val pathElement = document.getElementsByTagName("path").item(0) as Element
+                pathElement.setAttribute("android:fillColor", "$accentColor")
+            }
         }
     }
 }

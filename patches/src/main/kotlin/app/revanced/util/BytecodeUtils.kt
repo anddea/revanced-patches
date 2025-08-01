@@ -58,6 +58,9 @@ fun parametersEqual(
     return true
 }
 
+internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int) =
+    findFreeRegister(startIndex, true, *registersToExclude)
+
 /**
  * Starting from and including the instruction at index [startIndex],
  * finds the next register that is wrote to and not read from. If a return instruction
@@ -67,12 +70,13 @@ fun parametersEqual(
  * swap register contents if a 4-bit register is required.
  *
  * @param startIndex Inclusive starting index.
+ * @param checkBranch Whether to check branch opcodes, which can only be used on verified indices.
  * @param registersToExclude Registers to exclude, and consider as used. For most use cases,
  *                           all registers used in injected code should be specified.
  * @throws IllegalArgumentException If a branch or conditional statement is encountered
  *                                  before a suitable register is found.
  */
-internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): Int {
+internal fun Method.findFreeRegister(startIndex: Int, checkBranch: Boolean, vararg registersToExclude: Int): Int {
     if (implementation == null) {
         throw IllegalArgumentException("Method has no implementation: $this")
     }
@@ -180,7 +184,7 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
             )
         }
 
-        if (instruction.opcode in branchOpcodes) {
+        if (checkBranch && instruction.opcode in branchOpcodes) {
             if (bestFreeRegisterFound != null) {
                 return bestFreeRegisterFound;
             }

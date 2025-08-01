@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/spotify/misc/privacy/SanitizeSharingLinksPatch;"
 
-private val SHARE_PARAMETERS = setOf("si", "utm_source", "context")
+private val SHARE_PARAMETERS = setOf("context", "pi", "si", "utm_source")
 
 @Suppress("unused")
 val sanitizeSharingLinksPatch = bytecodePatch(

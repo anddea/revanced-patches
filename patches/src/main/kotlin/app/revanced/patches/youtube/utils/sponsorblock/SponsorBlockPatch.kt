@@ -13,9 +13,7 @@ import app.revanced.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.patch.PatchList.SPONSORBLOCK
 import app.revanced.patches.youtube.utils.playercontrols.addTopControl
-import app.revanced.patches.youtube.utils.playercontrols.changeVisibilityHook
-import app.revanced.patches.youtube.utils.playercontrols.changeVisibilityNegatedImmediateHook
-import app.revanced.patches.youtube.utils.playercontrols.hookTopControlButton
+import app.revanced.patches.youtube.utils.playercontrols.injectControl
 import app.revanced.patches.youtube.utils.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.utils.resourceid.insetOverlayViewLayout
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -110,15 +108,18 @@ val sponsorBlockBytecodePatch = bytecodePatch(
 
         // Voting & Shield button
         setOf(
-            "CreateSegmentButtonController;",
-            "VotingButtonController;"
+            "CreateSegmentButton",
+            "VotingButton"
         ).forEach { className ->
-            hookTopControlButton("$EXTENSION_SPONSOR_BLOCK_UI_PATH/$className")
+            injectControl("$EXTENSION_SPONSOR_BLOCK_UI_PATH/${className};")
         }
 
         // Skip button
-        changeVisibilityHook(EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR)
-        changeVisibilityNegatedImmediateHook(EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR)
+        injectControl(
+            descriptor = EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR,
+            topControl = false,
+            initialize = false
+        )
 
         // Append timestamp
         totalTimeFingerprint.methodOrThrow().apply {

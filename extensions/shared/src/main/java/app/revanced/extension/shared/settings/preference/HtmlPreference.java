@@ -1,10 +1,9 @@
 package app.revanced.extension.shared.settings.preference;
 
-import static android.text.Html.FROM_HTML_MODE_COMPACT;
+import static app.revanced.extension.shared.utils.Utils.setHtml;
 
 import android.content.Context;
 import android.preference.Preference;
-import android.text.Html;
 import android.util.AttributeSet;
 
 /**
@@ -13,7 +12,7 @@ import android.util.AttributeSet;
 @SuppressWarnings({"unused", "deprecation"})
 public class HtmlPreference extends Preference {
     {
-        setSummary(Html.fromHtml(getSummary().toString(), FROM_HTML_MODE_COMPACT));
+        setSummary(setHtml(getSummary().toString()));
     }
 
     public HtmlPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {

@@ -1,3 +1,32 @@
+# [3.11.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.11.0-dev.2...v3.11.0-dev.3) (2025-08-01)
+
+
+### Features
+
+* **Spotify - Custom theme:** Add `Icon color` and `Enable secondary background color` patch options ([56b851b](https://github.com/anddea/revanced-patches/commit/56b851bccb755f4a502ebdfdf8e81f196ba9674b))
+
+# [3.11.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.11.0-dev.1...v3.11.0-dev.2) (2025-07-31)
+
+
+### Features
+
+* Align with RVX [[v5.8.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.8.1)] ([6fbd725](https://github.com/anddea/revanced-patches/commit/6fbd72559373786ca6058491ae8de645b999541b))
+* **YouTube - Hide feed components:** Add `Hide "Most relevant" shelf` setting ([9785104](https://github.com/anddea/revanced-patches/commit/9785104949265692e5d65b1296d5db53b0d3b386))
+
+# [3.11.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.10.0...v3.11.0-dev.1) (2025-07-23)
+
+
+### Bug Fixes
+
+* **YouTube Music - Navigation bar components:** Samples tab opens on back press when 'Replace Samples button' is enabled (v8.18+) ([b49b704](https://github.com/anddea/revanced-patches/commit/b49b70404130206654d90b839f0a1be7e2c246e3))
+* **YouTube:** Allow API key export for `Return YouTube Username` (⚠️ Do not share API keys with anyone) ([7ae6867](https://github.com/anddea/revanced-patches/commit/7ae68672758ca6a76bada7c7fb96807dda3569dc))
+
+
+### Features
+
+* **YouTube - Gemini:** Update model to Gemini 2.5 Flash ([#1148](https://github.com/anddea/revanced-patches/issues/1148)) ([0f7a54b](https://github.com/anddea/revanced-patches/commit/0f7a54b6888013d3c50f4dc6c1f30c108c094436))
+* **YouTube - Overlay buttons:** Use modern dialog for the second downloader on long press ([449078d](https://github.com/anddea/revanced-patches/commit/449078d2e57e8cc153671d91caaa5ba1574b1283))
+
 # [3.10.0](https://github.com/anddea/revanced-patches/compare/v3.9.0...v3.10.0) (2025-07-17)
 
 

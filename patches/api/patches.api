@@ -582,6 +582,7 @@ public final class app/revanced/patches/shared/mapping/ResourceType : java/lang/
 	public static final field ID Lapp/revanced/patches/shared/mapping/ResourceType;
 	public static final field INTEGER Lapp/revanced/patches/shared/mapping/ResourceType;
 	public static final field LAYOUT Lapp/revanced/patches/shared/mapping/ResourceType;
+	public static final field RAW Lapp/revanced/patches/shared/mapping/ResourceType;
 	public static final field STRING Lapp/revanced/patches/shared/mapping/ResourceType;
 	public static final field STYLE Lapp/revanced/patches/shared/mapping/ResourceType;
 	public static final field XML Lapp/revanced/patches/shared/mapping/ResourceType;
@@ -653,6 +654,11 @@ public final class app/revanced/patches/shared/quic/BaseQuicProtocolPatchKt {
 
 public final class app/revanced/patches/shared/returnyoutubeusername/BaseReturnYouTubeUsernamePatchKt {
 	public static final fun getBaseReturnYouTubeUsernamePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/shared/scrolltop/CommentsScrollTopPatchKt {
+	public static final fun getCommentsScrollTopPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getModernTitle ()J
 }
 
 public final class app/revanced/patches/shared/settingmenu/SettingsMenuPatchKt {
@@ -1037,6 +1043,10 @@ public final class app/revanced/patches/youtube/utils/castbutton/CastButtonPatch
 	public static final fun getCastButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/utils/componentlist/LazilyConvertedElementHookPatchKt {
+	public static final fun getLazilyConvertedElementHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/utils/controlsoverlay/ControlsOverlayConfigPatchKt {
 	public static final fun getControlsOverlayConfigPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1069,6 +1079,10 @@ public final class app/revanced/patches/youtube/utils/fix/cairo/CairoSettingsPat
 	public static final fun getCairoSettingsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/utils/fix/endscreensuggestedvideo/EndScreenSuggestedVideoPatchKt {
+	public static final fun getEndScreenSuggestedVideoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/utils/fix/litho/LithoLayoutPatchKt {
 	public static final fun getLithoLayoutPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1090,15 +1104,11 @@ public final class app/revanced/patches/youtube/utils/fix/splash/DarkModeSplashS
 }
 
 public final class app/revanced/patches/youtube/utils/fix/streamingdata/FingerprintsKt {
-	public static final field STREAMING_DATA_INTERFACE Ljava/lang/String;
+	public static final field STREAMING_DATA_OUTER_CLASS Ljava/lang/String;
 }
 
 public final class app/revanced/patches/youtube/utils/fix/streamingdata/SpoofStreamingDataPatchKt {
 	public static final fun getSpoofStreamingDataPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/youtube/utils/fix/suggestedvideoendscreen/SuggestedVideoEndScreenPatchKt {
-	public static final fun getSuggestedVideoEndScreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/utils/flyoutmenu/FlyoutMenuHookPatchKt {
@@ -1142,19 +1152,10 @@ public final class app/revanced/patches/youtube/utils/pip/PiPStateHookPatchKt {
 }
 
 public final class app/revanced/patches/youtube/utils/playercontrols/PlayerControlsPatchKt {
-	public static field changeVisibilityMethod Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
-	public static field changeVisibilityNegatedImmediatelyMethod Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
-	public static field initializeBottomControlButtonMethod Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
-	public static field initializeTopControlButtonMethod Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
-	public static final fun getChangeVisibilityMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
-	public static final fun getChangeVisibilityNegatedImmediatelyMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
-	public static final fun getInitializeBottomControlButtonMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
-	public static final fun getInitializeTopControlButtonMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
-	public static final fun getPlayerControlsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-	public static final fun setChangeVisibilityMethod (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;)V
-	public static final fun setChangeVisibilityNegatedImmediatelyMethod (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;)V
-	public static final fun setInitializeBottomControlButtonMethod (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;)V
-	public static final fun setInitializeTopControlButtonMethod (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;)V
+	public static final fun getPlayerControlsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getPlayerControlsResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun injectControl (Ljava/lang/String;ZZ)V
+	public static synthetic fun injectControl$default (Ljava/lang/String;ZZILjava/lang/Object;)V
 }
 
 public final class app/revanced/patches/youtube/utils/playertype/PlayerTypeHookPatchKt {
@@ -1272,6 +1273,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getFullScreenButton ()J
 	public static final fun getFullScreenEngagementAdContainer ()J
 	public static final fun getFullScreenEngagementPanel ()J
+	public static final fun getHeatseekerViewstub ()J
 	public static final fun getHorizontalCardList ()J
 	public static final fun getIcOfflineNoContentUpsideDown ()J
 	public static final fun getImageOnlyTab ()J
@@ -1281,6 +1283,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getInsetElementsWrapper ()J
 	public static final fun getInsetOverlayViewLayout ()J
 	public static final fun getInterstitialsContainer ()J
+	public static final fun getLikeTapFeedbackCairo ()J
 	public static final fun getMenuItemView ()J
 	public static final fun getMiniplayerMaxSize ()J
 	public static final fun getModernMiniPlayerClose ()J
@@ -1292,9 +1295,11 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getNotificationBigPictureIconWidth ()J
 	public static final fun getOfflineActionsVideoDeletedUndoSnackbarText ()J
 	public static final fun getOfflineNoContentBodyTextNotOfflineEligible ()J
+	public static final fun getPairWithTVKey ()J
 	public static final fun getPlayerCollapseButton ()J
 	public static final fun getPlayerControlNextButtonTouchArea ()J
 	public static final fun getPlayerControlPreviousButtonTouchArea ()J
+	public static final fun getPlayerLoadingViewThin ()J
 	public static final fun getPlayerVideoTitleView ()J
 	public static final fun getPosterArtWidthDefault ()J
 	public static final fun getQualityAuto ()J

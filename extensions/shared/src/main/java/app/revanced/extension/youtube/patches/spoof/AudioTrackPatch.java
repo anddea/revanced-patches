@@ -1,10 +1,13 @@
 package app.revanced.extension.youtube.patches.spoof;
 
+import static app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest.getLastSpoofedAudioClientIsAndroidVRNoAuth;
+
 import android.content.Context;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
+import org.apache.commons.collections4.MapUtils;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -12,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import app.revanced.extension.shared.innertube.client.YouTubeAppClient;
+import app.revanced.extension.shared.innertube.utils.AuthUtils;
 import app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
@@ -23,7 +26,6 @@ import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.spoof.requests.AudioTrackRequest;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.VideoInformation;
-import app.revanced.extension.youtube.utils.AuthUtils;
 import app.revanced.extension.youtube.utils.ExtendedUtils;
 import app.revanced.extension.youtube.utils.VideoUtils;
 import kotlin.Pair;
@@ -37,27 +39,7 @@ public class AudioTrackPatch {
     @NonNull
     private static String audioTrackId = "";
     @NonNull
-    private static String playlistId = "";
-    @NonNull
     private static String videoId = "";
-
-    /**
-     * Injection point.
-     */
-    @Nullable
-    public static String newPlayerResponseParameter(@NonNull String newlyLoadedVideoId, @Nullable String playerParameter,
-                                                    @Nullable String newlyLoadedPlaylistId, boolean isShortAndOpeningOrPlaying) {
-        if (SPOOF_STREAMING_DATA_AUDIO_TRACK_BUTTON && !VideoInformation.playerParametersAreShort(playerParameter)) {
-            if (newlyLoadedPlaylistId == null || newlyLoadedPlaylistId.isEmpty()) {
-                playlistId = "";
-            } else if (!Objects.equals(playlistId, newlyLoadedPlaylistId)) {
-                playlistId = newlyLoadedPlaylistId;
-                Logger.printDebug(() -> "newVideoStarted, videoId: " + newlyLoadedVideoId + ", playlistId: " + newlyLoadedPlaylistId);
-            }
-        }
-
-        return playerParameter; // Return the original value since we are observing and not modifying.
-    }
 
     /**
      * Injection point.
@@ -79,11 +61,12 @@ public class AudioTrackPatch {
             }
             // Only 'Android VR (No auth)' can change the audio track language when fetching.
             // Check if the last spoofed client is 'Android VR (No auth)'.
-            if (!isAndroidVRNoAuth()) {
+            if (!getLastSpoofedAudioClientIsAndroidVRNoAuth()) {
                 Logger.printDebug(() -> "Video is not Android VR No Auth");
                 return;
             }
-            if (AuthUtils.requestHeader == null) {
+            Map<String, String> requestHeader = AuthUtils.getRequestHeader();
+            if (MapUtils.isEmpty(requestHeader)) {
                 Logger.printDebug(() -> "AuthUtils is not initialized");
                 return;
             }
@@ -92,7 +75,7 @@ public class AudioTrackPatch {
             Logger.printDebug(() -> "newVideoStarted: " + newlyLoadedVideoId);
 
             // Use the YouTube API to get a list of audio tracks supported by a video.
-            AudioTrackRequest.fetchRequestIfNeeded(videoId, AuthUtils.requestHeader);
+            AudioTrackRequest.fetchRequestIfNeeded(videoId, requestHeader);
         } catch (Exception ex) {
             Logger.printException(() -> "newVideoStarted failure", ex);
         }
@@ -165,14 +148,7 @@ public class AudioTrackPatch {
                 // Change the audio track language by reloading the same video.
                 // Due to structural limitations of the YouTube app, the url of a video that is already playing will not be opened.
                 // As a workaround, the video should be forcefully dismissed.
-                VideoUtils.dismissPlayer();
-
-                // Open the video.
-                if (playlistId.isEmpty()) {
-                    VideoUtils.openVideo(videoId);
-                } else { // If the video is playing from a playlist, the url must include the playlistId.
-                    VideoUtils.openPlaylist(playlistId, videoId, true);
-                }
+                VideoUtils.reloadVideo(videoId);
 
                 // If the video has been reloaded, initialize the [overrideLanguage] field of the [StreamingDataRequest] class.
                 ExtendedUtils.runOnMainThreadDelayed(() -> StreamingDataRequest.overrideLanguage(""), 3000L);
@@ -236,13 +212,5 @@ public class AudioTrackPatch {
         }
 
         return new Triple<>(sortedDisplayNames, sortedIds, sortedAudioIsDefaults);
-    }
-
-    /**
-     * @return Whether the last spoofed client was Android VR (No auth) or not.
-     */
-    private static boolean isAndroidVRNoAuth() {
-        return YouTubeAppClient.ClientType.ANDROID_VR_NO_AUTH.getFriendlyName()
-                .equals(StreamingDataRequest.getLastSpoofedClientName());
     }
 }

@@ -5,7 +5,7 @@ import androidx.annotation.GuardedBy
 import app.revanced.extension.shared.innertube.client.YouTubeAppClient
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createApplicationRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
-import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_STREAMING_DATA_JSON
+import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_AUDIO_TRACK
 import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.Utils
@@ -109,7 +109,7 @@ class AudioTrackRequest private constructor(
             try {
                 val connection =
                     getInnerTubeResponseConnectionFromRoute(
-                        GET_STREAMING_DATA_JSON,
+                        GET_AUDIO_TRACK,
                         clientType,
                         requestHeader
                     )

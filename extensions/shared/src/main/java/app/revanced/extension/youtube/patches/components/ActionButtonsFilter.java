@@ -62,6 +62,10 @@ public final class ActionButtonsFilter extends Filter {
 
         bufferButtonsGroupList.addAll(
                 new ByteArrayFilterGroup(
+                        Settings.HIDE_COMMENTS_BUTTON,
+                        "yt_outline_message_bubble"
+                ),
+                new ByteArrayFilterGroup(
                         Settings.HIDE_REPORT_BUTTON,
                         "yt_outline_flag"
                 ),

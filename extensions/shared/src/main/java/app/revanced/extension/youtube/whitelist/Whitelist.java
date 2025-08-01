@@ -12,6 +12,7 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
+import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,7 @@ import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
 import app.revanced.extension.youtube.settings.Settings; // Add this import
 import app.revanced.extension.youtube.shared.VideoInformation;
+import app.revanced.extension.youtube.utils.VideoUtils;
 
 public class Whitelist {
     private static final Map<WhitelistType, ArrayList<VideoChannel>> whitelistMap = parseWhitelist();
@@ -151,6 +153,7 @@ public class Whitelist {
                     context,
                     whitelistTypePlaybackSpeed.friendlyName,
                     () -> whitelistListener(
+                            context,
                             whitelistTypePlaybackSpeed,
                             channelId,
                             channelName
@@ -168,6 +171,7 @@ public class Whitelist {
                     context,
                     whitelistTypeSponsorBlock.friendlyName,
                     () -> whitelistListener(
+                            context,
                             whitelistTypeSponsorBlock,
                             channelId,
                             channelName
@@ -329,12 +333,12 @@ public class Whitelist {
         if (!eol) sb.append("\n");
     }
 
-    private static void whitelistListener(WhitelistType whitelistType, String channelId, String channelName) {
+    private static void whitelistListener(Context context, WhitelistType whitelistType, String channelId, String channelName) {
         try {
             if (isWhitelisted(whitelistType, channelId)) {
-                removeFromWhitelist(whitelistType, channelId);
+                removeFromWhitelist(whitelistType, channelId, context);
             } else {
-                addToWhitelist(whitelistType, channelId, channelName);
+                addToWhitelist(whitelistType, channelId, channelName, context);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "whitelistListener failure", ex);
@@ -377,7 +381,7 @@ public class Whitelist {
         return false;
     }
 
-    private static void addToWhitelist(WhitelistType whitelistType, String channelId, String channelName) {
+    private static void addToWhitelist(WhitelistType whitelistType, String channelId, String channelName, Context context) {
         final VideoChannel channel = new VideoChannel(channelName, channelId);
         ArrayList<VideoChannel> whitelisted = getWhitelistedChannels(whitelistType);
         for (VideoChannel whitelistedChannel : whitelisted) {
@@ -387,13 +391,17 @@ public class Whitelist {
         whitelisted.add(channel);
         String friendlyName = whitelistType.getFriendlyName();
         if (updateWhitelist(whitelistType, whitelisted)) {
-            showToastShort(str("revanced_whitelist_added", channelName, friendlyName));
+            showDialogOrToast(context, str("revanced_whitelist_added", channelName, friendlyName));
         } else {
             showToastShort(str("revanced_whitelist_add_failed", channelName, friendlyName));
         }
     }
 
     public static void removeFromWhitelist(WhitelistType whitelistType, String channelId) {
+        removeFromWhitelist(whitelistType, channelId, null);
+    }
+
+    public static void removeFromWhitelist(WhitelistType whitelistType, String channelId, Context context) {
         ArrayList<VideoChannel> whitelisted = getWhitelistedChannels(whitelistType);
         Iterator<VideoChannel> iterator = whitelisted.iterator();
         String channelName = "";
@@ -407,10 +415,33 @@ public class Whitelist {
         }
         String friendlyName = whitelistType.getFriendlyName();
         if (updateWhitelist(whitelistType, whitelisted)) {
-            showToastShort(str("revanced_whitelist_removed", channelName, friendlyName));
+            showDialogOrToast(context, str("revanced_whitelist_removed", channelName, friendlyName));
         } else {
             showToastShort(str("revanced_whitelist_remove_failed", channelName, friendlyName));
         }
+    }
+
+    private static void showDialogOrToast(Context context, String message) {
+        if (context == null) {
+            showToastShort(message);
+            return;
+        } else {
+            message = message + "\n \n" + str("revanced_whitelist_reload_video");
+        }
+        // Create the custom dialog.
+        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                context,
+                str("revanced_whitelist_settings_title"), // Title.
+                message,                    // Message.
+                null,                       // No EditText.
+                null,                       // OK button text.
+                VideoUtils::reloadVideo,    // Convert DialogInterface.OnClickListener to Runnable.
+                () -> {},                   // Cancel button action (Dismiss).
+                null,                       // No Neutral button text.
+                null,                       // No Neutral button action.
+                true                        // Dismiss dialog when onNeutralClick.
+        );
+        dialogPair.first.show();
     }
 
     private static boolean updateWhitelist(WhitelistType whitelistType, ArrayList<VideoChannel> channels) {

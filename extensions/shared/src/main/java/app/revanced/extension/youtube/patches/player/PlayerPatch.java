@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -310,7 +311,7 @@ public class PlayerPatch {
     // region [Hide comments component] patch
 
     public static void changeEmojiPickerOpacity(ImageView imageView) {
-        if (!Settings.HIDE_COMMENT_TIMESTAMP_AND_EMOJI_BUTTONS.get())
+        if (!Settings.HIDE_COMMENTS_EMOJI_AND_TIMESTAMP_BUTTONS.get())
             return;
 
         imageView.setImageAlpha(0);
@@ -318,7 +319,25 @@ public class PlayerPatch {
 
     @Nullable
     public static Object disableEmojiPickerOnClickListener(@Nullable Object object) {
-        return Settings.HIDE_COMMENT_TIMESTAMP_AND_EMOJI_BUTTONS.get() ? null : object;
+        return Settings.HIDE_COMMENTS_EMOJI_AND_TIMESTAMP_BUTTONS.get() ? null : object;
+    }
+
+    private static final String CHIP_BAR_PATH_PREFIX = "chip_bar.eml";
+
+    public static void sanitizeCommentsCategoryBar(@NonNull List<Object> list, @NonNull String identifier) {
+        try {
+            if (Settings.SANITIZE_COMMENTS_CATEGORY_BAR.get() &&
+                    identifier.startsWith(CHIP_BAR_PATH_PREFIX) &&
+                    PlayerType.getCurrent().isMaximizedOrFullscreen()
+            ) {
+                int listSize = list.size();
+                if (listSize > 2) {
+                    list.subList(1, listSize - 1).clear();
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "sanitizeCommentsCategoryBar failure", ex);
+        }
     }
 
     // endregion
@@ -568,6 +587,19 @@ public class PlayerPatch {
         }
     }
 
+    public static boolean hideEndScreenSuggestedVideo() {
+        return Settings.HIDE_END_SCREEN_SUGGESTED_VIDEO.get();
+    }
+
+    public static void skipAutoPlayCountdown(View view) {
+        if (!hideEndScreenSuggestedVideo())
+            return;
+        if (!Settings.SKIP_AUTOPLAY_COUNTDOWN.get())
+            return;
+
+        Utils.clickView(view);
+    }
+
     public static boolean hideFilmstripOverlay() {
         return Settings.HIDE_FILMSTRIP_OVERLAY.get();
     }
@@ -590,19 +622,6 @@ public class PlayerPatch {
 
     public static void hideSuggestedActions(View view) {
         hideViewUnderCondition(Settings.HIDE_SUGGESTED_ACTION.get(), view);
-    }
-
-    public static boolean hideSuggestedVideoEndScreen() {
-        return Settings.HIDE_SUGGESTED_VIDEO_END_SCREEN.get();
-    }
-
-    public static void skipAutoPlayCountdown(View view) {
-        if (!hideSuggestedVideoEndScreen())
-            return;
-        if (!Settings.SKIP_AUTOPLAY_COUNTDOWN.get())
-            return;
-
-        Utils.clickView(view);
     }
 
     public static boolean hideZoomOverlay() {

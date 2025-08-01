@@ -222,5 +222,6 @@ val playerTypeHookPatch = bytecodePatch(
         // endregion
 
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
+
     }
 }

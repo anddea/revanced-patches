@@ -75,6 +75,8 @@ class PressToSwipeController(
     ): Boolean {
         // cancel if locked
         if (!config.enableSwipeControlsLockMode && config.isScreenLocked) return false
+        if (!isInSwipeSession) return false
+
         if (currentSwipe == SwipeDetector.SwipeDirection.VERTICAL) {
             return when (from.toPoint()) {
                 in controller.zones.volume -> {
@@ -84,8 +86,8 @@ class PressToSwipeController(
 
                 in controller.zones.brightness -> {
                     scrollBrightness(distanceY)
-                    true}
-
+                    true
+                }
 
                 else -> false
             }

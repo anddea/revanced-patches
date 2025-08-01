@@ -29,7 +29,11 @@ dependencies {
     compileOnly(libs.annotation)
     compileOnly(libs.preference)
     implementation(libs.collections4)
+    implementation(libs.gson)
     implementation(libs.lang3)
+    implementation(libs.okhttp3)
+    implementation(libs.regex)
+    implementation("com.eclipsesource.j2v8:j2v8:6.2.1@aar")
 
     implementation(libs.okhttp)
 

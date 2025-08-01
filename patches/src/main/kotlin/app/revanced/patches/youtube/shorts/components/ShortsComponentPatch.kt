@@ -18,6 +18,7 @@ import app.revanced.patches.shared.textcomponent.hookSpannableString
 import app.revanced.patches.shared.textcomponent.textComponentPatch
 import app.revanced.patches.youtube.utils.bottomSheetMenuItemBuilderFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.SHORTS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.SHORTS_PATH
@@ -46,6 +47,7 @@ import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
 import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
 import app.revanced.patches.youtube.utils.resourceid.bottomBarContainer
+import app.revanced.patches.youtube.utils.resourceid.likeTapFeedbackCairo
 import app.revanced.patches.youtube.utils.resourceid.reelDynRemix
 import app.revanced.patches.youtube.utils.resourceid.reelDynShare
 import app.revanced.patches.youtube.utils.resourceid.reelFeedbackLike
@@ -110,15 +112,22 @@ private val shortsAnimationPatch = bytecodePatch(
     dependsOn(
         lottieAnimationViewHookPatch,
         settingsPatch,
+        versionCheckPatch
     )
 
     execute {
+
         reelFeedbackFingerprint.methodOrThrow().apply {
-            mapOf(
-                reelFeedbackLike to "setShortsLikeFeedback",
-                reelFeedbackPause to "setShortsPauseFeedback",
-                reelFeedbackPlay to "setShortsPlayFeedback",
-            ).forEach { (literal, methodName) ->
+            val maps = if (is_19_34_or_greater)
+                mapOf(reelFeedbackLike to "setShortsLikeFeedback")
+            else
+                mapOf(
+                    reelFeedbackLike to "setShortsLikeFeedback",
+                    reelFeedbackPause to "setShortsPauseFeedback",
+                    reelFeedbackPlay to "setShortsPlayFeedback",
+                )
+
+            maps.forEach { (literal, methodName) ->
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
                 val viewIndex = indexOfFirstInstructionOrThrow(literalIndex) {
                     opcode == Opcode.CHECK_CAST &&
@@ -135,6 +144,20 @@ private val shortsAnimationPatch = bytecodePatch(
                     viewIndex + 1,
                     methodCall
                 )
+            }
+
+            if (likeTapFeedbackCairo != -1L) {
+                val literalIndex = indexOfFirstLiteralInstruction(likeTapFeedbackCairo)
+                if (literalIndex > -1) {
+                    val literalRegister = getInstruction<OneRegisterInstruction>(literalIndex).registerA
+
+                    addInstructions(
+                        literalIndex + 1, """
+                            invoke-static { v$literalRegister }, $EXTENSION_ANIMATION_FEEDBACK_CLASS_DESCRIPTOR->getShortsLikeFeedbackId(I)I
+                            move-result v$literalRegister
+                            """
+                    )
+                }
             }
         }
 
@@ -710,6 +733,7 @@ val shortsComponentPatch = bytecodePatch(
         shortsTimeStampPatch,
         shortsToolBarPatch,
 
+        engagementPanelHookPatch,
         lithoFilterPatch,
         lithoLayoutPatch,
         navigationBarHookPatch,
@@ -787,6 +811,8 @@ val shortsComponentPatch = bytecodePatch(
 
         if (is_19_34_or_greater && !is_20_18_or_greater) {
             settingArray += "SETTINGS: SHORTS_TIME_STAMP"
+        } else {
+            settingArray += "SETTINGS: SHORTS_PLAY_PAUSE_BUTTON_BACKGROUND"
         }
 
         // region patch for hide comments button (non-litho)

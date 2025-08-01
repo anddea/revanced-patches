@@ -1,15 +1,15 @@
 package app.revanced.patches.youtube.utils.auth
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.utils.extension.Constants.EXTENSION_PATH
+import app.revanced.patches.shared.extension.Constants.EXTENSION_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.request.buildRequestPatch
 import app.revanced.patches.youtube.utils.request.hookBuildRequest
 import app.revanced.util.fingerprint.methodOrThrow
 
 private const val EXTENSION_AUTH_UTILS_CLASS_DESCRIPTOR =
-    "$EXTENSION_PATH/utils/AuthUtils;"
+    "$EXTENSION_PATH/innertube/utils/AuthUtils;"
 
 val authHookPatch = bytecodePatch(
     description = "authHookPatch"
@@ -21,11 +21,9 @@ val authHookPatch = bytecodePatch(
 
     execute {
         // Get incognito status and data sync id.
-        accountIdentityFingerprint.methodOrThrow().addInstructions(
-            1, """
-                sput-object p3, $EXTENSION_AUTH_UTILS_CLASS_DESCRIPTOR->dataSyncId:Ljava/lang/String;
-                sput-boolean p4, $EXTENSION_AUTH_UTILS_CLASS_DESCRIPTOR->isIncognito:Z
-                """
+        accountIdentityFingerprint.methodOrThrow().addInstruction(
+            1,
+            "invoke-static {p3, p4}, $EXTENSION_AUTH_UTILS_CLASS_DESCRIPTOR->setDataSyncIdAndIncognitoStatus(Ljava/lang/String;Z)V"
         )
 
         // Get the header to use the auth token.
