@@ -163,10 +163,11 @@ class ActionButtonRequest private constructor(
                                 .getJSONObject("componentType")
                                 .getJSONObject("model")
                                 .getJSONObject("videoActionBarModel")
+                                .getJSONObject("videoActionBarData")
                                 .getJSONArray("buttons")
 
                         val length = buttons.length()
-                        val buttonsArr = Array<ActionButton>(length) { ActionButton.UNKNOWN }
+                        val buttonsArr = Array(length) { ActionButton.UNKNOWN }
 
                         for (i in 0 until length) {
                             val jsonObjectString = buttons.get(i).toString()
@@ -183,9 +184,8 @@ class ActionButtonRequest private constructor(
                     }
                 }
             } catch (e: JSONException) {
-                val jsonForMessage = json.toString().substring(3000)
                 Logger.printException(
-                    { "Fetch failed while processing response data for response: $jsonForMessage" },
+                    { "Fetch failed while processing response data for response: $json" },
                     e
                 )
             }

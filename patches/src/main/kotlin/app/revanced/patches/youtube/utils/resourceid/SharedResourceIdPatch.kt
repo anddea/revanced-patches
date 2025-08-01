@@ -8,6 +8,7 @@ import app.revanced.patches.shared.mapping.ResourceType.DRAWABLE
 import app.revanced.patches.shared.mapping.ResourceType.ID
 import app.revanced.patches.shared.mapping.ResourceType.INTEGER
 import app.revanced.patches.shared.mapping.ResourceType.LAYOUT
+import app.revanced.patches.shared.mapping.ResourceType.RAW
 import app.revanced.patches.shared.mapping.ResourceType.STRING
 import app.revanced.patches.shared.mapping.ResourceType.STYLE
 import app.revanced.patches.shared.mapping.ResourceType.XML
@@ -92,6 +93,8 @@ var emojiPickerIcon = -1L
     private set
 var expandButtonDown = -1L
     private set
+var heatseekerViewstub = -1L
+    private set
 var fab = -1L
     private set
 var fadeDurationFast = -1L
@@ -124,6 +127,8 @@ var interstitialsContainer = -1L
     private set
 var insetElementsWrapper = -1L
     private set
+var likeTapFeedbackCairo = -1L
+    private set
 var menuItemView = -1L
     private set
 var miniplayerMaxSize = -1L
@@ -146,11 +151,15 @@ var offlineActionsVideoDeletedUndoSnackbarText = -1L
     private set
 var offlineNoContentBodyTextNotOfflineEligible = -1L
     private set
+var pairWithTVKey = -1L
+    private set
 var playerCollapseButton = -1L
     private set
 var playerControlPreviousButtonTouchArea = -1L
     private set
 var playerControlNextButtonTouchArea = -1L
+    private set
+var playerLoadingViewThin = -1L
     private set
 var playerVideoTitleView = -1L
     private set
@@ -306,6 +315,7 @@ internal val sharedResourceIdPatch = resourcePatch(
         endScreenElementLayoutVideo = getResourceId(LAYOUT, "endscreen_element_layout_video")
         emojiPickerIcon = getResourceId(ID, "emoji_picker_icon")
         expandButtonDown = getResourceId(LAYOUT, "expand_button_down")
+        heatseekerViewstub = getResourceId(ID, "heatseeker_viewstub")
         fab = getResourceId(ID, "fab")
         fadeDurationFast = getResourceId(INTEGER, "fade_duration_fast")
         filterBarHeight = getResourceId(DIMEN, "filter_bar_height")
@@ -324,6 +334,7 @@ internal val sharedResourceIdPatch = resourcePatch(
         insetOverlayViewLayout = getResourceId(ID, "inset_overlay_view_layout")
         interstitialsContainer = getResourceId(ID, "interstitials_container")
         insetElementsWrapper = getResourceId(LAYOUT, "inset_elements_wrapper")
+        likeTapFeedbackCairo = getResourceId(RAW, "like_tap_feedback_cairo")
         menuItemView = getResourceId(ID, "menu_item_view")
         miniplayerMaxSize = getResourceId(DIMEN, "miniplayer_max_size")
         modernMiniPlayerClose = getResourceId(ID, "modern_miniplayer_close")
@@ -339,11 +350,13 @@ internal val sharedResourceIdPatch = resourcePatch(
             getResourceId(STRING, "offline_actions_video_deleted_undo_snackbar_text")
         offlineNoContentBodyTextNotOfflineEligible =
             getResourceId(STRING, "offline_no_content_body_text_not_offline_eligible")
+        pairWithTVKey = getResourceId(STRING, "pair_with_tv_key")
         playerCollapseButton = getResourceId(ID, "player_collapse_button")
         playerControlPreviousButtonTouchArea =
             getResourceId(ID, "player_control_previous_button_touch_area")
         playerControlNextButtonTouchArea =
             getResourceId(ID, "player_control_next_button_touch_area")
+        playerLoadingViewThin = getResourceId(ID, "player_loading_view_thin")
         playerVideoTitleView = getResourceId(ID, "player_video_title_view")
         posterArtWidthDefault = getResourceId(DIMEN, "poster_art_width_default")
         qualityAuto = getResourceId(STRING, "quality_auto")

@@ -23,6 +23,7 @@ BLACKLIST: set[str] = {
     "revanced_extended_settings_search_remove_message",
     "revanced_preference_category_po_token_visitor_data",
     "revanced_sb_share_copy_settings_success",
+    "revanced_spoof_streaming_data_client_entry_tv_embedded",
     "revanced_spoof_streaming_data_po_token_summary",
     "revanced_spoof_streaming_data_po_token_title",
     "revanced_spoof_streaming_data_po_token_visitor_data_about_summary",

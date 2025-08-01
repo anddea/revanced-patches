@@ -91,7 +91,6 @@ class PlaylistRequest private constructor(
         private val cache: MutableMap<String, PlaylistRequest> = HashMap()
 
         @JvmStatic
-        @SuppressLint("ObsoleteSdkInt")
         fun fetchRequestIfNeeded(
             videoId: String,
             playlistId: String,

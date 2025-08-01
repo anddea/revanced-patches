@@ -122,5 +122,5 @@ class GitClient:
             code, _, _ = operation(*args)
             if code != 0:
                 return False
-            logger.info("Git %s successful", operation.__name__)
+            logger.debug("Git %s successful", operation.__name__)
         return True

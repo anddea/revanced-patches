@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.patches.player;
 
 import static app.revanced.extension.youtube.patches.player.ActionButtonsPatch.ActionButton.REMIX;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.ArrayUtils;
@@ -29,6 +30,10 @@ public class ActionButtonsPatch {
                 "clipButtonViewModel",
                 Settings.HIDE_CLIP_BUTTON
         ),
+        COMMENTS(
+                "yt_outline_message_bubble",
+                Settings.HIDE_COMMENTS_BUTTON
+        ),
         DOWNLOAD(
                 "downloadButtonViewModel",
                 Settings.HIDE_DOWNLOAD_BUTTON
@@ -36,10 +41,6 @@ public class ActionButtonsPatch {
         LIKE_DISLIKE(
                 "segmentedLikeDislikeButtonViewModel",
                 Settings.HIDE_LIKE_DISLIKE_BUTTON
-        ),
-        LIVE_CHAT(
-                "yt_outline_message_bubble",
-                null
         ),
         PLAYLIST(
                 "addToPlaylistButtonViewModel",
@@ -81,7 +82,6 @@ public class ActionButtonsPatch {
         }
     }
 
-    private static final String TARGET_COMPONENT_TYPE = "LazilyConvertedElement";
     private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.eml";
     private static final boolean HIDE_ACTION_BUTTON_INDEX = Settings.HIDE_ACTION_BUTTON_INDEX.get();
     private static final int REMIX_INDEX = Settings.REMIX_BUTTON_INDEX.get() - 1;
@@ -109,45 +109,43 @@ public class ActionButtonsPatch {
      * @param list       Type list of litho components
      * @param identifier Identifier of litho components
      */
-    public static List<Object> hideActionButtonByIndex(@Nullable List<Object> list, @Nullable String identifier) {
+    public static void hideActionButtonByIndex(@NonNull List<Object> list, @NonNull String identifier) {
         try {
             if (HIDE_ACTION_BUTTON_INDEX &&
-                    identifier != null &&
-                    identifier.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX) &&
-                    list != null &&
-                    !list.isEmpty() &&
-                    list.get(0).toString().equals(TARGET_COMPONENT_TYPE)
+                    identifier.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX)
             ) {
                 final int listSize = list.size();
                 final String videoId = VideoInformation.getVideoId();
                 ActionButtonRequest request = ActionButtonRequest.getRequestForVideoId(videoId);
-                if (request != null) {
-                    ActionButton[] actionButtons = request.getArray();
-                    final int actionButtonsLength = actionButtons.length;
-                    // The response is always included with the [LIKE_DISLIKE] button and the [SHARE] button.
-                    // The minimum size of the action button array is 3.
-                    if (actionButtonsLength > 2) {
-                        // For some reason, the response does not contain the [REMIX] button.
-                        // Add the [REMIX] button manually.
-                        if (listSize - actionButtonsLength == 1) {
-                            actionButtons = ArrayUtils.add(actionButtons, REMIX_INDEX, REMIX);
-                        }
-                        ActionButton[] finalActionButtons = actionButtons;
-                        Logger.printDebug(() -> "videoId: " + videoId + ", buttons: " + Arrays.toString(finalActionButtons));
-                        for (int i = actionButtons.length - 1; i > -1; i--) {
-                            ActionButton actionButton = actionButtons[i];
-                            if (actionButton.setting != null && actionButton.setting.get()) {
-                                list.remove(i);
-                            }
-                        }
+                if (request == null) {
+                    return;
+                }
+                ActionButton[] actionButtons = request.getArray();
+                final int actionButtonsLength = actionButtons.length;
+                // The response is always included with the [LIKE_DISLIKE] button and the [SHARE] button.
+                // The minimum size of the action button array is 3.
+                if (actionButtonsLength < 3) {
+                    return;
+                }
+                // For some reason, the response does not contain the [REMIX] button.
+                // Add the [REMIX] button manually.
+                if (listSize - actionButtonsLength == 1) {
+                    actionButtons = ArrayUtils.add(actionButtons, REMIX_INDEX, REMIX);
+                }
+                ActionButton[] finalActionButtons = actionButtons;
+                Logger.printDebug(() -> "videoId: " + videoId + ", buttons: " + Arrays.toString(finalActionButtons));
+                for (int i = actionButtons.length - 1; i > -1; i--) {
+                    ActionButton actionButton = actionButtons[i];
+                    if (actionButton.setting != null &&
+                            actionButton.setting.get() &&
+                            i < listSize) {
+                        list.remove(i);
                     }
                 }
             }
         } catch (Exception ex) {
             Logger.printException(() -> "hideActionButtonByIndex failure", ex);
         }
-
-        return list;
     }
 
 }

@@ -1,6 +1,8 @@
 package app.revanced.extension.youtube.patches.general;
 
+import androidx.annotation.Nullable;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.Preference;
 
 import app.revanced.extension.shared.patches.BaseSettingsMenuPatch;
 import app.revanced.extension.shared.settings.BooleanSetting;
@@ -15,6 +17,13 @@ public final class SettingsMenuPatch extends BaseSettingsMenuPatch {
                 if (component.setting.get())
                     removePreference(mPreferenceScreen, component.key);
         }
+    }
+
+    @Nullable
+    public static Preference hideWatchOnTVMenu(Preference mPreference) {
+        return Settings.HIDE_SETTINGS_MENU_WATCH_ON_TV.get()
+                ? null
+                : mPreference;
     }
 
     private enum SettingsMenuComponent {

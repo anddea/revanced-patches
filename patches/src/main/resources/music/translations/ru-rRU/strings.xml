@@ -66,6 +66,12 @@
 По возможности используйте темные цвета, поскольку программа не поддерживает светлые темы."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Дополнительный цвет фона плеера</string>
     <string name="revanced_custom_player_background_invalid_toast">Недопустимый цвет фона плеера.</string>
+    <string name="revanced_debug_protobuffer_summary">Включает протобуфер в журнал отладки.</string>
+    <string name="revanced_debug_protobuffer_title">Журнал протокола буфера</string>
+    <string name="revanced_debug_spannable_summary">Включает охват в журнал отладки.</string>
+    <string name="revanced_debug_spannable_title">Охват журнала</string>
+    <string name="revanced_debug_summary">Выводит журнал отладки.</string>
+    <string name="revanced_debug_title">Ведение журнала отладки</string>
     <string name="revanced_default_app_settings_summary">Чтобы открыть ссылку на YouTube Music в RVX Music, включите \"Открывать поддерживаемые ссылки\" и включите поддерживаемые веб-адреса.</string>
     <string name="revanced_default_app_settings_title">Открыть настройки по умолчанию</string>
     <string name="revanced_disable_auto_captions_summary">Отключает автоматическое включение субтитров.</string>
@@ -93,6 +99,10 @@
     <string name="revanced_disable_player_gesture_title">Отключить жест плеера</string>
     <string name="revanced_disable_quic_protocol_summary">"Выключает протокол CronetEngine's QUIC."</string>
     <string name="revanced_disable_quic_protocol_title">Выключить протокол QUIC</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"При нажатии на заголовок панели комментариев (\"Комментарии\") они прокручиваются к началу.
+
+Ограничения: не распространяется к ответам на комментарии."</string>
+    <string name="revanced_enable_comments_scroll_top_title">Включить прокрутку к началу в комментариях</string>
     <string name="revanced_enable_compact_dialog_summary">"Включает компактное всплывающее меню на телефонах.
 
 Известные проблемы:
@@ -306,6 +316,12 @@
     <string name="revanced_hide_terms_container_title">Скрыть \"Конфиденциальность • Условия\"</string>
     <string name="revanced_hide_voice_search_button_summary">Скрывает кнопку голосового поиска в строке поиска.</string>
     <string name="revanced_hide_voice_search_button_title">Скрыть кнопку голосового поиска</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Не переопределено</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_invalid_toast">Макс. размер объединения потоков Litho от 1 до 3.</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_summary">"Изменяет максимальный размер пула потоков Litho.
+
+Большее значение может повысить производительность загрузки макетов Litho, но может привести к более интенсивному расходу заряда батареи."</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_title">Макс. размер объединения потоков Litho</string>
     <string name="revanced_preference_screen_account_title">Аккаунт</string>
     <string name="revanced_preference_screen_action_bar_title">Панель действий</string>
     <string name="revanced_preference_screen_ads_title">Реклама</string>
@@ -493,11 +509,6 @@
 
 ※ При использовании вместе с \"Подменой клиента\" могут возникнуть проблемы с воспроизведением."</string>
     <string name="revanced_spoof_streaming_data_title">Подделка потоковых данных</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_summary">Определяет клиент по умолчанию, получающий потоковые данные.</string>
-    <string name="revanced_spoof_streaming_data_type_title">Клиент по умолчанию</string>
     <string name="revanced_watch_history_type_entry_1">Оригинальный</string>
     <string name="revanced_watch_history_type_entry_2">Заменить домен</string>
     <string name="revanced_watch_history_type_entry_3">Блокировать историю просмотров</string>

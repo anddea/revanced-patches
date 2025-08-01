@@ -5,15 +5,16 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.ResourcePatchContext
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.rawResourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
 import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
-import app.revanced.patches.shared.formatStreamModelConstructorFingerprint
 import app.revanced.patches.shared.spoof.blockrequest.blockRequestPatch
 import app.revanced.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
 import app.revanced.patches.youtube.utils.audiotracks.audioTracksHookPatch
@@ -22,9 +23,10 @@ import app.revanced.patches.youtube.utils.auth.authHookPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
+import app.revanced.patches.youtube.utils.patch.PatchList
 import app.revanced.patches.youtube.utils.patch.PatchList.SPOOF_STREAMING_DATA
 import app.revanced.patches.youtube.utils.playercontrols.addTopControl
-import app.revanced.patches.youtube.utils.playercontrols.hookTopControlButton
+import app.revanced.patches.youtube.utils.playercontrols.injectControl
 import app.revanced.patches.youtube.utils.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_50_or_greater
@@ -33,7 +35,7 @@ import app.revanced.patches.youtube.utils.playservice.is_20_14_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.request.buildRequestPatch
 import app.revanced.patches.youtube.utils.request.hookBuildRequest
-import app.revanced.patches.youtube.utils.settings.ResourceUtils
+import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.hookBackgroundPlayVideoInformation
@@ -42,6 +44,7 @@ import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
 import app.revanced.util.ResourceGroup
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.copyResources
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.findMethodOrThrow
@@ -50,19 +53,36 @@ import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.inputStreamFromBundledResourceOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+import kotlin.io.path.notExists
+
+private lateinit var context: ResourcePatchContext
+
+private val spoofStreamingDataRawResourcePatch = rawResourcePatch(
+    description = "spoofStreamingDataRawResourcePatch"
+) {
+    execute {
+        context = this
+    }
+}
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$SPOOF_PATH/SpoofStreamingDataPatch;"
+private const val EXTENSION_STREAMING_DATA_OUTER_CLASS_DESCRIPTOR =
+    "$SPOOF_PATH/StreamingDataOuterClassPatch;"
+private const val EXTENSION_STREAMING_DATA_INTERFACE =
+    "$SPOOF_PATH/StreamingDataOuterClassPatch${'$'}StreamingDataMessage;"
 
 val spoofStreamingDataPatch = bytecodePatch(
     SPOOF_STREAMING_DATA.title,
@@ -71,10 +91,12 @@ val spoofStreamingDataPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        spoofStreamingDataRawResourcePatch,
         settingsPatch,
         baseSpoofUserAgentPatch(YOUTUBE_PACKAGE_NAME),
         blockRequestPatch,
         buildRequestPatch,
+        sharedResourceIdPatch,
         versionCheckPatch,
         playerControlsPatch,
         videoIdPatch,
@@ -117,60 +139,17 @@ val spoofStreamingDataPatch = bytecodePatch(
 
         // region Replace the streaming data.
 
-        val approxDurationMsReference = formatStreamModelConstructorFingerprint.matchOrThrow().let {
-            with(it.method) {
-                getInstruction<ReferenceInstruction>(it.patternMatch!!.startIndex).reference
-            }
-        }
-
-        val streamingDataFormatsReference = with(
-            videoStreamingDataConstructorFingerprint.methodOrThrow(
-                videoStreamingDataToStringFingerprint
-            )
-        ) {
-            val getFormatsFieldIndex = indexOfGetFormatsFieldInstruction(this)
-            val longMaxValueIndex = indexOfLongMaxValueInstruction(this, getFormatsFieldIndex)
-            val longMaxValueRegister =
-                getInstruction<OneRegisterInstruction>(longMaxValueIndex).registerA
-            val videoIdIndex =
-                indexOfFirstInstructionOrThrow(longMaxValueIndex) {
-                    val reference = getReference<FieldReference>()
-                    opcode == Opcode.IGET_OBJECT &&
-                            reference?.type == "Ljava/lang/String;" &&
-                            reference.definingClass == definingClass
-                }
-
-            val definingClassRegister =
-                getInstruction<TwoRegisterInstruction>(videoIdIndex).registerB
-            val videoIdReference =
-                getInstruction<ReferenceInstruction>(videoIdIndex).reference
-
-            addInstructions(
-                longMaxValueIndex + 1, """
-                    # Get video id.
-                    iget-object v$longMaxValueRegister, v$definingClassRegister, $videoIdReference
-                    
-                    # Override approxDurationMs.
-                    invoke-static { v$longMaxValueRegister }, $EXTENSION_CLASS_DESCRIPTOR->getApproxDurationMs(Ljava/lang/String;)J
-                    move-result-wide v$longMaxValueRegister
-                    """
-            )
-            removeInstruction(longMaxValueIndex)
-
-            getInstruction<ReferenceInstruction>(getFormatsFieldIndex).reference
-        }
-
         createStreamingDataFingerprint.matchOrThrow(createStreamingDataParentFingerprint)
             .let { result ->
                 result.method.apply {
+                    val parseResponseProtoMethodName = "parseFrom"
+
                     val setStreamDataMethodName = "patch_setStreamingData"
-                    val calcApproxDurationMsMethodName = "patch_calcApproxDurationMs"
                     val resultClassDef = result.classDef
                     val resultMethodType = resultClassDef.type
                     val setStreamingDataIndex = result.patternMatch!!.startIndex
-                    val setStreamingDataField =
-                        getInstruction(setStreamingDataIndex).getReference<FieldReference>()
-                            .toString()
+                    val setStreamingDataRegister =
+                        getInstruction<TwoRegisterInstruction>(setStreamingDataIndex).registerA
 
                     val playerProtoClass =
                         getInstruction(setStreamingDataIndex + 1).getReference<FieldReference>()!!.definingClass
@@ -183,16 +162,69 @@ val spoofStreamingDataPatch = bytecodePatch(
                     }?.getReference<FieldReference>()
                         ?: throw PatchException("Could not find getStreamingDataField")
 
-                    val videoDetailsIndex = result.patternMatch!!.endIndex
-                    val videoDetailsRegister =
-                        getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
-                    val videoDetailsClass =
-                        getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
+                    val getVideoDetailsIndex = setStreamingDataIndex + 1
+                    val getVideoDetailsFallbackIndex = setStreamingDataIndex + 3
+                    val getVideoDetailsField =
+                        getInstruction(getVideoDetailsIndex).getReference<FieldReference>()!!
+                    val getVideoDetailsFallbackField =
+                        getInstruction(getVideoDetailsFallbackIndex).getReference<FieldReference>()!!
+                    val freeRegister = implementation!!.registerCount - parameters.size - 2
+
+                    addInstructionsAtControlFlowLabel(
+                        setStreamingDataIndex, """
+                            iget-object v$freeRegister, p1, $getVideoDetailsField
+                            if-nez v$freeRegister, :ignore
+                            sget-object v$freeRegister, $getVideoDetailsFallbackField
+                            :ignore
+                            iget-object v$freeRegister, v$freeRegister, ${getVideoDetailsField.type}->c:Ljava/lang/String;
+                            invoke-direct { p0, v$setStreamingDataRegister, v$freeRegister }, $resultMethodType->$setStreamDataMethodName(${STREAMING_DATA_OUTER_CLASS}Ljava/lang/String;)$STREAMING_DATA_OUTER_CLASS
+                            move-result-object v$setStreamingDataRegister
+                            """
+                    )
 
                     addInstruction(
-                        videoDetailsIndex + 1,
-                        "invoke-direct { p0, v$videoDetailsRegister }, " +
-                                "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
+                        1,
+                        "invoke-static { p0 }, $EXTENSION_STREAMING_DATA_OUTER_CLASS_DESCRIPTOR->initialize($EXTENSION_STREAMING_DATA_INTERFACE)V"
+                    )
+
+                    resultClassDef.interfaces.add(EXTENSION_STREAMING_DATA_INTERFACE)
+
+                    result.classDef.methods.add(
+                        ImmutableMethod(
+                            resultMethodType,
+                            parseResponseProtoMethodName,
+                            listOf(
+                                ImmutableMethodParameter(
+                                    "Ljava/nio/ByteBuffer;",
+                                    annotations,
+                                    "responseProto"
+                                )
+                            ),
+                            STREAMING_DATA_OUTER_CLASS,
+                            AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                            annotations,
+                            null,
+                            MutableMethodImplementation(4),
+                        ).toMutable().apply {
+                            addInstructionsWithLabels(
+                                0,
+                                """
+                                    # Check buffer is not null.
+                                    if-nez p1, :parse
+                                    const/4 v0, 0x0
+                                    return-object v0
+                                    :parse
+
+                                    # Parse streaming data.
+                                    sget-object v0, $playerProtoClass->a:$playerProtoClass
+                                    invoke-static { v0, p1 }, $protobufClass->parseFrom(${protobufClass}Ljava/nio/ByteBuffer;)$protobufClass
+                                    move-result-object v0
+                                    check-cast v0, $playerProtoClass
+                                    iget-object v0, v0, $getStreamingDataField
+                                    return-object v0
+                                    """,
+                            )
+                        },
                     )
 
                     result.classDef.methods.add(
@@ -201,119 +233,53 @@ val spoofStreamingDataPatch = bytecodePatch(
                             setStreamDataMethodName,
                             listOf(
                                 ImmutableMethodParameter(
-                                    videoDetailsClass,
+                                    STREAMING_DATA_OUTER_CLASS,
                                     annotations,
-                                    "videoDetails"
-                                )
-                            ),
-                            "V",
-                            AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
-                            annotations,
-                            null,
-                            MutableMethodImplementation(9),
-                        ).toMutable().apply {
-                            addInstructionsWithLabels(
-                                0,
-                                """
-                                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->isSpoofingEnabled()Z
-                                    move-result v0
-                                    if-eqz v0, :disabled
-                                    
-                                    # Get video id.
-                                    iget-object v2, p1, $videoDetailsClass->c:Ljava/lang/String;
-                                    if-eqz v2, :disabled
-                                    
-                                    # Get streaming data.
-                                    invoke-static { v2 }, $EXTENSION_CLASS_DESCRIPTOR->getStreamingData(Ljava/lang/String;)Ljava/nio/ByteBuffer;
-                                    move-result-object v3
-                                    
-                                    if-eqz v3, :disabled
-                                    
-                                    # Parse streaming data.
-                                    sget-object v4, $playerProtoClass->a:$playerProtoClass
-                                    invoke-static { v4, v3 }, $protobufClass->parseFrom(${protobufClass}Ljava/nio/ByteBuffer;)$protobufClass
-                                    move-result-object v5
-                                    check-cast v5, $playerProtoClass
-                                    
-                                    iget-object v6, v5, $getStreamingDataField
-                                    if-eqz v6, :disabled
-                                    
-                                    # Caculate approxDurationMs.
-                                    invoke-direct { p0, v2 }, $resultMethodType->$calcApproxDurationMsMethodName(Ljava/lang/String;)V
-                                    
-                                    # Set spoofed streaming data.
-                                    iput-object v6, p0, $setStreamingDataField
-                                    
-                                    :disabled
-                                    return-void
-                                    """,
-                            )
-                        },
-                    )
-
-                    resultClassDef.methods.add(
-                        ImmutableMethod(
-                            resultMethodType,
-                            calcApproxDurationMsMethodName,
-                            listOf(
+                                    "streamingDataOuterClass"
+                                ),
                                 ImmutableMethodParameter(
                                     "Ljava/lang/String;",
                                     annotations,
                                     "videoId"
                                 )
                             ),
-                            "V",
+                            STREAMING_DATA_OUTER_CLASS,
                             AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
                             annotations,
                             null,
-                            MutableMethodImplementation(12),
+                            MutableMethodImplementation(4),
                         ).toMutable().apply {
                             addInstructionsWithLabels(
                                 0,
                                 """
-                                    # Get video format list.
-                                    iget-object v0, p0, $setStreamingDataField
-                                    iget-object v0, v0, $streamingDataFormatsReference
-                                    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+                                    # Get streaming data.
+                                    invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->getStreamingData(Ljava/lang/String;)$STREAMING_DATA_OUTER_CLASS
                                     move-result-object v0
-                                    
-                                    # Initialize approxDurationMs field.
-                                    const-wide v1, 0x7fffffffffffffffL
-                                    
-                                    :loop
-                                    # Loop over all video formats to get the approxDurationMs
-                                    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-                                    move-result v3
-                                    const-wide/16 v4, 0x0
-                                    
-                                    if-eqz v3, :exit
-                                    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-                                    move-result-object v3
-                                    check-cast v3, ${(approxDurationMsReference as FieldReference).definingClass}
-                                    
-                                    # Get approxDurationMs from format
-                                    iget-wide v6, v3, $approxDurationMsReference
-                                    
-                                    # Compare with zero to make sure approxDurationMs is not negative
-                                    cmp-long v8, v6, v4
-                                    if-lez v8, :loop
-                                    
-                                    # Only use the min value of approxDurationMs
-                                    invoke-static {v1, v2, v6, v7}, Ljava/lang/Math;->min(JJ)J
-                                    move-result-wide v1
-                                    goto :loop
-                                    
-                                    :exit
-                                    # Save approxDurationMs to integrations
-                                    invoke-static { p1, v1, v2 }, $EXTENSION_CLASS_DESCRIPTOR->setApproxDurationMs(Ljava/lang/String;J)V
-                                    
-                                    return-void
+                                    if-eqz v0, :ignore                                    
+                                    return-object v0
+                                    :ignore
+                                    return-object p1
                                     """,
                             )
                         },
                     )
                 }
             }
+
+        addPlayerResponseMethodHook(
+            Hook.PlayerParameterBeforeVideoId(
+                "$EXTENSION_CLASS_DESCRIPTOR->newPlayerResponseParameter(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;"
+            )
+        )
+
+        findMethodOrThrow(EXTENSION_UTILS_CLASS_DESCRIPTOR) {
+            name == "setContext"
+        }.apply {
+            addInstruction(
+                implementation!!.instructions.lastIndex,
+                "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->initializeJavascript()V"
+            )
+        }
 
         // endregion
 
@@ -344,7 +310,7 @@ val spoofStreamingDataPatch = bytecodePatch(
 
         // region Append spoof info.
 
-        nerdsStatsVideoFormatBuilderFingerprint.methodOrThrow().apply {
+        nerdsStatsFormatBuilderFingerprint.methodOrThrow().apply {
             findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -390,8 +356,6 @@ val spoofStreamingDataPatch = bytecodePatch(
                     )
                 }
             }
-
-            settingArray += "SETTINGS: SKIP_RESPONSE_ENCRYPTION"
         }
 
         if (useIOSClient == true) {
@@ -404,14 +368,9 @@ val spoofStreamingDataPatch = bytecodePatch(
         // region patch for audio track button
 
         val spoofPath = app.revanced.patches.youtube.utils.extension.Constants.SPOOF_PATH
-        addPlayerResponseMethodHook(
-            Hook.PlayerParameterBeforeVideoId(
-                "$spoofPath/AudioTrackPatch;->newPlayerResponseParameter(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;"
-            )
-        )
         hookAudioTrackId("$spoofPath/AudioTrackPatch;->setAudioTrackId(Ljava/lang/String;)V")
         hookBackgroundPlayVideoInformation("$spoofPath/AudioTrackPatch;->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
-        hookTopControlButton("$spoofPath/ui/AudioTrackButtonController;")
+        injectControl("$spoofPath/ui/AudioTrackButton;")
 
         val directory = if (outlineIcon == true)
             "outline"
@@ -424,7 +383,33 @@ val spoofStreamingDataPatch = bytecodePatch(
                 "revanced_audio_track.xml",
             )
         ).forEach { resourceGroup ->
-            ResourceUtils.getContext().copyResources("youtube/spoof/$directory", resourceGroup)
+            context.copyResources("youtube/spoof/$directory", resourceGroup)
+        }
+
+        // endregion
+
+        // region patch for reload video button
+
+        progressBarVisibilityFingerprint
+            .methodOrThrow(progressBarVisibilityParentFingerprint).apply {
+                val index = indexOfProgressBarVisibilityInstruction(this)
+                val register = getInstruction<FiveRegisterInstruction>(index).registerD
+
+                addInstructionsAtControlFlowLabel(
+                    index,
+                    "invoke-static {v$register}, $spoofPath/ReloadVideoPatch;->setProgressBarVisibility(I)V"
+                )
+            }
+
+        injectControl("$spoofPath/ui/ReloadVideoButton;")
+
+        arrayOf(
+            ResourceGroup(
+                "drawable",
+                "revanced_reload_video.xml",
+            )
+        ).forEach { resourceGroup ->
+            context.copyResources("youtube/spoof/$directory", resourceGroup)
         }
 
         // endregion
@@ -449,7 +434,51 @@ val spoofStreamingDataPatch = bytecodePatch(
         addTopControl(
             "youtube/spoof/shared",
             "@+id/revanced_audio_track_button",
-            "@+id/revanced_audio_track_button"
+            "@+id/revanced_reload_video_button"
         )
+
+        // When the app is installed via mounting (excluding the GmsCore support patch), the j2v8 library is not loaded.
+        // Due to the large size of the j2v8 library, it is only copied when the GmsCore support patch is included.
+        // This is not a major issue, as root users do not need the Spoof streaming data patch.
+        if (PatchList.GMSCORE_SUPPORT.included == true) {
+            // Copy the j2v8 library.
+            context.apply {
+                setOf(
+                    "arm64-v8a",
+                    "armeabi-v7a",
+                    "x86",
+                    "x86_64"
+                ).forEach { lib ->
+                    val libraryDirectory = get("lib")
+                    val architectureDirectory = libraryDirectory.resolve(lib)
+
+                    if (architectureDirectory.exists()) {
+                        val libraryFile = architectureDirectory.resolve("libj2v8.so")
+
+                        val libraryDirectoryPath = libraryDirectory.toPath()
+                        if (libraryDirectoryPath.notExists()) {
+                            Files.createDirectories(libraryDirectoryPath)
+                        }
+                        val architectureDirectoryPath = architectureDirectory.toPath()
+                        if (architectureDirectoryPath.notExists()) {
+                            Files.createDirectories(architectureDirectoryPath)
+                        }
+                        val libraryPath = libraryFile.toPath()
+                        Files.createFile(libraryPath)
+
+                        val inputStream = inputStreamFromBundledResourceOrThrow(
+                            "youtube/spoof/jniLibs",
+                            "$lib/libj2v8.so"
+                        )
+
+                        Files.copy(
+                            inputStream,
+                            libraryPath,
+                            StandardCopyOption.REPLACE_EXISTING,
+                        )
+                    }
+                }
+            }
+        }
     }
 }

@@ -14,6 +14,10 @@ Find the official song if a music video is detected playing from an album.
 Limitations: Kids videos may not redirected."</string>
     <string name="revanced_disable_quic_protocol_summary">"Disables CronetEngine's QUIC protocol."</string>
     <string name="revanced_disable_quic_protocol_title">Disable QUIC protocol</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"Clicking on the comment panel title ('Comments') scrolls to the top.
+
+Limitations: Does not apply to comment replies."</string>
+    <string name="revanced_enable_comments_scroll_top_title">Enable scroll to top in comments</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
     <string name="revanced_hide_search_button_summary">Hides the search button in the toolbar.</string>
@@ -52,9 +56,4 @@ Side effect:
 
 • When used with 'Spoof client', playback issues may occur."</string>
     <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_summary">Defines a default client that fetches streaming data.</string>
-    <string name="revanced_spoof_streaming_data_type_title">Default client</string>
 </resources>

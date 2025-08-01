@@ -91,7 +91,7 @@ def search_in_files(directories: list[str], name_values: set[str]) -> dict[str, 
 
     for directory in directories:
         abs_dir = Path(directory).resolve()
-        logger.info("Searching in directory: %s (exists: %s)", abs_dir, Path(abs_dir).exists())
+        logger.debug("Searching in directory: %s (exists: %s)", abs_dir, Path(abs_dir).exists())
 
         for root, dirs, files in os.walk(directory):
             # Skip hidden and build directories
@@ -171,14 +171,14 @@ def process_xml_file(file_path: Path, unused_names: set[str]) -> None:
         # Only write if strings were actually removed
         if kept_strings < initial_count:
             XMLProcessor.write_file(file_path, new_root)
-            logger.info(
+            logger.debug(
                 "Updated %s: removed %s strings, kept %s strings",
                 file_path,
                 initial_count - kept_strings,
                 kept_strings,
             )
         else:
-            logger.info("No changes needed for %s", file_path)
+            logger.debug("No changes needed for %s", file_path)
 
     except Exception:
         logger.exception("Error processing %s: ", file_path)
@@ -274,14 +274,14 @@ def remove_extra_translation_strings(app: str) -> None:
                                 kept_strings += 1
                         # Write updated file
                         XMLProcessor.write_file(trans_path, new_root)
-                        logger.info(
+                        logger.debug(
                             "Updated %s: removed %s strings, kept %s strings",
                             trans_path,
                             len(extra_strings),
                             kept_strings,
                         )
                     else:
-                        logger.info("No extra strings to remove in %s", trans_path)
+                        logger.debug("No extra strings to remove in %s", trans_path)
     except Exception:
         logger.exception("Error during translation string removal: ")
 

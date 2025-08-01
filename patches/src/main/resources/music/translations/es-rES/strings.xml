@@ -66,6 +66,12 @@ Preferiblemente que sean colores oscuros, la aplicación no soporta temas claros
 Preferiblemente colores oscuros, la aplicación no soporta temas claros."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Color secundario del fondo del reproductor</string>
     <string name="revanced_custom_player_background_invalid_toast">Color de fondo del reproductor inválido.</string>
+    <string name="revanced_debug_protobuffer_summary">Incluye el búfer proto en el registro de depuración.</string>
+    <string name="revanced_debug_protobuffer_title">Búfer en el registro de depuración</string>
+    <string name="revanced_debug_spannable_summary">Incluye spannable dentro del registro de depuración.</string>
+    <string name="revanced_debug_spannable_title">Spannable en registro</string>
+    <string name="revanced_debug_summary">Muestra el registro de depuración.</string>
+    <string name="revanced_debug_title">Habilitar registro de depuración</string>
     <string name="revanced_default_app_settings_summary">Para abrir los enlaces de YouTube Music en RVX Music, activa \'Abrir enlaces soportados\' y activa las direcciones web soportadas.</string>
     <string name="revanced_default_app_settings_title">Abrir ajustes predeterminados de la app</string>
     <string name="revanced_disable_auto_captions_summary">Desactiva la activación automática de los subtítulos forzados en el reproductor de vídeo.</string>
@@ -302,6 +308,12 @@ Esto oculta no solo el menú de ajustes de YT Music, sino también el menú de a
     <string name="revanced_hide_terms_container_title">Ocultar contenedor de términos</string>
     <string name="revanced_hide_voice_search_button_summary">Oculta el botón de búsqueda por voz en la barra de búsqueda.</string>
     <string name="revanced_hide_voice_search_button_title">Ocultar botón de búsqueda por voz</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Sin reemplazar</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_invalid_toast">El tamaño máximo de procesos Litho debe ser entre 1-3.</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_summary">"Cambia el tamaño máximo para los procesos de Litho.
+
+Un valor más alto puede mejorar el rendimiento en la carga de interfaces Litho, pero puede drenar más batería."</string>
+    <string name="revanced_litho_layout_thread_pool_max_size_title">Tamaño máximo de procesos Litho</string>
     <string name="revanced_preference_screen_account_title">Cuenta</string>
     <string name="revanced_preference_screen_action_bar_title">Barra de Acción</string>
     <string name="revanced_preference_screen_ads_title">Anuncios</string>
@@ -484,9 +496,6 @@ Efecto secundario:
 
 ※ Cuando se utiliza con 'Cliente de spoof', problemas de reproducción pueden producirse."</string>
     <string name="revanced_spoof_streaming_data_title">Falsificar datos de transmisión</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_summary">Define un cliente por defecto que obtiene datos de streaming.</string>
-    <string name="revanced_spoof_streaming_data_type_title">Cliente por defecto</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
     <string name="revanced_watch_history_type_entry_2">Reemplazar dominio</string>
     <string name="revanced_watch_history_type_entry_3">Bloquear el registro del historial</string>

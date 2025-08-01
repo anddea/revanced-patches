@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.shared
 
+import app.revanced.extension.shared.utils.Event
 import app.revanced.extension.shared.utils.Logger
 
 /**
@@ -14,16 +15,15 @@ enum class PlayerControlsVisibility {
 
     companion object {
 
-        private val nameToPlayerControlsVisibility = entries.associateBy { it.name }
+        private val nameToPlayerControlsVisibility = PlayerControlsVisibility.entries.associateBy { it.name }
 
         @JvmStatic
         fun setFromString(enumName: String) {
-            val state = nameToPlayerControlsVisibility[enumName]
-            if (state == null) {
+            val newType = nameToPlayerControlsVisibility[enumName]
+            if (newType == null) {
                 Logger.printException { "Unknown PlayerControlsVisibility encountered: $enumName" }
-            } else if (currentPlayerControlsVisibility != state) {
-                Logger.printDebug { "PlayerControlsVisibility changed to: $state" }
-                currentPlayerControlsVisibility = state
+            } else {
+                current = newType
             }
         }
 
@@ -32,13 +32,21 @@ enum class PlayerControlsVisibility {
          * this value may not be up to date with the actual playback state.
          */
         @JvmStatic
-        var current: PlayerControlsVisibility?
+        var current
             get() = currentPlayerControlsVisibility
-            private set(value) {
-                currentPlayerControlsVisibility = value
+            private set(type) {
+                if (currentPlayerControlsVisibility != type) {
+                    Logger.printDebug { "Changed to: $type" }
+
+                    currentPlayerControlsVisibility = type
+                    onChange(type)
+                }
             }
 
         @Volatile // Read/write from different threads.
-        private var currentPlayerControlsVisibility: PlayerControlsVisibility? = null
+        private var currentPlayerControlsVisibility = PLAYER_CONTROLS_VISIBILITY_UNKNOWN
+
+        @JvmStatic
+        val onChange = Event<PlayerControlsVisibility>()
     }
 }
