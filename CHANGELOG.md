@@ -1,3 +1,10 @@
+## [3.11.1-dev.1](https://github.com/anddea/revanced-patches/compare/v3.11.0...v3.11.1-dev.1) (2025-08-02)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Correctly display Gemini and Yandex transcriptions by adding the missing layout ([70569ea](https://github.com/anddea/revanced-patches/commit/70569ea4a69abb04553d16e00e230218b14202f5))
+
 # [3.11.0](https://github.com/anddea/revanced-patches/compare/v3.10.0...v3.11.0) (2025-08-01)
 
 
