@@ -177,6 +177,15 @@ val overlayButtonsPatch = resourcePatch(
             )
         }
 
+        // Subtitle overlay layout for Gemini and Yandex transcription
+        copyResources(
+            "youtube/overlaybuttons/shared/host",
+            ResourceGroup(
+                "layout",
+                "revanced_subtitle_overlay_layout.xml"
+            )
+        )
+
         // Merge XML nodes from the host to their respective XML files.
         copyXmlNode(
             "youtube/overlaybuttons/shared/host",
