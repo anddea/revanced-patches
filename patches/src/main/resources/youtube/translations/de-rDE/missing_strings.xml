@@ -153,6 +153,9 @@ To show the Audio track menu, change \'Default client (Spoof streaming data)\' t
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Hide disabled comments button</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_off">Comments panel is shown.</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_on">Comments panel is hidden.</string>
+    <string name="revanced_hide_shorts_comments_panel_title">Hide comments panel</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_off">New posts button is shown.</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_on">New posts button is hidden.</string>
     <string name="revanced_hide_shorts_new_posts_button_title">Hide new posts button</string>
@@ -368,11 +371,13 @@ This feature is still in development, so it may break at any time due to server-
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Video codec is AVC (H.264) or VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Disable VR AV1</string>
     <string name="revanced_spoof_streaming_data_vr_language_title">VR default audio stream language</string>
+    <string name="revanced_swipe_brightness_distance_title">Brightness distance (1-1000 dp)</string>
     <string name="revanced_swipe_brightness_summary_off">Fullscreen brightness swipe is disabled</string>
     <string name="revanced_swipe_brightness_summary_on">"Fullscreen brightness swipe is enabled.
 
 Adjust brightness by swiping vertically on the left side of the screen."</string>
     <string name="revanced_swipe_brightness_title">Enable brightness gesture</string>
+    <string name="revanced_swipe_distance_invalid">Invalid swipe distance, must be between 1 and 1000.</string>
     <string name="revanced_swipe_haptic_feedback_summary_off">Haptic feedback is disabled.</string>
     <string name="revanced_swipe_haptic_feedback_summary_on">Haptic feedback is enabled.</string>
     <string name="revanced_swipe_haptic_feedback_title">Enable haptic feedback</string>
@@ -390,11 +395,13 @@ Adjust brightness by swiping vertically on the left side of the screen."</string
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen.</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen.</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Save and restore brightness</string>
+    <string name="revanced_swipe_seek_distance_title">Seek distance (1-1000 dp)</string>
     <string name="revanced_swipe_seek_summary_off">Fullscreen seek swipe is disabled.</string>
     <string name="revanced_swipe_seek_summary_on">"Fullscreen seek swipe is enabled.
 
 Seek the video by swiping horizontally on the top half of the screen."</string>
     <string name="revanced_swipe_seek_title">Enable seek gesture</string>
+    <string name="revanced_swipe_speed_distance_title">Speed distance (1-1000 dp)</string>
     <string name="revanced_swipe_speed_summary_off">Fullscreen speed swipe is disabled.</string>
     <string name="revanced_swipe_speed_summary_on">"Fullscreen speed swipe is enabled.
 
@@ -405,6 +412,7 @@ Adjust speed by swiping horizontally on the bottom half of the screen."</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Switch speed and seek gestures</string>
     <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur.</string>
     <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
+    <string name="revanced_swipe_volume_distance_title">Volume distance (1-1000 dp)</string>
     <string name="revanced_swipe_volume_summary_off">Fullscreen volume swipe is disabled.</string>
     <string name="revanced_swipe_volume_summary_on">"Fullscreen volume swipe is enabled.
 

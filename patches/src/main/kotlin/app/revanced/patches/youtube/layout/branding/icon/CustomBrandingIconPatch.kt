@@ -134,7 +134,7 @@ val customBrandingIconPatch = resourcePatch(
         key = "changeSplashIcon",
         default = true,
         title = "Change splash icons",
-        description = "Apply the custom branding icon to the splash screen. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
+        description = "Apply the custom branding icon to the splash screen. Supports from YouTube 19.05.36 to YouTube 19.16.39.",
         required = true
     )
 
