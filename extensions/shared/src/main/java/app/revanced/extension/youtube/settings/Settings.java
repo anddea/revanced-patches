@@ -436,7 +436,7 @@ public class Settings extends BaseSettings {
 
     public static final BooleanSetting OVERLAY_BUTTON_GEMINI = new BooleanSetting("revanced_overlay_button_gemini_summarize", FALSE);
     public static final StringSetting GEMINI_API_KEY = new StringSetting("revanced_overlay_button_gemini_summarize_api_key", "", true, parent(OVERLAY_BUTTON_GEMINI));
-    public static final IntegerSetting GEMINI_TRANSCRIBE_SUBTITLES_FONT_SIZE = new IntegerSetting("revanced_gemini_transcribe_subtitles_font_size", 14, true, parent(OVERLAY_BUTTON_GEMINI));
+    public static final IntegerSetting GEMINI_TRANSCRIBE_SUBTITLES_FONT_SIZE = new IntegerSetting("revanced_gemini_transcribe_subtitles_font_size", 16, true, parent(OVERLAY_BUTTON_GEMINI));
     public static final BooleanSetting YANDEX_TRANSCRIBE_SUBTITLES = new BooleanSetting("revanced_yandex_transcribe_subtitles", TRUE, parent(OVERLAY_BUTTON_GEMINI));
     public static final StringSetting YANDEX_TRANSCRIBE_SUBTITLES_LANGUAGE = new StringSetting("revanced_yandex_transcribe_subtitles_language", "app", true, parent(OVERLAY_BUTTON_GEMINI));
 
