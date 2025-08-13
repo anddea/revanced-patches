@@ -26,7 +26,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import app.revanced.extension.youtube.settings.LicenseActivityHook;
 import com.google.android.apps.youtube.app.application.Shell_SettingsActivity;
 import com.google.android.apps.youtube.app.settings.SettingsActivity;
 
@@ -51,6 +50,16 @@ public class GeneralPatch {
     // region [Disable auto audio tracks] patch
 
     private static final String DEFAULT_AUDIO_TRACKS_SUFFIX = ".4";
+
+    /**
+     * Injection point.
+     */
+    public static boolean ignoreDefaultAudioStream(boolean original) {
+        if (Settings.DISABLE_AUTO_AUDIO_TRACKS.get()) {
+            return false;
+        }
+        return original;
+    }
 
     /**
      * Injection point.
