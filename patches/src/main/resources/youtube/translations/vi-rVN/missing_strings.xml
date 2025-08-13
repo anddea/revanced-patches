@@ -27,7 +27,7 @@
     <string name="revanced_gemini_summary_title">Gemini Video Summary</string>
     <string name="revanced_gemini_time_taken">(Took %d seconds)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">Enable \"Display over other apps\" to show as subtitles</string>
-    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">The font size of the transcribed video subtitles. To hide subtitle box, just tap on it.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">The font size of the transcribed video subtitles. Tap the subtitle box to hide it, or long-press to drag it to a different position.</string>
     <string name="revanced_gemini_transcribe_subtitles_font_size_title">Subtitles font size</string>
     <string name="revanced_gemini_transcription_parse_button">Subtitles</string>
     <string name="revanced_gemini_transcription_parse_success">Subtitle parsed successfully</string>
@@ -78,19 +78,22 @@ Summarized and transcribed results are saved unless you closed the app or used G
     <string name="revanced_shorts_custom_actions_gemini_summary_off">Gemini summary menu is hidden.</string>
     <string name="revanced_shorts_custom_actions_gemini_summary_on">Gemini summary menu is shown.</string>
     <string name="revanced_shorts_custom_actions_gemini_title">Show Gemini summary menu</string>
-    <string name="revanced_swipe_brightness_distance_title">Brightness distance (1-1000 dp)</string>
+    <string name="revanced_swipe_brightness_distance_summary">The amount of pixels to swipe to change the brightness. Lower values make the brightness change faster, higher values make it slower (1-1000).</string>
+    <string name="revanced_swipe_brightness_distance_title">Brightness distance</string>
     <string name="revanced_swipe_distance_invalid">Invalid swipe distance, must be between 1 and 1000.</string>
     <string name="revanced_swipe_overlay_progress_seek_color_summary">The color of the progress bar for seek controls</string>
     <string name="revanced_swipe_overlay_progress_seek_color_title">Swipe overlay seek color</string>
     <string name="revanced_swipe_overlay_progress_speed_color_summary">The color of the progress bar for speed controls</string>
     <string name="revanced_swipe_overlay_progress_speed_color_title">Swipe overlay speed color</string>
-    <string name="revanced_swipe_seek_distance_title">Seek distance (1-1000 dp)</string>
+    <string name="revanced_swipe_seek_distance_summary">The amount of pixels to swipe to skip through video content. Lower values make seeking faster, higher values make it slower (1-1000).</string>
+    <string name="revanced_swipe_seek_distance_title">Seek distance</string>
     <string name="revanced_swipe_seek_summary_off">Fullscreen seek swipe is disabled.</string>
     <string name="revanced_swipe_seek_summary_on">"Fullscreen seek swipe is enabled.
 
 Seek the video by swiping horizontally on the top half of the screen."</string>
     <string name="revanced_swipe_seek_title">Enable seek gesture</string>
-    <string name="revanced_swipe_speed_distance_title">Speed distance (1-1000 dp)</string>
+    <string name="revanced_swipe_speed_distance_summary">The amount of pixels to swipe to change the video speed. Lower values make the speed change faster, higher values make it slower (1-1000).</string>
+    <string name="revanced_swipe_speed_distance_title">Speed distance</string>
     <string name="revanced_swipe_speed_summary_off">Fullscreen speed swipe is disabled.</string>
     <string name="revanced_swipe_speed_summary_on">"Fullscreen speed swipe is enabled.
 
@@ -99,7 +102,8 @@ Adjust speed by swiping horizontally on the bottom half of the screen."</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">The seek swipe gesture zone is at the top, the speed zone is at the bottom.</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">The speed swipe gesture zone is at the top, the seek zone is at the bottom.</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Switch speed and seek gestures</string>
-    <string name="revanced_swipe_volume_distance_title">Volume distance (1-1000 dp)</string>
+    <string name="revanced_swipe_volume_distance_summary">The amount of pixels to swipe to adjust the volume. Lower values make the volume change faster, higher values make it slower (1-1000).</string>
+    <string name="revanced_swipe_volume_distance_title">Volume distance</string>
     <string name="revanced_yandex_error_download_subs_failed">Failed to download subtitle file (Code: %1$d)</string>
     <string name="revanced_yandex_error_internal_no_chosen_url">Internal Error: Chosen track has no URL</string>
     <string name="revanced_yandex_error_internal_null_subs_response">Internal error: Failed to get final subtitles</string>
