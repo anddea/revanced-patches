@@ -97,6 +97,11 @@ public final class ShortsButtonFilter extends Filter {
                 "reel_player_disclosure.eml"
         );
 
+        StringFilterGroup shortsCommentsPanel = new StringFilterGroup(
+                Settings.HIDE_SHORTS_COMMENTS_PANEL,
+                "participation_composer"
+        );
+
         StringFilterGroup likeButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_LIKE_BUTTON,
                 "shorts_like_button.eml",
@@ -141,7 +146,7 @@ public final class ShortsButtonFilter extends Filter {
                 suggestedAction, actionButton, joinButton, subscribeButton, metaPanelButton,
                 paidPromotionButton, pausedOverlayButtons, channelBar, videoLinkLabel,
                 videoTitle, reelSoundMetadata, infoPanel, liveHeader, stickers,
-                likeButton, dislikeButton
+                likeButton, dislikeButton, shortsCommentsPanel
         );
 
         //
