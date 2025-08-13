@@ -330,6 +330,7 @@ private val rvxPreferenceKey = mapOf(
     "revanced_hide_shorts_buy_super_thanks_button" to "revanced_hide_thanks_button",
     "revanced_hide_shorts_channel_bar" to "account_switcher_key",
     "revanced_hide_shorts_comments_button" to "revanced_hide_quick_actions_comment_button",
+    "revanced_hide_shorts_comments_panel" to "revanced_hide_quick_actions_comment_button",
     "revanced_hide_shorts_dislike_button" to "revanced_preference_screen_ryd",
     "revanced_hide_shorts_floating_button" to "revanced_hide_floating_button",
     "revanced_hide_shorts_green_screen_button" to "M 327.649 749.54 L 685.414 519.88 C 699.82 510.62 707.023 497.39 707.023 480.18 C 707.023 462.95 699.82 449.61 685.414 440.11 L 327.649 210.45 C 310.898 199.44 294.269 198.63 277.76 208 C 261.238 217.39 252.976 231.5 252.976 250.34 L 252.976 709.66 C 252.976 728.5 261.238 742.61 277.76 751.98 C 294.269 761.37 310.898 760.55 327.649 749.54 Z",
