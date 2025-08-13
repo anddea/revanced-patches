@@ -1,3 +1,16 @@
+# [3.12.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.11.1-dev.1...v3.12.0-dev.1) (2025-08-13)
+
+
+### Bug Fixes
+
+* **YouTube - Disable forced auto audio tracks:** Disable the A/B feature flag that forces localized audio ([9f8726f](https://github.com/anddea/revanced-patches/commit/9f8726f8e45df1aa6db444c035ff2620457f767e))
+
+
+### Features
+
+* **YouTube - Shorts components:** Add `Hide comments panel` setting ([0e943e5](https://github.com/anddea/revanced-patches/commit/0e943e50bc79e8b0fd4a0ed51efe89876e791380))
+* **YouTube - Swipe controls:** Add swipe distance settings for sensitivity adjustments ([db7f569](https://github.com/anddea/revanced-patches/commit/db7f5690e70ffc30c6131ac262208a36f7a70a11))
+
 ## [3.11.1-dev.1](https://github.com/anddea/revanced-patches/compare/v3.11.0...v3.11.1-dev.1) (2025-08-02)
 
 
