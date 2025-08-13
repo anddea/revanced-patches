@@ -96,11 +96,58 @@ class SwipeControlsConfigurationProvider {
         )
     }
 
+    /**
+     * The distance of volume swipe gestures.
+     */
+    val volumeDistance: Float by lazy {
+        validateValue(
+            Settings.SWIPE_VOLUME_DISTANCE,
+            1,
+            1000,
+            "revanced_swipe_distance_invalid"
+        ).toFloat() / 100 * 10 // 10f
+    }
+
+    /**
+     * The distance of brightness swipe gestures.
+     */
+    val brightnessDistance: Float by lazy {
+        validateValue(
+            Settings.SWIPE_BRIGHTNESS_DISTANCE,
+            1,
+            1000,
+            "revanced_swipe_distance_invalid"
+        ).toFloat() / 100 // 1f
+    }
+
+    /**
+     * The distance of speed swipe gestures.
+     */
+    val speedDistance: Float by lazy {
+        validateValue(
+            Settings.SWIPE_SPEED_DISTANCE,
+            1,
+            1000,
+            "revanced_swipe_distance_invalid"
+        ).toFloat() / 100 * 10 // 10f
+    }
+
+    /**
+     * The distance of seek swipe gestures.
+     */
+    val seekDistance: Float by lazy {
+        validateValue(
+            Settings.SWIPE_SEEK_DISTANCE,
+            1,
+            1000,
+            "revanced_swipe_distance_invalid"
+        ).toFloat() / 100 * 10 // 10f
+    }
+
     // endregion
 
     // region overlay adjustments
 
-    //region overlay adjustments
     /**
      * Indicates whether haptic feedback should be enabled for swipe control interactions.
      */

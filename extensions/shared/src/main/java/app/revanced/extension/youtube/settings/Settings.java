@@ -600,6 +600,11 @@ public class Settings extends BaseSettings {
     public static final IntegerSetting SWIPE_VOLUMES_SENSITIVITY = new IntegerSetting("revanced_swipe_volumes_sensitivity", 1, true, parent(SWIPE_VOLUME));
     public static final FloatSetting SWIPE_BRIGHTNESS_VALUE = new FloatSetting("revanced_swipe_brightness_value", -1f);
 
+    public static final IntegerSetting SWIPE_VOLUME_DISTANCE = new IntegerSetting("revanced_swipe_volume_distance", 100, true, parent(SWIPE_VOLUME));
+    public static final IntegerSetting SWIPE_BRIGHTNESS_DISTANCE = new IntegerSetting("revanced_swipe_brightness_distance", 100, true, parent(SWIPE_BRIGHTNESS));
+    public static final IntegerSetting SWIPE_SPEED_DISTANCE = new IntegerSetting("revanced_swipe_speed_distance", 100, true, parent(SWIPE_SPEED));
+    public static final IntegerSetting SWIPE_SEEK_DISTANCE = new IntegerSetting("revanced_swipe_seek_distance", 100, true, parent(SWIPE_SEEK));
+
     /**
      * @noinspection DeprecatedIsStillUsed
      */

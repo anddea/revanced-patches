@@ -706,7 +706,7 @@ public class Utils {
         final int dip24 = dipToPixels(24);
 
         // Create main layout.
-        LinearLayout mainLayout = new LinearLayout(context);
+        MaxHeightLinearLayout mainLayout = new MaxHeightLinearLayout(context);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
         mainLayout.setPadding(dip24, dip16, dip24, dip24);
         // Set rounded rectangle background.
@@ -714,6 +714,11 @@ public class Utils {
                 createCornerRadii(28), null, null));
         mainBackground.getPaint().setColor(getDialogBackgroundColor()); // Dialog background.
         mainLayout.setBackground(mainBackground);
+
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        int maxHeight = (int) (displayMetrics.heightPixels * 0.9);
+        mainLayout.setMaxHeight(maxHeight);
+        mainLayout.setMinimumHeight(0);
 
         // Title.
         if (!TextUtils.isEmpty(title)) {
@@ -998,6 +1003,7 @@ public class Utils {
 
         DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
         int portraitWidth = (int) (displayMetrics.widthPixels * 0.9);
+        int maxHeight = (int) (displayMetrics.heightPixels * 0.9);
 
         if (Resources.getSystem().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             portraitWidth = (int) Math.min(portraitWidth, displayMetrics.heightPixels * 0.9);

@@ -21,10 +21,10 @@ abstract class BaseGestureController(
         controller.audio,
         controller.screen,
         controller.overlay,
-        10f,
-        1f,
-        10f,
-        10f,
+        controller.config.volumeDistance,
+        controller.config.brightnessDistance,
+        controller.config.speedDistance,
+        controller.config.seekDistance,
         controller.config.volumeSwipeSensitivity,
     ) {
 

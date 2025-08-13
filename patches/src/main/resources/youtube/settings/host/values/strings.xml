@@ -1123,15 +1123,15 @@ If the layout of the player screen changes due to server-side changes, unintende
     <string name="revanced_hide_shorts_channel_bar_summary_off">Channel bar is shown.</string>
     <string name="revanced_hide_shorts_channel_bar_summary_on">Channel bar is hidden.</string>
     <string name="revanced_hide_shorts_channel_bar_title">Hide channel bar</string>
-    <string name="revanced_hide_shorts_comments_panel_summary_off">Comments panel is shown.</string>
-    <string name="revanced_hide_shorts_comments_panel_summary_on">Comments panel is hidden.</string>
-    <string name="revanced_hide_shorts_comments_panel_title">Hide comments panel</string>
     <string name="revanced_hide_shorts_comments_button_summary_off">Comments button is shown.</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">Comments button is hidden.</string>
     <string name="revanced_hide_shorts_comments_button_title">Hide Comments button</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Hide disabled comments button</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_off">Comments panel is shown.</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_on">Comments panel is hidden.</string>
+    <string name="revanced_hide_shorts_comments_panel_title">Hide comments panel</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">Dislike button is shown.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Dislike button is hidden.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Hide Dislike button</string>
@@ -2322,11 +2322,13 @@ This feature is still in development, so it may break at any time due to server-
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Video codec is AVC (H.264) or VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Disable VR AV1</string>
     <string name="revanced_spoof_streaming_data_vr_language_title">VR default audio stream language</string>
+    <string name="revanced_swipe_brightness_distance_title">Brightness distance (1-1000 dp)</string>
     <string name="revanced_swipe_brightness_summary_off">Fullscreen brightness swipe is disabled</string>
     <string name="revanced_swipe_brightness_summary_on">"Fullscreen brightness swipe is enabled.
 
 Adjust brightness by swiping vertically on the left side of the screen."</string>
     <string name="revanced_swipe_brightness_title">Enable brightness gesture</string>
+    <string name="revanced_swipe_distance_invalid">Invalid swipe distance, must be between 1 and 1000.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Swipe gestures are disabled in Lock screen mode.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Swipe gestures are enabled in Lock screen mode.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Swipe gestures in Lock screen mode</string>
@@ -2368,11 +2370,13 @@ Adjust brightness by swiping vertically on the left side of the screen."</string
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen.</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen.</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Save and restore brightness</string>
+    <string name="revanced_swipe_seek_distance_title">Seek distance (1-1000 dp)</string>
     <string name="revanced_swipe_seek_summary_off">Fullscreen seek swipe is disabled.</string>
     <string name="revanced_swipe_seek_summary_on">"Fullscreen seek swipe is enabled.
 
 Seek the video by swiping horizontally on the top half of the screen."</string>
     <string name="revanced_swipe_seek_title">Enable seek gesture</string>
+    <string name="revanced_swipe_speed_distance_title">Speed distance (1-1000 dp)</string>
     <string name="revanced_swipe_speed_summary_off">Fullscreen speed swipe is disabled.</string>
     <string name="revanced_swipe_speed_summary_on">"Fullscreen speed swipe is enabled.
 
@@ -2386,6 +2390,7 @@ Adjust speed by swiping horizontally on the bottom half of the screen."</string>
     <string name="revanced_swipe_text_overlay_size_title">Swipe overlay text size</string>
     <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur.</string>
     <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
+    <string name="revanced_swipe_volume_distance_title">Volume distance (1-1000 dp)</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Volume swipe sensitivity must be between 1-1000.</string>
     <string name="revanced_swipe_volume_sensitivity_summary">How much the volume changes per swipe.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Volume swipe sensitivity</string>
