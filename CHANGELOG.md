@@ -1,3 +1,10 @@
+# [3.12.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.1...v3.12.0-dev.2) (2025-08-14)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Make Gemini/Yandex transcription subtitle overlay draggable on long press ([735578a](https://github.com/anddea/revanced-patches/commit/735578a342dc322e008f46f23baaf18bc520c1d1))
+
 # [3.12.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.11.1-dev.1...v3.12.0-dev.1) (2025-08-13)
 
 
