@@ -1,3 +1,10 @@
+# [3.12.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.2...v3.12.0-dev.3) (2025-08-15)
+
+
+### Features
+
+* **Spotify:** Add support for `v9.0.66+` ([23e9559](https://github.com/anddea/revanced-patches/commit/23e95596ed9e0df315edfef2454baa982165a2b5))
+
 # [3.12.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.1...v3.12.0-dev.2) (2025-08-14)
 
 
