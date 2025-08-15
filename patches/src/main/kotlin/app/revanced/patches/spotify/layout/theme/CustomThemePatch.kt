@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -204,11 +205,16 @@ val customThemePatch = resourcePatch(
         }
 
         // Login screen gradient.
-        document("res/drawable/start_screen_gradient.xml").use { document ->
-            val gradientNode = document.getElementsByTagName("gradient").item(0) as Element
+        try {
+            document("res/drawable/start_screen_gradient.xml").use { document ->
+                val gradientNode = document.getElementsByTagName("gradient").item(0) as Element
 
-            gradientNode.setAttribute("android:startColor", "@color/gray_7")
-            gradientNode.setAttribute("android:endColor", "@color/gray_7")
+                gradientNode.setAttribute("android:startColor", "@color/gray_7")
+                gradientNode.setAttribute("android:endColor", "@color/gray_7")
+            }
+        } catch (_: Exception) {
+            // It will fail for 9.0.66+
+            // printWarn("Failed to locate start_screen_gradient.xml, skipping modification.")
         }
 
         if (iconColor!!) {
