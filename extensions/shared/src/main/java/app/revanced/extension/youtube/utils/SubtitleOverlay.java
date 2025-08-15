@@ -5,6 +5,7 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
@@ -116,6 +117,12 @@ public class SubtitleOverlay {
      * Gesture detector for handling touch events like taps and long presses.
      */
     private GestureDetector gestureDetector;
+
+    /**
+     * Key for storing the subtitle overlay position in SharedPreferences.
+     */
+    private static final String PREF_NAME = "SubtitleOverlayPrefs";
+    private static final String KEY_IS_AT_BOTTOM = "is_at_bottom";
 
     // endregion Dragging state
 
@@ -354,6 +361,7 @@ public class SubtitleOverlay {
                 layoutParams.y = targetAbsoluteTopY;
                 updateOverlayPosition();
                 isAtBottom = !snapToTop;
+                savePosition();
                 Logger.printDebug(() -> "Subtitle overlay snapped to " + (snapToTop ? "top" : "bottom"));
             }
 
@@ -373,7 +381,7 @@ public class SubtitleOverlay {
      * Displays the subtitle overlay window.
      * <p>
      * Initializes the overlay view if not already created and adds it to the WindowManager.
-     * The overlay is initially positioned at the bottom of the screen.
+     * The overlay is positioned based on the saved preference (top or bottom).
      */
     public void show() {
         mainHandler.post(() -> {
@@ -384,14 +392,19 @@ public class SubtitleOverlay {
                 return;
             }
             try {
-                // Position the overlay at the bottom initially
-                isAtBottom = true;
+                isAtBottom = loadPosition();
                 int screenHeight = getScreenHeight();
                 int overlayHeight = overlayView.getHeight();
-                layoutParams.y = screenHeight - overlayHeight;
+                int margin = dipToPixels(MARGIN_DP);
+
+                // Set initial position based on isAtBottom
+                layoutParams.y = isAtBottom
+                        ? screenHeight - overlayHeight
+                        : margin + (isPortrait() ? dipToPixels(24) : 0);
+
                 windowManager.addView(overlayView, layoutParams);
                 isShowing = true;
-                Logger.printDebug(() -> "Subtitle overlay added to window at bottom position.");
+                Logger.printDebug(() -> "Subtitle overlay added to window at " + (isAtBottom ? "bottom" : "top") + " position.");
             } catch (WindowManager.BadTokenException e) {
                 Logger.printException(() -> "WindowManager BadTokenException - Check SYSTEM_ALERT_WINDOW permission?", e);
                 showToastLong(str("revanced_gemini_transcribe_bad_token_exception"));
@@ -482,6 +495,28 @@ public class SubtitleOverlay {
     @Nullable
     public View getOverlayView() {
         return overlayView;
+    }
+
+    /**
+     * Saves the current subtitle position to SharedPreferences.
+     */
+    private void savePosition() {
+        SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        prefs.edit().putBoolean(KEY_IS_AT_BOTTOM, isAtBottom).apply();
+        Logger.printDebug(() -> "Saved subtitle position: isAtBottom = " + isAtBottom);
+    }
+
+    /**
+     * Loads the saved subtitle position from SharedPreferences.
+     *
+     * @return True if the overlay should be positioned at the bottom, false for top.
+     */
+    private boolean loadPosition() {
+        SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        boolean defaultPosition = true; // Default to bottom if no preference is saved
+        boolean loadedPosition = prefs.getBoolean(KEY_IS_AT_BOTTOM, defaultPosition);
+        Logger.printDebug(() -> "Loaded subtitle position: isAtBottom = " + loadedPosition);
+        return loadedPosition;
     }
 
     /**
