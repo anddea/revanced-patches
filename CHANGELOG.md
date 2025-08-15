@@ -1,3 +1,10 @@
+# [3.12.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.3...v3.12.0-dev.4) (2025-08-15)
+
+
+### Features
+
+* **YouTube - Hide action buttons:** Add `Hide Hype button` setting ([3b6ba4e](https://github.com/anddea/revanced-patches/commit/3b6ba4ed61f008dcab5210a845e4032f4f228fdf))
+
 # [3.12.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.2...v3.12.0-dev.3) (2025-08-15)
 
 
