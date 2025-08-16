@@ -9,6 +9,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.castbutton.castButtonPatch
 import app.revanced.patches.youtube.utils.castbutton.hookToolBarCastButton
@@ -16,6 +17,7 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.patch.PatchList.TOOLBAR_COMPONENTS
 import app.revanced.patches.youtube.utils.playservice.is_19_16_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_20_15_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.*
@@ -25,14 +27,19 @@ import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.utils.toolbar.hookToolBar
 import app.revanced.patches.youtube.utils.toolbar.toolBarHookPatch
 import app.revanced.util.*
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.fingerprint.*
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
 
@@ -378,6 +385,126 @@ val toolBarComponentsPatch = bytecodePatch(
                     "invoke-static {v$viewRegister}, $GENERAL_CLASS_DESCRIPTOR->hideVoiceSearchButton(Landroid/view/View;)V"
                 )
             }
+        }
+
+        // endregion
+
+        // region patch for hide You may like section
+
+        if (is_19_46_or_greater && !is_20_15_or_greater) {
+            val (searchSuggestionEndpointClass, searchSuggestionEndpointField) = with (
+                searchSuggestionEndpointFingerprint.methodOrThrow(
+                    searchSuggestionEndpointParentFingerprint
+                )
+            ) {
+                val isEmptyIndex = indexOfIsEmptyInstruction(this)
+                val index = indexOfFirstInstructionReversedOrThrow(isEmptyIndex) {
+                    opcode == Opcode.IGET_OBJECT &&
+                            getReference<FieldReference>()?.type == "Ljava/lang/String;"
+                }
+                val searchSuggestionEndpointField =
+                    getInstruction<ReferenceInstruction>(index).reference as FieldReference
+
+                Pair(
+                    searchSuggestionEndpointField.definingClass,
+                    searchSuggestionEndpointField
+                )
+            }
+
+            searchSuggestionCollectionFingerprint.matchOrThrow(
+                createSearchSuggestionsFingerprint
+            ).let {
+                it.method.apply {
+                    val helperMethodName = "patch_setCollection"
+
+                    it.classDef.methods.add(
+                        ImmutableMethod(
+                            it.classDef.type,
+                            helperMethodName,
+                            listOf(
+                                ImmutableMethodParameter(
+                                    "Ljava/util/Collection;",
+                                    annotations,
+                                    "collection"
+                                ),
+                                ImmutableMethodParameter(
+                                    "Ljava/lang/String;",
+                                    annotations,
+                                    "searchQuery"
+                                )
+                            ),
+                            "Ljava/util/Collection;",
+
+                            AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+                            annotations,
+                            null,
+                            MutableMethodImplementation(8),
+                        ).toMutable().apply {
+                            addInstructionsWithLabels(
+                                0,
+                                """
+                                    # Collection.
+                                    move-object/from16 v0, p1
+                                    # Search query.
+                                    move-object/from16 v1, p2
+                                    
+                                    # Check that the setting is enabled and that the search query is empty.
+                                    invoke-static {v1}, $GENERAL_CLASS_DESCRIPTOR->hideYouMayLikeSection(Ljava/lang/String;)Z
+                                    move-result v2
+
+                                    if-eqz v2, :exit
+                                    
+                                    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+                                    move-result-object v2
+                                    
+                                    :loop
+                                    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+                                    move-result v3
+                                    
+                                    if-eqz v3, :exit
+                                    
+                                    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+                                    move-result-object v3
+                                    instance-of v4, v3, $searchSuggestionEndpointClass
+
+                                    if-eqz v4, :loop
+                                    check-cast v3, $searchSuggestionEndpointClass
+                                    iget-object v4, v3, $searchSuggestionEndpointField
+                                    invoke-static {v3, v4}, $GENERAL_CLASS_DESCRIPTOR->isSearchHistory(Ljava/lang/Object;Ljava/lang/String;)Z
+                                    move-result v3
+
+                                    if-nez v3, :loop
+                                    
+                                    # If it's not a search history, it's a search term suggestion.
+                                    # Remove it from the collection.
+                                    invoke-interface {v2}, Ljava/util/Iterator;->remove()V
+                                    goto :loop
+
+                                    :exit
+                                    return-object v0
+                                    """,
+                            )
+                        }
+                    )
+
+                    addInstructions(
+                        0, """
+                            invoke-direct/range {p0 .. p2}, $definingClass->$helperMethodName(Ljava/util/Collection;Ljava/lang/String;)Ljava/util/Collection;
+                            move-result-object v0
+                            move-object/from16 p1, v0
+                            """
+                    )
+                }
+            }
+
+            roundEdgeSearchBarFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                ROUND_EDGE_SEARCH_BAR_FEATURE_FLAG,
+                "$GENERAL_CLASS_DESCRIPTOR->disableRoundSearchBar(Z)Z"
+            )
+
+            settingArray += "SETTINGS: HIDE_YOU_MAY_LIKE_SECTION"
+        } else if (is_20_15_or_greater) {
+            printWarn("\"Hide You may like section\" is not yet supported in this version. Use YouTube 20.14.43 or earlier.")
         }
 
         // endregion

@@ -16,6 +16,12 @@ import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
+internal const val YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE =
+    "Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;"
+
+internal const val YOUTUBE_VIDEO_QUALITY_CLASS_TYPE =
+    "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
+
 internal val bottomSheetMenuItemBuilderFingerprint = legacyFingerprint(
     name = "bottomSheetMenuItemBuilderFingerprint",
     returnType = "L",
@@ -38,6 +44,31 @@ fun indexOfSpannedCharSequenceInstruction(method: Method) =
                 reference?.parameterTypes?.size == 1 &&
                 reference.returnType == "Ljava/lang/CharSequence;"
     }
+
+/**
+ * Added in YouTube v19.04.38
+ *
+ * When this value is TRUE, Cairo Fragment is used.
+ * In this case, some of patches may be broken, so set this value to FALSE.
+ */
+internal const val CAIRO_FRAGMENT_FEATURE_FLAG = 45532100L
+
+internal val cairoFragmentConfigFingerprint = legacyFingerprint(
+    name = "cairoFragmentConfigFingerprint",
+    returnType = "Z",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    literals = listOf(CAIRO_FRAGMENT_FEATURE_FLAG),
+)
+
+internal val formatStreamModelToStringFingerprint = legacyFingerprint(
+    name = "formatStreamModelToStringFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Ljava/lang/String;",
+    customFingerprint = { method, classDef ->
+        method.name == "toString"
+                && classDef.type == YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
+    }
+)
 
 internal val layoutConstructorFingerprint = legacyFingerprint(
     name = "layoutConstructorFingerprint",
@@ -187,6 +218,14 @@ internal fun indexOfGetDrawableInstruction(method: Method) =
         opcode == Opcode.INVOKE_VIRTUAL &&
                 getReference<MethodReference>()?.toString() == "Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;"
     }
+
+internal val settingsFragmentSyntheticFingerprint = legacyFingerprint(
+    name = "settingsFragmentSyntheticFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    opcodes = listOf(Opcode.INVOKE_VIRTUAL_RANGE),
+    literals = listOf(settingsFragment, settingsFragmentCairo),
+)
 
 internal val toolBarButtonFingerprint = legacyFingerprint(
     name = "toolBarButtonFingerprint",

@@ -40,6 +40,7 @@
     <string name="revanced_debug_toast_on_error_summary_on">Toast is shown if error occurs.</string>
     <string name="revanced_debug_toast_on_error_title">Show toast on RVX error</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">To use this feature, change \'Default client (Spoof streaming data)\' to TV or iOS TV.</string>
+    <string name="revanced_dismiss_player_not_available_toast">Video id is unavailable. Please manually reopen the video.</string>
     <string name="revanced_enable_comments_scroll_top_summary_off">"Clicking on the comment panel title ('Comments') does nothing."</string>
     <string name="revanced_enable_comments_scroll_top_summary_on">"Clicking on the comment panel title ('Comments') scrolls to the top.
 
@@ -52,18 +53,42 @@ Limitations:
 
 Click on the player background to hide the UI."</string>
     <string name="revanced_enable_shorts_clear_mode_title">Enable clear mode</string>
+    <string name="revanced_enable_swipe_to_switch_video_summary_off">Swiping up / down in fullscreen mode will not change to the next / previous video.</string>
+    <string name="revanced_enable_swipe_to_switch_video_summary_on">Swiping up / down in fullscreen mode will change to the next / previous video.</string>
+    <string name="revanced_enable_swipe_to_switch_video_title">Enable swipe to change video</string>
     <string name="revanced_extended_restart">Restart</string>
     <string name="revanced_extended_restart_dialog_message">Restart the app for this change to take effect.</string>
     <string name="revanced_extended_restart_title">Restart required</string>
     <string name="revanced_extended_settings_color_invalid">Invalid color.</string>
     <string name="revanced_extended_settings_color_picker">Color picker</string>
     <string name="revanced_extended_settings_reset_color">Reset color</string>
+    <string name="revanced_fix_spoof_app_version_side_effect_summary_off">"The 'Playback' setting is used instead of the 'Autoplay' setting.</string>
+    <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"The 'Autoplay' setting is used instead of the 'Playback' setting."</string>
+    <string name="revanced_fix_spoof_app_version_side_effect_title">Fix Spoof app version side effect</string>
+    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"If the app version has been spoofed to 19.30 or earlier even once, the 'Playback' setting may be broken.
+
+This depends on what response the app receives from the server.
+
+If the 'Playback' setting is broken, turning on this setting may resolve the issue.
+
+If the 'Playback' setting is still broken even after enabling or disabling this setting, then you should clear the app data."</string>
     <string name="revanced_hide_ai_chat_summary_summary_off">AI chat summary is shown.</string>
     <string name="revanced_hide_ai_chat_summary_summary_on">AI chat summary is hidden.</string>
     <string name="revanced_hide_ai_chat_summary_title">Hide AI chat summary</string>
     <string name="revanced_hide_ai_comments_summary_summary_off">AI comments summary is shown.</string>
     <string name="revanced_hide_ai_comments_summary_summary_on">AI comments summary is hidden.</string>
     <string name="revanced_hide_ai_comments_summary_title">Hide AI comments summary</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Examples of carousel shelves:&lt;br&gt;&lt;br&gt;&lt;b&gt;Breaking news&lt;/b&gt;, &lt;b&gt;Continue watching&lt;/b&gt;, &lt;b&gt;Explore more channels&lt;/b&gt;, &lt;b&gt;Listen again&lt;/b&gt;, &lt;b&gt;Most relevant&lt;/b&gt;, &lt;b&gt;Shopping&lt;/b&gt;, &lt;b&gt;Watch it again&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_title">About carousel shelf</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_off">Shown in Home feed and related videos.</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_on">Hidden in Home feed and related videos.</string>
+    <string name="revanced_hide_carousel_shelf_home_title">Hide in Home feed and related videos</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_off">Shown in search results.</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_on">Hidden in search results.</string>
+    <string name="revanced_hide_carousel_shelf_search_title">Hide in search results</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_off">Shown in Subscriptions feed.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_on">Hidden in Subscriptions feed.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_title">Hide in Subscriptions feed</string>
     <string name="revanced_hide_category_bar_in_history_summary_off">Shown in watch history.</string>
     <string name="revanced_hide_category_bar_in_history_summary_on">Hidden in watch history.</string>
     <string name="revanced_hide_category_bar_in_history_title">Hide in watch history</string>
@@ -96,18 +121,12 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_hide_expandable_card_summary_off">Expandable card under videos is shown.</string>
     <string name="revanced_hide_expandable_card_summary_on">Expandable card under videos is hidden.</string>
     <string name="revanced_hide_expandable_card_title">Hide expandable card</string>
-    <string name="revanced_hide_hype_button_summary_off">Hype button is shown.</string>
-    <string name="revanced_hide_hype_button_summary_on">Hype button is hidden.</string>
-    <string name="revanced_hide_hype_button_title">Hide Hype button</string>
     <string name="revanced_hide_links_preview_summary_off">Links preview is shown.</string>
     <string name="revanced_hide_links_preview_summary_on">Links preview is hidden.</string>
     <string name="revanced_hide_links_preview_title">Hide links preview</string>
     <string name="revanced_hide_members_shelf_summary_off">Members shelf is shown.</string>
     <string name="revanced_hide_members_shelf_summary_on">Members shelf is hidden.</string>
     <string name="revanced_hide_members_shelf_title">Hide members shelf</string>
-    <string name="revanced_hide_most_relevant_shelf_summary_off">Most relevant shelf in subscriptions feed is shown.</string>
-    <string name="revanced_hide_most_relevant_shelf_summary_on">Most relevant shelf in subscriptions feed is hidden.</string>
-    <string name="revanced_hide_most_relevant_shelf_title">Hide \"Most relevant\" shelf</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Audio track menu is hidden.
 
 To show the Audio track menu, change \'Default client (Spoof streaming data)\' to TV or iOS TV."</string>
@@ -149,6 +168,9 @@ To show the Audio track menu, change \'Default client (Spoof streaming data)\' t
     <string name="revanced_hide_surveys_summary_off">Surveys are shown.</string>
     <string name="revanced_hide_surveys_summary_on">Surveys are hidden.</string>
     <string name="revanced_hide_surveys_title">Hide surveys</string>
+    <string name="revanced_hide_video_recommendation_labels_summary_off">"Thumbnail labels - such as 'People also watched' and 'You might also like' - are hidden."</string>
+    <string name="revanced_hide_video_recommendation_labels_summary_on">"Thumbnail labels - such as 'People also watched' and 'You might also like' - are hidden."</string>
+    <string name="revanced_hide_video_recommendation_labels_title">Hide video recommendation labels</string>
     <string name="revanced_hide_visit_community_button_summary_off">Visit Community button is shown.</string>
     <string name="revanced_hide_visit_community_button_summary_on">Visit Community button is hidden.</string>
     <string name="revanced_hide_visit_community_button_title">Hide Visit Community button</string>
@@ -158,19 +180,25 @@ To show the Audio track menu, change \'Default client (Spoof streaming data)\' t
     <string name="revanced_hide_visual_spacers_summary_off">Visual spacers are shown.</string>
     <string name="revanced_hide_visual_spacers_summary_on">Visual spacers are hidden.</string>
     <string name="revanced_hide_visual_spacers_title">Hide visual spacers</string>
+    <string name="revanced_hide_you_may_like_section_summary_off">You may like section is shown.</string>
+    <string name="revanced_hide_you_may_like_section_summary_on">You may like section is hidden.</string>
+    <string name="revanced_hide_you_may_like_section_title">Hide You may like section</string>
     <string name="revanced_language_GA">"Gaeilge
 <small>Gaeilge</small>"</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Not overridden</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_invalid_toast">Litho thread pool max size must be between 1-3.</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_title">Litho thread pool max size</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">Speed dialog type</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"Native playlist download button, if shown, opens your external downloader.
 
 To show the native playlist download button, turn on \'Spoof app version\' and change \'Spoof app version target\' to \'19.28.42\' or earlier."</string>
+    <string name="revanced_override_playlist_download_button_summary_on_disclaimer_1">Native playlist download button, if shown, opens your external downloader.</string>
+    <string name="revanced_override_playlist_download_button_summary_on_disclaimer_2">"Native playlist download button, if shown, opens your external downloader.
+
+To show the native playlist download button, turn on \'Spoof app version\' and change \'Spoof app version target\' to \'19.28.42\' or earlier."</string>
     <string name="revanced_preference_category_android_vr">Android VR</string>
     <string name="revanced_preference_category_ios">iOS</string>
-    <string name="revanced_preference_category_tv">TV (WIP)</string>
+    <string name="revanced_preference_category_js">JavaScript (WIP)</string>
     <string name="revanced_preference_group_sb_title">SponsorBlock</string>
+    <string name="revanced_preference_screen_carousel_shelf_summary">Hide or show carousel shelf in home, search results, and subscriptions.</string>
+    <string name="revanced_preference_screen_carousel_shelf_title">Carousel shelf</string>
     <string name="revanced_preference_screen_channel_page_summary">Hide or show channel page components.</string>
     <string name="revanced_preference_screen_channel_page_title">Channel page</string>
     <string name="revanced_preference_screen_debugging_summary">Enable or disable debugging options.</string>
@@ -193,62 +221,86 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
 <small>(Deprecated)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_unplugged">"iOS TV
 <small>(Login required)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
+<small>(WIP)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">"TV
 <small>(WIP)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply">"TV Simply
 <small>(WIP)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
+    <string name="revanced_spoof_streaming_data_message">If you experience any playback issues, enable \"Spoof streaming data\" in &lt;i&gt;&lt;u&gt;Settings &gt; %s &gt; Miscellaneous &gt; Spoof streaming data&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Video codecs are prioritized.</string>
+    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Video quality is prioritized.</string>
+    <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Prioritize video quality</string>
+    <string name="revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message">"Some videos have the following video quality and codecs:
+
+• 1080p AVC
+• 720p AVC
+• 360p VP9
+
+If the device supports VP9, '1080p AVC' and '720p AVC' are ignored.
+
+In other words, '360p VP9' is used as the highest video quality, and '1080p AVC' and '720p AVC' are not visible in the video quality flyout menu.
+
+This is the intended behavior of the Android YouTube app, and this is why the video quality flyout menu was unavailable for some videos.
+
+Although VP9 is a more advanced codec than AVC, some users may prefer '1080p AVC' over '360p VP9'.
+
+If this setting is enabled, the highest available video quality from the server response is used, regardless of the video codec.
+
+Example 1:
+
+• 1080p AVC
+• 720p AVC
+• 360p VP9
+
+→ 1080p AVC is used.
+
+Example 2:
+
+• 1080p AVC
+• 1080p VP9
+• 720p VP9
+
+→ 1080p VP9 is used."</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">Reload video button is shown when loading spinner showing.</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">Reload video button is always shown.</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">Always show reload video button</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">Reload video button is hidden.</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Reload video button is shown.</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_title">Show reload video button</string>
+    <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Audio track menu is missing.
+• Disable forced auto audio tracks is not available.
+• If deobfuscation fails, playback may fail.
+• Sometimes the video will not play even after 10 seconds, in which case you'll need to click the reload video button.
+• Video may start late."</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• If deobfuscation fails, playback may fail.
 • Sometimes the video will not play even after 10 seconds, in which case you'll need to click the reload video button.
 • Video may start late."</string>
-    <string name="revanced_spoof_streaming_data_tv_use_latest_js_summary_off">"JavaScript for deobfuscation is not kept up to date.
-
-• JavaScript that succeeds in deobfuscation is used, but it is still somewhat server-dependent."</string>
-    <string name="revanced_spoof_streaming_data_tv_use_latest_js_summary_on">"JavaScript for deobfuscation is kept up to date.
-
-• It is highly server-dependent, and the success or failure of deobfuscation depends on the JavaScript currently used on the server."</string>
-    <string name="revanced_spoof_streaming_data_tv_use_latest_js_title">Use latest JavaScript</string>
-    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_summary_off">"JavaScript does not run in native libraries.
-
-• Powered by JavaTube."</string>
-    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_summary_on">"JavaScript runs in native libraries.
-
-• Powered by SmartTube."</string>
-    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_title">Use V8 JavaScript engine</string>
-    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_user_dialog_message">If the V8 JavaScript engine is not used, it takes more time to deobfuscate the streaming URL, causing the video to start 10 seconds late.</string>
-    <string name="revanced_spoof_streaming_data_use_ios_summary_off">iOS client not added to available clients.</string>
-    <string name="revanced_spoof_streaming_data_use_ios_summary_on">"iOS client added to available clients.
-
-WARNING: iOS client is deprecated. Any issues that arise while using it are at your own risk."</string>
-    <string name="revanced_spoof_streaming_data_use_ios_title">Use iOS client</string>
-    <string name="revanced_spoof_streaming_data_use_ios_user_dialog_message">"When requesting YouTube API endpoints using iOS, you will need the Auth tokens issued by the iOS device and the PoTokens issued by iOSGuard.
-
-This means that streaming requests via iOS will be missing both the Auth tokens and the PoTokens, and the server may consider the user as a bot and block the entire ASN/IP range.
-
-USE AT YOUR OWN RISK!"</string>
-    <string name="revanced_spoof_streaming_data_use_tv_all_summary_off">"TV client is not used for some videos that require fast playback:
+    <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"JavaScript client is not used for some videos that require fast playback:
 
 • Autoplay in feed
 • Clips
 • Shorts"</string>
-    <string name="revanced_spoof_streaming_data_use_tv_all_summary_on">"TV client is used regardless of video type.
+    <string name="revanced_spoof_streaming_data_use_js_all_summary_on">"JavaScript client is used regardless of video type.
 
-• TV client still cannot play some videos."</string>
-    <string name="revanced_spoof_streaming_data_use_tv_all_title">Use TV client for all videos</string>
-    <string name="revanced_spoof_streaming_data_use_tv_summary_off">TV client not added to available clients.</string>
-    <string name="revanced_spoof_streaming_data_use_tv_summary_on">TV client added to available clients.</string>
-    <string name="revanced_spoof_streaming_data_use_tv_title">Use TV client</string>
-    <string name="revanced_spoof_streaming_data_use_tv_user_dialog_message">"The app uses more system resources to find or decode the n-sig pattern, and the video starts more slowly.
+• JavaScript client still cannot play some videos."</string>
+    <string name="revanced_spoof_streaming_data_use_js_all_title">Use JavaScript client for all videos</string>
+    <string name="revanced_spoof_streaming_data_use_js_summary_off">JavaScript client not added to available clients.</string>
+    <string name="revanced_spoof_streaming_data_use_js_summary_on">JavaScript client added to the available clients.</string>
+    <string name="revanced_spoof_streaming_data_use_js_title">Use JavaScript client</string>
+    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"The app uses more system resources to find or decode the n-sig pattern, and the video starts more slowly.
 
 The n-sig pattern changes quite frequently on YouTube servers, and playback may fail if the regex fails to find the n-sig pattern.
 
 This feature is still WIP, so please use it for debugging purposes only."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"JavaScript for deobfuscation is not kept up to date.
+
+• JavaScript that succeeds in deobfuscation is used, but it is still somewhat server-dependent."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_js_summary_on">"JavaScript for deobfuscation is kept up to date.
+
+• It is highly server-dependent, and the success or failure of deobfuscation depends on the JavaScript currently used on the server."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_js_title">Use latest JavaScript</string>
     <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_off">VR audio track button is not shown.</string>
     <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_on">VR audio track button is shown.</string>
     <string name="revanced_spoof_streaming_data_vr_audio_track_button_title">Show VR audio track button</string>

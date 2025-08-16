@@ -5,7 +5,10 @@ import static app.revanced.extension.shared.patches.spoof.requests.StreamingData
 import android.content.Context;
 import android.widget.LinearLayout;
 
+import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
+
+import com.google.protos.youtube.api.innertube.StreamingDataOuterClass.StreamingData;
 
 import org.apache.commons.collections4.MapUtils;
 
@@ -15,31 +18,63 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import app.revanced.extension.shared.innertube.utils.AuthUtils;
+import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils;
+import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch;
 import app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.EnumSetting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
-import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.youtube.patches.spoof.requests.AudioTrackRequest;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.VideoInformation;
 import app.revanced.extension.youtube.utils.ExtendedUtils;
 import app.revanced.extension.youtube.utils.VideoUtils;
 import kotlin.Pair;
-import kotlin.Triple;
 
 @SuppressWarnings("unused")
-public class AudioTrackPatch {
+public class AudioTrackPatch extends SpoofStreamingDataPatch {
     private static final boolean SPOOF_STREAMING_DATA_AUDIO_TRACK_BUTTON =
-            Settings.SPOOF_STREAMING_DATA.get() && Settings.SPOOF_STREAMING_DATA_VR_AUDIO_TRACK_BUTTON.get();
+            SPOOF_STREAMING_DATA && Settings.SPOOF_STREAMING_DATA_VR_AUDIO_TRACK_BUTTON.get();
 
     @NonNull
     private static String audioTrackId = "";
     @NonNull
     private static String videoId = "";
+
+    @GuardedBy("itself")
+    private static final Map<String, StreamingData> streamingDataMaps = new LinkedHashMap<>() {
+        private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 5;
+
+        @Override
+        protected boolean removeEldestEntry(Map.Entry eldest) {
+            return size() > NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK;
+        }
+    };
+
+    @GuardedBy("itself")
+    private static final Map<String, Map<String, String>> audioTrackMaps = new LinkedHashMap<>() {
+        private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 5;
+
+        @Override
+        protected boolean removeEldestEntry(Map.Entry eldest) {
+            return size() > NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK;
+        }
+    };
+
+    /**
+     * Injection point.
+     * Called after {@link StreamingDataRequest}.
+     */
+    public static void newVideoStarted(@NonNull String newlyLoadedVideoId, StreamingData streamingData) {
+        if (SPOOF_STREAMING_DATA_AUDIO_TRACK_BUTTON &&
+                isValidVideoId(newlyLoadedVideoId) &&
+                streamingData != null) {
+            synchronized (streamingDataMaps) {
+                streamingDataMaps.putIfAbsent(newlyLoadedVideoId, streamingData);
+            }
+        }
+    }
 
     /**
      * Injection point.
@@ -55,27 +90,35 @@ public class AudioTrackPatch {
             if (Objects.equals(videoId, newlyLoadedVideoId)) {
                 return;
             }
-            if (!Utils.isNetworkConnected()) {
-                Logger.printDebug(() -> "Network not connected, ignoring video");
-                return;
-            }
             // Only 'Android VR (No auth)' can change the audio track language when fetching.
             // Check if the last spoofed client is 'Android VR (No auth)'.
             if (!getLastSpoofedAudioClientIsAndroidVRNoAuth()) {
                 Logger.printDebug(() -> "Video is not Android VR No Auth");
                 return;
             }
-            Map<String, String> requestHeader = AuthUtils.getRequestHeader();
-            if (MapUtils.isEmpty(requestHeader)) {
-                Logger.printDebug(() -> "AuthUtils is not initialized");
-                return;
-            }
 
             videoId = newlyLoadedVideoId;
             Logger.printDebug(() -> "newVideoStarted: " + newlyLoadedVideoId);
 
-            // Use the YouTube API to get a list of audio tracks supported by a video.
-            AudioTrackRequest.fetchRequestIfNeeded(videoId, requestHeader);
+            // Instead of using the YouTube API to fetch a list of available audio tracks,
+            // You can parse the streamingData class.
+            //
+            // 1. The processing time is reduced:
+            //   - Using the YouTube API: 500ms - 1000ms.
+            //   - Parsing the original streamingData class: 1ms - 10ms.
+            // 2. No additional network resources are consumed.
+            // 3. Works even when the user is not logged in.
+            synchronized (streamingDataMaps) {
+                StreamingData streamingData = streamingDataMaps.get(newlyLoadedVideoId);
+                if (streamingData != null) {
+                    var audioTracks = StreamingDataOuterClassUtils.getAudioTrackMap(streamingData);
+                    if (MapUtils.isNotEmpty(audioTracks)) {
+                        synchronized (audioTrackMaps) {
+                            audioTrackMaps.putIfAbsent(newlyLoadedVideoId, audioTracks);
+                        }
+                    }
+                }
+            }
         } catch (Exception ex) {
             Logger.printException(() -> "newVideoStarted failure", ex);
         }
@@ -96,18 +139,11 @@ public class AudioTrackPatch {
         }
     }
 
-    public static Map<String, Pair<String, Boolean>> getAudioTrackMap() {
-        try {
-            String videoId = VideoInformation.getVideoId();
-            AudioTrackRequest request = AudioTrackRequest.getRequestForVideoId(videoId);
-            if (request != null) {
-                return request.getStream();
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "getAudioTrackMap failure", ex);
+    public static Map<String, String> getAudioTrackMap() {
+        String videoId = VideoInformation.getVideoId();
+        synchronized (audioTrackMaps) {
+            return audioTrackMaps.get(videoId);
         }
-
-        return null;
     }
 
     public static boolean audioTrackMapIsNotNull() {
@@ -115,17 +151,16 @@ public class AudioTrackPatch {
     }
 
     public static void showAudioTrackDialog(@NonNull Context context) {
-        Map<String, Pair<String, Boolean>> map = getAudioTrackMap();
+        Map<String, String> audioTrackMap = getAudioTrackMap();
 
         // This video does not support audio tracks.
-        if (map == null) {
+        if (audioTrackMap == null) {
             return;
         }
 
-        Triple<String[], String[], Boolean[]> audioTracks = sortByDisplayNames(map);
+        Pair<String[], String[]> audioTracks = sortByDisplayNames(audioTrackMap);
         String[] displayNames = audioTracks.getFirst();
         String[] ids = audioTracks.getSecond();
-        Boolean[] audioIsDefaults = audioTracks.getThird();
 
         LinearLayout mainLayout = ExtendedUtils.prepareMainLayout(context);
         Map<LinearLayout, Runnable> actionsMap = new LinkedHashMap<>(displayNames.length);
@@ -137,7 +172,6 @@ public class AudioTrackPatch {
             String id = ids[i];
             String language = id.substring(0, id.indexOf("."));
             String displayName = displayNames[i];
-            Boolean audioIsDefault = audioIsDefaults[i];
 
             Runnable action = () -> {
                 audioTrackId = id;
@@ -166,51 +200,46 @@ public class AudioTrackPatch {
     /**
      * Sorts audio tracks by displayName in lexicographical order.
      */
-    private static Triple<String[], String[], Boolean[]> sortByDisplayNames(@NonNull Map<String, Pair<String, Boolean>> map) {
+    private static Pair<String[], String[]> sortByDisplayNames(@NonNull Map<String, String> map) {
         final int firstEntriesToPreserve = 0;
         final int mapSize = map.size();
 
-        List<Triple<String, String, Boolean>> firstTriples = new ArrayList<>(firstEntriesToPreserve);
-        List<Triple<String, String, Boolean>> triplesToSort = new ArrayList<>(mapSize);
+        List<Pair<String, String>> firstPairs = new ArrayList<>(firstEntriesToPreserve);
+        List<Pair<String, String>> pairsToSort = new ArrayList<>(mapSize);
 
         int i = 0;
-        for (Map.Entry<String, Pair<String, Boolean>> entrySet : map.entrySet()) {
-            Pair<String, Boolean> pair = entrySet.getValue();
+        for (Map.Entry<String, String> entrySet : map.entrySet()) {
             String displayName = entrySet.getKey();
-            String id = pair.getFirst();
-            Boolean audioIsDefault = pair.getSecond();
+            String id = entrySet.getValue();
 
-            Triple<String, String, Boolean> triple = new Triple<>(displayName, id, audioIsDefault);
+            Pair<String, String> pair = new Pair<>(displayName, id);
             if (i < firstEntriesToPreserve) {
-                firstTriples.add(triple);
+                firstPairs.add(pair);
             } else {
-                triplesToSort.add(triple);
+                pairsToSort.add(pair);
             }
             i++;
         }
 
-        triplesToSort.sort((triple1, triple2)
-                -> triple1.getFirst().compareToIgnoreCase(triple2.getFirst()));
+        pairsToSort.sort((pair1, pair2)
+                -> pair1.getFirst().compareToIgnoreCase(pair2.getFirst()));
 
         String[] sortedDisplayNames = new String[mapSize];
         String[] sortedIds = new String[mapSize];
-        Boolean[] sortedAudioIsDefaults = new Boolean[mapSize];
 
         i = 0;
-        for (Triple<String, String, Boolean> triple : firstTriples) {
-            sortedDisplayNames[i] = triple.getFirst();
-            sortedIds[i] = triple.getSecond();
-            sortedAudioIsDefaults[i] = triple.getThird();
+        for (Pair<String, String> pair : firstPairs) {
+            sortedDisplayNames[i] = pair.getFirst();
+            sortedIds[i] = pair.getSecond();
             i++;
         }
 
-        for (Triple<String, String, Boolean> triple : triplesToSort) {
-            sortedDisplayNames[i] = triple.getFirst();
-            sortedIds[i] = triple.getSecond();
-            sortedAudioIsDefaults[i] = triple.getThird();
+        for (Pair<String, String> pair : pairsToSort) {
+            sortedDisplayNames[i] = pair.getFirst();
+            sortedIds[i] = pair.getSecond();
             i++;
         }
 
-        return new Triple<>(sortedDisplayNames, sortedIds, sortedAudioIsDefaults);
+        return new Pair<>(sortedDisplayNames, sortedIds);
     }
 }

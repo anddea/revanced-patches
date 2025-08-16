@@ -65,6 +65,7 @@ import android.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.text.Bidi;
 import java.time.Duration;
@@ -1373,6 +1374,20 @@ public class Utils {
     public static void hideViewGroupByMarginLayoutParams(ViewGroup viewGroup) {
         // Rest of the implementation added by patch.
         viewGroup.setVisibility(View.GONE);
+    }
+
+    /**
+     * As the class {@code org.brotli.dec.BrotliInputStream} is already included in YouTube,
+     * Some classes will not be merged during patching.
+     * As a workaround, the obfuscated BrotliInputStream class from YouTube is entered here during the patching process.
+     * @return BrotliInputStream
+     */
+    public static InputStream getBrotliInputStream(InputStream inputStream) {
+        // Rest of the implementation added by patch.
+        if (inputStream != null) {
+            Logger.printInfo(() -> "getBrotliInputStream");
+        }
+        return inputStream;
     }
 
     /**

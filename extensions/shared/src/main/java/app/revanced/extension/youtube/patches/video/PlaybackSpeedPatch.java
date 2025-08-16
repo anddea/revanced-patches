@@ -166,7 +166,7 @@ public class PlaybackSpeedPatch {
                 }
             }
 
-            if (PatchStatus.RememberPlaybackSpeed()) {
+            if (PatchStatus.VideoPlayback()) {
                 BooleanSetting rememberPlaybackSpeedLastSelectedSetting = isShorts
                         ? Settings.REMEMBER_PLAYBACK_SPEED_SHORTS_LAST_SELECTED
                         : Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED;

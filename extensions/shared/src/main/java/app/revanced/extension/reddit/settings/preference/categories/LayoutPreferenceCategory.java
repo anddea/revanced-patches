@@ -73,6 +73,14 @@ public class LayoutPreferenceCategory extends ConditionalPreferenceCategory {
                     Settings.HIDE_TOOLBAR_BUTTON
             ));
         }
+        if (SettingsStatus.trendingTodayShelfEnabled) {
+            addPreference(new TogglePreference(
+                    context,
+                    "Hide Trending Today shelf",
+                    "Hides the Trending Today shelf from search suggestions.\n\nLimitation: Visual spacers are not hidden.",
+                    Settings.HIDE_TRENDING_TODAY_SHELF
+            ));
+        }
         if (SettingsStatus.subRedditDialogEnabled) {
             addPreference(new TogglePreference(
                     context,

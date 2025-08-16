@@ -111,10 +111,6 @@
     <string name="revanced_enable_compact_dialog_title">Компактный вид окна</string>
     <string name="revanced_enable_custom_navigation_bar_color_summary">Устанавливает цвет для панели навигации.</string>
     <string name="revanced_enable_custom_navigation_bar_color_title">Включить пользовательский цвет панели навигации</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Вывод журнала отладки включает буфер.</string>
-    <string name="revanced_enable_debug_buffer_logging_title">Ведение журналов отладки буфера</string>
-    <string name="revanced_enable_debug_logging_summary">Выводит журнал отладки.</string>
-    <string name="revanced_enable_debug_logging_title">Ведение журнала отладки</string>
     <string name="revanced_enable_forced_miniplayer_summary">Включает миниплеер на постоянной основе при переходе на новый трек.</string>
     <string name="revanced_enable_forced_miniplayer_title">Включить миниплеер на постоянной основе</string>
     <string name="revanced_enable_landscape_mode_summary">Включает альбомный режим при повороте экрана на телефонах.</string>
@@ -316,12 +312,6 @@
     <string name="revanced_hide_terms_container_title">Скрыть \"Конфиденциальность • Условия\"</string>
     <string name="revanced_hide_voice_search_button_summary">Скрывает кнопку голосового поиска в строке поиска.</string>
     <string name="revanced_hide_voice_search_button_title">Скрыть кнопку голосового поиска</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Не переопределено</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_invalid_toast">Макс. размер объединения потоков Litho от 1 до 3.</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_summary">"Изменяет максимальный размер пула потоков Litho.
-
-Большее значение может повысить производительность загрузки макетов Litho, но может привести к более интенсивному расходу заряда батареи."</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_title">Макс. размер объединения потоков Litho</string>
     <string name="revanced_preference_screen_account_title">Аккаунт</string>
     <string name="revanced_preference_screen_action_bar_title">Панель действий</string>
     <string name="revanced_preference_screen_ads_title">Реклама</string>
@@ -344,6 +334,8 @@
     <string name="revanced_remember_repeat_state_title">Запоминать состояние повтора</string>
     <string name="revanced_remember_shuffle_state_summary">Запоминает состояние переключателя \"Перемешать\".</string>
     <string name="revanced_remember_shuffle_state_title">Запоминать состояние перемешивания</string>
+    <string name="revanced_remember_video_quality_auto_mobile">Качество по умолчанию при моб. сети изменено на \"Авто\".</string>
+    <string name="revanced_remember_video_quality_auto_wifi">Качество по умолчанию при Wi-Fi изменено на \"Авто\".</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Запоминает последнее выбранное качество видео.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Запоминать изменения качества видео</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">Показывать всплывающее уведомление при смене качества видео по умолчанию.</string>
@@ -483,6 +475,7 @@
 • Если отключить данную опцию после её активации, старый интерфейс может оставаться до тех пор, пока данные приложения не будут очищены."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Отключить режим радиостанции в канадских регионах</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Отключить динамические текста</string>
+    <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Восстановить старую всплывающую панель</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Отключает динамических текстов</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Восстановить старую панель действий</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - Раздел комментариев не отображается на вкладке \"Главная\"</string>
@@ -490,10 +483,8 @@
     <string name="revanced_spoof_app_version_target_summary">Выберите целевую версию приложения для подмены.</string>
     <string name="revanced_spoof_app_version_target_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
-    <string name="revanced_spoof_client_summary">Подмена клиента, чтобы предотвратить проблемы воспроизведения.</string>
+    <string name="revanced_spoof_client_summary">"Подмена клиента, чтобы предотвратить проблемы воспроизведения."</string>
     <string name="revanced_spoof_client_title">Подмена клиента</string>
-    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
-    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_client_type_summary">Определяет клиент по умолчанию для подмены.</string>
@@ -509,6 +500,19 @@
 
 ※ При использовании вместе с \"Подменой клиента\" могут возникнуть проблемы с воспроизведением."</string>
     <string name="revanced_spoof_streaming_data_title">Подделка потоковых данных</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32">Android VR 1.43.32</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09">Android VR 1.65.09</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">Определяет клиент по умолчанию для подмены.</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Клиент по умолчанию</string>
+    <string name="revanced_spoof_video_streams_summary">"Подменять клиентские видеопотоки для предотвращения проблем с воспроизведением.
+
+Побочный эффект:
+• Приложение может принудительно закрываться при использовании VPN или DNS.
+• Звук может периодически прерываться во время воспроизведения на клиентах потоковой передачи с адаптивным битрейтом (все клиенты, кроме Android VR 1.43.32)."</string>
+    <string name="revanced_spoof_video_streams_title">Подменить видеопотоки</string>
     <string name="revanced_watch_history_type_entry_1">Оригинальный</string>
     <string name="revanced_watch_history_type_entry_2">Заменить домен</string>
     <string name="revanced_watch_history_type_entry_3">Блокировать историю просмотров</string>

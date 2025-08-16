@@ -31,7 +31,7 @@ public class WhitelistedChannelsPreference extends Preference implements Prefere
 
     private static final WhitelistType whitelistTypePlaybackSpeed = WhitelistType.PLAYBACK_SPEED;
     private static final WhitelistType whitelistTypeSponsorBlock = WhitelistType.SPONSOR_BLOCK;
-    private static final boolean playbackSpeedIncluded = PatchStatus.RememberPlaybackSpeed();
+    private static final boolean playbackSpeedIncluded = PatchStatus.VideoPlayback();
     private static final boolean sponsorBlockIncluded = PatchStatus.SponsorBlock();
     private static String[] mEntries;
     private static WhitelistType[] mEntryValues;

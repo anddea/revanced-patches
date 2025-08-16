@@ -58,8 +58,6 @@ private const val CAROUSEL_SHELF_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/CarouselShelfFilter;"
 private const val FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/FeedComponentsFilter;"
-private const val FEED_VIDEO_FILTER_CLASS_DESCRIPTOR =
-    "$COMPONENTS_PATH/FeedVideoFilter;"
 private const val FEED_VIDEO_VIEWS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/FeedVideoViewsFilter;"
 private const val KEYWORD_FILTER_CLASS_DESCRIPTOR =
@@ -371,7 +369,6 @@ val feedComponentsPatch = bytecodePatch(
 
         addLithoFilter(CAROUSEL_SHELF_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
-        addLithoFilter(FEED_VIDEO_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(FEED_VIDEO_VIEWS_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(KEYWORD_FILTER_CLASS_DESCRIPTOR)
 

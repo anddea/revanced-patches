@@ -25,15 +25,13 @@ object InnerTubeRoutes {
     @JvmField
     val GET_ADAPTIVE_FORMATS = compileRoute(
         endpoint = "player",
-        fields = "streamingData.adaptiveFormats.signatureCipher," +
+        fields = "playabilityStatus.status," +
+                "streamingData.adaptiveFormats.signatureCipher," +
                 "streamingData.adaptiveFormats.url," +
-                "streamingData.initialAuthorizedDrmTrackTypes"
-    )
-
-    @JvmField
-    val GET_AUDIO_TRACK = compileRoute(
-        endpoint = "player",
-        fields = "streamingData.adaptiveFormats.audioTrack"
+                "streamingData.formats.signatureCipher," +
+                "streamingData.formats.url," +
+                "streamingData.initialAuthorizedDrmTrackTypes," +
+                "streamingData.serverAbrStreamingUrl"
     )
 
     @JvmField
@@ -54,6 +52,18 @@ object InnerTubeRoutes {
         fields = "contents.singleColumnWatchNextResults." +
                 "playlist.playlist.contents.playlistPanelVideoRenderer." +
                 "playlistSetVideoId",
+    )
+
+    @JvmField
+    val GET_PLAYLIST_ENDPOINT = compileRoute(
+        endpoint = "next",
+        fields = "contents.singleColumnWatchNextResults." +
+                "playlist.playlist.contents.playlistPanelVideoRenderer." +
+                "navigationEndpoint.watchEndpoint.playerParams," + // Android VR
+                "contents.singleColumnWatchNextResults." +
+                "playlist.playlist.contents.playlistPanelVideoRenderer." +
+                "navigationEndpoint.coWatchWatchEndpointWrapperCommand." +
+                "watchEndpoint.watchEndpoint.playerParams", // Android
     )
 
     @JvmField

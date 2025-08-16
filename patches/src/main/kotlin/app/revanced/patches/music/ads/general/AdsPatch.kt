@@ -12,7 +12,6 @@ import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.music.utils.navigation.navigationBarHookPatch
 import app.revanced.patches.music.utils.patch.PatchList.HIDE_ADS
-import app.revanced.patches.music.utils.patch.PatchList.LITHO_FILTER
 import app.revanced.patches.music.utils.playservice.is_7_28_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.buttonContainer
@@ -250,7 +249,6 @@ val adsPatch = bytecodePatch(
         )
 
         updatePatchStatus(HIDE_ADS)
-        updatePatchStatus(LITHO_FILTER)
 
     }
 }

@@ -18,12 +18,12 @@ import static app.revanced.extension.music.settings.Settings.SB_API_URL;
 import static app.revanced.extension.music.settings.Settings.SETTINGS_IMPORT_EXPORT;
 import static app.revanced.extension.music.settings.Settings.SPOOF_APP_VERSION_TARGET;
 import static app.revanced.extension.music.settings.Settings.SPOOF_CLIENT_TYPE;
+import static app.revanced.extension.music.settings.Settings.SPOOF_VIDEO_STREAMS_DEFAULT_CLIENT;
 import static app.revanced.extension.music.settings.Settings.WATCH_HISTORY_TYPE;
 import static app.revanced.extension.music.utils.ExtendedUtils.getDialogBuilder;
 import static app.revanced.extension.music.utils.ExtendedUtils.getLayoutParams;
 import static app.revanced.extension.music.utils.RestartUtils.showRestartDialog;
 import static app.revanced.extension.shared.patches.PatchStatus.PatchVersion;
-import static app.revanced.extension.shared.settings.BaseSettings.LITHO_LAYOUT_THREAD_POOL_MAX_SIZE;
 import static app.revanced.extension.shared.settings.BaseSettings.RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT;
 import static app.revanced.extension.shared.settings.BaseSettings.RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY;
 import static app.revanced.extension.shared.settings.Setting.getSettingFromPath;
@@ -64,7 +64,6 @@ import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.music.utils.ExtendedUtils;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.EnumSetting;
-import app.revanced.extension.shared.settings.IntegerSetting;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.settings.preference.YouTubeDataAPIDialogBuilder;
@@ -170,17 +169,12 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 } else {
                     Logger.printDebug(() -> "Failed to find the right value: " + dataString);
                 }
-            } else if (settings instanceof IntegerSetting integerSetting) {
-                if (settings.equals(LITHO_LAYOUT_THREAD_POOL_MAX_SIZE)) {
-                    ResettableListPreference.showDialog(mActivity, integerSetting, 1);
-                } else {
-                    Logger.printDebug(() -> "Failed to find the right value: " + dataString);
-                }
             } else if (settings instanceof EnumSetting<?> enumSetting) {
                 if (settings.equals(CHANGE_START_PAGE)
                         || settings.equals(DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE)
                         || settings.equals(RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT)
                         || settings.equals(SPOOF_CLIENT_TYPE)
+                        || settings.equals(SPOOF_VIDEO_STREAMS_DEFAULT_CLIENT)
                         || settings.equals(WATCH_HISTORY_TYPE)
                 ) {
                     ResettableListPreference.showDialog(mActivity, enumSetting, 0);

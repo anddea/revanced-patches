@@ -108,6 +108,18 @@ fun gmsCoreSupportPatch(
         required = true,
     )
 
+    val disableCoreServices by booleanOption(
+        key = "disableCoreServices",
+        default = false,
+        title = "Disable Core Services",
+        description = """
+            To reproduce the playback issue, several core services, including PoToken, are disabled.
+            
+            Do not enable this option unless you are testing at a low level.
+            """.trimIndentMultiline(),
+        required = false,
+    )
+
     val packageNameYouTubeOption = stringOption(
         key = "packageNameYouTube",
         default = DEFAULT_PACKAGE_NAME_YOUTUBE,
@@ -328,6 +340,10 @@ fun gmsCoreSupportPatch(
             googlePlayUtilityFingerprint,
             serviceCheckFingerprint,
         )
+
+        if (disableCoreServices == true) {
+            earlyReturnFingerprints += listOf(gmsServiceBrokerFingerprint)
+        }
 
         if (patchAllManifestEnabled) {
             earlyReturnFingerprints += listOf(sslGuardFingerprint)

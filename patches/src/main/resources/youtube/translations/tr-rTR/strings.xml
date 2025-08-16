@@ -319,9 +319,6 @@ Not: Bu özelliği devre dışı bırakmak, eski arayüzdeki \"Videoyu sarmak i�
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Tam ekranda aşağı kaydırmak tam ekrandan çıkar.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Tam ekranda aşağı kaydırmak tam ekrandan çıkmaz.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Tam ekrandan çıkmak için kaydırmayı devre dışı bırak</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_off">Tam ekran modunda yukarı / aşağı kaydırmak sonraki / önceki videoya geçer.</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_on">Tam ekran modunda yukarı / aşağı kaydırmak sonraki / önceki videoya geçmez.</string>
-    <string name="revanced_disable_swipe_to_switch_video_title">Videoyu değiştirmek için kaydırmayı devre dışı bırak</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">Durum çubuğu opak veya yarı saydam.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Durum çubuğu opak.</string>
     <string name="revanced_disable_translucent_status_bar_title">Yarı saydam durum çubuğunu devre dışı bırak.</string>
@@ -353,12 +350,6 @@ Yan etki: Kahire teması bildirim noktalarına da uygulanır."</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">Özel zaman çubuğu rengi kapalı</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Özel zaman çubuğu rengi etkin</string>
     <string name="revanced_enable_custom_seekbar_color_title">Özel zaman çubuğu rengini etkinleştir</string>
-    <string name="revanced_enable_debug_buffer_logging_summary_off">Hata ayıklama günlükleri arabellek içermiyor</string>
-    <string name="revanced_enable_debug_buffer_logging_summary_on">Hata ayıklama günlükleri arabellek içeriyor</string>
-    <string name="revanced_enable_debug_buffer_logging_title">Hata ayıklama günlüklerine arabelleği kaydet</string>
-    <string name="revanced_enable_debug_logging_summary_off">Hata ayıklama günlükleri devre dışı</string>
-    <string name="revanced_enable_debug_logging_summary_on">Hata ayıklama günlükleri etkin</string>
-    <string name="revanced_enable_debug_logging_title">Hata ayıklama günlüğünü etkinleştir</string>
     <string name="revanced_enable_gradient_loading_screen_summary_off">Gradyan yükleme ekranı devre dışı</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">Gradyan yükleme ekranı etkin</string>
     <string name="revanced_enable_gradient_loading_screen_title">Gradyan yükleme ekranını etkinleştir</string>
@@ -493,9 +484,9 @@ Bilgi:
     <string name="revanced_hide_album_card_summary_off">Albüm kartları gösteriliyor</string>
     <string name="revanced_hide_album_card_summary_on">Albüm kartları gizleniyor</string>
     <string name="revanced_hide_album_card_title">Albüm kartlarını gizle</string>
-    <string name="revanced_hide_ask_button_summary_off">Sor düğmesi gösteriliyor.</string>
-    <string name="revanced_hide_ask_button_summary_on">Sor düğmesi gizlendi.</string>
-    <string name="revanced_hide_ask_button_title">Sor düğmesini gizle</string>
+    <string name="revanced_hide_ask_button_summary_off">Sor düğmesi görünür</string>
+    <string name="revanced_hide_ask_button_summary_on">Sor düğmesi gizli</string>
+    <string name="revanced_hide_ask_button_title">Sor\'u gizle</string>
     <string name="revanced_hide_ask_section_summary_off">Sor kısmı görünür</string>
     <string name="revanced_hide_ask_section_summary_on">Sor kısmı gizli</string>
     <string name="revanced_hide_ask_section_title">\'Sor\'u gizle</string>
@@ -630,6 +621,9 @@ Mağaza"</string>
     <string name="revanced_hide_handle_summary_off">Etiket gizlenmiyor.</string>
     <string name="revanced_hide_handle_summary_on">Etiket gizleniyor.</string>
     <string name="revanced_hide_handle_title">Etiketi gizle</string>
+    <string name="revanced_hide_hype_button_summary_off">Hype düğmesi görünür</string>
+    <string name="revanced_hide_hype_button_summary_on">Coşku düğmesi gizli</string>
+    <string name="revanced_hide_hype_button_title">Abartıyı Gizle</string>
     <string name="revanced_hide_image_search_button_summary_off">Fotoğraf arama butonu gösteriliyor.</string>
     <string name="revanced_hide_image_search_button_summary_on">Fotoğraf arama butonu gizlendi.</string>
     <string name="revanced_hide_image_search_button_title">Fotoğraf arama düğmesini gizle</string>
@@ -696,8 +690,6 @@ Ortasında büyük harf bulunan kelimeler büyük harfle birlikte girilmelidir (
     <string name="revanced_hide_live_chat_replay_button_summary_off">Canlı sohbeti tekrar oynat düğmesi görünür.\n\nCanlı sohbet kapatıldığında tam ekranda görünür.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Canlı sohbeti tekrar oynat düğmesi gizlidir.\n\nCanlı sohbet kapatıldığında tam ekranda görünür.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Canlı sohbet tekrarı butonunu gizle</string>
-    <string name="revanced_hide_low_views_video_summary">"Abone olunmayan kanallardan yüklenen ana sayfa yayınlarında 1.000'den az izlenen videoları gizleyin."</string>
-    <string name="revanced_hide_low_views_video_title">Az izlenen videoları gizle</string>
     <string name="revanced_hide_medical_panel_summary_off">Tıbbi bilgi içeren paneller gizlenmiyor.</string>
     <string name="revanced_hide_medical_panel_summary_on">Tıbbi bilgi içeren paneller gizleniyor.</string>
     <string name="revanced_hide_medical_panel_title">Tıbbi panelleri gizle</string>
@@ -755,9 +747,9 @@ Ortasında büyük harf bulunan kelimeler büyük harfle birlikte girilmelidir (
     <string name="revanced_hide_player_collapse_button_summary_off">Videoyu küçült butonu gösteriliyor</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Videoyu küçült butonu devre dışı.</string>
     <string name="revanced_hide_player_collapse_button_title">Sol üstteki videoyu küçültme butonunu gizle</string>
-    <string name="revanced_hide_player_control_buttons_background_summary_off">Oynatıcı kontrol düğmeleri arka planı gösteriliyor</string>
-    <string name="revanced_hide_player_control_buttons_background_summary_on">Oynatıcı kontrol düğmeleri arka planı gizlendi</string>
-    <string name="revanced_hide_player_control_buttons_background_title">Oynatıcı kontrol düğmeleri arka planını gizle</string>
+    <string name="revanced_hide_player_control_buttons_background_summary_off">Oynatıcı kontrolleri arka planı görünür</string>
+    <string name="revanced_hide_player_control_buttons_background_summary_on">Oynatıcı kontrolleri arka planı gizli</string>
+    <string name="revanced_hide_player_control_buttons_background_title">Oynatıcı kontrolleri arka planını gizle</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Ambiyans modu menüsü görünür.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ambiyans modu menüsü gizli.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Ambiyans mod menüsünü gizle</string>
@@ -822,7 +814,7 @@ Ses parçası menüsünü göstermek için, 'Varsayılan istemci (Yayın veriler
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_summary_on">\"VR modunda izle\" butonu gizleniyor.</string>
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_title">\"VR modunda izle\" butonunu gizle</string>
     <string name="revanced_hide_player_fullscreen_button_summary_off">Tam ekran butonu gizlenmiyor.</string>
-    <string name="revanced_hide_player_fullscreen_button_summary_on">Tam ekran butonu gizli.</string>
+    <string name="revanced_hide_player_fullscreen_button_summary_on">"Tam ekran butonu gizli."</string>
     <string name="revanced_hide_player_fullscreen_button_title">Tam ekran butonunu gizle</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Düğmeler görünür.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Düğmeler gizli.</string>
@@ -842,6 +834,9 @@ Ses parçası menüsünü göstermek için, 'Varsayılan istemci (Yayın veriler
     <string name="revanced_hide_preview_comment_type_off">Bu, yorum bölümünün boyutunu değiştirir, dolayısıyla yorum bölümünde canlı sohbet tekrarını açmak imkansızdır.</string>
     <string name="revanced_hide_preview_comment_type_on">Bu, yorum bölümünün boyutunu değiştirmez, dolayısıyla yorum bölümünde canlı sohbet tekrarını açmak mümkündür.</string>
     <string name="revanced_hide_preview_comment_type_title">Önizleme yorumu tipini gizle</string>
+    <string name="revanced_hide_promote_button_summary_off">Tanıt düğmesi görünür</string>
+    <string name="revanced_hide_promote_button_summary_on">Tanıt düğmesi gizli</string>
+    <string name="revanced_hide_promote_button_title">Tanıt\'ı Gizle</string>
     <string name="revanced_hide_promotion_alert_banner_summary_off">Promosyon uyarı afişi gösteriliyor.</string>
     <string name="revanced_hide_promotion_alert_banner_summary_on">Promosyon uyarı afişi gizli.</string>
     <string name="revanced_hide_promotion_alert_banner_title">Promosyon uyarı afişini gizle</string>
@@ -875,11 +870,6 @@ Ses parçası menüsünü göstermek için, 'Varsayılan istemci (Yayın veriler
     <string name="revanced_hide_quick_actions_summary_off">Tam ekranda zaman çubuğunun altındaki butonlar gizlenmiyor.</string>
     <string name="revanced_hide_quick_actions_summary_on">Tam ekranda zaman çubuğunun altındaki butonlar gizleniyor.</string>
     <string name="revanced_hide_quick_actions_title">Zaman çubuğunun altındaki butonları gizle</string>
-    <string name="revanced_hide_recommended_video_summary">"Aşağıdaki önerilen videoları gizler:
-
-• 'Yalnızca Üyeler İçin' etiketine sahip videolar
-• Videonun altında 'Kullanıcılar da izledi' gibi ibarelerin yer aldığı videolar."</string>
-    <string name="revanced_hide_recommended_video_title">Önerilen videoları gizle</string>
     <string name="revanced_hide_related_videos_summary_off">İlgili videolar gösteriliyor.</string>
     <string name="revanced_hide_related_videos_summary_on">İlgili videolar gizlendi.</string>
     <string name="revanced_hide_related_videos_title">İlgili videoları gizle</string>
@@ -1323,9 +1313,6 @@ Eğer bölgenizde bir YouTube Doodle'ı gösteriliyorsa ve bu ayar açıksa, ara
     <string name="revanced_language_ZH">"Çince
 <small>中文</small>"</string>
     <string name="revanced_language_title">RVX dili</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Geçersiz kılınmadı</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_invalid_toast">Litho iş parçacığı havuzu maks. boyutu 1-3 arasında olmalıdır.</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_title">Litho iş parçacığı havuzu maks. boyutu</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Çift dokunma eylemi ve sıkıştırarak yeniden boyutlandırma devre dışı.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Çift dokunma eylemi ve sıkıştırarak yeniden boyutlandırma etkin.
 
@@ -1461,7 +1448,6 @@ Beyaz liste ayarı iletişim kutusunu açmak için dokunun ve basılı tutun.</s
     <string name="revanced_preference_category_patch_information">Yama Bilgileri</string>
     <string name="revanced_preference_category_playback_speed">Oynatma hızı</string>
     <string name="revanced_preference_category_quick_actions">Hızlı eylemler</string>
-    <string name="revanced_preference_category_recommended_video">Önerilen video</string>
     <string name="revanced_preference_category_shorts_shelf">Shorts rafları</string>
     <string name="revanced_preference_category_suggested_actions">Önerilen eylemler</string>
     <string name="revanced_preference_category_video_quality">Video kalitesi</string>
@@ -1919,16 +1905,6 @@ Sınırlama: Tıklandığında video başlığı kayboluyor."</string>
     <string name="revanced_skip_autoplay_countdown_summary_off">Otomatik oynatma açıksa sonraki video geri sayım bitmeden oynatılır.</string>
     <string name="revanced_skip_autoplay_countdown_summary_on">Otomatik oynatma açıksa sonraki video geri sayım olmadan oynatılır.</string>
     <string name="revanced_skip_autoplay_countdown_title">Otomatik oynatma geri sayımını atla</string>
-    <string name="revanced_skip_preloaded_buffer_summary">"Varsayılan video kalitesi uygulama gecikmesini atlamak için video başlangıcında önceden yüklenmiş arabelleği atlayın.
-
- • Video başladığında yaklaşık 0.7 saniyelik bir gecikme olur, ancak varsayılan video kalitesi hemen uygulanır.
-• HDR videolar veya 10 saniyeden kısa videolar için geçerli değildir."</string>
-    <string name="revanced_skip_preloaded_buffer_title">Önceden yüklenmiş arabelleği atla</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Gizleniyor</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Gizlenmiyor</string>
-    <string name="revanced_skip_preloaded_buffer_toast_title">Bir kısım atlanırken uyarı ver</string>
-    <string name="revanced_skip_preloaded_buffer_user_dialog_message">Bu ayarı etkinleştirmek video oynatma sorunlarına yol açabilir.</string>
-    <string name="revanced_skipped_preloaded_buffer">Önceden yüklenmiş arabellek atlandı.</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Hız arayüzü değeri 0 ila 8.0 arasında olmalıdır. Varsayılan değere sıfırlandı.</string>
     <string name="revanced_speed_overlay_value_summary">0-8.0 arası hız kaydırma değeri.</string>
     <string name="revanced_speed_overlay_value_title">Hız kaydırma değeri</string>
@@ -1987,7 +1963,6 @@ AVC'nin maksimum çözünürlüğü 1080p'dir, Opus ses codec'i kullanılamaz ve
     <string name="revanced_spoof_streaming_data_summary_off">"Yayın verileri taklit edilmiyor. Video oynatma çalışmayabilir."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Yayın verileri taklit ediliyor.</string>
     <string name="revanced_spoof_streaming_data_title">Yayın verilerini taklit et</string>
-    <string name="revanced_spoof_streaming_data_user_dialog_message">Bu ayarı kapatmak video oynatma sorunlarına neden olabilir.</string>
     <string name="revanced_swipe_brightness_summary_off">Tam ekran parlaklık kaydırma özelliği devre dışı</string>
     <string name="revanced_swipe_brightness_summary_on">"Tam ekran parlaklık kaydırma özelliği etkin.
 
@@ -1999,24 +1974,24 @@ Ekranın sol tarafında dikey olarak kaydırarak parlaklığı ayarlayabilirsini
     <string name="revanced_swipe_haptic_feedback_summary_off">Dokunsal geri bildirim devre dışı.</string>
     <string name="revanced_swipe_haptic_feedback_summary_on">Dokunsal geri bildirim etkin.</string>
     <string name="revanced_swipe_haptic_feedback_title">Dokunsal geri bildirimi etkinleştir</string>
-    <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Otomatik</string>
+    <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Oto</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Parlaklık hareketinin en düşük değeri otomatik parlaklığı etkinleştirmez.</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Parlaklık hareketinin en düşük değeri otomatik parlaklığı etkinleştirir.</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Kaydırarak otomatik parlaklığı etkinleştir</string>
     <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Kaydırma opaklığı 0-100 arasında olmalıdır.</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">0-100 arası opaklık değeri.</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Kaydırma katmanı arkaplan opaklığı</string>
-    <string name="revanced_swipe_overlay_progress_brightness_color_summary">Parlaklık kontrolleri için ilerleme çubuğunun rengi.</string>
+    <string name="revanced_swipe_overlay_progress_brightness_color_summary">Parlaklık kontrolleri için ilerleme çubuğunun rengi</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Kaydırma katmanı parlaklık rengi</string>
-    <string name="revanced_swipe_overlay_progress_volume_color_summary">Ses seviyesi kontrolleri için ilerleme çubuğunun rengi.</string>
-    <string name="revanced_swipe_overlay_progress_volume_color_title">Kaydırma katmanı ses seviyesi rengi</string>
+    <string name="revanced_swipe_overlay_progress_volume_color_summary">Ses kontrolleri için ilerleme çubuğunun rengi</string>
+    <string name="revanced_swipe_overlay_progress_volume_color_title">Kaydırma katmanı ses rengi</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Kaydırılabilir alan boyutu 50\'den fazla olamaz. Varsayılan değere sıfırlayın.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Kaydırılabilir ekran alanının yüzdesi.\n\nNot: Bu aynı zamanda aramak için iki kez dokunma hareketi için ekran alanının boyutunu da değiştirecektir.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Kaydırma arayüzü boyutu</string>
     <string name="revanced_swipe_overlay_style_entry_0">Klasik katman</string>
     <string name="revanced_swipe_overlay_style_entry_1">Yatay katman</string>
-    <string name="revanced_swipe_overlay_style_entry_2">Yatay katman (minimal - üstte)</string>
-    <string name="revanced_swipe_overlay_style_entry_3">Yatay katman (minimal - ortada)</string>
+    <string name="revanced_swipe_overlay_style_entry_2">Yatay katman (minimal - üst)</string>
+    <string name="revanced_swipe_overlay_style_entry_3">Yatay katman (minimal - orta)</string>
     <string name="revanced_swipe_overlay_style_entry_4">Dairesel katman</string>
     <string name="revanced_swipe_overlay_style_entry_5">Dairesel katman (minimal)</string>
     <string name="revanced_swipe_overlay_style_entry_6">Dikey katman</string>
@@ -2030,9 +2005,9 @@ Ekranın sol tarafında dikey olarak kaydırarak parlaklığı ayarlayabilirsini
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Tam ekrana girerken veya çıkarken parlaklığı kaydetme ve geri yükleme.</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Tam ekrandan çıkarken veya tam ekrana girerken parlaklığı kaydedin ve geri yükleyin.</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Parlaklığı kaydet ve geri yükle</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">Yazı tipi boyutu 1 ile 30 arasında olmalıdır.</string>
-    <string name="revanced_swipe_text_overlay_size_summary">Kaydırma katmanı için yazı tipi boyutu 1-30 arasında.</string>
-    <string name="revanced_swipe_text_overlay_size_title">Kaydırma katmanı yazı tipi boyutu</string>
+    <string name="revanced_swipe_text_overlay_size_invalid_toast">Metin boyutu 1-30 arasında olmalıdır</string>
+    <string name="revanced_swipe_text_overlay_size_summary">Kaydırma katmanı için 1-30 arası metin boyutu</string>
+    <string name="revanced_swipe_text_overlay_size_title">Kaydırma katmanı metin boyutu</string>
     <string name="revanced_swipe_threshold_summary">Kaydırma hareketinin gerçekleşmesi için gereken eşik miktarı.</string>
     <string name="revanced_swipe_threshold_title">Kaydırma büyüklüğü eşiği</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Ses seviyesi kaydırma hassasiyeti 1-1000 (%) arasında olmalıdır.</string>

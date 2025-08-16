@@ -9,7 +9,7 @@
 앱을 실행하려면 이 과정이 필요합니다."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"GmsCore를 배터리 최적화 목록에서 제외하여 앱 문제를 방지할 수 있습니다.
 
-배터리 최적화 목록에서 제외하려면 '계속하기' 버튼을 누르세요."</string>
+배터리 최적화 목록에서 제외하려면 '계속하기' 버튼을 탭하세요."</string>
     <string name="gms_core_dialog_open_website_text">웹사이트 열기</string>
     <string name="gms_core_dialog_title">필수 조치</string>
     <string name="gms_core_settings_summary">RVX Music 알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
@@ -79,14 +79,14 @@
     <string name="revanced_disable_auto_captions_title">자동 자막 비활성화</string>
     <string name="revanced_disable_cairo_splash_animation_summary">앱을 시작할 때, Cairo 스플래시 애니메이션을 비활성화합니다.</string>
     <string name="revanced_disable_cairo_splash_animation_title">Cairo 스플래시 애니메이션 비활성화</string>
-    <string name="revanced_disable_dislike_redirection_summary">싫어요 버튼을 누르면 다음 트랙으로 리다이렉션할 수 없습니다.</string>
+    <string name="revanced_disable_dislike_redirection_summary">싫어요 버튼을 탭하면 다음 트랙으로 리다이렉션할 수 없습니다.</string>
     <string name="revanced_disable_dislike_redirection_title">싫어요 리다이렉션 비활성화</string>
     <string name="revanced_disable_drc_audio_summary">오디오에 적용된 DRC (Dynamic Range Compression)를 비활성화합니다.</string>
     <string name="revanced_disable_drc_audio_title">DRC 오디오 비활성화</string>
     <string name="revanced_disable_miniplayer_gesture_summary">미니 플레이어에서 스와이프하여 트랙을 변경할 수 없습니다.</string>
     <string name="revanced_disable_miniplayer_gesture_title">미니 플레이어 제스처 비활성화</string>
-    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">노래 / 동영상 토글 누르기</string>
-    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">노래 / 동영상 토글 길게 누르기</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">노래 / 동영상 토글 탭하기</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">노래 / 동영상 토글 길게 탭하기</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">리다이렉션</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_summary">정식 음원으로 리다이렉션하는 방법을 지정할 수 있습니다.</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_title">리다이렉션 유형</string>
@@ -99,9 +99,9 @@
     <string name="revanced_disable_music_video_in_album_title">앨범에서 뮤직 비디오 비활성화</string>
     <string name="revanced_disable_player_gesture_summary">플레이어에서 스와이프하여 트랙을 변경할 수 없습니다.</string>
     <string name="revanced_disable_player_gesture_title">플레이어 제스처 비활성화</string>
-    <string name="revanced_disable_quic_protocol_summary">"QUIC 프로토콜을 비활성화합니다.\n동영상 로딩 속도가 개선될 수 있습니다."</string>
+    <string name="revanced_disable_quic_protocol_summary">"CronetEngine's QUIC 프로토콜을 비활성화합니다."</string>
     <string name="revanced_disable_quic_protocol_title">QUIC 프로토콜 비활성화</string>
-    <string name="revanced_enable_comments_scroll_top_summary">"댓글 패널 제목(‘댓글’)을 누르면 상단으로 스크롤됩니다.
+    <string name="revanced_enable_comments_scroll_top_summary">"댓글 패널 제목(‘댓글’)을 탭하면 상단으로 스크롤됩니다.
 
 제한 사항:
 • 댓글 답글에는 적용되지 않습니다."</string>
@@ -114,10 +114,6 @@
     <string name="revanced_enable_compact_dialog_title">소형 다이얼로그 활성화</string>
     <string name="revanced_enable_custom_navigation_bar_color_summary">사용자 정의 하단바 색상을 활성화합니다.</string>
     <string name="revanced_enable_custom_navigation_bar_color_title">사용자 정의 하단바 색상 활성화</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">디버그 로그에 버퍼를 포함하여 출력합니다.</string>
-    <string name="revanced_enable_debug_buffer_logging_title">디버그 버퍼 로깅 활성화</string>
-    <string name="revanced_enable_debug_logging_summary">디버그 로그를 출력합니다.</string>
-    <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화</string>
     <string name="revanced_enable_forced_miniplayer_summary">새로운 트랙으로 변경되면 강제로 미니 플레이어를 활성화합니다.</string>
     <string name="revanced_enable_forced_miniplayer_title">강제로 미니 플레이어 활성화</string>
     <string name="revanced_enable_landscape_mode_summary">앱을 가로로 회전할 수 있도록 합니다.</string>
@@ -177,7 +173,7 @@
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 가 설치되어 있지 않습니다.
 웹사이트에서 %2$s 를 다운로드하세요."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">경고</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s가 설치되지 않았습니다. 설치해주세요.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s 가 설치되지 않았습니다. 설치해주세요.</string>
     <string name="revanced_external_downloader_package_name_summary">NewPipe 또는 YTDLnis와 같은 설치된 외부 다운로더 앱 패키지명입니다.</string>
     <string name="revanced_external_downloader_package_name_title">외부 다운로더 앱 패키지명</string>
     <string name="revanced_fullscreen_ads_closed_toast">전체 화면 광고가 닫아졌습니다.</string>
@@ -189,8 +185,8 @@
     <string name="revanced_hide_account_menu_filter_strings_title">계정 메뉴 필터</string>
     <string name="revanced_hide_account_menu_summary">사용자 정의 필터를 사용하여 계정 메뉴 구성요소를 숨깁니다.</string>
     <string name="revanced_hide_account_menu_title">계정 메뉴 제거</string>
-    <string name="revanced_hide_action_button_add_to_playlist_summary">(재생목록에) 저장 버튼을 숨깁니다.</string>
-    <string name="revanced_hide_action_button_add_to_playlist_title">(재생목록에) 저장 버튼 제거</string>
+    <string name="revanced_hide_action_button_add_to_playlist_summary">저장 버튼을 숨깁니다.</string>
+    <string name="revanced_hide_action_button_add_to_playlist_title">저장 버튼 제거</string>
     <string name="revanced_hide_action_button_comment_summary">댓글 버튼을 숨깁니다.</string>
     <string name="revanced_hide_action_button_comment_title">댓글 버튼 제거</string>
     <string name="revanced_hide_action_button_download_summary">오프라인 저장 버튼을 숨깁니다.</string>
@@ -220,8 +216,8 @@
     <string name="revanced_hide_comment_channel_guidelines_title">커뮤니티 가이드라인 제거</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">댓글을 입력할 때, 타임스탬프 및 이모지 버튼을 숨깁니다.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">타임스탬프 &amp; 이모지 버튼 제거</string>
-    <string name="revanced_hide_double_tap_overlay_filter_summary">두 번 눌러서 탐색할 때 표시되는 어두운 오버레이를 숨깁니다.</string>
-    <string name="revanced_hide_double_tap_overlay_filter_title">두 번 누르기 오버레이 필터</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary">두 번 탭하여 탐색할 때 표시되는 어두운 오버레이를 숨깁니다.</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">두 번 탭하기 오버레이 필터</string>
     <string name="revanced_hide_floating_button_summary">보관함에서 플로팅 버튼을 숨깁니다.</string>
     <string name="revanced_hide_floating_button_title">플로팅 버튼 제거</string>
     <string name="revanced_hide_flyout_menu_3_column_component_title">3-열 구성요소 제거</string>
@@ -238,7 +234,7 @@
     <string name="revanced_hide_flyout_menu_help_title">고객센터 메뉴 제거</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">좋아요 &amp; 싫어요 버튼 제거</string>
     <string name="revanced_hide_flyout_menu_not_interested_title">관심 없음 메뉴 제거</string>
-    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">빠른 선곡에 고정 제거</string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">빠른 선곡에 고정 메뉴 제거</string>
     <string name="revanced_hide_flyout_menu_play_next_title">다음에 재생 메뉴 제거</string>
     <string name="revanced_hide_flyout_menu_quality_title">품질 메뉴 제거</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">보관함에서 삭제 메뉴 제거</string>
@@ -324,12 +320,6 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
     <string name="revanced_hide_terms_container_title">서비스 약관 컨테이너 제거</string>
     <string name="revanced_hide_voice_search_button_summary">툴바에서 음성 검색 버튼을 숨깁니다.</string>
     <string name="revanced_hide_voice_search_button_title">음성 검색 버튼 제거</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">재정의안함</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_invalid_toast">Litho Thread Pool 최대 크기는 1-3 사이어야 합니다.</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_summary">"Litho Thread Pool 최대 크기를 변경합니다.
-
-값이 클수록 Litho 레이아웃 로딩 성능이 향상될 수 있지만 배터리를 더 많이 소모할 수 있습니다."</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_title">Litho Thread Pool 최대 크기</string>
     <string name="revanced_preference_screen_account_title">계정</string>
     <string name="revanced_preference_screen_action_bar_title">동작바</string>
     <string name="revanced_preference_screen_ads_title">광고</string>
@@ -352,16 +342,18 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
     <string name="revanced_remember_repeat_state_title">반복 상태 저장</string>
     <string name="revanced_remember_shuffle_state_summary">셔플 재생 토글 상태를 저장합니다.</string>
     <string name="revanced_remember_shuffle_state_title">셔플 상태 저장</string>
+    <string name="revanced_remember_video_quality_auto_mobile">모바일 네트워크에서의 기본 동영상 품질 값을 자동으로 변경합니다.</string>
+    <string name="revanced_remember_video_quality_auto_wifi">Wi-Fi에서의 기본 동영상 품질 값을 자동으로 변경합니다.</string>
     <string name="revanced_remember_video_quality_last_selected_summary">동영상 품질 값을 변경할 때마다 저장합니다.</string>
     <string name="revanced_remember_video_quality_last_selected_title">동영상 품질 저장 활성화</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">기본 동영상 화질 값으로 변경되었을 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_title">팝업 메시지 표시</string>
-    <string name="revanced_remember_video_quality_mobile">모바일 네트워크 이용 시 기본 동영상 품질 값을 %s 로 변경합니다.</string>
+    <string name="revanced_remember_video_quality_mobile">모바일 네트워크에서의 기본 동영상 품질 값을 %s으로 변경합니다.</string>
     <string name="revanced_remember_video_quality_none">동영상 품질을 설정할 수 없습니다.</string>
-    <string name="revanced_remember_video_quality_wifi">Wi-Fi 이용 시 기본 동영상 품질 값을 %s 로 변경합니다.</string>
+    <string name="revanced_remember_video_quality_wifi">Wi-Fi에서의 기본 동영상 품질 값을 %s으로 변경합니다.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"다음 콘텐츠를 재생하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다:\n• 연령 제한 콘텐츠\n• 자살 또는 자해와 관련된 콘텐츠, etc.\n\n이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">\'YouTube로 음악 감상\' 메뉴를 누르면 YouTube 앱으로 변경하여 현재 재생 시간부터 이어서 음악을 감상합니다.</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">\'YouTube로 음악 감상\' 메뉴를 탭하면 YouTube 앱으로 변경하여 현재 재생 시간부터 이어서 음악을 감상합니다.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">이어서 음악 감상</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">\'현재 재생목록 닫기\' 메뉴를 \'YouTube로 음악 감상\' 메뉴로 변경합니다.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">현재 재생목록 닫기 메뉴 변경</string>
@@ -377,7 +369,7 @@ YouTube Music의 검색 및 설정과 같은 활동은 공개되지 않으므로
 제한 사항:
 • 검색 및 설정과 같은 교체된 활동이 닫히면 앱 시작 페이지가 열립니다.
 
-앱 시작 페이지 설정을 열려면 여기를 누르세요."</string>
+앱 시작 페이지 설정을 열려면 여기를 탭하세요."</string>
     <string name="revanced_replace_navigation_button_about_title">버튼 변경에 대한 정보</string>
     <string name="revanced_replace_navigation_samples_button_summary">샘플 버튼을 검색 버튼으로 변경합니다.</string>
     <string name="revanced_replace_navigation_samples_button_title">샘플 버튼 변경</string>
@@ -403,14 +395,14 @@ YouTube Music의 검색 및 설정과 같은 활동은 공개되지 않으므로
 
 무료 요금제에서 API Key의 일일 할당량은 10,000개이며, 1개의 할당량은 댓글 1개에 대해 핸들을 사용자 이름으로 변경하는 데 사용됩니다. 
 
-API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
+API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">YouTube Data API Key에 대한 정보</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">YouTube Data API v3를 사용하기 위한 Developer Key입니다.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API Key</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;새 프로젝트 만들기&lt;/a&gt; 로 이동합니다.&lt;br&gt;2. &lt;b&gt;만들기&lt;/b&gt; 버튼을 누릅니다.&lt;br&gt;3. &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; 로 이동합니다.&lt;br&gt;4. &lt;b&gt;사용&lt;/b&gt; 버튼을 누릅니다.&lt;br&gt;5. &lt;b&gt;사용자 인증 정보 만들기&lt;/b&gt; 버튼을 누릅니다.&lt;br&gt;6. &lt;b&gt;공개 데이터&lt;/b&gt; 옵션을 선택합니다.&lt;br&gt;7. &lt;b&gt;다음&lt;/b&gt; 버튼을 누릅니다.&lt;br&gt;8. API Key를 복사합니다.&lt;br&gt;&lt;br&gt;※ API Key는 다른 사람과 공유해서는 안 되므로 가져오기 / 내보내기 설정에 포함되지 않습니다.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;새 프로젝트 만들기&lt;/a&gt; 로 이동합니다.&lt;br&gt;2. &lt;b&gt;만들기&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;3. &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; 로 이동합니다.&lt;br&gt;4. &lt;b&gt;사용&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;5. &lt;b&gt;사용자 인증 정보 만들기&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;6. &lt;b&gt;공개 데이터&lt;/b&gt; 옵션을 선택합니다.&lt;br&gt;7. &lt;b&gt;다음&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;8. API Key를 복사합니다.&lt;br&gt;&lt;br&gt;※ API Key는 다른 사람과 공유해서는 안 되므로 가져오기 / 내보내기 설정에 포함되지 않습니다.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 Developer Key 발급</string>
     <string name="revanced_ryd_about">정보</string>
-    <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
+    <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 탭하세요.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">좋아요 버튼에서 구분선을 숨깁니다.</string>
     <string name="revanced_ryd_compact_layout_title">좋아요 버튼에서 구분선 제거</string>
@@ -431,7 +423,7 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유</string>
     <string name="revanced_sb_about">정보</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
-    <string name="revanced_sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
+    <string name="revanced_sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 탭하세요.</string>
     <string name="revanced_sb_api_url">API URL 변경</string>
     <string name="revanced_sb_api_url_changed">API URL을 변경하였습니다.</string>
     <string name="revanced_sb_api_url_invalid">잘못된 API URL입니다.</string>
@@ -484,12 +476,14 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_sb_toast_on_skip">자동으로 구간을 건너뛸 때, 팝업 메시지 표시</string>
     <string name="revanced_sb_toast_on_skip_sum">자동으로 구간을 건너뛸 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_share_copy_settings_success">설정을 클립보드에 복사하였습니다.</string>
-    <string name="revanced_spoof_app_version_summary">"이전 앱 버전으로 변경합니다.
+    <string name="revanced_spoof_app_version_summary">"클라이언트 버전을 이전 버전으로 변경합니다.
 
-• 이 기능을 활성화하면 앱 레이아웃이 변경되지만 알려지지 않은 문제점이 발생할 수 있습니다.
+• 이 기능을 활성화하면 앱 레이아웃이 변경되지만 알려지지 않은 부작용이 발생할 수 있습니다.
+• 이 기능을 활성화했지만 작동하지 않는 경우에는 다른 계정으로 전환해 보세요.
 • 나중에 이 기능을 비활성화하면 앱 데이터를 지우기 전까지 이전 레이아웃이 유지될 수 있습니다."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - 캐나다 지역에서 뮤직 스테이션 모드를 비활성화합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - 실시간 가사를 비활성화합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - 이전 구성요소 패널로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - 실시간 가사를 비활성화합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - 이전 동작바로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - 홈 피드에서 댓글 섹션이 표시되지 않습니다.</string>
@@ -497,17 +491,20 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 선택하세요.</string>
     <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
     <string name="revanced_spoof_app_version_title">앱 버전 변경</string>
-    <string name="revanced_spoof_client_summary">클라이언트를 변경하여 재생 문제를 방지할 수 있습니다.</string>
+    <string name="revanced_spoof_client_summary">"클라이언트를 변경하여 재생 문제를 방지할 수 있습니다.
+
+이 기능이 활성화되어 있으면 '플레이어 매개변수 변경하기'를 비활성화할 수 있습니다.
+
+부작용:
+• 플레이어 메뉴 구성요소가 제대로 표시되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_client_title">클라이언트 변경</string>
-    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
-    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_client_type_summary">클라이언트 변경에 대한 기본 클라이언트를 정의할 수 있습니다.</string>
     <string name="revanced_spoof_client_type_title">기본 클라이언트</string>
     <string name="revanced_spoof_player_parameter_summary">"플레이어 매개변수를 변경하여 재생 문제를 방지할 수 있습니다.
 
-알려진 문제점:
+부작용:
 • 자막이 플레이어 하단이 아닌 상단에 위치하는 경우가 있습니다."</string>
     <string name="revanced_spoof_player_parameter_title">플레이어 매개변수 변경하기</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 동영상 통계에서 표시됩니다.</string>
