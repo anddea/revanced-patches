@@ -525,7 +525,7 @@ Shorts 플레이어 배경을 누르면 상태바 및 플레이어 구성요소�
     <string name="revanced_gemini_summary_title">Gemini 동영상 요약</string>
     <string name="revanced_gemini_time_taken">(%d 초가 소요되었습니다.)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">자막으로 표시하려면 \'다른 앱 위에 표시\' 권한을 활성화하세요.</string>
-    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">필사된 동영상 자막의 폰트 사이즈를 지정할 수 있습니다.\n\n• 자막 상자를 숨기려면 자막 상자를 누르세요.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">필사된 동영상 자막의 폰트 사이즈를 지정할 수 있습니다.\n\n• 자막 상자를 탭하여 숨길 수 있습니다. 길게 탭하면 다른 위치로 드래그됩니다.</string>
     <string name="revanced_gemini_transcribe_subtitles_font_size_title">자막 폰트 사이즈</string>
     <string name="revanced_gemini_transcription_parse_button">자막</string>
     <string name="revanced_gemini_transcription_parse_success">자막을 성공적으로 분석하였습니다.</string>
@@ -2475,4 +2475,20 @@ n-sig 패턴은 YouTube 서버에서 자주 변경되며, 정규식이 n-sig 패
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex 언어</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Gemini 대신에 Yandex 필사기를 사용할 수 있습니다. Yandex는 더 빠르고 안정적일 수 있습니다. API Key가 필요하지 않습니다.</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex 필사기</string>
+    
+    <string name="revanced_hide_hype_button_summary_off">주목 버튼이 표시됩니다.</string>
+    <string name="revanced_hide_hype_button_summary_on">주목 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_hype_button_title">주목 버튼 숨기기</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_off">댓글 패널이 숨겨집니다.</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_on">댓글 패널이 표시됩니다.</string>
+    <string name="revanced_hide_shorts_comments_panel_title">댓글 패널 숨기기</string>
+    <string name="revanced_swipe_brightness_distance_summary">스와이프하여 밝기를 변경할 픽셀의 양을 지정할 수 있습니다. 값이 낮을수록 밝기가 빠르게 변경되고, 값이 높을수록 밝기가 느리게 변경됩니다. (1-1000)</string>
+    <string name="revanced_swipe_brightness_distance_title">밝기 거리</string>
+    <string name="revanced_swipe_distance_invalid">잘못된 스와이프 거리입니다. 스와이프 거리는 1-1000 사이여야 합니다.</string>
+    <string name="revanced_swipe_seek_distance_summary">스와이프하여 동영상 콘텐츠를 건너뛸 픽셀의 양을 지정할 수 있습니다. 값이 낮을수록 탐색 속도가 빨라지고, 값이 높을수록 탐색 속도가 느려집니다. (1-1000)</string>
+    <string name="revanced_swipe_seek_distance_title">탐색 거리</string>
+    <string name="revanced_swipe_speed_distance_summary">스와이프하여 동영상 속도를 변경할 픽셀의 양을 지정할 수 있습니다. 값이 낮을수록 동영상 속도가 빠르게 변경되고, 값이 높을수록 동영상 속도가 느리게 변경됩니다. (1-1000)</string>
+    <string name="revanced_swipe_speed_distance_title">속도 거리</string>
+    <string name="revanced_swipe_volume_distance_summary">스와이프하여 볼륨을 조정할 픽셀의 양을 지정할 수 있습니다. 값이 낮을수록 볼륨이 빠르게 변경되고, 값이 높을수록 볼륨이 느리게 변경됩니다. (1-1000)</string>
+    <string name="revanced_swipe_volume_distance_title">볼륨 거리</string>
 </resources>
