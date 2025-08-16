@@ -12,7 +12,6 @@ import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.extension.Constants.FLYOUT_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.flyoutmenu.flyoutMenuHookPatch
 import app.revanced.patches.music.utils.patch.PatchList.FLYOUT_MENU_COMPONENTS
-import app.revanced.patches.music.utils.patch.PatchList.LITHO_FILTER
 import app.revanced.patches.music.utils.playservice.is_6_36_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.endButtonsContainer
@@ -242,6 +241,8 @@ val flyoutMenuComponentsPatch = bytecodePatch(
 
         // endregion
 
+        addLithoFilter(FILTER_CLASS_DESCRIPTOR)
+
         addSwitchPreference(
             CategoryType.FLYOUT,
             "revanced_enable_compact_dialog",
@@ -255,8 +256,6 @@ val flyoutMenuComponentsPatch = bytecodePatch(
             )
         }
         if (is_6_36_or_greater) {
-            addLithoFilter(FILTER_CLASS_DESCRIPTOR)
-
             addSwitchPreference(
                 CategoryType.FLYOUT,
                 "revanced_hide_flyout_menu_3_column_component",
@@ -468,7 +467,6 @@ val flyoutMenuComponentsPatch = bytecodePatch(
         )
 
         updatePatchStatus(FLYOUT_MENU_COMPONENTS)
-        updatePatchStatus(LITHO_FILTER)
 
     }
 }

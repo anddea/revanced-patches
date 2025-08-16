@@ -193,6 +193,11 @@ public final class FeedComponentsFilter extends Filter {
                 "subscriptions_chip_bar"
         );
 
+        final var videoRecommendationLabels = new StringFilterGroup(
+                Settings.HIDE_VIDEO_RECOMMENDATION_LABELS,
+                "endorsement_header_footer.eml"
+        );
+
         chipBar = new StringFilterGroup(
                 Settings.HIDE_CATEGORY_BAR_IN_HISTORY,
                 "chip_bar"
@@ -239,7 +244,8 @@ public final class FeedComponentsFilter extends Filter {
                 subscribedChannelsBar,
                 subscriptionsCategoryBar,
                 surveys,
-                ticketShelfPath
+                ticketShelfPath,
+                videoRecommendationLabels
         );
 
         final StringFilterGroup communityPostsHomeAndRelatedVideos =
@@ -311,9 +317,6 @@ public final class FeedComponentsFilter extends Filter {
                     return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
                 }
             }
-
-            if (Settings.HIDE_MOST_RELEVANT_SHELF.get() && NavigationButton.getSelectedNavigationButton() == NavigationButton.SUBSCRIPTIONS)
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
 
             return false;
         }

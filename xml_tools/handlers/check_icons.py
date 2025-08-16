@@ -98,18 +98,18 @@ def process(app: str) -> None:
 
     # ruff: noqa: ERA001
     # if found_keys:
-    #     logger.info("✅  Found %d keys from Kotlin in the XML file (including commented-out ones):", len(found_keys))
+    #     logger.info("✅ Found %d keys from Kotlin in the XML file (including commented-out ones):", len(found_keys))
     #     for key in sorted(found_keys):
     #         logger.info("  - %s", key)
 
     if missing_keys:
         logger.info(
-            "❌  Missing %d keys from XML file (defined in Kotlin but not present in XML):",
+            "❌ Missing %d keys from XML file (defined in Kotlin but not present in XML):",
             len(missing_keys),
         )
         for key in sorted(missing_keys):
             logger.info("  - %s", key)
     elif found_keys:
-        logger.info("✅  All keys from VisualPreferencesIcons.kt were found in the XML.")
+        logger.info("✅ All keys from VisualPreferencesIcons.kt were found in the XML.")
     else:
         logger.warning("No keys were found or missing. The check might not have run correctly.")

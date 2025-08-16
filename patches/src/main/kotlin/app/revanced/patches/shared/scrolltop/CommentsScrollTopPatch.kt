@@ -30,6 +30,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 var modernTitle = -1L
     private set
+var title = -1L
+    private set
 
 private val commentsScrollTopResourcePatch = resourcePatch(
     description = "commentsScrollTopResourcePatch"
@@ -38,6 +40,7 @@ private val commentsScrollTopResourcePatch = resourcePatch(
 
     execute {
         modernTitle = getResourceId(ID, "modern_title")
+        title = getResourceId(ID, "title")
     }
 }
 
@@ -144,12 +147,17 @@ val commentsScrollTopPatch = bytecodePatch(
             }
         }
 
-        engagementPanelTitleFingerprint
-            .methodOrThrow(engagementPanelTitleParentFingerprint)
-            .injectLiteralInstructionViewCall(
-                modernTitle,
-                "invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $EXTENSION_CLASS_DESCRIPTOR->setContentHeader(Landroid/view/View;)V"
-            )
+        arrayOf(
+            modernTitle,
+            title
+        ).forEach { literal ->
+            engagementPanelTitleFingerprint
+                .methodOrThrow(engagementPanelTitleParentFingerprint)
+                .injectLiteralInstructionViewCall(
+                    literal,
+                    "invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $EXTENSION_CLASS_DESCRIPTOR->setContentHeader(Landroid/view/View;)V"
+                )
+        }
 
         findMethodOrThrow(EXTENSION_CLASS_DESCRIPTOR) {
             name == "smoothScrollToPosition"

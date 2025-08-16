@@ -1,9 +1,8 @@
 package app.revanced.extension.shared.patches;
 
+import android.annotation.SuppressLint;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
-import java.lang.ref.WeakReference;
 
 import app.revanced.extension.shared.settings.BaseSettings;
 
@@ -11,8 +10,8 @@ import app.revanced.extension.shared.settings.BaseSettings;
 public class CommentsScrollTopPatch {
     private static final boolean ENABLE_COMMENTS_SCROLL_TOP =
             BaseSettings.ENABLE_COMMENTS_SCROLL_TOP.get();
-    private static volatile WeakReference<RecyclerView> recyclerViewRef =
-            new WeakReference<>(null);
+    @SuppressLint("StaticFieldLeak")
+    private static RecyclerView recyclerView;
 
     /**
      * Injection point.
@@ -24,10 +23,10 @@ public class CommentsScrollTopPatch {
     /**
      * Injection point.
      * Called after {@link #isCommentsScrollTopEnabled()}.
-     * @param recyclerView  The parent view to which the comment views are bound.
+     * @param commentsRecyclerView  The parent view to which the comment views are bound.
      */
-    public static void onCommentsCreate(RecyclerView recyclerView) {
-        recyclerViewRef = new WeakReference<>(recyclerView);
+    public static void onCommentsCreate(RecyclerView commentsRecyclerView) {
+        recyclerView = commentsRecyclerView;
     }
 
     /**
@@ -39,7 +38,6 @@ public class CommentsScrollTopPatch {
             return;
         }
         view.setOnClickListener(v -> {
-            RecyclerView recyclerView = recyclerViewRef.get();
             if (recyclerView != null) {
                 smoothScrollToPosition(recyclerView, 0);
             }

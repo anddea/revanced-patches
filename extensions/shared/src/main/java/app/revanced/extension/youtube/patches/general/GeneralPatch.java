@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.patches.general;
 
+import static app.revanced.extension.shared.utils.ResourceUtils.getXmlIdentifier;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.getChildView;
 import static app.revanced.extension.shared.utils.Utils.hideViewByLayoutParams;
@@ -55,7 +56,8 @@ public class GeneralPatch {
      * Injection point.
      */
     public static boolean ignoreDefaultAudioStream(boolean original) {
-        if (Settings.DISABLE_AUTO_AUDIO_TRACKS.get()) {
+        if (Settings.DISABLE_AUTO_AUDIO_TRACKS.get()
+                || Settings.SPOOF_STREAMING_DATA_VR_AUDIO_TRACK_BUTTON.get()) {
             return false;
         }
         return original;
@@ -87,7 +89,6 @@ public class GeneralPatch {
             return isOriginal;
         } catch (Exception ex) {
             Logger.printException(() -> "isDefaultAudioStream failure", ex);
-
             return isDefault;
         }
     }
@@ -347,10 +348,29 @@ public class GeneralPatch {
 
     // region [Spoof app version] patch
 
+    private static int legacyFragmentId = 0;
+
+    public static boolean disableCairoFragment(boolean original) {
+        return !Settings.FIX_SPOOF_APP_VERSION_SIDE_EFFECT.get() && original;
+    }
+
     public static String getVersionOverride(String appVersion) {
         return Settings.SPOOF_APP_VERSION.get()
                 ? Settings.SPOOF_APP_VERSION_TARGET.get()
                 : appVersion;
+    }
+
+    public static int useLegacyFragment(int original) {
+        if (Settings.FIX_SPOOF_APP_VERSION_SIDE_EFFECT.get()) {
+            if (legacyFragmentId == 0) {
+                legacyFragmentId = getXmlIdentifier("settings_fragment_legacy");
+            }
+            if (legacyFragmentId != 0) {
+                return legacyFragmentId;
+            }
+        }
+
+        return original;
     }
 
     // endregion
@@ -556,6 +576,47 @@ public class GeneralPatch {
                             ? View.GONE : visibility
             );
         }
+    }
+
+    /**
+     * Injection point.
+     * If the round search bar is enabled, the patch will not work.
+     * Forcibly disable it.
+     */
+    public static boolean disableRoundSearchBar(boolean original) {
+        return !Settings.HIDE_YOU_MAY_LIKE_SECTION.get() && original;
+    }
+
+    /**
+     * Injection point.
+     * @param searchQuery Keywords entered in the search bar.
+     * @return Whether the setting is enabled and the search query is empty.
+     */
+    public static boolean hideYouMayLikeSection(String searchQuery) {
+        return Settings.HIDE_YOU_MAY_LIKE_SECTION.get()
+                // The 'You may like' section is only visible when no search terms are entered.
+                // To avoid unnecessary collection traversals, filtering is performed only when the searchQuery is empty.
+                && StringUtils.isEmpty(searchQuery);
+    }
+
+    /**
+     * Injection point.
+     * @param searchTerm    This class contains information related to search terms.
+     *                      The {@code toString()} method of this class overrides the search term.
+     * @param endpoint      Endpoint related with the search term.
+     *                      For search history, this value is:
+     *                      '/complete/deleteitems?client=youtube-android-pb&delq=${searchTerm}&deltok=${token}'.
+     *                      (If you long press on the search history,
+     *                      you will see a dialog 'Remove from search history?')
+     *                      For search suggestions, this value is null or empty.
+     * @return              Whether search term is a search history or not.
+     */
+    public static boolean isSearchHistory(Object searchTerm, String endpoint) {
+        boolean isSearchHistory = endpoint != null && endpoint.contains("/delete");
+        if (!isSearchHistory) {
+            Logger.printDebug(() -> "Remove search suggestion: " + searchTerm);
+        }
+        return isSearchHistory;
     }
 
     /**

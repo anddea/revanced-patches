@@ -2,6 +2,8 @@ package app.revanced.extension.youtube.patches.components;
 
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
@@ -13,7 +15,7 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 import app.revanced.extension.youtube.shared.RootView;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"deprecation", "unused"})
 public final class CarouselShelfFilter extends Filter {
     private static final String BROWSE_ID_CLIP = "FEclips";
     private static final String BROWSE_ID_COURSES = "FEcourses_destination";
@@ -32,8 +34,7 @@ public final class CarouselShelfFilter extends Filter {
     private static final Supplier<Stream<String>> knownBrowseId = () -> Stream.of(
             BROWSE_ID_HOME,
             BROWSE_ID_NOTIFICATION,
-            BROWSE_ID_PLAYLIST,
-            BROWSE_ID_SUBSCRIPTION
+            BROWSE_ID_PLAYLIST
     );
 
     private static final Supplier<Stream<String>> whitelistBrowseId = () -> Stream.of(
@@ -49,55 +50,64 @@ public final class CarouselShelfFilter extends Filter {
     );
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
-    public final StringFilterGroup horizontalShelf;
 
     public CarouselShelfFilter() {
         exceptions.addPattern("library_recent_shelf.eml");
 
         final StringFilterGroup carouselShelf = new StringFilterGroup(
-                Settings.HIDE_CAROUSEL_SHELF,
+                null,
+                "horizontal_shelf.eml",
                 "horizontal_shelf_inline.eml",
                 "horizontal_tile_shelf.eml",
                 "horizontal_video_shelf.eml"
         );
 
-        horizontalShelf = new StringFilterGroup(
-                Settings.HIDE_CAROUSEL_SHELF,
-                "horizontal_shelf.eml"
-        );
-
-        addPathCallbacks(carouselShelf, horizontalShelf);
+        addPathCallbacks(carouselShelf);
     }
 
     private static boolean hideShelves(boolean playerActive, boolean searchBarActive, NavigationButton selectedNavButton, String browseId) {
+        final boolean hideHomeAndOthers = Settings.HIDE_CAROUSEL_SHELF_HOME.get();
+        final boolean hideSearch = Settings.HIDE_CAROUSEL_SHELF_SEARCH.get();
+        final boolean hideSubscriptions = Settings.HIDE_CAROUSEL_SHELF_SUBSCRIPTIONS.get();
+
+        if (!hideHomeAndOthers && !hideSearch && !hideSubscriptions) {
+            return false;
+        }
+
         // Must check player type first, as search bar can be active behind the player.
         if (playerActive) {
             return false;
         }
+
         // Must check second, as search can be from any tab.
         if (searchBarActive) {
-            return true;
+            return hideSearch;
         }
         // Unknown tab, treat the same as home.
         if (selectedNavButton == null) {
-            return true;
+            return hideHomeAndOthers;
         }
         // Fixes a very rare bug in home.
-        if (selectedNavButton == NavigationButton.HOME && browseId.equals(BROWSE_ID_NOTIFICATION_INBOX)) {
-            return true;
+        if (selectedNavButton == NavigationButton.HOME
+                && StringUtils.equalsAny(browseId, BROWSE_ID_LIBRARY, BROWSE_ID_NOTIFICATION_INBOX)) {
+            return hideHomeAndOthers;
         }
+        boolean isNotWhiteListBrowseId = whitelistBrowseId.get().noneMatch(browseId::equals);
         // Fixes a very rare bug in library.
         if (selectedNavButton == NavigationButton.LIBRARY) {
-            return whitelistBrowseId.get().noneMatch(browseId::equals);
+            return hideHomeAndOthers && isNotWhiteListBrowseId;
+        }
+        if (BROWSE_ID_SUBSCRIPTION.equals(browseId)) {
+            return hideSubscriptions && isNotWhiteListBrowseId;
         }
 
-        return knownBrowseId.get().anyMatch(browseId::equals) || whitelistBrowseId.get().noneMatch(browseId::equals);
+        return hideHomeAndOthers && (knownBrowseId.get().anyMatch(browseId::equals) || isNotWhiteListBrowseId);
     }
 
     @Override
     public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (exceptions.matches(path)) {
+        if (contentIndex != 0 || exceptions.matches(path)) {
             return false;
         }
         final boolean playerActive = RootView.isPlayerActive();
@@ -105,14 +115,15 @@ public final class CarouselShelfFilter extends Filter {
         final NavigationButton navigationButton = NavigationButton.getSelectedNavigationButton();
         final String navigation = navigationButton == null ? "null" : navigationButton.name();
         final String browseId = RootView.getBrowseId();
-        final boolean hideShelves = matchedGroup != horizontalShelf || hideShelves(playerActive, searchBarActive, navigationButton, browseId);
-        if (contentIndex != 0) {
-            return false;
+        final boolean hideShelves = hideShelves(playerActive, searchBarActive, navigationButton, browseId);
+        Logger.printDebug(() -> "hideShelves: " + hideShelves +
+                "\nplayerActive: " + playerActive +
+                "\nsearchBarActive: " + searchBarActive +
+                "\nbrowseId: " + browseId +
+                "\nnavigation: " + navigation);
+        if (hideShelves) {
+            return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
         }
-        Logger.printDebug(() -> "hideShelves: " + hideShelves + "\nplayerActive: " + playerActive + "\nsearchBarActive: " + searchBarActive + "\nbrowseId: " + browseId + "\nnavigation: " + navigation);
-        if (!hideShelves) {
-            return false;
-        }
-        return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return false;
     }
 }

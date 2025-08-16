@@ -4,7 +4,6 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.youtube.utils.playservice.is_19_32_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.restoreOldSplashAnimationIncluded
-import app.revanced.util.findElementByAttributeValueOrThrow
 import org.w3c.dom.Element
 
 /**
@@ -50,15 +49,6 @@ val darkModeSplashScreenPatch = resourcePatch(
                         resourcesNode.appendChild(style)
                     }
                 }
-            }
-
-            document("AndroidManifest.xml").use { document ->
-                val mainActivityElement = document.childNodes.findElementByAttributeValueOrThrow(
-                    "android:name",
-                    "com.google.android.apps.youtube.app.watchwhile.MainActivity",
-                )
-
-                mainActivityElement.setAttribute("android:launchMode", "singleTask")
             }
         } else {
             document("res/values-night-v27/styles.xml").use { document ->

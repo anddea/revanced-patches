@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.general.spoofappversion
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -7,10 +8,12 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.spoof.appversion.baseSpoofAppVersionPatch
+import app.revanced.patches.youtube.utils.CAIRO_FRAGMENT_FEATURE_FLAG
+import app.revanced.patches.youtube.utils.cairoFragmentConfigFingerprint
+import app.revanced.patches.youtube.utils.settingsFragmentSyntheticFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
-import app.revanced.patches.youtube.utils.fix.cairo.cairoFragmentPatch
 import app.revanced.patches.youtube.utils.indexOfGetDrawableInstruction
 import app.revanced.patches.youtube.utils.patch.PatchList.SPOOF_APP_VERSION
 import app.revanced.patches.youtube.utils.playservice.is_18_34_or_greater
@@ -22,30 +25,38 @@ import app.revanced.patches.youtube.utils.playservice.is_19_28_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_29_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
+import app.revanced.patches.youtube.utils.resourceid.settingsFragment
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
+import app.revanced.patches.youtube.utils.settings.cairoFragmentDisabled
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.utils.toolBarButtonFingerprint
 import app.revanced.util.appendAppVersion
 import app.revanced.util.findMethodOrThrow
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-/**
- * No longer needed due to [cairoFragmentPatch].
- * TODO: Test sufficiently and remove the patch.
- */
 private val spoofAppVersionBytecodePatch = bytecodePatch(
     description = "spoofAppVersionBytecodePatch"
 ) {
 
-    dependsOn(versionCheckPatch)
+    dependsOn(
+        settingsPatch,
+        versionCheckPatch
+    )
 
     execute {
+        findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
+            name == "SpoofAppVersion"
+        }.returnEarly(true)
+
         if (is_19_01_or_greater) {
             findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
                 name == "SpoofAppVersionDefaultString"
@@ -82,6 +93,30 @@ private val spoofAppVersionBytecodePatch = bytecodePatch(
                     """, ExternalLabel("ignore", getInstruction(jumpIndex))
             )
         }
+
+        /**
+         * RVX does not use CairoFragment, and uses a different method to restore the 'Playback' setting.
+         * If the app version is spoofed to 19.30 or earlier, the 'Playback' setting will be broken.
+         * Add a setting to fix this.
+         */
+        if (is_19_34_or_greater && cairoFragmentDisabled) {
+            cairoFragmentConfigFingerprint.injectLiteralInstructionBooleanCall(
+                CAIRO_FRAGMENT_FEATURE_FLAG,
+                "$GENERAL_CLASS_DESCRIPTOR->disableCairoFragment(Z)Z"
+            )
+
+            settingsFragmentSyntheticFingerprint.methodOrThrow().apply {
+                val index = indexOfFirstLiteralInstructionOrThrow(settingsFragment)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1, """
+                        invoke-static {v$register}, $GENERAL_CLASS_DESCRIPTOR->useLegacyFragment(I)I
+                        move-result v$register
+                        """
+                )
+            }
+        }
     }
 
 }
@@ -102,12 +137,18 @@ val spoofAppVersionPatch = resourcePatch(
 
     execute {
 
+        var settingArray = arrayOf(
+            "PREFERENCE_SCREEN: GENERAL",
+            "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS",
+            "SETTINGS: SPOOF_APP_VERSION"
+        )
+
+        if (is_19_34_or_greater && cairoFragmentDisabled) {
+            settingArray += "SETTINGS: FIX_SPOOF_APP_VERSION_SIDE_EFFECT"
+        }
+
         addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: GENERAL",
-                "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS",
-                "SETTINGS: SPOOF_APP_VERSION"
-            ),
+            settingArray,
             SPOOF_APP_VERSION
         )
 

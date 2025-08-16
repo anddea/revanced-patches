@@ -16,12 +16,12 @@ import app.revanced.patches.youtube.utils.layoutConstructorFingerprint
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_PLAYER_BUTTONS
 import app.revanced.patches.youtube.utils.playservice.is_18_31_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_20_13_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.*
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.findFreeRegister
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
@@ -77,25 +77,10 @@ val playerButtonsPatch = bytecodePatch(
         // region patch for hide captions button
 
         if (is_18_31_or_greater) {
-            lithoSubtitleButtonConfigFingerprint.methodOrThrow().apply {
-                val (insertIndex, insertRegister) = when {
-                    is_20_13_or_greater -> {
-                        val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
-                        index + 1 to getInstruction<OneRegisterInstruction>(index).registerA
-                    }
-                    else -> {
-                        val index = implementation!!.instructions.lastIndex
-                        index to getInstruction<OneRegisterInstruction>(index).registerA
-                    }
-                }
-
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->hideCaptionsButton(Z)Z
-                        move-result v$insertRegister
-                    """
-                )
-            }
+            lithoSubtitleButtonConfigFingerprint.injectLiteralInstructionBooleanCall(
+                LITHO_SUBTITLE_BUTTON_FEATURE_FLAG,
+                "$PLAYER_CLASS_DESCRIPTOR->hideCaptionsButton(Z)Z"
+            )
         }
 
         youtubeControlsOverlaySubtitleButtonFingerprint.methodOrThrow().apply {

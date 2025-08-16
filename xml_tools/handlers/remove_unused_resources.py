@@ -16,6 +16,7 @@ SEARCH_DIRECTORIES: list[str] = [str(Settings().BASE_DIR.parent / "revanced-patc
 PREFIX_BLACKLIST: tuple[str, ...] = (
     ".DS_Store",
     "missing_strings",
+    "updated_strings",
     "yt_premium_wordmark_header",
     "yt_wordmark_header",
 )
@@ -168,9 +169,9 @@ def remove_unused_resource_files(app: str) -> None:
         }
 
         if not unused_resources:
-            logger.info("✅  Found 0 unused resources")
+            logger.info("✅ Found 0 unused resources")
         else:
-            logger.info("❌  Found %d unused resources: %s", len(unused_resources), ", ".join(unused_resources))
+            logger.info("❌ Found %d unused resources: %s", len(unused_resources), ", ".join(unused_resources))
 
         # Process the resources directory to remove unused files
         for item in resources_dir.rglob("*"):

@@ -192,22 +192,22 @@ def _log_comparison_results(
     if missing_keys:
         logger.info("Missing keys found in file2 (full line check):")
         for key in sorted(missing_keys):
-            logger.info("  ❌  Key: %s, Line: %s", key, key_lines_1[key])
+            logger.info("  ❌ Key: %s, Line: %s", key, key_lines_1[key])
 
     if missing_key_only:
         logger.info("Missing keys found in file2 (existence-only check):")
         for key in sorted(missing_key_only):
-            logger.info("  ❌  Key: %s", key)
+            logger.info("  ❌ Key: %s", key)
 
     if different_lines:
         logger.info("Different lines found for common keys (after ignoring specified attributes):")
         for key, lines in different_lines.items():
-            logger.info("  ❌  Key: %s", key)
+            logger.info("  ❌ Key: %s", key)
             diff_output = _fine_grained_colored_diff(lines["file1"], lines["file2"])
             logger.info("    Diff:\n%s", diff_output)
 
     if not missing_keys and not missing_key_only and not different_lines:
-        logger.info("✅  No missing or different preferences found (after specified checks).")
+        logger.info("✅ No missing or different preferences found (after specified checks).")
 
 
 def process(

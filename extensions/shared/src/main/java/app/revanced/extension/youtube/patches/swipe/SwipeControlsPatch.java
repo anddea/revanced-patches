@@ -15,13 +15,6 @@ public class SwipeControlsPatch {
     /**
      * Injection point.
      */
-    public static boolean disableSwipeToSwitchVideo() {
-        return !Settings.DISABLE_SWIPE_TO_SWITCH_VIDEO.get();
-    }
-
-    /**
-     * Injection point.
-     */
     public static boolean disableSwipeToEnterFullscreenModeBelowThePlayer() {
         return !Settings.DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER.get();
     }
@@ -38,6 +31,13 @@ public class SwipeControlsPatch {
      */
     public static boolean disableSwipeToExitFullscreenMode(boolean original) {
         return !Settings.DISABLE_SWIPE_TO_EXIT_FULLSCREEN_MODE.get() && original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean enableSwipeToSwitchVideo() {
+        return Settings.ENABLE_SWIPE_TO_SWITCH_VIDEO.get();
     }
 
     public static final class SwipeOverlayBrightnessColorAvailability implements Setting.Availability {

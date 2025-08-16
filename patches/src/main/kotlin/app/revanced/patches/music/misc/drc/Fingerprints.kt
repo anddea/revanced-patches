@@ -39,7 +39,5 @@ internal const val VOLUME_NORMALIZATION_EXPERIMENTAL_FEATURE_FLAG = 45425391L
 
 internal val volumeNormalizationConfigFingerprint = legacyFingerprint(
     name = "volumeNormalizationConfigFingerprint",
-    parameters = listOf("F"),
-    returnType = "V",
     literals = listOf(VOLUME_NORMALIZATION_EXPERIMENTAL_FEATURE_FLAG)
 )

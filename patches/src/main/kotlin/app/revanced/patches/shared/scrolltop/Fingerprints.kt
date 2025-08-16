@@ -63,7 +63,7 @@ internal fun indexOfIfPresentInstruction(method: Method) =
 
 internal val engagementPanelTitleFingerprint = legacyFingerprint(
     name = "engagementPanelTitleFingerprint",
-    literals = listOf(modernTitle)
+    literals = listOf(modernTitle, title)
 )
 
 internal val engagementPanelTitleParentFingerprint = legacyFingerprint(

@@ -45,8 +45,6 @@ var bottomBarContainer = -1L
     private set
 var bottomSheetFooterText = -1L
     private set
-var bottomSheetRecyclerView = -1L
-    private set
 var bottomUiContainerStub = -1L
     private set
 var captionToggleContainer = -1L
@@ -151,6 +149,8 @@ var offlineActionsVideoDeletedUndoSnackbarText = -1L
     private set
 var offlineNoContentBodyTextNotOfflineEligible = -1L
     private set
+var p13nHeader = -1L
+    private set
 var pairWithTVKey = -1L
     private set
 var playerCollapseButton = -1L
@@ -202,6 +202,8 @@ var scrimOverlay = -1L
 var seekEasyHorizontalTouchOffsetToStartScrubbing = -1L
     private set
 var seekUndoEduOverlayStub = -1L
+    private set
+var seeMoreProceedingHeader = -1L
     private set
 var settingsFragment = -1L
     private set
@@ -291,7 +293,6 @@ internal val sharedResourceIdPatch = resourcePatch(
         barContainerHeight = getResourceId(DIMEN, "bar_container_height")
         bottomBarContainer = getResourceId(ID, "bottom_bar_container")
         bottomSheetFooterText = getResourceId(ID, "bottom_sheet_footer_text")
-        bottomSheetRecyclerView = getResourceId(LAYOUT, "bottom_sheet_recycler_view")
         bottomUiContainerStub = getResourceId(ID, "bottom_ui_container_stub")
         captionToggleContainer = getResourceId(ID, "caption_toggle_container")
         castMediaRouteButton = getResourceId(LAYOUT, "castmediaroutebutton")
@@ -350,6 +351,7 @@ internal val sharedResourceIdPatch = resourcePatch(
             getResourceId(STRING, "offline_actions_video_deleted_undo_snackbar_text")
         offlineNoContentBodyTextNotOfflineEligible =
             getResourceId(STRING, "offline_no_content_body_text_not_offline_eligible")
+        p13nHeader = getResourceId(STRING, "p13n_header")
         pairWithTVKey = getResourceId(STRING, "pair_with_tv_key")
         playerCollapseButton = getResourceId(ID, "player_collapse_button")
         playerControlPreviousButtonTouchArea =
@@ -379,6 +381,7 @@ internal val sharedResourceIdPatch = resourcePatch(
         seekEasyHorizontalTouchOffsetToStartScrubbing =
             getResourceId(DIMEN, "seek_easy_horizontal_touch_offset_to_start_scrubbing")
         seekUndoEduOverlayStub = getResourceId(ID, "seek_undo_edu_overlay_stub")
+        seeMoreProceedingHeader = getResourceId(STRING, "see_more_proceeding_header")
         settingsFragment = getResourceId(XML, "settings_fragment")
         settingsFragmentCairo = getResourceId(XML, "settings_fragment_cairo")
         slidingDialogAnimation = getResourceId(STYLE, "SlidingDialogAnimation")

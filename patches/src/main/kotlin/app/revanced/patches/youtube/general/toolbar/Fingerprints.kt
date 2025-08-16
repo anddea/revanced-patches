@@ -3,6 +3,8 @@ package app.revanced.patches.youtube.general.toolbar
 import app.revanced.patches.youtube.utils.resourceid.actionBarRingo
 import app.revanced.patches.youtube.utils.resourceid.actionBarRingoBackground
 import app.revanced.patches.youtube.utils.resourceid.drawerContentView
+import app.revanced.patches.youtube.utils.resourceid.p13nHeader
+import app.revanced.patches.youtube.utils.resourceid.seeMoreProceedingHeader
 import app.revanced.patches.youtube.utils.resourceid.voiceSearch
 import app.revanced.patches.youtube.utils.resourceid.youTubeLogo
 import app.revanced.patches.youtube.utils.resourceid.ytOutlineVideoCamera
@@ -86,6 +88,9 @@ internal val createButtonDrawableFingerprint = legacyFingerprint(
     literals = listOf(ytOutlineVideoCamera),
 )
 
+/**
+ * Matches using the class found in [searchSuggestionCollectionFingerprint].
+ */
 internal val createSearchSuggestionsFingerprint = legacyFingerprint(
     name = "createSearchSuggestionsFingerprint",
     returnType = "Landroid/view/View;",
@@ -147,6 +152,55 @@ internal val imageSearchButtonConfigFingerprint = legacyFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     literals = listOf(45617544L),
+)
+
+internal val searchSuggestionEndpointFingerprint = legacyFingerprint(
+    name = "searchSuggestionEndpointFingerprint",
+    returnType = "Z",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    customFingerprint = { method, _ ->
+        indexOfIsEmptyInstruction(method) >= 0
+    }
+)
+
+internal fun indexOfIsEmptyInstruction(method: Method) =
+    method.indexOfFirstInstructionReversed {
+        opcode == Opcode.INVOKE_STATIC &&
+                getReference<MethodReference>()?.toString() == "Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z"
+    }
+
+/**
+ * Matches using the class found in [searchSuggestionEndpointFingerprint].
+ */
+internal val searchSuggestionEndpointParentFingerprint = legacyFingerprint(
+    name = "searchSuggestionEndpointParentFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    strings = listOf("\u2026 "),
+)
+
+/**
+ * This fingerprint is compatible with versions prior to 19.46,
+ * but the 'You may like' section will only appear in 19.46 and later.
+ * This fingerprint is not compatible with 20.15+.
+ */
+internal val searchSuggestionCollectionFingerprint = legacyFingerprint(
+    name = "searchSuggestionCollectionFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Ljava/util/Collection;", "Ljava/lang/String;"),
+    literals = listOf(p13nHeader, seeMoreProceedingHeader)
+)
+
+/**
+ * YouTube 19.47 ~ 20.14.
+ */
+internal const val ROUND_EDGE_SEARCH_BAR_FEATURE_FLAG = 45353159L
+
+internal val roundEdgeSearchBarFeatureFlagFingerprint = legacyFingerprint(
+    name = "searchFragmentFeatureFlagFingerprint",
+    literals = listOf(ROUND_EDGE_SEARCH_BAR_FEATURE_FLAG),
 )
 
 internal val searchBarFingerprint = legacyFingerprint(

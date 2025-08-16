@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.utils.playservice.is_19_09_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_15_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_36_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.autoNavScrollCancelPadding
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -118,15 +119,26 @@ val swipeControlsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for disable swipe to switch video
+        // region patch for enable swipe to switch video
 
+        // For some reason, enabling this flag in YT 19.47 causes a specific bug related to the miniplayer:
+        // https://github.com/inotia00/ReVanced_Extended/issues/2871.
+        //
+        // It's likely caused by another experimental flag, but it's not yet known which flag is causing the bug.
+        // This flag has been temporarily restricted to YT 19.43 and 19.44.
         if (is_19_23_or_greater) {
+            val descriptor = if (is_19_46_or_greater) {
+                "0x0"
+            } else {
+                settingArray += "SETTINGS: ENABLE_SWIPE_TO_SWITCH_VIDEO"
+
+                "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->enableSwipeToSwitchVideo()Z"
+            }
+
             swipeToSwitchVideoFingerprint.injectLiteralInstructionBooleanCall(
                 SWIPE_TO_SWITCH_VIDEO_FEATURE_FLAG,
-                "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableSwipeToSwitchVideo()Z"
+                descriptor
             )
-
-            settingArray += "SETTINGS: DISABLE_SWIPE_TO_SWITCH_VIDEO"
         }
 
         // endregion

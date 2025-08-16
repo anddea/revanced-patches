@@ -632,15 +632,6 @@ public class PlayerPatch {
 
     // region [Hide player flyout menu] patch
 
-    private static final String QUALITY_LABEL_PREMIUM = "1080p Premium";
-
-    public static String hidePlayerFlyoutMenuEnhancedBitrate(String qualityLabel) {
-        return Settings.HIDE_PLAYER_FLYOUT_MENU_ENHANCED_BITRATE.get() &&
-                Objects.equals(QUALITY_LABEL_PREMIUM, qualityLabel)
-                ? null
-                : qualityLabel;
-    }
-
     public static void hidePlayerFlyoutMenuCaptionsFooter(View view) {
         Utils.hideViewUnderCondition(
                 Settings.HIDE_PLAYER_FLYOUT_MENU_CAPTIONS_FOOTER.get(),

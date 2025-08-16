@@ -256,7 +256,7 @@ Mudanças incluem:
     <string name="revanced_disable_seekbar_chapters_summary_off">Os capítulos na barra de progresso estão ativados.</string>
     <string name="revanced_disable_seekbar_chapters_summary_on">Os capítulos na barra de progresso estão desativados.</string>
     <string name="revanced_disable_seekbar_chapters_title">Desativar capítulos na barra de progresso</string>
-    <string name="revanced_disable_shorts_background_playback_summary_off">A reprodução de fundo dos Shorts está ativada.</string>
+    <string name="revanced_disable_shorts_background_playback_summary_off">"A reprodução de fundo dos Shorts está ativada."</string>
     <string name="revanced_disable_shorts_background_playback_summary_on">A reprodução de fundo dos Shorts está desativada.</string>
     <string name="revanced_disable_shorts_background_playback_title">Desativar reprodução de fundo dos Shorts</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">A animação da fonte está ativada acima do botão Curtir.</string>
@@ -280,9 +280,6 @@ Nota:
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Deslizar para baixo na tela cheia sairá do modo de tela cheia.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Deslizar para baixo na tela cheia não sairá do modo de tela cheia.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Desativar deslizar para sair do modo tela cheia</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_off">Deslizar para cima / baixo reproduzirá o vídeo seguinte / anterior.</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_on">Deslizar para cima / baixo não reproduzirá o vídeo seguinte / anterior.</string>
-    <string name="revanced_disable_swipe_to_switch_video_title">Desativar deslizar para alterar o vídeo</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">A barra de status está opaca ou transparente.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">A barra de status está opaca.</string>
     <string name="revanced_disable_translucent_status_bar_title">Desativar barra de status transparente</string>
@@ -313,12 +310,6 @@ Efeito colateral: o tema Cairo também é aplicado aos pontos de notificação."
     <string name="revanced_enable_custom_seekbar_color_summary_off">A cor personalizada da barra de progresso está desativada.</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">A cor personalizada da barra de progresso está ativada.</string>
     <string name="revanced_enable_custom_seekbar_color_title">Ativar cor personalizada da barra de progresso</string>
-    <string name="revanced_enable_debug_buffer_logging_summary_off">Os registros de depuração não incluem o buffer.</string>
-    <string name="revanced_enable_debug_buffer_logging_summary_on">Os registros de depuração incluem o buffer.</string>
-    <string name="revanced_enable_debug_buffer_logging_title">Ativar o registro de depuração do buffer</string>
-    <string name="revanced_enable_debug_logging_summary_off">O registro de depuração está desativado.</string>
-    <string name="revanced_enable_debug_logging_summary_on">O registro de depuração está ativado.</string>
-    <string name="revanced_enable_debug_logging_title">Ativar o registro de depuração</string>
     <string name="revanced_enable_gradient_loading_screen_summary_off">A tela de carregamento gradiente está desativada.</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">A tela de carregamento gradiente está ativada.</string>
     <string name="revanced_enable_gradient_loading_screen_title">Ativar tela de carregamento gradiente</string>
@@ -616,6 +607,9 @@ Loja"</string>
     <string name="revanced_hide_handle_summary_off">O identificador será exibido.</string>
     <string name="revanced_hide_handle_summary_on">O identificador está oculto.</string>
     <string name="revanced_hide_handle_title">Ocultar identificador</string>
+    <string name="revanced_hide_hype_button_summary_off">O botão Hype é exibido</string>
+    <string name="revanced_hide_hype_button_summary_on">Botão Hype está oculto</string>
+    <string name="revanced_hide_hype_button_title">Ocultar Hype</string>
     <string name="revanced_hide_image_search_button_summary_off">O botão de busca de imagens será exibido.</string>
     <string name="revanced_hide_image_search_button_summary_on">O botão de busca de imagens está oculto.</string>
     <string name="revanced_hide_image_search_button_title">Ocultar botão de busca de imagem</string>
@@ -684,8 +678,6 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_live_chat_replay_button_summary_off">O botão de repetição do chat ao vivo será exbido.\n\nEle aparece em tela cheia ao fechar o chat ao vivo.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">O botão de repetição do chat ao vivo está oculto.\n\nEle aparece em tela cheia ao fechar o chat ao vivo.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Ocultar botão de repetição do chat ao vivo</string>
-    <string name="revanced_hide_low_views_video_summary">"Ocultar vídeos com menos de 1.000 visualizações do feed de início que foram enviadas de canais não inscritos."</string>
-    <string name="revanced_hide_low_views_video_title">Ocultar vídeos com baixas visualizações</string>
     <string name="revanced_hide_medical_panel_summary_off">Os painéis médicos serão exibidos.</string>
     <string name="revanced_hide_medical_panel_summary_on">Os painéis médicos estão ocultos.</string>
     <string name="revanced_hide_medical_panel_title">Ocultar painéis médicos</string>
@@ -743,9 +735,9 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_player_collapse_button_summary_off">O botão minimizar será exibido.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">O botão minimizar está oculto.</string>
     <string name="revanced_hide_player_collapse_button_title">Ocultar botão minimizar</string>
-    <string name="revanced_hide_player_control_buttons_background_summary_off">O fundo dos botões de controle do player está visível</string>
-    <string name="revanced_hide_player_control_buttons_background_summary_on">O fundo dos botões de controle do player está oculto</string>
-    <string name="revanced_hide_player_control_buttons_background_title">Ocultar o fundo dos botões de controle do player</string>
+    <string name="revanced_hide_player_control_buttons_background_summary_off">O plano de fundo dos controles do player está visível</string>
+    <string name="revanced_hide_player_control_buttons_background_summary_on">O plano de fundo dos controles do reprodutor está oculto</string>
+    <string name="revanced_hide_player_control_buttons_background_title">Ocultar plano de fundo dos controles do player</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">O menu modo ambiente será exibido.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">O menu modo ambiente está oculto.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Ocultar menu do Modo Ambiente</string>
@@ -807,7 +799,7 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_summary_on">O menu assistir em VR está oculto.</string>
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_title">Ocultar menu assistir em VR</string>
     <string name="revanced_hide_player_fullscreen_button_summary_off">O botão de tela cheia será exibido.</string>
-    <string name="revanced_hide_player_fullscreen_button_summary_on">O botão de tela cheia está oculto.</string>
+    <string name="revanced_hide_player_fullscreen_button_summary_on">"O botão de tela cheia está oculto."</string>
     <string name="revanced_hide_player_fullscreen_button_title">Ocultar botão de tela cheia</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Os botões serão exibidos.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Os botões estão ocultos.</string>
@@ -827,6 +819,9 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_preview_comment_type_off">Isto altera o tamanho da seção de comentários, por isso é impossível abrir um replay ao vivo do chat na seção de comentários.</string>
     <string name="revanced_hide_preview_comment_type_on">Isto não altera o tamanho da seção de comentários, por isso é possível abrir o replay do chat ao vivo na seção de comentários.</string>
     <string name="revanced_hide_preview_comment_type_title">Ocultar tipo de comentário de visualização</string>
+    <string name="revanced_hide_promote_button_summary_off">Botão de promoção está visível</string>
+    <string name="revanced_hide_promote_button_summary_on">Botão de promoção está oculto</string>
+    <string name="revanced_hide_promote_button_title">Ocultar Promoções</string>
     <string name="revanced_hide_promotion_alert_banner_summary_off">O banner de alerta de promoção será exibido.</string>
     <string name="revanced_hide_promotion_alert_banner_summary_on">O banner de alerta de promoção está oculto.</string>
     <string name="revanced_hide_promotion_alert_banner_title">Ocultar banner de alerta de promoção</string>
@@ -860,12 +855,6 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_quick_actions_summary_off">O contêiner de ações rápidas será exibido.</string>
     <string name="revanced_hide_quick_actions_summary_on">O contêiner de ações rápidas está oculto.</string>
     <string name="revanced_hide_quick_actions_title">Ocultar contêiner de ações rápidas</string>
-    <string name="revanced_hide_recommended_video_summary">"Oculta os seguintes vídeos recomendados:
-
-• Vídeos com a tag 'Somente para membros'
-• Vídeos com frases como 'Pessoas também assistiram' na parte inferior do vídeo
-• Vídeos enviados de canais não inscritos com menos de 1,000 visualizações"</string>
-    <string name="revanced_hide_recommended_video_title">Ocultar vídeos recomendados</string>
     <string name="revanced_hide_related_videos_summary_off">Os vídeos relacionados serão exibidos.</string>
     <string name="revanced_hide_related_videos_summary_on">Os vídeos relacionados estão ocultos.</string>
     <string name="revanced_hide_related_videos_title">Ocultar vídeos relacionados</string>
@@ -1460,7 +1449,6 @@ Toque e segure para abrir a caixa de diálogo de configuração da lista branca.
     <string name="revanced_preference_category_patch_information">Informações do patch</string>
     <string name="revanced_preference_category_playback_speed">Velocidade de reprodução</string>
     <string name="revanced_preference_category_quick_actions">Ações rápidas</string>
-    <string name="revanced_preference_category_recommended_video">Vídeo recomendado</string>
     <string name="revanced_preference_category_shorts_shelf">Painel de shorts</string>
     <string name="revanced_preference_category_suggested_actions">Ações sugeridas</string>
     <string name="revanced_preference_category_video_quality">Qualidade do vídeo</string>
@@ -1915,16 +1903,6 @@ Limitação: Título do vídeo desaparece quando clicado."</string>
     <string name="revanced_skip_autoplay_countdown_summary_off">Se a reprodução automática estiver ativada, o próximo vídeo será reproduzido após a contagem regressiva terminar.</string>
     <string name="revanced_skip_autoplay_countdown_summary_on">Se a reprodução automática estiver ativada, o próximo vídeo será reproduzido sem uma contagem regressiva.</string>
     <string name="revanced_skip_autoplay_countdown_title">Pular contagem regressiva de reprodução automática</string>
-    <string name="revanced_skip_preloaded_buffer_summary">"Ignore o buffer pré-carregado no início do vídeo para ignorar o atraso padrão na aplicação da qualidade do vídeo.
-
-• Quando o vídeo é iniciado, há um atraso de aproximadamente 0,3 segundos, mas a qualidade de vídeo padrão é aplicada imediatamente.
-• Não se aplica a vídeos HDR, vídeos transmitidos ao vivo e vídeos com menos de 15 segundos."</string>
-    <string name="revanced_skip_preloaded_buffer_title">Ignorar buffer pré-carregado</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Uma notificação flutuante não será exibida.</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Uma notificação flutuante será exibida.</string>
-    <string name="revanced_skip_preloaded_buffer_toast_title">Mostrar uma notificação flutuante quando ignorado</string>
-    <string name="revanced_skip_preloaded_buffer_user_dialog_message">Ativar essa configuração pode causar problemas de reprodução de vídeo.</string>
-    <string name="revanced_skipped_preloaded_buffer">O buffer pré-carregado é ignorado.</string>
     <string name="revanced_speed_overlay_value_invalid_toast">O valor da sobreposição de velocidade deve estar entre 0-8.0. Redefinir aos valores padrão.</string>
     <string name="revanced_speed_overlay_value_summary">Valor da sobreposição de velocidade entre 0-8.0.</string>
     <string name="revanced_speed_overlay_value_title">Valor da sobreposição de velocidade</string>
@@ -1990,7 +1968,6 @@ O AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está di
     <string name="revanced_spoof_streaming_data_summary_off">"Os dados de streaming não são falsificados. A reprodução de vídeo pode não funcionar."</string>
     <string name="revanced_spoof_streaming_data_summary_on">"Os dados de streaming são falsificados."</string>
     <string name="revanced_spoof_streaming_data_title">Dados de streaming falsos</string>
-    <string name="revanced_spoof_streaming_data_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução de vídeo.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Os gestos de deslize estão desativados no modo \'Tela de bloqueio\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Os gestos de deslize estão ativados no modo \'Tela de bloqueio\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Gestos de deslize no modo \'Tela de bloqueio\'</string>

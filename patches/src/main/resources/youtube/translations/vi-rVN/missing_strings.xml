@@ -32,12 +32,17 @@
     <string name="revanced_gemini_transcription_parse_button">Subtitles</string>
     <string name="revanced_gemini_transcription_parse_success">Subtitle parsed successfully</string>
     <string name="revanced_gemini_transcription_result_title">Gemini Video Transcription</string>
-    <string name="revanced_hide_hype_button_summary_off">Hype button is shown.</string>
-    <string name="revanced_hide_hype_button_summary_on">Hype button is hidden.</string>
-    <string name="revanced_hide_hype_button_title">Hide Hype button</string>
-    <string name="revanced_hide_most_relevant_shelf_summary_off">Most relevant shelf in subscriptions feed is shown.</string>
-    <string name="revanced_hide_most_relevant_shelf_summary_on">Most relevant shelf in subscriptions feed is hidden.</string>
-    <string name="revanced_hide_most_relevant_shelf_title">Hide \"Most relevant\" shelf</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Examples of carousel shelves:&lt;br&gt;&lt;br&gt;&lt;b&gt;Breaking news&lt;/b&gt;, &lt;b&gt;Continue watching&lt;/b&gt;, &lt;b&gt;Explore more channels&lt;/b&gt;, &lt;b&gt;Listen again&lt;/b&gt;, &lt;b&gt;Most relevant&lt;/b&gt;, &lt;b&gt;Shopping&lt;/b&gt;, &lt;b&gt;Watch it again&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_title">About carousel shelf</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_off">Shown in Home feed and related videos.</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_on">Hidden in Home feed and related videos.</string>
+    <string name="revanced_hide_carousel_shelf_home_title">Hide in Home feed and related videos</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_off">Shown in search results.</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_on">Hidden in search results.</string>
+    <string name="revanced_hide_carousel_shelf_search_title">Hide in search results</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_off">Shown in Subscriptions feed.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_on">Hidden in Subscriptions feed.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_title">Hide in Subscriptions feed</string>
     <string name="revanced_hide_shorts_comments_panel_summary_off">Comments panel is shown.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Comments panel is hidden.</string>
     <string name="revanced_hide_shorts_comments_panel_title">Hide comments panel</string>
@@ -58,6 +63,8 @@ Tap here to get an API key."</string>
 
 Summarized and transcribed results are saved unless you closed the app or used Gemini on another video. Tap the button again to view results."</string>
     <string name="revanced_overlay_button_gemini_summarize_title">Show Gemini button</string>
+    <string name="revanced_preference_screen_carousel_shelf_summary">Hide or show carousel shelf in home, search results, and subscriptions.</string>
+    <string name="revanced_preference_screen_carousel_shelf_title">Carousel shelf</string>
     <string name="revanced_search_clear_confirm_message">Are you sure you want to clear your entire search history?</string>
     <string name="revanced_search_clear_confirm_title">Clear Search History</string>
     <string name="revanced_search_clear_history_title">Clear History</string>
@@ -81,6 +88,7 @@ Summarized and transcribed results are saved unless you closed the app or used G
     <string name="revanced_shorts_custom_actions_gemini_summary_off">Gemini summary menu is hidden.</string>
     <string name="revanced_shorts_custom_actions_gemini_summary_on">Gemini summary menu is shown.</string>
     <string name="revanced_shorts_custom_actions_gemini_title">Show Gemini summary menu</string>
+    <string name="revanced_spoof_streaming_data_message">If you experience any playback issues, enable \"Spoof streaming data\" in &lt;i&gt;&lt;u&gt;Settings &gt; %s &gt; Miscellaneous &gt; Spoof streaming data&lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_swipe_brightness_distance_summary">The amount of pixels to swipe to change the brightness. Lower values make the brightness change faster, higher values make it slower (1-1000).</string>
     <string name="revanced_swipe_brightness_distance_title">Brightness distance</string>
     <string name="revanced_swipe_distance_invalid">Invalid swipe distance, must be between 1 and 1000.</string>

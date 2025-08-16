@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.patches.general
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import app.revanced.extension.shared.settings.Setting.Availability
@@ -7,7 +8,7 @@ import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.settings.Settings
 import org.apache.commons.lang3.StringUtils
 
-@Suppress("unused")
+@Suppress("unused", "DEPRECATION")
 object ChangeStartPagePatch {
     /**
      * Intent action when YouTube is cold started from the launcher.
@@ -48,6 +49,7 @@ object ChangeStartPagePatch {
     }
 
     @JvmStatic
+    @SuppressLint("UseKtx")
     fun overrideIntent(intent: Intent) {
         val action = START_PAGE.action
         val url = START_PAGE.url
