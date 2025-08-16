@@ -96,6 +96,10 @@ public final class ActionButtonsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_CLIP_BUTTON,
                         "yt_outline_scissors"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_HYPE_BUTTON,
+                        "yt_outline_star_shooting"
                 )
         );
     }

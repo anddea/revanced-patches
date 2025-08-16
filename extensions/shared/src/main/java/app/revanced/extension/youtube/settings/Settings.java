@@ -294,6 +294,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_CLIP_BUTTON = new BooleanSetting("revanced_hide_clip_button", FALSE);
     public static final BooleanSetting HIDE_COMMENTS_BUTTON = new BooleanSetting("revanced_hide_comments_button", FALSE);
     public static final BooleanSetting HIDE_DOWNLOAD_BUTTON = new BooleanSetting("revanced_hide_download_button", FALSE);
+    public static final BooleanSetting HIDE_HYPE_BUTTON = new BooleanSetting("revanced_hide_hype_button", FALSE);
     public static final BooleanSetting HIDE_LIKE_DISLIKE_BUTTON = new BooleanSetting("revanced_hide_like_dislike_button", FALSE);
     public static final BooleanSetting HIDE_PLAYLIST_BUTTON = new BooleanSetting("revanced_hide_playlist_button", FALSE);
     public static final BooleanSetting HIDE_REMIX_BUTTON = new BooleanSetting("revanced_hide_remix_button", FALSE);
@@ -436,7 +437,7 @@ public class Settings extends BaseSettings {
 
     public static final BooleanSetting OVERLAY_BUTTON_GEMINI = new BooleanSetting("revanced_overlay_button_gemini_summarize", FALSE);
     public static final StringSetting GEMINI_API_KEY = new StringSetting("revanced_overlay_button_gemini_summarize_api_key", "", true, parent(OVERLAY_BUTTON_GEMINI));
-    public static final IntegerSetting GEMINI_TRANSCRIBE_SUBTITLES_FONT_SIZE = new IntegerSetting("revanced_gemini_transcribe_subtitles_font_size", 14, true, parent(OVERLAY_BUTTON_GEMINI));
+    public static final IntegerSetting GEMINI_TRANSCRIBE_SUBTITLES_FONT_SIZE = new IntegerSetting("revanced_gemini_transcribe_subtitles_font_size", 16, true, parent(OVERLAY_BUTTON_GEMINI));
     public static final BooleanSetting YANDEX_TRANSCRIBE_SUBTITLES = new BooleanSetting("revanced_yandex_transcribe_subtitles", TRUE, parent(OVERLAY_BUTTON_GEMINI));
     public static final StringSetting YANDEX_TRANSCRIBE_SUBTITLES_LANGUAGE = new StringSetting("revanced_yandex_transcribe_subtitles_language", "app", true, parent(OVERLAY_BUTTON_GEMINI));
 
@@ -493,6 +494,7 @@ public class Settings extends BaseSettings {
 
     // PreferenceScreen: Shorts - Shorts player components
     public static final BooleanSetting HIDE_SHORTS_CHANNEL_BAR = new BooleanSetting("revanced_hide_shorts_channel_bar", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_COMMENTS_PANEL = new BooleanSetting("revanced_hide_shorts_comments_panel", FALSE);
     public static final BooleanSetting HIDE_SHORTS_INFO_PANEL = new BooleanSetting("revanced_hide_shorts_info_panel", TRUE);
     public static final BooleanSetting HIDE_SHORTS_JOIN_BUTTON = new BooleanSetting("revanced_hide_shorts_join_button", TRUE);
     public static final BooleanSetting HIDE_SHORTS_LIVE_HEADER = new BooleanSetting("revanced_hide_shorts_live_header", FALSE);
@@ -598,6 +600,11 @@ public class Settings extends BaseSettings {
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME, SWIPE_SPEED, SWIPE_SEEK));
     public static final IntegerSetting SWIPE_VOLUMES_SENSITIVITY = new IntegerSetting("revanced_swipe_volumes_sensitivity", 1, true, parent(SWIPE_VOLUME));
     public static final FloatSetting SWIPE_BRIGHTNESS_VALUE = new FloatSetting("revanced_swipe_brightness_value", -1f);
+
+    public static final IntegerSetting SWIPE_VOLUME_DISTANCE = new IntegerSetting("revanced_swipe_volume_distance", 100, true, parent(SWIPE_VOLUME));
+    public static final IntegerSetting SWIPE_BRIGHTNESS_DISTANCE = new IntegerSetting("revanced_swipe_brightness_distance", 100, true, parent(SWIPE_BRIGHTNESS));
+    public static final IntegerSetting SWIPE_SPEED_DISTANCE = new IntegerSetting("revanced_swipe_speed_distance", 100, true, parent(SWIPE_SPEED));
+    public static final IntegerSetting SWIPE_SEEK_DISTANCE = new IntegerSetting("revanced_swipe_seek_distance", 100, true, parent(SWIPE_SEEK));
 
     /**
      * @noinspection DeprecatedIsStillUsed
