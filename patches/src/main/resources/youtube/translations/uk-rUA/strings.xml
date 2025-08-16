@@ -516,7 +516,7 @@
     <string name="revanced_gemini_summary_title">Підсумок відео Gemini</string>
     <string name="revanced_gemini_time_taken">(Тривало %d секунд)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">Увімкніть \"Показ поверх інших програм\", щоб показувати у вигляді субтитрів</string>
-    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Розмір шрифту транскрибованих субтитрів відео. Щоб приховати вікно субтитрів, просто натисніть на нього.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Розмір шрифту транскрибованих субтитрів відео. Щоб приховати вікно субтитрів, просто натисніть на нього, або утримуйте, щоб перетягнути його в інше місце.</string>
     <string name="revanced_gemini_transcribe_subtitles_font_size_title">Розмір шрифту субтитрів</string>
     <string name="revanced_gemini_transcription_parse_button">Субтитри</string>
     <string name="revanced_gemini_transcription_parse_success">Розбір субтитрів виконано успішно</string>
@@ -729,6 +729,9 @@
     <string name="revanced_hide_handle_summary_off">Ідентифікатор показується.</string>
     <string name="revanced_hide_handle_summary_on">Ідентифікатор приховано.</string>
     <string name="revanced_hide_handle_title">Приховати ідентифікатор</string>
+    <string name="revanced_hide_hype_button_summary_off">Кнопку Розголос показується.</string>
+    <string name="revanced_hide_hype_button_summary_on">Кнопку Розголос приховано.</string>
+    <string name="revanced_hide_hype_button_title">Приховати кнопку Розголос</string>
     <string name="revanced_hide_image_search_button_summary_off">Кнопку пошуку за зображенням показується.</string>
     <string name="revanced_hide_image_search_button_summary_on">Кнопку пошуку за зображенням приховано.</string>
     <string name="revanced_hide_image_search_button_title">Приховати кнопку пошуку за зображенням</string>
@@ -1124,6 +1127,9 @@
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Кнопку вимкнених коментарів або з позначкою \"0\" показується.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Кнопку вимкнених коментарів або з позначкою \"0\" приховано.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Приховати кнопку вимкнених коментарів</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_off">Панель коментарів показується.</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_on">Панель коментарів приховано.</string>
+    <string name="revanced_hide_shorts_comments_panel_title">Приховати панель коментарів</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">Кнопку Не подобається показується.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Кнопку Не подобається приховано.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Приховати кнопку Не подобається</string>
@@ -2319,7 +2325,10 @@ AVC має максимальну роздільну здатність 1080p, �
     <string name="revanced_swipe_brightness_summary_on">"Зміну яскравості жестом в повноекранному режимі увімкнено.
 
 Регулюйте яскравість вертикальним проведенням по лівій стороні екрана."</string>
+    <string name="revanced_swipe_brightness_distance_summary">Кількість пікселів для проведення, щоб змінити яскравість. Чим менше значення, тим яскравість змінюється швидше, чим більше, тим повільніше (1-1000).</string>
+    <string name="revanced_swipe_brightness_distance_title">Відстань для яскравості</string>
     <string name="revanced_swipe_brightness_title">Увімкнути зміну яскравості жестом</string>
+    <string name="revanced_swipe_distance_invalid">Недійсна відстань для проведення, повинно бути між 1 і 1000.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Жести переміщення вимкнено в режимі \'Блокування екрана\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Жести переміщення увімкнено в режимі \'Блокування екрана\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Жести переміщення в режимі \'Блокування екрана\'</string>
@@ -2361,9 +2370,13 @@ AVC має максимальну роздільну здатність 1080p, �
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Не зберігається і не відновлюється яскравість при переході з/до повноекранного режиму.</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Зберігається та відновлюється яскравість при переході з/до повноекранного режиму.</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Зберігати та відновлювати яскравість</string>
+    <string name="revanced_swipe_seek_distance_summary">Кількість пікселів для проведення, щоб пропустити відеоконтент. Чим менше значення, тим перемотування швидше, чим більше, тим повільніше (1-1000).</string>
+    <string name="revanced_swipe_seek_distance_title">Відстань для перемотування</string>
     <string name="revanced_swipe_seek_summary_off">Проведення для наремотування вимкнено.</string>
     <string name="revanced_swipe_seek_summary_on">Проведення для наремотування увімкнено.</string>
     <string name="revanced_swipe_seek_title">Увімкнути жест наремотування</string>
+    <string name="revanced_swipe_speed_distance_summary">Кількість пікселів для проведення, щоб змінити швидкість відео. Чим менше значення, тим швидкість змінюється швидше, чим більше, тим повільніше (1-1000).</string>
+    <string name="revanced_swipe_speed_distance_title">Відстань для швидкості</string>
     <string name="revanced_swipe_speed_summary_off">Проведення для зміни швидкості вимкнено.</string>
     <string name="revanced_swipe_speed_summary_on">Проведення для зміни швидкості увімкнено.</string>
     <string name="revanced_swipe_speed_title">Увімкнути жест швидкості</string>
@@ -2375,6 +2388,8 @@ AVC має максимальну роздільну здатність 1080p, �
     <string name="revanced_swipe_text_overlay_size_title">Розмір тексту при жесті</string>
     <string name="revanced_swipe_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест.</string>
     <string name="revanced_swipe_threshold_title">Поріг величини жесту</string>
+    <string name="revanced_swipe_volume_distance_summary">Кількість пікселів для проведення, щоб регулювати гучність. Чим менше значення, тим гучність змінюється швидше, чим більше, тим повільніше (1-1000).</string>
+    <string name="revanced_swipe_volume_distance_title">Відстань для гучності</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Чутливість жесту гучності повинна бути в межах 1-1000.</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Наскільки змінюється гучність при проведенні.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Чутливість жесту гучності</string>
