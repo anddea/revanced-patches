@@ -253,7 +253,8 @@
       "Settings for YouTube",
       "BytecodePatch",
       "BytecodePatch",
-      "ResourcePatch"
+      "ResourcePatch",
+      "BytecodePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -1328,6 +1329,58 @@
     "options": []
   },
   {
+    "name": "Fix playback",
+    "description": "Adds options to fix playback issues.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube Music",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "options": [
+      {
+        "key": "spoofClient",
+        "title": "Spoof client",
+        "description": "Includes the \u0027Spoof client\u0027 patch.\n\nSide effect:\n• Action buttons may always be hidden in YouTube Music 7.17+.\n• Audio may intermittently stutter during playback.\n• Player flyout menu may not show properly.\n\nNot supported in YouTube Music 8.20+.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": true,
+        "values": null
+      },
+      {
+        "key": "spoofPlayerParameter",
+        "title": "Spoof player parameter",
+        "description": "Includes the \u0027Spoof player parameter\u0027 patch.\n\nSide effect:\n• Sometimes the subtitles are located at the top of the player instead of the bottom.\n• This may not work for some users.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": true,
+        "values": null
+      },
+      {
+        "key": "spoofVideoStreams",
+        "title": "Spoof video streams",
+        "description": "Includes the \u0027Spoof video streams\u0027 patch.\n\nSide effect:\n• App may be forced to close when using a DNS or VPN.\n• Audio may intermittently stutter during playback on adaptive bitrate streaming clients.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": true,
+        "values": null
+      }
+    ]
+  },
+  {
     "name": "Fix third party launchers widgets",
     "description": "Fixes Spotify widgets not working in third party launchers, like Nova Launcher.",
     "use": true,
@@ -1471,6 +1524,15 @@
         "values": null
       },
       {
+        "key": "disableCoreServices",
+        "title": "Disable Core Services",
+        "description": "To reproduce the playback issue, several core services, including PoToken, are disabled.\n\nDo not enable this option unless you are testing at a low level.",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "default": false,
+        "values": null
+      },
+      {
         "key": "packageNameYouTube",
         "title": "Package name of YouTube",
         "description": "The name of the package to use in GmsCore support.",
@@ -1544,6 +1606,15 @@
         "required": true,
         "type": "kotlin.Boolean",
         "default": true,
+        "values": null
+      },
+      {
+        "key": "disableCoreServices",
+        "title": "Disable Core Services",
+        "description": "To reproduce the playback issue, several core services, including PoToken, are disabled.\n\nDo not enable this option unless you are testing at a low level.",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "default": false,
         "values": null
       },
       {
@@ -1623,6 +1694,22 @@
         "19.43.41",
         "19.44.39",
         "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Hide Trending Today shelf",
+    "description": "Adds an option to hide the Trending Today shelf from search suggestions.",
+    "use": true,
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
       ]
     },
     "options": []
@@ -1982,6 +2069,7 @@
       "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch",
+      "BytecodePatch",
       "ResourcePatch"
     ],
     "compatiblePackages": {
@@ -2312,6 +2400,28 @@
           "Rounded": "rounded",
           "Thin": "thin"
         }
+      },
+      {
+        "key": "bottomMargin",
+        "title": "Bottom margin",
+        "description": "The bottom margin for the overlay buttons and timestamp.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "2.5dip",
+        "values": {
+          "Default": "2.5dip",
+          "Minimum": "0.1dip",
+          "Wider": "5.0dip"
+        }
+      },
+      {
+        "key": "widerButtonsSpace",
+        "title": "Wider between-buttons space",
+        "description": "Prevent adjacent button presses by increasing the horizontal spacing between buttons.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": false,
+        "values": null
       },
       {
         "key": "changeTopButtons",
@@ -2742,7 +2852,6 @@
     "dependencies": [
       "BytecodePatch",
       "ResourcePatch",
-      "ResourcePatch",
       "BytecodePatch",
       "BytecodePatch"
     ],
@@ -2816,7 +2925,8 @@
     "description": "Applies mandatory patches to implement ReVanced Extended settings into the application.",
     "use": true,
     "dependencies": [
-      "BytecodePatch"
+      "BytecodePatch",
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
@@ -2831,6 +2941,26 @@
       ]
     },
     "options": [
+      {
+        "key": "insertPosition",
+        "title": "Insert position",
+        "description": "The settings menu name that the RVX settings menu should be above.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "pref_key_parent_tools",
+        "values": {
+          "Parent settings": "pref_key_parent_tools",
+          "General": "settings_header_general",
+          "Playback": "settings_header_playback",
+          "Data saving": "settings_header_data_saving",
+          "Downloads \u0026 storage": "settings_header_downloads_and_storage",
+          "Notifications": "settings_header_notifications",
+          "Privacy \u0026 data": "settings_header_privacy_and_location",
+          "Recommendations": "settings_header_recommendations",
+          "Paid memberships": "settings_header_paid_memberships",
+          "About YouTube Music": "settings_header_about_youtube_music"
+        }
+      },
       {
         "key": "rvxSettingsLabel",
         "title": "RVX settings label",
@@ -3083,6 +3213,7 @@
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
+        "6.42.55",
         "6.51.53",
         "7.16.53",
         "7.25.53",
@@ -3143,36 +3274,12 @@
     ]
   },
   {
-    "name": "Spoof player parameter",
-    "description": "Adds options to spoof player parameter to allow playback.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube Music",
-      "BytecodePatch",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
     "name": "Spoof streaming data",
     "description": "Adds options to spoof the streaming data to allow playback.",
     "use": true,
     "dependencies": [
       "RawResourcePatch",
       "Settings for YouTube",
-      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch",
@@ -3199,15 +3306,6 @@
         "title": "Outline icons",
         "description": "Apply the outline icon.",
         "required": true,
-        "type": "kotlin.Boolean",
-        "default": false,
-        "values": null
-      },
-      {
-        "key": "useIOSClient",
-        "title": "Use iOS client",
-        "description": "Add setting to set iOS client (Deprecated) as default client.",
-        "required": false,
         "type": "kotlin.Boolean",
         "default": false,
         "values": null
@@ -3461,6 +3559,8 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
       "ResourcePatch"
     ],
     "compatiblePackages": {
@@ -3481,6 +3581,7 @@
     "dependencies": [
       "BytecodePatch",
       "Settings for YouTube Music",
+      "ResourcePatch",
       "BytecodePatch"
     ],
     "compatiblePackages": {

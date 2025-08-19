@@ -1,3 +1,11 @@
+# [3.12.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.4...v3.12.0-dev.5) (2025-08-19)
+
+
+### Features
+
+* Align with RVX [[v5.9.1-dev.3](https://github.com/inotia00/revanced-patches/releases/tag/v5.9.1-dev.3)] ([9a679c7](https://github.com/anddea/revanced-patches/commit/9a679c7aa5aa8ab20399a2f48d9f0fbbfc94aede))
+* **YouTube - Hide action buttons:** Add `Hide Promote button` setting ([95f0ae6](https://github.com/anddea/revanced-patches/commit/95f0ae65f4df779ebb5e5590c7c68015ed19cf21))
+
 # [3.12.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.3...v3.12.0-dev.4) (2025-08-15)
 
 
