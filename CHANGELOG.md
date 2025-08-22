@@ -1,3 +1,10 @@
+# [3.12.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.5...v3.12.0-dev.6) (2025-08-22)
+
+
+### Features
+
+* Align with RVX [[v5.9.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.9.1)] ([d26c7b2](https://github.com/anddea/revanced-patches/commit/d26c7b2544887bd5498939e2da2a699286b318b0))
+
 # [3.12.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.4...v3.12.0-dev.5) (2025-08-19)
 
 

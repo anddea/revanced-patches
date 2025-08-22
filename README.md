@@ -35,6 +35,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Disable layout updates` | Adds an option to disable layout updates by server. | 19.05.36 ~ 19.47.53 |
 | `Disable resuming Miniplayer on startup` | Adds an option to disable the Miniplayer 'Continue watching' from resuming on app startup. | 19.05.36 ~ 19.47.53 |
 | `Disable resuming Shorts on startup` | Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched. | 19.05.36 ~ 19.47.53 |
+| `Disable sign in to TV popup` | Adds an option to disable the popup asking to sign into a TV on the same local network. | 19.05.36 ~ 19.47.53 |
 | `Disable splash animation` | Adds an option to disable the splash animation on app startup. | 19.05.36 ~ 19.47.53 |
 | `Enable OPUS codec` | Adds an option to enable the OPUS audio codec if the player response includes it. | 19.05.36 ~ 19.47.53 |
 | `Enable debug logging` | Adds an option for debugging and exporting RVX logs to the clipboard. | 19.05.36 ~ 19.47.53 |
@@ -71,7 +72,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Shorts components` | Adds options to hide or change components related to YouTube Shorts. | 19.05.36 ~ 19.47.53 |
 | `Snack bar components` | Adds options to hide or change components related to the snack bar. | 19.05.36 ~ 19.47.53 |
 | `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as sponsored content. | 19.05.36 ~ 19.47.53 |
-| `Spoof app version` | Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features. | 19.05.36 ~ 19.47.53 |
+| `Spoof app version` | Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features. | 19.43.41 ~ 19.47.53 |
 | `Spoof streaming data` | Adds options to spoof the streaming data to allow playback. | 19.05.36 ~ 19.47.53 |
 | `Spoof watch history` | Adds an option to change the domain of the watch history or check its status. | 19.05.36 ~ 19.47.53 |
 | `Swipe controls` | Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player. | 19.05.36 ~ 19.47.53 |
