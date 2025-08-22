@@ -1,6 +1,5 @@
 package app.revanced.patches.music.video.information
 
-import app.revanced.patches.music.utils.resourceid.qualityAuto
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags

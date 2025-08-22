@@ -138,6 +138,14 @@ private val settingsBytecodePatch = bytecodePatch(
             EXTENSION_UTILS_CLASS_DESCRIPTOR,
             "setActivity"
         )
+
+        accountIdentityConstructorFingerprint
+            .methodOrThrow()
+            .addInstruction(
+                1,
+                "invoke-static/range { p7 .. p7 }, $EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR->" +
+                        "onLoggedIn(Ljava/lang/String;)V"
+            )
     }
 }
 

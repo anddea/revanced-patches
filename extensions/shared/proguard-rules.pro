@@ -4,9 +4,6 @@
 -keep class app.revanced.** {
   *;
 }
--keep class com.google.** {
-  *;
-}
 -keep class com.liskovsoft.** {
   *;
 }

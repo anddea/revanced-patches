@@ -133,6 +133,9 @@
         <!-- SETTINGS: DISABLE_AUTO_CAPTIONS
         <SwitchPreference android:title="@string/revanced_disable_auto_captions_title" android:key="revanced_disable_auto_captions" android:summaryOn="@string/revanced_disable_auto_captions_summary_on" android:summaryOff="@string/revanced_disable_auto_captions_summary_off" />SETTINGS: DISABLE_AUTO_CAPTIONS -->
 
+        <!-- SETTINGS: DISABLE_SIGN_IN_TO_TV_POPUP
+        <SwitchPreference android:title="@string/revanced_disable_signin_to_tv_popup_title" android:key="revanced_disable_signin_to_tv_popup" android:summaryOn="@string/revanced_disable_signin_to_tv_popup_summary_on" android:summaryOff="@string/revanced_disable_signin_to_tv_popup_summary_off" />SETTINGS: DISABLE_SIGN_IN_TO_TV_POPUP -->
+
         <!-- SETTINGS: DISABLE_SPLASH_ANIMATION
         <SwitchPreference android:title="@string/revanced_disable_splash_animation_title" android:key="revanced_disable_splash_animation" android:summaryOn="@string/revanced_disable_splash_animation_summary_on" android:summaryOff="@string/revanced_disable_splash_animation_summary_off" />SETTINGS: DISABLE_SPLASH_ANIMATION -->
 
@@ -152,14 +155,17 @@
         <!-- SETTINGS: CHANGE_LIVE_RING_CLICK_ACTION
         <SwitchPreference android:title="@string/revanced_change_live_ring_click_action_title" android:key="revanced_change_live_ring_click_action" android:summaryOn="@string/revanced_change_live_ring_click_action_summary_on" android:summaryOff="@string/revanced_change_live_ring_click_action_summary_off" />SETTINGS: CHANGE_LIVE_RING_CLICK_ACTION -->
 
-        <!-- SETTINGS: CHANGE_FORM_FACTOR
-        <app.revanced.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_change_form_factor_entries" android:title="@string/revanced_change_form_factor_title" android:key="revanced_change_form_factor" android:entryValues="@array/revanced_change_form_factor_entry_values" />SETTINGS: CHANGE_FORM_FACTOR -->
-
         <!-- SETTINGS: DISABLE_LAYOUT_UPDATES
         <SwitchPreference android:title="@string/revanced_disable_layout_updates_title" android:key="revanced_disable_layout_updates" android:summaryOn="@string/revanced_disable_layout_updates_summary_on" android:summaryOff="@string/revanced_disable_layout_updates_summary_off" />SETTINGS: DISABLE_LAYOUT_UPDATES -->
 
         <!-- SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR
         <SwitchPreference android:title="@string/revanced_disable_translucent_status_bar_title" android:key="revanced_disable_translucent_status_bar" android:summaryOn="@string/revanced_disable_translucent_status_bar_summary_on" android:summaryOff="@string/revanced_disable_translucent_status_bar_summary_off" />SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR -->
+
+        <!-- SETTINGS: FIX_HYPE_BUTTON_ICON
+        <SwitchPreference android:title="@string/revanced_fix_hype_button_icon_title" android:key="revanced_fix_hype_button_icon" android:summaryOn="@string/revanced_fix_hype_button_icon_summary_on" android:summaryOff="@string/revanced_fix_hype_button_icon_summary_off" />SETTINGS: FIX_HYPE_BUTTON_ICON -->
+
+        <!-- SETTINGS: CHANGE_FORM_FACTOR
+        <app.revanced.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_change_form_factor_entries" android:title="@string/revanced_change_form_factor_title" android:key="revanced_change_form_factor" android:entryValues="@array/revanced_change_form_factor_entry_values" />SETTINGS: CHANGE_FORM_FACTOR -->
 
         <!-- SETTINGS: SPOOF_APP_VERSION
         <SwitchPreference android:title="@string/revanced_spoof_app_version_title" android:key="revanced_spoof_app_version" android:summaryOn="@string/revanced_spoof_app_version_summary_on" android:summaryOff="@string/revanced_spoof_app_version_summary_off" />
@@ -271,11 +277,6 @@
                 <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_video_view_counts_greater_than_title" android:key="revanced_hide_video_view_counts_greater_than" android:summary="@string/revanced_hide_video_view_counts_greater_than_summary" android:inputType="number" app:searchDependency="revanced_hide_video_by_view_counts_home" />
                 <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_video_view_counts_multiplier_title" android:key="revanced_hide_video_view_counts_multiplier" android:summary="@string/revanced_hide_video_view_counts_multiplier_summary" android:inputType="textMultiLine" app:searchDependency="revanced_hide_video_by_view_counts_home" />
                 <Preference android:title="@string/revanced_hide_video_by_view_counts_about_title" android:selectable="false" android:summary="@string/revanced_hide_video_by_view_counts_about_summary" app:searchDependency="revanced_hide_video_by_view_counts_home" />
-            </PreferenceCategory>
-            <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category">
-                <SwitchPreference android:title="@string/revanced_hide_related_videos_title" android:key="revanced_hide_related_videos" android:summaryOn="@string/revanced_hide_related_videos_summary_on" android:summaryOff="@string/revanced_hide_related_videos_summary_off" />
-                <SwitchPreference android:title="@string/revanced_hide_related_videos_type_title" android:key="revanced_hide_related_videos_type" android:summaryOn="@string/revanced_hide_related_videos_type_summary_on" android:summaryOff="@string/revanced_hide_related_videos_type_summary_off" android:dependency="revanced_hide_related_videos" />
-                <app.revanced.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_related_videos_offset_entries" android:title="@string/revanced_related_videos_offset_title" android:key="revanced_related_videos_offset" android:entryValues="@array/revanced_related_videos_offset_entry_values" android:dependency="revanced_hide_related_videos" />
             </PreferenceCategory>
         </PreferenceScreen>
         <SwitchPreference android:title="@string/revanced_hide_album_card_title" android:key="revanced_hide_album_card" android:summaryOn="@string/revanced_hide_album_card_summary_on" android:summaryOff="@string/revanced_hide_album_card_summary_off" />
@@ -613,7 +614,11 @@
         <SwitchPreference android:title="@string/revanced_hide_suggested_actions_title" android:key="revanced_hide_suggested_actions" android:summaryOn="@string/revanced_hide_suggested_actions_summary_on" android:summaryOff="@string/revanced_hide_suggested_actions_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_timed_reactions_title" android:key="revanced_hide_timed_reactions" android:summaryOn="@string/revanced_hide_timed_reactions_summary_on" android:summaryOff="@string/revanced_hide_timed_reactions_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_zoom_overlay_title" android:key="revanced_hide_zoom_overlay" android:summaryOn="@string/revanced_hide_zoom_overlay_summary_on" android:summaryOff="@string/revanced_hide_zoom_overlay_summary_off" />
-        <SwitchPreference android:title="@string/revanced_sanitize_video_subtitle_title" android:key="revanced_sanitize_video_subtitle" android:summaryOn="@string/revanced_sanitize_video_subtitle_summary_on" android:summaryOff="@string/revanced_sanitize_video_subtitle_summary_off" />SETTINGS: PLAYER_COMPONENTS -->
+        <SwitchPreference android:title="@string/revanced_sanitize_video_subtitle_title" android:key="revanced_sanitize_video_subtitle" android:summaryOn="@string/revanced_sanitize_video_subtitle_summary_on" android:summaryOff="@string/revanced_sanitize_video_subtitle_summary_off" />
+        <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category">
+            <SwitchPreference android:title="@string/revanced_hide_related_videos_title" android:key="revanced_hide_related_videos" android:summaryOn="@string/revanced_hide_related_videos_summary_on" android:summaryOff="@string/revanced_hide_related_videos_summary_off" />
+            <app.revanced.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_related_videos_offset_entries" android:title="@string/revanced_related_videos_offset_title" android:key="revanced_related_videos_offset" android:entryValues="@array/revanced_related_videos_offset_entry_values" android:dependency="revanced_hide_related_videos" />
+        </PreferenceCategory>SETTINGS: PLAYER_COMPONENTS -->
 
     <!-- PREFERENCE_SCREEN: PLAYER
     </PreferenceScreen>PREFERENCE_SCREEN: PLAYER -->
@@ -985,6 +990,7 @@
                 <Preference android:title="Disable forced auto audio tracks" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable forced auto captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable layout updates" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Disable sign in to TV popup" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable splash animation" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Enable gradient loading screen" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide layout components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

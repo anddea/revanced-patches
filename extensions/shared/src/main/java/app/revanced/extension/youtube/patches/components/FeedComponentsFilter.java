@@ -2,6 +2,11 @@ package app.revanced.extension.youtube.patches.components;
 
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.components.Filter;
@@ -10,10 +15,26 @@ import app.revanced.extension.shared.patches.components.StringFilterGroupList;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.StringTrieSearch;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.EngagementPanel;
 import app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
+import app.revanced.extension.youtube.shared.RootView;
 
-@SuppressWarnings({"unused", "FieldCanBeLocal"})
+@SuppressWarnings({"deprecation", "unused", "FieldCanBeLocal"})
 public final class FeedComponentsFilter extends Filter {
+    private final String BROWSE_ID_CLIP = "FEclips";
+    private final String BROWSE_ID_COURSES = "FEcourses_destination";
+    private final String BROWSE_ID_HOME = "FEwhat_to_watch";
+    private final String BROWSE_ID_LIBRARY = "FElibrary";
+    private final String BROWSE_ID_LIBRARY_PLAYLIST = "FEplaylist_aggregation";
+    private final String BROWSE_ID_MOVIE = "FEstorefront";
+    private final String BROWSE_ID_NEWS = "FEnews_destination";
+    private final String BROWSE_ID_NOTIFICATION = "FEactivity";
+    private final String BROWSE_ID_NOTIFICATION_INBOX = "FEnotifications_inbox";
+    private final String BROWSE_ID_PLAYLIST = "VLPL";
+    private final String BROWSE_ID_PODCASTS = "FEpodcasts_destination";
+    private final String BROWSE_ID_PREMIUM = "SPunlimited";
+    private final String BROWSE_ID_SUBSCRIPTION = "FEsubscriptions";
+
     private final String CONVERSATION_CONTEXT_FEED_IDENTIFIER =
             "horizontalCollectionSwipeProtector=null";
     private final String CONVERSATION_CONTEXT_SUBSCRIPTIONS_IDENTIFIER =
@@ -24,13 +45,33 @@ public final class FeedComponentsFilter extends Filter {
     private final StringTrieSearch communityPostsFeedGroupSearch = new StringTrieSearch();
     private final StringFilterGroup channelProfile;
     private final ByteArrayFilterGroupList channelProfileGroupList = new ByteArrayFilterGroupList();
+    private final StringFilterGroup carouselShelves;
     private final StringFilterGroup chipBar;
     private final StringFilterGroup communityPosts;
     private final StringFilterGroup expandableCard;
-    private final StringFilterGroup horizontalShelves;
     private final ByteArrayFilterGroup playablesBuffer;
     private final ByteArrayFilterGroup ticketShelfBuffer;
     private final StringFilterGroupList communityPostsFeedGroup = new StringFilterGroupList();
+
+    private final Supplier<Stream<String>> knownBrowseId = () -> Stream.of(
+            BROWSE_ID_HOME,
+            BROWSE_ID_NOTIFICATION,
+            BROWSE_ID_PLAYLIST
+    );
+
+    private final Supplier<Stream<String>> whitelistBrowseId = () -> Stream.of(
+            BROWSE_ID_CLIP,
+            BROWSE_ID_COURSES,
+            BROWSE_ID_LIBRARY,
+            BROWSE_ID_LIBRARY_PLAYLIST,
+            BROWSE_ID_MOVIE,
+            BROWSE_ID_NEWS,
+            BROWSE_ID_NOTIFICATION_INBOX,
+            BROWSE_ID_PODCASTS,
+            BROWSE_ID_PREMIUM
+    );
+
+    private final StringTrieSearch carouselShelfExceptions = new StringTrieSearch();
 
     private static final ByteArrayFilterGroup mixPlaylists = new ByteArrayFilterGroup(null, "&list=");
     private static final ByteArrayFilterGroup mixPlaylistsBufferExceptions = new ByteArrayFilterGroup(
@@ -41,6 +82,7 @@ public final class FeedComponentsFilter extends Filter {
     private static final StringTrieSearch mixPlaylistsContextExceptions = new StringTrieSearch();
 
     public FeedComponentsFilter() {
+        carouselShelfExceptions.addPattern("library_recent_shelf.eml");
         communityPostsFeedGroupSearch.addPatterns(
                 CONVERSATION_CONTEXT_FEED_IDENTIFIER,
                 CONVERSATION_CONTEXT_SUBSCRIPTIONS_IDENTIFIER
@@ -60,11 +102,13 @@ public final class FeedComponentsFilter extends Filter {
         communityPosts = new StringFilterGroup(
                 null,
                 "post_base_wrapper",
+                "images_post_responsive",
                 "images_post_root",
                 "images_post_slim",
                 "poll_post_root",
                 "post_responsive_root",
                 "post_shelf_slim",
+                "shared_post_root",
                 "text_post_root",
                 "videos_post_root"
         );
@@ -198,6 +242,14 @@ public final class FeedComponentsFilter extends Filter {
                 "endorsement_header_footer.eml"
         );
 
+        carouselShelves = new StringFilterGroup(
+                null,
+                "horizontal_video_shelf.eml",
+                "horizontal_shelf.eml",
+                "horizontal_shelf_inline.eml",
+                "horizontal_tile_shelf.eml"
+        );
+
         chipBar = new StringFilterGroup(
                 Settings.HIDE_CATEGORY_BAR_IN_HISTORY,
                 "chip_bar"
@@ -207,14 +259,6 @@ public final class FeedComponentsFilter extends Filter {
                 Settings.HIDE_TICKET_SHELF,
                 "ticket_horizontal_shelf",
                 "ticket_shelf"
-        );
-
-        horizontalShelves = new StringFilterGroup(
-                null,
-                "horizontal_video_shelf.eml",
-                "horizontal_shelf.eml",
-                "horizontal_shelf_inline.eml",
-                "horizontal_tile_shelf.eml"
         );
 
         playablesBuffer = new ByteArrayFilterGroup(
@@ -229,10 +273,10 @@ public final class FeedComponentsFilter extends Filter {
 
         addPathCallbacks(
                 albumCard,
+                carouselShelves,
                 channelProfile,
                 chipBar,
                 expandableCard,
-                horizontalShelves,
                 forYouShelf,
                 imageShelf,
                 latestPosts,
@@ -284,6 +328,51 @@ public final class FeedComponentsFilter extends Filter {
         return false;
     }
 
+    private boolean hideShelves() {
+        final boolean hideHomeAndOthers = Settings.HIDE_CAROUSEL_SHELF_HOME.get();
+        final boolean hideSearch = Settings.HIDE_CAROUSEL_SHELF_SEARCH.get();
+        final boolean hideSubscriptions = Settings.HIDE_CAROUSEL_SHELF_SUBSCRIPTIONS.get();
+
+        if (!hideHomeAndOthers && !hideSearch && !hideSubscriptions) {
+            return false;
+        }
+
+        // Must check player type first, as search bar can be active behind the player.
+        if (RootView.isPlayerActive()) {
+            return hideHomeAndOthers
+                    && !EngagementPanel.isDescription()
+                    && NavigationButton.getSelectedNavigationButton() != NavigationButton.LIBRARY;
+        }
+
+        // Must check second, as search can be from any tab.
+        if (RootView.isSearchBarActive()) {
+            return hideSearch;
+        }
+
+        NavigationButton selectedNavButton = NavigationButton.getSelectedNavigationButton();
+        // Unknown tab, treat the same as home.
+        if (selectedNavButton == null) {
+            return hideHomeAndOthers;
+        }
+
+        String browseId = RootView.getBrowseId();
+        // Fixes a very rare bug in home.
+        if (selectedNavButton == NavigationButton.HOME
+                && StringUtils.equalsAny(browseId, BROWSE_ID_LIBRARY, BROWSE_ID_NOTIFICATION_INBOX)) {
+            return hideHomeAndOthers;
+        }
+        boolean isNotWhiteListBrowseId = whitelistBrowseId.get().noneMatch(browseId::equals);
+        // Fixes a very rare bug in library.
+        if (selectedNavButton == NavigationButton.LIBRARY) {
+            return hideHomeAndOthers && isNotWhiteListBrowseId;
+        }
+        if (BROWSE_ID_SUBSCRIPTION.equals(browseId)) {
+            return hideSubscriptions && isNotWhiteListBrowseId;
+        }
+
+        return hideHomeAndOthers && (knownBrowseId.get().anyMatch(browseId::equals) || isNotWhiteListBrowseId);
+    }
+
     @Override
     public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
@@ -310,10 +399,11 @@ public final class FeedComponentsFilter extends Filter {
                 return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
             return false;
-        } else if (matchedGroup == horizontalShelves) {
+        } else if (matchedGroup == carouselShelves) {
             if (contentIndex == 0) {
                 if (playablesBuffer.check(protobufBufferArray).isFiltered()
-                        || ticketShelfBuffer.check(protobufBufferArray).isFiltered()) {
+                        || ticketShelfBuffer.check(protobufBufferArray).isFiltered()
+                        || (!carouselShelfExceptions.matches(path) && hideShelves())) {
                     return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
                 }
             }

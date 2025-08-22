@@ -6,27 +6,6 @@ import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val createPlayerRequestBodyFingerprint = legacyFingerprint(
-    name = "createPlayerRequestBodyFingerprint",
-    returnType = "V",
-    parameters = listOf("L"),
-    opcodes = listOf(
-        Opcode.CHECK_CAST,
-        Opcode.IGET,
-        Opcode.AND_INT_LIT16,
-    ),
-    strings = listOf("ms"),
-)
-
-internal val setPlayerRequestClientTypeFingerprint = legacyFingerprint(
-    name = "setPlayerRequestClientTypeFingerprint",
-    opcodes = listOf(
-        Opcode.IGET,
-        Opcode.IPUT, // Sets ClientInfo.clientId.
-    ),
-    strings = listOf("10.29"),
-)
-
 /**
  * This is the fingerprint used in the 'client-spoof' patch around 2022.
  * (Integrated into [baseSpoofUserAgentPatch] now.)
@@ -55,4 +34,36 @@ internal val playbackFeatureFlagFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
     literals = listOf(PLAYBACK_FEATURE_FLAG),
+)
+
+internal val spoofAppVersionFingerprint = legacyFingerprint(
+    name = "spoofAppVersionFingerprint",
+    returnType = "Ljava/lang/String;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = listOf("Landroid/content/Context;"),
+    opcodes = listOf(
+        Opcode.IGET_OBJECT,
+        Opcode.GOTO,
+        Opcode.CONST_STRING,
+    ),
+    strings = listOf("pref_override_build_version_name"),
+)
+
+internal const val INIT_PLAYER_RESPONSE = " interstitialPlayerResponse="
+
+/**
+ * Inspired by the August 2024 commit:
+ * https://github.com/inotia00/revanced-patches/commit/dde5331ba949ed2655ae168a6bc2485ebec197e9
+ * Class 'Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;'
+ * is obfuscated in YouTube Music, so this fingerprint is used to find the class 'PlayerResponseModel'
+ */
+internal val directorSavedStateToStringFingerprint = legacyFingerprint(
+    name = "directorSavedStateToStringFingerprint",
+    returnType = "Ljava/lang/String;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    strings = listOf(INIT_PLAYER_RESPONSE),
+    customFingerprint = { method, _ ->
+        method.name == "toString"
+    }
 )

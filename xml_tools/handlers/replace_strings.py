@@ -159,7 +159,7 @@ def update_translations_with_keys(translations_path: Path, base_dir: Path, addit
         rvx_lang_path = _find_source_translation_file(source_base_path, lang_dir.name)
 
         if rvx_lang_path:
-            logger.info("Found source %s for target %s", rvx_lang_path, target_path)
+            logger.debug("Found source %s for target %s", rvx_lang_path, target_path)
             update_strings(target_path, rvx_lang_path, filter_keys=additional_keys)
         else:
             logger.warning("No matching source translation found for language: %s", lang_dir.name)

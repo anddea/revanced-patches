@@ -304,12 +304,17 @@
     <string name="revanced_disable_seekbar_chapters_summary_off">تم تمكين فصول شريط التقدم.</string>
     <string name="revanced_disable_seekbar_chapters_summary_on">تم تعطيل فصول شريط التقدم.</string>
     <string name="revanced_disable_seekbar_chapters_title">تعطيل فصول شريط التقدم</string>
-    <string name="revanced_disable_shorts_background_playback_summary_off">"تم تمكين تشغيل Shorts في الخلفية."</string>
+    <string name="revanced_disable_shorts_background_playback_summary_off">"تم تمكين تشغيل Shorts في الخلفية.
+
+معلومة: تشغيل Shorts في الخلفية متاح فقط من خلال وضع صورة داخل صورة."</string>
     <string name="revanced_disable_shorts_background_playback_summary_on">تم تعطيل تشغيل Shorts في الخلفية.</string>
     <string name="revanced_disable_shorts_background_playback_title">تعطيل تشغيل فيديوهات Shorts في الخلفية</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">تم تمكين الرسوم المتحركة الفوّارة فوق زر أعجبني.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">تم تعطيل الرسوم المتحركة الفوّارة فوق زر أعجبني.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">تعطيل الرسوم المتحركة الفوّارة لزر أعجبني</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">تم تمكين نافذة تسجيل الدخول إلى التلفزيون.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">تم تعطيل نافذة تسجيل الدخول إلى التلفزيون.</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">تعطيل نافذة تسجيل الدخول إلى التلفزيون</string>
     <string name="revanced_disable_speed_overlay_summary">"تعطيل '2x&gt;&gt;' أثناء الضغط باستمرار.
 
 ملحوظة:
@@ -538,6 +543,15 @@
     <string name="revanced_hide_autoplay_preview_summary_off">يتم عرض حاوية عرض التشغيل التلقائي.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">تم إخفاء حاوية عرض التشغيل التلقائي.</string>
     <string name="revanced_hide_autoplay_preview_title">إخفاء حاوية عرض التشغيل التلقائي</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_off">يُعرض في موجز الصفحة الرئيسية والفيديوهات ذات الصلة.</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_on">مخفي في موجز الصفحة الرئيسية والفيديوهات ذات الصلة.</string>
+    <string name="revanced_hide_carousel_shelf_home_title">إخفاء في موجز الصفحة الرئيسية والفيديوهات ذات الصلة</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_off">يُعرض في نتائج البحث.</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_on">مخفي في نتائج البحث.</string>
+    <string name="revanced_hide_carousel_shelf_search_title">إخفاء في نتائج البحث</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_off">يُعرض في موجز الاشتراكات.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_on">مخفي في موجز الاشتراكات.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_title">إخفاء في موجز الاشتراكات</string>
     <string name="revanced_hide_carousel_shelf_summary">"يخفي الرفوف التالية:
 • أخبار عاجلة
 • متابعة المشاهدة
@@ -964,18 +978,11 @@
     <string name="revanced_hide_related_videos_summary_off">يتم عرض الفيديوهات ذات الصلة.</string>
     <string name="revanced_hide_related_videos_summary_on">تم إخفاء الفيديوهات ذات الصلة.</string>
     <string name="revanced_hide_related_videos_title">إخفاء الفيديوهات ذات الصلة</string>
-    <string name="revanced_hide_related_videos_type_summary_off">"لا يُحفظ عدد التخطيطات المُحمّلة على الشاشة عند بدء الفيديو.
+    <string name="revanced_hide_related_videos_user_dialog_message">"يحد هذا الإعداد الحد الأقصى لعدد التخطيطات التي يمكن تحميلها على شاشة المشغل.
 
-• قد يُعاد ضبط موضع تمرير الموجز."</string>
-    <string name="revanced_hide_related_videos_type_summary_on">"يتم حفظ عدد التخطيطات المُحمّلة على الشاشة عند بدء الفيديو.
+إذا لم تكن بعض الفيديوهات ذات الصلة مخفية، أو كانت التخطيطات الغير مقصودة مثل شريط الإجراءات أو قسم التعليقات مخفية، فقد يؤدي تغيير الإزاحة إلى حل المشكلة.
 
-• يُصلح جزئيًا مشكلة إعادة تعيين موضع تمرير الموجز.
-
-• قد لا تتم تصفية الفيديوهات ذات الصلة بالكامل."</string>
-    <string name="revanced_hide_related_videos_type_title">نوع إخفاء الفيديوهات ذات الصلة</string>
-    <string name="revanced_hide_related_videos_user_dialog_message">"يحد هذا الإعداد من الحد الأقصى لعدد التخطيطات التي يمكن تحميلها على شاشة المشغل.
-
-إذا تغير تخطيط شاشة المشغل بسبب تغييرات على جانب الخادم، فقد يتم إخفاء التخطيطات غير المقصودة على شاشة المشغل."</string>
+إذا تغير تخطيط شاشة المشغل بسبب تغييرات من جانب الخادم، فقد يتم إخفاء التخطيطات غير المقصودة على شاشة المشغل."</string>
     <string name="revanced_hide_remix_button_summary_off">يتم عرض زر ريمكس.</string>
     <string name="revanced_hide_remix_button_summary_on">تم إخفاء زر ريمكس.</string>
     <string name="revanced_hide_remix_button_title">إخفاء زر ريمكس</string>

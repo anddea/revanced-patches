@@ -1,6 +1,5 @@
 package app.revanced.patches.music.general.spoofappversion
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
@@ -45,10 +44,7 @@ private val spoofAppVersionBytecodePatch = bytecodePatch(
 
             findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
                 name == "SpoofAppVersionDefaultBoolean"
-            }.replaceInstruction(
-                0,
-                "const/4 v0, 0x1"
-            )
+            }.returnEarly(true)
         } else if (is_7_25_or_greater) {
             defaultVersionString = "7.17.52"
         }

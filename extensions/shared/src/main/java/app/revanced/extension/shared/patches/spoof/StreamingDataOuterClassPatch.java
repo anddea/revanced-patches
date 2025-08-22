@@ -34,8 +34,9 @@ public class StreamingDataOuterClassPatch extends SpoofStreamingDataPatch {
 
     /**
      * Parse the Proto Buffer and convert it to StreamingData (GeneratedMessage).
+     *
      * @param responseProto Proto Buffer.
-     * @return              StreamingData (GeneratedMessage) parsed by ProtoParser.
+     * @return StreamingData (GeneratedMessage) parsed by ProtoParser.
      */
     @Nullable
     public static StreamingData parseFrom(ByteBuffer responseProto) {

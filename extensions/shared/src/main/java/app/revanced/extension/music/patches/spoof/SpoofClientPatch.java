@@ -4,6 +4,7 @@ import app.revanced.extension.music.settings.Settings;
 
 @SuppressWarnings("unused")
 public class SpoofClientPatch {
+    private static final boolean SETTINGS_INITIALIZED = Settings.SETTINGS_INITIALIZED.get();
     private static final boolean SPOOF_CLIENT = Settings.SPOOF_CLIENT.get();
     private static final ClientType CLIENT_TYPE = Settings.SPOOF_CLIENT_TYPE.get();
 
@@ -93,6 +94,25 @@ public class SpoofClientPatch {
         }
 
         return original;
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * This function performs the same function as the 'Spoof app version' patch.
+     * To make it work without the 'Spoof app version' patch, it is hooked into another method.
+     * <p>
+     * The app version is spoofed to 6.35.52 only when the app is first installed.
+     * After the app is restarted, the app version is no longer spoofed.
+     * <p>
+     * This simple operation fixes the issue where the video action bar is not shown.
+     */
+    public static String getClientVersionOverride(String version) {
+        if (SPOOF_CLIENT && !SETTINGS_INITIALIZED) {
+            return "6.35.52";
+        }
+
+        return version;
     }
 
     /**

@@ -101,6 +101,7 @@ object ChangeStartPagePatch {
         BROWSE(browseId = "FEguide_builder"),
         EXPLORE(browseId = "FEexplore"),
         HISTORY(browseId = "FEhistory"),
+        HYPE(browseId = "FEhype_leaderboard"),
         LIBRARY(browseId = "FElibrary"),
         MOVIE(browseId = "FEstorefront"),
         NOTIFICATIONS(browseId = "FEactivity"),

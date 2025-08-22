@@ -1,11 +1,14 @@
 package app.revanced.patches.youtube.utils.settings
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.patch.booleanOption
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.extension.Constants.EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.mainactivity.injectConstructorMethodCall
@@ -13,6 +16,7 @@ import app.revanced.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.revanced.patches.shared.settings.baseSettingsPatch
 import app.revanced.patches.youtube.utils.cairoFragmentConfigFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.fix.attributes.themeAttributesPatch
@@ -20,22 +24,36 @@ import app.revanced.patches.youtube.utils.fix.playbackspeed.playbackSpeedWhilePl
 import app.revanced.patches.youtube.utils.fix.splash.darkModeSplashScreenPatch
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE
+import app.revanced.patches.youtube.utils.playservice.is_19_15_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.YOUTUBE_SETTINGS_PATH
 import app.revanced.patches.youtube.utils.settingsFragmentSyntheticFingerprint
-import app.revanced.util.*
+import app.revanced.util.FilesCompat
+import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.printWarn
+import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.className
+import app.revanced.util.copyResources
+import app.revanced.util.copyXmlNode
+import app.revanced.util.findFreeRegister
+import app.revanced.util.findInstructionIndicesReversedOrThrow
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodCall
 import app.revanced.util.fingerprint.methodOrThrow
-import com.android.tools.smali.dexlib2.AccessFlags
+import app.revanced.util.fingerprint.mutableClassOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.hookClassHierarchy
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.insertNode
+import app.revanced.util.removeStringsElements
+import app.revanced.util.returnEarly
+import app.revanced.util.valueOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
-import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
 import java.nio.file.Files
@@ -44,13 +62,14 @@ private const val EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR =
     "$UTILS_PATH/InitializationPatch;"
 
 private const val EXTENSION_THEME_METHOD_DESCRIPTOR =
-    "$EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR->setTheme(Ljava/lang/Enum;)V"
+    "$EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR->updateLightDarkModeStatus(Ljava/lang/Enum;)V"
 
 private lateinit var bytecodeContext: BytecodePatchContext
 
 internal fun getBytecodeContext() = bytecodeContext
 
 internal var cairoFragmentDisabled = false
+private var targetActivityClassName = ""
 
 private val settingsBytecodePatch = bytecodePatch(
     description = "settingsBytecodePatch"
@@ -65,18 +84,6 @@ private val settingsBytecodePatch = bytecodePatch(
 
     execute {
         bytecodeContext = this
-
-        // apply the current theme of the settings page
-        themeSetterSystemFingerprint.methodOrThrow().apply {
-            findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-                addInstructionsAtControlFlowLabel(
-                    index,
-                    "invoke-static { v$register }, $EXTENSION_THEME_METHOD_DESCRIPTOR"
-                )
-            }
-        }
 
         // region fix cairo fragment.
 
@@ -97,7 +104,8 @@ private val settingsBytecodePatch = bytecodePatch(
                     opcode == Opcode.INVOKE_VIRTUAL &&
                             getReference<MethodReference>()?.toString() == cairoFragmentConfigMethodCall
                 } + 2
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+                val insertRegister =
+                    getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
                 addInstruction(insertIndex, "const/4 v$insertRegister, 0x0")
             }
@@ -127,6 +135,59 @@ private val settingsBytecodePatch = bytecodePatch(
 
         // endregion.
 
+        val targetActivityFingerprint = if (is_19_15_or_greater)
+            proxyBillingActivityV2OnCreateFingerprint
+        else
+            licenseMenuActivityOnCreateFingerprint
+
+        val hostActivityClass = settingsHostActivityOnCreateFingerprint.mutableClassOrThrow()
+        val targetActivityClass = targetActivityFingerprint.mutableClassOrThrow()
+
+        hookClassHierarchy(
+            hostActivityClass,
+            targetActivityClass
+        )
+
+        targetActivityClass.methods.forEach { method ->
+            method.apply {
+                if (!MethodUtil.isConstructor(method) && returnType == "V") {
+                    val insertIndex =
+                        indexOfFirstInstruction(Opcode.INVOKE_SUPER) + 1
+                    if (insertIndex > 0) {
+                        val freeRegister = findFreeRegister(insertIndex)
+
+                        addInstructionsWithLabels(
+                            insertIndex, """
+                                invoke-virtual {p0}, ${hostActivityClass.type}->isInitialized()Z
+                                move-result v$freeRegister
+                                if-eqz v$freeRegister, :ignore
+                                return-void
+                                :ignore
+                                nop
+                                """
+                        )
+                    }
+                }
+            }
+        }
+
+        targetActivityClassName = targetActivityClass.type.className
+        findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
+            name == "TargetActivityClass"
+        }.returnEarly(targetActivityClassName)
+
+        // apply the current theme of the settings page
+        themeSetterSystemFingerprint.methodOrThrow().apply {
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructionsAtControlFlowLabel(
+                    index,
+                    "invoke-static { v$register }, $EXTENSION_THEME_METHOD_DESCRIPTOR"
+                )
+            }
+        }
+
         injectOnCreateMethodCall(
             EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR,
             "onCreate"
@@ -135,114 +196,6 @@ private val settingsBytecodePatch = bytecodePatch(
             EXTENSION_UTILS_CLASS_DESCRIPTOR,
             "setActivity"
         )
-
-        // Modify the license activity and remove all existing layout code.
-        // Must modify an existing activity and cannot add a new activity to the manifest,
-        // as that fails for root installations.
-
-        val extensionPackage = "app/revanced/extension/youtube"
-        val activityHookClassDescriptor = "L$extensionPackage/settings/LicenseActivityHook;"
-        val fragmentClassDescriptor = "L$extensionPackage/settings/preference/ReVancedPreferenceFragment;"
-
-        licenseActivityOnCreateFingerprint.let {
-            val superClass = it.classDef.superclass
-
-            it.method.addInstructions(
-                0,
-                """
-                    # Some targets have extra instructions before the call to super method.
-                    invoke-super { p0, p1 }, $superClass->onCreate(Landroid/os/Bundle;)V
-                    invoke-static { p0 }, $activityHookClassDescriptor->initialize(Landroid/app/Activity;)V
-                    return-void
-                """
-            )
-        }
-
-        // Remove other methods as they will break as the onCreate method is modified above.
-        licenseActivityOnCreateFingerprint.classDef.apply {
-            methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
-        }
-
-        // Add onBackPressed to handle system back presses and gestures.
-        licenseActivityOnCreateFingerprint.classDef.apply {
-            val onBackPressed = ImmutableMethod(
-                type,
-                "onBackPressed",
-                emptyList(),
-                "V",
-                AccessFlags.PUBLIC.value,
-                null,
-                null,
-                MutableMethodImplementation(4),
-            ).toMutable().apply {
-                addInstructions(
-                    """
-                        # Get fragment from LicenseActivityHook
-                        sget-object v0, $activityHookClassDescriptor->fragmentRef:Ljava/lang/ref/WeakReference;
-                        invoke-virtual { v0 }, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-                        move-result-object v0
-                        check-cast v0, $fragmentClassDescriptor
-
-                        # If fragment is null, call super
-                        if-eqz v0, :super_on_back_pressed
-
-                        # Get SearchView query or empty string
-                        sget-object v1, $activityHookClassDescriptor->searchViewRef:Ljava/lang/ref/WeakReference;
-                        invoke-virtual { v1 }, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-                        move-result-object v1
-                        check-cast v1, Landroid/widget/SearchView;
-
-                        # Assume query is initially empty string if searchView is null
-                        const-string v2, ""
-                        if-eqz v1, :call_handle_on_back_pressed_with_empty_query
-
-                        # If searchView is NOT null, get its query
-                        invoke-virtual { v1 }, Landroid/widget/SearchView;->getQuery()Ljava/lang/CharSequence;
-                        move-result-object v1
-                        invoke-interface { v1 }, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-                        move-result-object v2
-
-                        :call_handle_on_back_pressed_with_empty_query
-                        invoke-virtual { v0, v2 }, $fragmentClassDescriptor->handleOnBackPressed(Ljava/lang/String;)Z
-                        move-result v0
-
-                        # If handleOnBackPressed returned TRUE, call super.onBackPressed()
-                        if-nez v0, :super_on_back_pressed
-                        return-void
-
-                        :super_on_back_pressed
-                        invoke-super { p0 }, $superclass->onBackPressed()V
-                        return-void
-                    """
-                )
-            }
-
-            methods.add(onBackPressed)
-        }
-
-        // Add context override to force a specific settings language.
-        licenseActivityOnCreateFingerprint.classDef.apply {
-            val attachBaseContext = ImmutableMethod(
-                type,
-                "attachBaseContext",
-                listOf(ImmutableMethodParameter("Landroid/content/Context;", annotations, null)), "V",
-                AccessFlags.PROTECTED.value,
-                null,
-                null,
-                MutableMethodImplementation(3),
-            ).toMutable().apply {
-                addInstructions(
-                    """
-                        invoke-static { p1 }, $activityHookClassDescriptor->getAttachBaseContext(Landroid/content/Context;)Landroid/content/Context;
-                        move-result-object p1
-                        invoke-super { p0, p1 }, $superclass->attachBaseContext(Landroid/content/Context;)V
-                        return-void
-                    """
-                )
-            }
-
-            methods.add(attachBaseContext)
-        }
     }
 }
 
@@ -372,19 +325,27 @@ val settingsPatch = resourcePatch(
         arrayOf(
             ResourceGroup(
                 "drawable",
-                "revanced_cursor.xml",
-                "revanced_ic_dialog_alert.xml",
+                "revanced_settings_arrow_time.xml",
+                "revanced_settings_circle_background.xml",
+                "revanced_settings_cursor.xml",
                 "revanced_settings_custom_checkmark.xml",
                 "revanced_settings_rounded_corners_background.xml",
+                "revanced_settings_search_icon.xml",
+                "revanced_settings_toolbar_arrow_left.xml",
             ),
             ResourceGroup(
                 "layout",
+                "revanced_color_dot_widget.xml",
                 "revanced_color_picker.xml",
                 "revanced_custom_list_item_checked.xml",
                 "revanced_preference_with_icon_no_search_result.xml",
                 "revanced_search_suggestion_item.xml",
                 "revanced_settings_preferences_category.xml",
                 "revanced_settings_with_toolbar.xml",
+            ),
+            ResourceGroup(
+                "menu",
+                "revanced_search_menu.xml",
             ),
             ResourceGroup(
                 "xml",
@@ -411,7 +372,8 @@ val settingsPatch = resourcePatch(
          */
         ResourceUtils.addPreferenceFragment(
             "revanced_extended_settings",
-            insertKey
+            insertKey,
+            targetActivityClassName,
         )
 
         /**
@@ -435,24 +397,6 @@ val settingsPatch = resourcePatch(
                     }
                 }
             }
-        }
-
-        // Modify the manifest and add a data intent filter to the LicenseActivity.
-        // Some devices freak out if undeclared data is passed to an intent,
-        // and this change appears to fix the issue.
-        document("AndroidManifest.xml").use { document ->
-            val licenseElement = document.childNodes.findElementByAttributeValueOrThrow(
-                "android:name",
-                "com.google.android.libraries.social.licenses.LicenseActivity",
-            )
-
-            val mimeType = document.createElement("data")
-            mimeType.setAttribute("android:mimeType", "text/plain")
-
-            val intentFilter = document.createElement("intent-filter")
-            intentFilter.appendChild(mimeType)
-
-            licenseElement.appendChild(intentFilter)
         }
     }
 

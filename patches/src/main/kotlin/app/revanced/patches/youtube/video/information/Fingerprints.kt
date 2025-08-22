@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.video.information
 
-import app.revanced.patcher.fingerprint
 import app.revanced.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-import app.revanced.patches.youtube.utils.YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
 import app.revanced.patches.youtube.utils.YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
 import app.revanced.patches.youtube.utils.resourceid.notificationBigPictureIconWidth
 import app.revanced.patches.youtube.utils.resourceid.qualityAuto
@@ -129,8 +127,8 @@ internal val videoIdFingerprintBackgroundPlay = legacyFingerprint(
     }
 )
 
-fun indexOfPlayerResponseModelInterfaceInstruction(methodDef: Method) =
-    methodDef.indexOfFirstInstruction {
+fun indexOfPlayerResponseModelInterfaceInstruction(method: Method) =
+    method.indexOfFirstInstruction {
         opcode == Opcode.INVOKE_INTERFACE &&
                 getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
     }
@@ -143,35 +141,38 @@ internal val videoTitleFingerprint = legacyFingerprint(
     literals = listOf(notificationBigPictureIconWidth),
 )
 
-/**
- * YouTube 20.19 and lower.
- */
-internal val videoQualityLegacyFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters(
-        "I", // Resolution.
-        "Ljava/lang/String;", // Human readable resolution: "480p", "1080p Premium", etc
-        "Z",
-        "L"
-    )
-    custom { _, classDef ->
-        classDef.type == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+internal val videoQualityFingerprint = legacyFingerprint(
+    name = "videoQualityFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    opcodes = listOf(
+        Opcode.IPUT_BOOLEAN,
+        Opcode.IPUT_OBJECT,
+        Opcode.RETURN_VOID,
+    ),
+    customFingerprint = { method, classDef ->
+        classDef.type == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE &&
+                method.parameterTypes.size > 3 &&
+                indexOfVideoQualityNameFieldInstruction(method) >= 0 &&
+                indexOfVideoQualityResolutionFieldInstruction(method) >= 0
     }
-}
+)
 
-internal val videoQualityFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters(
-        "I", // Resolution.
-        "L",
-        "Ljava/lang/String;", // Human readable resolution: "480p", "1080p Premium", etc
-        "Z",
-        "L"
-    )
-    custom { _, classDef ->
-        classDef.type == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+fun indexOfVideoQualityNameFieldInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<FieldReference>()
+        opcode == Opcode.IPUT_OBJECT &&
+                reference?.type == "Ljava/lang/String;" &&
+                reference.definingClass == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
     }
-}
+
+fun indexOfVideoQualityResolutionFieldInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<FieldReference>()
+        opcode == Opcode.IPUT &&
+                reference?.type == "I" &&
+                reference.definingClass == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+    }
 
 internal val videoQualitySetterFingerprint = legacyFingerprint(
     name = "videoQualitySetterFingerprint",
@@ -224,48 +225,10 @@ internal val formatStreamingModelQualityLabelBuilderFingerprint = legacyFingerpr
     strings = listOf("60")
 )
 
-internal val initFormatStreamParentFingerprint = legacyFingerprint(
-    name = "initFormatStreamParentFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    returnType = "V",
-    strings = listOf("noopytm")
-)
-
-internal val initFormatStreamFingerprint = legacyFingerprint(
-    name = "initFormatStreamFingerprint",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    returnType = "V",
-    customFingerprint = { method, _ ->
-        indexOfPreferredFormatStreamInstruction(method) >= 0
-    }
-)
-
-internal fun indexOfPreferredFormatStreamInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.IGET_OBJECT &&
-                getReference<FieldReference>()?.type == YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
-    }
-
 internal val videoQualityArrayFingerprint = legacyFingerprint(
     name = "videoQualityArrayFingerprint",
-    returnType = "[$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    parameters = listOf(
-        "Ljava/util/List;",
-        "Ljava/util/Collection;",
-        "Ljava/lang/String;",
-        "L"
-    ),
-    customFingerprint = custom@{ method, _ ->
-        indexOfQualityLabelInstruction(method) >= 0
-    }
+    returnType = "Ljava/util/List;",
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC or AccessFlags.FINAL,
+    parameters = listOf("Ljava/util/List;", "L"),
+    opcodes = listOf(Opcode.RETURN_OBJECT)
 )
-
-internal fun indexOfQualityLabelInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        val reference = getReference<MethodReference>()
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                reference?.returnType == "Ljava/lang/String;" &&
-                reference.parameterTypes.isEmpty() &&
-                reference.definingClass == YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
-    }

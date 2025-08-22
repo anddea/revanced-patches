@@ -1,8 +1,8 @@
 package app.revanced.extension.youtube.patches.general;
 
 import androidx.annotation.Nullable;
-import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
 
 import app.revanced.extension.shared.patches.BaseSettingsMenuPatch;
 import app.revanced.extension.shared.settings.BooleanSetting;

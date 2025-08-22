@@ -15,17 +15,20 @@ import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import app.revanced.extension.music.patches.spoof.ClientType;
 import app.revanced.extension.music.patches.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.music.patches.spoof.ClientType;
 
 /**
  * Video streaming data.  Fetching is tied to the behavior YT uses,

@@ -77,7 +77,7 @@ internal class PoTokenWebView private constructor(
             .use { it.readText() }
 
         webView.loadDataWithBaseURL(
-            "https://m.youtube.com",
+            "https://www.youtube.com",
             html.replaceFirst(
                 "</script>",
                 // calls downloadAndRunBotguard() when the page has finished loading
@@ -98,7 +98,7 @@ internal class PoTokenWebView private constructor(
         Logger.printDebug { "downloadAndRunBotguard() called" }
 
         val responseBody = makeBotguardServiceRequest(
-            "https://m.youtube.com/api/jnn/v1/Create",
+            "https://www.youtube.com/api/jnn/v1/Create",
             "[ \"$REQUEST_KEY\" ]",
         ) ?: return
 
@@ -141,7 +141,7 @@ internal class PoTokenWebView private constructor(
         Logger.printDebug { "botguardResponse: $botguardResponse" }
 
         val responseBody = makeBotguardServiceRequest(
-            "https://m.youtube.com/api/jnn/v1/GenerateIT",
+            "https://www.youtube.com/api/jnn/v1/GenerateIT",
             "[ \"$REQUEST_KEY\", \"$botguardResponse\" ]",
         ) ?: return
 
@@ -290,8 +290,8 @@ internal class PoTokenWebView private constructor(
                 "User-Agent" to USER_AGENT,
                 "Accept" to "application/json",
                 "Content-Type" to "application/json+protobuf",
-                "x-goog-api-key" to GOOGLE_API_KEY,
-                "x-user-agent" to "grpc-web-javascript/0.1",
+                "X-Goog-Api-Key" to GOOGLE_API_KEY,
+                "X-User-Agent" to "grpc-web-javascript/0.1",
             ),
             data,
             null
@@ -346,7 +346,8 @@ internal class PoTokenWebView private constructor(
         // Public API key used by BotGuard, which has been got by looking at BotGuard requests
         private const val GOOGLE_API_KEY = "AIzaSyDyT5W0Jh49F30Pqqtyfdf7pDLFKLJoAnw" // NOSONAR
         private const val REQUEST_KEY = "O43z0dpjhgX20SCx4KAo"
-        private const val USER_AGENT = "Mozilla/5.0 (PlayStation Vita 3.74) AppleWebKit/537.73 (KHTML, like Gecko) Silk/3.2"
+        private const val USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.3"
         private const val JS_INTERFACE = "PoTokenWebView"
 
         override fun newPoTokenGenerator(context: Context): PoTokenGenerator {

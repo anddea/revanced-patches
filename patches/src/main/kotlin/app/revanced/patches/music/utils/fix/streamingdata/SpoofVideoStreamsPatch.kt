@@ -183,7 +183,8 @@ internal fun patchSpoofVideoStreams() {
                         MutableMethodImplementation(5),
                     ).toMutable().apply {
                         addInstructionsWithLabels(
-                            0, """
+                            0,
+                            """
                                 # Get streaming data.
                                 invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->getStreamingData(Ljava/lang/String;)$STREAMING_DATA_OUTER_CLASS
                                 move-result-object v0

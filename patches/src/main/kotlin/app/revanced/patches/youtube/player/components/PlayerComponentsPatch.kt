@@ -14,11 +14,15 @@ import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.shared.spans.addSpanFilter
 import app.revanced.patches.shared.spans.inclusiveSpanPatch
 import app.revanced.patches.shared.startVideoInformerFingerprint
+import app.revanced.patches.youtube.utils.bottomsheet.bottomSheetHookPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.controlsoverlay.controlsOverlayConfigPatch
+import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
+import app.revanced.patches.youtube.utils.dismiss.hookDismissObserver
 import app.revanced.patches.youtube.utils.engagement.*
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.SPANS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.fix.endscreensuggestedvideo.endScreenSuggestedVideoPatch
@@ -294,8 +298,12 @@ private val speedOverlayPatch = bytecodePatch(
 
 private const val PLAYER_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/PlayerComponentsFilter;"
+private const val RELATED_VIDEO_FILTER_CLASS_DESCRIPTOR =
+    "$COMPONENTS_PATH/RelatedVideosFilter;"
 private const val SANITIZE_VIDEO_SUBTITLE_FILTER_CLASS_DESCRIPTOR =
     "$SPANS_PATH/SanitizeVideoSubtitleFilter;"
+private const val RELATED_VIDEO_CLASS_DESCRIPTOR =
+    "$PLAYER_PATH/RelatedVideoPatch;"
 
 @Suppress("unused")
 val playerComponentsPatch = bytecodePatch(
@@ -306,8 +314,11 @@ val playerComponentsPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
+        bottomSheetHookPatch,
         controlsOverlayConfigPatch,
         endScreenSuggestedVideoPatch,
+        engagementPanelHookPatch,
+        dismissPlayerHookPatch,
         inclusiveSpanPatch,
         lithoFilterPatch,
         lithoLayoutPatch,
@@ -316,7 +327,6 @@ val playerComponentsPatch = bytecodePatch(
         speedOverlayPatch,
         videoInformationPatch,
         versionCheckPatch,
-        engagementPanelHookPatch,
     )
 
     execute {
@@ -550,11 +560,9 @@ val playerComponentsPatch = bytecodePatch(
                             const/4 v$register, 0x0
                             return v$register
                         """
-
                 "V" -> """
                             return-void
                         """
-
                 else -> throw Exception("This case should never happen.")
             }
 
@@ -666,6 +674,28 @@ val playerComponentsPatch = bytecodePatch(
                 )
             }
         }
+
+        // endregion
+
+        // region patch for hide relative video
+
+        linearLayoutManagerItemCountsFingerprint.matchOrThrow().let {
+            val methodWalker =
+                it.getWalkerMethod(it.patternMatch!!.endIndex)
+            methodWalker.apply {
+                val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1, """
+                        invoke-static {v$register}, $RELATED_VIDEO_CLASS_DESCRIPTOR->overrideItemCounts(I)I
+                        move-result v$register
+                        """
+                )
+            }
+        }
+
+        hookDismissObserver("$RELATED_VIDEO_CLASS_DESCRIPTOR->onDismiss(I)V")
 
         // endregion
 
@@ -788,6 +818,7 @@ val playerComponentsPatch = bytecodePatch(
 
         addSpanFilter(SANITIZE_VIDEO_SUBTITLE_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(PLAYER_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
+        addLithoFilter(RELATED_VIDEO_FILTER_CLASS_DESCRIPTOR)
 
         // region add settings
 

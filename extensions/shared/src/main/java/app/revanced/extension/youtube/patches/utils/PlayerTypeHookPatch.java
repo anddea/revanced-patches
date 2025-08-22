@@ -4,6 +4,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.youtube.shared.FullscreenEngagementPanelState;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.shared.ShortsPlayerState;
 import app.revanced.extension.youtube.shared.VideoState;
@@ -46,6 +47,28 @@ public class PlayerTypeHookPatch {
             @Override
             public void onViewDetachedFromWindow(@Nullable View v) {
                 ShortsPlayerState.set(ShortsPlayerState.CLOSED);
+            }
+        });
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Add a listener to the fullscreen engagement panel holder.
+     * Triggered when a fullscreen engagement panel holder is attached or detached to Windows.
+     *
+     * @param view fullscreen engagement panel holder (R.id.fullscreen_engagement_panel_holder).
+     */
+    public static void onFullscreenEngagementPanelHolderCreate(View view) {
+        view.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+            @Override
+            public void onViewAttachedToWindow(@Nullable View v) {
+                FullscreenEngagementPanelState.set(FullscreenEngagementPanelState.ATTACHED);
+            }
+
+            @Override
+            public void onViewDetachedFromWindow(@Nullable View v) {
+                FullscreenEngagementPanelState.set(FullscreenEngagementPanelState.DETACHED);
             }
         });
     }

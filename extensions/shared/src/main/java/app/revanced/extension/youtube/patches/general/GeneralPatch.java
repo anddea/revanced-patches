@@ -7,6 +7,7 @@ import static app.revanced.extension.shared.utils.Utils.hideViewByLayoutParams;
 import static app.revanced.extension.shared.utils.Utils.hideViewGroupByMarginLayoutParams;
 import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
 import static app.revanced.extension.youtube.patches.utils.PatchStatus.ImageSearchButton;
+import static app.revanced.extension.youtube.patches.utils.PatchStatus.TargetActivityClass;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
 import android.app.Activity;
@@ -119,6 +120,14 @@ public class GeneralPatch {
         }
 
         return value;
+    }
+
+    // endregion
+
+    // region [Disable sign in to TV popup] patch
+
+    public static boolean disableSignInToTvPopup() {
+        return Settings.DISABLE_SIGNIN_TO_TV_POPUP.get();
     }
 
     // endregion
@@ -319,7 +328,7 @@ public class GeneralPatch {
         }
 
         // This method is called after AlertDialog#show(),
-        // So we need to hide the AlertDialog before pressing the positive button.
+        // So we need to hide the AlertDialog before pressing the possitive button.
         final Window window = dialog.getWindow();
         final Button button = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
         if (window != null && button != null) {
@@ -342,6 +351,14 @@ public class GeneralPatch {
             return;
 
         confirmDialog(dialog);
+    }
+
+    // endregion
+
+    // region [Fix Hype button icon] patch
+
+    public static boolean fixHypeButtonIconEnabled() {
+        return Settings.FIX_HYPE_BUTTON_ICON.get();
     }
 
     // endregion
@@ -589,6 +606,7 @@ public class GeneralPatch {
 
     /**
      * Injection point.
+     *
      * @param searchQuery Keywords entered in the search bar.
      * @return Whether the setting is enabled and the search query is empty.
      */
@@ -601,15 +619,16 @@ public class GeneralPatch {
 
     /**
      * Injection point.
-     * @param searchTerm    This class contains information related to search terms.
-     *                      The {@code toString()} method of this class overrides the search term.
-     * @param endpoint      Endpoint related with the search term.
-     *                      For search history, this value is:
-     *                      '/complete/deleteitems?client=youtube-android-pb&delq=${searchTerm}&deltok=${token}'.
-     *                      (If you long press on the search history,
-     *                      you will see a dialog 'Remove from search history?')
-     *                      For search suggestions, this value is null or empty.
-     * @return              Whether search term is a search history or not.
+     *
+     * @param searchTerm This class contains information related to search terms.
+     *                   The {@code toString()} method of this class overrides the search term.
+     * @param endpoint   Endpoint related with the search term.
+     *                   For search history, this value is:
+     *                   '/complete/deleteitems?client=youtube-android-pb&delq=${searchTerm}&deltok=${token}'.
+     *                   (If you long press on the search history,
+     *                   you will see a dialog 'Remove from search history?')
+     *                   For search suggestions, this value is null or empty.
+     * @return Whether search term is a search history or not.
      */
     public static boolean isSearchHistory(Object searchTerm, String endpoint) {
         boolean isSearchHistory = endpoint != null && endpoint.contains("/delete");
@@ -706,7 +725,7 @@ public class GeneralPatch {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.setPackage(context.getPackageName());
         intent.setData(Uri.parse("revanced_extended_settings_intent"));
-        intent.setClassName(context, "com.google.android.libraries.social.licenses.LicenseActivity");
+        intent.setClassName(context.getPackageName(), TargetActivityClass());
         context.startActivity(intent);
     }
 

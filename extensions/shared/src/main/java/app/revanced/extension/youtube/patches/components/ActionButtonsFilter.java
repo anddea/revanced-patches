@@ -8,6 +8,8 @@ import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
 import app.revanced.extension.youtube.settings.Settings;
 
+import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREATER;
+
 @SuppressWarnings("unused")
 public final class ActionButtonsFilter extends Filter {
     private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.eml";
@@ -97,9 +99,19 @@ public final class ActionButtonsFilter extends Filter {
                         Settings.HIDE_CLIP_BUTTON,
                         "yt_outline_scissors"
                 ),
+                // 1. YouTube 19.25.39 can be used without the 'Disable update screen' patch.
+                //    This means that even if you use an unpatched YouTube 19.25.39, the 'Update your app' pop-up will not appear.
+                // 2. Due to a server-side change, the Hype button is now available on YouTube 19.25.39 and earlier.
+                // 3. Google did not add the Hype icon (R.drawable.yt_outline_star_shooting_black_24) to YouTube 19.25.39 or earlier,
+                //    So no icon appears on the Hype button when using YouTube 19.25.39.
+                // 4. For the same reason, the 'buttonViewModel.iconName' value in the '/next' endpoint response from YouTube 19.25.39 is also empty.
+                // 5. Therefore, in YouTube 19.25.39 or earlier versions, you cannot hide the Hype button with the keyword 'yt_outline_star_shooting',
+                //    but you can hide it with the keyword 'Hype'.
                 new ByteArrayFilterGroup(
                         Settings.HIDE_HYPE_BUTTON,
-                        "yt_outline_star_shooting"
+                        IS_19_26_OR_GREATER || Settings.FIX_HYPE_BUTTON_ICON.get()
+                                ? "yt_outline_star_shooting"
+                                : "Hype"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PROMOTE_BUTTON,

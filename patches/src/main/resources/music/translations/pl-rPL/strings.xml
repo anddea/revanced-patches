@@ -491,15 +491,16 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_spoof_app_version_target_summary">Wybierz wersję, którą chcesz oszukiwać.</string>
     <string name="revanced_spoof_app_version_target_title">Docelowa wersja aplikacji</string>
     <string name="revanced_spoof_app_version_title">Oszukaj wersję aplikacji</string>
-    <string name="revanced_spoof_client_summary">"Oszukuj klienta, by zapobiec problemom z odtwarzaniem.
+    <string name="revanced_spoof_client_summary">"Oszukuje klienta, by zapobiec problemom z odtwarzaniem.
 
-Jeśli opcja jest włączona, 'Oszukuj parametry odtwarzacza' mogą być wyłączone
-
-Efekt uboczny:
-• menu ustawień odtwarzacza może nie wyświetlać się poprawnie"</string>
+Efekty uboczne:
+• przyciski akcji mogą być zawsze ukryte w wersjach YouTube Music powyżej 7.17
+• menu ustawień odtwarzacza może nie wyświetlać się poprawnie
+• te efekty uboczne można rozwiązać czyszcząc dane aplikacji i logując się ponownie"</string>
     <string name="revanced_spoof_client_title">Oszukuj klienta</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
     <string name="revanced_spoof_client_type_summary">Definiuje domyślny klient do oszukiwania.</string>
     <string name="revanced_spoof_client_type_title">Domyślny klient</string>
     <string name="revanced_spoof_player_parameter_summary">"Oszukuje parametry odtwarzacza, by zapobiec problemom z odtwarzaniem.
@@ -513,6 +514,19 @@ Efekt uboczny:
 
 ※ Używane równolegle z opcją 'Oszukuj klienta', może powodować problemy z odtwarzaniem"</string>
     <string name="revanced_spoof_streaming_data_title">Oszukuj strumień danych</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32">Android VR 1.43.32</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09">Android VR 1.65.09</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">Definiuje domyślnego klienta do oszukiwania.</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Domyślny klient</string>
+    <string name="revanced_spoof_video_streams_summary">"Oszukuje strumienie filmu klienta, by zapobiec problemom z odtwarzaniem.
+
+Efekty uboczne:
+• aplikacja może wymusić zamknięcie się podczas korzystania z VPN lub DNS
+• dźwięk może sporadycznie się zacinać podczas odtwarzania na strumieniach klienta z adaptacyjną przepływnością (każdy z wyjątkiem Android VR 1.43.32)"</string>
+    <string name="revanced_spoof_video_streams_title">Oszukuj strumienie filmu</string>
     <string name="revanced_watch_history_type_entry_1">Oryginalny</string>
     <string name="revanced_watch_history_type_entry_2">Zastąpienie domeny</string>
     <string name="revanced_watch_history_type_entry_3">Zablokowanie historii oglądania</string>

@@ -9,8 +9,8 @@ import app.revanced.extension.shared.patches.ReturnYouTubeUsernamePatch.DisplayF
 import app.revanced.extension.shared.patches.WatchHistoryPatch.WatchHistoryType;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientAndroidVRAvailability;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientAndroidVRNoAuthAvailability;
-import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientiOSAvailability;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientJSAvailability;
+import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientiOSAvailability;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.J2V8Availability;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ShowReloadVideoButtonAvailability;
 
@@ -63,7 +63,7 @@ public class BaseSettings {
      * These settings are used by YouTube and YouTube Music.
      */
     public static final BooleanSetting ENABLE_COMMENTS_SCROLL_TOP = new BooleanSetting("revanced_enable_comments_scroll_top", FALSE, true);
-    public static final BooleanSetting HIDE_FULLSCREEN_ADS = new BooleanSetting("revanced_hide_fullscreen_ads", FALSE, true);
+    public static final BooleanSetting HIDE_FULLSCREEN_ADS = new BooleanSetting("revanced_hide_fullscreen_ads", TRUE, true);
     public static final BooleanSetting HIDE_PROMOTION_ALERT_BANNER = new BooleanSetting("revanced_hide_promotion_alert_banner", TRUE);
 
     public static final BooleanSetting DISABLE_AUTO_CAPTIONS = new BooleanSetting("revanced_disable_auto_captions", FALSE, true);

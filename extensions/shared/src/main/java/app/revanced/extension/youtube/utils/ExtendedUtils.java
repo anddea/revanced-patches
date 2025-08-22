@@ -50,10 +50,6 @@ import kotlin.jvm.functions.Function1;
 
 public class ExtendedUtils extends PackageUtils {
 
-    private static boolean isVersionOrGreater(String version) {
-        return getAppVersionName().compareTo(version) >= 0;
-    }
-
     @SuppressWarnings("unused")
     public static final boolean IS_19_17_OR_GREATER = isVersionOrGreater("19.17.00");
     public static final boolean IS_19_20_OR_GREATER = isVersionOrGreater("19.20.00");

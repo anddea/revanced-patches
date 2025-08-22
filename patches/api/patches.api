@@ -491,6 +491,7 @@ public final class app/revanced/patches/reddit/utils/settings/SettingsPatchKt {
 public final class app/revanced/patches/shared/FingerprintsKt {
 	public static final field SPANNABLE_STRING_REFERENCE Ljava/lang/String;
 	public static final fun indexOfBrandInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun indexOfClientInfoInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfManufacturerInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfModelInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfReleaseInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
@@ -835,6 +836,10 @@ public final class app/revanced/patches/youtube/general/navigation/NavigationBar
 	public static final fun getNavigationBarComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/general/signintotvpopup/SignInToTvPopupPatchKt {
+	public static final fun getSignInToTvPopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/general/snackbar/SnackBarComponentsPatchKt {
 	public static final fun getSnackBarComponentsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
@@ -1078,6 +1083,10 @@ public final class app/revanced/patches/youtube/utils/fix/endscreensuggestedvide
 	public static final fun getEndScreenSuggestedVideoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/utils/fix/hype/HypeButtonIconPatchKt {
+	public static final fun getHypeButtonIconPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/utils/fix/litho/LithoLayoutPatchKt {
 	public static final fun getLithoLayoutPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1210,6 +1219,8 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_20_20_or_greater ()Z
 	public static final fun is_20_21_or_greater ()Z
 	public static final fun is_20_22_or_greater ()Z
+	public static final fun is_20_28_or_greater ()Z
+	public static final fun is_20_30_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/utils/recyclerview/RecyclerViewTreeObserverPatchKt {
@@ -1278,6 +1289,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getInsetOverlayViewLayout ()J
 	public static final fun getInterstitialsContainer ()J
 	public static final fun getLikeTapFeedbackCairo ()J
+	public static final fun getMdxSeamlessTVSignInDrawerFragmentTitle ()J
 	public static final fun getMenuItemView ()J
 	public static final fun getMiniplayerMaxSize ()J
 	public static final fun getModernMiniPlayerClose ()J
@@ -1384,6 +1396,8 @@ public final class app/revanced/patches/youtube/utils/toolbar/ToolBarHookPatchKt
 
 public final class app/revanced/patches/youtube/video/information/FingerprintsKt {
 	public static final fun indexOfPlayerResponseModelInterfaceInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun indexOfVideoQualityNameFieldInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun indexOfVideoQualityResolutionFieldInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 }
 
 public final class app/revanced/patches/youtube/video/information/VideoInformationPatchKt {

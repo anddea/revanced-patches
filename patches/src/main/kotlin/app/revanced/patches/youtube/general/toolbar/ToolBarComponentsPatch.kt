@@ -392,7 +392,7 @@ val toolBarComponentsPatch = bytecodePatch(
         // region patch for hide You may like section
 
         if (is_19_46_or_greater && !is_20_15_or_greater) {
-            val (searchSuggestionEndpointClass, searchSuggestionEndpointField) = with (
+            val (searchSuggestionEndpointClass, searchSuggestionEndpointField) = with(
                 searchSuggestionEndpointFingerprint.methodOrThrow(
                     searchSuggestionEndpointParentFingerprint
                 )

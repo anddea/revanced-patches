@@ -411,7 +411,7 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_ryd_enabled_title">Kích hoạt Return YouTube Dislike</string>
     <string name="revanced_ryd_estimated_like_summary">Hiển thị số lượt thích được ước tính của video.</string>
     <string name="revanced_ryd_estimated_like_title">Số lượt thích ước tính</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Số lượt không thích không khả dụng (đã đạt đến giới hạn API máy khách).</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Số lượt không thích không khả dụng (đã đạt đến giới hạn API client).</string>
     <string name="revanced_ryd_failure_connection_status_code">Số lượt không thích không khả dụng (trạng thái %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Số lượt không thích tạm thời không khả dụng (API đã hết thời gian chờ).</string>
     <string name="revanced_ryd_failure_generic">Số lượt không thích không khả dụng (%s).</string>
@@ -496,11 +496,11 @@ Nếu bật cài đặt này, bạn có thể tắt 'Giả mạo thông số tr�
 
 Hạn chế:
 • Trình đơn tuỳ chọn trong trình phát có thể không hiển thị đúng cách."</string>
-    <string name="revanced_spoof_client_title">Giả mạo thiết bị</string>
+    <string name="revanced_spoof_client_title">Giả mạo client</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_summary">Chọn loại thiết bị để giả mạo.</string>
-    <string name="revanced_spoof_client_type_title">Loại thiết bị mặc định</string>
+    <string name="revanced_spoof_client_type_summary">Chọn loại client để giả mạo.</string>
+    <string name="revanced_spoof_client_type_title">Loại client mặc định</string>
     <string name="revanced_spoof_player_parameter_summary">"Giả mạo thông số trình phát để khắc phục sự cố phát.
 
 Hạn chế:
@@ -512,6 +512,18 @@ Hạn chế:
 
 • Khi được sử dụng đồng thời với \"Giả mạo ứng dụng khách\", có thể gây ra sự cố phát."</string>
     <string name="revanced_spoof_streaming_data_title">Giả mạo luồng dữ liệu trực tuyến</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32">Android VR 1.43.32</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09">Android VR 1.65.09</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">Chọn client để giả mạo.</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Client mặc định</string>
+    <string name="revanced_spoof_video_streams_summary">"Giả mạo luồng video của client để tránh lỗi khi phát.
+
+Hạn chế:
+• Ứng dụng có thể bị buộc đóng khi dùng VPN hoặc DNS.
+• Âm thanh có thể bị ngắt quãng khi phát trên client dùng truyền phát bit thích ứng (trừ Android VR 1.43.32)."</string>
     <string name="revanced_spoof_video_streams_title">Giả mạo luồng video</string>
     <string name="revanced_watch_history_type_entry_1">Gốc</string>
     <string name="revanced_watch_history_type_entry_2">Thay thế miền</string>

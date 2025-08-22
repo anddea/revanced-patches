@@ -1,6 +1,5 @@
 package com.liskovsoft.youtubeapi.app
 
-import com.liskovsoft.sharedutils.helpers.DeviceHelpers
 import com.liskovsoft.youtubeapi.app.potokennp2.PoTokenProviderImpl
 import com.liskovsoft.youtubeapi.app.potokennp2.misc.PoTokenResult
 
@@ -10,33 +9,45 @@ internal object PoTokenGate {
 
     @JvmStatic
     fun getContentPoToken(videoId: String): String? {
-        if (mNpPoToken?.videoId == videoId) {
+        if (!isPotSupported()) return null
+
+        if (mNpPoToken?.videoId == videoId && !isExpired()) {
             return mNpPoToken?.playerRequestPoToken
         }
 
-        mNpPoToken = if (isNpPotSupported())
-            PoTokenProviderImpl.getWebClientPoToken(videoId)
-        else null
+        mNpPoToken = PoTokenProviderImpl.getWebClientPoToken(videoId)
 
         return mNpPoToken?.playerRequestPoToken
     }
 
     @JvmStatic
     fun getSessionPoToken(videoId: String): String? {
-        if (mNpPoToken?.videoId == videoId) {
-            return mNpPoToken?.streamingDataPoToken
+        if (!isPotSupported()) return null
+
+        if (mNpPoToken?.videoId == videoId && !isExpired()) {
+            val streamingDataPoToken = mNpPoToken!!.streamingDataPoToken
+            if (streamingDataPoToken != null) {
+                mNpPoToken = null
+                return streamingDataPoToken
+            }
         }
 
-        mNpPoToken = if (isNpPotSupported())
-            PoTokenProviderImpl.getWebClientPoToken(videoId)
-        else null
+        mNpPoToken = PoTokenProviderImpl.getWebClientPoToken(videoId)
 
-        return mNpPoToken?.streamingDataPoToken
+        if (mNpPoToken != null) {
+            val streamingDataPoToken = mNpPoToken!!.streamingDataPoToken
+            if (streamingDataPoToken != null) {
+                mNpPoToken = null
+                return streamingDataPoToken
+            }
+        }
+
+        return null
     }
 
     @JvmStatic
     fun updatePoToken() {
-        if (isNpPotSupported()) {
+        if (isPotSupported()) {
             //mNpPoToken = null // only refresh
             mNpPoToken = PoTokenProviderImpl.getWebClientPoToken("") // refresh and preload
         }
@@ -44,18 +55,16 @@ internal object PoTokenGate {
 
     @JvmStatic
     fun getVisitorData(): String? {
+        if (!isPotSupported()) return null
+
         return mNpPoToken?.visitorData
     }
 
     @JvmStatic
-    fun getDataSyncId(): String? {
-        return mNpPoToken?.dataSyncId
-    }
+    fun isPotSupported() = PoTokenProviderImpl.isPotSupported
 
     @JvmStatic
-    fun isNpPotSupported() = DeviceHelpers.isWebViewSupported() && !isWebViewBroken()
-
-    private fun isWebViewBroken(): Boolean = DeviceHelpers.isTCL() // "TCL TV - Harman"
+    fun isExpired() = PoTokenProviderImpl.isExpired
 
     @JvmStatic
     fun resetCache(): Boolean {
@@ -63,7 +72,7 @@ internal object PoTokenGate {
             return false
         }
 
-        if (isNpPotSupported()) {
+        if (isPotSupported()) {
             mNpPoToken = null
         }
 

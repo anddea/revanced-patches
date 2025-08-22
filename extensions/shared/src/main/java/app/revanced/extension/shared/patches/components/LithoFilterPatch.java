@@ -1,7 +1,5 @@
 package app.revanced.extension.shared.patches.components;
 
-import static app.revanced.extension.shared.utils.Utils.validateValue;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 

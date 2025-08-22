@@ -96,7 +96,8 @@ internal val playerLinearGradientLegacyFingerprint = legacyFingerprint(
     literals = listOf(ytYoutubeMagenta),
 )
 
-internal const val launchScreenLayoutTypeLotteFeatureFlag = 268507948L
+internal const val launchScreenLayoutTypeLotteFeatureLegacyFlag = 268507948L
+internal const val launchScreenLayoutTypeLotteFeatureFlag = 1073814316L
 
 internal val setBoundsFingerprint = legacyFingerprint(
     name = "setBoundsFingerprint",
@@ -131,7 +132,8 @@ internal val launchScreenLayoutTypeFingerprint = legacyFingerprint(
         // 19.25 - 19.45
         (firstParameter == "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
                 || firstParameter == "Landroid/app/Activity;") // 19.46+
-                && method.containsLiteralInstruction(launchScreenLayoutTypeLotteFeatureFlag)
+                && (method.containsLiteralInstruction(launchScreenLayoutTypeLotteFeatureLegacyFlag)
+                || method.containsLiteralInstruction(launchScreenLayoutTypeLotteFeatureFlag))
     }
 )
 

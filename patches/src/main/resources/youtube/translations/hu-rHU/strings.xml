@@ -131,6 +131,7 @@ Ha szerveroldali változások történnek, előfordulhat, hogy az üzenet sáv h
     <string name="revanced_change_start_page_entry_fashion">Divat és szépség</string>
     <string name="revanced_change_start_page_entry_gaming">Játékok</string>
     <string name="revanced_change_start_page_entry_history">Előzmények</string>
+    <string name="revanced_change_start_page_entry_hype">Hype</string>
     <string name="revanced_change_start_page_entry_library">Könyvtár</string>
     <string name="revanced_change_start_page_entry_liked_videos">Kedvelt videók</string>
     <string name="revanced_change_start_page_entry_live">Élő</string>
@@ -310,6 +311,9 @@ Információ: A rövid videók háttérben történő lejátszása csak kép a k
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">A szökőkút animáció engedélyezett a tetszik gombon.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">A szökőkút animáció tiltott a tetszik gombon.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Tetszik gomb szökőkút animáció elrejtése</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">A bejelentkezés TV-n felugró ablak engedélyezett.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">A bejelentkezés TV-n felugró ablak tiltott.</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">Bejelentkezés TV-n felugró ablak tiltása</string>
     <string name="revanced_disable_speed_overlay_summary">"Letiltja a '2x&gt;&gt;' funkciót, hosszan nyomva tartásra.
 
 Megjegyzés:
@@ -483,6 +487,16 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Lejátszási lista letöltő csomag neve</string>
     <string name="revanced_external_downloader_package_name_video_summary">A telepített külső letöltő alkalmazás csomagneve, például NewPipe vagy YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Videó letöltő csomag neve</string>
+    <string name="revanced_fix_hype_button_icon_summary_off">A Hype gomb ikonja rejtett.</string>
+    <string name="revanced_fix_hype_button_icon_summary_on">A Hype gomb ikonja látható.</string>
+    <string name="revanced_fix_hype_button_icon_title">Hype gomb ikonjának kijavítása</string>
+    <string name="revanced_fix_hype_button_icon_user_dialog_message">"A YouTube 19.25.39-es vagy korábbi verzióiban a Hype ikon rejtve van a videó műveletsávján és a videóleírás paneljén.
+
+Megoldásként az alkalmazás verziója a '/get_watch' és a '/next' végpontokban 19.26.42-re hamisítva jelenik meg.
+
+Ha kikapcsolja ezt a beállítást, előfordulhat, hogy a Hype ikon nem jelenik meg a videó műveletsávján és a videóleírás paneljén.
+
+※ Még ha ez a beállítás ki is van kapcsolva, előfordulhat, hogy a Hype gomb nem lesz rejtett."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_off">A \'Lejátszás\' van használatban az \'Automatikus lejátszás\' beállítás helyett.</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"Az 'Automatikus lejátszás' van használatban a 'Lejátszás' beállítás helyett."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_title">Alkalmazás hamisítási verzió mellékhatásának javítása</string>
@@ -537,6 +551,17 @@ Információ:
     <string name="revanced_hide_autoplay_preview_summary_off">Az automatikus lejátszás előnézet látható.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Az automatikus lejátszás előnézet el van rejtve.</string>
     <string name="revanced_hide_autoplay_preview_title">Automatikus lejátszás előnézet elrejtése</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Példák a karusszelre:&lt;br&gt;&lt;br&gt;&lt;b&gt;Friss hírek&lt;/b&gt;, &lt;b&gt;Nézés folytatása&lt;/b&gt;, &lt;b&gt;További csatornák felfedezése&lt;/b&gt;, &lt;b&gt;Hallgassa meg újra&lt;/b&gt;, &lt;b&gt;Legrelevánsabb&lt;/b&gt;, &lt;b&gt;Vásárlás&lt;/b&gt;, &lt;b&gt;Nézze meg újra&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_title">A karusszelről</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_off">Látható a kezdőlapon és a kapcsolódó videóknál.</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_on">Elrejtve a kezdőlapon és a kapcsolódó videóknál.</string>
+    <string name="revanced_hide_carousel_shelf_home_title">Elrejtés a kezdőlapon és a kapcsolódó videóknál</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_off">Látható a keresési eredményekben.</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_on">Elrejtve a keresési eredményekben.</string>
+    <string name="revanced_hide_carousel_shelf_search_title">Elrejtés a keresési eredményekben</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_off">Látható a feliratkozások között.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_on">Elrejtve a feliratkozások között.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_title">Elrejtés a feliratkozások között</string>
     <string name="revanced_hide_carousel_shelf_summary">"A következő polcokat rejtse el:
 • Friss hírek
 • Folytassa a nézést
@@ -695,9 +720,9 @@ Beállítások → Automatikus lejátszás / Lejátszás → Következő videó 
     <string name="revanced_hide_handle_summary_off">A kezelő látható.</string>
     <string name="revanced_hide_handle_summary_on">A kezelő el van rejtve.</string>
     <string name="revanced_hide_handle_title">Kezelő elrejtése</string>
-    <string name="revanced_hide_hype_button_summary_off">A hype gomb látható</string>
-    <string name="revanced_hide_hype_button_summary_on">A Hype gomb rejtett</string>
-    <string name="revanced_hide_hype_button_title">Aktivitás elrejtése</string>
+    <string name="revanced_hide_hype_button_summary_off">A Hype gomb látható.</string>
+    <string name="revanced_hide_hype_button_summary_on">A Hype gomb rejtett.</string>
+    <string name="revanced_hide_hype_button_title">Hype gomb elrejtése</string>
     <string name="revanced_hide_image_search_button_summary_off">A képkeresés gomb látható.</string>
     <string name="revanced_hide_image_search_button_summary_on">A képkeresés gomb el van rejtve.</string>
     <string name="revanced_hide_image_search_button_title">Képkeresés gomb elrejtése</string>
@@ -960,15 +985,6 @@ Korlátozás: A videó vége után az összes átfedő gomb rejtve maradhat."</s
     <string name="revanced_hide_related_videos_summary_off">A kapcsolódó videók láthatóak.</string>
     <string name="revanced_hide_related_videos_summary_on">A kapcsolódó videók el vannak rejtve.</string>
     <string name="revanced_hide_related_videos_title">Kapcsolódó videók elrejtése</string>
-    <string name="revanced_hide_related_videos_type_summary_off">"A képernyőn betöltött elrendezések számát a videó indításakor nem jegyzi meg a rendszer.
-
-• A hírfolyam görgetési pozíciója visszaállhat."</string>
-    <string name="revanced_hide_related_videos_type_summary_on">"A képernyőn betöltött elrendezések számát a videó indításakor megjegyzi a rendszer.
-
-• Részben kijavít egy hibát, amely miatt a hírfolyam görgetési pozíciója visszaállt.
-
-• Előfordulhat, hogy a kapcsolódó videók nem szűrhetők teljesen."</string>
-    <string name="revanced_hide_related_videos_type_title">Kapcsolódó videók típusának elrejtése</string>
     <string name="revanced_hide_related_videos_user_dialog_message">"Ez a beállítás korlátozza a lejátszó képernyőjére betölthető elrendezések maximális számát.
 
 Ha a lejátszó képernyőjének elrendezése a szerveroldali változtatások miatt megváltozik, akkor esetleg a nem kívánt elrendezések elrejthetők a lejátszó képernyőjén."</string>
@@ -1600,6 +1616,8 @@ A natív lejátszási lista letöltése gomb megjelenítéséhez kapcsolja be a 
     <string name="revanced_preference_screen_alt_thumbnails_title">Alternatív miniatűrök</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Tiltsa le a mozifilmes világítás módot, vagy kerülje meg a korlátozásait.</string>
     <string name="revanced_preference_screen_ambient_mode_title">Mozifilmes világítás mód</string>
+    <string name="revanced_preference_screen_carousel_shelf_summary">Karusszel elrejtése vagy megjelenítése a kezdőlapon, a keresési eredményekben és a feliratkozásokban.</string>
+    <string name="revanced_preference_screen_carousel_shelf_title">Karusszel</string>
     <string name="revanced_preference_screen_category_bar_summary">Rejtse el vagy jelenítse meg a kategória sávot a hírfolyamban, keresésben és a kapcsolódó videókban.</string>
     <string name="revanced_preference_screen_category_bar_title">Kategória sáv</string>
     <string name="revanced_preference_screen_channel_bar_summary">Rejtse el vagy mutassa meg a videók alatt található csatornasáv elemeit.</string>

@@ -23,18 +23,6 @@ object InnerTubeRoutes {
     )
 
     @JvmField
-    val GET_ADAPTIVE_FORMATS = compileRoute(
-        endpoint = "player",
-        fields = "playabilityStatus.status," +
-                "streamingData.adaptiveFormats.signatureCipher," +
-                "streamingData.adaptiveFormats.url," +
-                "streamingData.formats.signatureCipher," +
-                "streamingData.formats.url," +
-                "streamingData.initialAuthorizedDrmTrackTypes," +
-                "streamingData.serverAbrStreamingUrl"
-    )
-
-    @JvmField
     val GET_CATEGORY = compileRoute(
         endpoint = "player",
         fields = "microformat.playerMicroformatRenderer.category",
@@ -59,11 +47,7 @@ object InnerTubeRoutes {
         endpoint = "next",
         fields = "contents.singleColumnWatchNextResults." +
                 "playlist.playlist.contents.playlistPanelVideoRenderer." +
-                "navigationEndpoint.watchEndpoint.playerParams," + // Android VR
-                "contents.singleColumnWatchNextResults." +
-                "playlist.playlist.contents.playlistPanelVideoRenderer." +
-                "navigationEndpoint.coWatchWatchEndpointWrapperCommand." +
-                "watchEndpoint.watchEndpoint.playerParams", // Android
+                "navigationEndpoint"
     )
 
     @JvmField
@@ -75,7 +59,7 @@ object InnerTubeRoutes {
     @JvmField
     val GET_STREAMING_DATA = compileRoute(
         endpoint = "player",
-        fields = "streamingData",
+        fields = "playabilityStatus.status,streamingData",
         alt = "proto",
     )
 
@@ -100,6 +84,7 @@ object InnerTubeRoutes {
     private fun compileRoute(
         endpoint: String,
         fields: String? = null,
+        // json, media, proto, sse
         alt: String? = null,
         prettier: Boolean = false,
     ): CompiledRoute {

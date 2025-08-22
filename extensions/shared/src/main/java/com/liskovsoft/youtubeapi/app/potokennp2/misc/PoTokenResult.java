@@ -20,12 +20,6 @@ public final class PoTokenResult {
     public final String visitorData;
 
     /**
-     * The data sync id associated with a {@code poToken}.
-     */
-    @Nullable
-    public final String dataSyncId;
-
-    /**
      * The {@code poToken} of a player request, a Protobuf object encoded as a base 64 string.
      */
     @NonNull
@@ -48,19 +42,16 @@ public final class PoTokenResult {
      *
      * @param videoId              see {@link #videoId}
      * @param visitorData          see {@link #visitorData}
-     * @param dataSyncId           see {@link #dataSyncId}
      * @param playerRequestPoToken see {@link #playerRequestPoToken}
      * @param streamingDataPoToken see {@link #streamingDataPoToken}
      * @throws NullPointerException if a non-null parameter is null
      */
     public PoTokenResult(@NonNull final String videoId,
                          @NonNull final String visitorData,
-                         @Nullable final String dataSyncId,
                          @NonNull final String playerRequestPoToken,
                          @Nullable final String streamingDataPoToken) {
         this.videoId = Objects.requireNonNull(videoId);
         this.visitorData = Objects.requireNonNull(visitorData);
-        this.dataSyncId = dataSyncId;
         this.playerRequestPoToken = Objects.requireNonNull(playerRequestPoToken);
         this.streamingDataPoToken = streamingDataPoToken;
     }

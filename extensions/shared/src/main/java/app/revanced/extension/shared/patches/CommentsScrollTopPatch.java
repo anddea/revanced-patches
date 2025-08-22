@@ -23,7 +23,8 @@ public class CommentsScrollTopPatch {
     /**
      * Injection point.
      * Called after {@link #isCommentsScrollTopEnabled()}.
-     * @param commentsRecyclerView  The parent view to which the comment views are bound.
+     *
+     * @param commentsRecyclerView The parent view to which the comment views are bound.
      */
     public static void onCommentsCreate(RecyclerView commentsRecyclerView) {
         recyclerView = commentsRecyclerView;
@@ -31,7 +32,8 @@ public class CommentsScrollTopPatch {
 
     /**
      * Injection point.
-     * @param view  Engagement panel title.
+     *
+     * @param view Engagement panel title.
      */
     public static void setContentHeader(View view) {
         if (!ENABLE_COMMENTS_SCROLL_TOP) {

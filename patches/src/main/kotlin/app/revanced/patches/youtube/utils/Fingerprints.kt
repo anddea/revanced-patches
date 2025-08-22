@@ -2,7 +2,22 @@ package app.revanced.patches.youtube.utils
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patches.youtube.player.components.playerComponentsPatch
-import app.revanced.patches.youtube.utils.resourceid.*
+import app.revanced.patches.youtube.utils.resourceid.fadeDurationFast
+import app.revanced.patches.youtube.utils.resourceid.fullScreenEngagementPanel
+import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
+import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
+import app.revanced.patches.youtube.utils.resourceid.insetOverlayViewLayout
+import app.revanced.patches.youtube.utils.resourceid.menuItemView
+import app.revanced.patches.youtube.utils.resourceid.playerControlNextButtonTouchArea
+import app.revanced.patches.youtube.utils.resourceid.playerControlPreviousButtonTouchArea
+import app.revanced.patches.youtube.utils.resourceid.scrimOverlay
+import app.revanced.patches.youtube.utils.resourceid.seekUndoEduOverlayStub
+import app.revanced.patches.youtube.utils.resourceid.settingsFragment
+import app.revanced.patches.youtube.utils.resourceid.settingsFragmentCairo
+import app.revanced.patches.youtube.utils.resourceid.totalTime
+import app.revanced.patches.youtube.utils.resourceid.varispeedUnavailableTitle
+import app.revanced.patches.youtube.utils.resourceid.videoQualityBottomSheet
+import app.revanced.patches.youtube.utils.resourceid.youTubeControlsButtonGroupLayoutStub
 import app.revanced.patches.youtube.utils.sponsorblock.sponsorBlockBytecodePatch
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
@@ -18,6 +33,9 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal const val YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE =
     "Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;"
+
+internal const val YOUTUBE_PIVOT_BAR_CLASS_TYPE =
+    "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
 
 internal const val YOUTUBE_VIDEO_QUALITY_CLASS_TYPE =
     "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
@@ -68,6 +86,13 @@ internal val formatStreamModelToStringFingerprint = legacyFingerprint(
         method.name == "toString"
                 && classDef.type == YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
     }
+)
+
+internal val fullScreenEngagementPanelFingerprint = legacyFingerprint(
+    name = "fullScreenEngagementPanelFingerprint",
+    returnType = "L",
+    parameters = listOf("L"),
+    literals = listOf(fullScreenEngagementPanel),
 )
 
 internal val layoutConstructorFingerprint = legacyFingerprint(

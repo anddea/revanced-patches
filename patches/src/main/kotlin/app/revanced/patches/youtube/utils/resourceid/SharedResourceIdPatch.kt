@@ -127,6 +127,8 @@ var insetElementsWrapper = -1L
     private set
 var likeTapFeedbackCairo = -1L
     private set
+var mdxSeamlessTVSignInDrawerFragmentTitle = -1L
+    private set
 var menuItemView = -1L
     private set
 var miniplayerMaxSize = -1L
@@ -336,6 +338,8 @@ internal val sharedResourceIdPatch = resourcePatch(
         interstitialsContainer = getResourceId(ID, "interstitials_container")
         insetElementsWrapper = getResourceId(LAYOUT, "inset_elements_wrapper")
         likeTapFeedbackCairo = getResourceId(RAW, "like_tap_feedback_cairo")
+        mdxSeamlessTVSignInDrawerFragmentTitle =
+            getResourceId(STRING, "mdx_seamless_tv_sign_in_drawer_fragment_title")
         menuItemView = getResourceId(ID, "menu_item_view")
         miniplayerMaxSize = getResourceId(DIMEN, "miniplayer_max_size")
         modernMiniPlayerClose = getResourceId(ID, "modern_miniplayer_close")

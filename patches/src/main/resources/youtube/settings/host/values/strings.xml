@@ -135,6 +135,7 @@ If there are server-side changes, the background color of the snack bar may not 
     <string name="revanced_change_start_page_entry_fashion">Fashion &amp; Beauty</string>
     <string name="revanced_change_start_page_entry_gaming">Gaming</string>
     <string name="revanced_change_start_page_entry_history">History</string>
+    <string name="revanced_change_start_page_entry_hype">Hype</string>
     <string name="revanced_change_start_page_entry_library">Library</string>
     <string name="revanced_change_start_page_entry_liked_videos">Liked videos</string>
     <string name="revanced_change_start_page_entry_live">Live</string>
@@ -317,6 +318,9 @@ Info: Shorts background playback is only available through Picture-in-picture mo
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Like button fountain animation is enabled.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Like button fountain animation is disabled.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Disable Like button fountain animation</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">Sign in to TV popup is enabled.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">Sign in to TV popup is disabled.</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">Disable Sign in to TV popup</string>
     <string name="revanced_disable_speed_overlay_summary">"Disable '2x&gt;&gt;' while holding down.
 
 Note:
@@ -493,6 +497,16 @@ Please download %2$s from the website."</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_external_downloader_package_name_video_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Video downloader package name</string>
+    <string name="revanced_fix_hype_button_icon_summary_off">Hype button icon is hidden.</string>
+    <string name="revanced_fix_hype_button_icon_summary_on">Hype button icon is shown.</string>
+    <string name="revanced_fix_hype_button_icon_title">Fix Hype button icon</string>
+    <string name="revanced_fix_hype_button_icon_user_dialog_message">"In YouTube 19.25.39 or earlier, the Hype icon is hidden in the video action bar and video description panel.
+
+As a workaround, the app version is spoofed to 19.26.42 in the '/get_watch' endpoint and '/next' endpoint.
+
+If you turn off this setting, the Hype icon may not show in the video action bar and video description panel.
+
+※ Even if this setting is turned off, the Hype button may not be hidden."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_off">"The 'Playback' setting is used instead of the 'Autoplay' setting.</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"The 'Autoplay' setting is used instead of the 'Playback' setting."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_title">Fix Spoof app version side effect</string>
@@ -1017,15 +1031,9 @@ Limitation: All overlay buttons may be hidden after the video ends."</string>
     <string name="revanced_hide_related_videos_summary_off">Related videos are shown.</string>
     <string name="revanced_hide_related_videos_summary_on">Related videos are hidden.</string>
     <string name="revanced_hide_related_videos_title">Hide related videos</string>
-    <string name="revanced_hide_related_videos_type_summary_off">"The number of layouts loaded on screen is not remembered when the video starts.
-
-• The feed scroll position may be reset."</string>
-    <string name="revanced_hide_related_videos_type_summary_on">"The number of layouts loaded on screen is remembered when the video starts.
-
-• Partially fixes an issue where the feed scroll position is reset.
-• Related videos may not be completely filtered."</string>
-    <string name="revanced_hide_related_videos_type_title">Hide related videos type</string>
     <string name="revanced_hide_related_videos_user_dialog_message">"This setting limits the maximum number of layouts that can be loaded on the player screen.
+
+If some related videos are not hidden, or unintended layouts such as the action bar or comments section are hidden, changing the offset may resolve the issue.
 
 If the layout of the player screen changes due to server-side changes, unintended layouts may be hidden on the player screen."</string>
     <string name="revanced_hide_remix_button_summary_off">Remix button is shown.</string>
@@ -1321,7 +1329,7 @@ Side effect: Official headers in search results will be hidden."</string>
     <string name="revanced_hide_video_by_view_counts_about_summary">"Home / Subscriptions / Search results are filtered to hide videos with views less or greater than a specified number.
 
 Limitations: 
-• Shorts cannot be hidden.
+• Live streams or Shorts cannot be hidden.
 • Videos with 0 views are not filtered."</string>
     <string name="revanced_hide_video_by_view_counts_about_title">About view count filtering</string>
     <string name="revanced_hide_video_by_view_counts_home_summary_off">Videos in Home feed are not filtered.</string>

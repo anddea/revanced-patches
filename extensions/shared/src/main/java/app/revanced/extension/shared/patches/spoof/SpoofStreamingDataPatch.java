@@ -81,6 +81,7 @@ public class SpoofStreamingDataPatch {
      * <p>
      * TODO: A feature should be implemented in revanced-library to copy external libraries
      *       to the original app's path (/data/data/com.google.android.youtube/lib/*).
+     *
      * @return Whether the J2V8 library exists.
      */
     private static boolean checkJ2V8() {
@@ -245,7 +246,7 @@ public class SpoofStreamingDataPatch {
                     }
                 }
 
-                Logger.printDebug(() -> "Not overriding streaming data (video stream is null): " + videoId);
+                Logger.printDebug(() -> "Not overriding streaming data (video stream is null, it may be video ads): " + videoId);
             } catch (Exception ex) {
                 Logger.printException(() -> "getStreamingData failure", ex);
             }
@@ -303,7 +304,7 @@ public class SpoofStreamingDataPatch {
             if (!SPOOF_STREAMING_DATA_USE_JS_ALL && playerParameter != null) {
                 if (playerParameter.startsWith(SHORTS_PLAYER_PARAMETERS)) {
                     reasonSkipped = "Shorts";
-                }  else if (playerParameter.equals(SCRIM_PARAMETERS)) {
+                } else if (playerParameter.equals(SCRIM_PARAMETERS)) {
                     reasonSkipped = "Autoplay in feed";
                 } else if (playerParameter.length() > 150 || playerParameter.startsWith(CLIPS_PARAMETERS)) {
                     reasonSkipped = "Clips";

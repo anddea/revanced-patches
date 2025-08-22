@@ -8,7 +8,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import app.revanced.extension.shared.utils.Logger;
-import kotlin.Pair;
 
 @SuppressWarnings("unused")
 public class AuthUtils {
@@ -16,9 +15,7 @@ public class AuthUtils {
     // Used to identify brand accounts.
     private static final String PAGE_ID_HEADER = "X-Goog-PageId";
     private static final String VISITOR_ID_HEADER = "X-Goog-Visitor-Id";
-    private static final String DATA_SYNC_ID_HEADER = "X-YouTube-DataSync-Id";
     private static final Map<String, String> REQUEST_HEADER = new LinkedHashMap<>(3);
-    private static Pair<String, String> dataSyncIdPair = null;
     private static String authorization = "";
     private static String pageId = "";
     private static String visitorId = "";
@@ -44,19 +41,7 @@ public class AuthUtils {
             Logger.printDebug(() -> "new Authorization loaded: " + newlyLoadedAuthorization);
             Logger.printDebug(() -> "new VisitorId loaded: " + newlyLoadedVisitorId);
         }
-
-        // dataSyncId must match with visitorId.
-        String newlyLoadedDataSyncId = requestHeaders.get(DATA_SYNC_ID_HEADER);
-        if (StringUtils.isNotEmpty(newlyLoadedDataSyncId) && StringUtils.isNotEmpty(newlyLoadedVisitorId)) {
-            dataSyncIdPair = new Pair<>(newlyLoadedDataSyncId, newlyLoadedVisitorId);
-        }
     }
-
-    @Nullable
-    public static Pair<String, String> getDataSyncIdPair() {
-        return dataSyncIdPair;
-    }
-
 
     /**
      * Injection point.

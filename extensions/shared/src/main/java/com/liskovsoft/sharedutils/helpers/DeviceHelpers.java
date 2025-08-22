@@ -1,5 +1,6 @@
 package com.liskovsoft.sharedutils.helpers;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.webkit.CookieManager;
 
@@ -11,10 +12,16 @@ public final class DeviceHelpers {
     public static boolean isWebViewSupported() {
         try {
             CookieManager.getInstance();
-            return true;
+            return !isWebViewBroken();
         } catch (final Throwable ignored) {
             return false;
         }
+    }
+
+    // This value is always false, but is left in for better tracking of the MediaServiceCore module.
+    @SuppressLint("ObsoleteSdkInt")
+    private static boolean isWebViewBroken() {
+        return Build.VERSION.SDK_INT == 19 && isTCL(); // "TCL TV - Harman"
     }
 
     public static boolean isTCL() {

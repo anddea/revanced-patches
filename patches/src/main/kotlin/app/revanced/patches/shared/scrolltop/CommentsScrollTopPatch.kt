@@ -55,7 +55,7 @@ val commentsScrollTopPatch = bytecodePatch(
     execute {
         // Method to find the engagement panel id.
         val (engagementPanelIdMethodCall, engagementPanelMessageClass) =
-            with (engagementPanelIdFingerprint.methodOrThrow()) {
+            with(engagementPanelIdFingerprint.methodOrThrow()) {
                 Pair(methodCall(), parameterTypes.first().toString())
             }
 
@@ -73,12 +73,13 @@ val commentsScrollTopPatch = bytecodePatch(
                 val engagementPanelMessageIndex = indexOfFirstInstructionOrThrow(insertIndex) {
                     getReference<MethodReference>()?.parameterTypes?.firstOrNull() == engagementPanelMessageClass
                 }
-                val engagementPanelMessageRegister = getInstruction<FiveRegisterInstruction>(engagementPanelMessageIndex).let { instruction ->
-                    if (getInstruction(engagementPanelMessageIndex).opcode == Opcode.INVOKE_STATIC)
-                        instruction.registerC
-                    else // YouTube Music 6.20.51
-                        instruction.registerD
-                }
+                val engagementPanelMessageRegister =
+                    getInstruction<FiveRegisterInstruction>(engagementPanelMessageIndex).let { instruction ->
+                        if (getInstruction(engagementPanelMessageIndex).opcode == Opcode.INVOKE_STATIC)
+                            instruction.registerC
+                        else // YouTube Music 6.20.51
+                            instruction.registerD
+                    }
                 val freeRegister = findFreeRegister(insertIndex, false)
 
                 addInstructionsAtControlFlowLabel(

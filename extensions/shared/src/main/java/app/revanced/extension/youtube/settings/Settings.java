@@ -153,17 +153,13 @@ public class Settings extends BaseSettings {
     public static final StringSetting HIDE_VIDEO_VIEW_COUNTS_MULTIPLIER = new StringSetting("revanced_hide_video_view_counts_multiplier", str("revanced_hide_video_view_counts_multiplier_default_value"), true,
             parentsAny(HIDE_VIDEO_BY_VIEW_COUNTS_HOME, HIDE_VIDEO_BY_VIEW_COUNTS_SEARCH, HIDE_VIDEO_BY_VIEW_COUNTS_SUBSCRIPTIONS));
 
-    // Experimental Flags
-    public static final BooleanSetting HIDE_RELATED_VIDEOS = new BooleanSetting("revanced_hide_related_videos", FALSE, true, "revanced_hide_related_videos_user_dialog_message");
-    public static final BooleanSetting HIDE_RELATED_VIDEOS_TYPE = new BooleanSetting("revanced_hide_related_videos_type", FALSE, true, parent(HIDE_RELATED_VIDEOS));
-    public static final IntegerSetting RELATED_VIDEOS_OFFSET = new IntegerSetting("revanced_related_videos_offset", 2, true, parent(HIDE_RELATED_VIDEOS));
-
 
     // PreferenceScreen: General
     public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.ORIGINAL, true);
     public static final BooleanSetting CHANGE_START_PAGE_TYPE = new BooleanSetting("revanced_change_start_page_type", FALSE, true,
             new ChangeStartPagePatch.ChangeStartPageTypeAvailability());
     public static final BooleanSetting DISABLE_AUTO_AUDIO_TRACKS = new BooleanSetting("revanced_disable_auto_audio_tracks", FALSE, new ForceOriginalAudioAvailability());
+    public static final BooleanSetting DISABLE_SIGNIN_TO_TV_POPUP = new BooleanSetting("revanced_disable_signin_to_tv_popup", FALSE);
     public static final BooleanSetting DISABLE_SPLASH_ANIMATION = new BooleanSetting("revanced_disable_splash_animation", PatchStatus.SplashAnimation(), true);
     public static final BooleanSetting ENABLE_GRADIENT_LOADING_SCREEN = new BooleanSetting("revanced_enable_gradient_loading_screen", FALSE, true);
     public static final BooleanSetting HIDE_FLOATING_MICROPHONE = new BooleanSetting("revanced_hide_floating_microphone", TRUE, true);
@@ -172,11 +168,12 @@ public class Settings extends BaseSettings {
 
     public static final EnumSetting<FormFactor> CHANGE_FORM_FACTOR = new EnumSetting<>("revanced_change_form_factor", FormFactor.DEFAULT, true, "revanced_change_form_factor_user_dialog_message");
     public static final BooleanSetting CHANGE_LIVE_RING_CLICK_ACTION = new BooleanSetting("revanced_change_live_ring_click_action", FALSE, true);
-    public static final BooleanSetting DISABLE_LAYOUT_UPDATES = new BooleanSetting("revanced_disable_layout_updates", false, true, "revanced_disable_layout_updates_user_dialog_message");
+    public static final BooleanSetting DISABLE_LAYOUT_UPDATES = new BooleanSetting("revanced_disable_layout_updates", FALSE, true, "revanced_disable_layout_updates_user_dialog_message");
     public static final BooleanSetting DISABLE_TRANSLUCENT_STATUS_BAR = new BooleanSetting("revanced_disable_translucent_status_bar", FALSE, true, "revanced_disable_translucent_status_bar_user_dialog_message");
-    public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version", false, true, "revanced_spoof_app_version_user_dialog_message");
+    public static final BooleanSetting FIX_HYPE_BUTTON_ICON = new BooleanSetting("revanced_fix_hype_button_icon", TRUE, true, "revanced_fix_hype_button_icon_user_dialog_message");
+    public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version", FALSE, true, "revanced_spoof_app_version_user_dialog_message");
     public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target", PatchStatus.SpoofAppVersionDefaultString(), true, parent(SPOOF_APP_VERSION));
-    public static final BooleanSetting FIX_SPOOF_APP_VERSION_SIDE_EFFECT = new BooleanSetting("revanced_fix_spoof_app_version_side_effect", false, true, "revanced_fix_spoof_app_version_side_effect_user_dialog_message");
+    public static final BooleanSetting FIX_SPOOF_APP_VERSION_SIDE_EFFECT = new BooleanSetting("revanced_fix_spoof_app_version_side_effect", FALSE, true, "revanced_fix_spoof_app_version_side_effect_user_dialog_message");
 
     // PreferenceScreen: General - Account menu
     public static final BooleanSetting HIDE_ACCOUNT_MENU = new BooleanSetting("revanced_hide_account_menu", FALSE);
@@ -289,6 +286,10 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_TIMED_REACTIONS = new BooleanSetting("revanced_hide_timed_reactions", TRUE);
     public static final BooleanSetting HIDE_ZOOM_OVERLAY = new BooleanSetting("revanced_hide_zoom_overlay", FALSE, true);
     public static final BooleanSetting SANITIZE_VIDEO_SUBTITLE = new BooleanSetting("revanced_sanitize_video_subtitle", FALSE);
+
+    // Experimental Flags
+    public static final BooleanSetting HIDE_RELATED_VIDEOS = new BooleanSetting("revanced_hide_related_videos", FALSE, true, "revanced_hide_related_videos_user_dialog_message");
+    public static final IntegerSetting RELATED_VIDEOS_OFFSET = new IntegerSetting("revanced_related_videos_offset", 2, true, parent(HIDE_RELATED_VIDEOS));
 
 
     // PreferenceScreen: Player - Action buttons
@@ -746,8 +747,14 @@ public class Settings extends BaseSettings {
         // region Migration initialized
 
         // Old spoof versions that no longer work reliably.
+        boolean spoofAppVersionIncluded = PatchStatus.SpoofAppVersion();
+        if (!spoofAppVersionIncluded && SPOOF_APP_VERSION.get()) {
+            Logger.printInfo(() -> "Resetting spoof app version");
+            SPOOF_APP_VERSION.resetToDefault();
+            SPOOF_APP_VERSION_TARGET.resetToDefault();
+        }
         String spoofAppVersionTarget = SPOOF_APP_VERSION_TARGET.get();
-        if (spoofAppVersionTarget.compareTo(SPOOF_APP_VERSION_TARGET.defaultValue) < 0) {
+        if (spoofAppVersionIncluded && spoofAppVersionTarget.compareTo(SPOOF_APP_VERSION_TARGET.defaultValue) < 0) {
             Utils.showToastShort(str("revanced_spoof_app_version_target_invalid_toast", spoofAppVersionTarget));
             Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
             Logger.printInfo(() -> "Resetting spoof app version target");

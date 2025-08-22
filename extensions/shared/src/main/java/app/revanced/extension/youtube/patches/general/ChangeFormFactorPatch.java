@@ -83,7 +83,7 @@ public class ChangeFormFactorPatch {
             // Do not change if the player is opening or is opened,
             // otherwise the video description cannot be opened.
             PlayerType current = PlayerType.getCurrent();
-            if (current.isMaximizedOrFullscreen() || current == PlayerType.WATCH_WHILE_SLIDING_MINIMIZED_MAXIMIZED) {
+            if (current.isMaximizedOrFullscreenOrSliding()) {
                 Logger.printDebug(() -> "Using original form factor for player");
                 return original;
             }

@@ -26,10 +26,10 @@ internal class PlayerDataExtractor(val jsCode: String?) {
         return nSig
     }
 
-    fun extractSig(signature: String): String? {
-        val nSig = extractSigReal(signature)
+    fun extractSig(sParam: String): String? {
+        val sig = extractSigReal(sParam)
 
-        return nSig
+        return sig
     }
 
     private fun extractNSigReal(nParam: String): String? {
@@ -40,12 +40,12 @@ internal class PlayerDataExtractor(val jsCode: String?) {
         return func(listOf(nParam))
     }
 
-    private fun extractSigReal(signature: String): String? {
+    private fun extractSigReal(sParam: String): String? {
         val funcCode = mSigFuncCode ?: return null
 
         val func = JSInterpret.extractFunctionFromCode(funcCode.first, funcCode.second)
 
-        return func(listOf(signature))
+        return func(listOf(sParam))
     }
 
     private fun fetchAllData() {

@@ -2,7 +2,6 @@ package app.revanced.patches.music.video.playback
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -23,24 +22,19 @@ import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.music.video.information.onCreateHook
 import app.revanced.patches.music.video.information.videoInformationPatch
 import app.revanced.patches.shared.customspeed.customPlaybackSpeedPatch
-import app.revanced.util.findFreeRegister
-import app.revanced.util.findMethodOrThrow
-import app.revanced.util.findMutableClassOrThrow
+import app.revanced.patches.shared.playbackStartParametersConstructorFingerprint
+import app.revanced.patches.shared.playbackStartParametersToStringFingerprint
+import app.revanced.util.*
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
-import app.revanced.util.parametersEqual
+import app.revanced.util.fingerprint.originalMethodOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR =
@@ -105,7 +99,7 @@ val videoPlaybackPatch = bytecodePatch(
         // region patch for default video quality
 
         val videoQualityClass = videoQualityListFingerprint.matchOrThrow().let {
-            with (it.method) {
+            with(it.method) {
                 // set video quality array
                 val listIndex = it.patternMatch!!.startIndex
                 val listRegister = getInstruction<FiveRegisterInstruction>(listIndex).registerD
@@ -116,7 +110,8 @@ val videoPlaybackPatch = bytecodePatch(
                 )
 
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(qualityAuto)
-                val qualityClassIndex = indexOfFirstInstructionReversedOrThrow(literalIndex + 1, Opcode.NEW_INSTANCE)
+                val qualityClassIndex =
+                    indexOfFirstInstructionReversedOrThrow(literalIndex + 1, Opcode.NEW_INSTANCE)
                 getInstruction<ReferenceInstruction>(qualityClassIndex).reference.toString()
             }
         }
@@ -162,64 +157,23 @@ val videoPlaybackPatch = bytecodePatch(
             )
         }
 
-        val (formatStreamModelClass, formatStreamResolutionReference) =
-            availableVideoFormatsFingerprint.matchOrThrow(
-                formatStreamModelBuilderFingerprint
-            ).let {
-                with (it.method) {
-                    val formatStreamIndex = it.patternMatch!!.startIndex + 1
-                    val formatStreamResolutionReference =
-                        getInstruction<ReferenceInstruction>(formatStreamIndex).reference as MethodReference
+        val initialResolutionField =
+            playbackStartParametersToStringFingerprint.originalMethodOrThrow()
+                .findFieldFromToString(", initialPlaybackVideoQualityFixedResolution=")
 
-                    addInstructions(
-                        0,
-                        "invoke-static { p0 }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->setVideoFormat(Ljava/util/List;)V"
-                    )
-
-                    val formatStreamModelClass = formatStreamResolutionReference.definingClass
-
-                    Pair(formatStreamModelClass, formatStreamResolutionReference)
-                }
-            }
-
-        findMethodOrThrow(EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR) {
-            name == "getFormatStreamResolution"
-        }.addInstructions(
-            0, """
-                    check-cast p0, $formatStreamModelClass
-                    invoke-virtual { p0 }, $formatStreamResolutionReference
-                    move-result p0
-                    return p0
-                    """
-        )
-
-        initFormatStreamFingerprint.methodOrThrow(initFormatStreamParentFingerprint)
+        playbackStartParametersConstructorFingerprint
+            .methodOrThrow(playbackStartParametersToStringFingerprint)
             .apply {
-                val preferredFormatStreamIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.IGET_OBJECT &&
-                            getReference<FieldReference>()?.type == formatStreamModelClass
+                val index = indexOfFirstInstructionReversedOrThrow {
+                    opcode == Opcode.IPUT_OBJECT &&
+                            getReference<FieldReference>() == initialResolutionField
                 }
-                val preferredFormatStreamReference =
-                    getInstruction<ReferenceInstruction>(preferredFormatStreamIndex).reference
-                val preferredFormatStreamInstruction =
-                    getInstruction<TwoRegisterInstruction>(preferredFormatStreamIndex)
-                val preferredFormatStreamRegister =
-                    preferredFormatStreamInstruction.registerA
-                val definingClassRegister =
-                    preferredFormatStreamInstruction.registerB
-                val freeRegister =
-                    findFreeRegister(preferredFormatStreamIndex, false, preferredFormatStreamRegister, definingClassRegister)
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
-                addInstructionsWithLabels(
-                    preferredFormatStreamIndex + 1, """
-                        invoke-static { v$preferredFormatStreamRegister }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->getVideoFormat(Ljava/lang/Object;)Ljava/lang/Object;
-                        move-result-object v$preferredFormatStreamRegister
-                        instance-of v$freeRegister, v$preferredFormatStreamRegister, $formatStreamModelClass
-                        if-eqz v$freeRegister, :ignore
-                        check-cast v$preferredFormatStreamRegister, $formatStreamModelClass
-                        iput-object v$preferredFormatStreamRegister, v$definingClassRegister, $preferredFormatStreamReference
-                        :ignore
-                        iget-object v$preferredFormatStreamRegister, v$definingClassRegister, $preferredFormatStreamReference
+                addInstructions(
+                    index, """
+                        invoke-static {v$register}, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->getInitialVideoQuality(Lj${'$'}/util/Optional;)Lj${'$'}/util/Optional;
+                        move-result-object v$register
                         """
                 )
             }
