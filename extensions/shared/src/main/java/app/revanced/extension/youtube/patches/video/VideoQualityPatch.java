@@ -8,10 +8,8 @@ import androidx.annotation.Nullable;
 import com.google.android.libraries.youtube.innertube.model.media.FormatStreamModel;
 import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
 
-import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -23,8 +21,9 @@ import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.utils.VideoUtils;
+import j$.util.Optional;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"rawtypes", "unused", "UnnecessaryBoxing"})
 public class VideoQualityPatch {
 
     /**
@@ -47,20 +46,7 @@ public class VideoQualityPatch {
     private static final IntegerSetting videoQualityMobile = Settings.DEFAULT_VIDEO_QUALITY_MOBILE;
     private static final IntegerSetting videoQualityWifi = Settings.DEFAULT_VIDEO_QUALITY_WIFI;
 
-    private static boolean formatNeedsUpdating;
     private static boolean qualityNeedsUpdating;
-
-    /**
-     * The available formats of the current video.
-     */
-    @Nullable
-    private static List<FormatStreamModel> currentFormats;
-
-    /**
-     * The preferred format.
-     */
-    @Nullable
-    private static FormatStreamModel preferredFormat;
 
     /**
      * The available qualities of the current video.
@@ -168,75 +154,30 @@ public class VideoQualityPatch {
 
     /**
      * Injection point.
-     *
-     * @param formats Formats available, ordered from largest to smallest.
-     */
-    public static void setVideoFormat(List<FormatStreamModel> formats) {
-        try {
-            if (!PatchStatus.VideoPlayback() || !formatNeedsUpdating || CollectionUtils.isEmpty(formats)) {
-                return;
-            }
-            final int preferredQuality = getDefaultQualityResolution();
-            if (preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
-                formatNeedsUpdating = false;
-                return;
-            }
-            if (currentFormats != null
-                    && CollectionUtils.isEqualCollection(currentFormats, formats)) {
-                return;
-            }
-            currentFormats = formats;
-            List<String> videoFormats = new ArrayList<>(formats.size());
-            for (FormatStreamModel format : formats) {
-                final int itag = format.patch_getITag();
-                final String qualityName = format.patch_getQualityName();
-                final int qualityResolution = format.patch_getResolution();
-                videoFormats.add(getQualityNameWithITag(qualityName, itag));
-                if (preferredFormat == null && qualityResolution <= preferredQuality) {
-                    preferredFormat = format;
-                }
-            }
-            Logger.printDebug(() -> "VideoFormats: " + videoFormats);
-        } catch (Exception ex) {
-            Logger.printException(() -> "setVideoFormat failure", ex);
-        }
-    }
-
-    /**
-     * Injection point.
      * <p>
      * Overrides the initial video quality to not follow the 'Video quality preferences' in YouTube settings.
      * (e.g. 'Auto (recommended)' - 360p/480p, 'Higher picture quality' - 720p/1080p...)
-     * Called after {@link #setVideoFormat(List)}.
-     * Called before {@link #setVideoQuality(VideoQuality[], VideoQualityMenuInterface, int)}.
+     * If the maximum video quality available is 1080p and the default video quality is 2160p,
+     * 1080p is used as a initial video quality.
+     * <p>
+     * Called before {@link #newVideoStarted()}.
      */
-    public static FormatStreamModel getVideoFormat(FormatStreamModel format) {
-        if (formatNeedsUpdating && preferredFormat != null && format != null) {
-            try {
-                final String currentQuality = format.patch_getQualityName();
-                final String preferredQuality = preferredFormat.patch_getQualityName();
-                final int currentITag = format.patch_getITag();
-                final int preferredITag = preferredFormat.patch_getITag();
-                final String currentQualityWithITag = getQualityNameWithITag(currentQuality, currentITag);
-                final String preferredQualityWithITag = getQualityNameWithITag(preferredQuality, preferredITag);
-                final boolean qualityNeedsChange = currentITag != preferredITag;
-                Logger.printDebug(() -> qualityNeedsChange
-                        ? "Changing video format from: " + currentQualityWithITag + " to: " + preferredQualityWithITag
-                        : "Video format already has the preferred quality: " + currentQualityWithITag
-                );
-                formatNeedsUpdating = false;
-                return preferredFormat;
-            } catch (Exception ex) {
-                Logger.printException(() -> "getVideoFormat failure", ex);
+    public static Optional getInitialVideoQuality(Optional optional) {
+        if (PatchStatus.VideoPlayback()) {
+            final int preferredQuality = getDefaultQualityResolution();
+            if (preferredQuality != AUTOMATIC_VIDEO_QUALITY_VALUE) {
+                Logger.printDebug(() -> "initialVideoQuality: " + preferredQuality);
+                // In IDE, 'Integer.valueOf()' is marked with unnecessary boxing, but unpatched YouTube uses this method.
+                return Optional.of(Integer.valueOf(preferredQuality));
             }
         }
-        return format;
+        return optional;
     }
 
     /**
      * Injection point.
      *
-     * @param qualities Video qualities available, ordered from largest to smallest, with index 0 being the 'automatic' value of -2
+     * @param qualities            Video qualities available, ordered from largest to smallest, with index 0 being the 'automatic' value of -2
      * @param originalQualityIndex quality index to use, as chosen by YouTube
      */
     public static int setVideoQuality(VideoQuality[] qualities, VideoQualityMenuInterface menu, int originalQualityIndex) {
@@ -310,6 +251,7 @@ public class VideoQualityPatch {
      * Injection point.
      * The old flyout is used in Shorts videos, but is sometimes also used in regular videos:
      * The player flyout opened before JavaScript was executed.
+     *
      * @param userSelectedQualityIndex Element index of {@link #currentQualities}.
      */
     public static void userChangedQualityInOldFlyout(int userSelectedQualityIndex) {
@@ -329,6 +271,7 @@ public class VideoQualityPatch {
 
     /**
      * Injection point.
+     *
      * @param videoResolution Human readable resolution: 480, 720, 1080.
      */
     public static void userChangedQualityInNewFlyout(int videoResolution) {
@@ -346,12 +289,9 @@ public class VideoQualityPatch {
         Utils.verifyOnMainThread();
 
         Logger.printDebug(() -> "newVideoStarted");
-        currentFormats = null;
         currentQualities = null;
         currentQuality = null;
         currentMenuInterface = null;
-        formatNeedsUpdating = true;
-        preferredFormat = null;
         qualityNeedsUpdating = true;
 
         // Hide the quality until playback starts and the qualities are available.
@@ -383,7 +323,7 @@ public class VideoQualityPatch {
                 if (suffixIndex > -1) {
                     int fixedQuality = Integer.parseInt(StringUtils.substring(label, 0, suffixIndex));
                     Logger.printDebug(() -> "Changing wrong quality resolution from: " +
-                            quality + " (" + label + ") to: " + fixedQuality+ " (" + label + ")");
+                            quality + " (" + label + ") to: " + fixedQuality + " (" + label + ")");
                     return fixedQuality;
                 }
             } catch (Exception ex) {
@@ -401,8 +341,9 @@ public class VideoQualityPatch {
      * both '1080p' and '1080p60' appear in the video quality flyout menu.
      * To avoid user confusion, '1080p' is removed when both '1080p' and '1080p60' are available.
      * <p>
-     * @param streams   Format streams available, ordered from largest to smallest.
-     * @return          Patched format streams.
+     *
+     * @param streams Format streams available, ordered from largest to smallest.
+     * @return Patched format streams.
      */
     public static List<FormatStreamModel> removeVideoQualities(List<FormatStreamModel> streams) {
         if (streams != null && streams.size() > 2) {

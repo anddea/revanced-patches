@@ -53,6 +53,7 @@ object DefaultHeaders {
     private const val USER_AGENT_CHROME = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
     private const val USER_AGENT_MOBILE_CHROME_1 = "Mozilla/5.0 (Linux; Android 7.1.2; Redmi 4A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.86 Mobile Safari/537.36"
     private const val USER_AGENT_MOBILE_CHROME_2 = "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.91 Mobile Safari/537.36"
+    private const val USER_AGENT_MOBILE_FIREFOX = "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML; like Gecko) FxiOS/98.2  Mobile/15E148 Safari/605.1.15"
     private const val USER_AGENT_PS_VITA = "Mozilla/5.0 (PlayStation Vita 3.74) AppleWebKit/537.73 (KHTML, like Gecko) Silk/3.2"
     private const val USER_AGENT_ANDROID_1 = "com.google.android.youtube/17.31.35 (Linux; U; Android 11) gzip"
     private const val USER_AGENT_IOS_1 = "com.google.ios.youtube/17.33.2 (iPhone14,3; U; CPU iOS 15_6 like Mac OS X)"
@@ -63,7 +64,7 @@ object DefaultHeaders {
     //const val USER_AGENT_TV = USER_AGENT_ATV_COMBINED // buffering badly even with protobuf params (see videoinfo)
     //const val USER_AGENT_TV = USER_AGENT_FIRE_TV // buffering???
     const val USER_AGENT_WEB = USER_AGENT_CHROME
-    const val USER_AGENT_MOBILE_WEB = USER_AGENT_PS_VITA
+    const val USER_AGENT_MOBILE_WEB = USER_AGENT_MOBILE_FIREFOX
     const val USER_AGENT_ANDROID = USER_AGENT_ANDROID_1
     const val USER_AGENT_IOS = USER_AGENT_IOS_2
 

@@ -33,7 +33,7 @@
     <string name="revanced_change_share_sheet_title">공유 시트 변경</string>
     <string name="revanced_change_start_page_entry_chart">차트</string>
     <string name="revanced_change_start_page_entry_charts">차트</string>
-    <string name="revanced_change_start_page_entry_default">홈 (기본값)</string>
+    <string name="revanced_change_start_page_entry_default">기본값</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">나중에 감상할 에피소드</string>
     <string name="revanced_change_start_page_entry_explore">둘러보기</string>
     <string name="revanced_change_start_page_entry_history">기록</string>
@@ -163,7 +163,7 @@
     <string name="revanced_extended_settings_import_reset">설정을 기본값으로 초기화합니다.</string>
     <string name="revanced_extended_settings_import_success">%d 설정을 가져왔습니다.</string>
     <string name="revanced_extended_settings_reset">초기화</string>
-    <string name="revanced_extended_settings_title">RVX Music 설정</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"오프라인 저장 버튼으로 외부 다운로더 앱을 실행할 수 있습니다.
 
 • 플레이어 하단에 있는 오프라인 저장 버튼만 재정의할 수 있습니다.
@@ -173,7 +173,7 @@
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 가 설치되어 있지 않습니다.
 웹사이트에서 %2$s 를 다운로드하세요."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">경고</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s 가 설치되지 않았습니다. 설치해주세요.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s 가 설치되지 않았습니다. 설치하세요.</string>
     <string name="revanced_external_downloader_package_name_summary">NewPipe 또는 YTDLnis와 같은 설치된 외부 다운로더 앱 패키지명입니다.</string>
     <string name="revanced_external_downloader_package_name_title">외부 다운로더 앱 패키지명</string>
     <string name="revanced_fullscreen_ads_closed_toast">전체 화면 광고가 닫아졌습니다.</string>
@@ -291,8 +291,8 @@
     <string name="revanced_hide_premium_promotion_title">Premium 프로모션 팝업 제거</string>
     <string name="revanced_hide_premium_renewal_summary">Premium 갱신 배너를 숨깁니다.</string>
     <string name="revanced_hide_premium_renewal_title">Premium 갱신 배너 제거</string>
-    <string name="revanced_hide_promotion_alert_banner_summary">Premium 프로모션 알림 배너를 숨깁니다.</string>
-    <string name="revanced_hide_promotion_alert_banner_title">Premium 프로모션 알림 배너 제거</string>
+    <string name="revanced_hide_promotion_alert_banner_summary">프로모션 알림 배너를 숨깁니다.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">프로모션 알림 배너 제거</string>
     <string name="revanced_hide_samples_shelf_summary">피드에서 샘플 선반을 숨깁니다.</string>
     <string name="revanced_hide_samples_shelf_title">샘플 선반 제거</string>
     <string name="revanced_hide_search_button_summary">툴바에서 검색 버튼을 숨깁니다.</string>
@@ -412,7 +412,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_ryd_enabled_title">Return YouTube Dislike 활성화</string>
     <string name="revanced_ryd_estimated_like_summary">좋아요 수가 숨겨진 음악에서 추정되는 좋아요 수를 표시합니다.</string>
     <string name="revanced_ryd_estimated_like_title">추정되는 좋아요 수 표시</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 수를 표시할 수 없습니다. (클라이언트 API 제한 도달)</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 수를 표시할 수 없습니다 (클라이언트 API 제한 도달).</string>
     <string name="revanced_ryd_failure_connection_status_code">싫어요 수를 표시할 수 없습니다 (상태 코드: %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">싫어요 수를 일시적으로 표시할 수 없습니다 (응답 시간 초과).</string>
     <string name="revanced_ryd_failure_generic">싫어요 수를 표시할 수 없습니다 (%s).</string>
@@ -493,14 +493,15 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_spoof_app_version_title">앱 버전 변경</string>
     <string name="revanced_spoof_client_summary">"클라이언트를 변경하여 재생 문제를 방지할 수 있습니다.
 
-이 기능이 활성화되어 있으면 '플레이어 매개변수 변경하기'를 비활성화할 수 있습니다.
-
 부작용:
-• 플레이어 메뉴 구성요소가 제대로 표시되지 않을 수 있습니다."</string>
+• YouTube Music 7.17+에서는 동작 버튼이 항상 숨겨져 있을 수 있습니다.
+• 플레이어 메뉴 구성요소가 제대로 표시되지 않을 수 있습니다.
+• 이러한 부작용은 앱 데이터를 지우고 다시 로그인하면 해결될 수 있습니다."</string>
     <string name="revanced_spoof_client_title">클라이언트 변경</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_summary">클라이언트 변경에 대한 기본 클라이언트를 정의할 수 있습니다.</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_client_type_summary">클라이언트를 변경하기 위한 기본 클라이언트를 정의할 수 있습니다.</string>
     <string name="revanced_spoof_client_type_title">기본 클라이언트</string>
     <string name="revanced_spoof_player_parameter_summary">"플레이어 매개변수를 변경하여 재생 문제를 방지할 수 있습니다.
 
@@ -513,10 +514,23 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
 
 • '클라이언트 변경'과 함께 사용할 경우에 재생 문제가 발생할 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_title">스트리밍 데이터 변경</string>
-    <string name="revanced_watch_history_type_entry_1">기본값</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32">Android VR 1.43.32</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09">Android VR 1.65.09</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">동영상 스트림을 변경하기 위한 기본 클라이언트를 정의할 수 있습니다.</string>
+    <string name="revanced_spoof_video_streams_default_client_title">기본 클라이언트</string>
+    <string name="revanced_spoof_video_streams_summary">"클라이언트 동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다.
+
+부작용:
+• VPN 또는 DNS를 사용할 경우에 앱이 강제로 종료될 수 있습니다.
+• 적응형 비트레이트 스트리밍 클라이언트 (Android VR 1.43.32 이외의 모든 클라이언트)를 사용하는 경우에 오디오 재생이 간헐적으로 끊길 수 있습니다."</string>
+    <string name="revanced_spoof_video_streams_title">동영상 스트림 변경</string>
+    <string name="revanced_watch_history_type_entry_1">원본</string>
     <string name="revanced_watch_history_type_entry_2">도메인 변경</string>
     <string name="revanced_watch_history_type_entry_3">검색 기록 차단</string>
-    <string name="revanced_watch_history_type_summary">"• 기본값: Google 계정의 시청 기록 설정을 따르지만 DNS 또는 VPN으로 인하여 시청 기록이 작동되지 않을 수 있습니다.
+    <string name="revanced_watch_history_type_summary">"• 원본: Google 계정의 시청 기록 설정을 따르지만 DNS 또는 VPN으로 인하여 시청 기록이 작동되지 않을 수 있습니다.
 • 도메인 변경: Google 계정의 시청 기록 설정을 따릅니다.
 • 시청 기록 차단: 시청 기록이 차단됩니다."</string>
     <string name="revanced_watch_history_type_title">시청 기록 유형</string>

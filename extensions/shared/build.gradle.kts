@@ -1,9 +1,11 @@
-extension {
-    name = "extensions/shared.rve"
-}
+import java.lang.Boolean.TRUE
 
 plugins {
     alias(libs.plugins.protobuf)
+}
+
+extension {
+    name = "extensions/shared.rve"
 }
 
 android {
@@ -40,6 +42,8 @@ dependencies {
     implementation(libs.lang3)
     implementation(libs.nanojson)
     implementation(libs.okhttp3)
+    implementation(libs.protobuf.javalite)
+
     implementation(libs.regex)
     implementation(libs.retrofit)
     //noinspection UseTomlInstead
@@ -57,7 +61,6 @@ protobuf {
     protoc {
         artifact = libs.protobuf.protoc.get().toString()
     }
-
     generateProtoTasks {
         all().forEach { task ->
             task.builtins {

@@ -35,7 +35,10 @@ val trendingTodayShelfPatch = bytecodePatch(
             it.method.apply {
                 val stringIndex = it.stringMatches!!.first().index
                 val relativeIndex = indexOfFirstInstructionReversedOrThrow(Opcode.AND_INT_LIT8)
-                val insertIndex = indexOfFirstInstructionReversedOrThrow(relativeIndex + 1, Opcode.MOVE_OBJECT_FROM16)
+                val insertIndex = indexOfFirstInstructionReversedOrThrow(
+                    relativeIndex + 1,
+                    Opcode.MOVE_OBJECT_FROM16
+                )
                 val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
                 val jumpOpcode = if (returnType == "V") Opcode.RETURN_VOID else Opcode.SGET_OBJECT
                 val jumpIndex = indexOfFirstInstructionReversedOrThrow(jumpOpcode)

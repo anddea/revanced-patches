@@ -8,7 +8,6 @@ import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.cre
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
 import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_CATEGORY
 import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_PLAYLIST_ENDPOINT
-import app.revanced.extension.shared.innertube.utils.AuthUtils
 import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.Utils
@@ -26,12 +25,14 @@ import java.util.concurrent.TimeoutException
 
 class MusicRequest private constructor(
     private val videoId: String,
-    private val checkCategory: Boolean
+    private val checkCategory: Boolean,
+    private val requestHeader: Map<String, String>,
 ) {
     private val future: Future<Boolean> = Utils.submitOnBackgroundThread {
         fetch(
             videoId,
             checkCategory,
+            requestHeader,
         )
     }
 
@@ -75,11 +76,19 @@ class MusicRequest private constructor(
 
         @JvmStatic
         @SuppressLint("ObsoleteSdkInt")
-        fun fetchRequestIfNeeded(videoId: String, checkCategory: Boolean) {
+        fun fetchRequestIfNeeded(
+            videoId: String,
+            checkCategory: Boolean,
+            requestHeader: Map<String, String>,
+        ) {
             Objects.requireNonNull(videoId)
             synchronized(cache) {
                 if (!cache.containsKey(videoId)) {
-                    cache[videoId] = MusicRequest(videoId, checkCategory)
+                    cache[videoId] = MusicRequest(
+                        videoId,
+                        checkCategory,
+                        requestHeader
+                    )
                 }
             }
         }
@@ -212,18 +221,20 @@ class MusicRequest private constructor(
 
                 val navigationEndpointJsonObject =
                     currentStreamJsonObject
-                    .getJSONObject("playlistPanelVideoRenderer")
-                    .getJSONObject("navigationEndpoint")
+                        .getJSONObject("playlistPanelVideoRenderer")
+                        .getJSONObject("navigationEndpoint")
 
                 val watchEndpointJsonObject: JSONObject? =
                     if (clientType == ClientType.ANDROID
-                        && navigationEndpointJsonObject.has("coWatchWatchEndpointWrapperCommand")) { // Android
+                        && navigationEndpointJsonObject.has("coWatchWatchEndpointWrapperCommand")
+                    ) { // Android
                         navigationEndpointJsonObject
                             .getJSONObject("coWatchWatchEndpointWrapperCommand")
                             .getJSONObject("watchEndpoint")
                             .getJSONObject("watchEndpoint")
                     } else if (clientType == ClientType.ANDROID_VR
-                        && navigationEndpointJsonObject.has("watchEndpoint")) { // Android VR
+                        && navigationEndpointJsonObject.has("watchEndpoint")
+                    ) { // Android VR
                         navigationEndpointJsonObject
                             .getJSONObject("watchEndpoint")
                     } else {
@@ -263,7 +274,11 @@ class MusicRequest private constructor(
             return false
         }
 
-        private fun fetch(videoId: String, checkCategory: Boolean): Boolean {
+        private fun fetch(
+            videoId: String,
+            checkCategory: Boolean,
+            requestHeader: Map<String, String>,
+        ): Boolean {
             if (checkCategory) {
                 val microFormatJson = sendWebRequest(videoId)
                 if (microFormatJson != null) {
@@ -274,7 +289,7 @@ class MusicRequest private constructor(
                     val playlistJson = sendApplicationRequest(
                         clientType,
                         videoId,
-                        AuthUtils.getRequestHeader()
+                        requestHeader
                     )
                     if (playlistJson != null) {
                         return parseApplicationResponse(clientType, playlistJson)

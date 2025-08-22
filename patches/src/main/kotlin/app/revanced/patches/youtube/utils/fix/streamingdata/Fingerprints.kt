@@ -98,12 +98,15 @@ internal val createStreamingDataParentFingerprint = legacyFingerprint(
     strings = listOf("Invalid playback type; streaming data is not playable"),
 )
 
-internal val nerdsStatsFormatBuilderFingerprint = legacyFingerprint(
-    name = "nerdsStatsFormatBuilderFingerprint",
-    returnType = "Ljava/lang/String;",
+internal val getEmptyRegistryFingerprint = legacyFingerprint(
+    name = "getEmptyRegistryFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("L"),
-    strings = listOf("codecs=\""),
+    parameters = emptyList(),
+    returnType = "Lcom/google/protobuf/ExtensionRegistryLite;",
+    customFingerprint = { method, classDef ->
+        classDef.type == "Lcom/google/protobuf/ExtensionRegistryLite;"
+                && method.name != "getGeneratedRegistry"
+    },
 )
 
 internal val protobufClassParseByteBufferFingerprint = legacyFingerprint(
@@ -153,6 +156,15 @@ internal val videoStreamingDataToStringFingerprint = legacyFingerprint(
     customFingerprint = { method, _ ->
         method.name == "toString"
     },
+)
+
+
+internal val nerdsStatsFormatBuilderFingerprint = legacyFingerprint(
+    name = "nerdsStatsFormatBuilderFingerprint",
+    returnType = "Ljava/lang/String;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = listOf("L"),
+    strings = listOf("codecs=\""),
 )
 
 internal const val HLS_CURRENT_TIME_FEATURE_FLAG = 45355374L

@@ -131,6 +131,7 @@
     <string name="revanced_change_start_page_entry_fashion">Μόδα &amp; ομορφιά</string>
     <string name="revanced_change_start_page_entry_gaming">Παιχνίδια</string>
     <string name="revanced_change_start_page_entry_history">Ιστορικό</string>
+    <string name="revanced_change_start_page_entry_hype">Hype</string>
     <string name="revanced_change_start_page_entry_library">Βιβλιοθήκη</string>
     <string name="revanced_change_start_page_entry_liked_videos">Βίντεο που σας αρέσουν</string>
     <string name="revanced_change_start_page_entry_live">Live</string>
@@ -310,6 +311,9 @@
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Το εφέ κίνησης πάνω από το κουμπί «Μου αρέσει» είναι ενεργοποιημένο.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Το εφέ κίνησης πάνω από το κουμπί «Μου αρέσει» είναι απενεργοποιημένο.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Απενεργοποίηση εφέ κουμπιού «Μου αρέσει»</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">Το αναδυόμενο παράθυρο σύνδεσης στην τηλεόραση είναι ενεργοποιημένο.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">Το αναδυόμενο παράθυρο σύνδεσης στην τηλεόραση είναι απενεργοποιημένο.</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">Απενεργοποίηση αναδυόμενου παραθύρου σύνδεσης στην τηλεόραση</string>
     <string name="revanced_disable_speed_overlay_summary">"Απενεργοποίηση του «Παίζοντας με 2x ταχύτητα» κατά το παρατεταμένο πάτημα.
 
 Σημειώσεις: 
@@ -483,6 +487,16 @@
     <string name="revanced_external_downloader_package_name_playlist_title">Όνομα πακέτου εφαρμογής λήψης λίστας αναπαραγωγής</string>
     <string name="revanced_external_downloader_package_name_video_summary">Όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης (π.χ NewPipe, YTLDnis).</string>
     <string name="revanced_external_downloader_package_name_video_title">Όνομα πακέτου εφαρμογής λήψης βίντεο</string>
+    <string name="revanced_fix_hype_button_icon_summary_off">Το εικονίδιο του κουμπί «Hype» δεν εμφανίζεται.</string>
+    <string name="revanced_fix_hype_button_icon_summary_on">Το εικονίδιο του κουμπί «Hype» εμφανίζεται.</string>
+    <string name="revanced_fix_hype_button_icon_title">Διόρθωση εικονιδίου κουμπιού Hype</string>
+    <string name="revanced_fix_hype_button_icon_user_dialog_message">"Στην έκδοση YouTube 19.25.39 ή παλιότερη, το εικονίδιο του κουμπιού «Hype» δεν εμφανίζεται στη γραμμή ενεργειών και στον πίνακα περιγραφής του βίντεο.
+
+Για να λυθεί αυτό, η έκδοση εφαρμογής παραποιείται σε 19.26.42 στα endpoint '/get_watch' και '/next' του YouTube.
+
+Αν απενεργοποιηθεί αυτή η ρύθμιση, το εικονίδιο του κουμπιού «Hype» ενδέχεται να μην εμφανίζεται στη γραμμή ενεργειών και στον πίνακα περιγραφής του βίντεο.
+
+※ Ακόμη κι αν αυτή η ρύθμιση είναι απενεργοποιημένη, το κουμπί «Hype» ενδέχεται να εμφανίζεται."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_off">Χρησιμοποιείται η ρύθμιση «Αναπαραγωγή» αντί για τη ρύθμιση «Αυτόματη αναπαραγωγή» στις ρυθμίσεις του YouTube.</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"Χρησιμοποιείται η ρύθμιση «Αυτόματη αναπαραγωγή» αντί για τη ρύθμιση «Αναπαραγωγή» στις ρυθμίσεις του YouTube."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_title">Διόρθωση παρενέργειας παραποίησης έκδοσης εφαρμογής</string>
@@ -537,6 +551,17 @@
     <string name="revanced_hide_autoplay_preview_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Κρυμμένη.</string>
     <string name="revanced_hide_autoplay_preview_title">Προεπισκόπηση αυτόματης αναπαραγωγής επόμενου βίντεο</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Παραδείγματα ενοτήτων καρουζέλ προτάσεων:&lt;br&gt;&lt;br&gt;&lt;b&gt;Έκτακτη είδηση&lt;/b&gt;, &lt;b&gt;Συνέχεια παρακολούθησης&lt;/b&gt;, &lt;b&gt;Εξερευνήστε περισσότερα κανάλια&lt;/b&gt;, &lt;b&gt;Ακούστε ξανά&lt;/b&gt;, &lt;b&gt;Πιο σχετικά&lt;/b&gt;, &lt;b&gt;Shopping&lt;/b&gt;, &lt;b&gt;Παρακολουθήστε ξανά&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_title">Σχετικά με την ενότητα καρουζέλ προτάσεων</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_off">Εμφανίζεται.</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_on">Κρυμμένη.</string>
+    <string name="revanced_hide_carousel_shelf_home_title">Ενότητα καρουζέλ προτάσεων στην καρτέλα «Αρχική» και στα σχετικα βίντεο</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_off">Εμφανίζεται.</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_on">Κρυμμένη.</string>
+    <string name="revanced_hide_carousel_shelf_search_title">Ενότητα καρουζέλ προτάσεων στα αποτελέσματα αναζήτησης</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_off">Εμφανίζεται.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_on">Κρυμμένη.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_title">Ενότητα καρουζέλ προτάσεων στην καρτέλα «Εγγραφές»</string>
     <string name="revanced_hide_carousel_shelf_summary">"Απόκρυψη ενοτήτων όπως:
 • Έκτακτη είδηση
 • Συνέχεια παρακολούθησης
@@ -702,8 +727,8 @@ Playlists
     <string name="revanced_hide_handle_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_handle_summary_on">Κρυμμένα.</string>
     <string name="revanced_hide_handle_title">Ψευδώνυμο &amp; διεύθυνση e-mail</string>
-    <string name="revanced_hide_hype_button_summary_off">Εμφανίζεται</string>
-    <string name="revanced_hide_hype_button_summary_on">Κρυμμένο</string>
+    <string name="revanced_hide_hype_button_summary_off">Εμφανίζεται.</string>
+    <string name="revanced_hide_hype_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_hype_button_title">Κουμπί «Hype»</string>
     <string name="revanced_hide_image_search_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_image_search_button_summary_on">Κρυμμένο.</string>
@@ -968,18 +993,12 @@ Playlists
     <string name="revanced_hide_related_videos_overlay_title">Σχετικά βίντεο</string>
     <string name="revanced_hide_related_videos_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_related_videos_summary_on">Κρυμμένα.</string>
-    <string name="revanced_hide_related_videos_title">Περισσότερα βίντεο</string>
-    <string name="revanced_hide_related_videos_type_summary_off">"Ο αριθμός των διατάξεων που φορτώνονται στην οθόνη δεν απομνημονεύονται όταν ξεκινά το βίντεο.
-
-• Η θέση κύλισης της ροής ενδέχεται να επαναφέρεται."</string>
-    <string name="revanced_hide_related_videos_type_summary_on">"Ο αριθμός των διατάξεων που φορτώνονται στην οθόνη απομνημονεύονται όταν ξεκινά το βίντεο.
-
-• Διορθώνει μερικώς ένα πρόβλημα όπου επαναφέρεται η θέση κύλισης της ροής.
-• Τα σχετικά βίντεο ενδέχεται να μη φιλτραριστούν εντελώς."</string>
-    <string name="revanced_hide_related_videos_type_title">Τύπου απόκρυψης σχετικών βίντεο</string>
+    <string name="revanced_hide_related_videos_title">Σχετικά βίντεο</string>
     <string name="revanced_hide_related_videos_user_dialog_message">"Αυτή η ρύθμιση περιορίζει τον μέγιστο αριθμό διατάξεων που μπορούν να εμφανιστούν στην οθόνη αναπαραγωγής.
 
-Στην περίπτωση που η διεπαφή της οθόνης αναπαραγωγής αλλάξει λόγω αλλαγών από πλευράς του διακομιστή, ορισμένες διατάξεις της ενδέχεται να είναι κρυμμένες χωρίς να είναι επιθυμητό."</string>
+Αν κάποια σχετικά βίντεο εξακολουθούν να εμφανίζονται, ή γίνεται απόκρυψη στοιχείων που δε θα έπρεπε, όπως η γραμμή ενεργειών ή η ενότητα σχολίων, η αλλαγή της μετατόπισης μπορεί να διορθώσει το πρόβλημα.
+
+Στην περίπτωση που η διάταξη της οθόνης αναπαραγωγής αλλάξει λόγω αλλαγών από πλευράς του διακομιστή, ενδέχεται να γίνει απόκρυψη ορισμένων στοιχείων χωρίς να είναι επιθυμητό."</string>
     <string name="revanced_hide_remix_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_remix_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_remix_button_title">Κουμπί «Remix»</string>
@@ -1275,7 +1294,7 @@ Playlists
     <string name="revanced_hide_video_by_view_counts_about_summary">"Οι καρτέλες «Αρχική», «Εγγραφές» και τα αποτελέσματα αναζήτησης φιλτράρονται για απόκρυψη βίντεο με προβολές λιγότερες ή περισσότερες από τον καθορισμένο σας αριθμό.
 
 Περιορισμοί:
-• Τα Shorts δε φιλτράρονται.
+• Οι ζωντανές μεταδόσεις και τα Shorts δε φιλτράρονται.
 • Τα βίντεο με 0 προβολές δε φιλτράρονται."</string>
     <string name="revanced_hide_video_by_view_counts_about_title">Σχετικά με το φιλτράρισμα με βάση τον αριθμό προβολών</string>
     <string name="revanced_hide_video_by_view_counts_home_summary_off">Τα βίντεο στην αρχική ροή δε φιλτράρονται με βάση τον αριθμό προβολών.</string>
@@ -1619,6 +1638,8 @@ Playlists
     <string name="revanced_preference_screen_alt_thumbnails_title">Εναλλακτικές μικρογραφίες</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Παράκαμψη περιορισμών λειτουργίας περιβάλλοντος ή απενεργοποίηση της.</string>
     <string name="revanced_preference_screen_ambient_mode_title">Λειτουργία περιβάλλοντος</string>
+    <string name="revanced_preference_screen_carousel_shelf_summary">Απόκρυψη ή εμφάνιση της ενότητας καρουζέλ προτάσεων στην αρχική καρτέλα, στα αποτελέσματα αναζήτησης και στην καρτέλα εγγραφών.</string>
+    <string name="revanced_preference_screen_carousel_shelf_title">Ενότητα καρουζέλ προτάσεων</string>
     <string name="revanced_preference_screen_category_bar_summary">Απόκρυψη ή εμφάνιση της γραμμής κατηγοριών στις ροές, στα σχετικά βίντεο, στα αποτελέσματα αναζήτησης και στο ιστορικό παρακολούθησης.</string>
     <string name="revanced_preference_screen_category_bar_title">Γραμμή κατηγοριών</string>
     <string name="revanced_preference_screen_channel_bar_summary">Απόκρυψη ή εμφάνιση στοιχείων της γραμμής καναλιών κάτω από τα βίντεο.</string>

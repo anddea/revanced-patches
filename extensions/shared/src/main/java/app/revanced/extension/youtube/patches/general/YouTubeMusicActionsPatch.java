@@ -9,7 +9,7 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.utils.ExtendedUtils;
 import app.revanced.extension.youtube.utils.VideoUtils;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"deprecation", "unused"})
 public final class YouTubeMusicActionsPatch extends VideoUtils {
 
     private static final String PACKAGE_NAME_YOUTUBE_MUSIC = "com.google.android.apps.youtube.music";

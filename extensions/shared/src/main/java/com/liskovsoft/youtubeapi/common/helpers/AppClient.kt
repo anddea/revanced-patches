@@ -24,7 +24,7 @@ internal enum class AppClient(
     val clientName: String, val clientVersion: String, val innerTubeName: Int, val userAgent: String, val referer: String?,
     val clientScreen: String = CLIENT_SCREEN_WATCH, val params: String? = null, val postData: String? = null, val postDataBrowse: String? = null
 ) {
-    // Doesn't support 8AEB param if X-Goog-Pageid is set!
+    // Doesn't support 8AEB2AMB param if X-Goog-Pageid is set!
     TV("TVHTML5", "7.20250714.16.00", 7, userAgent = DefaultHeaders.USER_AGENT_TV,
         referer = "https://www.youtube.com/tv", postDataBrowse = POST_DATA_BROWSE_TV),
     TV_LEGACY(TV, postDataBrowse = POST_DATA_BROWSE_TV_LEGACY),
@@ -35,8 +35,9 @@ internal enum class AppClient(
         referer = "https://www.youtube.com/tv", postDataBrowse = POST_DATA_BROWSE_TV),
     TV_KIDS("TVHTML5_KIDS", "3.20231113.03.00", -1, userAgent = DefaultHeaders.USER_AGENT_TV,
         referer = "https://www.youtube.com/tv/kids", postDataBrowse = POST_DATA_BROWSE_TV),
+    // 8AEB2AMB - web client premium formats?
     WEB("WEB", "2.20250312.04.00", 1, userAgent = DefaultHeaders.USER_AGENT_WEB,
-        referer = "https://www.youtube.com/", params = "8AEB"), // 8AEB - premium formats?
+        referer = "https://www.youtube.com/"),
     // Use WEB_EMBEDDED_PLAYER instead of WEB. Some videos have 403 error on WEB.
     WEB_EMBED("WEB_EMBEDDED_PLAYER", "1.20250310.01.00", 56, userAgent = DefaultHeaders.USER_AGENT_WEB,
         referer = "https://www.youtube.com/"),
@@ -45,10 +46,9 @@ internal enum class AppClient(
         referer = "https://www.youtube.com/"),
     WEB_REMIX("WEB_REMIX", "1.20240819.01.00", 67, userAgent = DefaultHeaders.USER_AGENT_WEB,
         referer = "https://music.youtube.com/"),
-    // 8AEB - premium formats?
     WEB_SAFARI("WEB", "2.20250312.04.00", 1, userAgent = DefaultHeaders.USER_AGENT_SAFARI,
-        referer = "https://www.youtube.com/", params = "8AEB"),
-    MWEB("MWEB", "2.20250812.01.00", 2, userAgent = DefaultHeaders.USER_AGENT_MOBILE_WEB,
+        referer = "https://www.youtube.com/"),
+    MWEB("MWEB", "2.20250819.01.00", 2, userAgent = DefaultHeaders.USER_AGENT_MOBILE_WEB,
         referer = "https://m.youtube.com/"),
     ANDROID("ANDROID", "19.26.37", 3, userAgent = DefaultHeaders.USER_AGENT_ANDROID,
         referer = null, postData = String.format(POST_DATA_ANDROID, 30)),
@@ -56,7 +56,7 @@ internal enum class AppClient(
         referer = "https://www.youtube.com/"),
     IOS("IOS", "19.29.1", 5, userAgent = DefaultHeaders.USER_AGENT_IOS, referer = null,
         postData = String.format(POST_DATA_IOS, "iPhone16,2", "17.5.1.21F90")),
-    INITIAL(TV);
+    INITIAL(WEB);
 
     constructor(baseClient: AppClient, postData: String? = null, postDataBrowse: String? = null): this(baseClient.clientName, baseClient.clientVersion,
         baseClient.innerTubeName, baseClient.userAgent, baseClient.referer, baseClient.clientScreen, baseClient.params,
@@ -71,8 +71,8 @@ internal enum class AppClient(
         browserName, browserVersion, (postData ?: "")) }
 
     fun isAuthSupported() = this == TV || this == TV_LEGACY || this == TV_EMBED || this == TV_KIDS // NOTE: TV_SIMPLE doesn't support auth
-    fun isPotSupported() = this == WEB || this == MWEB || this == WEB_EMBED || this == ANDROID_VR
-    fun isPlayerQueryBroken() = this == WEB_CREATOR || this == WEB_REMIX || this == ANDROID_VR // TODO: Try to fix them?
+    fun isPotSupported() = this == WEB || this == MWEB || this == WEB_EMBED
+    fun isPlayerQueryBroken() = this == INITIAL || this == WEB || this == WEB_CREATOR || this == WEB_REMIX || this == WEB_SAFARI || this == ANDROID_VR // TODO: Try to fix them?
 
     private fun extractBrowserInfo(userAgent: String): Pair<String, String> {
         // Include Shorts: "browserName":"Cobalt"

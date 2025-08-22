@@ -3,24 +3,18 @@ package app.revanced.patches.youtube.general.spoofappversion
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.spoof.appversion.baseSpoofAppVersionPatch
 import app.revanced.patches.youtube.utils.CAIRO_FRAGMENT_FEATURE_FLAG
 import app.revanced.patches.youtube.utils.cairoFragmentConfigFingerprint
-import app.revanced.patches.youtube.utils.settingsFragmentSyntheticFingerprint
-import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.indexOfGetDrawableInstruction
 import app.revanced.patches.youtube.utils.patch.PatchList.SPOOF_APP_VERSION
-import app.revanced.patches.youtube.utils.playservice.is_18_34_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_18_39_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_18_49_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_19_01_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_26_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_28_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_29_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
@@ -29,7 +23,9 @@ import app.revanced.patches.youtube.utils.resourceid.settingsFragment
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.cairoFragmentDisabled
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.patches.youtube.utils.settingsFragmentSyntheticFingerprint
 import app.revanced.patches.youtube.utils.toolBarButtonFingerprint
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.appendAppVersion
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
@@ -53,22 +49,13 @@ private val spoofAppVersionBytecodePatch = bytecodePatch(
     )
 
     execute {
+        if (!is_19_26_or_greater) {
+            return@execute
+        }
+
         findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
             name == "SpoofAppVersion"
         }.returnEarly(true)
-
-        if (is_19_01_or_greater) {
-            findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
-                name == "SpoofAppVersionDefaultString"
-            }.replaceInstruction(
-                0,
-                "const-string v0, \"19.01.34\""
-            )
-        }
-
-        if (!is_19_23_or_greater) {
-            return@execute
-        }
 
         /**
          * When spoofing the app version to YouTube 19.20.xx or earlier via Spoof app version on YouTube 19.23.xx+, the Library tab will crash.
@@ -126,7 +113,13 @@ val spoofAppVersionPatch = resourcePatch(
     SPOOF_APP_VERSION.title,
     SPOOF_APP_VERSION.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(
+        YOUTUBE_PACKAGE_NAME(
+            "19.43.41",
+            "19.44.39",
+            "19.47.53",
+        ),
+    )
 
     dependsOn(
         baseSpoofAppVersionPatch("$GENERAL_CLASS_DESCRIPTOR->getVersionOverride(Ljava/lang/String;)Ljava/lang/String;"),
@@ -136,6 +129,10 @@ val spoofAppVersionPatch = resourcePatch(
     )
 
     execute {
+        if (!is_19_26_or_greater) {
+            printWarn("\"${SPOOF_APP_VERSION.title}\" is not supported in this version. Use YouTube 19.43.41 or later.")
+            return@execute
+        }
 
         var settingArray = arrayOf(
             "PREFERENCE_SCREEN: GENERAL",
@@ -151,31 +148,6 @@ val spoofAppVersionPatch = resourcePatch(
             settingArray,
             SPOOF_APP_VERSION
         )
-
-        // TODO: Remove this when the legacy code for YouTube 18.xx is cleaned up.
-        if (!is_19_01_or_greater) {
-            appendAppVersion("17.41.37")
-            appendAppVersion("18.05.40")
-            appendAppVersion("18.17.43")
-
-            if (is_18_34_or_greater) {
-                appendAppVersion("18.33.40")
-            } else {
-                return@execute
-            }
-
-            if (is_18_39_or_greater) {
-                appendAppVersion("18.38.45")
-            } else {
-                return@execute
-            }
-
-            if (is_18_49_or_greater) {
-                appendAppVersion("18.48.39")
-            }
-
-            return@execute
-        }
 
         appendAppVersion("19.01.34")
 

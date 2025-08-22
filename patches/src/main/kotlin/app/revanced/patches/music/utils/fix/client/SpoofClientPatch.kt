@@ -2,6 +2,7 @@ package app.revanced.patches.music.utils.fix.client
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
@@ -10,16 +11,24 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.music.utils.extension.Constants.SPOOF_PATH
 import app.revanced.patches.music.utils.playbackRateBottomSheetClassFingerprint
 import app.revanced.patches.music.utils.playbackSpeedBottomSheetFingerprint
+import app.revanced.patches.music.utils.playservice.is_6_36_or_greater
 import app.revanced.patches.music.utils.resourceid.varispeedUnavailableTitle
+import app.revanced.patches.shared.CLIENT_INFO_CLASS_DESCRIPTOR
+import app.revanced.patches.shared.clientTypeFingerprint
+import app.revanced.patches.shared.createPlayerRequestBodyFingerprint
 import app.revanced.patches.shared.createPlayerRequestBodyWithModelFingerprint
 import app.revanced.patches.shared.indexOfBrandInstruction
+import app.revanced.patches.shared.indexOfClientInfoInstruction
 import app.revanced.patches.shared.indexOfManufacturerInstruction
 import app.revanced.patches.shared.indexOfModelInstruction
 import app.revanced.patches.shared.indexOfReleaseInstruction
+import app.revanced.util.findFieldFromToString
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
+import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
+import app.revanced.util.fingerprint.originalMethodOrThrow
 import app.revanced.util.fingerprint.resolvable
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
@@ -43,8 +52,6 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$SPOOF_PATH/SpoofClientPatch;"
-private const val CLIENT_INFO_CLASS_DESCRIPTOR =
-    "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
 
 context(BytecodePatchContext)
 internal fun patchSpoofClient() {
@@ -63,12 +70,9 @@ internal fun patchSpoofClient() {
 
     // region Get field references to be used below.
 
-    setPlayerRequestClientTypeFingerprint.matchOrThrow().let {
+    clientTypeFingerprint.matchOrThrow().let {
         it.method.apply {
-            val clientInfoIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.IPUT_OBJECT &&
-                        getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
-            }
+            val clientInfoIndex = indexOfClientInfoInstruction(this)
             val clientIdIndex = it.patternMatch!!.endIndex
             val dummyClientVersionIndex = it.stringMatches!!.first().index
             val dummyClientVersionRegister =
@@ -76,6 +80,7 @@ internal fun patchSpoofClient() {
             val clientVersionIndex =
                 indexOfFirstInstructionOrThrow(dummyClientVersionIndex) {
                     opcode == Opcode.IPUT_OBJECT &&
+                            getReference<FieldReference>()?.type == "Ljava/lang/String;" &&
                             (this as TwoRegisterInstruction).registerA == dummyClientVersionRegister
                 }
 
@@ -173,7 +178,8 @@ internal fun patchSpoofClient() {
                     MutableMethodImplementation(3),
                 ).toMutable().apply {
                     addInstructions(
-                        0, """
+                        0,
+                        """
                             invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->isClientSpoofingEnabled()Z
                             move-result v0
                             if-eqz v0, :disabled
@@ -249,6 +255,27 @@ internal fun patchSpoofClient() {
 
     // endregion
 
+    // region fix for video action bar is always hidden
+
+    if (is_6_36_or_greater) {
+        spoofAppVersionFingerprint.matchOrThrow().let {
+            it.method.apply {
+                val startIndex = it.patternMatch!!.startIndex
+                val buildOverrideNameRegister =
+                    getInstruction<OneRegisterInstruction>(startIndex).registerA
+
+                addInstructions(
+                    startIndex + 1, """
+                    invoke-static {v$buildOverrideNameRegister}, $EXTENSION_CLASS_DESCRIPTOR->getClientVersionOverride(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$buildOverrideNameRegister
+                    """
+                )
+            }
+        }
+    }
+
+    // endregion
+
     // region fix for playback speed menu is not available in Podcasts
 
     // for iOS Music
@@ -313,6 +340,57 @@ internal fun patchSpoofClient() {
             "$EXTENSION_CLASS_DESCRIPTOR->forceDisablePlaybackFeatureFlag(Z)Z"
         )
     }
+
+    // endregion
+
+    // region fix background playback in live stream, if spoofing to iOS
+
+    val playerResponseModel = directorSavedStateToStringFingerprint
+        .originalMethodOrThrow()
+        .findFieldFromToString(INIT_PLAYER_RESPONSE)
+        .type
+
+    val backgroundPlaybackPlayerResponseFingerprint = legacyFingerprint(
+        name = "backgroundPlaybackPlayerResponseFingerprint",
+        returnType = "Z",
+        accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+        parameters = listOf(playerResponseModel),
+        opcodes = listOf(
+            Opcode.CONST_4,
+            Opcode.IF_EQZ,
+            Opcode.INVOKE_INTERFACE,
+            Opcode.MOVE_RESULT_OBJECT,
+            Opcode.IF_EQZ,
+            Opcode.INVOKE_INTERFACE,
+            Opcode.MOVE_RESULT_OBJECT,
+            Opcode.INVOKE_STATIC,
+            Opcode.MOVE_RESULT,
+            Opcode.IF_EQZ,
+            Opcode.INVOKE_INTERFACE,
+            Opcode.MOVE_RESULT,
+            Opcode.CONST_4,
+            Opcode.IF_EQZ,
+            Opcode.INVOKE_INTERFACE,
+            Opcode.MOVE_RESULT_OBJECT,
+            Opcode.INVOKE_VIRTUAL,
+            Opcode.MOVE_RESULT,
+            Opcode.IF_NEZ,
+        ),
+    )
+
+    backgroundPlaybackPlayerResponseFingerprint
+        .methodOrThrow()
+        .addInstructionsWithLabels(
+            0, """
+                invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->isClientSpoofingEnabled()Z
+                move-result v0
+                if-eqz v0, :disabled
+                const/4 v0, 0x1
+                return v0
+                :disabled
+                nop
+                """
+        )
 
     // endregion
 

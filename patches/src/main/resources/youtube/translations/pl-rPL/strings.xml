@@ -135,6 +135,7 @@ Jeśli zajdą zmiany po stronie serwera, kolor tła tych komunikatów może się
     <string name="revanced_change_start_page_entry_fashion">Moda i uroda</string>
     <string name="revanced_change_start_page_entry_gaming">Gry</string>
     <string name="revanced_change_start_page_entry_history">Historia</string>
+    <string name="revanced_change_start_page_entry_hype">Podbij</string>
     <string name="revanced_change_start_page_entry_library">Biblioteka</string>
     <string name="revanced_change_start_page_entry_liked_videos">Polubione filmy</string>
     <string name="revanced_change_start_page_entry_live">Na żywo</string>
@@ -317,6 +318,9 @@ Informacja: odtwarzanie w tle Shortsów jest dostępne wyłącznie w trybie 'Obr
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Włączona</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Wyłączona</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Animacja przycisku polubienia</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">Włączony</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">Wyłączony</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">Komunikat o zalogowaniu się do TV</string>
     <string name="revanced_disable_speed_overlay_summary">"Wyłącz 'Odtwarzam 2x szybciej' podczas przytrzymywania.
 
 Notki:
@@ -493,6 +497,16 @@ Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Nazwa pakietu aplikacji od pobierania (filmy) przy długim przytrzymaniu</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nazwa pakietu aplikacji od pobierania (filmy)</string>
+    <string name="revanced_fix_hype_button_icon_summary_off">Nie</string>
+    <string name="revanced_fix_hype_button_icon_summary_on">Tak</string>
+    <string name="revanced_fix_hype_button_icon_title">Napraw widoczność ikony podbijania</string>
+    <string name="revanced_fix_hype_button_icon_user_dialog_message">"W wersjach YouTube 19.25.39 i wcześniejszych, ikona podbijania jest ukryta w pasku akcji filmu oraz w panelu opisu filmu.
+
+Jako obejście, aplikacja jest oszukiwana do wersji 19.26.42 na punkcie końcowym '/get_watch' oraz '/next'.
+
+Jeśli wyłączysz to ustawienie, ikona podbijania może się nie pojawiać w pasku akcji filmu oraz w panelu opisu filmu.
+
+※ Nawet jeśli to ustawienie jest wyłączone, przycisk od podbijania może nie być ukryty."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_off">\'Odtwarzanie\' zamiast \'Autoodtwarzanie\'</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"'Autoodtwarzanie' zamiast 'Odtwarzanie'"</string>
     <string name="revanced_fix_spoof_app_version_side_effect_title">Napraw efekty uboczne oszukiwania wersji aplikacji</string>
@@ -580,6 +594,17 @@ Informacje:
     <string name="revanced_hide_autoplay_preview_summary_off">Widoczne</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Ukryte</string>
     <string name="revanced_hide_autoplay_preview_title">Ramki z następnym filmem</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Przykłady półek karuzelowych:&lt;br&gt;&lt;br&gt;&lt;b&gt;Najważniejsze wiadomości&lt;/b&gt;, &lt;b&gt;Kontynuuj oglądanie&lt;/b&gt;, &lt;b&gt;Odkryj więcej kanałów&lt;/b&gt;, &lt;b&gt;Posłuchaj jeszcze raz&lt;/b&gt;, &lt;b&gt;Najbardziej istotne&lt;/b&gt;, &lt;b&gt;Zakupy&lt;/b&gt;, &lt;b&gt;Obejrzyj ponownie&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_title">O półkach karuzelowych</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_off">Widoczne</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_on">Ukryte</string>
+    <string name="revanced_hide_carousel_shelf_home_title">Na stronie głównej i między powiązanymi filmami</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_off">Widoczne</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_on">Ukryte</string>
+    <string name="revanced_hide_carousel_shelf_search_title">W wynikach wyszukiwania</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_off">Widoczne</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_on">Ukryte</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_title">Na stronie subskrypcji</string>
     <string name="revanced_hide_carousel_shelf_summary">"Ukrywa półki:
 • Z najnowszymi informacjami
 • Z filmami, które nie zostały dokończone
@@ -740,9 +765,9 @@ Ustawienia → Autoodtwarzanie/Odtwarzanie → Autoodtwarzanie następnego filmu
     <string name="revanced_hide_handle_summary_off">Widoczne</string>
     <string name="revanced_hide_handle_summary_on">Ukryte</string>
     <string name="revanced_hide_handle_title">Nicki</string>
-    <string name="revanced_hide_hype_button_summary_off">Przycisk Hype jest wyświetlony</string>
-    <string name="revanced_hide_hype_button_summary_on">Przycisk Hype jest ukryty</string>
-    <string name="revanced_hide_hype_button_title">Ukryj Hype</string>
+    <string name="revanced_hide_hype_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_hype_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_hype_button_title">Przycisk od podbijania</string>
     <string name="revanced_hide_image_search_button_summary_off">Widoczny</string>
     <string name="revanced_hide_image_search_button_summary_on">Ukryty</string>
     <string name="revanced_hide_image_search_button_title">Przycisk od wyszukiwania po obrazie</string>
@@ -1005,15 +1030,9 @@ Ograniczenie: wszystkie przyciski w odtwarzaczu mogą zostać ukryte po zakończ
     <string name="revanced_hide_related_videos_summary_off">Widoczne</string>
     <string name="revanced_hide_related_videos_summary_on">Ukryte</string>
     <string name="revanced_hide_related_videos_title">Powiązane filmy</string>
-    <string name="revanced_hide_related_videos_type_summary_off">"Wyłączone
-
-• pozycja przewijania na stronie głównej może się zresetować"</string>
-    <string name="revanced_hide_related_videos_type_summary_on">"Włączone
-
-• częściowo rozwiązuje problem, gdzie pozycja przewijania na stronie głównej się resetuje
-• powiązane filmy mogą nie być całkowicie filtrowane"</string>
-    <string name="revanced_hide_related_videos_type_title">Pamiętanie o typach układów powiązanych filmów</string>
     <string name="revanced_hide_related_videos_user_dialog_message">"Ustawienie te ogranicza maksymalną ilość układów aplikacji, jakie mogą być załadowane na ekranie odtwarzacza.
+
+Jeśli niektóre powiązane filmy nie są ukryte, bądź występują niezamierzone układy, jak ukryty pasek akcji, sekcja komentarzy, zmiana przesunięcia może rozwiązać problem.
 
 Jeśli układ ekranu odtwarzacza zmieni się w skutek zmian po stronie serwera, niepożądane układy mogą być ukryte na ekranie odtwarzacza."</string>
     <string name="revanced_hide_remix_button_summary_off">Widoczny</string>
@@ -1305,7 +1324,7 @@ Informacja:
     <string name="revanced_hide_video_by_view_counts_about_summary">"Strona główna / subskrypcje / wyniki wyszukiwania są filtrowane, by ukrywać filmy z ilością wyświetleń mniejszą bądź większą od określonej liczby.
 
 Ograniczenia:
-• Shortsy nie mogą zostać ukryte
+• Transmisje na żywo oraz Shortsy nie mogą zostać ukryte
 • Filmy z 0 wyświetleń nie są filtrowane"</string>
     <string name="revanced_hide_video_by_view_counts_about_title">O filtrowaniu filmów po wyświetleniach</string>
     <string name="revanced_hide_video_by_view_counts_home_summary_off">Wyłączone</string>
@@ -1676,6 +1695,8 @@ Stuknij tutaj, by pobrać YouTube Music.</string>
     <string name="revanced_preference_screen_alt_thumbnails_title">Alternatywne miniaturki</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Wyłącz oświetlenie kinowe lub obejdź jego ograniczenia</string>
     <string name="revanced_preference_screen_ambient_mode_title">Oświetlenie kinowe</string>
+    <string name="revanced_preference_screen_carousel_shelf_summary">Ukryj lub pokazuj półki karuzelowe na stronie głównej, w wynikach wyszukiwania i subskrypcjach</string>
+    <string name="revanced_preference_screen_carousel_shelf_title">Półki karuzelowe</string>
     <string name="revanced_preference_screen_category_bar_summary">Ukryj lub pokazuj pasek z kategoriami na stronie głównej, nad wynikami wyszukiwania, powiązanymi filmami i historią wyszukiwania</string>
     <string name="revanced_preference_screen_category_bar_title">Pasek kategorii</string>
     <string name="revanced_preference_screen_channel_bar_summary">Ukryj lub pokazuj pasek kanału pod filmami</string>

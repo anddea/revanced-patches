@@ -12,6 +12,27 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
+internal const val CLIENT_INFO_CLASS_DESCRIPTOR =
+    "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
+
+internal val clientTypeFingerprint = legacyFingerprint(
+    name = "clientTypeFingerprint",
+    opcodes = listOf(
+        Opcode.IGET,
+        Opcode.IPUT, // Sets ClientInfo.clientId.
+    ),
+    strings = listOf("10.29"),
+    customFingerprint = { method, _ ->
+        indexOfClientInfoInstruction(method) >= 0
+    }
+)
+
+fun indexOfClientInfoInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.IPUT_OBJECT &&
+                getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
+    }
+
 internal val conversionContextFingerprintToString2 = legacyFingerprint(
     name = "conversionContextFingerprintToString2",
     parameters = emptyList(),
@@ -57,6 +78,18 @@ private fun Method.indexOfFieldReference(string: String) = indexOfFirstInstructi
 
     reference.toString() == string
 }
+
+internal val createPlayerRequestBodyFingerprint = legacyFingerprint(
+    name = "createPlayerRequestBodyFingerprint",
+    returnType = "V",
+    parameters = listOf("L"),
+    opcodes = listOf(
+        Opcode.CHECK_CAST,
+        Opcode.IGET,
+        Opcode.AND_INT_LIT16,
+    ),
+    strings = listOf("ms"),
+)
 
 /**
  * On YouTube, this class is 'Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;'
@@ -153,4 +186,21 @@ internal val removeLikeFingerprint = legacyFingerprint(
     name = "removeLikeFingerprint",
     returnType = "V",
     strings = listOf("like/removelike")
+)
+
+internal val playbackStartParametersConstructorFingerprint = legacyFingerprint(
+    name = "playbackStartParametersConstructorFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    returnType = "V",
+    opcodes = listOf(Opcode.IPUT_OBJECT)
+)
+
+internal val playbackStartParametersToStringFingerprint = legacyFingerprint(
+    name = "playbackStartParametersToStringFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Ljava/lang/String;",
+    strings = listOf(", initialPlaybackVideoQualityFixedResolution="),
+    customFingerprint = { method, classDef ->
+        method.name == "toString"
+    }
 )

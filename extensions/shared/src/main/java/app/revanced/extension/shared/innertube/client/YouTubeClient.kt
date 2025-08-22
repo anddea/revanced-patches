@@ -67,6 +67,7 @@ object YouTubeClient {
         "9.33"
     private const val DEVICE_MAKE_IOS_UNPLUGGED = "Apple"
     private const val OS_NAME_IOS_UNPLUGGED = "iOS"
+
     /**
      * The device machine id for the iPhone 16 Pro Max (iPhone17,2),
      * used to get HDR with AV1 hardware decoding.
@@ -84,6 +85,7 @@ object YouTubeClient {
         "13_7"
     else
         "18_6_1"
+
     @SuppressLint("ConstantLocale")
     private val USER_AGENT_IOS_UNPLUGGED =
         "$PACKAGE_NAME_IOS_UNPLUGGED/$CLIENT_VERSION_IOS_UNPLUGGED ($DEVICE_MODEL_IOS_UNPLUGGED; U; CPU iOS $USER_AGENT_VERSION_IOS_UNPLUGGED like Mac OS X; ${Locale.getDefault()})"
@@ -208,20 +210,18 @@ object YouTubeClient {
 
     // TVHTML5
     /**
-     * Video not playable: Drm-protected.
+     * Video not playable: None.
      * Note: Both 'Authorization' and 'Set-Cookie' are supported.
      * TODO: Find out why playback sometimes fails.
-     * TODO: Like NewPipe Extractor, the latest client version must always be fetched
-     *       in [YouTube TV Service Worker](https://www.youtube.com/tv/sw.js_data).
      */
-    private const val CLIENT_VERSION_TVHTML5 = "7.20250805.16.01"
+    private const val CLIENT_VERSION_TVHTML5 = "7.20250819.10.00"
     private const val USER_AGENT_TVHTML5 =
         "Mozilla/5.0 (PLAYSTATION 3 4.10) AppleWebKit/531.22.8 (KHTML, like Gecko)"
 
 
     // TVHTML5 SIMPLY
     /**
-     * Video not playable: Drm-protected.
+     * Video not playable: None.
      * Note: Only 'Authorization' is supported.
      * TODO: Find out why playback sometimes fails.
      */
@@ -245,12 +245,10 @@ object YouTubeClient {
      * Note: Audio track is not available.
      * Note: Only 'Set-Cookie' is supported.
      * TODO: Find out why playback sometimes fails.
-     * TODO: Like NewPipe Extractor, the latest client version must always be fetched
-     *       in [YouTube Mobile Web Service Worker](https://m.youtube.com/sw.js_data).
      */
-    private const val CLIENT_VERSION_MWEB = "2.20250812.01.00"
+    private const val CLIENT_VERSION_MWEB = "2.20250820.01.00"
     private const val USER_AGENT_MWEB =
-        "Mozilla/5.0 (PlayStation Vita 3.74) AppleWebKit/537.73 (KHTML, like Gecko) Silk/3.2"
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML; like Gecko) FxiOS/98.2  Mobile/15E148 Safari/605.1.15"
 
 
     /**
@@ -434,6 +432,7 @@ object YouTubeClient {
             clientName = "ANDROID_UNPLUGGED",
             friendlyName = "Android TV"
         ),
+
         // Fallback client.
         ANDROID_CREATOR(
             id = 14,
@@ -477,6 +476,7 @@ object YouTubeClient {
             else
                 "iOS TV"
         ),
+
         // Fallback client, not yet released.
         VISIONOS(
             id = 101,
@@ -511,6 +511,7 @@ object YouTubeClient {
             refererFormat = CLIENT_REFERER_FORMAT_TV,
             friendlyName = "TV Simply"
         ),
+
         // Unused client.
         TV_EMBEDDED(
             id = 85,
@@ -526,7 +527,6 @@ object YouTubeClient {
         MWEB(
             id = 2,
             clientVersion = CLIENT_VERSION_MWEB,
-            clientPlatform = CLIENT_PLATFORM_TABLET,
             userAgent = USER_AGENT_MWEB,
             requireJS = true,
             requirePoToken = true,
@@ -560,14 +560,14 @@ object YouTubeClient {
                 VISIONOS,
             )
             val CLIENT_ORDER_TO_USE_JS_PREFER_TV: Array<ClientType> = arrayOf(
-                TV,
+                TV_SIMPLY,
                 IOS_DEPRECATED,
                 IOS_UNPLUGGED,
                 ANDROID_VR,
                 ANDROID_CREATOR,
                 ANDROID_UNPLUGGED,
                 ANDROID_VR_NO_AUTH,
-                TV_SIMPLY,
+                TV,
                 MWEB,
                 VISIONOS,
             )

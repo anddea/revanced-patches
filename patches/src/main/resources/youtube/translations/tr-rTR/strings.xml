@@ -336,6 +336,7 @@ Bilgi:
 • Video oynatma VP9'a göre daha fazla internet verisi kullanacaktır.
 • HDR video için VP9 codec'i hala kullanılmaktadır."</string>
     <string name="revanced_disable_vp9_codec_title">VP9 codec\'ini devre dışı bırak</string>
+    <string name="revanced_dismiss_player_not_available_toast">Video kimliği mevcut değil. Lütfen videoyu manuel olarak yeniden açın.</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Kahire arama çubuğu devre dışı.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Kahire arama çubuğu etkin.
 
@@ -1215,7 +1216,7 @@ Eğer bölgenizde bir YouTube Doodle'ı gösteriliyorsa ve bu ayar açıksa, ara
 <small>Català</small>"</string>
     <string name="revanced_language_CS">"Çekçe
 <small>Čeština</small>"</string>
-    <string name="revanced_language_DA">"Danca
+    <string name="revanced_language_DA">"Danimarkaca
 <small>Dansk</small>"</string>
     <string name="revanced_language_DE">"Almanca
 <small>Deutsch</small>"</string>
@@ -1228,13 +1229,13 @@ Eğer bölgenizde bir YouTube Doodle'ı gösteriliyorsa ve bu ayar açıksa, ara
 <small>Español</small>"</string>
     <string name="revanced_language_ET">"Estonca
 <small>Eesti</small>"</string>
-    <string name="revanced_language_FA">"Farsça
+    <string name="revanced_language_FA">"Persçe
 <small>فارسی</small>"</string>
     <string name="revanced_language_FI">"Fince
 <small>Suomi</small>"</string>
     <string name="revanced_language_FR">"Fransızca
 <small>Français</small>"</string>
-    <string name="revanced_language_GA">"Gaeilge
+    <string name="revanced_language_GA">"İrlandaca
 <small>Gaeilge</small>"</string>
     <string name="revanced_language_GU">"Guceratça
 <small>ગુજરાતી</small>"</string>
@@ -1525,7 +1526,7 @@ Beyaz liste ayarı iletişim kutusunu açmak için dokunun ve basılı tutun.</s
     <string name="revanced_queue_manager_add_to_queue_and_open_queue">Sıraya ekle ve sırayı aç</string>
     <string name="revanced_queue_manager_add_to_queue_and_play_video">Sıraya ekle ve videoyu oynat</string>
     <string name="revanced_queue_manager_add_to_queue_and_reload_video">Sıraya ekle ve videoyu yeniden yükle</string>
-    <string name="revanced_queue_manager_check_failed_auth">Giriş yapılması gerekiyor</string>
+    <string name="revanced_queue_manager_check_failed_auth">Kullanıcı girişi gerekli</string>
     <string name="revanced_queue_manager_check_failed_generic">Sıra yöneticisi kullanılamıyor (%s).</string>
     <string name="revanced_queue_manager_check_failed_playlist_id">Oynatma listesi tanımlanamadı</string>
     <string name="revanced_queue_manager_check_failed_queue">Sıra boş</string>
@@ -1548,9 +1549,9 @@ Beyaz liste ayarı iletişim kutusunu açmak için dokunun ve basılı tutun.</s
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Sıradan kaldır ve videoyu yeniden yükle</string>
     <string name="revanced_queue_manager_remove_queue">Sırayı kaldır</string>
     <string name="revanced_queue_manager_save_queue">Sırayı kaydet</string>
-    <string name="revanced_queue_manager_user_dialog_message">"Harici bir indirici açmak yerine, sıra yöneticisi iletişim kutusunu açar.
+    <string name="revanced_queue_manager_user_dialog_message">"Harici bir indirici açmak yerine, sıra yöneticisi diyaloğunu açın.
 
-Ayrıca, gezinme çubuğundaki geri düğmesine basılı tutarak da sıra yöneticisini açabilirsiniz.
+Navigasyon çubuğundaki geri düğmesini basılı tutarak da sıra yöneticisini açabilirsiniz.
 
 Bu özellik hala geliştirme aşamasındadır, bu nedenle çoğu özellik çalışmayabilir.
 

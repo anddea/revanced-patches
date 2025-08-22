@@ -1,6 +1,6 @@
 package app.revanced.extension.youtube.shared;
 
-import static app.revanced.extension.youtube.patches.components.RelatedVideoFilter.isActionBarVisible;
+import static app.revanced.extension.youtube.patches.components.LayoutReloadObserverFilter.isActionBarVisible;
 
 import android.graphics.drawable.Drawable;
 import android.widget.FrameLayout;
@@ -55,7 +55,7 @@ public final class RootView {
     }
 
     public static boolean isPlayerActive() {
-        return PlayerType.getCurrent().isMaximizedOrFullscreen() || isActionBarVisible.get();
+        return PlayerType.getCurrent().isMaximizedOrFullscreenOrSliding() || isActionBarVisible.get();
     }
 
     public static boolean isShortsActive() {

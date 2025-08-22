@@ -1,6 +1,5 @@
 package app.revanced.extension.shared.returnyoutubeusername.requests;
 
-import static java.lang.Boolean.TRUE;
 import static app.revanced.extension.shared.returnyoutubeusername.requests.ChannelRoutes.GET_CHANNEL_DETAILS;
 
 import androidx.annotation.GuardedBy;

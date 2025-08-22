@@ -2,20 +2,19 @@ package app.revanced.patches.music.utils.fix.playback
 
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.music.misc.backgroundplayback.backgroundPlaybackPatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.extension.Constants.VIDEO_PATH
 import app.revanced.patches.music.utils.fix.client.patchSpoofClient
-import app.revanced.patches.music.utils.fix.parameter.patchSpoofPlayerParameter
 import app.revanced.patches.music.utils.fix.streamingdata.patchSpoofVideoStreams
 import app.revanced.patches.music.utils.patch.PatchList.FIX_PLAYBACK
 import app.revanced.patches.music.utils.playservice.is_8_20_or_greater
+import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
-import app.revanced.patches.music.video.information.videoInformationPatch
-import app.revanced.patches.music.video.playerresponse.playerResponseMethodHookPatch
 import app.revanced.patches.shared.customspeed.customPlaybackSpeedPatch
 import app.revanced.util.Utils.printWarn
 import app.revanced.util.Utils.trimIndentMultiline
@@ -29,12 +28,13 @@ val playbackPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
-        videoInformationPatch,
-        playerResponseMethodHookPatch,
+        // required to fix background playback issue of live stream on iOS client.
+        backgroundPlaybackPatch,
         customPlaybackSpeedPatch(
             "$VIDEO_PATH/CustomPlaybackSpeedPatch;",
             5.0f
         ),
+        versionCheckPatch,
     )
 
     val spoofClient = booleanOption(
@@ -54,20 +54,6 @@ val playbackPatch = bytecodePatch(
         required = true
     )
 
-    val spoofPlayerParameter = booleanOption(
-        key = "spoofPlayerParameter",
-        default = true,
-        title = "Spoof player parameter",
-        description = """
-            Includes the 'Spoof player parameter' patch.
-            
-            Side effect:
-            • Sometimes the subtitles are located at the top of the player instead of the bottom.
-            • This may not work for some users.
-            """.trimIndentMultiline(),
-        required = true
-    )
-
     val spoofVideoStreams = booleanOption(
         key = "spoofVideoStreams",
         default = true,
@@ -83,23 +69,12 @@ val playbackPatch = bytecodePatch(
     )
 
     execute {
-        val spoofClientEnabled = spoofClient.value == true
-        var spoofPlayerParameterEnabled = spoofPlayerParameter.value == true
+        var spoofClientEnabled = spoofClient.value == true
         val spoofVideoStreamsEnabled = spoofVideoStreams.value == true
 
-        if (!spoofClientEnabled && !spoofPlayerParameterEnabled && !spoofVideoStreamsEnabled) {
-            printWarn("At least one patch option must be enabled. \"${spoofPlayerParameter.title}\" patch is used.")
-            spoofPlayerParameterEnabled = true
-        }
-
-        if (spoofPlayerParameterEnabled) {
-            patchSpoofPlayerParameter()
-
-            addSwitchPreference(
-                CategoryType.MISC,
-                "revanced_spoof_player_parameter",
-                "false"
-            )
+        if (!spoofClientEnabled && !spoofVideoStreamsEnabled) {
+            printWarn("At least one patch option must be enabled. \"${spoofClient.title}\" patch is used.")
+            spoofClientEnabled = true
         }
 
         if (spoofVideoStreamsEnabled) {

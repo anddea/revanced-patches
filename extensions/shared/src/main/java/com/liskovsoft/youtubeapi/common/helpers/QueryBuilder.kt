@@ -64,7 +64,7 @@ internal class QueryBuilder(private val client: AppClient) {
 
         if (playerDataCheck() || browseDataCheck()) {
             if (visitorData == null)
-                visitorData = ThrottlingParameterUtils.getVisitorId()
+                visitorData = ThrottlingParameterUtils.getVisitorId(false)
         }
 
         if (playerDataCheck()) {

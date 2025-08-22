@@ -252,6 +252,21 @@ internal val layoutVideoFingerprint = legacyFingerprint(
     literals = listOf(endScreenElementLayoutVideo),
 )
 
+internal val linearLayoutManagerItemCountsFingerprint = legacyFingerprint(
+    name = "linearLayoutManagerItemCountsFingerprint",
+    returnType = "I",
+    accessFlags = AccessFlags.FINAL.value,
+    parameters = listOf("L", "L", "L", "Z"),
+    opcodes = listOf(
+        Opcode.IF_NEZ,
+        Opcode.IF_LEZ,
+        Opcode.INVOKE_VIRTUAL,
+    ),
+    customFingerprint = { method, _ ->
+        method.definingClass == "Landroid/support/v7/widget/LinearLayoutManager;"
+    }
+)
+
 internal val lithoComponentOnClickListenerFingerprint = legacyFingerprint(
     name = "lithoComponentOnClickListenerFingerprint",
     returnType = "V",

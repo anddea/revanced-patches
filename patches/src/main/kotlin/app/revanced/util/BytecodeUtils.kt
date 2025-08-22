@@ -80,7 +80,11 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
  * @throws IllegalArgumentException If a branch or conditional statement is encountered
  *                                  before a suitable register is found.
  */
-fun Method.findFreeRegister(startIndex: Int, checkBranch: Boolean, vararg registersToExclude: Int): Int {
+fun Method.findFreeRegister(
+    startIndex: Int,
+    checkBranch: Boolean,
+    vararg registersToExclude: Int
+): Int {
     if (implementation == null) {
         throw IllegalArgumentException("Method has no implementation: $this")
     }
@@ -140,8 +144,10 @@ fun Method.findFreeRegister(startIndex: Int, checkBranch: Boolean, vararg regist
 
             // Somehow every method register was read from before any register was wrote to.
             // In practice this never occurs.
-            throw IllegalArgumentException("Could not find a free register from startIndex: " +
-                    "$startIndex excluding: $registersToExclude")
+            throw IllegalArgumentException(
+                "Could not find a free register from startIndex: " +
+                        "$startIndex excluding: $registersToExclude"
+            )
         }
     }
 
@@ -205,7 +211,7 @@ internal val Instruction.isReturnInstruction: Boolean
  *
  * @param fieldName The name of the field to find.  Partial matches are allowed.
  */
-private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
+private fun Method.findInstructionIndexFromToString(fieldName: String, isField: Boolean): Int {
     val stringIndex = indexOfFirstInstruction {
         val reference = getReference<StringReference>()
         reference?.string?.contains(fieldName) == true
@@ -234,19 +240,51 @@ private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
         // Should never happen.
         throw IllegalArgumentException("Could not find StringBuilder append usage in: $this")
     }
-    val fieldUsageRegister = getInstruction<FiveRegisterInstruction>(fieldUsageIndex).registerD
+    var fieldUsageRegister = getInstruction<FiveRegisterInstruction>(fieldUsageIndex).registerD
 
     // Look backwards up the method to find the instruction that sets the register.
     var fieldSetIndex = indexOfFirstInstructionReversedOrThrow(fieldUsageIndex - 1) {
         fieldUsageRegister == writeRegister
     }
 
-    // If the field is a method call, then adjust from MOVE_RESULT to the method call.
-    val fieldSetOpcode = getInstruction(fieldSetIndex).opcode
-    if (fieldSetOpcode == MOVE_RESULT ||
-        fieldSetOpcode == MOVE_RESULT_WIDE ||
-        fieldSetOpcode == MOVE_RESULT_OBJECT) {
-        fieldSetIndex--
+    // Some 'toString()' methods, despite using a StringBuilder,
+    // Convert the value via 'Object.toString()' or 'String.valueOf(object)' before appending it to the StringBuilder.
+    // In this case, the correct index cannot be found.
+    // Additional validation is done to find the index of the correct field or method.
+    //
+    // Only runs a maximum of 3 times to avoid getting stuck in a loop.
+    var loopCount = 3
+    while (loopCount > 0) {
+        // If the field is a method call, then adjust from MOVE_RESULT to the method call.
+        val fieldSetOpcode = getInstruction(fieldSetIndex).opcode
+        if (fieldSetOpcode == MOVE_RESULT ||
+            fieldSetOpcode == MOVE_RESULT_WIDE ||
+            fieldSetOpcode == MOVE_RESULT_OBJECT
+        ) {
+            fieldSetIndex--
+        }
+
+        val fieldSetReference = getInstruction<ReferenceInstruction>(fieldSetIndex).reference
+
+        if (isField && fieldSetReference is FieldReference ||
+            !isField && fieldSetReference is MethodReference
+        ) {
+            // Valid index.
+            return fieldSetIndex
+        } else if (fieldSetReference is MethodReference &&
+            // Object.toString(), String.valueOf(object)
+            fieldSetReference.returnType == "Ljava/lang/String;"
+        ) {
+            fieldUsageRegister = getInstruction<FiveRegisterInstruction>(fieldSetIndex).registerC
+
+            // Look backwards up the method to find the instruction that sets the register.
+            fieldSetIndex = indexOfFirstInstructionReversedOrThrow(fieldSetIndex - 1) {
+                fieldUsageRegister == writeRegister
+            }
+            loopCount--
+        } else {
+            throw IllegalArgumentException("Unknown reference: $fieldSetReference")
+        }
     }
 
     return fieldSetIndex
@@ -258,8 +296,8 @@ private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
  * @param fieldName The name of the field to find.  Partial matches are allowed.
  */
 context(BytecodePatchContext)
-internal fun Method.findMethodFromToString(fieldName: String) : MutableMethod {
-    val methodUsageIndex = findInstructionIndexFromToString(fieldName)
+internal fun Method.findMethodFromToString(fieldName: String): MutableMethod {
+    val methodUsageIndex = findInstructionIndexFromToString(fieldName, false)
     return navigate(this).to(methodUsageIndex).stop()
 }
 
@@ -268,8 +306,8 @@ internal fun Method.findMethodFromToString(fieldName: String) : MutableMethod {
  *
  * @param fieldName The name of the field to find.  Partial matches are allowed.
  */
-internal fun Method.findFieldFromToString(fieldName: String) : FieldReference {
-    val methodUsageIndex = findInstructionIndexFromToString(fieldName)
+internal fun Method.findFieldFromToString(fieldName: String): FieldReference {
+    val methodUsageIndex = findInstructionIndexFromToString(fieldName, true)
     return getInstruction<ReferenceInstruction>(methodUsageIndex).getReference<FieldReference>()!!
 }
 
@@ -501,7 +539,7 @@ fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Long): Int {
 
 fun Method.indexOfFirstStringInstruction(str: String) =
     indexOfFirstInstruction {
-        opcode == Opcode.CONST_STRING &&
+        opcode == CONST_STRING &&
                 getReference<StringReference>()?.string == str
     }
 
@@ -587,7 +625,7 @@ fun MutableMethod.injectLiteralInstructionViewCall(
     smaliInstruction: String
 ) {
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
-    val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT_OBJECT)
+    val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT_OBJECT)
     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA.toString()
 
     addInstructions(
@@ -604,7 +642,7 @@ fun BytecodePatchContext.replaceLiteralInstructionCall(
         classDef.methods.forEach { method ->
             method.implementation.apply {
                 this?.instructions?.forEachIndexed { _, instruction ->
-                    if (instruction.opcode != Opcode.CONST)
+                    if (instruction.opcode != CONST)
                         return@forEachIndexed
                     if ((instruction as Instruction31i).wideLiteral != originalLiteral)
                         return@forEachIndexed
@@ -632,7 +670,7 @@ fun BytecodePatchContext.replaceLiteralInstructionCall(
         classDef.methods.forEach { method ->
             method.implementation.apply {
                 this?.instructions?.forEachIndexed { _, instruction ->
-                    if (instruction.opcode != Opcode.CONST)
+                    if (instruction.opcode != CONST)
                         return@forEachIndexed
                     if ((instruction as Instruction31i).wideLiteral != literal)
                         return@forEachIndexed
@@ -877,7 +915,7 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
     classes.forEach { classDef ->
         classDef.methods.forEach { method ->
             method.implementation?.instructions?.forEachIndexed { index, instruction ->
-                if (instruction.opcode == Opcode.CONST &&
+                if (instruction.opcode == CONST &&
                     (instruction as WideLiteralInstruction).wideLiteral == literal
                 ) {
                     val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)

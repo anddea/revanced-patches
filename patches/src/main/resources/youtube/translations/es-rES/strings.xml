@@ -126,6 +126,7 @@ Si hay cambios en el lado del servidor, es posible que el color de fondo de la b
     <string name="revanced_change_start_page_entry_fashion">Moda y belleza</string>
     <string name="revanced_change_start_page_entry_gaming">Juegos</string>
     <string name="revanced_change_start_page_entry_history">Historial</string>
+    <string name="revanced_change_start_page_entry_hype">Hype</string>
     <string name="revanced_change_start_page_entry_library">Biblioteca</string>
     <string name="revanced_change_start_page_entry_liked_videos">Vídeos gustados</string>
     <string name="revanced_change_start_page_entry_live">En directo</string>
@@ -303,6 +304,9 @@ Los cambios incluyen:
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">La animación de la fuente está activada sobre el botón de me gusta.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">La animación de la fuente está desactivada sobre el botón de me gusta.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Desactivar animación del botón de me gusta</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">La ventana emergente de inicio de sesión en la TV está activada.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">La ventana emergente de inicio de sesión en la TV está desactivada.</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">Desactivar ventana emergente de inicio de sesión en TV</string>
     <string name="revanced_disable_speed_overlay_summary">"Desactiva \"Reproducir a velocidad x2\" mientras mantienes pulsado.
 
 Nota:
@@ -477,6 +481,16 @@ Por favor, descarga %2$s desde el sitio web."</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nombre del paquete del descargador de listas de reproducción</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nombre del paquete de tu aplicación de descargas externas instalada, como NewPipe o YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nombre del paquete del descargador de vídeo</string>
+    <string name="revanced_fix_hype_button_icon_summary_off">El icono del botón Hype está oculto.</string>
+    <string name="revanced_fix_hype_button_icon_summary_on">El icono del botón Hype está visible.</string>
+    <string name="revanced_fix_hype_button_icon_title">Corregir icono del botón Hype</string>
+    <string name="revanced_fix_hype_button_icon_user_dialog_message">"En YouTube 19.25.39 o versiones anteriores, el icono de Hype está oculto en la barra de acción del vídeo y en el panel de descripción del vídeo.
+
+Como solución alternativa, la versión de la aplicación se falsifica a 19.26.42 en los endpoint «/get_watch» y «/next».
+
+Si desactivas este ajuste, es posible que el icono de Hype no se muestre en la barra de acciones del vídeo ni en el panel de descripción del vídeo.
+
+※ Incluso si este ajuste está desactivado, es posible que el botón Hype no esté oculto."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_off">Se utiliza el ajuste «Reproducción» en lugar del ajuste «Reproducción automática».</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"Se utiliza el ajuste «Reproducción automática» en lugar del ajuste «Reproducción»."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_title">Corregir efecto secundario de versión de app falsificada</string>
@@ -700,9 +714,9 @@ Configuración → Reproducción → Reproducción automática del siguiente ví
     <string name="revanced_hide_handle_summary_off">El nombre de usuario está visible.</string>
     <string name="revanced_hide_handle_summary_on">El nombre de usuario está oculto.</string>
     <string name="revanced_hide_handle_title">Ocultar nombre de usuario</string>
-    <string name="revanced_hide_hype_button_summary_off">El botón de hype está visible</string>
-    <string name="revanced_hide_hype_button_summary_on">El botón Hype está oculto</string>
-    <string name="revanced_hide_hype_button_title">Ocultar Hype</string>
+    <string name="revanced_hide_hype_button_summary_off">El botón Hype está visible.</string>
+    <string name="revanced_hide_hype_button_summary_on">El botón Hype está oculto.</string>
+    <string name="revanced_hide_hype_button_title">Ocultar botón Hype</string>
     <string name="revanced_hide_image_search_button_summary_off">El botón de búsqueda de imágenes está visible.</string>
     <string name="revanced_hide_image_search_button_summary_on">El botón de búsqueda de imágenes está oculto.</string>
     <string name="revanced_hide_image_search_button_title">Ocultar botón de búsqueda de imágenes</string>
@@ -960,14 +974,6 @@ Para mostrar el menú de la pista de audio, cambie «Cliente predeterminado (fal
     <string name="revanced_hide_related_videos_summary_off">Los vídeos relacionados están visibles.</string>
     <string name="revanced_hide_related_videos_summary_on">Los vídeos relacionados están ocultos.</string>
     <string name="revanced_hide_related_videos_title">Ocultar vídeos relacionados</string>
-    <string name="revanced_hide_related_videos_type_summary_off">"El número de diseños cargados en la pantalla no se recuerda cuando se inicia el vídeo.
-
-• La posición de desplazamiento del feed puede restablecerse."</string>
-    <string name="revanced_hide_related_videos_type_summary_on">"El número de diseños cargados en la pantalla se recuerda cuando se inicia el vídeo.
-
-• Soluciona parcialmente un problema en el que se restablece la posición de desplazamiento del feed.
-• Los vídeos relacionados pueden no estar completamente filtrados."</string>
-    <string name="revanced_hide_related_videos_type_title">Ocultar tipo de vídeos relacionados</string>
     <string name="revanced_hide_related_videos_user_dialog_message">"Este ajuste limita el número máximo de diseños que se pueden cargar en la pantalla del reproductor. 
 
 Si el diseño de la pantalla del reproductor cambia debido a cambios en el servidor, es posible que se oculten diseños no deseados en la pantalla del reproductor."</string>

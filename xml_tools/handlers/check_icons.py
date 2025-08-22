@@ -86,9 +86,11 @@ def process(app: str) -> None:
 
     kotlin_file_path = (
         settings.BASE_DIR
-        / "patches/src/main/kotlin/app/revanced/patches/youtube/layout/visual/VisualPreferencesIconsPatch.kt"
+        / "patches/src/main/kotlin/app/revanced/patches"
+        / app
+        / "layout/visual/VisualPreferencesIconsPatch.kt"
     )
-    xml_file_path = settings.get_resource_path("youtube", "settings/xml/revanced_prefs.xml")
+    xml_file_path = settings.get_resource_path(app, "settings/xml/revanced_prefs.xml")
 
     kotlin_keys = parse_keys_from_kotlin(kotlin_file_path)
     if not kotlin_keys:

@@ -9,10 +9,10 @@ import com.google.protos.youtube.api.innertube.StreamingDataOuterClass.Streaming
 import java.nio.ByteBuffer;
 import java.util.Map;
 
+import app.revanced.extension.music.patches.spoof.requests.StreamingDataRequest;
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.music.patches.spoof.requests.StreamingDataRequest;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
@@ -36,8 +36,9 @@ public class SpoofVideoStreamsPatch {
 
     /**
      * Parse the Proto Buffer and convert it to StreamingData (GeneratedMessage).
+     *
      * @param responseProto Proto Buffer.
-     * @return              StreamingData (GeneratedMessage) parsed by ProtoParser.
+     * @return StreamingData (GeneratedMessage) parsed by ProtoParser.
      */
     @Nullable
     public static StreamingData parseFrom(ByteBuffer responseProto) {
@@ -179,7 +180,7 @@ public class SpoofVideoStreamsPatch {
                     }
                 }
 
-                Logger.printDebug(() -> "Not overriding streaming data (video stream is null): " + videoId);
+                Logger.printDebug(() -> "Not overriding streaming data (video stream is null, it may be video ads): " + videoId);
             } catch (Exception ex) {
                 Logger.printException(() -> "getStreamingData failure", ex);
             }

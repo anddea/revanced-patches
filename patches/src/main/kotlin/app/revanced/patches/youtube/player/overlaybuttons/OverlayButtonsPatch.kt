@@ -262,14 +262,16 @@ val overlayButtonsPatch = resourcePatch(
                         node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
                             ?.let { attribute ->
                                 if (attribute.textContent == "@id/fullscreen_button") {
-                                    attribute.textContent = "@+id/revanced_gemini_button"
+                                    attribute.textContent =
+                                        "@+id/revanced_gemini_button"
                                 }
                             }
 
                         node.getAttributeNode("yt:layout_constraintBottom_toTopOf")
                             ?.let { attribute ->
                                 if (attribute.textContent == "@id/quick_actions_container") {
-                                    attribute.textContent = "@+id/revanced_overlay_buttons_bottom_margin"
+                                    attribute.textContent =
+                                        "@+id/revanced_overlay_buttons_bottom_margin"
                                 }
                             }
 

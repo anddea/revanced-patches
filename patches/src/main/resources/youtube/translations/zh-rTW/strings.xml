@@ -128,6 +128,7 @@
     <string name="revanced_change_start_page_entry_fashion">時尚 &amp; 美妝</string>
     <string name="revanced_change_start_page_entry_gaming">遊戲</string>
     <string name="revanced_change_start_page_entry_history">歷史</string>
+    <string name="revanced_change_start_page_entry_hype">熱門</string>
     <string name="revanced_change_start_page_entry_library">媒體庫</string>
     <string name="revanced_change_start_page_entry_liked_videos">喜歡的影片</string>
     <string name="revanced_change_start_page_entry_live">直播</string>
@@ -309,6 +310,9 @@
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">點讚按鈕上方的噴泉動畫已啟用。</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">點讚按鈕上方的噴泉動畫已停用。</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">停用讚按鈕動畫</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">登入電視彈出窗口已啟用。</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">登入電視彈出窗口已停用。</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">停用登入電視彈出窗口</string>
     <string name="revanced_disable_speed_overlay_summary">"停用「按住即可將播放速度設為 2 倍」功能
 
 注意：
@@ -483,6 +487,18 @@
     <string name="revanced_external_downloader_package_name_video_long_press_title">長按時影片下載器套件名稱</string>
     <string name="revanced_external_downloader_package_name_video_summary">您安裝的外部下載器應用程式的套件名稱，例如 NewPipe 或 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_video_title">影片下載器套件名稱</string>
+    <string name="revanced_fix_hype_button_icon_summary_off">熱門按鈕圖示已隱藏。</string>
+    <string name="revanced_fix_hype_button_icon_summary_on">熱門按鈕圖示已顯示。</string>
+    <string name="revanced_fix_hype_button_icon_title">修復熱門按鈕圖標</string>
+    <string name="revanced_fix_hype_button_icon_user_dialog_message">"在 YouTube 19.25.39 或更早版本中
+ 圖示在影片操作欄和影片說明面板中隱藏。
+
+為了解決這個問題，應用程式版本會在 '/get_watch' 端點和 '/next' 端點中偽裝成 19.26.42。
+
+如果您關閉此設置，是圖示可能不會顯示在影片操作列和視訊說明面板中。
+
+※ 即使關閉此設置，熱門
+按鈕也可能不會隱藏。"</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_off">使用 \'播放\' 設定取代 \'自動播放\' 設定。</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"使用 '自動播放' 設定代替 '播放' 設定。"</string>
     <string name="revanced_fix_spoof_app_version_side_effect_title">修復偽裝應用程式版本副作用</string>
@@ -570,6 +586,17 @@
     <string name="revanced_hide_autoplay_preview_summary_off">自動播放預覽面板已顯示</string>
     <string name="revanced_hide_autoplay_preview_summary_on">自動播放預覽面板已隱藏</string>
     <string name="revanced_hide_autoplay_preview_title">隱藏自動播放預覽面板</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">輪播欄範例:&lt;br&gt;&lt;br&gt;&lt;b&gt;突發新聞&lt;/b&gt;, &lt;b&gt;繼續觀看&lt;/b&gt;, &lt;b&gt;探索更多頻道&lt;/b&gt;, &lt;b&gt;再收聽&lt;/b&gt;, &lt;b&gt;最相關&lt;/b&gt;, &lt;b&gt;購物&lt;/b&gt;, &lt;b&gt;再觀看&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_title">關於輪播欄</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_off">顯示在首頁動態和相關影片中。</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_on">隱藏在首頁動態和相關影片中。</string>
+    <string name="revanced_hide_carousel_shelf_home_title">隱藏在首頁動態和相關影片中</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_off">顯示在搜尋結果中。</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_on">隱藏在搜尋結果中。</string>
+    <string name="revanced_hide_carousel_shelf_search_title">在搜尋結果中隱藏</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_off">顯示在訂閱頁面動態中。</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_on">隱藏在訂閱頁面動態中。</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_title">隱藏在訂閱頁面動態中</string>
     <string name="revanced_hide_carousel_shelf_summary">"隱藏以下分類區：
 ・最新消息
 ・繼續觀看
@@ -730,6 +757,9 @@
     <string name="revanced_hide_handle_summary_off">控制列已顯示</string>
     <string name="revanced_hide_handle_summary_on">控制列已隱藏</string>
     <string name="revanced_hide_handle_title">隱藏控制列</string>
+    <string name="revanced_hide_hype_button_summary_off">熱門按鈕已顯示。</string>
+    <string name="revanced_hide_hype_button_summary_on">熱門按鈕已隱藏。</string>
+    <string name="revanced_hide_hype_button_title">隱藏熱門按鈕</string>
     <string name="revanced_hide_image_search_button_summary_off">圖像搜尋按鈕已顯示。</string>
     <string name="revanced_hide_image_search_button_summary_on">圖片搜尋按鈕已隱藏。</string>
     <string name="revanced_hide_image_search_button_title">隱藏圖像搜尋按鈕</string>
@@ -987,14 +1017,6 @@
     <string name="revanced_hide_related_videos_summary_off">相關影片已顯示。</string>
     <string name="revanced_hide_related_videos_summary_on">相關影片已隱藏。</string>
     <string name="revanced_hide_related_videos_title">隱藏相關影片</string>
-    <string name="revanced_hide_related_videos_type_summary_off">"影片啟動時，不會記住螢幕上加載的佈局數量。
-
-• feed 滾動位置可能會被重設。"</string>
-    <string name="revanced_hide_related_videos_type_summary_on">"影片啟動時，會記住螢幕上加載的佈局數量。
-
-• 部分修正了 Feed 捲動位置重置的問題。
-• 相關影片可能無法完全過濾。"</string>
-    <string name="revanced_hide_related_videos_type_title">隱藏相關影片類型</string>
     <string name="revanced_hide_related_videos_user_dialog_message">"此設定限制播放器螢幕上可以載入佈局的最大數量。
 
 如果由於伺服器端變更而導致播放器螢幕佈局發生變化，則播放器螢幕上可能會隱藏非預期的佈局。"</string>
@@ -1659,6 +1681,8 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_preference_screen_alt_thumbnails_title">替換縮略圖</string>
     <string name="revanced_preference_screen_ambient_mode_summary">繞過微光模式限制或停用微光模式</string>
     <string name="revanced_preference_screen_ambient_mode_title">微光模式</string>
+    <string name="revanced_preference_screen_carousel_shelf_summary">隱藏或顯示輪播欄在首頁, 搜尋結果, 和訂閱頁面。</string>
+    <string name="revanced_preference_screen_carousel_shelf_title">輪播欄</string>
     <string name="revanced_preference_screen_category_bar_summary">隱藏或顯示來源、搜尋和相關影片中的類別欄</string>
     <string name="revanced_preference_screen_category_bar_title">類別欄</string>
     <string name="revanced_preference_screen_channel_bar_summary">隱藏或顯示影片下方的頻道欄組件</string>

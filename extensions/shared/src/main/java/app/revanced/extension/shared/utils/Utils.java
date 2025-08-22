@@ -1380,6 +1380,7 @@ public class Utils {
      * As the class {@code org.brotli.dec.BrotliInputStream} is already included in YouTube,
      * Some classes will not be merged during patching.
      * As a workaround, the obfuscated BrotliInputStream class from YouTube is entered here during the patching process.
+     *
      * @return BrotliInputStream
      */
     public static InputStream getBrotliInputStream(InputStream inputStream) {

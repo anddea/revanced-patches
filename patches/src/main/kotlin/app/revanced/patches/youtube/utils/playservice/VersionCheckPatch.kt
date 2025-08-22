@@ -99,6 +99,10 @@ var is_20_21_or_greater = false
     private set
 var is_20_22_or_greater = false
     private set
+var is_20_28_or_greater = false
+    private set
+var is_20_30_or_greater = false
+    private set
 
 val versionCheckPatch = resourcePatch(
     description = "versionCheckPatch",
@@ -113,53 +117,62 @@ val versionCheckPatch = resourcePatch(
             ).textContent.toInt()
         }
 
+        fun isGreaterThan(targetVersion: Int) =
+            targetVersion <= playStoreServicesVersion
+
         // All bug fix releases always seem to use the same play store version as the minor version.
-        is_18_31_or_greater = 233200000 <= playStoreServicesVersion
-        is_18_34_or_greater = 233500000 <= playStoreServicesVersion
-        is_18_39_or_greater = 234000000 <= playStoreServicesVersion
-        is_18_42_or_greater = 234302000 <= playStoreServicesVersion
-        is_18_49_or_greater = 235000000 <= playStoreServicesVersion
-        is_19_01_or_greater = 240204000 < playStoreServicesVersion
-        is_19_02_or_greater = 240299000 < playStoreServicesVersion
-        is_19_04_or_greater = 240502000 <= playStoreServicesVersion
-        is_19_05_or_greater = 240602000 <= playStoreServicesVersion
-        is_19_09_or_greater = 241002000 <= playStoreServicesVersion
-        is_19_11_or_greater = 241199000 <= playStoreServicesVersion
-        is_19_15_or_greater = 241602000 <= playStoreServicesVersion
-        is_19_16_or_greater = 241702000 <= playStoreServicesVersion
-        is_19_17_or_greater = 241802000 <= playStoreServicesVersion
-        is_19_18_or_greater = 241902000 <= playStoreServicesVersion
-        is_19_23_or_greater = 242402000 <= playStoreServicesVersion
-        is_19_25_or_greater = 242599000 <= playStoreServicesVersion
-        is_19_26_or_greater = 242705000 <= playStoreServicesVersion
-        is_19_28_or_greater = 242905000 <= playStoreServicesVersion
-        is_19_29_or_greater = 243005000 <= playStoreServicesVersion
-        is_19_30_or_greater = 243105000 <= playStoreServicesVersion
-        is_19_32_or_greater = 243305000 <= playStoreServicesVersion
-        is_19_34_or_greater = 243499000 <= playStoreServicesVersion
-        is_19_36_or_greater = 243705000 <= playStoreServicesVersion
-        is_19_41_or_greater = 244205000 <= playStoreServicesVersion
-        is_19_42_or_greater = 244305000 <= playStoreServicesVersion
-        is_19_43_or_greater = 244405000 <= playStoreServicesVersion
-        is_19_44_or_greater = 244505000 <= playStoreServicesVersion
-        is_19_46_or_greater = 244705000 <= playStoreServicesVersion
-        is_19_49_or_greater = 245005000 <= playStoreServicesVersion
-        is_19_50_or_greater = 245105000 <= playStoreServicesVersion
-        is_20_02_or_greater = 250299000 <= playStoreServicesVersion
-        is_20_03_or_greater = 250405000 <= playStoreServicesVersion
-        is_20_05_or_greater = 250605000 <= playStoreServicesVersion
-        is_20_07_or_greater = 250805000 <= playStoreServicesVersion
-        is_20_09_or_greater = 251006000 <= playStoreServicesVersion
-        is_20_10_or_greater = 251105000 <= playStoreServicesVersion
-        is_20_12_or_greater = 251305000 <= playStoreServicesVersion
-        is_20_13_or_greater = 251405000 <= playStoreServicesVersion
-        is_20_14_or_greater = 251505000 <= playStoreServicesVersion
-        is_20_15_or_greater = 251605000 <= playStoreServicesVersion
-        is_20_16_or_greater = 251705000 <= playStoreServicesVersion
-        is_20_18_or_greater = 251905000 <= playStoreServicesVersion
-        is_20_19_or_greater = 252005000 <= playStoreServicesVersion
-        is_20_20_or_greater = 252105000 <= playStoreServicesVersion
-        is_20_21_or_greater = 252205000 <= playStoreServicesVersion
-        is_20_22_or_greater = 252305000 <= playStoreServicesVersion
+        is_18_31_or_greater = isGreaterThan(233200000)
+        is_18_34_or_greater = isGreaterThan(233500000)
+        is_18_39_or_greater = isGreaterThan(234000000)
+        is_18_42_or_greater = isGreaterThan(234302000)
+        is_18_49_or_greater = isGreaterThan(235000000)
+        is_19_01_or_greater = isGreaterThan(240204000)
+        is_19_02_or_greater = isGreaterThan(240299000)
+        is_19_04_or_greater = isGreaterThan(240502000)
+        is_19_05_or_greater = isGreaterThan(240602000)
+        is_19_09_or_greater = isGreaterThan(241002000)
+        is_19_11_or_greater = isGreaterThan(241199000)
+        is_19_15_or_greater = isGreaterThan(241602000)
+        is_19_16_or_greater = isGreaterThan(241702000)
+        is_19_17_or_greater = isGreaterThan(241802000)
+        is_19_18_or_greater = isGreaterThan(241902000)
+        is_19_23_or_greater = isGreaterThan(242402000)
+        is_19_25_or_greater = isGreaterThan(242599000)
+        is_19_26_or_greater = isGreaterThan(242705000)
+        is_19_28_or_greater = isGreaterThan(242905000)
+        is_19_29_or_greater = isGreaterThan(243005000)
+        is_19_30_or_greater = isGreaterThan(243105000)
+        is_19_32_or_greater = isGreaterThan(243305000)
+        is_19_34_or_greater = isGreaterThan(243499000)
+        is_19_36_or_greater = isGreaterThan(243705000)
+        is_19_41_or_greater = isGreaterThan(244205000)
+        is_19_42_or_greater = isGreaterThan(244305000)
+        is_19_43_or_greater = isGreaterThan(244405000)
+        is_19_44_or_greater = isGreaterThan(244505000)
+        is_19_46_or_greater = isGreaterThan(244705000)
+        is_19_49_or_greater = isGreaterThan(245005000)
+        is_19_50_or_greater = isGreaterThan(245105000)
+        is_20_02_or_greater = isGreaterThan(250299000)
+        is_20_03_or_greater = isGreaterThan(250405000)
+        is_20_05_or_greater = isGreaterThan(250605000)
+        is_20_07_or_greater = isGreaterThan(250805000)
+        is_20_09_or_greater = isGreaterThan(251006000)
+        is_20_10_or_greater = isGreaterThan(251105000)
+        is_20_12_or_greater = isGreaterThan(251305000)
+        is_20_13_or_greater = isGreaterThan(251405000)
+        is_20_14_or_greater = isGreaterThan(251505000)
+        is_20_15_or_greater = isGreaterThan(251605000)
+        is_20_16_or_greater = isGreaterThan(251705000)
+        is_20_18_or_greater = isGreaterThan(251905000)
+        is_20_19_or_greater = isGreaterThan(252005000)
+        is_20_19_or_greater = isGreaterThan(252005000)
+        is_20_20_or_greater = isGreaterThan(252105000)
+        is_20_20_or_greater = isGreaterThan(252105000)
+        is_20_21_or_greater = isGreaterThan(252205000)
+        is_20_21_or_greater = isGreaterThan(252205000)
+        is_20_22_or_greater = isGreaterThan(252305000)
+        is_20_22_or_greater = isGreaterThan(252305000)
+        is_20_28_or_greater = isGreaterThan(252905000)
+        is_20_30_or_greater = isGreaterThan(253105000)
     }
 }

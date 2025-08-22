@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.Locale;
 
-import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.music.patches.spoof.ClientType;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
-import app.revanced.extension.music.patches.spoof.ClientType;
+import app.revanced.extension.shared.utils.Logger;
 
 final class PlayerRoutes {
     static final Route.CompiledRoute GET_STREAMING_DATA = new Route(

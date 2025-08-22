@@ -129,6 +129,7 @@
     <string name="revanced_change_start_page_entry_fashion">Модная</string>
     <string name="revanced_change_start_page_entry_gaming">Игры</string>
     <string name="revanced_change_start_page_entry_history">История</string>
+    <string name="revanced_change_start_page_entry_hype">Шумиха</string>
     <string name="revanced_change_start_page_entry_library">Библиотека</string>
     <string name="revanced_change_start_page_entry_liked_videos">Понравившиеся</string>
     <string name="revanced_change_start_page_entry_live">Трансляции</string>
@@ -483,6 +484,16 @@
     <string name="revanced_external_downloader_package_name_video_long_press_title">Приложение-загрузчик видео при долгом нажатии</string>
     <string name="revanced_external_downloader_package_name_video_summary">Например: NewPipe или YTDLnis, или др.</string>
     <string name="revanced_external_downloader_package_name_video_title">Внешний загрузчик для видео, название пакета</string>
+    <string name="revanced_fix_hype_button_icon_summary_off">Значок кнопки \"Шумиха\" скрыт.</string>
+    <string name="revanced_fix_hype_button_icon_summary_on">Значок кнопки \"Шумиха\" отображается.</string>
+    <string name="revanced_fix_hype_button_icon_title">Исправить значок кнопки \"Шумиха\"</string>
+    <string name="revanced_fix_hype_button_icon_user_dialog_message">"В YouTube версии 19.25.39 и более ранних версиях значок \"Шумиха\" скрыт на панели действий с видео и панели описания видео.
+
+В качестве обходного решения в конечных точках '/get_watch' и '/next' версия приложения заменяется на 19.26.42.
+
+Если отключить этот параметр, значок \"Шумиха\" может не отображаться на панели действий с видео и панели описания видео.
+
+※ Даже если этот параметр отключен, кнопка \"Шумиха\" может не быть скрыта."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_off">Параметр \"Просмотр\" используется вместо параметра \'Автозапуск\'.</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"Параметр 'Автозапуск' используется вместо параметра 'Просмотр'."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_title">Исправить эффект подмены версии приложения</string>
@@ -570,6 +581,19 @@
     <string name="revanced_hide_autoplay_preview_summary_off">Превью автопросмотра отображено.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Превью автопросмотра скрыто.</string>
     <string name="revanced_hide_autoplay_preview_title">Превью автопросмотра</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Примеры полок карусели:
+
+Срочные новости, Продолжить просмотр, Больше каналов, Слушать снова, Наиболее релевантные, Покупки, Смотреть снова.</string>
+    <string name="revanced_hide_carousel_shelf_about_title">О полке карусели</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_off">На \"Главной\" в ленте и похожих видео отображена.</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_on">На \"Главной\" в ленте и похожих видео скрыта.</string>
+    <string name="revanced_hide_carousel_shelf_home_title">Вкладка Главная в ленте и похожих видео</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_off">В результатах поиска отображена.</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_on">В результатах поиска скрыта.</string>
+    <string name="revanced_hide_carousel_shelf_search_title">Карусель в результатах поиска</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_off">Карусель в подписках отображена.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_on">Карусель в подписках скрыта.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_title">Карусель в подписках</string>
     <string name="revanced_hide_carousel_shelf_summary">Скрывает следующие секции:\n• Последние новости.\n• Продолжить просмотр.\n• Исследовать больше каналов.\n• Послушать еще раз.\n• Покупки.\n• Посмотреть еще раз.</string>
     <string name="revanced_hide_carousel_shelf_summary_off">Cекции предложений отображены.</string>
     <string name="revanced_hide_carousel_shelf_summary_on">Cекции предложений скрыты.\nПримечание:\n• Последние новости.\n• Продолжить просмотр.\n• Исследовать больше каналов.\n• Послушать еще раз.\n• Покупки.\n• Посмотреть еще раз.</string>
@@ -717,9 +741,9 @@ Shorts
     <string name="revanced_hide_handle_summary_off">Псевдоним отображен.</string>
     <string name="revanced_hide_handle_summary_on">Псевдоним скрыт.</string>
     <string name="revanced_hide_handle_title">Скрыть псевдоним</string>
-    <string name="revanced_hide_hype_button_summary_off">Кнопка \"Хайп\" показана</string>
-    <string name="revanced_hide_hype_button_summary_on">Кнопка \"Хайп\" скрыта</string>
-    <string name="revanced_hide_hype_button_title">Скрыть кнопку \"Hype\"</string>
+    <string name="revanced_hide_hype_button_summary_off">Кнопка \"Шумиха\" отображена.</string>
+    <string name="revanced_hide_hype_button_summary_on">Кнопка \"Шумиха\" скрыта.</string>
+    <string name="revanced_hide_hype_button_title">Кнопка \"Шумиха\"</string>
     <string name="revanced_hide_image_search_button_summary_off">Кнопка поиска изображений отображена.</string>
     <string name="revanced_hide_image_search_button_summary_on">Кнопка поиска изображений скрыта.</string>
     <string name="revanced_hide_image_search_button_title">Кнопка поиска изображений</string>
@@ -978,14 +1002,6 @@ Shorts
     <string name="revanced_hide_related_videos_summary_off">Похожие видео отображены.</string>
     <string name="revanced_hide_related_videos_summary_on">Похожие видео скрыты.</string>
     <string name="revanced_hide_related_videos_title">Похожие видео</string>
-    <string name="revanced_hide_related_videos_type_summary_off">"Отключено. Количество макетов, загруженных на экране не запоминается при запуске видео.
-
-• Позиция прокрутки канала может быть сброшена."</string>
-    <string name="revanced_hide_related_videos_type_summary_on">"Включено. Количество загруженных макетов на экране запоминается при запуске видео.
-
-• Частично исправимо, сбросом позиции прокрутки.
-• Похожие видео могут быть не полностью отфильтрованы."</string>
-    <string name="revanced_hide_related_videos_type_title">Фильтр похожих видео по типу</string>
     <string name="revanced_hide_related_videos_user_dialog_message">"Этот параметр ограничивает количество контейнеров по умолчанию, которые влияют на отображение похожих видео.
 
 Если параметр изменен на стороне сервера, не запрошенные, контейнеры могут быть не доступны."</string>
@@ -1660,6 +1676,8 @@ Shorts
     <string name="revanced_preference_screen_alt_thumbnails_title">Альтернативные миниатюры</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Отключить окружающую подсветку или обойти ограничение в режиме экономии заряда батареи.</string>
     <string name="revanced_preference_screen_ambient_mode_title">Окружающая подсветка</string>
+    <string name="revanced_preference_screen_carousel_shelf_summary">Настройка полки карусели на \"Главной\", результатов поиска и подписок.</string>
+    <string name="revanced_preference_screen_carousel_shelf_title">Полка карусели</string>
     <string name="revanced_preference_screen_category_bar_summary">Скрытие или отображение панели категорий в ленте, поиске и похожих видео.</string>
     <string name="revanced_preference_screen_category_bar_title">Панель категорий</string>
     <string name="revanced_preference_screen_channel_bar_summary">Настройка компонентов в панели канала под видео.</string>

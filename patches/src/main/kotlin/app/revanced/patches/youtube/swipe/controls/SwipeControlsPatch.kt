@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.mainactivity.mainActivityMutableClass
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
@@ -33,17 +32,14 @@ import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
+import app.revanced.util.hookClassHierarchy
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstruction
-import app.revanced.util.transformMethods
-import app.revanced.util.traverseClassHierarchy
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 private const val EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR =
     "$SWIPE_PATH/SwipeControlsPatch;"
@@ -68,29 +64,10 @@ val swipeControlsPatch = bytecodePatch(
 
         // region patch for swipe controls patch
 
-        val hostActivityClass = swipeControlsHostActivityFingerprint.mutableClassOrThrow()
-        val mainActivityClass = mainActivityMutableClass
-
-        // inject the wrapper class from extension into the class hierarchy of MainActivity (WatchWhileActivity)
-        hostActivityClass.setSuperClass(mainActivityClass.superclass)
-        mainActivityClass.setSuperClass(hostActivityClass.type)
-
-        // ensure all classes and methods in the hierarchy are non-final, so we can override them in extension
-        traverseClassHierarchy(mainActivityClass) {
-            accessFlags = accessFlags and AccessFlags.FINAL.value.inv()
-            transformMethods {
-                ImmutableMethod(
-                    definingClass,
-                    name,
-                    parameters,
-                    returnType,
-                    accessFlags and AccessFlags.FINAL.value.inv(),
-                    annotations,
-                    hiddenApiRestrictions,
-                    implementation
-                ).toMutable()
-            }
-        }
+        hookClassHierarchy(
+            swipeControlsHostActivityFingerprint.mutableClassOrThrow(),
+            mainActivityMutableClass
+        )
 
         // endregion
 
@@ -157,13 +134,13 @@ val swipeControlsPatch = bytecodePatch(
                     val reference = getReference<MethodReference>()
                     opcode == Opcode.INVOKE_VIRTUAL &&
                             reference?.returnType == "V" &&
-                            reference.parameterTypes.size == 0
+                            reference.parameterTypes.isEmpty()
                 }
                 val targetIndex = indexOfFirstInstructionOrThrow(middleIndex + 1) {
                     val reference = getReference<MethodReference>()
                     opcode == Opcode.INVOKE_VIRTUAL &&
                             reference?.returnType == "V" &&
-                            reference.parameterTypes.size == 0
+                            reference.parameterTypes.isEmpty()
                 }
                 if (getInstruction(targetIndex - 1).opcode != Opcode.IGET_OBJECT) {
                     throw PatchException(

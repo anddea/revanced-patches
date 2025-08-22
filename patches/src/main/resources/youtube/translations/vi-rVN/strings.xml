@@ -542,6 +542,17 @@ Chi tiết:
     <string name="revanced_hide_autoplay_preview_summary_off">Bảng video tiếp theo được hiển thị ở màn hình kết thúc.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Bảng video tiếp theo đã ẩn khỏi màn hình kết thúc.</string>
     <string name="revanced_hide_autoplay_preview_title">Ẩn bảng video tiếp theo</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Ví dụ về kệ cá nhân hoá:&lt;br&gt;&lt;br&gt;&lt;b&gt;Tin nổi bật&lt;/b&gt;, &lt;b&gt;Tiếp tục xem&lt;/b&gt;, &lt;b&gt;Khám phá các chủ đề khác&lt;/b&gt;, &lt;b&gt;Nghe lại&lt;/b&gt;, &lt;b&gt;Phù hợp nhất&lt;/b&gt;, &lt;b&gt;Mua sắm&lt;/b&gt;, &lt;b&gt;Xem lại&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_title">Đôi chút về kệ cá nhân hoá</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_off">Đã hiển thị trong thẻ Trang chủ và các video liên quan.</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_on">Đã ẩn trên thẻ Trang chủ và các video liên quan.</string>
+    <string name="revanced_hide_carousel_shelf_home_title">Ẩn trên thẻ Trang chủ và các video liên quan</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_off">Đã hiển thị trong kết quả tìm kiếm.</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_on">Đã ẩn trong kết quả tìm kiếm.</string>
+    <string name="revanced_hide_carousel_shelf_search_title">Ẩn trong kết quả tìm kiếm</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_off">Đã hiển thị trên thẻ Kênh đăng ký.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_on">Đã ẩn trên thẻ Kênh đăng ký.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_title">Ẩn trên thẻ Kênh đăng ký</string>
     <string name="revanced_hide_carousel_shelf_summary">"Ẩn các kệ sau:
 
 • Tin nổi bật
@@ -963,23 +974,17 @@ Hạn chế: Toàn bộ nút trên lớp phủ có thể bị ẩn sau khi video
     <string name="revanced_hide_quick_actions_summary_off">Bảng nút thao tác nhanh được hiển thị.</string>
     <string name="revanced_hide_quick_actions_summary_on">Bảng nút thao tác nhanh đã ẩn.</string>
     <string name="revanced_hide_quick_actions_title">Ẩn bảng nút thao tác nhanh</string>
-    <string name="revanced_hide_related_videos_overlay_summary_off">Phần video thêm trong bảng nút thao tác nhanh và lớp phủ video liên quan đã ẩn.</string>
-    <string name="revanced_hide_related_videos_overlay_summary_on">Phần video thêm trong bảng nút thao tác nhanh và lớp phủ video liên quan đã ẩn.</string>
-    <string name="revanced_hide_related_videos_overlay_title">Ẩn lớp phủ các video liên quan</string>
-    <string name="revanced_hide_related_videos_summary_off">Các Video có liên quan được hiển thị.</string>
+    <string name="revanced_hide_related_videos_overlay_summary_off">Phần video khác trong bảng nút thao tác nhanh và lớp phủ video liên quan đã hiển thị.</string>
+    <string name="revanced_hide_related_videos_overlay_summary_on">Phần video khác trong bảng nút thao tác nhanh và lớp phủ video liên quan đã ẩn.</string>
+    <string name="revanced_hide_related_videos_overlay_title">Ẩn lớp phủ video liên quan</string>
+    <string name="revanced_hide_related_videos_summary_off">Các video có liên quan được hiển thị.</string>
     <string name="revanced_hide_related_videos_summary_on">Các video có liên quan đã ẩn.</string>
     <string name="revanced_hide_related_videos_title">Ẩn các video có liên quan</string>
-    <string name="revanced_hide_related_videos_type_summary_off">"Không ghi nhớ số bố cục hiển thị trên màn hình khi video bắt đầu.
+    <string name="revanced_hide_related_videos_user_dialog_message">"Cài đặt này giới hạn số bố cục có thể tải trên màn hình trình phát.
 
-• Vị trí cuộn trang video có thể bị đặt lại."</string>
-    <string name="revanced_hide_related_videos_type_summary_on">"Ghi nhớ số bố cục hiển thị trên màn hình khi video bắt đầu.
+Nếu một số video liên quan không bị ẩn, hoặc các bố cục khác như thanh thao tác hoặc phần bình luận bị ẩn, hãy thử thay đổi độ lệch để khắc phục vấn đề này.
 
-• Giúp giảm lỗi đặt lại vị trí cuộn trong trang video.
-• Video liên quan có thể chưa được lọc hết."</string>
-    <string name="revanced_hide_related_videos_type_title">Ẩn kiểu video liên quan</string>
-    <string name="revanced_hide_related_videos_user_dialog_message">"Cài đặt này giới hạn số lượng bố cục tối đa có thể được tải trên màn hình trình phát.
-
-Nếu bố cục của màn hình trình phát thay đổi do các thay đổi từ phía máy chủ, các bố cục không mong muốn có thể bị ẩn trên màn hình trình phát."</string>
+Nếu bố cục màn hình trình phát thay đổi từ phía máy chủ, cũng có thể khiến các bố cục khác bị ẩn."</string>
     <string name="revanced_hide_remix_button_summary_off">Nút Phối lại được hiển thị.</string>
     <string name="revanced_hide_remix_button_summary_on">Nút Phối lại đã ẩn.</string>
     <string name="revanced_hide_remix_button_title">Ẩn nút Phối lại</string>
@@ -1267,7 +1272,7 @@ Hạn chế: Tiêu đề chính thức trong kết quả tìm kiếm cũng sẽ 
     <string name="revanced_hide_video_by_view_counts_about_summary">"Các video có số lượt xem ít hoặc nhiều hơn con số bạn đã đặt sẽ bị ẩn trên thẻ Trang chủ/Kênh đăng ký/Kết quả tìm kiếm.
 
 Hạn chế:
-• Không ẩn đối với các video ngắn.
+• Không ẩn đối với các video ngắn và phát trực tiếp.
 • Các video có 0 lượt xem cũng không bị lọc."</string>
     <string name="revanced_hide_video_by_view_counts_about_title">Về bộ lọc theo số lượt xem</string>
     <string name="revanced_hide_video_by_view_counts_home_summary_off">Các video trên thẻ Trang chủ không được lọc.</string>
@@ -1623,6 +1628,8 @@ Nhấn và giữ để mở hộp thoại cài đặt Danh sách trắng.</strin
     <string name="revanced_preference_screen_alt_thumbnails_title">Hình thu nhỏ thay thế</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Tắt hoặc bỏ qua các hạn chế của Chế độ môi trường xung quanh.</string>
     <string name="revanced_preference_screen_ambient_mode_title">Chế độ môi trường xung quanh</string>
+    <string name="revanced_preference_screen_carousel_shelf_summary">Ẩn hoặc hiển thị kệ được cá nhân hoá trong trang chủ, kết quả tìm kiếm, và kênh đăng ký.</string>
+    <string name="revanced_preference_screen_carousel_shelf_title">Kệ cá nhân hoá</string>
     <string name="revanced_preference_screen_category_bar_summary">Ẩn hoặc hiển thị thanh danh mục trong các trang video, video liên quan, kết quả tìm kiếm và video đã xem.</string>
     <string name="revanced_preference_screen_category_bar_title">Thanh danh mục</string>
     <string name="revanced_preference_screen_channel_bar_summary">Ẩn hoặc hiển thị các thành phần của thanh kênh bên dưới video.</string>

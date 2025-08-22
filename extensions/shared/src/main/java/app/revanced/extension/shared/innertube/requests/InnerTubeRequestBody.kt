@@ -107,7 +107,7 @@ object InnerTubeRequestBody {
         try {
             val client = JSONObject()
             client.put("clientName", clientType.clientName)
-            client.put("clientVersion", clientType.clientVersion)
+            client.put("clientVersion", ThrottlingParameterUtils.getClientVersion(clientType))
             client.put("platform", clientType.clientPlatform)
             client.put("clientScreen", clientType.clientScreen)
             client.put("hl", LOCALE_LANGUAGE)
@@ -131,10 +131,14 @@ object InnerTubeRequestBody {
                 val contentPlaybackContext = JSONObject()
                 val requirePoToken = clientType.requirePoToken
                 if (clientType.refererFormat != null) {
-                    contentPlaybackContext.put("referer", String.format(clientType.refererFormat, videoId))
+                    contentPlaybackContext.put(
+                        "referer",
+                        String.format(clientType.refererFormat, videoId)
+                    )
                 }
                 contentPlaybackContext.put("html5Preference", "HTML5_PREF_WANTS")
-                val signatureTimestamp = ThrottlingParameterUtils.getSignatureTimestamp(!requirePoToken)
+                val signatureTimestamp =
+                    ThrottlingParameterUtils.getSignatureTimestamp(!requirePoToken)
                 if (signatureTimestamp != null) {
                     contentPlaybackContext.put("signatureTimestamp", signatureTimestamp.toInt())
                 }
@@ -341,7 +345,12 @@ object InnerTubeRequestBody {
 
         if (requestHeader != null) {
             for (key in REQUEST_HEADER_KEYS) {
-                if (!supportsCookies && StringUtils.equalsAny(key, AUTHORIZATION_HEADER, PAGE_ID_HEADER)) {
+                if (!supportsCookies && StringUtils.equalsAny(
+                        key,
+                        AUTHORIZATION_HEADER,
+                        PAGE_ID_HEADER
+                    )
+                ) {
                     continue
                 }
                 val value = requestHeader[key]

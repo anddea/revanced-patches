@@ -129,6 +129,7 @@ Se ci sono cambiamenti sul lato server, il colore potrebbe non cambiare."</strin
     <string name="revanced_change_start_page_entry_fashion">Moda e bellezza</string>
     <string name="revanced_change_start_page_entry_gaming">Giochi</string>
     <string name="revanced_change_start_page_entry_history">Cronologia</string>
+    <string name="revanced_change_start_page_entry_hype">Dai hype</string>
     <string name="revanced_change_start_page_entry_library">Tu (Raccolta)</string>
     <string name="revanced_change_start_page_entry_liked_videos">Video piaciuti</string>
     <string name="revanced_change_start_page_entry_live">Live</string>
@@ -308,6 +309,9 @@ Nota: è disponibile solo tramite la modalità Picture-in-Picture."</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">L\'animazione del pulsante Mi Piace è attivata.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">L\'animazione del pulsante Mi Piace è disattivata.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Disattiva la animazione del pulsante Mi Piace</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">Il pannello a comparsa Accedi alla TV è attivato.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">Il pannello a comparsa Accedi alla TV è disattivato.</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">Disattiva il pannello a comparsa Accedi alla TV</string>
     <string name="revanced_disable_speed_overlay_summary">"Disattiva la velocità di riproduzione 2x quando tieni premuto.
 
 Note:
@@ -483,6 +487,14 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nome del pacchetto del downloader esterno delle playlist</string>
     <string name="revanced_external_downloader_package_name_video_summary">Il nome del pacchetto dell\'app di download esterna installata, ad esempio NewPipe o YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nome del pacchetto del downloader esterno dei video</string>
+    <string name="revanced_fix_hype_button_icon_summary_off">L\'icona del pulsante Dai Hype è nascosta.</string>
+    <string name="revanced_fix_hype_button_icon_summary_on">L\'icona del pulsante Dai Hype è visibile.</string>
+    <string name="revanced_fix_hype_button_icon_title">Mostra l\'icona del pulsante Dai Hype</string>
+    <string name="revanced_fix_hype_button_icon_user_dialog_message">"In YouTube 19.25.39 o versioni precedenti, l'icona del pulsante Dai Hype è nascosta nella barra delle azioni e nel pannello di descrizione del video.
+Come soluzione alternativa, la versione dell'app viene camuffata in 19.26.42 negli endpoint \"/get_watch\" e \"/next\".
+
+Se disattivi questa impostazione, l'icona potrebbe nascosta nella barra delle azioni e nel pannello di descrizione del video.
+Ma anche se questa impostazione è disattivata, il pulsante Dai Hype potrebbe non essere nascosto."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_off">Al posto dell\'impostazione \"Riproduzione\" viene usata l\'impostazione \"Riproduzione automatica\".</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"Al posto dell'impostazione \"Riproduzione automatica\" viene usata l'impostazione \"Riproduzione\"."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_title">Correggi l\'effetto collaterale del camuffamento della versione dell\'app</string>
@@ -535,6 +547,24 @@ Note:
     <string name="revanced_hide_autoplay_preview_summary_off">L\'anteprima della riproduzione automatica è visibile.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">L\'anteprima della riproduzione automatica è nascosta.</string>
     <string name="revanced_hide_autoplay_preview_title">Nascondi l\'anteprima della riproduzione automatica</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Nascondi i seguenti scaffali a carosello:&lt;br&gt;
+• Ultime notizie&lt;br&gt;
+• Continua a guardare&lt;br&gt;
+• Esplora altri canali&lt;br&gt;
+• Ascolta di nuovo&lt;br&gt;
+• Più pertinenti&lt;br&gt;
+• Shopping&lt;br&gt;
+• Guarda di nuovo</string>
+    <string name="revanced_hide_carousel_shelf_about_title">Informazioni sugli scaffali a carosello</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_off">Sono visibili nella scheda Home e nei video correlati.</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_on">Sono nascosti nella scheda Home e nei video correlati.</string>
+    <string name="revanced_hide_carousel_shelf_home_title">Nascondi nella scheda Home e nei video correlati</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_off">Sono visibili nei risultati di ricerca.</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_on">Sono nascosti nei risultati di ricerca.</string>
+    <string name="revanced_hide_carousel_shelf_search_title">Nascondi nei risultati di ricerca</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_off">Sono visibili nella scheda Iscrizioni.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_on">Sono nascosti nella scheda Iscrizioni.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_title">Nascondi nella scheda Iscrizioni</string>
     <string name="revanced_hide_carousel_shelf_summary">"Nasconde i seguenti scaffali:
 • Ultime notizie
 • Continua a guardare
@@ -696,9 +726,9 @@ Impostazioni → Riproduzione → Riproduzione automatica video successivo"</str
     <string name="revanced_hide_handle_summary_off">L\'handle è visibile.</string>
     <string name="revanced_hide_handle_summary_on">L\'handle è nascosto.</string>
     <string name="revanced_hide_handle_title">Nascondi l\'handle</string>
-    <string name="revanced_hide_hype_button_summary_off">Pulsante Hype è mostrato</string>
-    <string name="revanced_hide_hype_button_summary_on">Il pulsante Hype è nascosto</string>
-    <string name="revanced_hide_hype_button_title">Nascondi Hype</string>
+    <string name="revanced_hide_hype_button_summary_off">Il pulsante Dai Hype è visibile.</string>
+    <string name="revanced_hide_hype_button_summary_on">Il pulsante Dai Hype è nascosto.</string>
+    <string name="revanced_hide_hype_button_title">Nascondi il pulsante Dai Hype</string>
     <string name="revanced_hide_image_search_button_summary_off">Il pulsante di ricerca immagine è visibile.</string>
     <string name="revanced_hide_image_search_button_summary_on">Il pulsante di ricerca immagine è nascosto.</string>
     <string name="revanced_hide_image_search_button_title">Nascondi il pulsante di ricerca immagine</string>
@@ -961,18 +991,11 @@ Nota: tutti i pulsanti in sovrapposizione potrebbero essere nascosti al termine 
     <string name="revanced_hide_related_videos_summary_off">I video correlati sono visibili.</string>
     <string name="revanced_hide_related_videos_summary_on">I video correlati sono nascosti.</string>
     <string name="revanced_hide_related_videos_title">Nascondi i video correlati</string>
-    <string name="revanced_hide_related_videos_type_summary_off">"Il numero di interfacce caricati sullo schermo non viene ricordato all'avvio dei video.
-
-Nota: la posizione di scorrimento delle schede potrebbe essere reimpostata."</string>
-    <string name="revanced_hide_related_videos_type_summary_on">"Il numero di interfacce caricati sullo schermo viene ricordato all'avvio dei video.
-
-Note:
-• Risolve parzialmente il problema della reimpostazione della posizione di scorrimento delle schede.
-• I video correlati potrebbero non essere completamente filtrati."</string>
-    <string name="revanced_hide_related_videos_type_title">Nascondi il tipo di video correlati</string>
     <string name="revanced_hide_related_videos_user_dialog_message">"Il numero massimo di interfacce caricabili sulla schermata del riproduttore sarà limitato.
 
-Se l'interfaccia della schermata del riproduttore cambia a causa di modifiche lato server, potrebbero esserci delle interfacce indesiderate nascosti nella schermata del riproduttore."</string>
+Se alcuni video correlati non sono nascosti o se alcuni componenti dell'interfaccia, come la barra delle azioni o la sezione dei commenti, sono nascosti involontariamente, la modifica dell'offset potrebbe risolvere il problema.
+
+Se l'interfaccia della schermata del riproduttore cambia a causa di modifiche lato server, potrebbero esserci alcuni componenti dell'interfaccia nascosti involontariamente nella schermata del riproduttore."</string>
     <string name="revanced_hide_remix_button_summary_off">Il pulsante Remix è visibile.</string>
     <string name="revanced_hide_remix_button_summary_on">Il pulsante Remix è nascosto.</string>
     <string name="revanced_hide_remix_button_title">Nascondi il pulsante Remix</string>
@@ -1257,9 +1280,7 @@ Nota: solo gli scaffali con l'intestazione Shorts nella scheda Home sono nascost
     <string name="revanced_hide_video_ads_title">Nascondi gli annunci video</string>
     <string name="revanced_hide_video_by_view_counts_about_summary">"Le schede Home e Iscrizioni e i risultati di ricerca sono filtrati per nascondere i video con visualizzazioni inferiori o superiori a un numero specificato.
 
-Note: 
-• Gli Shorts non possono essere nascosti.
-• I video con 0 visualizzazioni non sono filtrati."</string>
+Nota: i video live, con 0 visualizzazioni e gli Shorts non possono essere nascosti."</string>
     <string name="revanced_hide_video_by_view_counts_about_title">Informazioni sul filtro delle visualizzazioni</string>
     <string name="revanced_hide_video_by_view_counts_home_summary_off">I video della scheda Home non sono filtrati.</string>
     <string name="revanced_hide_video_by_view_counts_home_summary_on">I video della scheda Home sono filtrati.</string>
@@ -1610,6 +1631,8 @@ Per mostrare il pulsante Scarica Playlist nativo, attiva il camuffamento della v
     <string name="revanced_preference_screen_alt_thumbnails_title">Thumbnails alternativi</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Disattiva la modalità Ambient o bypassa le sue restrizioni.</string>
     <string name="revanced_preference_screen_ambient_mode_title">Modalità Ambient</string>
+    <string name="revanced_preference_screen_carousel_shelf_summary">Personalizza gli scaffali a carosello nelle schede, nei video correlati, e nei risultati di ricerca.</string>
+    <string name="revanced_preference_screen_carousel_shelf_title">Scaffali a carosello</string>
     <string name="revanced_preference_screen_category_bar_summary">Personalizza la barra dei filtri nelle schede, nei video correlati, nei risultati di ricerca e nella cronologia.</string>
     <string name="revanced_preference_screen_category_bar_title">Barra dei filtri</string>
     <string name="revanced_preference_screen_channel_bar_summary">Personalizza i componenti della barra del canale sotto i video.</string>

@@ -13,7 +13,6 @@ okhttp = "5.0.0-alpha.14"
 nanojson = "1.10"
 okhttp3 = "4.12.0"
 guava = "33.4.0-jre"
-protobuf-javalite = "4.31.1"
 protoc = "4.31.1"
 protobuf = "0.9.5"
 antlr4 = "4.13.2"
@@ -33,15 +32,15 @@ antlr4 = { module = "org.antlr:antlr4", version.ref = "antlr4" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 nanohttpd = { module = "org.nanohttpd:nanohttpd", version.ref = "nanohttpd" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
-protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protobuf-javalite" }
-protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 apksig = { group = "com.android.tools.build", name = "apksig", version.ref = "apksig" }
 okhttp3 = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp3" }
 preference = { module = "androidx.preference:preference", version.ref = "preference" }
+protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protoc" }
+protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
 regex = { module = "com.github.florianingerl.util:regex", version.ref = "regex" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 
 [plugins]
-android-library = { id = "com.android.library" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobuf" }

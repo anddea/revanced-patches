@@ -15,6 +15,7 @@ if TYPE_CHECKING:
 logger = logging.getLogger("xml_tools")
 BLACKLIST: set[str] = {
     "revanced_extended_settings_search_history",
+    "revanced_swipe_brightness_distance_dip",
     "revanced_swipe_overlay_alternative_ui",
     "revanced_swipe_overlay_text_size",
 }

@@ -703,13 +703,17 @@ public class VideoUtils extends IntentUtils {
                                 slideOut.setDuration(fadeDurationFast);
                                 slideOut.setAnimationListener(new Animation.AnimationListener() {
                                     @Override
-                                    public void onAnimationStart(Animation animation) {}
+                                    public void onAnimationStart(Animation animation) {
+                                    }
+
                                     @Override
                                     public void onAnimationEnd(Animation animation) {
                                         dialog.dismiss();
                                     }
+
                                     @Override
-                                    public void onAnimationRepeat(Animation animation) {}
+                                    public void onAnimationRepeat(Animation animation) {
+                                    }
                                 });
                                 mainLayout.startAnimation(slideOut);
                             } else {
