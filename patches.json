@@ -880,6 +880,7 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
+      "BytecodePatch",
       "ResourcePatch",
       "ResourcePatch"
     ],
@@ -1180,6 +1181,25 @@
     "options": []
   },
   {
+    "name": "Disable sign in to TV popup",
+    "description": "Adds an option to disable the popup asking to sign into a TV on the same local network.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube",
+      "ResourcePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
     "name": "Disable splash animation",
     "description": "Adds an option to disable the splash animation on app startup.",
     "use": true,
@@ -1334,9 +1354,9 @@
     "use": true,
     "dependencies": [
       "Settings for YouTube Music",
+      "Remove background playback restrictions",
       "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch"
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
@@ -1355,15 +1375,6 @@
         "key": "spoofClient",
         "title": "Spoof client",
         "description": "Includes the \u0027Spoof client\u0027 patch.\n\nSide effect:\n• Action buttons may always be hidden in YouTube Music 7.17+.\n• Audio may intermittently stutter during playback.\n• Player flyout menu may not show properly.\n\nNot supported in YouTube Music 8.20+.",
-        "required": true,
-        "type": "kotlin.Boolean",
-        "default": true,
-        "values": null
-      },
-      {
-        "key": "spoofPlayerParameter",
-        "title": "Spoof player parameter",
-        "description": "Includes the \u0027Spoof player parameter\u0027 patch.\n\nSide effect:\n• Sometimes the subtitles are located at the top of the player instead of the bottom.\n• This may not work for some users.",
         "required": true,
         "type": "kotlin.Boolean",
         "default": true,
@@ -1790,6 +1801,8 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
       "BytecodePatch"
     ],
     "compatiblePackages": {
@@ -1914,9 +1927,6 @@
       "BytecodePatch",
       "ResourcePatch",
       "Settings for YouTube",
-      "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch"
     ],
@@ -2446,11 +2456,13 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
       "ResourcePatch",
       "BytecodePatch",
       "BytecodePatch",
-      "ResourcePatch",
-      "BytecodePatch"
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -3193,8 +3205,6 @@
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
         "19.43.41",
         "19.44.39",
         "19.47.53"
@@ -3549,7 +3559,6 @@
     "use": true,
     "dependencies": [
       "Settings for YouTube",
-      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
