@@ -25,7 +25,8 @@ object MuteVolumeButton {
                 buttonVisibility = { Settings.OVERLAY_BUTTON_MUTE_VOLUME.get() },
                 onClickListener = { view: View -> onClick(view) },
             )
-            audioManager = controlsView.context.getSystemService(Context.AUDIO_SERVICE) as AudioManager?
+            audioManager =
+                controlsView.context.getSystemService(Context.AUDIO_SERVICE) as AudioManager?
         } catch (ex: Exception) {
             Logger.printException({ "initializeButton failure" }, ex)
         }

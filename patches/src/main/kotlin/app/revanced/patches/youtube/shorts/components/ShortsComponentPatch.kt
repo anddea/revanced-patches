@@ -149,7 +149,8 @@ private val shortsAnimationPatch = bytecodePatch(
             if (likeTapFeedbackCairo != -1L) {
                 val literalIndex = indexOfFirstLiteralInstruction(likeTapFeedbackCairo)
                 if (literalIndex > -1) {
-                    val literalRegister = getInstruction<OneRegisterInstruction>(literalIndex).registerA
+                    val literalRegister =
+                        getInstruction<OneRegisterInstruction>(literalIndex).registerA
 
                     addInstructions(
                         literalIndex + 1, """

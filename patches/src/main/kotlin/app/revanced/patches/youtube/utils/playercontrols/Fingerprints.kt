@@ -94,12 +94,14 @@ internal fun indexOfTranslationInstruction(method: Method) =
         getReference<MethodReference>()?.name == "setTranslationY"
     }
 
+internal const val PLAYER_BOTTOM_CONTROLS_EXPLODER_FEATURE_FLAG = 45643739L
+
 internal val playerBottomControlsExploderFeatureFlagFingerprint = legacyFingerprint(
     name = "playerBottomControlsExploderFeatureFlagFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Z",
     parameters = emptyList(),
-    literals = listOf(45643739L),
+    literals = listOf(PLAYER_BOTTOM_CONTROLS_EXPLODER_FEATURE_FLAG),
 )
 
 internal const val PLAYER_TOP_CONTROLS_EXPERIMENTAL_LAYOUT_FEATURE_FLAG = 45629424L
@@ -108,4 +110,34 @@ internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint = legacyF
     name = "playerTopControlsExperimentalLayoutFeatureFlagFingerprint",
     returnType = "I",
     literals = listOf(PLAYER_TOP_CONTROLS_EXPERIMENTAL_LAYOUT_FEATURE_FLAG),
+)
+
+internal const val PLAYER_CONTROLS_FULLSCREEN_LARGE_BUTTON_FEATURE_FLAG = 45686474L
+
+internal val playerControlsFullscreenLargeButtonsFeatureFlagFingerprint = legacyFingerprint(
+    name = "playerControlsFullscreenLargeButtonsFeatureFlagFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Z",
+    parameters = emptyList(),
+    literals = listOf(PLAYER_CONTROLS_FULLSCREEN_LARGE_BUTTON_FEATURE_FLAG),
+)
+
+internal const val PLAYER_CONTROLS_FULLSCREEN_LARGE_OVERLAY_BUTTON_FEATURE_FLAG = 45709810L
+
+internal val playerControlsLargeOverlayButtonsFeatureFlagFingerprint = legacyFingerprint(
+    name = "playerControlsLargeOverlayButtonsFeatureFlagFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Z",
+    parameters = emptyList(),
+    literals = listOf(PLAYER_CONTROLS_FULLSCREEN_LARGE_OVERLAY_BUTTON_FEATURE_FLAG),
+)
+
+internal const val PLAYER_CONTROLS_BUTTON_STROKE_FEATURE_FLAG = 45713296L
+
+internal val playerControlsButtonStrokeFeatureFlagFingerprint = legacyFingerprint(
+    name = "playerControlsButtonStrokeFeatureFlagFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Z",
+    parameters = emptyList(),
+    literals = listOf(PLAYER_CONTROLS_BUTTON_STROKE_FEATURE_FLAG),
 )

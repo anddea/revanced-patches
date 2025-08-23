@@ -77,6 +77,11 @@ public final class ShortsButtonFilter extends Filter {
                 "reel_sound_metadata"
         );
 
+        StringFilterGroup soundButton = new StringFilterGroup(
+                Settings.HIDE_SHORTS_SOUND_BUTTON,
+                "reel_pivot_button"
+        );
+
         StringFilterGroup infoPanel = new StringFilterGroup(
                 Settings.HIDE_SHORTS_INFO_PANEL,
                 "shorts_info_panel_overview"
@@ -95,6 +100,11 @@ public final class ShortsButtonFilter extends Filter {
         StringFilterGroup paidPromotionButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_PAID_PROMOTION_LABEL,
                 "reel_player_disclosure.eml"
+        );
+
+        StringFilterGroup shortsCommentsPanel = new StringFilterGroup(
+                Settings.HIDE_SHORTS_COMMENTS_PANEL,
+                "participation_composer"
         );
 
         StringFilterGroup likeButton = new StringFilterGroup(
@@ -140,8 +150,8 @@ public final class ShortsButtonFilter extends Filter {
         addPathCallbacks(
                 suggestedAction, actionButton, joinButton, subscribeButton, metaPanelButton,
                 paidPromotionButton, pausedOverlayButtons, channelBar, videoLinkLabel,
-                videoTitle, reelSoundMetadata, infoPanel, liveHeader, stickers,
-                likeButton, dislikeButton
+                videoTitle, reelSoundMetadata, infoPanel, liveHeader, soundButton,
+                stickers, likeButton, dislikeButton, shortsCommentsPanel
         );
 
         //

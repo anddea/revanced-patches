@@ -2,6 +2,8 @@ package app.revanced.extension.youtube.patches.components;
 
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
+
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
@@ -13,7 +15,7 @@ import app.revanced.extension.youtube.shared.EngagementPanel;
 import app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 import app.revanced.extension.youtube.shared.RootView;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "deprecation"})
 public final class ShortsShelfFilter extends Filter {
     private static final String BROWSE_ID_HISTORY = "FEhistory";
     private static final String BROWSE_ID_LIBRARY = "FElibrary";
@@ -97,7 +99,13 @@ public final class ShortsShelfFilter extends Filter {
         final String navigation = navigationButton == null ? "null" : navigationButton.name();
         final String browseId = RootView.getBrowseId();
         final boolean hideShelves = shouldHideShortsFeedItems(playerActive, descriptionActive, searchBarActive, navigationButton, browseId);
-        Logger.printDebug(() -> "hideShelves: " + hideShelves + "\nplayerActive: " + playerActive + "\ndescriptionActive" + descriptionActive + "\nsearchBarActive: " + searchBarActive + "\nbrowseId: " + browseId + "\nnavigation: " + navigation);
+        Logger.printDebug(() -> "hideShelves: " + hideShelves +
+                "\nplayerActive: " + playerActive +
+                "\ndescriptionActive: " + descriptionActive +
+                "\nsearchBarActive: " + searchBarActive +
+                "\nbrowseId: " + browseId +
+                "\nnavigation: " + navigation
+        );
         if (contentType == FilterContentType.PATH) {
             if (matchedGroup == compactFeedVideoPath) {
                 if (hideShelves && compactFeedVideoBuffer.check(protobufBufferArray).isFiltered()) {
@@ -180,8 +188,9 @@ public final class ShortsShelfFilter extends Filter {
         }
 
         // Fixes a very rare bug in home.
-        if (selectedNavButton == NavigationButton.HOME && browseId.equals(BROWSE_ID_NOTIFICATION_INBOX)) {
-            return true;
+        if (selectedNavButton == NavigationButton.HOME
+                && StringUtils.equalsAny(browseId, BROWSE_ID_LIBRARY, BROWSE_ID_NOTIFICATION_INBOX)) {
+            return hideHomeAndRelatedVideos;
         }
 
         switch (browseId) {

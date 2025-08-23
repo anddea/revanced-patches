@@ -55,18 +55,6 @@
         <item>https://github.com/polymorphicshade/Tubular/releases/latest</item>
         <item>https://github.com/deniscerri/ytdlnis/releases/latest</item>
     </string-array>
-    <string-array name="revanced_litho_layout_thread_pool_max_size_entries">
-        <item>@string/revanced_litho_layout_thread_pool_max_size_entry_0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-    <string-array name="revanced_litho_layout_thread_pool_max_size_entry_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
     <string-array name="revanced_return_youtube_username_display_format_entries">
         <item>@string/revanced_return_youtube_username_display_format_username_only</item>
         <item>@string/revanced_return_youtube_username_display_format_username_handle</item>
@@ -82,16 +70,28 @@
     <string-array name="revanced_spoof_app_version_target_entry_values">
     </string-array>
     <string-array name="revanced_spoof_client_type_entries">
-        <item>@string/revanced_spoof_client_type_entry_android_music_4_27</item>
-        <item>@string/revanced_spoof_client_type_entry_android_music_5_29</item>
         <item>@string/revanced_spoof_client_type_entry_ios_music_6_21</item>
         <item>@string/revanced_spoof_client_type_entry_ios_music_7_04</item>
+        <item>@string/revanced_spoof_client_type_entry_ios_music_8_12</item>
     </string-array>
     <string-array name="revanced_spoof_client_type_entry_values">
-        <item>ANDROID_MUSIC_4_27</item>
-        <item>ANDROID_MUSIC_5_29</item>
         <item>IOS_MUSIC_6_21</item>
         <item>IOS_MUSIC_7_04</item>
+        <item>IOS_MUSIC_8_12</item>
+    </string-array>
+    <string-array name="revanced_spoof_video_streams_default_client_entries">
+        <item>@string/revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32</item>
+        <item>@string/revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09</item>
+        <item>@string/revanced_spoof_video_streams_default_client_entry_ios_music_6_21</item>
+        <item>@string/revanced_spoof_video_streams_default_client_entry_ios_music_7_04</item>
+        <item>@string/revanced_spoof_video_streams_default_client_entry_ios_music_8_12</item>
+    </string-array>
+    <string-array name="revanced_spoof_video_streams_default_client_entry_values">
+        <item>ANDROID_VR_1_43_32</item>
+        <item>ANDROID_VR_1_65_09</item>
+        <item>IOS_MUSIC_6_21</item>
+        <item>IOS_MUSIC_7_04</item>
+        <item>IOS_MUSIC_8_12</item>
     </string-array>
     <string-array name="revanced_watch_history_type_entries">
         <item>@string/revanced_watch_history_type_entry_1</item>

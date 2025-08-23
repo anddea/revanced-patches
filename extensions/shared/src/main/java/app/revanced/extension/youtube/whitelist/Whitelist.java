@@ -98,7 +98,7 @@ public class Whitelist {
 
         StringBuilder sb = new StringBuilder("\n");
 
-        if (PatchStatus.RememberPlaybackSpeed()) {
+        if (PatchStatus.VideoPlayback()) {
             appendStringBuilder(sb, whitelistTypePlaybackSpeed, channelId, false);
         }
 
@@ -148,7 +148,7 @@ public class Whitelist {
         List<Integer> buttonWidths = new ArrayList<>();
 
         // Create buttons in order: Neutral, Cancel, OK.
-        if (PatchStatus.RememberPlaybackSpeed()) {
+        if (PatchStatus.VideoPlayback()) {
             Button playbackSpeedButton = Utils.addButton(
                     context,
                     whitelistTypePlaybackSpeed.friendlyName,
@@ -265,7 +265,7 @@ public class Whitelist {
                 if (PatchStatus.SponsorBlock()) {
                     reorderedButtons.add(buttons.get(buttons.size() - 1));
                 }
-                if (PatchStatus.RememberPlaybackSpeed()) {
+                if (PatchStatus.VideoPlayback()) {
                     reorderedButtons.add(buttons.get(0));
                 }
 

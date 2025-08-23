@@ -5,11 +5,15 @@ import app.revanced.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PA
 import app.revanced.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.utils.patch.PatchList
 import app.revanced.util.doRecursively
+import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.insertNode
 import org.w3c.dom.Element
 import java.io.File
 
 internal object ResourceUtils {
+    internal const val RVX_PREFERENCE_PATH = "res/xml/revanced_prefs.xml"
+    internal const val YOUTUBE_SETTINGS_PATH = "res/xml/settings_fragment.xml"
+
     private lateinit var context: ResourcePatchContext
     private lateinit var youtubeSettingFile: File
     private lateinit var rvxSettingFile: File
@@ -21,9 +25,6 @@ internal object ResourceUtils {
     }
 
     fun getContext() = context
-
-    const val RVX_PREFERENCE_PATH = "res/xml/revanced_prefs.xml"
-    const val YOUTUBE_SETTINGS_PATH = "res/xml/settings_fragment.xml"
 
     var restoreOldSplashAnimationIncluded = false
     var youtubeMusicPackageName = YOUTUBE_MUSIC_PACKAGE_NAME
@@ -65,7 +66,7 @@ internal object ResourceUtils {
     fun addPreference(settingArray: Array<String>) {
         settingArray.forEach preferenceLoop@{ preference ->
             rvxSettingFile.writeText(
-                rvxSettingFile.readText()
+                this.rvxSettingFile.readText()
                     .replace("<!-- $preference", "")
                     .replace("$preference -->", "")
             )
@@ -111,10 +112,11 @@ internal object ResourceUtils {
         }
     }
 
-    fun addPreferenceFragment(key: String, insertKey: String) = context.apply {
-        val targetClass =
-            "com.google.android.libraries.social.licenses.LicenseActivity"
-
+    fun addPreferenceFragment(
+        key: String,
+        insertKey: String,
+        targetClass: String,
+    ) = context.apply {
         document(YOUTUBE_SETTINGS_PATH).use { document ->
             with(document) {
                 val processedKeys = mutableSetOf<String>() // To track processed keys
@@ -158,6 +160,35 @@ internal object ResourceUtils {
                     }
                 }
             }
+        }
+
+        // Modify the manifest to enhance TargetActivity behavior:
+        // 1. Add a data intent filter with MIME type "text/plain".
+        //    Some devices crash if undeclared data is passed to an intent,
+        //    and this change appears to fix the issue.
+        // 2. Add android:configChanges="orientation|screenSize|keyboardHidden".
+        //    This prevents the activity from being recreated on configuration changes
+        //    (e.g., screen rotation), preserving its current state and fragment.
+        document("AndroidManifest.xml").use { document ->
+            val activityElement = document.childNodes.findElementByAttributeValueOrThrow(
+                "android:name",
+                targetClass,
+            )
+
+            if (!activityElement.hasAttribute("android:configChanges")) {
+                activityElement.setAttribute(
+                    "android:configChanges",
+                    "keyboardHidden|orientation|screenSize"
+                )
+            }
+
+            val mimeType = document.createElement("data")
+            mimeType.setAttribute("android:mimeType", "text/plain")
+
+            val intentFilter = document.createElement("intent-filter")
+            intentFilter.appendChild(mimeType)
+
+            activityElement.appendChild(intentFilter)
         }
     }
 }

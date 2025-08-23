@@ -229,13 +229,13 @@ internal object ResourceUtils {
         }
     }
 
-    fun addRVXSettingsPreference() {
+    fun addRVXSettingsPreference(insertKey: String) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             document.doRecursively node@{
                 if (it !is Element) return@node
 
                 it.getAttributeNode("android:key")?.let { attribute ->
-                    if (attribute.textContent == "settings_header_about_youtube_music" && it.getAttributeNode(
+                    if (attribute.textContent == insertKey && it.getAttributeNode(
                             "app:allowDividerBelow"
                         ).textContent == "false"
                     ) {

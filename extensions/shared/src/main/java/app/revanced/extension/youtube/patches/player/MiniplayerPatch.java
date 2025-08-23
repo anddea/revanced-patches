@@ -412,8 +412,8 @@ public final class MiniplayerPatch {
     public static void playerOverlayGroupCreated(View group) {
         try {
             if (HIDE_BROKEN_MODERN_2_SUBTITLE && MODERN_OVERLAY_SUBTITLE_TEXT != 0) {
-                if (group instanceof ViewGroup) {
-                    View subtitleText = Utils.getChildView((ViewGroup) group, true,
+                if (group instanceof ViewGroup viewGroup) {
+                    View subtitleText = Utils.getChildView(viewGroup, true,
                             view -> view.getId() == MODERN_OVERLAY_SUBTITLE_TEXT);
 
                     if (subtitleText != null) {

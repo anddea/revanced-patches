@@ -17,7 +17,7 @@ public class AuthUtils {
     private static final String VISITOR_ID_HEADER = "X-Goog-Visitor-Id";
     private static final Map<String, String> REQUEST_HEADER = new LinkedHashMap<>(3);
     private static String authorization = "";
-    private static String dataSyncId = "";
+    private static String pageId = "";
     private static String visitorId = "";
     private static boolean incognitoStatus = false;
 
@@ -29,16 +29,16 @@ public class AuthUtils {
             return;
         }
         String newlyLoadedAuthorization = requestHeaders.get(AUTHORIZATION_HEADER);
-        if (StringUtils.isNotEmpty(newlyLoadedAuthorization) && !authorization.equals(newlyLoadedAuthorization)) {
+        String newlyLoadedVisitorId = requestHeaders.get(VISITOR_ID_HEADER);
+        boolean authorizationNeedsUpdating = StringUtils.isNotEmpty(newlyLoadedAuthorization) && !authorization.equals(newlyLoadedAuthorization);
+        boolean visitorIdNeedsUpdating = StringUtils.isNotEmpty(newlyLoadedVisitorId) && !visitorId.equals(newlyLoadedVisitorId);
+
+        if (authorizationNeedsUpdating && visitorIdNeedsUpdating) {
             REQUEST_HEADER.put(AUTHORIZATION_HEADER, newlyLoadedAuthorization);
             authorization = newlyLoadedAuthorization;
-            Logger.printDebug(() -> "new Authorization loaded: " + newlyLoadedAuthorization);
-        }
-
-        String newlyLoadedVisitorId = requestHeaders.get(VISITOR_ID_HEADER);
-        if (StringUtils.isNotEmpty(newlyLoadedVisitorId) && !visitorId.equals(newlyLoadedVisitorId)) {
             REQUEST_HEADER.put(VISITOR_ID_HEADER, newlyLoadedVisitorId);
             visitorId = newlyLoadedVisitorId;
+            Logger.printDebug(() -> "new Authorization loaded: " + newlyLoadedAuthorization);
             Logger.printDebug(() -> "new VisitorId loaded: " + newlyLoadedVisitorId);
         }
     }
@@ -46,14 +46,15 @@ public class AuthUtils {
     /**
      * Injection point.
      */
-    public static void setDataSyncIdAndIncognitoStatus(@Nullable String newlyLoadedDataSyncId, boolean newlyLoadedIncognitoStatus) {
-        if (StringUtils.isEmpty(newlyLoadedDataSyncId)) {
+    public static void setAccountIdentity(@Nullable String newlyLoadedPageId,
+                                          boolean newlyLoadedIncognitoStatus) {
+        if (StringUtils.isEmpty(newlyLoadedPageId)) {
             REQUEST_HEADER.remove(PAGE_ID_HEADER);
-            dataSyncId = "";
-        } else if (!dataSyncId.equals(newlyLoadedDataSyncId)) {
-            REQUEST_HEADER.put(PAGE_ID_HEADER, newlyLoadedDataSyncId);
-            dataSyncId = newlyLoadedDataSyncId;
-            Logger.printDebug(() -> "new DataSyncId loaded: " + newlyLoadedDataSyncId);
+            pageId = "";
+        } else if (!pageId.equals(newlyLoadedPageId)) {
+            REQUEST_HEADER.put(PAGE_ID_HEADER, newlyLoadedPageId);
+            pageId = newlyLoadedPageId;
+            Logger.printDebug(() -> "new PageId loaded: " + newlyLoadedPageId);
         }
         incognitoStatus = newlyLoadedIncognitoStatus;
     }
@@ -63,6 +64,7 @@ public class AuthUtils {
     }
 
     public static boolean isNotLoggedIn() {
-        return authorization.isEmpty() || (dataSyncId.isEmpty() && incognitoStatus);
+        return authorization.isEmpty() || (pageId.isEmpty() && incognitoStatus);
     }
+
 }

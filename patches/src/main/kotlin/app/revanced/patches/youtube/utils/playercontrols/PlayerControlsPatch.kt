@@ -12,12 +12,16 @@ import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_36_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_20_19_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_20_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_28_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_30_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.fullScreenButton
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
@@ -148,7 +152,7 @@ private lateinit var visibilityMethod: MutableMethod
 private var visibilityInsertIndex: Int = 0
 
 private var visibilityImmediateCallbacksExistModified = false
-private lateinit var visibilityImmediateCallbacksExistMethod : MutableMethod
+private lateinit var visibilityImmediateCallbacksExistMethod: MutableMethod
 
 private lateinit var visibilityImmediateMethod: MutableMethod
 private var visibilityImmediateInsertIndex: Int = 0
@@ -205,7 +209,8 @@ val playerControlsPatch = bytecodePatch(
             inflateBottomControlMethod = this
 
             val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
-            inflateBottomControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
+            inflateBottomControlRegister =
+                getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
             inflateBottomControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
@@ -213,7 +218,8 @@ val playerControlsPatch = bytecodePatch(
             inflateTopControlMethod = this
 
             val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
-            inflateTopControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
+            inflateTopControlRegister =
+                getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
             inflateTopControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
@@ -240,7 +246,8 @@ val playerControlsPatch = bytecodePatch(
             )
         }
 
-        visibilityImmediateCallbacksExistMethod = playerControlsExtensionHookListenersExistFingerprint.methodOrThrow()
+        visibilityImmediateCallbacksExistMethod =
+            playerControlsExtensionHookListenersExistFingerprint.methodOrThrow()
         visibilityImmediateMethod = playerControlsExtensionHookFingerprint.methodOrThrow()
 
         // A/B test for a slightly different bottom overlay controls,
@@ -248,18 +255,17 @@ val playerControlsPatch = bytecodePatch(
         // The change to support this is simple and only requires adding buttons to both layout files,
         // but for now force this different layout off since it's still an experimental test.
         if (is_19_36_or_greater) {
-            playerBottomControlsExploderFeatureFlagFingerprint.methodOrThrow().returnEarly()
+            playerBottomControlsExploderFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                PLAYER_BOTTOM_CONTROLS_EXPLODER_FEATURE_FLAG,
+                "0x0"
+            )
         }
 
-        // A/B test of new top overlay controls. Two different layouts can be used:
+        // A/B test of different top overlay controls. Two different layouts can be used:
         // youtube_cf_navigation_improvement_controls_layout.xml
         // youtube_cf_minimal_impact_controls_layout.xml
         //
-        // Visually there is no noticeable difference between either of these compared to the default.
-        // There is additional logic that is active when youtube_cf_navigation_improvement_controls_layout
-        // is active, but what it does is not entirely clear.
-        //
-        // For now force this a/b feature off as it breaks the top player buttons.
+        // Flag was removed in 20.19+
         if (is_19_25_or_greater && !is_20_19_or_greater) {
             playerTopControlsExperimentalLayoutFeatureFlagFingerprint.methodOrThrow().apply {
                 val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
@@ -270,8 +276,27 @@ val playerControlsPatch = bytecodePatch(
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerTopControlsLayoutResourceName(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$register
-                    """,
+                        """,
                 )
+            }
+        } else if (is_20_20_or_greater) { // Turn off a/b tests of ugly player buttons that don't match the style of custom player buttons.
+            playerControlsFullscreenLargeButtonsFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                PLAYER_CONTROLS_FULLSCREEN_LARGE_BUTTON_FEATURE_FLAG,
+                "0x0"
+            )
+
+            if (is_20_28_or_greater) {
+                playerControlsLargeOverlayButtonsFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                    PLAYER_CONTROLS_FULLSCREEN_LARGE_OVERLAY_BUTTON_FEATURE_FLAG,
+                    "0x0"
+                )
+
+                if (is_20_30_or_greater) {
+                    playerControlsButtonStrokeFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                        PLAYER_CONTROLS_BUTTON_STROKE_FEATURE_FLAG,
+                        "0x0"
+                    )
+                }
             }
         }
     }

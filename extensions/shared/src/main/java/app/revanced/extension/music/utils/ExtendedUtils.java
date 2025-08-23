@@ -14,6 +14,9 @@ import app.revanced.extension.shared.utils.PackageUtils;
 import app.revanced.extension.shared.utils.ResourceUtils;
 
 public class ExtendedUtils extends PackageUtils {
+    public static final boolean IS_6_36_OR_GREATER = isVersionOrGreater("6.36.00");
+    public static final boolean IS_7_17_OR_GREATER = isVersionOrGreater("7.17.00");
+
     private static final String SETTINGS_CLASS_DESCRIPTOR = "com.google.android.apps.youtube.music.settings.SettingsCompatActivity";
     private static final String SETTINGS_ATTRIBUTION_FRAGMENT_KEY = ":android:show_fragment";
     private static final String SETTINGS_ATTRIBUTION_FRAGMENT_VALUE = "com.google.android.apps.youtube.music.settings.fragment.SettingsHeadersFragment";

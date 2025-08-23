@@ -68,6 +68,12 @@
 По можливості використовуйте темні кольори, оскільки застосунок не підтримує світлі теми."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Вторинний колір фону плеєра</string>
     <string name="revanced_custom_player_background_invalid_toast">Недійсний колір фону плеєра.</string>
+    <string name="revanced_debug_protobuffer_summary">Включає протобуфер в журналу налагодження.</string>
+    <string name="revanced_debug_protobuffer_title">Журнал протоколу буфера</string>
+    <string name="revanced_debug_spannable_summary">Включає охоплення журналу налагодження.</string>
+    <string name="revanced_debug_spannable_title">Охоплення журналу</string>
+    <string name="revanced_debug_summary">Виводить журнал налагодження.</string>
+    <string name="revanced_debug_title">Ведення журналу налагодження</string>
     <string name="revanced_default_app_settings_summary">Щоб відкривати посилання на YouTube Music у RVX Music, увімкніть \"Відкривати підтримувані посилання\" та активуйте підтримувані веб-адреси.</string>
     <string name="revanced_default_app_settings_title">Відкрити налаштування за замовчуванням</string>
     <string name="revanced_disable_auto_captions_summary">Вимикає примусове ввімкнення автоматичних субтитрів.</string>
@@ -95,6 +101,10 @@
     <string name="revanced_disable_player_gesture_title">Вимкнути жести плеєра</string>
     <string name="revanced_disable_quic_protocol_summary">"Вимикає протокол CronetEngine's QUIC."</string>
     <string name="revanced_disable_quic_protocol_title">Вимкнути протокол QUIC</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"При натисканні на заголовок панелі коментарів (\"Коментарі\") вони прокручуються на початок.
+
+Обмеження: не поширюється на відповіді на коментарі."</string>
+    <string name="revanced_enable_comments_scroll_top_title">Включити прокрутку до початку коментарів</string>
     <string name="revanced_enable_compact_dialog_summary">"Вмикає компактне спливаюче вікно на телефонах.
 
 Відомі проблеми:
@@ -103,10 +113,6 @@
     <string name="revanced_enable_compact_dialog_title">Увімкнути компактний вигляд меню</string>
     <string name="revanced_enable_custom_navigation_bar_color_summary">Встановлює колір для панелі навігації.</string>
     <string name="revanced_enable_custom_navigation_bar_color_title">Увімкнути користувацький колір панелі навігації</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Включає буфер у журнал налагодження.</string>
-    <string name="revanced_enable_debug_buffer_logging_title">Увімкнути ведення журналу буфера налагодження</string>
-    <string name="revanced_enable_debug_logging_summary">Виводить протокол налагодження.</string>
-    <string name="revanced_enable_debug_logging_title">Увімкнути протоколи налагодження</string>
     <string name="revanced_enable_forced_miniplayer_summary">Вмикає мініплеєр на постійній основі під час переходу на новий трек.</string>
     <string name="revanced_enable_forced_miniplayer_title">Увімкнути мініплеєр на постійній основі</string>
     <string name="revanced_enable_landscape_mode_summary">Вмикає ландшафтний режим під час повороту екрана на телефонах.</string>
@@ -332,6 +338,8 @@
     <string name="revanced_remember_repeat_state_title">Запам\'ятовувати стан повтору</string>
     <string name="revanced_remember_shuffle_state_summary">Запам\'ятовує стан кнопки \"Перемішати\".</string>
     <string name="revanced_remember_shuffle_state_title">Запам\'ятовувати стан перемішування</string>
+    <string name="revanced_remember_video_quality_auto_mobile">За замовчуванням якість при моб. мережі змінено на \"Авто\".</string>
+    <string name="revanced_remember_video_quality_auto_wifi">За замовчуванням якість при Wi-Fi змінено на \"Авто\".</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Запам\'ятовує останню вибрану якість відео.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати зміни якості відео</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">Показує тост під час зміни стандартної якості відео.</string>
@@ -470,6 +478,7 @@
 • Якщо пізніше вимкнути, старий інтерфейс може залишитися, доки не буде очищено дані застосунку."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Вимкнення режиму радіо в канадських регіонах</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Вимкнення динамічних текстів (караоке)</string>
+    <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Відновити стару спливаючу панель</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Вимкнення динамічних текстів</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Відновлення старої панелі дій</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - Розділ коментарів не показується в домашній стрічці</string>
@@ -477,10 +486,8 @@
     <string name="revanced_spoof_app_version_target_summary">Виберіть зі списку цільову версію для підміни.</string>
     <string name="revanced_spoof_app_version_target_title">Підмінити цільову версію застосунку</string>
     <string name="revanced_spoof_app_version_title">Підмінити версію програми</string>
-    <string name="revanced_spoof_client_summary">Підмінює клієнт, щоб запобігти проблемам із відтворенням.</string>
+    <string name="revanced_spoof_client_summary">"Підмінює клієнт, щоб запобігти проблемам із відтворенням."</string>
     <string name="revanced_spoof_client_title">Підмінити клієнт</string>
-    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
-    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_client_type_summary">Визначає клієнт за замовчуванням для підробки.</string>
@@ -496,6 +503,19 @@
 
 ※ Під час використання разом з \"Підміною клієнта\" можуть виникнути проблеми з відтворенням."</string>
     <string name="revanced_spoof_streaming_data_title">Підробка потокових даних</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32">Android VR 1.43.32</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09">Android VR 1.65.09</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">Визначає клієнт за замовчуванням для підробки.</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Клієнт за замовчуванням</string>
+    <string name="revanced_spoof_video_streams_summary">"Підробка клієнтськіх відеопотоків, щоб запобігти проблем з відтворенням.
+
+Побічний ефект:
+• Програма може закриватися при використанні VPN або DNS.
+• Звук може періодично перериватись під час відтворення на клієнтах потокової передачі з адаптивним бітрейтом (всі клієнти, крім Android VR 1.43.32)."</string>
+    <string name="revanced_spoof_video_streams_title">Підробка відеопотоків</string>
     <string name="revanced_watch_history_type_entry_1">Оригінальний</string>
     <string name="revanced_watch_history_type_entry_2">Замінити домен</string>
     <string name="revanced_watch_history_type_entry_3">Блокувати історію переглядів</string>

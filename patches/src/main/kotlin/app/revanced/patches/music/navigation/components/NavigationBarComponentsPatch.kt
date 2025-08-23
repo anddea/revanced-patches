@@ -230,16 +230,6 @@ val navigationBarComponentsPatch = bytecodePatch(
             "revanced_hide_navigation_upgrade_button",
             "true"
         )
-        addSwitchPreference(
-            CategoryType.NAVIGATION,
-            "revanced_hide_navigation_bar",
-            "false"
-        )
-        addSwitchPreference(
-            CategoryType.NAVIGATION,
-            "revanced_hide_navigation_label",
-            "false"
-        )
         if (is_6_27_or_greater) {
             addSwitchPreference(
                 CategoryType.NAVIGATION,
@@ -250,6 +240,16 @@ val navigationBarComponentsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.NAVIGATION,
             "revanced_replace_navigation_upgrade_button",
+            "false"
+        )
+        addSwitchPreference(
+            CategoryType.NAVIGATION,
+            "revanced_hide_navigation_bar",
+            "false"
+        )
+        addSwitchPreference(
+            CategoryType.NAVIGATION,
+            "revanced_hide_navigation_label",
             "false"
         )
         addPreferenceWithIntent(

@@ -10,6 +10,8 @@ import android.view.animation.AnimationUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.io.InputStream;
+
 import app.revanced.extension.shared.settings.Setting;
 
 @SuppressWarnings({"unused", "deprecation", "DiscouragedApi"})
@@ -186,6 +188,15 @@ public class ResourceUtils extends Utils {
 
     public static String[] getEntryValue(@NonNull Setting<?> setting) {
         return getStringArray(setting, "_entry_values");
+    }
+
+    public static InputStream openRawResource(@NonNull String str) {
+        final int identifier = getRawIdentifier(str);
+        if (identifier == 0) {
+            handleException(str, ResourceType.RAW);
+            return null;
+        }
+        return getResources().openRawResource(identifier);
     }
 
     private static void handleException(@NonNull String str, ResourceType resourceType) {

@@ -23,7 +23,7 @@ val authHookPatch = bytecodePatch(
         // Get incognito status and data sync id.
         accountIdentityFingerprint.methodOrThrow().addInstruction(
             1,
-            "invoke-static {p3, p4}, $EXTENSION_AUTH_UTILS_CLASS_DESCRIPTOR->setDataSyncIdAndIncognitoStatus(Ljava/lang/String;Z)V"
+            "invoke-static {p3, p4}, $EXTENSION_AUTH_UTILS_CLASS_DESCRIPTOR->setAccountIdentity(Ljava/lang/String;Z)V"
         )
 
         // Get the header to use the auth token.

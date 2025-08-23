@@ -12,10 +12,6 @@ public class PatchStatus {
         return false;
     }
 
-    public static boolean SpoofStreamingDataIOS() {
-        return false;
-    }
-
     public static String PatchVersion() {
         return "Unknown";
     }

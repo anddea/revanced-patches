@@ -93,6 +93,10 @@ internal enum class PatchList(
         "Disable resuming Shorts on startup",
         "Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched."
     ),
+    DISABLE_SIGN_IN_TO_TV_POPUP(
+        "Disable sign in to TV popup",
+        "Adds an option to disable the popup asking to sign into a TV on the same local network."
+    ),
     DISABLE_SPLASH_ANIMATION(
         "Disable splash animation",
         "Adds an option to disable the splash animation on app startup."

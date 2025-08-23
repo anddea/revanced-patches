@@ -11,22 +11,31 @@ import app.revanced.patches.music.utils.patch.PatchList.VIDEO_PLAYBACK
 import app.revanced.patches.music.utils.playbackSpeedBottomSheetFingerprint
 import app.revanced.patches.music.utils.playbackSpeedFingerprint
 import app.revanced.patches.music.utils.playbackSpeedParentFingerprint
+import app.revanced.patches.music.utils.playservice.is_8_20_or_greater
+import app.revanced.patches.music.utils.resourceid.qualityAuto
+import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
-import app.revanced.patches.music.video.information.videoIdHook
+import app.revanced.patches.music.video.information.onCreateHook
 import app.revanced.patches.music.video.information.videoInformationPatch
 import app.revanced.patches.shared.customspeed.customPlaybackSpeedPatch
-import app.revanced.util.findMethodOrThrow
+import app.revanced.patches.shared.playbackStartParametersConstructorFingerprint
+import app.revanced.patches.shared.playbackStartParametersToStringFingerprint
+import app.revanced.util.*
 import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
-import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.fingerprint.originalMethodOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR =
     "$VIDEO_PATH/PlaybackSpeedPatch;"
@@ -46,6 +55,7 @@ val videoPlaybackPatch = bytecodePatch(
             5.0f
         ),
         settingsPatch,
+        sharedResourceIdPatch,
         videoInformationPatch,
     )
 
@@ -88,6 +98,88 @@ val videoPlaybackPatch = bytecodePatch(
 
         // region patch for default video quality
 
+        val videoQualityClass = videoQualityListFingerprint.matchOrThrow().let {
+            with(it.method) {
+                // set video quality array
+                val listIndex = it.patternMatch!!.startIndex
+                val listRegister = getInstruction<FiveRegisterInstruction>(listIndex).registerD
+
+                addInstruction(
+                    listIndex,
+                    "invoke-static {v$listRegister}, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->setVideoQualities([Ljava/lang/Object;)V"
+                )
+
+                val literalIndex = indexOfFirstLiteralInstructionOrThrow(qualityAuto)
+                val qualityClassIndex =
+                    indexOfFirstInstructionReversedOrThrow(literalIndex + 1, Opcode.NEW_INSTANCE)
+                getInstruction<ReferenceInstruction>(qualityClassIndex).reference.toString()
+            }
+        }
+
+        val constructorParams = if (is_8_20_or_greater) {
+            listOf("I", "L", "Ljava/lang/String;", "Z", "L")
+        } else {
+            listOf("I", "Ljava/lang/String;", "Z", "L")
+        }
+
+        val invokeParams = if (is_8_20_or_greater) {
+            "p1, p3"
+        } else {
+            "p1, p2"
+        }
+
+        findMutableClassOrThrow(videoQualityClass).apply {
+            methods.first { method ->
+                MethodUtil.isConstructor(method) &&
+                        parametersEqual(
+                            constructorParams,
+                            method.parameterTypes
+                        )
+            }.addInstructions(
+                0, """
+                    invoke-static { $invokeParams }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->fixVideoQualityResolution(ILjava/lang/String;)I
+                    move-result p1
+                    """
+            )
+
+            val resolutionField = fields.single { field ->
+                field.type == "I"
+            }
+
+            findMethodOrThrow(EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR) {
+                name == "getVideoQualityResolution"
+            }.addInstructions(
+                0, """
+                    check-cast p0, $videoQualityClass
+                    iget p0, p0, $resolutionField
+                    return p0
+                    """
+            )
+        }
+
+        val initialResolutionField =
+            playbackStartParametersToStringFingerprint.originalMethodOrThrow()
+                .findFieldFromToString(", initialPlaybackVideoQualityFixedResolution=")
+
+        playbackStartParametersConstructorFingerprint
+            .methodOrThrow(playbackStartParametersToStringFingerprint)
+            .apply {
+                val index = indexOfFirstInstructionReversedOrThrow {
+                    opcode == Opcode.IPUT_OBJECT &&
+                            getReference<FieldReference>() == initialResolutionField
+                }
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index, """
+                        invoke-static {v$register}, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->getInitialVideoQuality(Lj${'$'}/util/Optional;)Lj${'$'}/util/Optional;
+                        move-result-object v$register
+                        """
+                )
+            }
+
+        onCreateHook(EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR, "newVideoStarted")
+
         userQualityChangeFingerprint.matchOrThrow().let {
             it.method.apply {
                 val endIndex = it.patternMatch!!.endIndex
@@ -98,12 +190,10 @@ val videoPlaybackPatch = bytecodePatch(
                     name == "onItemClick"
                 }.addInstruction(
                     0,
-                    "invoke-static {}, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->userSelectedVideoQuality()V"
+                    "invoke-static { p3 }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->userSelectedVideoQuality(I)V"
                 )
             }
         }
-
-        videoIdHook("$EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
 
         // endregion
 

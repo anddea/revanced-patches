@@ -2,27 +2,30 @@ package app.revanced.extension.shared.innertube.utils;
 
 import android.util.Pair;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.SocketTimeoutException;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutionException;
-import java.util.regex.*;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import app.revanced.extension.shared.innertube.utils.mediaservicecore.PlayerDataExtractor;
-import app.revanced.extension.shared.innertube.utils.javatube.Cipher;
-import okhttp3.*;
+import com.liskovsoft.sharedutils.helpers.Helpers;
+import com.liskovsoft.youtubeapi.app.playerdata.PlayerDataExtractor;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
 
+import java.io.IOException;
+import java.net.SocketTimeoutException;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import app.revanced.extension.shared.innertube.client.YouTubeClient;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 /**
  * The functions used in this class are referenced below:
@@ -47,65 +50,126 @@ public class ThrottlingParameterUtils {
      */
     private static final Pattern THROTTLING_PARAM_URL_PATTERN = Pattern.compile("&url=([^&]+)");
     /**
-     * Format of JavaScript url (TV).
+     * JavaScript url format (Mobile Web).
      */
-    private static final String PLAYER_JS_TV_URL_FORMAT =
-            "https://www.youtube.com/s/player/%s/tv-player-es6.vflset/tv-player-es6.js";
+    private static final String PLAYER_JS_URL_FORMAT_MOBILE_WEB =
+            "https://m.youtube.com/s/player/%s/player-plasma-ias-phone-en_US.vflset/base.js";
     /**
-     * Format of JavaScript url (Web).
+     * JavaScript url format (TV).
      */
-    private static final String PLAYER_JS_WEB_URL_FORMAT =
-            "https://www.youtube.com/s/player/%s/player_ias.vflset/en_GB/base.js";
+    private static final String PLAYER_JS_URL_FORMAT_TV =
+            "https://www.youtube.com/s/player/%s/tv-player-ias.vflset/tv-player-ias.js";
     /**
-     * Path of javascript url containing global function.
+     * Hardcoded javascript url path (Mobile Web).
      */
-    private static final String PLAYER_JS_GLOBAL_FUNCTIONS_URL_PATH = "69b31e11";
+    private static final String PLAYER_JS_HARDCODED_URL_PATH_MOBILE_WEB = "3d3ba064";
+    /**
+     * Hardcoded javascript url path (TV).
+     */
+    private static final String PLAYER_JS_HARDCODED_URL_PATH_TV = "3d3ba064";
     /**
      * Regular expression pattern to find variables used in JavaScript url.
      */
     private static final Pattern PLAYER_JS_IDENTIFIER_PATTERN =
             Pattern.compile("player\\\\/([a-z0-9]{8})\\\\/");
     /**
+     * Service worker url (Mobile Web).
+     */
+    private static final String SERVICE_WORKER_URL_MOBILE_WEB =
+            "https://m.youtube.com/sw.js_data";
+    /**
+     * Service worker url (TV).
+     */
+    private static final String SERVICE_WORKER_URL_TV =
+            "https://www.youtube.com/tv/sw.js_data";
+    /**
      * Url used to find variables used in JavaScript url.
      */
     private static final String IFRAME_API_URL =
             "https://www.youtube.com/iframe_api";
     /**
-     * User-agent of the TV client being used by yt-dlp.
+     * User-agent (Mobile Web).
      */
-    private static final String USER_AGENT_CHROMIUM =
-            "Mozilla/5.0 (ChromiumStylePlatform) Cobalt/Version";
-    private static final String HTTPS = "https:";
+    private static final String USER_AGENT_MOBILE_WEB =
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML; like Gecko) FxiOS/98.2  Mobile/15E148 Safari/605.1.15";
+    /**
+     * User-agent (TV).
+     */
+    private static final String USER_AGENT_TV =
+            "Mozilla/5.0 (PLAYSTATION 3 4.10) AppleWebKit/531.22.8 (KHTML, like Gecko)";
+    /**
+     * Client version from service worker (Mobile Web).
+     */
+    @Nullable
+    private volatile static String clientVersionMobileWeb = null;
+    /**
+     * Client version from service worker (TV).
+     */
+    @Nullable
+    private volatile static String clientVersionTV = null;
+    /**
+     * Class used to deobfuscate, powered by SmartTube (Mobile Web).
+     */
+    @Nullable
+    private volatile static PlayerDataExtractor extractorMobileWeb = null;
+    /**
+     * Class used to deobfuscate, powered by SmartTube (TV).
+     */
+    @Nullable
+    private volatile static PlayerDataExtractor extractorTV = null;
+    /**
+     * Javascript contents (Mobile Web).
+     */
+    @Nullable
+    private volatile static String playerJsMobileWeb = null;
+    /**
+     * Javascript contents (TV).
+     */
+    @Nullable
+    private volatile static String playerJsTV = null;
+    /**
+     * Javascript url (Mobile Web).
+     */
+    @Nullable
+    private volatile static String playerJsUrlMobileWeb = null;
+    /**
+     * Javascript url (TV).
+     */
+    @Nullable
+    private volatile static String playerJsUrlTV = null;
+    /**
+     * Service worker Json Array (Mobile Web).
+     */
+    @Nullable
+    private volatile static JSONArray serviceWorkerJsonArrayMobileWeb = null;
+    /**
+     * Service worker Json Array (TV).
+     */
+    @Nullable
+    private volatile static JSONArray serviceWorkerJsonArrayTV = null;
+    /**
+     * Field value included when sending a request (Mobile Web).
+     */
+    @Nullable
+    private volatile static String signatureTimestampMobileWeb = null;
+    /**
+     * Field value included when sending a request (TV).
+     */
+    @Nullable
+    private volatile static String signatureTimestampTV = null;
+    /**
+     * Visitor data from service worker (Mobile Web).
+     */
+    @Nullable
+    private volatile static String visitorIdMobileWeb = null;
+    /**
+     * Visitor data from service worker (TV).
+     */
+    @Nullable
+    private volatile static String visitorIdTV = null;
 
-    /**
-     * Class used to deobfuscate, powered by JavaTube.
-     */
-    @Nullable
-    private volatile static Cipher cipher = null;
-    /**
-     * Class used to deobfuscate, powered by SmartTube.
-     */
-    @Nullable
-    private volatile static PlayerDataExtractor extractor = null;
-    /**
-     * Javascript contents.
-     */
-    @Nullable
-    private volatile static String playerJs = null;
-    /**
-     * Url of javascript.
-     */
-    @Nullable
-    private volatile static String playerJsUrl = null;
-    /**
-     * Field value included when sending a request.
-     */
-    @Nullable
-    private volatile static String signatureTimestamp = null;
-
-    private volatile static String playerJsUrlFormat = null;
     private volatile static boolean isInitialized = false;
-    private volatile static boolean useV8JsEngine = false;
+    private volatile static boolean useLatestPlayerJs = false;
 
     /**
      * Typically, there are 10 to 30 available formats for a video.
@@ -122,7 +186,7 @@ public class ThrottlingParameterUtils {
         }
     };
 
-    public static void initializeJavascript(boolean fetchPlayerJs, boolean useJ2V8) {
+    public static void initializeJavascript(boolean useLatestPlayerJs, boolean useMobileWeb) {
         if (isInitialized) {
             return;
         }
@@ -130,29 +194,59 @@ public class ThrottlingParameterUtils {
             return;
         }
         isInitialized = true;
-        playerJsUrlFormat = useJ2V8
-                ? PLAYER_JS_TV_URL_FORMAT
-                : PLAYER_JS_WEB_URL_FORMAT;
-        useV8JsEngine = useJ2V8;
+        ThrottlingParameterUtils.useLatestPlayerJs = useLatestPlayerJs;
 
-        if (!fetchPlayerJs) {
-            playerJsUrl = String.format(playerJsUrlFormat, PLAYER_JS_GLOBAL_FUNCTIONS_URL_PATH);
+        if (!useLatestPlayerJs) {
+            playerJsUrlMobileWeb = String.format(PLAYER_JS_URL_FORMAT_MOBILE_WEB, PLAYER_JS_HARDCODED_URL_PATH_MOBILE_WEB);
+            playerJsUrlTV = String.format(PLAYER_JS_URL_FORMAT_TV, PLAYER_JS_HARDCODED_URL_PATH_TV);
         }
 
-        if (useJ2V8) {
-            extractor = getExtractor();
-        } else {
-            cipher = getCipher();
+        extractorTV = getExtractor(true);
+        playerJsTV = getPlayerJs(true);
+        playerJsUrlTV = getPlayerJsUrl(true);
+        signatureTimestampTV = getSignatureTimestamp(true);
+
+        if (useLatestPlayerJs) {
+            clientVersionTV = getClientVersion(true);
+            serviceWorkerJsonArrayTV = getServiceWorkerJsonArray(true);
         }
-        playerJs = getPlayerJs();
-        playerJsUrl = getPlayerJsUrl();
-        signatureTimestamp = getSignatureTimestamp();
+
+        if (useMobileWeb) {
+            extractorMobileWeb = getExtractor(false);
+            playerJsMobileWeb = getPlayerJs(false);
+            playerJsUrlMobileWeb = getPlayerJsUrl(false);
+            signatureTimestampMobileWeb = getSignatureTimestamp(false);
+            visitorIdMobileWeb = getVisitorId(false);
+            serviceWorkerJsonArrayMobileWeb = getServiceWorkerJsonArray(false);
+            if (useLatestPlayerJs) {
+                clientVersionMobileWeb = getClientVersion(false);
+            }
+        }
+    }
+
+    private static void resetAll() {
+        isInitialized = false;
+
+        clientVersionMobileWeb = null;
+        clientVersionTV = null;
+        extractorMobileWeb = null;
+        extractorTV = null;
+        playerJsMobileWeb = null;
+        playerJsTV = null;
+        playerJsUrlMobileWeb = null;
+        playerJsUrlTV = null;
+        serviceWorkerJsonArrayMobileWeb = null;
+        serviceWorkerJsonArrayTV = null;
+        signatureTimestampMobileWeb = null;
+        signatureTimestampTV = null;
+        visitorIdMobileWeb = null;
+        visitorIdTV = null;
     }
 
     @Nullable
-    private static String setSignatureTimestamp() {
+    private static String setSignatureTimestamp(boolean isTV) {
         try {
-            String playerJs = getPlayerJs();
+            String playerJs = getPlayerJs(isTV);
             if (playerJs != null) {
                 Matcher matcher = SIGNATURE_TIMESTAMP_PATTERN.matcher(playerJs);
                 if (matcher.find()) {
@@ -171,22 +265,163 @@ public class ThrottlingParameterUtils {
     }
 
     @Nullable
-    public static String getSignatureTimestamp() {
-        if (signatureTimestamp == null){
-            signatureTimestamp = setSignatureTimestamp();
+    public static String getSignatureTimestamp(boolean isTV) {
+        String signatureTimestamp = isTV
+                ? signatureTimestampTV
+                : signatureTimestampMobileWeb;
+        if (signatureTimestamp == null) {
+            signatureTimestamp = setSignatureTimestamp(isTV);
+            if (isTV) {
+                signatureTimestampTV = signatureTimestamp;
+            } else {
+                signatureTimestampMobileWeb = signatureTimestamp;
+            }
         }
         return signatureTimestamp;
     }
 
+    private static JSONArray setServiceWorkerJsonArray(boolean isTV) {
+        String jsonString = fetch(isTV
+                        ? SERVICE_WORKER_URL_TV
+                        : SERVICE_WORKER_URL_MOBILE_WEB,
+                isTV
+        );
+        if (jsonString != null) {
+            if (jsonString.startsWith(")]}'"))
+                jsonString = jsonString.substring(4);
+
+            try {
+                JSONArray jsonArray = new JSONArray(jsonString);
+
+                //jsonArray[0][2][0][0]
+                return jsonArray
+                        .getJSONArray(0)
+                        .getJSONArray(2)
+                        .getJSONArray(0)
+                        .getJSONArray(0);
+            } catch (Exception ex) {
+                Logger.printException(() -> "setServiceWorkerJsonArray failed", ex);
+            }
+        }
+        return null;
+    }
+
+    private static JSONArray getServiceWorkerJsonArray(boolean isTV) {
+        JSONArray serviceWorkerJsonArray = isTV
+                ? serviceWorkerJsonArrayTV
+                : serviceWorkerJsonArrayMobileWeb;
+        if (serviceWorkerJsonArray == null) {
+            serviceWorkerJsonArray = setServiceWorkerJsonArray(isTV);
+            if (isTV) {
+                serviceWorkerJsonArrayTV = serviceWorkerJsonArray;
+            } else {
+                serviceWorkerJsonArrayMobileWeb = serviceWorkerJsonArray;
+            }
+        }
+        return serviceWorkerJsonArray;
+    }
+
+    private static String setClientVersion(boolean isTV) {
+        JSONArray serviceWorkerJsonArray = getServiceWorkerJsonArray(isTV);
+
+        if (serviceWorkerJsonArray != null) {
+            try {
+                String clientVersion = serviceWorkerJsonArray
+                        .getString(16);
+                if (StringUtils.isNotEmpty(clientVersion)) {
+                    Logger.printDebug(() -> "clientVersion: " + clientVersion + ", isTV: " + isTV);
+                }
+                return clientVersion;
+            } catch (Exception ex) {
+                Logger.printException(() -> "setClientVersion failed", ex);
+            }
+        }
+
+        return null;
+    }
+
+    public static String getClientVersion(boolean isTV) {
+        String clientVersion = isTV
+                ? clientVersionTV
+                : clientVersionMobileWeb;
+        if (clientVersion == null) {
+            clientVersion = setClientVersion(isTV);
+            if (isTV) {
+                clientVersionTV = clientVersion;
+            } else {
+                clientVersionMobileWeb = clientVersion;
+            }
+        }
+
+        return clientVersion;
+    }
+
+    public static String getClientVersion(YouTubeClient.ClientType clientType) {
+        String hardCodedClientVersion = clientType.getClientVersion();
+        if (useLatestPlayerJs) {
+            if (clientType == YouTubeClient.ClientType.TV || clientType == YouTubeClient.ClientType.MWEB) {
+                boolean isTV = clientType == YouTubeClient.ClientType.TV;
+                String clientVersion = getClientVersion(isTV);
+                if (clientVersion != null) {
+                    return clientVersion;
+                }
+            }
+        }
+
+        return hardCodedClientVersion;
+    }
+
+    private static String setVisitorId(boolean isTV) {
+        JSONArray serviceWorkerJsonArray = getServiceWorkerJsonArray(isTV);
+
+        if (serviceWorkerJsonArray != null) {
+            try {
+                String visitorId = serviceWorkerJsonArray
+                        .getString(13);
+                if (StringUtils.isNotEmpty(visitorId)) {
+                    Logger.printDebug(() -> "visitorId: " + visitorId + ", isTV: " + isTV);
+                }
+                return visitorId;
+            } catch (Exception ex) {
+                Logger.printException(() -> "setVisitorId failed", ex);
+            }
+        }
+
+        return null;
+    }
+
+    public static String getVisitorId(boolean isTV) {
+        String visitorId = isTV
+                ? visitorIdTV
+                : visitorIdMobileWeb;
+        if (visitorId == null) {
+            visitorId = setVisitorId(isTV);
+            if (isTV) {
+                visitorIdTV = visitorId;
+            } else {
+                visitorIdMobileWeb = visitorId;
+            }
+        }
+
+        return visitorId;
+    }
+
+
     @Nullable
-    private static String setPlayerJsUrl() {
-        String iframeContent = fetch(IFRAME_API_URL);
+    private static String setPlayerJsUrl(boolean isTV) {
+        String iframeContent = fetch(IFRAME_API_URL, isTV);
         if (iframeContent != null) {
             Matcher matcher = PLAYER_JS_IDENTIFIER_PATTERN.matcher(iframeContent);
             if (matcher.find()) {
-                return cleanJavaScriptUrl(
-                        String.format(playerJsUrlFormat, matcher.group(1))
-                );
+                try {
+                    return String.format(
+                            isTV ? PLAYER_JS_URL_FORMAT_TV : PLAYER_JS_URL_FORMAT_MOBILE_WEB,
+                            matcher.group(1)
+                    );
+                } catch (Exception ex) {
+                    Logger.printException(() -> "setPlayerJsUrl failed", ex);
+                    resetAll();
+                }
             }
         }
         Logger.printDebug(() -> "iframeContent not found");
@@ -194,51 +429,49 @@ public class ThrottlingParameterUtils {
     }
 
     @Nullable
-    private static String getPlayerJsUrl() {
-        if (playerJsUrl == null){
-            playerJsUrl = setPlayerJsUrl();
+    private static String getPlayerJsUrl(boolean isTV) {
+        String playerJsUrl = isTV
+                ? playerJsUrlTV
+                : playerJsUrlMobileWeb;
+        if (playerJsUrl == null) {
+            playerJsUrl = setPlayerJsUrl(isTV);
+            if (isTV) {
+                playerJsUrlTV = playerJsUrl;
+            } else {
+                playerJsUrlMobileWeb = playerJsUrl;
+            }
         }
         return playerJsUrl;
     }
 
     @Nullable
-    private static String setPlayerJs() {
-        String playerJsUrl = getPlayerJsUrl();
+    private static String setPlayerJs(boolean isTV) {
+        String playerJsUrl = getPlayerJsUrl(isTV);
         if (playerJsUrl != null) {
-            return fetch(playerJsUrl);
+            return fetch(playerJsUrl, isTV);
         }
         return null;
     }
 
     @Nullable
-    private static String getPlayerJs() {
+    private static String getPlayerJs(boolean isTV) {
+        String playerJs = isTV
+                ? playerJsTV
+                : playerJsMobileWeb;
         if (playerJs == null) {
-            playerJs = setPlayerJs();
+            playerJs = setPlayerJs(isTV);
+            if (isTV) {
+                playerJsTV = playerJs;
+            } else {
+                playerJsMobileWeb = playerJs;
+            }
         }
         return playerJs;
     }
 
     @Nullable
-    private static Cipher setCipher() {
-        String playerJs = getPlayerJs();
-        String playerJsUrl = getPlayerJsUrl();
-        if (playerJs != null && playerJsUrl != null) {
-            return new Cipher(playerJs, playerJsUrl);
-        }
-        return null;
-    }
-
-    @Nullable
-    private static Cipher getCipher() {
-        if (cipher == null) {
-            cipher = setCipher();
-        }
-        return cipher;
-    }
-
-    @Nullable
-    private static PlayerDataExtractor setExtractor() {
-        String playerJs = getPlayerJs();
+    private static PlayerDataExtractor setExtractor(boolean isTV) {
+        String playerJs = getPlayerJs(isTV);
         if (playerJs != null) {
             return new PlayerDataExtractor(playerJs);
         }
@@ -246,25 +479,19 @@ public class ThrottlingParameterUtils {
     }
 
     @Nullable
-    private static PlayerDataExtractor getExtractor() {
+    private static PlayerDataExtractor getExtractor(boolean isTV) {
+        PlayerDataExtractor extractor = isTV
+                ? extractorTV
+                : extractorMobileWeb;
         if (extractor == null) {
-            extractor = setExtractor();
+            extractor = setExtractor(isTV);
+            if (isTV) {
+                extractorTV = extractor;
+            } else {
+                extractorMobileWeb = extractor;
+            }
         }
         return extractor;
-    }
-
-    @NonNull
-    private static String cleanJavaScriptUrl(@NonNull String javaScriptPlayerUrl) {
-        if (javaScriptPlayerUrl.startsWith("//")) {
-            // https part has to be added manually if the URL is protocol-relative
-            return HTTPS + javaScriptPlayerUrl;
-        } else if (javaScriptPlayerUrl.startsWith("/")) {
-            // https://www.youtube.com part has to be added manually if the URL is relative to
-            // YouTube's domain
-            return HTTPS + "//www.youtube.com" + javaScriptPlayerUrl;
-        } else {
-            return javaScriptPlayerUrl;
-        }
     }
 
     private static void handleConnectionError(String toastMessage, @Nullable Exception ex) {
@@ -272,9 +499,9 @@ public class ThrottlingParameterUtils {
     }
 
     @Nullable
-    private static String fetch(@NonNull String url) {
+    private static String fetch(@NonNull String url, boolean isTV) {
         try {
-            return Utils.submitOnBackgroundThread(() -> fetchUrl(url)).get();
+            return Utils.submitOnBackgroundThread(() -> fetchUrl(url, isTV)).get();
         } catch (ExecutionException | InterruptedException ex) {
             Logger.printDebug(() -> "Could not fetch url: " + url, ex);
         }
@@ -283,7 +510,7 @@ public class ThrottlingParameterUtils {
     }
 
     @Nullable
-    private static String fetchUrl(@NonNull String uri) {
+    private static String fetchUrl(@NonNull String uri, boolean isTV) {
         final long startTime = System.currentTimeMillis();
         Logger.printDebug(() -> "fetching url: " + uri);
 
@@ -292,10 +519,10 @@ public class ThrottlingParameterUtils {
             Request request = new Request.Builder()
                     .url(uri)
                     .header("Accept-Language", "en-US,en")
-                    .header("User-Agent", USER_AGENT_CHROMIUM)
+                    .header("User-Agent", isTV ? USER_AGENT_TV : USER_AGENT_MOBILE_WEB)
                     .build();
 
-            try (Response response = client.newCall(request).execute())  {
+            try (Response response = client.newCall(request).execute()) {
                 if (response.isSuccessful()) {
                     ResponseBody responseBody = response.body();
                     if (responseBody != null) {
@@ -303,7 +530,7 @@ public class ThrottlingParameterUtils {
                     }
                 } else {
                     handleConnectionError("API not available with response code: "
-                                    + response.code() + " message: " + response.message(), null);
+                            + response.code() + " message: " + response.message(), null);
                 }
             }
         } catch (SocketTimeoutException ex) {
@@ -319,60 +546,34 @@ public class ThrottlingParameterUtils {
         return null;
     }
 
-    @SuppressWarnings("CharsetObjectCanBeUsed")
-    public static String decodeURL(String s) throws UnsupportedEncodingException {
-        return URLDecoder.decode(s, StandardCharsets.UTF_8.name());
-    }
-
     /**
      * Convert signatureCipher to streaming url with obfuscated 'n' parameter.
      * <p>
-     * @param videoId           Current video id.
-     * @param signatureCipher   The 'signatureCipher' included in the response.
-     * @return                  Streaming url with obfuscated 'n' parameter.
+     *
+     * @param videoId         Current video id.
+     * @param signatureCipher The 'signatureCipher' included in the response.
+     * @return Streaming url with obfuscated 'n' parameter.
      */
     @Nullable
-    public static String getUrlWithThrottlingParameterObfuscated(@NonNull String videoId, @NonNull String signatureCipher) {
+    public static String getUrlWithThrottlingParameterObfuscated(@NonNull String videoId, @NonNull String signatureCipher,
+                                                                 boolean isTV) {
         try {
-            if (useV8JsEngine) {
-                PlayerDataExtractor extractor = getExtractor();
-                if (extractor != null) {
-                    Matcher paramSMatcher = THROTTLING_PARAM_S_PATTERN.matcher(signatureCipher);
-                    Matcher paramUrlMatcher = THROTTLING_PARAM_URL_PATTERN.matcher(signatureCipher);
-                    if (paramSMatcher.find() && paramUrlMatcher.find()) {
-                        // The 's' parameter from signatureCipher.
-                        String sParam = paramSMatcher.group(1);
-                        // The 'url' parameter from signatureCipher.
-                        String urlParam = paramUrlMatcher.group(1);
-                        if (StringUtils.isNotEmpty(sParam) && StringUtils.isNotEmpty(urlParam)) {
-                            // The 'sig' parameter converted by javascript rules.
-                            String decodedSigParm = extractor.extractSig(decodeURL(sParam));
-                            if (StringUtils.isNotEmpty(decodedSigParm)) {
-                                String decodedUriParm = decodeURL(urlParam);
-                                Logger.printDebug(() -> "Converted signatureCipher to obfuscatedUrl, videoId: " + videoId);
-                                return decodedUriParm + "&sig=" + decodedSigParm;
-                            }
-                        }
-                    }
-                }
-            } else {
-                Cipher cipher = getCipher();
-                if (cipher != null) {
-                    Matcher paramSMatcher = THROTTLING_PARAM_S_PATTERN.matcher(signatureCipher);
-                    Matcher paramUrlMatcher = THROTTLING_PARAM_URL_PATTERN.matcher(signatureCipher);
-                    if (paramSMatcher.find() && paramUrlMatcher.find()) {
-                        // The 's' parameter from signatureCipher.
-                        String sParam = paramSMatcher.group(1);
-                        // The 'url' parameter from signatureCipher.
-                        String urlParam = paramUrlMatcher.group(1);
-                        if (StringUtils.isNotEmpty(sParam) && StringUtils.isNotEmpty(urlParam)) {
-                            // The 'sig' parameter converted by javascript rules.
-                            String decodedSigParm = cipher.getSignature(decodeURL(sParam));
-                            if (StringUtils.isNotEmpty(decodedSigParm)) {
-                                String decodedUriParm = decodeURL(urlParam);
-                                Logger.printDebug(() -> "Converted signatureCipher to obfuscatedUrl, videoId: " + videoId);
-                                return decodedUriParm + "&sig=" + decodedSigParm;
-                            }
+            PlayerDataExtractor extractor = getExtractor(isTV);
+            if (extractor != null) {
+                Matcher paramSMatcher = THROTTLING_PARAM_S_PATTERN.matcher(signatureCipher);
+                Matcher paramUrlMatcher = THROTTLING_PARAM_URL_PATTERN.matcher(signatureCipher);
+                if (paramSMatcher.find() && paramUrlMatcher.find()) {
+                    // The 's' parameter from signatureCipher.
+                    String sParam = paramSMatcher.group(1);
+                    // The 'url' parameter from signatureCipher.
+                    String urlParam = paramUrlMatcher.group(1);
+                    if (StringUtils.isNotEmpty(sParam) && StringUtils.isNotEmpty(urlParam)) {
+                        // The 'sig' parameter converted by javascript rules.
+                        String decodedSigParm = extractor.extractSig(Helpers.decode(sParam));
+                        if (StringUtils.isNotEmpty(decodedSigParm)) {
+                            String decodedUriParm = Helpers.decode(urlParam);
+                            Logger.printDebug(() -> "Converted signatureCipher to obfuscatedUrl, videoId: " + videoId);
+                            return decodedUriParm + "&sig=" + decodedSigParm;
                         }
                     }
                 }
@@ -388,12 +589,14 @@ public class ThrottlingParameterUtils {
     /**
      * Deobfuscates the obfuscated 'n' parameter to a valid streaming url.
      * <p>
+     *
      * @param videoId       Current video id.
      * @param obfuscatedUrl Streaming url with obfuscated 'n' parameter.
-     * @return              Deobfuscated streaming url.
+     * @return Deobfuscated streaming url.
      */
     @Nullable
-    public static String getUrlWithThrottlingParameterDeobfuscated(@NonNull String videoId, @Nullable String obfuscatedUrl) {
+    public static String getUrlWithThrottlingParameterDeobfuscated(@NonNull String videoId, @Nullable String obfuscatedUrl,
+                                                                   boolean isTV) {
         try {
             // Obfuscated url is empty.
             if (StringUtils.isEmpty(obfuscatedUrl)) {
@@ -418,7 +621,7 @@ public class ThrottlingParameterUtils {
             }
 
             // Deobfuscate the 'n' parameter.
-            Pair<String, String> deobfuscatedNParamPairs = decodeNParam(obfuscatedUrl, obfuscatedNParams);
+            Pair<String, String> deobfuscatedNParamPairs = decodeNParam(obfuscatedUrl, obfuscatedNParams, isTV);
             String deobfuscatedUrl = deobfuscatedNParamPairs.first;
             String deobfuscatedNParams = deobfuscatedNParamPairs.second;
             if (!deobfuscatedNParams.isEmpty()) {
@@ -438,8 +641,9 @@ public class ThrottlingParameterUtils {
     /**
      * Extract the 'n' parameter from the streaming Url.
      * <p>
-     * @param streamingUrl  The streaming url.
-     * @return              The 'n' parameter.
+     *
+     * @param streamingUrl The streaming url.
+     * @return The 'n' parameter.
      */
     @Nullable
     private static String getThrottlingParameterFromStreamingUrl(@NonNull String streamingUrl) {
@@ -454,10 +658,11 @@ public class ThrottlingParameterUtils {
 
     /**
      * Replace the 'n' parameter.
-     * @param obfuscatedUrl         Streaming url with obfuscated 'n' parameter.
-     * @param obfuscatedNParams     Obfuscated 'n' parameter.
-     * @param deObfuscatedNParams   Deobfuscated 'n' parameter.
-     * @return                      Deobfuscated streaming url.
+     *
+     * @param obfuscatedUrl       Streaming url with obfuscated 'n' parameter.
+     * @param obfuscatedNParams   Obfuscated 'n' parameter.
+     * @param deObfuscatedNParams Deobfuscated 'n' parameter.
+     * @return Deobfuscated streaming url.
      */
     @NonNull
     private static String replaceNParam(@NonNull String obfuscatedUrl, @NonNull String obfuscatedNParams, @NonNull String deObfuscatedNParams) {
@@ -467,30 +672,23 @@ public class ThrottlingParameterUtils {
     /**
      * Deobfuscate the 'n' parameter.
      * <p>
+     *
      * @param obfuscatedUrl     Streaming url with obfuscated 'n' parameter.
      * @param obfuscatedNParams Obfuscated 'n' parameter.
-     * @return                  Deobfuscated Pair(Deobfuscated streaming url, Deobfuscated 'n' parameter).
+     * @return Deobfuscated Pair(Deobfuscated streaming url, Deobfuscated 'n' parameter).
      */
     @NonNull
-    private static Pair<String, String> decodeNParam(@NonNull String obfuscatedUrl, @NonNull String obfuscatedNParams) {
+    private static Pair<String, String> decodeNParam(@NonNull String obfuscatedUrl, @NonNull String obfuscatedNParams,
+                                                     boolean isTV) {
         try {
-            String deObfuscatedNParams = "";
-            if (useV8JsEngine) {
-                PlayerDataExtractor extractor = getExtractor();
-                if (extractor != null) {
-                    // The 'n' parameter deobfuscated by javascript rules.
-                    deObfuscatedNParams = extractor.extractNSig(obfuscatedNParams);
+            PlayerDataExtractor extractor = getExtractor(isTV);
+            if (extractor != null) {
+                // The 'n' parameter deobfuscated by javascript rules.
+                String deObfuscatedNParams = extractor.extractNSig(obfuscatedNParams);
+                if (StringUtils.isNotEmpty(deObfuscatedNParams)) {
+                    String deObfuscatedUrl = replaceNParam(obfuscatedUrl, obfuscatedNParams, deObfuscatedNParams);
+                    return new Pair<>(deObfuscatedUrl, deObfuscatedNParams);
                 }
-            } else {
-                Cipher cipher = getCipher();
-                if (cipher != null) {
-                    // The 'n' parameter deobfuscated by javascript rules.
-                    deObfuscatedNParams = cipher.getNParam(obfuscatedNParams);
-                }
-            }
-            if (StringUtils.isNotEmpty(deObfuscatedNParams)) {
-                String deObfuscatedUrl = replaceNParam(obfuscatedUrl, obfuscatedNParams, deObfuscatedNParams);
-                return new Pair<>(deObfuscatedUrl, deObfuscatedNParams);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "decodeNSig failed", ex);

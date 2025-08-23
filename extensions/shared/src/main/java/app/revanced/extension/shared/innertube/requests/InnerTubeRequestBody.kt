@@ -1,14 +1,14 @@
 package app.revanced.extension.shared.innertube.requests
 
-import app.revanced.extension.shared.innertube.client.YouTubeAppClient
-import app.revanced.extension.shared.innertube.client.YouTubeWebClient
+import app.revanced.extension.shared.innertube.client.YouTubeClient
 import app.revanced.extension.shared.innertube.utils.ThrottlingParameterUtils
 import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.requests.Route.CompiledRoute
-import app.revanced.extension.shared.settings.BaseSettings
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.StringRef.str
 import app.revanced.extension.shared.utils.Utils
+import com.liskovsoft.youtubeapi.app.PoTokenGate
+import org.apache.commons.lang3.StringUtils
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -23,11 +23,13 @@ import java.util.TimeZone
 object InnerTubeRequestBody {
     private const val YT_API_URL = "https://youtubei.googleapis.com/youtubei/v1/"
 
+    private const val AUTHORIZATION_HEADER = "Authorization"
+    private const val PAGE_ID_HEADER = "X-Goog-PageId"
     private const val VISITOR_ID_HEADER: String = "X-Goog-Visitor-Id"
     private val REQUEST_HEADER_KEYS = setOf(
-        "Authorization",  // Available only to logged-in users.
-        "X-Goog-PageId",
-        VISITOR_ID_HEADER
+        AUTHORIZATION_HEADER,  // Available only to logged-in users.
+        PAGE_ID_HEADER,
+        VISITOR_ID_HEADER,
     )
 
     /**
@@ -45,11 +47,11 @@ object InnerTubeRequestBody {
 
     @JvmStatic
     fun createApplicationRequestBody(
-        clientType: YouTubeAppClient.ClientType,
+        clientType: YouTubeClient.ClientType,
         videoId: String,
         playlistId: String? = null,
         setLocale: Boolean = false,
-        language: String = BaseSettings.SPOOF_STREAMING_DATA_VR_LANGUAGE.get().language,
+        language: String = "",
     ): ByteArray {
         val innerTubeBody = JSONObject()
 
@@ -63,13 +65,10 @@ object InnerTubeRequestBody {
             client.put("osVersion", clientType.osVersion)
             if (clientType.androidSdkVersion != null) {
                 client.put("androidSdkVersion", clientType.androidSdkVersion)
-                if (clientType.gmscoreVersionCode != null) {
-                    client.put("gmscoreVersionCode", clientType.gmscoreVersionCode)
-                }
             }
             client.put(
                 "hl",
-                if (setLocale) {
+                if (setLocale && language.isNotEmpty()) {
                     language
                 } else {
                     LOCALE_LANGUAGE
@@ -98,25 +97,23 @@ object InnerTubeRequestBody {
     }
 
     @JvmStatic
-    fun createTVRequestBody(
-        clientType: YouTubeAppClient.ClientType,
+    fun createJSRequestBody(
+        clientType: YouTubeClient.ClientType,
         videoId: String,
+        isGVS: Boolean = false,
     ): ByteArray {
         val innerTubeBody = JSONObject()
 
         try {
             val client = JSONObject()
             client.put("clientName", clientType.clientName)
-            client.put("clientVersion", clientType.clientVersion)
-            client.put("platform", "TV")
-            if (clientType.clientScreen != null) {
-                client.put("clientScreen", clientType.clientScreen)
-            }
+            client.put("clientVersion", ThrottlingParameterUtils.getClientVersion(clientType))
+            client.put("platform", clientType.clientPlatform)
+            client.put("clientScreen", clientType.clientScreen)
             client.put("hl", LOCALE_LANGUAGE)
             client.put("gl", LOCALE_COUNTRY)
             client.put("timeZone", TIME_ZONE_ID)
             client.put("utcOffsetMinutes", UTC_OFFSET_MINUTES.toString())
-            client.put("originalUrl", "https://www.youtube.com/tv")
 
             val context = JSONObject()
             context.put("client", client)
@@ -130,65 +127,43 @@ object InnerTubeRequestBody {
             user.put("lockedSafetyMode", false)
             context.put("user", user)
 
-            val thirdParty = JSONObject()
-            thirdParty.put("embedUrl", "https://www.youtube.com/tv#/")
-            context.put("thirdParty", thirdParty)
+            if (isGVS) {
+                val contentPlaybackContext = JSONObject()
+                val requirePoToken = clientType.requirePoToken
+                if (clientType.refererFormat != null) {
+                    contentPlaybackContext.put(
+                        "referer",
+                        String.format(clientType.refererFormat, videoId)
+                    )
+                }
+                contentPlaybackContext.put("html5Preference", "HTML5_PREF_WANTS")
+                val signatureTimestamp =
+                    ThrottlingParameterUtils.getSignatureTimestamp(!requirePoToken)
+                if (signatureTimestamp != null) {
+                    contentPlaybackContext.put("signatureTimestamp", signatureTimestamp.toInt())
+                }
+                val playbackContext = JSONObject()
+                playbackContext.put("contentPlaybackContext", contentPlaybackContext)
+                innerTubeBody.put("playbackContext", playbackContext)
 
-            if (clientType.requireParams) {
-                innerTubeBody.put("params", "8AEB")
+                if (requirePoToken) {
+                    val playerRequestPoToken = PoTokenGate.getContentPoToken(videoId)
+                    if (playerRequestPoToken != null) {
+                        val serviceIntegrityDimensions = JSONObject()
+                        serviceIntegrityDimensions.put("poToken", playerRequestPoToken)
+                        innerTubeBody.put("serviceIntegrityDimensions", serviceIntegrityDimensions)
+                    }
+                }
             }
-
-            val contentPlaybackContext = JSONObject()
-            contentPlaybackContext.put("referer", "https://www.youtube.com/tv#/watch?v=$videoId")
-            contentPlaybackContext.put("html5Preference", "HTML5_PREF_WANTS")
-
-            val signatureTimestamp = ThrottlingParameterUtils.getSignatureTimestamp()
-            if (signatureTimestamp != null) {
-                contentPlaybackContext.put("signatureTimestamp", signatureTimestamp.toInt())
-            }
-
-            val playbackContext = JSONObject()
-            playbackContext.put("contentPlaybackContext", contentPlaybackContext)
-            innerTubeBody.put("playbackContext", playbackContext)
-
         } catch (e: JSONException) {
-            Logger.printException({ "Failed to create tv innerTubeBody" }, e)
-        }
-
-        return innerTubeBody.toString().toByteArray(StandardCharsets.UTF_8)
-    }
-
-    @JvmStatic
-    fun createWebInnertubeBody(
-        clientType: YouTubeWebClient.ClientType,
-        videoId: String
-    ): ByteArray {
-        val innerTubeBody = JSONObject()
-
-        try {
-            val client = JSONObject()
-            client.put("clientName", clientType.clientName)
-            client.put("clientVersion", clientType.clientVersion)
-            val context = JSONObject()
-            context.put("client", client)
-
-            val user = JSONObject()
-            user.put("lockedSafetyMode", false)
-            context.put("user", user)
-
-            innerTubeBody.put("context", context)
-            innerTubeBody.put("contentCheckOk", true)
-            innerTubeBody.put("racyCheckOk", true)
-            innerTubeBody.put("videoId", videoId)
-        } catch (e: JSONException) {
-            Logger.printException({ "Failed to create web innerTubeBody" }, e)
+            Logger.printException({ "Failed to create js innerTubeBody" }, e)
         }
 
         return innerTubeBody.toString().toByteArray(StandardCharsets.UTF_8)
     }
 
     private fun androidInnerTubeBody(
-        clientType: YouTubeAppClient.ClientType = YouTubeAppClient.ClientType.ANDROID
+        clientType: YouTubeClient.ClientType = YouTubeClient.ClientType.ANDROID
     ): JSONObject {
         val innerTubeBody = JSONObject()
 
@@ -328,7 +303,7 @@ object InnerTubeRequestBody {
     @JvmStatic
     fun getInnerTubeResponseConnectionFromRoute(
         route: CompiledRoute,
-        clientType: YouTubeAppClient.ClientType,
+        clientType: YouTubeClient.ClientType,
         requestHeader: Map<String, String>? = null,
         connectTimeout: Int = CONNECTION_TIMEOUT_MILLISECONDS,
         readTimeout: Int = CONNECTION_TIMEOUT_MILLISECONDS,
@@ -338,23 +313,6 @@ object InnerTubeRequestBody {
         clientId = clientType.id.toString(),
         clientVersion = clientType.clientVersion,
         supportsCookies = clientType.supportsCookies,
-        requestHeader = requestHeader,
-        connectTimeout = connectTimeout,
-        readTimeout = readTimeout,
-    )
-
-    @JvmStatic
-    fun getInnerTubeResponseConnectionFromRoute(
-        route: CompiledRoute,
-        clientType: YouTubeWebClient.ClientType,
-        requestHeader: Map<String, String>? = null,
-        connectTimeout: Int = CONNECTION_TIMEOUT_MILLISECONDS,
-        readTimeout: Int = CONNECTION_TIMEOUT_MILLISECONDS,
-    ) = getInnerTubeResponseConnectionFromRoute(
-        route = route,
-        userAgent = clientType.userAgent,
-        clientId = clientType.id.toString(),
-        clientVersion = clientType.clientVersion,
         requestHeader = requestHeader,
         connectTimeout = connectTimeout,
         readTimeout = readTimeout,
@@ -386,17 +344,18 @@ object InnerTubeRequestBody {
         connection.readTimeout = readTimeout
 
         if (requestHeader != null) {
-            if (supportsCookies) {
-                for (key in REQUEST_HEADER_KEYS) {
-                    val value = requestHeader[key]
-                    if (value != null) {
-                        connection.setRequestProperty(key, value)
-                    }
+            for (key in REQUEST_HEADER_KEYS) {
+                if (!supportsCookies && StringUtils.equalsAny(
+                        key,
+                        AUTHORIZATION_HEADER,
+                        PAGE_ID_HEADER
+                    )
+                ) {
+                    continue
                 }
-            } else {
-                val visitorId = requestHeader[VISITOR_ID_HEADER]
-                if (visitorId != null) {
-                    connection.setRequestProperty(VISITOR_ID_HEADER, visitorId)
+                val value = requestHeader[key]
+                if (value != null) {
+                    connection.setRequestProperty(key, value)
                 }
             }
         }

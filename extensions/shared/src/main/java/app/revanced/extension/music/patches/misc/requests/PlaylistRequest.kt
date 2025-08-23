@@ -1,8 +1,7 @@
 package app.revanced.extension.music.patches.misc.requests
 
-import android.annotation.SuppressLint
 import androidx.annotation.GuardedBy
-import app.revanced.extension.shared.innertube.client.YouTubeAppClient
+import app.revanced.extension.shared.innertube.client.YouTubeClient
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createApplicationRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
 import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_PLAYLIST_PAGE
@@ -132,7 +131,7 @@ class PlaylistRequest private constructor(
             Objects.requireNonNull(videoId)
 
             val startTime = System.currentTimeMillis()
-            val clientType = YouTubeAppClient.ClientType.ANDROID_VR
+            val clientType = YouTubeClient.ClientType.ANDROID_VR
             val clientTypeName = clientType.name
             Logger.printDebug { "Fetching playlist request for: $videoId, using client: $clientTypeName" }
 

@@ -3,7 +3,6 @@ package app.revanced.extension.youtube.sponsorblock.ui
 import android.view.View
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.settings.Settings
-import app.revanced.extension.youtube.shared.VideoInformation
 import app.revanced.extension.youtube.shared.PlayerControlButton
 
 object CreateSegmentButton {
@@ -57,7 +56,6 @@ object CreateSegmentButton {
 
     private fun shouldBeShown(): Boolean {
         return Settings.SB_ENABLED.get() && Settings.SB_CREATE_NEW_SEGMENT.get()
-                && !VideoInformation.isAtEndOfVideo()
     }
 
     @JvmStatic

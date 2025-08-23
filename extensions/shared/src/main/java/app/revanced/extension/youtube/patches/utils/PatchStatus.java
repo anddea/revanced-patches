@@ -3,7 +3,7 @@ package app.revanced.extension.youtube.patches.utils;
 import app.revanced.extension.shared.utils.Utils;
 
 public class PatchStatus {
-    public static final String SPOOF_APP_VERSION_TARGET_DEFAULT_VALUE = "18.17.43";
+    public static final String SPOOF_APP_VERSION_TARGET_DEFAULT_VALUE = "19.01.34";
 
     public static boolean ImageSearchButton() {
         // Replace this with true if the Hide image search buttons patch succeeds
@@ -25,13 +25,13 @@ public class PatchStatus {
         return false;
     }
 
-    public static boolean QuickActions() {
-        // Replace this with true if the Fullscreen components patch succeeds
+    public static boolean PlayerFlyoutMenu() {
+        // Replace this with true if the Hide player flyout menu patch succeeds
         return false;
     }
 
-    public static boolean RememberPlaybackSpeed() {
-        // Replace this with true if the Video playback patch succeeds
+    public static boolean QuickActions() {
+        // Replace this with true if the Fullscreen components patch succeeds
         return false;
     }
 
@@ -48,6 +48,16 @@ public class PatchStatus {
 
     public static boolean ToolBarComponents() {
         // Replace this with true if the Toolbar components patch succeeds
+        return false;
+    }
+
+    public static boolean VideoPlayback() {
+        // Replace this with true if the Video playback patch succeeds
+        return false;
+    }
+
+    public static boolean SpoofAppVersion() {
+        // Replace this with true if the Spoof app version patch succeeds
         return false;
     }
 

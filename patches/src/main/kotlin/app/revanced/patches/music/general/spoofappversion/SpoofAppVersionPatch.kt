@@ -1,12 +1,12 @@
 package app.revanced.patches.music.general.spoofappversion
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.patch.PatchList.SPOOF_APP_VERSION
+import app.revanced.patches.music.utils.playservice.is_6_36_or_greater
 import app.revanced.patches.music.utils.playservice.is_6_43_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_17_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_25_or_greater
@@ -20,6 +20,7 @@ import app.revanced.patches.shared.spoof.appversion.baseSpoofAppVersionPatch
 import app.revanced.util.Utils.printWarn
 import app.revanced.util.appendAppVersion
 import app.revanced.util.findMethodOrThrow
+import app.revanced.util.returnEarly
 
 private var defaultValue = "false"
 
@@ -32,10 +33,10 @@ private val spoofAppVersionBytecodePatch = bytecodePatch(
     )
 
     execute {
-        if (!is_6_43_or_greater) {
+        if (!is_6_36_or_greater) {
             return@execute
         }
-        var defaultVersionString = "6.42.55"
+        var defaultVersionString = "6.35.52"
 
         if (is_7_17_or_greater && !is_7_25_or_greater) {
             defaultVersionString = "7.16.53"
@@ -43,21 +44,14 @@ private val spoofAppVersionBytecodePatch = bytecodePatch(
 
             findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
                 name == "SpoofAppVersionDefaultBoolean"
-            }.replaceInstruction(
-                0,
-                "const/4 v0, 0x1"
-            )
-        }
-        if (is_7_25_or_greater) {
+            }.returnEarly(true)
+        } else if (is_7_25_or_greater) {
             defaultVersionString = "7.17.52"
         }
 
         findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
             name == "SpoofAppVersionDefaultString"
-        }.replaceInstruction(
-            0,
-            "const-string v0, \"$defaultVersionString\""
-        )
+        }.returnEarly(defaultVersionString)
     }
 }
 
@@ -68,6 +62,7 @@ val spoofAppVersionPatch = resourcePatch(
 ) {
     compatibleWith(
         YOUTUBE_MUSIC_PACKAGE_NAME(
+            "6.42.55",
             "6.51.53",
             "7.16.53",
             "7.25.53",
@@ -83,12 +78,15 @@ val spoofAppVersionPatch = resourcePatch(
     )
 
     execute {
-        if (!is_6_43_or_greater) {
-            printWarn("\"${SPOOF_APP_VERSION.title}\" is not supported in this version. Use YouTube Music 6.51.53 or later.")
+        if (!is_6_36_or_greater) {
+            printWarn("\"${SPOOF_APP_VERSION.title}\" is not supported in this version. Use YouTube Music 6.36.54 or later.")
             return@execute
         }
         if (!is_7_17_or_greater) {
-            appendAppVersion("6.42.55")
+            if (is_6_43_or_greater) {
+                appendAppVersion("6.42.55")
+            }
+            appendAppVersion("6.35.52")
         }
         if (is_7_17_or_greater && !is_7_25_or_greater) {
             appendAppVersion("7.16.53")

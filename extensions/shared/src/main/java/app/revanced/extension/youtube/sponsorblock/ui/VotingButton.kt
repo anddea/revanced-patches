@@ -3,10 +3,9 @@ package app.revanced.extension.youtube.sponsorblock.ui
 import android.view.View
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.settings.Settings
-import app.revanced.extension.youtube.shared.VideoInformation
+import app.revanced.extension.youtube.shared.PlayerControlButton
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils
-import app.revanced.extension.youtube.shared.PlayerControlButton
 
 object VotingButton {
     private var instance: PlayerControlButton? = null
@@ -59,7 +58,7 @@ object VotingButton {
 
     private fun shouldBeShown(): Boolean {
         return Settings.SB_ENABLED.get() && Settings.SB_VOTING_BUTTON.get()
-                && SegmentPlaybackController.videoHasSegments() && !VideoInformation.isAtEndOfVideo()
+                && SegmentPlaybackController.videoHasSegments()
     }
 
     @JvmStatic

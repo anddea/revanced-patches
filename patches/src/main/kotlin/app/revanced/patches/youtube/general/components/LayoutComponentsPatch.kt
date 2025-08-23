@@ -227,10 +227,11 @@ val layoutComponentsPatch = bytecodePatch(
             }
             val pairWithTVField =
                 getInstruction<ReferenceInstruction>(setPairWithTVPreferenceIndex).reference as FieldReference
-            val getPairWithTVPreferenceIndex = indexOfFirstInstructionOrThrow(setPairWithTVPreferenceIndex) {
-                opcode == Opcode.IGET_OBJECT &&
-                        getReference<FieldReference>() == pairWithTVField
-            }
+            val getPairWithTVPreferenceIndex =
+                indexOfFirstInstructionOrThrow(setPairWithTVPreferenceIndex) {
+                    opcode == Opcode.IGET_OBJECT &&
+                            getReference<FieldReference>() == pairWithTVField
+                }
             val insertRegister =
                 getInstruction<TwoRegisterInstruction>(getPairWithTVPreferenceIndex).registerA
 

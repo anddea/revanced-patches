@@ -290,9 +290,6 @@
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">在全屏模式下向下滑动将退出全屏模式。</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">在全屏模式下向下滑动将不会退出全屏模式。</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">禁用滑动退出全屏模式</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_off">在全屏模式下向上/下滑动将切换到下一个/上一个视频。</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_on">在全屏模式下向上/下滑动将不会切换到下一个/上一个视频。</string>
-    <string name="revanced_disable_swipe_to_switch_video_title">禁用滑动切换视频</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">状态栏为不透明或半透明。</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">状态栏为不透明。</string>
     <string name="revanced_disable_translucent_status_bar_title">禁用半透明状态栏。</string>
@@ -323,12 +320,6 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">自定义进度条颜色已禁用</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">自定义进度条颜色已启用</string>
     <string name="revanced_enable_custom_seekbar_color_title">启用自定义进度条颜色</string>
-    <string name="revanced_enable_debug_buffer_logging_summary_off">Debug 日志不包括缓冲区</string>
-    <string name="revanced_enable_debug_buffer_logging_summary_on">Debug 日志不包括缓冲区</string>
-    <string name="revanced_enable_debug_buffer_logging_title">启用 Debug 缓冲区日志记录</string>
-    <string name="revanced_enable_debug_logging_summary_off">Debug 日志已禁用</string>
-    <string name="revanced_enable_debug_logging_summary_on">Debug 日志已启用</string>
-    <string name="revanced_enable_debug_logging_title">启用 Debug 日志</string>
     <string name="revanced_enable_gradient_loading_screen_summary_off">渐变的加载屏幕已禁用</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">渐变的加载屏幕已启用</string>
     <string name="revanced_enable_gradient_loading_screen_title">启用渐变的加载屏幕</string>
@@ -631,6 +622,9 @@
     <string name="revanced_hide_handle_summary_off">控制列已显示</string>
     <string name="revanced_hide_handle_summary_on">控制列已隐藏</string>
     <string name="revanced_hide_handle_title">隐藏控制列</string>
+    <string name="revanced_hide_hype_button_summary_off">热度按钮已显示</string>
+    <string name="revanced_hide_hype_button_summary_on">浮夸按钮已隐藏</string>
+    <string name="revanced_hide_hype_button_title">隐藏热度</string>
     <string name="revanced_hide_image_search_button_summary_off">图片搜索按钮已显示</string>
     <string name="revanced_hide_image_search_button_summary_on">图片搜索按钮已隐藏</string>
     <string name="revanced_hide_image_search_button_title">隐藏图片搜索按钮</string>
@@ -696,8 +690,6 @@
     <string name="revanced_hide_live_chat_replay_button_summary_off">实时聊天重播按钮已显示\n\n关闭实时聊天时它会以全屏显示</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">实时聊天重播按钮已隐藏\n\n在关闭实时聊天时它会以全屏显示</string>
     <string name="revanced_hide_live_chat_replay_button_title">隐藏实时聊天重播按钮</string>
-    <string name="revanced_hide_low_views_video_summary">"从主页隐藏未订阅的频道上传的且播放量少于 1,000 的推荐视频"</string>
-    <string name="revanced_hide_low_views_video_title">隐藏低播放量的视频</string>
     <string name="revanced_hide_medical_panel_summary_off">医疗面板已显示</string>
     <string name="revanced_hide_medical_panel_summary_on">医疗面板已隐藏</string>
     <string name="revanced_hide_medical_panel_title">隐藏医疗面板</string>
@@ -755,9 +747,9 @@
     <string name="revanced_hide_player_collapse_button_summary_off">折叠按钮已显示</string>
     <string name="revanced_hide_player_collapse_button_summary_on">折叠按钮已隐藏</string>
     <string name="revanced_hide_player_collapse_button_title">隐藏折叠按钮</string>
-    <string name="revanced_hide_player_control_buttons_background_summary_off">播放器控件按钮背景已显示</string>
-    <string name="revanced_hide_player_control_buttons_background_summary_on">播放器控件按钮背景已隐藏</string>
-    <string name="revanced_hide_player_control_buttons_background_title">隐藏播放器控件按钮背景</string>
+    <string name="revanced_hide_player_control_buttons_background_summary_off">播放器控件背景已显示</string>
+    <string name="revanced_hide_player_control_buttons_background_summary_on">播放器控件背景已隐藏</string>
+    <string name="revanced_hide_player_control_buttons_background_title">隐藏播放器控件背景</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">氛围模式菜单已显示</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">氛围模式菜单已隐藏</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">隐藏氛围模式菜单</string>
@@ -819,7 +811,7 @@
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_summary_on">在 VR 中观看菜单已隐藏</string>
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_title">隐藏在 VR 中观看菜单</string>
     <string name="revanced_hide_player_fullscreen_button_summary_off">全屏按钮已显示</string>
-    <string name="revanced_hide_player_fullscreen_button_summary_on">全屏按钮已隐藏</string>
+    <string name="revanced_hide_player_fullscreen_button_summary_on">"全屏按钮已隐藏"</string>
     <string name="revanced_hide_player_fullscreen_button_title">隐藏全屏按钮</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">上一个和下一个按钮已显示</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">上一个和下一个按钮已隐藏</string>
@@ -839,6 +831,9 @@
     <string name="revanced_hide_preview_comment_type_off">这会改变评论区的大小，因此无法在评论区打开即时聊天回放</string>
     <string name="revanced_hide_preview_comment_type_on">这不会改变评论区的大小，因此可以在评论区打开即时聊天回放</string>
     <string name="revanced_hide_preview_comment_type_title">预览评论类型</string>
+    <string name="revanced_hide_promote_button_summary_off">推广按钮已显示</string>
+    <string name="revanced_hide_promote_button_summary_on">推广按钮已隐藏</string>
+    <string name="revanced_hide_promote_button_title">隐藏推广</string>
     <string name="revanced_hide_promotion_alert_banner_summary_off">推广横幅广告已显示</string>
     <string name="revanced_hide_promotion_alert_banner_summary_on">推广横幅广告已隐藏</string>
     <string name="revanced_hide_promotion_alert_banner_title">隐藏推广横幅广告</string>
@@ -872,12 +867,6 @@
     <string name="revanced_hide_quick_actions_summary_off">快速操作面板已显示</string>
     <string name="revanced_hide_quick_actions_summary_on">快速操作面板已隐藏</string>
     <string name="revanced_hide_quick_actions_title">隐藏快速操作面板</string>
-    <string name="revanced_hide_recommended_video_summary">"隐藏以下推荐视频：	
-
-• 带有“仅限会员”标签的视频
-• 视频底部带有“用户还观看了”等短语的视频
-• 来自未订阅频道且观看次数少于1,000次的视频"</string>
-    <string name="revanced_hide_recommended_video_title">隐藏推荐视频</string>
     <string name="revanced_hide_related_videos_summary_off">相关视频已显示</string>
     <string name="revanced_hide_related_videos_summary_on">相关视频已隐藏</string>
     <string name="revanced_hide_related_videos_title">在相关视频中隐藏</string>
@@ -1433,7 +1422,6 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_preference_category_patch_information">补丁信息</string>
     <string name="revanced_preference_category_playback_speed">播放速度</string>
     <string name="revanced_preference_category_quick_actions">快速操作</string>
-    <string name="revanced_preference_category_recommended_video">推荐视频</string>
     <string name="revanced_preference_category_shorts_shelf">Shorts 栏</string>
     <string name="revanced_preference_category_suggested_actions">操作建议</string>
     <string name="revanced_preference_category_video_quality">视频画质</string>
@@ -1923,16 +1911,6 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_skip_autoplay_countdown_summary_off">如果自动播放已开启，下一个视频将在倒计时结束后播放</string>
     <string name="revanced_skip_autoplay_countdown_summary_on">如果自动播放已开启，下一个视频将在无倒计时的情况下播放</string>
     <string name="revanced_skip_autoplay_countdown_title">跳过自动播放倒计时</string>
-    <string name="revanced_skip_preloaded_buffer_summary">"视频播放开始时，跳过预加载缓冲的默认视频画质
-
-• 视频开始时约有 0.7 秒延迟，但默认视频分辨率会立即生效
-• 不适用于 HDR 视频或短于 10 秒的视频"</string>
-    <string name="revanced_skip_preloaded_buffer_title">跳过预加载缓冲</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_off">提示信息已隐藏</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_on">提示信息已显示</string>
-    <string name="revanced_skip_preloaded_buffer_toast_title">跳过时的提示信息</string>
-    <string name="revanced_skip_preloaded_buffer_user_dialog_message">开启此选项可能会导致视频不能正常播放</string>
-    <string name="revanced_skipped_preloaded_buffer">跳过预加载缓冲</string>
     <string name="revanced_speed_overlay_value_invalid_toast">速度叠加值必须在 0 到 8.0 之间 重置为默认值</string>
     <string name="revanced_speed_overlay_value_summary">速度叠加值在 0 到 8.0 之间</string>
     <string name="revanced_speed_overlay_value_title">速度叠加值</string>
@@ -1996,7 +1974,6 @@ AVC 最大分辨率为 1080p，Opus 音频编解码器不可用，并且视频�
     <string name="revanced_spoof_streaming_data_summary_on">"流媒体数据已伪装"</string>
     <string name="revanced_spoof_streaming_data_title">伪装流媒体数据</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android 创作者</string>
-    <string name="revanced_spoof_streaming_data_user_dialog_message">关闭此选项可能会导致视频不能正常播放</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">在“锁定屏幕”模式下禁用滑动手势</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">在“锁定屏幕”模式下启用滑动手势</string>
     <string name="revanced_swipe_gestures_lock_mode_title">在“锁定屏幕”模式下滑动手势</string>

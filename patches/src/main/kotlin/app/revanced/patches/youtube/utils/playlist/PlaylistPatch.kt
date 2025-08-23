@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.mainactivity.getMainActivityMethod
+import app.revanced.patches.youtube.utils.YOUTUBE_PIVOT_BAR_CLASS_TYPE
 import app.revanced.patches.youtube.utils.auth.authHookPatch
 import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
@@ -59,7 +60,7 @@ val playlistPatch = bytecodePatch(
                     addInstruction(
                         viewIndex + 1,
                         "invoke-static {v$viewRegister}," +
-                                " $EXTENSION_CLASS_DESCRIPTOR->setPivotBar(Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;)V",
+                                " $EXTENSION_CLASS_DESCRIPTOR->setPivotBar($YOUTUBE_PIVOT_BAR_CLASS_TYPE)V",
                     )
                 }
             }

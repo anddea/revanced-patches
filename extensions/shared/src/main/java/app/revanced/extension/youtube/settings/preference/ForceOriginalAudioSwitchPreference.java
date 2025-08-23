@@ -11,7 +11,7 @@ import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch;
 @SuppressWarnings({"deprecation", "unused"})
 public class ForceOriginalAudioSwitchPreference extends SwitchPreference {
     {
-        if (SpoofStreamingDataPatch.notSpoofingToAndroidAudio()) {
+        if (SpoofStreamingDataPatch.notSpoofingToAndroid()) {
             String summaryOn = str("revanced_disable_auto_audio_tracks_summary_on");
             String summaryOff = str("revanced_disable_auto_audio_tracks_summary_off");
             setSummaryOn(summaryOn);

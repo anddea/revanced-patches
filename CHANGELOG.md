@@ -1,3 +1,59 @@
+# [3.12.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.5...v3.12.0-dev.6) (2025-08-22)
+
+
+### Features
+
+* Align with RVX [[v5.9.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.9.1)] ([d26c7b2](https://github.com/anddea/revanced-patches/commit/d26c7b2544887bd5498939e2da2a699286b318b0))
+
+# [3.12.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.4...v3.12.0-dev.5) (2025-08-19)
+
+
+### Features
+
+* Align with RVX [[v5.9.1-dev.3](https://github.com/inotia00/revanced-patches/releases/tag/v5.9.1-dev.3)] ([9a679c7](https://github.com/anddea/revanced-patches/commit/9a679c7aa5aa8ab20399a2f48d9f0fbbfc94aede))
+* **YouTube - Hide action buttons:** Add `Hide Promote button` setting ([95f0ae6](https://github.com/anddea/revanced-patches/commit/95f0ae65f4df779ebb5e5590c7c68015ed19cf21))
+
+# [3.12.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.3...v3.12.0-dev.4) (2025-08-15)
+
+
+### Features
+
+* **YouTube - Hide action buttons:** Add `Hide Hype button` setting ([3b6ba4e](https://github.com/anddea/revanced-patches/commit/3b6ba4ed61f008dcab5210a845e4032f4f228fdf))
+
+# [3.12.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.2...v3.12.0-dev.3) (2025-08-15)
+
+
+### Features
+
+* **Spotify:** Add support for `v9.0.66+` ([23e9559](https://github.com/anddea/revanced-patches/commit/23e95596ed9e0df315edfef2454baa982165a2b5))
+
+# [3.12.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.1...v3.12.0-dev.2) (2025-08-14)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Make Gemini/Yandex transcription subtitle overlay draggable on long press ([735578a](https://github.com/anddea/revanced-patches/commit/735578a342dc322e008f46f23baaf18bc520c1d1))
+
+# [3.12.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.11.1-dev.1...v3.12.0-dev.1) (2025-08-13)
+
+
+### Bug Fixes
+
+* **YouTube - Disable forced auto audio tracks:** Disable the A/B feature flag that forces localized audio ([9f8726f](https://github.com/anddea/revanced-patches/commit/9f8726f8e45df1aa6db444c035ff2620457f767e))
+
+
+### Features
+
+* **YouTube - Shorts components:** Add `Hide comments panel` setting ([0e943e5](https://github.com/anddea/revanced-patches/commit/0e943e50bc79e8b0fd4a0ed51efe89876e791380))
+* **YouTube - Swipe controls:** Add swipe distance settings for sensitivity adjustments ([db7f569](https://github.com/anddea/revanced-patches/commit/db7f5690e70ffc30c6131ac262208a36f7a70a11))
+
+## [3.11.1-dev.1](https://github.com/anddea/revanced-patches/compare/v3.11.0...v3.11.1-dev.1) (2025-08-02)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Correctly display Gemini and Yandex transcriptions by adding the missing layout ([70569ea](https://github.com/anddea/revanced-patches/commit/70569ea4a69abb04553d16e00e230218b14202f5))
+
 # [3.11.0](https://github.com/anddea/revanced-patches/compare/v3.10.0...v3.11.0) (2025-08-01)
 
 

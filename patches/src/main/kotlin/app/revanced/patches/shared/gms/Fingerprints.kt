@@ -33,6 +33,12 @@ internal val castDynamiteModuleV2Fingerprint = legacyFingerprint(
     strings = listOf("Failed to load module via V2: ")
 )
 
+internal val gmsServiceBrokerFingerprint = legacyFingerprint(
+    name = "gmsServiceBrokerFingerprint",
+    returnType = "V",
+    strings = listOf("mServiceBroker is null, client disconnected")
+)
+
 internal val googlePlayUtilityFingerprint = legacyFingerprint(
     name = "googlePlayUtilityFingerprint",
     returnType = "I",

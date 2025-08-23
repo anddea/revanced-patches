@@ -48,8 +48,10 @@ val dismissPlayerHookPatch = bytecodePatch(
                 }
                 getWalkerMethod(jumpIndex).apply {
                     val jumpIndex = indexOfFirstInstructionReversedOrThrow {
+                        val reference = getReference<MethodReference>()
                         opcode == Opcode.INVOKE_VIRTUAL &&
-                                getReference<MethodReference>()?.returnType == "V"
+                                reference?.returnType == "V" &&
+                                reference.parameterTypes.firstOrNull() == "I"
                     }
                     dismissMethod = getWalkerMethod(jumpIndex)
                 }
@@ -107,5 +109,5 @@ val dismissPlayerHookPatch = bytecodePatch(
 internal fun hookDismissObserver(descriptor: String) =
     dismissMethod.addInstruction(
         0,
-        "invoke-static {}, $descriptor"
+        "invoke-static {p1}, $descriptor"
     )

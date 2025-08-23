@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatchContext
 import app.revanced.patcher.patch.booleanOption
@@ -15,7 +14,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
 import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
-import app.revanced.patches.shared.spoof.blockrequest.blockRequestPatch
 import app.revanced.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
 import app.revanced.patches.youtube.utils.audiotracks.audioTracksHookPatch
 import app.revanced.patches.youtube.utils.audiotracks.hookAudioTrackId
@@ -45,24 +43,32 @@ import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethod
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.cloneMutable
 import app.revanced.util.copyResources
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.definingClassOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.fingerprint.methodCall
 import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.getNode
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.inputStreamFromBundledResourceOrThrow
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 import kotlin.io.path.notExists
@@ -84,6 +90,17 @@ private const val EXTENSION_STREAMING_DATA_OUTER_CLASS_DESCRIPTOR =
 private const val EXTENSION_STREAMING_DATA_INTERFACE =
     "$SPOOF_PATH/StreamingDataOuterClassPatch${'$'}StreamingDataMessage;"
 
+private const val EXTENSION_YOUTUBE_SPOOF_PATH =
+    app.revanced.patches.youtube.utils.extension.Constants.SPOOF_PATH
+private const val EXTENSION_AUTO_TRACK_CLASS_DESCRIPTOR =
+    "$EXTENSION_YOUTUBE_SPOOF_PATH/AudioTrackPatch;"
+private const val EXTENSION_AUTO_TRACK_BUTTON_CLASS_DESCRIPTOR =
+    "$EXTENSION_YOUTUBE_SPOOF_PATH/ui/AudioTrackButton;"
+private const val EXTENSION_RELOAD_VIDEO_CLASS_DESCRIPTOR =
+    "$EXTENSION_YOUTUBE_SPOOF_PATH/ReloadVideoPatch;"
+private const val EXTENSION_RELOAD_VIDEO_BUTTON_CLASS_DESCRIPTOR =
+    "$EXTENSION_YOUTUBE_SPOOF_PATH/ui/ReloadVideoButton;"
+
 val spoofStreamingDataPatch = bytecodePatch(
     SPOOF_STREAMING_DATA.title,
     SPOOF_STREAMING_DATA.summary
@@ -94,7 +111,6 @@ val spoofStreamingDataPatch = bytecodePatch(
         spoofStreamingDataRawResourcePatch,
         settingsPatch,
         baseSpoofUserAgentPatch(YOUTUBE_PACKAGE_NAME),
-        blockRequestPatch,
         buildRequestPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
@@ -114,26 +130,47 @@ val spoofStreamingDataPatch = bytecodePatch(
         required = true
     )
 
-    val useIOSClient by booleanOption(
-        key = "useIOSClient",
-        default = false,
-        title = "Use iOS client",
-        description = "Add setting to set iOS client (Deprecated) as default client.",
-    )
-
     execute {
-
-        var settingArray = arrayOf(
-            "SETTINGS: SPOOF_STREAMING_DATA"
-        )
-
-        var patchStatusArray = arrayOf(
-            "SpoofStreamingData"
-        )
 
         // region Get replacement streams at player requests.
 
         hookBuildRequest("$EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V")
+
+        // endregion
+
+        // region Block /initplayback requests to fall back to /get_watch requests.
+
+        buildInitPlaybackRequestFingerprint.methodOrThrow().apply {
+            val uriIndex = indexOfUriToStringInstruction(this)
+            val uriRegister =
+                getInstruction<FiveRegisterInstruction>(uriIndex).registerC
+
+            addInstructions(
+                uriIndex,
+                """
+                    invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Landroid/net/Uri;)Landroid/net/Uri;
+                    move-result-object v$uriRegister
+                    """,
+            )
+        }
+
+        // endregion
+
+        // region Block /get_watch requests to fall back to /player requests.
+
+        buildPlayerRequestURIFingerprint.methodOrThrow().apply {
+            val invokeToStringIndex = indexOfUriToStringInstruction(this)
+            val uriRegister =
+                getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
+
+            addInstructions(
+                invokeToStringIndex,
+                """
+                    invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
+                    move-result-object v$uriRegister
+                    """,
+            )
+        }
 
         // endregion
 
@@ -177,15 +214,20 @@ val spoofStreamingDataPatch = bytecodePatch(
                             sget-object v$freeRegister, $getVideoDetailsFallbackField
                             :ignore
                             iget-object v$freeRegister, v$freeRegister, ${getVideoDetailsField.type}->c:Ljava/lang/String;
+                            invoke-static { v$freeRegister, v$setStreamingDataRegister }, $EXTENSION_AUTO_TRACK_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;${STREAMING_DATA_OUTER_CLASS})V
                             invoke-direct { p0, v$setStreamingDataRegister, v$freeRegister }, $resultMethodType->$setStreamDataMethodName(${STREAMING_DATA_OUTER_CLASS}Ljava/lang/String;)$STREAMING_DATA_OUTER_CLASS
                             move-result-object v$setStreamingDataRegister
                             """
                     )
 
-                    addInstruction(
-                        1,
-                        "invoke-static { p0 }, $EXTENSION_STREAMING_DATA_OUTER_CLASS_DESCRIPTOR->initialize($EXTENSION_STREAMING_DATA_INTERFACE)V"
-                    )
+                    result.classDef.methods.filter { method ->
+                        MethodUtil.isConstructor(method)
+                    }.forEach { method ->
+                        method.addInstruction(
+                            1,
+                            "invoke-static { p0 }, $EXTENSION_STREAMING_DATA_OUTER_CLASS_DESCRIPTOR->initialize($EXTENSION_STREAMING_DATA_INTERFACE)V"
+                        )
+                    }
 
                     resultClassDef.interfaces.add(EXTENSION_STREAMING_DATA_INTERFACE)
 
@@ -204,7 +246,7 @@ val spoofStreamingDataPatch = bytecodePatch(
                             AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
                             annotations,
                             null,
-                            MutableMethodImplementation(4),
+                            MutableMethodImplementation(5),
                         ).toMutable().apply {
                             addInstructionsWithLabels(
                                 0,
@@ -247,7 +289,7 @@ val spoofStreamingDataPatch = bytecodePatch(
                             AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
                             annotations,
                             null,
-                            MutableMethodImplementation(4),
+                            MutableMethodImplementation(5),
                         ).toMutable().apply {
                             addInstructionsWithLabels(
                                 0,
@@ -265,6 +307,148 @@ val spoofStreamingDataPatch = bytecodePatch(
                     )
                 }
             }
+
+        videoStreamingDataConstructorFingerprint.matchOrThrow(
+            videoStreamingDataToStringFingerprint
+        ).let {
+            it.method.apply {
+                val setAdaptiveFormatsMethodName = "patch_setAdaptiveFormats"
+
+                val adaptiveFormatsFieldIndex =
+                    indexOfGetAdaptiveFormatsFieldInstruction(this)
+                val adaptiveFormatsRegister =
+                    getInstruction<TwoRegisterInstruction>(adaptiveFormatsFieldIndex).registerA
+                val videoIdIndex =
+                    indexOfFirstInstructionReversedOrThrow(adaptiveFormatsFieldIndex) {
+                        val reference = getReference<FieldReference>()
+                        opcode == Opcode.IGET_OBJECT &&
+                                reference?.type == "Ljava/lang/String;" &&
+                                reference.definingClass == definingClass
+                    }
+                var definingClassRegister =
+                    getInstruction<TwoRegisterInstruction>(videoIdIndex).registerB
+                val videoIdReference =
+                    getInstruction<ReferenceInstruction>(videoIdIndex).reference as FieldReference
+
+                it.classDef.methods.add(
+                    ImmutableMethod(
+                        definingClass,
+                        setAdaptiveFormatsMethodName,
+                        listOf(
+                            ImmutableMethodParameter(
+                                "Ljava/util/List;",
+                                annotations,
+                                "adaptiveFormats"
+                            )
+                        ),
+                        "Ljava/util/List;",
+                        AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+                        annotations,
+                        null,
+                        MutableMethodImplementation(4),
+                    ).toMutable().apply {
+                        addInstructionsWithLabels(
+                            0,
+                            """
+                                # Get video id.
+                                iget-object v0, p0, $videoIdReference
+                                
+                                # Override adaptive formats.
+                                invoke-static { v0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->prioritizeVideoQuality(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;
+                                move-result-object p1
+
+                                return-object p1
+                                """,
+                        )
+                    },
+                )
+
+                addInstructions(
+                    adaptiveFormatsFieldIndex + 1, """
+                        # Override adaptive formats.
+                        invoke-direct { v$definingClassRegister,  v$adaptiveFormatsRegister }, $definingClass->$setAdaptiveFormatsMethodName(Ljava/util/List;)Ljava/util/List;
+                        move-result-object v$adaptiveFormatsRegister
+                        """
+                )
+
+                val setStreamDataMethodName = "patch_setStreamingData"
+                val streamingDataIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<FieldReference>()
+                    opcode == Opcode.IPUT_OBJECT &&
+                            reference?.type == STREAMING_DATA_OUTER_CLASS &&
+                            reference.definingClass == definingClass
+                }
+                val streamingDataField =
+                    getInstruction<ReferenceInstruction>(streamingDataIndex).reference
+                val streamingDataRegister =
+                    getInstruction<TwoRegisterInstruction>(streamingDataIndex).registerA
+
+                val setVideoIdIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.IPUT_OBJECT &&
+                            getReference<FieldReference>() == videoIdReference
+                }
+                val setVideoIdRegister =
+                    getInstruction<TwoRegisterInstruction>(setVideoIdIndex).registerA
+                definingClassRegister =
+                    getInstruction<TwoRegisterInstruction>(setVideoIdIndex).registerB
+
+                it.classDef.methods.add(
+                    ImmutableMethod(
+                        definingClass,
+                        setStreamDataMethodName,
+                        listOf(
+                            ImmutableMethodParameter(
+                                STREAMING_DATA_OUTER_CLASS,
+                                annotations,
+                                "streamingDataOuterClass"
+                            ),
+                            ImmutableMethodParameter(
+                                "Ljava/lang/String;",
+                                annotations,
+                                "videoId"
+                            )
+                        ),
+                        STREAMING_DATA_OUTER_CLASS,
+                        AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+                        annotations,
+                        null,
+                        MutableMethodImplementation(6),
+                    ).toMutable().apply {
+                        addInstructionsWithLabels(
+                            0,
+                            """
+                                move-object/from16 v0, p0
+                                # Get streaming data.
+                                invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->getStreamingData(Ljava/lang/String;)$STREAMING_DATA_OUTER_CLASS
+                                move-result-object v1
+                                if-eqz v1, :ignore
+                                iput-object v1, v0, $streamingDataField
+                                return-object v1
+                                :ignore
+                                return-object p1
+                                """,
+                        )
+                    },
+                )
+
+                addInstructions(
+                    setVideoIdIndex + 1, """
+                        invoke-direct { v$definingClassRegister, v$streamingDataRegister, v$setVideoIdRegister }, $definingClass->$setStreamDataMethodName(${STREAMING_DATA_OUTER_CLASS}Ljava/lang/String;)$STREAMING_DATA_OUTER_CLASS
+                        move-result-object v$streamingDataRegister
+                        """
+                )
+            }
+        }
+
+        // Some classes that exist in YouTube are not merged.
+        // Instead of relocating all classes in the extension,
+        // Only the methods necessary for the patch to function are copied.
+        // Note: Protobuf library included with YouTube seems to have been released before 2016.
+        getEmptyRegistryFingerprint.matchOrThrow().let {
+            it.classDef.methods.add(
+                it.method.cloneMutable(name = "getEmptyRegistry")
+            )
+        }
 
         addPlayerResponseMethodHook(
             Hook.PlayerParameterBeforeVideoId(
@@ -304,6 +488,31 @@ val spoofStreamingDataPatch = bytecodePatch(
                     iput-object v1, v0, $definingClass->d:[B
                     """,
             )
+        }
+
+        val (brotliInputStreamClassName, brotliInputStreamMethodCall) = with(
+            brotliInputStreamFingerprint.methodOrThrow()
+        ) {
+            Pair(definingClass, methodCall())
+        }
+
+        findMethodOrThrow(EXTENSION_UTILS_CLASS_DESCRIPTOR) {
+            name == "getBrotliInputStream"
+        }.addInstructions(
+            0, """
+                new-instance v0, $brotliInputStreamClassName
+                invoke-direct {v0, p0}, $brotliInputStreamMethodCall
+                return-object v0
+                """
+        )
+
+        arrayOf(
+            ResourceGroup(
+                "raw",
+                "po_token.html",
+            )
+        ).forEach { resourceGroup ->
+            context.copyResources("youtube/spoof/shared", resourceGroup)
         }
 
         // endregion
@@ -358,19 +567,13 @@ val spoofStreamingDataPatch = bytecodePatch(
             }
         }
 
-        if (useIOSClient == true) {
-            settingArray += "SETTINGS: USE_IOS_DEPRECATED"
-            patchStatusArray += "SpoofStreamingDataIOS"
-        }
-
         // endregion
 
         // region patch for audio track button
 
-        val spoofPath = app.revanced.patches.youtube.utils.extension.Constants.SPOOF_PATH
-        hookAudioTrackId("$spoofPath/AudioTrackPatch;->setAudioTrackId(Ljava/lang/String;)V")
-        hookBackgroundPlayVideoInformation("$spoofPath/AudioTrackPatch;->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
-        injectControl("$spoofPath/ui/AudioTrackButton;")
+        hookAudioTrackId("$EXTENSION_AUTO_TRACK_CLASS_DESCRIPTOR->setAudioTrackId(Ljava/lang/String;)V")
+        hookBackgroundPlayVideoInformation("$EXTENSION_AUTO_TRACK_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+        injectControl(EXTENSION_AUTO_TRACK_BUTTON_CLASS_DESCRIPTOR)
 
         val directory = if (outlineIcon == true)
             "outline"
@@ -397,11 +600,11 @@ val spoofStreamingDataPatch = bytecodePatch(
 
                 addInstructionsAtControlFlowLabel(
                     index,
-                    "invoke-static {v$register}, $spoofPath/ReloadVideoPatch;->setProgressBarVisibility(I)V"
+                    "invoke-static {v$register}, $EXTENSION_RELOAD_VIDEO_CLASS_DESCRIPTOR->setProgressBarVisibility(I)V"
                 )
             }
 
-        injectControl("$spoofPath/ui/ReloadVideoButton;")
+        injectControl(EXTENSION_RELOAD_VIDEO_BUTTON_CLASS_DESCRIPTOR)
 
         arrayOf(
             ResourceGroup(
@@ -414,17 +617,14 @@ val spoofStreamingDataPatch = bytecodePatch(
 
         // endregion
 
-        patchStatusArray.forEach { methodName ->
-            findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
-                name == methodName
-            }.replaceInstruction(
-                0,
-                "const/4 v0, 0x1"
-            )
-        }
+        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
+            name == "SpoofStreamingData"
+        }.returnEarly(true)
 
         addPreference(
-            settingArray,
+            arrayOf(
+                "SETTINGS: SPOOF_STREAMING_DATA"
+            ),
             SPOOF_STREAMING_DATA
         )
     }
@@ -477,6 +677,14 @@ val spoofStreamingDataPatch = bytecodePatch(
                             StandardCopyOption.REPLACE_EXISTING,
                         )
                     }
+                }
+
+                // WebViewUtils.
+                document("AndroidManifest.xml").use { document ->
+                    val feature = document.createElement("uses-feature").apply {
+                        setAttribute("android:name", "android.hardware.usb.host")
+                    }
+                    document.getNode("manifest").appendChild(feature)
                 }
             }
         }
