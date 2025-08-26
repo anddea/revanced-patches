@@ -214,20 +214,20 @@ public class StreamingDataOuterClassUtils {
             // No audio track found.
             if (!hasAudioTrack) return null;
 
-            Map<String, String> audioTrackMap = new LinkedHashMap<>(30);
+            Map<String, String> audioTrackMap = new LinkedHashMap<>(1);
 
             // For faster navigation, the search is performed in reverse order.
             for (int i = adaptiveFormatsCount - 1; i > 0; i--) {
                 var audioTrack = parsedStreamingData.getAdaptiveFormats(i).getAudioTrack();
                 if (audioTrack != null) {
-                    String displayName = audioTrack.getDisplayName();
-                    if (displayName == null) continue;
                     String id = audioTrack.getId();
-                    if (id == null) continue;
+                    if (id == null || !id.contains(".")) continue;
+                    String displayName = audioTrack.getDisplayName();
+                    if (StringUtils.isEmpty(displayName)) continue;
                     if (audioTrackMap.get(displayName) == null) {
                         audioTrackMap.put(displayName, id);
                     } else {
-                        // One adaptiveFormats contains duplicate AudioTrack Ids.
+                        // AdaptiveFormats contains duplicate AudioTrack Ids.
                         // (Two or more AudioTrack Ids with different audio formats)
                         // If an element already exists in the audioTrackMap, this indicates that a cycle has ended.
                         // Since only duplicate audio tracks will be found, the search can be aborted.

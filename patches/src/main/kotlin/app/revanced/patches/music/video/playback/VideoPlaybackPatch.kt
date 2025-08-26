@@ -11,7 +11,6 @@ import app.revanced.patches.music.utils.patch.PatchList.VIDEO_PLAYBACK
 import app.revanced.patches.music.utils.playbackSpeedBottomSheetFingerprint
 import app.revanced.patches.music.utils.playbackSpeedFingerprint
 import app.revanced.patches.music.utils.playbackSpeedParentFingerprint
-import app.revanced.patches.music.utils.playservice.is_8_20_or_greater
 import app.revanced.patches.music.utils.resourceid.qualityAuto
 import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.CategoryType
@@ -24,12 +23,20 @@ import app.revanced.patches.music.video.information.videoInformationPatch
 import app.revanced.patches.shared.customspeed.customPlaybackSpeedPatch
 import app.revanced.patches.shared.playbackStartParametersConstructorFingerprint
 import app.revanced.patches.shared.playbackStartParametersToStringFingerprint
-import app.revanced.util.*
+import app.revanced.util.findFieldFromToString
+import app.revanced.util.findMethodOrThrow
+import app.revanced.util.findMutableClassOrThrow
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.fingerprint.originalMethodOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -116,45 +123,55 @@ val videoPlaybackPatch = bytecodePatch(
             }
         }
 
-        val constructorParams = if (is_8_20_or_greater) {
-            listOf("I", "L", "Ljava/lang/String;", "Z", "L")
-        } else {
-            listOf("I", "Ljava/lang/String;", "Z", "L")
-        }
-
-        val invokeParams = if (is_8_20_or_greater) {
-            "p1, p3"
-        } else {
-            "p1, p2"
-        }
-
-        findMutableClassOrThrow(videoQualityClass).apply {
-            methods.first { method ->
-                MethodUtil.isConstructor(method) &&
-                        parametersEqual(
-                            constructorParams,
-                            method.parameterTypes
-                        )
-            }.addInstructions(
-                0, """
-                    invoke-static { $invokeParams }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->fixVideoQualityResolution(ILjava/lang/String;)I
-                    move-result p1
-                    """
-            )
-
-            val resolutionField = fields.single { field ->
-                field.type == "I"
+        fun indexOfVideoQualityNameFieldInstruction(method: Method) =
+            method.indexOfFirstInstruction {
+                val reference = getReference<FieldReference>()
+                opcode == Opcode.IPUT_OBJECT &&
+                        reference?.type == "Ljava/lang/String;" &&
+                        reference.definingClass == method.definingClass
             }
 
-            findMethodOrThrow(EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR) {
-                name == "getVideoQualityResolution"
-            }.addInstructions(
-                0, """
-                    check-cast p0, $videoQualityClass
-                    iget p0, p0, $resolutionField
-                    return p0
-                    """
-            )
+        fun indexOfVideoQualityResolutionFieldInstruction(method: Method) =
+            method.indexOfFirstInstruction {
+                val reference = getReference<FieldReference>()
+                opcode == Opcode.IPUT &&
+                        reference?.type == "I" &&
+                        reference.definingClass == method.definingClass
+            }
+
+        findMutableClassOrThrow(videoQualityClass).let {
+            it.methods.first { method ->
+                MethodUtil.isConstructor(method) &&
+                        method.parameterTypes.size > 3 &&
+                        indexOfVideoQualityNameFieldInstruction(method) >= 0 &&
+                        indexOfVideoQualityResolutionFieldInstruction(method) >= 0
+            }.apply {
+                val qualityNameIndex = indexOfVideoQualityNameFieldInstruction(this)
+                val resolutionIndex = indexOfVideoQualityResolutionFieldInstruction(this)
+                val resolutionField =
+                    getInstruction<ReferenceInstruction>(resolutionIndex).reference
+                val qualityNameRegister =
+                    getInstruction<TwoRegisterInstruction>(qualityNameIndex).registerA
+                val resolutionRegister =
+                    getInstruction<TwoRegisterInstruction>(resolutionIndex).registerA
+
+                addInstructions(
+                    0, """
+                        invoke-static { v$resolutionRegister, v$qualityNameRegister }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->fixVideoQualityResolution(ILjava/lang/String;)I
+                        move-result v$resolutionRegister
+                        """
+                )
+
+                findMethodOrThrow(EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR) {
+                    name == "getVideoQualityResolution"
+                }.addInstructions(
+                    0, """
+                        check-cast p0, $videoQualityClass
+                        iget p0, p0, $resolutionField
+                        return p0
+                        """
+                )
+            }
         }
 
         val initialResolutionField =

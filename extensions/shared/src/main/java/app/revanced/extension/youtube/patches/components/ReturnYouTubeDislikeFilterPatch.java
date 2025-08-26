@@ -152,15 +152,15 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (!Settings.RYD_ENABLED.get() || !Settings.RYD_SHORTS.get()) {
             return false;
         }
 
-        FilterGroup.FilterGroupResult result = videoIdFilterGroup.check(protobufBufferArray);
+        FilterGroup.FilterGroupResult result = videoIdFilterGroup.check(buffer);
         if (result.isFiltered()) {
-            String matchedVideoId = findVideoId(protobufBufferArray);
+            String matchedVideoId = findVideoId(buffer);
             // Matched video will be null if in incognito mode.
             // Must pass a null id to correctly clear out the current video data.
             // Otherwise if a Short is opened in non-incognito, then incognito is enabled and another Short is opened,
@@ -172,12 +172,12 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
     }
 
     @Nullable
-    private String findVideoId(byte[] protobufBufferArray) {
+    private String findVideoId(byte[] buffer) {
         synchronized (lastVideoIds) {
             for (Map.Entry<String, ByteArrayFilterGroup> entry : lastVideoIds.entrySet()) {
                 final String videoId = entry.getKey();
                 final ByteArrayFilterGroup videoIdFilter = entry.getValue();
-                if (byteArrayContainsString(protobufBufferArray, videoId, videoIdFilter)) {
+                if (byteArrayContainsString(buffer, videoId, videoIdFilter)) {
                     return videoId;
                 }
             }

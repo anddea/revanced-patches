@@ -11,9 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.utils.Logger;
-
 /**
  * Filters litho based components.
  * <p>
@@ -51,20 +48,12 @@ public abstract class Filter {
      * Default implementation is to always filter the matched component and log the action.
      * Subclasses can perform additional or different checks if needed.
      * <p>
-     * If the content is to be filtered, subclasses should always
-     * call this method (and never return a plain 'true').
-     * That way the logs will always show when a component was filtered and which filter hide it.
-     * <p>
      * Method is called off the main thread.
      *
      * @param matchedGroup The actual filter that matched.
      */
     public boolean skip(String conversionContext, SpannableString spannableString, Object span, int start, int end,
                         int flags, boolean isWord, SpanType spanType, StringFilterGroup matchedGroup) {
-        if (BaseSettings.DEBUG_SPANNABLE.get()) {
-            String filterSimpleName = getClass().getSimpleName();
-            Logger.printDebug(() -> filterSimpleName + " Removed setSpan: " + spanType.type);
-        }
         return true;
     }
 }

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Vuoi attivare i controlli di accessibilità del riproduttore?</string>
     <string name="accessibility_settings_edu_opt_out_text">I tuoi controlli sono diversi poiché un servizio di accessibilità è attivato.</string>
@@ -82,6 +82,7 @@ Tocca e tieni premuto l'informazione mostrata per cambiare il tipo."</string>
     <string name="revanced_bypass_url_redirects_summary_off">Il reindirizzamento degli URL non è bypassato.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Il reindirizzamento degli URL è bypassato.</string>
     <string name="revanced_bypass_url_redirects_title">Bypassa il reindirizzamento degli URL</string>
+    <string name="revanced_cancel">Cancella</string>
     <string name="revanced_change_form_factor_entry_1">Predefinito</string>
     <string name="revanced_change_form_factor_entry_2">Telefono</string>
     <string name="revanced_change_form_factor_entry_3">Telefono (massimo 480 dp)</string>
@@ -157,6 +158,9 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_change_youtube_header_summary_off">Nativa</string>
     <string name="revanced_change_youtube_header_summary_on">Premium</string>
     <string name="revanced_change_youtube_header_title">Cambia l\'intestazione di YouTube</string>
+    <string name="revanced_color_invalid_toast">Colore invalido</string>
+    <string name="revanced_copy">Copia</string>
+    <string name="revanced_copy_error">Impossibile copiare il testo</string>
     <string name="revanced_custom_filter_strings_summary">L\'elenco dei componenti da filtrare, separati da nuove righe.</string>
     <string name="revanced_custom_filter_strings_title">Modifica il filtro personalizzato</string>
     <string name="revanced_custom_filter_summary_off">Il filtro personalizzato è disattivato.</string>
@@ -502,6 +506,15 @@ Ma anche se questa impostazione è disattivata, il pulsante Dai Hype potrebbe no
 
 Se l'impostazione \"Riproduzione\" non funziona, attivarla potrebbe risolvere il problema. Se l'impostazione \"Riproduzione\" continua a non funzionare anche dopo averla attivata o disattivata, è necessario cancellare i dati dell'app."</string>
     <string name="revanced_fullscreen_ads_closed_toast">Annunci a schermo intero chiusi</string>
+    <string name="revanced_gemini_cancelled">Cancellato</string>
+    <string name="revanced_gemini_copy_success">Riassunto copiato negli appunti.</string>
+    <string name="revanced_gemini_error_already_running_summarize">Riassunto già in corso.</string>
+    <string name="revanced_gemini_error_already_running_transcribe">trascrizione già in corso.</string>
+    <string name="revanced_gemini_error_already_running_yandex_transcribe">Trascrizione Yandex già in corso.</string>
+    <string name="revanced_gemini_error_api_failed">Richiesta API Gemini fallita: %s</string>
+    <string name="revanced_gemini_error_dialog_show">Errore nella visualizzazione della finestra di dialogo</string>
+    <string name="revanced_gemini_loading_default">Caricando...</string>
+    <string name="revanced_gemini_transcription_parse_button">Sottotitoli</string>
     <string name="revanced_gms_show_dialog_summary">Visualizza la finestra di ottimizzazione per GMSCore a ogni avvio dell\'applicazione.</string>
     <string name="revanced_gms_show_dialog_title">Mostra la finestra di ottimizzazione per GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">L\'elenco dei nomi dei menù degli account da filtrare, separati da nuove righe.</string>
@@ -752,7 +765,7 @@ Impostazioni → Riproduzione → Riproduzione automatica video successivo"</str
     <string name="revanced_hide_key_concepts_section_title">Nascondi la sezione Momenti Chiave</string>
     <string name="revanced_hide_keyword_content_about_summary">"Le schede Home e Iscrizioni e i risultati di ricerca sono filtrati per nascondere i video che soddisfano le parole chiave o frasi.
 
-Note: 
+Note:
 • Gli Shorts non possono essere nascosti in base al nome del canale.
 • Alcuni componenti della interfaccia potrebbero non essere nascosti.
 • La ricerca di una parola chiave potrebbe non mostrare alcun risultato."</string>
@@ -2357,4 +2370,19 @@ Se questa impostazione non ha effetto, prova a passare alla navigazione in incog
     <string name="revanced_whitelist_settings_summary">Controlla o rimuovi l\'elenco dei canali aggiunti alla whitelist.</string>
     <string name="revanced_whitelist_settings_title">Whitelist dei canali</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_yandex_error_no_language_selected">Nessun linguaggio selezionato</string>
+    <string name="revanced_yandex_error_translation_failed">Traduzione fallita</string>
+    <string name="revanced_yandex_error_unknown">Errore sconosciuto</string>
+    <string name="revanced_yandex_status_processing_hour">più di un\'ora rimanente...</string>
+    <string name="revanced_yandex_status_processing_minute">circa un minuto rimanente...</string>
+    <string name="revanced_yandex_status_processing_minutes_plural">%d minuti rimanenti...</string>
+    <string name="revanced_yandex_status_processing_short">Elaborazione...</string>
+    <string name="revanced_yandex_status_requesting_translation">Richiedendo traduzione</string>
+    <string name="revanced_yandex_status_session_ok">Sessione OK</string>
+    <string name="revanced_yandex_status_transcription_delayed">La trascrizione è leggermente ritardata</string>
+    <string name="revanced_yandex_status_youtube_specific">Gestione delle richieste audio di YouTube...</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Yandex può trascrivere video da qualsiasi lingua, ma l'output è disponibile solo in inglese (en), russo (ru) e kazako (kk). Se inserisci qualsiasi altro codice lingua o usi 'app' (che sta per la lingua predefinita dell'app), a Gemini verrà chiesto di tradurre (è richiesta la chiave API)".</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_title">Lingua Yandex</string>
+    <string name="revanced_yandex_transcribe_subtitles_summary">Usa la trascrizione Yandex invece di Gemini. Yandex è più veloce e affidabile. Non è richiesta alcuna chiave API.</string>
+    <string name="revanced_yandex_transcribe_subtitles_title">Trascrizione Yandex</string>
 </resources>

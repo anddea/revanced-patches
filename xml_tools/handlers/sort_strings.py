@@ -4,7 +4,7 @@ import logging
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-from defusedxml import ElementTree
+from defusedxml import ElementTree as DefusedET
 
 from config.settings import Settings
 from utils.xml_processor import XMLProcessor
@@ -25,7 +25,7 @@ def sort_file(path: Path) -> None:
 
         for name in sorted(strings.keys()):
             data = strings[name]
-            string_elem = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
+            string_elem = DefusedET.fromstring(data["text"])
             new_root.append(string_elem)
 
         XMLProcessor.write_file(path, new_root)

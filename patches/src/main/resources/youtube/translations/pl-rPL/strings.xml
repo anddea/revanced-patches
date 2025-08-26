@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Włączyć gesty ułatwień dostępu dla odtwarzacza filmów?</string>
     <string name="accessibility_settings_edu_opt_out_text">Twoje ustawienia są zmienione, ponieważ serwis ułatwień dostępu jest włączony.</string>
@@ -541,7 +541,7 @@ Jeśli nadal występują problemy z tym ustawieniem nawet po włączeniu/wyłąc
     <string name="revanced_gemini_summary_title">Podsumowanie filmu przez Gemini</string>
     <string name="revanced_gemini_time_taken">(Zajęło %d s)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">Włącz \"Wyświetlanie nad innymi aplikacjami,\" aby wyświetlić napisy</string>
-    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Rozmiar czcionki napisów w transkrybowanym filmie. Aby ukryć pole z napisami, wystarczy w nie stuknąć.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Rozmiar czcionki transkrybowanych napisów. Stuknij pole z napisami, aby je ukryć, lub przytrzymaj, aby przeciągnąć je w inne miejsce.</string>
     <string name="revanced_gemini_transcribe_subtitles_font_size_title">Rozmiar czcionki napisów</string>
     <string name="revanced_gemini_transcription_parse_button">Napisy</string>
     <string name="revanced_gemini_transcription_parse_success">Pomyślnie przetworzono napisy</string>
@@ -1151,6 +1151,9 @@ Jeśli układ ekranu odtwarzacza zmieni się w skutek zmian po stronie serwera, 
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Wyłączone komentarze lub te z etykietą \"0\" są widoczne.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Wyłączone komentarze lub te z etykietą \"0\" są ukryte.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Przycisk wyłączonych komentarzy</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_comments_panel_title">Panel komentarzy</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_dislike_button_title">Przycisk od łapkowania w dół</string>
@@ -2242,6 +2245,7 @@ Informacje:
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Włączenie tego może poprawić czas pracy baterii i naprawić zacinanie się odtwarzacza.
 
 AVC obsługuje maksymalnie rozdzielczość 1080p, kodek audio OPUS nie jest dostępny, a odtwarzanie wideo będzie zużywać więcej danych internetowych niż VP9 lub AV1."</string>
+    <string name="revanced_spoof_streaming_data_message">Jeśli doświadczasz problemów z odtwarzaniem, włącz \"Oszukuj strumień danych\" w &lt;i&gt;&lt;u&gt;Ustawienia &gt; %s &gt; Pozostałe &gt; Oszukuj strumień danych&lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Kodeków w filmie</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Jakości filmu</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Priorytet w filmie</string>
@@ -2358,11 +2362,14 @@ Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w 
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Kodekiem filmu jest AVC (H.264) lub VP9</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Wyłącz kodek AV1</string>
     <string name="revanced_spoof_streaming_data_vr_language_title">Domyślny język dla transmisji na żywo</string>
+    <string name="revanced_swipe_brightness_distance_summary">Ilość pikseli do przesunięcia w celu zmiany jasności. Niższe wartości powodują szybszą zmianę jasności, wyższe sprawiają, że zmiana jest wolniejsza (1–1000).</string>
+    <string name="revanced_swipe_brightness_distance_title">Odległość jasności</string>
     <string name="revanced_swipe_brightness_summary_off">Wyłączone</string>
     <string name="revanced_swipe_brightness_summary_on">"Włączone
 
 Dostosuj jasność, przesuwając pionowo po lewej stronie ekranu."</string>
     <string name="revanced_swipe_brightness_title">Zmienianie jasności przesuwaniem</string>
+    <string name="revanced_swipe_distance_invalid">Nieprawidłowa odleglość jasności, muso być między, a 1000.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Wyłączone</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Włączone</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Przesuwanie podczas trybu blokady ekranu</string>
@@ -2404,11 +2411,15 @@ Dostosuj jasność, przesuwając pionowo po lewej stronie ekranu."</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Nie</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Tak</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Zapisywanie i przywracanie jasności</string>
+    <string name="revanced_swipe_seek_distance_summary">Ilość pikseli do przesunięcia w celu przewijania treści wideo. Niższe wartości powodują szybsze przewijanie, wyższe sprawiają, że jest ono wolniejsze (1–1000).</string>
+    <string name="revanced_swipe_seek_distance_title">Odległość przewijania</string>
     <string name="revanced_swipe_seek_summary_off">Wyłączony</string>
     <string name="revanced_swipe_seek_summary_on">"Włączony
 
 Przewiń wideo, przesuwając palcem w poziomie po górnej połowie ekranu."</string>
     <string name="revanced_swipe_seek_title">Gest przewijania</string>
+    <string name="revanced_swipe_speed_distance_summary">Ilość pikseli do przesunięcia w celu zmiany prędkości odtwarzania filmów. Niższe wartości powodują szybszą zmianę prędkości, wyższe sprawiają, że zmiana jest wolniejsza (1–1000).</string>
+    <string name="revanced_swipe_speed_distance_title">Odległość prędkości</string>
     <string name="revanced_swipe_speed_summary_off">Wyłączony</string>
     <string name="revanced_swipe_speed_summary_on">"Włączony
 
@@ -2422,6 +2433,8 @@ Dostosuj prędkość, przesuwając palcem w poziomie na dolnej połowie ekranu."
     <string name="revanced_swipe_text_overlay_size_title">Rozmiar tekstu nakładki przesuwania</string>
     <string name="revanced_swipe_threshold_summary">Wartość progowa, przy której następuje przesunięcie</string>
     <string name="revanced_swipe_threshold_title">Mininalna długość przesunięcia</string>
+    <string name="revanced_swipe_volume_distance_summary">Ilość pikseli do przesunięcia w celu zmiany głośności. Niższe wartości powodują szybszą zmianę głośności, wyższe sprawiają, że zmiana jest wolniejsza (1–1000).</string>
+    <string name="revanced_swipe_volume_distance_title">Odległość głośności</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Czułość przesuwania gestu głośności musi być pomiędzy 1 a 1000.</string>
     <string name="revanced_swipe_volume_sensitivity_summary">O ile zmienia się głośność na przesunięcie</string>
     <string name="revanced_swipe_volume_sensitivity_title">Czułość przesuwania głośności</string>

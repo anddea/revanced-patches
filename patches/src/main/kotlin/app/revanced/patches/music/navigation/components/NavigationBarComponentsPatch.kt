@@ -11,6 +11,7 @@ import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKA
 import app.revanced.patches.music.utils.extension.Constants.NAVIGATION_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.patch.PatchList.NAVIGATION_BAR_COMPONENTS
 import app.revanced.patches.music.utils.playservice.is_6_27_or_greater
+import app.revanced.patches.music.utils.playservice.is_8_29_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.colorGrey
 import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
@@ -25,6 +26,7 @@ import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.Utils.printInfo
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
@@ -119,22 +121,18 @@ val navigationBarComponentsPatch = bytecodePatch(
          */
         tabLayoutTextFingerprint.matchOrThrow().let {
             it.method.apply {
-                val stringIndex = it.stringMatches!!.first().index
-                val browseIdIndex = indexOfFirstInstructionReversedOrThrow(stringIndex) {
-                    opcode == Opcode.IGET_OBJECT &&
-                            getReference<FieldReference>()?.type == "Ljava/lang/String;"
-                }
-                val browseIdReference =
-                    getInstruction<ReferenceInstruction>(browseIdIndex).reference as FieldReference
-                val fieldName = browseIdReference.name
-                val componentIndex = indexOfFirstInstructionOrThrow(stringIndex) {
-                    opcode == Opcode.IGET_OBJECT &&
-                            getReference<FieldReference>()?.toString() == browseIdReference.toString()
-                }
+                val mapIndex = indexOfMapInstruction(this)
                 val browseIdRegister =
-                    getInstruction<TwoRegisterInstruction>(componentIndex).registerA
-                val componentRegister =
-                    getInstruction<TwoRegisterInstruction>(componentIndex).registerB
+                    getInstruction<FiveRegisterInstruction>(mapIndex).registerD
+                val browseIdIndex = indexOfFirstInstructionReversedOrThrow(mapIndex + 1) {
+                    opcode == Opcode.IGET_OBJECT &&
+                            getReference<FieldReference>()?.type == "Ljava/lang/String;" &&
+                            (this as TwoRegisterInstruction).registerA == browseIdRegister
+                }
+                val browseIdClassRegister =
+                    getInstruction<TwoRegisterInstruction>(browseIdIndex).registerB
+                val browseIdFieldName =
+                    (getInstruction<ReferenceInstruction>(browseIdIndex).reference as FieldReference).name
 
                 val enumIndex = it.patternMatch!!.startIndex + 3
                 val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
@@ -153,16 +151,10 @@ val navigationBarComponentsPatch = bytecodePatch(
                     "invoke-static {v$pivotTabRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V"
                 )
 
-                val mapPutIndex = indexOfFirstInstructionOrThrow(stringIndex) {
-                    opcode == Opcode.INVOKE_INTERFACE &&
-                            getReference<MethodReference>()?.name == "put" &&
-                            getReference<MethodReference>()?.definingClass == "Ljava/util/Map;"
-                }
-
                 addInstructions(
-                    mapPutIndex, """
-                        const-string v$enumRegister, "$fieldName"
-                        invoke-static {v$componentRegister, v$browseIdRegister, v$enumRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceBrowseId(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+                    mapIndex, """
+                        const-string v$enumRegister, "$browseIdFieldName"
+                        invoke-static {v$browseIdClassRegister, v$browseIdRegister, v$enumRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceBrowseId(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$browseIdRegister
                         """
                 )
@@ -230,12 +222,14 @@ val navigationBarComponentsPatch = bytecodePatch(
             "revanced_hide_navigation_upgrade_button",
             "true"
         )
-        if (is_6_27_or_greater) {
+        if (is_6_27_or_greater && !is_8_29_or_greater) {
             addSwitchPreference(
                 CategoryType.NAVIGATION,
                 "revanced_replace_navigation_samples_button",
                 "false"
             )
+        } else {
+            printInfo("\"Replace Samples button\" is not supported in this version. Use YouTube Music 6.29.59 - 8.28.54.")
         }
         addSwitchPreference(
             CategoryType.NAVIGATION,

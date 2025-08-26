@@ -1,6 +1,7 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Devam Et</string>
+    <string name="gms_core_dialog_dismiss_text">Tekrar gösterme</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore'un arka planda çalışma izni yoktur.
 
 'Uygulamamı öldürmeyin!' cihazınız için kılavuzu kullanın ve talimatları GmsCore kurulumunuza uygulayın.
@@ -14,8 +15,12 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin.</string>
     <string name="gms_core_settings_title">GmsCore\'yi aç</string>
     <string name="gms_core_toast_not_installed_message">GmsCore yüklü değil. Yükleyin.</string>
+    <string name="revanced_add_miniplayer_next_button_summary">Adds a next track button to the miniplayer.</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Bazı bölgelerde engellenen alan adını değiştirerek oynatma listesi küçük resimlerinin, kanal avatarlarının vb. alınabilmesini sağlar.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Resimlerin bölge kısıtlamalarını atla</string>
+    <string name="revanced_change_player_background_color_title">Oyantıcı\'nın arka plan rengini değiştir</string>
+    <string name="revanced_change_seekbar_position_summary">Arama çubuğu\'nu oynatcının alt kısmına kaldırır</string>
+    <string name="revanced_change_seekbar_position_title">Arama çubuğunun pozisyonunu değiştir</string>
     <string name="revanced_change_share_sheet_summary">Uygulama içi paylaşım sayfasını sistem paylaşım sayfasıyla değiştirin.</string>
     <string name="revanced_change_share_sheet_title">Paylaşım sayfasını değiştir</string>
     <string name="revanced_change_start_page_entry_chart">Listeler</string>
@@ -68,10 +73,10 @@ Bir albümden müzik videosu çalındığı algılanırsa resmi şarkıyı bulur
     <string name="revanced_disable_music_video_in_album_title">Albümdeki müzik videosunu devre dışı bırak</string>
     <string name="revanced_disable_player_gesture_summary">Oynatıcıdaki parçaları değiştirmek için kaydırmayı devre dışı bırakın.</string>
     <string name="revanced_disable_player_gesture_title">Oynatıcı hareketini devre dışı bırak</string>
-    <string name="revanced_enable_compact_dialog_summary">"Telefonda kompakt iletişim kutusunu etkinleştirin. 
+    <string name="revanced_enable_compact_dialog_summary">"Telefonda kompakt iletişim kutusunu etkinleştirin.
 
-Bilinen sorunlar: 
-• Kitaplık sekmesindeki albüm resmi, ızgara halinde düzenlendiğinde küçülür. 
+Bilinen sorunlar:
+• Kitaplık sekmesindeki albüm resmi, ızgara halinde düzenlendiğinde küçülür.
 • Uyku zamanlayıcısı düzeni olağandışı görünebilir."</string>
     <string name="revanced_enable_compact_dialog_title">Kompakt diyaloğu etkinleştir</string>
     <string name="revanced_enable_custom_navigation_bar_color_summary">Gezinme çubuğu rengini ayarlar.</string>
@@ -195,7 +200,7 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">\"Meraklısı için istatikler\" menüsü</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Abone ol / Abonelikten çık menüsünü gizle</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Şarkı kredileri menüsünü görüntüle</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"Tam ekran reklamları gizle. 
+    <string name="revanced_hide_fullscreen_ads_summary">"Tam ekran reklamları gizle.
 
 Sınırlamalar:
 • Bazen ana akış yerine boş siyah bir ekran görebilirsiniz."</string>
@@ -304,7 +309,7 @@ Bu, yalnızca YT Music ayarlar menüsünü değil aynı zamanda ReVanced Extende
     <string name="revanced_restore_old_comments_popup_panels_title">Eski yorum açılır panellerini geri getir</string>
     <string name="revanced_restore_old_player_background_summary">Oynatıcı arkaplanını eski stile döndürür.</string>
     <string name="revanced_restore_old_player_background_title">Eski oynatıcı arka planını geri getir</string>
-    <string name="revanced_restore_old_player_layout_summary">"Oynatıcı düzenini eski stile döndürün. 
+    <string name="revanced_restore_old_player_layout_summary">"Oynatıcı düzenini eski stile döndürün.
 Eski oynatıcı düzeninde bazı ayarlar düzgün çalışmayabilir."</string>
     <string name="revanced_restore_old_player_layout_title">Eski oynatıcı düzenini geri getir</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Kütüphane rafını eski stile döndürün.
@@ -317,9 +322,9 @@ Eski oynatıcı düzeninde bazı ayarlar düzgün çalışmayabilir."</string>
     <string name="revanced_return_youtube_username_display_format_username_only">Kullanıcı Adı</string>
     <string name="revanced_return_youtube_username_enabled_summary">Yorumlardaki kullanıcı adlarını herkese açık kullanıcı adlarıyla (YT Handles ile) değiştirir.</string>
     <string name="revanced_return_youtube_username_enabled_title">YouTube Kullanıcı Adına dönmeyi etkinleştir</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Herkese açık kullanıcı adlarını (YouTube Handles) kullanıcı adlarıyla değiştirmek için bir YouTube Data API v3 Geliştirici Anahtarı gereklidir. 
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Herkese açık kullanıcı adlarını (YouTube Handles) kullanıcı adlarıyla değiştirmek için bir YouTube Data API v3 Geliştirici Anahtarı gereklidir.
 
-Ücretsiz planda APl anahtarları için günlük kota 10.000'dir ve 1 yorum için bir tanıtıcıyı bir kullanıcı adıyla değiştirmek için 1 kota kullanılır. 
+Ücretsiz planda APl anahtarları için günlük kota 10.000'dir ve 1 yorum için bir tanıtıcıyı bir kullanıcı adıyla değiştirmek için 1 kota kullanılır.
 
 APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">YouTube Verileri API anahtarı hakkında</string>
@@ -409,7 +414,7 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_sb_toast_on_skip">Otomatik olarak atlarken bir uyarı göster</string>
     <string name="revanced_sb_toast_on_skip_sum">Bölüm otomatik olarak atandığında uyarı gösterilir.</string>
     <string name="revanced_share_copy_settings_success">Ayarlar panoya kopyalandı</string>
-    <string name="revanced_spoof_app_version_summary">"İstemciyi sürümünün eski sürümle sahteleştir 
+    <string name="revanced_spoof_app_version_summary">"İstemciyi sürümünün eski sürümle sahteleştir
 
 • Bu, uygulamanın görünümünü değiştirir ancak bilinmeyen yan etkiler ortaya çıkabilir.
 • Daha sonra kapatılırsa, uygulama verileri temizlenene kadar eski kullanıcı arayüzü kalabilir."</string>

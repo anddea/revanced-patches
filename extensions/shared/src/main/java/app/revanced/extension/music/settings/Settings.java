@@ -151,6 +151,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting DISABLE_MINIPLAYER_GESTURE = new BooleanSetting("revanced_disable_miniplayer_gesture", FALSE, true);
     public static final BooleanSetting DISABLE_PLAYER_GESTURE = new BooleanSetting("revanced_disable_player_gesture", FALSE, true);
     public static final BooleanSetting ENABLE_FORCED_MINIPLAYER = new BooleanSetting("revanced_enable_forced_miniplayer", TRUE);
+    public static final BooleanSetting ENABLE_SMOOTH_TRANSITION_ANIMATION = new BooleanSetting("revanced_enable_smooth_transition_animation", TRUE, true);
     public static final BooleanSetting ENABLE_SWIPE_TO_DISMISS_MINIPLAYER = new BooleanSetting("revanced_enable_swipe_to_dismiss_miniplayer", TRUE, true);
     public static final BooleanSetting ENABLE_THICK_SEEKBAR = new BooleanSetting("revanced_enable_thick_seekbar", TRUE, true);
     public static final BooleanSetting ENABLE_ZEN_MODE = new BooleanSetting("revanced_enable_zen_mode", FALSE, true);
@@ -159,6 +160,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_DOUBLE_TAP_OVERLAY_FILTER = new BooleanSetting("revanced_hide_double_tap_overlay_filter", FALSE, true);
     public static final BooleanSetting HIDE_COMMENT_TIMESTAMP_AND_EMOJI_BUTTONS = new BooleanSetting("revanced_hide_comment_timestamp_and_emoji_buttons", FALSE);
     public static final BooleanSetting HIDE_FULLSCREEN_SHARE_BUTTON = new BooleanSetting("revanced_hide_fullscreen_share_button", FALSE, true);
+    public static final BooleanSetting HIDE_LYRICS_SHARE_BUTTON = new BooleanSetting("revanced_hide_lyrics_share_button", FALSE);
     public static final BooleanSetting HIDE_SONG_VIDEO_TOGGLE = new BooleanSetting("revanced_hide_song_video_toggle", FALSE, true);
     public static final BooleanSetting REMEMBER_REPEAT_SATE = new BooleanSetting("revanced_remember_repeat_state", TRUE);
     public static final BooleanSetting REMEMBER_SHUFFLE_SATE = new BooleanSetting("revanced_remember_shuffle_state", TRUE);
@@ -202,6 +204,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting("revanced_spoof_video_streams", FALSE, true);
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_DEFAULT_CLIENT = new EnumSetting<>("revanced_spoof_video_streams_default_client", ClientType.ANDROID_VR_1_43_32, true);
     public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_extended_settings_import_export", FALSE, false);
+    public static final BooleanSetting APP_INFO = new BooleanSetting("revanced_app_info", FALSE, false);
 
     // PreferenceScreen: Return YouTube Dislike
     public static final BooleanSetting RYD_ENABLED = new BooleanSetting("revanced_ryd_enabled", TRUE);
@@ -275,6 +278,7 @@ public class Settings extends BaseSettings {
      * Array of settings using intent
      */
     private static final String[] intentSettingArray = new String[]{
+            APP_INFO.key,
             BYPASS_IMAGE_REGION_RESTRICTIONS_DOMAIN.key,
             CHANGE_START_PAGE.key,
             CUSTOM_FILTER_STRINGS.key,

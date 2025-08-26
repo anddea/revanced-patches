@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
-
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
 import app.revanced.extension.shared.patches.components.StringFilterGroupList;
@@ -116,7 +114,7 @@ public final class PlayerComponentsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // This identifier is used not only in players but also in search results:
         // https://github.com/ReVanced/revanced-patches/issues/3245
@@ -124,21 +122,15 @@ public final class PlayerComponentsFilter extends Filter {
         // From 2025, the medical information panel is no longer shown in the search results.
         // Therefore, this identifier does not filter when the search bar is activated.
         if (matchedGroup == singleItemInformationPanel) {
-            if (!RootView.isPlayerActive() && RootView.isSearchBarActive()) {
-                return false;
-            }
+            return RootView.isPlayerActive() || !RootView.isSearchBarActive();
         } else if (matchedGroup == suggestedActions) {
             // suggested actions button on shorts and the suggested actions button on video players use the same path builder.
             // Check PlayerType to make each setting work independently.
-            if (suggestedActionsException.matches(path) || PlayerType.getCurrent().isNoneOrHidden()) {
-                return false;
-            }
+            return !suggestedActionsException.matches(path) && !PlayerType.getCurrent().isNoneOrHidden();
         } else if (matchedGroup == channelBar) {
-            if (!channelBarGroupList.check(path).isFiltered()) {
-                return false;
-            }
+            return channelBarGroupList.check(path).isFiltered();
         }
 
-        return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return true;
     }
 }

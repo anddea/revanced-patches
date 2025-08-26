@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Включить специальные возможности в плеере?</string>
     <string name="accessibility_settings_edu_opt_out_text">Служба специальных возможностей включена. Управление изменено.</string>
@@ -18,9 +18,9 @@
     <string name="gms_core_settings_summary">Включите \"Облачные уведомления\" для получения уведомлений.</string>
     <string name="gms_core_settings_title">Открыть GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore не установлен. Установите его.</string>
-    <string name="revanced_advanced_video_quality_menu_summary_off">Отключено.</string>
-    <string name="revanced_advanced_video_quality_menu_summary_on">Включено.</string>
-    <string name="revanced_advanced_video_quality_menu_title">Расширенное меню качества видео</string>
+    <string name="revanced_advanced_video_quality_menu_summary_off">Не отображается меню расширенных настроек качества видео.</string>
+    <string name="revanced_advanced_video_quality_menu_summary_on">Отображается меню расширенных настроек качества видео.</string>
+    <string name="revanced_advanced_video_quality_menu_title">Показать расширенное меню качества видео</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Стиль расширенного меню качества отключен.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Стиль расширенного меню качества включен.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Расширенный тип меню качества Shorts</string>
@@ -310,6 +310,9 @@
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Анимация кнопки \"Лайк\" включена.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Анимация кнопки \"Лайк\" отключена.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Анимация кнопки \"Лайк\"</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">Всплывающее окно "Войти в TV" включено.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">Всплывающее окно "Войти в TV" выключено.</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">Всплывающее окно "Войти в TV" включено.</string>
     <string name="revanced_disable_speed_overlay_summary">"Отключить наложение скорости при нажатии и удержании.
 
 Примечание:
@@ -528,7 +531,7 @@
     <string name="revanced_gemini_summary_title">Резюме видео Gemini</string>
     <string name="revanced_gemini_time_taken">(Заняло %d секунд)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">Включите \"Отображать поверх других приложений\" для отображения субтитров.</string>
-    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Размер шрифта транскрибированных субтитров видео.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Размер шрифта расшифрованных субтитров видео. Коснитесь поля с субтитрами, чтобы скрыть его, или нажмите и удерживайте, чтобы перетащить его в другое место.</string>
     <string name="revanced_gemini_transcribe_subtitles_font_size_title">Размер шрифта субтитров</string>
     <string name="revanced_gemini_transcription_parse_button">Субтитры</string>
     <string name="revanced_gemini_transcription_parse_success">Субтитры успешно проанализированы</string>
@@ -2224,6 +2227,7 @@ Shorts
 - устранить прерывания при воспроизведении.
 
 Максимальное разрешение AVC - 1080p. Кодек Opus недоступен. Потребление трафика больше, чем при VP9 или AV1."</string>
+    <string name="revanced_spoof_streaming_data_message">Если у вас возникли проблемы с воспроизведением, включите параметр \"Замена потоковых данных\" в Настройках/Разное/Замена потоковых данных.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Приоритет качества видео отключен.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Приоритет качества видео включен.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Приоритет качества видео</string>

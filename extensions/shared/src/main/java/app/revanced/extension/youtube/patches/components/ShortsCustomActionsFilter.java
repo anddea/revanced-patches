@@ -165,27 +165,27 @@ public final class ShortsCustomActionsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (!SHORTS_CUSTOM_ACTIONS_ENABLED) {
             return false;
         }
         if (matchedGroup == playerFlyoutMenu) {
             isShortsFlyoutMenuVisible = true;
-            findVideoId(protobufBufferArray);
-        } else if (matchedGroup == likeDislikeButton && videoIdFilterGroup.check(protobufBufferArray).isFiltered()) {
-            findVideoId(protobufBufferArray);
+            findVideoId(buffer);
+        } else if (matchedGroup == likeDislikeButton && videoIdFilterGroup.check(buffer).isFiltered()) {
+            findVideoId(buffer);
         }
 
         return false;
     }
 
-    private void findVideoId(byte[] protobufBufferArray) {
+    private void findVideoId(byte[] buffer) {
         synchronized (lastVideoIds) {
             for (Map.Entry<String, ByteArrayFilterGroup> entry : lastVideoIds.entrySet()) {
                 final String videoId = entry.getKey();
                 final ByteArrayFilterGroup videoIdFilter = entry.getValue();
-                if (byteArrayContainsString(protobufBufferArray, videoId, videoIdFilter)) {
+                if (byteArrayContainsString(buffer, videoId, videoIdFilter)) {
                     setShortsVideoId(videoId, false);
                     return;
                 }

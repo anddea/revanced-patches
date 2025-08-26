@@ -13,10 +13,12 @@ import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKA
 import app.revanced.patches.music.utils.extension.Constants.EXTENSION_PATH
 import app.revanced.patches.music.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.music.utils.extension.sharedExtensionPatch
+import app.revanced.patches.music.utils.fix.timedlyrics.timedLyricsPatch
 import app.revanced.patches.music.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.music.utils.patch.PatchList.GMSCORE_SUPPORT
 import app.revanced.patches.music.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE_MUSIC
 import app.revanced.patches.music.utils.playservice.is_6_39_or_greater
+import app.revanced.patches.music.utils.playservice.is_6_42_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.settings.ResourceUtils.addGmsCorePreference
 import app.revanced.patches.music.utils.settings.ResourceUtils.gmsCorePackageName
@@ -52,6 +54,7 @@ private val settingsBytecodePatch = bytecodePatch(
     dependsOn(
         sharedExtensionPatch,
         mainActivityResolvePatch,
+        timedLyricsPatch,
         versionCheckPatch,
         baseSettingsPatch,
     )
@@ -332,6 +335,17 @@ val settingsPatch = resourcePatch(
                 CategoryType.MISC,
                 "revanced_gms_show_dialog",
                 "true"
+            )
+        }
+
+        /**
+         * add app info setting
+         * Html.fromHtml() requires Android 7.0+
+         */
+        if (is_6_42_or_greater) {
+            addPreferenceWithIntent(
+                CategoryType.MISC,
+                "revanced_app_info"
             )
         }
 

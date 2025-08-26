@@ -537,6 +537,9 @@ fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Long): Int {
     return index
 }
 
+fun Method.containsStringInstruction(str: String) =
+    indexOfFirstStringInstruction(str) >= 0
+
 fun Method.indexOfFirstStringInstruction(str: String) =
     indexOfFirstInstruction {
         opcode == CONST_STRING &&

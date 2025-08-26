@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
-
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.components.Filter;
@@ -144,7 +142,7 @@ public final class PlayerFlyoutMenuFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == playerFlyoutMenu) {
             // Overflow menu is always the start of the path.
@@ -152,32 +150,19 @@ public final class PlayerFlyoutMenuFilter extends Filter {
                 return false;
             }
             // Shorts also use this player flyout panel
-            if (PlayerType.getCurrent().isNoneOrHidden() || byteArrayException.check(protobufBufferArray).isFiltered()) {
+            if (PlayerType.getCurrent().isNoneOrHidden() || byteArrayException.check(buffer).isFiltered()) {
                 return false;
             }
-            if (flyoutFilterGroupList.check(protobufBufferArray).isFiltered()) {
-                // Super class handles logging.
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
+            return flyoutFilterGroupList.check(buffer).isFiltered();
         } else if (matchedGroup == qualityHeader) {
             // Quality header is always the start of the path.
-            if (contentIndex != 0) {
-                return false;
-            }
-            // Super class handles logging.
-            return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            return contentIndex == 0;
         } else {
             // Components other than the footer separator are not filtered.
             if (pathBuilderException.matches(path) || !playerFlyoutMenuFooter.matches(path)) {
                 return false;
             }
-            if (matchedGroup == captionsSheet && !path.endsWith(CAPTIONS_FOOTER_PATH)) {
-                return false;
-            }
-            // Super class handles logging.
-            return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            return matchedGroup != captionsSheet || path.endsWith(CAPTIONS_FOOTER_PATH);
         }
-
-        return false;
     }
 }

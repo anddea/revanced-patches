@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
-
 import org.apache.commons.lang3.StringUtils;
 
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
@@ -90,7 +88,7 @@ public final class ShortsShelfFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         final boolean playerActive = RootView.isPlayerActive();
         final boolean descriptionActive = EngagementPanel.isDescription();
@@ -108,23 +106,17 @@ public final class ShortsShelfFilter extends Filter {
         );
         if (contentType == FilterContentType.PATH) {
             if (matchedGroup == compactFeedVideoPath) {
-                if (hideShelves && compactFeedVideoBuffer.check(protobufBufferArray).isFiltered()) {
-                    return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-                }
-                return false;
+                return hideShelves && compactFeedVideoBuffer.check(buffer).isFiltered();
             } else if (matchedGroup == shelfHeaderPath) {
                 // Because the header is used in watch history and possibly other places, check for the index,
                 // which is 0 when the shelf header is used for Shorts.
                 if (contentIndex != 0) {
                     return false;
                 }
-                if (!channelProfileShelfHeader.check(protobufBufferArray).isFiltered()) {
+                if (!channelProfileShelfHeader.check(buffer).isFiltered()) {
                     return false;
                 }
-                if (feedGroup.matches(allValue)) {
-                    return false;
-                }
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+                return !feedGroup.matches(allValue);
             }
         } else if (contentType == FilterContentType.IDENTIFIER) {
             // Feed/search identifier components.
@@ -135,15 +127,12 @@ public final class ShortsShelfFilter extends Filter {
                     return false;
                 }
             } else if (matchedGroup == channelProfile) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+                return true;
             }
-            if (!hideShelves) {
-                return false;
-            }
+            return hideShelves;
         }
 
-        // Super class handles logging.
-        return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return true;
     }
 
     private static boolean shouldHideShortsFeedItems(boolean playerActive, boolean descriptionActive, boolean searchBarActive, NavigationButton selectedNavButton, String browseId) {

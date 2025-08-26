@@ -298,8 +298,6 @@ private val speedOverlayPatch = bytecodePatch(
 
 private const val PLAYER_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/PlayerComponentsFilter;"
-private const val RELATED_VIDEO_FILTER_CLASS_DESCRIPTOR =
-    "$COMPONENTS_PATH/RelatedVideosFilter;"
 private const val SANITIZE_VIDEO_SUBTITLE_FILTER_CLASS_DESCRIPTOR =
     "$SPANS_PATH/SanitizeVideoSubtitleFilter;"
 private const val RELATED_VIDEO_CLASS_DESCRIPTOR =
@@ -818,7 +816,6 @@ val playerComponentsPatch = bytecodePatch(
 
         addSpanFilter(SANITIZE_VIDEO_SUBTITLE_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(PLAYER_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
-        addLithoFilter(RELATED_VIDEO_FILTER_CLASS_DESCRIPTOR)
 
         // region add settings
 

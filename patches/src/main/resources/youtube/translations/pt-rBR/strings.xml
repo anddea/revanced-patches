@@ -1,8 +1,9 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Ativar os controles de acessibilidade para o reprodutor de vídeo?</string>
     <string name="accessibility_settings_edu_opt_out_text">Seus controles foram modificados porque um serviço de acessibilidade está ativado.</string>
     <string name="gms_core_dialog_continue_text">Continuar</string>
+    <string name="gms_core_dialog_dismiss_text">Não mostrar novamente</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"O GmsCore não tem permissão para executar em segundo plano.
 
 Siga o guia 'Não mate o meu aplicativo' para o seu telefone e aplique as instruções para a sua instalação do MicroG.
@@ -16,6 +17,9 @@ Toque no botão continuar e desative as otimizações da bateria."</string>
     <string name="gms_core_settings_summary">Ative as mensagens na nuvem para receber notificações.</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">O GmsCore não está instalado. Instale-o.</string>
+    <string name="revanced_advanced_video_quality_menu_summary_off">O menu avançado da qualidade de vídeo não é mostrado.</string>
+    <string name="revanced_advanced_video_quality_menu_summary_on">O menu avançado da qualidade de vídeo é mostrado.</string>
+    <string name="revanced_advanced_video_quality_menu_title">Mostrar menu avançado da qualidade de vídeo</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fornece miniaturas coletivas para vídeos do YouTube. Essas miniaturas costumam ser mais relevantes do que as fornecidas pelo YouTube.
 
 Se ativado, os URLs dos vídeos serão enviados ao servidor API e nenhum outro dado será enviado. Se um vídeo não tiver miniaturas DeArrow, as capturas originais ou estáticas serão mostradas.
@@ -68,6 +72,7 @@ Toque aqui para saber mais sobre o DeArrow."</string>
     <string name="revanced_bypass_url_redirects_summary_off">Os redirecionamentos de URL não são ignorados.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Os redirecionamentos de URL são ignorados.</string>
     <string name="revanced_bypass_url_redirects_title">Ignorar redirecionamentos de URL</string>
+    <string name="revanced_cancel">Cancelar</string>
     <string name="revanced_change_form_factor_entry_1">Padrão</string>
     <string name="revanced_change_form_factor_entry_2">Telefone</string>
     <string name="revanced_change_form_factor_entry_3">Telefone (Máximo 480 dp)</string>
@@ -142,6 +147,9 @@ Limitação: O botão voltar na barra de ferramentas pode não funcionar."</stri
     <string name="revanced_change_youtube_header_summary_off">Cabeçalhos genéricos estão ativados.</string>
     <string name="revanced_change_youtube_header_summary_on">O cabeçalho premium está ativado.</string>
     <string name="revanced_change_youtube_header_title">Alterar cabeçalho do YouTube</string>
+    <string name="revanced_color_invalid_toast">Cor inválida</string>
+    <string name="revanced_copy">Copiar</string>
+    <string name="revanced_copy_error">Falha ao copiar texto</string>
     <string name="revanced_custom_filter_strings_summary">Lista de componentes a serem filtradas separadas por uma nova linha.</string>
     <string name="revanced_custom_filter_strings_title">Filtro personalizado</string>
     <string name="revanced_custom_filter_summary_off">Filtro personalizado está desativado</string>
@@ -405,6 +413,7 @@ Limitação: não funciona se o reprodutor estiver minimizado, no modo PiP ou em
     <string name="revanced_extended_settings_import_summary">Importar configurações de um arquivo salvo.</string>
     <string name="revanced_extended_settings_import_title">Importar configurações</string>
     <string name="revanced_extended_settings_reset">Redefinir</string>
+    <string name="revanced_extended_settings_reset_color">Reiniciar cor</string>
     <string name="revanced_extended_settings_search_title">Pesquisar %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Aplicativo de download externo</string>
@@ -418,6 +427,10 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nome do pacote do seu aplicativo de download externo instalado, como NewPipe ou YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nome do pacote do aplicativo de download de vídeo</string>
     <string name="revanced_fullscreen_ads_closed_toast">Os anúncios em tela cheia são fechados.</string>
+    <string name="revanced_gemini_cancelled">Cancelado</string>
+    <string name="revanced_gemini_loading_default">A carregar...</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_title">Tamanho da fonte das legendas</string>
+    <string name="revanced_gemini_transcription_parse_button">Legendas</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista de nomes do menu de conta a serem filtrados separados por uma nova linha.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtro do menu da conta</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">Filtrar se coincide.&lt;br&gt;&lt;br&gt;Para ocultar o menu &lt;b&gt;\'Obter o YouTube Premium\'&lt;/b&gt;, somente pode utilizar &lt;b&gt;\'Obter o YouTube Premium\'&lt;/b&gt; como palavras-chave.</string>
@@ -1996,7 +2009,6 @@ O AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está di
     <string name="revanced_swipe_text_overlay_size_summary">O tamanho do texto para sobreposição de deslize entre 1 e 30</string>
     <string name="revanced_swipe_text_overlay_size_title">Tamanho do texto da sobreposição de deslize</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">A sensibilidade do deslizamento de volume deve estar entre 1-1000 (%).</string>
-    <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">Configure a sensibilidade do movimento de deslizar o volume entre 1 e 1000 (%).\nA sensibilidade do movimento de deslizar o volume recomendada é de 100% em etapas de 15 volumes e 10% em etapas de 150 volumes.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Sensibilidade de deslizar volume</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Alterne as posições do botão de criação e do botão de notificação falsificando as informações do dispositivo.
 

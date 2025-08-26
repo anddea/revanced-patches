@@ -36,6 +36,37 @@ internal val playbackFeatureFlagFingerprint = legacyFingerprint(
     literals = listOf(PLAYBACK_FEATURE_FLAG),
 )
 
+/**
+ * If this flag is activated, a playback issue occurs.
+ * (Regardless of the 'Spoof client')
+ *
+ * YouTube Music 7.16-8.30
+ */
+internal const val FALLBACK_FEATURE_FLAG = 45636987L
+
+internal val fallbackFeatureFlagFingerprint = legacyFingerprint(
+    name = "fallbackFeatureFlagFingerprint",
+    returnType = "V",
+    parameters = emptyList(),
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    literals = listOf(FALLBACK_FEATURE_FLAG),
+)
+
+/**
+ * If this flag is activated, a playback issue occurs.
+ * (Regardless of the 'Spoof client')
+ *
+ * YouTube Music 8.12-8.30
+ */
+internal const val FORMATS_FEATURE_FLAG = 45680795L
+
+internal val formatsFeatureFlagFingerprint = legacyFingerprint(
+    name = "formatsFeatureFlagFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    literals = listOf(FORMATS_FEATURE_FLAG),
+)
+
 internal val spoofAppVersionFingerprint = legacyFingerprint(
     name = "spoofAppVersionFingerprint",
     returnType = "Ljava/lang/String;",

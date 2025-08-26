@@ -3,6 +3,8 @@ package app.revanced.extension.shared.patches.components;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.nio.ByteBuffer;
 import java.util.List;
 
@@ -16,31 +18,30 @@ public final class LithoFilterPatch {
      * Simple wrapper to pass the litho parameters through the prefix search.
      */
     private static final class LithoFilterParameters {
-        @Nullable
         final String identifier;
         final String path;
         final String allValue;
-        final byte[] protoBuffer;
+        final byte[] buffer;
 
-        LithoFilterParameters(String lithoPath, @Nullable String lithoIdentifier, String allValues, byte[] bufferArray) {
+        LithoFilterParameters(String lithoPath, @Nullable String lithoIdentifier, String allValues, byte[] buffer) {
             this.path = lithoPath;
             this.identifier = lithoIdentifier;
             this.allValue = allValues;
-            this.protoBuffer = bufferArray;
+            this.buffer = buffer;
         }
 
         @NonNull
         @Override
         public String toString() {
             // Estimate the percentage of the buffer that are Strings.
-            StringBuilder builder = new StringBuilder(Math.max(100, protoBuffer.length / 2));
+            StringBuilder builder = new StringBuilder(Math.max(100, buffer.length / 2));
             builder.append("\nID: ");
             builder.append(identifier);
             builder.append("\nPath: ");
             builder.append(path);
             if (BaseSettings.DEBUG_PROTOBUFFER.get()) {
                 builder.append("\nBufferStrings: ");
-                findAsciiStrings(builder, protoBuffer);
+                findAsciiStrings(builder, buffer);
             }
 
             return builder.toString();
@@ -127,16 +128,36 @@ public final class LithoFilterPatch {
     private static void filterUsingCallbacks(StringTrieSearch pathSearchTree,
                                              Filter filter, List<StringFilterGroup> groups,
                                              Filter.FilterContentType type) {
+        String filterSimpleName = filter.getClass().getSimpleName();
+
         for (StringFilterGroup group : groups) {
             if (!group.includeInSearch()) {
                 continue;
             }
+
             for (String pattern : group.filters) {
-                pathSearchTree.addPattern(pattern, (textSearched, matchedStartIndex, matchedLength, callbackParameter) -> {
+                pathSearchTree.addPattern(pattern, (textSearched, matchedStartIndex,
+                                                    matchedLength, callbackParameter) -> {
                             if (!group.isEnabled()) return false;
+
                             LithoFilterParameters parameters = (LithoFilterParameters) callbackParameter;
-                            return filter.isFiltered(parameters.path, parameters.identifier, parameters.allValue, parameters.protoBuffer,
+                            final boolean isFiltered = filter.isFiltered(parameters.path, parameters.identifier, parameters.allValue, parameters.buffer,
                                     group, type, matchedStartIndex);
+
+                            if (isFiltered && BaseSettings.DEBUG.get()) {
+                                if (type == Filter.FilterContentType.IDENTIFIER) {
+                                    Logger.printDebug(() -> "Filtered " + filterSimpleName
+                                            + " identifier: " + parameters.identifier);
+                                } else if (type == Filter.FilterContentType.PATH) {
+                                    Logger.printDebug(() -> "Filtered " + filterSimpleName
+                                            + " path: " + parameters.path);
+                                } else if (type == Filter.FilterContentType.ALLVALUE) {
+                                    Logger.printDebug(() -> "Filtered " + filterSimpleName
+                                            + " object: " + parameters.allValue);
+                                }
+                            }
+
+                            return isFiltered;
                         }
                 );
             }
@@ -145,6 +166,7 @@ public final class LithoFilterPatch {
 
     /**
      * Injection point.  Called off the main thread.
+     * Targets 20.22+.
      */
     public static void setProtoBuffer(byte[] buffer) {
         // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.
@@ -175,24 +197,24 @@ public final class LithoFilterPatch {
     /**
      * Injection point.  Called off the main thread, and commonly called by multiple threads at the same time.
      */
-    public static boolean shouldFilter(StringBuilder pathBuilder, @Nullable String identifier, @NonNull Object object) {
+    public static boolean isFiltered(StringBuilder pathBuilder, String identifier, @NonNull Object object) {
         try {
-            if (pathBuilder.length() == 0) {
+            if (StringUtils.isEmpty(identifier) && pathBuilder.length() == 0) {
                 return false;
             }
 
-            byte[] bufferArray = bufferThreadLocal.get();
+            byte[] buffer = bufferThreadLocal.get();
             // Potentially the buffer may have been null or never set up until now.
             // Use an empty buffer so the litho id/path filters still work correctly.
-            if (bufferArray == null) {
-                bufferArray = EMPTY_BYTE_ARRAY;
+            if (buffer == null) {
+                buffer = EMPTY_BYTE_ARRAY;
             }
 
             LithoFilterParameters parameter = new LithoFilterParameters(pathBuilder.toString(), identifier,
-                    object.toString(), bufferArray);
+                    object.toString(), buffer);
             Logger.printDebug(() -> "Searching " + parameter);
 
-            if (parameter.identifier != null && identifierSearchTree.matches(parameter.identifier, parameter)) {
+            if (identifierSearchTree.matches(parameter.identifier, parameter)) {
                 return true;
             }
 
@@ -204,7 +226,7 @@ public final class LithoFilterPatch {
                 return true;
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "Litho filter failure", ex);
+            Logger.printException(() -> "isFiltered failure", ex);
         }
 
         return false;

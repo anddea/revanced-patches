@@ -1,8 +1,9 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">¿Activar controles de accesibilidad para el reproductor de vídeo?</string>
     <string name="accessibility_settings_edu_opt_out_text">Tus controles se modifican porque un servicio de accesibilidad está activado.</string>
     <string name="gms_core_dialog_continue_text">Continuar</string>
+    <string name="gms_core_dialog_dismiss_text">No volve a mostrar</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore no tiene permiso para ejecutarse en segundo plano.
 
 Sigue la guía \"No cerrar mi aplicación\" para tu teléfono y aplica las instrucciones a tu instalación de MicroG.
@@ -79,6 +80,7 @@ Pulsa aquí para saber más sobre DeArrow."</string>
     <string name="revanced_bypass_url_redirects_summary_off">No se omiten las redirecciones de URL.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Se omiten las redirecciones de URL.</string>
     <string name="revanced_bypass_url_redirects_title">Omitir redirecciones de URL</string>
+    <string name="revanced_cancel">Cancelar</string>
     <string name="revanced_change_form_factor_entry_1">Por defecto</string>
     <string name="revanced_change_form_factor_entry_2">Teléfono</string>
     <string name="revanced_change_form_factor_entry_3">Teléfono (máx. 480 dp)</string>
@@ -154,6 +156,9 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_change_youtube_header_summary_off">La cabecera genérica está activada.</string>
     <string name="revanced_change_youtube_header_summary_on">La cabecera Premium está activada.</string>
     <string name="revanced_change_youtube_header_title">Cambiar cabecera de YouTube</string>
+    <string name="revanced_color_invalid_toast">Color no válido</string>
+    <string name="revanced_copy">Copiar</string>
+    <string name="revanced_copy_error" />
     <string name="revanced_custom_filter_strings_summary">Lista de cadenas del constructor de rutas de componentes a filtrar separadas por una nueva línea.</string>
     <string name="revanced_custom_filter_strings_title">Filtro personalizado</string>
     <string name="revanced_custom_filter_summary_off">El filtro personalizado está desactivado.</string>
@@ -502,6 +507,9 @@ Si el ajuste «Reproducción» no funciona, activar este ajuste puede resolver e
 
 Si el ajuste «Reproducción» sigue sin funcionar incluso después de activar o desactivar este ajuste, debes borrar los datos de la aplicación."</string>
     <string name="revanced_fullscreen_ads_closed_toast">Los anuncios en pantalla completa están cerrados.</string>
+    <string name="revanced_gemini_cancelled">Cancelado</string>
+    <string name="revanced_gemini_error_unknown">Ha ocurrido un error de error desconocido</string>
+    <string name="revanced_gemini_loading_default">Cargando...</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista de nombres del menú de la cuenta a filtrar separados por una nueva línea.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtro de menú de cuenta</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">Filtrar si coincide.&lt;br&gt;&lt;br&gt;Para ocultar el menú &lt;b&gt;\'Obtener YouTube Premium\'&lt;/b&gt;, solo puedes utilizar &lt;b&gt;\'Obtener YouTube Premium\'&lt;/b&gt; como palabras claves.</string>
@@ -2005,6 +2013,7 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_sb_vote_no_segments">No hay segmentos por los cuales votar.</string>
     <string name="revanced_sb_vote_segment_time_to_from">De %1$s a %2$s</string>
     <string name="revanced_sb_vote_upvote">Voto positivo</string>
+    <string name="revanced_settings_search_history_title">Activar historial de búsquedas</string>
     <string name="revanced_share_copy_settings_success">Ajustes copiados en el portapapeles.</string>
     <string name="revanced_share_copy_timestamp_success">Marca de tiempo copiada en el portapapeles. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiada en el portapapeles.</string>
@@ -2042,6 +2051,7 @@ La mayoría de los errores no pueden solucionarse debido a las limitaciones del 
     <string name="revanced_shorts_custom_actions_speed_dialog_title">Mostrar menú de diálogo de velocidad</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_type_title">Tipo de diálogo de velocidad</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message">El diálogo de velocidad moderno puede no funcionar en YouTube 19.01-19.34.</string>
+    <string name="revanced_shorts_custom_actions_speed_title">Mostrar menú de velocidad de reproducción</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Acciones personalizadas</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Original</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Pulgares arriba</string>

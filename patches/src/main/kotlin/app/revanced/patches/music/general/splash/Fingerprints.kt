@@ -1,9 +1,16 @@
 package app.revanced.patches.music.general.splash
 
-import app.revanced.patches.music.utils.playservice.is_7_20_or_greater
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patches.music.utils.resourceid.mainActivityLaunchAnimation
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionReversed
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstLiteralInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal const val CAIRO_SPLASH_ANIMATION_FEATURE_FLAG = 45635386L
 
@@ -13,16 +20,24 @@ internal const val CAIRO_SPLASH_ANIMATION_FEATURE_FLAG = 45635386L
 internal val cairoSplashAnimationConfigFingerprint = legacyFingerprint(
     name = "cairoSplashAnimationConfigFingerprint",
     returnType = "V",
+    parameters = listOf("Landroid/os/Bundle;"),
+    strings = listOf("sa_e"),
     customFingerprint = handler@{ method, _ ->
         if (method.definingClass != "Lcom/google/android/apps/youtube/music/activities/MusicActivity;")
             return@handler false
         if (method.name != "onCreate")
             return@handler false
+        if (indexOfSetContentViewInstruction(method) < 0)
+            return@handler false
 
-        if (is_7_20_or_greater) {
-            method.indexOfFirstLiteralInstruction(mainActivityLaunchAnimation) >= 0
-        } else {
-            method.indexOfFirstLiteralInstruction(CAIRO_SPLASH_ANIMATION_FEATURE_FLAG) >= 0
-        }
+        method.indexOfFirstLiteralInstruction(CAIRO_SPLASH_ANIMATION_FEATURE_FLAG) >= 0
+                || method.indexOfFirstLiteralInstruction(mainActivityLaunchAnimation) >= 0
     }
 )
+
+internal fun indexOfSetContentViewInstruction(method: Method, startIndex: Int? = null) =
+    method.indexOfFirstInstructionReversed(startIndex) {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>()?.name == "setContentView"
+    }
+
