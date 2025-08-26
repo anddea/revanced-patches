@@ -7,7 +7,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.Utils.printWarn
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -45,7 +46,7 @@ private val customThemeBytecodePatch = bytecodePatch {
             }
             val parsedColorRegister = getInstruction<OneRegisterInstruction>(invokeParseColorIndex + 1).registerA
 
-            val replaceColorDescriptor =  "$EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I"
+            val replaceColorDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I"
 
             addInstructions(
                 invokeParseColorIndex + 2,
@@ -146,6 +147,14 @@ val customThemePatch = resourcePatch(
         required = true,
     )
 
+    val minimalIcon by booleanOption(
+        key = "minimalIcon",
+        default = false,
+        title = "Minimal icon",
+        description = "Apply alternative minimal launcher icon.",
+        required = true,
+    )
+
     execute {
         document("res/values/colors.xml").use { document ->
             val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
@@ -221,6 +230,27 @@ val customThemePatch = resourcePatch(
             document("res/drawable/ic_launcher_renaissance_foreground.xml").use { document ->
                 val pathElement = document.getElementsByTagName("path").item(0) as Element
                 pathElement.setAttribute("android:fillColor", "$accentColor")
+            }
+        }
+
+        if (minimalIcon!!) {
+            copyResources(
+                "spotify/icons",
+                ResourceGroup(
+                    "drawable",
+                    "ic_launcher_monet.xml"
+                )
+            )
+
+            document("res/mipmap-anydpi-v26/ic_launcher.xml").use { document ->
+                mapOf(
+                    "background" to "@color/spotify_green_157",
+                    "foreground" to "@drawable/ic_launcher_monet",
+                    "monochrome" to "@drawable/ic_launcher_monet"
+                ).forEach { (tagName, drawableValue) ->
+                    val element = document.getElementsByTagName(tagName).item(0) as? Element
+                    element?.setAttribute("android:drawable", drawableValue)
+                }
             }
         }
     }
