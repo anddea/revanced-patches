@@ -1,3 +1,11 @@
+# [3.12.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.6...v3.12.0-dev.7) (2025-08-26)
+
+
+### Features
+
+* Align with RVX [[v5.10.1-dev.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.10.1-dev.1)] ([eecc666](https://github.com/anddea/revanced-patches/commit/eecc666ba02114d53fa79989bd544de20d1e95f7))
+* **Spotify - Custom theme:** Add `Minimal icon` patch option ([bf053b1](https://github.com/anddea/revanced-patches/commit/bf053b1b184c6ef3872fcc54dc04da3ff9d8ab30))
+
 # [3.12.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.5...v3.12.0-dev.6) (2025-08-22)
 
 
