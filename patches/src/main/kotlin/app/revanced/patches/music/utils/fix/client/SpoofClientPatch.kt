@@ -12,8 +12,12 @@ import app.revanced.patches.music.utils.extension.Constants.SPOOF_PATH
 import app.revanced.patches.music.utils.playbackRateBottomSheetClassFingerprint
 import app.revanced.patches.music.utils.playbackSpeedBottomSheetFingerprint
 import app.revanced.patches.music.utils.playservice.is_6_36_or_greater
+import app.revanced.patches.music.utils.playservice.is_7_16_or_greater
+import app.revanced.patches.music.utils.playservice.is_7_33_or_greater
+import app.revanced.patches.music.utils.playservice.is_8_12_or_greater
 import app.revanced.patches.music.utils.resourceid.varispeedUnavailableTitle
 import app.revanced.patches.shared.CLIENT_INFO_CLASS_DESCRIPTOR
+import app.revanced.patches.shared.clientEnumFingerprint
 import app.revanced.patches.shared.clientTypeFingerprint
 import app.revanced.patches.shared.createPlayerRequestBodyFingerprint
 import app.revanced.patches.shared.createPlayerRequestBodyWithModelFingerprint
@@ -23,13 +27,13 @@ import app.revanced.patches.shared.indexOfManufacturerInstruction
 import app.revanced.patches.shared.indexOfModelInstruction
 import app.revanced.patches.shared.indexOfReleaseInstruction
 import app.revanced.util.findFieldFromToString
+import app.revanced.util.fingerprint.definingClassOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.fingerprint.originalMethodOrThrow
-import app.revanced.util.fingerprint.resolvable
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -70,10 +74,23 @@ internal fun patchSpoofClient() {
 
     // region Get field references to be used below.
 
+    val enumClass = clientEnumFingerprint.definingClassOrThrow()
+
     clientTypeFingerprint.matchOrThrow().let {
         it.method.apply {
             val clientInfoIndex = indexOfClientInfoInstruction(this)
-            val clientIdIndex = it.patternMatch!!.endIndex
+            val ordinalIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<FieldReference>()
+                opcode == Opcode.IGET &&
+                        reference?.type == "I" &&
+                        reference.definingClass == enumClass
+            }
+            val clientIdIndex = indexOfFirstInstructionOrThrow(ordinalIndex) {
+                val reference = getReference<FieldReference>()
+                opcode == Opcode.IPUT &&
+                        reference?.type == "I" &&
+                        reference.definingClass == CLIENT_INFO_CLASS_DESCRIPTOR
+            }
             val dummyClientVersionIndex = it.stringMatches!!.first().index
             val dummyClientVersionRegister =
                 getInstruction<OneRegisterInstruction>(dummyClientVersionIndex).registerA
@@ -334,11 +351,23 @@ internal fun patchSpoofClient() {
 
     // region fix for feature flags
 
-    if (playbackFeatureFlagFingerprint.resolvable()) {
-        playbackFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
-            PLAYBACK_FEATURE_FLAG,
-            "$EXTENSION_CLASS_DESCRIPTOR->forceDisablePlaybackFeatureFlag(Z)Z"
+    if (is_7_16_or_greater) {
+        fallbackFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+            FALLBACK_FEATURE_FLAG,
+            "$EXTENSION_CLASS_DESCRIPTOR->forceDisableFallbackFeatureFlag(Z)Z"
         )
+        if (is_7_33_or_greater) {
+            playbackFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                PLAYBACK_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->forceDisablePlaybackFeatureFlag(Z)Z"
+            )
+            if (is_8_12_or_greater) {
+                formatsFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                    FORMATS_FEATURE_FLAG,
+                    "$EXTENSION_CLASS_DESCRIPTOR->forceDisableFormatsFeatureFlag(Z)Z"
+                )
+            }
+        }
     }
 
     // endregion

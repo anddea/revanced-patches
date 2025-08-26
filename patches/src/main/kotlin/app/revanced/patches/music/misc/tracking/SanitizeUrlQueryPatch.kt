@@ -4,7 +4,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.patch.PatchList.SANITIZE_SHARING_LINKS
 import app.revanced.patches.music.utils.playservice.is_8_05_or_greater
-import app.revanced.patches.music.utils.playservice.is_8_17_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
@@ -34,7 +33,7 @@ val sanitizeUrlQueryPatch = bytecodePatch(
 
     execute {
 
-        if (is_8_05_or_greater && !is_8_17_or_greater) {
+        if (is_8_05_or_greater) {
             imageShareLinkFormatterFingerprint.methodOrThrow().apply {
                 val stringIndex = indexOfFirstStringInstructionOrThrow("android.intent.extra.TEXT")
                 val insertIndex = indexOfFirstInstructionOrThrow(stringIndex) {

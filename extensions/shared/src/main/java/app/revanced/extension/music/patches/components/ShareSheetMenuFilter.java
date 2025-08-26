@@ -1,7 +1,5 @@
 package app.revanced.extension.music.patches.components;
 
-import androidx.annotation.Nullable;
-
 import app.revanced.extension.music.patches.misc.ShareSheetPatch;
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.shared.patches.components.Filter;
@@ -24,7 +22,7 @@ public final class ShareSheetMenuFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         isShareSheetMenuVisible = true;
 

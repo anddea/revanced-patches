@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Video oynatıcı için erişilebilirlik kontrolleri açılsın mı?</string>
     <string name="accessibility_settings_edu_opt_out_text">Bir erişilebilirlik hizmeti açık olduğundan kontrolleriniz değiştirildi.</string>
@@ -77,6 +77,7 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun."</string>
     <string name="revanced_bypass_url_redirects_summary_off">URL yönlendirmeleri atlanmıyor.</string>
     <string name="revanced_bypass_url_redirects_summary_on">URL yönlendirmeleri atlanıyor.</string>
     <string name="revanced_bypass_url_redirects_title">URL yönlendirmelerini atla</string>
+    <string name="revanced_cancel">İptal</string>
     <string name="revanced_change_form_factor_entry_1">Varsayılan</string>
     <string name="revanced_change_form_factor_entry_2">Telefon</string>
     <string name="revanced_change_form_factor_entry_3">Telefon (Maks 480 dp)</string>
@@ -153,6 +154,9 @@ Sınırlama: Araç çubuğundaki geri düğmesi çalışmayabilir."</string>
     <string name="revanced_change_youtube_header_summary_off">Genel başlıklar etkin.</string>
     <string name="revanced_change_youtube_header_summary_on">Premium başlık etkin.</string>
     <string name="revanced_change_youtube_header_title">YouTube başlığını değiştir</string>
+    <string name="revanced_color_invalid_toast">Geçersiz renk</string>
+    <string name="revanced_copy">Kopyala</string>
+    <string name="revanced_copy_error">Metin kopyalanamadı</string>
     <string name="revanced_custom_filter_strings_summary">Yeni satırlarla ayrılmış olarak hangi bileşenlerin filtreleneceğini yapılandırın.</string>
     <string name="revanced_custom_filter_strings_title">Özel filtreyi düzenle</string>
     <string name="revanced_custom_filter_summary_off">Özel filtre devre dışı</string>
@@ -303,6 +307,9 @@ Değişiklikler şunları içerir:
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Beğen düğmesinin üstündeki fıskiye animasyonu etkin.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Beğen düğmesinin üstündeki fıskiye animasyonu devre dışı bırakıldı.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Beğen düğmesi fıskiye animasyonunu devre dışı bırak</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">TV\'de oturum aç penceresi etkinleştirildi.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">TV\'de oturum aç penceresi devre dışı bırakıldı.</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">TV\'de oturum aç penceresini devre dışı bırak</string>
     <string name="revanced_disable_speed_overlay_summary">"Videoya basılı tutarken '2x&gt;&gt;' devre dışı bırakın.
 
 Not: Bu özelliği devre dışı bırakmak, eski arayüzdeki \"Videoyu sarmak için çubuğu sağa sola kaydırma\" özelliğini geri getirecektir."</string>
@@ -342,6 +349,13 @@ Bilgi:
 
 Yan etki: Kahire teması bildirim noktalarına da uygulanır."</string>
     <string name="revanced_enable_cairo_seekbar_title">Kahire zaman çubuğunu etkinleştir</string>
+    <string name="revanced_enable_comments_scroll_top_summary_off">"Yorum paneli başlığına ('Yorumlar') tıklamak hiçbir şey yapmıyor."</string>
+    <string name="revanced_enable_comments_scroll_top_summary_on">"Yorum paneli başlığına ('Yorumlar') tıklandığında en üste kaydırılır.
+
+Kısıtlamalar:
+• Yorum yanıtları için geçerli değildir..
+• 'Zamanlanmış' kısmında, yorum paneli başlığına (‘Yorumlar’) tıklandığında en alta kaydırır."</string>
+    <string name="revanced_enable_comments_scroll_top_title">Yorumlarda en üste kaydırmayı etkinleştirin</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Tam ekran videoda sıkışık oynatıcı etkin değil</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Tam ekran videoda sıkışık oynatıcı etkin.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Tam ekranda sıkışık oynatıcıyı etkinleştir</string>
@@ -370,6 +384,13 @@ Bu özellik en iyi çok hızlı bir internet bağlantısıyla çalışır."</str
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">İlerleme çubuğu küçük resimleri orta kalitededir.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">İlerleme çubuğu küçük resimleri yüksek kalitededir.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Yüksek kaliteli küçük resimleri etkinleştir</string>
+    <string name="revanced_enable_shorts_clear_mode_summary_off">Clear mode devre dışı</string>
+    <string name="revanced_enable_shorts_clear_mode_summary_on">"Clear mode etkinleştirildi.
+
+Kullanıcı arayüzünü gizlemek için oynatıcı arka planına tıklayın."
+
+</string>
+    <string name="revanced_enable_shorts_clear_mode_title">Clear mode etkinleştirildi</string>
     <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">Açılır menüde özel eylemler devre dışı bırakıldı.</string>
     <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"Açılır menüde özel eylemler etkinleştirildi.
 
@@ -388,6 +409,9 @@ Sınırlamalar:
 • Zaman damgasının etkinleştirilmesi, eylem çubuğunun altında boş bir alan bırakır.
 • Bu özellik Google tarafından geliştirme aşamasında olduğu için, düzen bozulabilir."</string>
     <string name="revanced_enable_shorts_time_stamp_title">Zaman damgalarını etkinleştir</string>
+    <string name="revanced_enable_swipe_to_switch_video_summary_off">Tam ekran modunda yukarı / aşağı kaydırmak sonraki / önceki videoya geçmeyecektir.</string>
+    <string name="revanced_enable_swipe_to_switch_video_summary_on">Tam ekran modunda yukarı / aşağı kaydırmak sonraki / önceki videoya geçecektir.</string>
+    <string name="revanced_enable_swipe_to_switch_video_title">Kaydırarak video değiştirmeyi etkinleştirin</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Gezinme çubuğu opaktır.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Gezinme çubuğu yarı saydam.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Yarı saydam gezinme çubuğunu etkinleştir</string>
@@ -458,8 +482,13 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_external_downloader_not_installed_warning">%s kurulmamış. Lütfen önce indiriniz.</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Yüklü harici indirici uygulamanızın paket adı (örn. YTDLnis).</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Oynatma listesi indirici paket ismi</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_summary">Kullandığınız harici indirme uygulamasının paket adı, NewPipe yada YTDLnis, uzun basılı tutulduğunda</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_external_downloader_package_name_video_summary">Yüklü olan harici indirme uygulamanızın paket adı, örneğin NewPipe veya YTDLnis gibi.</string>
     <string name="revanced_external_downloader_package_name_video_title">Video indirici paket adı</string>
+    <string name="revanced_fix_hype_button_icon_summary_off">Hype düğmesinin simgesi gizli</string>
+    <string name="revanced_fix_hype_button_icon_summary_on">Hype düğmesinin simgesi görünür</string>
+    <string name="revanced_fix_hype_button_icon_title">Hype düğmesinin simgesini düzelt</string>
     <string name="revanced_fullscreen_ads_closed_toast">Tam ekran reklamlar kapatıldı.</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Yeni bir satırla ayrılmış olarak filtrelenecek hesap menüsü adlarının listesi.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Hesap menüsü filtresini düzenle</string>

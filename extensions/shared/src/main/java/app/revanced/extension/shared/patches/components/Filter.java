@@ -1,13 +1,8 @@
 package app.revanced.extension.shared.patches.components;
 
-import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.utils.Logger;
 
 /**
  * Filters litho based components.
@@ -78,10 +73,6 @@ public abstract class Filter {
      * Default implementation is to always filter the matched component and log the action.
      * Subclasses can perform additional or different checks if needed.
      * <p>
-     * If the content is to be filtered, subclasses should always
-     * call this method (and never return a plain 'true').
-     * That way the logs will always show when a component was filtered and which filter hide it.
-     * <p>
      * Method is called off the main thread.
      *
      * @param matchedGroup The actual filter that matched.
@@ -89,18 +80,8 @@ public abstract class Filter {
      * @param contentIndex Matched index of the identifier or path.
      * @return True if the litho component should be filtered out.
      */
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (BaseSettings.DEBUG.get()) {
-            String filterSimpleName = getClass().getSimpleName();
-            if (contentType == FilterContentType.IDENTIFIER) {
-                Logger.printDebug(() -> filterSimpleName + " Filtered identifier: " + identifier);
-            } else if (contentType == FilterContentType.PATH) {
-                Logger.printDebug(() -> filterSimpleName + " Filtered path: " + path);
-            } else if (contentType == FilterContentType.ALLVALUE) {
-                Logger.printDebug(() -> filterSimpleName + " Filtered object: " + allValue);
-            }
-        }
         return true;
     }
 }

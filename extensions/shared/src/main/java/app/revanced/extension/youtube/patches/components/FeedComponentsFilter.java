@@ -374,43 +374,29 @@ public final class FeedComponentsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == channelProfile) {
-            if (contentIndex == 0 && channelProfileGroupList.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return contentIndex == 0 && channelProfileGroupList.check(buffer).isFiltered();
         } else if (matchedGroup == chipBar) {
-            if (contentIndex == 0 && NavigationButton.getSelectedNavigationButton() == NavigationButton.LIBRARY) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return contentIndex == 0 && NavigationButton.getSelectedNavigationButton() == NavigationButton.LIBRARY;
         } else if (matchedGroup == communityPosts) {
             if (!communityPostsFeedGroupSearch.matches(allValue) && Settings.HIDE_COMMUNITY_POSTS_CHANNEL.get()) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+                return true;
             }
-            if (communityPostsFeedGroup.check(allValue).isFiltered()) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return communityPostsFeedGroup.check(allValue).isFiltered();
         } else if (matchedGroup == expandableCard) {
-            if (path.startsWith(FEED_VIDEO_PATH)) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return path.startsWith(FEED_VIDEO_PATH);
         } else if (matchedGroup == carouselShelves) {
             if (contentIndex == 0) {
-                if (playablesBuffer.check(protobufBufferArray).isFiltered()
-                        || ticketShelfBuffer.check(protobufBufferArray).isFiltered()
-                        || (!carouselShelfExceptions.matches(path) && hideShelves())) {
-                    return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-                }
+                return playablesBuffer.check(buffer).isFiltered()
+                        || ticketShelfBuffer.check(buffer).isFiltered()
+                        || (!carouselShelfExceptions.matches(path) && hideShelves());
             }
 
             return false;
         }
 
-        return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return true;
     }
 }

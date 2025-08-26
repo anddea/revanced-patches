@@ -26,6 +26,8 @@ import app.revanced.patches.music.utils.playservice.is_7_18_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_25_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_29_or_greater
 import app.revanced.patches.music.utils.playservice.is_8_03_or_greater
+import app.revanced.patches.music.utils.playservice.is_8_05_or_greater
+import app.revanced.patches.music.utils.playservice.is_8_12_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.colorGrey
 import app.revanced.patches.music.utils.resourceid.darkBackground
@@ -612,6 +614,23 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for enable smooth transition animation
+
+        if (is_8_12_or_greater) {
+            smoothTransitionAnimationFingerprint.injectLiteralInstructionBooleanCall(
+                SMOOTH_TRANSITION_ANIMATION_FEATURE_FLAG,
+                "$PLAYER_CLASS_DESCRIPTOR->enableSmoothTransitionAnimation(Z)Z"
+            )
+
+            addSwitchPreference(
+                CategoryType.PLAYER,
+                "revanced_enable_smooth_transition_animation",
+                "true"
+            )
+        }
+
+        // endregion
+
         // region patch for enable swipe to dismiss miniplayer
 
         if (!is_6_42_or_greater) {
@@ -871,6 +890,18 @@ val playerComponentsPatch = bytecodePatch(
             "false"
         )
 
+        // region patch for hide lyrics share button
+
+        if (is_8_05_or_greater) {
+            addSwitchPreference(
+                CategoryType.PLAYER,
+                "revanced_hide_lyrics_share_button",
+                "false"
+            )
+        }
+
+        // endregion
+
         // region patch for hide fullscreen share button
 
         remixGenericButtonFingerprint.matchOrThrow().let {
@@ -917,6 +948,13 @@ val playerComponentsPatch = bytecodePatch(
                                 "$PLAYER_CLASS_DESCRIPTOR->hideSongVideoToggle(Landroid/view/View;I)V"
                     )
                 }
+        }
+
+        if (is_8_05_or_greater) {
+            audioVideoSwitchToggleFeatureFlagsFingerprint.injectLiteralInstructionBooleanCall(
+                AUDIO_VIDEO_SWITCH_TOGGLE_FEATURE_FLAG,
+                "$PLAYER_CLASS_DESCRIPTOR->hideSongVideoToggle(Z)Z"
+            )
         }
 
         addSwitchPreference(

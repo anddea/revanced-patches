@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">動画プレーヤーのユーザー補助コントロールを有効にしますか？</string>
     <string name="accessibility_settings_edu_opt_out_text">ユーザー補助サービスが有効になっているため、操作方法が変わります。</string>
@@ -162,6 +162,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_change_youtube_header_summary_off">左上のヘッダーを「Premium」に変更します。</string>
     <string name="revanced_change_youtube_header_summary_on">左上のヘッダーを「Premium」に変更します。</string>
     <string name="revanced_change_youtube_header_title">YouTube ヘッダーを変更</string>
+    <string name="revanced_color_invalid_toast">無効な色</string>
     <string name="revanced_copy">コピー</string>
     <string name="revanced_copy_error">テキストをコピーできませんでした</string>
     <string name="revanced_custom_filter_strings_summary">フィルタリングするコンポーネントパスビルダーの文字列のリストです。(改行区切り)</string>
@@ -1122,7 +1123,6 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_settings_menu_subscription_product_summary_on">[購入とメンバーシップ] メニューを非表示にします。</string>
     <string name="revanced_hide_settings_menu_subscription_product_title">[購入とメンバーシップ] メニューを非表示</string>
     <string name="revanced_hide_settings_menu_summary">「YouTube 設定」メニューの要素を非表示にします。</string>
-    <string name="revanced_hide_settings_menu_title" />
     <string name="revanced_hide_settings_menu_video_quality_summary_off">[動画の画質設定] メニューを非表示にします。</string>
     <string name="revanced_hide_settings_menu_video_quality_summary_on">[動画の画質設定] メニューを非表示にします。</string>
     <string name="revanced_hide_settings_menu_video_quality_title">[動画の画質設定] メニューを非表示</string>
@@ -1150,6 +1150,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">コメント数が「0」または「無効」になっているコメントボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">コメント数が「0」または「無効」になっているコメントボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">無効なコメントボタンを非表示</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_off">コメント パネルが表示されます。</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_on">コメント パネルは非表示になっています。</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">[低評価] ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">[低評価] ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_dislike_button_title">[低評価] ボタンを非表示</string>
@@ -2094,6 +2096,8 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_vote_no_segments">評価できるセグメントがありません</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s から %2$s</string>
     <string name="revanced_sb_vote_upvote">賛成</string>
+    <string name="revanced_search_clear_confirm_title">検索履歴をクリア</string>
+    <string name="revanced_search_clear_history_title">履歴をクリア</string>
     <string name="revanced_share_copy_settings_success">設定をクリップボードにコピーしました。</string>
     <string name="revanced_share_copy_timestamp_success">タイムスタンプをクリップボードにコピーしました。(%s)</string>
     <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました。</string>
@@ -2459,6 +2463,7 @@ YouTube サーバーでは n-sig パターンが頻繁に変更されるため�
     <string name="revanced_yandex_error_no_language_selected">言語が選択されていません</string>
     <string name="revanced_yandex_error_no_subs_for_language">%s には字幕がありません</string>
     <string name="revanced_yandex_error_no_subs_returned">字幕トラックがありません</string>
+    <string name="revanced_yandex_error_server_try_again">文字起こし中にエラーが発生しました。しばらくしてからもう一度お試しください。</string>
     <string name="revanced_yandex_error_subs_parsing_failed">字幕 JSON コンテンツの解析に失敗しました</string>
     <string name="revanced_yandex_error_subs_processing_failed">字幕コンテンツの処理中にエラーが発生しました</string>
     <string name="revanced_yandex_error_subs_stuck_processing">内部エラー: 字幕処理が停止しました</string>

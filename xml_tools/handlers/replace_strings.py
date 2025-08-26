@@ -7,7 +7,7 @@ import shutil
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
-from defusedxml import ElementTree
+from defusedxml import ElementTree as DefusedET
 
 from config.settings import Settings
 from utils.xml_processor import XMLProcessor
@@ -92,7 +92,7 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
             if name in existing_elements:
                 # Update existing element
                 existing_elem: Any = existing_elements[name]
-                new_elem: Any = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
+                new_elem: Any = DefusedET.fromstring(data["text"])
                 # Replace attributes and children
                 existing_elem.attrib.clear()
                 existing_elem.attrib.update(new_elem.attrib)
@@ -101,7 +101,7 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
                 existing_elem.tail = new_elem.tail
             elif name not in blacklist and (filter_keys is None or name in filter_keys):
                 # Add new element (only if not blacklisted and passes filter)
-                new_elem: Any = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
+                new_elem: Any = DefusedET.fromstring(data["text"])
                 target_root.append(new_elem)
 
         # Write updated file

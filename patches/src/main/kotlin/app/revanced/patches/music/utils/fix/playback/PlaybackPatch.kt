@@ -8,7 +8,6 @@ import app.revanced.patches.music.utils.extension.Constants.VIDEO_PATH
 import app.revanced.patches.music.utils.fix.client.patchSpoofClient
 import app.revanced.patches.music.utils.fix.streamingdata.patchSpoofVideoStreams
 import app.revanced.patches.music.utils.patch.PatchList.FIX_PLAYBACK
-import app.revanced.patches.music.utils.playservice.is_8_20_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
@@ -45,11 +44,13 @@ val playbackPatch = bytecodePatch(
             Includes the 'Spoof client' patch.
             
             Side effect:
-            • Action buttons may always be hidden in YouTube Music 7.17+.
-            • Audio may intermittently stutter during playback.
-            • Player flyout menu may not show properly.
+            #1. Action buttons may always be hidden in YouTube Music 7.17+.
+            #2. Player flyout menu may not show properly.
+            #3. These side effects may be resolved by clearing the app data and logging in again.
             
-            Not supported in YouTube Music 8.20+.
+            Additional Context:
+            If both 'Spoof client' and 'Spoof video streams' are used,
+            'Spoof client' side effects #1 and #2, and 'Spoof video streams' side effect #2 may be solved.
             """.trimIndentMultiline(),
         required = true
     )
@@ -62,8 +63,12 @@ val playbackPatch = bytecodePatch(
             Includes the 'Spoof video streams' patch.
             
             Side effect:
-            • App may be forced to close when using a DNS or VPN.
-            • Audio may intermittently stutter during playback on adaptive bitrate streaming clients.
+            #1. App may be forced to close when using a DNS or VPN.
+            #2. Audio may intermittently stutter during playback on adaptive bitrate streaming clients.
+
+            Additional Context:
+            If both 'Spoof client' and 'Spoof video streams' are used,
+            'Spoof client' side effects #1 and #2, and 'Spoof video streams' side effect #2 may be solved.
             """.trimIndentMultiline(),
         required = true
     )
@@ -75,6 +80,21 @@ val playbackPatch = bytecodePatch(
         if (!spoofClientEnabled && !spoofVideoStreamsEnabled) {
             printWarn("At least one patch option must be enabled. \"${spoofClient.title}\" patch is used.")
             spoofClientEnabled = true
+        }
+
+        if (spoofClientEnabled) {
+            patchSpoofClient()
+
+            addSwitchPreference(
+                CategoryType.MISC,
+                "revanced_spoof_client",
+                "false"
+            )
+            addPreferenceWithIntent(
+                CategoryType.MISC,
+                "revanced_spoof_client_type",
+                "revanced_spoof_client",
+            )
         }
 
         if (spoofVideoStreamsEnabled) {
@@ -89,21 +109,6 @@ val playbackPatch = bytecodePatch(
                 CategoryType.MISC,
                 "revanced_spoof_video_streams_default_client",
                 "revanced_spoof_video_streams",
-            )
-        }
-
-        if (spoofClientEnabled && !is_8_20_or_greater) {
-            patchSpoofClient()
-
-            addSwitchPreference(
-                CategoryType.MISC,
-                "revanced_spoof_client",
-                "false"
-            )
-            addPreferenceWithIntent(
-                CategoryType.MISC,
-                "revanced_spoof_client_type",
-                "revanced_spoof_client",
             )
         }
 

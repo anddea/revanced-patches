@@ -1,8 +1,9 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Bedienungshilfen für den Video-Player aktivieren?</string>
     <string name="accessibility_settings_edu_opt_out_text">Ihre Steuerung wurde geändert, da ein Barrierefreiheitsdienst aktiv ist.</string>
     <string name="gms_core_dialog_continue_text">Fortsetzen</string>
+    <string name="gms_core_dialog_dismiss_text">Nicht erneut anzeigen</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore hat keine Berechtigung um im Hintergrund zu laufen.
 
 Folge der 'Don't kill my app!' Anleitung für dein Gerät and wende die Anweisungen auf deine GmsCore Installation an.
@@ -13,9 +14,16 @@ Dies wird zum Funktionieren der App benötigt."</string>
 Drücke Weiter und deaktiviere Akku-Optimierungen."</string>
     <string name="gms_core_dialog_open_website_text">Webseite öffnen</string>
     <string name="gms_core_dialog_title">Aktion erforderlich</string>
+    <string name="gms_core_offline_account_login_error">Wenn Sie Ihre Kontoanmeldedaten kürzlich geändert haben, deinstallieren Sie GmsCore und installieren Sie es erneut.</string>
     <string name="gms_core_settings_summary">Cloud-Nachrichteneinstellungen aktivieren, um Benachrichtigungen zu erhalten</string>
     <string name="gms_core_settings_title">GmsCore öffnen</string>
     <string name="gms_core_toast_not_installed_message">GmsCore ist nicht installiert. Bitte installiere es.</string>
+    <string name="revanced_advanced_video_quality_menu_summary_off">Erweiteres Videoqualitätsmenü wird nicht angezeigt.</string>
+    <string name="revanced_advanced_video_quality_menu_summary_on">Erweitertes Videoqualitätsmenü wird angezeigt.</string>
+    <string name="revanced_advanced_video_quality_menu_title">Erweitertes Videoqualitätsmenü anzeigen </string>
+    <string name="revanced_advanced_video_quality_menu_type_summary_off">Es wird das Flyout-Menü im alten Stil verwendet.</string>
+    <string name="revanced_advanced_video_quality_menu_type_summary_on">Benutzerdefinierter Dialog wird genutzt</string>
+    <string name="revanced_advanced_video_quality_menu_type_title">Menütyp „Erweiterte Videoqualität“ in Shorts</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow stellt Crowdsourcing-Thumbnails für YouTube-Videos bereit. Diese Thumbnails sind oft relevanter als die von YouTube bereitgestellten.
 
 Wenn aktiviert, werden Video-URLs an den API-Server gesendet und es werden keine anderen Daten gesendet. Wenn ein Video keine DeArrow-Thumbnails hat, werden die Original- oder Standbilder angezeigt.
@@ -51,12 +59,16 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren."</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Abonnements</string>
     <string name="revanced_app_name_title">App Name</string>
     <string name="revanced_app_version_title">App Version</string>
+    <string name="revanced_append_time_stamp_information_playback_speed_menu_type_title">Menütyp „Wiedergabegeschwindigkeit“</string>
     <string name="revanced_append_time_stamp_information_summary_off">Das Anhängen von Zeitstempelinformationen ist deaktiviert</string>
     <string name="revanced_append_time_stamp_information_summary_on">"Zeitstempelinformationen anhängen ist aktiviert"</string>
     <string name="revanced_append_time_stamp_information_title">Zeitstempelinformationen anhängen</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Wiedergabegeschwindigkeit anhängen</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Videoqualität hinzufügen</string>
     <string name="revanced_append_time_stamp_information_type_title">Informationstyp anhängen</string>
+    <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">Es wird das Flyout-Menü im alten Stil verwendet.</string>
+    <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">Es wird ein benutzerdefinierter Dialog verwendet.</string>
+    <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Menütyp „Videoqualität“</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Ambient Modus im Energiesparmodus deaktiviert</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Ambient-Modus im Energiesparmodus aktiviert.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Einschränkungen des Umgebungsmodus umgehen</string>
@@ -68,6 +80,7 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren."</string>
     <string name="revanced_bypass_url_redirects_summary_off">URL-Umleitungen werden nicht umgangen.</string>
     <string name="revanced_bypass_url_redirects_summary_on">URL-Weiterleitungen werden umgangen.</string>
     <string name="revanced_bypass_url_redirects_title">URL-Weiterleitungen umgehen</string>
+    <string name="revanced_cancel">Abbrechen</string>
     <string name="revanced_change_form_factor_entry_1">Standard</string>
     <string name="revanced_change_form_factor_entry_2">Telefon</string>
     <string name="revanced_change_form_factor_entry_3">Telefon (max. 480 dp)</string>
@@ -144,12 +157,18 @@ Einschränkung: Zurück-Taste in der Symbolleiste funktioniert möglicherweise n
     <string name="revanced_change_youtube_header_summary_off">Standard Header wird verwendet.</string>
     <string name="revanced_change_youtube_header_summary_on">Premium Header wird verwendet.</string>
     <string name="revanced_change_youtube_header_title">YouTube Header ändern</string>
+    <string name="revanced_color_invalid_toast">Ungültige Farbe</string>
+    <string name="revanced_copy">Kopieren</string>
+    <string name="revanced_copy_error">Text konnte nicht kopiert werden</string>
     <string name="revanced_custom_filter_strings_summary">Komponenten nach zeilengetrennten Namen filtern</string>
     <string name="revanced_custom_filter_strings_title">Benutzerdefinierten Filter bearbeiten</string>
     <string name="revanced_custom_filter_summary_off">Benutzerdefinierter Filter ist deaktiviert</string>
     <string name="revanced_custom_filter_summary_on">Benutzerdefinierter Filter ist aktiviert</string>
     <string name="revanced_custom_filter_title">Benutzerdefinierte Filter aktivieren</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">%s ist ein ungültiger benutzerdefinierter Filter.</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Benutzerdefiniert (legacy)</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">Benutzerdefiniert (modern)</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">Benutzerdefiniert (kein Thema)</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_off">Altes Flyout Menü wird verwendet.</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_on">Benutzerdefinierter Dialog wird verwendet.</string>
     <string name="revanced_custom_playback_speed_menu_type_title">Menü-Typ für benutzerdefinierte Wiedergabegeschwindigkeiten</string>
@@ -164,6 +183,18 @@ Einschränkung: Zurück-Taste in der Symbolleiste funktioniert möglicherweise n
     <string name="revanced_custom_seekbar_color_accent_title">Farbliche Anpassung des Fortschrittsanzeige-Akzents</string>
     <string name="revanced_custom_seekbar_color_primary_summary">Geben Sie den Hex-Code der Suchbar-Primärfarbe ein.</string>
     <string name="revanced_custom_seekbar_color_primary_title">Benutzerdefinierte Suchleisten-Primärfarbe</string>
+    <string name="revanced_debug_export_logs_to_clipboard_summary">RVX-Debugprotokolle in die Zwischenablage kopieren.</string>
+    <string name="revanced_debug_export_logs_to_clipboard_title">Kopiere den Debugverlauf</string>
+    <string name="revanced_debug_export_logs_to_file_summary">RVX-Debugprotokolle in eine Datei exportieren.</string>
+    <string name="revanced_debug_export_logs_to_file_title">Debugprotokolle exportieren</string>
+    <string name="revanced_debug_logs_clear_buffer_summary">Löscht alle gespeicherten RVX-Debugprotokolle.</string>
+    <string name="revanced_debug_logs_clear_buffer_title">Debug-Protokolle löschen</string>
+    <string name="revanced_debug_logs_clear_toast">Protokolle gelöscht.</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">Protokolle kopiert.</string>
+    <string name="revanced_debug_logs_disabled">Debug-Protokollierung ist deaktiviert.</string>
+    <string name="revanced_debug_logs_export_success">Protokolle wurden erfolgreich exportiert.</string>
+    <string name="revanced_debug_logs_failed_to_export">Protokolle konnten nicht exportiert werden: $s.</string>
+    <string name="revanced_debug_logs_none_found">Keine Protokolle gefunden.</string>
     <string name="revanced_default_app_settings_summary">Um RVX in einem externen Browser zu öffnen, aktivieren Sie \'Unterstützte Links öffnen\' und aktivieren Sie die unterstützen Web-Adressen</string>
     <string name="revanced_default_app_settings_title">Standard-App-Einstellungen öffnen</string>
     <string name="revanced_default_playback_speed_shorts_title">Standard Wiedergabegeschwindigkeit bei Shorts</string>
@@ -1882,7 +1913,6 @@ AVC hat eine maximale Auflösung von 1080p, Opus-Audiocodec ist nicht verfügbar
     <string name="revanced_swipe_text_overlay_size_summary">Die Textgröße für die Wischgesten-Überlagerung zwischen 1 und 30</string>
     <string name="revanced_swipe_text_overlay_size_title">Textgröße der Wischgesten-Überlagerung</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Lautstärke-Wischempfindlichkeit muss zwischen 1-1000 (%) liegen.</string>
-    <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">Konfigurieren Sie den Mindestabstand für das Wischen von Lautstärke zwischen 1 und 1000 (%).\n\nJe kürzer der Mindestabstand, desto schneller ändert sich die Lautstärke.\n\nEmpfohlene Lautstärke-Wischempfindlichkeit beträgt 100% bei 15-Volumen-Schritten und 10% bei 150-Volumen-Schritten.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Lautstärke-Wischen Empfindlichkeit</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Tauscht die Positionen des Knopfes Erstellen mit der Schaltfläche \"Benachrichtigungen\" aus, indem die Geräteinformationen getäuscht werden.
 

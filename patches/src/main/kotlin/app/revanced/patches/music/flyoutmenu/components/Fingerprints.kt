@@ -42,7 +42,6 @@ internal val screenWidthParentFingerprint = legacyFingerprint(
     name = "screenWidthParentFingerprint",
     returnType = "Landroid/graphics/Bitmap;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    // parameters = listOf("Landroid/app/Activity;", "I"), new parameter Z is added in 8.23+
     customFingerprint = { method, _ ->
         method.indexOfFirstInstructionReversed {
             opcode == Opcode.INVOKE_VIRTUAL &&

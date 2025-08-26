@@ -155,6 +155,30 @@ public class SpoofClientPatch {
     /**
      * Injection point.
      * <p>
+     * Return false to force disable fallback feature flag.
+     */
+    public static boolean forceDisableFallbackFeatureFlag(boolean original) {
+        if (SPOOF_CLIENT) {
+            return false;
+        }
+        return original;
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Return false to force disable formats feature flag.
+     */
+    public static boolean forceDisableFormatsFeatureFlag(boolean original) {
+        if (SPOOF_CLIENT) {
+            return false;
+        }
+        return original;
+    }
+
+    /**
+     * Injection point.
+     * <p>
      * Return false to force disable playback feature flag.
      */
     public static boolean forceDisablePlaybackFeatureFlag(boolean original) {

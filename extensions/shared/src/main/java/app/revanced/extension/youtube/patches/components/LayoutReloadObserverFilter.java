@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
-
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import app.revanced.extension.shared.patches.components.Filter;
@@ -30,6 +28,7 @@ import app.revanced.extension.youtube.shared.PlayerType;
  * As a workaround for this special issue, if a video actionbar is detected, which is one of the components below the player,
  * it is treated as being in the same state as [WATCH_WHILE_MAXIMIZED].
  */
+@SuppressWarnings("unused")
 public final class LayoutReloadObserverFilter extends Filter {
     // Must be volatile or synchronized, as litho filtering runs off main thread and this field is then access from the main thread.
     public static final AtomicBoolean isActionBarVisible = new AtomicBoolean(false);
@@ -44,7 +43,7 @@ public final class LayoutReloadObserverFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (PlayerType.getCurrent() == PlayerType.WATCH_WHILE_MINIMIZED &&
                 isActionBarVisible.compareAndSet(false, true)) {

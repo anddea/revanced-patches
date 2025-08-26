@@ -7,7 +7,7 @@ import re
 from typing import TYPE_CHECKING
 from xml.etree import ElementTree as ET
 
-from defusedxml import ElementTree
+from defusedxml import ElementTree as DefusedET
 
 from config.settings import Settings
 from utils.xml_processor import XMLProcessor
@@ -101,9 +101,9 @@ def create_updated_strings_file(  # noqa: C901
         for name in sorted(filtered_strings.keys()):
             data = filtered_strings[name]
             try:
-                string_elem = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
+                string_elem = DefusedET.fromstring(data["text"])
                 new_root.append(string_elem)
-            except ElementTree.ParseError:
+            except DefusedET.ParseError:
                 logger.exception("Failed to parse string element for key '%s'. Skipping.", name)
                 logger.debug("Problematic XML string: %s", data.get("text", "N/A"))
             except Exception:

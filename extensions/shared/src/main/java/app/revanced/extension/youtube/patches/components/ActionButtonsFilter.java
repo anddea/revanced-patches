@@ -1,6 +1,6 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
+import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREATER;
 
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
@@ -131,7 +131,7 @@ public final class ActionButtonsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (HIDE_ACTION_BUTTON_INDEX) {
             return false;
@@ -149,11 +149,9 @@ public final class ActionButtonsFilter extends Filter {
         }
         if (matchedGroup == bufferFilterPathRule) {
             // In case the group list has no match, return false.
-            if (!bufferButtonsGroupList.check(protobufBufferArray).isFiltered()) {
-                return false;
-            }
+            return bufferButtonsGroupList.check(buffer).isFiltered();
         }
 
-        return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return true;
     }
 }

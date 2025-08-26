@@ -112,7 +112,7 @@ public class AudioTrackPatch extends SpoofStreamingDataPatch {
                 StreamingData streamingData = streamingDataMaps.get(newlyLoadedVideoId);
                 if (streamingData != null) {
                     var audioTracks = StreamingDataOuterClassUtils.getAudioTrackMap(streamingData);
-                    if (MapUtils.isNotEmpty(audioTracks)) {
+                    if (MapUtils.isNotEmpty(audioTracks) && audioTracks.size() > 1) {
                         synchronized (audioTrackMaps) {
                             audioTrackMaps.putIfAbsent(newlyLoadedVideoId, audioTracks);
                         }

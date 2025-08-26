@@ -245,17 +245,18 @@ val layoutComponentsPatch = bytecodePatch(
         // region patch for hide tap to update button
 
         if (!is_8_15_or_greater) {
-            contentPillFingerprint.methodOrThrow().apply {
-                addInstructionsWithLabels(
-                    0,
-                    """
-                    invoke-static {}, $GENERAL_CLASS_DESCRIPTOR->hideTapToUpdateButton()Z
-                    move-result v0
-                    if-eqz v0, :show
-                    return-void
-                """, ExternalLabel("show", getInstruction(0))
+            contentPillFingerprint
+                .methodOrThrow()
+                .addInstructionsWithLabels(
+                    0, """
+                        invoke-static {}, $GENERAL_CLASS_DESCRIPTOR->hideTapToUpdateButton()Z
+                        move-result v0
+                        if-eqz v0, :show
+                        return-void
+                        :show
+                        nop
+                        """
                 )
-            }
         }
 
         // endregion
@@ -381,11 +382,13 @@ val layoutComponentsPatch = bytecodePatch(
                 "false"
             )
         }
-        addSwitchPreference(
-            CategoryType.GENERAL,
-            "revanced_hide_tap_to_update_button",
-            "false"
-        )
+        if (!is_8_15_or_greater) {
+            addSwitchPreference(
+                CategoryType.GENERAL,
+                "revanced_hide_tap_to_update_button",
+                "false"
+            )
+        }
         addSwitchPreference(
             CategoryType.GENERAL,
             "revanced_hide_voice_search_button",

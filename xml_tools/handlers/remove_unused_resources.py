@@ -15,6 +15,7 @@ SEARCH_DIRECTORIES: list[str] = [str(Settings().BASE_DIR.parent / "revanced-patc
 # Prefixes of resource names to exclude from removal
 PREFIX_BLACKLIST: tuple[str, ...] = (
     ".DS_Store",
+    "forced_strings",
     "missing_strings",
     "updated_strings",
     "yt_premium_wordmark_header",

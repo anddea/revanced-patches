@@ -1,26 +1,32 @@
-package app.revanced.extension.shared.settings.preference;
+package app.revanced.extension.music.settings.preference;
 
+import static app.revanced.extension.shared.patches.PatchStatus.PatchVersion;
+import static app.revanced.extension.shared.patches.PatchStatus.PatchedTime;
 import static app.revanced.extension.shared.utils.StringRef.str;
 
 import android.app.Activity;
 
+import java.util.Date;
 import java.util.Locale;
 
+import app.revanced.extension.shared.settings.preference.WebViewDialog;
 import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
+import app.revanced.extension.youtube.utils.ExtendedUtils;
 
 /**
  * Used by YouTube and YouTube Music.
  */
-public class YouTubeDataAPIDialogBuilder {
-    private static final String URL_CREATE_PROJECT = "https://console.cloud.google.com/projectcreate";
-    private static final String URL_MARKET_PLACE = "https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com";
+public class AppInfoDialogBuilder {
 
     public static void showDialog(Activity mActivity) {
         try {
             final String backgroundColorHex = BaseThemeUtils.getBackgroundColorHexString();
             final String foregroundColorHex = BaseThemeUtils.getForegroundColorHexString();
+
+            long patchedTime = PatchedTime();
+            Date date = new Date(patchedTime);
 
             final String htmlDialog = "<html>" +
                     "<body style=\"padding: 15px;\"><p>" +
@@ -29,12 +35,14 @@ public class YouTubeDataAPIDialogBuilder {
                             "<style> body { background-color: %s; color: %s; line-height: 20px; } a { color: %s; } </style>",
                             backgroundColorHex, foregroundColorHex, foregroundColorHex) +
                     "<h2>" +
-                    str("revanced_return_youtube_username_youtube_data_api_v3_dialog_title") +
+                    str("revanced_app_info_dialog_title") +
                     "</h2>" +
                     String.format(
-                            str("revanced_return_youtube_username_youtube_data_api_v3_dialog_message"),
-                            URL_CREATE_PROJECT,
-                            URL_MARKET_PLACE
+                            str("revanced_app_info_dialog_message"),
+                            ExtendedUtils.getAppLabel(),
+                            ExtendedUtils.getAppVersionName(),
+                            PatchVersion(),
+                            date.toLocaleString()
                     ) +
                     "</p></body></html>";
 

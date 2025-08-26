@@ -1,6 +1,7 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Continua</string>
+    <string name="gms_core_dialog_dismiss_text">Non mostrarlo di nuovo</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore non ha il permesso di funzionare in background.
 
 Segui la guida \"Don't kill my app!\" per il tuo dispositivo e applica le istruzioni alla tua installazione di GmsCore.
@@ -32,6 +33,7 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
     <string name="revanced_change_seekbar_position_title">Cambia la posizione della barra di ricerca</string>
     <string name="revanced_change_share_sheet_summary">Sostituisce il foglio di condivisione in-app con il foglio di condivisione di sistema.</string>
     <string name="revanced_change_share_sheet_title">Cambia foglio di condivisione</string>
+    <string name="revanced_change_start_page_entry_chart">Classifiche</string>
     <string name="revanced_change_start_page_entry_charts">Classifiche</string>
     <string name="revanced_change_start_page_entry_default">Predefinito</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Episodi per Dopo</string>
@@ -42,6 +44,7 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
     <string name="revanced_change_start_page_entry_samples">Esempi</string>
     <string name="revanced_change_start_page_entry_search">Cerca</string>
+    <string name="revanced_change_start_page_entry_subscription">Iscrizioni</string>
     <string name="revanced_change_start_page_entry_subscriptions">Sottoscrizioni</string>
     <string name="revanced_change_start_page_summary">Seleziona in quale pagina si apre l\'app.</string>
     <string name="revanced_change_start_page_title">Cambia la pagina iniziale</string>
@@ -99,6 +102,10 @@ Limitazioni: I video per bambini potrebbero non essere reindirizzati."</string>
     <string name="revanced_disable_player_gesture_title">Disabilita gestualità dal lettore</string>
     <string name="revanced_disable_quic_protocol_summary">"Disabilita il protocollo QUIC di CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Disabilita il protocollo QUIC</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"Cliccando sul titolo del pannello dei commenti ("Commenti") si scorre fino in cima.
+
+Limitazione: non si applica alle risposte dei commenti."</string>
+    <string name="revanced_enable_comments_scroll_top_title">Abilita scorri in cima ai commenti</string>
     <string name="revanced_enable_compact_dialog_summary">"Abilita il menù a comparsa compatto sui telefoni.
 
 Limitazioni:
@@ -111,8 +118,14 @@ Limitazioni:
     <string name="revanced_enable_forced_miniplayer_title">Abilita miniplayer forzato</string>
     <string name="revanced_enable_landscape_mode_summary">Consente l\'accesso alla modalità orizzontale ruotando lo schermo del telefono.</string>
     <string name="revanced_enable_landscape_mode_title">Abilita la modalità orizzontale</string>
+    <string name="revanced_enable_mini_player_next_button_summary">Aggiunge il pulsante per passare alla traccia successiva al miniplayer.</string>
+    <string name="revanced_enable_mini_player_next_button_title">Aggiunge il pulsante successivo al miniplayer</string>
+    <string name="revanced_enable_mini_player_previous_button_summary">Aggiunge il pulsante per tornare alla traccia precedente al miniplayer.</string>
+    <string name="revanced_enable_mini_player_previous_button_title">Aggiunge il pulsante precedente al miniplayer</string>
     <string name="revanced_enable_opus_codec_summary">"Abilita il codec Opus 250/251 durante la riproduzione dell'audio."</string>
     <string name="revanced_enable_opus_codec_title">Abilita il codec opus</string>
+    <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Abilita "scorrere verso il basso" per chiudere il miniplayer.</string>
+    <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Abilita scorri per nascondere il miniplayer</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Abilita lo scorrimento verso il basso per chiudere il miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Abilita lo scorrimento per chiudere il miniplayer</string>
     <string name="revanced_enable_thick_seekbar_summary">"Abilita la barra di ricerca spessa.
@@ -159,6 +172,8 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_external_downloader_package_name_summary">Nome del pacchetto dell\'app downloader esterna installata, come NewPipe o Seal.</string>
     <string name="revanced_external_downloader_package_name_title">Nome del pacchetto downloader esterno</string>
     <string name="revanced_fullscreen_ads_closed_toast">Annunci a schermo intero chiusi.</string>
+    <string name="revanced_gms_show_dialog_summary">Visualizza la finestra di dialogo di ottimizzazione per GMSCore a ogni avvio dell\'applicazione.</string>
+    <string name="revanced_gms_show_dialog_title">Mostra il dialogo ottimizzazione per GMSCore</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Nasconde i componenti vuoti nel menu dell\'account</string>
     <string name="revanced_hide_account_menu_empty_component_title">Nascondi componente vuoto</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Elenco dei nomi dei menu degli account da filtrare, separati da nuove righe.</string>
@@ -181,6 +196,8 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_hide_action_button_share_title">Nascondi il pulsante Condividi</string>
     <string name="revanced_hide_action_button_song_video_summary">"Nasconde il pulsante Brano / Video. (Il pulsante è visibile solo per alcuni utenti)"</string>
     <string name="revanced_hide_action_button_song_video_title">Nascondi pulsante Brano / Video</string>
+    <string name="revanced_hide_audio_video_switch_toggle_summary">Nasconde il pulsante di attivazione/disattivazione Brano/Video nel lettore.</string>
+    <string name="revanced_hide_audio_video_switch_toggle_title">Nascondi il pulsante Brano/Video</string>
     <string name="revanced_hide_button_shelf_summary">Nasconde lo scaffale dei pulsanti dalla home page e da Explorer.</string>
     <string name="revanced_hide_button_shelf_title">Nasconde lo scaffale dei pulsanti</string>
     <string name="revanced_hide_carousel_shelf_summary">Nasconde lo scaffale del carosello dalla home page e da Explorer.</string>
@@ -284,6 +301,9 @@ Limitazioni:
     <string name="revanced_hide_settings_menu_playback_title">Nascondi il menu Riproduzione</string>
     <string name="revanced_hide_settings_menu_privacy_and_location_title">Nascondi il menu Privacy &amp; dati</string>
     <string name="revanced_hide_settings_menu_recommendations_title">Nascondi il menu Raccomandazioni</string>
+    <string name="revanced_hide_settings_menu_summary">"Nascondi elementi del menu delle impostazioni.
+Questo nasconde non solo il menu delle impostazioni di YT Music, ma anche il menu delle impostazioni di ReVanced Extended."</string>
+    <string name="revanced_hide_settings_menu_title">Nascondi il menù impostazioni</string>
     <string name="revanced_hide_song_video_toggle_summary">Nasconde l\'interruttore Brano / Video nel lettore.</string>
     <string name="revanced_hide_song_video_toggle_title">Nascondi l\'interruttore Brano / Video</string>
     <string name="revanced_hide_sound_search_button_summary">Nasconde il pulsante di ricerca sonora nella barra di ricerca.</string>
@@ -316,6 +336,8 @@ Limitazioni:
     <string name="revanced_remember_repeat_state_title">Ricorda lo stato di ripetizione</string>
     <string name="revanced_remember_shuffle_state_summary">Ricorda lo stato della riproduzione casuale.</string>
     <string name="revanced_remember_shuffle_state_title">Ricorda lo stato della riproduzione casuale</string>
+    <string name="revanced_remember_video_quality_auto_mobile">Modifica della qualità predefinita dei dati mobili su Auto.</string>
+    <string name="revanced_remember_video_quality_auto_wifi">Modifica della qualità Wi-Fi predefinita su Auto.</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Ricorda l\'ultima qualità video selezionata.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Ricorda le modifiche alla qualità video</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">Mostra una notifica toast quando viene cambiata la qualità di riproduzione predefinita.</string>
@@ -453,6 +475,9 @@ Fai clic per vedere come emettere una chiave API."</string>
 
 • Ciò cambierà l'aspetto dell'app, ma potrebbero verificarsi effetti collaterali sconosciuti.
 • Se disabilitato in seguito, la vecchia interfaccia utente potrebbe rimanere finché i dati dell'app non vengono cancellati."</string>
+    <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Disattiva la modalità radio nelle regioni Canadesi</string>
+    <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Disabilita testo in tempo reale</string>
+    <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Ripristina il vecchio pannello flyout</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Disabilita i testi in tempo reale</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Ripristina la vecchia barra d\'azione</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - La sezione commenti non viene visualizzata nel feed principale</string>
@@ -471,6 +496,21 @@ Fai clic per vedere come emettere una chiave API."</string>
 Effetto collaterale:
 • A volte i sottotitoli si trovano nella parte superiore del lettore anziché in quella inferiore."</string>
     <string name="revanced_spoof_player_parameter_title">Falsifica i parametri del lettore</string>
+    <string name="revanced_spoof_streaming_data_message">Se riscontri problemi di riproduzione, attiva una delle seguenti opzioni, a seconda di quella più adatta alle tue esigenze:: \"Falsifica lo streaming dei video\" o \"Falsifica client\" in &lt;i&gt;&lt;u&gt; Impostazioni &gt; %s &gt; Varie&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Mostra il client utilizzato per recuperare i dati in streaming in statistiche per nerd.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra in statistiche per nerd</string>
+    <string name="revanced_spoof_streaming_data_summary">"Falsifica i dati in streaming per evitare problemi di riproduzione..
+
+• Se utilizzato con 'Falsifica client', potrebbero verificarsi problemi di riproduzione.</string>
+    <string name="revanced_spoof_streaming_data_title">Falsifica i dati in streaming</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">Definisci un client default falsificato.</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Client predefinito</string>
+    <string name="revanced_spoof_video_streams_summary">"Falsifica lo streaming dei video per prevenire i problemi di riproduzione.
+
+Effetti collaterale:
+• L'app potrebbe chiudersi quando usi una VPN o DNS.
+• L'audio potrebbe essere scattoso a intermittenza durante la riproduzione sui client di streaming a bitrate adattivo (tutti i client diversi da Android VR 1.43.32)."</string>
+    <string name="revanced_spoof_video_streams_title">Falsifica lo streaming dei video</string>
     <string name="revanced_watch_history_type_entry_1">Originale</string>
     <string name="revanced_watch_history_type_entry_2">Sostituisci dominio</string>
     <string name="revanced_watch_history_type_entry_3">Blocca la cronologia delle visualizzazioni</string>

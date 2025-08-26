@@ -1,5 +1,6 @@
 package app.revanced.extension.music.settings.preference;
 
+import static app.revanced.extension.music.settings.Settings.APP_INFO;
 import static app.revanced.extension.music.settings.Settings.BYPASS_IMAGE_REGION_RESTRICTIONS_DOMAIN;
 import static app.revanced.extension.music.settings.Settings.CHANGE_START_PAGE;
 import static app.revanced.extension.music.settings.Settings.CUSTOM_FILTER_STRINGS;
@@ -160,7 +161,9 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     Logger.printDebug(() -> "Failed to find the right value: " + dataString);
                 }
             } else if (settings instanceof BooleanSetting) {
-                if (settings.equals(SETTINGS_IMPORT_EXPORT)) {
+                if (settings.equals(APP_INFO)) {
+                    AppInfoDialogBuilder.showDialog(mActivity);
+                } else if (settings.equals(SETTINGS_IMPORT_EXPORT)) {
                     importExportListDialogBuilder();
                 } else if (settings.equals(RETURN_YOUTUBE_USERNAME_ABOUT)) {
                     YouTubeDataAPIDialogBuilder.showDialog(mActivity);

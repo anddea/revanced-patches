@@ -17,6 +17,7 @@ from handlers import (
     check_prefs,
     check_prefs_reverse,
     check_strings,
+    create_update_from_diff,
     missing_strings,
     remove_unused_resources,
     remove_unused_strings,
@@ -76,6 +77,11 @@ def is_rvx_dir_needed(options: dict[str, Any]) -> bool:
     type=click.Path(exists=True, dir_okay=False, readable=True, path_type=Path),
     help="Create updated_strings.xml from keys listed in the specified file.",
 )
+@click.option(
+    "--update-from-diff",
+    is_flag=True,
+    help="Check git diff and create updated_strings.xml for forced strings.",
+)
 @click.option("--youtube/--music", default=True, help="Process YouTube or Music strings")
 @click.option("--debug", is_flag=True, help="Enable debug logging")
 @click.pass_context
@@ -113,6 +119,7 @@ def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
         "prefs",
         "reverse",
         "update_file",
+        "update_from_diff",
         "icons",
     ]
     if kwargs.get("run_all"):
@@ -201,6 +208,7 @@ def handle_individual_operations(config: CLIConfig, options: dict[str, Any]) -> 
         ("prefs", "Check Preferences", check_prefs.process, (app, base_dir)),
         ("reverse", "Check Preferences (Reverse)", check_prefs_reverse.process, (app, base_dir)),
         ("update_file", "Update Strings from File", update_strings.process, (app, options.get("update_file"))),
+        ("update_from_diff", "Update Forced Strings from Git Diff", create_update_from_diff.process, (app,)),
         ("icons", "Check Icon Preferences", check_icons.process, (app,)),
     ]
 

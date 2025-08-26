@@ -7,7 +7,7 @@ import app.revanced.extension.shared.patches.spans.SpanType;
 import app.revanced.extension.shared.patches.spans.StringFilterGroup;
 import app.revanced.extension.youtube.settings.Settings;
 
-@SuppressWarnings({"unused", "ConstantValue", "FieldCanBeLocal"})
+@SuppressWarnings({"unused", "FieldCanBeLocal"})
 public final class SearchLinksFilter extends Filter {
     /**
      * Located in front of the search icon.
@@ -45,7 +45,7 @@ public final class SearchLinksFilter extends Filter {
             if (spanType == SpanType.IMAGE) {
                 hideSpan(spannableString, start, end, flags);
             }
-            return super.skip(conversionContext, spannableString, span, start, end, flags, isWord, spanType, matchedGroup);
+            return true;
         }
         return false;
     }
