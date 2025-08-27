@@ -450,10 +450,10 @@
       {
         "key": "restoreOldSplashAnimation",
         "title": "Restore old splash animation",
-        "description": "Restore the old style splash animation.",
+        "description": "Restore the old style splash animation.\n\nThis patch option is only supported on Android 12+, as splash animation was added to Android 12.\n\nIncluding this patch option on Android 8.0 - 11 may cause your app to crash.",
         "required": true,
         "type": "kotlin.Boolean",
-        "default": true,
+        "default": false,
         "values": null
       }
     ]
@@ -1243,48 +1243,6 @@
     "options": []
   },
   {
-    "name": "Enable OPUS codec",
-    "description": "Adds an option to enable the OPUS audio codec if the player response includes it.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Enable OPUS codec",
-    "description": "Adds an option to enable the OPUS audio codec if the player response includes it.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube Music",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.12.54",
-        "8.28.54",
-        "8.30.54"
-      ]
-    },
-    "options": []
-  },
-  {
     "name": "Enable debug logging",
     "description": "Adds an option for debugging and exporting RVX logs to the clipboard.",
     "use": true,
@@ -1383,6 +1341,7 @@
       "Settings for YouTube Music",
       "Remove background playback restrictions",
       "BytecodePatch",
+      "BytecodePatch",
       "ResourcePatch"
     ],
     "compatiblePackages": {
@@ -1402,7 +1361,7 @@
       {
         "key": "spoofClient",
         "title": "Spoof client",
-        "description": "Includes the \u0027Spoof client\u0027 patch.\n\nSide effect:\n#1. Action buttons may always be hidden in YouTube Music 7.17+.\n#2. Player flyout menu may not show properly.\n#3. These side effects may be resolved by clearing the app data and logging in again.\n\nAdditional Context:\nIf both \u0027Spoof client\u0027 and \u0027Spoof video streams\u0027 are used,\n\u0027Spoof client\u0027 side effects #1 and #2, and \u0027Spoof video streams\u0027 side effect #2 may be solved.",
+        "description": "Includes the \u0027Spoof client\u0027 patch.\n\nSide effect:\n• Action buttons or player flyout menus may not show properly.\n• These side effects may be resolved by clearing the app data and logging in again.\n\nSide effect (Block request):\n• App may be forced to close when using a VPN or DNS.",
         "required": true,
         "type": "kotlin.Boolean",
         "default": true,
@@ -1411,7 +1370,7 @@
       {
         "key": "spoofVideoStreams",
         "title": "Spoof video streams",
-        "description": "Includes the \u0027Spoof video streams\u0027 patch.\n\nSide effect:\n#1. App may be forced to close when using a DNS or VPN.\n#2. Audio may intermittently stutter during playback on adaptive bitrate streaming clients.\n\nAdditional Context:\nIf both \u0027Spoof client\u0027 and \u0027Spoof video streams\u0027 are used,\n\u0027Spoof client\u0027 side effects #1 and #2, and \u0027Spoof video streams\u0027 side effect #2 may be solved.",
+        "description": "Includes the \u0027Spoof video streams\u0027 patch.\n\nSide effect:\n• App may be forced to close when using a DNS or VPN.\n• Audio may intermittently stutter during playback on adaptive bitrate streaming clients.",
         "required": true,
         "type": "kotlin.Boolean",
         "default": true,
@@ -3339,6 +3298,7 @@
       "Settings for YouTube",
       "BytecodePatch",
       "BytecodePatch",
+      "BytecodePatch",
       "ResourcePatch",
       "ResourcePatch",
       "BytecodePatch",
@@ -3362,6 +3322,15 @@
         "key": "outlineIcon",
         "title": "Outline icons",
         "description": "Apply the outline icon.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": false,
+        "values": null
+      },
+      {
+        "key": "useMobileWebClient",
+        "title": "Use Mobile Web client",
+        "description": "Add Mobile Web to available clients.",
         "required": true,
         "type": "kotlin.Boolean",
         "default": false,
@@ -3618,6 +3587,7 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
+      "BytecodePatch",
       "ResourcePatch"
     ],
     "compatiblePackages": {
@@ -3636,8 +3606,9 @@
     "description": "Adds options to customize settings related to video playback, such as default video quality and playback speed.",
     "use": true,
     "dependencies": [
-      "BytecodePatch",
       "Settings for YouTube Music",
+      "BytecodePatch",
+      "BytecodePatch",
       "ResourcePatch",
       "BytecodePatch"
     ],
