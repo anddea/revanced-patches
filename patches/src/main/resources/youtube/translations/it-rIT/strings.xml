@@ -313,9 +313,9 @@ Nota: è disponibile solo tramite la modalità Picture-in-Picture."</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">L\'animazione del pulsante Mi Piace è attivata.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">L\'animazione del pulsante Mi Piace è disattivata.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Disattiva la animazione del pulsante Mi Piace</string>
-    <string name="revanced_disable_signin_to_tv_popup_summary_off">Il pannello a comparsa Accedi alla TV è attivato.</string>
-    <string name="revanced_disable_signin_to_tv_popup_summary_on">Il pannello a comparsa Accedi alla TV è disattivato.</string>
-    <string name="revanced_disable_signin_to_tv_popup_title">Disattiva il pannello a comparsa Accedi alla TV</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">Il pannello a comparsa Accedi sulla TV è attivato.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">Il pannello a comparsa Accedi sulla TV è disattivato.</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">Disattiva il pannello a comparsa Accedi sulla TV</string>
     <string name="revanced_disable_speed_overlay_summary">"Disattiva la velocità di riproduzione 2x quando tieni premuto.
 
 Note:
@@ -765,7 +765,7 @@ Impostazioni → Riproduzione → Riproduzione automatica video successivo"</str
     <string name="revanced_hide_key_concepts_section_title">Nascondi la sezione Momenti Chiave</string>
     <string name="revanced_hide_keyword_content_about_summary">"Le schede Home e Iscrizioni e i risultati di ricerca sono filtrati per nascondere i video che soddisfano le parole chiave o frasi.
 
-Note:
+Note: 
 • Gli Shorts non possono essere nascosti in base al nome del canale.
 • Alcuni componenti della interfaccia potrebbero non essere nascosti.
 • La ricerca di una parola chiave potrebbe non mostrare alcun risultato."</string>
@@ -1155,6 +1155,9 @@ Se l'interfaccia della schermata del riproduttore cambia a causa di modifiche la
     <string name="revanced_hide_shorts_navigation_bar_summary_off">La barra di navigazione è visibile.</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">La barra di navigazione è nascosta.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Nascondi la barra di navigazione</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_off">Il pulsante Nuovi post è visibile</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_on">Il pulsante Nuovi post è nascosto</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">Nascondi il pulsante Nuovi post</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">L\'etichetta della promozione a pagamento è visibile.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">L\'etichetta della promozione a pagamento è nascosta.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Nascondi l\'etichetta della promozione a pagamento</string>
@@ -1918,7 +1921,15 @@ Nota: i non mi piace potrebbero non apparire se l'utente non ha effettuato l'acc
     <string name="revanced_sb_new_segment_adjust">Regolazione: Segna l\'ora di inizio e di fine del segmento.</string>
     <string name="revanced_sb_new_segment_choose_category">Scegli la categoria del segmento</string>
     <string name="revanced_sb_new_segment_compare">Verifica il Segmento</string>
-    <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
+    <string name="revanced_sb_new_segment_confirm_content">"Il segmento va da
+
+%1$s
+a
+%2$s
+
+(%3$s)
+
+Pronto per l'invio?"</string>
     <string name="revanced_sb_new_segment_confirm_contents">Il segmento è da\n\n%1$s\na\n%2$s\n\n(%3$s)\n\nPronto per l\'invio?</string>
     <string name="revanced_sb_new_segment_confirm_title">I valori sono corretti?</string>
     <string name="revanced_sb_new_segment_disabled_category">La categoria è disattivata nelle impostazioni. Attiva la categoria da inviare.</string>
@@ -2049,6 +2060,7 @@ Nota: i non mi piace potrebbero non apparire se l'utente non ha effettuato l'acc
     <string name="revanced_sb_vote_no_segments">Non ci sono segmenti per cui votare.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s a %2$s</string>
     <string name="revanced_sb_vote_upvote">Voto positivo</string>
+    <string name="revanced_settings_search_history_title">Mostra la cronologia di ricerca delle impostazioni</string>
     <string name="revanced_share_copy_settings_success">Impostazioni copiate negli appunti</string>
     <string name="revanced_share_copy_timestamp_success">Timestamp copiato negli appunti (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiato negli appunti</string>

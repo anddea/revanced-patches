@@ -310,9 +310,9 @@
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Анимация кнопки \"Лайк\" включена.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Анимация кнопки \"Лайк\" отключена.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Анимация кнопки \"Лайк\"</string>
-    <string name="revanced_disable_signin_to_tv_popup_summary_off">Всплывающее окно "Войти в TV" включено.</string>
-    <string name="revanced_disable_signin_to_tv_popup_summary_on">Всплывающее окно "Войти в TV" выключено.</string>
-    <string name="revanced_disable_signin_to_tv_popup_title">Всплывающее окно "Войти в TV" включено.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">Всплывающее окно \"Вход на ТВ\" включено.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">Всплывающее окно \"Вход на ТВ\" отключено.</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">Отключить всплывающее окно \"Вход на ТВ\"</string>
     <string name="revanced_disable_speed_overlay_summary">"Отключить наложение скорости при нажатии и удержании.
 
 Примечание:
@@ -1161,9 +1161,9 @@ Shorts
     <string name="revanced_hide_shorts_navigation_bar_summary_off">Панель навигации отображена.</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">Панель навигации скрыта.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Панель навигации</string>
-    <string name="revanced_hide_shorts_new_posts_button_summary_off">Кнопка новых сообщений отображена.</string>
-    <string name="revanced_hide_shorts_new_posts_button_summary_on">Кнопка новых сообщений скрыта.</string>
-    <string name="revanced_hide_shorts_new_posts_button_title">Скрыть кнопку новых сообщений</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_off">Кнопка \"Новые публикации\" в плеере Shorts показана</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_on">Кнопка \"Новые публикации\" в плеере Shorts скрыта</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">Скрыть кнопку \"Новые публикации\"</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">Метка \"Содержит прямую рекламу\" отображена.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">Метка \"Содержит прямую рекламу\" скрыта.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Метка \"Содержит прямую рекламу\"</string>
@@ -1955,7 +1955,15 @@ Shorts
     <string name="revanced_sb_new_segment_adjust">Отметьте время начала и окончания сегмента</string>
     <string name="revanced_sb_new_segment_choose_category">Выберите категорию сегмента</string>
     <string name="revanced_sb_new_segment_compare">Проверить сегмент</string>
-    <string name="revanced_sb_new_segment_confirm_content">Сегмент длится с %1$02d:%2$02d до %3$02d:%4$02d (%5$d минут(-ы/-а) %6$02d секунд(-ы/-а))\nОн готов для отправки?</string>
+    <string name="revanced_sb_new_segment_confirm_content">"Сегмент от
+
+%1$s
+до
+%2$s
+
+(%3$s)
+
+Готов к отправке?"</string>
     <string name="revanced_sb_new_segment_confirm_contents">Сегмент длится с\n\n%1$s\nдо\n%2$s\n\n(%3$s)\n\nОн готов для отправки?</string>
     <string name="revanced_sb_new_segment_confirm_title">Время начала и конца сегмента верно?</string>
     <string name="revanced_sb_new_segment_disabled_category">Эта категория отключена в настройках. Включите ее для отправки сегмента.</string>
@@ -2104,7 +2112,7 @@ Shorts
     <string name="revanced_settings_search_highlight_summary">Подсветка совпадающего текста в результатах поиска выбранным цветом.</string>
     <string name="revanced_settings_search_highlight_title">Включить подсветку поиска</string>
     <string name="revanced_settings_search_history_summary">Сохранение недавних поисковых запросов, чтобы отображать их, когда строка поиска пуста.</string>
-    <string name="revanced_settings_search_history_title">Включить историю поиска</string>
+    <string name="revanced_settings_search_history_title">Показать историю поиска настроек</string>
     <string name="revanced_share_copy_settings_success">Настройки скопированы в буфер обмена.</string>
     <string name="revanced_share_copy_timestamp_success">Метка времени скопирована в буфер. (%s)</string>
     <string name="revanced_share_copy_url_success">Ссылка скопирована в буфер обмена.</string>
@@ -2201,18 +2209,18 @@ Shorts
 • Высокое качество может быть разблокировано на некоторых видео, которые это требуют, не все видео.
 • Недоступно, если включена опция 'Подмена потоковых данных'."</string>
     <string name="revanced_spoof_device_dimensions_title">Подмена размеров устройства</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_unplugged">"Android TV
+    <string name="revanced_spoof_streaming_data_client_entry_android_unplugged">"Android ТВ
 <small>(Необходим вход)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr_no_auth">"Android VR
 <small>(Без авторизац.)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">iOS.\n<small>(устаревшее)</small>
     </string>
-    <string name="revanced_spoof_streaming_data_client_entry_ios_unplugged">"iOS TV
+    <string name="revanced_spoof_streaming_data_client_entry_ios_unplugged">"iOS ТВ
 <small>(Необходим вход)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web
 <small>(В разработке)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">"TV
+    <string name="revanced_spoof_streaming_data_client_entry_tv">"ТВ
 <small>(В разработке)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply">"Простой TV
 <small>(В разработке)</small>"</string>

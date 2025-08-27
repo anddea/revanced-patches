@@ -8,7 +8,7 @@ import app.revanced.extension.music.patches.spoof.ClientType;
 @SuppressWarnings("unused")
 public class PatchStatus {
     public static boolean DarkTheme() {
-        // Replace this with true if the Dark theme patch succeeds
+        // Replace this with true if the 'Dark theme' patch succeeds
         return false;
     }
 
@@ -20,6 +20,16 @@ public class PatchStatus {
         } else {
             return ClientType.IOS_MUSIC_6_21;
         }
+    }
+
+    public static boolean SpoofClient() {
+        // Replace this with true If the 'Spoof client' succeeds.
+        return false;
+    }
+
+    public static boolean SpoofVideoStreams() {
+        // Replace this with true If the 'Spoof video streams' succeeds.
+        return false;
     }
 
     public static boolean SpoofAppVersionDefaultBoolean() {

@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.video.information
 
 import app.revanced.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
 import app.revanced.patches.youtube.utils.YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
 import app.revanced.patches.youtube.utils.resourceid.notificationBigPictureIconWidth
 import app.revanced.patches.youtube.utils.resourceid.qualityAuto
@@ -13,6 +14,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal val channelIdFingerprint = legacyFingerprint(
     name = "channelIdFingerprint",
@@ -232,3 +234,29 @@ internal val videoQualityArrayFingerprint = legacyFingerprint(
     parameters = listOf("Ljava/util/List;", "L"),
     opcodes = listOf(Opcode.RETURN_OBJECT)
 )
+
+internal val videoQualityIteratorPrimaryFingerprint = legacyFingerprint(
+    name = "videoQualityIteratorPrimaryFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
+    parameters = listOf("Ljava/util/List;"),
+    customFingerprint = { method, _ ->
+        indexOfFormatStreamModelCastInstruction(method) >= 0
+    }
+)
+
+internal val videoQualityIteratorSecondaryFingerprint = legacyFingerprint(
+    name = "videoQualityIteratorSecondaryFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
+    parameters = listOf("Ljava/util/List;", "I"),
+    customFingerprint = { method, _ ->
+        indexOfFormatStreamModelCastInstruction(method) >= 0
+    }
+)
+
+fun indexOfFormatStreamModelCastInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.CHECK_CAST &&
+                getReference<TypeReference>()?.type == YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
+    }

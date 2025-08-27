@@ -834,6 +834,7 @@
         <PreferenceCategory android:title="@string/revanced_preference_category_codec" android:layout="@layout/revanced_settings_preferences_category"/>
         <SwitchPreference android:title="@string/revanced_disable_hdr_video_title" android:key="revanced_disable_hdr_video" android:summaryOn="@string/revanced_disable_hdr_video_summary_on" android:summaryOff="@string/revanced_disable_hdr_video_summary_off" />
         <SwitchPreference android:title="@string/revanced_disable_vp9_codec_title" android:key="revanced_disable_vp9_codec" android:summaryOn="@string/revanced_disable_vp9_codec_summary_on" android:summaryOff="@string/revanced_disable_vp9_codec_summary_off" />
+        <SwitchPreference android:title="@string/revanced_enable_opus_codec_title" android:key="revanced_enable_opus_codec" android:summary="@string/revanced_enable_opus_codec_summary" />
     </PreferenceScreen>PREFERENCE_SCREEN: VIDEO -->
 
 
@@ -958,9 +959,6 @@
         <!-- SETTINGS: CHANGE_SHARE_SHEET
         <SwitchPreference android:title="@string/revanced_change_share_sheet_title" android:key="revanced_change_share_sheet" android:summaryOn="@string/revanced_change_share_sheet_summary_on" android:summaryOff="@string/revanced_change_share_sheet_summary_off" />SETTINGS: CHANGE_SHARE_SHEET -->
 
-        <!-- SETTINGS: ENABLE_OPUS_CODEC
-        <SwitchPreference android:title="@string/revanced_enable_opus_codec_title" android:key="revanced_enable_opus_codec" android:summary="@string/revanced_enable_opus_codec_summary" />SETTINGS: ENABLE_OPUS_CODEC -->
-
         <PreferenceCategory android:title="@string/revanced_preference_category_patch_information" android:layout="@layout/revanced_settings_preferences_category"/>
         <PreferenceScreen android:title="@string/revanced_preference_screen_patch_information_title"  android:key="revanced_preference_screen_patch_information" android:summary="@string/revanced_preference_screen_patch_information_summary" >
             <PreferenceCategory android:title="@string/revanced_preference_category_app_info" android:layout="@layout/revanced_settings_preferences_category" >
@@ -1037,7 +1035,6 @@
                 <Preference android:title="Change share sheet" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable QUIC protocol" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Enable debug logging" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Enable OPUS codec" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Open links externally" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Remove background playback restrictions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Sanitize sharing links" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

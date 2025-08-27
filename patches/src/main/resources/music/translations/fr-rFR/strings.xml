@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Continuer</string>
+    <string name="gms_core_dialog_dismiss_text">Don\'t show again.</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore n'a pas les permissions pour fonctionner en arrière-plan.
 
 Suivez le guide \"Don't kill my app!\" pour votre appareil, et appliquez les instructions sur GmsCore.
@@ -18,6 +19,10 @@ Cliquez sur le bouton Continuer et désactivez les optimisations de la batterie.
     <string name="revanced_add_miniplayer_next_button_title">Ajouter un bouton suivant au mini-lecteur</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Ajoute un bouton de piste précédente au mini-lecteur.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Ajouter un bouton précédent au mini-lecteur</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;App name&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;App version&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Patched date&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;.</string>
+    <string name="revanced_app_info_dialog_title">App info.</string>
+    <string name="revanced_app_info_summary">Click to check the app name, app version, patch version, and patched date .</string>
+    <string name="revanced_app_info_title">App info.</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Remplace le domaine qui est bloqué dans certaines régions afin que les miniatures des listes de lecture, les avatars des chaînes, etc. puissent être reçus.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Contourner les restrictions d\'image selon les régions</string>
     <string name="revanced_change_action_bar_position_summary">Déplace la barre d\'action sous le bouton de lecture.</string>
@@ -66,6 +71,12 @@ Utilisez des couleurs sombres si possible, car l'application ne prend pas en cha
 Utilisez des couleurs sombres si possible, car l'application ne prend pas en charge les thèmes clairs."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Couleur secondaire de l\'arrière-plan du lecteur</string>
     <string name="revanced_custom_player_background_invalid_toast">Couleur d\'arrière-plan du lecteur non valide.</string>
+    <string name="revanced_debug_protobuffer_summary">Includes proto buffer in the debug log .</string>
+    <string name="revanced_debug_protobuffer_title">Log protocol buffer.</string>
+    <string name="revanced_debug_spannable_summary">Includes spannable in the debug log .</string>
+    <string name="revanced_debug_spannable_title">Log spannable.</string>
+    <string name="revanced_debug_summary">Prints the debug log..</string>
+    <string name="revanced_debug_title">Enable debug logging.</string>
     <string name="revanced_default_app_settings_summary">Pour ouvrir les liens YouTube Music dans RVX Music, activez \'Ouvrir les liens compatibles\' et activez les adresses web prises en charge.</string>
     <string name="revanced_default_app_settings_title">Ouvrir les paramètres par défaut de l\'application</string>
     <string name="revanced_disable_auto_captions_summary">Désactive les sous-titres automatiquement activés.</string>
@@ -93,6 +104,10 @@ Restrictions : les vidéos pour enfants peuvent ne pas être redirigées."</str
     <string name="revanced_disable_player_gesture_title">Désactiver les gestes du lecteur</string>
     <string name="revanced_disable_quic_protocol_summary">"Protocole CronetEngine QUIC désactivé."</string>
     <string name="revanced_disable_quic_protocol_title">Désactiver le protocole QUIC</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"Clicking on the comment panel title ('Comments') scrolls to the top.
+
+Limitations: Does not apply to comment replies.".</string>
+    <string name="revanced_enable_comments_scroll_top_title">Enable scroll to top in comments.</string>
     <string name="revanced_enable_compact_dialog_summary">"Active le menu déroulant compact sur téléphones.
 
 Limitations :
@@ -115,6 +130,8 @@ Info :
 • Les dernières versions de YouTube Music utilisent par défaut le codec audio Opus.
 • Disponible uniquement pour les utilisateurs qui falsifient une très ancienne version du client."</string>
     <string name="revanced_enable_opus_codec_title">Activer le Codec OPUS</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">Enables smooth animation when miniplayer is maximized from minimized state..</string>
+    <string name="revanced_enable_smooth_transition_animation_title">Enable smooth transition animation.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Active le geste vers le bas pour fermer le minilecteur.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Activer le geste pour fermer le minilecteur</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Permet de glisser vers le bas pour fermer le mini-lecteur.</string>
@@ -163,6 +180,8 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_external_downloader_package_name_summary">Nom de package du téléchargeur externe installé, telle que NewPipe ou YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Nom du paquet du téléchargeur externe</string>
     <string name="revanced_fullscreen_ads_closed_toast">Les publicités plein écran sont fermées.</string>
+    <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup..</string>
+    <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore.</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Masque les catégories vides dans le menu du compte.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Masquer les catégories vides</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Liste de noms du menu de compte à filtrer, séparés par un saut de ligne.</string>
@@ -475,7 +494,7 @@ Cliquez ici pour découvrir comment créer une clé API."</string>
     <string name="revanced_spoof_client_title">Usurpation de client</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_summary">Définit un client par défaut pour l\'usurpation d\'identité.</string>
+    <string name="revanced_spoof_client_type_summary">"Définit un client par défaut pour l'usurpation d'identité."</string>
     <string name="revanced_spoof_client_type_title">Client par défaut</string>
     <string name="revanced_spoof_player_parameter_summary">"Modifiez les paramètres du lecteur pour éviter les problèmes de lecture.
 

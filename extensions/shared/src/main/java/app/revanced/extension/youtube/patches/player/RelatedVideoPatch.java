@@ -1,13 +1,16 @@
 package app.revanced.extension.youtube.patches.player;
 
+import androidx.annotation.NonNull;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.BottomSheetState;
 import app.revanced.extension.youtube.shared.EngagementPanel;
+import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.shared.RootView;
-import app.revanced.extension.youtube.shared.VideoInformation;
 
 @SuppressWarnings("unused")
 public final class RelatedVideoPatch {
@@ -28,8 +31,22 @@ public final class RelatedVideoPatch {
         }
     };
 
+    private static String videoId = "";
+
+    public static void newVideoStarted(@NonNull String newlyLoadedChannelId, @NonNull String newlyLoadedChannelName,
+                                       @NonNull String newlyLoadedVideoId, @NonNull String newlyLoadedVideoTitle,
+                                       final long newlyLoadedVideoLength, boolean newlyLoadedLiveStreamValue) {
+        if (!videoId.equals(newlyLoadedVideoId) &&
+                PlayerType.getCurrent() != PlayerType.WATCH_WHILE_MINIMIZED) {
+            videoId = newlyLoadedVideoId;
+            lastVideoIds.clear();
+            Logger.printDebug(() -> "newVideoStarted: " + newlyLoadedVideoId);
+        }
+    }
+
     public static void onDismiss(int index) {
         if (HIDE_RELATED_VIDEOS && index == 0) {
+            videoId = "";
             lastVideoIds.clear();
         }
     }
@@ -41,16 +58,6 @@ public final class RelatedVideoPatch {
         if (itemCounts < MAX_ITEM_COUNT) {
             return itemCounts;
         }
-        if (!RootView.isPlayerActive()) {
-            return itemCounts;
-        }
-        if (BottomSheetState.getCurrent().isOpen()) {
-            return itemCounts;
-        }
-        if (EngagementPanel.isOpen()) {
-            return itemCounts;
-        }
-
         var elements = Thread.currentThread().getStackTrace();
         if (elements.length < 7) {
             return itemCounts;
@@ -62,16 +69,31 @@ public final class RelatedVideoPatch {
         if (!sixthElement.toString().startsWith(SCROLL_TO_TOP_LINEAR_LAYOUT_MANAGER_CLASS)) {
             return itemCounts;
         }
-
-        String videoId = VideoInformation.getVideoId();
-        Integer count = lastVideoIds.get(videoId);
-        if (count == null) {
-            lastVideoIds.put(videoId, itemCounts);
-        } else if (count != itemCounts) {
+        if (videoId.isEmpty()) {
             return itemCounts;
         }
-
-        return MAX_ITEM_COUNT;
+        Integer count = lastVideoIds.get(videoId);
+        if (count != null && itemCounts == count &&
+                PlayerType.getCurrent().isMaximizedOrFullscreenOrSliding()) {
+            return MAX_ITEM_COUNT;
+        }
+        if (!RootView.isPlayerActive()) {
+            return itemCounts;
+        }
+        if (BottomSheetState.getCurrent().isOpen()) {
+            return itemCounts;
+        }
+        if (EngagementPanel.isOpen()) {
+            return itemCounts;
+        }
+        if (count == null) {
+            lastVideoIds.put(videoId, itemCounts);
+            return MAX_ITEM_COUNT;
+        } else if (PlayerType.getCurrent().isMaximizedOrFullscreenOrSliding() &&
+                Math.abs(itemCounts - count) < 5) {
+            return MAX_ITEM_COUNT;
+        } else {
+            return itemCounts;
+        }
     }
-
 }

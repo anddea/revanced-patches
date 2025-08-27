@@ -145,7 +145,11 @@ def sync_translations(translations_path: Path, rvx_base_path: Path) -> None:
             update_strings(dest_strings_path, source_strings_path)
 
 
-def update_translations_with_keys(translations_path: Path, base_dir: Path, additional_keys: set[str]) -> None:
+def update_translations_with_keys(
+    translations_path: Path,
+    base_dir: Path,
+    additional_keys: set[str] | None = None,
+) -> None:
     """Update translation strings with specific keys."""
     source_base_path = base_dir / "src/main/resources/addresources"
 
@@ -182,60 +186,62 @@ def process(app: str, base_dir: Path) -> None:
     update_base_strings(base_path, rvx_base_path)
 
     # Handle translations
-    additional_keys: set[str] = {
-        "revanced_hide_ask_button_summary_off",
-        "revanced_hide_ask_button_summary_on",
-        "revanced_hide_ask_button_title",
-        "revanced_hide_ask_section_summary_off",
-        "revanced_hide_ask_section_summary_on",
-        "revanced_hide_ask_section_title",
-        "revanced_hide_hype_button_summary_off",
-        "revanced_hide_hype_button_summary_on",
-        "revanced_hide_hype_button_title",
-        "revanced_hide_player_control_buttons_background_summary_off",
-        "revanced_hide_player_control_buttons_background_summary_on",
-        "revanced_hide_player_control_buttons_background_title",
-        "revanced_hide_promote_button_summary_off",
-        "revanced_hide_promote_button_summary_on",
-        "revanced_hide_promote_button_title",
-        "revanced_hide_shorts_hashtag_button_summary_off",
-        "revanced_hide_shorts_hashtag_button_summary_on",
-        "revanced_hide_shorts_hashtag_button_title",
-        "revanced_hide_shorts_preview_comment_summary_off",
-        "revanced_hide_shorts_preview_comment_summary_on",
-        "revanced_hide_shorts_preview_comment_title",
-        "revanced_swipe_lowest_value_enable_auto_brightness_overlay_text",
-        "revanced_swipe_overlay_minimal_style_summary_off",
-        "revanced_swipe_overlay_minimal_style_summary_on",
-        "revanced_swipe_overlay_minimal_style_title",
-        "revanced_swipe_overlay_progress_brightness_color_summary",
-        "revanced_swipe_overlay_progress_brightness_color_title",
-        "revanced_swipe_overlay_progress_color_invalid_toast",
-        "revanced_swipe_overlay_progress_color_summary",
-        "revanced_swipe_overlay_progress_color_title",
-        "revanced_swipe_overlay_progress_seek_color_summary",
-        "revanced_swipe_overlay_progress_seek_color_title",
-        "revanced_swipe_overlay_progress_speed_color_summary",
-        "revanced_swipe_overlay_progress_speed_color_title",
-        "revanced_swipe_overlay_progress_volume_color_summary",
-        "revanced_swipe_overlay_progress_volume_color_title",
-        "revanced_swipe_overlay_style_entry_1",
-        "revanced_swipe_overlay_style_entry_2",
-        "revanced_swipe_overlay_style_entry_3",
-        "revanced_swipe_overlay_style_entry_4",
-        "revanced_swipe_overlay_style_entry_5",
-        "revanced_swipe_overlay_style_entry_6",
-        "revanced_swipe_overlay_style_entry_7",
-        "revanced_swipe_overlay_style_title",
-        "revanced_swipe_show_circular_overlay_summary_off",
-        "revanced_swipe_show_circular_overlay_summary_on",
-        "revanced_swipe_show_circular_overlay_title",
-        "revanced_swipe_text_overlay_size_invalid_toast",
-        "revanced_swipe_text_overlay_size_summary",
-        "revanced_swipe_text_overlay_size_title",
-    }
+    # ruff: noqa: ERA001
+    # additional_keys: set[str] = {
+    #     "revanced_hide_ask_button_summary_off",
+    #     "revanced_hide_ask_button_summary_on",
+    #     "revanced_hide_ask_button_title",
+    #     "revanced_hide_ask_section_summary_off",
+    #     "revanced_hide_ask_section_summary_on",
+    #     "revanced_hide_ask_section_title",
+    #     "revanced_hide_hype_button_summary_off",
+    #     "revanced_hide_hype_button_summary_on",
+    #     "revanced_hide_hype_button_title",
+    #     "revanced_hide_player_control_buttons_background_summary_off",
+    #     "revanced_hide_player_control_buttons_background_summary_on",
+    #     "revanced_hide_player_control_buttons_background_title",
+    #     "revanced_hide_promote_button_summary_off",
+    #     "revanced_hide_promote_button_summary_on",
+    #     "revanced_hide_promote_button_title",
+    #     "revanced_hide_shorts_hashtag_button_summary_off",
+    #     "revanced_hide_shorts_hashtag_button_summary_on",
+    #     "revanced_hide_shorts_hashtag_button_title",
+    #     "revanced_hide_shorts_preview_comment_summary_off",
+    #     "revanced_hide_shorts_preview_comment_summary_on",
+    #     "revanced_hide_shorts_preview_comment_title",
+    #     "revanced_swipe_lowest_value_enable_auto_brightness_overlay_text",
+    #     "revanced_swipe_overlay_minimal_style_summary_off",
+    #     "revanced_swipe_overlay_minimal_style_summary_on",
+    #     "revanced_swipe_overlay_minimal_style_title",
+    #     "revanced_swipe_overlay_progress_brightness_color_summary",
+    #     "revanced_swipe_overlay_progress_brightness_color_title",
+    #     "revanced_swipe_overlay_progress_color_invalid_toast",
+    #     "revanced_swipe_overlay_progress_color_summary",
+    #     "revanced_swipe_overlay_progress_color_title",
+    #     "revanced_swipe_overlay_progress_seek_color_summary",
+    #     "revanced_swipe_overlay_progress_seek_color_title",
+    #     "revanced_swipe_overlay_progress_speed_color_summary",
+    #     "revanced_swipe_overlay_progress_speed_color_title",
+    #     "revanced_swipe_overlay_progress_volume_color_summary",
+    #     "revanced_swipe_overlay_progress_volume_color_title",
+    #     "revanced_swipe_overlay_style_entry_1",
+    #     "revanced_swipe_overlay_style_entry_2",
+    #     "revanced_swipe_overlay_style_entry_3",
+    #     "revanced_swipe_overlay_style_entry_4",
+    #     "revanced_swipe_overlay_style_entry_5",
+    #     "revanced_swipe_overlay_style_entry_6",
+    #     "revanced_swipe_overlay_style_entry_7",
+    #     "revanced_swipe_overlay_style_title",
+    #     "revanced_swipe_show_circular_overlay_summary_off",
+    #     "revanced_swipe_show_circular_overlay_summary_on",
+    #     "revanced_swipe_show_circular_overlay_title",
+    #     "revanced_swipe_text_overlay_size_invalid_toast",
+    #     "revanced_swipe_text_overlay_size_summary",
+    #     "revanced_swipe_text_overlay_size_title",
+    # }
 
     if "revanced/revanced-patches" in str(base_dir):
-        update_translations_with_keys(translations_path, base_dir, additional_keys)
+        update_translations_with_keys(translations_path, base_dir)
+        # update_translations_with_keys(translations_path, base_dir, additional_keys)
     else:
         sync_translations(translations_path, rvx_base_path)

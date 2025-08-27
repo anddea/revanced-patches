@@ -101,10 +101,6 @@ internal enum class PatchList(
         "Disable splash animation",
         "Adds an option to disable the splash animation on app startup."
     ),
-    ENABLE_OPUS_CODEC(
-        "Enable OPUS codec",
-        "Adds an option to enable the OPUS audio codec if the player response includes it."
-    ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
         "Adds an option for debugging and exporting RVX logs to the clipboard."

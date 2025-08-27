@@ -3,10 +3,8 @@ package app.revanced.extension.music.patches.spoof;
 import app.revanced.extension.music.settings.Settings;
 
 @SuppressWarnings("unused")
-public class SpoofClientPatch {
+public class SpoofClientPatch extends BlockRequestPatch {
     private static final boolean SETTINGS_INITIALIZED = Settings.SETTINGS_INITIALIZED.get();
-    private static final boolean SPOOF_CLIENT = Settings.SPOOF_CLIENT.get();
-    private static final ClientType CLIENT_TYPE = Settings.SPOOF_CLIENT_TYPE.get();
 
     /**
      * Injection point.

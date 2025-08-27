@@ -153,7 +153,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting ENABLE_FORCED_MINIPLAYER = new BooleanSetting("revanced_enable_forced_miniplayer", TRUE);
     public static final BooleanSetting ENABLE_SMOOTH_TRANSITION_ANIMATION = new BooleanSetting("revanced_enable_smooth_transition_animation", TRUE, true);
     public static final BooleanSetting ENABLE_SWIPE_TO_DISMISS_MINIPLAYER = new BooleanSetting("revanced_enable_swipe_to_dismiss_miniplayer", TRUE, true);
-    public static final BooleanSetting ENABLE_THICK_SEEKBAR = new BooleanSetting("revanced_enable_thick_seekbar", TRUE, true);
+    public static final BooleanSetting ENABLE_THICK_SEEKBAR = new BooleanSetting("revanced_enable_thick_seekbar", FALSE, true);
     public static final BooleanSetting ENABLE_ZEN_MODE = new BooleanSetting("revanced_enable_zen_mode", FALSE, true);
     public static final BooleanSetting ENABLE_ZEN_MODE_PODCAST = new BooleanSetting("revanced_enable_zen_mode_podcast", FALSE, true);
     public static final BooleanSetting HIDE_COMMENT_CHANNEL_GUIDELINES = new BooleanSetting("revanced_hide_comment_channel_guidelines", TRUE);

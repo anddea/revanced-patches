@@ -2,9 +2,10 @@ package app.revanced.extension.shared.settings;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
+import static app.revanced.extension.shared.patches.PatchStatus.GmsCoreSupport;
 import static app.revanced.extension.shared.settings.Setting.parent;
 
-import app.revanced.extension.shared.innertube.client.YouTubeClient;
+import app.revanced.extension.shared.innertube.client.YouTubeClient.ClientType;
 import app.revanced.extension.shared.patches.ReturnYouTubeUsernamePatch.DisplayFormat;
 import app.revanced.extension.shared.patches.WatchHistoryPatch.WatchHistoryType;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientAndroidVRAvailability;
@@ -51,13 +52,12 @@ public class BaseSettings {
 
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS = new BooleanSetting("revanced_spoof_streaming_data_use_js", FALSE, true,
             "revanced_spoof_streaming_data_use_js_user_dialog_message", new J2V8Availability());
-    public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS_ALL = new BooleanSetting("revanced_spoof_streaming_data_use_js_all", FALSE, true,
-            "revanced_spoof_streaming_data_use_js_user_dialog_message", new ClientJSAvailability());
-    public static final BooleanSetting SPOOF_STREAMING_DATA_USE_LATEST_JS = new BooleanSetting("revanced_spoof_streaming_data_use_latest_js", FALSE, true, new ClientJSAvailability());
+    public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS_ALL = new BooleanSetting("revanced_spoof_streaming_data_use_js_all", FALSE, true , new ClientJSAvailability());
+    public static final BooleanSetting SPOOF_STREAMING_DATA_USE_LATEST_JS = new BooleanSetting("revanced_spoof_streaming_data_use_latest_js", TRUE, true, new ClientJSAvailability());
 
     // Client type must be last spoof setting due to cyclic references.
-    public static final EnumSetting<YouTubeClient.ClientType> SPOOF_STREAMING_DATA_DEFAULT_CLIENT = new EnumSetting<>("revanced_spoof_streaming_data_default_client",
-            YouTubeClient.ClientType.ANDROID_VR, true, parent(SPOOF_STREAMING_DATA));
+    public static final EnumSetting<ClientType> SPOOF_STREAMING_DATA_DEFAULT_CLIENT = new EnumSetting<>("revanced_spoof_streaming_data_default_client",
+            ClientType.ANDROID_VR, true, parent(SPOOF_STREAMING_DATA));
 
     /**
      * These settings are used by YouTube and YouTube Music.
@@ -68,7 +68,7 @@ public class BaseSettings {
 
     public static final BooleanSetting DISABLE_AUTO_CAPTIONS = new BooleanSetting("revanced_disable_auto_captions", FALSE, true);
     public static final BooleanSetting DISABLE_QUIC_PROTOCOL = new BooleanSetting("revanced_disable_quic_protocol", FALSE, true);
-    public static final BooleanSetting ENABLE_OPUS_CODEC = new BooleanSetting("revanced_enable_opus_codec", FALSE, true);
+    public static final BooleanSetting ENABLE_OPUS_CODEC = new BooleanSetting("revanced_enable_opus_codec", TRUE, true);
 
     public static final BooleanSetting BYPASS_IMAGE_REGION_RESTRICTIONS = new BooleanSetting("revanced_bypass_image_region_restrictions", FALSE, true);
     public static final EnumSetting<WatchHistoryType> WATCH_HISTORY_TYPE = new EnumSetting<>("revanced_watch_history_type", WatchHistoryType.REPLACE);

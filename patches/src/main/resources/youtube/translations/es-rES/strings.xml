@@ -486,16 +486,16 @@ Por favor, descarga %2$s desde el sitio web."</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nombre del paquete del descargador de listas de reproducción</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nombre del paquete de tu aplicación de descargas externas instalada, como NewPipe o YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nombre del paquete del descargador de vídeo</string>
-    <string name="revanced_fix_hype_button_icon_summary_off">El icono del botón Hype está oculto.</string>
-    <string name="revanced_fix_hype_button_icon_summary_on">El icono del botón Hype está visible.</string>
-    <string name="revanced_fix_hype_button_icon_title">Corregir icono del botón Hype</string>
-    <string name="revanced_fix_hype_button_icon_user_dialog_message">"En YouTube 19.25.39 o versiones anteriores, el icono de Hype está oculto en la barra de acción del vídeo y en el panel de descripción del vídeo.
+    <string name="revanced_fix_hype_button_icon_summary_off">El icono del botón Hypear está oculto.</string>
+    <string name="revanced_fix_hype_button_icon_summary_on">El icono del botón Hypear está visible.</string>
+    <string name="revanced_fix_hype_button_icon_title">Corregir icono del botón Hypear</string>
+    <string name="revanced_fix_hype_button_icon_user_dialog_message">"En YouTube 19.25.39 o versiones anteriores, el icono de Hypear está oculto en la barra de acción del vídeo y en el panel de descripción del vídeo.
 
 Como solución alternativa, la versión de la aplicación se falsifica a 19.26.42 en los endpoint «/get_watch» y «/next».
 
-Si desactivas este ajuste, es posible que el icono de Hype no se muestre en la barra de acciones del vídeo ni en el panel de descripción del vídeo.
+Si desactivas este ajuste, es posible que el icono de Hypear no se muestre en la barra de acciones del vídeo ni en el panel de descripción del vídeo.
 
-※ Incluso si este ajuste está desactivado, es posible que el botón Hype no esté oculto."</string>
+※ Incluso si este ajuste está desactivado, es posible que el botón Hypear no esté oculto."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_off">Se utiliza el ajuste «Reproducción» en lugar del ajuste «Reproducción automática».</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"Se utiliza el ajuste «Reproducción automática» en lugar del ajuste «Reproducción»."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_title">Corregir efecto secundario de versión de app falsificada</string>
@@ -722,8 +722,8 @@ Configuración → Reproducción → Reproducción automática del siguiente ví
     <string name="revanced_hide_handle_summary_off">El nombre de usuario está visible.</string>
     <string name="revanced_hide_handle_summary_on">El nombre de usuario está oculto.</string>
     <string name="revanced_hide_handle_title">Ocultar nombre de usuario</string>
-    <string name="revanced_hide_hype_button_summary_off">El botón Hype está visible.</string>
-    <string name="revanced_hide_hype_button_summary_on">El botón Hype está oculto.</string>
+    <string name="revanced_hide_hype_button_summary_off">El botón Hypear está visible.</string>
+    <string name="revanced_hide_hype_button_summary_on">El botón Hypear está oculto.</string>
     <string name="revanced_hide_hype_button_title">Ocultar botón Hype</string>
     <string name="revanced_hide_image_search_button_summary_off">El botón de búsqueda de imágenes está visible.</string>
     <string name="revanced_hide_image_search_button_summary_on">El botón de búsqueda de imágenes está oculto.</string>
@@ -1128,6 +1128,9 @@ Si el diseño de la pantalla del reproductor cambia debido a cambios en el servi
     <string name="revanced_hide_shorts_navigation_bar_summary_off">La barra de navegación está visible.</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">La barra de navegación está oculta.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Ocultar barra de navegación</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_off">Se muestra el botón Publicaciones nuevas</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_on">El botón Publicaciones nuevas está oculto</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">Ocultar el botón Publicaciones nuevas</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">La etiqueta de promoción pagada está visible.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">La etiqueta de promoción pagada está oculta.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Ocultar etiqueta de promoción pagada</string>
@@ -1886,7 +1889,7 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_sb_guidelines_preference_sum">Las directrices contienen reglas y consejos para la creación de nuevos segmentos.</string>
     <string name="revanced_sb_guidelines_preference_title">Ver directrices</string>
     <string name="revanced_sb_new_segment_choose_category">Selecciona la categoría del segmento</string>
-    <string name="revanced_sb_new_segment_confirm_content">El segmento dura de %1$02d:%2$02d hasta %3$02d:%4$02d (%5$d minutos %6$02d segundos)\n¿Está listo para ser enviado?</string>
+    <string name="revanced_sb_new_segment_confirm_content">"El segmento es de %1$s a %2$s (%3$s) ¿Listo para enviar?"</string>
     <string name="revanced_sb_new_segment_confirm_contents">El segmento es desde\n\n%1$s\nhasta\n%2$s\n\n(%3$s)\n\n¿Está listo para ser enviado?</string>
     <string name="revanced_sb_new_segment_confirm_title">¿Son correctos los tiempos?</string>
     <string name="revanced_sb_new_segment_disabled_category">La categoría está desactivada en los ajustes. Activa la categoría para enviar.</string>
@@ -2013,7 +2016,7 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_sb_vote_no_segments">No hay segmentos por los cuales votar.</string>
     <string name="revanced_sb_vote_segment_time_to_from">De %1$s a %2$s</string>
     <string name="revanced_sb_vote_upvote">Voto positivo</string>
-    <string name="revanced_settings_search_history_title">Activar historial de búsquedas</string>
+    <string name="revanced_settings_search_history_title">Mostrar el historial de búsqueda de ajustes</string>
     <string name="revanced_share_copy_settings_success">Ajustes copiados en el portapapeles.</string>
     <string name="revanced_share_copy_timestamp_success">Marca de tiempo copiada en el portapapeles. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiada en el portapapeles.</string>

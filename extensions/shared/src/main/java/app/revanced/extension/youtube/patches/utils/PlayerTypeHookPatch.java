@@ -32,6 +32,28 @@ public class PlayerTypeHookPatch {
     /**
      * Injection point.
      * <p>
+     * Add a listener to the fullscreen engagement panel holder.
+     * Triggered when a fullscreen engagement panel holder is attached or detached to Windows.
+     *
+     * @param view fullscreen engagement panel holder (R.id.fullscreen_engagement_panel_holder).
+     */
+    public static void onFullscreenEngagementPanelHolderCreate(View view) {
+        view.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+            @Override
+            public void onViewAttachedToWindow(@Nullable View v) {
+                FullscreenEngagementPanelState.set(FullscreenEngagementPanelState.ATTACHED);
+            }
+
+            @Override
+            public void onViewDetachedFromWindow(@Nullable View v) {
+                FullscreenEngagementPanelState.set(FullscreenEngagementPanelState.DETACHED);
+            }
+        });
+    }
+
+    /**
+     * Injection point.
+     * <p>
      * Add a listener to the shorts player overlay View.
      * Triggered when a shorts player is attached or detached to Windows.
      *
@@ -51,26 +73,5 @@ public class PlayerTypeHookPatch {
         });
     }
 
-    /**
-     * Injection point.
-     * <p>
-     * Add a listener to the fullscreen engagement panel holder.
-     * Triggered when a fullscreen engagement panel holder is attached or detached to Windows.
-     *
-     * @param view fullscreen engagement panel holder (R.id.fullscreen_engagement_panel_holder).
-     */
-    public static void onFullscreenEngagementPanelHolderCreate(View view) {
-        view.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
-            @Override
-            public void onViewAttachedToWindow(@Nullable View v) {
-                FullscreenEngagementPanelState.set(FullscreenEngagementPanelState.ATTACHED);
-            }
-
-            @Override
-            public void onViewDetachedFromWindow(@Nullable View v) {
-                FullscreenEngagementPanelState.set(FullscreenEngagementPanelState.DETACHED);
-            }
-        });
-    }
 }
 

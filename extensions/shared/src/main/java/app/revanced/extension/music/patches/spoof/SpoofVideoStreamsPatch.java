@@ -15,18 +15,11 @@ import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
-public class SpoofVideoStreamsPatch {
+public class SpoofVideoStreamsPatch extends BlockRequestPatch {
     public interface StreamingDataMessage {
         // Methods are added to YT classes during patching.
         StreamingData parseFrom(ByteBuffer responseProto);
     }
-
-    private static final boolean SPOOF_VIDEO_STREAMS = Settings.SPOOF_VIDEO_STREAMS.get();
-
-    /**
-     * Any unreachable ip address.  Used to intentionally fail requests.
-     */
-    private static final String UNREACHABLE_HOST_URI_STRING = "https://127.0.0.0";
 
     /**
      * This class can be null, as hooking and invoking are performed in different methods.
@@ -99,7 +92,7 @@ public class SpoofVideoStreamsPatch {
     /**
      * Injection point.
      */
-    public static String blockGetWatchRequest(String urlString, Map<String, String> requestHeaders) {
+    public static void fetchStreams(String urlString, Map<String, String> requestHeaders) {
         if (SPOOF_VIDEO_STREAMS) {
             try {
                 if (urlString != null) {
@@ -111,43 +104,13 @@ public class SpoofVideoStreamsPatch {
                             if (id != null) {
                                 StreamingDataRequest.fetchRequestIfNeeded(id, requestHeaders);
                             }
-                        } else if (path.contains("get_watch")) {
-                            Logger.printDebug(() -> "Blocking 'get_watch' by returning unreachable uri");
-
-                            return UNREACHABLE_HOST_URI_STRING;
                         }
                     }
-
                 }
             } catch (Exception ex) {
-                Logger.printException(() -> "blockGetWatchRequest failure", ex);
+                Logger.printException(() -> "fetchStreams failure", ex);
             }
         }
-        return urlString;
-    }
-
-    /**
-     * Injection point.
-     * <p>
-     * Blocks /initplayback requests.
-     */
-    public static String blockInitPlaybackRequest(String originalUrlString) {
-        if (SPOOF_VIDEO_STREAMS) {
-            try {
-                var originalUri = Uri.parse(originalUrlString);
-                String path = originalUri.getPath();
-
-                if (path != null && path.contains("initplayback")) {
-                    Logger.printDebug(() -> "Blocking 'initplayback' by clearing query");
-
-                    return originalUri.buildUpon().clearQuery().build().toString();
-                }
-            } catch (Exception ex) {
-                Logger.printException(() -> "blockInitPlaybackRequest failure", ex);
-            }
-        }
-
-        return originalUrlString;
     }
 
     private static boolean isValidVideoId(@Nullable String videoId) {
@@ -157,7 +120,7 @@ public class SpoofVideoStreamsPatch {
     /**
      * Injection point.
      * Fix playback by replace the streaming data.
-     * Called after {@link #blockGetWatchRequest(String, Map)}.
+     * Called after {@link #fetchStreams(String, Map)}.
      */
     public static StreamingData getStreamingData(@Nullable String videoId) {
         if (SPOOF_VIDEO_STREAMS && isValidVideoId(videoId)) {

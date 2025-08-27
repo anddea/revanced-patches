@@ -20,6 +20,10 @@
     <string name="revanced_add_miniplayer_next_button_title">Додати кнопку наступне у мініплеєр</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Додає кнопку попереднього треку у мініплеєр.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Додати кнопку попереднє у мініплеєр</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;Назва&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Версія&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Патчі&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Пропатчено&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_title">Інформація про застосунок</string>
+    <string name="revanced_app_info_summary">Натисніть , щоб перевірити назву, версію, патч і коли пропатчено.</string>
+    <string name="revanced_app_info_title">Про застосунок</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Обходить домен для зображень, заблокований у деяких регіонах, що дозволить отримувати мініатюри списків відтворення, аватари каналів тощо.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Змінити домен зображень</string>
     <string name="revanced_change_action_bar_position_summary">Переміщує панель дій під кнопку відтворення.</string>
@@ -127,6 +131,8 @@
 • Останні YouTube Music клієнти за умовчанням використовують аудіокодек OPUS.
 • Це буде корисно лише для користувачів, які користуються дуже старими клієнтами."</string>
     <string name="revanced_enable_opus_codec_title">Увімкнути кодек OPUS</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">Вмикає плавну анімацію при розгортанні мініплеєра зі згорнутого стану.</string>
+    <string name="revanced_enable_smooth_transition_animation_title">Включити плавну анімацію переходу</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Вмикає жест вниз для закриття мініплеєру.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Увімкнути жест закриття мініплеєру</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Вмикає жест вниз для закриття мініплеєру.</string>
@@ -260,6 +266,8 @@
     <string name="revanced_hide_handle_title">Приховати електронну пошту / @нік</string>
     <string name="revanced_hide_history_button_summary">Приховує кнопку історії на панелі інструментів.</string>
     <string name="revanced_hide_history_button_title">Приховати кнопку історії</string>
+    <string name="revanced_hide_lyrics_share_button_summary">Приховує кнопку \"Поділитися\" у текстах.</string>
+    <string name="revanced_hide_lyrics_share_button_title">Приховати кнопку \"Поділитися\"</string>
     <string name="revanced_hide_music_ads_summary">Приховує рекламу, яка з\'являється під час відтворення медіа.</string>
     <string name="revanced_hide_music_ads_title">Приховати медіарекламу</string>
     <string name="revanced_hide_navigation_bar_summary">Приховує панель навігації.</string>
@@ -486,17 +494,20 @@
     <string name="revanced_spoof_app_version_target_summary">Виберіть зі списку цільову версію для підміни.</string>
     <string name="revanced_spoof_app_version_target_title">Підмінити цільову версію застосунку</string>
     <string name="revanced_spoof_app_version_title">Підмінити версію програми</string>
-    <string name="revanced_spoof_client_summary">"Підміняє клієнт для запобігання проблем з відновленням.
+    <string name="revanced_spoof_client_summary">Підміняє клієнт для запобігання проблем з відновленням.
 
 Побічний ефект:
 • Кнопки дій можуть бути завжди приховані в YouTube Music 7.17+.
 • Спливаюче меню плеєра може не відображатися належним чином.
-• Ці побічні ефекти можна вирішити, очистивши дані програми та знову ввійшовши в систему."</string>
+• Ці побічні ефекти можна вирішити, очистивши дані програми та знову ввійшовши в систему.</string>
     <string name="revanced_spoof_client_title">Підмінити клієнт</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (Блокування запитів)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Блокування запитів)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_client_type_summary">Визначає клієнт за замовчуванням для підробки.</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Блокування запитів)</string>
+    <string name="revanced_spoof_client_type_summary">"Визначає клієнт за замовчуванням для підробки."</string>
     <string name="revanced_spoof_client_type_title">Клієнт за замовчуванням</string>
     <string name="revanced_spoof_player_parameter_summary">"Підмінює параметр плеєра, щоб запобігти проблемам із відтворенням.
 
@@ -514,13 +525,13 @@
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_video_streams_default_client_summary">Визначає клієнт за замовчуванням для підробки.</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">"Визначає клієнт за замовчуванням для підробки."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Клієнт за замовчуванням</string>
-    <string name="revanced_spoof_video_streams_summary">"Підробка клієнтськіх відеопотоків, щоб запобігти проблем з відтворенням.
+    <string name="revanced_spoof_video_streams_summary">Підробка клієнтськіх відеопотоків, щоб запобігти проблем з відтворенням.
 
 Побічний ефект:
 • Програма може закриватися при використанні VPN або DNS.
-• Звук може періодично перериватись під час відтворення на клієнтах потокової передачі з адаптивним бітрейтом (всі клієнти, крім Android VR 1.43.32)."</string>
+• Звук може періодично перериватись під час відтворення на клієнтах потокової передачі з адаптивним бітрейтом (всі клієнти, крім Android VR 1.43.32).</string>
     <string name="revanced_spoof_video_streams_title">Підробка відеопотоків</string>
     <string name="revanced_watch_history_type_entry_1">Оригінальний</string>
     <string name="revanced_watch_history_type_entry_2">Замінити домен</string>

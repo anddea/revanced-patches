@@ -21,6 +21,10 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="revanced_add_miniplayer_next_button_title">Nút tiếp theo trong trình phát thu nhỏ</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Thêm nút bài hát trước đó vào trình phát thu nhỏ.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Nút trước đó trong trình phát thu nhỏ</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;Tên&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Phiên bản&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Bản vá&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Ngày vá&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_title">Thông tin</string>
+    <string name="revanced_app_info_summary">Nhấn để xem thông tin ứng dụng và bản vá.</string>
+    <string name="revanced_app_info_title">Thông tin ứng dụng</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Bỏ qua miền bị chặn ở một số khu vực để có thể thu được được hình thu nhỏ video của danh sách phát, ảnh đại diện kênh, v. v.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Bỏ qua hạn chế khu vực cho hình ảnh</string>
     <string name="revanced_change_action_bar_position_summary">Di chuyển thanh tương tác xuống bên dưới nút Phát.</string>
@@ -128,6 +132,8 @@ Chi tiết:
 • Các phiên bản YouTube Music mới nhất sử dụng codec OPUS như mặc định.
 • Điều này chỉ áp dụng cho người dùng giả mạo với các phiên bản ứng dụng rất cũ."</string>
     <string name="revanced_enable_opus_codec_title">Codec OPUS</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">Làm cho hiệu ứng mượt hơn khi phóng to trình phát thu nhỏ.</string>
+    <string name="revanced_enable_smooth_transition_animation_title">Hiệu ứng chuyển tiếp</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Vuốt xuống để đóng trình phát thu nhỏ.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Vuốt để đóng trình phát thu nhỏ</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Vuốt xuống để đóng trình phát thu nhỏ.</string>
@@ -262,6 +268,8 @@ Hạn chế: Đôi khi mở thẻ Trang chủ, bạn chỉ thấy một màn hì
     <string name="revanced_hide_handle_title">Ẩn tên người dùng</string>
     <string name="revanced_hide_history_button_summary">Ẩn nút Video đã xem khỏi thanh công cụ.</string>
     <string name="revanced_hide_history_button_title">Ẩn nút Video đã xem</string>
+    <string name="revanced_hide_lyrics_share_button_summary">Ẩn nút Chia sẻ trong lời nhạc.</string>
+    <string name="revanced_hide_lyrics_share_button_title">Ẩn nút Chia sẻ lời bài hát</string>
     <string name="revanced_hide_music_ads_summary">Ẩn quảng cáo xuất hiện trong khi phát nhạc.</string>
     <string name="revanced_hide_music_ads_title">Ẩn quảng cáo</string>
     <string name="revanced_hide_navigation_bar_summary">Ẩn thanh điều hướng.</string>
@@ -490,16 +498,19 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_spoof_app_version_target_summary">Chọn phiên bản YouTube Music mà bạn muốn giả mạo.</string>
     <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo</string>
     <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
-    <string name="revanced_spoof_client_summary">"Giả mạo loại thiết bị để tránh lỗi khi phát.
-
-Nếu bật cài đặt này, bạn có thể tắt 'Giả mạo thông số trình phát'.
-
-Hạn chế:
-• Trình đơn tuỳ chọn trong trình phát có thể không hiển thị đúng cách."</string>
+    <string name="revanced_spoof_client_summary">Giả mạo client để tránh lỗi khi phát.</string>
     <string name="revanced_spoof_client_title">Giả mạo client</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (Chặn truy vấn)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_summary">Chọn loại client để giả mạo.</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Chặn truy vấn)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Chặn truy vấn)</string>
+    <string name="revanced_spoof_client_type_summary">"Hạn chế:
+• Các nút thao tác hoặc trình đơn tuỳ chọn trong trình phát có thể không hiển thị đúng. Trong trường hợp đó, hãy thử xoá dữ liệu ứng dụng và đăng nhập lại.
+
+Hạn chế (Chặn truy vấn):
+• Ứng dụng có thể bị buộc đóng khi đang dùng VPN hoặc DNS."</string>
     <string name="revanced_spoof_client_type_title">Loại client mặc định</string>
     <string name="revanced_spoof_player_parameter_summary">"Giả mạo thông số trình phát để khắc phục sự cố phát.
 
@@ -517,13 +528,11 @@ Hạn chế:
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_video_streams_default_client_summary">Chọn client để giả mạo.</string>
-    <string name="revanced_spoof_video_streams_default_client_title">Client mặc định</string>
-    <string name="revanced_spoof_video_streams_summary">"Giả mạo luồng video của client để tránh lỗi khi phát.
-
-Hạn chế:
+    <string name="revanced_spoof_video_streams_default_client_summary">"Hạn chế:
 • Ứng dụng có thể bị buộc đóng khi dùng VPN hoặc DNS.
 • Âm thanh có thể bị ngắt quãng khi phát trên client dùng truyền phát bit thích ứng (trừ Android VR 1.43.32)."</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Client mặc định</string>
+    <string name="revanced_spoof_video_streams_summary">Giả mạo luồng video của client để tránh lỗi khi phát.</string>
     <string name="revanced_spoof_video_streams_title">Giả mạo luồng video</string>
     <string name="revanced_watch_history_type_entry_1">Gốc</string>
     <string name="revanced_watch_history_type_entry_2">Thay thế miền</string>

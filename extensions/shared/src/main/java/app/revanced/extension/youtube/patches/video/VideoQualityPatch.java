@@ -336,6 +336,13 @@ public class VideoQualityPatch {
 
     /**
      * Injection point.
+     */
+    public static List<FormatStreamModel> removeVideoQualities(List<FormatStreamModel> streams) {
+        return removeVideoQualities(streams, true);
+    }
+
+    /**
+     * Injection point.
      * <p>
      * When streaming data is spoofed as 'TV' or 'MWEB' by the 'Spoof streaming data' patch,
      * both '1080p' and '1080p60' appear in the video quality flyout menu.
@@ -345,7 +352,8 @@ public class VideoQualityPatch {
      * @param streams Format streams available, ordered from largest to smallest.
      * @return Patched format streams.
      */
-    public static List<FormatStreamModel> removeVideoQualities(List<FormatStreamModel> streams) {
+    public static List<FormatStreamModel> removeVideoQualities(List<FormatStreamModel> streams,
+                                                               boolean removeLowerFps) {
         if (streams != null && streams.size() > 2) {
             try {
                 int previousQualityFps = -1;
@@ -362,7 +370,7 @@ public class VideoQualityPatch {
                     // 1080p, 1080p60, 1080p HDR...
                     String qualityName = stream.patch_getQualityName();
                     if (qualityName == null) continue;
-                    if (qualityName.endsWith("Premium")) {
+                    if (qualityName.contains("Premium")) {
                         if (HIDE_PLAYER_FLYOUT_MENU_ENHANCED_BITRATE) {
                             final int itag = stream.patch_getITag();
                             streams.remove(i);
@@ -372,24 +380,27 @@ public class VideoQualityPatch {
                         continue;
                     }
 
-                    // 1 .. 60
-                    final int qualityFps = stream.patch_getFps();
+                    if (removeLowerFps) {
 
-                    // If the resolution of the previous index and the resolution of the current index are the same,
-                    // the resolution with the lower fps is removed.
-                    if (previousQualityResolution == qualityResolution) {
-                        int finalPreviousQualityResolution = previousQualityResolution;
-                        int finalPreviousQualityFps = previousQualityFps;
-                        if (previousQualityFps > qualityFps) {
-                            streams.remove(i);
-                            Logger.printDebug(() -> "Higher fps video quality already exists: " + finalPreviousQualityResolution + " (" + finalPreviousQualityFps + "fps), removes lower fps video quality: " + qualityResolution + " (" + qualityFps + "fps)");
-                        } else if (previousQualityFps < qualityFps) {
-                            streams.remove(i + 1);
-                            Logger.printDebug(() -> "Higher fps video quality already exists: " + qualityResolution + " (" + qualityFps + "fps), removes lower fps video quality: " + finalPreviousQualityResolution + " (" + finalPreviousQualityFps + "fps)");
+                        // 1 .. 60
+                        final int qualityFps = stream.patch_getFps();
+
+                        // If the resolution of the previous index and the resolution of the current index are the same,
+                        // the resolution with the lower fps is removed.
+                        if (previousQualityResolution == qualityResolution) {
+                            int finalPreviousQualityResolution = previousQualityResolution;
+                            int finalPreviousQualityFps = previousQualityFps;
+                            if (previousQualityFps > qualityFps) {
+                                streams.remove(i);
+                                Logger.printDebug(() -> "Higher fps video quality already exists: " + finalPreviousQualityResolution + " (" + finalPreviousQualityFps + "fps), removes lower fps video quality: " + qualityResolution + " (" + qualityFps + "fps)");
+                            } else if (previousQualityFps < qualityFps) {
+                                streams.remove(i + 1);
+                                Logger.printDebug(() -> "Higher fps video quality already exists: " + qualityResolution + " (" + qualityFps + "fps), removes lower fps video quality: " + finalPreviousQualityResolution + " (" + finalPreviousQualityFps + "fps)");
+                            }
+                        } else { // Otherwise, save fps and resolution in fields.
+                            previousQualityFps = qualityFps;
+                            previousQualityResolution = qualityResolution;
                         }
-                    } else { // Otherwise, save fps and resolution in fields.
-                        previousQualityFps = qualityFps;
-                        previousQualityResolution = qualityResolution;
                     }
                 }
             } catch (Exception ex) {

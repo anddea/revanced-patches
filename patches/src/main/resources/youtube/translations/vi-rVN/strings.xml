@@ -132,6 +132,7 @@ Bạn có thể đổi màu nền cho chúng, nhưng nếu phía máy chủ thay
     <string name="revanced_change_start_page_entry_fashion">Thời trang &amp; Làm đẹp</string>
     <string name="revanced_change_start_page_entry_gaming">Trò chơi</string>
     <string name="revanced_change_start_page_entry_history">Video đã xem</string>
+    <string name="revanced_change_start_page_entry_hype">Khuấy động</string>
     <string name="revanced_change_start_page_entry_library">Bạn</string>
     <string name="revanced_change_start_page_entry_liked_videos">Video đã thích</string>
     <string name="revanced_change_start_page_entry_live">Trực tiếp</string>
@@ -311,6 +312,9 @@ Chi tiết: Phát nền Shorts chỉ khả dụng qua chế độ Hình trong h�
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Hiệu ứng kiểu phun nước nút Thích được bật.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Hiệu ứng kiểu phun nước nút Thích đã tắt.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Tắt hiệu ứng phun nước của nút Thích</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">Cửa sổ đăng nhập vào TV đã bật.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">Cửa sổ đăng nhập vào TV đã tắt.</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">Tắt cửa sổ Đăng nhập vào TV</string>
     <string name="revanced_disable_speed_overlay_summary">"Tắt tính năng nhấn và giữ để phát 2x&gt;&gt;.
 
 Lưu ý:
@@ -487,10 +491,20 @@ Hạn chế: Không hoạt động nếu trình phát đang thu nhỏ, trong ch�
     <string name="revanced_external_downloader_package_name_video_long_press_title">Tên gói trình tải xuống video khi nhấn và giữ</string>
     <string name="revanced_external_downloader_package_name_video_summary">Chọn hoặc nhập tên gói ứng dụng trình tải xuống đã được cài đặt trên thiết bị của bạn, chẳng hạn như NewPipe hoặc YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Tên gói trình tải xuống video</string>
+    <string name="revanced_fix_hype_button_icon_summary_off">Biểu tượng nút Khuấy động đã ẩn.</string>
+    <string name="revanced_fix_hype_button_icon_summary_on">Biểu tượng nút Khuấy động đã được hiển thị.</string>
+    <string name="revanced_fix_hype_button_icon_title">Sữa lỗi nút Khuấy động</string>
+    <string name="revanced_fix_hype_button_icon_user_dialog_message">"Trên YouTube 19.25.39 trở xuống, biểu tượng Khuấy động bị ẩn trong bảng nút thao tác và bảng mô tả video.
+
+Để khắc phục, ứng dụng sẽ giả lập phiên bản 19.26.42 ở các endpoint '/get_watch' và '/next'.
+
+Nếu tắt cài đặt này, biểu tượng Khuấy động có thể không hiển thị trong bảng nút thao tác và bảng mô tả video.
+
+※ Ngay cả khi tắt, nút Khuấy động đôi khi vẫn không bị ẩn."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_off">Cài đặt \"Phát\" đã thay thế cho cài đặt \"Tự động phát\".</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"Cài đặt \"Tự động phát\" đã thay thế cho cài đặt \"Phát\"."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_title">Khắc phục hạn chế khi giả mạo phiên bản</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"Khi bạn giả mạo phiên bản xuống 19.30 hoặc thấp hơn, cài đặt \"Phát\" có thể bị lỗi do phụ thuộc vào phản hồi từ máy chủ. Trong trường hợp đó, hãy thử bật cài đặt này để khắc phục.
+    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"Khi bạn giả mạo phiên bản xuống 19.30.xx trở xuống, cài đặt \"Phát\" có thể bị lỗi do phụ thuộc vào phản hồi từ máy chủ. Trong trường hợp đó, hãy thử bật cài đặt này để khắc phục.
 
 Nếu lỗi vẫn còn ngay cả khi bạn thử bật tắt cài đặt này nhiều lần, hãy xoá dữ liệu ứng dụng và thử lại."</string>
     <string name="revanced_fullscreen_ads_closed_toast">Quảng cáo toàn màn hình đã đóng.</string>
@@ -715,9 +729,9 @@ Cài đặt → Tự động phát/Phát → Tự động phát video tiếp the
     <string name="revanced_hide_handle_summary_off">Tên hiển thị được hiển thị.</string>
     <string name="revanced_hide_handle_summary_on">Tên hiển thị đã ẩn.</string>
     <string name="revanced_hide_handle_title">Ẩn tên hiển thị</string>
-    <string name="revanced_hide_hype_button_summary_off">Nút khuấy động được hiển thị</string>
-    <string name="revanced_hide_hype_button_summary_on">Nút khuấy động đã bị ẩn</string>
-    <string name="revanced_hide_hype_button_title">Ẩn Khuấy động</string>
+    <string name="revanced_hide_hype_button_summary_off">Nút Khuấy động được hiển thị.</string>
+    <string name="revanced_hide_hype_button_summary_on">Nút Khuấy động đã ẩn.</string>
+    <string name="revanced_hide_hype_button_title">Ẩn nút Khuấy động</string>
     <string name="revanced_hide_image_search_button_summary_off">Nút tìm kiếm bằng hình ảnh được hiển thị.</string>
     <string name="revanced_hide_image_search_button_summary_on">Nút tìm kiếm bằng hình ảnh đã ẩn.</string>
     <string name="revanced_hide_image_search_button_title">Ẩn nút tìm kiếm bằng hình ảnh</string>
@@ -857,7 +871,7 @@ Bộ lọc có phân biệt chữ hoa chữ thường, vì vậy bạn cần nh�
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Ẩn mục Chế độ môi trường xung quanh</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Trình đơn bản âm thanh đã ẩn.
 
-Để hiện trình đơn bản âm thanh, hãy thay đổi 'Client mặc định (Giả mạo dữ liệu phát video)' sang TV hoặc iOS TV."</string>
+Để hiện trình đơn bản âm thanh, hãy thay đổi 'Client mặc định (Giả mạo dữ liệu phát video)' sang TV, TV Simply hoặc iOS TV."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Mục Bản âm thanh được hiển thị.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Mục Bản âm thanh đã ẩn.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Ẩn mục Bản âm thanh</string>
@@ -979,7 +993,7 @@ Hạn chế: Toàn bộ nút trên lớp phủ có thể bị ẩn sau khi video
     <string name="revanced_hide_related_videos_overlay_title">Ẩn lớp phủ video liên quan</string>
     <string name="revanced_hide_related_videos_summary_off">Các video có liên quan được hiển thị.</string>
     <string name="revanced_hide_related_videos_summary_on">Các video có liên quan đã ẩn.</string>
-    <string name="revanced_hide_related_videos_title">Ẩn các video có liên quan</string>
+    <string name="revanced_hide_related_videos_title">Ẩn video có liên quan</string>
     <string name="revanced_hide_related_videos_user_dialog_message">"Cài đặt này giới hạn số bố cục có thể tải trên màn hình trình phát.
 
 Nếu một số video liên quan không bị ẩn, hoặc các bố cục khác như thanh thao tác hoặc phần bình luận bị ẩn, hãy thử thay đổi độ lệch để khắc phục vấn đề này.
@@ -1131,6 +1145,9 @@ Nếu bố cục màn hình trình phát thay đổi từ phía máy chủ, cũn
     <string name="revanced_hide_shorts_navigation_bar_summary_off">Thanh điều hướng được hiển thị.</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">Thanh điều hướng đã ẩn.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Ẩn thanh điều hướng</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_off">Nút Bài đăng mới đang hiển thị</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_on">Nút Bài đăng mới đã bị ẩn</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">Ẩn nút Bài đăng mới</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">Nhãn nội dung được trả tiền để quảng cáo được hiển thị.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">Nhãn nội dung được trả tiền để quảng cáo đã ẩn.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Ẩn nhãn nội dung được trả tiền để quảng cáo</string>
@@ -1578,7 +1595,7 @@ Nhấn và giữ để mở hộp thoại cài đặt Danh sách trắng.</strin
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer_1">Nút tải xuống danh sách phát (nếu có) sẽ mở trình tải xuống bên ngoài của bạn.</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer_2">"Nút tải xuống danh sách phát (nếu có) sẽ mở trình tải xuống bên ngoài của bạn.
 
-Để hiển thị nút tải xuống danh sách phát, hãy bật \"Giả mạo phiên bản ứng dụng\" và chọn phiên bản 19.28.42 hoặc thấp hơn."</string>
+Để hiển thị nút tải xuống danh sách phát, hãy bật \"Giả mạo phiên bản ứng dụng\" và chọn phiên bản 19.28.42 trở xuống."</string>
     <string name="revanced_override_playlist_download_button_title">Ghi đè nút tải xuống danh sách phát</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_off">Khi tương tác với nút tải xuống video sẽ mở trình tải xuống bên ngoài của bạn.</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_on">Khi tương tác với nút tải xuống video sẽ mở hộp thoại quản lý hàng chờ của bạn.</string>
@@ -1902,7 +1919,15 @@ Hạn chế: Số lượt không thích có thể không hiển thị nếu ngư
     <string name="revanced_sb_new_segment_adjust">Điều chỉnh: Đánh dấu thời gian bắt đầu và kết thúc cho phân đoạn</string>
     <string name="revanced_sb_new_segment_choose_category">Chọn danh mục phân đoạn</string>
     <string name="revanced_sb_new_segment_compare">Xác nhận phân đoạn</string>
-    <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
+    <string name="revanced_sb_new_segment_confirm_content">"Phân đoạn này bắt đầu từ
+
+%1$s
+đến
+%2$s
+
+(%3$s)
+
+Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_sb_new_segment_confirm_contents">Phân đoạn bắt đầu từ\n\n%1$s\nđến\n%2$s\n\n%3$s\n\nSẵn sàng gửi?</string>
     <string name="revanced_sb_new_segment_confirm_title">Thời lượng phân đoạn đã chính xác?</string>
     <string name="revanced_sb_new_segment_disabled_category">Danh mục đã tắt trong cài đặt. Bật danh mục để gửi.</string>
@@ -2033,6 +2058,7 @@ Hạn chế: Số lượt không thích có thể không hiển thị nếu ngư
     <string name="revanced_sb_vote_no_segments">Không có phân đoạn nào để bình chọn.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s đến %2$s</string>
     <string name="revanced_sb_vote_upvote">Tán thành</string>
+    <string name="revanced_settings_search_history_title">Hiện lịch sử tìm kiếm cài đặt</string>
     <string name="revanced_share_copy_settings_success">Đã sao chép cài đặt sang bảng nhớ tạm.</string>
     <string name="revanced_share_copy_timestamp_success">Đã sao chép dấu thời gian vào bảng nhớ tạm. (%s)</string>
     <string name="revanced_share_copy_url_success">Đã sao chép URL sang bảng nhớ tạm.</string>

@@ -24,40 +24,6 @@ internal val brotliInputStreamFingerprint = legacyFingerprint(
     strings = listOf("Brotli decoder initialization failed")
 )
 
-internal val buildInitPlaybackRequestFingerprint = legacyFingerprint(
-    name = "buildInitPlaybackRequestFingerprint",
-    returnType = "Lorg/chromium/net/UrlRequest\$Builder;",
-    opcodes = listOf(
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET_OBJECT, // Moves the request URI string to a register to build the request with.
-    ),
-    strings = listOf(
-        "Content-Type",
-        "Range",
-    ),
-    customFingerprint = { method, _ ->
-        indexOfUriToStringInstruction(method) >= 0
-    },
-)
-
-internal val buildPlayerRequestURIFingerprint = legacyFingerprint(
-    name = "buildPlayerRequestURIFingerprint",
-    returnType = "Ljava/lang/String;",
-    strings = listOf(
-        "key",
-        "asig",
-    ),
-    customFingerprint = { method, _ ->
-        indexOfUriToStringInstruction(method) >= 0
-    },
-)
-
-internal fun indexOfUriToStringInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>().toString() == "Landroid/net/Uri;->toString()Ljava/lang/String;"
-    }
-
 internal val buildMediaDataSourceFingerprint = legacyFingerprint(
     name = "buildMediaDataSourceFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,

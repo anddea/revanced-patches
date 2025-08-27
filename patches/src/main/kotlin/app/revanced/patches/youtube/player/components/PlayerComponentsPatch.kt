@@ -34,6 +34,7 @@ import app.revanced.patches.youtube.utils.resourceid.*
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
+import app.revanced.patches.youtube.video.information.hookBackgroundPlayVideoInformation
 import app.revanced.patches.youtube.video.information.hookVideoInformation
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.*
@@ -274,19 +275,18 @@ private val speedOverlayPatch = bytecodePatch(
 
             // Removed in YouTube 20.03+
             if (!is_20_03_or_greater) {
-                speedOverlayTextValueFingerprint.matchOrThrow().let {
-                    it.method.apply {
-                        val targetIndex = it.patternMatch!!.startIndex
-                        val targetRegister =
-                            getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                speedOverlayTextValueFingerprint.methodOrThrow().apply {
+                    val targetIndex =
+                        indexOfFirstInstructionOrThrow(Opcode.CONST_WIDE_HIGH16)
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                        addInstructions(
-                            targetIndex + 1, """
-                                invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayValue()D
-                                move-result-wide v$targetRegister
-                                """
-                        )
-                    }
+                    addInstructions(
+                        targetIndex + 1, """
+                            invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayValue()D
+                            move-result-wide v$targetRegister
+                            """
+                    )
                 }
             }
 
@@ -693,6 +693,7 @@ val playerComponentsPatch = bytecodePatch(
             }
         }
 
+        hookBackgroundPlayVideoInformation("$RELATED_VIDEO_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
         hookDismissObserver("$RELATED_VIDEO_CLASS_DESCRIPTOR->onDismiss(I)V")
 
         // endregion

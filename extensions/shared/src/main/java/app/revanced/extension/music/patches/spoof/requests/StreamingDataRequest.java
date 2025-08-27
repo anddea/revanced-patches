@@ -41,17 +41,23 @@ import app.revanced.extension.shared.utils.Utils;
  */
 public class StreamingDataRequest {
 
+    private static final ClientType[] AVAILABLE_CLIENT_TYPES = {
+            ClientType.ANDROID_VR_1_43_32,
+            ClientType.ANDROID_VR_1_65_09,
+            ClientType.IOS_MUSIC_6_21,
+            ClientType.IOS_MUSIC_7_04,
+            ClientType.IOS_MUSIC_8_12,
+    };
     private static final ClientType[] CLIENT_ORDER_TO_USE;
 
     static {
-        ClientType[] allClientTypes = ClientType.values();
         ClientType preferredClient = Settings.SPOOF_VIDEO_STREAMS_DEFAULT_CLIENT.get();
 
-        CLIENT_ORDER_TO_USE = new ClientType[allClientTypes.length];
+        CLIENT_ORDER_TO_USE = new ClientType[AVAILABLE_CLIENT_TYPES.length];
         CLIENT_ORDER_TO_USE[0] = preferredClient;
 
         int i = 1;
-        for (ClientType c : allClientTypes) {
+        for (ClientType c : AVAILABLE_CLIENT_TYPES) {
             if (c != preferredClient) {
                 CLIENT_ORDER_TO_USE[i++] = c;
             }
