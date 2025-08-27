@@ -6,7 +6,7 @@ public class PatchStatus {
     public static final String SPOOF_APP_VERSION_TARGET_DEFAULT_VALUE = "19.01.34";
 
     public static boolean ImageSearchButton() {
-        // Replace this with true if the Hide image search buttons patch succeeds
+        // Replace this with true if the 'Hide image search buttons' patch succeeds
         return false;
     }
 
@@ -16,22 +16,22 @@ public class PatchStatus {
     }
 
     public static boolean OldSplashAnimation() {
-        // Replace this with true if the Restore old splash animation (Custom branding icon) succeeds
+        // Replace this with true if the 'Restore old splash animation (Custom branding icon)' succeeds
         return false;
     }
 
     public static boolean PlayerButtons() {
-        // Replace this with true if the Hide player buttons patch succeeds
+        // Replace this with true if the 'Hide player buttons' patch succeeds
         return false;
     }
 
     public static boolean PlayerFlyoutMenu() {
-        // Replace this with true if the Hide player flyout menu patch succeeds
+        // Replace this with true if the 'Hide player flyout menu' patch succeeds
         return false;
     }
 
     public static boolean QuickActions() {
-        // Replace this with true if the Fullscreen components patch succeeds
+        // Replace this with true if the 'Fullscreen components' patch succeeds
         return false;
     }
 
@@ -42,22 +42,22 @@ public class PatchStatus {
     }
 
     public static boolean SponsorBlock() {
-        // Replace this with true if the SponsorBlock patch succeeds
+        // Replace this with true if the 'SponsorBlock' patch succeeds
         return false;
     }
 
     public static boolean ToolBarComponents() {
-        // Replace this with true if the Toolbar components patch succeeds
+        // Replace this with true if the 'Toolbar components' patch succeeds
         return false;
     }
 
     public static boolean VideoPlayback() {
-        // Replace this with true if the Video playback patch succeeds
+        // Replace this with true if the 'Video playback' patch succeeds
         return false;
     }
 
     public static boolean SpoofAppVersion() {
-        // Replace this with true if the Spoof app version patch succeeds
+        // Replace this with true if the 'Spoof app version' patch succeeds
         return false;
     }
 

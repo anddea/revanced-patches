@@ -15,6 +15,10 @@
     <string name="revanced_add_miniplayer_next_button_title">「次の曲に進むボタン」を表示</string>
     <string name="revanced_add_miniplayer_previous_button_summary">ミニプレイヤーに「前の曲に戻るボタン」を表示します。</string>
     <string name="revanced_add_miniplayer_previous_button_title">「前の曲に戻るボタン」を表示</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;アプリ名&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;アプリのバージョン&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced パッチ&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;パッチの適用日&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_title">アプリ情報</string>
+    <string name="revanced_app_info_summary">タップしてアプリ名、アプリのバージョン、パッチのバージョン、およびパッチの適用日を確認できます。</string>
+    <string name="revanced_app_info_title">アプリ情報</string>
     <string name="revanced_bypass_image_region_restrictions_summary">プレイリストのサムネイルやチャンネルアバターなどを受信できるように、一部の地域でブロックされているドメインを置き換えます。</string>
     <string name="revanced_bypass_image_region_restrictions_title">画像表示の地域制限を回避</string>
     <string name="revanced_change_action_bar_position_summary">アクションバーを再生ボタンの下に移動します。</string>
@@ -118,6 +122,8 @@
     <string name="revanced_enable_mini_player_previous_button_title">「前の曲に戻るボタン」を表示</string>
     <string name="revanced_enable_opus_codec_summary">"MP4A コーデックの代わりに、Opus コーデックを適用します。"</string>
     <string name="revanced_enable_opus_codec_title">Opus コーデックを有効化</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">ミニプレイヤーを最大化したときのスムーズなアニメーションを有効にします。</string>
+    <string name="revanced_enable_smooth_transition_animation_title">スムーズな遷移アニメーションを有効化</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">下にスワイプしてミニプレーヤーを閉じられるようにします。</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">スワイプしてミニプレーヤーを閉じる</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">下にスワイプしてミニプレーヤーを閉じられるようにします。</string>
@@ -253,6 +259,8 @@
     <string name="revanced_hide_handle_title">ハンドルを非表示</string>
     <string name="revanced_hide_history_button_summary">ツールバーの履歴ボタンを非表示にします。</string>
     <string name="revanced_hide_history_button_title">履歴ボタンを非表示</string>
+    <string name="revanced_hide_lyrics_share_button_summary">歌詞の共有ボタンを非表示にします。</string>
+    <string name="revanced_hide_lyrics_share_button_title">歌詞共有ボタンを非表示</string>
     <string name="revanced_hide_music_ads_summary">トラックを再生する前の広告を非表示にします。</string>
     <string name="revanced_hide_music_ads_title">音楽の広告を非表示</string>
     <string name="revanced_hide_navigation_bar_summary">ナビゲーションバーを非表示にします。</string>
@@ -480,11 +488,15 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_spoof_app_version_target_summary">偽装するバージョンを選択してください。</string>
     <string name="revanced_spoof_app_version_target_title">偽装するバージョン</string>
     <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装</string>
-    <string name="revanced_spoof_client_summary">"再生の問題を防ぐためにクライアントを偽装します。"</string>
+    <string name="revanced_spoof_client_summary">再生の問題を防ぐためにクライアントを偽装します。</string>
     <string name="revanced_spoof_client_title">クライアントを偽装</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (ブロックリクエスト)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_summary">偽装するデフォルトのクライアントを定義します。</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (ブロックリクエスト)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (ブロックリクエスト)</string>
+    <string name="revanced_spoof_client_type_summary">"偽装するデフォルトのクライアントを定義します。"</string>
     <string name="revanced_spoof_client_type_title">既定のクライアント</string>
     <string name="revanced_spoof_player_parameter_summary">"再生の問題を防ぐためにプレイヤーパラメーターを偽装します。
 
@@ -502,13 +514,13 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_video_streams_default_client_summary">偽装するデフォルトのクライアントを定義します。</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">"偽装するデフォルトのクライアントを定義します。"</string>
     <string name="revanced_spoof_video_streams_default_client_title">デフォルトのクライアント</string>
-    <string name="revanced_spoof_video_streams_summary">"クライアントのビデオストリームを偽装して再生の問題を防ぎます。
+    <string name="revanced_spoof_video_streams_summary">クライアントのビデオストリームを偽装して再生の問題を防ぎます。
 
 副作用:
 ・VPNまたは DNSを使用している場合アプリが強制終了する可能性があります。
-・アダプティブビットレートストリーミングのクライアント（Android VR 1.43.32以外のすべて）では再生中に音声が断続的に途切れることがあります。"</string>
+・アダプティブビットレートストリーミングのクライアント（Android VR 1.43.32以外のすべて）では再生中に音声が断続的に途切れることがあります。</string>
     <string name="revanced_spoof_video_streams_title">ビデオストリームを偽装します</string>
     <string name="revanced_watch_history_type_entry_1">オリジナル</string>
     <string name="revanced_watch_history_type_entry_2">ドメインを置換</string>

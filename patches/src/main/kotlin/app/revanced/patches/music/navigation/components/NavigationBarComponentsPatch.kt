@@ -26,7 +26,7 @@ import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.util.Utils.printInfo
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
@@ -229,7 +229,7 @@ val navigationBarComponentsPatch = bytecodePatch(
                 "false"
             )
         } else {
-            printInfo("\"Replace Samples button\" is not supported in this version. Use YouTube Music 6.29.59 - 8.28.54.")
+            printWarn("\"Replace Samples button\" is not supported in this version. Use YouTube Music 6.29.59 - 8.28.54.")
         }
         addSwitchPreference(
             CategoryType.NAVIGATION,

@@ -812,7 +812,7 @@ val playerComponentsPatch = bytecodePatch(
             addSwitchPreference(
                 CategoryType.PLAYER,
                 "revanced_enable_thick_seekbar",
-                "true"
+                "false"
             )
         }
 

@@ -21,7 +21,7 @@
     <string name="revanced_add_miniplayer_previous_button_title">미니 플레이어 이전 재생 버튼 추가</string>
     <string name="revanced_app_info_dialog_message">&lt;b&gt;앱 이름&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;앱 버전&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;패치된 날짜&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
     <string name="revanced_app_info_dialog_title">앱 정보</string>
-    <string name="revanced_app_info_summary">탭하여 앱 이름, 앱 버전, 패치 버전 및 패치된 날짜를 확인할 수 있습니다.</string>
+    <string name="revanced_app_info_summary">앱 이름, 앱 버전, 패치 버전 및 패치된 날짜를 확인하려면 여기를 탭하세요.</string>
     <string name="revanced_app_info_title">앱 정보</string>
     <string name="revanced_bypass_image_region_restrictions_summary">이미지 도메인을 변경하여 일부 국가에서 차단된 재생목록 썸네일, 채널 프로필 사진, 커뮤니티 게시물 이미지 등을 수신할 수 있습니다.</string>
     <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 국가 우회</string>
@@ -126,13 +126,13 @@
     <string name="revanced_enable_mini_player_next_button_title">미니 플레이어에서 다음 버튼 활성화</string>
     <string name="revanced_enable_mini_player_previous_button_summary">미니 플레이어에서 이전 버튼을 활성화합니다.</string>
     <string name="revanced_enable_mini_player_previous_button_title">미니 플레이어에서 이전 버튼 활성화</string>
-    <string name="revanced_enable_opus_codec_summary">"플레이어 응답에 OPUS 코덱이 포함된 경우에는 OPUS 코덱을 활성화합니다.
+    <string name="revanced_enable_opus_codec_summary">"플레이어 응답에 OPUS 코덱이 포함된 경우에 OPUS 코덱을 활성화합니다.
 
 알림:
 • 최신 YT Music 클라이언트는 기본적으로 OPUS 코덱을 사용합니다.
-• 이 설정은 아주 오래된 클라이언트 사용자에게만 유효합니다."</string>
+• 클라이언트 또는 동영상 스트림이 변경된 경우에는 이 옵션이 필요할 수 있습니다."</string>
     <string name="revanced_enable_opus_codec_title">OPUS 코덱 활성화</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">미니 플레이어를 최소화 상태에서 최대화할 경우에 부드러운 애니메이션을 활성화합니다.</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">미니 플레이어를 최소화 상태에서 최대화할 때, 부드러운 애니메이션을 활성화합니다.</string>
     <string name="revanced_enable_smooth_transition_animation_title">부드러운 전환 애니메이션 활성화</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">아래로 스와이프하여 미니 플레이어 닫기를 활성화합니다.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">스와이프하여 미니 플레이어 닫기 활성화</string>
@@ -270,7 +270,7 @@
     <string name="revanced_hide_handle_title">핸들(@사용자 아이디) 제거</string>
     <string name="revanced_hide_history_button_summary">툴바에서 최근 감상 기록 버튼을 숨깁니다.</string>
     <string name="revanced_hide_history_button_title">최근 감상 기록 버튼 제거</string>
-    <string name="revanced_hide_lyrics_share_button_summary">가사에서 공유 버튼을 숨깁니다.</string>
+    <string name="revanced_hide_lyrics_share_button_summary">가사 섹션에서 공유 버튼을 숨깁니다.</string>
     <string name="revanced_hide_lyrics_share_button_title">가사 공유 버튼 제거</string>
     <string name="revanced_hide_music_ads_summary">미디어를 재생하는 동안에 광고를 숨깁니다.</string>
     <string name="revanced_hide_music_ads_title">미디어 광고 제거</string>
@@ -499,17 +499,20 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 선택하세요.</string>
     <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
     <string name="revanced_spoof_app_version_title">앱 버전 변경</string>
-    <string name="revanced_spoof_client_summary">"클라이언트를 변경하여 재생 문제를 방지할 수 있습니다.
-
-부작용:
-• YouTube Music 7.17+에서는 동작 버튼이 항상 숨겨져 있을 수 있습니다.
-• 플레이어 메뉴 구성요소가 제대로 표시되지 않을 수 있습니다.
-• 이러한 부작용은 앱 데이터를 지우고 다시 로그인하면 해결될 수 있습니다."</string>
+    <string name="revanced_spoof_client_summary">클라이언트를 변경하여 재생 문제를 방지할 수 있습니다.</string>
     <string name="revanced_spoof_client_title">클라이언트 변경</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (요청 차단)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (요청 차단)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_client_type_summary">클라이언트를 변경하기 위한 기본 클라이언트를 정의할 수 있습니다.</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (요청 차단)</string>
+    <string name="revanced_spoof_client_type_summary">"부작용:
+• 동작 버튼 또는 플레이어 메뉴 구성요소가 제대로 표시되지 않을 수 있습니다.
+• 이러한 부작용은 앱 데이터를 지우고 다시 로그인하면 해결될 수 있습니다.
+
+부작용 (요청 차단):
+• VPN 또는 DNS를 사용할 경우에 앱이 강제로 종료될 수 있습니다."</string>
     <string name="revanced_spoof_client_type_title">기본 클라이언트</string>
     <string name="revanced_spoof_player_parameter_summary">"플레이어 매개변수를 변경하여 재생 문제를 방지할 수 있습니다.
 
@@ -528,13 +531,11 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_video_streams_default_client_summary">동영상 스트림을 변경하기 위한 기본 클라이언트를 정의할 수 있습니다.</string>
-    <string name="revanced_spoof_video_streams_default_client_title">기본 클라이언트</string>
-    <string name="revanced_spoof_video_streams_summary">"클라이언트 동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다.
-
-부작용:
+    <string name="revanced_spoof_video_streams_default_client_summary">"부작용:
 • VPN 또는 DNS를 사용할 경우에 앱이 강제로 종료될 수 있습니다.
 • 적응형 비트레이트 스트리밍 클라이언트 (Android VR 1.43.32 이외의 모든 클라이언트)를 사용하는 경우에 오디오 재생이 간헐적으로 끊길 수 있습니다."</string>
+    <string name="revanced_spoof_video_streams_default_client_title">기본 클라이언트</string>
+    <string name="revanced_spoof_video_streams_summary">클라이언트 동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다.</string>
     <string name="revanced_spoof_video_streams_title">동영상 스트림 변경</string>
     <string name="revanced_watch_history_type_entry_1">원본</string>
     <string name="revanced_watch_history_type_entry_2">도메인 변경</string>

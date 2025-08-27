@@ -14,6 +14,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
 import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
+import app.revanced.patches.shared.spoof.blockrequest.baseBlockRequestPatch
 import app.revanced.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
 import app.revanced.patches.youtube.utils.audiotracks.audioTracksHookPatch
 import app.revanced.patches.youtube.utils.audiotracks.hookAudioTrackId
@@ -111,6 +112,7 @@ val spoofStreamingDataPatch = bytecodePatch(
         spoofStreamingDataRawResourcePatch,
         settingsPatch,
         baseSpoofUserAgentPatch(YOUTUBE_PACKAGE_NAME),
+        baseBlockRequestPatch(EXTENSION_CLASS_DESCRIPTOR),
         buildRequestPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
@@ -130,47 +132,23 @@ val spoofStreamingDataPatch = bytecodePatch(
         required = true
     )
 
+    val useMobileWebClient by booleanOption(
+        key = "useMobileWebClient",
+        default = false,
+        title = "Use Mobile Web client",
+        description = "Add Mobile Web to available clients.",
+        required = true
+    )
+
     execute {
+
+        var patchStatusArray = arrayOf(
+            "SpoofStreamingData"
+        )
 
         // region Get replacement streams at player requests.
 
         hookBuildRequest("$EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V")
-
-        // endregion
-
-        // region Block /initplayback requests to fall back to /get_watch requests.
-
-        buildInitPlaybackRequestFingerprint.methodOrThrow().apply {
-            val uriIndex = indexOfUriToStringInstruction(this)
-            val uriRegister =
-                getInstruction<FiveRegisterInstruction>(uriIndex).registerC
-
-            addInstructions(
-                uriIndex,
-                """
-                    invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Landroid/net/Uri;)Landroid/net/Uri;
-                    move-result-object v$uriRegister
-                    """,
-            )
-        }
-
-        // endregion
-
-        // region Block /get_watch requests to fall back to /player requests.
-
-        buildPlayerRequestURIFingerprint.methodOrThrow().apply {
-            val invokeToStringIndex = indexOfUriToStringInstruction(this)
-            val uriRegister =
-                getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
-
-            addInstructions(
-                invokeToStringIndex,
-                """
-                    invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
-                    move-result-object v$uriRegister
-                    """,
-            )
-        }
 
         // endregion
 
@@ -617,9 +595,15 @@ val spoofStreamingDataPatch = bytecodePatch(
 
         // endregion
 
-        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
-            name == "SpoofStreamingData"
-        }.returnEarly(true)
+        if (useMobileWebClient == true) {
+            patchStatusArray += "SpoofStreamingDataMobileWeb"
+        }
+
+        patchStatusArray.forEach { methodName ->
+            findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
+                name == methodName
+            }.returnEarly(true)
+        }
 
         addPreference(
             arrayOf(

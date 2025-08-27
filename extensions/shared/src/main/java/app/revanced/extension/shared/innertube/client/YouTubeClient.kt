@@ -214,9 +214,9 @@ object YouTubeClient {
      * Note: Both 'Authorization' and 'Set-Cookie' are supported.
      * TODO: Find out why playback sometimes fails.
      */
-    private const val CLIENT_VERSION_TVHTML5 = "7.20250819.10.00"
+    private const val CLIENT_VERSION_TVHTML5 = "7.20250714.16.00"
     private const val USER_AGENT_TVHTML5 =
-        "Mozilla/5.0 (PLAYSTATION 3 4.10) AppleWebKit/531.22.8 (KHTML, like Gecko)"
+        "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)"
 
 
     // TVHTML5 SIMPLY
@@ -226,8 +226,7 @@ object YouTubeClient {
      * TODO: Find out why playback sometimes fails.
      */
     private const val CLIENT_VERSION_TVHTML5_SIMPLY = "1.0"
-    private const val USER_AGENT_TVHTML5_SIMPLY =
-        "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)"
+    private const val USER_AGENT_TVHTML5_SIMPLY = USER_AGENT_TVHTML5
 
 
     // TVHTML5 EMBEDDED
@@ -428,6 +427,7 @@ object YouTubeClient {
             userAgent = USER_AGENT_ANDROID_UNPLUGGED,
             androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_UNPLUGGED,
             clientVersion = CLIENT_VERSION_ANDROID_UNPLUGGED,
+            clientPlatform = CLIENT_PLATFORM_TV,
             requireAuth = true,
             clientName = "ANDROID_UNPLUGGED",
             friendlyName = "Android TV"
@@ -442,6 +442,7 @@ object YouTubeClient {
             userAgent = USER_AGENT_ANDROID_CREATOR,
             androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_CREATOR,
             clientVersion = CLIENT_VERSION_ANDROID_CREATOR,
+            clientPlatform = CLIENT_PLATFORM_TABLET,
             requireAuth = true,
             clientName = "ANDROID_CREATOR",
             friendlyName = "Android Studio"
@@ -504,7 +505,7 @@ object YouTubeClient {
         TV_SIMPLY(
             id = 75,
             clientVersion = CLIENT_VERSION_TVHTML5_SIMPLY,
-            clientPlatform = CLIENT_PLATFORM_TV,
+            clientPlatform = CLIENT_PLATFORM_GAME_CONSOLE,
             userAgent = USER_AGENT_TVHTML5_SIMPLY,
             requireJS = true,
             clientName = "TVHTML5_SIMPLY",

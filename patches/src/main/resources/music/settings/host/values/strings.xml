@@ -130,7 +130,7 @@ Limitations:
 
 Info:
 • Latest YouTube Music clients use the OPUS audio codec by default.
-• This is only valid for users spoofing with very old clients."</string>
+• This may be necessary if the client or video stream is spoofed."</string>
     <string name="revanced_enable_opus_codec_title">Enable OPUS codec</string>
     <string name="revanced_enable_smooth_transition_animation_summary">Enables smooth animation when miniplayer is maximized from minimized state.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Enable smooth transition animation</string>
@@ -499,17 +499,20 @@ Click to see how to issue an API key."</string>
     <string name="revanced_spoof_app_version_target_summary">Select the spoof app version target.</string>
     <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
     <string name="revanced_spoof_app_version_title">Spoof app version</string>
-    <string name="revanced_spoof_client_summary">"Spoof the client to prevent playback issues.
-
-Side effect:
-• Action buttons may always be hidden in YouTube Music 7.17+.
-• Player flyout menu may not show properly.
-• These side effects may be resolved by clearing the app data and logging in again."</string>
+    <string name="revanced_spoof_client_summary">Spoof the client to prevent playback issues.</string>
     <string name="revanced_spoof_client_title">Spoof client</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (Block request)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Block request)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_client_type_summary">Defines a default client for spoofing.</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Block request)</string>
+    <string name="revanced_spoof_client_type_summary">"Side effect:
+• Action buttons or player flyout menus may not show properly.
+• These side effects may be resolved by clearing the app data and logging in again.
+
+Side effect (Block request):
+• App may be forced to close when using a VPN or DNS."</string>
     <string name="revanced_spoof_client_type_title">Default client</string>
     <string name="revanced_spoof_player_parameter_summary">"Spoof the player parameter to prevent playback issues.
 
@@ -529,13 +532,11 @@ Side effect:
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_video_streams_default_client_summary">Defines a default client for spoofing.</string>
-    <string name="revanced_spoof_video_streams_default_client_title">Default client</string>
-    <string name="revanced_spoof_video_streams_summary">"Spoof the client video streams to prevent playback issues.
-
-Side effect:
+    <string name="revanced_spoof_video_streams_default_client_summary">"Side effect:
 • App may be forced to close when using a VPN or DNS.
 • Audio may intermittently stutter during playback on adaptive bitrate streaming clients (All clients other than Android VR 1.43.32)."</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Default client</string>
+    <string name="revanced_spoof_video_streams_summary">Spoof the client video streams to prevent playback issues.</string>
     <string name="revanced_spoof_video_streams_title">Spoof video streams</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
     <string name="revanced_watch_history_type_entry_2">Replace domain</string>

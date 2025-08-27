@@ -505,7 +505,7 @@ DeArrow について詳しく知るには、ここをタップしてください
 
 この設定をオフにすると、動画アクションバーと概要欄パネルに [ハイプ] アイコンが表示されない可能性があります。
 
-注意: 本設定をオフにしても [ハイプ] ボタンが非表示にならない可能性があります。"</string>
+注意: この設定をオフにしても [ハイプ] ボタンが非表示にならない可能性があります。"</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_off">[アプリのバージョンを偽装] を使用すると生じる副作用を修正するために、[再生] 設定の代わりに [自動再生] 設定を使用します。</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"[アプリのバージョンを偽装] を使用すると生じる副作用を修正するために、[再生] 設定の代わりに [自動再生] 設定を使用します。"</string>
     <string name="revanced_fix_spoof_app_version_side_effect_title">[アプリのバージョンを偽装] の副作用を修正</string>
@@ -1182,6 +1182,9 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_shorts_navigation_bar_summary_off">ナビゲーションバー ([ホーム]、[登録チャンネル] などのボタン) を非表示にします。</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">ナビゲーションバー ([ホーム]、[登録チャンネル] などのボタン) を非表示にします。</string>
     <string name="revanced_hide_shorts_navigation_bar_title">ナビゲーションバーを非表示</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_off">「新しい投稿」ボタンは表示されます</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_on">「新しい投稿」ボタンは表示されません</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">「新しい投稿」ボタンを非表示</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">プレーヤー左上の「プロモーションを含みます」を非表示にします。</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">プレーヤー左上の「プロモーションを含みます」を非表示にします。</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">有料プロモーションラベルを非表示</string>
@@ -1965,7 +1968,15 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_new_segment_adjust">調整: セグメントの開始時刻と終了時刻をマーク</string>
     <string name="revanced_sb_new_segment_choose_category">セグメントのカテゴリを選択してください</string>
     <string name="revanced_sb_new_segment_compare">セグメントを確認</string>
-    <string name="revanced_sb_new_segment_confirm_content">このセグメントは%1$02d:%2$02dから%3$02d:%4$02dまでです。(%5$d 分 %6$02d秒)\n送信してよろしいですか？</string>
+    <string name="revanced_sb_new_segment_confirm_content">"セグメントの範囲:
+
+%1$s
+から
+%2$s
+
+(%3$s)
+
+送信しますか？"</string>
     <string name="revanced_sb_new_segment_confirm_contents">セグメントは\n\n%1$s\nから\n%2$s\n\n(%3$s)です。\n\n送信してもよろしいですか？</string>
     <string name="revanced_sb_new_segment_confirm_title">時間は正しいですか？</string>
     <string name="revanced_sb_new_segment_disabled_category">カテゴリーは設定で無効になっています。送信するにはカテゴリーを有効にしてください。</string>
@@ -2098,6 +2109,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_vote_upvote">賛成</string>
     <string name="revanced_search_clear_confirm_title">検索履歴をクリア</string>
     <string name="revanced_search_clear_history_title">履歴をクリア</string>
+    <string name="revanced_settings_search_history_title">設定の検索履歴を表示</string>
     <string name="revanced_share_copy_settings_success">設定をクリップボードにコピーしました。</string>
     <string name="revanced_share_copy_timestamp_success">タイムスタンプをクリップボードにコピーしました。(%s)</string>
     <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました。</string>

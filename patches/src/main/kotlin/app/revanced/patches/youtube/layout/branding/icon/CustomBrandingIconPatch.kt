@@ -140,9 +140,15 @@ val customBrandingIconPatch = resourcePatch(
 
     val restoreOldSplashAnimationOption by booleanOption(
         key = "restoreOldSplashAnimation",
-        default = true,
+        default = false,
         title = "Restore old splash animation",
-        description = "Restore the old style splash animation.",
+        description = """
+            Restore the old style splash animation.
+            
+            This patch option is only supported on Android 12+, as splash animation was added to Android 12.
+
+            Including this patch option on Android 8.0 - 11 may cause your app to crash.
+            """.trimIndentMultiline(),
         required = true,
     )
 
@@ -215,72 +221,86 @@ val customBrandingIconPatch = resourcePatch(
 
             // Change splash screen.
             if (restoreOldSplashAnimationOption == true) {
-                restoreOldSplashAnimationIncluded = true
-
-                oldSplashAnimationResourceGroups.let { resourceGroups ->
-                    resourceGroups.forEach {
-                        copyResources("$appIconResourcePath/splash", it)
-                    }
+                val isSDKAbove31 = try {
+                    // This only works on Android,
+                    // because it uses Android APIs.
+                    val buildVersion = Class.forName("android.os.Build\$VERSION")
+                    val sdkField = buildVersion.getDeclaredField("SDK")
+                    val sdkVersion = Integer.parseInt(sdkField.get(sdkField).toString())
+                    sdkVersion >= 31
+                } catch (_: ClassNotFoundException) {
+                    // If fetching the SDK version fails, true is always used.
+                    true
                 }
 
-                val avdAnimPath = get("res").resolve("drawable").resolve("avd_anim.xml")
-                if (avdAnimPath.exists()) {
-                    val styleList = mutableListOf(
-                        Pair(
-                            "Base.Theme.YouTube.Launcher",
-                            "@style/Theme.AppCompat.DayNight.NoActionBar"
-                        ),
-                    )
+                if (isSDKAbove31) {
+                    restoreOldSplashAnimationIncluded = true
 
-                    if (is_19_32_or_greater) {
-                        styleList += listOf(
-                            Pair(
-                                "Theme.YouTube.Home",
-                                "@style/Base.V27.Theme.YouTube.Home"
-                            ),
-                        )
-                    }
-
-                    styleList.forEach { (nodeAttributeName, nodeAttributeParent) ->
-                        document("res/values-v31/styles.xml").use { document ->
-                            val resourcesNode =
-                                document.getElementsByTagName("resources").item(0) as Element
-
-                            val style = document.createElement("style")
-                            style.setAttribute("name", nodeAttributeName)
-                            style.setAttribute("parent", nodeAttributeParent)
-
-                            val splashScreenAnimatedIcon = document.createElement("item")
-                            splashScreenAnimatedIcon.setAttribute(
-                                "name",
-                                "android:windowSplashScreenAnimatedIcon"
-                            )
-                            splashScreenAnimatedIcon.textContent = "@drawable/avd_anim"
-
-                            // Deprecated in Android 13+
-                            val splashScreenAnimationDuration = document.createElement("item")
-                            splashScreenAnimationDuration.setAttribute(
-                                "name",
-                                "android:windowSplashScreenAnimationDuration"
-                            )
-                            splashScreenAnimationDuration.textContent =
-                                if (appIcon.startsWith("revancify"))
-                                    "1500"
-                                else
-                                    "1000"
-
-                            style.appendChild(splashScreenAnimatedIcon)
-                            style.appendChild(splashScreenAnimationDuration)
-
-                            resourcesNode.appendChild(style)
+                    oldSplashAnimationResourceGroups.let { resourceGroups ->
+                        resourceGroups.forEach {
+                            copyResources("$appIconResourcePath/splash", it)
                         }
                     }
-                } else {
-                    printWarn("Splash animation is not available for \"$appIcon\".")
-                }
 
-                getBytecodeContext().apply {
-                    updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "OldSplashAnimation")
+                    val avdAnimPath = get("res").resolve("drawable").resolve("avd_anim.xml")
+                    if (avdAnimPath.exists()) {
+                        val styleList = mutableListOf(
+                            Pair(
+                                "Base.Theme.YouTube.Launcher",
+                                "@style/Theme.AppCompat.DayNight.NoActionBar"
+                            ),
+                        )
+
+                        if (is_19_32_or_greater) {
+                            styleList += listOf(
+                                Pair(
+                                    "Theme.YouTube.Home",
+                                    "@style/Base.V27.Theme.YouTube.Home"
+                                ),
+                            )
+                        }
+
+                        styleList.forEach { (nodeAttributeName, nodeAttributeParent) ->
+                            document("res/values-v31/styles.xml").use { document ->
+                                val resourcesNode =
+                                    document.getElementsByTagName("resources").item(0) as Element
+
+                                val style = document.createElement("style")
+                                style.setAttribute("name", nodeAttributeName)
+                                style.setAttribute("parent", nodeAttributeParent)
+
+                                val splashScreenAnimatedIcon = document.createElement("item")
+                                splashScreenAnimatedIcon.setAttribute(
+                                    "name",
+                                    "android:windowSplashScreenAnimatedIcon"
+                                )
+                                splashScreenAnimatedIcon.textContent = "@drawable/avd_anim"
+
+                                // Deprecated in Android 13+
+                                val splashScreenAnimationDuration = document.createElement("item")
+                                splashScreenAnimationDuration.setAttribute(
+                                    "name",
+                                    "android:windowSplashScreenAnimationDuration"
+                                )
+                                splashScreenAnimationDuration.textContent =
+                                    if (appIcon.startsWith("revancify"))
+                                        "1500"
+                                    else
+                                        "1000"
+
+                                style.appendChild(splashScreenAnimatedIcon)
+                                style.appendChild(splashScreenAnimationDuration)
+
+                                resourcesNode.appendChild(style)
+                            }
+                        }
+                    } else {
+                        printWarn("Splash animation is not available for \"$appIcon\".")
+                    }
+
+                    getBytecodeContext().apply {
+                        updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "OldSplashAnimation")
+                    }
                 }
             }
 

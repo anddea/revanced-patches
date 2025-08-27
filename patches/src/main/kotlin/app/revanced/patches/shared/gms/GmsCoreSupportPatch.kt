@@ -25,6 +25,7 @@ import app.revanced.patches.shared.gms.Constants.AUTHORITIES_LEGACY
 import app.revanced.patches.shared.gms.Constants.PERMISSIONS
 import app.revanced.patches.shared.gms.Constants.PERMISSIONS_LEGACY
 import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrNull
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -385,6 +386,10 @@ fun gmsCoreSupportPatch(
         gmsCoreSupportFingerprint.mutableClassOrThrow().methods
             .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
+
+        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
+            name == "GmsCoreSupport"
+        }.returnEarly(true)
 
         executeBlock()
     }

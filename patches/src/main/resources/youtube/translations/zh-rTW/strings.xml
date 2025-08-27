@@ -1169,9 +1169,9 @@
     <string name="revanced_hide_shorts_navigation_bar_summary_off">導航欄已顯示</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">導航欄已隱藏</string>
     <string name="revanced_hide_shorts_navigation_bar_title">隱藏導航欄</string>
-    <string name="revanced_hide_shorts_new_posts_button_summary_off">新貼文按鈕已顯示。</string>
-    <string name="revanced_hide_shorts_new_posts_button_summary_on">新貼文按鈕已隱藏。</string>
-    <string name="revanced_hide_shorts_new_posts_button_title">隱藏新貼文按鈕</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_off">「新貼文」按鈕已顯示</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_on">「新貼文」按鈕已隱藏</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">隱藏「新貼文」按鈕</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">付費推廣橫幅標簽已顯示</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">付費促銷標籤被隱藏</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">隱藏付費促銷標籤</string>
@@ -1960,7 +1960,16 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_new_segment_adjust">調整：標記片段的開始和結束時間</string>
     <string name="revanced_sb_new_segment_choose_category">選擇片段類別</string>
     <string name="revanced_sb_new_segment_compare">預覽片段</string>
-    <string name="revanced_sb_new_segment_confirm_content">該片段從 %1$02d:%2$02d 到 %3$02d:%4$02d（共 %5$d 分 %6$02d 秒）\n是否確定要提交？</string>
+    <string name="revanced_sb_new_segment_confirm_content">"片段選取範圍
+
+從
+%1$s
+到
+%2$s
+
+(%3$s)
+
+準備提交？"</string>
     <string name="revanced_sb_new_segment_confirm_contents">段落從\n\n%1$s\n到\n%2$s\n\n(%3$s)\n\n確定要提交？</string>
     <string name="revanced_sb_new_segment_confirm_title">時間是否正確？</string>
     <string name="revanced_sb_new_segment_disabled_category">類別在設定中被停用請啟用類別以提交</string>
@@ -2112,7 +2121,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_settings_search_highlight_summary">以所選顏色高亮顯示搜尋結果中的符合文字。</string>
     <string name="revanced_settings_search_highlight_title">啟用搜尋高亮</string>
     <string name="revanced_settings_search_history_summary">儲存最近的搜尋查詢，當搜尋列為空時顯示。</string>
-    <string name="revanced_settings_search_history_title">啟用搜尋記錄</string>
+    <string name="revanced_settings_search_history_title">顯示設定搜尋記錄</string>
     <string name="revanced_share_copy_settings_success">設定已複製到剪貼簿。</string>
     <string name="revanced_share_copy_timestamp_success">時間戳記已複製到剪貼簿。（%s）</string>
     <string name="revanced_share_copy_url_success">URL 已複製到剪貼簿。</string>

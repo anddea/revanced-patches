@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.settings.preference;
 
 import static app.revanced.extension.shared.patches.PatchStatus.PatchVersion;
 import static app.revanced.extension.shared.patches.PatchStatus.PatchedTime;
+import static app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingDataMobileWeb;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 
@@ -244,13 +245,19 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
     private static void SpoofStreamingDataPreferenceLinks() {
         if (mPreferenceManager.findPreference(BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.key) instanceof ListPreference listPreference) {
             boolean useJS = BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get();
+            boolean useMWeb = SpoofStreamingDataMobileWeb();
 
-            String entriesKey = useJS
-                    ? "revanced_spoof_streaming_data_default_client_with_js_entries"
-                    : "revanced_spoof_streaming_data_default_client_entries";
-            String entryValueKey = useJS
-                    ? "revanced_spoof_streaming_data_default_client_with_js_entry_values"
-                    : "revanced_spoof_streaming_data_default_client_entry_values";
+            String entriesKey = "revanced_spoof_streaming_data_default_client_entries";
+            String entryValueKey = "revanced_spoof_streaming_data_default_client_entry_values";
+
+            if (useJS) {
+                entriesKey = useMWeb
+                        ? "revanced_spoof_streaming_data_default_client_with_mweb_entries"
+                        : "revanced_spoof_streaming_data_default_client_with_js_entries";
+                entryValueKey = useMWeb
+                        ? "revanced_spoof_streaming_data_default_client_with_mweb_entry_values"
+                        : "revanced_spoof_streaming_data_default_client_with_js_entry_values";
+            }
 
             listPreference.setEntries(ResourceUtils.getArrayIdentifier(entriesKey));
             listPreference.setEntryValues(ResourceUtils.getArrayIdentifier(entryValueKey));

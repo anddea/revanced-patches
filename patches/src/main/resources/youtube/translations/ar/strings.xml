@@ -1135,6 +1135,9 @@
     <string name="revanced_hide_shorts_navigation_bar_summary_off">يتم عرض شريط التنقل.</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">تم إخفاء شريط التنقل.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">إخفاء شريط التنقل</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_off">يتم عرض زر \"مشاركات جديدة\"</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_on">تم إخفاء زر \"مشاركات جديدة\"</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">إخفاء زر \"مشاركات جديدة\"</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">يتم عرض تصنيف الترويج المدفوع.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">تم إخفاء تصنيف الترويج المدفوع.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">إخفاء تصنيف الترويج المدفوع</string>
@@ -1276,7 +1279,7 @@
     <string name="revanced_hide_video_by_view_counts_about_summary">"الصفحة الرئيسية / الاشتراكات / تتم تصفية نتائج البحث لإخفاء الفيديوهات التي حصلت على عدد مشاهدات أقل أو أكبر من عدد محدد.
 
 القيود: 
-• لا يمكن إخفاء فيديوهات Shorts.
+• لا يمكن إخفاء فيديوهات البث المباشر او Shorts.
 • لا تتم تصفية الفيديوهات التي حصلت على 0 مشاهدة."</string>
     <string name="revanced_hide_video_by_view_counts_about_title">حول تصفية عدد المشاهدات</string>
     <string name="revanced_hide_video_by_view_counts_home_summary_off">لا يتم تصفية الفيديوهات في موجز الصفحة الرئيسية.</string>
@@ -1888,7 +1891,15 @@
     <string name="revanced_sb_guidelines_preference_sum">الإرشادات تحتوي على نصائح حول تقديم المقاطع.</string>
     <string name="revanced_sb_guidelines_preference_title">عرض الإرشادات</string>
     <string name="revanced_sb_new_segment_choose_category">اختر فئة المقطع</string>
-    <string name="revanced_sb_new_segment_confirm_content">المقطع يدوم من %1$02d:%2$02d إلى %3$02d:%4$02d (%5$d دقيقة %6$02d ثانية)\nهل هو جاهز للإرسال؟</string>
+    <string name="revanced_sb_new_segment_confirm_content">"المقطع من
+
+%1$s
+إلى
+%2$s
+
+(%3$s)
+
+هل أنت مستعد للإرسال؟"</string>
     <string name="revanced_sb_new_segment_confirm_contents">المقطع من\n\n%1$s\nإلى\n%2$s\n\n(%3$s)\n\nجاهز للإرسال؟</string>
     <string name="revanced_sb_new_segment_confirm_title">هل الأوقات صحيحة؟</string>
     <string name="revanced_sb_new_segment_disabled_category">الفئة معطلة في الإعدادات. تمكين الفئة للإرسال.</string>
@@ -2015,6 +2026,7 @@
     <string name="revanced_sb_vote_no_segments">لا توجد مقاطع للتصويت عليها.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s إلى %2$s</string>
     <string name="revanced_sb_vote_upvote">تأييد</string>
+    <string name="revanced_settings_search_history_title">عرض سجل بحث الإعدادات</string>
     <string name="revanced_share_copy_settings_success">تم نسخ الإعدادات إلى الحافظة.</string>
     <string name="revanced_share_copy_timestamp_success">تم نسخ الطابع الزمني إلى الحافظة. (%s)</string>
     <string name="revanced_share_copy_url_success">تم نسخ الرابط إلى الحافظة.</string>

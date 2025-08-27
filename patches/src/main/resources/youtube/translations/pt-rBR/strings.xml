@@ -17,9 +17,9 @@ Toque no botão continuar e desative as otimizações da bateria."</string>
     <string name="gms_core_settings_summary">Ative as mensagens na nuvem para receber notificações.</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">O GmsCore não está instalado. Instale-o.</string>
-    <string name="revanced_advanced_video_quality_menu_summary_off">O menu avançado da qualidade de vídeo não é mostrado.</string>
-    <string name="revanced_advanced_video_quality_menu_summary_on">O menu avançado da qualidade de vídeo é mostrado.</string>
-    <string name="revanced_advanced_video_quality_menu_title">Mostrar menu avançado da qualidade de vídeo</string>
+    <string name="revanced_advanced_video_quality_menu_summary_off">O menu de qualidade de vídeo avançado não é exibido</string>
+    <string name="revanced_advanced_video_quality_menu_summary_on">O menu de qualidade de vídeo avançado é exibido</string>
+    <string name="revanced_advanced_video_quality_menu_title">Mostrar menu de qualidade de vídeo avançado</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fornece miniaturas coletivas para vídeos do YouTube. Essas miniaturas costumam ser mais relevantes do que as fornecidas pelo YouTube.
 
 Se ativado, os URLs dos vídeos serão enviados ao servidor API e nenhum outro dado será enviado. Se um vídeo não tiver miniaturas DeArrow, as capturas originais ou estáticas serão mostradas.
@@ -170,6 +170,24 @@ Limitação: O botão voltar na barra de ferramentas pode não funcionar."</stri
     <string name="revanced_custom_seekbar_color_accent_title">Cor de destaque personalizada para a barra de progresso</string>
     <string name="revanced_custom_seekbar_color_primary_summary">Digite o código hexadecimal da cor primária da barra de busca.</string>
     <string name="revanced_custom_seekbar_color_primary_title">Cor primária personalizada da barra de progresso</string>
+    <string name="revanced_debug_export_logs_to_clipboard_summary">Copia os registros de depuração do ReVanced para a área de transferência</string>
+    <string name="revanced_debug_export_logs_to_clipboard_title">Exportar registros de depuração</string>
+    <string name="revanced_debug_logs_clear_buffer_summary">Limpa todos os registros de depuração do ReVanced armazenados</string>
+    <string name="revanced_debug_logs_clear_buffer_title">Limpar registros de depuração</string>
+    <string name="revanced_debug_logs_clear_toast">Registros limpos</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">Registros copiados</string>
+    <string name="revanced_debug_logs_disabled">O registro de depuração está desativado</string>
+    <string name="revanced_debug_logs_failed_to_export">Falha ao exportar registros: %s</string>
+    <string name="revanced_debug_logs_none_found">Nenhum registro encontrado</string>
+    <string name="revanced_debug_protobuffer_summary_off">Registro de depuração não incluem buffer de protocolo</string>
+    <string name="revanced_debug_protobuffer_summary_on">Registro de depuração incluem buffer de protocolo</string>
+    <string name="revanced_debug_protobuffer_title">Registro de buffer de protocolo</string>
+    <string name="revanced_debug_summary_off">Registro de depuração está desativado</string>
+    <string name="revanced_debug_summary_on">Registro de depuração está ativado</string>
+    <string name="revanced_debug_title">Registro de depuração</string>
+    <string name="revanced_debug_toast_on_error_summary_off">O toast não é exibido se ocorrer um erro</string>
+    <string name="revanced_debug_toast_on_error_summary_on">O toast é exibido se ocorrer um erro</string>
+    <string name="revanced_debug_toast_on_error_title">Mostrar notificação flutuante de erro do ReVanced</string>
     <string name="revanced_default_app_settings_summary">Para abrir o RVX em um navegador externo, ative \'Abrir links suportados\' e habilite os endereços web suportados.</string>
     <string name="revanced_default_app_settings_title">Abrir configurações padrão do aplicativo</string>
     <string name="revanced_default_playback_speed_shorts_title">Velocidade de reprodução padrão em Shorts</string>
@@ -270,6 +288,9 @@ Mudanças incluem:
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">A animação da fonte está ativada acima do botão Curtir.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">A animação da fonte está desativada acima do botão Curtir.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Desativar animação do botão Curtir</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">O pop-up de fazer login na TV está ativado</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">O pop-up de fazer login na TV está desativado</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">Desativar pop-up de fazer login na TV</string>
     <string name="revanced_disable_speed_overlay_summary">"Desativar o 'Reproduzindo na velocidade 2x' enquanto segurar.
 
 Nota:
@@ -544,6 +565,9 @@ Loja"</string>
     <string name="revanced_hide_comments_section_summary_off">A seção de comentários será exibida.</string>
     <string name="revanced_hide_comments_section_summary_on">A seção de comentários está oculta.</string>
     <string name="revanced_hide_comments_section_title">Ocultar seção de comentários</string>
+    <string name="revanced_hide_comments_thanks_button_summary_off">O botão valeu é mostrada</string>
+    <string name="revanced_hide_comments_thanks_button_summary_on">Botão valeu está oculto</string>
+    <string name="revanced_hide_comments_thanks_button_title">Ocultar o botão \"Obrigado\"</string>
     <string name="revanced_hide_community_posts_channel_summary_off">Exibindo no canal.</string>
     <string name="revanced_hide_community_posts_channel_summary_on">Oculto no canal.</string>
     <string name="revanced_hide_community_posts_channel_title">Ocultar no canal</string>
@@ -556,6 +580,9 @@ Loja"</string>
     <string name="revanced_hide_contents_section_summary_off">A seção Como este conteúdo foi feito será exibida.</string>
     <string name="revanced_hide_contents_section_summary_on">A seção Como este conteúdo foi feito está oculta.</string>
     <string name="revanced_hide_contents_section_title">Ocultar seção de Conteúdo</string>
+    <string name="revanced_hide_creator_store_shelf_summary_off">Prateleira da loja do criador sob o reprodutor de vídeo é exibida</string>
+    <string name="revanced_hide_creator_store_shelf_summary_on">A prateleira da loja do criador sob o player de vídeo está oculta</string>
+    <string name="revanced_hide_creator_store_shelf_title">Ocultar prateleira da loja do criador</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">A caixa de financiamento coletivo será exibida.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">A caixa de financiamento coletivo está oculta.</string>
     <string name="revanced_hide_crowdfunding_box_title">Ocultar caixa de financiamento coletivo</string>
@@ -694,6 +721,9 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_medical_panel_summary_off">Os painéis médicos serão exibidos.</string>
     <string name="revanced_hide_medical_panel_summary_on">Os painéis médicos estão ocultos.</string>
     <string name="revanced_hide_medical_panel_title">Ocultar painéis médicos</string>
+    <string name="revanced_hide_members_shelf_summary_off">Prateleira de membros é mostrada</string>
+    <string name="revanced_hide_members_shelf_summary_on">Prateleira de membros está oculta</string>
+    <string name="revanced_hide_members_shelf_title">Ocultar prateleira de membros</string>
     <string name="revanced_hide_merchandise_shelf_summary_off">Os painéis de mercadoria serão exibidos.</string>
     <string name="revanced_hide_merchandise_shelf_summary_on">Os painéis de mercadoria estão ocultos.</string>
     <string name="revanced_hide_merchandise_shelf_title">Ocultar painel de mercadoria</string>
@@ -868,6 +898,9 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_quick_actions_summary_off">O contêiner de ações rápidas será exibido.</string>
     <string name="revanced_hide_quick_actions_summary_on">O contêiner de ações rápidas está oculto.</string>
     <string name="revanced_hide_quick_actions_title">Ocultar contêiner de ações rápidas</string>
+    <string name="revanced_hide_related_videos_overlay_summary_off">A sobreposição de vídeos relacionados em tela cheia é exibida</string>
+    <string name="revanced_hide_related_videos_overlay_summary_on">A sobreposição de vídeos relacionados em tela cheia está oculta</string>
+    <string name="revanced_hide_related_videos_overlay_title">Ocultar sobreposição de vídeos relacionados</string>
     <string name="revanced_hide_related_videos_summary_off">Os vídeos relacionados serão exibidos.</string>
     <string name="revanced_hide_related_videos_summary_on">Os vídeos relacionados estão ocultos.</string>
     <string name="revanced_hide_related_videos_title">Ocultar vídeos relacionados</string>
@@ -1017,6 +1050,9 @@ Se o layout da tela do reprodutor mudar devido a alterações no lado do servido
     <string name="revanced_hide_shorts_navigation_bar_summary_off">A barra de navegação será exibida.</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">A barra de navegação está oculta.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Ocultar barra de navegação</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_off">O botão de novas postagens é exibido</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_on">O botão de novas postagens está oculto</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">Ocultar botão de novas postagens</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">O rótulo de promoção pago será exibido.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">O rótulo de promoção pago está oculto.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Ocultar rótulo de promoção paga</string>
@@ -1164,6 +1200,9 @@ Limitações:
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">Ocultar vídeos no feed de inscrições por visualizações</string>
     <string name="revanced_hide_video_by_view_counts_summary">Oculte vídeos recomendados com menos de um determinado número de visualizações.</string>
     <string name="revanced_hide_video_by_view_counts_title">Ocultar vídeos recomendados por visualizações</string>
+    <string name="revanced_hide_video_recommendation_labels_summary_off">Os marcadores \'As pessoas também assistiram\' e \'Você pode gostar também\' nos resultados da pesquisa são exibidos</string>
+    <string name="revanced_hide_video_recommendation_labels_summary_on">Os marcadores \'As pessoas também assistiram\' e \'Você pode gostar também\' nos resultados da pesquisa estão ocultos</string>
+    <string name="revanced_hide_video_recommendation_labels_title">Ocultar marcadores de recomendação de vídeo</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Vídeos com visualizações maiores que este número serão ocultados.</string>
     <string name="revanced_hide_video_view_counts_greater_than_title">Maior que as visualizações</string>
     <string name="revanced_hide_video_view_counts_less_than_summary">Vídeos com visualizações menores do que este número serão ocultados.</string>
@@ -1179,6 +1218,7 @@ Limitações:
     <string name="revanced_hide_visit_community_button_title">Ocultar botão \"Visitar Comunidade\"</string>
     <string name="revanced_hide_visit_store_button_summary_off">Botão \"Visitar Loja\" visível.</string>
     <string name="revanced_hide_visit_store_button_summary_on">Botão \"Visitar Loja\" ocultado.</string>
+    <string name="revanced_hide_visit_store_button_title">Ocultar o botão \'Visitar loja\' nas páginas dos canais</string>
     <string name="revanced_hide_visual_spacers_summary_off">Espaçamentos visuais visíveis.</string>
     <string name="revanced_hide_visual_spacers_summary_on">Espaçamentos visuais ocultados.</string>
     <string name="revanced_hide_visual_spacers_title">Ocultar espaçamentos visuais</string>
@@ -1739,7 +1779,15 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
     <string name="revanced_sb_guidelines_preference_sum">As diretrizes contêm regras e dicas para a criação de novos segmentos.</string>
     <string name="revanced_sb_guidelines_preference_title">Ver diretrizes</string>
     <string name="revanced_sb_new_segment_choose_category">Escolha a categoria do segmento</string>
-    <string name="revanced_sb_new_segment_confirm_content">O segmento dura de %1$02d:%2$02d a %3$02d:%4$02d (%5$d minutos %6$02d segundos)\nEle está pronto para enviar?</string>
+    <string name="revanced_sb_new_segment_confirm_content">"O segmento é de
+
+%1$s
+para
+%2$s
+
+(%3$s)
+
+Pronto para enviar?"</string>
     <string name="revanced_sb_new_segment_confirm_contents">O segmento é de\n\n%1$s\na\n%2$s\n\n(%3$s)\n\nPronto para enviar?</string>
     <string name="revanced_sb_new_segment_confirm_title">Os tempos estão corretos?</string>
     <string name="revanced_sb_new_segment_disabled_category">A categoria está desativada nas configurações. Ative a categoria para enviar.</string>
@@ -1824,6 +1872,9 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock temporariamente indisponível.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock temporariamente indisponível (status %d).</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock temporariamente indisponível (API expirou).</string>
+    <string name="revanced_sb_square_layout">Usar layout quadrado</string>
+    <string name="revanced_sb_square_layout_sum_off">Botões e controles são arredondados</string>
+    <string name="revanced_sb_square_layout_sum_on">Botões e controles são quadrados</string>
     <string name="revanced_sb_stats">Estatísticas</string>
     <string name="revanced_sb_stats_connection_failure">Estatísticas temporariamente indisponíveis (a API está inativa).</string>
     <string name="revanced_sb_stats_loading">Carregando...</string>
@@ -1863,6 +1914,7 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
     <string name="revanced_sb_vote_no_segments">Não há segmentos para votar.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s a %2$s</string>
     <string name="revanced_sb_vote_upvote">Voto positivo</string>
+    <string name="revanced_settings_search_history_title">Mostrar histórico de pesquisa das configurações</string>
     <string name="revanced_share_copy_settings_success">Configurações copiadas para a área de transferência.</string>
     <string name="revanced_share_copy_timestamp_success">Marcador de Tempo copiado para área de transferência. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiada para a área de transferência.</string>
@@ -1981,10 +2033,21 @@ O AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está di
     <string name="revanced_spoof_streaming_data_summary_off">"Os dados de streaming não são falsificados. A reprodução de vídeo pode não funcionar."</string>
     <string name="revanced_spoof_streaming_data_summary_on">"Os dados de streaming são falsificados."</string>
     <string name="revanced_spoof_streaming_data_title">Dados de streaming falsos</string>
+    <string name="revanced_swipe_brightness_summary_off">O gesto de brilho em tela cheia está desativado</string>
+    <string name="revanced_swipe_brightness_summary_on">"O gesto de brilho em tela cheia está ativado
+
+Ajuste o brilho deslizando verticalmente no lado esquerdo da tela"</string>
+    <string name="revanced_swipe_brightness_title">Ativar gesto de brilho</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Os gestos de deslize estão desativados no modo \'Tela de bloqueio\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Os gestos de deslize estão ativados no modo \'Tela de bloqueio\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Gestos de deslize no modo \'Tela de bloqueio\'</string>
+    <string name="revanced_swipe_haptic_feedback_summary_off">Resposta tátil está desativado</string>
+    <string name="revanced_swipe_haptic_feedback_summary_on">Resposta tátil está ativado</string>
+    <string name="revanced_swipe_haptic_feedback_title">Ativar resposta tátil</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automático</string>
+    <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Deslizar para baixo até o menor valor do gesto de brilho, não ativa o brilho automático</string>
+    <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Deslizar para baixo até o menor valor do gesto de brilho, ativa o brilho automático</string>
+    <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Ativar gesto de brilho automático</string>
     <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opacidade do deslize deve estar entre 0 e 100.</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Valor de opacidade entre 0-100.</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Opacidade do fundo da sobreposição de deslize</string>
@@ -2005,11 +2068,25 @@ O AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está di
     <string name="revanced_swipe_overlay_style_title">Estilo de sobreposição de deslize</string>
     <string name="revanced_swipe_overlay_timeout_summary">A quantidade de milissegundos em que a sobreposição é visível.</string>
     <string name="revanced_swipe_overlay_timeout_title">Tempo limite da sobreposição de gestos</string>
+    <string name="revanced_swipe_press_to_engage_summary_off">Pressionar para deslizar está desativado</string>
+    <string name="revanced_swipe_press_to_engage_summary_on">Pressionar para deslizar está ativado</string>
+    <string name="revanced_swipe_press_to_engage_title">Ativar gesto de pressionar para deslizar</string>
+    <string name="revanced_swipe_save_and_restore_brightness_summary_off">Não salvar e restaurar o brilho ao sair ou entrar em tela cheia</string>
+    <string name="revanced_swipe_save_and_restore_brightness_summary_on">Salvar e restaurar o brilho quando sair ou entrar em tela cheia</string>
+    <string name="revanced_swipe_save_and_restore_brightness_title">Salvar e restaurar brilho</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">O tamanho do texto deve estar entre 1 e 30</string>
     <string name="revanced_swipe_text_overlay_size_summary">O tamanho do texto para sobreposição de deslize entre 1 e 30</string>
     <string name="revanced_swipe_text_overlay_size_title">Tamanho do texto da sobreposição de deslize</string>
+    <string name="revanced_swipe_threshold_summary">Quantidade limite que o gesto irá ocorrer</string>
+    <string name="revanced_swipe_threshold_title">Limiar distância no gesto</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">A sensibilidade do deslizamento de volume deve estar entre 1-1000 (%).</string>
+    <string name="revanced_swipe_volume_sensitivity_summary">O quanto o volume muda por deslize</string>
     <string name="revanced_swipe_volume_sensitivity_title">Sensibilidade de deslizar volume</string>
+    <string name="revanced_swipe_volume_summary_off">O controle de volume por deslize em tela cheia está desativado</string>
+    <string name="revanced_swipe_volume_summary_on">"O controle de volume por deslize em tela cheia está ativado
+
+Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
+    <string name="revanced_swipe_volume_title">Ativar gesto de volume</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Alterne as posições do botão de criação e do botão de notificação falsificando as informações do dispositivo.
 
 • Mesmo que você altere esta configuração, ela poderá não entrar em vigor até que você reinicie o dispositivo.

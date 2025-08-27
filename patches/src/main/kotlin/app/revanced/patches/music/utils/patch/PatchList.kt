@@ -65,10 +65,6 @@ internal enum class PatchList(
         "Disable QUIC protocol",
         "Adds an option to disable CronetEngine's QUIC protocol."
     ),
-    ENABLE_OPUS_CODEC(
-        "Enable OPUS codec",
-        "Adds an option to enable the OPUS audio codec if the player response includes it."
-    ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
         "Adds an option for debugging."

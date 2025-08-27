@@ -759,6 +759,21 @@ val videoInformationPatch = bytecodePatch(
             }
         }
 
+        arrayOf(
+            videoQualityIteratorPrimaryFingerprint,
+            videoQualityIteratorSecondaryFingerprint
+        ).forEach { fingerprint ->
+            fingerprint
+                .methodOrThrow(formatStreamModelBuilderFingerprint)
+                .addInstructions(
+                    0, """
+                        const/4 v0, 0x0
+                        invoke-static { p0, v0 }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->removeVideoQualities(Ljava/util/List;Z)Ljava/util/List;
+                        move-result-object p0
+                        """
+                )
+        }
+
         videoQualityListFingerprint.matchOrThrow().let {
             val classDef = it.classDef
             it.method.apply {

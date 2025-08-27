@@ -1184,9 +1184,9 @@ Jeśli układ ekranu odtwarzacza zmieni się w skutek zmian po stronie serwera, 
     <string name="revanced_hide_shorts_navigation_bar_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Pasek nawigacji</string>
-    <string name="revanced_hide_shorts_new_posts_button_summary_off">Widoczny</string>
-    <string name="revanced_hide_shorts_new_posts_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_shorts_new_posts_button_title">Przycisk od nowych postów</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_off">Przycisk Nowe posty jest widoczny</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_on">Przycisk Nowe posty jest ukryty</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">Ukryj przycisk Nowe posty</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Etykiety oznaczające płatne promocje</string>
@@ -1971,7 +1971,15 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_sb_new_segment_adjust">Dostosuj: Zaznacz czas rozpoczęcia i zakończenia segmentu</string>
     <string name="revanced_sb_new_segment_choose_category">Wybierz kategorię segmentu</string>
     <string name="revanced_sb_new_segment_compare">Zweryfikuj segment</string>
-    <string name="revanced_sb_new_segment_confirm_content">Segment trwa od %1$02d:%2$02d do %3$02d:%4$02d (%5$d minut i %6$02d sekund)\nCzy jest gotowy do wysłania?</string>
+    <string name="revanced_sb_new_segment_confirm_content">"Segment pochodzi z
+
+od %1$s
+do
+%2$s
+
+(%3$s)
+
+Gotowy do przesłania?"</string>
     <string name="revanced_sb_new_segment_confirm_contents">Segment jest od \n\n%1$s\ndo\n%2$s\n\n(%3$s)\n\nGotowe do przesłania?</string>
     <string name="revanced_sb_new_segment_confirm_title">Czy te czasy są poprawne?</string>
     <string name="revanced_sb_new_segment_disabled_category">Ta kategoria jest wyłączona w ustawieniach. Włącz kategorię, aby móc wysłać ten segment.</string>
@@ -2120,7 +2128,7 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_settings_search_highlight_summary">Podświetla dopasowany tekst w wynikach wyszukiwania wybranym kolorem.</string>
     <string name="revanced_settings_search_highlight_title">Włącz podświetlenie wyszukiwań</string>
     <string name="revanced_settings_search_history_summary">Zapisuje ostatnie zapytania, aby wyświetlać je, gdy pasek wyszukiwania jest pusty.</string>
-    <string name="revanced_settings_search_history_title">Włącz historię wyszukiwania</string>
+    <string name="revanced_settings_search_history_title">Pokaż historię wyszukiwania ustawień</string>
     <string name="revanced_share_copy_settings_success">Skopiowano ustawienia do schowka.</string>
     <string name="revanced_share_copy_timestamp_success">Skopiowano czas do schowka. (%s)</string>
     <string name="revanced_share_copy_url_success">Skopiowano URL do schowka.</string>

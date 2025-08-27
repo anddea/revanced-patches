@@ -67,6 +67,24 @@ val playerTypeHookPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for set fullscreen engagement panel holder state
+
+        fullScreenEngagementPanelFingerprint.methodOrThrow().apply {
+            val literalIndex =
+                indexOfFirstLiteralInstructionOrThrow(fullScreenEngagementPanel)
+            val targetIndex =
+                indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT_OBJECT)
+            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+            addInstruction(
+                targetIndex + 1,
+                "invoke-static {v$targetRegister}, " +
+                        "$EXTENSION_PLAYER_TYPE_HOOK_CLASS_DESCRIPTOR->onFullscreenEngagementPanelHolderCreate(Landroid/view/View;)V"
+            )
+        }
+
+        // endregion
+
         // region patch for set shorts player state
 
         reelWatchPagerFingerprint.methodOrThrow().apply {
@@ -80,20 +98,6 @@ val playerTypeHookPatch = bytecodePatch(
                 registerIndex + 1,
                 "invoke-static {v$viewRegister}, " +
                         "$EXTENSION_PLAYER_TYPE_HOOK_CLASS_DESCRIPTOR->onShortsCreate(Landroid/view/View;)V"
-            )
-        }
-
-        fullScreenEngagementPanelFingerprint.methodOrThrow().apply {
-            val literalIndex =
-                indexOfFirstLiteralInstructionOrThrow(fullScreenEngagementPanel)
-            val targetIndex =
-                indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT_OBJECT)
-            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-            addInstruction(
-                targetIndex + 1,
-                "invoke-static {v$targetRegister}, " +
-                        "$EXTENSION_PLAYER_TYPE_HOOK_CLASS_DESCRIPTOR->onFullscreenEngagementPanelHolderCreate(Landroid/view/View;)V"
             )
         }
 

@@ -20,6 +20,10 @@
     <string name="revanced_add_miniplayer_next_button_title">Προσθήκη κουμπιού επόμενου κομματιού στην ελαχιστοποιημένη οθόνη αναπαραγωγής</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Προσθήκη ενός κουμπιού προηγούμενου κομματιού στην ελαχιστοποιημένη οθόνη αναπαραγωγής.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Προσθήκη κουμπιού προηγούμενου κομματιού στην ελαχιστοποιημένη οθόνη αναπαραγωγής</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;Όνομα εφαρμογής&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Έκδοση εφαρμογής&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Τροποποιήσεις ReVanced&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Ημερομηνία τροποποίησης&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_title">Πληροφορίες εφαρμογής</string>
+    <string name="revanced_app_info_summary">Πατήστε για να ελέγξετε το όνομα εφαρμογής, την έκδοση εφαρμογής, την έκδοση και την ημερομηνία τροποποίησης.</string>
+    <string name="revanced_app_info_title">Πληροφορίες εφαρμογής</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Αντικατάσταση του domain για την φόρτωση εικόνων όπου είναι μπλοκαρισμένες σε ορισμένες περιοχές ώστε να μπορούν να ληφθούν μικρογραφίες βίντεο, εικόνες δημοσιεύσεων, κλπ.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Παράκαμψη μπλοκαρίσματος φόρτωσης εικόνων</string>
     <string name="revanced_change_action_bar_position_summary">Μετακίνηση της γραμμής ενεργειών κάτω από το κουμπί αναπαραγωγής.</string>
@@ -125,6 +129,8 @@
 
 Οι τελευταίες εκδόσεις Android χρησιμοποιούν τον κωδικοποιητή opus από προεπιλογή, οπότε αυτή η ρύθμιση ισχύει μόνο για χρήστες που χρησιμοποιούν τη λειτουργία παραποίησης έκδοσης εφαρμογής, σε πολύ παλιές εκδόσεις."</string>
     <string name="revanced_enable_opus_codec_title">Ενεργοποίηση κωδικοποιητή opus</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">Ενεργοποίηση ομαλού animation μετάβασης όταν η ελαχιστοποιημένη οθόνη αναπαραγωγής μεγιστοποιείται από την ελαχιστοποιημένη κατάσταση.</string>
+    <string name="revanced_enable_smooth_transition_animation_title">Ομαλή μετάβαση ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Ενεργοποίηση χειρονομίας σάρωσης προς τα κάτω για απόρριψη της ελαχιστοποιημένης οθόνης αναπαραγωγής.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Χειρονομία απόρριψης ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Ενεργοποίηση χειρονομίας σάρωσης προς τα κάτω για απόρριψη της ελαχιστοποιημένης οθόνης αναπαραγωγής.</string>
@@ -258,6 +264,8 @@
     <string name="revanced_hide_handle_title">Απόκρυψη ψευδώνυμου</string>
     <string name="revanced_hide_history_button_summary">Απόκρυψη του κουμπιού ιστορικού στη γραμμή εργαλείων.</string>
     <string name="revanced_hide_history_button_title">Απόκρυψη κουμπιού ιστορικού</string>
+    <string name="revanced_hide_lyrics_share_button_summary">Απόκρυψη του κουμπιού «Κοινοποίηση» στους στίχους.</string>
+    <string name="revanced_hide_lyrics_share_button_title">Απόκρυψη κουμπιού «Κοινοποίηση» στίχων</string>
     <string name="revanced_hide_music_ads_summary">Απόκρυψη διαφημίσεων που αναπαράγονται κατά την αναπαραγωγή πολυμέσων.</string>
     <string name="revanced_hide_music_ads_title">Απόκρυψη διαφημίσεων μουσικής</string>
     <string name="revanced_hide_navigation_bar_summary">Απόκρυψη της γραμμής πλοήγησης.</string>
@@ -486,17 +494,21 @@
     <string name="revanced_spoof_app_version_target_summary">Επιλέξτε την έκδοση εφαρμογής που θα χρησιμοποιηθεί.</string>
     <string name="revanced_spoof_app_version_target_title">Έκδοση της εφαρμογής που θα χρησιμοποιηθεί</string>
     <string name="revanced_spoof_app_version_title">Παραποίηση έκδοσης εφαρμογής</string>
-    <string name="revanced_spoof_client_summary">"Παραποίηση του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής.
-
-Παρενέργειες:
-• Τα κουμπιά ενεργειών ενδέχεται να μην εμφανίζονται καθόλου στο YouTube Music 7.17+.
-• Το αναδυόμενο μενού της οθόνης αναπαραγωγής ενδέχεται να μην εμφανίζεται σωστά.
-• Αυτές οι παρενέργειες μπορεί να επιλυθούν με εκκαθάριση των δεδομένων της εφαρμογής και επανασύνδεση."</string>
+    <string name="revanced_spoof_client_summary">Παραποίηση του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής.</string>
     <string name="revanced_spoof_client_title">Παραποίηση προγράμματος πελάτη</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (Αποκλεισμός αιτήματος)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Αποκλεισμός αιτήματος)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_client_type_summary">Καθορισμός ενός προεπιλεγμένου πρόγραμμα πελάτη για παραποίηση.</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Αποκλεισμός αιτήματος)</string>
+    <string name="revanced_spoof_client_type_summary">"Παρενέργειες:
+• Τα κουμπιά ενεργειών μπορεί να μην εμφανίζονται καθόλου στο YouTube Music 7.17+.
+• Το αναδυόμενο μενού της οθόνης αναπαραγωγής μπορεί να μην εμφανίζεται σωστά.
+• Αυτές οι παρενέργειες μπορεί να επιλυθούν με εκκαθάριση των δεδομένων της εφαρμογής και επανασύνδεση.
+
+Παρενέργεια αποκλεισμού αιτήματος:
+• Η εφαρμογή μπορεί να κλείνει απότομα όταν χρησιμοποιείτε VPN ή εναλλακτικό DNS."</string>
     <string name="revanced_spoof_client_type_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
     <string name="revanced_spoof_player_parameter_summary">"Παραποίηση παραμέτρου του προγράμματος αναπαραγωγής για την αποφυγή προβλημάτων αναπαραγωγής.
 
@@ -514,13 +526,11 @@
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_video_streams_default_client_summary">Καθορισμός ενός προεπιλεγμένου πρόγραμμα πελάτη για παραποίηση.</string>
-    <string name="revanced_spoof_video_streams_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
-    <string name="revanced_spoof_video_streams_summary">"Παραποίηση ροών βίντεο του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής.
-
-Παρενέργειες:
+    <string name="revanced_spoof_video_streams_default_client_summary">"Παρενέργειες:
 • Η εφαρμογή μπορεί να κλείνει απότομα όταν χρησιμοποιείτε VPN ή εναλλακτικό DNS.
 • Ο ήχος μπορεί περιοδικά να σπάει κατά την αναπαραγωγή σε προγράμματα πελάτες προσαρμοστικού ρυθμού μετάδοσης (Όλα τα προγράμματα πελάτη εκτός από το Android VR 1.43.32)."</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
+    <string name="revanced_spoof_video_streams_summary">Παραποίηση ροών βίντεο του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής.</string>
     <string name="revanced_spoof_video_streams_title">Παραποίηση ροών βίντεο</string>
     <string name="revanced_watch_history_type_entry_1">Αρχικός</string>
     <string name="revanced_watch_history_type_entry_2">Αντικατάσταση του domain</string>

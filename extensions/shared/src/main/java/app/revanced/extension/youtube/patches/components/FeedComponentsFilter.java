@@ -123,6 +123,11 @@ public final class FeedComponentsFilter extends Filter {
                 "search_bar_entry_point"
         );
 
+        final StringFilterGroup movieShelfIdentifier = new StringFilterGroup(
+                Settings.HIDE_MOVIE_SHELF,
+                "tvfilm_attachment"
+        );
+
         final StringFilterGroup tasteBuilder = new StringFilterGroup(
                 Settings.HIDE_SURVEYS,
                 "selectable_item.eml",
@@ -139,6 +144,7 @@ public final class FeedComponentsFilter extends Filter {
                 communityPosts,
                 expandableShelf,
                 feedSearchBar,
+                movieShelfIdentifier,
                 tasteBuilder,
                 ticketShelfIdentifier
         );

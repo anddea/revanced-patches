@@ -20,7 +20,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -35,34 +34,14 @@ private const val EXTENSION_STREAMING_DATA_INTERFACE =
 context(BytecodePatchContext)
 internal fun patchSpoofVideoStreams() {
 
-    // region Block /initplayback requests to fall back to /get_watch requests.
-
-    buildInitPlaybackRequestFingerprint.methodOrThrow().apply {
-        val index = indexOfUriToStringInstruction(this) + 1
-        val register =
-            getInstruction<OneRegisterInstruction>(index).registerA
-
-        addInstructions(
-            index + 1,
-            """
-                invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
-                move-result-object v$register
-                """,
-        )
-    }
-
-    // endregion
-
     buildRequestFingerprint.methodOrThrow(buildRequestParentFingerprint).apply {
         val newRequestBuilderIndex = indexOfNewUrlRequestBuilderInstruction(this)
         val urlRegister =
             getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
 
         addInstructions(
-            newRequestBuilderIndex, """
-                invoke-static { v$urlRegister, p1 }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;
-                move-result-object v$urlRegister
-                """
+            newRequestBuilderIndex,
+            "invoke-static { v$urlRegister, p1 }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V"
         )
     }
 

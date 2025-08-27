@@ -66,7 +66,7 @@ public class ThrottlingParameterUtils {
     /**
      * Hardcoded javascript url path (TV).
      */
-    private static final String PLAYER_JS_HARDCODED_URL_PATH_TV = "3d3ba064";
+    private static final String PLAYER_JS_HARDCODED_URL_PATH_TV = "9f49a55a";
     /**
      * Regular expression pattern to find variables used in JavaScript url.
      */
@@ -96,7 +96,7 @@ public class ThrottlingParameterUtils {
      * User-agent (TV).
      */
     private static final String USER_AGENT_TV =
-            "Mozilla/5.0 (PLAYSTATION 3 4.10) AppleWebKit/531.22.8 (KHTML, like Gecko)";
+            "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)";
     /**
      * Client version from service worker (Mobile Web).
      */

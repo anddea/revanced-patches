@@ -164,6 +164,8 @@ def process_all(config: CLIConfig) -> None:
         ("Missing Strings Check (YouTube)", check_strings.process, ["youtube", base_dir]),
         ("Missing Strings Check (YouTube Music)", check_strings.process, ["music", base_dir]),
         ("Check Icon Preferences", check_icons.process, ["youtube"]),
+        # ("Update Forced Strings from Git Diff (YouTube)", create_update_from_diff.process, ["youtube"]),
+        # ("Update Forced Strings from Git Diff (YouTube Music)", create_update_from_diff.process, ["music"]),
     ]
 
     for name, handler, args in handlers:

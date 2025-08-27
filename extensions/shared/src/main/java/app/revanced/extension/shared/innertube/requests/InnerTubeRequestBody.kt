@@ -115,6 +115,12 @@ object InnerTubeRequestBody {
             client.put("timeZone", TIME_ZONE_ID)
             client.put("utcOffsetMinutes", UTC_OFFSET_MINUTES.toString())
 
+            if (clientType.name.startsWith("TV")) {
+                val configInfo = JSONObject()
+                configInfo.put("appInstallData", "")
+                client.put("configInfo", configInfo)
+            }
+
             val context = JSONObject()
             context.put("client", client)
 

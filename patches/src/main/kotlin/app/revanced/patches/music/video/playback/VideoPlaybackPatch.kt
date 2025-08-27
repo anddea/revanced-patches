@@ -21,6 +21,7 @@ import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.music.video.information.onCreateHook
 import app.revanced.patches.music.video.information.videoInformationPatch
 import app.revanced.patches.shared.customspeed.customPlaybackSpeedPatch
+import app.revanced.patches.shared.opus.baseOpusCodecsPatch
 import app.revanced.patches.shared.playbackStartParametersConstructorFingerprint
 import app.revanced.patches.shared.playbackStartParametersToStringFingerprint
 import app.revanced.util.findFieldFromToString
@@ -57,11 +58,12 @@ val videoPlaybackPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        settingsPatch,
         customPlaybackSpeedPatch(
             "$VIDEO_PATH/CustomPlaybackSpeedPatch;",
             5.0f
         ),
-        settingsPatch,
+        baseOpusCodecsPatch(),
         sharedResourceIdPatch,
         videoInformationPatch,
     )
@@ -217,6 +219,11 @@ val videoPlaybackPatch = bytecodePatch(
         addPreferenceWithIntent(
             CategoryType.VIDEO,
             "revanced_custom_playback_speeds"
+        )
+        addSwitchPreference(
+            CategoryType.VIDEO,
+            "revanced_enable_opus_codec",
+            "true"
         )
         addSwitchPreference(
             CategoryType.VIDEO,

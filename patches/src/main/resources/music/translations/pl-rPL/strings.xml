@@ -21,6 +21,10 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="revanced_add_miniplayer_next_button_title">Dodaj przycisk do następnego utworu w miniodtwarzaczu</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Dodaje przycisk do poprzedniego utworu w miniodtwarzaczu.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Dodaj przycisk do poprzedniego utworu w miniodtwarzaczu</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;Nazwa aplikacji&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Wersja aplikacji&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Data załatania&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_title">Informacje o aplikacji</string>
+    <string name="revanced_app_info_summary">Kliknij, by sprawdzić nazwę aplikacji, wersję aplikacji, wersję łatek oraz datę załatania.</string>
+    <string name="revanced_app_info_title">Informacje o aplikacji</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Zastępuje domenę, która jest blokowana w niektórych regionach, aby można było otrzymywać miniaturki playlist, awatary kanałów itp.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Pomiń ograniczenia regionu dla obrazów</string>
     <string name="revanced_change_action_bar_position_summary">Przenosi pasek akcji pod przycisk odtwarzania.</string>
@@ -128,6 +132,8 @@ Informacje:
 • Najnowsze klienty YouTube Music domyślnie używają kodeka OPUS
 • Działa jedynie dla użytkowników używających oszukiwania aplikacji na bardzo starych klientach"</string>
     <string name="revanced_enable_opus_codec_title">Włącz kodek OPUS</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">Włącza płynną animację, gdy miniodtwarzacz jest zmaksymalizowany ze zminimalizowanego stanu.</string>
+    <string name="revanced_enable_smooth_transition_animation_title">Włącz płynną animację przejścia</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Włącza przesuwanie w dół do zamykania miniodtwarzacza.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Włącz przesuwanie do zamykania miniodtwarzacza</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Włącza przesunięcie, by zamknąć miniodtwarzacz.</string>
@@ -263,6 +269,8 @@ Ograniczenie:
     <string name="revanced_hide_handle_title">Ukryj nicki</string>
     <string name="revanced_hide_history_button_summary">Ukrywa przycisk historii z paska narzędzi.</string>
     <string name="revanced_hide_history_button_title">Ukryj przycisk historii</string>
+    <string name="revanced_hide_lyrics_share_button_summary">Ukrywa przycisk udostępniania w tekście utworu.</string>
+    <string name="revanced_hide_lyrics_share_button_title">Ukryj przycisk udostępniania tekstu utworu</string>
     <string name="revanced_hide_music_ads_summary">Ukrywa reklamy w trakcie odtwarzania multimediów.</string>
     <string name="revanced_hide_music_ads_title">Ukryj reklamy multimedialne</string>
     <string name="revanced_hide_navigation_bar_summary">Ukrywa pasek nawigacji.</string>
@@ -491,24 +499,27 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_spoof_app_version_target_summary">Wybierz wersję, którą chcesz oszukiwać.</string>
     <string name="revanced_spoof_app_version_target_title">Docelowa wersja aplikacji</string>
     <string name="revanced_spoof_app_version_title">Oszukaj wersję aplikacji</string>
-    <string name="revanced_spoof_client_summary">"Oszukuje klienta, by zapobiec problemom z odtwarzaniem.
-
-Efekty uboczne:
-• przyciski akcji mogą być zawsze ukryte w wersjach YouTube Music powyżej 7.17
-• menu ustawień odtwarzacza może nie wyświetlać się poprawnie
-• te efekty uboczne można rozwiązać czyszcząc dane aplikacji i logując się ponownie"</string>
+    <string name="revanced_spoof_client_summary">Oszukuje klienta, by zapobiec problemom z odtwarzaniem.</string>
     <string name="revanced_spoof_client_title">Oszukuj klienta</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (Blokada żądania)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Blokada żądania)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_client_type_summary">Definiuje domyślny klient do oszukiwania.</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Blokada żądania)</string>
+    <string name="revanced_spoof_client_type_summary">"Efekt uboczny:
+• przyciski akcji oraz menu ustawień odtwarzacza mogą nie wyświetlać się poprawnie
+• ten efekt uboczny można rozwiązać czyszcząc dane aplikacji i logując się ponownie
+
+Efekt uboczny (blokada żądania):
+• aplikacja może wymusić zamknięcie się podczas korzystania z VPN lub DNS"</string>
     <string name="revanced_spoof_client_type_title">Domyślny klient</string>
     <string name="revanced_spoof_player_parameter_summary">"Oszukuje parametry odtwarzacza, by zapobiec problemom z odtwarzaniem.
 
 Efekt uboczny:
 • Czasem napisy są u góry odtwarzacza, zamiast na dole"</string>
     <string name="revanced_spoof_player_parameter_title">Oszukuj parametry odtwarzacza</string>
-    <string name="revanced_spoof_streaming_data_message">If you experience any playback issues, enable one of the following options depending on which works best for you: \"Spoof video streams\" or \"Spoof client\" in &lt;i&gt;&lt;u&gt;Settings &gt; %s &gt; Miscellaneous&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_message">Jeśli występują jakiekolwiek problemy z odtwarzaniem, włącz jedną z poniższych opcji, w zależności od tego, która najlepiej ci odpowiada: \"Oszukaj strumień danych\" lub \"Domyślny klient\" w &lt;i&gt;&lt;u&gt;Ustawienia&gt; %s &gt; Pozostałe&lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Pokazuje używanego klienta do przechwytywania strumienia danych w statystykach dla nerdów.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Informacja w statystykach dla nerdów</string>
     <string name="revanced_spoof_streaming_data_summary">"Oszukuj strumień danych, by zapobiec problemom z odtwarzaniem.
@@ -520,13 +531,11 @@ Efekt uboczny:
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_video_streams_default_client_summary">Definiuje domyślnego klienta do oszukiwania.</string>
-    <string name="revanced_spoof_video_streams_default_client_title">Domyślny klient</string>
-    <string name="revanced_spoof_video_streams_summary">"Oszukuje strumienie filmu klienta, by zapobiec problemom z odtwarzaniem.
-
-Efekty uboczne:
+    <string name="revanced_spoof_video_streams_default_client_summary">"Efekty uboczne:
 • aplikacja może wymusić zamknięcie się podczas korzystania z VPN lub DNS
 • dźwięk może sporadycznie się zacinać podczas odtwarzania na strumieniach klienta z adaptacyjną przepływnością (każdy z wyjątkiem Android VR 1.43.32)"</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Domyślny klient</string>
+    <string name="revanced_spoof_video_streams_summary">Oszukuje strumienie filmu klienta, by zapobiec problemom z odtwarzaniem.</string>
     <string name="revanced_spoof_video_streams_title">Oszukuj strumienie filmu</string>
     <string name="revanced_watch_history_type_entry_1">Oryginalny</string>
     <string name="revanced_watch_history_type_entry_2">Zastąpienie domeny</string>
