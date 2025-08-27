@@ -37,7 +37,6 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Disable resuming Shorts on startup` | Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched. | 19.05.36 ~ 19.47.53 |
 | `Disable sign in to TV popup` | Adds an option to disable the popup asking to sign into a TV on the same local network. | 19.05.36 ~ 19.47.53 |
 | `Disable splash animation` | Adds an option to disable the splash animation on app startup. | 19.05.36 ~ 19.47.53 |
-| `Enable OPUS codec` | Adds an option to enable the OPUS audio codec if the player response includes it. | 19.05.36 ~ 19.47.53 |
 | `Enable debug logging` | Adds an option for debugging and exporting RVX logs to the clipboard. | 19.05.36 ~ 19.47.53 |
 | `Enable gradient loading screen` | Adds an option to enable the gradient loading screen. | 19.05.36 ~ 19.47.53 |
 | `Force player buttons background` | Changes the dark background surrounding the video player controls at compile time. | 19.05.36 ~ 19.47.53 |
@@ -103,7 +102,6 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 6.20.51 ~ 8.30.54 |
 | `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 6.20.51 ~ 8.30.54 |
 | `Disable music video in album` | Adds option to redirect music videos from albums for non-premium users. | 6.20.51 ~ 8.30.54 |
-| `Enable OPUS codec` | Adds an option to enable the OPUS audio codec if the player response includes it. | 6.20.51 ~ 8.30.54 |
 | `Enable debug logging` | Adds an option for debugging. | 6.20.51 ~ 8.30.54 |
 | `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 6.20.51 ~ 8.30.54 |
 | `Fix playback` | Adds options to fix playback issues. | 6.20.51 ~ 8.30.54 |
