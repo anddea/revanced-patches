@@ -14,12 +14,18 @@ val timedLyricsPatch = bytecodePatch(
         if (!is_8_28_or_greater) {
             return@execute
         }
+
         /**
          * When these experimental flags are enabled, the real-time lyrics UI will break.
          */
-        timedLyricsFingerprint.injectLiteralInstructionBooleanCall(
-            TIMED_LYRICS_FEATURE_FLAG,
-            "0x0"
-        )
+        mapOf(
+            timedLyricsPrimaryFingerprint to TIMED_LYRICS_PRIMARY_FEATURE_FLAG,
+            timedLyricsSecondaryFingerprint to TIMED_LYRICS_SECONDARY_FEATURE_FLAG,
+        ).forEach { (fingerprint, literal) ->
+            fingerprint.injectLiteralInstructionBooleanCall(
+                literal,
+                "0x0"
+            )
+        }
     }
 }

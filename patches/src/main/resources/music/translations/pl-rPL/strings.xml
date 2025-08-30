@@ -106,6 +106,12 @@ Ograniczenie: utwory sklasyfikowane dla dzieci mogą nie być przekierowywane."<
     <string name="revanced_disable_player_gesture_title">Wyłącz gest w odtwarzaczu</string>
     <string name="revanced_disable_quic_protocol_summary">"Wyłącza protokół QUIC od CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
+    <string name="revanced_disable_trim_silence_summary">"Wyłącza przycisk od pomijania ciszy do menu od prędkości odtwarzania.
+
+Informacje:
+• funkcja jest dostępna tylko dla podcastów.
+• funkcja jest nadal w fazie rozwoju, więc może być niestabilna."</string>
+    <string name="revanced_disable_trim_silence_title">Wyłącz przełącznik do pomijania ciszy</string>
     <string name="revanced_enable_comments_scroll_top_summary">"Kliknięcie w panelu komentarzy na 'Komentarze' przewinie do góry.
 
 Ograniczenia: nie dotyczy odpowiedzi w komentarzach"</string>
@@ -129,10 +135,12 @@ Ograniczenia:
     <string name="revanced_enable_opus_codec_summary">"Włącza kodek OPUS, jeśli odpowiedź odtwarzacza zawiera ten kodek.
 
 Informacje:
-• Najnowsze klienty YouTube Music domyślnie używają kodeka OPUS
-• Działa jedynie dla użytkowników używających oszukiwania aplikacji na bardzo starych klientach"</string>
+• najnowsze klienty YouTube Music domyślnie używają kodeka OPUS
+• opcja może być niepotrzebna, jeśli klient bądź strumień filmu jest oszukiwany"</string>
     <string name="revanced_enable_opus_codec_title">Włącz kodek OPUS</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">Włącza płynną animację, gdy miniodtwarzacz jest zmaksymalizowany ze zminimalizowanego stanu.</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">"Włącza płynną animację, gdy miniodtwarzacz jest zmaksymalizowany ze zminimalizowanego stanu.
+
+Ograniczenie: interfejs tekstów utworów synchronizowanych czasowo może być popsuty dla niektórych użytkowników."</string>
     <string name="revanced_enable_smooth_transition_animation_title">Włącz płynną animację przejścia</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Włącza przesuwanie w dół do zamykania miniodtwarzacza.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Włącz przesuwanie do zamykania miniodtwarzacza</string>
@@ -142,12 +150,6 @@ Informacje:
 
 Ograniczenie: segmenty SponsorBlocka nie są pokazywane na pasku."</string>
     <string name="revanced_enable_thick_seekbar_title">Włącz pogrubiony pasek postępu utworu</string>
-    <string name="revanced_enable_trim_silence_summary">"Dodaje przycisk pomijania ciszy do menu od prędkości odtwarzania.
-
-Informacje:
-• Ta funkcja jest dostępna tylko dla podcastów.
-• Ta funkcja jest nadal w fazie rozwoju, więc może być niestabilna."</string>
-    <string name="revanced_enable_trim_silence_title">Włącz przełącznik do pomijania ciszy</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Włącza tryb zen w podcastach.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Włącz tryb zen w podcastach</string>
     <string name="revanced_enable_zen_mode_summary">Włącza jasnoszary kolor tła odtwarzacza, aby zmniejszyć zmęczenie oczu.</string>
@@ -194,6 +196,8 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">Ukryj przycisk dodawania do playlisty</string>
     <string name="revanced_hide_action_button_comment_summary">Ukrywa przycisk komentarzy.</string>
     <string name="revanced_hide_action_button_comment_title">Ukryj przycisk komentarzy</string>
+    <string name="revanced_hide_action_button_disabled_summary">Ukrywa wyłączone przyciski, jak wyłączony przycisk od komentarzy.</string>
+    <string name="revanced_hide_action_button_disabled_title">Ukryj wyłączone przyciski</string>
     <string name="revanced_hide_action_button_download_summary">Ukrywa przycisk pobierania.</string>
     <string name="revanced_hide_action_button_download_title">Ukryj przycisk pobierania</string>
     <string name="revanced_hide_action_button_label_summary">Ukrywa nazwy przycisków akcji.</string>
@@ -507,6 +511,8 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Blokada żądania)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Blokada żądania)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34">iOS Music 8.34</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (Blokada żądania)</string>
     <string name="revanced_spoof_client_type_summary">"Efekt uboczny:
 • przyciski akcji oraz menu ustawień odtwarzacza mogą nie wyświetlać się poprawnie
 • ten efekt uboczny można rozwiązać czyszcząc dane aplikacji i logując się ponownie
@@ -531,6 +537,7 @@ Efekt uboczny:
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_34">iOS Music 8.34</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Efekty uboczne:
 • aplikacja może wymusić zamknięcie się podczas korzystania z VPN lub DNS
 • dźwięk może sporadycznie się zacinać podczas odtwarzania na strumieniach klienta z adaptacyjną przepływnością (każdy z wyjątkiem Android VR 1.43.32)"</string>

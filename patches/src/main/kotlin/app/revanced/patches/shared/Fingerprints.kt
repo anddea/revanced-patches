@@ -67,7 +67,8 @@ internal val createPlayerRequestBodyWithModelFingerprint = legacyFingerprint(
         indexOfBrandInstruction(method) >= 0 &&
                 indexOfManufacturerInstruction(method) >= 0 &&
                 indexOfModelInstruction(method) >= 0 &&
-                indexOfReleaseInstruction(method) >= 0
+                indexOfReleaseInstruction(method) >= 0 &&
+                indexOfSdkInstruction(method) >= 0
     }
 )
 
@@ -82,6 +83,9 @@ fun indexOfModelInstruction(method: Method) =
 
 fun indexOfReleaseInstruction(method: Method) =
     method.indexOfFieldReference("Landroid/os/Build${'$'}VERSION;->RELEASE:Ljava/lang/String;")
+
+fun indexOfSdkInstruction(method: Method) =
+    method.indexOfFieldReference("Landroid/os/Build${'$'}VERSION;->SDK_INT:I")
 
 private fun Method.indexOfFieldReference(string: String) = indexOfFirstInstruction {
     val reference = getReference<FieldReference>() ?: return@indexOfFirstInstruction false

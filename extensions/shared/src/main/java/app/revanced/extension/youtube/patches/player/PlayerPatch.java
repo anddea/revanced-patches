@@ -18,10 +18,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import com.google.protobuf.MessageLite;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import app.revanced.extension.shared.innertube.utils.PlayerResponseOuterClass;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.IntegerSetting;
@@ -631,6 +635,47 @@ public class PlayerPatch {
     // endregion
 
     // region [Hide player flyout menu] patch
+
+    private static final List<Integer> fhdPremiumQualityItag = List.of(
+            217, // 1080p AVC
+            227, // 1080p AVC Encrypted
+            356, // 1080p VP9
+            360, // 1080p VP9 Encrypted
+            592, // 1080p HDR VP9 Encrypted
+            721  // 1080p AV1
+    );
+
+    public static List<Object> hidePlayerFlyoutMenuEnhancedBitrate(@NonNull List<Object> adaptiveFormats) {
+        if (Settings.HIDE_PLAYER_FLYOUT_MENU_ENHANCED_BITRATE.get()) {
+            int size = adaptiveFormats.size();
+            if (size > 1) {
+                try {
+                    ArrayList<Object> arrayList = new ArrayList<>(size);
+                    for (Object adaptiveFormat : adaptiveFormats) {
+                        if (adaptiveFormat instanceof MessageLite messageLite) {
+                            var parsedAdaptiveFormat = PlayerResponseOuterClass.Format.parseFrom(messageLite.toByteArray());
+                            if (parsedAdaptiveFormat != null) {
+                                String qualityLabel = parsedAdaptiveFormat.getQualityLabel();
+                                if (qualityLabel != null && qualityLabel.startsWith("1080")) {
+                                    int itag = parsedAdaptiveFormat.getItag();
+                                    if (fhdPremiumQualityItag.contains(itag)) {
+                                        Logger.printDebug(() -> "Removing Enhanced bitrate, itag: " + itag);
+                                        continue;
+                                    }
+                                }
+                            }
+                        }
+                        arrayList.add(adaptiveFormat);
+                    }
+                    return arrayList;
+                } catch (Exception ex) {
+                    Logger.printException(() -> "hidePlayerFlyoutMenuEnhancedBitrate failed", ex);
+                }
+            }
+        }
+
+        return adaptiveFormats;
+    }
 
     public static void hidePlayerFlyoutMenuCaptionsFooter(View view) {
         Utils.hideViewUnderCondition(

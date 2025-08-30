@@ -152,27 +152,4 @@ public class SpoofVideoStreamsPatch extends BlockRequestPatch {
         return null;
     }
 
-    /**
-     * Injection point.
-     * Called after {@link #getStreamingData(String)}.
-     */
-    @Nullable
-    public static byte[] removeVideoPlaybackPostBody(Uri uri, int method, byte[] postData) {
-        if (SPOOF_VIDEO_STREAMS) {
-            try {
-                final int methodPost = 2;
-                if (method == methodPost) {
-                    String path = uri.getPath();
-                    if (path != null && path.contains("videoplayback")) {
-                        return null;
-                    }
-                }
-            } catch (Exception ex) {
-                Logger.printException(() -> "removeVideoPlaybackPostBody failure", ex);
-            }
-        }
-
-        return postData;
-    }
-
 }

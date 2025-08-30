@@ -106,6 +106,12 @@ Limitations: Kids videos may not redirected."</string>
     <string name="revanced_disable_player_gesture_title">Disable player gesture</string>
     <string name="revanced_disable_quic_protocol_summary">"Disables CronetEngine's QUIC protocol."</string>
     <string name="revanced_disable_quic_protocol_title">Disable QUIC protocol</string>
+    <string name="revanced_disable_trim_silence_summary">"Disables a Trim silence switch in the playback speed flyout menu.
+
+Info:
+• This feature is for podcasts.
+• This feature is still in development, so it may be unstable."</string>
+    <string name="revanced_disable_trim_silence_title">Disable Trim silence switch</string>
     <string name="revanced_enable_comments_scroll_top_summary">"Clicking on the comment panel title ('Comments') scrolls to the top.
 
 Limitations: Does not apply to comment replies."</string>
@@ -132,7 +138,9 @@ Info:
 • Latest YouTube Music clients use the OPUS audio codec by default.
 • This may be necessary if the client or video stream is spoofed."</string>
     <string name="revanced_enable_opus_codec_title">Enable OPUS codec</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">Enables smooth animation when miniplayer is maximized from minimized state.</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">"Enables smooth animation when miniplayer is maximized from minimized state.
+
+Limitations: Real-time lyrics UI may be broken for some users."</string>
     <string name="revanced_enable_smooth_transition_animation_title">Enable smooth transition animation</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Enables swipe down to dismiss miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Enable swipe to dismiss miniplayer</string>
@@ -142,12 +150,6 @@ Info:
 
 Limitations: SponsorBlock segments are not shown in the seekbar."</string>
     <string name="revanced_enable_thick_seekbar_title">Enable thick seekbar</string>
-    <string name="revanced_enable_trim_silence_summary">"Adds a Trim silence switch to the playback speed flyout menu.
-
-Info:
-• This feature is for podcasts.
-• This feature is still in development, so it may be unstable."</string>
-    <string name="revanced_enable_trim_silence_title">Add Trim silence switch</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Enables Zen mode in podcasts.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Enable Zen mode in podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Enables a light grey color for the player background to reduce eye strain.</string>
@@ -194,6 +196,8 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">Hide Save button</string>
     <string name="revanced_hide_action_button_comment_summary">Hides the Comments button.</string>
     <string name="revanced_hide_action_button_comment_title">Hide Comments button</string>
+    <string name="revanced_hide_action_button_disabled_summary">Hides disabled buttons, such as the disabled Comments button.</string>
+    <string name="revanced_hide_action_button_disabled_title">Hide disabled button</string>
     <string name="revanced_hide_action_button_download_summary">Hides the Download button.</string>
     <string name="revanced_hide_action_button_download_title">Hide Download button</string>
     <string name="revanced_hide_action_button_label_summary">Hides the labels of the action buttons.</string>
@@ -507,6 +511,8 @@ Click to see how to issue an API key."</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Block request)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Block request)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34">iOS Music 8.34</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (Block request)</string>
     <string name="revanced_spoof_client_type_summary">"Side effect:
 • Action buttons or player flyout menus may not show properly.
 • These side effects may be resolved by clearing the app data and logging in again.
@@ -532,6 +538,7 @@ Side effect:
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_34">iOS Music 8.34</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Side effect:
 • App may be forced to close when using a VPN or DNS.
 • Audio may intermittently stutter during playback on adaptive bitrate streaming clients (All clients other than Android VR 1.43.32)."</string>

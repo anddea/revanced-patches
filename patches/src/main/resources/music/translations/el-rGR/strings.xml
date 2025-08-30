@@ -105,6 +105,12 @@
     <string name="revanced_disable_player_gesture_title">Απενεργοποίηση χειρονομίας οθόνης αναπαραγωγής</string>
     <string name="revanced_disable_quic_protocol_summary">"Απενεργοποίηση πρωτοκόλλου QUIC του CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Απενεργοποίηση πρωτοκόλλου QUIC</string>
+    <string name="revanced_disable_trim_silence_summary">"Απενεργοποίηση της λειτουργίας «Περικοπή σίγασης» στο αναδυόμενο μενού αλλαγής ταχύτητας αναπαραγωγής.
+
+Πληροφορίες:
+• Αυτή η λειτουργία είναι για ηχητικές εκπομπές.
+• Αυτή η λειτουργία είναι ακόμη υπό ανάπτυξη, οπότε ενδέχεται να είναι ασταθής."</string>
+    <string name="revanced_disable_trim_silence_title">Απενεργοποίηση εναλλαγής περικοπής σίγασης</string>
     <string name="revanced_enable_comments_scroll_top_summary">"Το πάτημα στον τίτλο «Σχόλια» του πίνακα σχολίων μετακινεί την προβολή στην αρχή των σχολίων.
 
 Περιορισμός: Δεν ισχύει για τις απαντήσεις σε σχόλια."</string>
@@ -127,9 +133,13 @@
     <string name="revanced_enable_mini_player_previous_button_title">Κουμπί προηγούμενου βίντεο στον miniplayer</string>
     <string name="revanced_enable_opus_codec_summary">"Ενεργοποίηση του κωδικοποιητή OPUS αν η ανταπόκριση του προγράμματος αναπαραγωγής τον περιλαμβάνει.
 
-Οι τελευταίες εκδόσεις Android χρησιμοποιούν τον κωδικοποιητή opus από προεπιλογή, οπότε αυτή η ρύθμιση ισχύει μόνο για χρήστες που χρησιμοποιούν τη λειτουργία παραποίησης έκδοσης εφαρμογής, σε πολύ παλιές εκδόσεις."</string>
+Πληροφορίες:
+• Οι πιο πρόσφατες εκδόσεις YouTube Music χρησιμοποιούν τον κωδικοποιητή opus από προεπιλογή.
+• Αυτή η ρύθμιση μπορεί να είναι απαραίτητη αν μία από τις ρυθμίσεις «Παραποίηση προγράμματος πελάτη» ή «Παραποίηση ροών βίντεο» είναι ενεργοποιημένη."</string>
     <string name="revanced_enable_opus_codec_title">Ενεργοποίηση κωδικοποιητή opus</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">Ενεργοποίηση ομαλού animation μετάβασης όταν η ελαχιστοποιημένη οθόνη αναπαραγωγής μεγιστοποιείται από την ελαχιστοποιημένη κατάσταση.</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">"Ενεργοποίηση ομαλού animation μετάβασης όταν η ελαχιστοποιημένη οθόνη αναπαραγωγής μεγιστοποιείται από την ελαχιστοποιημένη κατάσταση.
+
+Περιορισμός: Οι στίχοι σε πραγματικό χρόνο μπορεί να μη λειτουργούν για κάποιους χρήστες."</string>
     <string name="revanced_enable_smooth_transition_animation_title">Ομαλή μετάβαση ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Ενεργοποίηση χειρονομίας σάρωσης προς τα κάτω για απόρριψη της ελαχιστοποιημένης οθόνης αναπαραγωγής.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Χειρονομία απόρριψης ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
@@ -139,12 +149,6 @@
 
 Περιορισμοί: Τα τμήματα SponsorBlock δεν εμφανίζονται στη γραμμή προόδου."</string>
     <string name="revanced_enable_thick_seekbar_title">Γραμμή προόδου παχιού στυλ</string>
-    <string name="revanced_enable_trim_silence_summary">"Ενεργοποίηση της λειτουργίας «Περικοπή σίγασης» στο αναδυόμενο μενού αλλαγής ταχύτητας αναπαραγωγής.
-
-Πληροφορίες:
-• Αυτή η λειτουργία είναι για ηχητικές εκπομπές.
-• Αυτή η λειτουργία είναι ακόμη υπό ανάπτυξη, οπότε ενδέχεται να είναι ασταθής."</string>
-    <string name="revanced_enable_trim_silence_title">Ενεργοποίηση περικοπής σίγασης</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Ενεργοποίηση λειτουργίας Zen και σε ηχητικές εκπομπές.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Λειτουργία zen σε ηχητικές εκπομπές</string>
     <string name="revanced_enable_zen_mode_summary">Ενεργοποίηση μιας γκρι απόχρωσης στο παρασκήνιο της οθόνης αναπαραγωγής για να μειωθεί η καταπόνηση των ματιών.</string>
@@ -189,6 +193,8 @@
     <string name="revanced_hide_action_button_add_to_playlist_title">Απόκρυψη κουμπιού «Αποθήκευση»</string>
     <string name="revanced_hide_action_button_comment_summary">Απόκρυψη του κουμπιού σχολίων.</string>
     <string name="revanced_hide_action_button_comment_title">Απόκρυψη κουμπιού σχολίων</string>
+    <string name="revanced_hide_action_button_disabled_summary">Απόκρυψη των κουμπιών που είναι απενεργοποιημένα, όπως το κουμπί απενεργοποιημένων σχολίων.</string>
+    <string name="revanced_hide_action_button_disabled_title">Απόκρυψη απενεργοποιημένων κουμπιών</string>
     <string name="revanced_hide_action_button_download_summary">Απόκρυψη του κουμπιού λήψης.</string>
     <string name="revanced_hide_action_button_download_title">Απόκρυψη κουμπιού «Λήψη»</string>
     <string name="revanced_hide_action_button_label_summary">Απόκρυψη των ονομασιών των κουμπιών ενεργειών.</string>
@@ -502,6 +508,8 @@
     <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Αποκλεισμός αιτήματος)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Αποκλεισμός αιτήματος)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34">iOS Music 8.34</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (Αποκλεισμός αιτήματος)</string>
     <string name="revanced_spoof_client_type_summary">"Παρενέργειες:
 • Τα κουμπιά ενεργειών μπορεί να μην εμφανίζονται καθόλου στο YouTube Music 7.17+.
 • Το αναδυόμενο μενού της οθόνης αναπαραγωγής μπορεί να μην εμφανίζεται σωστά.
@@ -526,6 +534,7 @@
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_34">iOS Music 8.34</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Παρενέργειες:
 • Η εφαρμογή μπορεί να κλείνει απότομα όταν χρησιμοποιείτε VPN ή εναλλακτικό DNS.
 • Ο ήχος μπορεί περιοδικά να σπάει κατά την αναπαραγωγή σε προγράμματα πελάτες προσαρμοστικού ρυθμού μετάδοσης (Όλα τα προγράμματα πελάτη εκτός από το Android VR 1.43.32)."</string>

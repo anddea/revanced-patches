@@ -10,7 +10,9 @@ import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
+import app.revanced.patches.youtube.utils.getEmptyRegistryFingerprint
 import app.revanced.patches.youtube.utils.indexOfAddHeaderViewInstruction
+import app.revanced.patches.youtube.utils.indexOfGetAdaptiveFormatsFieldInstruction
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_PLAYER_FLYOUT_MENU
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_18_39_or_greater
@@ -21,13 +23,18 @@ import app.revanced.patches.youtube.utils.resourceid.bottomSheetFooterText
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.patches.youtube.utils.videoStreamingDataConstructorFingerprint
+import app.revanced.patches.youtube.utils.videoStreamingDataToStringFingerprint
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.cloneMutable
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.injectLiteralInstructionViewCall
+import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 private const val PANELS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/PlayerFlyoutMenuFilter;"
@@ -88,6 +95,40 @@ val playerFlyoutMenuPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for hide '1080p Premium' label
+
+        videoStreamingDataConstructorFingerprint.matchOrThrow(
+            videoStreamingDataToStringFingerprint
+        ).let {
+            it.method.apply {
+                val adaptiveFormatsFieldIndex =
+                    indexOfGetAdaptiveFormatsFieldInstruction(this)
+                val adaptiveFormatsRegister =
+                    getInstruction<TwoRegisterInstruction>(adaptiveFormatsFieldIndex).registerA
+
+                addInstructions(
+                    adaptiveFormatsFieldIndex + 1, """
+                        invoke-static { v$adaptiveFormatsRegister }, $PLAYER_CLASS_DESCRIPTOR->hidePlayerFlyoutMenuEnhancedBitrate(Ljava/util/List;)Ljava/util/List;
+                        move-result-object v$adaptiveFormatsRegister
+                        """
+                )
+            }
+        }
+
+        // Some classes that exist in YouTube are not merged.
+        // Instead of relocating all classes in the extension,
+        // Only the methods necessary for the patch to function are copied.
+        // Note: Protobuf library included with YouTube seems to have been released before 2016.
+        getEmptyRegistryFingerprint.matchOrThrow().let {
+            it.classDef.methods.add(
+                it.method.cloneMutable(name = "getEmptyRegistry")
+            )
+        }
+
+        updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "PlayerFlyoutMenu")
+
+        // endregion
+
         // region patch for hide pip mode menu
 
         if (is_18_39_or_greater) {
@@ -120,8 +161,6 @@ val playerFlyoutMenuPatch = bytecodePatch(
         // endregion
 
         addLithoFilter(PANELS_FILTER_CLASS_DESCRIPTOR)
-
-        updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "PlayerFlyoutMenu")
 
         // region add settings
 

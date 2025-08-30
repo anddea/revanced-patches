@@ -119,8 +119,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
 이러한 스낵바 배경 색상을 변경할 수 있습니다.
 
 서버 측 변경 사항이 있는 경우에는 스낵바 배경 색상이 변경되지 않을 수 있습니다."</string>
-    <string name="revanced_change_share_sheet_summary_off">YouTube 기본 공유 시트를 사용합니다.</string>
-    <string name="revanced_change_share_sheet_summary_on">Android 시스템 공유 시트를 사용합니다.\n\n• 공유 버튼으로 바로 Android 시스템 공유 메뉴를 실행할 수 있습니다.</string>
+    <string name="revanced_change_share_sheet_summary_off">기본 공유 시트를 사용합니다.</string>
+    <string name="revanced_change_share_sheet_summary_on">시스템 공유 시트를 사용합니다.</string>
     <string name="revanced_change_share_sheet_title">공유 시트 변경하기</string>
     <string name="revanced_change_shorts_background_repeat_state_title">Shorts 백그라운드 재생 반복 상태 변경하기</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">자동넘김</string>
@@ -599,7 +599,7 @@ Shorts 플레이어 배경을 탭하면 상태바 및 플레이어 구성요소�
     <string name="revanced_hide_autoplay_preview_summary_off">자동재생 미리보기 컨테이너가 표시됩니다.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">자동재생 미리보기 컨테이너가 숨겨집니다.</string>
     <string name="revanced_hide_autoplay_preview_title">자동재생 미리보기 컨테이너 숨기기</string>
-    <string name="revanced_hide_carousel_shelf_about_summary">좌우 슬라이드형 선반에 대한 예시:&lt;br&gt;&lt;b&gt;다시 듣기&lt;/b&gt;, &lt;b&gt;다시 시청하기&lt;/b&gt;, &lt;b&gt;이어서 시청하기&lt;/b&gt;, &lt;b&gt;채널 더보기&lt;/b&gt;, &lt;b&gt;이 게임 더보기&lt;/b&gt;, &lt;b&gt;주요 뉴스&lt;/b&gt;, &lt;b&gt;뉴스 속보&lt;/b&gt;, &lt;b&gt;맞춤 실시간 스트림&lt;/b&gt;, &lt;b&gt;라이브 쇼핑&lt;/b&gt;, &lt;b&gt;보건 정보 출처&lt;/b&gt;, &lt;b&gt;관련성&lt;/b&gt;, &lt;b&gt;etc.&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">좌우 슬라이드형 선반에 대한 예시:&lt;br&gt;&lt;b&gt;다시 듣기&lt;/b&gt;, &lt;b&gt;다시 시청하기&lt;/b&gt;, &lt;b&gt;이어서 시청하기&lt;/b&gt;, &lt;b&gt;채널 더보기&lt;/b&gt;, &lt;b&gt;이 게임 더보기&lt;/b&gt;, &lt;b&gt;주요 뉴스&lt;/b&gt;, &lt;b&gt;뉴스 속보&lt;/b&gt;, &lt;b&gt;맞춤 실시간 스트림&lt;/b&gt;, &lt;b&gt;라이브 쇼핑&lt;/b&gt;, &lt;b&gt;보건 정보 출처&lt;/b&gt;, &lt;b&gt;관련성&lt;/b&gt;, &lt;b&gt;추천&lt;/b&gt;, &lt;b&gt;etc.&lt;/b&gt;</string>
     <string name="revanced_hide_carousel_shelf_about_title">좌우 슬라이드형 선반에 대한 정보</string>
     <string name="revanced_hide_carousel_shelf_home_summary_off">홈 피드 및 관련 동영상에서 표시됩니다.</string>
     <string name="revanced_hide_carousel_shelf_home_summary_on">홈 피드 및 관련 동영상에서 숨겨집니다.</string>
@@ -712,9 +712,9 @@ Shorts 플레이어 배경을 탭하면 상태바 및 플레이어 구성요소�
     <string name="revanced_hide_creator_store_shelf_summary_off">판매자(크리에이터명) 스토어 선반이 표시됩니다.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">판매자(크리에이터명) 스토어 선반이 숨겨집니다.</string>
     <string name="revanced_hide_creator_store_shelf_title">판매자 스토어 선반 숨기기</string>
-    <string name="revanced_hide_crowdfunding_box_summary_off">플레이어 하단에서 크라우드 펀딩 박스가 표시됩니다.</string>
-    <string name="revanced_hide_crowdfunding_box_summary_on">플레이어 하단에서 크라우드 펀딩 박스가 숨겨집니다.</string>
-    <string name="revanced_hide_crowdfunding_box_title">크라우드 펀딩 박스 숨기기</string>
+    <string name="revanced_hide_crowdfunding_box_summary_off">모금 행사 패널이 표시됩니다.</string>
+    <string name="revanced_hide_crowdfunding_box_summary_on">모금 행사 패널이 숨겨집니다.</string>
+    <string name="revanced_hide_crowdfunding_box_title">모금 행사 패널 숨기기</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_off">두 번 탭하기 오버레이 필터가 표시됩니다.</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_on">두 번 탭하기 오버레이 필터가 숨겨집니다.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">두 번 탭하기 오버레이 필터 숨기기</string>
@@ -762,9 +762,6 @@ Shorts 플레이어 배경을 탭하면 상태바 및 플레이어 구성요소�
     <string name="revanced_hide_floating_microphone_summary_off">검색 시 오른쪽 하단에서 플로팅 마이크 버튼이 표시됩니다.</string>
     <string name="revanced_hide_floating_microphone_summary_on">검색 시 오른쪽 하단에서 플로팅 마이크 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_floating_microphone_title">플로팅 마이크 버튼 숨기기</string>
-    <string name="revanced_hide_for_you_shelf_summary_off">추천 선반이 표시됩니다.</string>
-    <string name="revanced_hide_for_you_shelf_summary_on">추천 선반이 숨겨집니다.</string>
-    <string name="revanced_hide_for_you_shelf_title">추천 선반 숨기기</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">전체 화면 광고가 표시됩니다.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">전체 화면 광고가 숨겨집니다.</string>
     <string name="revanced_hide_fullscreen_ads_title">전체 화면 광고 숨기기</string>
@@ -895,9 +892,9 @@ Shorts 플레이어 배경을 탭하면 상태바 및 플레이어 구성요소�
     <string name="revanced_hide_paid_promotion_label_summary_off">유료 광고 포함 라벨이 표시됩니다.</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">유료 광고 포함 라벨이 숨겨집니다.</string>
     <string name="revanced_hide_paid_promotion_label_title">유료 광고 포함 라벨 숨기기</string>
-    <string name="revanced_hide_playables_summary_off">게임 룸 선반이 표시됩니다.</string>
-    <string name="revanced_hide_playables_summary_on">게임 룸 선반이 숨겨집니다.</string>
-    <string name="revanced_hide_playables_title">게임 룸 선반 숨기기</string>
+    <string name="revanced_hide_playables_summary_off">게임 룸이 표시됩니다.</string>
+    <string name="revanced_hide_playables_summary_on">게임 룸이 숨겨집니다.</string>
+    <string name="revanced_hide_playables_title">게임 룸 숨기기</string>
     <string name="revanced_hide_player_autoplay_button_summary_off">자동재생 버튼이 표시됩니다.</string>
     <string name="revanced_hide_player_autoplay_button_summary_on">자동재생 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_player_autoplay_button_title">자동재생 버튼 숨기기</string>
@@ -1924,8 +1921,8 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_sanitize_comments_category_bar_title">카테고리 바 정리하기</string>
     <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거합니다. (URL의 뒷부분 \'?si=...\' 이 제거됨.)</string>
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
-    <string name="revanced_sanitize_video_subtitle_summary_off">"제목 하단에서 다음 문구들이 표시됩니다:\n#(해시태그), 모금 행사, 쇼핑, n개 제품,\n자동 더빙, 회원 전용, etc."</string>
-    <string name="revanced_sanitize_video_subtitle_summary_on">"제목 하단에서 다음 문구들이 숨겨집니다:\n#(해시태그), 모금 행사, 쇼핑, n개 제품,\n자동 더빙, 회원 전용, etc."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"제목 하단에서 다음 문구들이 표시됩니다:\n#(해시태그), 모금 행사, 쇼핑, n개 제품,\nHype 순위 n위, 자동 더빙, 회원 전용, etc."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"제목 하단에서 다음 문구들이 숨겨집니다:\n#(해시태그), 모금 행사, 쇼핑, n개 제품,\nHype 순위 n위, 자동 더빙, 회원 전용, etc."</string>
     <string name="revanced_sanitize_video_subtitle_title">동영상 제목 하단 정리하기</string>
     <string name="revanced_sb_about">정보</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>

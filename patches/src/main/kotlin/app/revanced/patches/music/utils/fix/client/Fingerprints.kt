@@ -2,9 +2,56 @@ package app.revanced.patches.music.utils.fix.client
 
 import app.revanced.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionReversed
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+
+internal val buildRequestFingerprint = legacyFingerprint(
+    name = "buildRequestFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    returnType = "Lorg/chromium/net/UrlRequest;",
+    opcodes = listOf(
+        Opcode.INVOKE_DIRECT,
+        Opcode.INVOKE_VIRTUAL
+    ),
+    customFingerprint = { method, _ ->
+        indexOfUrlRequestBuilderInstruction(method) >= 0
+    }
+)
+
+internal fun indexOfUrlRequestBuilderInstruction(method: Method) =
+    method.indexOfFirstInstructionReversed {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>()?.name == "build"
+    }
+
+internal val netFetchFingerprint = legacyFingerprint(
+    name = "netFetchFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    customFingerprint = { method, classDef ->
+        classDef.superclass == "Lcom/google/android/libraries/youtube/media/interfaces/NetFetch;" &&
+                method.name == "startFetchTask" &&
+                indexOfCronetUrlRequestBuilderInstruction(method) >= 0 &&
+                indexOfSizeInstruction(method) >= 0
+    }
+)
+
+internal fun indexOfCronetUrlRequestBuilderInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>()?.name == "newUrlRequestBuilder"
+    }
+
+internal fun indexOfSizeInstruction(method: Method, startIndex: Int = 0) =
+    method.indexOfFirstInstruction(startIndex) {
+        opcode == Opcode.INVOKE_INTERFACE &&
+                getReference<MethodReference>()?.toString() == "Ljava/util/List;->size()I"
+    }
 
 /**
  * This is the fingerprint used in the 'client-spoof' patch around 2022.

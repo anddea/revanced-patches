@@ -53,7 +53,7 @@ public class BaseSettings {
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS = new BooleanSetting("revanced_spoof_streaming_data_use_js", FALSE, true,
             "revanced_spoof_streaming_data_use_js_user_dialog_message", new J2V8Availability());
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS_ALL = new BooleanSetting("revanced_spoof_streaming_data_use_js_all", FALSE, true , new ClientJSAvailability());
-    public static final BooleanSetting SPOOF_STREAMING_DATA_USE_LATEST_JS = new BooleanSetting("revanced_spoof_streaming_data_use_latest_js", TRUE, true, new ClientJSAvailability());
+    public static final BooleanSetting SPOOF_STREAMING_DATA_USE_LATEST_JS = new BooleanSetting("revanced_spoof_streaming_data_use_latest_js", FALSE, true, new ClientJSAvailability());
 
     // Client type must be last spoof setting due to cyclic references.
     public static final EnumSetting<ClientType> SPOOF_STREAMING_DATA_DEFAULT_CLIENT = new EnumSetting<>("revanced_spoof_streaming_data_default_client",

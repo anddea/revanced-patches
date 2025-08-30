@@ -230,7 +230,7 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
     <string name="revanced_disable_ambient_mode_summary_off">Włączone</string>
     <string name="revanced_disable_ambient_mode_summary_on">Wyłączone</string>
     <string name="revanced_disable_ambient_mode_title">Oświetlenie kinowe</string>
-    <string name="revanced_disable_auto_audio_tracks_not_available">Aby używać tej funkcji, zmień domyślnego klienta (oszukiwanie strumienia danych) na TV lub iOS TV.</string>
+    <string name="revanced_disable_auto_audio_tracks_not_available">Aby używać tej funkcji, zmień domyślnego klienta (oszukiwanie strumienia danych) na TV, Uproszczony TV lub iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Włączone</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Wyłączone</string>
     <string name="revanced_disable_auto_audio_tracks_title">Automatyczne wymuszanie ścieżki dźwiękowej</string>
@@ -594,7 +594,7 @@ Informacje:
     <string name="revanced_hide_autoplay_preview_summary_off">Widoczne</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Ukryte</string>
     <string name="revanced_hide_autoplay_preview_title">Ramki z następnym filmem</string>
-    <string name="revanced_hide_carousel_shelf_about_summary">Przykłady półek karuzelowych:&lt;br&gt;&lt;br&gt;&lt;b&gt;Najważniejsze wiadomości&lt;/b&gt;, &lt;b&gt;Kontynuuj oglądanie&lt;/b&gt;, &lt;b&gt;Odkryj więcej kanałów&lt;/b&gt;, &lt;b&gt;Posłuchaj jeszcze raz&lt;/b&gt;, &lt;b&gt;Najbardziej istotne&lt;/b&gt;, &lt;b&gt;Zakupy&lt;/b&gt;, &lt;b&gt;Obejrzyj ponownie&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Przykłady półek karuzelowych:&lt;br&gt;&lt;br&gt;&lt;b&gt;Najważniejsze wiadomości&lt;/b&gt;, &lt;b&gt;Kontynuuj oglądanie&lt;/b&gt;, &lt;b&gt;Odkryj więcej kanałów&lt;/b&gt;, &lt;b&gt;Dla Ciebie&lt;/b&gt;, &lt;b&gt;Posłuchaj jeszcze raz&lt;/b&gt;, &lt;b&gt;Najbardziej istotne&lt;/b&gt;, &lt;b&gt;Zakupy&lt;/b&gt;, &lt;b&gt;Obejrzyj ponownie&lt;/b&gt;</string>
     <string name="revanced_hide_carousel_shelf_about_title">O półkach karuzelowych</string>
     <string name="revanced_hide_carousel_shelf_home_summary_off">Widoczne</string>
     <string name="revanced_hide_carousel_shelf_home_summary_on">Ukryte</string>
@@ -750,9 +750,6 @@ Ustawienia → Autoodtwarzanie/Odtwarzanie → Autoodtwarzanie następnego filmu
     <string name="revanced_hide_floating_microphone_summary_off">Widoczny</string>
     <string name="revanced_hide_floating_microphone_summary_on">Ukryty</string>
     <string name="revanced_hide_floating_microphone_title">Dolny przycisk od mikrofonu</string>
-    <string name="revanced_hide_for_you_shelf_summary_off">Widoczna</string>
-    <string name="revanced_hide_for_you_shelf_summary_on">Ukryta</string>
-    <string name="revanced_hide_for_you_shelf_title">Półka \'Dla Ciebie\'</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Ukryte</string>
     <string name="revanced_hide_fullscreen_ads_title">Pełnoekranowe reklamy</string>
@@ -907,7 +904,7 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Menu od oświetlenia kinowego</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Menu od ścieżki dźwiękowej jest ukryte.
 
-Aby wyświetlało się menu od ścieżki dźwiękowej, zmień domyślnego klienta (oszukiwanie strumienia danych) na TV lub iOS TV."</string>
+Aby wyświetlało się menu od ścieżki dźwiękowej, zmień domyślnego klienta (oszukiwanie strumienia danych) na TV, Uproszczony TV lub iOS TV."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Menu od ścieżki dźwiękowej</string>
@@ -1678,7 +1675,7 @@ Stuknij tutaj, by pobrać YouTube Music.</string>
     <string name="revanced_preference_category_import_export_as_file">Zaimportuj / Wyeksportuj jako plik</string>
     <string name="revanced_preference_category_import_export_as_text">Zaimportuj / Wyeksportuj jako tekst</string>
     <string name="revanced_preference_category_ios">iOS</string>
-    <string name="revanced_preference_category_js">JavaScript (w fazie rozwoju)</string>
+    <string name="revanced_preference_category_js">JavaScript</string>
     <string name="revanced_preference_category_keyword_filter">Filtr słów</string>
     <string name="revanced_preference_category_others">Inne</string>
     <string name="revanced_preference_category_overlay_buttons">Dodatkowe przyciski w odtwarzaczu</string>
@@ -2345,7 +2342,7 @@ Jeśli jesteś użytkownikiem YouTube Premium lub odznaczono przy łataniu 'GmsC
 
 Wzorzec n-sig zmienia się dość często na serwerach YouTube, a odtwarzanie może się nie powieść, jeśli wyrażenie regularne nie znajdzie takowego wzorca.
 
-Ta funkcja jest nadal w rozwoju, więc używaj jej tylko w celach debugowania."</string>
+Spośród klientów JavaScript, rekomendowanym klientem jest Uproszczony TV."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"Wyłączony
 
 • używany jest JavaScript nadający się do odszyfrowywania, jednak nadal jest to nieco zależne od serwera"</string>

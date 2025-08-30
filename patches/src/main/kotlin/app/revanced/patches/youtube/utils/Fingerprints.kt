@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.utils
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patches.youtube.player.components.playerComponentsPatch
+import app.revanced.patches.youtube.utils.fix.streamingdata.STREAMING_DATA_OUTER_CLASS
 import app.revanced.patches.youtube.utils.resourceid.fadeDurationFast
 import app.revanced.patches.youtube.utils.resourceid.fullScreenEngagementPanel
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
@@ -93,6 +94,17 @@ internal val fullScreenEngagementPanelFingerprint = legacyFingerprint(
     returnType = "L",
     parameters = listOf("L"),
     literals = listOf(fullScreenEngagementPanel),
+)
+
+internal val getEmptyRegistryFingerprint = legacyFingerprint(
+    name = "getEmptyRegistryFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = emptyList(),
+    returnType = "Lcom/google/protobuf/ExtensionRegistryLite;",
+    customFingerprint = { method, classDef ->
+        classDef.type == "Lcom/google/protobuf/ExtensionRegistryLite;"
+                && method.name != "getGeneratedRegistry"
+    },
 )
 
 internal val layoutConstructorFingerprint = legacyFingerprint(
@@ -296,6 +308,41 @@ internal val videoIdFingerprintShorts = legacyFingerprint(
             getReference<FieldReference>()?.name == "reelWatchEndpoint"
         } >= 0
     }
+)
+
+internal val videoStreamingDataConstructorFingerprint = legacyFingerprint(
+    name = "videoStreamingDataConstructorFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    returnType = "V",
+    customFingerprint = { method, _ ->
+        indexOfGetAdaptiveFormatsFieldInstruction(method) >= 0
+    },
+)
+
+internal fun indexOfGetAdaptiveFormatsFieldInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<FieldReference>()
+        opcode == Opcode.IGET_OBJECT &&
+                reference?.definingClass == STREAMING_DATA_OUTER_CLASS &&
+                // Field f: 'adaptiveFormats'.
+                // Field name is always 'f', regardless of the client version.
+                reference.name == "f" &&
+                reference.type.startsWith("L")
+    }
+
+/**
+ * On YouTube, this class is 'Lcom/google/android/libraries/youtube/innertube/model/media/VideoStreamingData;'
+ * On YouTube Music, class names are obfuscated.
+ */
+internal val videoStreamingDataToStringFingerprint = legacyFingerprint(
+    name = "videoStreamingDataToStringFingerprint",
+    returnType = "Ljava/lang/String;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    strings = listOf("VideoStreamingData(itags="),
+    customFingerprint = { method, _ ->
+        method.name == "toString"
+    },
 )
 
 /**

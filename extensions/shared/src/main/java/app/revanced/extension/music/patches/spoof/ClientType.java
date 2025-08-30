@@ -76,6 +76,19 @@ public enum ClientType {
             "8.12",
             false
     ),
+    IOS_MUSIC_8_34(IOS_MUSIC_8_12.id,
+            IOS_MUSIC_8_12.deviceBrand,
+            IOS_MUSIC_8_12.deviceMake,
+            IOS_MUSIC_8_12.deviceModel,
+            IOS_MUSIC_8_12.osName,
+            IOS_MUSIC_8_12.osVersion,
+            IOS_MUSIC_8_12.androidSdkVersion,
+            IOS_MUSIC_8_12.buildId,
+            IOS_MUSIC_8_12.packageName,
+            IOS_MUSIC_8_12.clientName,
+            "8.34",
+            false
+    ),
     IOS_MUSIC_6_21_BLOCK_REQUEST(IOS_MUSIC_6_21.id,
             IOS_MUSIC_6_21.deviceBrand,
             IOS_MUSIC_6_21.deviceMake,
@@ -113,6 +126,19 @@ public enum ClientType {
             IOS_MUSIC_8_12.packageName,
             IOS_MUSIC_8_12.clientName,
             IOS_MUSIC_8_12.clientVersion,
+            true
+    ),
+    IOS_MUSIC_8_34_BLOCK_REQUEST(IOS_MUSIC_8_34.id,
+            IOS_MUSIC_8_34.deviceBrand,
+            IOS_MUSIC_8_34.deviceMake,
+            IOS_MUSIC_8_34.deviceModel,
+            IOS_MUSIC_8_34.osName,
+            IOS_MUSIC_8_34.osVersion,
+            IOS_MUSIC_8_34.androidSdkVersion,
+            IOS_MUSIC_8_34.buildId,
+            IOS_MUSIC_8_34.packageName,
+            IOS_MUSIC_8_34.clientName,
+            IOS_MUSIC_8_34.clientVersion,
             true
     );
 

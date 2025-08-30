@@ -42,24 +42,6 @@ internal fun indexOfEntrySetInstruction(method: Method) =
                 getReference<MethodReference>().toString() == "Ljava/util/Map;->entrySet()Ljava/util/Set;"
     }
 
-internal val buildMediaDataSourceFingerprint = legacyFingerprint(
-    name = "buildMediaDataSourceFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    returnType = "V",
-    parameters = listOf(
-        "Landroid/net/Uri;",
-        "J",
-        "I",
-        "[B",
-        "Ljava/util/Map;",
-        "J",
-        "J",
-        "Ljava/lang/String;",
-        "I",
-        "Ljava/lang/Object;"
-    )
-)
-
 internal val createStreamingDataFingerprint = legacyFingerprint(
     name = "createStreamingDataFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,

@@ -7,6 +7,7 @@ gson = "2.13.1"
 agp = "8.2.2"
 annotation = "1.9.1"
 collections4 = "4.5.0"
+desugar = "2.1.5"
 lang3 = "3.18.0"
 appcompat = "1.7.0"
 okhttp = "5.0.0-alpha.14"
@@ -25,6 +26,7 @@ retrofit = "2.11.0"
 [libraries]
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
 collections4 = { module = "org.apache.commons:commons-collections4", version.ref = "collections4" }
+desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "lang3" }
 nanojson = { module = "com.grack:nanojson", version.ref = "nanojson" }

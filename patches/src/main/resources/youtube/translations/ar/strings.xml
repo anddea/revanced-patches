@@ -227,7 +227,7 @@
     <string name="revanced_disable_ambient_mode_summary_off">تم تمكين وضع الإضاءة السينمائية.</string>
     <string name="revanced_disable_ambient_mode_summary_on">تم تعطيل وضع الإضاءة السينمائية.</string>
     <string name="revanced_disable_ambient_mode_title">تعطيل وضع الإضاءة السينمائية</string>
-    <string name="revanced_disable_auto_audio_tracks_not_available">لاستخدام هذه الميزة، قم بتغيير \'العميل الافتراضي (Spoof Streaming Data)\' إلى TV أو iOS TV.</string>
+    <string name="revanced_disable_auto_audio_tracks_not_available">لاستخدام هذه الميزة، قم بتغيير \'العميل الافتراضي (Spoof Streaming Data)\' إلى TV, TV Simply أو iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">تم تمكين المقطع الصوتي التلقائي المفروض.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">تم تعطيل المقطع الصوتي التلقائي المفروض.</string>
     <string name="revanced_disable_auto_audio_tracks_title">تعطيل المقطع الصوتي التلقائي المفروض</string>
@@ -704,9 +704,6 @@
     <string name="revanced_hide_floating_microphone_summary_off">يتم عرض زر الميكروفون العائم.</string>
     <string name="revanced_hide_floating_microphone_summary_on">تم إخفاء زر الميكروفون العائم.</string>
     <string name="revanced_hide_floating_microphone_title">إخفاء زر الميكروفون العائم</string>
-    <string name="revanced_hide_for_you_shelf_summary_off">يتم عرض رف مُقترَح لك.</string>
-    <string name="revanced_hide_for_you_shelf_summary_on">تم إخفاء رف مُقترَح لك.</string>
-    <string name="revanced_hide_for_you_shelf_title">إخفاء رف مُقترَح لك</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">يتم عرض إعلانات ملء الشاشة.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">تم إخفاء إعلانات ملء الشاشة.</string>
     <string name="revanced_hide_fullscreen_ads_title">إخفاء إعلانات ملء الشاشة</string>
@@ -861,7 +858,7 @@
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">إخفاء قائمة الإضاءة السينمائية</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"قائمة المقطع الصوتي مخفية.
 
-لإظهار قائمة المقطع الصوتي، قم بتغيير 'العميل الافتراضي (Spoof Streaming Data)' إلى TV أو iOS TV."</string>
+لإظهار قائمة المقطع الصوتي، قم بتغيير 'العميل الافتراضي (Spoof Streaming Data)' إلى TV, TV Simply أو iOS TV."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">يتم عرض قائمة المقطع الصوتي.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">تم إخفاء قائمة المقطع الصوتي.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">إخفاء قائمة المقطع الصوتي</string>
@@ -1602,7 +1599,7 @@
     <string name="revanced_preference_category_import_export_as_file">استيراد / تصدير كملف</string>
     <string name="revanced_preference_category_import_export_as_text">استيراد / تصدير كنص</string>
     <string name="revanced_preference_category_ios">iOS</string>
-    <string name="revanced_preference_category_js">JavaScript (WIP)</string>
+    <string name="revanced_preference_category_js">JavaScript</string>
     <string name="revanced_preference_category_keyword_filter">تصفية الكلمات المفتاحية</string>
     <string name="revanced_preference_category_others">أخرى</string>
     <string name="revanced_preference_category_overlay_buttons">أزرار الواجهة</string>
@@ -2226,11 +2223,11 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
     <string name="revanced_spoof_streaming_data_use_js_summary_off">لم يتم إضافة عميل JavaScript إلى العملاء المتاحين.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">تم إضافة عميل JavaScript إلى العملاء المتاحين.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">استخدام عميل JavaScript</string>
-    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"يستهلك التطبيق موارد النظام بشكل أكبر للعثور على نمط n-sig أو فك تشفيره، ويبدأ الفيديو ببطء اكبر.
+    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"يستخدم التطبيق موارد النظام بشكل أكبر للعثور على نمط n-sig أو فك تشفيره، ويبدأ الفيديو ببطء.
 
-يتغير نمط n-sig بشكل متكرر على خوادم YouTube، وقد يفشل التشغيل إذا لم يتمكن التعبير العادي من العثور على نمط n-sig.
+يتغير نمط n-sig بشكل متكرر على خوادم يوتيوب، وقد يفشل التشغيل إذا لم يتمكن التعبير العادي من العثور على نمط n-sig.
 
-لا تزال هذه الميزة قيد التطوير، لذا يُرجى استخدامها لأغراض تصحيح الأخطاء فقط."</string>
+من بين عملاء JavaScript، يُنصح باستخدام TV Simply."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"لا يتم تحديث JavaScript لإزالة التشويش.
 
 • يُستخدم JavaScript الذي ينجح في إزالة التشويش، ولكنه لا يزال يعتمد إلى حد ما على الخادم."</string>

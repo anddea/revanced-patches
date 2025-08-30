@@ -125,7 +125,7 @@ Se ci sono cambiamenti sul lato server, il colore potrebbe non cambiare."</strin
     <string name="revanced_change_start_page_entry_all_subscriptions">Tutte le iscrizioni</string>
     <string name="revanced_change_start_page_entry_browse">Esplora canali</string>
     <string name="revanced_change_start_page_entry_courses">Apprendimento</string>
-    <string name="revanced_change_start_page_entry_default">Predefinita (Home)</string>
+    <string name="revanced_change_start_page_entry_default">Home (Predefinita)</string>
     <string name="revanced_change_start_page_entry_explore">Esplora</string>
     <string name="revanced_change_start_page_entry_fashion">Moda e bellezza</string>
     <string name="revanced_change_start_page_entry_gaming">Giochi</string>
@@ -225,7 +225,7 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_disable_ambient_mode_summary_off">La modalità Ambient è attivata.</string>
     <string name="revanced_disable_ambient_mode_summary_on">La modalità Ambient è disattivata.</string>
     <string name="revanced_disable_ambient_mode_title">Disattiva la modalità Ambient</string>
-    <string name="revanced_disable_auto_audio_tracks_not_available">Per usare questa impostazione, cambia il client predefinito in TV o iOS TV.</string>
+    <string name="revanced_disable_auto_audio_tracks_not_available">Per usare questa impostazione, cambia il client predefinito in TV, TV Simply o iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">La traccia audio automatica forzata è attivata.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">La traccia audio automatica forzata è disattivata.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disattiva la traccia audio automatica forzata</string>
@@ -539,9 +539,9 @@ Note:
     <string name="revanced_hide_ai_chat_summary_summary_off">La sezione Riepilogo IA della Chat nella chat live è visibile.</string>
     <string name="revanced_hide_ai_chat_summary_summary_on">La sezione Riepilogo IA della Chat nella chat live è nascosta.</string>
     <string name="revanced_hide_ai_chat_summary_title">Nascondi la sezione Riepilogo IA della Chat nella chat live</string>
-    <string name="revanced_hide_ai_comments_summary_summary_off">Il riepilogo IA dei commenti è visibile.</string>
-    <string name="revanced_hide_ai_comments_summary_summary_on">Il riepilogo IA dei commenti è nascosto.</string>
-    <string name="revanced_hide_ai_comments_summary_title">Nascondi il riepilogo IA dei commenti</string>
+    <string name="revanced_hide_ai_comments_summary_summary_off">I riepiloghi IA nei commenti sono visibili.</string>
+    <string name="revanced_hide_ai_comments_summary_summary_on">I riepiloghi IA nei commenti sono nascosti.</string>
+    <string name="revanced_hide_ai_comments_summary_title">Nascondi i riepiloghi IA nei commenti</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sezione Riepilogo Video Generato dall\'IA è visibile.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sezione Riepilogo Video Generato dall\'IA è nascosta.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Nascondi la sezione Riepilogo Video Generato dall\'IA</string>
@@ -564,6 +564,7 @@ Note:
 • Ultime notizie&lt;br&gt;
 • Continua a guardare&lt;br&gt;
 • Esplora altri canali&lt;br&gt;
+• Per te&lt;br&gt;
 • Ascolta di nuovo&lt;br&gt;
 • Più pertinenti&lt;br&gt;
 • Shopping&lt;br&gt;
@@ -724,9 +725,6 @@ Impostazioni → Riproduzione → Riproduzione automatica video successivo"</str
     <string name="revanced_hide_floating_microphone_summary_off">Il pulsante Microfono fluttuante è visibile.</string>
     <string name="revanced_hide_floating_microphone_summary_on">Il pulsante Microfono fluttuante è nascosto.</string>
     <string name="revanced_hide_floating_microphone_title">Nascondi il pulsante Microfono fluttuante</string>
-    <string name="revanced_hide_for_you_shelf_summary_off">Lo scaffale Per Te è visibile.</string>
-    <string name="revanced_hide_for_you_shelf_summary_on">Lo scaffale Per Te è nascosto.</string>
-    <string name="revanced_hide_for_you_shelf_title">Nascondi lo scaffale Per Te</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Gli annunci a schermo intero sono visibili.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Gli annunci a schermo intero sono nascosti.</string>
     <string name="revanced_hide_fullscreen_ads_title">Nascondi gli annunci a schermo intero</string>
@@ -881,7 +879,7 @@ Le parole con lettere maiuscole all'interno devono essere inserite con il maiusc
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Nascondi il menù Modalità Ambient</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Il menù Traccia Audio è nascosto.
 
-Nota: per mostrare il menù Traccia Audio, cambia il client predefinito in TV o iOS TV."</string>
+Nota: per mostrare il menù Traccia Audio, cambia il client predefinito in TV, TV Simply o iOS TV."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Il menù Traccia Audio è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Il menù Traccia Audio è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Nascondi il menù Traccia Audio</string>
@@ -1627,7 +1625,7 @@ Per mostrare il pulsante Scarica Playlist nativo, attiva il camuffamento della v
     <string name="revanced_preference_category_import_export_as_file">Esporta / Importa come file</string>
     <string name="revanced_preference_category_import_export_as_text">Esporta / Importa come testo</string>
     <string name="revanced_preference_category_ios">iOS</string>
-    <string name="revanced_preference_category_js">JavaScript (In fase di sviluppo)</string>
+    <string name="revanced_preference_category_js">JavaScript</string>
     <string name="revanced_preference_category_keyword_filter">Filtro per parola chiave</string>
     <string name="revanced_preference_category_others">Altri</string>
     <string name="revanced_preference_category_overlay_buttons">Pulsanti in sovrapposizione</string>
@@ -2252,11 +2250,11 @@ Nota: questo client non riesce ancora a riprodurre clip, riproduzione automatica
     <string name="revanced_spoof_streaming_data_use_js_summary_off">Il client JavaScript non è visibile tra i client disponibili.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">Il client JavaScript è visibile tra i client disponibili.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Mostra il client JavaScript tra i client disponibili</string>
-    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"L'app userà più risorse di sistema per trovare o decodificare il pattern n-sig e i video si avvieranno più lentamente.
+    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"L'app userà più risorse di sistema per trovare o decodificare il pattern n-sig, e i video si avvieranno più lentamente.
 
 Il pattern n-sig cambia piuttosto frequentemente sui server di YouTube e la riproduzione potrebbe non funzionare se il regex non riesce a trovare il pattern.
 
-Questa impostazione è ancora in fase di sviluppo, quindi usala solo per scopi di debug."</string>
+Tra i client JavaScript, il client consigliato è TV Simply."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"La versione di JavaScript per il deoffuscamento non viene mantenuta aggiornata.
 
 Nota: viene usato la versione di JavaScript che riesce nel deoffuscamento, ma l'operazione è comunque in qualche modo dipendente dal server."</string>
