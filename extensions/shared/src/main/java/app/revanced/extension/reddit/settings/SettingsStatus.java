@@ -12,6 +12,7 @@ public class SettingsStatus {
     public static boolean screenshotPopupEnabled = false;
     public static boolean subRedditDialogEnabled = false;
     public static boolean toolBarButtonEnabled = false;
+    public static boolean trendingTodayShelfEnabled = false;
 
 
     public static void enableGeneralAds() {
@@ -54,6 +55,10 @@ public class SettingsStatus {
         toolBarButtonEnabled = true;
     }
 
+    public static void enableTrendingTodayShelf() {
+        trendingTodayShelfEnabled = true;
+    }
+
     public static boolean adsCategoryEnabled() {
         return generalAdsEnabled;
     }
@@ -63,7 +68,8 @@ public class SettingsStatus {
                 recentlyVisitedShelfEnabled ||
                 screenshotPopupEnabled ||
                 subRedditDialogEnabled ||
-                toolBarButtonEnabled;
+                toolBarButtonEnabled ||
+                trendingTodayShelfEnabled;
     }
 
     public static boolean miscellaneousCategoryEnabled() {

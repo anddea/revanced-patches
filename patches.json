@@ -54,8 +54,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -65,6 +66,25 @@
     "description": "Adds an option to bypass URL redirects and open the original URL directly.",
     "use": true,
     "dependencies": [
+      "Settings for YouTube"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Bypass image region restrictions",
+    "description": "Adds an option to use a different host for static images, so that images blocked in some countries can be received.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch",
       "Settings for YouTube"
     ],
     "compatiblePackages": {
@@ -94,27 +114,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Bypass image region restrictions",
-    "description": "Adds an option to use a different host for static images, so that images blocked in some countries can be received.",
-    "use": true,
-    "dependencies": [
-      "BytecodePatch",
-      "Settings for YouTube"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -132,8 +134,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -250,6 +253,28 @@
     "description": "Adds an option to change the in-app share sheet to the system share sheet.",
     "use": true,
     "dependencies": [
+      "Settings for YouTube",
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch",
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Change share sheet",
+    "description": "Adds an option to change the in-app share sheet to the system share sheet.",
+    "use": true,
+    "dependencies": [
       "Settings for YouTube Music",
       "BytecodePatch",
       "ResourcePatch"
@@ -262,21 +287,19 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
   },
   {
-    "name": "Change share sheet",
-    "description": "Adds an option to change the in-app share sheet to the system share sheet.",
+    "name": "Change start page",
+    "description": "Adds an option to set which page the app opens in instead of the homepage.",
     "use": true,
     "dependencies": [
-      "Settings for YouTube",
-      "BytecodePatch",
-      "BytecodePatch",
-      "ResourcePatch"
+      "Settings for YouTube"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -305,26 +328,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Change start page",
-    "description": "Adds an option to set which page the app opens in instead of the homepage.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -435,7 +441,7 @@
       {
         "key": "changeSplashIcon",
         "title": "Change splash icons",
-        "description": "Apply the custom branding icon to the splash screen. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
+        "description": "Apply the custom branding icon to the splash screen. Supports from YouTube 19.05.36 to YouTube 19.16.39.",
         "required": true,
         "type": "kotlin.Boolean",
         "default": true,
@@ -444,10 +450,10 @@
       {
         "key": "restoreOldSplashAnimation",
         "title": "Restore old splash animation",
-        "description": "Restore the old style splash animation.",
+        "description": "Restore the old style splash animation.\n\nThis patch option is only supported on Android 12+, as splash animation was added to Android 12.\n\nIncluding this patch option on Android 8.0 - 11 may cause your app to crash.",
         "required": true,
         "type": "kotlin.Boolean",
-        "default": true,
+        "default": false,
         "values": null
       }
     ]
@@ -468,8 +474,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -616,8 +623,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -725,8 +733,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -816,6 +825,15 @@
         "type": "kotlin.Boolean",
         "default": true,
         "values": null
+      },
+      {
+        "key": "minimalIcon",
+        "title": "Minimal icon",
+        "description": "Apply alternative minimal launcher icon.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": false,
+        "values": null
       }
     ]
   },
@@ -834,8 +852,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -879,6 +898,7 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
+      "BytecodePatch",
       "ResourcePatch",
       "ResourcePatch"
     ],
@@ -904,11 +924,11 @@
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
-        "7.06.54",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -929,30 +949,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Disable QUIC protocol",
-    "description": "Adds an option to disable CronetEngine\u0027s QUIC protocol.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube Music",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -977,6 +976,29 @@
     "options": []
   },
   {
+    "name": "Disable QUIC protocol",
+    "description": "Adds an option to disable CronetEngine\u0027s QUIC protocol.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube Music",
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
+      ]
+    },
+    "options": []
+  },
+  {
     "name": "Disable dislike redirection",
     "description": "Adds an option to disable redirection to the next track when clicking the Dislike button.",
     "use": true,
@@ -992,8 +1014,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1031,18 +1054,15 @@
     "use": true,
     "dependencies": [
       "BytecodePatch",
-      "Settings for YouTube Music"
+      "Settings for YouTube"
     ],
     "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
       ]
     },
     "options": []
@@ -1053,15 +1073,19 @@
     "use": true,
     "dependencies": [
       "BytecodePatch",
-      "Settings for YouTube"
+      "Settings for YouTube Music"
     ],
     "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53"
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1108,6 +1132,7 @@
     "use": false,
     "dependencies": [
       "Settings for YouTube Music",
+      "ResourcePatch",
       "BytecodePatch",
       "BytecodePatch"
     ],
@@ -1119,8 +1144,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1179,6 +1205,25 @@
     "options": []
   },
   {
+    "name": "Disable sign in to TV popup",
+    "description": "Adds an option to disable the popup asking to sign into a TV on the same local network.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube",
+      "ResourcePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
     "name": "Disable splash animation",
     "description": "Adds an option to disable the splash animation on app startup.",
     "use": true,
@@ -1198,34 +1243,11 @@
     "options": []
   },
   {
-    "name": "Enable OPUS codec",
-    "description": "Adds an option to enable the OPUS audio codec if the player response includes it.",
+    "name": "Enable debug logging",
+    "description": "Adds an option for debugging and exporting RVX logs to the clipboard.",
     "use": true,
     "dependencies": [
-      "Settings for YouTube Music",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Enable OPUS codec",
-    "description": "Adds an option to enable the OPUS audio codec if the player response includes it.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube",
-      "BytecodePatch"
+      "Settings for YouTube"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -1253,26 +1275,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Enable debug logging",
-    "description": "Adds an option for debugging and exporting RVX logs to the clipboard.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1311,8 +1316,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1326,6 +1332,51 @@
       "com.spotify.music": null
     },
     "options": []
+  },
+  {
+    "name": "Fix playback",
+    "description": "Adds options to fix playback issues.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube Music",
+      "Remove background playback restrictions",
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
+      ]
+    },
+    "options": [
+      {
+        "key": "spoofClient",
+        "title": "Spoof client",
+        "description": "Includes the \u0027Spoof client\u0027 patch.\n\nSide effect:\n• Action buttons or player flyout menus may not show properly.\n• These side effects may be resolved by clearing the app data and logging in again.\n\nSide effect (Block request):\n• App may be forced to close when using a VPN or DNS.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": true,
+        "values": null
+      },
+      {
+        "key": "spoofVideoStreams",
+        "title": "Spoof video streams",
+        "description": "Includes the \u0027Spoof video streams\u0027 patch.\n\nSide effect:\n• App may be forced to close when using a DNS or VPN.\n• Audio may intermittently stutter during playback on adaptive bitrate streaming clients.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": true,
+        "values": null
+      }
+    ]
   },
   {
     "name": "Fix third party launchers widgets",
@@ -1359,8 +1410,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1441,15 +1493,12 @@
       "BytecodePatch"
     ],
     "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
       ]
     },
     "options": [
@@ -1471,6 +1520,15 @@
         "required": true,
         "type": "kotlin.Boolean",
         "default": true,
+        "values": null
+      },
+      {
+        "key": "disableCoreServices",
+        "title": "Disable Core Services",
+        "description": "To reproduce the playback issue, several core services, including PoToken, are disabled.\n\nDo not enable this option unless you are testing at a low level.",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "default": false,
         "values": null
       },
       {
@@ -1517,12 +1575,16 @@
       "BytecodePatch"
     ],
     "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53"
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -1544,6 +1606,15 @@
         "required": true,
         "type": "kotlin.Boolean",
         "default": true,
+        "values": null
+      },
+      {
+        "key": "disableCoreServices",
+        "title": "Disable Core Services",
+        "description": "To reproduce the playback issue, several core services, including PoToken, are disabled.\n\nDo not enable this option unless you are testing at a low level.",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "default": false,
         "values": null
       },
       {
@@ -1628,6 +1699,22 @@
     "options": []
   },
   {
+    "name": "Hide Trending Today shelf",
+    "description": "Adds an option to hide the Trending Today shelf from search suggestions.",
+    "use": true,
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "options": []
+  },
+  {
     "name": "Hide accessibility controls dialog",
     "description": "Removes, at compile time, accessibility controls dialog \u0027Turn on accessibility controls for the video player?\u0027.",
     "use": true,
@@ -1661,8 +1748,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1687,8 +1775,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1699,6 +1788,8 @@
     "use": true,
     "dependencies": [
       "Settings for YouTube",
+      "BytecodePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
@@ -1737,6 +1828,28 @@
     "description": "Adds options to hide ads.",
     "use": true,
     "dependencies": [
+      "Settings for YouTube",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Hide ads",
+    "description": "Adds options to hide ads.",
+    "use": true,
+    "dependencies": [
       "Settings for YouTube Music",
       "BytecodePatch",
       "BytecodePatch",
@@ -1754,8 +1867,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -1769,28 +1883,6 @@
         "values": null
       }
     ]
-  },
-  {
-    "name": "Hide ads",
-    "description": "Adds options to hide ads.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube",
-      "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch",
-      "ResourcePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53"
-      ]
-    },
-    "options": []
   },
   {
     "name": "Hide comments components",
@@ -1827,9 +1919,6 @@
       "BytecodePatch",
       "ResourcePatch",
       "Settings for YouTube",
-      "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch"
     ],
@@ -1868,31 +1957,6 @@
     "description": "Adds options to hide general layout components.",
     "use": true,
     "dependencies": [
-      "Settings for YouTube Music",
-      "BytecodePatch",
-      "ResourcePatch",
-      "BytecodePatch",
-      "ResourcePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Hide layout components",
-    "description": "Adds options to hide general layout components.",
-    "use": true,
-    "dependencies": [
       "Settings for YouTube",
       "BytecodePatch",
       "BytecodePatch",
@@ -1908,6 +1972,32 @@
         "19.43.41",
         "19.44.39",
         "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Hide layout components",
+    "description": "Adds options to hide general layout components.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube Music",
+      "BytecodePatch",
+      "ResourcePatch",
+      "BytecodePatch",
+      "ResourcePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1944,8 +2034,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1982,6 +2073,7 @@
       "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch",
+      "BytecodePatch",
       "ResourcePatch"
     ],
     "compatiblePackages": {
@@ -2008,8 +2100,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2181,6 +2274,28 @@
     "description": "Adds options to hide or change components related to the navigation bar.",
     "use": true,
     "dependencies": [
+      "ResourcePatch",
+      "Settings for YouTube",
+      "ResourcePatch",
+      "BytecodePatch",
+      "ResourcePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Navigation bar components",
+    "description": "Adds options to hide or change components related to the navigation bar.",
+    "use": true,
+    "dependencies": [
       "Change start page",
       "ResourcePatch",
       "ResourcePatch",
@@ -2195,30 +2310,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Navigation bar components",
-    "description": "Adds options to hide or change components related to the navigation bar.",
-    "use": true,
-    "dependencies": [
-      "ResourcePatch",
-      "Settings for YouTube",
-      "ResourcePatch",
-      "BytecodePatch",
-      "ResourcePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2314,6 +2408,28 @@
         }
       },
       {
+        "key": "bottomMargin",
+        "title": "Bottom margin",
+        "description": "The bottom margin for the overlay buttons and timestamp.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "2.5dip",
+        "values": {
+          "Default": "2.5dip",
+          "Minimum": "0.1dip",
+          "Wider": "5.0dip"
+        }
+      },
+      {
+        "key": "widerButtonsSpace",
+        "title": "Wider between-buttons space",
+        "description": "Prevent adjacent button presses by increasing the horizontal spacing between buttons.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": false,
+        "values": null
+      },
+      {
         "key": "changeTopButtons",
         "title": "Change top buttons",
         "description": "Change the icons at the top of the player.",
@@ -2323,6 +2439,37 @@
         "values": null
       }
     ]
+  },
+  {
+    "name": "Player components",
+    "description": "Adds options to hide or change components related to the video player.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "options": []
   },
   {
     "name": "Player components",
@@ -2345,37 +2492,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Player components",
-    "description": "Adds options to hide or change components related to the video player.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube",
-      "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch",
-      "ResourcePatch",
-      "BytecodePatch",
-      "BytecodePatch",
-      "ResourcePatch",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2396,27 +2515,6 @@
   },
   {
     "name": "Remove background playback restrictions",
-    "description": "Removes restrictions on background playback, including for kids videos.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube Music"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Remove background playback restrictions",
     "description": "Removes restrictions on background playback, including for music and kids videos.",
     "use": true,
     "dependencies": [
@@ -2431,6 +2529,28 @@
         "19.43.41",
         "19.44.39",
         "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Remove background playback restrictions",
+    "description": "Removes restrictions on background playback, including for kids videos.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2458,18 +2578,15 @@
     "use": true,
     "dependencies": [
       "BytecodePatch",
-      "Settings for YouTube Music"
+      "Settings for YouTube"
     ],
     "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
       ]
     },
     "options": []
@@ -2480,15 +2597,19 @@
     "use": true,
     "dependencies": [
       "BytecodePatch",
-      "Settings for YouTube"
+      "Settings for YouTube Music"
     ],
     "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53"
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2508,30 +2629,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Return YouTube Dislike",
-    "description": "Adds an option to show the dislike count of songs using the Return YouTube Dislike API.",
-    "use": true,
-    "dependencies": [
-      "BytecodePatch",
-      "Settings for YouTube Music"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2560,13 +2660,12 @@
     "options": []
   },
   {
-    "name": "Return YouTube Username",
-    "description": "Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3.",
+    "name": "Return YouTube Dislike",
+    "description": "Adds an option to show the dislike count of songs using the Return YouTube Dislike API.",
     "use": true,
     "dependencies": [
       "BytecodePatch",
-      "Settings for YouTube Music",
-      "ResourcePatch"
+      "Settings for YouTube Music"
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
@@ -2576,8 +2675,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2602,6 +2702,30 @@
     "options": []
   },
   {
+    "name": "Return YouTube Username",
+    "description": "Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch",
+      "Settings for YouTube Music",
+      "ResourcePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
+      ]
+    },
+    "options": []
+  },
+  {
     "name": "Sanitize sharing links",
     "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
     "use": true,
@@ -2613,6 +2737,25 @@
         "2024.17.0",
         "2025.05.1",
         "2025.12.1"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Sanitize sharing links",
+    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch",
+      "Settings for YouTube"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
       ]
     },
     "options": []
@@ -2656,27 +2799,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Sanitize sharing links",
-    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
-    "use": true,
-    "dependencies": [
-      "BytecodePatch",
-      "Settings for YouTube"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2741,7 +2866,6 @@
     "use": true,
     "dependencies": [
       "BytecodePatch",
-      "ResourcePatch",
       "ResourcePatch",
       "BytecodePatch",
       "BytecodePatch"
@@ -2816,7 +2940,8 @@
     "description": "Applies mandatory patches to implement ReVanced Extended settings into the application.",
     "use": true,
     "dependencies": [
-      "BytecodePatch"
+      "BytecodePatch",
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
@@ -2826,11 +2951,32 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
+      {
+        "key": "insertPosition",
+        "title": "Insert position",
+        "description": "The settings menu name that the RVX settings menu should be above.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "pref_key_parent_tools",
+        "values": {
+          "Parent settings": "pref_key_parent_tools",
+          "General": "settings_header_general",
+          "Playback": "settings_header_playback",
+          "Data saving": "settings_header_data_saving",
+          "Downloads \u0026 storage": "settings_header_downloads_and_storage",
+          "Notifications": "settings_header_notifications",
+          "Privacy \u0026 data": "settings_header_privacy_and_location",
+          "Recommendations": "settings_header_recommendations",
+          "Paid memberships": "settings_header_paid_memberships",
+          "About YouTube Music": "settings_header_about_youtube_music"
+        }
+      },
       {
         "key": "rvxSettingsLabel",
         "title": "RVX settings label",
@@ -2979,28 +3125,6 @@
   },
   {
     "name": "SponsorBlock",
-    "description": "Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections.",
-    "use": true,
-    "dependencies": [
-      "BytecodePatch",
-      "Settings for YouTube Music"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "SponsorBlock",
     "description": "Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as sponsored content.",
     "use": true,
     "dependencies": [
@@ -3042,6 +3166,29 @@
     ]
   },
   {
+    "name": "SponsorBlock",
+    "description": "Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch",
+      "Settings for YouTube Music"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
+      ]
+    },
+    "options": []
+  },
+  {
     "name": "Spoof Wi-Fi connection",
     "description": "Spoofs an existing Wi-Fi connection.",
     "use": false,
@@ -3049,26 +3196,6 @@
       "BytecodePatch"
     ],
     "compatiblePackages": null,
-    "options": []
-  },
-  {
-    "name": "Spoof app version",
-    "description": "Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features.",
-    "use": true,
-    "dependencies": [
-      "BytecodePatch",
-      "Settings for YouTube Music",
-      "ResourcePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
     "options": []
   },
   {
@@ -3083,11 +3210,31 @@
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
         "19.43.41",
         "19.44.39",
         "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Spoof app version",
+    "description": "Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch",
+      "Settings for YouTube Music",
+      "ResourcePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -3143,29 +3290,6 @@
     ]
   },
   {
-    "name": "Spoof player parameter",
-    "description": "Adds options to spoof player parameter to allow playback.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube Music",
-      "BytecodePatch",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
     "name": "Spoof streaming data",
     "description": "Adds options to spoof the streaming data to allow playback.",
     "use": true,
@@ -3204,10 +3328,10 @@
         "values": null
       },
       {
-        "key": "useIOSClient",
-        "title": "Use iOS client",
-        "description": "Add setting to set iOS client (Deprecated) as default client.",
-        "required": false,
+        "key": "useMobileWebClient",
+        "title": "Use Mobile Web client",
+        "description": "Add Mobile Web to available clients.",
+        "required": true,
         "type": "kotlin.Boolean",
         "default": false,
         "values": null
@@ -3399,8 +3523,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -3450,30 +3575,9 @@
     "description": "Adds options to customize settings related to video playback, such as default video quality and playback speed.",
     "use": true,
     "dependencies": [
-      "BytecodePatch",
-      "Settings for YouTube Music",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Video playback",
-    "description": "Adds options to customize settings related to video playback, such as default video quality and playback speed.",
-    "use": true,
-    "dependencies": [
       "Settings for YouTube",
+      "BytecodePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
@@ -3493,6 +3597,32 @@
         "19.43.41",
         "19.44.39",
         "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Video playback",
+    "description": "Adds options to customize settings related to video playback, such as default video quality and playback speed.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube Music",
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch",
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -3558,8 +3688,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -3608,8 +3739,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []

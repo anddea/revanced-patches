@@ -1,6 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.components.Filter;
@@ -10,7 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.regex.Pattern;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"deprecation", "unused"})
 public final class ShortsButtonFilter extends Filter {
     // Pattern: reel_comment_button … number (of comments) + space? + character / letter (for comments) … 4 (random number),
     // probably unstable.
@@ -77,6 +76,11 @@ public final class ShortsButtonFilter extends Filter {
                 "reel_sound_metadata"
         );
 
+        StringFilterGroup soundButton = new StringFilterGroup(
+                Settings.HIDE_SHORTS_SOUND_BUTTON,
+                "reel_pivot_button"
+        );
+
         StringFilterGroup infoPanel = new StringFilterGroup(
                 Settings.HIDE_SHORTS_INFO_PANEL,
                 "shorts_info_panel_overview"
@@ -95,6 +99,11 @@ public final class ShortsButtonFilter extends Filter {
         StringFilterGroup paidPromotionButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_PAID_PROMOTION_LABEL,
                 "reel_player_disclosure.eml"
+        );
+
+        StringFilterGroup shortsCommentsPanel = new StringFilterGroup(
+                Settings.HIDE_SHORTS_COMMENTS_PANEL,
+                "participation_composer"
         );
 
         StringFilterGroup likeButton = new StringFilterGroup(
@@ -140,8 +149,8 @@ public final class ShortsButtonFilter extends Filter {
         addPathCallbacks(
                 suggestedAction, actionButton, joinButton, subscribeButton, metaPanelButton,
                 paidPromotionButton, pausedOverlayButtons, channelBar, videoLinkLabel,
-                videoTitle, reelSoundMetadata, infoPanel, liveHeader, stickers,
-                likeButton, dislikeButton
+                videoTitle, reelSoundMetadata, infoPanel, liveHeader, soundButton,
+                stickers, likeButton, dislikeButton, shortsCommentsPanel
         );
 
         //
@@ -258,61 +267,43 @@ public final class ShortsButtonFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == subscribeButton || matchedGroup == joinButton) {
             // Selectively filter to avoid false positive filtering of other subscribe/join buttons.
-            if (StringUtils.startsWithAny(path, REEL_CHANNEL_BAR_PATH, REEL_LIVE_HEADER_PATH, REEL_METAPANEL_PATH)) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return StringUtils.startsWithAny(path, REEL_CHANNEL_BAR_PATH, REEL_LIVE_HEADER_PATH, REEL_METAPANEL_PATH);
         }
 
         if (matchedGroup == metaPanelButton) {
-            if (path.startsWith(REEL_METAPANEL_PATH) && useThisSoundButton.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return path.startsWith(REEL_METAPANEL_PATH) && useThisSoundButton.check(buffer).isFiltered();
         }
 
         // Video action buttons (like, dislike, comment, share, remix) have the same path.
         if (matchedGroup == actionButton) {
-            // If the Comment button is hidden, there is no need to check {@code REEL_COMMENTS_DISABLED_PATTERN}.
-            // Check {@code videoActionButtonGroupList} first.
-            if (videoActionButtonGroupList.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-
-            String protobufString = new String(protobufBufferArray);
-            if (shortsCommentDisabled.check(protobufBufferArray).isFiltered()) {
+            String protobufString = new String(buffer);
+            if (shortsCommentDisabled.check(buffer).isFiltered()) {
                 return !REEL_COMMENTS_DISABLED_PATTERN.matcher(protobufString).find();
             }
-            return false;
+            return videoActionButtonGroupList.check(buffer).isFiltered();
         }
 
         if (matchedGroup == suggestedAction) {
             if (isEverySuggestedActionFilterEnabled()) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+                return true;
             }
             // Suggested actions can be at the start or in the middle of a path.
-            if (suggestedActionsGroupList.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return suggestedActionsGroupList.check(buffer).isFiltered();
         }
 
         if (matchedGroup == pausedOverlayButtons) {
             if (Settings.HIDE_SHORTS_PAUSED_OVERLAY_BUTTONS.get()) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+                return true;
             } else if (StringUtils.contains(path, SHORTS_PAUSED_STATE_BUTTON_PATH)) {
-                if (pausedOverlayButtonsGroupList.check(protobufBufferArray).isFiltered()) {
-                    return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-                }
+                return pausedOverlayButtonsGroupList.check(buffer).isFiltered();
             }
             return false;
         }
 
-        // Super class handles logging.
-        return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return true;
     }
 }

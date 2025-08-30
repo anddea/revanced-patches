@@ -1,7 +1,7 @@
 package app.revanced.extension.youtube.patches.utils.requests
 
 import androidx.annotation.GuardedBy
-import app.revanced.extension.shared.innertube.client.YouTubeAppClient
+import app.revanced.extension.shared.innertube.client.YouTubeClient
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.deletePlaylistRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
 import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.DELETE_PLAYLIST
@@ -110,7 +110,7 @@ class DeletePlaylistRequest private constructor(
 
             val startTime = System.currentTimeMillis()
             // 'playlist/delete' endpoint does not require PoToken.
-            val clientType = YouTubeAppClient.ClientType.ANDROID
+            val clientType = YouTubeClient.ClientType.ANDROID
             val clientTypeName = clientType.name
             Logger.printDebug { "Fetching delete playlist request, playlistId: $playlistId, using client: $clientTypeName" }
 

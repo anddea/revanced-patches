@@ -135,16 +135,29 @@ public final class InclusiveSpanPatch {
     }
 
     private static void filterUsingCallbacks(Filter filter, List<StringFilterGroup> groups) {
+        String filterSimpleName = filter.getClass().getSimpleName();
+
         for (StringFilterGroup group : groups) {
             if (!group.includeInSearch()) {
                 continue;
             }
+
             for (String pattern : group.filters) {
-                InclusiveSpanPatch.searchTree.addPattern(pattern, (textSearched, matchedStartIndex, matchedLength, callbackParameter) -> {
+                InclusiveSpanPatch.searchTree.addPattern(pattern, (textSearched, matchedStartIndex,
+                                                                   matchedLength, callbackParameter) -> {
                             if (!group.isEnabled()) return false;
+
                             LithoFilterParameters parameters = (LithoFilterParameters) callbackParameter;
-                            return filter.skip(parameters.conversionContext, parameters.spannableString, parameters.span,
-                                    parameters.start, parameters.end, parameters.flags, parameters.isWord, parameters.spanType, group);
+                            final boolean isFiltered = filter.skip(parameters.conversionContext, parameters.spannableString,
+                                    parameters.span, parameters.start, parameters.end, parameters.flags, parameters.isWord,
+                                    parameters.spanType, group);
+
+                            if (isFiltered && BaseSettings.DEBUG_SPANNABLE.get()) {
+                                Logger.printDebug(() -> "Removed " + filterSimpleName
+                                        + " setSpan: " + parameters.spanType);
+                            }
+
+                            return isFiltered;
                         }
                 );
             }

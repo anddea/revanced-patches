@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.patches.player;
 
 import static app.revanced.extension.youtube.patches.player.ActionButtonsPatch.ActionButton.REMIX;
+import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREATER;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,11 +10,10 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
+import app.revanced.extension.shared.innertube.utils.AuthUtils;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.player.requests.ActionButtonRequest;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.VideoInformation;
@@ -37,6 +37,20 @@ public class ActionButtonsPatch {
         DOWNLOAD(
                 "downloadButtonViewModel",
                 Settings.HIDE_DOWNLOAD_BUTTON
+        ),
+        // 1. YouTube 19.25.39 can be used without the 'Disable update screen' patch.
+        //    This means that even if you use an unpatched YouTube 19.25.39, the 'Update your app' pop-up will not appear.
+        // 2. Due to a server-side change, the Hype button is now available on YouTube 19.25.39 and earlier.
+        // 3. Google did not add the Hype icon (R.drawable.yt_outline_star_shooting_black_24) to YouTube 19.25.39 or earlier,
+        //    So no icon appears on the Hype button when using YouTube 19.25.39.
+        // 4. For the same reason, the 'buttonViewModel.iconName' value in the '/next' endpoint response from YouTube 19.25.39 is also empty.
+        // 5. Therefore, in YouTube 19.25.39 or earlier versions, you cannot hide the Hype button with the keyword 'yt_outline_star_shooting',
+        //    but you can hide it with the keyword 'Hype'.
+        HYPE(
+                IS_19_26_OR_GREATER
+                        ? "yt_outline_star_shooting"
+                        : "\"Hype\"",
+                Settings.HIDE_HYPE_BUTTON
         ),
         LIKE_DISLIKE(
                 "segmentedLikeDislikeButtonViewModel",
@@ -89,17 +103,28 @@ public class ActionButtonsPatch {
     /**
      * Injection point.
      */
-    public static void fetchStreams(String url, Map<String, String> requestHeaders) {
+    public static void fetchRequest(@NonNull String videoId, boolean isShortAndOpeningOrPlaying) {
         if (HIDE_ACTION_BUTTON_INDEX) {
-            String id = Utils.getVideoIdFromRequest(url);
-            if (id == null) {
-                Logger.printException(() -> "Ignoring request with no id: " + url);
-                return;
-            } else if (id.isEmpty()) {
-                return;
-            }
+            try {
+                final boolean videoIdIsShort = VideoInformation.lastPlayerResponseIsShort();
+                // Shorts shelf in home and subscription feed causes player response hook to be called,
+                // and the 'is opening/playing' parameter will be false.
+                // This hook will be called again when the Short is actually opened.
+                if (videoIdIsShort && !isShortAndOpeningOrPlaying) {
+                    return;
+                }
 
-            ActionButtonRequest.fetchRequestIfNeeded(id, requestHeaders);
+                if (AuthUtils.isNotLoggedIn()) {
+                    return;
+                }
+
+                ActionButtonRequest.fetchRequestIfNeeded(
+                        videoId,
+                        AuthUtils.getRequestHeader()
+                );
+            } catch (Exception ex) {
+                Logger.printException(() -> "fetchRequest failure", ex);
+            }
         }
     }
 

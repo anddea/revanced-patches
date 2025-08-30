@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
-
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.components.Filter;
@@ -99,20 +97,16 @@ public final class DescriptionsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // Check for the index because of likelihood of false positives.
         if (matchedGroup == howThisWasMadeSection || matchedGroup == infoCardsSection) {
-            if (contentIndex != 0) {
-                return false;
-            }
+            return contentIndex == 0;
         } else if (matchedGroup == macroMarkerShelf) {
             if (contentIndex != 0) {
                 return false;
             }
-            if (!macroMarkerShelfGroupList.check(protobufBufferArray).isFiltered()) {
-                return false;
-            }
+            return macroMarkerShelfGroupList.check(buffer).isFiltered();
         } else if (matchedGroup == horizontalShelf) {
             if (contentIndex != 0) {
                 return false;
@@ -120,11 +114,9 @@ public final class DescriptionsFilter extends Filter {
             if (!RootView.isPlayerActive()) {
                 return false;
             }
-            if (!EngagementPanel.isDescription()) {
-                return false;
-            }
+            return EngagementPanel.isDescription();
         }
 
-        return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return true;
     }
 }

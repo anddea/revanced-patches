@@ -45,6 +45,7 @@ public class PlaylistPatch {
     private static final boolean QUEUE_MANAGER =
             Settings.OVERLAY_BUTTON_EXTERNAL_DOWNLOADER_QUEUE_MANAGER.get()
                     || Settings.OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER.get();
+    private static final long DELAY_MILLISECONDS = 1500L;
 
     private static volatile String playlistId = "";
     private static volatile String videoId = "";
@@ -221,7 +222,7 @@ public class PlaylistPatch {
                             }
                         }
                         showToast(fetchFailedCreate);
-                    }, 1000);
+                    }, DELAY_MILLISECONDS);
                 } else { // Queue is not empty, add or remove video.
                     String setVideoId = lastVideoIds.get(currentVideoId);
                     EditPlaylistRequest.fetchRequestIfNeeded(currentVideoId, currentPlaylistId, setVideoId, AuthUtils.getRequestHeader());
@@ -256,7 +257,7 @@ public class PlaylistPatch {
                                 showToast(fetchFailedAdd);
                             }
                         }
-                    }, 1000);
+                    }, DELAY_MILLISECONDS);
                 }
             }
         } catch (Exception ex) {
@@ -294,7 +295,7 @@ public class PlaylistPatch {
                         GetPlaylistsRequest.clear();
                     }
                 }
-            }, 1000);
+            }, DELAY_MILLISECONDS);
         } catch (Exception ex) {
             Logger.printException(() -> "saveToPlaylist failure", ex);
         }
@@ -319,7 +320,7 @@ public class PlaylistPatch {
                     }
                     showToast(fetchFailedSave);
                 }
-            }, 1000);
+            }, DELAY_MILLISECONDS);
         } catch (Exception ex) {
             Logger.printException(() -> "saveToPlaylist failure", ex);
         }
@@ -352,7 +353,7 @@ public class PlaylistPatch {
                     }
                 }
                 showToast(fetchFailedDelete);
-            }, 1000);
+            }, DELAY_MILLISECONDS);
         } catch (Exception ex) {
             Logger.printException(() -> "removeQueue failure", ex);
         }

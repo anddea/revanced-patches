@@ -1,27 +1,19 @@
 package app.revanced.patches.youtube.utils.audiotracks
 
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val audioStreamingTypeSelector = legacyFingerprint(
-    name = "audioStreamingTypeSelector",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    returnType = "L",
-    strings = listOf("raw")
-)
+internal const val AUDIO_STREAM_IGNORE_DEFAULT_FEATURE_FLAG = 45666189L
 
-internal val menuItemAudioTrackFingerprint = legacyFingerprint(
-    name = "menuItemAudioTrackFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L"),
-    returnType = "V",
-    strings = listOf("menu_item_audio_track")
-)
-
-internal val streamingModelBuilderFingerprint = legacyFingerprint(
-    name = "streamingModelBuilderFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val selectAudioStreamFingerprint = legacyFingerprint(
+    name = "selectAudioStreamFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     returnType = "L",
-    strings = listOf("vprng")
+    customFingerprint = { method, _ ->
+        method.parameters.size > 2 // Method has a large number of parameters and may change.
+                && method.parameters[1].type == "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;"
+                && method.containsLiteralInstruction(AUDIO_STREAM_IGNORE_DEFAULT_FEATURE_FLAG)
+    }
 )

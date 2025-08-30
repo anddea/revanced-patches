@@ -10,9 +10,9 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.customspeed.customPlaybackSpeedPatch
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
+import app.revanced.patches.shared.opus.baseOpusCodecsPatch
+import app.revanced.patches.youtube.utils.auth.authHookPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
-import app.revanced.patches.youtube.utils.dismiss.hookDismissObserver
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.VIDEO_PATH
@@ -28,7 +28,10 @@ import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverP
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
-import app.revanced.patches.youtube.video.information.*
+import app.revanced.patches.youtube.video.information.hookBackgroundPlayVideoInformation
+import app.revanced.patches.youtube.video.information.hookVideoInformation
+import app.revanced.patches.youtube.video.information.speedSelectionInsertMethod
+import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
 import app.revanced.util.fingerprint.*
@@ -37,10 +40,8 @@ import app.revanced.util.fingerprint.definingClassOrThrow
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
-import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -60,12 +61,8 @@ private const val EXTENSION_VP9_CODEC_CLASS_DESCRIPTOR =
     "$VIDEO_PATH/VP9CodecPatch;"
 private const val EXTENSION_CUSTOM_PLAYBACK_SPEED_CLASS_DESCRIPTOR =
     "$VIDEO_PATH/CustomPlaybackSpeedPatch;"
-private const val EXTENSION_HDR_VIDEO_CLASS_DESCRIPTOR =
-    "$VIDEO_PATH/HDRVideoPatch;"
 private const val EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR =
     "$VIDEO_PATH/PlaybackSpeedPatch;"
-private const val EXTENSION_RELOAD_VIDEO_CLASS_DESCRIPTOR =
-    "$VIDEO_PATH/ReloadVideoPatch;"
 private const val EXTENSION_SPOOF_DEVICE_DIMENSIONS_CLASS_DESCRIPTOR =
     "$VIDEO_PATH/SpoofDeviceDimensionsPatch;"
 private const val EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR =
@@ -84,10 +81,12 @@ val videoPlaybackPatch = bytecodePatch(
             "$VIDEO_PATH/CustomPlaybackSpeedPatch;",
             8.0f
         ),
+        authHookPatch,
+        baseOpusCodecsPatch(),
         flyoutMenuHookPatch,
         lithoFilterPatch,
         lithoLayoutPatch,
-        dismissPlayerHookPatch,
+        disableHdrPatch,
         playerTypeHookPatch,
         recyclerViewTreeObserverPatch,
         shortsPlaybackPatch,
@@ -106,32 +105,6 @@ val videoPlaybackPatch = bytecodePatch(
 
         recyclerViewTreeObserverHook("$EXTENSION_CUSTOM_PLAYBACK_SPEED_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
         addLithoFilter(PLAYBACK_SPEED_MENU_FILTER_CLASS_DESCRIPTOR)
-
-        // endregion
-
-        // region patch for disable HDR video
-
-        hdrCapabilityFingerprint.methodOrThrow().apply {
-            val stringIndex =
-                indexOfFirstStringInstructionOrThrow("av1_profile_main_10_hdr_10_plus_supported")
-            val walkerIndex = indexOfFirstInstructionOrThrow(stringIndex) {
-                val reference = getReference<MethodReference>()
-                reference?.parameterTypes == listOf("I", "Landroid/view/Display;") &&
-                        reference.returnType == "Z"
-            }
-
-            val walkerMethod = getWalkerMethod(walkerIndex)
-            walkerMethod.apply {
-                addInstructionsWithLabels(
-                    0, """
-                        invoke-static {}, $EXTENSION_HDR_VIDEO_CLASS_DESCRIPTOR->disableHDRVideo()Z
-                        move-result v0
-                        if-nez v0, :default
-                        return v0
-                        """, ExternalLabel("default", getInstruction(0))
-                )
-            }
-        }
 
         // endregion
 
@@ -164,7 +137,7 @@ val videoPlaybackPatch = bytecodePatch(
             pcmGetterMethodFingerprint.mutableClassOrThrow().let {
                 val targetMethod =
                     it.methods.find { method -> method.returnType == "F" && method.parameters.isEmpty() }
-                        ?: throw PatchException("Method returning playback speed not found in class $it.")
+                        ?: throw PatchException("Method returning playback speed not found in class $it.") as Throwable
 
                 targetMethod.apply {
                     val insertIndex = implementation!!.instructions.lastIndex
@@ -205,10 +178,9 @@ val videoPlaybackPatch = bytecodePatch(
 
         hookBackgroundPlayVideoInformation("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
         hookVideoInformation("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
-        hookPlayerResponseVideoId("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->fetchMusicRequest(Ljava/lang/String;Z)V")
-        hookDismissObserver("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->onDismiss()V")
+        hookPlayerResponseVideoId("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->fetchRequest(Ljava/lang/String;Z)V")
 
-        updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "RememberPlaybackSpeed")
+        updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "VideoPlayback")
 
         // endregion
 
@@ -216,36 +188,33 @@ val videoPlaybackPatch = bytecodePatch(
 
         qualityChangedFromRecyclerViewFingerprint.matchOrThrow().let {
             it.method.apply {
-                val newInstanceIndex = implementation?.instructions!!.indexOfFirst { instruction ->
+                val instructions = implementation?.instructions ?: throw IllegalStateException("Method implementation not found")
+                val newInstanceIndex = instructions.indexOfFirst { instruction ->
                     instruction.opcode == Opcode.NEW_INSTANCE &&
                             (instruction as? ReferenceInstruction)?.reference?.toString() == "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
                 }
                 if (newInstanceIndex == -1) throw IllegalStateException("VideoQuality new-instance not found")
 
+                val igetIndex = instructions.subList(newInstanceIndex, instructions.size).indexOfFirst { instruction ->
+                    instruction.opcode == Opcode.IGET &&
+                            (instruction as? ReferenceInstruction)?.reference is FieldReference &&
+                            (instruction.reference as FieldReference).type == "I"
+                }.let { index -> if (index == -1) -1 else index + newInstanceIndex }
+                if (igetIndex == -1) throw IllegalStateException("IGET instruction for integer field not found")
+
+                val register = getInstruction<TwoRegisterInstruction>(igetIndex).registerA
                 addInstruction(
-                    newInstanceIndex + 1,
-                    "invoke-static {}, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->userSelectedVideoQuality()V"
+                    igetIndex + 1,
+                    "invoke-static { v$register }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQualityInNewFlyout(I)V"
                 )
             }
         }
 
-        qualitySetterFingerprint.matchOrThrow().let {
-            val onItemClickMethod =
-                it.classDef.methods.find { method -> method.name == "onItemClick" }
-
-            onItemClickMethod?.apply {
-                addInstruction(
-                    0,
-                    "invoke-static {}, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->userSelectedVideoQuality()V"
-                )
-            } ?: throw PatchException("Failed to find onItemClick method")
-        }
-
-        hookBackgroundPlayVideoInformation("$EXTENSION_RELOAD_VIDEO_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
-        hookVideoInformation("$EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
-        onCreateHook(
-            EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR,
-            "newVideoStarted"
+        videoQualityItemOnClickFingerprint.methodOrThrow(
+            videoQualityItemOnClickParentFingerprint
+        ).addInstruction(
+            0,
+            "invoke-static { p3 }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQualityInOldFlyout(I)V"
         )
 
         // endregion

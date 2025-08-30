@@ -28,10 +28,10 @@ import app.revanced.extension.shared.utils.ResourceUtils.ResourceType;
 
 @SuppressWarnings("unused")
 public class FlyoutPatch {
+    private static final BooleanSetting DISABLE_TRIM_SILENCE =
+            Settings.DISABLE_TRIM_SILENCE;
     private static final BooleanSetting ENABLE_COMPACT_DIALOG =
             Settings.ENABLE_COMPACT_DIALOG;
-    private static final BooleanSetting ENABLE_TRIM_SILENCE =
-            Settings.ENABLE_TRIM_SILENCE;
     private static final BooleanSetting REPLACE_FLYOUT_MENU_DISMISS_QUEUE =
             Settings.REPLACE_FLYOUT_MENU_DISMISS_QUEUE;
     private static final BooleanSetting REPLACE_FLYOUT_MENU_REPORT =
@@ -44,24 +44,18 @@ public class FlyoutPatch {
     private static WeakReference<View> touchOutSideViewRef = new WeakReference<>(null);
     private static final ColorFilter cf = new PorterDuffColorFilter(Color.parseColor("#ffffffff"), PorterDuff.Mode.SRC_ATOP);
 
+    public static boolean disableTrimSilence(boolean original) {
+        return VideoType.getCurrent().isPodCast() && !DISABLE_TRIM_SILENCE.get();
+    }
+
+    public static boolean disableTrimSilenceSwitch(boolean original) {
+        return VideoType.getCurrent().isPodCast() && !DISABLE_TRIM_SILENCE.get();
+    }
+
     public static int enableCompactDialog(int original) {
         return ENABLE_COMPACT_DIALOG.get()
                 ? Math.max(original, 600)
                 : original;
-    }
-
-    public static boolean enableTrimSilence(boolean original) {
-        if (!ENABLE_TRIM_SILENCE.get())
-            return original;
-
-        return VideoType.getCurrent().isPodCast() || original;
-    }
-
-    public static boolean enableTrimSilenceSwitch(boolean original) {
-        if (!ENABLE_TRIM_SILENCE.get())
-            return original;
-
-        return VideoType.getCurrent().isPodCast() && original;
     }
 
     public static boolean hideComponents(@Nullable Enum<?> flyoutMenuEnum) {

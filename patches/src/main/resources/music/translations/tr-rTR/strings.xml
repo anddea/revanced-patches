@@ -1,6 +1,7 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Devam Et</string>
+    <string name="gms_core_dialog_dismiss_text">Tekrar gösterme</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore'un arka planda çalışma izni yoktur.
 
 'Uygulamamı öldürmeyin!' cihazınız için kılavuzu kullanın ve talimatları GmsCore kurulumunuza uygulayın.
@@ -14,8 +15,12 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin.</string>
     <string name="gms_core_settings_title">GmsCore\'yi aç</string>
     <string name="gms_core_toast_not_installed_message">GmsCore yüklü değil. Yükleyin.</string>
+    <string name="revanced_add_miniplayer_next_button_summary">Adds a next track button to the miniplayer.</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Bazı bölgelerde engellenen alan adını değiştirerek oynatma listesi küçük resimlerinin, kanal avatarlarının vb. alınabilmesini sağlar.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Resimlerin bölge kısıtlamalarını atla</string>
+    <string name="revanced_change_player_background_color_title">Oyantıcı\'nın arka plan rengini değiştir</string>
+    <string name="revanced_change_seekbar_position_summary">Arama çubuğu\'nu oynatcının alt kısmına kaldırır</string>
+    <string name="revanced_change_seekbar_position_title">Arama çubuğunun pozisyonunu değiştir</string>
     <string name="revanced_change_share_sheet_summary">Uygulama içi paylaşım sayfasını sistem paylaşım sayfasıyla değiştirin.</string>
     <string name="revanced_change_share_sheet_title">Paylaşım sayfasını değiştir</string>
     <string name="revanced_change_start_page_entry_chart">Listeler</string>
@@ -76,10 +81,6 @@ Bilinen sorunlar:
     <string name="revanced_enable_compact_dialog_title">Kompakt diyaloğu etkinleştir</string>
     <string name="revanced_enable_custom_navigation_bar_color_summary">Gezinme çubuğu rengini ayarlar.</string>
     <string name="revanced_enable_custom_navigation_bar_color_title">Özel gezinme çubuğu rengini etkinleştir</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Hata ayıklama günlüklerini arabellek dahiline yazdırır.</string>
-    <string name="revanced_enable_debug_buffer_logging_title">Hata ayıklama günlüklerine arabelleği kaydet</string>
-    <string name="revanced_enable_debug_logging_summary">Hata ayıklama günlüğünü yazdırır.</string>
-    <string name="revanced_enable_debug_logging_title">Hata ayıklama günlüğünü etkinleştir</string>
     <string name="revanced_enable_landscape_mode_summary">Telefonlarda ekran döndürme ile manzara moduna geçiş sağlar.</string>
     <string name="revanced_enable_landscape_mode_title">Yatay Modu Etkinleştir</string>
     <string name="revanced_enable_mini_player_next_button_summary">Mini oynatıcıda sonraki düğmesini etkinleştirir.</string>
@@ -94,12 +95,6 @@ Bilgi:
     <string name="revanced_enable_opus_codec_title">Opus kodeğini etkinleştir</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Mini oynatıcıyı kapatmak için aşağı kaydırmayı etkinleştirir.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Mini oynatıcıyı kapatmak için kaydırmayı etkinleştirin</string>
-    <string name="revanced_enable_trim_silence_summary">"Oynatma hızı açılır menüsüne 'Sessizliği kırp' geçişini etkinleştirir.
-
-Bilgi:
-• Bu özellik podcast'ler içindir.
-• Bu özellik henüz geliştirme aşamasında olduğundan kararsız olabilir."</string>
-    <string name="revanced_enable_trim_silence_title">Kırpma sessizliğini etkinleştir</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Zen modu podcast\'lere de uygulanır.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Podcastlerde zen modunu aç/kapa</string>
     <string name="revanced_enable_zen_mode_summary">Video oynatıcıya açık gri bir ton ekleyerek göz yorgunluğunu azaltır.</string>
@@ -199,7 +194,7 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">\"Meraklısı için istatikler\" menüsü</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Abone ol / Abonelikten çık menüsünü gizle</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Şarkı kredileri menüsünü görüntüle</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"Tam ekran reklamları gizle. 
+    <string name="revanced_hide_fullscreen_ads_summary">"Tam ekran reklamları gizle.
 
 Sınırlamalar:
 • Bazen ana akış yerine boş siyah bir ekran görebilirsiniz."</string>
@@ -424,13 +419,11 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_spoof_app_version_target_summary">Sahte uygulama sürümü hedefini seçin.</string>
     <string name="revanced_spoof_app_version_target_title">Uygulama hedef sürümünü kandırma hedefi</string>
     <string name="revanced_spoof_app_version_title">Uygulama Versiyonunu taklit et</string>
-    <string name="revanced_spoof_client_summary">Oynatma sorunlarını çözmek için istemciyi taklit eder.</string>
+    <string name="revanced_spoof_client_summary">"Oynatma sorunlarını çözmek için istemciyi taklit eder."</string>
     <string name="revanced_spoof_client_title">Sahte istemci</string>
-    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
-    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_summary">Taklit etmek için varsayılan bir istemci tanımlar.</string>
+    <string name="revanced_spoof_client_type_summary">"Taklit etmek için varsayılan bir istemci tanımlar."</string>
     <string name="revanced_spoof_client_type_title">Varsayılan istemci</string>
     <string name="revanced_watch_history_type_entry_1">Orijinal</string>
     <string name="revanced_watch_history_type_entry_2">Alan adını değiştir</string>

@@ -1,6 +1,7 @@
 package app.revanced.patches.music.utils.resourceid
 
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.shared.mapping.ResourceType.ATTR
 import app.revanced.patches.shared.mapping.ResourceType.BOOL
 import app.revanced.patches.shared.mapping.ResourceType.COLOR
 import app.revanced.patches.shared.mapping.ResourceType.DIMEN
@@ -67,6 +68,8 @@ var miniPlayerViewPager = -1L
 var modernDialogBackground = -1L
     private set
 var musicNotifierShelf = -1L
+    private set
+var musicSnackbarActionColor = -1L
     private set
 var musicTasteBuilderShelf = -1L
     private set
@@ -156,6 +159,7 @@ internal val sharedResourceIdPatch = resourcePatch(
         miniPlayerViewPager = getResourceId(ID, "mini_player_view_pager")
         modernDialogBackground = getResourceId(DRAWABLE, "modern_dialog_background")
         musicNotifierShelf = getResourceId(LAYOUT, "music_notifier_shelf")
+        musicSnackbarActionColor = getResourceId(ATTR, "musicSnackbarActionColor")
         musicTasteBuilderShelf = getResourceId(LAYOUT, "music_tastebuilder_shelf")
         namesInactiveAccountThumbnailSize =
             getResourceId(DIMEN, "names_inactive_account_thumbnail_size")

@@ -28,8 +28,12 @@ BLACKLIST: set[str] = {
     "revanced_spoof_streaming_data_po_token_title",
     "revanced_spoof_streaming_data_po_token_visitor_data_about_summary",
     "revanced_spoof_streaming_data_po_token_visitor_data_about_title",
+    "revanced_spoof_streaming_data_user_dialog_message",
     "revanced_spoof_streaming_data_visitor_data_summary",
     "revanced_spoof_streaming_data_visitor_data_title",
+    "revanced_swipe_brightness_distance_dip_invalid_toast",
+    "revanced_swipe_brightness_distance_dip_summary",
+    "revanced_swipe_brightness_distance_dip_title",
     "revanced_swipe_lowest_value_auto_brightness_overlay_text",
 }
 
@@ -79,8 +83,8 @@ def process(app: str, base_dir: Path) -> None:
 
     # Log results
     if missing_keys:
-        logger.info("❌  Missing keys found:")
+        logger.info("❌ Missing keys found:")
         for key in sorted(missing_keys):
             logger.info(key)
     else:
-        logger.info("✅  No missing keys found")
+        logger.info("✅ No missing keys found")

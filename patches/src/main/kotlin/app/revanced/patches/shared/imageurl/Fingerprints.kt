@@ -3,6 +3,7 @@ package app.revanced.patches.shared.imageurl
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val onFailureFingerprint = legacyFingerprint(
     name = "onFailureFingerprint",
@@ -59,7 +60,10 @@ internal val requestFingerprint = legacyFingerprint(
 internal val messageDigestImageUrlFingerprint = legacyFingerprint(
     name = "messageDigestImageUrlFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    parameters = listOf("Ljava/lang/String;", "L")
+    opcodes = listOf(Opcode.IPUT_OBJECT),
+    customFingerprint = { method, _ ->
+        method.parameterTypes.firstOrNull() == "Ljava/lang/String;"
+    }
 )
 
 internal val messageDigestImageUrlParentFingerprint = legacyFingerprint(

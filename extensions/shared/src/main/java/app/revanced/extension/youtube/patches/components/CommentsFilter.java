@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
-
 import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
@@ -124,42 +122,27 @@ public final class CommentsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (exceptions.matches(path))
             return false;
 
         if (matchedGroup == createAShort || matchedGroup == thanks || matchedGroup == emojiPickerAndTimestamp) {
-            if (path.startsWith(COMMENT_COMPOSER_PATH)) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return path.startsWith(COMMENT_COMPOSER_PATH);
         } else if (matchedGroup == chipBar) {
             // Playlist sort button uses same components and must only filter if the player is opened.
             return PlayerType.getCurrent().isMaximizedOrFullscreen()
-                    && aiCommentsSummary.check(protobufBufferArray).isFiltered();
+                    && aiCommentsSummary.check(buffer).isFiltered();
         } else if (matchedGroup == comments) {
             if (path.startsWith(FEED_VIDEO_PATH)) {
-                if (Settings.HIDE_COMMENTS_SECTION_IN_HOME_FEED.get()) {
-                    return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-                }
-                return false;
-            } else if (Settings.HIDE_COMMENTS_SECTION.get()) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+                return Settings.HIDE_COMMENTS_SECTION_IN_HOME_FEED.get();
+            } else return Settings.HIDE_COMMENTS_SECTION.get();
         } else if (matchedGroup == commentsPreviewDots) {
-            if (path.startsWith(VIDEO_METADATA_CAROUSEL_PATH)) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return path.startsWith(VIDEO_METADATA_CAROUSEL_PATH);
         } else if (matchedGroup == previewCommentText) {
-            if (COMMENT_PREVIEW_TEXT_PATTERN.matcher(path).find()) {
-                return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return COMMENT_PREVIEW_TEXT_PATTERN.matcher(path).find();
         }
 
-        return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return true;
     }
 }

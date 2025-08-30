@@ -213,7 +213,7 @@ internal object ResourceUtils {
                             setAttribute("android:summary", "@string/$key" + "_summary")
                         }
                         setAttribute("android:key", key)
-                        if (dependencyKey != "") {
+                        if (dependencyKey.isNotEmpty()) {
                             setAttribute("android:dependency", dependencyKey)
                         }
                         this.adoptChild("intent") {
@@ -229,13 +229,34 @@ internal object ResourceUtils {
         }
     }
 
-    fun addRVXSettingsPreference() {
+    fun replaceSwitchPreference(
+        category: String,
+        key: String,
+        defaultValue: String,
+    ) {
+        context.document(SETTINGS_HEADER_PATH).use { document ->
+            val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
+            List(tags.length) { tags.item(it) as Element }
+                .filter {
+                    it.getAttribute("android:key").equals("revanced_preference_screen_$category")
+                }
+                .forEach {
+                    it.getAttributeNode("android:key")?.let { attribute ->
+                        if (attribute.textContent == key) {
+                            it.setAttribute("android:defaultValue", defaultValue)
+                        }
+                    }
+                }
+        }
+    }
+
+    fun addRVXSettingsPreference(insertKey: String) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             document.doRecursively node@{
                 if (it !is Element) return@node
 
                 it.getAttributeNode("android:key")?.let { attribute ->
-                    if (attribute.textContent == "settings_header_about_youtube_music" && it.getAttributeNode(
+                    if (attribute.textContent == insertKey && it.getAttributeNode(
                             "app:allowDividerBelow"
                         ).textContent == "false"
                     ) {

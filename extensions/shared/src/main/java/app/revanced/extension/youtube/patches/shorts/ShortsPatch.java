@@ -31,6 +31,7 @@ public class ShortsPatch {
     public static final boolean HIDE_SHORTS_NAVIGATION_BAR =
             Settings.HIDE_SHORTS_NAVIGATION_BAR.get();
     private static final double NAVIGATION_BAR_HEIGHT_PERCENTAGE;
+    private static int navigationBarHeight = -1;
 
     static {
         if (HIDE_SHORTS_NAVIGATION_BAR) {
@@ -168,9 +169,13 @@ public class ShortsPatch {
     }
 
     public static int setNavigationBarHeight(int original) {
-        return HIDE_SHORTS_NAVIGATION_BAR
-                ? (int) Math.round(original * NAVIGATION_BAR_HEIGHT_PERCENTAGE)
-                : original;
+        if (HIDE_SHORTS_NAVIGATION_BAR) {
+            if (navigationBarHeight == -1) {
+                navigationBarHeight = (int) Math.round(original * NAVIGATION_BAR_HEIGHT_PERCENTAGE);
+            }
+            return navigationBarHeight;
+        }
+        return original;
     }
 
     private static void setNavigationBarLayoutParams(@NonNull ShortsPlayerState shortsPlayerState) {

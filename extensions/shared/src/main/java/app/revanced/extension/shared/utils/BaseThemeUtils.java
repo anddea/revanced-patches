@@ -1,15 +1,23 @@
 package app.revanced.extension.shared.utils;
 
 import static app.revanced.extension.shared.utils.Utils.clamp;
+import static app.revanced.extension.shared.utils.Utils.getResources;
 
 import android.content.res.Configuration;
 import android.graphics.Color;
 
+import android.graphics.drawable.GradientDrawable;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
+import app.revanced.extension.youtube.settings.Settings;
+
+import java.util.regex.Pattern;
 
 @SuppressWarnings({"unused", "SameReturnValue"})
 public class BaseThemeUtils {
+    // Static pattern for validating hex colors (#FFFFFF or #000000)
+    private static final Pattern INVALID_HEX_PATTERN = Pattern.compile("^#?(FFFFFF|000000)$", Pattern.CASE_INSENSITIVE);
+
     // Must initially be a non-valid enum ordinal value.
     private static int currentThemeValueOrdinal = -1;
 
@@ -20,6 +28,11 @@ public class BaseThemeUtils {
 
     @Nullable
     private static Boolean isDarkModeEnabled;
+
+    @Nullable
+    private static Integer cachedHighlightColor;
+    private static boolean lastThemeWasDark;
+
 
     // For YouTube Music, Modern dialog not yet supported.
     public static boolean isSupportModernDialog = true;
@@ -50,19 +63,6 @@ public class BaseThemeUtils {
         }
     }
 
-    private static int themeValue = 1;
-
-    /**
-     * Injection point.
-     */
-    public static void setTheme(Enum<?> value) {
-        final int newOrdinalValue = value.ordinal();
-        if (themeValue != newOrdinalValue) {
-            themeValue = newOrdinalValue;
-            Logger.printDebug(() -> "Theme value: " + newOrdinalValue);
-        }
-    }
-
     /**
      * @return The current dark mode as set by any patch.
      * Or if none is set, then the system dark mode status is returned.
@@ -76,6 +76,27 @@ public class BaseThemeUtils {
         Configuration config = Utils.getResources(false).getConfiguration();
         final int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
         return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
+    }
+
+    /**
+     * Gets the background color for the current theme, using cached values if available.
+     * Caches the color for both light and dark themes to avoid repeated resource lookups.
+     *
+     * @return The background color for the current theme.
+     */
+    public static int getBackgroundColor() {
+        boolean isDark = isDarkModeEnabled();
+        // Check if theme has changed to invalidate cache if needed
+        if (lastThemeWasDark != isDark) {
+            cachedHighlightColor = null;
+            lastThemeWasDark = isDark;
+        }
+
+        if (isDark) {
+            return darkColor;
+        } else {
+            return lightColor;
+        }
     }
 
     public static void setThemeColor() {
@@ -211,6 +232,16 @@ public class BaseThemeUtils {
     }
 
     /**
+     * Uses {@link #adjustColorBrightness(int, float)} depending if light or dark mode is active.
+     */
+    @ColorInt
+    public static int adjustColorBrightness(@ColorInt int baseColor, float lightThemeFactor, float darkThemeFactor) {
+        return isDarkModeEnabled()
+                ? adjustColorBrightness(baseColor, darkThemeFactor)
+                : adjustColorBrightness(baseColor, lightThemeFactor);
+    }
+
+    /**
      * Adjusts the brightness of a color by lightening or darkening it based on the given factor.
      * <p>
      * If the factor is greater than 1, the color is lightened by interpolating toward white (#FFFFFF).
@@ -250,4 +281,42 @@ public class BaseThemeUtils {
         return Color.argb(alpha, red, green, blue);
     }
 
+    public static GradientDrawable getSearchViewShape() {
+        GradientDrawable shape = new GradientDrawable();
+        int baseColor = getBackgroundColor();
+        int adjustedColor = isDarkModeEnabled()
+                ? adjustColorBrightness(baseColor, 1.15f)
+                : adjustColorBrightness(baseColor, 0.85f);
+        shape.setColor(adjustedColor);
+        shape.setCornerRadius(30 * getResources().getDisplayMetrics().density);
+        return shape;
+    }
+
+    /**
+     * Gets the highlight color for search, caching it to avoid repeated calculations.
+     * Uses SETTINGS_SEARCH_HIGHLIGHT_COLOR, falling back to the background color if the setting
+     * is invalid or set to #FFFFFF/#000000. Adjusts brightness based on the current theme.
+     *
+     * @return The highlight color in ARGB format.
+     */
+    public static int getHighlightColor() {
+        if (cachedHighlightColor == null) {
+            String hexColor = Settings.SETTINGS_SEARCH_HIGHLIGHT_COLOR.get();
+            int baseColor;
+            if (INVALID_HEX_PATTERN.matcher(hexColor).matches()) {
+                baseColor = getBackgroundColor();
+            } else {
+                try {
+                    baseColor = Color.parseColor(hexColor);
+                } catch (IllegalArgumentException e) {
+                    baseColor = getBackgroundColor();
+                    Logger.printDebug(() -> "Invalid highlight color: " + hexColor + ", using background color");
+                }
+            }
+            float factor = isDarkModeEnabled() ? 1.30f : 0.90f; // Match new code's factors
+            cachedHighlightColor = adjustColorBrightness(baseColor, factor);
+            Logger.printDebug(() -> "Cached highlight color: " + cachedHighlightColor);
+        }
+        return cachedHighlightColor;
+    }
 }

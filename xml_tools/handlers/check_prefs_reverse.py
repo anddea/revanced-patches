@@ -21,9 +21,11 @@ BLACKLIST: set[str] = {
     "revanced_gradient_seekbar_colors",
     "revanced_gradient_seekbar_positions",
     "revanced_hide_ask_section",
-    "revanced_hide_most_relevant_shelf",
+    "revanced_hide_hype_button",
     "revanced_hide_player_control_buttons_background",
+    "revanced_hide_promote_button",
     "revanced_hide_shorts_comments_disabled_button",
+    "revanced_hide_shorts_comments_panel",
     "revanced_hide_shorts_hashtag_button",
     "revanced_hide_shorts_new_posts_button",
     "revanced_hide_shorts_preview_comment",
@@ -35,15 +37,19 @@ BLACKLIST: set[str] = {
     "revanced_settings_search_highlight_color",
     "revanced_settings_search_history",
     "revanced_shorts_custom_actions_gemini",
+    "revanced_swipe_brightness_distance",
     "revanced_swipe_overlay_minimal_style",
     "revanced_swipe_overlay_progress_seek_color",
     "revanced_swipe_overlay_progress_speed_color",
     "revanced_swipe_seek",
+    "revanced_swipe_seek_distance",
     "revanced_swipe_seek_sensitivity",
     "revanced_swipe_show_circular_overlay",
     "revanced_swipe_speed",
+    "revanced_swipe_speed_distance",
     "revanced_swipe_speed_sensitivity",
     "revanced_swipe_switch_speed_and_seek",
+    "revanced_swipe_volume_distance",
     "revanced_yandex_transcribe_subtitles",
     "revanced_yandex_transcribe_subtitles_language",
 }
@@ -94,8 +100,8 @@ def process(app: str, base_dir: Path) -> None:
 
     # Log results
     if missing_keys:
-        logger.info("❌  Missing keys found:")
+        logger.info("❌ Missing keys found:")
         for key in sorted(missing_keys):
             logger.info(key)
     else:
-        logger.info("✅  No missing keys found")
+        logger.info("✅ No missing keys found")

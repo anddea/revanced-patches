@@ -4,7 +4,7 @@ import logging
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-from defusedxml import ElementTree
+from defusedxml import ElementTree as DefusedET
 
 from config.settings import Settings
 from utils.xml_processor import XMLProcessor
@@ -33,7 +33,7 @@ def compare_and_update(source_path: Path, dest_path: Path, missing_path: Path) -
             # Create new root with missing strings
             root = ET.Element("resources")
             for _name, data in sorted(missing_strings.items()):
-                string_elem = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
+                string_elem = DefusedET.fromstring(data["text"])
                 root.append(string_elem)
 
             # Write missing strings file

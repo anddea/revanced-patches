@@ -13,7 +13,9 @@ import app.revanced.patches.reddit.utils.extension.Constants.EXTENSION_PATH
 import app.revanced.patches.reddit.utils.extension.sharedExtensionPatch
 import app.revanced.patches.reddit.utils.patch.PatchList
 import app.revanced.patches.reddit.utils.patch.PatchList.SETTINGS_FOR_REDDIT
+import app.revanced.patches.shared.extension.Constants.EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.sharedSettingFingerprint
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
@@ -106,6 +108,13 @@ private val settingsBytecodePatch = bytecodePatch(
         }
 
         settingsStatusLoadMethod = settingsStatusLoadFingerprint.methodOrThrow()
+
+        findMethodOrThrow(EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR) {
+            name == "setThemeColor"
+        }.addInstruction(
+            0,
+            "invoke-static {}, $EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR->updateDarkModeStatus()V"
+        )
     }
 }
 

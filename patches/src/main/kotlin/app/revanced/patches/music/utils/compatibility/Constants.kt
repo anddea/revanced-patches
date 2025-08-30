@@ -13,10 +13,11 @@ internal object Constants {
             "6.29.59", // This is the latest version that supports the 'Restore old player layout' setting.
             "6.42.55", // This is the latest version that supports Android 7.0
             "6.51.53", // This is the latest version of YouTube Music 6.xx.xx
-            "7.16.53", // This is the latest version that supports the 'Spoof app version' patch.
+            "7.16.53", // This is the latest version that supports the 'Hide action button labels' setting.
             "7.25.53", // This is the last supported version for 2024.
-            "8.05.51", // This was the latest version supported by the previous RVX patch.
-            "8.12.53", // This is the latest version supported by the RVX patch.
+            "8.12.54", // This was the latest version supported by the previous RVX patch.
+            "8.28.54", // This is the latest version that supports the 'Replace Samples button' setting.
+            "8.30.54", // This is the latest version supported by the RVX patch.
         )
     )
 }

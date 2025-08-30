@@ -13,6 +13,8 @@ import app.revanced.patches.youtube.utils.extension.Constants.SHARED_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
+import app.revanced.patches.youtube.utils.fullScreenEngagementPanelFingerprint
+import app.revanced.patches.youtube.utils.resourceid.fullScreenEngagementPanel
 import app.revanced.patches.youtube.utils.resourceid.reelWatchPlayer
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.util.addStaticFieldToExtension
@@ -41,7 +43,7 @@ private const val EXTENSION_ROOT_VIEW_TOOLBAR_INTERFACE =
     "$SHARED_PATH/RootView${'$'}AppCompatToolbarPatchInterface;"
 
 private const val FILTER_CLASS_DESCRIPTOR =
-    "$COMPONENTS_PATH/RelatedVideoFilter;"
+    "$COMPONENTS_PATH/LayoutReloadObserverFilter;"
 
 val playerTypeHookPatch = bytecodePatch(
     description = "playerTypeHookPatch"
@@ -62,6 +64,24 @@ val playerTypeHookPatch = bytecodePatch(
             "invoke-static {p1}, " +
                     "$EXTENSION_PLAYER_TYPE_HOOK_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V"
         )
+
+        // endregion
+
+        // region patch for set fullscreen engagement panel holder state
+
+        fullScreenEngagementPanelFingerprint.methodOrThrow().apply {
+            val literalIndex =
+                indexOfFirstLiteralInstructionOrThrow(fullScreenEngagementPanel)
+            val targetIndex =
+                indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT_OBJECT)
+            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+            addInstruction(
+                targetIndex + 1,
+                "invoke-static {v$targetRegister}, " +
+                        "$EXTENSION_PLAYER_TYPE_HOOK_CLASS_DESCRIPTOR->onFullscreenEngagementPanelHolderCreate(Landroid/view/View;)V"
+            )
+        }
 
         // endregion
 

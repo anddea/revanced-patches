@@ -16,22 +16,12 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 const val STREAMING_DATA_OUTER_CLASS =
     "Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass${'$'}StreamingData;"
 
-internal val buildMediaDataSourceFingerprint = legacyFingerprint(
-    name = "buildMediaDataSourceFingerprint",
+internal val brotliInputStreamFingerprint = legacyFingerprint(
+    name = "brotliInputStreamFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     returnType = "V",
-    parameters = listOf(
-        "Landroid/net/Uri;",
-        "J",
-        "I",
-        "[B",
-        "Ljava/util/Map;",
-        "J",
-        "J",
-        "Ljava/lang/String;",
-        "I",
-        "Ljava/lang/Object;"
-    )
+    parameters = listOf("Ljava/io/InputStream;"),
+    strings = listOf("Brotli decoder initialization failed")
 )
 
 internal val createStreamingDataFingerprint = legacyFingerprint(
@@ -56,14 +46,6 @@ internal val createStreamingDataParentFingerprint = legacyFingerprint(
     strings = listOf("Invalid playback type; streaming data is not playable"),
 )
 
-internal val nerdsStatsFormatBuilderFingerprint = legacyFingerprint(
-    name = "nerdsStatsFormatBuilderFingerprint",
-    returnType = "Ljava/lang/String;",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("L"),
-    strings = listOf("codecs=\""),
-)
-
 internal val protobufClassParseByteBufferFingerprint = legacyFingerprint(
     name = "protobufClassParseByteBufferFingerprint",
     accessFlags = AccessFlags.PROTECTED or AccessFlags.STATIC,
@@ -78,39 +60,12 @@ internal val protobufClassParseByteBufferFingerprint = legacyFingerprint(
     customFingerprint = { method, _ -> method.name == "parseFrom" },
 )
 
-internal val videoStreamingDataConstructorFingerprint = legacyFingerprint(
-    name = "videoStreamingDataConstructorFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    returnType = "V",
-    customFingerprint = { method, _ ->
-        indexOfGetAdaptiveFormatsFieldInstruction(method) >= 0
-    },
-)
-
-internal fun indexOfGetAdaptiveFormatsFieldInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        val reference = getReference<FieldReference>()
-        opcode == Opcode.IGET_OBJECT &&
-                reference?.definingClass == STREAMING_DATA_OUTER_CLASS &&
-                // Field f: 'adaptiveFormats'.
-                // Field name is always 'f', regardless of the client version.
-                reference.name == "f" &&
-                reference.type.startsWith("L")
-    }
-
-/**
- * On YouTube, this class is 'Lcom/google/android/libraries/youtube/innertube/model/media/VideoStreamingData;'
- * On YouTube Music, class names are obfuscated.
- */
-internal val videoStreamingDataToStringFingerprint = legacyFingerprint(
-    name = "videoStreamingDataToStringFingerprint",
+internal val nerdsStatsFormatBuilderFingerprint = legacyFingerprint(
+    name = "nerdsStatsFormatBuilderFingerprint",
     returnType = "Ljava/lang/String;",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = emptyList(),
-    strings = listOf("VideoStreamingData(itags="),
-    customFingerprint = { method, _ ->
-        method.name == "toString"
-    },
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = listOf("L"),
+    strings = listOf("codecs=\""),
 )
 
 internal const val HLS_CURRENT_TIME_FEATURE_FLAG = 45355374L

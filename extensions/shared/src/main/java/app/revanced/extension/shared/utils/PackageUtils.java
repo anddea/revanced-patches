@@ -52,6 +52,10 @@ public class PackageUtils extends Utils {
         return getSmallestScreenWidthDp() >= 600;
     }
 
+    public static boolean isVersionOrGreater(String version) {
+        return getAppVersionName().compareTo(version) >= 0;
+    }
+
     public static int getSmallestScreenWidthDp() {
         return getResources(false).getConfiguration().smallestScreenWidthDp;
     }
@@ -62,21 +66,21 @@ public class PackageUtils extends Utils {
         try {
             return getContext().getPackageManager().getApplicationInfo(packageName, 0);
         } catch (PackageManager.NameNotFoundException e) {
-            Logger.printException(() -> "Failed to get application Info!" + e);
+            Logger.printDebug(() -> "getApplicationInfo) App is not installed: " + packageName);
         }
         return null;
     }
 
     @Nullable
     private static PackageInfo getPackageInfo() {
+        final PackageManager packageManager = getPackageManager();
+        final String packageName = getContext().getPackageName();
         try {
-            final PackageManager packageManager = getPackageManager();
-            final String packageName = getContext().getPackageName();
             return isSDKAbove(33)
                     ? packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(0))
                     : packageManager.getPackageInfo(packageName, 0);
         } catch (PackageManager.NameNotFoundException e) {
-            Logger.printException(() -> "Failed to get package Info!" + e);
+            Logger.printDebug(() -> "getPackageInfo) App is not installed: " + packageName);
         }
         return null;
     }

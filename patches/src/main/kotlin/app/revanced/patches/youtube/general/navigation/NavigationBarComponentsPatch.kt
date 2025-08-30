@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.NAVIGATION_BAR_COMPONENTS
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_28_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_28_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.ytOutlineLibrary
@@ -182,7 +183,7 @@ val navigationBarComponentsPatch = bytecodePatch(
          *
          * It was not too hard to fix, so it was implemented as a patch.
          */
-        if (is_19_28_or_greater) {
+        if (is_19_28_or_greater && !is_20_28_or_greater) {
             val cairoNotificationEnumReference =
                 with(imageEnumConstructorFingerprint.methodOrThrow()) {
                     val stringIndex =

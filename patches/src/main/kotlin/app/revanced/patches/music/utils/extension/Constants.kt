@@ -15,6 +15,7 @@ internal object Constants {
     const val MISC_PATH = "$PATCHES_PATH/misc"
     const val NAVIGATION_PATH = "$PATCHES_PATH/navigation"
     const val PLAYER_PATH = "$PATCHES_PATH/player"
+    const val SPOOF_PATH = "$PATCHES_PATH/spoof"
     const val VIDEO_PATH = "$PATCHES_PATH/video"
     const val UTILS_PATH = "$PATCHES_PATH/utils"
 

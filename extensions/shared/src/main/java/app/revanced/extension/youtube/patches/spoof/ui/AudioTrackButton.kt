@@ -5,7 +5,6 @@ import app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.patches.spoof.AudioTrackPatch
 import app.revanced.extension.youtube.settings.Settings
-import app.revanced.extension.youtube.shared.VideoInformation
 import app.revanced.extension.youtube.shared.PlayerControlButton
 
 @Suppress("unused")
@@ -63,6 +62,5 @@ object AudioTrackButton {
                 && Settings.SPOOF_STREAMING_DATA_VR_AUDIO_TRACK_BUTTON.get()
                 && lastSpoofedAudioClientIsAndroidVRNoAuth
                 && AudioTrackPatch.audioTrackMapIsNotNull()
-                && !VideoInformation.isAtEndOfVideo()
     }
 }

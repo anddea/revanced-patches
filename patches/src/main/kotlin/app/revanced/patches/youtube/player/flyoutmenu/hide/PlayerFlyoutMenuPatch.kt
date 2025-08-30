@@ -1,17 +1,18 @@
 package app.revanced.patches.youtube.player.flyoutmenu.hide
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
+import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
+import app.revanced.patches.youtube.utils.getEmptyRegistryFingerprint
 import app.revanced.patches.youtube.utils.indexOfAddHeaderViewInstruction
+import app.revanced.patches.youtube.utils.indexOfGetAdaptiveFormatsFieldInstruction
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_PLAYER_FLYOUT_MENU
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_18_39_or_greater
@@ -22,16 +23,18 @@ import app.revanced.patches.youtube.utils.resourceid.bottomSheetFooterText
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.patches.youtube.utils.videoStreamingDataConstructorFingerprint
+import app.revanced.patches.youtube.utils.videoStreamingDataToStringFingerprint
+import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.cloneMutable
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.injectLiteralInstructionViewCall
+import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 private const val PANELS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/PlayerFlyoutMenuFilter;"
@@ -49,6 +52,7 @@ val playerFlyoutMenuPatch = bytecodePatch(
         lithoLayoutPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
+        videoInformationPatch,
         versionCheckPatch
     )
 
@@ -93,23 +97,35 @@ val playerFlyoutMenuPatch = bytecodePatch(
 
         // region patch for hide '1080p Premium' label
 
-        videoQualityArrayFingerprint.methodOrThrow().apply {
-            val qualityLabelIndex = indexOfQualityLabelInstruction(this) + 1
-            val qualityLabelRegister =
-                getInstruction<OneRegisterInstruction>(qualityLabelIndex).registerA
-            val jumpIndex = indexOfFirstInstructionReversedOrThrow(qualityLabelIndex) {
-                opcode == Opcode.INVOKE_INTERFACE &&
-                        getReference<MethodReference>()?.name == "hasNext"
-            }
+        videoStreamingDataConstructorFingerprint.matchOrThrow(
+            videoStreamingDataToStringFingerprint
+        ).let {
+            it.method.apply {
+                val adaptiveFormatsFieldIndex =
+                    indexOfGetAdaptiveFormatsFieldInstruction(this)
+                val adaptiveFormatsRegister =
+                    getInstruction<TwoRegisterInstruction>(adaptiveFormatsFieldIndex).registerA
 
-            addInstructionsWithLabels(
-                qualityLabelIndex + 1, """
-                    invoke-static {v$qualityLabelRegister}, $PLAYER_CLASS_DESCRIPTOR->hidePlayerFlyoutMenuEnhancedBitrate(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$qualityLabelRegister
-                    if-eqz v$qualityLabelRegister, :jump
-                    """, ExternalLabel("jump", getInstruction(jumpIndex))
+                addInstructions(
+                    adaptiveFormatsFieldIndex + 1, """
+                        invoke-static { v$adaptiveFormatsRegister }, $PLAYER_CLASS_DESCRIPTOR->hidePlayerFlyoutMenuEnhancedBitrate(Ljava/util/List;)Ljava/util/List;
+                        move-result-object v$adaptiveFormatsRegister
+                        """
+                )
+            }
+        }
+
+        // Some classes that exist in YouTube are not merged.
+        // Instead of relocating all classes in the extension,
+        // Only the methods necessary for the patch to function are copied.
+        // Note: Protobuf library included with YouTube seems to have been released before 2016.
+        getEmptyRegistryFingerprint.matchOrThrow().let {
+            it.classDef.methods.add(
+                it.method.cloneMutable(name = "getEmptyRegistry")
             )
         }
+
+        updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "PlayerFlyoutMenu")
 
         // endregion
 

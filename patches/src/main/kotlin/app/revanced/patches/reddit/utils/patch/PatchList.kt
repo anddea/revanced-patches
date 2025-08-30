@@ -37,6 +37,10 @@ internal enum class PatchList(
         "Hide toolbar button",
         "Adds an option to hide the r/place or Reddit recap button in the toolbar."
     ),
+    HIDE_TRENDING_TODAY_SHELF(
+        "Hide Trending Today shelf",
+        "Adds an option to hide the Trending Today shelf from search suggestions."
+    ),
     OPEN_LINKS_DIRECTLY(
         "Open links directly",
         "Adds an option to skip over redirection URLs in external links."

@@ -6,7 +6,7 @@ import logging
 from typing import TYPE_CHECKING
 from xml.etree import ElementTree as ET
 
-from defusedxml import ElementTree
+from defusedxml import ElementTree as DefusedET
 
 if TYPE_CHECKING:
     from pathlib import Path
@@ -33,7 +33,7 @@ class XMLProcessor:
 
         try:
             # Parse XML using defusedxml for security
-            tree = ElementTree.parse(str(path))  # type: ignore[reportUnknownMemberType]
+            tree = DefusedET.parse(str(path))
             root = tree.getroot()
 
             strings: dict[str, dict[str, str]] = {}
@@ -48,7 +48,7 @@ class XMLProcessor:
                     attributes["text"] = XMLProcessor.element_to_string(elem)
                     strings[name] = attributes
 
-        except (OSError, ElementTree.ParseError):
+        except (OSError, DefusedET.ParseError):
             logger.exception("Failed to parse %s: ", path)
             return None, None, {}
         else:
@@ -67,7 +67,8 @@ class XMLProcessor:
             tree = ET.ElementTree(root)
             ET.indent(tree, space="    ")
             with path.open("wb") as f:
-                tree.write(f, encoding="utf-8", xml_declaration=True)
+                f.write(b'<?xml version="1.0" encoding="utf-8"?>\n')
+                tree.write(f, encoding="utf-8", xml_declaration=False)
                 f.write(b"\n")
         except OSError:
             logger.exception("Failed to write file: %s", path)

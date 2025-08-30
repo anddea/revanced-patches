@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.fix.hype.hypeButtonIconPatch
 import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.DESCRIPTION_COMPONENTS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
@@ -50,6 +51,7 @@ val descriptionComponentsPatch = bytecodePatch(
         playerTypeHookPatch,
         recyclerViewTreeObserverPatch,
         engagementPanelHookPatch,
+        hypeButtonIconPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
     )

@@ -12,6 +12,8 @@ import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_20_21_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_28_or_greater
+import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -41,10 +43,14 @@ val navigationBarHookPatch = bytecodePatch(
         mainActivityResolvePatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
+        versionCheckPatch,
     )
 
     execute {
-        fun MutableMethod.addHook(hook: Hook, insertPredicate: Instruction.() -> Boolean) {
+        fun MutableMethod.addHook(
+            hook: NavigationHook,
+            insertPredicate: Instruction.() -> Boolean
+        ) {
             val filtered = instructions.filter(insertPredicate)
             if (filtered.isEmpty()) throw PatchException("Could not find insert indexes")
             filtered.forEach {
@@ -62,7 +68,7 @@ val navigationBarHookPatch = bytecodePatch(
         initializeButtonsFingerprint.methodOrThrow(pivotBarConstructorFingerprint).apply {
             // Hook the current navigation bar enum value. Note, the 'You' tab does not have an enum value.
             val navigationEnumClassName = navigationEnumFingerprint.mutableClassOrThrow().type
-            addHook(Hook.SET_LAST_APP_NAVIGATION_ENUM) {
+            addHook(NavigationHook.SET_LAST_APP_NAVIGATION_ENUM) {
                 opcode == Opcode.INVOKE_STATIC &&
                         getReference<MethodReference>()?.definingClass == navigationEnumClassName
             }
@@ -70,16 +76,17 @@ val navigationBarHookPatch = bytecodePatch(
             // Hook the creation of navigation tab views.
             val drawableTabMethod =
                 pivotBarButtonsCreateDrawableViewFingerprint.methodOrThrow()
-            addHook(Hook.NAVIGATION_TAB_LOADED) predicate@{
+            addHook(NavigationHook.NAVIGATION_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,
                     drawableTabMethod,
                 )
             }
 
-            if (is_20_21_or_greater) {
-                val imageResourceIntTabMethod = pivotBarButtonsCreateResourceIntViewFingerprint.originalMethod
-                addHook(Hook.NAVIGATION_TAB_LOADED) predicate@{
+            if (is_20_21_or_greater && !is_20_28_or_greater) {
+                val imageResourceIntTabMethod =
+                    pivotBarButtonsCreateResourceIntViewFingerprint.methodOrThrow()
+                addHook(NavigationHook.NAVIGATION_TAB_LOADED) predicate@{
                     MethodUtil.methodSignaturesMatch(
                         getReference<MethodReference>() ?: return@predicate false,
                         imageResourceIntTabMethod,
@@ -89,7 +96,7 @@ val navigationBarHookPatch = bytecodePatch(
 
             val imageResourceTabMethod =
                 pivotBarButtonsCreateResourceViewFingerprint.methodOrThrow()
-            addHook(Hook.NAVIGATION_IMAGE_RESOURCE_TAB_LOADED) predicate@{
+            addHook(NavigationHook.NAVIGATION_IMAGE_RESOURCE_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,
                     imageResourceTabMethod,
@@ -140,7 +147,7 @@ fun addBottomBarContainerHook(descriptor: String) {
     }
 }
 
-private enum class Hook(val methodName: String, val parameters: String) {
+private enum class NavigationHook(val methodName: String, val parameters: String) {
     SET_LAST_APP_NAVIGATION_ENUM("setLastAppNavigationEnum", "Ljava/lang/Enum;"),
     NAVIGATION_TAB_LOADED("navigationTabLoaded", "Landroid/view/View;"),
     NAVIGATION_IMAGE_RESOURCE_TAB_LOADED(

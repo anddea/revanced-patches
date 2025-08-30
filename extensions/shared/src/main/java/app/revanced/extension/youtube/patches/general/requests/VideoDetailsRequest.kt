@@ -2,8 +2,8 @@ package app.revanced.extension.youtube.patches.general.requests
 
 import android.annotation.SuppressLint
 import androidx.annotation.GuardedBy
-import app.revanced.extension.shared.innertube.client.YouTubeWebClient
-import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createWebInnertubeBody
+import app.revanced.extension.shared.innertube.client.YouTubeClient
+import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createJSRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
 import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_VIDEO_DETAILS
 import app.revanced.extension.shared.requests.Requester
@@ -83,7 +83,7 @@ class VideoDetailsRequest private constructor(
 
         private fun sendRequest(videoId: String): JSONObject? {
             val startTime = System.currentTimeMillis()
-            val clientType = YouTubeWebClient.ClientType.MWEB
+            val clientType = YouTubeClient.ClientType.MWEB
             val clientTypeName = clientType.name
             Logger.printDebug { "Fetching video details request for: $videoId, using client: $clientTypeName" }
 
@@ -92,7 +92,7 @@ class VideoDetailsRequest private constructor(
                     GET_VIDEO_DETAILS,
                     clientType
                 )
-                val requestBody = createWebInnertubeBody(clientType, videoId)
+                val requestBody = createJSRequestBody(clientType, videoId)
 
                 connection.setFixedLengthStreamingMode(requestBody.size)
                 connection.outputStream.write(requestBody)

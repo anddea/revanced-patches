@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-from defusedxml import ElementTree
+from defusedxml import ElementTree as DefusedET
 
 from config.settings import Settings
 from utils.xml_processor import XMLProcessor
@@ -33,6 +33,7 @@ PREFIX_TO_IGNORE: tuple[str, ...] = (
     "revanced_gemini_error_already_running_",
     "revanced_gemini_loading_",
     "revanced_icon_",
+    "revanced_remember_video_quality_",
     "revanced_shorts_custom_actions_",
     "revanced_spoof_app_version_target_entry_",
     "revanced_spoof_streaming_data_side_effects_",
@@ -164,7 +165,7 @@ def process_xml_file(file_path: Path, unused_names: set[str]) -> None:
         kept_strings = 0
         for name, data in sorted(strings_dict.items()):
             if not should_remove(name, unused_names):
-                string_elem = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
+                string_elem = DefusedET.fromstring(data["text"])
                 new_root.append(string_elem)
                 kept_strings += 1
 
@@ -269,7 +270,7 @@ def remove_extra_translation_strings(app: str) -> None:
                         kept_strings = 0
                         for name, data in sorted(trans_strings.items()):
                             if name in source_keys:
-                                string_elem = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
+                                string_elem = DefusedET.fromstring(data["text"])
                                 new_root.append(string_elem)
                                 kept_strings += 1
                         # Write updated file

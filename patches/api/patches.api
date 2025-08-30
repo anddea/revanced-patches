@@ -81,6 +81,10 @@ public final class app/revanced/patches/music/general/redirection/DislikeRedirec
 	public static final fun setOnClickReference (Ljava/lang/String;)V
 }
 
+public final class app/revanced/patches/music/general/splash/CairoSplashAnimationPatchKt {
+	public static final fun getCairoSplashAnimationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/general/spoofappversion/SpoofAppVersionPatchKt {
 	public static final fun getSpoofAppVersionPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
@@ -139,10 +143,6 @@ public final class app/revanced/patches/music/misc/bitrate/BitrateDefaultValuePa
 	public static final fun getBitrateDefaultValuePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/misc/codecs/OpusCodecPatchKt {
-	public static final fun getOpusCodecPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-}
-
 public final class app/revanced/patches/music/misc/debugging/DebuggingPatchKt {
 	public static final fun getDebuggingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
@@ -157,10 +157,6 @@ public final class app/revanced/patches/music/misc/quic/QUICProtocolPatchKt {
 
 public final class app/revanced/patches/music/misc/share/ShareSheetPatchKt {
 	public static final fun getShareSheetPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/music/misc/splash/CairoSplashAnimationPatchKt {
-	public static final fun getCairoSplashAnimationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/misc/thumbnails/BypassImageRegionRestrictionsPatchKt {
@@ -199,16 +195,20 @@ public final class app/revanced/patches/music/utils/fix/androidauto/AndroidAutoC
 	public static final fun getAndroidAutoCertificatePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/utils/fix/client/SpoofClientPatchKt {
-	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/music/utils/fix/fileprovider/FileProviderPatchKt {
 	public static final fun fileProviderPatch (Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/utils/fix/parameter/SpoofPlayerParameterPatchKt {
-	public static final fun getSpoofPlayerParameterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/music/utils/fix/playback/PlaybackPatchKt {
+	public static final fun getPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/utils/fix/streamingdata/FingerprintsKt {
+	public static final field STREAMING_DATA_OUTER_CLASS Ljava/lang/String;
+}
+
+public final class app/revanced/patches/music/utils/fix/timedlyrics/TimedLyricsPatchKt {
+	public static final fun getTimedLyricsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/utils/flyoutmenu/FlyoutMenuHookPatchKt {
@@ -242,6 +242,7 @@ public final class app/revanced/patches/music/utils/playservice/VersionCheckPatc
 	public static final fun is_7_03_or_greater ()Z
 	public static final fun is_7_06_or_greater ()Z
 	public static final fun is_7_13_or_greater ()Z
+	public static final fun is_7_16_or_greater ()Z
 	public static final fun is_7_17_or_greater ()Z
 	public static final fun is_7_18_or_greater ()Z
 	public static final fun is_7_20_or_greater ()Z
@@ -253,10 +254,10 @@ public final class app/revanced/patches/music/utils/playservice/VersionCheckPatc
 	public static final fun is_7_33_or_greater ()Z
 	public static final fun is_8_03_or_greater ()Z
 	public static final fun is_8_05_or_greater ()Z
+	public static final fun is_8_12_or_greater ()Z
 	public static final fun is_8_15_or_greater ()Z
-	public static final fun is_8_16_or_greater ()Z
-	public static final fun is_8_17_or_greater ()Z
-	public static final fun is_8_19_or_greater ()Z
+	public static final fun is_8_28_or_greater ()Z
+	public static final fun is_8_29_or_greater ()Z
 }
 
 public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdPatchKt {
@@ -287,6 +288,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public static final fun getMiniPlayerViewPager ()J
 	public static final fun getModernDialogBackground ()J
 	public static final fun getMusicNotifierShelf ()J
+	public static final fun getMusicSnackbarActionColor ()J
 	public static final fun getMusicTasteBuilderShelf ()J
 	public static final fun getNamesInactiveAccountThumbnailSize ()J
 	public static final fun getOfflineSettingsMenuItem ()J
@@ -349,6 +351,7 @@ public final class app/revanced/patches/music/utils/videotype/VideoTypeHookPatch
 }
 
 public final class app/revanced/patches/music/video/information/VideoInformationPatchKt {
+	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun getVideoInformationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
@@ -438,6 +441,10 @@ public final class app/revanced/patches/reddit/layout/toolbar/ToolBarButtonPatch
 	public static final fun getToolBarButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/reddit/layout/trendingtoday/TrendingTodayShelfPatchKt {
+	public static final fun getTrendingTodayShelfPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/reddit/misc/openlink/FingerprintsKt {
 	public static final fun indexOfScreenNavigatorInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 }
@@ -485,9 +492,11 @@ public final class app/revanced/patches/reddit/utils/settings/SettingsPatchKt {
 public final class app/revanced/patches/shared/FingerprintsKt {
 	public static final field SPANNABLE_STRING_REFERENCE Ljava/lang/String;
 	public static final fun indexOfBrandInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun indexOfClientInfoInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfManufacturerInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfModelInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfReleaseInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun indexOfSdkInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfSpannableStringInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 }
 
@@ -659,6 +668,7 @@ public final class app/revanced/patches/shared/returnyoutubeusername/BaseReturnY
 public final class app/revanced/patches/shared/scrolltop/CommentsScrollTopPatchKt {
 	public static final fun getCommentsScrollTopPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun getModernTitle ()J
+	public static final fun getTitle ()J
 }
 
 public final class app/revanced/patches/shared/settingmenu/SettingsMenuPatchKt {
@@ -677,8 +687,8 @@ public final class app/revanced/patches/shared/spoof/appversion/BaseSpoofAppVers
 	public static final fun baseSpoofAppVersionPatch (Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/shared/spoof/blockrequest/BlockRequestPatchKt {
-	public static final fun getBlockRequestPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/shared/spoof/blockrequest/BaseBlockRequestPatchKt {
+	public static final fun baseBlockRequestPatch (Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/shared/spoof/useragent/BaseSpoofUserAgentPatchKt {
@@ -832,6 +842,10 @@ public final class app/revanced/patches/youtube/general/navigation/NavigationBar
 	public static final fun getNavigationBarComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/general/signintotvpopup/SignInToTvPopupPatchKt {
+	public static final fun getSignInToTvPopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/general/snackbar/SnackBarComponentsPatchKt {
 	public static final fun getSnackBarComponentsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
@@ -915,10 +929,6 @@ public final class app/revanced/patches/youtube/misc/accessibility/Accessibility
 
 public final class app/revanced/patches/youtube/misc/backgroundplayback/BackgroundPlaybackPatchKt {
 	public static final fun getBackgroundPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/youtube/misc/codecs/OpusCodecPatchKt {
-	public static final fun getOpusCodecPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/misc/debugging/DebuggingPatchKt {
@@ -1071,16 +1081,12 @@ public final class app/revanced/patches/youtube/utils/fix/bottomui/CfBottomUIPat
 	public static final fun getCfBottomUIPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/utils/fix/cairo/CairoFragmentPatchKt {
-	public static final fun getCairoFragmentPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-}
-
-public final class app/revanced/patches/youtube/utils/fix/cairo/CairoSettingsPatchKt {
-	public static final fun getCairoSettingsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/youtube/utils/fix/endscreensuggestedvideo/EndScreenSuggestedVideoPatchKt {
 	public static final fun getEndScreenSuggestedVideoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/utils/fix/hype/HypeButtonIconPatchKt {
+	public static final fun getHypeButtonIconPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/utils/fix/litho/LithoLayoutPatchKt {
@@ -1215,6 +1221,8 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_20_20_or_greater ()Z
 	public static final fun is_20_21_or_greater ()Z
 	public static final fun is_20_22_or_greater ()Z
+	public static final fun is_20_28_or_greater ()Z
+	public static final fun is_20_30_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/utils/recyclerview/RecyclerViewTreeObserverPatchKt {
@@ -1242,7 +1250,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getBarContainerHeight ()J
 	public static final fun getBottomBarContainer ()J
 	public static final fun getBottomSheetFooterText ()J
-	public static final fun getBottomSheetRecyclerView ()J
 	public static final fun getBottomUiContainerStub ()J
 	public static final fun getCaptionToggleContainer ()J
 	public static final fun getCastMediaRouteButton ()J
@@ -1284,6 +1291,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getInsetOverlayViewLayout ()J
 	public static final fun getInterstitialsContainer ()J
 	public static final fun getLikeTapFeedbackCairo ()J
+	public static final fun getMdxSeamlessTVSignInDrawerFragmentTitle ()J
 	public static final fun getMenuItemView ()J
 	public static final fun getMiniplayerMaxSize ()J
 	public static final fun getModernMiniPlayerClose ()J
@@ -1295,6 +1303,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getNotificationBigPictureIconWidth ()J
 	public static final fun getOfflineActionsVideoDeletedUndoSnackbarText ()J
 	public static final fun getOfflineNoContentBodyTextNotOfflineEligible ()J
+	public static final fun getP13nHeader ()J
 	public static final fun getPairWithTVKey ()J
 	public static final fun getPlayerCollapseButton ()J
 	public static final fun getPlayerControlNextButtonTouchArea ()J
@@ -1319,6 +1328,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getRelatedChipCloudMargin ()J
 	public static final fun getRightComment ()J
 	public static final fun getScrimOverlay ()J
+	public static final fun getSeeMoreProceedingHeader ()J
 	public static final fun getSeekEasyHorizontalTouchOffsetToStartScrubbing ()J
 	public static final fun getSeekUndoEduOverlayStub ()J
 	public static final fun getSettingsFragment ()J
@@ -1388,10 +1398,16 @@ public final class app/revanced/patches/youtube/utils/toolbar/ToolBarHookPatchKt
 
 public final class app/revanced/patches/youtube/video/information/FingerprintsKt {
 	public static final fun indexOfPlayerResponseModelInterfaceInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun indexOfVideoQualityNameFieldInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun indexOfVideoQualityResolutionFieldInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 }
 
 public final class app/revanced/patches/youtube/video/information/VideoInformationPatchKt {
 	public static final fun getVideoInformationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/video/playback/DisableHdrPatchKt {
+	public static final fun getDisableHdrPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/video/playback/FingerprintsKt {
@@ -1446,6 +1462,8 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun containsLiteralInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;D)Z
 	public static final fun containsLiteralInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;F)Z
 	public static final fun containsLiteralInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;J)Z
+	public static final fun containsStringInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)Z
+	public static final fun findFreeRegister (Lcom/android/tools/smali/dexlib2/iface/Method;IZ[I)I
 	public static final fun findInstructionIndicesReversed (Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/Opcode;)Ljava/util/List;
 	public static final fun findInstructionIndicesReversed (Lcom/android/tools/smali/dexlib2/iface/Method;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
 	public static final fun findInstructionIndicesReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/Opcode;)Ljava/util/List;
@@ -1459,6 +1477,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun getFiveRegisters (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;I)Ljava/lang/String;
 	public static final fun getWalkerMethod (Lapp/revanced/patcher/patch/BytecodePatchContext;Lapp/revanced/patcher/Match;I)Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 	public static final fun getWalkerMethod (Lapp/revanced/patcher/patch/BytecodePatchContext;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;I)Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
+	public static final fun hookClassHierarchy (Lapp/revanced/patcher/patch/BytecodePatchContext;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;)V
 	public static final fun indexOfFirstInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;ILcom/android/tools/smali/dexlib2/Opcode;)I
 	public static final fun indexOfFirstInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;ILkotlin/jvm/functions/Function1;)I
 	public static final fun indexOfFirstInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/Opcode;)I
@@ -1484,11 +1503,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun indexOfFirstLiteralInstructionOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;D)I
 	public static final fun indexOfFirstLiteralInstructionOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;F)I
 	public static final fun indexOfFirstLiteralInstructionOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
-	public static final fun indexOfFirstLiteralInstructionReversed (Lcom/android/tools/smali/dexlib2/iface/Method;D)I
-	public static final fun indexOfFirstLiteralInstructionReversed (Lcom/android/tools/smali/dexlib2/iface/Method;F)I
 	public static final fun indexOfFirstLiteralInstructionReversed (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
-	public static final fun indexOfFirstLiteralInstructionReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;D)I
-	public static final fun indexOfFirstLiteralInstructionReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;F)I
 	public static final fun indexOfFirstLiteralInstructionReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
 	public static final fun indexOfFirstResourceId (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun indexOfFirstResourceIdOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I

@@ -1,5 +1,7 @@
 package app.revanced.extension.music.patches.navigation;
 
+import static app.revanced.extension.music.utils.ExtendedUtils.IS_6_27_OR_GREATER;
+import static app.revanced.extension.music.utils.ExtendedUtils.IS_8_29_OR_GREATER;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
 
@@ -26,8 +28,8 @@ public class NavigationPatch {
             ? ResourceUtils.getColor("ytm_color_grey_12")
             : ResourceUtils.getColor("revanced_color_grey_12");
 
-    @Nullable
-    private static String lastYTNavigationEnumName;
+    @NonNull
+    private static String lastYTNavigationEnumName = "";
 
     public static void setLastAppNavigationEnum(@Nullable Enum<?> ytNavigationEnumName) {
         if (ytNavigationEnumName != null) {
@@ -130,7 +132,8 @@ public class NavigationPatch {
         SAMPLES(
                 "TAB_SAMPLES",
                 Settings.HIDE_NAVIGATION_SAMPLES_BUTTON.get(),
-                Settings.REPLACE_NAVIGATION_SAMPLES_BUTTON.get(),
+                IS_6_27_OR_GREATER && !IS_8_29_OR_GREATER &&
+                        Settings.REPLACE_NAVIGATION_SAMPLES_BUTTON.get(),
                 "FEmusic_immersive",
                 "search",
                 "yt_fill_samples_vd_theme_24",
