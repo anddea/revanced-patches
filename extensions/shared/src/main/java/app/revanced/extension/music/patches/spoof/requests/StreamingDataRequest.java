@@ -17,6 +17,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
@@ -41,19 +42,25 @@ import app.revanced.extension.shared.utils.Utils;
  */
 public class StreamingDataRequest {
 
-    private static final ClientType[] AVAILABLE_CLIENT_TYPES = {
+    private static final List<ClientType> AVAILABLE_CLIENT_TYPES = List.of(
             ClientType.ANDROID_VR_1_43_32,
             ClientType.ANDROID_VR_1_65_09,
             ClientType.IOS_MUSIC_6_21,
             ClientType.IOS_MUSIC_7_04,
             ClientType.IOS_MUSIC_8_12,
-    };
+            ClientType.IOS_MUSIC_8_34
+    );
     private static final ClientType[] CLIENT_ORDER_TO_USE;
 
     static {
         ClientType preferredClient = Settings.SPOOF_VIDEO_STREAMS_DEFAULT_CLIENT.get();
 
-        CLIENT_ORDER_TO_USE = new ClientType[AVAILABLE_CLIENT_TYPES.length];
+        if (!AVAILABLE_CLIENT_TYPES.contains(preferredClient)) {
+            Settings.SPOOF_VIDEO_STREAMS_DEFAULT_CLIENT.resetToDefault();
+            preferredClient = Settings.SPOOF_VIDEO_STREAMS_DEFAULT_CLIENT.defaultValue;
+        }
+
+        CLIENT_ORDER_TO_USE = new ClientType[AVAILABLE_CLIENT_TYPES.size()];
         CLIENT_ORDER_TO_USE[0] = preferredClient;
 
         int i = 1;

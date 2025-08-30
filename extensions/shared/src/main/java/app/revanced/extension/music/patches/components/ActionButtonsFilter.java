@@ -60,6 +60,10 @@ public final class ActionButtonsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_ACTION_BUTTON_RADIO,
                         "yt_outline_youtube_mix"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_ACTION_BUTTON_DISABLED,
+                        "button_container_disabled"
                 )
         );
     }

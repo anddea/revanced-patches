@@ -2,6 +2,8 @@ package app.revanced.extension.music.patches.spoof;
 
 import android.net.Uri;
 
+import androidx.annotation.Nullable;
+
 import app.revanced.extension.music.patches.utils.PatchStatus;
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.shared.utils.Logger;
@@ -12,13 +14,15 @@ public class BlockRequestPatch {
             Settings.SPOOF_CLIENT.get() && PatchStatus.SpoofClient();
     public static final ClientType CLIENT_TYPE =
             Settings.SPOOF_CLIENT_TYPE.get();
-    public static final boolean SPOOF_CLIENT_BLOCK_REQUEST =
+    public static final boolean SPOOF_CLIENT_WITH_BLOCK_REQUEST =
             SPOOF_CLIENT && CLIENT_TYPE.blockRequest;
+    public static final boolean SPOOF_CLIENT_WITHOUT_BLOCK_REQUEST =
+            SPOOF_CLIENT && !CLIENT_TYPE.blockRequest;
     public static final boolean SPOOF_VIDEO_STREAMS =
             Settings.SPOOF_VIDEO_STREAMS.get() && PatchStatus.SpoofVideoStreams();
 
     private static final boolean BLOCK_REQUEST =
-            SPOOF_CLIENT_BLOCK_REQUEST || SPOOF_VIDEO_STREAMS;
+            SPOOF_CLIENT_WITH_BLOCK_REQUEST || SPOOF_VIDEO_STREAMS;
 
     /**
      * Any unreachable ip address.  Used to intentionally fail requests.
@@ -73,5 +77,27 @@ public class BlockRequestPatch {
         }
 
         return originalUrlString;
+    }
+
+    /**
+     * Injection point.
+     */
+    @Nullable
+    public static byte[] removeVideoPlaybackPostBody(Uri uri, int method, byte[] postData) {
+        if (BLOCK_REQUEST) {
+            try {
+                final int methodPost = 2;
+                if (method == methodPost) {
+                    String path = uri.getPath();
+                    if (path != null && path.contains("videoplayback")) {
+                        return null;
+                    }
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "removeVideoPlaybackPostBody failure", ex);
+            }
+        }
+
+        return postData;
     }
 }

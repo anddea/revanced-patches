@@ -223,7 +223,7 @@ Korlátozás: Előfordulhat, hogy az eszköztár Vissza gombja nem működik."</
     <string name="revanced_disable_ambient_mode_summary_off">A mozifilmes világítás engedélyezett.</string>
     <string name="revanced_disable_ambient_mode_summary_on">A mozifilmes világítás letiltva.</string>
     <string name="revanced_disable_ambient_mode_title">Mozifilmes világítás mód letiltása</string>
-    <string name="revanced_disable_auto_audio_tracks_not_available">A funkció használatához módosítsa az \"Alapértelmezett kliens (adatfolyam hamisításhoz)” beállítást iOS TV-re.</string>
+    <string name="revanced_disable_auto_audio_tracks_not_available">A funkció használatához módosítsa az \'Alapértelmezett kliens (adatfolyam hamisításhoz)\' beállítást TV-re, TV egyszerű-re vagy iOS TV-re.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">A kényszerített automatikus hangsávok engedélyezve vannak.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">A kényszerített automatikus hangsávok le vannak tiltva.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Kényszerített automatikus hangsávok letiltása</string>
@@ -705,9 +705,6 @@ Beállítások → Automatikus lejátszás / Lejátszás → Következő videó 
     <string name="revanced_hide_floating_microphone_summary_off">A lebegő mikrofon gomb látható.</string>
     <string name="revanced_hide_floating_microphone_summary_on">A lebegő mikrofon gomb el van rejtve.</string>
     <string name="revanced_hide_floating_microphone_title">Lebegő mikrofon gomb elrejtése</string>
-    <string name="revanced_hide_for_you_shelf_summary_off">A neked polc látható.</string>
-    <string name="revanced_hide_for_you_shelf_summary_on">A neked polc el van rejtve.</string>
-    <string name="revanced_hide_for_you_shelf_title">\"Neked\" polc elrejtése a csatorna oldalon</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">A teljes képernyős hirdetések láthatók.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">A teljes képernyős hirdetések rejtve vannak.</string>
     <string name="revanced_hide_fullscreen_ads_title">Teljes képernyős hirdetések elrejtése</string>
@@ -860,9 +857,9 @@ A középen nagybetűs szavakat a kis- és nagybetűkkel együtt kell megadni (p
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">A \'Mozifilmes világítás\' menü látható.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">A \'Mozifilmes világítás\' menü el van rejtve.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">\'Mozifilmes világítás\' menü elrejtése</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"A hangsáv menü el van rejtve.
+    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"A hangsáv menü rejtett.
 
-A hangsáv menü megjelenítéséhez módosítsa az \"Alapértelmezett kliens (adatfolyam hamisításhoz)” beállítást iOS TV-re."</string>
+A hangsáv menü megjelenítéséhez módosítsa az 'Alapértelmezett kliens (adatfolyam hamisításhoz)' beállítást TV-re, TV egyszerű-re vagy iOS TV-re."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">A hangsáv menü látható.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">A hangsáv menü el van rejtve.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Hangsáv menü elrejtése</string>
@@ -1599,7 +1596,7 @@ A natív lejátszási lista letöltése gomb megjelenítéséhez kapcsolja be a 
     <string name="revanced_preference_category_import_export_as_file">Import / Export fájlként</string>
     <string name="revanced_preference_category_import_export_as_text">Import / Export szövegként</string>
     <string name="revanced_preference_category_ios">iOS</string>
-    <string name="revanced_preference_category_js">JavaScript (fejlesztés alatt)</string>
+    <string name="revanced_preference_category_js">JavaScript</string>
     <string name="revanced_preference_category_keyword_filter">Kulcsszó szűrő</string>
     <string name="revanced_preference_category_others">Egyebek</string>
     <string name="revanced_preference_category_overlay_buttons">Felület gombok</string>
@@ -2223,7 +2220,7 @@ Ha ez a beállítás engedélyezve van, a szerver válaszából származó legma
 
 Az n-sig minta elég gyakran változik a YouTube szerverein, és a lejátszás sikertelen lehet, ha a reguláris kifejezés nem találja meg az n-sig mintát.
 
-Ez a funkció még fejlesztés alatt van, ezért kérjük, csak hibakeresési célokra használja."</string>
+A JavaScript kliensek közül az ajánlott a TV egyszerű."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"Az élesítéshez használt JavaScript nincs naprakészen tartva.
 
 • Az élesítésben sikeresen használható JavaScriptet használunk, de ez még mindig némileg szerverfüggő."</string>

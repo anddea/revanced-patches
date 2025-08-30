@@ -90,30 +90,12 @@ val flyoutMenuComponentsPatch = bytecodePatch(
     execute {
         var trimSilenceIncluded = false
 
-        // region patch for enable compact dialog
-
-        screenWidthFingerprint.matchOrThrow(screenWidthParentFingerprint).let {
-            it.method.apply {
-                val index = it.patternMatch!!.startIndex
-                val register = getInstruction<TwoRegisterInstruction>(index).registerA
-
-                addInstructions(
-                    index, """
-                        invoke-static {v$register}, $FLYOUT_CLASS_DESCRIPTOR->enableCompactDialog(I)I
-                        move-result v$register
-                        """
-                )
-            }
-        }
-
-        // endregion
-
-        // region patch for enable trim silence
+        // region patch for disable trim silence
 
         if (trimSilenceConfigFingerprint.resolvable()) {
             trimSilenceConfigFingerprint.injectLiteralInstructionBooleanCall(
-                45619123L,
-                "$FLYOUT_CLASS_DESCRIPTOR->enableTrimSilence(Z)Z"
+                TRIM_SILENCE_FEATURE_FLAG,
+                "$FLYOUT_CLASS_DESCRIPTOR->disableTrimSilence(Z)Z"
             )
 
             trimSilenceSwitchFingerprint.methodOrThrow().apply {
@@ -145,7 +127,7 @@ val flyoutMenuComponentsPatch = bytecodePatch(
 
                         addInstructions(
                             insertIndex + 1, """
-                                invoke-static {v$insertRegister}, $FLYOUT_CLASS_DESCRIPTOR->enableTrimSilenceSwitch(Z)Z
+                                invoke-static {v$insertRegister}, $FLYOUT_CLASS_DESCRIPTOR->disableTrimSilenceSwitch(Z)Z
                                 move-result v$insertRegister
                                 """
                         )
@@ -153,6 +135,24 @@ val flyoutMenuComponentsPatch = bytecodePatch(
                 }
             }
             trimSilenceIncluded = true
+        }
+
+        // endregion
+
+        // region patch for enable compact dialog
+
+        screenWidthFingerprint.matchOrThrow(screenWidthParentFingerprint).let {
+            it.method.apply {
+                val index = it.patternMatch!!.startIndex
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index, """
+                        invoke-static {v$register}, $FLYOUT_CLASS_DESCRIPTOR->enableCompactDialog(I)I
+                        move-result v$register
+                        """
+                )
+            }
         }
 
         // endregion
@@ -251,8 +251,8 @@ val flyoutMenuComponentsPatch = bytecodePatch(
         if (trimSilenceIncluded) {
             addSwitchPreference(
                 CategoryType.FLYOUT,
-                "revanced_enable_trim_silence",
-                "false"
+                "revanced_disable_trim_silence",
+                "true"
             )
         }
         if (is_6_36_or_greater) {

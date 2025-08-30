@@ -12,6 +12,7 @@ internal enum class PostDataType { Base, Browse }
 // Use protobuf to bypass geo blocking
 private const val GEO_PARAMS: String = "CgIQBg%3D%3D"
 
+@Suppress("DEPRECATION", "unused")
 internal class QueryBuilder(private val client: AppClient) {
     private var type: PostDataType = PostDataType.Base
     private var acceptLanguage: String? = null

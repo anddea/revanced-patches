@@ -63,10 +63,12 @@ internal val touchOutsideFingerprint = legacyFingerprint(
     literals = listOf(touchOutside)
 )
 
+internal const val TRIM_SILENCE_FEATURE_FLAG = 45619123L
+
 internal val trimSilenceConfigFingerprint = legacyFingerprint(
     name = "trimSilenceConfigFingerprint",
     returnType = "Z",
-    literals = listOf(45619123L)
+    literals = listOf(TRIM_SILENCE_FEATURE_FLAG)
 )
 
 internal val trimSilenceSwitchFingerprint = legacyFingerprint(

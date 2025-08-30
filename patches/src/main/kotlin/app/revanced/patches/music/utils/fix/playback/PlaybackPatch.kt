@@ -10,11 +10,13 @@ import app.revanced.patches.music.utils.extension.Constants.VIDEO_PATH
 import app.revanced.patches.music.utils.fix.client.patchSpoofClient
 import app.revanced.patches.music.utils.fix.streamingdata.patchSpoofVideoStreams
 import app.revanced.patches.music.utils.patch.PatchList.FIX_PLAYBACK
+import app.revanced.patches.music.utils.patch.PatchList.GMSCORE_SUPPORT
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
+import app.revanced.patches.music.utils.settings.replaceSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.shared.customspeed.customPlaybackSpeedPatch
 import app.revanced.patches.shared.spoof.blockrequest.baseBlockRequestPatch
@@ -25,6 +27,8 @@ import app.revanced.util.returnEarly
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$SPOOF_PATH/BlockRequestPatch;"
+
+private var spoofClientEnabled = false
 
 @Suppress("unused")
 val playbackPatch = bytecodePatch(
@@ -77,7 +81,7 @@ val playbackPatch = bytecodePatch(
     )
 
     execute {
-        var spoofClientEnabled = spoofClient.value == true
+        spoofClientEnabled = spoofClient.value == true
         val spoofVideoStreamsEnabled = spoofVideoStreams.value == true
 
         if (!spoofClientEnabled && !spoofVideoStreamsEnabled) {
@@ -124,5 +128,15 @@ val playbackPatch = bytecodePatch(
         }
 
         updatePatchStatus(FIX_PLAYBACK)
+    }
+
+    finalize {
+        if (spoofClientEnabled && GMSCORE_SUPPORT.included == false) {
+            replaceSwitchPreference(
+                CategoryType.MISC,
+                "revanced_spoof_client",
+                "false"
+            )
+        }
     }
 }

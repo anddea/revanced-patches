@@ -233,7 +233,13 @@ val actionBarComponentsPatch = bytecodePatch(
                 "false"
             )
         }
-        if (!is_7_25_or_greater) {
+        if (is_7_25_or_greater) {
+            addSwitchPreference(
+                CategoryType.ACTION_BAR,
+                "revanced_hide_action_button_disabled",
+                "false"
+            )
+        } else {
             addSwitchPreference(
                 CategoryType.ACTION_BAR,
                 "revanced_hide_action_button_label",

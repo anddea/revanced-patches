@@ -2,6 +2,7 @@ package com.liskovsoft.googlecommon.common.helpers
 
 import android.os.Build
 
+@Suppress("DEPRECATION", "unused")
 object DefaultHeaders {
     private const val COBALT_VER = "23.lts.2.309559-gold"
     private const val V8_VER = "8.8.278.8-jit"

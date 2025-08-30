@@ -5,6 +5,11 @@ import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
 import java.util.regex.Pattern
 
+@Suppress("SENSELESS_COMPARISON",
+    "RegExpUnnecessaryNonCapturingGroup",
+    "unused",
+    "SameParameterValue"
+)
 internal object JSInterpret {
     private val MATCHING_PARENS = mapOf('(' to ')', '{' to '}', '[' to ']')
     private val QUOTES = setOf('\'', '"', '/')

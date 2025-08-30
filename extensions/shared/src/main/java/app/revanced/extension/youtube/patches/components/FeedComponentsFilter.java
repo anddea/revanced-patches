@@ -198,8 +198,10 @@ public final class FeedComponentsFilter extends Filter {
                 "_survey"
         );
 
+        // It appears YouTube no longer uses this keyword.
+        // Just in case, I won't remove this filter until 2025.
         final StringFilterGroup forYouShelf = new StringFilterGroup(
-                Settings.HIDE_FOR_YOU_SHELF,
+                Settings.HIDE_CAROUSEL_SHELF_HOME,
                 "mixed_content_shelf"
         );
 

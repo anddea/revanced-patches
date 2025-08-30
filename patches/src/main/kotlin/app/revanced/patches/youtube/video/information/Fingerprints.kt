@@ -227,6 +227,28 @@ internal val formatStreamingModelQualityLabelBuilderFingerprint = legacyFingerpr
     strings = listOf("60")
 )
 
+internal val initFormatStreamParentFingerprint = legacyFingerprint(
+    name = "initFormatStreamParentFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    returnType = "V",
+    strings = listOf("noopytm")
+)
+
+internal val initFormatStreamFingerprint = legacyFingerprint(
+    name = "initFormatStreamFingerprint",
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    returnType = "V",
+    customFingerprint = { method, _ ->
+        indexOfPreferredFormatStreamInstruction(method) >= 0
+    }
+)
+
+internal fun indexOfPreferredFormatStreamInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.IGET_OBJECT &&
+                getReference<FieldReference>()?.type == YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
+    }
+
 internal val videoQualityArrayFingerprint = legacyFingerprint(
     name = "videoQualityArrayFingerprint",
     returnType = "Ljava/util/List;",
@@ -234,29 +256,3 @@ internal val videoQualityArrayFingerprint = legacyFingerprint(
     parameters = listOf("Ljava/util/List;", "L"),
     opcodes = listOf(Opcode.RETURN_OBJECT)
 )
-
-internal val videoQualityIteratorPrimaryFingerprint = legacyFingerprint(
-    name = "videoQualityIteratorPrimaryFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
-    parameters = listOf("Ljava/util/List;"),
-    customFingerprint = { method, _ ->
-        indexOfFormatStreamModelCastInstruction(method) >= 0
-    }
-)
-
-internal val videoQualityIteratorSecondaryFingerprint = legacyFingerprint(
-    name = "videoQualityIteratorSecondaryFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
-    parameters = listOf("Ljava/util/List;", "I"),
-    customFingerprint = { method, _ ->
-        indexOfFormatStreamModelCastInstruction(method) >= 0
-    }
-)
-
-fun indexOfFormatStreamModelCastInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.CHECK_CAST &&
-                getReference<TypeReference>()?.type == YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
-    }

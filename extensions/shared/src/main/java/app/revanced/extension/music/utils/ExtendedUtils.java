@@ -17,6 +17,7 @@ public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_6_27_OR_GREATER = isVersionOrGreater("6.27.00");
     public static final boolean IS_6_36_OR_GREATER = isVersionOrGreater("6.36.00");
     public static final boolean IS_7_17_OR_GREATER = isVersionOrGreater("7.17.00");
+    public static final boolean IS_8_28_OR_GREATER = isVersionOrGreater("8.28.00");
     public static final boolean IS_8_29_OR_GREATER = isVersionOrGreater("8.29.00");
 
     private static final String SETTINGS_CLASS_DESCRIPTOR = "com.google.android.apps.youtube.music.settings.SettingsCompatActivity";

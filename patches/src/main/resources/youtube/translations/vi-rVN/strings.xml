@@ -37,7 +37,7 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow."</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">Điểm cuối API DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Không hiện thông báo ngắn nếu API DeArrow không khả dụng.</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Hiển thị thông báo ngắn nếu API DeArrow không khả dụng.</string>
-    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Thông báo ngắn nếu API không khả dụng</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Hiện thông báo ngắn nếu API không khả dụng</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow tạm thời không khả dụng. (mã trạng thái: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow tạm thời không khả dụng.</string>
     <string name="revanced_alt_thumbnail_home_title">Thẻ Trang chủ</string>
@@ -85,6 +85,7 @@ Nhấn và giữ để chuyển loại thông tin cần thêm vào."</string>
     <string name="revanced_bypass_url_redirects_summary_off">Đang chuyển hướng URL khi mở các liên kết xuất hiện trên YouTube.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Đang bỏ qua chuyển hướng URL khi mở các liên kết xuất hiện trên YouTube.</string>
     <string name="revanced_bypass_url_redirects_title">Mở liên kết trực tiếp</string>
+    <string name="revanced_cancel">Huỷ</string>
     <string name="revanced_change_form_factor_entry_1">Mặc định</string>
     <string name="revanced_change_form_factor_entry_2">Điện thoại</string>
     <string name="revanced_change_form_factor_entry_3">Điện thoại (Tối đa 480 dp)</string>
@@ -160,6 +161,9 @@ Hạn chế: Nút Quay lại trên thanh công cụ có thể không hoạt đ�
     <string name="revanced_change_youtube_header_summary_off">Tiêu đề Youtube mặc định được áp dụng.</string>
     <string name="revanced_change_youtube_header_summary_on">Tiêu đề Premium được áp dụng.</string>
     <string name="revanced_change_youtube_header_title">Thay đổi tiêu đề YouTube</string>
+    <string name="revanced_color_invalid_toast">Màu không hợp lệ</string>
+    <string name="revanced_copy">Sao chép</string>
+    <string name="revanced_copy_error">Không thể sao chép văn bản</string>
     <string name="revanced_custom_filter_strings_summary">Nhập tên các mục mà bạn muốn lọc được phân cách bằng dòng.</string>
     <string name="revanced_custom_filter_strings_title">Cài đặt bộ lọc</string>
     <string name="revanced_custom_filter_summary_off">Bộ lọc tuỳ chỉnh đã tắt.</string>
@@ -205,7 +209,7 @@ Hạn chế: Nút Quay lại trên thanh công cụ có thể không hoạt đ�
     <string name="revanced_debug_summary_off">Nhật ký gỡ lỗi đã tắt.</string>
     <string name="revanced_debug_summary_on">Nhật ký gỡ lỗi đã bật.</string>
     <string name="revanced_debug_title">Nhật ký gỡ lỗi</string>
-    <string name="revanced_debug_toast_on_error_summary_off">Không hiển thị thông báo ngắn nếu xảy ra lỗi.</string>
+    <string name="revanced_debug_toast_on_error_summary_off">Không hiện thông báo ngắn nếu xảy ra lỗi.</string>
     <string name="revanced_debug_toast_on_error_summary_on">Hiển thị thông báo ngắn nếu xảy ra lỗi.</string>
     <string name="revanced_debug_toast_on_error_title">Thông báo ngắn khi RVX lỗi</string>
     <string name="revanced_default_app_settings_summary">Để mở liên kết YouTube trong RVX, hãy bật \"Mở các đường liên kết được hỗ trợ\" và thêm các đường liên kết được hỗ trợ.</string>
@@ -459,7 +463,7 @@ Hạn chế: Không hoạt động nếu trình phát đang thu nhỏ, trong ch�
     <string name="revanced_extended_restart_dialog_message">Khởi động lại ứng dụng để thay đổi này có hiệu lực.</string>
     <string name="revanced_extended_restart_first_run">Vui lòng khởi động lại ứng dụng trong lần đầu khởi chạy để hiển thị đúng giao diện</string>
     <string name="revanced_extended_restart_message">Làm mới và khởi động lại</string>
-    <string name="revanced_extended_restart_title">Cần khởi động lại</string>
+    <string name="revanced_extended_restart_title">Yêu cầu khởi động lại</string>
     <string name="revanced_extended_settings_color_invalid">Màu không hợp lệ.</string>
     <string name="revanced_extended_settings_color_picker">Bộ chọn màu</string>
     <string name="revanced_extended_settings_export_failed">Xuất cài đặt thất bại.</string>
@@ -508,6 +512,34 @@ Nếu tắt cài đặt này, biểu tượng Khuấy động có thể không h
 
 Nếu lỗi vẫn còn ngay cả khi bạn thử bật tắt cài đặt này nhiều lần, hãy xoá dữ liệu ứng dụng và thử lại."</string>
     <string name="revanced_fullscreen_ads_closed_toast">Quảng cáo toàn màn hình đã đóng.</string>
+    <string name="revanced_gemini_cancelled">Đã huỷ</string>
+    <string name="revanced_gemini_copy_success">Tổng quan đã được sao chép tới bảng tạm.</string>
+    <string name="revanced_gemini_error_already_running_summarize">Đang tóm tắt, vui lòng chờ…</string>
+    <string name="revanced_gemini_error_already_running_transcribe">Đang chép lời, vui lòng chờ…</string>
+    <string name="revanced_gemini_error_already_running_yandex_transcribe">Đang chạy chép lời bằng Yandex…</string>
+    <string name="revanced_gemini_error_api_failed">Không thể gửi yêu cầu tới API Gemini: %s</string>
+    <string name="revanced_gemini_error_dialog_show">Lỗi hiển thị hộp thoại</string>
+    <string name="revanced_gemini_error_no_api_key">Chưa thiết lập khoá API Gemini.</string>
+    <string name="revanced_gemini_error_no_video">Không lấy được liên kết video.</string>
+    <string name="revanced_gemini_error_overlay_display">Không thể hiển thị lớp phủ phụ đề</string>
+    <string name="revanced_gemini_error_transcription_no_raw_data">Không có dữ liệu chép lời gốc để xử lý</string>
+    <string name="revanced_gemini_error_transcription_parse">Không thể xử lý dữ liệu chép lời.</string>
+    <string name="revanced_gemini_error_translation_failed">Không thể dịch bằng Gemini</string>
+    <string name="revanced_gemini_error_translation_parse_failed">Không thể xử lý kết quả dịch từ Gemini</string>
+    <string name="revanced_gemini_error_unknown">Đã xảy ra lỗi không xác định.</string>
+    <string name="revanced_gemini_loading_default">Đang tải...</string>
+    <string name="revanced_gemini_loading_summarize">Đang tạo bản tóm tắt video...</string>
+    <string name="revanced_gemini_loading_transcribe">Đang tạo bản chép lời video...</string>
+    <string name="revanced_gemini_loading_yandex_transcribe">Yandex: Đang tải phụ đề...</string>
+    <string name="revanced_gemini_status_translating">Đang dịch với Gemini...\n\n⚠️ Có thể gặp lỗi nếu Gemini không làm đúng theo yêu cầu hoặc đã vượt quá giới hạn.</string>
+    <string name="revanced_gemini_summary_title">Tóm tắt video bằng Gemini</string>
+    <string name="revanced_gemini_time_taken">(mất %d giây)</string>
+    <string name="revanced_gemini_transcribe_bad_token_exception">Để hiển thị phụ đề, hãy bật quyền \"Hiện trên các ứng dụng khác\".</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Cỡ chữ của phụ đề sau khi chép lại từ video. Nhấn vào hộp phụ đề để ẩn, hoặc nhấn giữ để kéo đến vị trí mong muốn.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_title">Cỡ chữ phụ đề</string>
+    <string name="revanced_gemini_transcription_parse_button">Phụ đề</string>
+    <string name="revanced_gemini_transcription_parse_success">Đã xử lý phụ đề thành công</string>
+    <string name="revanced_gemini_transcription_result_title">Chép lời video bằng Gemini</string>
     <string name="revanced_gms_show_dialog_summary">Hiển thị hộp thoại tối ưu hóa cho GMSCore mỗi khi ứng dụng khởi động.</string>
     <string name="revanced_gms_show_dialog_title">Hộp thoại tối ưu hoá cho GMSCore</string>
     <string name="revanced_gradient_seekbar_positions_reset">Vị trí màu nhấn đã được đặt lại về mặc định.</string>
@@ -714,9 +746,6 @@ Cài đặt → Tự động phát/Phát → Tự động phát video tiếp the
     <string name="revanced_hide_floating_microphone_summary_off">Nút Tìm kiếm bằng giọng nói được hiển thị khi tìm kiếm.</string>
     <string name="revanced_hide_floating_microphone_summary_on">Nút Tìm kiếm bằng giọng nói đã ẩn khi tìm kiếm.</string>
     <string name="revanced_hide_floating_microphone_title">Ẩn nút Tìm kiếm bằng giọng nói</string>
-    <string name="revanced_hide_for_you_shelf_summary_off">Kệ \"Dành cho bạn\" được hiển thị.</string>
-    <string name="revanced_hide_for_you_shelf_summary_on">Kệ \"Dành cho bạn\" đã ẩn.</string>
-    <string name="revanced_hide_for_you_shelf_title">Ẩn kệ Dành cho bạn</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Quảng cáo toàn màn hình được hiển thị.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Quảng cáo toàn màn hình đã ẩn.</string>
     <string name="revanced_hide_fullscreen_ads_title">Ẩn quảng cáo toàn màn hình</string>
@@ -1115,6 +1144,9 @@ Nếu bố cục màn hình trình phát thay đổi từ phía máy chủ, cũn
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Nút bình luận bị mờ hoặc có nhãn \"0\" được hiển thị.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Nút bình luận bị mờ hoặc có nhãn \"0\" đã ẩn.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Ẩn nút Bình luận bị làm mờ</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_off">Bảng bình luận được hiển thị.</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_on">Bảng bình luận đã ẩn.</string>
+    <string name="revanced_hide_shorts_comments_panel_title">Ẩn bảng bình luận</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">Nút không thích được hiển thị.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Nút không thích đã ẩn.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Ẩn nút Không thích</string>
@@ -1487,6 +1519,7 @@ Nếu YouTube Doodles đang hiển thị đồng thời tuỳ chọn ẩn này c
     <string name="revanced_language_ZH">"Chinese
 <small>中文</small>"</string>
     <string name="revanced_language_title">Ngôn ngữ trong cài đặt RVX</string>
+    <string name="revanced_minimize">Thu gọn</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Thao tác nhấn đúp và chụm để thay đổi kích thước đã tắt.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Thao tác nhấn đúp và chụm để thay đổi kích thước được bật.
 
@@ -1555,6 +1588,20 @@ Nhấn và giữ để sao chép dấu thời gian."</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">Quản lý hàng chờ</string>
     <string name="revanced_overlay_button_external_downloader_summary">Nhấn để khởi chạy trình tải xuống bên ngoài.</string>
     <string name="revanced_overlay_button_external_downloader_title">Nút Trình tải xuống bên ngoài</string>
+    <string name="revanced_overlay_button_gemini_about_summary">"Thời gian xử lý phụ thuộc vào thời lượng của video. Với các video quá dài, quá trình chép lời có thể vượt quá giới hạn của Gemini.
+
+Lưu ý: Nội dung do AI tạo ra có thể chưa hoàn toàn chính xác.
+
+Nhấn vào đây để tạo khoá API."</string>
+    <string name="revanced_overlay_button_gemini_about_title">Giới thiệu về Gemini</string>
+    <string name="revanced_overlay_button_gemini_summarize">Tóm tắt</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Tạo khoá API tại https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Khoá API Gemini</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Nhấn để tóm tắt video.
+Nhấn và giữ để chép lời.
+
+Kết quả tóm tắt và bản chép lời sẽ được lưu trừ phi bạn đóng ứng dụng hoặc dùng Gemini trên video khác. Nhấn lần nữa để xem kết quả."</string>
+    <string name="revanced_overlay_button_gemini_summarize_title">Nút Gemini</string>
     <string name="revanced_overlay_button_mute_volume_summary">Nhấn để tắt tiếng của video hiện tại.
 Nhấn lần nữa để bật trở lại.</string>
     <string name="revanced_overlay_button_mute_volume_title">Nút Tắt tiếng</string>
@@ -1625,7 +1672,7 @@ Nhấn và giữ để mở hộp thoại cài đặt Danh sách trắng.</strin
     <string name="revanced_preference_category_import_export_as_file">Nhập/Xuất dưới dạng tập tin</string>
     <string name="revanced_preference_category_import_export_as_text">Nhập/Xuất dưới dạng văn bản</string>
     <string name="revanced_preference_category_ios">iOS</string>
-    <string name="revanced_preference_category_js">JavaScript (Thử nghiệm)</string>
+    <string name="revanced_preference_category_js">JavaScript</string>
     <string name="revanced_preference_category_keyword_filter">Bộ lọc từ khoá</string>
     <string name="revanced_preference_category_others">Khác</string>
     <string name="revanced_preference_category_overlay_buttons">Nút trên lớp phủ trình phát</string>
@@ -1713,7 +1760,7 @@ Nhấn và giữ để mở hộp thoại cài đặt Danh sách trắng.</strin
     <string name="revanced_queue_manager_add_to_queue_and_open_queue">Thêm vào hàng chờ và xem hàng chờ</string>
     <string name="revanced_queue_manager_add_to_queue_and_play_video">Thêm vào hàng chờ và phát video</string>
     <string name="revanced_queue_manager_add_to_queue_and_reload_video">Thêm vào hàng chờ và tải lại video</string>
-    <string name="revanced_queue_manager_check_failed_auth">Cần đăng nhập</string>
+    <string name="revanced_queue_manager_check_failed_auth">Yêu cầu đăng nhập</string>
     <string name="revanced_queue_manager_check_failed_generic">Quản lý hàng chờ không khả dụng (%s).</string>
     <string name="revanced_queue_manager_check_failed_playlist_id">Không xác định được danh sách phát</string>
     <string name="revanced_queue_manager_check_failed_queue">Hàng chờ trống</string>
@@ -2058,6 +2105,24 @@ Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_sb_vote_no_segments">Không có phân đoạn nào để bình chọn.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s đến %2$s</string>
     <string name="revanced_sb_vote_upvote">Tán thành</string>
+    <string name="revanced_search_clear_confirm_message">Bạn có chắc chắn muốn xóa toàn bộ lịch sử tìm kiếm không?</string>
+    <string name="revanced_search_clear_confirm_title">Xoá lịch sử tìm kiếm</string>
+    <string name="revanced_search_clear_history_title">Xoá lịch sử tìm kiếm</string>
+    <string name="revanced_search_delete_confirm_message">Bạn có chắc chắn muốn xóa \"%1$s\" khỏi lịch sử tìm kiếm của mình không?</string>
+    <string name="revanced_search_delete_confirm_title">Xoá từ khoá tìm kiếm</string>
+    <string name="revanced_search_delete_entry">Xoá từ khoá tìm kiếm</string>
+    <string name="revanced_search_history_title">Tìm kiếm gần đây</string>
+    <string name="revanced_search_no_history_summary">Lịch sử tìm kiếm của bạn sẽ hiển thị ở đây. Để lưu một từ khoá vào lịch sử tìm kiếm, bạn cần nhấn nút Enter/Return.</string>
+    <string name="revanced_search_no_history_title">Không có tìm kiếm nào gần đây</string>
+    <string name="revanced_search_settings_category_title">Cài đặt tìm kiếm</string>
+    <string name="revanced_search_settings_no_results_summary">Hãy thử một từ khoá khác.</string>
+    <string name="revanced_search_settings_no_results_title">Không tìm thấy kết quả nào cho \"%1$s\"</string>
+    <string name="revanced_search_title">Tìm kiếm</string>
+    <string name="revanced_settings_search_highlight_color_summary">Chọn màu để đánh dấu cho từ khoá khớp trong kết quả tìm kiếm.</string>
+    <string name="revanced_settings_search_highlight_color_title">Màu đánh dấu</string>
+    <string name="revanced_settings_search_highlight_summary">Đánh dấu những từ khoá khớp trong kết quả tìm kiếm với màu bạn đã chọn.</string>
+    <string name="revanced_settings_search_highlight_title">Đánh dấu từ khoá</string>
+    <string name="revanced_settings_search_history_summary">Lưu các từ khóa tìm kiếm gần đây để hiển thị khi thanh tìm kiếm trống.</string>
     <string name="revanced_settings_search_history_title">Hiện lịch sử tìm kiếm cài đặt</string>
     <string name="revanced_share_copy_settings_success">Đã sao chép cài đặt sang bảng nhớ tạm.</string>
     <string name="revanced_share_copy_timestamp_success">Đã sao chép dấu thời gian vào bảng nhớ tạm. (%s)</string>
@@ -2082,6 +2147,10 @@ Hầu hết các lỗi không thể sửa được do hạn chế tới từ ph�
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">Mục trình tải xuống bên ngoài đã ẩn.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">Mục trình tải xuống bên ngoài được hiển thị.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Mục trình tải xuống bên ngoài</string>
+    <string name="revanced_shorts_custom_actions_gemini_label">Tóm tắt Gemini</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">Mục tóm tắt Gemini đã ẩn.</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">Mục tóm tắt Gemini đã được hiển thị.</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Mục tóm tắt Gemini</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Mở video</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">Mục mở video đã ẩn.</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">Mục mở video được hiển thị.</string>
@@ -2097,8 +2166,8 @@ Hầu hết các lỗi không thể sửa được do hạn chế tới từ ph�
     <string name="revanced_shorts_custom_actions_speed_dialog_type_title">Kiểu hộp thoại tốc độ phát</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message">Hộp thoại tốc độ phát hiện đại có thể không hoạt động trên phiên bản 19.01-19.34.</string>
     <string name="revanced_shorts_custom_actions_speed_label">Tốc độ phát</string>
-    <string name="revanced_shorts_custom_actions_speed_summary_off">Mục tốc độ phát đã ẩn.\n\nCụ thể:\n• Tốc độ phát mặc định của video ngắn nên được bật.\n• Tốc độ phát mà bạn đã chọn sẽ được áp dụng cho video tiếp theo.</string>
-    <string name="revanced_shorts_custom_actions_speed_summary_on">Mục tốc độ phát được hiển thị.\n\nCụ thể:\n• Tốc độ phát mặc định của video ngắn nên được bật.\n• Tốc độ phát mà bạn đã chọn sẽ được áp dụng cho video tiếp theo.</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_off">Mục tốc độ phát đã ẩn.\n\nChi tiết:\n• Tốc độ phát mặc định của video ngắn nên được bật.\n• Tốc độ phát mà bạn đã chọn sẽ được áp dụng cho video tiếp theo.</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_on">Mục tốc độ phát được hiển thị.\n\nChi tiết:\n• Tốc độ phát mặc định của video ngắn nên được bật.\n• Tốc độ phát mà bạn đã chọn sẽ được áp dụng cho video tiếp theo.</string>
     <string name="revanced_shorts_custom_actions_speed_title">Mục tốc độ phát</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Thao tác tuỳ chỉnh</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Gốc</string>
@@ -2182,6 +2251,7 @@ Hạn chế:
 • AVC có độ phân giải tối đa là 1080p.
 • Codec âm thanh OPUS không khả dụng.
 • Dùng nhiều dữ liệu di động hơn với VP9 hoặc AV1."</string>
+    <string name="revanced_spoof_streaming_data_message">Nếu bạn gặp phải bất kỳ lỗi nào khi phát video, hãy bật \"Giả mạo dữ liệu phát video\" trong &lt;i&gt;&lt;u&gt;Cài đặt &gt; %s &gt; Khác &gt; Giả mạo dữ liệu phát video&lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Codec video được ưu tiên.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Chất lượng video được ưu tiên.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Ưu tiên chất lượng video</string>
@@ -2269,7 +2339,7 @@ Hạn chế: JavaScript vẫn không thể phát một số video."</string>
 
 Chuỗi n-sig trên máy chủ YouTube thay đổi khá thường xuyên, nên nếu biểu thức chính quy không tìm được chuỗi phù hợp, video có thể không phát được.
 
-Tính năng này vẫn đang trong quá trình phát triển, vui lòng chỉ dùng cho mục đích gỡ lỗi."</string>
+Trong số client dùng JavaScript, client được khuyến nghị là TV Simply."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"JavaScript dùng để giải mã không luôn được cập nhật thường xuyên.
 
 Chi tiết:
@@ -2397,4 +2467,31 @@ Nếu cài đặt này không có hiệu lực, hãy thử chuyển sang chế �
     <string name="revanced_whitelist_settings_summary">Kiểm tra hoặc xóa các kênh đã thêm vào Danh sách trắng.</string>
     <string name="revanced_whitelist_settings_title">Danh sách trắng</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_yandex_error_download_subs_failed">Không thể tải tệp phụ đề (Mã: %1$d)</string>
+    <string name="revanced_yandex_error_internal_no_chosen_url">Lỗi hệ thống: Không tìm thấy đường dẫn của bản nhạc đã chọn.</string>
+    <string name="revanced_yandex_error_internal_null_subs_response">Lỗi hệ thống: Không thể tải phụ đề hoàn chỉnh.</string>
+    <string name="revanced_yandex_error_network_generic">Lỗi kết nối mạng</string>
+    <string name="revanced_yandex_error_network_subs_fetch">Lỗi mạng khi tải tệp phụ đề</string>
+    <string name="revanced_yandex_error_no_language_selected">Chưa chọn ngôn ngữ</string>
+    <string name="revanced_yandex_error_no_subs_for_language">Không có phụ đề %s</string>
+    <string name="revanced_yandex_error_no_subs_returned">Không tìm thấy phụ đề</string>
+    <string name="revanced_yandex_error_server_try_again">Đã xảy ra lỗi trong quá trình chép lời, vui lòng thử lại sau.</string>
+    <string name="revanced_yandex_error_subs_parsing_failed">Không thể xử lý nội dung phụ đề dạng JSON</string>
+    <string name="revanced_yandex_error_subs_processing_failed">Lỗi xử lý nội dung phụ đề</string>
+    <string name="revanced_yandex_error_subs_stuck_processing">Lỗi hệ thống: Không xử lý được phụ đề</string>
+    <string name="revanced_yandex_error_translation_failed">Không thể dịch</string>
+    <string name="revanced_yandex_error_unknown">Lỗi không xác định</string>
+    <string name="revanced_yandex_status_processing_hour">Còn hơn 1 giờ...</string>
+    <string name="revanced_yandex_status_processing_minute">Còn khoảng 1 phút...</string>
+    <string name="revanced_yandex_status_processing_minutes_plural">Còn %d phút...</string>
+    <string name="revanced_yandex_status_processing_short">Đang xử lý...</string>
+    <string name="revanced_yandex_status_requesting_translation">Đang dịch</string>
+    <string name="revanced_yandex_status_session_ok">Phiên hoạt động ổn định</string>
+    <string name="revanced_yandex_status_subs_found">Đã tìm thấy phụ đề, đang tải...</string>
+    <string name="revanced_yandex_status_transcription_delayed">Quá trình chép lời bị chậm</string>
+    <string name="revanced_yandex_status_youtube_specific">Đang xử lý yêu cầu âm thanh từ YouTube...</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Yandex có thể chép lời video ở mọi ngôn ngữ, nhưng chỉ xuất ra bằng tiếng Anh (en), tiếng Nga (ru) và tiếng Kazakh (kk). Nếu nhập mã ngôn ngữ khác hoặc dùng 'app' (ngôn ngữ mặc định của ứng dụng), Gemini sẽ được dùng để dịch (yêu cầu khoá API)."</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_title">Ngôn ngữ Yandex</string>
+    <string name="revanced_yandex_transcribe_subtitles_summary">Dùng Yandex để chép lời thay cho Gemini, Yandex có tốc độ nhanh, độ ổn định cao, và đặc biệt không yêu cầu khoá API.</string>
+    <string name="revanced_yandex_transcribe_subtitles_title">Bản chép lời Yandex</string>
 </resources>

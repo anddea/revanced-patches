@@ -1,3 +1,5 @@
+@file:Suppress("CONTEXT_RECEIVERS_DEPRECATED")
+
 package app.revanced.patches.music.utils.fix.streamingdata
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -180,34 +182,10 @@ internal fun patchSpoofVideoStreams() {
 
     // endregion
 
-    // region Remove /videoplayback request body to fix playback.
-
-    buildMediaDataSourceFingerprint.methodOrThrow().apply {
-        val targetIndex = instructions.lastIndex
-
-        addInstructions(
-            targetIndex,
-            """
-                # Field a: Stream uri.
-                # Field c: Http method.
-                # Field d: Post data.
-                move-object/from16 v0, p0
-                iget-object v1, v0, $definingClass->a:Landroid/net/Uri;
-                iget v2, v0, $definingClass->c:I
-                iget-object v3, v0, $definingClass->d:[B
-                invoke-static { v1, v2, v3 }, $EXTENSION_CLASS_DESCRIPTOR->removeVideoPlaybackPostBody(Landroid/net/Uri;I[B)[B
-                move-result-object v1
-                iput-object v1, v0, $definingClass->d:[B
-                """,
-        )
-    }
-
     hlsCurrentTimeFingerprint.injectLiteralInstructionBooleanCall(
         HLS_CURRENT_TIME_FEATURE_FLAG,
         "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
     )
-
-    // endregion
 
     // region Skip response encryption in OnesiePlayerRequest
 

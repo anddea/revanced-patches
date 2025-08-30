@@ -398,15 +398,19 @@ internal fun addSwitchPreference(
 
 internal fun addPreferenceWithIntent(
     category: CategoryType,
-    key: String
-) = addPreferenceWithIntent(category, key, "")
-
-internal fun addPreferenceWithIntent(
-    category: CategoryType,
     key: String,
-    dependencyKey: String
+    dependencyKey: String = ""
 ) {
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)
     ResourceUtils.addPreferenceWithIntent(categoryValue, key, dependencyKey)
+}
+
+internal fun replaceSwitchPreference(
+    category: CategoryType,
+    key: String,
+    defaultValue: String
+) {
+    val categoryValue = category.value
+    ResourceUtils.replaceSwitchPreference(categoryValue, key, defaultValue)
 }

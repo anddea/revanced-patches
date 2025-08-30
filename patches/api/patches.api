@@ -496,6 +496,7 @@ public final class app/revanced/patches/shared/FingerprintsKt {
 	public static final fun indexOfManufacturerInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfModelInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfReleaseInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun indexOfSdkInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfSpannableStringInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 }
 
@@ -1396,7 +1397,6 @@ public final class app/revanced/patches/youtube/utils/toolbar/ToolBarHookPatchKt
 }
 
 public final class app/revanced/patches/youtube/video/information/FingerprintsKt {
-	public static final fun indexOfFormatStreamModelCastInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfPlayerResponseModelInterfaceInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfVideoQualityNameFieldInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfVideoQualityResolutionFieldInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I

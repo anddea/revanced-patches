@@ -122,27 +122,38 @@ public class StreamingDataOuterClassUtils {
             int maxAVCHeight = -1;
             int maxVP9Height = -1;
             for (Object adaptiveFormat : adaptiveFormats) {
-                String mimeType = getMimeType(adaptiveFormat);
-                if (StringUtils.startsWith(mimeType, "video")) {
-                    int height = getHeight(adaptiveFormat);
-                    if (mimeType.contains("avc")) {
-                        maxAVCHeight = Math.max(maxAVCHeight, height);
-                    } else {
-                        maxVP9Height = Math.max(maxVP9Height, height);
-                    }
-                    if (maxAVCHeight != -1 && maxVP9Height != -1) {
-                        break;
+                if (adaptiveFormat instanceof MessageLite messageLite) {
+                    var parsedAdaptiveFormat = PlayerResponseOuterClass.Format.parseFrom(messageLite.toByteArray());
+                    if (parsedAdaptiveFormat != null) {
+                        String mimeType = parsedAdaptiveFormat.getMimeType();
+                        if (StringUtils.startsWith(mimeType, "video")) {
+                            int height = parsedAdaptiveFormat.getHeight();
+                            if (mimeType.contains("avc")) {
+                                maxAVCHeight = Math.max(maxAVCHeight, height);
+                            } else {
+                                maxVP9Height = Math.max(maxVP9Height, height);
+                            }
+                            if (maxAVCHeight != -1 && maxVP9Height != -1) {
+                                break;
+                            }
+                        }
                     }
                 }
             }
             if (maxAVCHeight > maxVP9Height) {
                 ArrayList<Object> arrayList = new ArrayList<>(adaptiveFormats.size());
-                for (Object adaptiveFormat : adaptiveFormats) {
-                    String mimeType = getMimeType(adaptiveFormat);
-                    boolean isVideoType = StringUtils.startsWith(mimeType, "video");
 
-                    if (!isVideoType || mimeType.contains("avc")) {
-                        arrayList.add(adaptiveFormat);
+                for (Object adaptiveFormat : adaptiveFormats) {
+                    if (adaptiveFormat instanceof MessageLite messageLite) {
+                        var parsedAdaptiveFormat = PlayerResponseOuterClass.Format.parseFrom(messageLite.toByteArray());
+                        if (parsedAdaptiveFormat != null) {
+                            String mimeType = parsedAdaptiveFormat.getMimeType();
+                            boolean isVideoType = StringUtils.startsWith(mimeType, "video");
+
+                            if (!isVideoType || mimeType.contains("avc")) {
+                                arrayList.add(adaptiveFormat);
+                            }
+                        }
                     }
                 }
                 return arrayList;

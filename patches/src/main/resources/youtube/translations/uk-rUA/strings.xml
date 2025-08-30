@@ -226,7 +226,7 @@
     <string name="revanced_disable_ambient_mode_summary_off">Кінематографічне освітлення увімкнено.</string>
     <string name="revanced_disable_ambient_mode_summary_on">Кінематографічне освітлення вимкнено.</string>
     <string name="revanced_disable_ambient_mode_title">Вимкнути кінематографічне освітлення</string>
-    <string name="revanced_disable_auto_audio_tracks_not_available">Щоб скористатися цією функцією, змініть \'Основний клієнт (Підробка даних трансляції)\' на TV або iOS TV.</string>
+    <string name="revanced_disable_auto_audio_tracks_not_available">Щоб скористатися цією функцією, змініть \'Основний клієнт (Підробка даних трансляції)\' на TV, Простий TV або iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Примусові автоматичні звукові доріжки увімкнено.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Примусові автоматичні звукові доріжки вимкнено.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Вимкнути примусові автоматичні звукові доріжки</string>
@@ -590,7 +590,7 @@
     <string name="revanced_hide_autoplay_preview_summary_off">Контейнер автовідтворення перед перегляду показується.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Контейнер автовідтворення перед перегляду приховано.</string>
     <string name="revanced_hide_autoplay_preview_title">Приховати контейнер автовідтворення перед перегляду</string>
-    <string name="revanced_hide_carousel_shelf_about_summary">Приклади карусельних полиць:&lt;br&gt;&lt;br&gt;&lt;b&gt;Важливі новини&lt;/b&gt;, &lt;b&gt;Продовжити перегляд&lt;/b&gt;, &lt;b&gt;Переглянути більше каналів&lt;/b&gt;, &lt;b&gt;Прослухати знову&lt;/b&gt;, &lt;b&gt;Найактуальніші&lt;/b&gt;, &lt;b&gt;Покупки&lt;/b&gt;, &lt;b&gt;Переглянути ще раз&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Приклади карусельних полиць:&lt;br&gt;&lt;br&gt;&lt;b&gt;Важливі новини&lt;/b&gt;, &lt;b&gt;Продовжити перегляд&lt;/b&gt;, &lt;b&gt;Переглянути більше каналів&lt;/b&gt;, &lt;b&gt;;Для Вас&lt;/b&gt;, &lt;b&gt;Прослухати знову&lt;/b&gt;, &lt;b&gt;Найактуальніші&lt;/b&gt;, &lt;b&gt;Покупки&lt;/b&gt;, &lt;b&gt;Переглянути ще раз&lt;/b&gt;</string>
     <string name="revanced_hide_carousel_shelf_about_title">Про карусельну полицю</string>
     <string name="revanced_hide_carousel_shelf_home_summary_off">Показується у Головній стрічці та пов\'язаних відео.</string>
     <string name="revanced_hide_carousel_shelf_home_summary_on">Приховано у Головній стрічці та пов\'язаних відео.</string>
@@ -746,9 +746,6 @@
     <string name="revanced_hide_floating_microphone_summary_off">Плавучу кнопку мікрофону показується.</string>
     <string name="revanced_hide_floating_microphone_summary_on">Плавучу кнопку мікрофону приховано.</string>
     <string name="revanced_hide_floating_microphone_title">Приховати плавучу кнопку мікрофону</string>
-    <string name="revanced_hide_for_you_shelf_summary_off">Полицю \'Для вас\' показується.</string>
-    <string name="revanced_hide_for_you_shelf_summary_on">Полицю \'Для вас\' приховано.</string>
-    <string name="revanced_hide_for_you_shelf_title">Приховати полицю \'Для вас\'</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Повноекранну рекламу показується.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Повноекранну рекламу приховано.</string>
     <string name="revanced_hide_fullscreen_ads_title">Приховати повноекранну рекламу</string>
@@ -903,7 +900,7 @@
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Приховати меню Кінематографічне освітлення</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Меню Звукова доріжка приховано.
 
-Для показу меню Звукова доріжка, змініть 'Основний клієнт (Підробка даних трансляції)' на TV або iOS TV."</string>
+Для показу меню Звукова доріжка, змініть 'Основний клієнт (Підробка даних трансляції)' на TV, Простий TV або iOS TV."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Меню Звукова доріжка показується.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Меню Звукова доріжка приховано.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Приховати меню Звукова доріжка</string>
@@ -1675,7 +1672,7 @@
     <string name="revanced_preference_category_import_export_as_file">Імпорт / Експорт як файл</string>
     <string name="revanced_preference_category_import_export_as_text">Імпорт / Експорт як текст</string>
     <string name="revanced_preference_category_ios">iOS</string>
-    <string name="revanced_preference_category_js">JavaScript (ще в розробці)</string>
+    <string name="revanced_preference_category_js">JavaScript</string>
     <string name="revanced_preference_category_keyword_filter">Фільтр ключових слів</string>
     <string name="revanced_preference_category_others">Інше</string>
     <string name="revanced_preference_category_overlay_buttons">Накладання кнопок</string>
@@ -2343,7 +2340,7 @@ AVC має максимальну роздільну здатність 1080p, �
 
 Шаблон n-sig досить часто змінюється на серверах YouTube, і відтворення може завершитися невдало, якщо regex не вдасться знайти шаблон n-sig.
 
-Ця функція все ще перебуває у стадії розробки, тому, будь ласка, використовуйте її лише з метою налагодження."</string>
+Серед клієнтів JavaScript рекомендується Простий TV."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"JavaScript для деобфускації не підтримується в актуальному стані.
 
 • Використовується JavaScript, який успішно виконує деобфускацію, але він все одно дещо залежний від сервера."</string>
