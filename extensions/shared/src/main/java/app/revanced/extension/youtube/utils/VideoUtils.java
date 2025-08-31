@@ -420,6 +420,13 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static void reloadVideo() {
+        if (!VideoInformation.lastPlayerResponseIsShort()) {
+            String id = VideoInformation.getPlayerResponseVideoId();
+            if (!id.isEmpty()) {
+                reloadVideo(id);
+                return;
+            }
+        }
         reloadVideo(VideoInformation.getVideoId());
     }
 

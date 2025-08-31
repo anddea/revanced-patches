@@ -230,23 +230,19 @@ internal object ResourceUtils {
     }
 
     fun replaceSwitchPreference(
-        category: String,
         key: String,
         defaultValue: String,
     ) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
-            val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
-            List(tags.length) { tags.item(it) as Element }
-                .filter {
-                    it.getAttribute("android:key").equals("revanced_preference_screen_$category")
-                }
-                .forEach {
-                    it.getAttributeNode("android:key")?.let { attribute ->
-                        if (attribute.textContent == key) {
-                            it.setAttribute("android:defaultValue", defaultValue)
-                        }
+            document.doRecursively node@{
+                if (it !is Element) return@node
+
+                it.getAttributeNode("android:key")?.let { attribute ->
+                    if (attribute.textContent == key) {
+                        it.setAttribute("android:defaultValue", defaultValue)
                     }
                 }
+            }
         }
     }
 

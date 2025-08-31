@@ -304,6 +304,34 @@ public class SegmentPlaybackController {
         }
     }
 
+    private static volatile int adProgressTextVisibility = -1;
+
+    /**
+     * Injection point.
+     */
+    public static void setAdProgressTextVisibility(int visibility) {
+        if (Settings.SB_ENABLED.get() && adProgressTextVisibility != visibility) {
+            adProgressTextVisibility = visibility;
+            String visibilityMessage = visibility == 0
+                    ? "VISIBLE"
+                    : visibility == 8
+                    ? "GONE"
+                    : visibility == 4
+                    ? "INVISIBLE"
+                    : "UNKNOWN";
+            Logger.printDebug(() -> "AdProgressText visibility changed to : " + visibilityMessage);
+        }
+    }
+
+    /**
+     * When a video ad is playing in a regular video player, segments or the Skip button should be hidden.
+     * See: <a href="https://github.com/inotia00/ReVanced_Extended/issues/3134">ReVanced_Extended#3134</a>.
+     * @return Whether the Ad Progress TextView is visible in the regular video player.
+     */
+    private static boolean isAdProgressTextVisible() {
+        return adProgressTextVisibility == 0;
+    }
+
     /**
      * Injection point.
      * Updates SponsorBlock every 100ms.
@@ -313,7 +341,8 @@ public class SegmentPlaybackController {
         try {
             if (!Settings.SB_ENABLED.get()
                     || PlayerType.getCurrent().isNoneOrHidden() // Shorts playback.
-                    || segments == null || segments.length == 0) {
+                    || segments == null || segments.length == 0
+                    || isAdProgressTextVisible()) {
                 return;
             }
             Logger.printDebug(() -> "setVideoTime: " + getFormattedTimeStamp(millis));
@@ -521,8 +550,9 @@ public class SegmentPlaybackController {
 
     private static void setSegmentCurrentlyPlaying(@Nullable SponsorSegment segment) {
         if (segment == null) {
-            if (segmentCurrentlyPlaying != null)
+            if (segmentCurrentlyPlaying != null) {
                 Logger.printDebug(() -> "Hiding segment: " + segmentCurrentlyPlaying);
+            }
             segmentCurrentlyPlaying = null;
             skipSegmentButtonEndTime = 0;
             SponsorBlockViewController.hideSkipSegmentButton();
@@ -543,14 +573,23 @@ public class SegmentPlaybackController {
         SponsorBlockViewController.showSkipSegmentButton(segment);
     }
 
+    /**
+     * Injection point.
+     */
     public static void setVisibility(boolean visible, boolean animated) {
         onPlayerControlsVisibilityChanged(visible, false);
     }
 
+    /**
+     * Injection point.
+     */
     public static void setVisibilityImmediate(boolean visible) {
         onPlayerControlsVisibilityChanged(visible, true);
     }
 
+    /**
+     * Injection point.
+     */
     public static void setVisibilityNegatedImmediate() {
         if (PlayerControlsVisibility.getCurrent() == PlayerControlsVisibility.PLAYER_CONTROLS_VISIBILITY_HIDDEN)
             onPlayerControlsVisibilityChanged(false, true);
@@ -571,6 +610,7 @@ public class SegmentPlaybackController {
         if (!Settings.SB_ENABLED.get()
                 || !Settings.SB_AUTO_HIDE_SKIP_BUTTON.get()
                 || segmentCurrentlyPlaying == null
+                || isAdProgressTextVisible()
                 // When the player button appears after the skip button is hidden
                 || !hiddenSkipSegmentsForCurrentVideoTime.contains(segmentCurrentlyPlaying)) {
             return;
@@ -730,14 +770,16 @@ public class SegmentPlaybackController {
      * Injection point
      */
     public static void setSponsorBarRect(final Object self) {
-        try {
-            Field field = self.getClass().getDeclaredField("replaceMeWithsetSponsorBarRect");
-            field.setAccessible(true);
-            Rect rect = (Rect) Objects.requireNonNull(field.get(self));
-            setSponsorBarAbsoluteLeft(rect);
-            setSponsorBarAbsoluteRight(rect);
-        } catch (Exception ex) {
-            Logger.printException(() -> "setSponsorBarRect failure", ex);
+        if (Settings.SB_ENABLED.get()) {
+            try {
+                Field field = self.getClass().getDeclaredField("replaceMeWithsetSponsorBarRect");
+                field.setAccessible(true);
+                Rect rect = (Rect) Objects.requireNonNull(field.get(self));
+                setSponsorBarAbsoluteLeft(rect);
+                setSponsorBarAbsoluteRight(rect);
+            } catch (Exception ex) {
+                Logger.printException(() -> "setSponsorBarRect failure", ex);
+            }
         }
     }
 
@@ -759,7 +801,7 @@ public class SegmentPlaybackController {
      * Injection point
      */
     public static void setSponsorBarThickness(int thickness) {
-        if (sponsorBarThickness != thickness) {
+        if (Settings.SB_ENABLED.get() && sponsorBarThickness != thickness) {
             sponsorBarThickness = thickness;
         }
     }
@@ -836,8 +878,12 @@ public class SegmentPlaybackController {
      */
     public static void drawSponsorTimeBars(final Canvas canvas, final float posY) {
         try {
-            if (segments == null) return;
-            if (videoLength <= 0) return;
+            if (!Settings.SB_ENABLED.get()
+                    || segments == null
+                    || videoLength <= 0
+                    || isAdProgressTextVisible()) {
+                return;
+            }
 
             final int thicknessDiv2 = sponsorBarThickness / 2; // rounds down
             final float top = posY - (sponsorBarThickness - thicknessDiv2);

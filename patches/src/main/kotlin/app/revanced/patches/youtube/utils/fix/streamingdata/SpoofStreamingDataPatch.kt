@@ -22,8 +22,6 @@ import app.revanced.patches.youtube.utils.auth.authHookPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
-import app.revanced.patches.youtube.utils.getEmptyRegistryFingerprint
-import app.revanced.patches.youtube.utils.indexOfGetAdaptiveFormatsFieldInstruction
 import app.revanced.patches.youtube.utils.patch.PatchList
 import app.revanced.patches.youtube.utils.patch.PatchList.SPOOF_STREAMING_DATA
 import app.revanced.patches.youtube.utils.playercontrols.addTopControl
@@ -39,8 +37,6 @@ import app.revanced.patches.youtube.utils.request.hookBuildRequest
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
-import app.revanced.patches.youtube.utils.videoStreamingDataConstructorFingerprint
-import app.revanced.patches.youtube.utils.videoStreamingDataToStringFingerprint
 import app.revanced.patches.youtube.video.information.hookBackgroundPlayVideoInformation
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.playerresponse.Hook

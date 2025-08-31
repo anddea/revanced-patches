@@ -459,6 +459,12 @@ Limitation: Does not work if the player is minimized, in PiP mode, or in backgro
     <string name="revanced_expand_video_description_summary_off">Video descriptions won\'t expand automatically.</string>
     <string name="revanced_expand_video_description_summary_on">Video descriptions expand automatically.</string>
     <string name="revanced_expand_video_description_title">Expand video descriptions</string>
+    <string name="revanced_extended_audio_tracks_unavailable">"This setting is currently unavailable.
+To use this feature, change 'Default client (Spoof streaming data)' to iOS TV, TV or TV Simply.
+
+Note:
+• iOS TV does not support playback of some videos, such as music videos.
+• Therefore, if the Default client is set to iOS TV, this setting may not work for some videos."</string>
     <string name="revanced_extended_confirm_user_dialog_title">Are you sure you want to proceed?</string>
     <string name="revanced_extended_reset_to_default_toast">Reset to default values.</string>
     <string name="revanced_extended_restart">Restart</string>
@@ -1513,6 +1519,8 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
 <small>తెలుగు</small>"</string>
     <string name="revanced_language_TH">"Thai
 <small>ไทย</small>"</string>
+    <string name="revanced_language_TL">"Filipino
+<small>Filipino</small>"</string>
     <string name="revanced_language_TR">"Turkish
 <small>Türkçe</small>"</string>
     <string name="revanced_language_UK">"Ukrainian
@@ -1775,6 +1783,7 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_queue_manager_fetch_failed_delete">Failed to delete queue.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">Failed to remove video.</string>
     <string name="revanced_queue_manager_fetch_failed_save">Failed to save queue.</string>
+    <string name="revanced_queue_manager_fetch_failed_video_information">Failed to get video information.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">Video successfully added.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">Queue successfully created.</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">Queue successfully deleted.</string>
@@ -1787,6 +1796,7 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Remove from queue and reload video</string>
     <string name="revanced_queue_manager_remove_queue">Remove queue</string>
     <string name="revanced_queue_manager_save_queue">Save queue</string>
+    <string name="revanced_queue_manager_show_original_video_information">Show original video information</string>
     <string name="revanced_queue_manager_user_dialog_message">"Instead of opening an external downloader, open the queue manager dialog.
 
 You can also open the queue manager by pressing and holding the back button on the navigation bar.
@@ -1794,6 +1804,26 @@ You can also open the queue manager by pressing and holding the back button on t
 This feature is still in progress, so most features may not work.
 
 Please use it for debugging purposes only."</string>
+    <string name="revanced_queue_manager_video_information">Video information</string>
+    <string name="revanced_queue_manager_video_information_copy">Copy</string>
+    <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"Channel
+══════════════
+%1$s
+
+Title
+══════════════
+%2$s"</string>
+    <string name="revanced_queue_manager_video_information_user_dialog_message">"Channel
+══════════════
+%1$s
+
+Title
+══════════════
+%2$s
+
+Description
+══════════════
+%3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Quick actions top margin must be between 0-32.</string>
     <string name="revanced_quick_actions_top_margin_summary">Configure the spacing from the seekbar to the quick action container, between 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Quick actions top margin</string>
@@ -2124,6 +2154,7 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_share_copy_timestamp_success">Timestamp copied to clipboard. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copied to clipboard.</string>
     <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied to clipboard.</string>
+    <string name="revanced_share_copy_video_information_success">Video information copied to clipboard.</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"This feature is still experimental, so there is no guarantee that it will work perfectly.
 
 Most bugs cannot be fixed due to client-side limitations, so use it only for testing purposes."</string>

@@ -8,8 +8,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.chromium.net.ExperimentalUrlRequest;
 import org.chromium.net.UrlRequest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import app.revanced.extension.music.settings.Settings;
@@ -140,7 +138,7 @@ public class SpoofClientPatch extends BlockRequestPatch {
                                 url.contains("/videoplayback");
                     }
                 } catch (Exception ex) {
-                    Logger.printException(() -> "overrideUserAgent failed", ex);
+                    Logger.printException(() -> "setUrl failed", ex);
                 }
             }
         }

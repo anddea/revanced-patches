@@ -106,6 +106,12 @@ Hạn chế: Video dành cho trẻ em có thể không được chuyển hướn
     <string name="revanced_disable_player_gesture_title">Tắt cử chỉ trình phát</string>
     <string name="revanced_disable_quic_protocol_summary">"Vô hiệu hoá giao thức QUIC của CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Vô hiệu hoá giao thức QUIC</string>
+    <string name="revanced_disable_trim_silence_summary">"Tắt tính năng Cắt bỏ khoảng lặng trong trình đơn tuỳ chọn tốc độ phát.
+
+ Chi tiết:
+ • Tính năng này dành cho podcast.
+ • Tính năng này vẫn đang được phát triển nên có thể chưa ổn định."</string>
+    <string name="revanced_disable_trim_silence_title">Tắt tính năng Cắt bỏ khoảng lặng</string>
     <string name="revanced_enable_comments_scroll_top_summary">"Nhấn vào tiêu đề Bình luận để cuộn lên đầu trang.
 
 Hạn chế: Không áp dụng trong trang phản hồi bình luận."</string>
@@ -188,6 +194,8 @@ Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên 
     <string name="revanced_hide_action_button_add_to_playlist_title">Ẩn nút Lưu</string>
     <string name="revanced_hide_action_button_comment_summary">Ẩn nút Bình luận trong thanh tương tác.</string>
     <string name="revanced_hide_action_button_comment_title">Ẩn nút Bình luận</string>
+    <string name="revanced_hide_action_button_disabled_summary">Ẩn các nút bị vô hiệu hóa, chẳng hạn như nút Bình luận bị vô hiệu hóa khi nhà sáng tạo tắt tính năng bình luận cho video.</string>
+    <string name="revanced_hide_action_button_disabled_title">Ẩn nút bị vô hiệu hóa</string>
     <string name="revanced_hide_action_button_download_summary">Ẩn nút Tải xuống trong thanh tương tác.</string>
     <string name="revanced_hide_action_button_download_title">Ẩn nút Tải xuống</string>
     <string name="revanced_hide_action_button_label_summary">Ẩn tên nút trong thanh tương tác.</string>
@@ -500,6 +508,8 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Chặn truy vấn)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Chặn truy vấn)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34">iOS Music 8.34</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (Chặn truy vấn)</string>
     <string name="revanced_spoof_client_type_summary">"Hạn chế:
 • Các nút thao tác hoặc trình đơn tuỳ chọn trong trình phát có thể không hiển thị đúng. Trong trường hợp đó, hãy thử xoá dữ liệu ứng dụng và đăng nhập lại.
 
@@ -522,6 +532,7 @@ Hạn chế:
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_34">iOS Music 8.34</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Hạn chế:
 • Ứng dụng có thể bị buộc đóng khi dùng VPN hoặc DNS.
 • Âm thanh có thể bị ngắt quãng khi phát trên client dùng truyền phát bit thích ứng (trừ Android VR 1.43.32)."</string>

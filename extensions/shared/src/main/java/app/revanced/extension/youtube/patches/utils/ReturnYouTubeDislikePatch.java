@@ -18,7 +18,9 @@ import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import app.revanced.extension.shared.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
@@ -559,6 +561,21 @@ public class ReturnYouTubeDislikePatch {
     private static volatile boolean lastPlayerResponseWasShort;
 
     /**
+     * Video ads in the regular video player are not hooked to {@link #preloadVideoId(String, boolean)}.
+     * Therefore, video ads in the regular video player are not prefetched.
+     * This can be used to identify whether a video id is a video ad or not.
+     */
+    @GuardedBy("itself")
+    private static final Map<String, Boolean> playerResponseVideoIds = new LinkedHashMap<>() {
+        private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 5;
+
+        @Override
+        protected boolean removeEldestEntry(Entry eldest) {
+            return size() > NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK;
+        }
+    };
+
+    /**
      * Injection point.  Uses 'playback response' video id hook to preload RYD.
      */
     public static void preloadVideoId(@NonNull String videoId, boolean isShortAndOpeningOrPlaying) {
@@ -569,13 +586,17 @@ public class ReturnYouTubeDislikePatch {
             if (videoId.equals(lastPrefetchedVideoId)) {
                 return;
             }
+            final boolean videoIdIsShort = VideoInformation.lastPlayerResponseIsShort();
+            synchronized (playerResponseVideoIds) {
+                // Add all prefetched video ids to 'playerResponseVideoIds'.
+                playerResponseVideoIds.putIfAbsent(videoId, videoIdIsShort);
+            }
             if (!Utils.isNetworkConnected()) {
                 Logger.printDebug(() -> "Cannot pre-fetch RYD, network is not connected");
                 lastPrefetchedVideoId = null;
                 return;
             }
 
-            final boolean videoIdIsShort = VideoInformation.lastPlayerResponseIsShort();
             // Shorts shelf in home and subscription feed causes player response hook to be called,
             // and the 'is opening/playing' parameter will be false.
             // This hook will be called again when the Short is actually opened.
@@ -629,13 +650,24 @@ public class ReturnYouTubeDislikePatch {
             if (videoIdIsSame(currentVideoData, videoId)) {
                 return;
             }
-            Logger.printDebug(() -> "New video id: " + videoId + " playerType: " + currentPlayerType);
+            synchronized (playerResponseVideoIds) {
+                // All video ids except those in the regular video player have been prefetched.
+                // Video ids not present in 'playerResponseVideoIds' are video ads from the regular video player.
+                if (playerResponseVideoIds.get(videoId) == null) {
+                    // When a regular video player video ad is fetched,
+                    // the dislike count of the video ad is used instead of the dislike count of the original video.
+                    Logger.printDebug(() -> "Skip video ads: " + videoId);
+                    return;
+                }
+            }
 
             if (!Utils.isNetworkConnected()) {
                 Logger.printDebug(() -> "Cannot fetch RYD, network is not connected");
                 currentVideoData = null;
                 return;
             }
+
+            Logger.printDebug(() -> "New video id: " + videoId + " playerType: " + currentPlayerType);
 
             ReturnYouTubeDislike data = ReturnYouTubeDislike.getFetchForVideoId(videoId);
             // Pre-emptively set the data to short status.

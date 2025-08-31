@@ -201,10 +201,10 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting DISABLE_DRC_AUDIO = new BooleanSetting("revanced_disable_drc_audio", FALSE, true);
     public static final BooleanSetting DISABLE_MUSIC_VIDEO_IN_ALBUM = new BooleanSetting("revanced_disable_music_video_in_album", FALSE, true);
     public static final EnumSetting<RedirectType> DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE = new EnumSetting<>("revanced_disable_music_video_in_album_redirect_type", RedirectType.REDIRECT, true);
-    public static final BooleanSetting SPOOF_CLIENT = new BooleanSetting("revanced_spoof_client", GmsCoreSupport(), true);
+    public static final BooleanSetting SPOOF_CLIENT = new BooleanSetting("revanced_spoof_client", FALSE, true);
     public static final EnumSetting<ClientType> SPOOF_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_client_type", DefaultClientType(), true);
-    public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting("revanced_spoof_video_streams", FALSE, true);
-    public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_DEFAULT_CLIENT = new EnumSetting<>("revanced_spoof_video_streams_default_client", ClientType.ANDROID_VR_1_43_32, true);
+    public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting("revanced_spoof_video_streams", GmsCoreSupport(), true);
+    public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_DEFAULT_CLIENT = new EnumSetting<>("revanced_spoof_video_streams_default_client", ClientType.ANDROID_VR_1_43_32_NO_AUTH, true);
     public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_extended_settings_import_export", FALSE, false);
     public static final BooleanSetting APP_INFO = new BooleanSetting("revanced_app_info", FALSE, false);
 

@@ -9,6 +9,7 @@ message PlayerResponse {
     oneof data {
         PlayabilityStatus playability_status = 2;
         StreamingData streaming_data = 4;
+        VideoDetails video_details = 11;
     }
 }
 
@@ -72,5 +73,29 @@ message AudioTrack {
     string displayName = 4;
     string id = 5;
     bool audioIsDefault = 6;
+}
+
+message VideoDetails {
+    string videoId = 1;
+    string title = 15;
+    int64 lengthSeconds = 16;
+    repeated string keywords = 18;
+    bytes shortDescription = 21;
+    string channelId = 19;
+    Thumbnail thumbnail = 25;
+    int32 liveChunkReadahead = 29;
+    string viewCount = 32;
+    string author = 33;
+    bool isLiveContent = 41;
+}
+
+message Thumbnail {
+    repeated Thumbnails thumbnails = 1;
+}
+
+message Thumbnails {
+    string url = 1;
+    int32 width = 2;
+    int32 height = 3;
 }
 

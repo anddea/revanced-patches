@@ -76,9 +76,7 @@ object InnerTubeRoutes {
     @JvmField
     val GET_VIDEO_DETAILS = compileRoute(
         endpoint = "player",
-        fields = "videoDetails.channelId," +
-                "videoDetails.isLiveContent," +
-                "videoDetails.isUpcoming"
+        fields = "videoDetails"
     )
 
     private fun compileRoute(

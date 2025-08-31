@@ -782,7 +782,7 @@ val videoInformationPatch = bytecodePatch(
 
                 addInstructionsAtControlFlowLabel(
                     index, """
-                        invoke-static { v$register }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->removeVideoQualities(Ljava/util/List;)Ljava/util/List;
+                        invoke-static { v$register }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->removeLowFpsVideoQualities(Ljava/util/List;)Ljava/util/List;
                         move-result-object v$register
                         """
                 )

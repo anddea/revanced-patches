@@ -214,7 +214,7 @@ object YouTubeClient {
      * Note: Both 'Authorization' and 'Set-Cookie' are supported.
      * TODO: Find out why playback sometimes fails.
      */
-    private const val CLIENT_VERSION_TVHTML5 = "7.20250714.16.00"
+    private const val CLIENT_VERSION_TVHTML5 = "7.20250827.12.00"
     private const val USER_AGENT_TVHTML5 =
         "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)"
 

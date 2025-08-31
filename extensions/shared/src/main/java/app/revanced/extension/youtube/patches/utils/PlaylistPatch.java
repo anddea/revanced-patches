@@ -33,6 +33,7 @@ import app.revanced.extension.youtube.patches.utils.requests.DeletePlaylistReque
 import app.revanced.extension.youtube.patches.utils.requests.EditPlaylistRequest;
 import app.revanced.extension.youtube.patches.utils.requests.GetPlaylistsRequest;
 import app.revanced.extension.youtube.patches.utils.requests.SavePlaylistRequest;
+import app.revanced.extension.youtube.patches.utils.requests.VideoDetailsRequest;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.shared.VideoInformation;
@@ -63,6 +64,7 @@ public class PlaylistPatch {
     private static String fetchFailedDelete;
     private static String fetchFailedRemove;
     private static String fetchFailedSave;
+    private static String fetchFailedVideoIndormation;
 
     private static String fetchSucceededAdd;
     private static String fetchSucceededCreate;
@@ -84,6 +86,8 @@ public class PlaylistPatch {
             fetchFailedDelete = str("revanced_queue_manager_fetch_failed_delete");
             fetchFailedRemove = str("revanced_queue_manager_fetch_failed_remove");
             fetchFailedSave = str("revanced_queue_manager_fetch_failed_save");
+            fetchFailedVideoIndormation =
+                    str("revanced_queue_manager_fetch_failed_video_information");
 
             fetchSucceededAdd = str("revanced_queue_manager_fetch_succeeded_add");
             fetchSucceededCreate = str("revanced_queue_manager_fetch_succeeded_create");
@@ -262,6 +266,50 @@ public class PlaylistPatch {
             }
         } catch (Exception ex) {
             Logger.printException(() -> "fetchQueue failure", ex);
+        }
+    }
+
+    private static void fetchVideoDetails() {
+        try {
+            String currentVideoId = videoId;
+            VideoDetailsRequest.fetchRequestIfNeeded(currentVideoId, AuthUtils.getRequestHeader());
+            runOnMainThreadDelayed(() -> {
+                VideoDetailsRequest request = VideoDetailsRequest.getRequestForVideoId(currentVideoId);
+                if (request != null) {
+                    String message = request.getMessage();
+                    if (message != null) {
+                        Utils.createCustomDialog(
+                                // context
+                                mContext,
+                                // title
+                                str("revanced_queue_manager_video_information"),
+                                // message
+                                message,
+                                // editText
+                                null,
+                                // okButtonText
+                                null,
+                                // onOkClick
+                                () -> {},
+                                // onCancelClick
+                                null,
+                                // neutralButtonText
+                                str("revanced_queue_manager_video_information_copy"),
+                                // onNeutralClick
+                                () -> Utils.setClipboard(
+                                        message,
+                                        str("revanced_share_copy_video_information_success")
+                                ),
+                                // dismissDialogOnNeutralClick
+                                true
+                        ).first.show();
+                        return;
+                    }
+                }
+                showToast(fetchFailedVideoIndormation);
+            }, DELAY_MILLISECONDS);
+        } catch (Exception ex) {
+            Logger.printException(() -> "fetchVideoDetails failure", ex);
         }
     }
 
@@ -454,6 +502,11 @@ public class PlaylistPatch {
                 "yt_outline_bookmark_black_24",
                 PlaylistPatch::saveToPlaylist
         ),
+        SHOW_ORIGINAL_VIDEO_INFORMATION(
+                "revanced_queue_manager_show_original_video_information",
+                "quantum_gm_ic_g_translate_black_24",
+                PlaylistPatch::fetchVideoDetails
+        ),
         EXTERNAL_DOWNLOADER(
                 "revanced_queue_manager_external_downloader",
                 "yt_outline_download_black_24",
@@ -482,6 +535,7 @@ public class PlaylistPatch {
                 //REMOVE_QUEUE,
                 EXTERNAL_DOWNLOADER,
                 SAVE_QUEUE,
+                SHOW_ORIGINAL_VIDEO_INFORMATION,
         };
 
         public static final QueueManager[] addToQueueWithReloadEntries = {
@@ -493,6 +547,7 @@ public class PlaylistPatch {
                 //REMOVE_QUEUE,
                 EXTERNAL_DOWNLOADER,
                 SAVE_QUEUE,
+                SHOW_ORIGINAL_VIDEO_INFORMATION,
         };
 
         public static final QueueManager[] removeFromQueueEntries = {
@@ -502,6 +557,7 @@ public class PlaylistPatch {
                 //REMOVE_QUEUE,
                 EXTERNAL_DOWNLOADER,
                 SAVE_QUEUE,
+                SHOW_ORIGINAL_VIDEO_INFORMATION,
         };
 
         public static final QueueManager[] removeFromQueueWithReloadEntries = {
@@ -512,6 +568,7 @@ public class PlaylistPatch {
                 //REMOVE_QUEUE,
                 EXTERNAL_DOWNLOADER,
                 SAVE_QUEUE,
+                SHOW_ORIGINAL_VIDEO_INFORMATION,
         };
 
         public static final QueueManager[] noVideoIdQueueEntries = {

@@ -1,14 +1,19 @@
 package app.revanced.patches.youtube.player.flyoutmenu.hide
 
+import app.revanced.patches.youtube.utils.YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
 import app.revanced.patches.youtube.utils.indexOfAddHeaderViewInstruction
 import app.revanced.patches.youtube.utils.resourceid.bottomSheetFooterText
 import app.revanced.patches.youtube.utils.resourceid.subtitleMenuSettingsFooterInfo
 import app.revanced.patches.youtube.utils.resourceid.videoQualityBottomSheet
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal val advancedQualityBottomSheetFingerprint = legacyFingerprint(
     name = "advancedQualityBottomSheetFingerprint",
@@ -33,6 +38,32 @@ internal val captionsBottomSheetFingerprint = legacyFingerprint(
     name = "captionsBottomSheetFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     literals = listOf(bottomSheetFooterText, subtitleMenuSettingsFooterInfo),
+)
+
+internal val currentVideoFormatConstructorFingerprint = legacyFingerprint(
+    name = "currentVideoFormatConstructorFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    customFingerprint = { method, _ ->
+        indexOfVideoQualitiesInstruction(method) >= 0
+    },
+)
+
+internal fun indexOfVideoQualitiesInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.IPUT_OBJECT &&
+                getReference<FieldReference>()?.type == "[$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE"
+    }
+
+internal val currentVideoFormatToStringFingerprint = legacyFingerprint(
+    name = "currentVideoFormatToStringFingerprint",
+    returnType = "Ljava/lang/String;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    strings = listOf("currentVideoFormat="),
+    customFingerprint = { method, _ ->
+        method.name == "toString"
+    },
 )
 
 /**
