@@ -1,3 +1,10 @@
+# [3.12.0-dev.11](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.10...v3.12.0-dev.11) (2025-08-31)
+
+
+### Features
+
+* **YouTube - Queue manager:** Add `Summarize` menu item ([0e4743a](https://github.com/anddea/revanced-patches/commit/0e4743aa43f33faf3f9ae680f2a9be08f5d181b7))
+
 # [3.12.0-dev.10](https://github.com/anddea/revanced-patches/compare/v3.12.0-dev.9...v3.12.0-dev.10) (2025-08-31)
 
 
