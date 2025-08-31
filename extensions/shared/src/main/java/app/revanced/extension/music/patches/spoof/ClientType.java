@@ -22,6 +22,7 @@ public enum ClientType {
             "com.google.android.apps.youtube.vr.oculus",
             "ANDROID_VR",
             "1.43.32",
+            true,
             false
     ),
     ANDROID_VR_1_65_09(ANDROID_VR_1_43_32.id,
@@ -35,6 +36,35 @@ public enum ClientType {
             ANDROID_VR_1_43_32.packageName,
             ANDROID_VR_1_43_32.clientName,
             "1.65.09",
+            true,
+            false
+    ),
+    ANDROID_VR_1_43_32_NO_AUTH(ANDROID_VR_1_43_32.id,
+            ANDROID_VR_1_43_32.deviceBrand,
+            ANDROID_VR_1_43_32.deviceMake,
+            ANDROID_VR_1_43_32.deviceModel,
+            ANDROID_VR_1_43_32.osName,
+            ANDROID_VR_1_43_32.osVersion,
+            ANDROID_VR_1_43_32.androidSdkVersion,
+            ANDROID_VR_1_43_32.buildId,
+            ANDROID_VR_1_43_32.packageName,
+            ANDROID_VR_1_43_32.clientName,
+            ANDROID_VR_1_43_32.clientVersion,
+            false,
+            false
+    ),
+    ANDROID_VR_1_65_09_NO_AUTH(ANDROID_VR_1_65_09.id,
+            ANDROID_VR_1_65_09.deviceBrand,
+            ANDROID_VR_1_65_09.deviceMake,
+            ANDROID_VR_1_65_09.deviceModel,
+            ANDROID_VR_1_65_09.osName,
+            ANDROID_VR_1_65_09.osVersion,
+            ANDROID_VR_1_65_09.androidSdkVersion,
+            ANDROID_VR_1_65_09.buildId,
+            ANDROID_VR_1_65_09.packageName,
+            ANDROID_VR_1_65_09.clientName,
+            ANDROID_VR_1_65_09.clientVersion,
+            false,
             false
     ),
     IOS_MUSIC_6_21(26,
@@ -48,6 +78,7 @@ public enum ClientType {
             "com.google.ios.youtubemusic",
             "IOS_MUSIC",
             "6.21",
+            true,
             false
     ),
     IOS_MUSIC_7_04(IOS_MUSIC_6_21.id,
@@ -61,6 +92,7 @@ public enum ClientType {
             IOS_MUSIC_6_21.packageName,
             IOS_MUSIC_6_21.clientName,
             "7.04",
+            true,
             false
     ),
     IOS_MUSIC_8_12(IOS_MUSIC_6_21.id,
@@ -74,6 +106,7 @@ public enum ClientType {
             IOS_MUSIC_6_21.packageName,
             IOS_MUSIC_6_21.clientName,
             "8.12",
+            true,
             false
     ),
     IOS_MUSIC_8_34(IOS_MUSIC_8_12.id,
@@ -87,6 +120,7 @@ public enum ClientType {
             IOS_MUSIC_8_12.packageName,
             IOS_MUSIC_8_12.clientName,
             "8.34",
+            true,
             false
     ),
     IOS_MUSIC_6_21_BLOCK_REQUEST(IOS_MUSIC_6_21.id,
@@ -100,6 +134,7 @@ public enum ClientType {
             IOS_MUSIC_6_21.packageName,
             IOS_MUSIC_6_21.clientName,
             IOS_MUSIC_6_21.clientVersion,
+            true,
             true
     ),
     IOS_MUSIC_7_04_BLOCK_REQUEST(IOS_MUSIC_7_04.id,
@@ -113,6 +148,7 @@ public enum ClientType {
             IOS_MUSIC_7_04.packageName,
             IOS_MUSIC_7_04.clientName,
             IOS_MUSIC_7_04.clientVersion,
+            true,
             true
     ),
     IOS_MUSIC_8_12_BLOCK_REQUEST(IOS_MUSIC_8_12.id,
@@ -126,6 +162,7 @@ public enum ClientType {
             IOS_MUSIC_8_12.packageName,
             IOS_MUSIC_8_12.clientName,
             IOS_MUSIC_8_12.clientVersion,
+            true,
             true
     ),
     IOS_MUSIC_8_34_BLOCK_REQUEST(IOS_MUSIC_8_34.id,
@@ -139,6 +176,7 @@ public enum ClientType {
             IOS_MUSIC_8_34.packageName,
             IOS_MUSIC_8_34.clientName,
             IOS_MUSIC_8_34.clientVersion,
+            true,
             true
     );
 
@@ -207,6 +245,14 @@ public enum ClientType {
      */
     public final String userAgent;
 
+    /**
+     * If the client should use authentication if available.
+     */
+    public final boolean useAuth;
+
+    /**
+     * Whether the '/initplayback' request should be blocked.
+     */
     public final boolean blockRequest;
 
     @SuppressWarnings("ConstantLocale")
@@ -221,6 +267,7 @@ public enum ClientType {
                String packageName,
                String clientName,
                String clientVersion,
+               boolean useAuth,
                boolean blockRequest) {
         this.id = id;
         this.deviceBrand = deviceBrand;
@@ -233,6 +280,7 @@ public enum ClientType {
         this.packageName = packageName;
         this.clientName = clientName;
         this.clientVersion = clientVersion;
+        this.useAuth = useAuth;
         this.blockRequest = blockRequest;
 
         Locale defaultLocale = Locale.getDefault();

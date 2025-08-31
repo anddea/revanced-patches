@@ -18,14 +18,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
-import com.google.protobuf.MessageLite;
+import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
 
-import java.util.ArrayList;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import app.revanced.extension.shared.innertube.utils.PlayerResponseOuterClass;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.IntegerSetting;
@@ -41,7 +43,7 @@ import app.revanced.extension.youtube.shared.RootView;
 import app.revanced.extension.youtube.shared.VideoInformation;
 import app.revanced.extension.youtube.utils.VideoUtils;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "deprecation"})
 public class PlayerPatch {
     private static final IntegerSetting quickActionsMarginTopSetting = Settings.QUICK_ACTIONS_TOP_MARGIN;
 
@@ -636,45 +638,19 @@ public class PlayerPatch {
 
     // region [Hide player flyout menu] patch
 
-    private static final List<Integer> fhdPremiumQualityItag = List.of(
-            217, // 1080p AVC
-            227, // 1080p AVC Encrypted
-            356, // 1080p VP9
-            360, // 1080p VP9 Encrypted
-            592, // 1080p HDR VP9 Encrypted
-            721  // 1080p AV1
-    );
-
-    public static List<Object> hidePlayerFlyoutMenuEnhancedBitrate(@NonNull List<Object> adaptiveFormats) {
-        if (Settings.HIDE_PLAYER_FLYOUT_MENU_ENHANCED_BITRATE.get()) {
-            int size = adaptiveFormats.size();
-            if (size > 1) {
-                try {
-                    ArrayList<Object> arrayList = new ArrayList<>(size);
-                    for (Object adaptiveFormat : adaptiveFormats) {
-                        if (adaptiveFormat instanceof MessageLite messageLite) {
-                            var parsedAdaptiveFormat = PlayerResponseOuterClass.Format.parseFrom(messageLite.toByteArray());
-                            if (parsedAdaptiveFormat != null) {
-                                String qualityLabel = parsedAdaptiveFormat.getQualityLabel();
-                                if (qualityLabel != null && qualityLabel.startsWith("1080")) {
-                                    int itag = parsedAdaptiveFormat.getItag();
-                                    if (fhdPremiumQualityItag.contains(itag)) {
-                                        Logger.printDebug(() -> "Removing Enhanced bitrate, itag: " + itag);
-                                        continue;
-                                    }
-                                }
-                            }
-                        }
-                        arrayList.add(adaptiveFormat);
-                    }
-                    return arrayList;
-                } catch (Exception ex) {
-                    Logger.printException(() -> "hidePlayerFlyoutMenuEnhancedBitrate failed", ex);
-                }
+    public static VideoQuality[] hidePlayerFlyoutMenuEnhancedBitrate(VideoQuality[] videoQualities) {
+        if (Settings.HIDE_PLAYER_FLYOUT_MENU_ENHANCED_BITRATE.get() &&
+                ArrayUtils.isNotEmpty(videoQualities)) {
+            try {
+                return Arrays.stream(videoQualities)
+                        .filter(quality -> !StringUtils.contains(quality.patch_getQualityName(), "Premium"))
+                        .toArray(VideoQuality[]::new);
+            } catch (Exception ex) {
+                Logger.printException(() -> "hidePlayerFlyoutMenuEnhancedBitrate failure", ex);
             }
         }
 
-        return adaptiveFormats;
+        return videoQualities;
     }
 
     public static void hidePlayerFlyoutMenuCaptionsFooter(View view) {

@@ -46,6 +46,17 @@ internal val createStreamingDataParentFingerprint = legacyFingerprint(
     strings = listOf("Invalid playback type; streaming data is not playable"),
 )
 
+internal val getEmptyRegistryFingerprint = legacyFingerprint(
+    name = "getEmptyRegistryFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = emptyList(),
+    returnType = "Lcom/google/protobuf/ExtensionRegistryLite;",
+    customFingerprint = { method, classDef ->
+        classDef.type == "Lcom/google/protobuf/ExtensionRegistryLite;"
+                && method.name != "getGeneratedRegistry"
+    },
+)
+
 internal val protobufClassParseByteBufferFingerprint = legacyFingerprint(
     name = "protobufClassParseByteBufferFingerprint",
     accessFlags = AccessFlags.PROTECTED or AccessFlags.STATIC,
@@ -66,6 +77,41 @@ internal val nerdsStatsFormatBuilderFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L"),
     strings = listOf("codecs=\""),
+)
+
+internal val videoStreamingDataConstructorFingerprint = legacyFingerprint(
+    name = "videoStreamingDataConstructorFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    returnType = "V",
+    customFingerprint = { method, _ ->
+        indexOfGetAdaptiveFormatsFieldInstruction(method) >= 0
+    },
+)
+
+internal fun indexOfGetAdaptiveFormatsFieldInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<FieldReference>()
+        opcode == Opcode.IGET_OBJECT &&
+                reference?.definingClass == STREAMING_DATA_OUTER_CLASS &&
+                // Field f: 'adaptiveFormats'.
+                // Field name is always 'f', regardless of the client version.
+                reference.name == "f" &&
+                reference.type.startsWith("L")
+    }
+
+/**
+ * On YouTube, this class is 'Lcom/google/android/libraries/youtube/innertube/model/media/VideoStreamingData;'
+ * On YouTube Music, class names are obfuscated.
+ */
+internal val videoStreamingDataToStringFingerprint = legacyFingerprint(
+    name = "videoStreamingDataToStringFingerprint",
+    returnType = "Ljava/lang/String;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    strings = listOf("VideoStreamingData(itags="),
+    customFingerprint = { method, _ ->
+        method.name == "toString"
+    },
 )
 
 internal const val HLS_CURRENT_TIME_FEATURE_FLAG = 45355374L

@@ -305,6 +305,17 @@ def _process_language_dir(
     host_diff_keys = set(host_changed_strings.keys())
     lang_diff_keys = set(lang_changed_strings.keys())
 
+    # Before adding new items to the updated_strings.xml, remove
+    # any items that have just been addressed. If a string key appears in the
+    # language's diff, the translator has updated it, so its corresponding entry
+    # in updated_strings.xml is now obsolete and should be removed.
+    if (
+        lang_diff_keys
+        and updated_strings_path.exists()
+        and remove_strings_from_xml(updated_strings_path, lang_diff_keys, context=lang_name)
+    ):
+        was_modified = True
+
     # Create updated_strings.xml
     # This file contains strings that changed in the host but NOT in this translation.
     # It serves as a "to-do" list for translators.

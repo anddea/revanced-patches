@@ -451,6 +451,10 @@
     <string name="revanced_expand_video_description_summary_off">Η περιγραφή βίντεο δεν ανοίγεται αυτόματα.</string>
     <string name="revanced_expand_video_description_summary_on">Η περιγραφή βίντεο ανοίγεται αυτόματα.</string>
     <string name="revanced_expand_video_description_title">Αυτόματο άνοιγμα περιγραφής βίντεο</string>
+    <string name="revanced_extended_audio_tracks_unavailable">"Αυτή η ρύθμιση δεν είναι διαθέσιμη προς το παρόν.
+Για να χρησιμοποιήσετε αυτή τη λειτουργία, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» στις ρυθμίσεις «Παραποίηση δεδομένων ροής» σε iOS TV, TV ή TV Simply.
+
+Σημείωση: Το πρόγραμμα πελάτη iOS TV δεν υποστηρίζει την αναπαραγωγή ορισμένων βίντεο, όπως μουσικών βίντεο. Άρα, αν το προεπιλεγμένο πρόγραμμα πελάτη οριστεί σε iOS TV, αυτή η ρύθμιση μπορεί να μη λειτουργεί σε κάποια βίντεο."</string>
     <string name="revanced_extended_confirm_user_dialog_title">Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</string>
     <string name="revanced_extended_reset_to_default_toast">Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
     <string name="revanced_extended_restart">Επανεκκίνηση</string>
@@ -1717,6 +1721,7 @@ Playlists
     <string name="revanced_queue_manager_fetch_failed_delete">Αποτυχία διαγραφής ουράς.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">Αποτυχία αφαίρεσης βίντεο.</string>
     <string name="revanced_queue_manager_fetch_failed_save">Αποτυχία αποθήκευσης της ουράς.</string>
+    <string name="revanced_queue_manager_fetch_failed_video_information">Αποτυχία λήψης πληροφοριών βίντεο.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">Το βίντεο προστέθηκε επιτυχώς.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">Η ουρά δημιουργήθηκε επιτυχώς.</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">Η ουρά διαγράφηκε επιτυχώς.</string>
@@ -1729,6 +1734,7 @@ Playlists
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Αφαίρεση από την ουρά και επαναφόρτωση του βίντεο</string>
     <string name="revanced_queue_manager_remove_queue">Κατάργηση ουράς</string>
     <string name="revanced_queue_manager_save_queue">Αποθήκευση ουράς</string>
+    <string name="revanced_queue_manager_show_original_video_information">Εμφάνιση αρχικών πληροφοριών βίντεο</string>
     <string name="revanced_queue_manager_user_dialog_message">"Αντί να ανοίξετε μια εξωτερική εφαρμογή λήψης, θα ανοίξει το παράθυρο διαχείρισης ουράς.
 
 Μπορείτε επίσης να ανοίξετε τον διαχειριστή ουράς πατώντας παρατεταμένα το κουμπί επιστροφής στη γραμμή πλοήγησης.
@@ -1736,6 +1742,26 @@ Playlists
 Αυτή η λειτουργία είναι ακόμη υπό ανάπτυξη, οπότε οι περισσότερες λειτουργίες ενδέχεται να μη λειτουργούν.
 
 Παρακαλούμε χρησιμοποιήστε την για σκοπούς εντοπισμού σφαλμάτων μόνο."</string>
+    <string name="revanced_queue_manager_video_information">Πληροφορίες βίντεο</string>
+    <string name="revanced_queue_manager_video_information_copy">Αντιγραφή</string>
+    <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"Κανάλι
+══════════════
+%1$s
+
+Τίτλος
+══════════════
+%2$s"</string>
+    <string name="revanced_queue_manager_video_information_user_dialog_message">"Κανάλι
+══════════════
+%1$s
+
+Τίτλος
+══════════════
+%2$s
+
+Περιγραφή
+══════════════
+%3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Το ύψος πρέπει να είναι μεταξύ 0-32.</string>
     <string name="revanced_quick_actions_top_margin_summary">Αλλαγή ύψους της γραμμής προόδου, τιμές μεταξύ 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Ύψος γραμμής προόδου</string>
@@ -2050,6 +2076,7 @@ Playlists
     <string name="revanced_share_copy_timestamp_success">Η χρονική σήμανση αντιγράφηκε στο πρόχειρο. (%s)</string>
     <string name="revanced_share_copy_url_success">Η διεύθυνση URL αντιγράφηκε στο πρόχειρο.</string>
     <string name="revanced_share_copy_url_timestamp_success">Η διεύθυνση URL με χρονική σήμανση αντιγράφηκε στο πρόχειρο.</string>
+    <string name="revanced_share_copy_video_information_success">Οι πληροφορίες βίντεο αντιγράφηκαν στο πρόχειρο.</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Αυτή η λειτουργία είναι ακόμα πειραματική, οπότε δεν είναι εγγυημένο ότι θα λειτουργήσει τέλεια.
 
 Τα περισσότερα σφάλματα δεν γίνεται να διορθωθούν λόγω περιορισμών, οπότε χρησιμοποιήστε την μόνο για σκοπούς δοκιμής."</string>

@@ -233,12 +233,12 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
     <string name="revanced_disable_ambient_mode_summary_on">앰비언트 모드를 비활성화합니다.</string>
     <string name="revanced_disable_ambient_mode_title">앱비언트 모드 비활성화하기</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">이 기능을 사용하려면, \'스트리밍 데이터 변경하기\'에서 기본 클라이언트를 TV, TV Simply 또는 iOS TV로 변경하세요.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_off">자동 오디오 트랙을 활성화합니다.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">자동 오디오 트랙을 비활성화합니다.</string>
-    <string name="revanced_disable_auto_audio_tracks_title">자동 오디오 트랙 비활성화하기</string>
-    <string name="revanced_disable_auto_captions_summary_off">자동 자막을 활성화합니다.</string>
-    <string name="revanced_disable_auto_captions_summary_on">자동 자막을 비활성화합니다.</string>
-    <string name="revanced_disable_auto_captions_title">자동 자막 비활성화하기</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_off">강제된 자동 오디오 트랙을 활성화합니다.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">강제된 자동 오디오 트랙을 비활성화합니다.</string>
+    <string name="revanced_disable_auto_audio_tracks_title">강제된 자동 오디오 트랙 비활성화하기</string>
+    <string name="revanced_disable_auto_captions_summary_off">강제된 자동 자막을 활성화합니다.</string>
+    <string name="revanced_disable_auto_captions_summary_on">강제된 자동 자막을 비활성화합니다.</string>
+    <string name="revanced_disable_auto_captions_title">강제된 자동 자막 비활성화하기</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_off">자동 플레이어 팝업 패널을 활성화합니다.</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">자동 플레이어 팝업 패널을 비활성화합니다.</string>
     <string name="revanced_disable_auto_player_popup_panels_title">플레이어 팝업 패널 비활성화하기</string>
@@ -464,6 +464,12 @@ Shorts 플레이어 배경을 탭하면 상태바 및 플레이어 구성요소�
     <string name="revanced_expand_video_description_summary_off">동영상 설명이 자동으로 펼쳐지지 않습니다.</string>
     <string name="revanced_expand_video_description_summary_on">동영상 설명이 자동으로 펼쳐집니다.</string>
     <string name="revanced_expand_video_description_title">동영상 설명 펼치기</string>
+    <string name="revanced_extended_audio_tracks_unavailable">"이 설정은 현재 사용할 수 없습니다.
+이 기능을 사용하려면, '스트리밍 데이터 변경하기'에서 기본 클라이언트를 iOS TV, TV 또는 TV Simply로 변경하세요.
+
+알림:
+• iOS TV는 뮤직 비디오와 같은 일부 동영상의 재생을 지원하지 않습니다.
+• 따라서 기본 클라이언트가 iOS TV로 설정되어 있으면, 일부 동영상에서 이 설정이 작동하지 않을 수 있습니다."</string>
     <string name="revanced_extended_confirm_user_dialog_title">계속하시겠습니까?</string>
     <string name="revanced_extended_reset_to_default_toast">기본값으로 초기화하였습니다.</string>
     <string name="revanced_extended_restart">다시 시작</string>
@@ -1787,6 +1793,7 @@ Gemini API Key를 발급받으려면 여기를 누르세요."</string>
     <string name="revanced_queue_manager_fetch_failed_delete">현재 재생목록을 제거할 수 없습니다.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">동영상을 제거할 수 없습니다.</string>
     <string name="revanced_queue_manager_fetch_failed_save">현재 재생목록을 저장할 수 없습니다.</string>
+    <string name="revanced_queue_manager_fetch_failed_video_information">동영상 정보를 가져올 수 없습니다.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">동영상을 성공적으로 추가하였습니다.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">현재 재생목록을 성공적으로 만들었습니다.</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">현재 재생목록을 성공적으로 제거하였습니다.</string>
@@ -1799,6 +1806,7 @@ Gemini API Key를 발급받으려면 여기를 누르세요."</string>
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">현재 재생목록에서 제거하고 동영상 다시 로드</string>
     <string name="revanced_queue_manager_remove_queue">현재 재생목록 제거</string>
     <string name="revanced_queue_manager_save_queue">현재 재생목록 저장</string>
+    <string name="revanced_queue_manager_show_original_video_information">원본 동영상 정보 표시하기</string>
     <string name="revanced_queue_manager_user_dialog_message">"외부 다운로더가 아닌 현재 재생목록 관리자 다이얼로그를 실행할 수 있습니다.
 
 시스템 네비게이션 바에서 '뒤로 가기' 버튼을 길게 탭하여 현재 재생목록 관리자를 실행할 수도 있습니다.
@@ -1806,6 +1814,26 @@ Gemini API Key를 발급받으려면 여기를 누르세요."</string>
 이 기능은 아직 개발 중이므로 대부분의 기능이 작동하지 않을 수 있습니다.
 
 디버깅 목적으로만 사용하세요."</string>
+    <string name="revanced_queue_manager_video_information">동영상 정보</string>
+    <string name="revanced_queue_manager_video_information_copy">복사</string>
+    <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"채널
+══════════════
+%1$s
+
+제목
+══════════════
+%2$s"</string>
+    <string name="revanced_queue_manager_video_information_user_dialog_message">"채널
+══════════════
+%1$s
+
+제목
+══════════════
+%2$s
+
+설명
+══════════════
+%3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">빠른 동작 상단 여백 값은 0-32 사이어야 합니다.</string>
     <string name="revanced_quick_actions_top_margin_summary">재생바에서 빠른 동작 컨테이너까지의 간격을 0-32 사이에서 지정할 수 있습니다.</string>
     <string name="revanced_quick_actions_top_margin_title">빠른 동작 상단 여백</string>
@@ -2144,6 +2172,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_share_copy_timestamp_success">타임스탬프를 클립보드에 복사하였습니다. (%s)</string>
     <string name="revanced_share_copy_url_success">URL을 클립보드에 복사하였습니다.</string>
     <string name="revanced_share_copy_url_timestamp_success">타임스탬프가 표기된 URL을 클립보드에 복사하였습니다.</string>
+    <string name="revanced_share_copy_video_information_success">동영상 정보를 클립보드에 복사하였습니다.</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"이 기능은 아직 실험 단계이므로, 완벽하게 작동한다는 보장은 없습니다.
 
 • 대부분의 버그는 클라이언트 측의 제한으로 인해 수정할 수 없으므로 테스트 목적으로만 사용하세요."</string>
@@ -2304,7 +2333,7 @@ VP9은 AVC보다 고급 코덱이지만, 일부 사용자는 '360p VP9'보다 '1
     <string name="revanced_spoof_streaming_data_reload_video_button_title">동영상 다시 로드 버튼 표시하기</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• 오디오 트랙 메뉴가 표시되지 않습니다.
 • 안정적인 볼륨을 사용할 수 없습니다.
-• 자동 오디오 트랙을 비활성화할 수 없습니다.
+• 강제된 자동 오디오 트랙을 비활성화할 수 없습니다.
 • 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 오디오 트랙 메뉴가 표시되지 않습니다.
 • 안정적인 볼륨을 사용할 수 없습니다.
@@ -2329,7 +2358,7 @@ VP9은 AVC보다 고급 코덱이지만, 일부 사용자는 '360p VP9'보다 '1
 • 영화 또는 유료 동영상이 재생되지 않을 수 있습니다.
 • 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• 오디오 트랙 메뉴가 표시되지 않습니다.
-• 자동 오디오 트랙을 비활성화할 수 없습니다.
+• 강제된 자동 오디오 트랙을 비활성화할 수 없습니다.
 • 복호화에 실패하면 재생이 실패할 수 있습니다.
 • 간혹 10초가 지나도 동영상이 재생되지 않는 경우가 있습니다. 이 경우에는 동영상 다시 로드 버튼을 탭해야 합니다.
 • 동영상이 늦게 시작될 수 있습니다."</string>

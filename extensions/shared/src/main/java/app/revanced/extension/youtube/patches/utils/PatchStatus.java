@@ -25,11 +25,6 @@ public class PatchStatus {
         return false;
     }
 
-    public static boolean PlayerFlyoutMenu() {
-        // Replace this with true if the 'Hide player flyout menu' patch succeeds
-        return false;
-    }
-
     public static boolean QuickActions() {
         // Replace this with true if the 'Fullscreen components' patch succeeds
         return false;

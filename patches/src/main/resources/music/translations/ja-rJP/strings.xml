@@ -100,6 +100,12 @@
     <string name="revanced_disable_player_gesture_title">プレイヤージェスチャーを無効にする</string>
     <string name="revanced_disable_quic_protocol_summary">"CronetEngine の QUIC プロトコルを無効化します。"</string>
     <string name="revanced_disable_quic_protocol_title">QUIC プロトコルを無効化</string>
+    <string name="revanced_disable_trim_silence_summary">"再生速度のフライアウトメニューで「無音部分をスキップ」スイッチを無効化します。
+
+注意:
+・この機能はポッドキャスト向けです。
+・この機能はまだ開発中のため、不安定な場合があります。"</string>
+    <string name="revanced_disable_trim_silence_title">「無音部分をスキップ」を無効化</string>
     <string name="revanced_enable_comments_scroll_top_summary">"コメント欄のタイトル (「コメント」) をタップすると、コメント欄の一番上にスクロールします。
 
 コメントの返信には適用されません。"</string>
@@ -178,6 +184,8 @@
     <string name="revanced_hide_action_button_add_to_playlist_title">プレイリストに追加ボタンを非表示</string>
     <string name="revanced_hide_action_button_comment_summary">コメントボタンを非表示にします。</string>
     <string name="revanced_hide_action_button_comment_title">コメントボタンを非表示</string>
+    <string name="revanced_hide_action_button_disabled_summary">閉鎖されたコメントボタンなどの無効なボタンを非表示にします。</string>
+    <string name="revanced_hide_action_button_disabled_title">無効なボタンを非表示</string>
     <string name="revanced_hide_action_button_download_summary">ダウンロードボタンを非表示にします。</string>
     <string name="revanced_hide_action_button_download_title">ダウンロードボタンを非表示</string>
     <string name="revanced_hide_action_button_label_summary">アクションボタンのラベルを非表示にします。</string>
@@ -490,6 +498,8 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (ブロックリクエスト)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
     <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (ブロックリクエスト)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34">iOS Music 8.34</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (ブロックリクエスト)</string>
     <string name="revanced_spoof_client_type_summary">"偽装するデフォルトのクライアントを定義します。"</string>
     <string name="revanced_spoof_client_type_title">既定のクライアント</string>
     <string name="revanced_spoof_player_parameter_summary">"再生の問題を防ぐためにプレイヤーパラメーターを偽装します。
@@ -508,6 +518,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_34">iOS Music 8.34</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"偽装するデフォルトのクライアントを定義します。"</string>
     <string name="revanced_spoof_video_streams_default_client_title">デフォルトのクライアント</string>
     <string name="revanced_spoof_video_streams_summary">クライアントのビデオストリームを偽装して再生の問題を防ぎます。

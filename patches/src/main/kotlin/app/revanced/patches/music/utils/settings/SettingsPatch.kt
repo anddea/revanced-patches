@@ -407,10 +407,8 @@ internal fun addPreferenceWithIntent(
 }
 
 internal fun replaceSwitchPreference(
-    category: CategoryType,
     key: String,
     defaultValue: String
 ) {
-    val categoryValue = category.value
-    ResourceUtils.replaceSwitchPreference(categoryValue, key, defaultValue)
+    ResourceUtils.replaceSwitchPreference(key, defaultValue)
 }

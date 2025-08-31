@@ -28,6 +28,9 @@ import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoEndMethod
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.information.videoTimeHook
+import app.revanced.util.ResourceGroup
+import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.copyResources
 import app.revanced.util.*
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
@@ -175,6 +178,20 @@ val sponsorBlockBytecodePatch = bytecodePatch(
             }
         }
 
+        adProgressTextViewVisibilityFingerprint.methodOrThrow().apply {
+            val index =
+                indexOfAdProgressTextViewVisibilityInstruction(this)
+            val register =
+                getInstruction<FiveRegisterInstruction>(index).registerD
+
+            addInstructionsAtControlFlowLabel(
+                index,
+                "invoke-static { v$register }, " +
+                        EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR +
+                        "->setAdProgressTextVisibility(I)V"
+            )
+        }
+
         // The vote and create segment buttons automatically change their visibility when appropriate,
         // but if buttons are showing when the end of the video is reached then they will not automatically hide.
         // Add a hook to forcefully hide when the end of the video is reached.
@@ -202,7 +219,7 @@ val sponsorBlockPatch = resourcePatch(
     dependsOn(
         playerControlsPatch,
         sponsorBlockBytecodePatch,
-        settingsPatch
+        settingsPatch,
     )
 
     val outlineIcon by booleanOption(

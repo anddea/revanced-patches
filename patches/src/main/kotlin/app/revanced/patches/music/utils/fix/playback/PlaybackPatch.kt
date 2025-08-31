@@ -28,7 +28,7 @@ import app.revanced.util.returnEarly
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$SPOOF_PATH/BlockRequestPatch;"
 
-private var spoofClientEnabled = false
+private var spoofVideoStreamsEnabled = false
 
 @Suppress("unused")
 val playbackPatch = bytecodePatch(
@@ -81,12 +81,12 @@ val playbackPatch = bytecodePatch(
     )
 
     execute {
-        spoofClientEnabled = spoofClient.value == true
-        val spoofVideoStreamsEnabled = spoofVideoStreams.value == true
+        val spoofClientEnabled = spoofClient.value == true
+        spoofVideoStreamsEnabled = spoofVideoStreams.value == true
 
         if (!spoofClientEnabled && !spoofVideoStreamsEnabled) {
-            printWarn("At least one patch option must be enabled. \"${spoofClient.title}\" patch is used.")
-            spoofClientEnabled = true
+            printWarn("At least one patch option must be enabled. \"${spoofVideoStreams.title}\" patch is used.")
+            spoofVideoStreamsEnabled = true
         }
 
         if (spoofClientEnabled) {
@@ -131,10 +131,9 @@ val playbackPatch = bytecodePatch(
     }
 
     finalize {
-        if (spoofClientEnabled && GMSCORE_SUPPORT.included == false) {
+        if (spoofVideoStreamsEnabled && GMSCORE_SUPPORT.included != true) {
             replaceSwitchPreference(
-                CategoryType.MISC,
-                "revanced_spoof_client",
+                "revanced_spoof_video_streams",
                 "false"
             )
         }

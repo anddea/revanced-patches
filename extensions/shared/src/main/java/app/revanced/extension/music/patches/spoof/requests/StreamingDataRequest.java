@@ -43,12 +43,14 @@ import app.revanced.extension.shared.utils.Utils;
 public class StreamingDataRequest {
 
     private static final List<ClientType> AVAILABLE_CLIENT_TYPES = List.of(
-            ClientType.ANDROID_VR_1_43_32,
-            ClientType.ANDROID_VR_1_65_09,
-            ClientType.IOS_MUSIC_6_21,
-            ClientType.IOS_MUSIC_7_04,
+            ClientType.IOS_MUSIC_8_34,
             ClientType.IOS_MUSIC_8_12,
-            ClientType.IOS_MUSIC_8_34
+            ClientType.IOS_MUSIC_7_04,
+            ClientType.IOS_MUSIC_6_21,
+            ClientType.ANDROID_VR_1_43_32,
+            ClientType.ANDROID_VR_1_43_32_NO_AUTH,
+            ClientType.ANDROID_VR_1_65_09,
+            ClientType.ANDROID_VR_1_65_09_NO_AUTH
     );
     private static final ClientType[] CLIENT_ORDER_TO_USE;
 
@@ -71,8 +73,10 @@ public class StreamingDataRequest {
         }
     }
 
+    private static final String AUTHORIZATION_HEADER = "Authorization";
+
     private static final String[] REQUEST_HEADER_KEYS = {
-            "Authorization", // Available only to logged-in users.
+            AUTHORIZATION_HEADER, // Available only to logged-in users.
             "X-GOOG-API-FORMAT-VERSION",
             "X-Goog-Visitor-Id"
     };
@@ -139,6 +143,14 @@ public class StreamingDataRequest {
                 String value = playerHeaders.get(key);
 
                 if (value != null) {
+                    if (key.equals(AUTHORIZATION_HEADER)) {
+                        if (!clientType.useAuth) {
+                            Logger.printDebug(() -> "Not including request header: " + key);
+                            continue;
+                        }
+                    }
+
+                    Logger.printDebug(() -> "Including request header: " + key);
                     connection.setRequestProperty(key, value);
                 }
             }

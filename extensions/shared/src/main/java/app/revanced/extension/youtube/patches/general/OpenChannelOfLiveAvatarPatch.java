@@ -11,7 +11,7 @@ import com.facebook.litho.ComponentHost;
 import java.util.Map;
 
 import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.youtube.patches.general.requests.VideoDetailsRequest;
+import app.revanced.extension.youtube.patches.general.requests.ChannelIdRequest;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.utils.VideoUtils;
 
@@ -93,7 +93,7 @@ public final class OpenChannelOfLiveAvatarPatch {
             }
             // Fetch channel id
             videoId = newlyLoadedVideoId;
-            VideoDetailsRequest.fetchRequestIfNeeded(newlyLoadedVideoId);
+            ChannelIdRequest.fetchRequestIfNeeded(newlyLoadedVideoId);
         } catch (Exception ex) {
             Logger.printException(() -> "fetchVideoInformation failure", ex);
         }
@@ -108,9 +108,9 @@ public final class OpenChannelOfLiveAvatarPatch {
             if (videoId.isEmpty()) {
                 return false;
             }
-            VideoDetailsRequest request = VideoDetailsRequest.getRequestForVideoId(videoId);
+            ChannelIdRequest request = ChannelIdRequest.getRequestForVideoId(videoId);
             if (request != null) {
-                String channelId = request.getInfo();
+                String channelId = request.getChannelId();
                 // Open the channel
                 if (channelId != null) {
                     videoId = "";

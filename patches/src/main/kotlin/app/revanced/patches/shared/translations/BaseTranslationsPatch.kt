@@ -21,7 +21,7 @@ val APP_LANGUAGES = arrayOf(
     "ca", "cs",
     "da", "de",
     "el", "en-rAU", "en-rCA", "en-rGB", "en-rIN", "en-rXA", "en-rXC", "es", "es-rUS", "et", "eu",
-    "fa", "fi", "fr", "fr-rCA",
+    "fa", "fi", "fil-rPH", "fr", "fr-rCA",
     "gl", "gu",
     "hi", "hr", "hu", "hy",
     "id", "in", "is", "it", "iw",
@@ -172,13 +172,19 @@ private fun ResourcePatchContext.copyStringsXml(
     sourceDirectory: String,
     languageArray: Array<String>
 ) {
+    val languageMap = mapOf(
+        "fil-rPH" to "tl"
+    )
+
     val resourceDirectory = get("res")
     languageArray.forEach { language ->
+        val sourceLanguage = languageMap[language] ?: language
+
         inputStreamFromBundledResource(
             "$sourceDirectory/translations",
             "$language/strings.xml"
         )?.let { inputStream ->
-            val directory = "values-$language-v21"
+            val directory = "values-$sourceLanguage-v21"
             val valuesV21Directory = resourceDirectory.resolve(directory)
             if (!valuesV21Directory.isDirectory) valuesV21Directory.mkdirs()
 

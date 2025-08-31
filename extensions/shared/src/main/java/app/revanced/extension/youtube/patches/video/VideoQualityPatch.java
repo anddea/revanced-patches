@@ -35,9 +35,6 @@ public class VideoQualityPatch {
         void patch_setQuality(VideoQuality quality);
     }
 
-    private static final boolean HIDE_PLAYER_FLYOUT_MENU_ENHANCED_BITRATE =
-            PatchStatus.PlayerFlyoutMenu() && Settings.HIDE_PLAYER_FLYOUT_MENU_ENHANCED_BITRATE.get();
-
     /**
      * Video resolution of the automatic quality option..
      */
@@ -425,7 +422,7 @@ public class VideoQualityPatch {
      * @param streams Format streams available, ordered from largest to smallest.
      * @return Patched format streams.
      */
-    public static List<FormatStreamModel> removeVideoQualities(List<FormatStreamModel> streams) {
+    public static List<FormatStreamModel> removeLowFpsVideoQualities(List<FormatStreamModel> streams) {
         if (streams != null && streams.size() > 2) {
             try {
                 int previousQualityFps = -1;
@@ -443,11 +440,6 @@ public class VideoQualityPatch {
                     String qualityName = stream.patch_getQualityName();
                     if (qualityName == null) continue;
                     if (qualityName.contains("Premium")) {
-                        if (HIDE_PLAYER_FLYOUT_MENU_ENHANCED_BITRATE) {
-                            final int itag = stream.patch_getITag();
-                            streams.remove(i);
-                            Logger.printDebug(() -> "Removing Enhanced bitrate: " + getQualityNameWithITag(qualityName, itag));
-                        }
                         // Skip '1080p Premium'
                         continue;
                     }
@@ -473,7 +465,7 @@ public class VideoQualityPatch {
                     }
                 }
             } catch (Exception ex) {
-                Logger.printException(() -> "removeVideoQualities failure", ex);
+                Logger.printException(() -> "removeLowFpsVideoQualities failure", ex);
             }
         }
 

@@ -455,6 +455,12 @@
     <string name="revanced_expand_video_description_summary_off">Опис відео розгортається вручну.</string>
     <string name="revanced_expand_video_description_summary_on">Опис відео розгортається автоматично.</string>
     <string name="revanced_expand_video_description_title">Розгортати опис відео</string>
+    <string name="revanced_extended_audio_tracks_unavailable">"Це налаштування наразі недоступне.
+Щоб скористатися цією функцією, змініть 'Основний клієнт (Підробка даних трансляції)' на iOS TV, TV або Простий TV.
+
+Примітка:
+• iOS TV не підтримує відтворення деяких відео, наприклад, музичних відео.
+• Отже, якщо Основний клієнт вибрано iOS TV, це налаштування може не працювати для деяких відео."</string>
     <string name="revanced_extended_confirm_user_dialog_title">Впевнені, що бажаєте продовжити?</string>
     <string name="revanced_extended_reset_to_default_toast">Скинуто.</string>
     <string name="revanced_extended_restart">Перезапустити</string>
@@ -1771,6 +1777,7 @@
     <string name="revanced_queue_manager_fetch_failed_delete">Не вдалося видалити чергу.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">Не вдалося вилучити відео.</string>
     <string name="revanced_queue_manager_fetch_failed_save">Не вдалося зберегти чергу.</string>
+    <string name="revanced_queue_manager_fetch_failed_video_information">Не вдалося отримати інформацію про відео.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">Відео додано успішно.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">Чергу створено успішно.</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">Чергу видалено успішно.</string>
@@ -1783,6 +1790,7 @@
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Видалити з черги та перевантажити відео</string>
     <string name="revanced_queue_manager_remove_queue">Вилучити чергу</string>
     <string name="revanced_queue_manager_save_queue">Зберегти чергу</string>
+    <string name="revanced_queue_manager_show_original_video_information">Показувати оригінальну інформацію про відео</string>
     <string name="revanced_queue_manager_user_dialog_message">"Замість відкривання зовнішнього завантажувача відкриває діалог керування чергою.
 
 Також можливо відкрити керування чергою натисканням та утриманням кнопки назад на панелі навігації.
@@ -1790,6 +1798,26 @@
 Ця функція все ще перебуває в процесі розробки, тому більшість функцій не працюють.
 
 Будь ласка, використовуйте її лише для налагодження."</string>
+    <string name="revanced_queue_manager_video_information">Інформація про відео</string>
+    <string name="revanced_queue_manager_video_information_copy">Копіювати</string>
+    <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"Канал
+══════════════
+%1$s
+
+Назва
+══════════════
+%2$s"</string>
+    <string name="revanced_queue_manager_video_information_user_dialog_message">"Канал
+══════════════
+%1$s
+
+Назва
+══════════════
+%2$s
+
+Опис
+══════════════
+%3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Верхній відступ швидких дій повинен бути в межах 0-32.</string>
     <string name="revanced_quick_actions_top_margin_summary">Налаштуйте відстань від панелі прогресу до контейнера швидких дій, діапазон 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Верхній відступ швидких дій</string>
@@ -2128,6 +2156,7 @@
     <string name="revanced_share_copy_timestamp_success">Мітку часу скопійовано в буфер обміну. (%s)</string>
     <string name="revanced_share_copy_url_success">URL скопійовано до буфера обміну</string>
     <string name="revanced_share_copy_url_timestamp_success">URL з міткою часу скопійовано в буфер обміну.</string>
+    <string name="revanced_share_copy_video_information_success">Інформацію про відео скопійовано в буфер обміну.</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Ця функція все ще експериментальна, тому немає гарантії, що буде працювати.
 
 Більшість помилок неможливо виправити через обмеження на стороні клієнта, тому використовуйте лише для тестування."</string>

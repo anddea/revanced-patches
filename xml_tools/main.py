@@ -17,12 +17,12 @@ from handlers import (
     check_prefs,
     check_prefs_reverse,
     check_strings,
-    create_update_from_diff,
     missing_strings,
     remove_unused_resources,
     remove_unused_strings,
     replace_strings,
     sort_strings,
+    update_from_diff,
     update_strings,
 )
 from utils import GitClient
@@ -164,8 +164,8 @@ def process_all(config: CLIConfig) -> None:
         ("Missing Strings Check (YouTube)", check_strings.process, ["youtube", base_dir]),
         ("Missing Strings Check (YouTube Music)", check_strings.process, ["music", base_dir]),
         ("Check Icon Preferences", check_icons.process, ["youtube"]),
-        # ("Update Forced Strings from Git Diff (YouTube)", create_update_from_diff.process, ["youtube"]),
-        # ("Update Forced Strings from Git Diff (YouTube Music)", create_update_from_diff.process, ["music"]),
+        ("Update Strings from Git Diff (YouTube)", update_from_diff.process, ["youtube"]),
+        ("Update Strings from Git Diff (YouTube Music)", update_from_diff.process, ["music"]),
     ]
 
     for name, handler, args in handlers:
@@ -210,7 +210,7 @@ def handle_individual_operations(config: CLIConfig, options: dict[str, Any]) -> 
         ("prefs", "Check Preferences", check_prefs.process, (app, base_dir)),
         ("reverse", "Check Preferences (Reverse)", check_prefs_reverse.process, (app, base_dir)),
         ("update_file", "Update Strings from File", update_strings.process, (app, options.get("update_file"))),
-        ("update_from_diff", "Update Forced Strings from Git Diff", create_update_from_diff.process, (app,)),
+        ("update_from_diff", "Update Forced Strings from Git Diff", update_from_diff.process, (app,)),
         ("icons", "Check Icon Preferences", check_icons.process, (app,)),
     ]
 

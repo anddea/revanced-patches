@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.utils.settings.settingsPatch
 
 // Array of supported translations, each represented by its language code.
 private val SUPPORTED_TRANSLATIONS = setOf(
-    "ar", "bg-rBG", "de-rDE", "el-rGR", "es-rES", "fr-rFR", "hu-rHU", "id-rID", "in", "it-rIT", "ja-rJP",
+    "ar", "az-rAZ", "bg-rBG", "da-rDK", "de-rDE", "el-rGR", "es-rES", "fil-rPH", "fr-rFR", "hu-rHU", "id-rID", "in", "it-rIT", "ja-rJP",
     "ko-rKR", "pl-rPL", "pt-rBR", "ru-rRU", "tr-rTR", "uk-rUA", "vi-rVN", "zh-rCN", "zh-rTW"
 )
 

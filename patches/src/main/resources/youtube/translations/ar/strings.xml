@@ -456,6 +456,13 @@
     <string name="revanced_expand_video_description_summary_off">لا يتم توسيع أوصاف الفيديو تلقائيًا.</string>
     <string name="revanced_expand_video_description_summary_on">يتم توسيع أوصاف الفيديو تلقائيًا.</string>
     <string name="revanced_expand_video_description_title">توسيع وصف الفيديو</string>
+    <string name="revanced_extended_audio_tracks_unavailable">"هذا الإعداد غير متاح حاليًا.
+
+لاستخدام هذه الميزة، غيّر 'العميل الافتراضي (Spoof Streaming Data)' إلى iOS TV, TV أو TV Simply.
+
+ملاحظة:
+• لا يدعم iOS TV تشغيل بعض الفيديوهات، مثل الفيديوهات الموسيقية.
+• لذلك، إذا تم ضبط العميل الافتراضي على iOS TV، فقد لا يعمل هذا الإعداد مع بعض الفيديوهات."</string>
     <string name="revanced_extended_confirm_user_dialog_title">هل انت متاكد انك تريد المتابعة؟</string>
     <string name="revanced_extended_reset_to_default_toast">إعادة التعيين إلى القيم الافتراضية.</string>
     <string name="revanced_extended_restart">إعادة التشغيل</string>
@@ -1696,6 +1703,7 @@
     <string name="revanced_queue_manager_fetch_failed_delete">فشل في حذف قائمة الانتظار.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">فشل في إزالة الفيديو.</string>
     <string name="revanced_queue_manager_fetch_failed_save">فشل في حفظ قائمة الانتظار.</string>
+    <string name="revanced_queue_manager_fetch_failed_video_information">فشل في الحصول على معلومات الفيديو.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">تم إضافة الفيديو بنجاح.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">تم إنشاء قائمة الانتظار بنجاح.</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">تم حذف قائمة الانتظار بنجاح.</string>
@@ -1708,6 +1716,7 @@
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">إزالة من قائمة الانتظار وإعادة تحميل الفيديو</string>
     <string name="revanced_queue_manager_remove_queue">إزالة قائمة الانتظار</string>
     <string name="revanced_queue_manager_save_queue">حفظ قائمة الانتظار</string>
+    <string name="revanced_queue_manager_show_original_video_information">عرض معلومات الفيديو الأصلية</string>
     <string name="revanced_queue_manager_user_dialog_message">"بدلاً من فتح برنامج تنزيل خارجي، افتح نافذة مدير قائمة الانتظار.
 
 يمكنك أيضًا فتح مدير قائمة الانتظار بالضغط باستمرار على زر الرجوع في شريط التنقل.
@@ -1715,6 +1724,10 @@
 هذه الميزة لا تزال قيد التطوير، لذا قد لا تعمل معظم الميزات.
 
 يرجى استخدامها لأغراض تصحيح الأخطاء فقط."</string>
+    <string name="revanced_queue_manager_video_information">معلومات الفيديو</string>
+    <string name="revanced_queue_manager_video_information_copy">نسخ</string>
+    <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"القناة ══════════════ %1$s العنوان ══════════════ %2$s"</string>
+    <string name="revanced_queue_manager_video_information_user_dialog_message">"القناة ══════════════ %1$s العنوان ══════════════ %2$s الوصف ══════════════ %3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">يجب أن يكون الهامش العلوي للإجراءات السريعة بين 0-32.</string>
     <string name="revanced_quick_actions_top_margin_summary">تكوين التباعد من شريط التقدم إلى حاوية الإجراء السريع، بين 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">هامش إجراءات سريعة أعلى</string>
@@ -2028,6 +2041,7 @@
     <string name="revanced_share_copy_timestamp_success">تم نسخ الطابع الزمني إلى الحافظة. (%s)</string>
     <string name="revanced_share_copy_url_success">تم نسخ الرابط إلى الحافظة.</string>
     <string name="revanced_share_copy_url_timestamp_success">تم نسخ عنوان URL مع الطابع الزمني إلى الحافظة.</string>
+    <string name="revanced_share_copy_video_information_success">تم نسخ معلومات الفيديو إلى الحافظة.</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"لا تزال هذه الميزة تجريبية، لذا لا يوجد ضمان بأنها ستعمل بشكل مثالي.
 
 لا يمكن إصلاح معظم الأخطاء بسبب القيود المفروضة على جانب العميل، لذا استخدمها لأغراض الاختبار فقط."</string>
