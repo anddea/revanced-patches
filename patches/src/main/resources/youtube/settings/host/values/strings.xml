@@ -463,8 +463,7 @@ Limitation: Does not work if the player is minimized, in PiP mode, or in backgro
 To use this feature, change 'Default client (Spoof streaming data)' to iOS TV, TV or TV Simply.
 
 Note:
-• iOS TV does not support playback of some videos, such as music videos.
-• Therefore, if the Default client is set to iOS TV, this setting may not work for some videos."</string>
+• iOS TV is not available in some regions, in which case this setting may still not work."</string>
     <string name="revanced_extended_confirm_user_dialog_title">Are you sure you want to proceed?</string>
     <string name="revanced_extended_reset_to_default_toast">Reset to default values.</string>
     <string name="revanced_extended_restart">Restart</string>
@@ -2317,8 +2316,8 @@ Example 2:
     <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Reload video button is shown.</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_title">Show reload video button</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Audio track menu is missing.
-• Stable volume is not available.
 • Disable forced auto audio tracks is not available.
+• Stable volume is not available.
 • Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Audio track menu is missing.
 • Stable volume is not available."</string>
@@ -2329,7 +2328,9 @@ Example 2:
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• Whole ASNs/IP ranges may be blocked by the server.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Stable volume is not available.
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Audio track menu may be missing.
+• Disable forced auto audio tracks may not be available.
+• Stable volume is not available.
 • Movies or paid videos may not play.
 • Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Audio track menu is missing.

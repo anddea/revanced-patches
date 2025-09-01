@@ -455,7 +455,8 @@ Nota: non funziona se il riproduttore è minimizzato, in modalità PiP o in back
     <string name="revanced_expand_video_description_summary_off">La descrizione dei video non viene espansa automaticamente.</string>
     <string name="revanced_expand_video_description_summary_on">La descrizione dei video viene espansa automaticamente.</string>
     <string name="revanced_expand_video_description_title">Espandi automaticamente</string>
-    <string name="revanced_extended_audio_tracks_unavailable">"Per usare questa impostazione, cambia il client predefinito in iOS TV, TV o TV Simply.
+    <string name="revanced_extended_audio_tracks_unavailable">"Questa impostazione non è al momento disponibile.
+Per usare questa impostazione, cambia il client predefinito in iOS TV, TV o TV Simply.
 
 Nota: iOS TV non supporta la riproduzione di alcuni video, come i video musicali, quindi se il client predefinito è impostato su iOS TV, questa impostazione potrebbe non funzionare per alcuni video."</string>
     <string name="revanced_extended_confirm_user_dialog_title">Sei sicuro di voler procedere?</string>
@@ -1554,7 +1555,7 @@ Tocca e tieni premuto per copiare il timestamp del video."</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Mostra il pulsante Copia URL Video con Timestamp</string>
     <string name="revanced_overlay_button_copy_video_url_title">Mostra il pulsante Copia URL Video</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_summary">Invece di aprire un downloader esterno, apri la finestra di dialogo del gestore delle code.</string>
-    <string name="revanced_overlay_button_external_downloader_queue_manager_title">Gestore delle code</string>
+    <string name="revanced_overlay_button_external_downloader_queue_manager_title">Apri il gestore delle code</string>
     <string name="revanced_overlay_button_external_downloader_summary">Tocca per avviare il downloader esterno.</string>
     <string name="revanced_overlay_button_external_downloader_title">Mostra il pulsante Downloader Esterno</string>
     <string name="revanced_overlay_button_mute_volume_summary">Tocca per disattivare l\'audio del video corrente.
@@ -1602,7 +1603,7 @@ Per mostrare il pulsante Scarica Playlist nativo, attiva il camuffamento della v
     <string name="revanced_override_playlist_download_button_title">Sovrascrivi il pulsante Scarica Playlist</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_off">Il pulsante Scarica Video nativo apre il downloader esterno.</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_on">Il pulsante Scarica Video nativo apre il gestore delle code.</string>
-    <string name="revanced_override_video_download_button_queue_manager_title">Gestore delle code</string>
+    <string name="revanced_override_video_download_button_queue_manager_title">Apri il gestore delle code</string>
     <string name="revanced_override_video_download_button_summary_off">Il pulsante Scarica Video nativo apre il downloader nativo.</string>
     <string name="revanced_override_video_download_button_summary_on">Il pulsante Scarica Video nativo apre il downloader esterno.</string>
     <string name="revanced_override_video_download_button_title">Sovrascrivi il pulsante Scarica Video</string>
@@ -1727,6 +1728,7 @@ Per mostrare il pulsante Scarica Playlist nativo, attiva il camuffamento della v
     <string name="revanced_queue_manager_fetch_failed_delete">Eliminazione della coda non riuscita</string>
     <string name="revanced_queue_manager_fetch_failed_remove">Rimozione del video non riuscita</string>
     <string name="revanced_queue_manager_fetch_failed_save">Salvataggio della coda non riuscito</string>
+    <string name="revanced_queue_manager_fetch_failed_video_information">Ottenimento delle informazioni del video non riuscito</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">Video aggiunto con successo</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">Coda creata con successo</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">Coda eliminata con successo</string>
@@ -1739,6 +1741,7 @@ Per mostrare il pulsante Scarica Playlist nativo, attiva il camuffamento della v
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Rimuovi dalla coda e ricarica il video</string>
     <string name="revanced_queue_manager_remove_queue">Rimuovi la coda</string>
     <string name="revanced_queue_manager_save_queue">Salva la coda</string>
+    <string name="revanced_queue_manager_show_original_video_information">Mostra le informazioni del video originale</string>
     <string name="revanced_queue_manager_user_dialog_message">"Invece di aprire un downloader esterno, apri la finestra di dialogo del gestore delle code.
 
 Puoi anche aprire il gestore delle code tenendo premuto il pulsante Indietro sulla barra di navigazione.
@@ -1746,6 +1749,26 @@ Puoi anche aprire il gestore delle code tenendo premuto il pulsante Indietro sul
 Questa impostazione è ancora in fase di sviluppo, pertanto la maggior parte delle funzionalità potrebbe non funzionare.
 
 Usala solo per scopi di debug."</string>
+    <string name="revanced_queue_manager_video_information">Informazioni del video originale</string>
+    <string name="revanced_queue_manager_video_information_copy">Copia</string>
+    <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"Canale
+══════════════
+%1$s
+
+Titolo
+══════════════
+%2$s"</string>
+    <string name="revanced_queue_manager_video_information_user_dialog_message">"Canale
+══════════════
+%1$s
+
+Titolo
+══════════════
+%2$s
+
+Descrizione
+══════════════
+%3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Il margine superiore delle azioni rapide deve essere tra 0 e 32</string>
     <string name="revanced_quick_actions_top_margin_summary">Configura lo spazio tra la barra di ricerca e il contenitore delle azioni rapide, tra 0 e 32.</string>
     <string name="revanced_quick_actions_top_margin_title">Margine superiore delle azioni rapide</string>
@@ -2066,6 +2089,7 @@ Pronto per l'invio?"</string>
     <string name="revanced_share_copy_timestamp_success">Timestamp copiato negli appunti (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiato negli appunti</string>
     <string name="revanced_share_copy_url_timestamp_success">URL con timestamp copiato negli appunti</string>
+    <string name="revanced_share_copy_video_information_success">Informazioni video copiate negli appunti</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Questa impostazione è ancora sperimentale, quindi non c'è garanzia che funzionerà perfettamente.
 
 La maggior parte dei bug non può essere risolta a causa di limitazioni lato client, quindi usala solo per scopi di test."</string>

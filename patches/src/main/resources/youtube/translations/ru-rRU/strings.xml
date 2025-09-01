@@ -449,6 +449,12 @@
     <string name="revanced_expand_video_description_summary_off">Описание видео разворачивается вручную.</string>
     <string name="revanced_expand_video_description_summary_on">Описание видео автоматически развернуто.</string>
     <string name="revanced_expand_video_description_title">Развернуть описание видео</string>
+    <string name="revanced_extended_audio_tracks_unavailable">"Эта настройка недоступна.
+Чтобы использовать эту функцию, измените «Клиент по умолчанию (Подмена потоковых данных)» на iOS TV, TV или TV простой.
+
+Примечание:
+• iOS TV не поддерживает некоторые видео, например музыкальных клипов.
+• Если по умолчанию выбран iOS TV, эта настройка игнорируется в некоторых видео."</string>
     <string name="revanced_extended_confirm_user_dialog_title">Подтверждаете действие?</string>
     <string name="revanced_extended_reset_to_default_toast">К значениям по умолчанию.</string>
     <string name="revanced_extended_restart">Перезапустить</string>
@@ -1755,6 +1761,7 @@ Shorts
     <string name="revanced_queue_manager_fetch_failed_delete">Не удалось удалить очередь.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">Не удалось удалить видео.</string>
     <string name="revanced_queue_manager_fetch_failed_save">Не удалось сохранить очередь.</string>
+    <string name="revanced_queue_manager_fetch_failed_video_information">Нет информации о видео.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">Видео добавлено успешно.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">Очередь создана успешно.</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">Очередь удалена успешно.</string>
@@ -1767,6 +1774,7 @@ Shorts
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Удалить из очереди и обновить</string>
     <string name="revanced_queue_manager_remove_queue">Удалить очередь</string>
     <string name="revanced_queue_manager_save_queue">Сохранить очередь</string>
+    <string name="revanced_queue_manager_show_original_video_information">Оригинальная информация о видео</string>
     <string name="revanced_queue_manager_user_dialog_message">"Вместо открытия внешнего загрузчика открывается диалог управления очередью.
 
 Также можно открыть управление нажатием и удерживанием кнопки назад на панели навигации.
@@ -1774,6 +1782,26 @@ Shorts
 Эта функция все ещё находится в процессе разработки, поэтому большинство функций не работает.
 
 Пожалуйста, используйте её только для отладки."</string>
+    <string name="revanced_queue_manager_video_information">Информация о видео</string>
+    <string name="revanced_queue_manager_video_information_copy">Копия</string>
+    <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"Канал
+══════════════
+%1$s
+
+Заголовок
+══════════════
+%2$s"</string>
+    <string name="revanced_queue_manager_video_information_user_dialog_message">"Канал
+══════════════
+%1$s
+
+Заголовок
+══════════════
+%2$s
+
+Описание
+══════════════
+%3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Значение должно быть в диапазоне от 0 до 32. Сброс по умолчанию.</string>
     <string name="revanced_quick_actions_top_margin_summary">Значение отступа поля быстрых действий от шкалы воспроизведения\nДиапазон от 0 до 32.</string>
     <string name="revanced_quick_actions_top_margin_title">Отступ над быстрыми действиями</string>
@@ -2114,6 +2142,7 @@ Shorts
     <string name="revanced_share_copy_timestamp_success">Метка времени скопирована в буфер. (%s)</string>
     <string name="revanced_share_copy_url_success">Ссылка скопирована в буфер обмена.</string>
     <string name="revanced_share_copy_url_timestamp_success">Ссылка с меткой времени скопирована в буфер.</string>
+    <string name="revanced_share_copy_video_information_success">Информация о видео в буфере обмена.</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">Эта функция все еще экспериментальная, поэтому нет гарантии, что она будет работать идеально.\nБольшинство ошибок не могут быть исправлены из-за ограничений на стороне клиента, поэтому используйте ее только в целях тестирования.</string>
     <string name="revanced_shorts_custom_actions_about_summary">"Экспериментальная функция!
 Гарантии работы нет!

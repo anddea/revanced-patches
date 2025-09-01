@@ -347,7 +347,7 @@ public class SpoofStreamingDataPatch {
         return format;
     }
 
-    public static boolean notSpoofingToAndroid() {
+    public static boolean multiAudioTrackAvailable() {
         if (!PatchStatus.SpoofStreamingData()) {
             return true;
         }
@@ -355,7 +355,9 @@ public class SpoofStreamingDataPatch {
             return true;
         }
         String defaultClient = BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().name();
-        return defaultClient.equals("IOS_UNPLUGGED") || defaultClient.startsWith("TV");
+        // iOS TV is not available in some regions or for some users.
+        return defaultClient.equals("IOS_UNPLUGGED")
+                || defaultClient.startsWith("TV");
     }
 
     public static final class ClientAndroidVRAvailability implements Setting.Availability {
@@ -393,13 +395,13 @@ public class SpoofStreamingDataPatch {
     }
 
     public static final class ForceOriginalAudioAvailability implements Setting.Availability {
-        private static final boolean AVAILABLE_ON_LAUNCH = SpoofStreamingDataPatch.notSpoofingToAndroid();
+        private static final boolean AVAILABLE_ON_LAUNCH = SpoofStreamingDataPatch.multiAudioTrackAvailable();
 
         @Override
         public boolean isAvailable() {
             // Check conditions of launch and now. Otherwise if spoofing is changed
             // without a restart the setting will show as available when it's not.
-            return AVAILABLE_ON_LAUNCH && SpoofStreamingDataPatch.notSpoofingToAndroid();
+            return AVAILABLE_ON_LAUNCH && SpoofStreamingDataPatch.multiAudioTrackAvailable();
         }
     }
 
@@ -412,13 +414,13 @@ public class SpoofStreamingDataPatch {
     }
 
     public static final class HideAudioFlyoutMenuAvailability implements Setting.Availability {
-        private static final boolean AVAILABLE_ON_LAUNCH = SpoofStreamingDataPatch.notSpoofingToAndroid();
+        private static final boolean AVAILABLE_ON_LAUNCH = SpoofStreamingDataPatch.multiAudioTrackAvailable();
 
         @Override
         public boolean isAvailable() {
             // Check conditions of launch and now. Otherwise if spoofing is changed
             // without a restart the setting will show as available when it's not.
-            return AVAILABLE_ON_LAUNCH && SpoofStreamingDataPatch.notSpoofingToAndroid();
+            return AVAILABLE_ON_LAUNCH && SpoofStreamingDataPatch.multiAudioTrackAvailable();
         }
     }
 

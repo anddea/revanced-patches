@@ -24,11 +24,6 @@ public class ThemeUtils extends BaseThemeUtils {
     }
 
     public static Drawable getBackButtonDrawable() {
-        Drawable drawable = getDrawable("revanced_settings_toolbar_arrow_left");
-        if (drawable != null) {
-            drawable.setTint(getAppForegroundColor());
-            return drawable;
-        }
         final String drawableName = isDarkModeEnabled()
                 ? "yt_outline_arrow_left_white_24"
                 : "yt_outline_arrow_left_black_24";

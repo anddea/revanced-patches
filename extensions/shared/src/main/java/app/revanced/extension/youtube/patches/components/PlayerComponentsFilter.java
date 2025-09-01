@@ -45,6 +45,11 @@ public final class PlayerComponentsFilter extends Filter {
                 "featured_channel_watermark_overlay.eml"
         );
 
+        final StringFilterGroup donationShelf = new StringFilterGroup(
+                Settings.HIDE_CROWDFUNDING_BOX,
+                "donation_shelf.eml"
+        );
+
         final StringFilterGroup infoCards = new StringFilterGroup(
                 Settings.HIDE_INFO_CARDS,
                 "info_card_teaser_overlay.eml"
@@ -87,6 +92,7 @@ public final class PlayerComponentsFilter extends Filter {
                 audioTrackButton,
                 channelBar,
                 channelWaterMark,
+                donationShelf,
                 infoCards,
                 infoPanel,
                 medicalPanel,

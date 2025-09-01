@@ -451,6 +451,13 @@ Korlátozás: Nem működik, ha a lejátszó kicsinyített, PiP módban vagy a h
     <string name="revanced_expand_video_description_summary_off">A videoleírások nem bővülnek ki automatikusan.</string>
     <string name="revanced_expand_video_description_summary_on">A videoleírások automatikusan kibővülnek.</string>
     <string name="revanced_expand_video_description_title">Videoleírások kibővítése</string>
+    <string name="revanced_extended_audio_tracks_unavailable">"Ez a beállítás jelenleg nem érhető el.
+
+A funkció használatához módosítsa az 'Alapértelmezett kliens (hamis streamelési adatok)' beállítást iOS TV, TV vagy TV egyszerű értékre.
+
+Megjegyzés:
+• Az iOS TV nem támogatja bizonyos videók, például zenei videók lejátszását.
+• Ezért, ha az alapértelmezett kliens az iOS TV-re van állítva, ez a beállítás egyes videók esetében nem biztos, hogy működik."</string>
     <string name="revanced_extended_confirm_user_dialog_title">Szeretné folytatni?</string>
     <string name="revanced_extended_reset_to_default_toast">Visszaállítás az alapértelmezett értékekre.</string>
     <string name="revanced_extended_restart">Újraindítás</string>
@@ -551,7 +558,7 @@ Információ:
     <string name="revanced_hide_autoplay_preview_summary_off">Az automatikus lejátszás előnézet látható.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Az automatikus lejátszás előnézet el van rejtve.</string>
     <string name="revanced_hide_autoplay_preview_title">Automatikus lejátszás előnézet elrejtése</string>
-    <string name="revanced_hide_carousel_shelf_about_summary">Példák a karusszelre:&lt;br&gt;&lt;br&gt;&lt;b&gt;Friss hírek&lt;/b&gt;, &lt;b&gt;Nézés folytatása&lt;/b&gt;, &lt;b&gt;További csatornák felfedezése&lt;/b&gt;, &lt;b&gt;Hallgassa meg újra&lt;/b&gt;, &lt;b&gt;Legrelevánsabb&lt;/b&gt;, &lt;b&gt;Vásárlás&lt;/b&gt;, &lt;b&gt;Nézze meg újra&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Példák a karusszelre:&lt;br&gt;&lt;br&gt;&lt;b&gt;Friss hírek&lt;/b&gt;, &lt;b&gt;Nézés folytatása&lt;/b&gt;, &lt;b&gt;További csatornák felfedezése&lt;/b&gt;, &lt;b&gt;Neked&lt;/b&gt;, &lt;b&gt;Hallgassa meg újra&lt;/b&gt;, &lt;b&gt;Legrelevánsabb&lt;/b&gt;, &lt;b&gt;Vásárlás&lt;/b&gt;, &lt;b&gt;Nézze meg újra&lt;/b&gt;</string>
     <string name="revanced_hide_carousel_shelf_about_title">A karusszelről</string>
     <string name="revanced_hide_carousel_shelf_home_summary_off">Látható a kezdőlapon és a kapcsolódó videóknál.</string>
     <string name="revanced_hide_carousel_shelf_home_summary_on">Elrejtve a kezdőlapon és a kapcsolódó videóknál.</string>
@@ -1695,6 +1702,7 @@ A natív lejátszási lista letöltése gomb megjelenítéséhez kapcsolja be a 
     <string name="revanced_queue_manager_fetch_failed_delete">A várólista törlése nem sikerült.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">A videó törlése nem sikerült.</string>
     <string name="revanced_queue_manager_fetch_failed_save">A várólista mentése nem sikerült.</string>
+    <string name="revanced_queue_manager_fetch_failed_video_information">Nem sikerült beszerezni a videó információt.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">A videó sikeresen hozzáadva.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">A várólista sikeresen létrehozva.</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">A várólista sikeresen törölve.</string>
@@ -1707,6 +1715,7 @@ A natív lejátszási lista letöltése gomb megjelenítéséhez kapcsolja be a 
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Eltávolítás a várólistáról és a videó lejátszása</string>
     <string name="revanced_queue_manager_remove_queue">Várólista eltávolítása</string>
     <string name="revanced_queue_manager_save_queue">Várólista mentése</string>
+    <string name="revanced_queue_manager_show_original_video_information">Eredeti videó információ mutatása</string>
     <string name="revanced_queue_manager_user_dialog_message">"Külső letöltő megnyitása helyett nyissa meg a várólista párbeszédpanelt.
 
 A várólistát a navigációs sáv vissza gombjának lenyomva tartásával is megnyithatja.
@@ -1714,6 +1723,26 @@ A várólistát a navigációs sáv vissza gombjának lenyomva tartásával is m
 Ez a funkció még fejlesztés alatt áll, így előfordulhat, hogy több funkció nem működik.
 
 Kérjük, csak hibakeresési célokra használja."</string>
+    <string name="revanced_queue_manager_video_information">Videó információ</string>
+    <string name="revanced_queue_manager_video_information_copy">Másolás</string>
+    <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"Csatorna
+══════════════
+%1$s
+
+Cím
+══════════════
+%2$s"</string>
+    <string name="revanced_queue_manager_video_information_user_dialog_message">"Csatorna
+══════════════
+%1$s
+
+Cím
+══════════════
+%2$s
+
+Leírás
+══════════════
+%3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">A gyors műveletek felső margójának 0 és 32 között kell lennie.</string>
     <string name="revanced_quick_actions_top_margin_summary">Állítsa be a keresősáv és a gyorsművelet rész közötti távolságot 0-32 között.</string>
     <string name="revanced_quick_actions_top_margin_title">Gyorsműveletek felső margó</string>
@@ -2027,6 +2056,7 @@ Készen állsz a beküldésre?"</string>
     <string name="revanced_share_copy_timestamp_success">Az időbélyeg a vágólapra másolva. (%s)</string>
     <string name="revanced_share_copy_url_success">Az URL a vágólapra másolva.</string>
     <string name="revanced_share_copy_url_timestamp_success">Az időbélyeges URL a vágólapra másolva.</string>
+    <string name="revanced_share_copy_video_information_success">Videó információ vágólapra másolva.</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Ez a funkció még kísérleti jellegű, így nincs garancia arra, hogy tökéletesen fog működni.
 
 A legtöbb hiba nem javítható az ügyféloldali korlátozások miatt, ezért csak tesztelési célokra használja."</string>
@@ -2178,8 +2208,8 @@ Ha ez a beállítás engedélyezve van, a szerver válaszából származó legma
     <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">A videó újratöltés gomb látható.</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_title">Videó újratöltés gomb megjelenítése</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• A hangsáv menü hiányzik.
-• A stabil hangerő nem áll rendelkezésre.
 • A kényszerített automatikus hangsávok letiltása nem elérhető.
+• A stabil hangerő nem áll rendelkezésre.
 • Előfordulhat, hogy a gyerekeknek szánt tartalmat nem lehet lejátszani, ha ki van jelentkezve vagy inkognitó módban van."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Az audiosáv menü hiányzik."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Az audiosáv menü hiányzik."</string>

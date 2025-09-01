@@ -11,7 +11,7 @@ import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch;
 @SuppressWarnings({"deprecation", "unused"})
 public class HideAudioFlyoutMenuPreference extends SwitchPreference {
     {
-        if (SpoofStreamingDataPatch.notSpoofingToAndroid()) {
+        if (SpoofStreamingDataPatch.multiAudioTrackAvailable()) {
             String summaryOn = str("revanced_hide_player_flyout_menu_audio_track_summary_on");
             String summaryOff = str("revanced_hide_player_flyout_menu_audio_track_summary_off");
             setSummaryOn(summaryOn);
