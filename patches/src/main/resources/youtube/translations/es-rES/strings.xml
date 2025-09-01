@@ -1697,6 +1697,7 @@ Para mostrar el botón de descarga de la lista de reproducción nativa, activa �
     <string name="revanced_queue_manager_fetch_failed_delete">Error al eliminar la cola.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">Error al eliminar el vídeo.</string>
     <string name="revanced_queue_manager_fetch_failed_save">Error al guardar la cola.</string>
+    <string name="revanced_queue_manager_fetch_failed_video_information">Error al obtener la información del vídeo.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">Vídeo añadido correctamente.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">Cola creada correctamente.</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">Cola eliminada correctamente.</string>
@@ -1709,6 +1710,7 @@ Para mostrar el botón de descarga de la lista de reproducción nativa, activa �
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Eliminar de la cola y recargar vídeo</string>
     <string name="revanced_queue_manager_remove_queue">Eliminar cola</string>
     <string name="revanced_queue_manager_save_queue">Guardar cola</string>
+    <string name="revanced_queue_manager_show_original_video_information">Mostrar información original del vídeo</string>
     <string name="revanced_queue_manager_user_dialog_message">"En lugar de abrir un descargador externo, abre el diálogo del gestor de colas.
 
 También puedes abrir el gestor de colas manteniendo presionado el botón Atrás en la barra de navegación.
@@ -1716,6 +1718,26 @@ También puedes abrir el gestor de colas manteniendo presionado el botón Atrás
 Esta función aún está en desarrollo, por lo que es posible que la mayoría de las funciones no funcionen.
 
 Por favor, utilízala solo con fines de depuración."</string>
+    <string name="revanced_queue_manager_video_information">Información del vídeo</string>
+    <string name="revanced_queue_manager_video_information_copy">Copiar</string>
+    <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"Canal
+══════════════
+%1$s
+
+Título
+══════════════
+%2$s"</string>
+    <string name="revanced_queue_manager_video_information_user_dialog_message">"Canal
+══════════════
+%1$s
+
+Título
+══════════════
+%2$s
+
+Descripción
+══════════════
+%3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">El margen superior de las acciones rápidas debe estar entre 0-32. Restablezca a los valores predeterminados.</string>
     <string name="revanced_quick_actions_top_margin_summary">Configura el espacio entre la barra de progreso y el contenedor de acciones rápidas, entre 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Margen superior de acciones rápidas</string>
@@ -2023,6 +2045,7 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_share_copy_timestamp_success">Marca de tiempo copiada en el portapapeles. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiada en el portapapeles.</string>
     <string name="revanced_share_copy_url_timestamp_success">URL con marca de tiempo copiada en el portapapeles.</string>
+    <string name="revanced_share_copy_video_information_success">Información del vídeo copiada al portapapeles.</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Esta función es aún experimental, por lo que no hay garantía de que funcione perfectamente.
 
 La mayoría de los errores no pueden solucionarse debido a las limitaciones del lado del cliente, así que utilízala solo con fines de prueba."</string>

@@ -457,6 +457,11 @@ Hạn chế: Không hoạt động nếu trình phát đang thu nhỏ, trong ch�
     <string name="revanced_expand_video_description_summary_off">Mô tả video không tự động mở rộng.</string>
     <string name="revanced_expand_video_description_summary_on">Mô tả video tự động mở rộng.</string>
     <string name="revanced_expand_video_description_title">Mở rộng mô tả video</string>
+    <string name="revanced_extended_audio_tracks_unavailable">"Cài đặt này hiện không khả dụng.
+Để dùng tính năng, hãy thay đổi 'Client mặc định (Giả mạo dữ liệu phát video)' sang iOS TV, TV hoặc TV Simply.
+
+Lưu ý:
+• iOS TV không hỗ trợ phát một số video, ví dụ như video nhạc."</string>
     <string name="revanced_extended_confirm_user_dialog_title">Bạn có chắc chắn muốn tiếp tục không?</string>
     <string name="revanced_extended_reset_to_default_toast">Đã đặt lại giá trị về mặc định.</string>
     <string name="revanced_extended_restart">Khởi động lại</string>
@@ -1771,6 +1776,7 @@ Nhấn và giữ để mở hộp thoại cài đặt Danh sách trắng.</strin
     <string name="revanced_queue_manager_fetch_failed_delete">Không thể xoá hàng chờ.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">Không thể xoá video.</string>
     <string name="revanced_queue_manager_fetch_failed_save">Không thể lưu hàng chờ.</string>
+    <string name="revanced_queue_manager_fetch_failed_video_information">Không thể tải thông tin video.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">Thêm video thành công.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">Tạo hàng chờ thành công.</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">Xoá hàng chờ thành công.</string>
@@ -1783,6 +1789,7 @@ Nhấn và giữ để mở hộp thoại cài đặt Danh sách trắng.</strin
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Xoá khỏi hàng chờ và tải lại video</string>
     <string name="revanced_queue_manager_remove_queue">Xoá hàng chờ</string>
     <string name="revanced_queue_manager_save_queue">Lưu hàng chờ</string>
+    <string name="revanced_queue_manager_show_original_video_information">Thông tin gốc của video</string>
     <string name="revanced_queue_manager_user_dialog_message">"Thay vì mở trình tải xuống bên ngoài, khi tương tác sẽ mở hộp thoại quản lý hàng chờ.
 
 Ngoài ra, bạn cũng có thể mở hộp thoại quản lý hàng chờ bằng cách nhấn và giữ nút quay lại trên thanh điều hướng.
@@ -1790,6 +1797,26 @@ Ngoài ra, bạn cũng có thể mở hộp thoại quản lý hàng chờ bằn
 Nhưng tính năng này vẫn còn đang trong quá trình phát triển, vì vậy phần lớn các tính năng có thể chưa hoạt động.
 
 Vui lòng chỉ sử dụng cho mục đích gỡ lỗi."</string>
+    <string name="revanced_queue_manager_video_information">Thông tin video</string>
+    <string name="revanced_queue_manager_video_information_copy">Sao chép</string>
+    <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"Kênh
+══════════════
+%1$s
+
+Tiêu đề
+══════════════
+%2$s"</string>
+    <string name="revanced_queue_manager_video_information_user_dialog_message">"Kênh
+══════════════
+%1$s
+
+Tiêu đề
+══════════════
+%2$s
+
+Mô tả
+══════════════
+%3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Lề trên bảng nút thao tác nhanh phải nằm trong khoảng 0 đến 32.</string>
     <string name="revanced_quick_actions_top_margin_summary">Giá trị khoảng cách từ thanh tiến trình đến bảng nút thao tác nhanh trong khoảng từ 0 đến 32.</string>
     <string name="revanced_quick_actions_top_margin_title">Lề trên bảng nút thao tác nhanh</string>
@@ -2128,6 +2155,7 @@ Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_share_copy_timestamp_success">Đã sao chép dấu thời gian vào bảng nhớ tạm. (%s)</string>
     <string name="revanced_share_copy_url_success">Đã sao chép URL sang bảng nhớ tạm.</string>
     <string name="revanced_share_copy_url_timestamp_success">Đã sao chép URL cùng dấu thời gian vào bảng nhớ tạm.</string>
+    <string name="revanced_share_copy_video_information_success">Đã sao chép thông tin video sang bảng nhớ tạm.</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Hiện tính năng này vẫn đang trong giai đoạn thử nghiệm, vì vậy, không có gì đảm bảo rằng tính năng này sẽ hoạt động một cách hoàn hảo.
 
 Hầu hết các lỗi không thể sửa được do hạn chế tới từ phía ứng dụng, cuối cùng, vui lòng chỉ sử dụng chúng cho mục đích thử nghiệm."</string>

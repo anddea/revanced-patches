@@ -459,7 +459,8 @@ Ograniczenie: nie działa jeśli odtwarzacz jest zminimalizowany, w trybie PiP l
     <string name="revanced_expand_video_description_summary_off">Ręcznie</string>
     <string name="revanced_expand_video_description_summary_on">Automatycznie</string>
     <string name="revanced_expand_video_description_title">Otwieraj opisy filmów</string>
-    <string name="revanced_extended_audio_tracks_unavailable">"Aby używać tej fukcji, zmień domyślnego klienta oszukiwania strumienia danych na iOS TV, TV lub Uproszczony TV.
+    <string name="revanced_extended_audio_tracks_unavailable">"Opcja jest obecnie niedostępna.
+Aby używać tej fukcji, zmień domyślnego klienta oszukiwania strumienia danych na iOS TV, TV lub Uproszczony TV.
 
 Notki:
 • iOS TV nie obsługuje odtwarzania niektórych filmów, jak muzycznych
@@ -1516,6 +1517,8 @@ Jeśli YouTube Doodles pojawiają się obecnie w Twoim regionie, a opcja ukrywan
 <small>తెలుగు</small>"</string>
     <string name="revanced_language_TH">"Tajski
 <small>ไทย</small>"</string>
+    <string name="revanced_language_TL">"Filipiński
+<small>Filipiński</small>"</string>
     <string name="revanced_language_TR">"Turecki
 <small>Türkçe</small>"</string>
     <string name="revanced_language_UK">"Ukraiński
@@ -1779,6 +1782,7 @@ Stuknij tutaj, by pobrać YouTube Music.</string>
     <string name="revanced_queue_manager_fetch_failed_delete">Nie udało się usunąć kolejki.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">Nie udało się usunąć filmu.</string>
     <string name="revanced_queue_manager_fetch_failed_save">Nie udało się zapisać kolejki.</string>
+    <string name="revanced_queue_manager_fetch_failed_video_information">Nie udało się zdobyć informacji o filmie.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">Pomyślnie dodano film.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">Pomyślnie utworzono kolejkę.</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">Pomyślnie usunięto kolejkę.</string>
@@ -1791,6 +1795,7 @@ Stuknij tutaj, by pobrać YouTube Music.</string>
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Usuń z kolejki i odśwież film</string>
     <string name="revanced_queue_manager_remove_queue">Usuń kolejkę</string>
     <string name="revanced_queue_manager_save_queue">Zapisz kolejkę</string>
+    <string name="revanced_queue_manager_show_original_video_information">Pokaż oryginalne informacje o filmie</string>
     <string name="revanced_queue_manager_user_dialog_message">"Zamiast otwierać zewnętrzną aplikację od pobierania, otwiera okno menedżera kolejki.
 
 Możesz również otworzyć menedżer kolejek poprzez kliknięcie i przytrzymanie przycisku cofania na pasku nawigacyjnym.
@@ -1798,6 +1803,26 @@ Możesz również otworzyć menedżer kolejek poprzez kliknięcie i przytrzymani
 Funkcja jest nadal rozwijana, więc większość funkcji może nie działać.
 
 Proszę używać tej funkcji wyłącznie w celach debugowania."</string>
+    <string name="revanced_queue_manager_video_information">Informacje o filmie</string>
+    <string name="revanced_queue_manager_video_information_copy">Kopiuj</string>
+    <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"Kanał
+══════════════
+%1$s
+
+Tytuł
+══════════════
+%2$s"</string>
+    <string name="revanced_queue_manager_video_information_user_dialog_message">"Kanał
+══════════════
+%1$s
+
+Tytuł
+══════════════
+%2$s
+
+Opis
+══════════════
+%3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Górny margines przycisków na dole odtwarzacza musi wynosić między 0 a 32.</string>
     <string name="revanced_quick_actions_top_margin_summary">Skonfiguruj odstęp od paska postępu filmu do kontenera szybkich akcji, w zakresie od 0 do 32.</string>
     <string name="revanced_quick_actions_top_margin_title">Górny margines przycisków na dole odtwarzacza</string>
@@ -2135,6 +2160,7 @@ Gotowy do przesłania?"</string>
     <string name="revanced_share_copy_timestamp_success">Skopiowano czas do schowka. (%s)</string>
     <string name="revanced_share_copy_url_success">Skopiowano URL do schowka.</string>
     <string name="revanced_share_copy_url_timestamp_success">Skopiowano URL z czasem do schowka.</string>
+    <string name="revanced_share_copy_video_information_success">Skopiowano informacje o filmie.</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Funkcja ta jest nadal eksperymentalna, więc nie ma gwarancji, że będzie działać perfekcyjnie.
 
 Większość błędów nie może być naprawiona w skutek ograniczeń po stronie klienta, więc używaj tej funkcji jedynie do celów testowych."</string>
