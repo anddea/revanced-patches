@@ -106,6 +106,12 @@ Limitazioni: I video per bambini potrebbero non essere reindirizzati."</string>
     <string name="revanced_disable_player_gesture_title">Disabilita gestualità dal lettore</string>
     <string name="revanced_disable_quic_protocol_summary">"Disabilita il protocollo QUIC di CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Disabilita il protocollo QUIC</string>
+    <string name="revanced_disable_trim_silence_summary">"Disattiva l'opzione "Taglia silenzio" nel menu a comparsa della velocità di riproduzione.
+
+Info:
+• Questa funzione è per i podcast.
+• Questa funzione è ancora in fase di sviluppo, quindi potrebbe essere instabile."</string>
+    <string name="revanced_disable_trim_silence_title">Disabilita taglia silenzi</string>
     <string name="revanced_enable_comments_scroll_top_summary">"Cliccando sul titolo del pannello dei commenti ("Commenti") si scorre fino in cima.
 
 Limitazione: non si applica alle risposte dei commenti."</string>
@@ -126,9 +132,15 @@ Limitazioni:
     <string name="revanced_enable_mini_player_next_button_title">Aggiunge il pulsante successivo al miniplayer</string>
     <string name="revanced_enable_mini_player_previous_button_summary">Aggiunge il pulsante per tornare alla traccia precedente al miniplayer.</string>
     <string name="revanced_enable_mini_player_previous_button_title">Aggiunge il pulsante precedente al miniplayer</string>
-    <string name="revanced_enable_opus_codec_summary">"Abilita il codec Opus 250/251 durante la riproduzione dell'audio."</string>
+    <string name="revanced_enable_opus_codec_summary">"Attiva il codec OPUS se la risposta del player lo include.
+
+​Info:
+• ​I client più recenti di YouTube Music utilizzano il codec audio OPUS di default.
+​• Ciò potrebbe essere necessario se il client o lo stream video è stato alterato (spoofato)."</string>
     <string name="revanced_enable_opus_codec_title">Abilita il codec opus</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">Abilita un\'animazione fluida quando il miniplayer viene ingrandito dallo stato ridotto a icona.</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">"Abilita un'animazione fluida quando il miniplayer viene massimizzato dallo stato ridotto a icona.
+
+​Limiti: ​L'interfaccia utente dei testi in tempo reale potrebbe non funzionare correttamente per alcuni utenti."</string>
     <string name="revanced_enable_smooth_transition_animation_title">Abilita l\'animazione di transizione fluida</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Abilita "scorrere verso il basso" per chiudere il miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Abilita scorri per nascondere il miniplayer</string>
@@ -184,6 +196,8 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">Nascondi il pulsante Salva</string>
     <string name="revanced_hide_action_button_comment_summary">Nascondi il pulsante Commenti.</string>
     <string name="revanced_hide_action_button_comment_title">Nascondi il pulsante Commenti</string>
+    <string name="revanced_hide_action_button_disabled_summary">Nascondi i pulsanti disabilitati, come il pulsante Commenti disabilitato.</string>
+    <string name="revanced_hide_action_button_disabled_title">Nascondi pulsante disabilitato</string>
     <string name="revanced_hide_action_button_download_summary">Nasconde il pulsante del download.</string>
     <string name="revanced_hide_action_button_download_title">Nascondi il pulsante Download</string>
     <string name="revanced_hide_action_button_label_summary">Nasconde le etichette dei pulsanti di azione.</string>
@@ -487,10 +501,14 @@ Fai clic per vedere come emettere una chiave API."</string>
     <string name="revanced_spoof_app_version_target_summary">Seleziona la destinazione falsificata della versione app.</string>
     <string name="revanced_spoof_app_version_target_title">Falsifica destinazione della versione app</string>
     <string name="revanced_spoof_app_version_title">Versione dell\'app falsificata</string>
-    <string name="revanced_spoof_client_summary">"Falsifica il client per prevenire problemi di riproduzione."</string>
+    <string name="revanced_spoof_client_summary">Simula il client per evitare problemi di riproduzione.</string>
     <string name="revanced_spoof_client_title">Falsifica client</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (Blocca richiesta)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Blocca richiesta)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Blocca richiesta)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (Blocca richiesta)</string>
     <string name="revanced_spoof_client_type_summary">"Definisce un client predefinito per la falsificazione."</string>
     <string name="revanced_spoof_client_type_title">Client predefinito</string>
     <string name="revanced_spoof_player_parameter_summary">"Falsifica il parametro del lettore per evitare problemi di riproduzione.
@@ -505,13 +523,13 @@ Effetto collaterale:
 
 • Se utilizzato con 'Falsifica client', potrebbero verificarsi problemi di riproduzione.</string>
     <string name="revanced_spoof_streaming_data_title">Falsifica i dati in streaming</string>
-    <string name="revanced_spoof_video_streams_default_client_summary">Definisci un client default falsificato.</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32_no_auth">Android VR 1.43.32 (Nessuna autenticazione)</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09_no_auth">Android VR 1.65.09 (Nessuna autenticazione)</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">"Effetto collaterale:
+​• L'app potrebbe chiudersi inaspettatamente quando si usa una VPN o un DNS.
+• ​L'audio potrebbe andare a scatti in modo intermittente durante la riproduzione su client di streaming a bitrate adattivo (tutti i client tranne Android VR 1.43.32)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Client predefinito</string>
-    <string name="revanced_spoof_video_streams_summary">"Falsifica lo streaming dei video per prevenire i problemi di riproduzione.
-
-Effetti collaterale:
-• L'app potrebbe chiudersi quando usi una VPN o DNS.
-• L'audio potrebbe essere scattoso a intermittenza durante la riproduzione sui client di streaming a bitrate adattivo (tutti i client diversi da Android VR 1.43.32)."</string>
+    <string name="revanced_spoof_video_streams_summary">Simula gli stream video del client per evitare problemi di riproduzione.</string>
     <string name="revanced_spoof_video_streams_title">Falsifica lo streaming dei video</string>
     <string name="revanced_watch_history_type_entry_1">Originale</string>
     <string name="revanced_watch_history_type_entry_2">Sostituisci dominio</string>

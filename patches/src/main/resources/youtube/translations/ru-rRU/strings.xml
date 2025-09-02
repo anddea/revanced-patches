@@ -224,7 +224,7 @@
     <string name="revanced_disable_ambient_mode_summary_off">Окружающая подсветка включена.</string>
     <string name="revanced_disable_ambient_mode_summary_on">Окружающая подсветка отключена.</string>
     <string name="revanced_disable_ambient_mode_title">Отключить окружающую подсветку</string>
-    <string name="revanced_disable_auto_audio_tracks_not_available">Эта функция, требует изменения \'Подмена потоковых данных\' на iOS TV.</string>
+    <string name="revanced_disable_auto_audio_tracks_not_available">Чтобы использовать эту функцию, измените  \'Клиент по умолчанию (Подмена потоковых данных)\' на TV, TV Simply или iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Принудительные автоматические звуковые дорожки включены.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Принудительные автоматические звуковые дорожки отключены.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Принудительные автоматические звуковые дорожки</string>
@@ -590,9 +590,7 @@
     <string name="revanced_hide_autoplay_preview_summary_off">Превью автопросмотра отображено.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Превью автопросмотра скрыто.</string>
     <string name="revanced_hide_autoplay_preview_title">Превью автопросмотра</string>
-    <string name="revanced_hide_carousel_shelf_about_summary">Примеры полок карусели:
-
-Срочные новости, Продолжить просмотр, Больше каналов, Слушать снова, Наиболее релевантные, Покупки, Смотреть снова.</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Примеры карусельных полок:&lt;br&gt;&lt;br&gt;&lt;b&gt;Последние новости;/b&gt;, &lt;b&gt;Продолжайте смотреть;/b&gt;, &lt;b&gt;Исследуйте больше каналов;/b&gt;, &lt;b&gt;Для вас;/b&gt;, &lt;b&gt;Прослушайте еще раз;/b&gt;, &lt;b&gt;Наиболее актуальные;/b&gt;, &lt;b&gt;Покупки;/b&gt;, &lt;b&gt;Посмотреть это еще раз;/b&gt;</string>
     <string name="revanced_hide_carousel_shelf_about_title">О полке карусели</string>
     <string name="revanced_hide_carousel_shelf_home_summary_off">На \"Главной\" в ленте и похожих видео отображена.</string>
     <string name="revanced_hide_carousel_shelf_home_summary_on">На \"Главной\" в ленте и похожих видео скрыта.</string>
@@ -886,8 +884,9 @@ Shorts
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Меню отображено.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Меню скрыто.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Меню режима окружающей подсветки</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Меню аудио дорожек скрыто.
-Для отображения измените 'Подмена потоковых данных' на iOS TV."</string>
+    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Меню аудиодорожек скрыто.
+
+Чтобы отобразить меню звуковых дорожек, измените \'Клиент по умолчанию (Подмена потоковых данных)' на TV, TV Simply или iOS TV."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Меню \"Звуковая дорожка\" отображено.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Меню \"Звуковая дорожка\" скрыто.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Меню \"Звуковая дорожка\"</string>
@@ -1506,6 +1505,8 @@ Shorts
 <small>తెలుగు</small>"</string>
     <string name="revanced_language_TH">"Тайский
 <small>ไทย</small>"</string>
+    <string name="revanced_language_TL">"Филиппинский
+<small>Филиппинский</small>"</string>
     <string name="revanced_language_TR">"Турецкий
 <small>Türkçe</small>"</string>
     <string name="revanced_language_UK">"Украинский
@@ -1662,7 +1663,7 @@ Shorts
     <string name="revanced_preference_category_import_export_as_file">Импорт/экспорт в виде файла</string>
     <string name="revanced_preference_category_import_export_as_text">Импорт/экспорт настроек в виде текста</string>
     <string name="revanced_preference_category_ios">iOS</string>
-    <string name="revanced_preference_category_js">JavaScript (В разработке)</string>
+    <string name="revanced_preference_category_js">JavaScript </string>
     <string name="revanced_preference_category_keyword_filter">Фильтр ключевых слов</string>
     <string name="revanced_preference_category_others">Другие</string>
     <string name="revanced_preference_category_overlay_buttons">Наложение кнопок</string>
@@ -2298,19 +2299,21 @@ VP9 более продвинутый кодек, чем AVC, но некото�
     <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">Отключено. Кнопка перезагрузки видео скрыта.</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Включено. Кнопка перезагрузки видео отображена.</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_title">Кнопка перезагрузить видео</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android">"• Меню аудио дорожки отсутствует.
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• Меню аудиодорожек отсутствует.
+• Функция принудительного отключения автоматического выбора аудиодорожек недоступна.
 • Стабильная громкость недоступна.
-• Отключить принудительные авто звуковые дорожки недоступна.
-• Детские видео могут не работать в режиме инкогнито или выхода."</string>
+• Детские видеоролики могут не воспроизводиться при выходе из системы или в режиме инкогнито."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• Отсутствует меню \"Аудио\".\n• Отсутствует меню \"Постоянный уровень громкости\".</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">• Отсутствует меню \"Аудио\".\n• Отсутствует меню \"Постоянный уровень громкости\".</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Фильмы или платные видео могут не воспроизводиться.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">• Видео может заканчиваться на 1 секунду раньше.\n• Аудиокодек OPUS может не поддерживаться.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• Целые диапазоны ASN/IP могут блокироваться сервером.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Видео могут заканчиваться на 1 секунду раньше.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Стабильная громкость недоступна.
-• Фильмы или платные видео могут не работать.
-• Детские видео могут не работать при выходе из системы или в режиме инкогнито."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Возможно, отсутствует меню аудиодорожек может.
+• Функция отключения принудительной автоматической настройки аудиодорожек может быть недоступна.
+• Стабильная громкость недоступна.
+• Фильмы или платные видеоролики могут не воспроизводиться.
+• Детские видеоролики могут не воспроизводиться при выходе из системы или в режиме инкогнито."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Отсутствует меню аудиодорожки.
 • Отключить недоступные принудительные автозвуковые дорожки.
 • При ошибке разобфускации кода, просмотр может завершиться неудачей.
@@ -2342,11 +2345,11 @@ VP9 более продвинутый кодек, чем AVC, но некото�
     <string name="revanced_spoof_streaming_data_use_js_summary_off">Клиент JavaScript не доступен.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">Клиент JavaScript используется.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Использовать клиент JavaScript</string>
-    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"Используется больше ресурсов для обработки шаблона n-sig, видео запускается медленнее.
+    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"Приложение использует больше системных ресурсов для поиска или декодирования шаблона n-sig, и видео запускается медленнее.
 
-Шаблон n-sig часто меняется на серверах YouTube, и просмотр может быть прерван, если регулярное выражение не найдет шаблон n-sig.
+Шаблон n-sig довольно часто меняется на серверах YouTube, и воспроизведение может прерваться, если регулярному выражению не удается найти шаблон n-sig.
 
-Функция в разработке, используйте только для отладки."</string>
+Среди JavaScript-клиентов рекомендуемым клиентом является TV Simply."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"JavaScript для разобфускации не сохранен в актуальном состоянии.
 
 • Используется JavaScript, но все еще зависит от сервера."</string>
