@@ -902,23 +902,18 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         String preferenceKey = preference.getKey();
 
         if (preferenceKey == null) {
-            // Handle keyless preference (e.g., <Preference title="foo"/>)
-            // These don't have dependencies in the same way keyed items do.
-            // Just add it to the search results under the appropriate preferenceGroup.
-            // Ensure it's not a duplicate instance in that specific preferenceGroup.
-            boolean alreadyAdded = false;
-            for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
-                if (preferenceGroup.getPreference(i) == preference) {
-                    alreadyAdded = true;
-                    break;
-                }
-            }
-            if (!alreadyAdded) {
-                try {
-                    preferenceGroup.addPreference(preference);
-                } catch (Exception e) {
-                    Logger.printException(() -> "Failed to add keyless matched item: " + (preference.getTitle() != null ? preference.getTitle() : "Untitled"), e);
-                }
+            // Handle keyless preference (e.g., <Preference title="foo"/>).
+            // These preferences already have a parent in the original hierarchy, so we cannot
+            // add the same instance to the search results screen.
+            // Instead, we create a new, simple Preference to act as a placeholder/link.
+            try {
+                // Create a new proxy preference that is safe to add.
+                final Preference proxyPreference = getProxyPreference(preference);
+
+                // Add the new, parent-less proxy preference to the search results.
+                preferenceGroup.addPreference(proxyPreference);
+            } catch (Exception e) {
+                Logger.printException(() -> "Failed to add proxy for keyless matched item: " + (preference.getTitle() != null ? preference.getTitle() : "Untitled"), e);
             }
             return;
         }
@@ -992,6 +987,32 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                         visitedPreferences);
             }
         }
+    }
+
+    @NotNull
+    private Preference getProxyPreference(Preference preference) {
+        final Preference proxyPreference = new Preference(preference.getContext());
+
+        // The title and summary on the original 'preference' object have already been
+        // highlighted by the `applyHighlighting` call. We just copy these values.
+        proxyPreference.setTitle(preference.getTitle());
+        proxyPreference.setSummary(preference.getSummary());
+        proxyPreference.setIcon(preference.getIcon());
+        proxyPreference.setEnabled(preference.isEnabled());
+        proxyPreference.setOrder(preference.getOrder());
+
+        // Make the proxy behave like the original on click.
+        if (preference instanceof PreferenceScreen) {
+            // If the original was a PreferenceScreen, clicking the proxy should navigate to it.
+            proxyPreference.setOnPreferenceClickListener(p -> {
+                setPreferenceScreen((PreferenceScreen) preference);
+                return true;
+            });
+        } else {
+            // For all other types, just copy the original click listener.
+            proxyPreference.setOnPreferenceClickListener(preference.getOnPreferenceClickListener());
+        }
+        return proxyPreference;
     }
 
     /**
