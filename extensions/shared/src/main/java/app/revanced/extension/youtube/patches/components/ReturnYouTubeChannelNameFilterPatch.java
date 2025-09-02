@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
-
 import java.net.URLDecoder;
 
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
@@ -34,19 +32,19 @@ public final class ReturnYouTubeChannelNameFilterPatch extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (shortsChannelBarAvatarFilterGroup.check(protobufBufferArray).isFiltered()) {
-            setLastShortsChannelId(protobufBufferArray);
+        if (shortsChannelBarAvatarFilterGroup.check(buffer).isFiltered()) {
+            setLastShortsChannelId(buffer);
         }
 
         return false;
     }
 
-    private void setLastShortsChannelId(byte[] protobufBufferArray) {
+    private void setLastShortsChannelId(byte[] buffer) {
         try {
             String[] splitArr;
-            final String bufferString = findAsciiStrings(protobufBufferArray);
+            final String bufferString = findAsciiStrings(buffer);
             splitArr = bufferString.split(CHANNEL_ID_IDENTIFIER_WITH_DELIMITING_CHARACTER);
             if (splitArr.length < 2) {
                 return;

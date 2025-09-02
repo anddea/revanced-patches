@@ -26,6 +26,7 @@ import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_49_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_30_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
@@ -399,7 +400,11 @@ val seekbarComponentsPatch = bytecodePatch(
                     method.apply {
                         val literalIndex =
                             indexOfFirstLiteralInstructionOrThrow(
-                                launchScreenLayoutTypeLotteFeatureFlag
+                                if (is_20_30_or_greater) {
+                                    launchScreenLayoutTypeLotteFeatureFlag
+                                } else {
+                                    launchScreenLayoutTypeLotteFeatureLegacyFlag
+                                }
                             )
                         val resultIndex =
                             indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)

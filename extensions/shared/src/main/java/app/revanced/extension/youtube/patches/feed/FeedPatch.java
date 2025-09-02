@@ -74,7 +74,7 @@ public class FeedPatch {
 
     public static void hideBreakingNewsShelf(View view) {
         hideViewBy0dpUnderCondition(
-                Settings.HIDE_CAROUSEL_SHELF.get(),
+                Settings.HIDE_CAROUSEL_SHELF_HOME.get(),
                 view
         );
     }

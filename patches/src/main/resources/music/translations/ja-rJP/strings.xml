@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">続行</string>
     <string name="gms_core_dialog_dismiss_text">今後表示しない</string>
@@ -15,6 +15,10 @@
     <string name="revanced_add_miniplayer_next_button_title">「次の曲に進むボタン」を表示</string>
     <string name="revanced_add_miniplayer_previous_button_summary">ミニプレイヤーに「前の曲に戻るボタン」を表示します。</string>
     <string name="revanced_add_miniplayer_previous_button_title">「前の曲に戻るボタン」を表示</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;アプリ名&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;アプリのバージョン&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced パッチ&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;パッチの適用日&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_title">アプリ情報</string>
+    <string name="revanced_app_info_summary">タップしてアプリ名、アプリのバージョン、パッチのバージョン、およびパッチの適用日を確認できます。</string>
+    <string name="revanced_app_info_title">アプリ情報</string>
     <string name="revanced_bypass_image_region_restrictions_summary">プレイリストのサムネイルやチャンネルアバターなどを受信できるように、一部の地域でブロックされているドメインを置き換えます。</string>
     <string name="revanced_bypass_image_region_restrictions_title">画像表示の地域制限を回避</string>
     <string name="revanced_change_action_bar_position_summary">アクションバーを再生ボタンの下に移動します。</string>
@@ -63,6 +67,10 @@
 アプリがライトテーマをサポートしていないため、暗い色を使用してください。"</string>
     <string name="revanced_custom_player_background_color_secondary_title">プレイヤーの背景のセカンダリ色</string>
     <string name="revanced_custom_player_background_invalid_toast">無効なプレイヤーの背景色です。</string>
+    <string name="revanced_debug_protobuffer_summary">プロトコルバッファをデバッグログに含めます。</string>
+    <string name="revanced_debug_protobuffer_title">ログプロトコルバッファ</string>
+    <string name="revanced_debug_spannable_summary">デバッグログにSpannableを含めます。</string>
+    <string name="revanced_debug_spannable_title">Spannable をログに含む</string>
     <string name="revanced_debug_summary">デバッグログを出力します。</string>
     <string name="revanced_debug_title">デバッグログを有効化</string>
     <string name="revanced_default_app_settings_summary">RVX Music でYouTube Music のURLを開くには、「対応リンクを開く」を有効にし、サポートされているURLを有効にします。</string>
@@ -92,6 +100,16 @@
     <string name="revanced_disable_player_gesture_title">プレイヤージェスチャーを無効にする</string>
     <string name="revanced_disable_quic_protocol_summary">"CronetEngine の QUIC プロトコルを無効化します。"</string>
     <string name="revanced_disable_quic_protocol_title">QUIC プロトコルを無効化</string>
+    <string name="revanced_disable_trim_silence_summary">"再生速度のフライアウトメニューで「無音部分をスキップ」スイッチを無効化します。
+
+注意:
+・この機能はポッドキャスト向けです。
+・この機能はまだ開発中のため、不安定な場合があります。"</string>
+    <string name="revanced_disable_trim_silence_title">「無音部分をスキップ」を無効化</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"コメント欄のタイトル (「コメント」) をタップすると、コメント欄の一番上にスクロールします。
+
+コメントの返信には適用されません。"</string>
+    <string name="revanced_enable_comments_scroll_top_title">コメントの最上部へのスクロールを有効化</string>
     <string name="revanced_enable_compact_dialog_summary">"コンパクトなダイアログを有効にします。
 
 既知の問題:
@@ -100,10 +118,6 @@
     <string name="revanced_enable_compact_dialog_title">コンパクトなダイアログ</string>
     <string name="revanced_enable_custom_navigation_bar_color_summary">ナビゲーションバーの色を設定します。</string>
     <string name="revanced_enable_custom_navigation_bar_color_title">カスタムナビゲーションバーの色を有効にする</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">デバッグログをバッファに含めて出力する。</string>
-    <string name="revanced_enable_debug_buffer_logging_title">デバッグバッファログを有効化</string>
-    <string name="revanced_enable_debug_logging_summary">デバッグログを出力します。</string>
-    <string name="revanced_enable_debug_logging_title">デバッグログ</string>
     <string name="revanced_enable_forced_miniplayer_summary">新しいトラックに切り替えたときに強制的にミニプレーヤーを有効にします。</string>
     <string name="revanced_enable_forced_miniplayer_title">ミニプレイヤーの強制</string>
     <string name="revanced_enable_landscape_mode_summary">画面回転で横画面モードに入るようにします。</string>
@@ -114,6 +128,8 @@
     <string name="revanced_enable_mini_player_previous_button_title">「前の曲に戻るボタン」を表示</string>
     <string name="revanced_enable_opus_codec_summary">"MP4A コーデックの代わりに、Opus コーデックを適用します。"</string>
     <string name="revanced_enable_opus_codec_title">Opus コーデックを有効化</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">"ミニプレイヤーを最大化したときのスムーズなアニメーションを有効にします。"</string>
+    <string name="revanced_enable_smooth_transition_animation_title">スムーズな遷移アニメーションを有効化</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">下にスワイプしてミニプレーヤーを閉じられるようにします。</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">スワイプしてミニプレーヤーを閉じる</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">下にスワイプしてミニプレーヤーを閉じられるようにします。</string>
@@ -122,12 +138,6 @@
 
 注意: SponsorBlock セグメントはシークバーに表示されません。"</string>
     <string name="revanced_enable_thick_seekbar_title">太いシークバーを有効化</string>
-    <string name="revanced_enable_trim_silence_summary">"再生スピードのフライアウトメニューで「無音トリム」スイッチを有効にする。
-
-情報
-- この機能はポッドキャスト用です。
-- この機能はまだ開発中のため、不安定な場合があります。"</string>
-    <string name="revanced_enable_trim_silence_title">「無音トリム」を有効化</string>
     <string name="revanced_enable_zen_mode_podcast_summary">ポッドキャストにもZenモードを適用します。</string>
     <string name="revanced_enable_zen_mode_podcast_title">ポッドキャストでZenモードを有効化</string>
     <string name="revanced_enable_zen_mode_summary">動画プレーヤーに灰色の色合いを追加し、目の疲れを軽減します。</string>
@@ -174,6 +184,8 @@
     <string name="revanced_hide_action_button_add_to_playlist_title">プレイリストに追加ボタンを非表示</string>
     <string name="revanced_hide_action_button_comment_summary">コメントボタンを非表示にします。</string>
     <string name="revanced_hide_action_button_comment_title">コメントボタンを非表示</string>
+    <string name="revanced_hide_action_button_disabled_summary">閉鎖されたコメントボタンなどの無効なボタンを非表示にします。</string>
+    <string name="revanced_hide_action_button_disabled_title">無効なボタンを非表示</string>
     <string name="revanced_hide_action_button_download_summary">ダウンロードボタンを非表示にします。</string>
     <string name="revanced_hide_action_button_download_title">ダウンロードボタンを非表示</string>
     <string name="revanced_hide_action_button_label_summary">アクションボタンのラベルを非表示にします。</string>
@@ -249,6 +261,8 @@
     <string name="revanced_hide_handle_title">ハンドルを非表示</string>
     <string name="revanced_hide_history_button_summary">ツールバーの履歴ボタンを非表示にします。</string>
     <string name="revanced_hide_history_button_title">履歴ボタンを非表示</string>
+    <string name="revanced_hide_lyrics_share_button_summary">歌詞の共有ボタンを非表示にします。</string>
+    <string name="revanced_hide_lyrics_share_button_title">歌詞共有ボタンを非表示</string>
     <string name="revanced_hide_music_ads_summary">トラックを再生する前の広告を非表示にします。</string>
     <string name="revanced_hide_music_ads_title">音楽の広告を非表示</string>
     <string name="revanced_hide_navigation_bar_summary">ナビゲーションバーを非表示にします。</string>
@@ -327,6 +341,8 @@ YT Music の設定だけでなく、ReVanced Extended の設定も非表示に�
     <string name="revanced_remember_repeat_state_title">リピートの状態を保存</string>
     <string name="revanced_remember_shuffle_state_summary">シャッフルの状態を記憶します。</string>
     <string name="revanced_remember_shuffle_state_title">シャッフルの状態を保存</string>
+    <string name="revanced_remember_video_quality_auto_mobile">モバイルデータ使用時のデフォルト画質を自動に変更しました。</string>
+    <string name="revanced_remember_video_quality_auto_wifi">Wi-Fi使用時のデフォルト画質を自動に変更しました。</string>
     <string name="revanced_remember_video_quality_last_selected_summary">画質を変更するたびに、画質を保存します。</string>
     <string name="revanced_remember_video_quality_last_selected_title">ビデオ画質の変更を保存</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">デフォルトの画質を変更するときにトーストを表示します。</string>
@@ -466,6 +482,7 @@ API キーの発行方法については、ここをタップしてください�
 • 後からこの機能を無効にしても、データを消去するまで古い UI のままになる場合があります。"</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - カナダの地域でラジオモードを無効化</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - リアルタイムの歌詞を無効化</string>
+    <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - 古いフライアウトパネルを復元</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - リアルタイムの歌詞を無効化</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - 古いアクションバーを復元</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - コメントセクションがホームフィードに表示されません</string>
@@ -475,11 +492,15 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装</string>
     <string name="revanced_spoof_client_summary">再生の問題を防ぐためにクライアントを偽装します。</string>
     <string name="revanced_spoof_client_title">クライアントを偽装</string>
-    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
-    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (ブロックリクエスト)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_summary">偽装するデフォルトのクライアントを定義します。</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (ブロックリクエスト)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (ブロックリクエスト)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34">iOS Music 8.34</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (ブロックリクエスト)</string>
+    <string name="revanced_spoof_client_type_summary">"偽装するデフォルトのクライアントを定義します。"</string>
     <string name="revanced_spoof_client_type_title">既定のクライアント</string>
     <string name="revanced_spoof_player_parameter_summary">"再生の問題を防ぐためにプレイヤーパラメーターを偽装します。
 
@@ -492,6 +513,20 @@ API キーの発行方法については、ここをタップしてください�
 
 • Spoof client と併用すると、再生に問題が発生する場合があります。"</string>
     <string name="revanced_spoof_streaming_data_title">ストリーミングデータを偽装</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32">Android VR 1.43.32</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09">Android VR 1.65.09</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_34">iOS Music 8.34</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">"偽装するデフォルトのクライアントを定義します。"</string>
+    <string name="revanced_spoof_video_streams_default_client_title">デフォルトのクライアント</string>
+    <string name="revanced_spoof_video_streams_summary">クライアントのビデオストリームを偽装して再生の問題を防ぎます。
+
+副作用:
+・VPNまたは DNSを使用している場合アプリが強制終了する可能性があります。
+・アダプティブビットレートストリーミングのクライアント（Android VR 1.43.32以外のすべて）では再生中に音声が断続的に途切れることがあります。</string>
+    <string name="revanced_spoof_video_streams_title">ビデオストリームを偽装します</string>
     <string name="revanced_watch_history_type_entry_1">オリジナル</string>
     <string name="revanced_watch_history_type_entry_2">ドメインを置換</string>
     <string name="revanced_watch_history_type_entry_3">再生履歴をブロック</string>

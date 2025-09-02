@@ -1,31 +1,64 @@
 package app.revanced.patches.youtube.utils.settings
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.patch.booleanOption
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.stringOption
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.extension.Constants.EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.mainactivity.injectConstructorMethodCall
 import app.revanced.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.revanced.patches.shared.settings.baseSettingsPatch
+import app.revanced.patches.youtube.utils.cairoFragmentConfigFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.fix.attributes.themeAttributesPatch
-import app.revanced.patches.youtube.utils.fix.cairo.cairoFragmentPatch
 import app.revanced.patches.youtube.utils.fix.playbackspeed.playbackSpeedWhilePlayingPatch
 import app.revanced.patches.youtube.utils.fix.splash.darkModeSplashScreenPatch
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE
+import app.revanced.patches.youtube.utils.playservice.is_19_15_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.revanced.util.*
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.YOUTUBE_SETTINGS_PATH
+import app.revanced.patches.youtube.utils.settingsFragmentSyntheticFingerprint
+import app.revanced.util.FilesCompat
+import app.revanced.util.ResourceGroup
+import app.revanced.util.Utils.printWarn
+import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.className
+import app.revanced.util.copyResources
+import app.revanced.util.copyXmlNode
+import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.findFreeRegister
+import app.revanced.util.findInstructionIndicesReversedOrThrow
+import app.revanced.util.findMethodOrThrow
+import app.revanced.util.fingerprint.methodCall
 import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.fingerprint.mutableClassOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.hookClassHierarchy
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.insertNode
+import app.revanced.util.removeStringsElements
+import app.revanced.util.returnEarly
+import app.revanced.util.valueOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -36,11 +69,14 @@ private const val EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR =
     "$UTILS_PATH/InitializationPatch;"
 
 private const val EXTENSION_THEME_METHOD_DESCRIPTOR =
-    "$EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR->setTheme(Ljava/lang/Enum;)V"
+    "$EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR->updateLightDarkModeStatus(Ljava/lang/Enum;)V"
 
 private lateinit var bytecodeContext: BytecodePatchContext
 
 internal fun getBytecodeContext() = bytecodeContext
+
+internal var cairoFragmentDisabled = false
+private var targetActivityClassName = ""
 
 private val settingsBytecodePatch = bytecodePatch(
     description = "settingsBytecodePatch"
@@ -55,6 +91,56 @@ private val settingsBytecodePatch = bytecodePatch(
 
     execute {
         bytecodeContext = this
+
+        // region fix cairo fragment.
+
+        /**
+         * Disable Cairo fragment settings.
+         * 1. Fix - When spoofing the app version to 19.20 or earlier, the app crashes or the Notifications tab is inaccessible.
+         * 2. Fix - Preference 'Playback' is hidden.
+         * 3. Some settings that were in Preference 'General' are moved to Preference 'Playback'.
+         */
+        // Cairo fragment have been widely rolled out in YouTube 19.34+.
+        if (is_19_34_or_greater) {
+            // Instead of disabling all Cairo fragment configs,
+            // Just disable 'Load Cairo fragment xml' and 'Set style to Cairo preference'.
+            fun MutableMethod.disableCairoFragmentConfig() {
+                val cairoFragmentConfigMethodCall = cairoFragmentConfigFingerprint
+                    .methodCall()
+                val insertIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.toString() == cairoFragmentConfigMethodCall
+                } + 2
+                val insertRegister =
+                    getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+
+                addInstruction(insertIndex, "const/4 v$insertRegister, 0x0")
+            }
+
+            try {
+                arrayOf(
+                    // Load cairo fragment xml.
+                    settingsFragmentSyntheticFingerprint
+                        .methodOrThrow(),
+                    // Set style to cairo preference.
+                    settingsFragmentStylePrimaryFingerprint
+                        .methodOrThrow(),
+                    settingsFragmentStyleSecondaryFingerprint
+                        .methodOrThrow(settingsFragmentStylePrimaryFingerprint),
+                ).forEach { method ->
+                    method.disableCairoFragmentConfig()
+                }
+                cairoFragmentDisabled = true
+            } catch (_: Exception) {
+                cairoFragmentConfigFingerprint
+                    .methodOrThrow()
+                    .returnEarly()
+
+                printWarn("Failed to restore 'Playback' settings. 'Autoplay next video' setting may not appear in the YouTube settings.")
+            }
+        }
+
+        // endregion.
 
         // apply the current theme of the settings page
         themeSetterSystemFingerprint.methodOrThrow().apply {
@@ -225,7 +311,6 @@ val settingsPatch = resourcePatch(
 
     dependsOn(
         settingsBytecodePatch,
-        cairoFragmentPatch,
         darkModeSplashScreenPatch,
         playbackSpeedWhilePlayingPatch,
         themeAttributesPatch,
@@ -314,7 +399,7 @@ val settingsPatch = resourcePatch(
         arrayOf(
             ResourceGroup(
                 "drawable",
-                "revanced_cursor.xml",
+                "revanced_settings_cursor.xml",
                 "revanced_settings_custom_checkmark.xml",
                 "revanced_settings_rounded_corners_background.xml",
             ),
@@ -323,7 +408,6 @@ val settingsPatch = resourcePatch(
                 "revanced_color_picker.xml",
                 "revanced_custom_list_item_checked.xml",
                 "revanced_preference_with_icon_no_search_result.xml",
-                "revanced_search_suggestion_item.xml",
                 "revanced_settings_preferences_category.xml",
                 "revanced_settings_with_toolbar.xml",
             ),
@@ -352,7 +436,8 @@ val settingsPatch = resourcePatch(
          */
         ResourceUtils.addPreferenceFragment(
             "revanced_extended_settings",
-            insertKey
+            insertKey,
+            "com.google.android.libraries.social.licenses.LicenseActivity"
         )
 
         /**
@@ -418,6 +503,42 @@ val settingsPatch = resourcePatch(
                     document.getElementsByTagName("resources").item(0)
                         .appendChild(stringElement)
                 }
+            }
+        }
+
+        /**
+         * Disable Cairo fragment settings.
+         */
+        if (cairoFragmentDisabled) {
+            /**
+             * If the app version is spoofed to 19.30 or earlier due to the Spoof app version patch,
+             * the 'Playback' setting will be broken.
+             * If the app version is spoofed, the previous fragment must be used.
+             */
+            val xmlDirectory = get("res").resolve("xml")
+            FilesCompat.copy(
+                xmlDirectory.resolve("settings_fragment.xml"),
+                xmlDirectory.resolve("settings_fragment_legacy.xml")
+            )
+
+            /**
+             * The Preference key for 'Playback' is '@string/playback_key'.
+             * Copy the node to add the Preference 'Playback' to the legacy settings fragment.
+             */
+            document(YOUTUBE_SETTINGS_PATH).use { document ->
+                val tags = document.getElementsByTagName("Preference")
+                List(tags.length) { tags.item(it) as Element }
+                    .find { it.getAttribute("android:key") == "@string/auto_play_key" }
+                    ?.let { node ->
+                        node.insertNode("Preference", node) {
+                            for (index in 0 until node.attributes.length) {
+                                with(node.attributes.item(index)) {
+                                    setAttribute(nodeName, nodeValue)
+                                }
+                            }
+                            setAttribute("android:key", "@string/playback_key")
+                        }
+                    }
             }
         }
 

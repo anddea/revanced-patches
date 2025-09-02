@@ -25,6 +25,7 @@ import app.revanced.patches.shared.gms.Constants.AUTHORITIES_LEGACY
 import app.revanced.patches.shared.gms.Constants.PERMISSIONS
 import app.revanced.patches.shared.gms.Constants.PERMISSIONS_LEGACY
 import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrNull
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -106,6 +107,18 @@ fun gmsCoreSupportPatch(
             If GmsCore is not installed the app will not work, so disabling this is not recommended.
             """.trimIndentMultiline(),
         required = true,
+    )
+
+    val disableCoreServices by booleanOption(
+        key = "disableCoreServices",
+        default = false,
+        title = "Disable Core Services",
+        description = """
+            To reproduce the playback issue, several core services, including PoToken, are disabled.
+            
+            Do not enable this option unless you are testing at a low level.
+            """.trimIndentMultiline(),
+        required = false,
     )
 
     val packageNameYouTubeOption = stringOption(
@@ -329,6 +342,10 @@ fun gmsCoreSupportPatch(
             serviceCheckFingerprint,
         )
 
+        if (disableCoreServices == true) {
+            earlyReturnFingerprints += listOf(gmsServiceBrokerFingerprint)
+        }
+
         if (patchAllManifestEnabled) {
             earlyReturnFingerprints += listOf(sslGuardFingerprint)
 
@@ -369,6 +386,10 @@ fun gmsCoreSupportPatch(
         gmsCoreSupportFingerprint.mutableClassOrThrow().methods
             .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
+
+        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
+            name == "GmsCoreSupport"
+        }.returnEarly(true)
 
         executeBlock()
     }

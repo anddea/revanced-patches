@@ -9,57 +9,56 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.utils.formatStreamModelToStringFingerprint
+import app.revanced.patches.youtube.utils.playservice.is_20_07_or_greater
+import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
+import app.revanced.util.findMethodFromToString
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.originalMethodOrThrow
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
-import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-private lateinit var isDefaultMethod: MutableMethod
+private lateinit var isDefaultAudioTrackMethod: MutableMethod
 private lateinit var audioTrackIdMethod: MutableMethod
 
-private const val helperMethodName = "extension_isDefaultAudioTrack"
+private const val helperMethodName = "patch_isDefaultAudioTrack"
 
 val audioTracksHookPatch = bytecodePatch(
     description = "audioTracksHookPatch"
 ) {
-    dependsOn(sharedExtensionPatch)
+    dependsOn(
+        sharedExtensionPatch,
+        versionCheckPatch,
+    )
 
     execute {
 
-        fun Method.firstFormatStreamingModelCall(
-            returnType: String = "Ljava/lang/String;"
-        ): MutableMethod {
-            val audioTrackIdIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.definingClass == "Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;"
-                        && reference.returnType == returnType
-            }
+        val toStringMethod = formatStreamModelToStringFingerprint.originalMethodOrThrow()
+        isDefaultAudioTrackMethod = toStringMethod
+            .findMethodFromToString("isDefaultAudioTrack=")
+        val audioTrackDisplayNameMethod = toStringMethod
+            .findMethodFromToString("audioTrackDisplayName=")
+        audioTrackIdMethod = toStringMethod
+            .findMethodFromToString("audioTrackId=")
 
-            return navigate(this).to(audioTrackIdIndex).stop()
+        // Disable feature flag that ignores the default track flag
+        // and instead overrides to the user region language.
+        if (is_20_07_or_greater) {
+            selectAudioStreamFingerprint.injectLiteralInstructionBooleanCall(
+                AUDIO_STREAM_IGNORE_DEFAULT_FEATURE_FLAG,
+                "$GENERAL_CLASS_DESCRIPTOR->ignoreDefaultAudioStream(Z)Z"
+            )
         }
 
-        // Accessor methods of FormatStreamModel have no string constants and
-        // opcodes are identical to other methods in the same class,
-        // so must walk from another class that use the methods.
-        isDefaultMethod = streamingModelBuilderFingerprint.originalMethodOrThrow()
-            .firstFormatStreamingModelCall("Z")
-        audioTrackIdMethod =
-            menuItemAudioTrackFingerprint.originalMethodOrThrow().firstFormatStreamingModelCall()
-        val audioTrackDisplayNameMethod =
-            audioStreamingTypeSelector.originalMethodOrThrow().firstFormatStreamingModelCall()
-        val formatStreamModelClass = proxy(classes.first {
+        proxy(classes.first {
             it.type == audioTrackIdMethod.definingClass
-        }).mutableClass
-
-        formatStreamModelClass.apply {
+        }).mutableClass.apply {
             // Add a new field to store the override.
             val helperFieldName = "isDefaultAudioTrackOverride"
             fields.add(
@@ -80,13 +79,14 @@ val audioTracksHookPatch = bytecodePatch(
 
             // Add a helper method because the isDefaultAudioTrack() has only 2 registers and 3 are needed.
             val helperMethodClass = type
+            val helperMethodName = "patch_isDefaultAudioTrack"
             val helperMethod = ImmutableMethod(
                 helperMethodClass,
                 helperMethodName,
                 listOf(ImmutableMethodParameter("Z", annotations, null)),
                 "Z",
                 AccessFlags.PRIVATE.value,
-                annotations,
+                null,
                 null,
                 MutableMethodImplementation(6),
             ).toMutable().apply {
@@ -113,23 +113,36 @@ val audioTracksHookPatch = bytecodePatch(
                         move-result-object v0
                         iput-object v0, p0, $helperMethodClass->$helperFieldName:Ljava/lang/Boolean;
                         return v3
-                    """
+                        """
                 )
             }
             methods.add(helperMethod)
+
+            // Modify isDefaultAudioTrack() to call extension helper method.
+            isDefaultAudioTrackMethod.apply {
+                val index = indexOfFirstInstructionOrThrow(Opcode.RETURN)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index,
+                    """
+                        invoke-direct { p0, v$register }, $helperMethodClass->$helperMethodName(Z)Z
+                        move-result v$register
+                        """
+                )
+            }
         }
     }
 }
 
 // Modify isDefaultAudioTrack() to call extension helper method.
 internal fun disableForcedAudioTracks() =
-    isDefaultMethod.apply {
+    isDefaultAudioTrackMethod.apply {
         val index = indexOfFirstInstructionOrThrow(Opcode.RETURN)
         val register = getInstruction<OneRegisterInstruction>(index).registerA
 
         addInstructions(
-            index,
-            """
+            index, """
                 invoke-direct { p0, v$register }, $definingClass->$helperMethodName(Z)Z
                 move-result v$register
                 """
@@ -137,7 +150,7 @@ internal fun disableForcedAudioTracks() =
     }
 
 internal fun hookAudioTrackId(descriptor: String) =
-    isDefaultMethod.apply {
+    isDefaultAudioTrackMethod.apply {
         addInstructions(
             0, """
                 invoke-virtual { p0 }, $audioTrackIdMethod

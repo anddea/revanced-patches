@@ -1,15 +1,9 @@
 package app.revanced.extension.youtube.shared;
 
-import static app.revanced.extension.shared.utils.ResourceUtils.getString;
 import static app.revanced.extension.shared.utils.Utils.getFormattedTimeStamp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
@@ -21,8 +15,6 @@ import app.revanced.extension.youtube.patches.utils.AlwaysRepeatPatch;
 @SuppressWarnings("all")
 public final class VideoInformation {
     private static final float DEFAULT_YOUTUBE_PLAYBACK_SPEED = 1.0f;
-    private static final int DEFAULT_YOUTUBE_VIDEO_QUALITY = -2;
-    private static final String DEFAULT_YOUTUBE_VIDEO_QUALITY_STRING = getString("quality_auto");
     /**
      * Prefix present in all Short player parameters signature.
      */
@@ -65,30 +57,6 @@ public final class VideoInformation {
      * The current playback speed
      */
     private static float playbackSpeed = DEFAULT_YOUTUBE_PLAYBACK_SPEED;
-    /**
-     * The current video quality
-     */
-    private static int videoQuality = DEFAULT_YOUTUBE_VIDEO_QUALITY;
-    /**
-     * The current video quality string (e.g. '2160p60 HDR', '1080p Premium', '1080p60')
-     */
-    private static String videoQualityString = DEFAULT_YOUTUBE_VIDEO_QUALITY_STRING;
-    /**
-     * The current video quality simplified string (e.g. '2160p', '1080p', '720s')
-     */
-    private static String videoQualitySimplifiedString = DEFAULT_YOUTUBE_VIDEO_QUALITY_STRING;
-    /**
-     * The available quality labels of the current video in human readable form: [1080p60, 720p60, 480p]
-     */
-    @Nullable
-    public static volatile List<String> videoQualityEntries;
-    /**
-     * The available quality values of the current video in human readable form: [1080, 720, 480]
-     */
-    @Nullable
-    public static volatile List<Integer> videoQualityEntryValues;
-
-    public static volatile boolean qualityNeedsUpdating;
 
     /**
      * Injection point.
@@ -424,92 +392,6 @@ public final class VideoInformation {
             Logger.printDebug(() -> "Video speed changed: " + newlyLoadedPlaybackSpeed);
             playbackSpeed = newlyLoadedPlaybackSpeed;
         }
-    }
-
-    /**
-     * @return The current video quality.
-     */
-    public static int getVideoQuality() {
-        return videoQuality;
-    }
-
-    /**
-     * @return The current video quality simplified string.
-     */
-    public static String getVideoQualitySimplifiedString() {
-        return videoQualitySimplifiedString;
-    }
-
-    /**
-     * Injection point.
-     *
-     * @param newlyLoadedVideoQuality The current video quality.
-     */
-    public static void setVideoQuality(VideoQuality newlyLoadedVideoQuality) {
-        if (newlyLoadedVideoQuality == null) {
-            return;
-        }
-        try {
-            videoQuality = newlyLoadedVideoQuality.a;
-            videoQualityString = newlyLoadedVideoQuality.b;
-
-            if (videoQualityString.contains("p")) {
-                videoQualitySimplifiedString = videoQuality + "p";
-            } else if (videoQualityString.contains("s")) {
-                videoQualitySimplifiedString = videoQuality + "s";
-            } else {
-                videoQualitySimplifiedString = videoQualityString;
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "Failed to set video quality", ex);
-        }
-    }
-
-    /**
-     * Injection point.
-     *
-     * @param qualities Video qualities available, ordered from largest to smallest, with index 0 being the 'automatic' value of -2
-     */
-    public static void setAvailableVideoQuality(VideoQuality[] qualities) {
-        if (qualities == null) {
-            return;
-        }
-        try {
-            if (videoQualityEntries == null || videoQualityEntries.size() != qualities.length) {
-                videoQualityEntries = new ArrayList<>(qualities.length);
-                videoQualityEntryValues = new ArrayList<>(qualities.length);
-                for (VideoQuality videoQuality : qualities) {
-                    if (videoQuality != null) {
-                        videoQualityEntries.add(videoQuality.b);
-                        videoQualityEntryValues.add(videoQuality.a);
-                    }
-                }
-                if (videoQualityEntries != null && videoQualityEntries.size() > 0) {
-                    qualityNeedsUpdating = true;
-                    Logger.printDebug(() -> "videoQualityEntries: " + videoQualityEntries + "\nvideoQualityEntryValues: " + videoQualityEntryValues);
-                }
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "Failed to set video quality array", ex);
-        }
-    }
-
-    /**
-     * @return available video quality.
-     */
-    public static int getAvailableVideoQuality(int preferredQuality) {
-        if (!qualityNeedsUpdating || videoQualityEntryValues == null) {
-            return preferredQuality;
-        }
-        qualityNeedsUpdating = false;
-
-        int qualityToUse = videoQualityEntryValues.get(0); // first element is automatic mode
-        for (Integer quality : videoQualityEntryValues) {
-            if (quality <= preferredQuality && qualityToUse < quality) {
-                qualityToUse = quality;
-            }
-        }
-        return qualityToUse;
     }
 
     /**

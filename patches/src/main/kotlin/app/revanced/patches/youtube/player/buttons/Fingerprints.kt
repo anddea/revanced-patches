@@ -27,6 +27,8 @@ internal val fullScreenButtonFingerprint = legacyFingerprint(
     },
 )
 
+internal const val LITHO_SUBTITLE_BUTTON_FEATURE_FLAG = 45421555L
+
 /**
  * Added in YouTube v18.31.40
  *
@@ -35,7 +37,7 @@ internal val fullScreenButtonFingerprint = legacyFingerprint(
  */
 internal val lithoSubtitleButtonConfigFingerprint = legacyFingerprint(
     name = "lithoSubtitleButtonConfigFingerprint",
-    literals = listOf(45421555L),
+    literals = listOf(LITHO_SUBTITLE_BUTTON_FEATURE_FLAG),
 )
 
 internal val musicAppDeeplinkButtonFingerprint = legacyFingerprint(

@@ -1,21 +1,11 @@
 [project]
 name = "xml-tools"
-version = "1.0.0"
-description = "CLI tool for processing XML and resource files"
+version = "0.1.0"
+requires-python = ">=3.12"
 dependencies = [
-    "click>=8.1.8",
-    "defusedxml>=0.7.1",
-    "gitpython>=3.1.44",
+    "click==8.2.1",
+    "defusedxml==0.7.1",
+    "gitdb==4.0.12",
+    "gitpython==3.1.44",
+    "smmap==5.0.2",
 ]
-requires-python = ">=3.8"
-
-[project.optional-dependencies]
-dev = []
-
-[dependency-groups]
-dev = [
-    "xml-tools",
-]
-
-[tool.uv.sources]
-xml-tools = { workspace = true }

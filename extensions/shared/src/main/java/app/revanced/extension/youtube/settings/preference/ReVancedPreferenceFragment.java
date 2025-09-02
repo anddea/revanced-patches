@@ -431,7 +431,9 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             );
 
             Dialog dialog = dialogPair.first;
-            dialog.setOnShowListener(d -> showingUserDialogMessage = false);
+            dialog.setOnDismissListener(d ->
+                    Utils.runOnMainThread(() -> showingUserDialogMessage = false)
+            );
             dialog.show();
         }
     }

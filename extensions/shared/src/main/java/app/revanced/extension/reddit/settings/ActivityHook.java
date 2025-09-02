@@ -23,6 +23,7 @@ public class ActivityHook {
         linearLayout.setFitsSystemWindows(true);
         linearLayout.setTransitionGroup(true);
         linearLayout.addView(fragment);
+        linearLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         activity.setContentView(linearLayout);
 
         activity.getFragmentManager()

@@ -7,7 +7,7 @@ import shutil
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
-from defusedxml import ElementTree
+from defusedxml import ElementTree as DefusedET
 
 from config.settings import Settings
 from utils.xml_processor import XMLProcessor
@@ -92,7 +92,7 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
             if name in existing_elements:
                 # Update existing element
                 existing_elem: Any = existing_elements[name]
-                new_elem: Any = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
+                new_elem: Any = DefusedET.fromstring(data["text"])
                 # Replace attributes and children
                 existing_elem.attrib.clear()
                 existing_elem.attrib.update(new_elem.attrib)
@@ -101,7 +101,7 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
                 existing_elem.tail = new_elem.tail
             elif name not in blacklist and (filter_keys is None or name in filter_keys):
                 # Add new element (only if not blacklisted and passes filter)
-                new_elem: Any = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
+                new_elem: Any = DefusedET.fromstring(data["text"])
                 target_root.append(new_elem)
 
         # Write updated file
@@ -145,7 +145,11 @@ def sync_translations(translations_path: Path, rvx_base_path: Path) -> None:
             update_strings(dest_strings_path, source_strings_path)
 
 
-def update_translations_with_keys(translations_path: Path, base_dir: Path, additional_keys: set[str]) -> None:
+def update_translations_with_keys(
+    translations_path: Path,
+    base_dir: Path,
+    additional_keys: set[str] | None = None,
+) -> None:
     """Update translation strings with specific keys."""
     source_base_path = base_dir / "src/main/resources/addresources"
 
@@ -159,7 +163,7 @@ def update_translations_with_keys(translations_path: Path, base_dir: Path, addit
         rvx_lang_path = _find_source_translation_file(source_base_path, lang_dir.name)
 
         if rvx_lang_path:
-            logger.info("Found source %s for target %s", rvx_lang_path, target_path)
+            logger.debug("Found source %s for target %s", rvx_lang_path, target_path)
             update_strings(target_path, rvx_lang_path, filter_keys=additional_keys)
         else:
             logger.warning("No matching source translation found for language: %s", lang_dir.name)
@@ -182,18 +186,23 @@ def process(app: str, base_dir: Path) -> None:
     update_base_strings(base_path, rvx_base_path)
 
     # Handle translations
-    additional_keys: set[str] | None = None
     # ruff: noqa: ERA001
-    # {
+    # additional_keys: set[str] = {
     #     "revanced_hide_ask_button_summary_off",
     #     "revanced_hide_ask_button_summary_on",
     #     "revanced_hide_ask_button_title",
     #     "revanced_hide_ask_section_summary_off",
     #     "revanced_hide_ask_section_summary_on",
     #     "revanced_hide_ask_section_title",
+    #     "revanced_hide_hype_button_summary_off",
+    #     "revanced_hide_hype_button_summary_on",
+    #     "revanced_hide_hype_button_title",
     #     "revanced_hide_player_control_buttons_background_summary_off",
     #     "revanced_hide_player_control_buttons_background_summary_on",
     #     "revanced_hide_player_control_buttons_background_title",
+    #     "revanced_hide_promote_button_summary_off",
+    #     "revanced_hide_promote_button_summary_on",
+    #     "revanced_hide_promote_button_title",
     #     "revanced_hide_shorts_hashtag_button_summary_off",
     #     "revanced_hide_shorts_hashtag_button_summary_on",
     #     "revanced_hide_shorts_hashtag_button_title",
@@ -231,7 +240,8 @@ def process(app: str, base_dir: Path) -> None:
     #     "revanced_swipe_text_overlay_size_title",
     # }
 
-    if additional_keys:
-        update_translations_with_keys(translations_path, base_dir, additional_keys)
+    if "revanced/revanced-patches" in str(base_dir):
+        update_translations_with_keys(translations_path, base_dir)
+        # update_translations_with_keys(translations_path, base_dir, additional_keys)
     else:
         sync_translations(translations_path, rvx_base_path)

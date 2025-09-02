@@ -3,7 +3,6 @@ package app.revanced.extension.music.patches.components;
 import static app.revanced.extension.shared.utils.StringRef.str;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -148,17 +147,13 @@ public final class CustomFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // All callbacks are custom filter groups.
         CustomFilterGroup custom = (CustomFilterGroup) matchedGroup;
         if (custom.startsWith && contentIndex != 0) {
             return false;
         }
-        if (custom.bufferSearch != null && !custom.bufferSearch.matches(protobufBufferArray)) {
-            return false;
-        }
-
-        return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return custom.bufferSearch == null || custom.bufferSearch.matches(buffer);
     }
 }

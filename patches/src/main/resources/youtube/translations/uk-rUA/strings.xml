@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Увімкнути спеціальні можливості для відеоплеєра?</string>
     <string name="accessibility_settings_edu_opt_out_text">Керування змінено, оскільки служба спеціальних можливостей увімкнена.</string>
@@ -131,6 +131,7 @@
     <string name="revanced_change_start_page_entry_fashion">Мода і краса</string>
     <string name="revanced_change_start_page_entry_gaming">Ігри</string>
     <string name="revanced_change_start_page_entry_history">Історія</string>
+    <string name="revanced_change_start_page_entry_hype">Розголос</string>
     <string name="revanced_change_start_page_entry_library">Бібліотека</string>
     <string name="revanced_change_start_page_entry_liked_videos">Відео, які сподобалися</string>
     <string name="revanced_change_start_page_entry_live">Наживо</string>
@@ -225,7 +226,7 @@
     <string name="revanced_disable_ambient_mode_summary_off">Кінематографічне освітлення увімкнено.</string>
     <string name="revanced_disable_ambient_mode_summary_on">Кінематографічне освітлення вимкнено.</string>
     <string name="revanced_disable_ambient_mode_title">Вимкнути кінематографічне освітлення</string>
-    <string name="revanced_disable_auto_audio_tracks_not_available">Щоб скористатися цією функцією, змініть \'Основний клієнт (Підробка даних трансляції)\' на TV або iOS TV.</string>
+    <string name="revanced_disable_auto_audio_tracks_not_available">Щоб скористатися цією функцією, змініть \'Основний клієнт (Підробка даних трансляції)\' на TV, Простий TV або iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Примусові автоматичні звукові доріжки увімкнено.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Примусові автоматичні звукові доріжки вимкнено.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Вимкнути примусові автоматичні звукові доріжки</string>
@@ -305,12 +306,17 @@
     <string name="revanced_disable_seekbar_chapters_summary_off">Розділи ввімкнено у панелі прогресу.</string>
     <string name="revanced_disable_seekbar_chapters_summary_on">Розділи вимкнено у панелі прогресу.</string>
     <string name="revanced_disable_seekbar_chapters_title">Вимкнути розділи панелі прогресу</string>
-    <string name="revanced_disable_shorts_background_playback_summary_off">Фонове відтворення Shorts увімкнено.</string>
+    <string name="revanced_disable_shorts_background_playback_summary_off">"Фонове відтворення Shorts увімкнено.
+
+Інформація: Фонове відтворення Shorts доступне лише в режимі 'Картинка в картинці'."</string>
     <string name="revanced_disable_shorts_background_playback_summary_on">Фонове відтворення Shorts вимкнено.</string>
     <string name="revanced_disable_shorts_background_playback_title">Вимкнути фонове відтворення Shorts</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Фонтанну анімацію над кнопкою Подобається увімкнено.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Фонтанну анімацію над кнопкою Подобається вимкнено.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Вимкнути фонтанну анімацію кнопки Подобається</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">Вікно Увійти на телевізорі увімкнено.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">Вікно Увійти на телевізорі вимкнено.</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">Вимкнути вікно Увійти на телевізорі</string>
     <string name="revanced_disable_speed_overlay_summary">"Вимикається 'Відтворення зі швидкістю 2x' під час утримання
 
 Зауваження:
@@ -329,9 +335,6 @@
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Проведенням вниз виходитиметься з повноекранного режиму.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Проведенням вниз не виходитиметься з повноекранного режиму.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Вимкнути проведення для виходу з повноекранного режиму</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_off">Проведення вгору / вниз у повноекранному режимі змінюватиме на наступне / попереднє відео.</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_on">Проведення вгору / вниз у повноекранному режимі не змінюватиме на наступне / попереднє відео.</string>
-    <string name="revanced_disable_swipe_to_switch_video_title">Вимкнути зміну відео проведенням</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">Рядок стану непрозорий чи напівпрозорий.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Рядок стану непрозорий.</string>
     <string name="revanced_disable_translucent_status_bar_title">Вимкнути напівпрозорість рядка стану</string>
@@ -349,6 +352,7 @@
 • Відтворення відео використовуватиме більше інтернет даних ніж VP9.
 • Кодек VP9 все ще використовується для HDR відео."</string>
     <string name="revanced_disable_vp9_codec_title">Вимкнути кодек VP9</string>
+    <string name="revanced_dismiss_player_not_available_toast">Ідентифікатор відео недоступний. Будь ласка, перевідкрийте відео.</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Смугу прогресу Каїр вимкнено.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Смугу прогресу Каїр увімкнено.
 
@@ -370,12 +374,6 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Користувацький колір смуги прогресу вимкнено.</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Користувацький колір смуги прогресу увімкнено.</string>
     <string name="revanced_enable_custom_seekbar_color_title">Увімкнути користувацький колір смуги прогресу</string>
-    <string name="revanced_enable_debug_buffer_logging_summary_off">Журнали налагодження не містять буфер.</string>
-    <string name="revanced_enable_debug_buffer_logging_summary_on">Журнали налагодження містять буфер.</string>
-    <string name="revanced_enable_debug_buffer_logging_title">Увімкнути ведення журналу буфера налагодження</string>
-    <string name="revanced_enable_debug_logging_summary_off">Журнали налагодження вимкнено.</string>
-    <string name="revanced_enable_debug_logging_summary_on">Журнали налагодження увімкнено.</string>
-    <string name="revanced_enable_debug_logging_title">Увімкнути журнал налагодження</string>
     <string name="revanced_enable_gradient_loading_screen_summary_off">Градієнт екрану завантаження вимкнено.</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">Градієнт екрану завантаження увімкнено.</string>
     <string name="revanced_enable_gradient_loading_screen_title">Увімкнути градієнт екрану завантаження</string>
@@ -418,6 +416,9 @@
 • Увімкнення мітки часу залишає порожній простір під панеллю дій.
 • Оскільки ця функція на стадії розробки Google, макет може бути порушений."</string>
     <string name="revanced_enable_shorts_time_stamp_title">Увімкнути мітку часу</string>
+    <string name="revanced_enable_swipe_to_switch_video_summary_off">Проведення вгору / вниз у повноекранному режимі не змінюватиме на наступне / попереднє відео.</string>
+    <string name="revanced_enable_swipe_to_switch_video_summary_on">Проведення вгору / вниз у повноекранному режимі змінюватиме на наступне / попереднє відео.</string>
+    <string name="revanced_enable_swipe_to_switch_video_title">Увімкнути зміну відео проведенням</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Панель навігації непрозора.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Панель навігації напівпрозора.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Увімкнути напівпрозорість панелі навігації</string>
@@ -454,6 +455,12 @@
     <string name="revanced_expand_video_description_summary_off">Опис відео розгортається вручну.</string>
     <string name="revanced_expand_video_description_summary_on">Опис відео розгортається автоматично.</string>
     <string name="revanced_expand_video_description_title">Розгортати опис відео</string>
+    <string name="revanced_extended_audio_tracks_unavailable">"Це налаштування наразі недоступне.
+Щоб скористатися цією функцією, змініть 'Основний клієнт (Підробка даних трансляції)' на iOS TV, TV або Простий TV.
+
+Примітка:
+• iOS TV не підтримує відтворення деяких відео, наприклад, музичних відео.
+• Отже, якщо Основний клієнт вибрано iOS TV, це налаштування може не працювати для деяких відео."</string>
     <string name="revanced_extended_confirm_user_dialog_title">Впевнені, що бажаєте продовжити?</string>
     <string name="revanced_extended_reset_to_default_toast">Скинуто.</string>
     <string name="revanced_extended_restart">Перезапустити</string>
@@ -492,6 +499,26 @@
     <string name="revanced_external_downloader_package_name_video_long_press_title">Ім\'я пакета завантажувача відео при довгому натисканні</string>
     <string name="revanced_external_downloader_package_name_video_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад NewPipe або YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Ім\'я пакета завантажувача відео</string>
+    <string name="revanced_fix_hype_button_icon_summary_off">Іконку кнопки Розголос приховано.</string>
+    <string name="revanced_fix_hype_button_icon_summary_on">Іконку кнопки Розголос показується.</string>
+    <string name="revanced_fix_hype_button_icon_title">Виправити іконку кнопки Розголос</string>
+    <string name="revanced_fix_hype_button_icon_user_dialog_message">"В YouTube 19.25.39 або більш ранніх іконка Розголос прихована у панелі дій та панелі опису відео.
+
+Як обхідний шлях, версія програми підміняється на 19.26.42 в кінцевих точках '/get_watch' і '/next'.
+
+Якщо вимкнете це налаштування, іконка Розголос може не зображатись у панелі дій та панелі опису відео.
+
+※ Навіть якщо це налаштування вимкнене, кнопку Розголос не вдасться приховати."</string>
+    <string name="revanced_fix_spoof_app_version_side_effect_summary_off">Замість параметра \'Автовідтворення\' використовується параметр \'Відтворення\'.</string>
+    <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"Замість параметра 'Відтворення' використовується параметр 'Автовідтворення'."</string>
+    <string name="revanced_fix_spoof_app_version_side_effect_title">Виправити побічний ефект Підробки версії програми</string>
+    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"Якщо версію програми було підроблена на 19.30 або ранішу хоча б один раз, налаштування 'Відтворення' може бути порушене.
+
+Це залежить від того, яку відповідь додаток отримує від сервера.
+
+Якщо налаштування 'Відтворення' порушене, увімкнення цього налаштування може вирішити проблему.
+
+Якщо налаштування 'Відтворення' не працює навіть після увімкнення або вимкнення цього налаштування, слід очистити дані програми."</string>
     <string name="revanced_fullscreen_ads_closed_toast">Повноекранну рекламу закрито.</string>
     <string name="revanced_gemini_cancelled">Скасовано</string>
     <string name="revanced_gemini_copy_success">Підсумок скопійовано в буфер обміну.</string>
@@ -516,7 +543,7 @@
     <string name="revanced_gemini_summary_title">Підсумок відео Gemini</string>
     <string name="revanced_gemini_time_taken">(Тривало %d секунд)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">Увімкніть \"Показ поверх інших програм\", щоб показувати у вигляді субтитрів</string>
-    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Розмір шрифту транскрибованих субтитрів відео. Щоб приховати вікно субтитрів, просто натисніть на нього.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Розмір шрифту транскрибованих субтитрів відео. Щоб приховати вікно субтитрів, просто натисніть на нього, або утримуйте, щоб перетягнути його в інше місце.</string>
     <string name="revanced_gemini_transcribe_subtitles_font_size_title">Розмір шрифту субтитрів</string>
     <string name="revanced_gemini_transcription_parse_button">Субтитри</string>
     <string name="revanced_gemini_transcription_parse_success">Розбір субтитрів виконано успішно</string>
@@ -569,6 +596,17 @@
     <string name="revanced_hide_autoplay_preview_summary_off">Контейнер автовідтворення перед перегляду показується.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Контейнер автовідтворення перед перегляду приховано.</string>
     <string name="revanced_hide_autoplay_preview_title">Приховати контейнер автовідтворення перед перегляду</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Приклади карусельних полиць:&lt;br&gt;&lt;br&gt;&lt;b&gt;Важливі новини&lt;/b&gt;, &lt;b&gt;Продовжити перегляд&lt;/b&gt;, &lt;b&gt;Переглянути більше каналів&lt;/b&gt;, &lt;b&gt;;Для Вас&lt;/b&gt;, &lt;b&gt;Прослухати знову&lt;/b&gt;, &lt;b&gt;Найактуальніші&lt;/b&gt;, &lt;b&gt;Покупки&lt;/b&gt;, &lt;b&gt;Переглянути ще раз&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_title">Про карусельну полицю</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_off">Показується у Головній стрічці та пов\'язаних відео.</string>
+    <string name="revanced_hide_carousel_shelf_home_summary_on">Приховано у Головній стрічці та пов\'язаних відео.</string>
+    <string name="revanced_hide_carousel_shelf_home_title">Приховати у Головній стрічці та пов\'язаних відео</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_off">Показується у результатах пошуку.</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_on">Приховано у результатах пошуку.</string>
+    <string name="revanced_hide_carousel_shelf_search_title">Приховати у результатах пошуку</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_off">Показується у стрічці Підписки.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_on">Приховано у стрічці Підписки.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_title">Приховати у стрічці Підписки</string>
     <string name="revanced_hide_carousel_shelf_summary">"Приховати наступні полиці:
 • Важливі новини
 • Продовжити перегляд
@@ -714,9 +752,6 @@
     <string name="revanced_hide_floating_microphone_summary_off">Плавучу кнопку мікрофону показується.</string>
     <string name="revanced_hide_floating_microphone_summary_on">Плавучу кнопку мікрофону приховано.</string>
     <string name="revanced_hide_floating_microphone_title">Приховати плавучу кнопку мікрофону</string>
-    <string name="revanced_hide_for_you_shelf_summary_off">Полицю \'Для вас\' показується.</string>
-    <string name="revanced_hide_for_you_shelf_summary_on">Полицю \'Для вас\' приховано.</string>
-    <string name="revanced_hide_for_you_shelf_title">Приховати полицю \'Для вас\'</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Повноекранну рекламу показується.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Повноекранну рекламу приховано.</string>
     <string name="revanced_hide_fullscreen_ads_title">Приховати повноекранну рекламу</string>
@@ -729,6 +764,9 @@
     <string name="revanced_hide_handle_summary_off">Ідентифікатор показується.</string>
     <string name="revanced_hide_handle_summary_on">Ідентифікатор приховано.</string>
     <string name="revanced_hide_handle_title">Приховати ідентифікатор</string>
+    <string name="revanced_hide_hype_button_summary_off">Кнопку Розголос показується.</string>
+    <string name="revanced_hide_hype_button_summary_on">Кнопку Розголос приховано.</string>
+    <string name="revanced_hide_hype_button_title">Приховати кнопку Розголос</string>
     <string name="revanced_hide_image_search_button_summary_off">Кнопку пошуку за зображенням показується.</string>
     <string name="revanced_hide_image_search_button_summary_on">Кнопку пошуку за зображенням приховано.</string>
     <string name="revanced_hide_image_search_button_title">Приховати кнопку пошуку за зображенням</string>
@@ -800,10 +838,6 @@
     <string name="revanced_hide_live_chat_replay_button_summary_off">Кнопку повтору Чату показується.\n\nЗ\'являється в повноекранному режимі при закритті Чату.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Кнопку повтору Чату приховано.\n\nЗ\'являється в повноекранному режимі при закритті Чату.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Приховати кнопку повтору Чату</string>
-    <string name="revanced_hide_low_views_video_summary">"Приховати відео з менш ніж 1,000 переглядів з головної стрічки, вантажені з каналів, на які не підписані.
-
-Цей фільтр може більше не працювати, натомість використовуйте \"Фільтр кількості переглядів\"."</string>
-    <string name="revanced_hide_low_views_video_title">Приховати відео з малою кількістю переглядів</string>
     <string name="revanced_hide_medical_panel_summary_off">Панелі про медицину показується.</string>
     <string name="revanced_hide_medical_panel_summary_on">Панелі про медицину приховано.</string>
     <string name="revanced_hide_medical_panel_title">Приховати медичні панелі</string>
@@ -872,7 +906,7 @@
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Приховати меню Кінематографічне освітлення</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Меню Звукова доріжка приховано.
 
-Для показу меню Звукова доріжка, змініть 'Основний клієнт (Підробка даних трансляції)' на TV або iOS TV."</string>
+Для показу меню Звукова доріжка, змініть 'Основний клієнт (Підробка даних трансляції)' на TV, Простий TV або iOS TV."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Меню Звукова доріжка показується.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Меню Звукова доріжка приховано.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Приховати меню Звукова доріжка</string>
@@ -931,7 +965,9 @@
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_summary_on">Меню Дивитись у VR приховано.</string>
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_title">Приховати меню Дивитись у VR</string>
     <string name="revanced_hide_player_fullscreen_button_summary_off">Кнопку повноекранного режиму показується.</string>
-    <string name="revanced_hide_player_fullscreen_button_summary_on">Кнопку повного екранного режиму приховано.</string>
+    <string name="revanced_hide_player_fullscreen_button_summary_on">"Кнопку повного екранного режиму приховано.
+
+Застереження: Всі кнопки можуть бути приховані після закінчення відео."</string>
     <string name="revanced_hide_player_fullscreen_button_title">Приховати кнопку повноекранного режиму</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Кнопки показується.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Кнопки приховано.</string>
@@ -951,6 +987,9 @@
     <string name="revanced_hide_preview_comment_type_off">Це змінює розмір секції коментарів, тому неможливо відкрити Чат у секції коментарів.</string>
     <string name="revanced_hide_preview_comment_type_on">Це не змінює розмір секції коментарів, тому можливо відкрити Чат у секції коментарів.</string>
     <string name="revanced_hide_preview_comment_type_title">Тип приховування закріпленого коментаря</string>
+    <string name="revanced_hide_promote_button_summary_off">Кнопка \"Рекламувати\" показується</string>
+    <string name="revanced_hide_promote_button_summary_on">Кнопку \"Рекламувати\" приховано</string>
+    <string name="revanced_hide_promote_button_title">Приховати \"Рекламувати\"</string>
     <string name="revanced_hide_promotion_alert_banner_summary_off">Рекламні сповіщення показується.</string>
     <string name="revanced_hide_promotion_alert_banner_summary_on">Рекламні сповіщення приховано.</string>
     <string name="revanced_hide_promotion_alert_banner_title">Приховати рекламні сповіщення</string>
@@ -984,25 +1023,15 @@
     <string name="revanced_hide_quick_actions_summary_off">Контейнер швидких дій показується.</string>
     <string name="revanced_hide_quick_actions_summary_on">Контейнер швидких дій приховано.</string>
     <string name="revanced_hide_quick_actions_title">Приховати контейнер швидких дій</string>
-    <string name="revanced_hide_recommended_video_summary">"Приховуються такі рекомендовані відео:
-
-• Відео з фразами на кшталт 'Людей також дивилися' внизу."</string>
-    <string name="revanced_hide_recommended_video_title">Приховати рекомендовані відео</string>
     <string name="revanced_hide_related_videos_overlay_summary_off">Секцію Більше відео у контейнері швидких дій та пов\'язаних відео показується.</string>
     <string name="revanced_hide_related_videos_overlay_summary_on">Секцію Більше відео у контейнері швидких дій та пов\'язаних відео приховано.</string>
     <string name="revanced_hide_related_videos_overlay_title">Приховати пов’язані відео</string>
     <string name="revanced_hide_related_videos_summary_off">Пов\'язані відео показується.</string>
     <string name="revanced_hide_related_videos_summary_on">Пов\'язані відео приховано.</string>
     <string name="revanced_hide_related_videos_title">Приховати пов’язані відео</string>
-    <string name="revanced_hide_related_videos_type_summary_off">"Кількість завантажених на екран не запам'ятовується під час запуску відео.
-
-• Позицію прокрутки стрічки можна скинути."</string>
-    <string name="revanced_hide_related_videos_type_summary_on">"Кількість завантажених на екран запам'ятовується під час запуску відео.
-
-• Частково виправлено проблему зі скиданням позиції прокрутки стрічки.
-• Пов'язані відео можуть бути не повністю відфільтровані."</string>
-    <string name="revanced_hide_related_videos_type_title">Тип приховування пов\'язаних відео</string>
     <string name="revanced_hide_related_videos_user_dialog_message">"Це налаштування обмежує максимальну кількість, які можуть вантажитися на екран плеєра.
+
+Якщо деякі пов'язані відео не приховані чи приховані небажані макети, такі як панель дій чи секція коментарів, зміна зсуву може вирішити проблему.
 
 Якщо екран плеєра змінюється через зміни на стороні сервера, можуть бути приховані ненавмисно на екрані плеєра."</string>
     <string name="revanced_hide_remix_button_summary_off">Кнопку Ремікс показується.</string>
@@ -1121,6 +1150,9 @@
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Кнопку вимкнених коментарів або з позначкою \"0\" показується.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Кнопку вимкнених коментарів або з позначкою \"0\" приховано.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Приховати кнопку вимкнених коментарів</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_off">Панель коментарів показується.</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_on">Панель коментарів приховано.</string>
+    <string name="revanced_hide_shorts_comments_panel_title">Приховати панель коментарів</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">Кнопку Не подобається показується.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Кнопку Не подобається приховано.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Приховати кнопку Не подобається</string>
@@ -1151,9 +1183,9 @@
     <string name="revanced_hide_shorts_navigation_bar_summary_off">Панель навігації показується.</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">Панель навігації приховано.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Приховати панель навігації</string>
-    <string name="revanced_hide_shorts_new_posts_button_summary_off">Кнопку нових публікацій показується.</string>
-    <string name="revanced_hide_shorts_new_posts_button_summary_on">Кнопку нових публікацій приховано.</string>
-    <string name="revanced_hide_shorts_new_posts_button_title">Приховати кнопку нових публікацій</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_off">Кнопка \"Нові дописи\" показується</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_on">Кнопку \"Нові дописи\" приховано</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">Приховати \"Нові дописи\"</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">Мітку Містить пряму рекламу показується.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">Мітку Містить пряму рекламу приховано.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Приховати мітку Містить пряму рекламу</string>
@@ -1296,7 +1328,7 @@
     <string name="revanced_hide_video_by_view_counts_about_summary">"Головна/Підписки/Результати пошуку фільтрується, щоб приховати відео з переглядами менше або більше вказаної кількості.
 
 Застереження:
-• YouTube Shorts неможливо приховати.
+• Прямі трансляції чи YouTube Shorts неможливо приховати.
 • Відео з 0 переглядів не фільтруються."</string>
     <string name="revanced_hide_video_by_view_counts_about_title">Про фільтрацію за переглядами</string>
     <string name="revanced_hide_video_by_view_counts_home_summary_off">Відео у головній стрічці не фільтруються.</string>
@@ -1310,6 +1342,9 @@
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">Приховати відео підписок за переглядами</string>
     <string name="revanced_hide_video_by_view_counts_summary">Приховати рекомендовані відео з меншою за вказану кількість переглядів.\n\nВідома проблема: Відео з 0 переглядами не фільтруються.</string>
     <string name="revanced_hide_video_by_view_counts_title">Приховати рекомендовані відео за переглядами</string>
+    <string name="revanced_hide_video_recommendation_labels_summary_off">"Мітки мініатюр, такі як 'Люди також дивилися' та 'Вам також може сподобатись', показується."</string>
+    <string name="revanced_hide_video_recommendation_labels_summary_on">"Мітки мініатюр, такі як 'Люди також дивилися' та 'Вам також може сподобатись', приховано."</string>
+    <string name="revanced_hide_video_recommendation_labels_title">Приховати мітки відеорекомендацій</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Відео з більше ніж ця кількість переглядів приховуватимуться.</string>
     <string name="revanced_hide_video_view_counts_greater_than_title">Більші за переглядами</string>
     <string name="revanced_hide_video_view_counts_less_than_summary">Відео з менше ніж ця кількість переглядів приховуватимуться.</string>
@@ -1335,6 +1370,9 @@
     <string name="revanced_hide_web_search_results_summary_off">Результати вебпошуку показується.</string>
     <string name="revanced_hide_web_search_results_summary_on">Результати вебпошуку приховано.</string>
     <string name="revanced_hide_web_search_results_title">Приховати результати вебпошуку</string>
+    <string name="revanced_hide_you_may_like_section_summary_off">Секцію Вам може сподобатись показується.</string>
+    <string name="revanced_hide_you_may_like_section_summary_on">Секцію Вам може сподобатись приховано.</string>
+    <string name="revanced_hide_you_may_like_section_title">Приховати секцію Вам може сподобатись</string>
     <string name="revanced_hide_youtube_doodles_summary_off">Yoodles показується.</string>
     <string name="revanced_hide_youtube_doodles_summary_on">Yoodles приховано.</string>
     <string name="revanced_hide_youtube_doodles_title">Приховати Yoodles</string>
@@ -1488,9 +1526,6 @@
     <string name="revanced_language_ZH">"Китайська
 <small>中文</small>"</string>
     <string name="revanced_language_title">Мова RVX</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Не перевизначено</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_invalid_toast">Максимальний розмір пулу Лізо зв\'язків повинен бути між 1-3.</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_title">Максимальний розмір пулу Лізо зв\'язків</string>
     <string name="revanced_minimize">Згорнути</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Подвійне натискання та щипок для зміни розміру вимкнено.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Подвійне натискання та щипок для зміни розміру увімкнено.
@@ -1610,6 +1645,10 @@
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"Кнопка вбудованого завантаження списку відтворення відкриває зовнішній завантажувач, якщо показується.
 
 Для показу кнопки вбудованого завантаження списку відтворення, увімкніть 'Підробити версію програми' і змініть 'Підробити цільову версію програми' на '19.28.42' або ранішу."</string>
+    <string name="revanced_override_playlist_download_button_summary_on_disclaimer_1">Кнопка завантаження списку відтворення відкриває зовнішній завантажувач, якщо показується.</string>
+    <string name="revanced_override_playlist_download_button_summary_on_disclaimer_2">"Кнопка завантаження списку відтворення відкриває зовнішній завантажувач, якщо показується.
+
+Для показу кнопки завантаження списку відтворення, увімкніть 'Підробити версію програми' і змініть 'Підробити цільову версію програми' на '19.28.42' або ранішу."</string>
     <string name="revanced_override_playlist_download_button_title">Перевизначити кнопку завантаження списку відтворення</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_off">Кнопка завантаження відео відкриває зовнішній завантажувач.</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_on">Кнопка завантаження відео відкриває керування чергою.</string>
@@ -1639,16 +1678,15 @@
     <string name="revanced_preference_category_import_export_as_file">Імпорт / Експорт як файл</string>
     <string name="revanced_preference_category_import_export_as_text">Імпорт / Експорт як текст</string>
     <string name="revanced_preference_category_ios">iOS</string>
+    <string name="revanced_preference_category_js">JavaScript</string>
     <string name="revanced_preference_category_keyword_filter">Фільтр ключових слів</string>
     <string name="revanced_preference_category_others">Інше</string>
     <string name="revanced_preference_category_overlay_buttons">Накладання кнопок</string>
     <string name="revanced_preference_category_patch_information">Інформація про патчі</string>
     <string name="revanced_preference_category_playback_speed">Швидкість відтворення</string>
     <string name="revanced_preference_category_quick_actions">Швидкі дії</string>
-    <string name="revanced_preference_category_recommended_video">Рекомендовані відео</string>
     <string name="revanced_preference_category_shorts_shelf">Полиця Shorts</string>
     <string name="revanced_preference_category_suggested_actions">Пропоновані дії</string>
-    <string name="revanced_preference_category_tv">TV (ще в розробці)</string>
     <string name="revanced_preference_category_video_quality">Якість відео</string>
     <string name="revanced_preference_category_view_counts_filter">Фільтр за кількістю переглядів</string>
     <string name="revanced_preference_group_sb_title">Спонсорблок</string>
@@ -1660,6 +1698,8 @@
     <string name="revanced_preference_screen_alt_thumbnails_title">Альтернативні мініатюри</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Обходити обмеження кінематографічного освітлення чи вимкнути кінематографічне освітлення.</string>
     <string name="revanced_preference_screen_ambient_mode_title">Кінематографічне освітлення</string>
+    <string name="revanced_preference_screen_carousel_shelf_summary">Приховувати чи показувати карусельну полицю у головній, результатах пошуку, і підписках.</string>
+    <string name="revanced_preference_screen_carousel_shelf_title">Карусельна полиця</string>
     <string name="revanced_preference_screen_category_bar_summary">Приховувати чи показувати панель категорій у стрічці, пошуку та пов\'язаних відео.</string>
     <string name="revanced_preference_screen_category_bar_title">Панель категорій</string>
     <string name="revanced_preference_screen_channel_bar_summary">Приховувати чи показувати компоненти панелі каналу під відео.</string>
@@ -1737,6 +1777,7 @@
     <string name="revanced_queue_manager_fetch_failed_delete">Не вдалося видалити чергу.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">Не вдалося вилучити відео.</string>
     <string name="revanced_queue_manager_fetch_failed_save">Не вдалося зберегти чергу.</string>
+    <string name="revanced_queue_manager_fetch_failed_video_information">Не вдалося отримати інформацію про відео.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">Відео додано успішно.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">Чергу створено успішно.</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">Чергу видалено успішно.</string>
@@ -1749,6 +1790,7 @@
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Видалити з черги та перевантажити відео</string>
     <string name="revanced_queue_manager_remove_queue">Вилучити чергу</string>
     <string name="revanced_queue_manager_save_queue">Зберегти чергу</string>
+    <string name="revanced_queue_manager_show_original_video_information">Показувати оригінальну інформацію про відео</string>
     <string name="revanced_queue_manager_user_dialog_message">"Замість відкривання зовнішнього завантажувача відкриває діалог керування чергою.
 
 Також можливо відкрити керування чергою натисканням та утриманням кнопки назад на панелі навігації.
@@ -1756,6 +1798,26 @@
 Ця функція все ще перебуває в процесі розробки, тому більшість функцій не працюють.
 
 Будь ласка, використовуйте її лише для налагодження."</string>
+    <string name="revanced_queue_manager_video_information">Інформація про відео</string>
+    <string name="revanced_queue_manager_video_information_copy">Копіювати</string>
+    <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"Канал
+══════════════
+%1$s
+
+Назва
+══════════════
+%2$s"</string>
+    <string name="revanced_queue_manager_video_information_user_dialog_message">"Канал
+══════════════
+%1$s
+
+Назва
+══════════════
+%2$s
+
+Опис
+══════════════
+%3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Верхній відступ швидких дій повинен бути в межах 0-32.</string>
     <string name="revanced_quick_actions_top_margin_summary">Налаштуйте відстань від панелі прогресу до контейнера швидких дій, діапазон 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Верхній відступ швидких дій</string>
@@ -1932,7 +1994,15 @@
     <string name="revanced_sb_new_segment_adjust">Відрегулювати: Позначте час початку та закінчення сегмента</string>
     <string name="revanced_sb_new_segment_choose_category">Вибрати категорію сегмента</string>
     <string name="revanced_sb_new_segment_compare">Перевірити сегмент</string>
-    <string name="revanced_sb_new_segment_confirm_content">Сегмент триває від %1$02d:%2$02d до %3$02d:%4$02d (%5$d хвилин(-и) %6$02d секунд(-и))\nНадіслати?</string>
+    <string name="revanced_sb_new_segment_confirm_content">"Час сегменту з
+
+%1$s
+до
+%2$s
+
+(%3$s)
+
+Готові відправити?"</string>
     <string name="revanced_sb_new_segment_confirm_contents">Сегмент від \n\n%1$s\nдо\n%2$s\n\n(%3$s)\n\nНадіслати?</string>
     <string name="revanced_sb_new_segment_confirm_title">Час правильний?</string>
     <string name="revanced_sb_new_segment_disabled_category">Категорія вимкнена у налаштуваннях. Увімкніть категорію, щоб надіслати.</string>
@@ -2081,11 +2151,12 @@
     <string name="revanced_settings_search_highlight_summary">Виділяти відповідний текст у результатах пошуку вибраним кольором.</string>
     <string name="revanced_settings_search_highlight_title">Увімкнути виділення пошуку</string>
     <string name="revanced_settings_search_history_summary">Зберігайте нещодавні пошукові запити для показу їх коли рядок пошуку порожній.</string>
-    <string name="revanced_settings_search_history_title">Увімкнути історію пошуку</string>
+    <string name="revanced_settings_search_history_title">Показувати історію пошуку налаштувань</string>
     <string name="revanced_share_copy_settings_success">Налаштування скопійовано до буфера обміну.</string>
     <string name="revanced_share_copy_timestamp_success">Мітку часу скопійовано в буфер обміну. (%s)</string>
     <string name="revanced_share_copy_url_success">URL скопійовано до буфера обміну</string>
     <string name="revanced_share_copy_url_timestamp_success">URL з міткою часу скопійовано в буфер обміну.</string>
+    <string name="revanced_share_copy_video_information_success">Інформацію про відео скопійовано в буфер обміну.</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Ця функція все ще експериментальна, тому немає гарантії, що буде працювати.
 
 Більшість помилок неможливо виправити через обмеження на стороні клієнта, тому використовуйте лише для тестування."</string>
@@ -2145,18 +2216,6 @@
     <string name="revanced_skip_autoplay_countdown_summary_off">Якщо автовідтворення увімкнено, наступне відео відтворюватиметься після закінчення відліку.</string>
     <string name="revanced_skip_autoplay_countdown_summary_on">Якщо автовідтворення увімкнено, наступне відео відтворюватиметься без відліку.</string>
     <string name="revanced_skip_autoplay_countdown_title">Пропустити відлік автовідтворення</string>
-    <string name="revanced_skip_preloaded_buffer_summary">"Пропуск передвантаженого буфера під час запуску відео для обходу затримки примусового застосування типової якості відео.
-
-Інформація:
-• Під час запуску відео є затримка приблизно 0.3 секунди.
-• Не застосовується на Shorts, відео HDR, прямі трансляції, менші ніж 15 секунд.
-• Налаштування 'Підробити дані трансляції' також вилучає передвантажений буфер, отже це налаштування не потрібне якщо використовуєте те."</string>
-    <string name="revanced_skip_preloaded_buffer_title">Пропустити перед вантажений буфер</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Тост не показується.</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Тост показується.</string>
-    <string name="revanced_skip_preloaded_buffer_toast_title">Показувати тост, коли пропущено</string>
-    <string name="revanced_skip_preloaded_buffer_user_dialog_message">Вмикання цього налаштування може спричинити проблеми відтворення відео.</string>
-    <string name="revanced_skipped_preloaded_buffer">Пропущено перед вантажений буфер</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Значення накладання швидкості повинно бути в межах 0-8.0.</string>
     <string name="revanced_speed_overlay_value_summary">Значення накладання швидкості в межах 0-8.0.</string>
     <string name="revanced_speed_overlay_value_title">Значення накладання швидкості</string>
@@ -2203,9 +2262,11 @@
 <small>(Застаріла)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_unplugged">"iOS TV
 <small>(Потрібна авторизація)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web мобільний
+<small>(ще в розробці)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">"TV
 <small>(ще в розробці)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">"Просте TV
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">"Простий TV
 <small>(ще в розробці)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Основний клієнт</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Не вдалося отримати трансляції клієнта.</string>
@@ -2216,6 +2277,41 @@
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Увімкнення може зменшити споживання акумулятора та виправити затинання відтворення.
 
 AVC має максимальну роздільну здатність 1080p, аудіокодек Opus недоступний, а відтворення відео використовуватиме більше інтернет-даних, ніж кодек VP9 чи AV1."</string>
+    <string name="revanced_spoof_streaming_data_message">Якщо у вас виникли проблеми з відтворенням, увімкніть параметр \"Заміна потокових даних\" у &lt;i&gt;&lt;u&gt;Налаштування &gt; %s &gt; Різне &gt; Заміна потокових даних&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Кодеки відео пріоритетні.</string>
+    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Якість відео пріоритетна.</string>
+    <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Пріоритетна якість відео</string>
+    <string name="revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message">"Деякі відео мають такі якість відео та кодеки:
+
+• 1080p AVC
+• 720p AVC
+• 360p VP9
+
+Якщо пристрій підтримує VP9, '1080p AVC' і '720p AVC' ігноруються.
+
+Іншими словами, '360p VP9' використовується як найвища якість відео, і '1080p AVC' і '720p AVC' не відображаються у висувному меню якості відео.
+
+Це передбачувана поведінка програми YouTube Android, і саме тому висувне меню якості відео було недоступне для деяких відео.
+
+Хоча VP9 є більш досконалим кодеком, ніж AVC, деякі користувачі можуть віддати перевагу '1080p AVC' ніж '360p VP9'.
+
+Якщо це налаштування увімкнено, використовується найвища доступна якість відео з відповіді сервера, незалежно від відеокодека.
+
+Приклад 1:
+
+• 1080p AVC
+• 720p AVC
+• 360p VP9
+
+→ 1080p AVC використовується.
+
+Приклад 2:
+
+• 1080p AVC
+• 1080p VP9
+• 720p VP9
+
+→ 1080p VP9 використовується."</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">Кнопку перезавантаження відео показується під час показу анімації вантаження.</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">Кнопку перезавантаження відео завжди показується.</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">Завжди показувати кнопку перезавантаження відео</string>
@@ -2238,11 +2334,16 @@ AVC має максимальну роздільну здатність 1080p, �
     <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Стабілізація гучності недоступна.
 • Фільми та платні відео можуть не відтворюватися.
 • Відео для дітей можуть не відтворюватися коли вийшли з облікового запису або в анонімному режимі."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Меню звукової доріжки відсутнє.
+• Вимкнення примусових автоматичних звукових доріжок недоступне.
+• Якщо деобфускація не вдасться, відтворення може завершитися зі збоями.
+• Іноді відео не відтворюється навіть через 10 секунд, і тоді потрібно натиснути кнопку перезавантаження відео.
+• Відео може розпочинається із запізненням."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Побічні ефекти імітування</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• Якщо деобфускація не вдасться, відтворення може завершитися зі збоями.
 • Іноді відео не відтворюється навіть через 10 секунд, і тоді потрібно натиснути кнопку перезавантаження відео.
 • Відео може розпочинається із запізненням."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_unknown">• Відео може не відтворюватися.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_unknown">• Невідомі</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клієнт, що використовується для отримання даних трансляції приховано у Статистика для сисадмінів.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Клієнт, що використовується для отримання даних трансляції показується у Статистика для сисадмінів.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати в Статистика для сисадмінів</string>
@@ -2251,50 +2352,31 @@ AVC має максимальну роздільну здатність 1080p, �
 
 Якщо маєте YouTube Premium або виключили патч 'GmsCore support', це налаштування може не знадобитися."</string>
     <string name="revanced_spoof_streaming_data_title">Підробити дані трансляції</string>
-    <string name="revanced_spoof_streaming_data_tv_use_latest_js_summary_off">"JavaScript для деобфускації не підтримується в актуальному стані.
-
-• Використовується JavaScript, який успішно виконує деобфускацію, але він все одно дещо залежний від сервера."</string>
-    <string name="revanced_spoof_streaming_data_tv_use_latest_js_summary_on">"JavaScript для деобфускації підтримується в актуальному стані.
-
-• Це дуже залежить від сервера, і успіх або невдача деобфускації залежить від JavaScript, який наразі використовується на сервері."</string>
-    <string name="revanced_spoof_streaming_data_tv_use_latest_js_title">Використовувати останній JavaScript</string>
-    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_summary_off">"JavaScript не виконується в корінних бібліотеках.
-
-• Працює на JavaTube."</string>
-    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_summary_on">"JavaScript виконується в корінних бібліотеках.
-
-• Працює на SmartTube."</string>
-    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_title">Використовувати рушій JavaScript V8</string>
-    <string name="revanced_spoof_streaming_data_tv_use_v8_js_engine_user_dialog_message">Якщо не використовується рушій JavaScript V8, потрібно більше часу для деобфускації посилання трансляції, через що відео розпочинається зі запізненням 10 секунд.</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Розробник Android</string>
-    <string name="revanced_spoof_streaming_data_use_ios_summary_off">Клієнт iOS не доданий до доступних клієнтів.</string>
-    <string name="revanced_spoof_streaming_data_use_ios_summary_on">"Клієнт iOS доданий до доступних клієнтів.
-
-ЗАУВАЖЕННЯ: Клієнт iOS застарілий. Будь-які проблеми, які виникають під час його використання, на власний ризик."</string>
-    <string name="revanced_spoof_streaming_data_use_ios_title">Використовувати клієнт iOS</string>
-    <string name="revanced_spoof_streaming_data_use_ios_user_dialog_message">"Під час запиту кінцевих точок YouTube API за допомогою iOS потрібні токени Auth, видані пристроєм iOS, і токени PoToken, видані iOSGuard.
-
-Це означає, що в запитах трансляції через iOS не буде ані токенів Auth, ані токенів PoToken, і сервер може вважати користувача ботом і заблокувати цілий діапазон ASN/IP.
-
-ВИКОРИСТОВУЙТЕ НА ВЛАСНИЙ РИЗИК!"</string>
-    <string name="revanced_spoof_streaming_data_use_tv_all_summary_off">"Клієнт TV не використовується для деяких відео, які потребують швидкого відтворення:
+    <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"Клієнт JavaScript не використовується для деяких відео, які потребують швидкого відтворення:
 
 • Автовідтворення у стрічці
 • Кліпи
 • YouTube Shorts"</string>
-    <string name="revanced_spoof_streaming_data_use_tv_all_summary_on">"Клієнт TV використовується незалежно від типу відео.
+    <string name="revanced_spoof_streaming_data_use_js_all_summary_on">"Клієнт JavaScript використовується незалежно від типу відео.
 
-• Клієнт TV все ще не може відтворювати деякі відео."</string>
-    <string name="revanced_spoof_streaming_data_use_tv_all_title">Використовувати клієнт TV для всіх відео</string>
-    <string name="revanced_spoof_streaming_data_use_tv_summary_off">Клієнт TV не доданий до доступних клієнтів.</string>
-    <string name="revanced_spoof_streaming_data_use_tv_summary_on">Клієнт TV доданий до доступних клієнтів.</string>
-    <string name="revanced_spoof_streaming_data_use_tv_title">Використовувати клієнт TV</string>
-    <string name="revanced_spoof_streaming_data_use_tv_user_dialog_message">"Програма використовує більше системних ресурсів для пошуку чи декодування шаблону n-sig, а відео запускається повільніше.
+• Клієнт JavaScript все ще не може відтворювати деякі відео."</string>
+    <string name="revanced_spoof_streaming_data_use_js_all_title">Використовувати клієнт JavaScript для всіх відео</string>
+    <string name="revanced_spoof_streaming_data_use_js_summary_off">Клієнт JavaScript не доданий до доступних клієнтів.</string>
+    <string name="revanced_spoof_streaming_data_use_js_summary_on">Клієнт JavaScript доданий до доступних клієнтів.</string>
+    <string name="revanced_spoof_streaming_data_use_js_title">Використовувати клієнт JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"Програма використовує більше системних ресурсів для пошуку чи декодування шаблону n-sig, а відео запускається повільніше.
 
 Шаблон n-sig досить часто змінюється на серверах YouTube, і відтворення може завершитися невдало, якщо regex не вдасться знайти шаблон n-sig.
 
-Ця функція все ще перебуває у стадії розробки, тому, будь ласка, використовуйте її лише з метою налагодження."</string>
-    <string name="revanced_spoof_streaming_data_user_dialog_message">Вимикання цього налаштування може призвести до проблем відтворення відео.</string>
+Серед клієнтів JavaScript рекомендується Простий TV."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"JavaScript для деобфускації не підтримується в актуальному стані.
+
+• Використовується JavaScript, який успішно виконує деобфускацію, але він все одно дещо залежний від сервера."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_js_summary_on">"JavaScript для деобфускації підтримується в актуальному стані.
+
+• Це дуже залежить від сервера, і успіх або невдача деобфускації залежить від JavaScript, який наразі використовується на сервері."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_js_title">Використовувати останній JavaScript</string>
     <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_off">Кнопку звукової доріжки VR не показується.</string>
     <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_on">Кнопку звукової доріжки VR показується.</string>
     <string name="revanced_spoof_streaming_data_vr_audio_track_button_title">Показувати кнопку звукової доріжки VR</string>
@@ -2312,11 +2394,14 @@ AVC має максимальну роздільну здатність 1080p, �
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Відеокодек AVC (H.264) або VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Вимкнути AV1 VR</string>
     <string name="revanced_spoof_streaming_data_vr_language_title">Мова звукової доріжки для VR</string>
+    <string name="revanced_swipe_brightness_distance_summary">Кількість пікселів для проведення, щоб змінити яскравість. Чим менше значення, тим яскравість змінюється швидше, чим більше, тим повільніше (1-1000).</string>
+    <string name="revanced_swipe_brightness_distance_title">Відстань для яскравості</string>
     <string name="revanced_swipe_brightness_summary_off">Зміну яскравості жестом в повноекранному режимі вимкнено</string>
     <string name="revanced_swipe_brightness_summary_on">"Зміну яскравості жестом в повноекранному режимі увімкнено.
 
 Регулюйте яскравість вертикальним проведенням по лівій стороні екрана."</string>
     <string name="revanced_swipe_brightness_title">Увімкнути зміну яскравості жестом</string>
+    <string name="revanced_swipe_distance_invalid">Недійсна відстань для проведення, повинно бути між 1 і 1000.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Жести переміщення вимкнено в режимі \'Блокування екрана\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Жести переміщення увімкнено в режимі \'Блокування екрана\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Жести переміщення в режимі \'Блокування екрана\'</string>
@@ -2358,9 +2443,13 @@ AVC має максимальну роздільну здатність 1080p, �
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Не зберігається і не відновлюється яскравість при переході з/до повноекранного режиму.</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Зберігається та відновлюється яскравість при переході з/до повноекранного режиму.</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Зберігати та відновлювати яскравість</string>
+    <string name="revanced_swipe_seek_distance_summary">Кількість пікселів для проведення, щоб пропустити відеоконтент. Чим менше значення, тим перемотування швидше, чим більше, тим повільніше (1-1000).</string>
+    <string name="revanced_swipe_seek_distance_title">Відстань для перемотування</string>
     <string name="revanced_swipe_seek_summary_off">Проведення для наремотування вимкнено.</string>
     <string name="revanced_swipe_seek_summary_on">Проведення для наремотування увімкнено.</string>
     <string name="revanced_swipe_seek_title">Увімкнути жест наремотування</string>
+    <string name="revanced_swipe_speed_distance_summary">Кількість пікселів для проведення, щоб змінити швидкість відео. Чим менше значення, тим швидкість змінюється швидше, чим більше, тим повільніше (1-1000).</string>
+    <string name="revanced_swipe_speed_distance_title">Відстань для швидкості</string>
     <string name="revanced_swipe_speed_summary_off">Проведення для зміни швидкості вимкнено.</string>
     <string name="revanced_swipe_speed_summary_on">Проведення для зміни швидкості увімкнено.</string>
     <string name="revanced_swipe_speed_title">Увімкнути жест швидкості</string>
@@ -2372,6 +2461,8 @@ AVC має максимальну роздільну здатність 1080p, �
     <string name="revanced_swipe_text_overlay_size_title">Розмір тексту при жесті</string>
     <string name="revanced_swipe_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест.</string>
     <string name="revanced_swipe_threshold_title">Поріг величини жесту</string>
+    <string name="revanced_swipe_volume_distance_summary">Кількість пікселів для проведення, щоб регулювати гучність. Чим менше значення, тим гучність змінюється швидше, чим більше, тим повільніше (1-1000).</string>
+    <string name="revanced_swipe_volume_distance_title">Відстань для гучності</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Чутливість жесту гучності повинна бути в межах 1-1000.</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Наскільки змінюється гучність при проведенні.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Чутливість жесту гучності</string>

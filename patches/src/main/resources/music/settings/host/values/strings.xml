@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Continue</string>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
@@ -21,6 +21,10 @@ Tap the continue button and allow optimization changes."</string>
     <string name="revanced_add_miniplayer_next_button_title">Add miniplayer next button</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Adds a previous track button to the miniplayer.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Add miniplayer previous button</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;App name&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;App version&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Patched date&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_title">App info</string>
+    <string name="revanced_app_info_summary">Click to check the app name, app version, patch version, and patched date.</string>
+    <string name="revanced_app_info_title">App info</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Bypasses the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
     <string name="revanced_change_action_bar_position_summary">Moves the action bar below the play button.</string>
@@ -102,6 +106,12 @@ Limitations: Kids videos may not redirected."</string>
     <string name="revanced_disable_player_gesture_title">Disable player gesture</string>
     <string name="revanced_disable_quic_protocol_summary">"Disables CronetEngine's QUIC protocol."</string>
     <string name="revanced_disable_quic_protocol_title">Disable QUIC protocol</string>
+    <string name="revanced_disable_trim_silence_summary">"Disables a Trim silence switch in the playback speed flyout menu.
+
+Info:
+• This feature is for podcasts.
+• This feature is still in development, so it may be unstable."</string>
+    <string name="revanced_disable_trim_silence_title">Disable Trim silence switch</string>
     <string name="revanced_enable_comments_scroll_top_summary">"Clicking on the comment panel title ('Comments') scrolls to the top.
 
 Limitations: Does not apply to comment replies."</string>
@@ -114,10 +124,6 @@ Limitations:
     <string name="revanced_enable_compact_dialog_title">Enable compact dialog</string>
     <string name="revanced_enable_custom_navigation_bar_color_summary">Sets the navigation bar color.</string>
     <string name="revanced_enable_custom_navigation_bar_color_title">Enable custom navigation bar color</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Includes the buffer in the debug log.</string>
-    <string name="revanced_enable_debug_buffer_logging_title">Enable debug buffer logging</string>
-    <string name="revanced_enable_debug_logging_summary">Prints the debug log.</string>
-    <string name="revanced_enable_debug_logging_title">Enable debug logging</string>
     <string name="revanced_enable_forced_miniplayer_summary">Enables forced miniplayer when switching to a new track.</string>
     <string name="revanced_enable_forced_miniplayer_title">Enable forced miniplayer</string>
     <string name="revanced_enable_landscape_mode_summary">Enables landscape mode when rotating the screen on phones.</string>
@@ -130,8 +136,12 @@ Limitations:
 
 Info:
 • Latest YouTube Music clients use the OPUS audio codec by default.
-• This is only valid for users spoofing with very old clients."</string>
+• This may be necessary if the client or video stream is spoofed."</string>
     <string name="revanced_enable_opus_codec_title">Enable OPUS codec</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">"Enables smooth animation when miniplayer is maximized from minimized state.
+
+Limitations: Real-time lyrics UI may be broken for some users."</string>
+    <string name="revanced_enable_smooth_transition_animation_title">Enable smooth transition animation</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Enables swipe down to dismiss miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Enable swipe to dismiss miniplayer</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Enables swipe down to dismiss miniplayer.</string>
@@ -140,12 +150,6 @@ Info:
 
 Limitations: SponsorBlock segments are not shown in the seekbar."</string>
     <string name="revanced_enable_thick_seekbar_title">Enable thick seekbar</string>
-    <string name="revanced_enable_trim_silence_summary">"Adds a Trim silence switch to the playback speed flyout menu.
-
-Info:
-• This feature is for podcasts.
-• This feature is still in development, so it may be unstable."</string>
-    <string name="revanced_enable_trim_silence_title">Add Trim silence switch</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Enables Zen mode in podcasts.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Enable Zen mode in podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Enables a light grey color for the player background to reduce eye strain.</string>
@@ -192,6 +196,8 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">Hide Save button</string>
     <string name="revanced_hide_action_button_comment_summary">Hides the Comments button.</string>
     <string name="revanced_hide_action_button_comment_title">Hide Comments button</string>
+    <string name="revanced_hide_action_button_disabled_summary">Hides disabled buttons, such as the disabled Comments button.</string>
+    <string name="revanced_hide_action_button_disabled_title">Hide disabled button</string>
     <string name="revanced_hide_action_button_download_summary">Hides the Download button.</string>
     <string name="revanced_hide_action_button_download_title">Hide Download button</string>
     <string name="revanced_hide_action_button_label_summary">Hides the labels of the action buttons.</string>
@@ -267,6 +273,8 @@ Limitations:
     <string name="revanced_hide_handle_title">Hide handle</string>
     <string name="revanced_hide_history_button_summary">Hides the History button in the toolbar.</string>
     <string name="revanced_hide_history_button_title">Hide History button</string>
+    <string name="revanced_hide_lyrics_share_button_summary">Hides the Share button in lyrics.</string>
+    <string name="revanced_hide_lyrics_share_button_title">Hide lyrics Share button</string>
     <string name="revanced_hide_music_ads_summary">Hides the ads that play during media playback.</string>
     <string name="revanced_hide_music_ads_title">Hide media ads</string>
     <string name="revanced_hide_navigation_bar_summary">Hides the navigation bar.</string>
@@ -323,12 +331,6 @@ This hides not only the YT Music settings menu, but also the ReVanced Extended s
     <string name="revanced_hide_terms_container_title">Hide terms container</string>
     <string name="revanced_hide_voice_search_button_summary">Hides the voice search button in the search bar.</string>
     <string name="revanced_hide_voice_search_button_title">Hide voice search button</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Not overridden</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_invalid_toast">Litho thread pool max size must be between 1-3.</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_summary">"Changes the max size of the Litho thread pool.
-
-A larger value may improve the performance of loading Litho layouts, but may drain more battery."</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_title">Litho thread pool max size</string>
     <string name="revanced_preference_screen_account_title">Account</string>
     <string name="revanced_preference_screen_action_bar_title">Action bar</string>
     <string name="revanced_preference_screen_ads_title">Ads</string>
@@ -351,6 +353,8 @@ A larger value may improve the performance of loading Litho layouts, but may dra
     <string name="revanced_remember_repeat_state_title">Remember repeat state</string>
     <string name="revanced_remember_shuffle_state_summary">Remembers the state of the shuffle toggle.</string>
     <string name="revanced_remember_shuffle_state_title">Remember shuffle state</string>
+    <string name="revanced_remember_video_quality_auto_mobile">Changing default mobile data quality to Auto.</string>
+    <string name="revanced_remember_video_quality_auto_wifi">Changing default Wi-Fi quality to Auto.</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Remembers the last video quality selected.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Remember video quality changes</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">Shows a toast when changing the default video quality.</string>
@@ -487,9 +491,11 @@ Click to see how to issue an API key."</string>
     <string name="revanced_spoof_app_version_summary">"Spoofs the client version to an older version.
 
 • This will change the appearance of the app, but unknown side effects may occur.
+• If it's enabled but not working, try switching to a different account.
 • If later disabled, the old UI may remain until the app data is cleared."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Disable Radio mode in Canadian regions</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Disable real-time lyrics</string>
+    <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Restore old flyout panel</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Disable real-time lyrics</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restore old action bar</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - Comments section does not appear in home feed</string>
@@ -499,23 +505,48 @@ Click to see how to issue an API key."</string>
     <string name="revanced_spoof_app_version_title">Spoof app version</string>
     <string name="revanced_spoof_client_summary">Spoof the client to prevent playback issues.</string>
     <string name="revanced_spoof_client_title">Spoof client</string>
-    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
-    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (Block request)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_summary">Defines a default client for spoofing.</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Block request)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Block request)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34">iOS Music 8.34</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (Block request)</string>
+    <string name="revanced_spoof_client_type_summary">"Side effect:
+• Action buttons or player flyout menus may not show properly.
+• These side effects may be resolved by clearing the app data and logging in again.
+
+Side effect (Block request):
+• App may be forced to close when using a VPN or DNS."</string>
     <string name="revanced_spoof_client_type_title">Default client</string>
     <string name="revanced_spoof_player_parameter_summary">"Spoof the player parameter to prevent playback issues.
 
 Side effect:
-• Sometimes the subtitles are located at the top of the player instead of the bottom."</string>
+• Sometimes the subtitles are located at the top of the player instead of the bottom.
+• This may not work for some users."</string>
     <string name="revanced_spoof_player_parameter_title">Spoof player parameter</string>
+    <string name="revanced_spoof_streaming_data_message">If you experience any playback issues, enable one of the following options depending on which works best for you: \"Spoof video streams\" or \"Spoof client\" in &lt;i&gt;&lt;u&gt;Settings &gt; %s &gt; Miscellaneous&lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Spoof the streaming data to prevent playback issues.
 
 • When used with 'Spoof client', playback issues may occur."</string>
     <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32">Android VR 1.43.32</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32_no_auth">Android VR 1.43.32 (No auth)</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09">Android VR 1.65.09</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09_no_auth">Android VR 1.65.09 (No auth)</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_34">iOS Music 8.34</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">"Side effect:
+• App may be forced to close when using a VPN or DNS.
+• Audio may intermittently stutter during playback on adaptive bitrate streaming clients (All clients other than Android VR 1.43.32)."</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Default client</string>
+    <string name="revanced_spoof_video_streams_summary">Spoof the client video streams to prevent playback issues.</string>
+    <string name="revanced_spoof_video_streams_title">Spoof video streams</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
     <string name="revanced_watch_history_type_entry_2">Replace domain</string>
     <string name="revanced_watch_history_type_entry_3">Block watch history</string>

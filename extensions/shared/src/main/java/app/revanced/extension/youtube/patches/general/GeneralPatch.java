@@ -1,11 +1,13 @@
 package app.revanced.extension.youtube.patches.general;
 
+import static app.revanced.extension.shared.utils.ResourceUtils.getXmlIdentifier;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.getChildView;
 import static app.revanced.extension.shared.utils.Utils.hideViewByLayoutParams;
 import static app.revanced.extension.shared.utils.Utils.hideViewGroupByMarginLayoutParams;
 import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
 import static app.revanced.extension.youtube.patches.utils.PatchStatus.ImageSearchButton;
+import static app.revanced.extension.youtube.patches.utils.PatchStatus.TargetActivityClass;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
 import android.app.Activity;
@@ -26,7 +28,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import app.revanced.extension.youtube.settings.LicenseActivityHook;
 import com.google.android.apps.youtube.app.application.Shell_SettingsActivity;
 import com.google.android.apps.youtube.app.settings.SettingsActivity;
 
@@ -55,6 +56,17 @@ public class GeneralPatch {
     /**
      * Injection point.
      */
+    public static boolean ignoreDefaultAudioStream(boolean original) {
+        if (Settings.DISABLE_AUTO_AUDIO_TRACKS.get()
+                || Settings.SPOOF_STREAMING_DATA_VR_AUDIO_TRACK_BUTTON.get()) {
+            return false;
+        }
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
     public static boolean isDefaultAudioStream(boolean isDefault, String audioTrackId, String audioTrackDisplayName) {
         try {
             if (!Settings.DISABLE_AUTO_AUDIO_TRACKS.get()) {
@@ -78,7 +90,6 @@ public class GeneralPatch {
             return isOriginal;
         } catch (Exception ex) {
             Logger.printException(() -> "isDefaultAudioStream failure", ex);
-
             return isDefault;
         }
     }
@@ -109,6 +120,14 @@ public class GeneralPatch {
         }
 
         return value;
+    }
+
+    // endregion
+
+    // region [Disable sign in to TV popup] patch
+
+    public static boolean disableSignInToTvPopup() {
+        return Settings.DISABLE_SIGNIN_TO_TV_POPUP.get();
     }
 
     // endregion
@@ -309,7 +328,7 @@ public class GeneralPatch {
         }
 
         // This method is called after AlertDialog#show(),
-        // So we need to hide the AlertDialog before pressing the positive button.
+        // So we need to hide the AlertDialog before pressing the possitive button.
         final Window window = dialog.getWindow();
         final Button button = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
         if (window != null && button != null) {
@@ -336,12 +355,39 @@ public class GeneralPatch {
 
     // endregion
 
+    // region [Fix Hype button icon] patch
+
+    public static boolean fixHypeButtonIconEnabled() {
+        return Settings.FIX_HYPE_BUTTON_ICON.get();
+    }
+
+    // endregion
+
     // region [Spoof app version] patch
+
+    private static int legacyFragmentId = 0;
+
+    public static boolean disableCairoFragment(boolean original) {
+        return !Settings.FIX_SPOOF_APP_VERSION_SIDE_EFFECT.get() && original;
+    }
 
     public static String getVersionOverride(String appVersion) {
         return Settings.SPOOF_APP_VERSION.get()
                 ? Settings.SPOOF_APP_VERSION_TARGET.get()
                 : appVersion;
+    }
+
+    public static int useLegacyFragment(int original) {
+        if (Settings.FIX_SPOOF_APP_VERSION_SIDE_EFFECT.get()) {
+            if (legacyFragmentId == 0) {
+                legacyFragmentId = getXmlIdentifier("settings_fragment_legacy");
+            }
+            if (legacyFragmentId != 0) {
+                return legacyFragmentId;
+            }
+        }
+
+        return original;
     }
 
     // endregion
@@ -550,6 +596,49 @@ public class GeneralPatch {
     }
 
     /**
+     * Injection point.
+     * If the round search bar is enabled, the patch will not work.
+     * Forcibly disable it.
+     */
+    public static boolean disableRoundSearchBar(boolean original) {
+        return !Settings.HIDE_YOU_MAY_LIKE_SECTION.get() && original;
+    }
+
+    /**
+     * Injection point.
+     *
+     * @param searchQuery Keywords entered in the search bar.
+     * @return Whether the setting is enabled and the search query is empty.
+     */
+    public static boolean hideYouMayLikeSection(String searchQuery) {
+        return Settings.HIDE_YOU_MAY_LIKE_SECTION.get()
+                // The 'You may like' section is only visible when no search terms are entered.
+                // To avoid unnecessary collection traversals, filtering is performed only when the searchQuery is empty.
+                && StringUtils.isEmpty(searchQuery);
+    }
+
+    /**
+     * Injection point.
+     *
+     * @param searchTerm This class contains information related to search terms.
+     *                   The {@code toString()} method of this class overrides the search term.
+     * @param endpoint   Endpoint related with the search term.
+     *                   For search history, this value is:
+     *                   '/complete/deleteitems?client=youtube-android-pb&delq=${searchTerm}&deltok=${token}'.
+     *                   (If you long press on the search history,
+     *                   you will see a dialog 'Remove from search history?')
+     *                   For search suggestions, this value is null or empty.
+     * @return Whether search term is a search history or not.
+     */
+    public static boolean isSearchHistory(Object searchTerm, String endpoint) {
+        boolean isSearchHistory = endpoint != null && endpoint.contains("/delete");
+        if (!isSearchHistory) {
+            Logger.printDebug(() -> "Remove search suggestion: " + searchTerm);
+        }
+        return isSearchHistory;
+    }
+
+    /**
      * In ReVanced, image files are replaced to change the header,
      * Whereas in RVX, the header is changed programmatically.
      * There is an issue where the header is not changed in RVX when YouTube Doodles are hidden.
@@ -636,7 +725,7 @@ public class GeneralPatch {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.setPackage(context.getPackageName());
         intent.setData(Uri.parse("revanced_extended_settings_intent"));
-        intent.setClassName(context, "com.google.android.libraries.social.licenses.LicenseActivity");
+        intent.setClassName(context.getPackageName(), "com.google.android.libraries.social.licenses.LicenseActivity");
         context.startActivity(intent);
     }
 

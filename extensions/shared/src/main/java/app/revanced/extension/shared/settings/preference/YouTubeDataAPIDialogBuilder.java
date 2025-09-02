@@ -4,6 +4,8 @@ import static app.revanced.extension.shared.utils.StringRef.str;
 
 import android.app.Activity;
 
+import java.util.Locale;
+
 import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
@@ -21,9 +23,10 @@ public class YouTubeDataAPIDialogBuilder {
             final String foregroundColorHex = BaseThemeUtils.getForegroundColorHexString();
 
             final String htmlDialog = "<html>" +
-                    "<body style=\"padding: 10px;\"><p>" +
+                    "<body style=\"padding: 15px;\"><p>" +
                     String.format(
-                            "<style> body { background-color: %s; color: %s; } a { color: %s; } </style>",
+                            Locale.ENGLISH,
+                            "<style> body { background-color: %s; color: %s; line-height: 20px; } a { color: %s; } </style>",
                             backgroundColorHex, foregroundColorHex, foregroundColorHex) +
                     "<h2>" +
                     str("revanced_return_youtube_username_youtube_data_api_v3_dialog_title") +

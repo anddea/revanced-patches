@@ -65,10 +65,6 @@ internal enum class PatchList(
         "Disable QUIC protocol",
         "Adds an option to disable CronetEngine's QUIC protocol."
     ),
-    ENABLE_OPUS_CODEC(
-        "Enable OPUS codec",
-        "Adds an option to enable the OPUS audio codec if the player response includes it."
-    ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
         "Adds an option for debugging."
@@ -76,6 +72,10 @@ internal enum class PatchList(
     ENABLE_LANDSCAPE_MODE(
         "Enable landscape mode",
         "Adds an option to enable landscape mode when rotating the screen on phones."
+    ),
+    FIX_PLAYBACK(
+        "Fix playback",
+        "Adds options to fix playback issues."
     ),
     FLYOUT_MENU_COMPONENTS(
         "Flyout menu components",
@@ -153,14 +153,6 @@ internal enum class PatchList(
         "Spoof app version",
         "Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features."
     ),
-    SPOOF_CLIENT(
-        "Spoof client",
-        "Adds options to spoof the client to allow playback."
-    ),
-    SPOOF_PLAYER_PARAMETER(
-        "Spoof player parameter",
-        "Adds options to spoof player parameter to allow playback."
-    ),
     TRANSLATIONS_FOR_YOUTUBE_MUSIC(
         "Translations for YouTube Music",
         "Add translations or remove string resources."
@@ -176,11 +168,5 @@ internal enum class PatchList(
     WATCH_HISTORY(
         "Watch history",
         "Adds an option to change the domain of the watch history or check its status."
-    ),
-
-    // Not shown in README.md.
-    LITHO_FILTER(
-        "Litho filter",
-        "Adds an option to hide or debug litho components."
     )
 }

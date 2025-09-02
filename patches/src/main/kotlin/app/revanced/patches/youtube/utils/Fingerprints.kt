@@ -2,7 +2,23 @@ package app.revanced.patches.youtube.utils
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patches.youtube.player.components.playerComponentsPatch
-import app.revanced.patches.youtube.utils.resourceid.*
+import app.revanced.patches.youtube.utils.fix.streamingdata.STREAMING_DATA_OUTER_CLASS
+import app.revanced.patches.youtube.utils.resourceid.fadeDurationFast
+import app.revanced.patches.youtube.utils.resourceid.fullScreenEngagementPanel
+import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
+import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
+import app.revanced.patches.youtube.utils.resourceid.insetOverlayViewLayout
+import app.revanced.patches.youtube.utils.resourceid.menuItemView
+import app.revanced.patches.youtube.utils.resourceid.playerControlNextButtonTouchArea
+import app.revanced.patches.youtube.utils.resourceid.playerControlPreviousButtonTouchArea
+import app.revanced.patches.youtube.utils.resourceid.scrimOverlay
+import app.revanced.patches.youtube.utils.resourceid.seekUndoEduOverlayStub
+import app.revanced.patches.youtube.utils.resourceid.settingsFragment
+import app.revanced.patches.youtube.utils.resourceid.settingsFragmentCairo
+import app.revanced.patches.youtube.utils.resourceid.totalTime
+import app.revanced.patches.youtube.utils.resourceid.varispeedUnavailableTitle
+import app.revanced.patches.youtube.utils.resourceid.videoQualityBottomSheet
+import app.revanced.patches.youtube.utils.resourceid.youTubeControlsButtonGroupLayoutStub
 import app.revanced.patches.youtube.utils.sponsorblock.sponsorBlockBytecodePatch
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
@@ -15,6 +31,15 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+
+internal const val YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE =
+    "Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;"
+
+internal const val YOUTUBE_PIVOT_BAR_CLASS_TYPE =
+    "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
+
+internal const val YOUTUBE_VIDEO_QUALITY_CLASS_TYPE =
+    "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
 
 internal val bottomSheetMenuItemBuilderFingerprint = legacyFingerprint(
     name = "bottomSheetMenuItemBuilderFingerprint",
@@ -38,6 +63,38 @@ fun indexOfSpannedCharSequenceInstruction(method: Method) =
                 reference?.parameterTypes?.size == 1 &&
                 reference.returnType == "Ljava/lang/CharSequence;"
     }
+
+/**
+ * Added in YouTube v19.04.38
+ *
+ * When this value is TRUE, Cairo Fragment is used.
+ * In this case, some of patches may be broken, so set this value to FALSE.
+ */
+internal const val CAIRO_FRAGMENT_FEATURE_FLAG = 45532100L
+
+internal val cairoFragmentConfigFingerprint = legacyFingerprint(
+    name = "cairoFragmentConfigFingerprint",
+    returnType = "Z",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    literals = listOf(CAIRO_FRAGMENT_FEATURE_FLAG),
+)
+
+internal val formatStreamModelToStringFingerprint = legacyFingerprint(
+    name = "formatStreamModelToStringFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Ljava/lang/String;",
+    customFingerprint = { method, classDef ->
+        method.name == "toString"
+                && classDef.type == YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
+    }
+)
+
+internal val fullScreenEngagementPanelFingerprint = legacyFingerprint(
+    name = "fullScreenEngagementPanelFingerprint",
+    returnType = "L",
+    parameters = listOf("L"),
+    literals = listOf(fullScreenEngagementPanel),
+)
 
 internal val layoutConstructorFingerprint = legacyFingerprint(
     name = "layoutConstructorFingerprint",
@@ -187,6 +244,14 @@ internal fun indexOfGetDrawableInstruction(method: Method) =
         opcode == Opcode.INVOKE_VIRTUAL &&
                 getReference<MethodReference>()?.toString() == "Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;"
     }
+
+internal val settingsFragmentSyntheticFingerprint = legacyFingerprint(
+    name = "settingsFragmentSyntheticFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    opcodes = listOf(Opcode.INVOKE_VIRTUAL_RANGE),
+    literals = listOf(settingsFragment, settingsFragmentCairo),
+)
 
 internal val toolBarButtonFingerprint = legacyFingerprint(
     name = "toolBarButtonFingerprint",

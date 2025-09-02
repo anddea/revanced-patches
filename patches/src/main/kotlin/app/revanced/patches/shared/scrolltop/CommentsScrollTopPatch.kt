@@ -30,6 +30,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 var modernTitle = -1L
     private set
+var title = -1L
+    private set
 
 private val commentsScrollTopResourcePatch = resourcePatch(
     description = "commentsScrollTopResourcePatch"
@@ -38,6 +40,7 @@ private val commentsScrollTopResourcePatch = resourcePatch(
 
     execute {
         modernTitle = getResourceId(ID, "modern_title")
+        title = getResourceId(ID, "title")
     }
 }
 
@@ -52,7 +55,7 @@ val commentsScrollTopPatch = bytecodePatch(
     execute {
         // Method to find the engagement panel id.
         val (engagementPanelIdMethodCall, engagementPanelMessageClass) =
-            with (engagementPanelIdFingerprint.methodOrThrow()) {
+            with(engagementPanelIdFingerprint.methodOrThrow()) {
                 Pair(methodCall(), parameterTypes.first().toString())
             }
 
@@ -70,12 +73,13 @@ val commentsScrollTopPatch = bytecodePatch(
                 val engagementPanelMessageIndex = indexOfFirstInstructionOrThrow(insertIndex) {
                     getReference<MethodReference>()?.parameterTypes?.firstOrNull() == engagementPanelMessageClass
                 }
-                val engagementPanelMessageRegister = getInstruction<FiveRegisterInstruction>(engagementPanelMessageIndex).let { instruction ->
-                    if (getInstruction(engagementPanelMessageIndex).opcode == Opcode.INVOKE_STATIC)
-                        instruction.registerC
-                    else // YouTube Music 6.20.51
-                        instruction.registerD
-                }
+                val engagementPanelMessageRegister =
+                    getInstruction<FiveRegisterInstruction>(engagementPanelMessageIndex).let { instruction ->
+                        if (getInstruction(engagementPanelMessageIndex).opcode == Opcode.INVOKE_STATIC)
+                            instruction.registerC
+                        else // YouTube Music 6.20.51
+                            instruction.registerD
+                    }
                 val freeRegister = findFreeRegister(insertIndex, false)
 
                 addInstructionsAtControlFlowLabel(
@@ -144,12 +148,17 @@ val commentsScrollTopPatch = bytecodePatch(
             }
         }
 
-        engagementPanelTitleFingerprint
-            .methodOrThrow(engagementPanelTitleParentFingerprint)
-            .injectLiteralInstructionViewCall(
-                modernTitle,
-                "invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $EXTENSION_CLASS_DESCRIPTOR->setContentHeader(Landroid/view/View;)V"
-            )
+        arrayOf(
+            modernTitle,
+            title
+        ).forEach { literal ->
+            engagementPanelTitleFingerprint
+                .methodOrThrow(engagementPanelTitleParentFingerprint)
+                .injectLiteralInstructionViewCall(
+                    literal,
+                    "invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $EXTENSION_CLASS_DESCRIPTOR->setContentHeader(Landroid/view/View;)V"
+                )
+        }
 
         findMethodOrThrow(EXTENSION_CLASS_DESCRIPTOR) {
             name == "smoothScrollToPosition"

@@ -1,7 +1,6 @@
 package app.revanced.extension.youtube.patches.components;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -19,13 +18,14 @@ import app.revanced.extension.youtube.shared.RootView;
 @SuppressWarnings("all")
 public final class FeedVideoViewsFilter extends Filter {
 
-    private final StringFilterGroup feedVideoFilter = new StringFilterGroup(
-            null,
-            "video_lockup_with_attachment.eml"
-    );
-
     public FeedVideoViewsFilter() {
-        addPathCallbacks(feedVideoFilter);
+
+        addPathCallbacks(
+                new StringFilterGroup(
+                        null,
+                        "video_lockup_with_attachment.eml"
+                )
+        );
     }
 
     private boolean hideFeedVideoViewsSettingIsActive() {
@@ -63,14 +63,10 @@ public final class FeedVideoViewsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (hideFeedVideoViewsSettingIsActive() &&
-                filterByViews(protobufBufferArray)) {
-            return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
-        }
-
-        return false;
+        return hideFeedVideoViewsSettingIsActive() &&
+                filterByViews(buffer);
     }
 
     private static final String ARROW = " -> ";
@@ -79,8 +75,8 @@ public final class FeedVideoViewsFilter extends Filter {
             Settings.HIDE_VIDEO_VIEW_COUNTS_MULTIPLIER;
     private static final String HIDE_VIDEO_VIEW_COUNTS_MULTIPLIER_DEFAULT_VALUE =
             "revanced_hide_video_view_counts_multiplier_default_value";
-    private static String[] parts;
-    private static Pattern viewCountPattern = null;
+    private static final String[] parts;
+    private Pattern viewCountPattern = null;
 
     static {
         final String multiplierString = HIDE_VIDEO_VIEW_COUNTS_MULTIPLIER.get();
@@ -97,8 +93,8 @@ public final class FeedVideoViewsFilter extends Filter {
     /**
      * Hide videos based on views count
      */
-    private synchronized boolean filterByViews(byte[] protobufBufferArray) {
-        final String protobufString = new String(protobufBufferArray);
+    private synchronized boolean filterByViews(byte[] buffer) {
+        final String protobufString = new String(buffer);
         final long lessThan = Settings.HIDE_VIDEO_VIEW_COUNTS_LESS_THAN.get();
         final long greaterThan = Settings.HIDE_VIDEO_VIEW_COUNTS_GREATER_THAN.get();
 

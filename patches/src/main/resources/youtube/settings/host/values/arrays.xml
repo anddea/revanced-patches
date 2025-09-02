@@ -47,6 +47,7 @@
         <item>@string/revanced_change_start_page_entry_fashion</item>
         <item>@string/revanced_change_start_page_entry_gaming</item>
         <item>@string/revanced_change_start_page_entry_history</item>
+        <item>@string/revanced_change_start_page_entry_hype</item>
         <item>@string/revanced_change_start_page_entry_library</item>
         <item>@string/revanced_change_start_page_entry_liked_videos</item>
         <item>@string/revanced_change_start_page_entry_live</item>
@@ -75,6 +76,7 @@
         <item>FASHION</item>
         <item>GAMING</item>
         <item>HISTORY</item>
+        <item>HYPE</item>
         <item>LIBRARY</item>
         <item>LIKED_VIDEO</item>
         <item>LIVE</item>
@@ -280,6 +282,7 @@
         <item>@string/revanced_language_TA</item>
         <item>@string/revanced_language_TE</item>
         <item>@string/revanced_language_TH</item>
+        <item>@string/revanced_language_TL</item>
         <item>@string/revanced_language_TR</item>
         <item>@string/revanced_language_UK</item>
         <item>@string/revanced_language_UR</item>
@@ -339,23 +342,12 @@
         <item>TA</item>
         <item>TE</item>
         <item>TH</item>
+        <item>TL</item>
         <item>TR</item>
         <item>UK</item>
         <item>UR</item>
         <item>VI</item>
         <item>ZH</item>
-    </string-array>
-    <string-array name="revanced_litho_layout_thread_pool_max_size_entries">
-        <item>@string/revanced_litho_layout_thread_pool_max_size_entry_0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-    <string-array name="revanced_litho_layout_thread_pool_max_size_entry_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
     </string-array>
     <string-array name="revanced_miniplayer_type_20_03_entries">
         <item>@string/revanced_miniplayer_type_entry_0</item>
@@ -451,47 +443,37 @@
         <item>@string/revanced_spoof_streaming_data_client_entry_android_vr</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_android_vr_no_auth</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_android_unplugged</item>
+        <item>@string/revanced_spoof_streaming_data_client_entry_ios_deprecated</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_ios_unplugged</item>
     </string-array>
     <string-array name="revanced_spoof_streaming_data_default_client_entry_values">
         <item>ANDROID_VR</item>
         <item>ANDROID_VR_NO_AUTH</item>
         <item>ANDROID_UNPLUGGED</item>
-        <item>IOS_UNPLUGGED</item>
-    </string-array>
-    <string-array name="revanced_spoof_streaming_data_default_client_with_ios_entries">
-        <item>@string/revanced_spoof_streaming_data_client_entry_android_vr</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_android_vr_no_auth</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_android_unplugged</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_ios_deprecated</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_ios_unplugged</item>
-    </string-array>
-    <string-array name="revanced_spoof_streaming_data_default_client_with_ios_entry_values">
-        <item>ANDROID_VR</item>
-        <item>ANDROID_VR_NO_AUTH</item>
-        <item>ANDROID_UNPLUGGED</item>
         <item>IOS_DEPRECATED</item>
         <item>IOS_UNPLUGGED</item>
     </string-array>
-    <string-array name="revanced_spoof_streaming_data_default_client_with_ios_tv_entries">
+    <string-array name="revanced_spoof_streaming_data_default_client_with_mweb_entries">
         <item>@string/revanced_spoof_streaming_data_client_entry_android_vr</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_android_vr_no_auth</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_android_unplugged</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_ios_deprecated</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_ios_unplugged</item>
+        <item>@string/revanced_spoof_streaming_data_client_entry_mweb</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_tv</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_tv_simply</item>
     </string-array>
-    <string-array name="revanced_spoof_streaming_data_default_client_with_ios_tv_entry_values">
+    <string-array name="revanced_spoof_streaming_data_default_client_with_mweb_entry_values">
         <item>ANDROID_VR</item>
         <item>ANDROID_VR_NO_AUTH</item>
         <item>ANDROID_UNPLUGGED</item>
         <item>IOS_DEPRECATED</item>
         <item>IOS_UNPLUGGED</item>
+        <item>MWEB</item>
         <item>TV</item>
         <item>TV_SIMPLY</item>
     </string-array>
-    <string-array name="revanced_spoof_streaming_data_default_client_with_tv_entries">
+    <string-array name="revanced_spoof_streaming_data_default_client_with_js_entries">
         <item>@string/revanced_spoof_streaming_data_client_entry_android_vr</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_android_vr_no_auth</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_android_unplugged</item>
@@ -499,7 +481,7 @@
         <item>@string/revanced_spoof_streaming_data_client_entry_tv</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_tv_simply</item>
     </string-array>
-    <string-array name="revanced_spoof_streaming_data_default_client_with_tv_entry_values">
+    <string-array name="revanced_spoof_streaming_data_default_client_with_js_entry_values">
         <item>ANDROID_VR</item>
         <item>ANDROID_VR_NO_AUTH</item>
         <item>ANDROID_UNPLUGGED</item>

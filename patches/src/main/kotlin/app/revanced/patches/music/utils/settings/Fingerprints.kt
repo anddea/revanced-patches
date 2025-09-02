@@ -1,8 +1,16 @@
 package app.revanced.patches.music.utils.settings
 
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+
+internal val accountIdentityConstructorFingerprint = legacyFingerprint(
+    name = "accountIdentityConstructorFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    strings = listOf("Null getDataSyncId")
+)
 
 internal val googleApiActivityFingerprint = legacyFingerprint(
     name = "googleApiActivityFingerprint",

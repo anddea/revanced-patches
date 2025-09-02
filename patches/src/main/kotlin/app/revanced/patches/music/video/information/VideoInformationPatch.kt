@@ -12,7 +12,6 @@ import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.music.utils.extension.Constants.SHARED_PATH
 import app.revanced.patches.music.utils.playbackSpeedFingerprint
 import app.revanced.patches.music.utils.playbackSpeedParentFingerprint
-import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.music.video.playerresponse.Hook
 import app.revanced.patches.music.video.playerresponse.addPlayerResponseMethodHook
 import app.revanced.patches.music.video.playerresponse.playerResponseMethodHookPatch
@@ -29,15 +28,13 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-private const val EXTENSION_CLASS_DESCRIPTOR =
+const val EXTENSION_CLASS_DESCRIPTOR =
     "$SHARED_PATH/VideoInformation;"
 
 private const val REGISTER_PLAYER_RESPONSE_MODEL = 4
@@ -74,10 +71,7 @@ private var videoTimeConstructorInsertIndex = 2
 val videoInformationPatch = bytecodePatch(
     description = "videoInformationPatch",
 ) {
-    dependsOn(
-        playerResponseMethodHookPatch,
-        sharedResourceIdPatch
-    )
+    dependsOn(playerResponseMethodHookPatch)
 
     execute {
         fun addSeekInterfaceMethods(
@@ -267,54 +261,6 @@ val videoInformationPatch = bytecodePatch(
                 addInstruction(
                     implementation!!.instructions.lastIndex,
                     "invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->setPlaybackSpeed(F)V"
-                )
-            }
-        }
-
-        /**
-         * Hook current video quality
-         */
-        videoQualityListFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val videoQualityMethodName =
-                    findMethodOrThrow(definingClass) { parameterTypes.first() == "I" }.name
-                // set video quality array
-                val listIndex = it.patternMatch!!.startIndex
-                val listRegister = getInstruction<FiveRegisterInstruction>(listIndex).registerD
-
-                addInstruction(
-                    listIndex,
-                    "invoke-static {v$listRegister}, $EXTENSION_CLASS_DESCRIPTOR->setVideoQualityList([Ljava/lang/Object;)V"
-                )
-
-                val smaliInstructions =
-                    """
-                        if-eqz v0, :ignore
-                        invoke-virtual {v0, p0}, $definingClass->$videoQualityMethodName(I)V
-                        :ignore
-                        return-void
-                        """
-
-                addStaticFieldToExtension(
-                    EXTENSION_CLASS_DESCRIPTOR,
-                    "overrideVideoQuality",
-                    "videoQualityClass",
-                    definingClass,
-                    smaliInstructions
-                )
-
-            }
-        }
-
-        // set current video quality
-        videoQualityTextFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val textIndex = it.patternMatch!!.endIndex
-                val textRegister = getInstruction<TwoRegisterInstruction>(textIndex).registerA
-
-                addInstruction(
-                    textIndex + 1,
-                    "invoke-static {v$textRegister}, $EXTENSION_CLASS_DESCRIPTOR->setVideoQuality(Ljava/lang/String;)V"
                 )
             }
         }

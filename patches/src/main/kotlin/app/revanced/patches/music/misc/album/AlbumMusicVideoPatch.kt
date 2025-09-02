@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.extension.Constants.MISC_PATH
 import app.revanced.patches.music.utils.patch.PatchList.DISABLE_MUSIC_VIDEO_IN_ALBUM
-import app.revanced.patches.music.utils.playservice.is_8_16_or_greater
+import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
@@ -40,6 +40,7 @@ val albumMusicVideoPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
+        sharedResourceIdPatch,
         videoInformationPatch,
         playerResponseMethodHookPatch,
     )
@@ -64,9 +65,10 @@ val albumMusicVideoPatch = bytecodePatch(
 
         // region patch for hide snack bar
 
-        if (!is_8_16_or_greater) {
-            snackBarParentFingerprint.methodOrThrow().addInstructionsWithLabels(
-                0, """
+        snackBarFingerprint
+            .methodOrThrow(snackBarAttributeFingerprint)
+            .addInstructionsWithLabels(
+            0, """
                 invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideSnackBar()Z
                 move-result v0
                 if-eqz v0, :hide
@@ -74,8 +76,7 @@ val albumMusicVideoPatch = bytecodePatch(
                 :hide
                 nop
                 """
-            )
-        }
+        )
 
         // endregion
 

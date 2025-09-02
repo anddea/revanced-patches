@@ -4,6 +4,7 @@ import static app.revanced.extension.shared.utils.ResourceUtils.getXmlIdentifier
 import static app.revanced.extension.shared.utils.StringRef.str;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -29,6 +30,7 @@ import java.util.Objects;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
@@ -322,25 +324,36 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
         showingRestartDialog = true;
 
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(context,
-                restartDialogTitle,              // Title.
-                // Message.
-                message == null ? restartDialogMessage : message,
-                null,                    // No EditText.
-                restartDialogButtonText,         // OK button text.
-                // OK button action.
-                () -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay),
-                () -> {
-                },                        // Cancel button action (dismiss only).
-                null,                            // No Neutral button text.
-                null,                            // No Neutral button action.
-                true                             // Dismiss dialog when onNeutralClick.
-        );
+        if (BaseThemeUtils.isSupportModernDialog) {
+            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(context,
+                    restartDialogTitle,              // Title.
+                    // Message.
+                    message == null ? restartDialogMessage : message,
+                    null,                    // No EditText.
+                    restartDialogButtonText,         // OK button text.
+                    // OK button action.
+                    () -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay),
+                    () -> {
+                    },                        // Cancel button action (dismiss only).
+                    null,                            // No Neutral button text.
+                    null,                            // No Neutral button action.
+                    true                             // Dismiss dialog when onNeutralClick.
+            );
 
-        dialogPair.first.setOnDismissListener(d -> showingRestartDialog = false);
+            dialogPair.first.setOnDismissListener(d -> showingRestartDialog = false);
 
-        // Show the dialog.
-        dialogPair.first.show();
+            // Show the dialog.
+            dialogPair.first.show();
+        } else {
+            new AlertDialog.Builder(context)
+                    .setTitle(restartDialogTitle)
+                    .setMessage(message == null ? restartDialogMessage : message)
+                    .setPositiveButton(android.R.string.ok, (dialog, id)
+                            -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay))
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setOnDismissListener(d -> showingRestartDialog = false)
+                    .show();
+        }
     }
 
     @SuppressLint("ResourceType")

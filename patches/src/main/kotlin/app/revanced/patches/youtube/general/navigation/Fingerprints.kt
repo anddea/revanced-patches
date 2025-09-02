@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.general.navigation
 
+import app.revanced.patches.youtube.utils.YOUTUBE_PIVOT_BAR_CLASS_TYPE
 import app.revanced.patches.youtube.utils.resourceid.ytFillBell
 import app.revanced.patches.youtube.utils.resourceid.ytOutlineLibrary
 import app.revanced.util.fingerprint.legacyFingerprint
@@ -45,7 +46,7 @@ internal val pivotBarSetTextFingerprint = legacyFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf(
-        "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;",
+        YOUTUBE_PIVOT_BAR_CLASS_TYPE,
         "Landroid/widget/TextView;",
         "Ljava/lang/CharSequence;"
     ),

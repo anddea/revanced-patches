@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Continuar</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"O GmsCore não tem permissão para executar em segundo plano.
@@ -68,6 +68,12 @@ Use cores escuras se possível, pois o aplicativo não suporta temas claros."</s
 Use cores escuras se possível, pois o aplicativo não suporta temas claros."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Cor secundária do fundo do reprodutor</string>
     <string name="revanced_custom_player_background_invalid_toast">Cor de fundo do reprodutor inválida.</string>
+    <string name="revanced_debug_protobuffer_summary">Inclui o \"proto buffer\" no registro de debug.</string>
+    <string name="revanced_debug_protobuffer_title">Log do buffer de protocolo</string>
+    <string name="revanced_debug_spannable_summary">Inclui o \"spannable\" no registro de debug.</string>
+    <string name="revanced_debug_spannable_title">Registro extendido</string>
+    <string name="revanced_debug_summary">Exibir o registro de debug.</string>
+    <string name="revanced_debug_title">Ativar registro de debug</string>
     <string name="revanced_default_app_settings_summary">Para abrir links do YouTube Music no RVX Music, ative Abrir links suportados e ative todos os endereços da web suportados.</string>
     <string name="revanced_default_app_settings_title">Abrir configurações padrão do aplicativo</string>
     <string name="revanced_disable_auto_captions_summary">Desativa a ativação forçada de legendas automáticas.</string>
@@ -95,6 +101,10 @@ Limitações: Vídeos infantis não podem ser redirecionados."</string>
     <string name="revanced_disable_player_gesture_title">Desativar gesto do reprodutor</string>
     <string name="revanced_disable_quic_protocol_summary">"Desativa o protocolo QUIC da CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Desativar protocolo QUIC</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"Clicar no título do painel de comentários (\"Comentários\") rola para a parte superior.
+
+Limitações: Não se aplica a respostas a comentários."</string>
+    <string name="revanced_enable_comments_scroll_top_title">Habilitar rolar para o topo dos comentários</string>
     <string name="revanced_enable_compact_dialog_summary">"Ativa o menu flutuante compacto em telefones.
 
 Limitações:
@@ -103,10 +113,6 @@ Limitações:
     <string name="revanced_enable_compact_dialog_title">Ativar diálogo compacto</string>
     <string name="revanced_enable_custom_navigation_bar_color_summary">Define a cor da barra de navegação.</string>
     <string name="revanced_enable_custom_navigation_bar_color_title">Ativar cor personalizada da barra de navegação</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Inclui o buffer no log de depuração.</string>
-    <string name="revanced_enable_debug_buffer_logging_title">Ativar o registro de depuração do buffer</string>
-    <string name="revanced_enable_debug_logging_summary">Imprime o relatório de depuração</string>
-    <string name="revanced_enable_debug_logging_title">Ativar o relatório de depuração</string>
     <string name="revanced_enable_forced_miniplayer_summary">Ativa o mini reprodutor forçado ao alternar para uma nova faixa.</string>
     <string name="revanced_enable_forced_miniplayer_title">Ativar mini reprodutor forçado</string>
     <string name="revanced_enable_landscape_mode_summary">Ativa o modo paisagem ao girar a tela nos telefones.</string>
@@ -129,12 +135,6 @@ Informações:
 
 Limitações: segmentos de patrocinadores não são exibidos na barra de busca."</string>
     <string name="revanced_enable_thick_seekbar_title">Ativar barra de busca espessa</string>
-    <string name="revanced_enable_trim_silence_summary">"Adiciona a opção Cortar silêncio ao menu flutuante de velocidade de reprodução.
-
-Informações:
-• Este recurso é para podcasts.
-• Este recurso ainda está em desenvolvimento, portanto pode ser instável."</string>
-    <string name="revanced_enable_trim_silence_title">Adicionar alternador para Cortar silêncio</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Ativa o modo Calmo em podcasts.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Ativar o modo Calmo em podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Ativa uma cor cinza claro para o fundo do reprodutor para reduzir o cansaço visual.</string>
@@ -467,10 +467,11 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_share_copy_settings_success">Configurações copiadas para área de transferência.</string>
     <string name="revanced_spoof_app_version_summary">"Falsifica a versão do cliente para uma versão mais antiga.
 
-• Isto alterará a aparência do aplicativo, mas poderão ocorrer efeitos colaterais desconhecidos.
-• Se for desativada posteriormente, a interface do usuário antiga poderá permanecer até que os dados do aplicativo sejam apagados."</string>
+• Isto alterará a aparência do aplicativo e consequentemente pode ocorrer efeitos colaterais desconhecidos.
+• Se for desativada posteriormente, a \"interface\" do usuário antiga poderá permanecer até que os dados do aplicativo sejam apagados."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Desativar modo de Rádio em regiões Canadenses</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Desativar letras em tempo real</string>
+    <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Restaurar o painel flyout antigo</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Desativar letras em tempo real</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restaurar barra de ação antiga</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - A seção de comentários não aparece no feed inicial</string>
@@ -478,13 +479,16 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_app_version_target_summary">Selecione a versão do app para falsificação.</string>
     <string name="revanced_spoof_app_version_target_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_title">Falsificar a versão do aplicativo</string>
-    <string name="revanced_spoof_client_summary">Falsificar o cliente para evitar problemas de reprodução.</string>
+    <string name="revanced_spoof_client_summary">"Falsificar o cliente para evitar problemas de reprodução.
+
+Se isto for ativado, o \"Spoofar parâmetro do reprodutor\" poderá ser desativado.
+
+Efeito colateral:
+- O menu suspenso do reprodutor pode não ser exibido corretamente."</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
-    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
-    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_summary">Define um cliente padrão para falsificar.</string>
+    <string name="revanced_spoof_client_type_summary">"Define um cliente padrão para falsificar."</string>
     <string name="revanced_spoof_client_type_title">Cliente padrão</string>
     <string name="revanced_spoof_player_parameter_summary">"Falsificar o parâmetro de reprodutor para evitar problemas de reprodução.
 

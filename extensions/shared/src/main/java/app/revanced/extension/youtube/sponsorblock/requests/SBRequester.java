@@ -36,12 +36,12 @@ public class SBRequester {
     /**
      * TCP timeout
      */
-    private static final int TIMEOUT_TCP_DEFAULT_MILLISECONDS = 7000;
+    private static final int TIMEOUT_TCP_DEFAULT_MILLISECONDS = 10000;
 
     /**
      * HTTP response timeout
      */
-    private static final int TIMEOUT_HTTP_DEFAULT_MILLISECONDS = 10000;
+    private static final int TIMEOUT_HTTP_DEFAULT_MILLISECONDS = 15000;
 
     /**
      * Response code of a successful API call

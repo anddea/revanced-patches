@@ -1,5 +1,6 @@
 package app.revanced.patches.music.misc.album
 
+import app.revanced.patches.music.utils.resourceid.musicSnackbarActionColor
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -27,7 +28,23 @@ internal fun indexOfAudioVideoSwitchSetOnClickListenerInstruction(method: Method
                     ?.endsWith("/AudioVideoSwitcherToggleView;->setOnClickListener(Landroid/view/View${'$'}OnClickListener;)V") == true
     }
 
-internal val snackBarParentFingerprint = legacyFingerprint(
-    name = "snackBarParentFingerprint",
-    strings = listOf("No suitable parent found from the given view. Please provide a valid view.")
+internal val snackBarAttributeFingerprint = legacyFingerprint(
+    name = "snackBarAttributeFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    parameters = listOf("L", "Z", "I"),
+    literals = listOf(musicSnackbarActionColor),
+)
+
+internal val snackBarFingerprint = legacyFingerprint(
+    name = "snackBarFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("L"),
+    customFingerprint = { method, _ ->
+        method.indexOfFirstInstruction {
+            opcode == Opcode.INVOKE_VIRTUAL &&
+                    getReference<MethodReference>()?.name == "addOnAttachStateChangeListener"
+        } >= 0
+    }
 )

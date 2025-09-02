@@ -1,16 +1,19 @@
 package app.revanced.extension.youtube.utils;
 
+import static app.revanced.extension.shared.utils.ResourceUtils.getString;
 import static app.revanced.extension.shared.utils.ResourceUtils.getStringArray;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.dipToPixels;
 import static app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MAXIMUM;
 import static app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch.SPEED_ADJUSTMENT_CHANGE;
 import static app.revanced.extension.youtube.patches.video.PlaybackSpeedPatch.userSelectedPlaybackSpeed;
-import static app.revanced.extension.youtube.shared.VideoInformation.videoQualityEntries;
-import static app.revanced.extension.youtube.shared.VideoInformation.videoQualityEntryValues;
+import static app.revanced.extension.youtube.patches.video.VideoQualityPatch.AUTOMATIC_VIDEO_QUALITY_VALUE;
+import static app.revanced.extension.youtube.patches.video.VideoQualityPatch.setCurrentQuality;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
@@ -22,27 +25,40 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.media.AudioManager;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
+
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Function;
 
@@ -56,6 +72,7 @@ import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
 import app.revanced.extension.youtube.patches.video.PlaybackSpeedPatch;
 import app.revanced.extension.youtube.patches.video.VideoQualityPatch;
+import app.revanced.extension.youtube.patches.video.VideoQualityPatch.VideoQualityMenuInterface;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.settings.preference.ExternalDownloaderPlaylistPreference;
 import app.revanced.extension.youtube.settings.preference.ExternalDownloaderVideoLongPressPreference;
@@ -79,7 +96,9 @@ public class VideoUtils extends IntentUtils {
     public static final String VIDEO_URL = "https://youtu.be/";
     private static final String VIDEO_SCHEME_INTENT_FORMAT = "vnd.youtube://%s?start=%d";
     private static final String VIDEO_SCHEME_LINK_FORMAT = "https://youtu.be/%s?t=%d";
+    private static final String DEFAULT_YOUTUBE_VIDEO_QUALITY_STRING = getString("quality_auto");
     private static final AtomicBoolean isExternalDownloaderLaunched = new AtomicBoolean(false);
+    private static volatile String qualityString = DEFAULT_YOUTUBE_VIDEO_QUALITY_STRING;
 
     static {
         // Cap at 2 decimals (rounds automatically).
@@ -363,9 +382,23 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static String getFormattedQualityString(@Nullable String prefix) {
-        final String qualityString = VideoInformation.getVideoQualitySimplifiedString();
-
         return prefix == null ? qualityString : String.format("%s\u2009•\u2009%s", prefix, qualityString);
+    }
+
+    public static void updateQualityString(@Nullable String qualityName) {
+        if (StringUtils.isEmpty(qualityName)) {
+            qualityString = DEFAULT_YOUTUBE_VIDEO_QUALITY_STRING;
+            return;
+        }
+        try {
+            int suffixIndex = StringUtils.indexOfAny(qualityName, "p", "s");
+            if (suffixIndex > -1) {
+                String videoQualityIntString = StringUtils.substring(qualityName, 0, suffixIndex);
+                qualityString = videoQualityIntString + qualityName.charAt(suffixIndex);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "updateQualityString failure", ex);
+        }
     }
 
     public static String getFormattedSpeedString(@Nullable String prefix) {
@@ -387,6 +420,13 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static void reloadVideo() {
+        if (!VideoInformation.lastPlayerResponseIsShort()) {
+            String id = VideoInformation.getPlayerResponseVideoId();
+            if (!id.isEmpty()) {
+                reloadVideo(id);
+                return;
+            }
+        }
         reloadVideo(VideoInformation.getVideoId());
     }
 
@@ -400,13 +440,19 @@ public class VideoUtils extends IntentUtils {
      * Use it only when it is guaranteed to be used in situations where the player is active.
      */
     public static void reloadVideo(@NonNull String videoId, @NonNull String playlistId) {
-        dismissPlayer();
+        if (videoId.isEmpty()) {
+            showToastShort(str("revanced_dismiss_player_not_available_toast"));
+        } else {
+            dismissPlayer();
 
-        // Open the video.
-        if (playlistId.isEmpty()) {
-            openVideo(videoId);
-        } else { // If the video is playing from a playlist, the url must include the playlistId.
-            openPlaylist(playlistId, videoId, true);
+            Utils.runOnMainThreadDelayed(() -> {
+                // Open the video.
+                if (playlistId.isEmpty()) {
+                    openVideo(videoId);
+                } else { // If the video is playing from a playlist, the url must include the playlistId.
+                    openPlaylist(playlistId, videoId, true);
+                }
+            }, 500);
         }
     }
 
@@ -447,42 +493,254 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static void showCustomVideoQualityFlyoutMenu(Context context) {
-        if (videoQualityEntries != null && videoQualityEntryValues != null) {
-            List<String> entries = Objects.requireNonNull(videoQualityEntries);
-            List<Integer> entryValues = Objects.requireNonNull(videoQualityEntryValues);
-
-            int videoQualityEntrySize = entries.size();
-            if (videoQualityEntrySize > 1 && videoQualityEntrySize == entryValues.size()) {
-                LinearLayout mainLayout = ExtendedUtils.prepareMainLayout(context);
-                Map<LinearLayout, Runnable> actionsMap = new LinkedHashMap<>(videoQualityEntrySize - 1);
-                int checkIconId = ResourceUtils.getDrawableIdentifier("quantum_ic_check_white_24");
-
-                // Sometimes there can be two qualities, such as '1080p Premium' and '1080p'
-                boolean foundQuality = false;
-                // Index 0 being the 'automatic' value of -2
-                for (int i = 1; i < videoQualityEntrySize; i++) {
-                    String qualityLabel = entries.get(i);
-                    int qualityValue = entryValues.get(i);
-
-                    Runnable action = () -> {
-                        VideoInformation.overrideVideoQuality(qualityValue);
-                        VideoQualityPatch.userSelectedVideoQuality(qualityValue);
-                    };
-                    LinearLayout itemLayout = ExtendedUtils.createItemLayout(context, entries.get(i));
-                    if (VideoInformation.getVideoQuality() == qualityValue && !foundQuality) {
-                        itemLayout = ExtendedUtils.createItemLayout(context, entries.get(i), checkIconId);
-                        foundQuality = true;
-                    }
-                    actionsMap.putIfAbsent(itemLayout, action);
-                    mainLayout.addView(itemLayout);
-                }
-                ExtendedUtils.showBottomSheetDialog(context, mainLayout, actionsMap);
+        try {
+            VideoQuality[] currentQualities = VideoQualityPatch.getCurrentQualities();
+            VideoQuality currentQuality = VideoQualityPatch.getCurrentQuality();
+            if (currentQualities == null || currentQuality == null) {
+                Logger.printDebug(() -> "Cannot show qualities dialog, videoQualities is null");
                 return;
-            } else {
-                Logger.printDebug(() -> "invalid entry size");
             }
-        } else {
-            Logger.printDebug(() -> "videoQualityEntries is null");
+            if (currentQualities.length < 2) {
+                // Should never happen.
+                Logger.printException(() -> "Cannot show qualities dialog, no qualities available");
+                return;
+            }
+            VideoQualityMenuInterface menu = VideoQualityPatch.getCurrentMenuInterface();
+            if (menu == null) {
+                Logger.printDebug(() -> "Cannot show qualities dialog, menu is null");
+                return;
+            }
+
+            // -1 adjustment for automatic quality at first index.
+            int listViewSelectedIndex = -1;
+            for (VideoQuality quality : currentQualities) {
+                if (quality.patch_getQualityName().equals(currentQuality.patch_getQualityName())) {
+                    break;
+                }
+                listViewSelectedIndex++;
+            }
+
+            List<String> qualityLabels = new ArrayList<>(currentQualities.length - 1);
+            for (VideoQuality availableQuality : currentQualities) {
+                if (availableQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE) {
+                    qualityLabels.add(availableQuality.patch_getQualityName());
+                }
+            }
+
+            Dialog dialog = new Dialog(context);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setCanceledOnTouchOutside(true);
+            dialog.setCancelable(true);
+
+            final int dip4 = dipToPixels(4);   // Height for handle bar.
+            final int dip5 = dipToPixels(5);   // Padding for mainLayout.
+            final int dip6 = dipToPixels(6);   // Bottom margin.
+            final int dip8 = dipToPixels(8);   // Side padding.
+            final int dip16 = dipToPixels(16); // Left padding for ListView.
+            final int dip20 = dipToPixels(20); // Margin below handle.
+            final int dip40 = dipToPixels(40); // Width for handle bar.
+
+            LinearLayout mainLayout = new LinearLayout(context);
+            mainLayout.setOrientation(LinearLayout.VERTICAL);
+            mainLayout.setPadding(dip5, dip8, dip5, dip8);
+
+            ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
+                    Utils.createCornerRadii(12), null, null));
+            background.getPaint().setColor(ThemeUtils.getDialogBackgroundColor());
+            mainLayout.setBackground(background);
+
+            View handleBar = new View(context);
+            ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(
+                    Utils.createCornerRadii(4), null, null));
+            final int baseColor = ThemeUtils.getDialogBackgroundColor();
+            final int adjustedHandleBarBackgroundColor = ThemeUtils.adjustColorBrightness(
+                    baseColor, 0.9f, 1.25f);
+            handleBackground.getPaint().setColor(adjustedHandleBarBackgroundColor);
+            handleBar.setBackground(handleBackground);
+            LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(dip40, dip4);
+            handleParams.gravity = Gravity.CENTER_HORIZONTAL;
+            handleParams.setMargins(0, 0, 0, dip20);
+            handleBar.setLayoutParams(handleParams);
+            mainLayout.addView(handleBar);
+
+            if (!Settings.HIDE_PLAYER_FLYOUT_MENU_QUALITY_HEADER.get()) {
+                // Create SpannableStringBuilder for formatted text.
+                SpannableStringBuilder spannableTitle = new SpannableStringBuilder();
+                String titlePart = str("video_quality_quick_menu_title");
+                String separatorPart = str("video_quality_title_seperator");
+
+                // Append title part with default foreground color.
+                spannableTitle.append(titlePart);
+                spannableTitle.setSpan(
+                        new ForegroundColorSpan(ThemeUtils.getAppForegroundColor()),
+                        0,
+                        titlePart.length(),
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                );
+                spannableTitle.append("   "); // Space after title.
+
+                // Append separator part with adjusted title color.
+                int separatorStart = spannableTitle.length();
+                spannableTitle.append(separatorPart);
+                final int adjustedTitleForegroundColor = ThemeUtils.adjustColorBrightness(
+                        ThemeUtils.getAppForegroundColor(), 1.6f, 0.6f);
+                spannableTitle.setSpan(
+                        new ForegroundColorSpan(adjustedTitleForegroundColor),
+                        separatorStart,
+                        separatorStart + separatorPart.length(),
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                );
+                spannableTitle.append("   "); // Space after separator.
+
+                // Append quality label with adjusted title color.
+                final int qualityStart = spannableTitle.length();
+                spannableTitle.append(currentQuality.patch_getQualityName());
+                spannableTitle.setSpan(
+                        new ForegroundColorSpan(adjustedTitleForegroundColor),
+                        qualityStart,
+                        qualityStart + currentQuality.patch_getQualityName().length(),
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                );
+
+                // Add title with current quality.
+                TextView titleView = new TextView(context);
+                titleView.setText(spannableTitle);
+                titleView.setTextSize(16);
+                // Remove setTextColor since color is handled by SpannableStringBuilder.
+                LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT);
+                titleParams.setMargins(dip8, 0, 0, dip20);
+                titleView.setLayoutParams(titleParams);
+                mainLayout.addView(titleView);
+            }
+
+            ListView listView = new ListView(context);
+            ExtendedUtils.CustomAdapter adapter = new ExtendedUtils.CustomAdapter(context, qualityLabels);
+            adapter.setSelectedPosition(listViewSelectedIndex);
+            listView.setAdapter(adapter);
+            listView.setDivider(null);
+            listView.setPadding(dip16, 0, 0, 0);
+
+            listView.setOnItemClickListener((parent, view, which, id) -> {
+                try {
+                    final int originalIndex = which + 1; // Adjust for automatic.
+                    VideoQuality selectedQuality = currentQualities[originalIndex];
+                    Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
+
+                    if (VideoQualityPatch.shouldRememberVideoQuality()) {
+                        VideoQualityPatch.saveDefaultQuality(selectedQuality.patch_getResolution());
+                    }
+                    // Don't update button icon now. Icon will update when the actual
+                    // quality is changed by YT.  This is needed to ensure the icon is correct
+                    // if YT ignores changing from 1080p Premium to regular 1080p.
+                    menu.patch_setQuality(selectedQuality);
+                    setCurrentQuality(selectedQuality);
+
+                    dialog.dismiss();
+                } catch (Exception ex) {
+                    Logger.printException(() -> "Video quality selection failure", ex);
+                }
+            });
+
+            LinearLayout.LayoutParams listViewParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            listViewParams.setMargins(0, 0, 0, dip5);
+            listView.setLayoutParams(listViewParams);
+            mainLayout.addView(listView);
+
+            LinearLayout wrapperLayout = new LinearLayout(context);
+            wrapperLayout.setOrientation(LinearLayout.VERTICAL);
+            wrapperLayout.setPadding(dip8, 0, dip8, 0);
+            wrapperLayout.addView(mainLayout);
+            dialog.setContentView(wrapperLayout);
+
+            Window window = dialog.getWindow();
+            if (window != null) {
+                WindowManager.LayoutParams params = window.getAttributes();
+                params.gravity = Gravity.BOTTOM;
+                params.y = dip6;
+                int portraitWidth = context.getResources().getDisplayMetrics().widthPixels;
+                if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    portraitWidth = Math.min(
+                            portraitWidth,
+                            context.getResources().getDisplayMetrics().heightPixels);
+                }
+                params.width = portraitWidth;
+                params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                window.setAttributes(params);
+                window.setBackgroundDrawable(null);
+            }
+
+            final int fadeDurationFast = ResourceUtils.getInteger("fade_duration_fast");
+            Animation slideInABottomAnimation = ResourceUtils.getAnimation("slide_in_bottom");
+            if (slideInABottomAnimation != null) {
+                slideInABottomAnimation.setDuration(fadeDurationFast);
+            }
+            mainLayout.startAnimation(slideInABottomAnimation);
+
+            // noinspection ClickableViewAccessibility
+            mainLayout.setOnTouchListener(new View.OnTouchListener() {
+                final float dismissThreshold = dipToPixels(100);
+                float touchY;
+                float translationY;
+
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    switch (event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            touchY = event.getRawY();
+                            translationY = mainLayout.getTranslationY();
+                            return true;
+                        case MotionEvent.ACTION_MOVE:
+                            final float deltaY = event.getRawY() - touchY;
+                            if (deltaY >= 0) {
+                                mainLayout.setTranslationY(translationY + deltaY);
+                            }
+                            return true;
+                        case MotionEvent.ACTION_UP:
+                        case MotionEvent.ACTION_CANCEL:
+                            if (mainLayout.getTranslationY() > dismissThreshold) {
+                                //noinspection ExtractMethodRecommender
+                                final float remainingDistance = context.getResources().getDisplayMetrics().heightPixels
+                                        - mainLayout.getTop();
+                                TranslateAnimation slideOut = new TranslateAnimation(
+                                        0, 0, mainLayout.getTranslationY(), remainingDistance);
+                                slideOut.setDuration(fadeDurationFast);
+                                slideOut.setAnimationListener(new Animation.AnimationListener() {
+                                    @Override
+                                    public void onAnimationStart(Animation animation) {
+                                    }
+
+                                    @Override
+                                    public void onAnimationEnd(Animation animation) {
+                                        dialog.dismiss();
+                                    }
+
+                                    @Override
+                                    public void onAnimationRepeat(Animation animation) {
+                                    }
+                                });
+                                mainLayout.startAnimation(slideOut);
+                            } else {
+                                TranslateAnimation slideBack = new TranslateAnimation(
+                                        0, 0, mainLayout.getTranslationY(), 0);
+                                slideBack.setDuration(fadeDurationFast);
+                                mainLayout.startAnimation(slideBack);
+                                mainLayout.setTranslationY(0);
+                            }
+                            return true;
+                        default:
+                            return false;
+                    }
+                }
+            });
+
+            dialog.show();
+            return;
+        } catch (Exception ex) {
+            Logger.printException(() -> "showCustomVideoQualityFlyoutMenu failure", ex);
         }
         showYouTubeLegacyVideoQualityFlyoutMenu();
     }

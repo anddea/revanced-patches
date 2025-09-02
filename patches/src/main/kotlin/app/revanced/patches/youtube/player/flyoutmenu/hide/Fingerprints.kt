@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.player.flyoutmenu.hide
 
+import app.revanced.patches.youtube.utils.YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
 import app.revanced.patches.youtube.utils.indexOfAddHeaderViewInstruction
 import app.revanced.patches.youtube.utils.resourceid.bottomSheetFooterText
 import app.revanced.patches.youtube.utils.resourceid.subtitleMenuSettingsFooterInfo
@@ -9,11 +10,10 @@ import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
-import app.revanced.util.parametersEqual
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal val advancedQualityBottomSheetFingerprint = legacyFingerprint(
     name = "advancedQualityBottomSheetFingerprint",
@@ -40,6 +40,32 @@ internal val captionsBottomSheetFingerprint = legacyFingerprint(
     literals = listOf(bottomSheetFooterText, subtitleMenuSettingsFooterInfo),
 )
 
+internal val currentVideoFormatConstructorFingerprint = legacyFingerprint(
+    name = "currentVideoFormatConstructorFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    customFingerprint = { method, _ ->
+        indexOfVideoQualitiesInstruction(method) >= 0
+    },
+)
+
+internal fun indexOfVideoQualitiesInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.IPUT_OBJECT &&
+                getReference<FieldReference>()?.type == "[$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE"
+    }
+
+internal val currentVideoFormatToStringFingerprint = legacyFingerprint(
+    name = "currentVideoFormatToStringFingerprint",
+    returnType = "Ljava/lang/String;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    strings = listOf("currentVideoFormat="),
+    customFingerprint = { method, _ ->
+        method.name == "toString"
+    },
+)
+
 /**
  * This fingerprint is compatible with YouTube v18.39.xx+
  */
@@ -64,57 +90,3 @@ internal val sleepTimerFingerprint = legacyFingerprint(
     returnType = "Z",
     literals = listOf(SLEEP_TIMER_FEATURE_FLAG),
 )
-
-internal val videoQualityArrayFingerprint = legacyFingerprint(
-    name = "videoQualityArrayFingerprint",
-    returnType = "[Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    // 18.29 and earlier parameters are:
-    // "Ljava/util/List;",
-    // "Ljava/lang/String;"
-    // "L"
-
-    // 18.31+ parameters are:
-    // "Ljava/util/List;",
-    // "Ljava/util/Collection;",
-    // "Ljava/lang/String;"
-    // "L"
-    customFingerprint = custom@{ method, _ ->
-        val parameterTypes = method.parameterTypes
-        val parameterSize = parameterTypes.size
-        if (parameterSize != 3 && parameterSize != 4) {
-            return@custom false
-        }
-
-        val startsWithMethodParameterList = parameterTypes.slice(0..0)
-        val endsWithMethodParameterList = parameterTypes.slice(parameterSize - 2..<parameterSize)
-
-        parametersEqual(
-            VIDEO_QUALITY_ARRAY_STARTS_WITH_PARAMETER_LIST,
-            startsWithMethodParameterList
-        ) &&
-                parametersEqual(
-                    VIDEO_QUALITY_ARRAY_ENDS_WITH_PARAMETER_LIST,
-                    endsWithMethodParameterList
-                ) &&
-                indexOfQualityLabelInstruction(method) >= 0
-    }
-)
-
-private val VIDEO_QUALITY_ARRAY_STARTS_WITH_PARAMETER_LIST = listOf(
-    "Ljava/util/List;"
-)
-
-private val VIDEO_QUALITY_ARRAY_ENDS_WITH_PARAMETER_LIST = listOf(
-    "Ljava/lang/String;",
-    "L"
-)
-
-internal fun indexOfQualityLabelInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        val reference = getReference<MethodReference>()
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                reference?.returnType == "Ljava/lang/String;" &&
-                reference.parameterTypes.size == 0 &&
-                reference.definingClass == "Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;"
-    }

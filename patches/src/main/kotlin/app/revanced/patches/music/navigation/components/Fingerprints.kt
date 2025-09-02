@@ -37,7 +37,8 @@ internal val tabLayoutTextFingerprint = legacyFingerprint(
     strings = listOf("FEmusic_search"),
     literals = listOf(text1),
     customFingerprint = { method, _ ->
-        indexOfGetVisibilityInstruction(method) >= 0 &&
+        indexOfMapInstruction(method) >= 0 &&
+                indexOfGetVisibilityInstruction(method) >= 0 &&
                 indexOfSetTextInstruction(method) >= 0
     }
 )
@@ -52,4 +53,10 @@ internal fun indexOfSetTextInstruction(method: Method) =
     method.indexOfFirstInstruction {
         opcode == Opcode.INVOKE_VIRTUAL &&
                 getReference<MethodReference>()?.name == "setText"
+    }
+
+internal fun indexOfMapInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_INTERFACE &&
+                getReference<MethodReference>()?.toString() == "Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"
     }
