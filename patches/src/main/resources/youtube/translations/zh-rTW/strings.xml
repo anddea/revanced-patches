@@ -448,7 +448,8 @@
     <string name="revanced_expand_video_description_summary_off">手動展開影片描述</string>
     <string name="revanced_expand_video_description_summary_on">自動展開影片描述</string>
     <string name="revanced_expand_video_description_title">自動展開影片描述</string>
-    <string name="revanced_extended_audio_tracks_unavailable">"若要使用此功能，請將 '預設用戶端（偽裝串流資料）' 變更為 iOS TV, TV 或 TV Simply。
+    <string name="revanced_extended_audio_tracks_unavailable">"此設定目前不可用。
+若要使用此功能，請將 '預設用戶端（偽裝串流資料）' 變更為 iOS TV, TV 或 TV Simply。
 
 注意：
 • iOS TV 不支援播放某些影片，例如音樂影片。
@@ -2317,8 +2318,8 @@ AVC 的最大解析度為 1080p，Opus 音訊編解碼器不可用，影片播�
     <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">重新載入影片按鈕已顯示。</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_title">顯示重新載入影片按鈕</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• 音軌選單遺失。
-• 無法獲得穩定的音量。
 • 無法停用強制自動音軌。
+• 無法獲得穩定的音量。
 • 登出或處於隱身模式時 兒童影片可能無法播放。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 音軌選單遺失。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 音軌選單遺失。"</string>
@@ -2327,9 +2328,12 @@ AVC 的最大解析度為 1080p，Opus 音訊編解碼器不可用，影片播�
 • OPUS 音訊編解碼器可能無法支援。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• 整個 ASN/IP 範圍可能會被伺服器封鎖。</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• 影片可能會提前 1 秒結束。</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• 無法提供穩定音量。
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• 音軌選單可能缺失。
+• 可能無法停用強制自動音軌。
+• 無法穩定音量。
 • 電影或付費影片可能無法播放。
-• 未登入或處於隱身模式時 兒童影片可能無法播放。"</string>
+• 未登入或處於隱身模式時，兒童影片可能無法播放。"
+</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• 缺少音軌選單。
 • 無法停用強制自動音軌。
 • 如果反混淆失敗，播放可能會失敗。
