@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.misc.backgroundplayback
 
 import app.revanced.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-import app.revanced.patches.youtube.utils.fix.cairo.cairoFragmentConfigFingerprint
 import app.revanced.patches.youtube.utils.resourceid.backgroundCategory
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
@@ -78,10 +77,6 @@ internal val backgroundPlaybackManagerCairoFragmentParentFingerprint = legacyFin
 
 /**
  * Matches using the class found in [backgroundPlaybackManagerCairoFragmentParentFingerprint].
- *
- * In this method, the value of the cairoFragmentConfig - [cairoFragmentConfigFingerprint] - must be disabled.
- * If not, sometimes the pause / play button may not work when entering the PIP mode.
- * See [ReVanced_Extended#2764](https://github.com/inotia00/ReVanced_Extended/issues/2764).
  */
 internal val backgroundPlaybackManagerCairoFragmentPrimaryFingerprint = legacyFingerprint(
     name = "backgroundPlaybackManagerCairoFragmentPrimaryFingerprint",
@@ -102,10 +97,6 @@ internal val backgroundPlaybackManagerCairoFragmentPrimaryFingerprint = legacyFi
 
 /**
  * Matches using the class found in [backgroundPlaybackManagerCairoFragmentParentFingerprint].
- *
- * In this method, the value of the cairoFragmentConfig - [cairoFragmentConfigFingerprint] - must be disabled.
- * If not, sometimes the pause / play button may not work when entering the PIP mode.
- * See [ReVanced_Extended#2764](https://github.com/inotia00/ReVanced_Extended/issues/2764).
  */
 internal val backgroundPlaybackManagerCairoFragmentSecondaryFingerprint = legacyFingerprint(
     name = "backgroundPlaybackManagerCairoFragmentSecondaryFingerprint",

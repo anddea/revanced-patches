@@ -16,22 +16,12 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 const val STREAMING_DATA_OUTER_CLASS =
     "Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass${'$'}StreamingData;"
 
-internal val buildMediaDataSourceFingerprint = legacyFingerprint(
-    name = "buildMediaDataSourceFingerprint",
+internal val brotliInputStreamFingerprint = legacyFingerprint(
+    name = "brotliInputStreamFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     returnType = "V",
-    parameters = listOf(
-        "Landroid/net/Uri;",
-        "J",
-        "I",
-        "[B",
-        "Ljava/util/Map;",
-        "J",
-        "J",
-        "Ljava/lang/String;",
-        "I",
-        "Ljava/lang/Object;"
-    )
+    parameters = listOf("Ljava/io/InputStream;"),
+    strings = listOf("Brotli decoder initialization failed")
 )
 
 internal val createStreamingDataFingerprint = legacyFingerprint(
@@ -56,12 +46,15 @@ internal val createStreamingDataParentFingerprint = legacyFingerprint(
     strings = listOf("Invalid playback type; streaming data is not playable"),
 )
 
-internal val nerdsStatsFormatBuilderFingerprint = legacyFingerprint(
-    name = "nerdsStatsFormatBuilderFingerprint",
-    returnType = "Ljava/lang/String;",
+internal val getEmptyRegistryFingerprint = legacyFingerprint(
+    name = "getEmptyRegistryFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("L"),
-    strings = listOf("codecs=\""),
+    parameters = emptyList(),
+    returnType = "Lcom/google/protobuf/ExtensionRegistryLite;",
+    customFingerprint = { method, classDef ->
+        classDef.type == "Lcom/google/protobuf/ExtensionRegistryLite;"
+                && method.name != "getGeneratedRegistry"
+    },
 )
 
 internal val protobufClassParseByteBufferFingerprint = legacyFingerprint(
@@ -76,6 +69,14 @@ internal val protobufClassParseByteBufferFingerprint = legacyFingerprint(
         Opcode.RETURN_OBJECT,
     ),
     customFingerprint = { method, _ -> method.name == "parseFrom" },
+)
+
+internal val nerdsStatsFormatBuilderFingerprint = legacyFingerprint(
+    name = "nerdsStatsFormatBuilderFingerprint",
+    returnType = "Ljava/lang/String;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = listOf("L"),
+    strings = listOf("codecs=\""),
 )
 
 internal val videoStreamingDataConstructorFingerprint = legacyFingerprint(

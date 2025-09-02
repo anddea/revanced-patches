@@ -18,6 +18,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -37,7 +43,7 @@ import app.revanced.extension.youtube.shared.RootView;
 import app.revanced.extension.youtube.shared.VideoInformation;
 import app.revanced.extension.youtube.utils.VideoUtils;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "deprecation"})
 public class PlayerPatch {
     private static final IntegerSetting quickActionsMarginTopSetting = Settings.QUICK_ACTIONS_TOP_MARGIN;
 
@@ -632,13 +638,19 @@ public class PlayerPatch {
 
     // region [Hide player flyout menu] patch
 
-    private static final String QUALITY_LABEL_PREMIUM = "1080p Premium";
+    public static VideoQuality[] hidePlayerFlyoutMenuEnhancedBitrate(VideoQuality[] videoQualities) {
+        if (Settings.HIDE_PLAYER_FLYOUT_MENU_ENHANCED_BITRATE.get() &&
+                ArrayUtils.isNotEmpty(videoQualities)) {
+            try {
+                return Arrays.stream(videoQualities)
+                        .filter(quality -> !StringUtils.contains(quality.patch_getQualityName(), "Premium"))
+                        .toArray(VideoQuality[]::new);
+            } catch (Exception ex) {
+                Logger.printException(() -> "hidePlayerFlyoutMenuEnhancedBitrate failure", ex);
+            }
+        }
 
-    public static String hidePlayerFlyoutMenuEnhancedBitrate(String qualityLabel) {
-        return Settings.HIDE_PLAYER_FLYOUT_MENU_ENHANCED_BITRATE.get() &&
-                Objects.equals(QUALITY_LABEL_PREMIUM, qualityLabel)
-                ? null
-                : qualityLabel;
+        return videoQualities;
     }
 
     public static void hidePlayerFlyoutMenuCaptionsFooter(View view) {

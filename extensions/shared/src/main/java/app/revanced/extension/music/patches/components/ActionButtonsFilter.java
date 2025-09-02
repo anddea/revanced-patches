@@ -1,7 +1,5 @@
 package app.revanced.extension.music.patches.components;
 
-import androidx.annotation.Nullable;
-
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
@@ -62,6 +60,10 @@ public final class ActionButtonsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_ACTION_BUTTON_RADIO,
                         "yt_outline_youtube_mix"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_ACTION_BUTTON_DISABLED,
+                        "button_container_disabled"
                 )
         );
     }
@@ -77,7 +79,7 @@ public final class ActionButtonsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (!path.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX)) {
             return false;
@@ -85,10 +87,6 @@ public final class ActionButtonsFilter extends Filter {
         if (matchedGroup == actionBarRule && !isEveryFilterGroupEnabled()) {
             return false;
         }
-        if (matchedGroup == bufferFilterPathRule && !bufferButtonsGroupList.check(protobufBufferArray).isFiltered()) {
-            return false;
-        }
-
-        return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return matchedGroup != bufferFilterPathRule || bufferButtonsGroupList.check(buffer).isFiltered();
     }
 }

@@ -5,20 +5,15 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.emptyComponentLabel
 import app.revanced.patches.shared.mainactivity.onCreateMethod
-import app.revanced.patches.youtube.utils.bottomsheet.bottomSheetHookPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
-import app.revanced.patches.youtube.utils.dismiss.hookDismissObserver
 import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.FEED_CLASS_DESCRIPTOR
-import app.revanced.patches.youtube.utils.extension.Constants.FEED_PATH
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_FEED_COMPONENTS
@@ -35,14 +30,11 @@ import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.scrollTopParentFingerprint
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
-import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.fingerprint.injectLiteralInstructionViewCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.getReference
-import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
@@ -54,18 +46,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
-private const val CAROUSEL_SHELF_FILTER_CLASS_DESCRIPTOR =
-    "$COMPONENTS_PATH/CarouselShelfFilter;"
 private const val FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/FeedComponentsFilter;"
-private const val FEED_VIDEO_FILTER_CLASS_DESCRIPTOR =
-    "$COMPONENTS_PATH/FeedVideoFilter;"
 private const val FEED_VIDEO_VIEWS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/FeedVideoViewsFilter;"
 private const val KEYWORD_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/KeywordContentFilter;"
-private const val RELATED_VIDEO_CLASS_DESCRIPTOR =
-    "$FEED_PATH/RelatedVideoPatch;"
 
 @Suppress("unused")
 val feedComponentsPatch = bytecodePatch(
@@ -80,10 +66,7 @@ val feedComponentsPatch = bytecodePatch(
         playerTypeHookPatch,
         sharedResourceIdPatch,
         settingsPatch,
-        bottomSheetHookPatch,
-        dismissPlayerHookPatch,
         engagementPanelHookPatch,
-        videoInformationPatch,
         versionCheckPatch,
     )
     execute {
@@ -173,28 +156,6 @@ val feedComponentsPatch = bytecodePatch(
                     """, ExternalLabel("hide", getInstruction(jumpIndex))
             )
         }
-
-        // endregion
-
-        // region patch for hide relative video
-
-        linearLayoutManagerItemCountsFingerprint.matchOrThrow().let {
-            val methodWalker =
-                it.getWalkerMethod(it.patternMatch!!.endIndex)
-            methodWalker.apply {
-                val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-                addInstructions(
-                    index + 1, """
-                        invoke-static {v$register}, $RELATED_VIDEO_CLASS_DESCRIPTOR->overrideItemCounts(I)I
-                        move-result v$register
-                        """
-                )
-            }
-        }
-
-        hookDismissObserver("$RELATED_VIDEO_CLASS_DESCRIPTOR->onDismiss()V")
 
         // endregion
 
@@ -307,22 +268,16 @@ val feedComponentsPatch = bytecodePatch(
 
         // region patch for hide show more button
 
-        showMoreButtonFingerprint.mutableClassOrThrow().let {
-            val getViewMethod =
-                it.methods.find { method ->
-                    method.parameters.isEmpty() &&
-                            method.returnType == "Landroid/view/View;"
-                }
+        showMoreButtonFingerprint.methodOrThrow(
+            showMoreButtonParentFingerprint
+        ).apply {
+            val targetIndex = implementation!!.instructions.size - 1
+            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            getViewMethod?.apply {
-                val targetIndex = implementation!!.instructions.size - 1
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-                addInstruction(
-                    targetIndex,
-                    "invoke-static {v$targetRegister}, $FEED_CLASS_DESCRIPTOR->hideShowMoreButton(Landroid/view/View;)V"
-                )
-            } ?: throw PatchException("Failed to find getView method")
+            addInstruction(
+                targetIndex,
+                "invoke-static {v$targetRegister}, $FEED_CLASS_DESCRIPTOR->hideShowMoreButton(Landroid/view/View;)V"
+            )
         }
 
         // endregion
@@ -369,9 +324,7 @@ val feedComponentsPatch = bytecodePatch(
 
         // endregion
 
-        addLithoFilter(CAROUSEL_SHELF_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
-        addLithoFilter(FEED_VIDEO_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(FEED_VIDEO_VIEWS_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(KEYWORD_FILTER_CLASS_DESCRIPTOR)
 

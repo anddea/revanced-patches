@@ -26,6 +26,15 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 const val AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY =
     "/AudioVideoSwitcherToggleView;->setVisibility(I)V"
 
+internal const val AUDIO_VIDEO_SWITCH_TOGGLE_FEATURE_FLAG = 45671274L
+
+internal val audioVideoSwitchToggleFeatureFlagsFingerprint = legacyFingerprint(
+    name = "audioVideoSwitchToggleFeatureFlagsFingerprint",
+    returnType = "Z",
+    parameters = emptyList(),
+    literals = listOf(AUDIO_VIDEO_SWITCH_TOGGLE_FEATURE_FLAG),
+)
+
 internal val audioVideoSwitchToggleFingerprint = legacyFingerprint(
     name = "audioVideoSwitchToggleFingerprint",
     returnType = "V",
@@ -114,7 +123,6 @@ internal val minimizedPlayerFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "L"),
     opcodes = listOf(
-        null, // Opcode.INVOKE_VIRTUAL or Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ,
         Opcode.IF_EQZ
@@ -340,6 +348,15 @@ internal val shuffleEnumFingerprint = legacyFingerprint(
     customFingerprint = { method, _ ->
         method.name == "<clinit>"
     }
+)
+
+internal const val SMOOTH_TRANSITION_ANIMATION_FEATURE_FLAG = 45679250L
+
+internal val smoothTransitionAnimationFingerprint = legacyFingerprint(
+    name = "smoothTransitionAnimationFingerprint",
+    returnType = "Z",
+    parameters = emptyList(),
+    literals = listOf(SMOOTH_TRANSITION_ANIMATION_FEATURE_FLAG),
 )
 
 internal val swipeToCloseFingerprint = legacyFingerprint(

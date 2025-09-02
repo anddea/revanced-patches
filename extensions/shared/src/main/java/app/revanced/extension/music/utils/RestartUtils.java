@@ -5,6 +5,7 @@ import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.runOnMainThreadDelayed;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
@@ -23,14 +24,21 @@ public class RestartUtils {
     }
 
     public static void showRestartDialog(@NonNull Activity activity) {
-        showRestartDialog(activity, "revanced_extended_restart_message", 0);
+        showRestartDialog(activity, "revanced_extended_restart_message", false);
     }
 
-    public static void showRestartDialog(@NonNull Activity activity, @NonNull String message, long delay) {
-        getDialogBuilder(activity)
-                .setMessage(str(message))
-                .setPositiveButton(android.R.string.ok, (dialog, id) -> runOnMainThreadDelayed(() -> restartApp(activity), delay))
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+    public static void showRestartDialog(@NonNull Activity activity, @NonNull String message,
+                                         boolean hideCancelButton) {
+        AlertDialog.Builder builder = getDialogBuilder(activity);
+        builder.setMessage(str(message));
+        builder.setPositiveButton(android.R.string.ok, (dialog, id) ->
+                runOnMainThreadDelayed(() -> restartApp(activity), hideCancelButton ? 1000 : 0)
+        );
+        if (hideCancelButton) {
+            builder.setCancelable(false);
+        } else {
+            builder.setNegativeButton(android.R.string.cancel, null);
+        }
+        builder.show();
     }
 }

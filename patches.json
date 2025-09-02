@@ -54,8 +54,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -94,8 +95,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -132,8 +134,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -262,8 +265,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -276,7 +280,8 @@
       "Settings for YouTube",
       "BytecodePatch",
       "BytecodePatch",
-      "ResourcePatch"
+      "ResourcePatch",
+      "BytecodePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -305,8 +310,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -435,7 +441,7 @@
       {
         "key": "changeSplashIcon",
         "title": "Change splash icons",
-        "description": "Apply the custom branding icon to the splash screen. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
+        "description": "Apply the custom branding icon to the splash screen. Supports from YouTube 19.05.36 to YouTube 19.16.39.",
         "required": true,
         "type": "kotlin.Boolean",
         "default": true,
@@ -444,10 +450,10 @@
       {
         "key": "restoreOldSplashAnimation",
         "title": "Restore old splash animation",
-        "description": "Restore the old style splash animation.",
+        "description": "Restore the old style splash animation.\n\nThis patch option is only supported on Android 12+, as splash animation was added to Android 12.\n\nIncluding this patch option on Android 8.0 - 11 may cause your app to crash.",
         "required": true,
         "type": "kotlin.Boolean",
-        "default": true,
+        "default": false,
         "values": null
       }
     ]
@@ -468,8 +474,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -616,8 +623,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -725,8 +733,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -816,6 +825,15 @@
         "type": "kotlin.Boolean",
         "default": true,
         "values": null
+      },
+      {
+        "key": "minimalIcon",
+        "title": "Minimal icon",
+        "description": "Apply alternative minimal launcher icon.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": false,
+        "values": null
       }
     ]
   },
@@ -834,8 +852,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -879,6 +898,7 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
+      "BytecodePatch",
       "ResourcePatch",
       "ResourcePatch"
     ],
@@ -904,11 +924,11 @@
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
-        "7.06.54",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -929,8 +949,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -951,8 +972,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -992,8 +1014,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1041,8 +1064,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1108,6 +1132,7 @@
     "use": false,
     "dependencies": [
       "Settings for YouTube Music",
+      "ResourcePatch",
       "BytecodePatch",
       "BytecodePatch"
     ],
@@ -1119,8 +1144,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1179,12 +1205,12 @@
     "options": []
   },
   {
-    "name": "Disable splash animation",
-    "description": "Adds an option to disable the splash animation on app startup.",
+    "name": "Disable sign in to TV popup",
+    "description": "Adds an option to disable the popup asking to sign into a TV on the same local network.",
     "use": true,
     "dependencies": [
-      "ResourcePatch",
-      "Settings for YouTube"
+      "Settings for YouTube",
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -1198,34 +1224,12 @@
     "options": []
   },
   {
-    "name": "Enable OPUS codec",
-    "description": "Adds an option to enable the OPUS audio codec if the player response includes it.",
+    "name": "Disable splash animation",
+    "description": "Adds an option to disable the splash animation on app startup.",
     "use": true,
     "dependencies": [
-      "Settings for YouTube Music",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Enable OPUS codec",
-    "description": "Adds an option to enable the OPUS audio codec if the player response includes it.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube",
-      "BytecodePatch"
+      "ResourcePatch",
+      "Settings for YouTube"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -1253,8 +1257,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1311,8 +1316,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1326,6 +1332,51 @@
       "com.spotify.music": null
     },
     "options": []
+  },
+  {
+    "name": "Fix playback",
+    "description": "Adds options to fix playback issues.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube Music",
+      "Remove background playback restrictions",
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
+      ]
+    },
+    "options": [
+      {
+        "key": "spoofClient",
+        "title": "Spoof client",
+        "description": "Includes the \u0027Spoof client\u0027 patch.\n\nSide effect:\n• Action buttons or player flyout menus may not show properly.\n• These side effects may be resolved by clearing the app data and logging in again.\n\nSide effect (Block request):\n• App may be forced to close when using a VPN or DNS.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": true,
+        "values": null
+      },
+      {
+        "key": "spoofVideoStreams",
+        "title": "Spoof video streams",
+        "description": "Includes the \u0027Spoof video streams\u0027 patch.\n\nSide effect:\n• App may be forced to close when using a DNS or VPN.\n• Audio may intermittently stutter during playback on adaptive bitrate streaming clients.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": true,
+        "values": null
+      }
+    ]
   },
   {
     "name": "Fix third party launchers widgets",
@@ -1359,8 +1410,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1448,8 +1500,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -1471,6 +1524,15 @@
         "required": true,
         "type": "kotlin.Boolean",
         "default": true,
+        "values": null
+      },
+      {
+        "key": "disableCoreServices",
+        "title": "Disable Core Services",
+        "description": "To reproduce the playback issue, several core services, including PoToken, are disabled.\n\nDo not enable this option unless you are testing at a low level.",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "default": false,
         "values": null
       },
       {
@@ -1544,6 +1606,15 @@
         "required": true,
         "type": "kotlin.Boolean",
         "default": true,
+        "values": null
+      },
+      {
+        "key": "disableCoreServices",
+        "title": "Disable Core Services",
+        "description": "To reproduce the playback issue, several core services, including PoToken, are disabled.\n\nDo not enable this option unless you are testing at a low level.",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "default": false,
         "values": null
       },
       {
@@ -1628,6 +1699,22 @@
     "options": []
   },
   {
+    "name": "Hide Trending Today shelf",
+    "description": "Adds an option to hide the Trending Today shelf from search suggestions.",
+    "use": true,
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "options": []
+  },
+  {
     "name": "Hide accessibility controls dialog",
     "description": "Removes, at compile time, accessibility controls dialog \u0027Turn on accessibility controls for the video player?\u0027.",
     "use": true,
@@ -1661,8 +1748,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1687,8 +1775,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1699,6 +1788,8 @@
     "use": true,
     "dependencies": [
       "Settings for YouTube",
+      "BytecodePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
@@ -1754,8 +1845,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -1828,9 +1920,6 @@
       "ResourcePatch",
       "Settings for YouTube",
       "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch",
       "ResourcePatch"
     ],
     "compatiblePackages": {
@@ -1882,8 +1971,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1944,8 +2034,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -1982,6 +2073,7 @@
       "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch",
+      "BytecodePatch",
       "ResourcePatch"
     ],
     "compatiblePackages": {
@@ -2008,8 +2100,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2195,8 +2288,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2314,6 +2408,28 @@
         }
       },
       {
+        "key": "bottomMargin",
+        "title": "Bottom margin",
+        "description": "The bottom margin for the overlay buttons and timestamp.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "2.5dip",
+        "values": {
+          "Default": "2.5dip",
+          "Minimum": "0.1dip",
+          "Wider": "5.0dip"
+        }
+      },
+      {
+        "key": "widerButtonsSpace",
+        "title": "Wider between-buttons space",
+        "description": "Prevent adjacent button presses by increasing the horizontal spacing between buttons.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": false,
+        "values": null
+      },
+      {
         "key": "changeTopButtons",
         "title": "Change top buttons",
         "description": "Change the icons at the top of the player.",
@@ -2345,8 +2461,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2363,11 +2480,13 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
       "ResourcePatch",
       "BytecodePatch",
       "BytecodePatch",
-      "ResourcePatch",
-      "BytecodePatch"
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -2409,8 +2528,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2468,8 +2588,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2508,8 +2629,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2530,8 +2652,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2576,8 +2699,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2619,28 +2743,6 @@
   },
   {
     "name": "Sanitize sharing links",
-    "description": "Removes the tracking query parameters from links before they are shared.",
-    "use": true,
-    "dependencies": [
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.spotify.music": null
-    },
-    "options": [
-      {
-        "key": "shareParameters",
-        "title": "Parameters to remove",
-        "description": "A list of parameters to be removed from sharing links, separated by commas.",
-        "required": true,
-        "type": "kotlin.String",
-        "default": "context, pi, si, utm_source",
-        "values": null
-      }
-    ]
-  },
-  {
-    "name": "Sanitize sharing links",
     "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
     "use": true,
     "dependencies": [
@@ -2656,8 +2758,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -2680,6 +2783,28 @@
       ]
     },
     "options": []
+  },
+  {
+    "name": "Sanitize sharing links",
+    "description": "Removes the tracking query parameters from links before they are shared.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "options": [
+      {
+        "key": "shareParameters",
+        "title": "Parameters to remove",
+        "description": "A list of parameters to be removed from sharing links, separated by commas.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "context, pi, si, utm_source",
+        "values": null
+      }
+    ]
   },
   {
     "name": "Seekbar components",
@@ -2741,7 +2866,6 @@
     "use": true,
     "dependencies": [
       "BytecodePatch",
-      "ResourcePatch",
       "ResourcePatch",
       "BytecodePatch",
       "BytecodePatch"
@@ -2816,7 +2940,8 @@
     "description": "Applies mandatory patches to implement ReVanced Extended settings into the application.",
     "use": true,
     "dependencies": [
-      "BytecodePatch"
+      "BytecodePatch",
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
@@ -2826,11 +2951,32 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
+      {
+        "key": "insertPosition",
+        "title": "Insert position",
+        "description": "The settings menu name that the RVX settings menu should be above.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "pref_key_parent_tools",
+        "values": {
+          "Parent settings": "pref_key_parent_tools",
+          "General": "settings_header_general",
+          "Playback": "settings_header_playback",
+          "Data saving": "settings_header_data_saving",
+          "Downloads \u0026 storage": "settings_header_downloads_and_storage",
+          "Notifications": "settings_header_notifications",
+          "Privacy \u0026 data": "settings_header_privacy_and_location",
+          "Recommendations": "settings_header_recommendations",
+          "Paid memberships": "settings_header_paid_memberships",
+          "About YouTube Music": "settings_header_about_youtube_music"
+        }
+      },
       {
         "key": "rvxSettingsLabel",
         "title": "RVX settings label",
@@ -2993,8 +3139,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -3062,11 +3209,13 @@
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
+        "6.42.55",
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -3083,8 +3232,6 @@
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
         "19.43.41",
         "19.44.39",
         "19.47.53"
@@ -3143,29 +3290,6 @@
     ]
   },
   {
-    "name": "Spoof player parameter",
-    "description": "Adds options to spoof player parameter to allow playback.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube Music",
-      "BytecodePatch",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.05.51",
-        "8.12.53"
-      ]
-    },
-    "options": []
-  },
-  {
     "name": "Spoof streaming data",
     "description": "Adds options to spoof the streaming data to allow playback.",
     "use": true,
@@ -3204,10 +3328,10 @@
         "values": null
       },
       {
-        "key": "useIOSClient",
-        "title": "Use iOS client",
-        "description": "Add setting to set iOS client (Deprecated) as default client.",
-        "required": false,
+        "key": "useMobileWebClient",
+        "title": "Use Mobile Web client",
+        "description": "Add Mobile Web to available clients.",
+        "required": true,
         "type": "kotlin.Boolean",
         "default": false,
         "values": null
@@ -3370,7 +3494,7 @@
         "description": "A list of translations to be added for the RVX settings, separated by commas.",
         "required": true,
         "type": "kotlin.String",
-        "default": "ar, bg-rBG, de-rDE, el-rGR, es-rES, fr-rFR, hu-rHU, id-rID, in, it-rIT, ja-rJP, ko-rKR, pl-rPL, pt-rBR, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW",
+        "default": "ar, az-rAZ, bg-rBG, da-rDK, de-rDE, el-rGR, es-rES, fil-rPH, fr-rFR, hu-rHU, id-rID, in, it-rIT, ja-rJP, ko-rKR, pl-rPL, pt-rBR, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW",
         "values": null
       },
       {
@@ -3379,7 +3503,7 @@
         "description": "A list of string resources to be kept, separated by commas.\nString resources not in the list will be removed from the app.\n\nDefault string resource, English, is not removed.",
         "required": true,
         "type": "kotlin.String",
-        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
+        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fil-rPH, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
         "values": null
       }
     ]
@@ -3399,8 +3523,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -3428,7 +3553,7 @@
         "description": "A list of string resources to be kept, separated by commas.\nString resources not in the list will be removed from the app.\n\nDefault string resource, English, is not removed.",
         "required": true,
         "type": "kotlin.String",
-        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
+        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fil-rPH, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
         "values": null
       }
     ]
@@ -3450,8 +3575,10 @@
     "description": "Adds options to customize settings related to video playback, such as default video quality and playback speed.",
     "use": true,
     "dependencies": [
-      "BytecodePatch",
       "Settings for YouTube Music",
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch",
       "BytecodePatch"
     ],
     "compatiblePackages": {
@@ -3462,8 +3589,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []
@@ -3474,6 +3602,8 @@
     "use": true,
     "dependencies": [
       "Settings for YouTube",
+      "BytecodePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
@@ -3558,8 +3688,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": [
@@ -3608,8 +3739,9 @@
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.05.51",
-        "8.12.53"
+        "8.12.54",
+        "8.28.54",
+        "8.30.54"
       ]
     },
     "options": []

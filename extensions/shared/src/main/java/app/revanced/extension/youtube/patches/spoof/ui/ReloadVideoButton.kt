@@ -4,8 +4,9 @@ import android.view.View
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.patches.spoof.ReloadVideoPatch
 import app.revanced.extension.youtube.settings.Settings
-import app.revanced.extension.youtube.utils.VideoUtils
 import app.revanced.extension.youtube.shared.PlayerControlButton
+import app.revanced.extension.youtube.utils.VideoUtils
+
 
 @Suppress("unused")
 object ReloadVideoButton {

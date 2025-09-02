@@ -1,7 +1,7 @@
 package app.revanced.extension.youtube.patches.utils.requests
 
 import androidx.annotation.GuardedBy
-import app.revanced.extension.shared.innertube.client.YouTubeAppClient
+import app.revanced.extension.shared.innertube.client.YouTubeClient
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createApplicationRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createPlaylistRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
@@ -112,7 +112,7 @@ class CreatePlaylistRequest private constructor(
 
             val startTime = System.currentTimeMillis()
             // 'playlist/create' endpoint does not require PoToken.
-            val clientType = YouTubeAppClient.ClientType.ANDROID
+            val clientType = YouTubeClient.ClientType.ANDROID
             val clientTypeName = clientType.name
             Logger.printDebug { "Fetching create playlist request for: $videoId, using client: $clientTypeName" }
 
@@ -158,7 +158,7 @@ class CreatePlaylistRequest private constructor(
 
             val startTime = System.currentTimeMillis()
             // 'playlist/create' endpoint does not require PoToken.
-            val clientType = YouTubeAppClient.ClientType.ANDROID
+            val clientType = YouTubeClient.ClientType.ANDROID
             val clientTypeName = clientType.name
             Logger.printDebug { "Fetching set video id request for: $playlistId, using client: $clientTypeName" }
 

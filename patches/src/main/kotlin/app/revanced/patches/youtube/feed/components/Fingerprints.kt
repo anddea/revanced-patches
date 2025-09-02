@@ -125,21 +125,6 @@ internal val latestVideosButtonFingerprint = legacyFingerprint(
     literals = listOf(bar),
 )
 
-internal val linearLayoutManagerItemCountsFingerprint = legacyFingerprint(
-    name = "linearLayoutManagerItemCountsFingerprint",
-    returnType = "I",
-    accessFlags = AccessFlags.FINAL.value,
-    parameters = listOf("L", "L", "L", "Z"),
-    opcodes = listOf(
-        Opcode.IF_NEZ,
-        Opcode.IF_LEZ,
-        Opcode.INVOKE_VIRTUAL,
-    ),
-    customFingerprint = { method, _ ->
-        method.definingClass == "Landroid/support/v7/widget/LinearLayoutManager;"
-    }
-)
-
 internal val relatedChipCloudFingerprint = legacyFingerprint(
     name = "relatedChipCloudFingerprint",
     returnType = "V",
@@ -166,15 +151,17 @@ internal val searchResultsChipBarFingerprint = legacyFingerprint(
     literals = listOf(barContainerHeight),
 )
 
+internal val showMoreButtonParentFingerprint = legacyFingerprint(
+    name = "showMoreButtonParentFingerprint",
+    returnType = "V",
+    literals = listOf(expandButtonDown),
+)
+
 internal val showMoreButtonFingerprint = legacyFingerprint(
     name = "showMoreButtonFingerprint",
-    opcodes = listOf(
-        Opcode.CONST,
-        Opcode.CONST_4,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT
-    ),
-    literals = listOf(expandButtonDown),
+    returnType = "Landroid/view/View;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
 )
 
 

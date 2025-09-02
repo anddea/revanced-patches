@@ -14,12 +14,15 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -31,12 +34,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 import java.util.Map;
 
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.PackageUtils;
+import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -44,10 +49,6 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
 public class ExtendedUtils extends PackageUtils {
-
-    private static boolean isVersionOrGreater(String version) {
-        return getAppVersionName().compareTo(version) >= 0;
-    }
 
     @SuppressWarnings("unused")
     public static final boolean IS_19_17_OR_GREATER = isVersionOrGreater("19.17.00");
@@ -64,9 +65,7 @@ public class ExtendedUtils extends PackageUtils {
     }
 
     public static boolean isSpoofingToLessThan(@NonNull String versionName) {
-        if (!Settings.SPOOF_APP_VERSION.get())
-            return false;
-
+        if (!Settings.SPOOF_APP_VERSION.get()) return false;
         return isVersionToLessThan(Settings.SPOOF_APP_VERSION_TARGET.get(), versionName);
     }
 
@@ -401,4 +400,58 @@ public class ExtendedUtils extends PackageUtils {
             mRadioGroup.setOnCheckedChangeListener(onCheckedChangeListener);
         }
     }
+
+    public static class CustomAdapter extends ArrayAdapter<String> {
+        private int selectedPosition = -1;
+
+        public CustomAdapter(@NonNull Context context, @NonNull List<String> objects) {
+            super(context, 0, objects);
+        }
+
+        void setSelectedPosition(int position) {
+            this.selectedPosition = position;
+            notifyDataSetChanged();
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            ViewHolder viewHolder;
+
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(
+                        ResourceUtils.getLayoutIdentifier("revanced_custom_list_item_checked"),
+                        parent,
+                        false
+                );
+                viewHolder = new ViewHolder();
+                viewHolder.checkIcon = convertView.findViewById(
+                        ResourceUtils.getIdIdentifier("revanced_check_icon")
+                );
+                viewHolder.placeholder = convertView.findViewById(
+                        ResourceUtils.getIdIdentifier("revanced_check_icon_placeholder")
+                );
+                viewHolder.textView = convertView.findViewById(
+                        ResourceUtils.getIdIdentifier("revanced_item_text")
+                );
+                convertView.setTag(viewHolder);
+            } else {
+                viewHolder = (ViewHolder) convertView.getTag();
+            }
+
+            viewHolder.textView.setText(getItem(position));
+            final boolean isSelected = position == selectedPosition;
+            viewHolder.checkIcon.setVisibility(isSelected ? View.VISIBLE : View.GONE);
+            viewHolder.placeholder.setVisibility(isSelected ? View.GONE : View.INVISIBLE);
+
+            return convertView;
+        }
+
+        private static class ViewHolder {
+            ImageView checkIcon;
+            View placeholder;
+            TextView textView;
+        }
+    }
+
 }

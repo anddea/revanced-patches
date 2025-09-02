@@ -7,7 +7,7 @@ import app.revanced.extension.shared.patches.spans.SpanType;
 import app.revanced.extension.shared.patches.spans.StringFilterGroup;
 import app.revanced.extension.youtube.settings.Settings;
 
-@SuppressWarnings({"unused", "ConstantValue", "FieldCanBeLocal"})
+@SuppressWarnings({"unused", "FieldCanBeLocal"})
 public final class SanitizeVideoSubtitleFilter extends Filter {
 
     public SanitizeVideoSubtitleFilter() {
@@ -25,10 +25,10 @@ public final class SanitizeVideoSubtitleFilter extends Filter {
         if (isWord) {
             if (spanType == SpanType.IMAGE) {
                 hideImageSpan(spannableString, start, end, flags);
-                return super.skip(conversionContext, spannableString, span, start, end, flags, isWord, spanType, matchedGroup);
+                return true;
             } else if (spanType == SpanType.CUSTOM_CHARACTER_STYLE) {
                 hideSpan(spannableString, start, end, flags);
-                return super.skip(conversionContext, spannableString, span, start, end, flags, isWord, spanType, matchedGroup);
+                return true;
             }
         }
         return false;

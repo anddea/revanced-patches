@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Tiếp tục</string>
     <string name="gms_core_dialog_dismiss_text">Không hiển thị lại nữa</string>
@@ -13,7 +13,7 @@ Tắt tối ưu hoá pin cho GmsCore sẽ không làm ảnh hưởng đáng kể
 
 Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá pin."</string>
     <string name="gms_core_dialog_open_website_text">Mở trang web</string>
-    <string name="gms_core_dialog_title">Hành động cần thiết</string>
+    <string name="gms_core_dialog_title">Cần thực hiện</string>
     <string name="gms_core_settings_summary">Chuyển hướng tới cài đặt GmsCore và kích hoạt Cloud Messaging để nhận thông báo đẩy.</string>
     <string name="gms_core_settings_title">Cài đặt GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore chưa được cài đặt. Hãy cài đặt nó đi nào.</string>
@@ -21,6 +21,10 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="revanced_add_miniplayer_next_button_title">Nút tiếp theo trong trình phát thu nhỏ</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Thêm nút bài hát trước đó vào trình phát thu nhỏ.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Nút trước đó trong trình phát thu nhỏ</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;Tên&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Phiên bản&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Bản vá&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Ngày vá&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_title">Thông tin</string>
+    <string name="revanced_app_info_summary">Nhấn để xem thông tin ứng dụng và bản vá.</string>
+    <string name="revanced_app_info_title">Thông tin ứng dụng</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Bỏ qua miền bị chặn ở một số khu vực để có thể thu được được hình thu nhỏ video của danh sách phát, ảnh đại diện kênh, v. v.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Bỏ qua hạn chế khu vực cho hình ảnh</string>
     <string name="revanced_change_action_bar_position_summary">Di chuyển thanh tương tác xuống bên dưới nút Phát.</string>
@@ -79,8 +83,8 @@ Nếu có thể, hãy sử dụng màu tối vì ứng dụng không hỗ trợ 
     <string name="revanced_default_app_settings_title">Mở theo mặc định</string>
     <string name="revanced_disable_auto_captions_summary">Tắt tự động hiển thị phụ đề khi phát video nhạc có phụ đề.</string>
     <string name="revanced_disable_auto_captions_title">Tắt tự động hiển thị phụ đề</string>
-    <string name="revanced_disable_cairo_splash_animation_summary">Vô hiệu hóa hoạt ảnh kiểu Cairo khi ứng dụng khởi chạy.</string>
-    <string name="revanced_disable_cairo_splash_animation_title">Vô hiệu hóa hoạt ảnh kiểu Cairo</string>
+    <string name="revanced_disable_cairo_splash_animation_summary">Vô hiệu hóa hoạt ảnh Cairo khi ứng dụng khởi chạy.</string>
+    <string name="revanced_disable_cairo_splash_animation_title">Vô hiệu hóa hoạt ảnh Cairo</string>
     <string name="revanced_disable_dislike_redirection_summary">Không chuyển đến bài hát tiếp theo khi nhấn vào nút Không thích.</string>
     <string name="revanced_disable_dislike_redirection_title">Tắt chuyển hướng khi nhấn nút Không thích</string>
     <string name="revanced_disable_drc_audio_summary">Vô hiệu hoá tính năng nén dải âm thanh động.</string>
@@ -90,7 +94,7 @@ Nếu có thể, hãy sử dụng màu tối vì ứng dụng không hỗ trợ 
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Nhấn vào nút chuyển đổi giữa Bài hát và Video</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Nhấn và giữ nút chuyển đổi giữa Bài hát và Video</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Chuyển hướng</string>
-    <string name="revanced_disable_music_video_in_album_redirect_type_summary">Xác định cách chuyển tới bài hát chính thức.</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_summary">Chọn cách chuyển hướng bài hát chính thức.</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_title">Kiểu chuyển hướng</string>
     <string name="revanced_disable_music_video_in_album_summary">"Khi người dùng không mua gói Premium, đôi khi nghe nhạc có trong đĩa nhạc, video âm nhạc được phát thay vì bài hát chính thức.
 
@@ -102,6 +106,12 @@ Hạn chế: Video dành cho trẻ em có thể không được chuyển hướn
     <string name="revanced_disable_player_gesture_title">Tắt cử chỉ trình phát</string>
     <string name="revanced_disable_quic_protocol_summary">"Vô hiệu hoá giao thức QUIC của CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Vô hiệu hoá giao thức QUIC</string>
+    <string name="revanced_disable_trim_silence_summary">"Vô hiệu hoá nút Cắt bỏ khoảng lặng trong trình đơn tuỳ chọn tốc độ phát.
+
+ Chi tiết:
+ • Tính năng này dành cho podcast.
+ • Tính năng này vẫn đang được phát triển nên có thể chưa ổn định."</string>
+    <string name="revanced_disable_trim_silence_title">Vô hiệu hoá nút Cắt bỏ khoảng lặng</string>
     <string name="revanced_enable_comments_scroll_top_summary">"Nhấn vào tiêu đề Bình luận để cuộn lên đầu trang.
 
 Hạn chế: Không áp dụng trong trang phản hồi bình luận."</string>
@@ -114,10 +124,6 @@ Hạn chế:
     <string name="revanced_enable_compact_dialog_title">Trình đơn tuỳ chọn thu gọn</string>
     <string name="revanced_enable_custom_navigation_bar_color_summary">Chỉnh màu cho thanh điều hướng.</string>
     <string name="revanced_enable_custom_navigation_bar_color_title">Màu thanh điều hướng tuỳ chỉnh</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Bao gồm bộ đệm trong nhật ký gỡ lỗi.</string>
-    <string name="revanced_enable_debug_buffer_logging_title">Bật nhật ký bộ đệm gỡ lỗi</string>
-    <string name="revanced_enable_debug_logging_summary">Bật ghi nhật ký gỡ lỗi.</string>
-    <string name="revanced_enable_debug_logging_title">Nhật ký gỡ lỗi</string>
     <string name="revanced_enable_forced_miniplayer_summary">Luôn phát nhạc trong trình phát thu nhỏ bất cứ khi nào bạn nghe một bài hát mới.</string>
     <string name="revanced_enable_forced_miniplayer_title">Luôn phát trong trình phát thu nhỏ</string>
     <string name="revanced_enable_landscape_mode_summary">Cho phép ứng dụng tự động xoay theo hướng màn hình mà thiết bị được giữ.</string>
@@ -130,8 +136,10 @@ Hạn chế:
 
 Chi tiết:
 • Các phiên bản YouTube Music mới nhất sử dụng codec OPUS như mặc định.
-• Điều này chỉ áp dụng cho người dùng giả mạo với các phiên bản ứng dụng rất cũ."</string>
+• Có thể cần thiết nếu giả mạo client hoặc luồng video."</string>
     <string name="revanced_enable_opus_codec_title">Codec OPUS</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">"Làm cho hiệu ứng mượt hơn khi phóng to trình phát thu nhỏ."</string>
+    <string name="revanced_enable_smooth_transition_animation_title">Hiệu ứng chuyển tiếp</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Vuốt xuống để đóng trình phát thu nhỏ.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Vuốt để đóng trình phát thu nhỏ</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Vuốt xuống để đóng trình phát thu nhỏ.</string>
@@ -140,12 +148,6 @@ Chi tiết:
 
 Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên thanh tiến tình."</string>
     <string name="revanced_enable_thick_seekbar_title">Thanh tiến trình lớn</string>
-    <string name="revanced_enable_trim_silence_summary">"Thêm tính năng Cắt bỏ khoảng lặng vào mục tuỳ chọn tốc độ phát.
-
- Chi tiết:
- • Tính năng này dành cho podcast.
- • Tính năng này vẫn đang được phát triển nên có thể chưa ổn định."</string>
-    <string name="revanced_enable_trim_silence_title">Cắt bỏ khoảng lặng</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Chế độ tập trung cho Podcast.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Chế độ tập trung cho Podcast</string>
     <string name="revanced_enable_zen_mode_summary">Thay đổi nền của trình phát thành màu xám nhạt để giúp bạn giảm mỏi mắt và tập trung hơn.</string>
@@ -192,6 +194,8 @@ Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên 
     <string name="revanced_hide_action_button_add_to_playlist_title">Ẩn nút Lưu</string>
     <string name="revanced_hide_action_button_comment_summary">Ẩn nút Bình luận trong thanh tương tác.</string>
     <string name="revanced_hide_action_button_comment_title">Ẩn nút Bình luận</string>
+    <string name="revanced_hide_action_button_disabled_summary">Ẩn các nút bị vô hiệu hóa, chẳng hạn như nút Bình luận bị vô hiệu hóa khi nhà sáng tạo tắt tính năng bình luận cho video.</string>
+    <string name="revanced_hide_action_button_disabled_title">Ẩn nút bị vô hiệu hóa</string>
     <string name="revanced_hide_action_button_download_summary">Ẩn nút Tải xuống trong thanh tương tác.</string>
     <string name="revanced_hide_action_button_download_title">Ẩn nút Tải xuống</string>
     <string name="revanced_hide_action_button_label_summary">Ẩn tên nút trong thanh tương tác.</string>
@@ -266,6 +270,8 @@ Hạn chế: Đôi khi mở thẻ Trang chủ, bạn chỉ thấy một màn hì
     <string name="revanced_hide_handle_title">Ẩn tên người dùng</string>
     <string name="revanced_hide_history_button_summary">Ẩn nút Video đã xem khỏi thanh công cụ.</string>
     <string name="revanced_hide_history_button_title">Ẩn nút Video đã xem</string>
+    <string name="revanced_hide_lyrics_share_button_summary">Ẩn nút Chia sẻ trong lời nhạc.</string>
+    <string name="revanced_hide_lyrics_share_button_title">Ẩn nút Chia sẻ lời bài hát</string>
     <string name="revanced_hide_music_ads_summary">Ẩn quảng cáo xuất hiện trong khi phát nhạc.</string>
     <string name="revanced_hide_music_ads_title">Ẩn quảng cáo</string>
     <string name="revanced_hide_navigation_bar_summary">Ẩn thanh điều hướng.</string>
@@ -322,18 +328,12 @@ Khi bật không những ẩn mục Cài đặt YT Music, mà còn ẩn mục C�
     <string name="revanced_hide_terms_container_title">Ẩn mục Bảo mật và Điều khoản</string>
     <string name="revanced_hide_voice_search_button_summary">Ẩn nút Tìm kiếm bằng giọng nói kế bên thanh tìm kiếm.</string>
     <string name="revanced_hide_voice_search_button_title">Ẩn nút Tìm kiếm bằng giọng nói</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_entry_0">Không ghi đè</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_invalid_toast">Số luồng tối đa của Litho phải nằm trong khoảng từ 1 đến 3.</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_summary">"Chọn số luồng tối đa mà Litho có thể sử dụng.
-
-Tăng giá trị này có thể giúp tải bố cục nhanh hơn, nhưng có thể tiêu hao pin."</string>
-    <string name="revanced_litho_layout_thread_pool_max_size_title">Số luồng tối đa của bộ xử lý Litho</string>
     <string name="revanced_preference_screen_account_title">Tài khoản</string>
     <string name="revanced_preference_screen_action_bar_title">Thanh tương tác</string>
     <string name="revanced_preference_screen_ads_title">Quảng cáo</string>
     <string name="revanced_preference_screen_flyout_title">Trình đơn tuỳ chọn</string>
     <string name="revanced_preference_screen_general_title">Tổng quan</string>
-    <string name="revanced_preference_screen_misc_title">Cài đặt khác</string>
+    <string name="revanced_preference_screen_misc_title">Khác</string>
     <string name="revanced_preference_screen_navigation_title">Thanh điều hướng</string>
     <string name="revanced_preference_screen_player_title">Trình phát</string>
     <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
@@ -350,6 +350,8 @@ Tăng giá trị này có thể giúp tải bố cục nhanh hơn, nhưng có th
     <string name="revanced_remember_repeat_state_title">Lưu trạng thái phát lặp lại</string>
     <string name="revanced_remember_shuffle_state_summary">Ghi nhớ trạng thái phát ngẫu nhiên các bài hát.</string>
     <string name="revanced_remember_shuffle_state_title">Lưu trạng thái phát ngẫu nhiên</string>
+    <string name="revanced_remember_video_quality_auto_mobile">Đã lưu chất lượng video mặc định khi sử dụng dữ liệu di động thành Tự động.</string>
+    <string name="revanced_remember_video_quality_auto_wifi">Đã lưu chất lượng video mặc định khi sử dụng Wi-Fi thành Tự động.</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Ghi nhớ lựa chọn chất lượng video đã chọn gần nhất.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Lưu lựa chọn chất lượng video</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">Hiển thị một thông báo ngắn khi thay đổi chất lượng video mặc định.</string>
@@ -400,7 +402,7 @@ Một số tính năng có thể không hoạt động bình thường trong b�
     <string name="revanced_return_youtube_username_enabled_title">Kích hoạt Return YouTube Username</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Khoá nhà phát triển YouTube Data API v3 là một mã khoá cho phép các nhà phát triển truy cập lấy dữ liệu từ Youtube, và chúng cũng cần thiết để thay thế @tên hiển thị thành tên người dùng.
 
-Giới hạn truy cập hàng ngày cho các khoá API trên gói miễn phí là 10000 lần, với mỗi lượt truy cập chỉ áp dụng cho 1 bình luận.
+Giới hạn truy cập hàng ngày cho các khoá API trên gói miễn phí là 10000 lượt, với mỗi lượt truy cập chỉ áp dụng cho 1 bình luận.
 
 Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">Giới thiệu về khoá YouTube Data API</string>
@@ -419,7 +421,7 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_ryd_enabled_title">Kích hoạt Return YouTube Dislike</string>
     <string name="revanced_ryd_estimated_like_summary">Hiển thị số lượt thích được ước tính của video.</string>
     <string name="revanced_ryd_estimated_like_title">Số lượt thích ước tính</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Số lượt không thích không khả dụng (đã đạt đến giới hạn API máy khách).</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Số lượt không thích không khả dụng (đã đạt đến giới hạn API client).</string>
     <string name="revanced_ryd_failure_connection_status_code">Số lượt không thích không khả dụng (trạng thái %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Số lượt không thích tạm thời không khả dụng (API đã hết thời gian chờ).</string>
     <string name="revanced_ryd_failure_generic">Số lượt không thích không khả dụng (%s).</string>
@@ -483,12 +485,14 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_sb_toast_on_skip">Thông báo ngắn khi tự động bỏ qua</string>
     <string name="revanced_sb_toast_on_skip_sum">Hiển thị một thông báo ngắn mỗi khi tự động bỏ qua phân đoạn.</string>
     <string name="revanced_share_copy_settings_success">Đã sao chép cài đặt sang bảng nhớ tạm.</string>
-    <string name="revanced_spoof_app_version_summary">"Giả mạo phiên bản YouTube Music hiện tại thành phiên bản cũ.
+    <string name="revanced_spoof_app_version_summary">"Giả mạo phiên bản YouTube Music thành phiên bản cũ.
 
-• Tuỳ chọn này sẽ làm thay đổi giao diện của ứng dụng, tuy nhiên có thể xảy ra các sự cố chưa xác định khác.
-• Nếu tắt tuỳ chọn này sau đó, giao diện cũ có thể vẫn tồn tại cho đến khi bạn xoá dữ liệu ứng dụng."</string>
+• Tuỳ chọn này sẽ làm thay đổi giao diện của ứng dụng, nhưng cũng có thể phát sinh sự cố chưa xác định khác.
+• Nếu nó không hoạt động, hãy thử chuyển đổi giữa các tài khoản khác nhau.
+• Nếu tắt tuỳ chọn này sau đó, giao diện cũ có thể vẫn giữ nguyên cho đến khi bạn xoá dữ liệu ứng dụng."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Tắt chế độ Đài phát ở một số vùng của Canada</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Tắt lời bài hát theo thời gian thực</string>
+    <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Khôi phục bảng tuỳ chọn cũ</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Tắt lời bài hát theo thời gian thực</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Khôi phục thanh thao tác kiểu cũ</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - Phần bình luận không xuất hiện trên thẻ Trang chủ</string>
@@ -496,14 +500,22 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_spoof_app_version_target_summary">Chọn phiên bản YouTube Music mà bạn muốn giả mạo.</string>
     <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo</string>
     <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
-    <string name="revanced_spoof_client_summary">Giả mạo ứng dụng khách khách để ngăn chặn sự cố phát.</string>
-    <string name="revanced_spoof_client_title">Giả mạo ứng dụng khách</string>
-    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
-    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
+    <string name="revanced_spoof_client_summary">Giả mạo client để tránh lỗi khi phát.</string>
+    <string name="revanced_spoof_client_title">Giả mạo client</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (Chặn truy vấn)</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_summary">Xác định ứng dụng khách mặc định để giả mạo.</string>
-    <string name="revanced_spoof_client_type_title">Ứng dụng khách mặc định</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Chặn truy vấn)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Chặn truy vấn)</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34">iOS Music 8.34</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (Chặn truy vấn)</string>
+    <string name="revanced_spoof_client_type_summary">"Hạn chế:
+• Các nút thao tác hoặc trình đơn tuỳ chọn trong trình phát có thể không hiển thị đúng. Trong trường hợp đó, hãy thử xoá dữ liệu ứng dụng và đăng nhập lại.
+
+Hạn chế (Chặn truy vấn):
+• Ứng dụng có thể bị buộc đóng khi đang dùng VPN hoặc DNS."</string>
+    <string name="revanced_spoof_client_type_title">Loại client mặc định</string>
     <string name="revanced_spoof_player_parameter_summary">"Giả mạo thông số trình phát để khắc phục sự cố phát.
 
 Hạn chế:
@@ -515,6 +527,20 @@ Hạn chế:
 
 • Khi được sử dụng đồng thời với \"Giả mạo ứng dụng khách\", có thể gây ra sự cố phát."</string>
     <string name="revanced_spoof_streaming_data_title">Giả mạo luồng dữ liệu trực tuyến</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32">Android VR 1.43.32</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32_no_auth">Android VR 1.43.32 (Không xác thực)</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09">Android VR 1.65.09</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09_no_auth">Android VR 1.65.09 (Không xác thực)</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_34">iOS Music 8.34</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">"Hạn chế:
+• Ứng dụng có thể bị buộc đóng khi dùng VPN hoặc DNS.
+• Âm thanh có thể bị ngắt quãng khi phát trên client dùng truyền phát bit thích ứng (trừ Android VR 1.43.32)."</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Client mặc định</string>
+    <string name="revanced_spoof_video_streams_summary">Giả mạo luồng video của client để tránh lỗi khi phát.</string>
+    <string name="revanced_spoof_video_streams_title">Giả mạo luồng video</string>
     <string name="revanced_watch_history_type_entry_1">Gốc</string>
     <string name="revanced_watch_history_type_entry_2">Thay thế miền</string>
     <string name="revanced_watch_history_type_entry_3">Chặn nhật ký</string>

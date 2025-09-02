@@ -54,7 +54,7 @@ public final class SnackBarFilter extends Filter {
                     end,
                     flags
             );
-            return super.skip(conversionContext, spannableString, span, start, end, flags, isWord, spanType, matchedGroup);
+            return true;
         }
 
         return false;

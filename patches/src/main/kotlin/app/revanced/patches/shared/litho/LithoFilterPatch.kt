@@ -156,7 +156,7 @@ val lithoFilterPatch = bytecodePatch(
     
                         iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
                         iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
-                        invoke-static {v$pathRegister, v$identifierRegister, v$freeRegister}, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->shouldFilter(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
+                        invoke-static {v$pathRegister, v$identifierRegister, v$freeRegister}, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->isFiltered(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :unfiltered
                         """ + emptyComponentLabel + """
@@ -306,7 +306,7 @@ val lithoFilterPatch = bytecodePatch(
 
                     iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
                     iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
-                    invoke-static {v$pathRegister, v$identifierRegister, v$freeRegister}, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->shouldFilter(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
+                    invoke-static {v$pathRegister, v$identifierRegister, v$freeRegister}, $EXTENSION_LITHO_FILER_CLASS_DESCRIPTOR->isFiltered(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
                     move-result v$freeRegister
                     if-eqz v$freeRegister, :unfiltered
                     """ + emptyComponentLabel + """

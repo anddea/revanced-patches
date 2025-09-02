@@ -8,7 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
@@ -32,18 +31,6 @@ fun baseAdsPatch(
     description = "baseAdsPatch"
 ) {
     execute {
-
-        videoAdsFingerprint.methodOrThrow().apply {
-            addInstructionsWithLabels(
-                0, """
-                    invoke-static {}, $classDescriptor->$methodDescriptor()Z
-                    move-result v0
-                    if-nez v0, :show_ads
-                    return-void
-                    """, ExternalLabel("show_ads", getInstruction(0))
-            )
-        }
-
         musicAdsFingerprint.methodOrThrow().apply {
             val targetIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
@@ -62,21 +49,21 @@ fun baseAdsPatch(
                 )
         }
 
-        val getAdvertisingIdMethod = with(advertisingIdFingerprint.methodOrThrow()) {
-            val getAdvertisingIdIndex = indexOfGetAdvertisingIdInstruction(this)
-            getWalkerMethod(getAdvertisingIdIndex)
+        arrayOf(
+            playerBytesAdLayoutFingerprint,
+            videoAdsFingerprint,
+        ).forEach { fingerprint ->
+            fingerprint.methodOrThrow().addInstructionsWithLabels(
+                0, """
+                    invoke-static {}, $classDescriptor->$methodDescriptor()Z
+                    move-result v0
+                    if-eqz v0, :ignore
+                    return-void
+                    :ignore
+                    nop
+                    """
+            )
         }
-
-        getAdvertisingIdMethod.addInstructionsWithLabels(
-            0, """
-                invoke-static {}, $classDescriptor->$methodDescriptor()Z
-                move-result v0
-                if-nez v0, :ignore
-                return-void
-                :ignore
-                nop
-                """
-        )
     }
 }
 

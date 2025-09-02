@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.player.fullscreen
 
 import app.revanced.patches.youtube.utils.resourceid.appRelatedEndScreenResults
-import app.revanced.patches.youtube.utils.resourceid.fullScreenEngagementPanel
 import app.revanced.patches.youtube.utils.resourceid.playerVideoTitleView
 import app.revanced.patches.youtube.utils.resourceid.quickActionsElementContainer
 import app.revanced.util.fingerprint.legacyFingerprint
@@ -21,13 +20,6 @@ internal val broadcastReceiverFingerprint = legacyFingerprint(
     customFingerprint = { _, classDef ->
         classDef.superclass == "Landroid/content/BroadcastReceiver;"
     }
-)
-
-internal val engagementPanelFingerprint = legacyFingerprint(
-    name = "engagementPanelFingerprint",
-    returnType = "L",
-    parameters = listOf("L"),
-    literals = listOf(fullScreenEngagementPanel),
 )
 
 /**

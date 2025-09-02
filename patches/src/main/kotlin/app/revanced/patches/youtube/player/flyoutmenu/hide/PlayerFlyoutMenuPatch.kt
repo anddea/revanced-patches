@@ -1,12 +1,11 @@
 package app.revanced.patches.youtube.player.flyoutmenu.hide
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
+import app.revanced.patches.youtube.utils.YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
@@ -22,16 +21,13 @@ import app.revanced.patches.youtube.utils.resourceid.bottomSheetFooterText
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.injectLiteralInstructionViewCall
 import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 private const val PANELS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/PlayerFlyoutMenuFilter;"
@@ -49,6 +45,7 @@ val playerFlyoutMenuPatch = bytecodePatch(
         lithoLayoutPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
+        videoInformationPatch,
         versionCheckPatch
     )
 
@@ -93,21 +90,19 @@ val playerFlyoutMenuPatch = bytecodePatch(
 
         // region patch for hide '1080p Premium' label
 
-        videoQualityArrayFingerprint.methodOrThrow().apply {
-            val qualityLabelIndex = indexOfQualityLabelInstruction(this) + 1
-            val qualityLabelRegister =
-                getInstruction<OneRegisterInstruction>(qualityLabelIndex).registerA
-            val jumpIndex = indexOfFirstInstructionReversedOrThrow(qualityLabelIndex) {
-                opcode == Opcode.INVOKE_INTERFACE &&
-                        getReference<MethodReference>()?.name == "hasNext"
-            }
+        currentVideoFormatConstructorFingerprint.methodOrThrow(
+            currentVideoFormatToStringFingerprint
+        ).apply {
+            val videoQualitiesIndex =
+                indexOfVideoQualitiesInstruction(this)
+            val videoQualitiesRegister =
+                getInstruction<TwoRegisterInstruction>(videoQualitiesIndex).registerA
 
-            addInstructionsWithLabels(
-                qualityLabelIndex + 1, """
-                    invoke-static {v$qualityLabelRegister}, $PLAYER_CLASS_DESCRIPTOR->hidePlayerFlyoutMenuEnhancedBitrate(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$qualityLabelRegister
-                    if-eqz v$qualityLabelRegister, :jump
-                    """, ExternalLabel("jump", getInstruction(jumpIndex))
+            addInstructions(
+                1, """
+                    invoke-static/range { v$videoQualitiesRegister .. v$videoQualitiesRegister }, $PLAYER_CLASS_DESCRIPTOR->hidePlayerFlyoutMenuEnhancedBitrate([$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE)[$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+                    move-result-object v$videoQualitiesRegister
+                    """
             )
         }
 

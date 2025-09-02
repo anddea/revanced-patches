@@ -20,6 +20,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.mapping.getResourceId
 import app.revanced.patches.shared.mapping.resourceMappingPatch
+import app.revanced.util.InstructionUtils.Companion.branchOpcodes
+import app.revanced.util.InstructionUtils.Companion.returnOpcodes
+import app.revanced.util.InstructionUtils.Companion.writeOpcodes
 import app.revanced.util.Utils.printWarn
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -35,6 +38,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstructio
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
@@ -76,81 +80,17 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
  * @throws IllegalArgumentException If a branch or conditional statement is encountered
  *                                  before a suitable register is found.
  */
-internal fun Method.findFreeRegister(startIndex: Int, checkBranch: Boolean, vararg registersToExclude: Int): Int {
+fun Method.findFreeRegister(
+    startIndex: Int,
+    checkBranch: Boolean,
+    vararg registersToExclude: Int
+): Int {
     if (implementation == null) {
         throw IllegalArgumentException("Method has no implementation: $this")
     }
     if (startIndex < 0 || startIndex >= instructions.count()) {
         throw IllegalArgumentException("startIndex out of bounds: $startIndex")
     }
-
-    // All registers used by an instruction.
-    fun Instruction.getRegistersUsed() = when (this) {
-        is FiveRegisterInstruction -> listOf(registerC, registerD, registerE, registerF, registerG)
-        is ThreeRegisterInstruction -> listOf(registerA, registerB, registerC)
-        is TwoRegisterInstruction -> listOf(registerA, registerB)
-        is OneRegisterInstruction -> listOf(registerA)
-        is RegisterRangeInstruction -> (startRegister until (startRegister + registerCount)).toList()
-        else -> emptyList()
-    }
-
-    // Register that is written to by an instruction.
-    fun Instruction.getRegisterWritten() = when (this) {
-        is ThreeRegisterInstruction -> registerA
-        is TwoRegisterInstruction -> registerA
-        is OneRegisterInstruction -> registerA
-        else -> throw IllegalStateException("Not a write instruction: $this")
-    }
-
-    val writeOpcodes = EnumSet.of(
-        ARRAY_LENGTH,
-        NEW_INSTANCE, NEW_ARRAY,
-        MOVE, MOVE_FROM16, MOVE_16, MOVE_WIDE, MOVE_WIDE_FROM16, MOVE_WIDE_16, MOVE_OBJECT,
-        MOVE_OBJECT_FROM16, MOVE_OBJECT_16, MOVE_RESULT, MOVE_RESULT_WIDE, MOVE_RESULT_OBJECT, MOVE_EXCEPTION,
-        CONST, CONST_4, CONST_16, CONST_HIGH16, CONST_WIDE_16, CONST_WIDE_32,
-        CONST_WIDE, CONST_WIDE_HIGH16, CONST_STRING, CONST_STRING_JUMBO,
-        IGET, IGET_WIDE, IGET_OBJECT, IGET_BOOLEAN, IGET_BYTE, IGET_CHAR, IGET_SHORT,
-        IGET_VOLATILE, IGET_WIDE_VOLATILE, IGET_OBJECT_VOLATILE,
-        SGET, SGET_WIDE, SGET_OBJECT, SGET_BOOLEAN, SGET_BYTE, SGET_CHAR, SGET_SHORT,
-        SGET_VOLATILE, SGET_WIDE_VOLATILE, SGET_OBJECT_VOLATILE,
-        AGET, AGET_WIDE, AGET_OBJECT, AGET_BOOLEAN, AGET_BYTE, AGET_CHAR, AGET_SHORT,
-        // Arithmetic and logical operations.
-        ADD_DOUBLE_2ADDR, ADD_DOUBLE, ADD_FLOAT_2ADDR, ADD_FLOAT, ADD_INT_2ADDR,
-        ADD_INT_LIT8, ADD_INT, ADD_LONG_2ADDR, ADD_LONG, ADD_INT_LIT16,
-        AND_INT_2ADDR, AND_INT_LIT8, AND_INT_LIT16, AND_INT, AND_LONG_2ADDR, AND_LONG,
-        DIV_DOUBLE_2ADDR, DIV_DOUBLE, DIV_FLOAT_2ADDR, DIV_FLOAT, DIV_INT_2ADDR,
-        DIV_INT_LIT16, DIV_INT_LIT8, DIV_INT, DIV_LONG_2ADDR, DIV_LONG,
-        DOUBLE_TO_FLOAT, DOUBLE_TO_INT, DOUBLE_TO_LONG,
-        FLOAT_TO_DOUBLE, FLOAT_TO_INT, FLOAT_TO_LONG,
-        INT_TO_BYTE, INT_TO_CHAR, INT_TO_DOUBLE, INT_TO_FLOAT, INT_TO_LONG, INT_TO_SHORT,
-        LONG_TO_DOUBLE, LONG_TO_FLOAT, LONG_TO_INT,
-        MUL_DOUBLE_2ADDR, MUL_DOUBLE, MUL_FLOAT_2ADDR, MUL_FLOAT, MUL_INT_2ADDR,
-        MUL_INT_LIT16, MUL_INT_LIT8, MUL_INT, MUL_LONG_2ADDR, MUL_LONG,
-        NEG_DOUBLE, NEG_FLOAT, NEG_INT, NEG_LONG,
-        NOT_INT, NOT_LONG,
-        OR_INT_2ADDR, OR_INT_LIT16, OR_INT_LIT8, OR_INT, OR_LONG_2ADDR, OR_LONG,
-        REM_DOUBLE_2ADDR, REM_DOUBLE, REM_FLOAT_2ADDR, REM_FLOAT, REM_INT_2ADDR,
-        REM_INT_LIT16, REM_INT_LIT8, REM_INT, REM_LONG_2ADDR, REM_LONG,
-        RSUB_INT_LIT8, RSUB_INT,
-        SHL_INT_2ADDR, SHL_INT_LIT8, SHL_INT, SHL_LONG_2ADDR, SHL_LONG,
-        SHR_INT_2ADDR, SHR_INT_LIT8, SHR_INT, SHR_LONG_2ADDR, SHR_LONG,
-        SUB_DOUBLE_2ADDR, SUB_DOUBLE, SUB_FLOAT_2ADDR, SUB_FLOAT, SUB_INT_2ADDR,
-        SUB_INT, SUB_LONG_2ADDR, SUB_LONG,
-        USHR_INT_2ADDR, USHR_INT_LIT8, USHR_INT, USHR_LONG_2ADDR, USHR_LONG,
-        XOR_INT_2ADDR, XOR_INT_LIT16, XOR_INT_LIT8, XOR_INT, XOR_LONG_2ADDR, XOR_LONG,
-    )
-
-    val branchOpcodes = EnumSet.of(
-        GOTO, GOTO_16, GOTO_32,
-        IF_EQ, IF_NE, IF_LT, IF_GE, IF_GT, IF_LE,
-        IF_EQZ, IF_NEZ, IF_LTZ, IF_GEZ, IF_GTZ, IF_LEZ,
-        PACKED_SWITCH_PAYLOAD, SPARSE_SWITCH_PAYLOAD
-    )
-
-    val returnOpcodes = EnumSet.of(
-        RETURN_VOID, RETURN, RETURN_WIDE, RETURN_OBJECT, RETURN_VOID_NO_BARRIER,
-        THROW
-    )
 
     // Highest 4-bit register available, exclusive. Ideally return a free register less than this.
     val maxRegister4Bits = 16
@@ -159,42 +99,10 @@ internal fun Method.findFreeRegister(startIndex: Int, checkBranch: Boolean, vara
 
     for (i in startIndex until instructions.count()) {
         val instruction = getInstruction(i)
-        val instructionRegisters = instruction.getRegistersUsed()
+        val instructionRegisters = instruction.registersUsed
 
-        if (instruction.opcode in returnOpcodes) {
-            // Method returns.
-            usedRegisters.addAll(instructionRegisters)
-
-            // Use lowest register that hasn't been encountered.
-            val freeRegister = (0 until implementation!!.registerCount).find {
-                it !in usedRegisters
-            }
-            if (freeRegister != null) {
-                return freeRegister
-            }
-            if (bestFreeRegisterFound != null) {
-                return bestFreeRegisterFound;
-            }
-
-            // Somehow every method register was read from before any register was wrote to.
-            // In practice this never occurs.
-            throw IllegalArgumentException(
-                "Could not find a free register from startIndex: " +
-                        "$startIndex excluding: $registersToExclude"
-            )
-        }
-
-        if (checkBranch && instruction.opcode in branchOpcodes) {
-            if (bestFreeRegisterFound != null) {
-                return bestFreeRegisterFound;
-            }
-            // This method is simple and does not follow branching.
-            throw IllegalArgumentException("Encountered a branch statement before a free register could be found")
-        }
-
-        if (instruction.opcode in writeOpcodes) {
-            val writeRegister = instruction.getRegisterWritten()
-
+        val writeRegister = instruction.writeRegister
+        if (writeRegister != null) {
             if (writeRegister !in usedRegisters) {
                 // Verify the register is only used for write and not also as a parameter.
                 // If the instruction uses the write register once then it's not also a read register.
@@ -213,12 +121,194 @@ internal fun Method.findFreeRegister(startIndex: Int, checkBranch: Boolean, vara
         }
 
         usedRegisters.addAll(instructionRegisters)
+
+        if (checkBranch && instruction.isBranchInstruction) {
+            if (bestFreeRegisterFound != null) {
+                return bestFreeRegisterFound
+            }
+            // This method is simple and does not follow branching.
+            throw IllegalArgumentException("Encountered a branch statement before a free register could be found")
+        }
+
+        if (instruction.isReturnInstruction) {
+            // Use lowest register that hasn't been encountered.
+            val freeRegister = (0 until implementation!!.registerCount).find {
+                it !in usedRegisters
+            }
+            if (freeRegister != null) {
+                return freeRegister
+            }
+            if (bestFreeRegisterFound != null) {
+                return bestFreeRegisterFound
+            }
+
+            // Somehow every method register was read from before any register was wrote to.
+            // In practice this never occurs.
+            throw IllegalArgumentException(
+                "Could not find a free register from startIndex: " +
+                        "$startIndex excluding: $registersToExclude"
+            )
+        }
     }
 
     // Some methods can have array payloads at the end of the method after a return statement.
     // But in normal usage this cannot be reached since a branch or return statement
     // will be encountered before the end of the method.
     throw IllegalArgumentException("Start index is outside the range of normal control flow: $startIndex")
+}
+
+/**
+ * @return The registers used by this instruction.
+ */
+internal val Instruction.registersUsed: List<Int>
+    get() = when (this) {
+        is FiveRegisterInstruction -> {
+            when (registerCount) {
+                1 -> listOf(registerC)
+                2 -> listOf(registerC, registerD)
+                3 -> listOf(registerC, registerD, registerE)
+                4 -> listOf(registerC, registerD, registerE, registerF)
+                else -> listOf(registerC, registerD, registerE, registerF, registerG)
+            }
+        }
+
+        is ThreeRegisterInstruction -> listOf(registerA, registerB, registerC)
+        is TwoRegisterInstruction -> listOf(registerA, registerB)
+        is OneRegisterInstruction -> listOf(registerA)
+        is RegisterRangeInstruction -> (startRegister until (startRegister + registerCount)).toList()
+        else -> emptyList()
+    }
+
+/**
+ * @return The register that is written to by this instruction,
+ *         or NULL if this is not a write opcode.
+ */
+internal val Instruction.writeRegister: Int?
+    get() {
+        if (this.opcode !in writeOpcodes) {
+            return null
+        }
+        if (this !is OneRegisterInstruction) {
+            throw IllegalStateException("Not a write instruction: $this")
+        }
+        return registerA
+    }
+
+/**
+ * @return If this instruction is an unconditional or conditional branch opcode.
+ */
+internal val Instruction.isBranchInstruction: Boolean
+    get() = this.opcode in branchOpcodes
+
+/**
+ * @return If this instruction returns or throws.
+ */
+internal val Instruction.isReturnInstruction: Boolean
+    get() = this.opcode in returnOpcodes
+
+/**
+ * Find the instruction index used for a toString() StringBuilder write of a given String name.
+ *
+ * @param fieldName The name of the field to find.  Partial matches are allowed.
+ */
+private fun Method.findInstructionIndexFromToString(fieldName: String, isField: Boolean): Int {
+    val stringIndex = indexOfFirstInstruction {
+        val reference = getReference<StringReference>()
+        reference?.string?.contains(fieldName) == true
+    }
+    if (stringIndex < 0) {
+        throw IllegalArgumentException("Could not find usage of string: '$fieldName'")
+    }
+    val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
+
+    // Find use of the string with a StringBuilder.
+    val stringUsageIndex = indexOfFirstInstruction(stringIndex) {
+        val reference = getReference<MethodReference>()
+        reference?.definingClass == "Ljava/lang/StringBuilder;" &&
+                (this as? FiveRegisterInstruction)?.registerD == stringRegister
+    }
+    if (stringUsageIndex < 0) {
+        throw IllegalArgumentException("Could not find StringBuilder usage in: $this")
+    }
+
+    // Find the next usage of StringBuilder, which should be the desired field.
+    val fieldUsageIndex = indexOfFirstInstruction(stringUsageIndex + 1) {
+        val reference = getReference<MethodReference>()
+        reference?.definingClass == "Ljava/lang/StringBuilder;" && reference.name == "append"
+    }
+    if (fieldUsageIndex < 0) {
+        // Should never happen.
+        throw IllegalArgumentException("Could not find StringBuilder append usage in: $this")
+    }
+    var fieldUsageRegister = getInstruction<FiveRegisterInstruction>(fieldUsageIndex).registerD
+
+    // Look backwards up the method to find the instruction that sets the register.
+    var fieldSetIndex = indexOfFirstInstructionReversedOrThrow(fieldUsageIndex - 1) {
+        fieldUsageRegister == writeRegister
+    }
+
+    // Some 'toString()' methods, despite using a StringBuilder,
+    // Convert the value via 'Object.toString()' or 'String.valueOf(object)' before appending it to the StringBuilder.
+    // In this case, the correct index cannot be found.
+    // Additional validation is done to find the index of the correct field or method.
+    //
+    // Only runs a maximum of 3 times to avoid getting stuck in a loop.
+    var loopCount = 3
+    while (loopCount > 0) {
+        // If the field is a method call, then adjust from MOVE_RESULT to the method call.
+        val fieldSetOpcode = getInstruction(fieldSetIndex).opcode
+        if (fieldSetOpcode == MOVE_RESULT ||
+            fieldSetOpcode == MOVE_RESULT_WIDE ||
+            fieldSetOpcode == MOVE_RESULT_OBJECT
+        ) {
+            fieldSetIndex--
+        }
+
+        val fieldSetReference = getInstruction<ReferenceInstruction>(fieldSetIndex).reference
+
+        if (isField && fieldSetReference is FieldReference ||
+            !isField && fieldSetReference is MethodReference
+        ) {
+            // Valid index.
+            return fieldSetIndex
+        } else if (fieldSetReference is MethodReference &&
+            // Object.toString(), String.valueOf(object)
+            fieldSetReference.returnType == "Ljava/lang/String;"
+        ) {
+            fieldUsageRegister = getInstruction<FiveRegisterInstruction>(fieldSetIndex).registerC
+
+            // Look backwards up the method to find the instruction that sets the register.
+            fieldSetIndex = indexOfFirstInstructionReversedOrThrow(fieldSetIndex - 1) {
+                fieldUsageRegister == writeRegister
+            }
+            loopCount--
+        } else {
+            throw IllegalArgumentException("Unknown reference: $fieldSetReference")
+        }
+    }
+
+    return fieldSetIndex
+}
+
+/**
+ * Find the method used for a toString() StringBuilder write of a given String name.
+ *
+ * @param fieldName The name of the field to find.  Partial matches are allowed.
+ */
+context(BytecodePatchContext)
+internal fun Method.findMethodFromToString(fieldName: String): MutableMethod {
+    val methodUsageIndex = findInstructionIndexFromToString(fieldName, false)
+    return navigate(this).to(methodUsageIndex).stop()
+}
+
+/**
+ * Find the field used for a toString() StringBuilder write of a given String name.
+ *
+ * @param fieldName The name of the field to find.  Partial matches are allowed.
+ */
+internal fun Method.findFieldFromToString(fieldName: String): FieldReference {
+    val methodUsageIndex = findInstructionIndexFromToString(fieldName, true)
+    return getInstruction<ReferenceInstruction>(methodUsageIndex).getReference<FieldReference>()!!
 }
 
 /**
@@ -357,7 +447,7 @@ fun Method.indexOfFirstResourceIdOrThrow(resourceName: String): Int {
 }
 
 /**
- * Find the index of the first literal instruction with the given long value.
+ * Find the index of the first literal instruction with the given value.
  *
  * @return the first literal instruction with the value, or -1 if not found.
  * @see indexOfFirstLiteralInstructionOrThrow
@@ -369,16 +459,17 @@ fun Method.indexOfFirstLiteralInstruction(literal: Long) = implementation?.let {
 } ?: -1
 
 /**
- * Find the index of the first literal instruction with the given long value,
+ * Find the index of the first literal instruction with the given value,
  * or throw an exception if not found.
  *
  * @return the first literal instruction with the value, or throws [PatchException] if not found.
  */
 fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Long): Int {
     val index = indexOfFirstLiteralInstruction(literal)
-    if (index < 0) throw PatchException("Could not find long literal: $literal")
+    if (index < 0) throw PatchException("Could not find literal value: $literal")
     return index
 }
+
 
 /**
  * Find the index of the first literal instruction with the given float value.
@@ -435,62 +526,23 @@ fun Method.indexOfFirstLiteralInstructionReversed(literal: Long) = implementatio
 } ?: -1
 
 /**
- * Find the index of the last wide literal instruction with the given long value,
+ * Find the index of the last wide literal instruction with the given value,
  * or throw an exception if not found.
  *
  * @return the last literal instruction with the value, or throws [PatchException] if not found.
  */
 fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Long): Int {
     val index = indexOfFirstLiteralInstructionReversed(literal)
-    if (index < 0) throw PatchException("Could not find long literal: $literal")
+    if (index < 0) throw PatchException("Could not find literal value: $literal")
     return index
 }
 
-/**
- * Find the index of the last literal instruction with the given float value.
- *
- * @return the last literal instruction with the value, or -1 if not found.
- * @see indexOfFirstLiteralInstructionOrThrow
- */
-fun Method.indexOfFirstLiteralInstructionReversed(literal: Float) =
-    indexOfFirstLiteralInstructionReversed(literal.toRawBits().toLong())
-
-/**
- * Find the index of the last wide literal instruction with the given float value,
- * or throw an exception if not found.
- *
- * @return the last literal instruction with the value, or throws [PatchException] if not found.
- */
-fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Float): Int {
-    val index = indexOfFirstLiteralInstructionReversed(literal)
-    if (index < 0) throw PatchException("Could not find float literal: $literal")
-    return index
-}
-
-/**
- * Find the index of the last literal instruction with the given double value.
- *
- * @return the last literal instruction with the value, or -1 if not found.
- * @see indexOfFirstLiteralInstructionOrThrow
- */
-fun Method.indexOfFirstLiteralInstructionReversed(literal: Double) =
-    indexOfFirstLiteralInstructionReversed(literal.toRawBits().toLong())
-
-/**
- * Find the index of the last wide literal instruction with the given double value,
- * or throw an exception if not found.
- *
- * @return the last literal instruction with the value, or throws [PatchException] if not found.
- */
-fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Double): Int {
-    val index = indexOfFirstLiteralInstructionReversed(literal)
-    if (index < 0) throw PatchException("Could not find double literal: $literal")
-    return index
-}
+fun Method.containsStringInstruction(str: String) =
+    indexOfFirstStringInstruction(str) >= 0
 
 fun Method.indexOfFirstStringInstruction(str: String) =
     indexOfFirstInstruction {
-        opcode == Opcode.CONST_STRING &&
+        opcode == CONST_STRING &&
                 getReference<StringReference>()?.string == str
     }
 
@@ -504,11 +556,13 @@ fun Method.indexOfFirstStringInstructionOrThrow(str: String): Int {
 }
 
 /**
- * Check if the method contains a literal with the given long value.
+ * Check if the method contains a literal with the given value.
  *
  * @return if the method contains a literal with the given value.
  */
-fun Method.containsLiteralInstruction(literal: Long) = indexOfFirstLiteralInstruction(literal) >= 0
+fun Method.containsLiteralInstruction(literal: Long) =
+    indexOfFirstLiteralInstruction(literal) >= 0
+
 
 /**
  * Check if the method contains a literal with the given float value.
@@ -523,6 +577,32 @@ fun Method.containsLiteralInstruction(literal: Float) = indexOfFirstLiteralInstr
  * @return if the method contains a literal with the given value.
  */
 fun Method.containsLiteralInstruction(literal: Double) = indexOfFirstLiteralInstruction(literal) >= 0
+
+fun BytecodePatchContext.hookClassHierarchy(
+    hostActivityClass: MutableClass,
+    targetActivityClass: MutableClass,
+) {
+    // inject the wrapper class from extension into the class hierarchy of TargetActivity
+    hostActivityClass.setSuperClass(targetActivityClass.superclass)
+    targetActivityClass.setSuperClass(hostActivityClass.type)
+
+    // ensure all classes and methods in the hierarchy are non-final, so we can override them in extension
+    traverseClassHierarchy(targetActivityClass) {
+        accessFlags = accessFlags and AccessFlags.FINAL.value.inv()
+        transformMethods {
+            ImmutableMethod(
+                definingClass,
+                name,
+                parameters,
+                returnType,
+                accessFlags and AccessFlags.FINAL.value.inv(),
+                annotations,
+                hiddenApiRestrictions,
+                implementation
+            ).toMutable()
+        }
+    }
+}
 
 /**
  * Traverse the class hierarchy starting from the given root class.
@@ -548,7 +628,7 @@ fun MutableMethod.injectLiteralInstructionViewCall(
     smaliInstruction: String
 ) {
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
-    val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT_OBJECT)
+    val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT_OBJECT)
     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA.toString()
 
     addInstructions(
@@ -565,7 +645,7 @@ fun BytecodePatchContext.replaceLiteralInstructionCall(
         classDef.methods.forEach { method ->
             method.implementation.apply {
                 this?.instructions?.forEachIndexed { _, instruction ->
-                    if (instruction.opcode != Opcode.CONST)
+                    if (instruction.opcode != CONST)
                         return@forEachIndexed
                     if ((instruction as Instruction31i).wideLiteral != originalLiteral)
                         return@forEachIndexed
@@ -593,7 +673,7 @@ fun BytecodePatchContext.replaceLiteralInstructionCall(
         classDef.methods.forEach { method ->
             method.implementation.apply {
                 this?.instructions?.forEachIndexed { _, instruction ->
-                    if (instruction.opcode != Opcode.CONST)
+                    if (instruction.opcode != CONST)
                         return@forEachIndexed
                     if ((instruction as Instruction31i).wideLiteral != literal)
                         return@forEachIndexed
@@ -707,7 +787,7 @@ fun Method.indexOfFirstInstructionOrThrow(
 
 /**
  * Get the index of matching instruction,
- * starting from and [startIndex] and searching down.
+ * starting from [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
  * @return -1 if the instruction is not found.
@@ -720,7 +800,7 @@ fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode
 
 /**
  * Get the index of matching instruction,
- * starting from and [startIndex] and searching down.
+ * starting from [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
  * @return -1 if the instruction is not found.
@@ -746,7 +826,7 @@ fun Method.indexOfFirstInstructionReversedOrThrow(opcode: Opcode): Int =
 
 /**
  * Get the index of matching instruction,
- * starting from and [startIndex] and searching down.
+ * starting from [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
  * @return -1 if the instruction is not found.
@@ -762,7 +842,7 @@ fun Method.indexOfFirstInstructionReversedOrThrow(
 
 /**
  * Get the index of matching instruction,
- * starting from and [startIndex] and searching down.
+ * starting from [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
  * @return -1 if the instruction is not found.
@@ -823,57 +903,6 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
     return instructions
 }
 
-/**
- * Overrides the first move result with an extension call.
- * Suitable for calls to extension code to override boolean and integer values.
- */
-internal fun MutableMethod.insertLiteralOverride(literal: Long, extensionMethodDescriptor: String) {
-    val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
-    insertLiteralOverride(literalIndex, extensionMethodDescriptor)
-}
-
-internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, extensionMethodDescriptor: String) {
-    // TODO: make this work with objects and wide primitive values.
-    val index = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
-    val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-    val operation = if (register < 16) {
-        "invoke-static { v$register }"
-    } else {
-        "invoke-static/range { v$register .. v$register }"
-    }
-
-    addInstructions(
-        index + 1,
-        """
-            $operation, $extensionMethodDescriptor
-            move-result v$register
-        """
-    )
-}
-
-/**
- * Overrides a literal value result with a constant value.
- */
-internal fun MutableMethod.insertLiteralOverride(literal: Long, override: Boolean) {
-    val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
-    return insertLiteralOverride(literalIndex, override)
-}
-
-/**
- * Constant value override of the first MOVE_RESULT after the index parameter.
- */
-internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, override: Boolean) {
-    val index = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
-    val register = getInstruction<OneRegisterInstruction>(index).registerA
-    val overrideValue = if (override) "0x1" else "0x0"
-
-    addInstruction(
-        index + 1,
-        "const v$register, $overrideValue"
-    )
-}
-
 fun Method.referenceMatchesOrThrow(targetIndex: Int, reference: String) {
     val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
     if (reference != targetReference) throw PatchException("References do not match. Expected: '$reference', Found: '$targetReference'")
@@ -889,7 +918,7 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
     classes.forEach { classDef ->
         classDef.methods.forEach { method ->
             method.implementation?.instructions?.forEachIndexed { index, instruction ->
-                if (instruction.opcode == Opcode.CONST &&
+                if (instruction.opcode == CONST &&
                     (instruction as WideLiteralInstruction).wideLiteral == literal
                 ) {
                     val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)
@@ -1373,3 +1402,58 @@ infix fun AccessFlags.or(other: AccessFlags) = value or other.value
  * @param other The [AccessFlags] to perform the operation with.
  */
 infix fun AccessFlags.or(other: Int) = value or other
+
+private class InstructionUtils {
+    companion object {
+        val branchOpcodes: EnumSet<Opcode> = EnumSet.of(
+            GOTO, GOTO_16, GOTO_32,
+            IF_EQ, IF_NE, IF_LT, IF_GE, IF_GT, IF_LE,
+            IF_EQZ, IF_NEZ, IF_LTZ, IF_GEZ, IF_GTZ, IF_LEZ,
+            PACKED_SWITCH_PAYLOAD, SPARSE_SWITCH_PAYLOAD
+        )
+
+        val returnOpcodes: EnumSet<Opcode> = EnumSet.of(
+            RETURN_VOID, RETURN, RETURN_WIDE, RETURN_OBJECT, RETURN_VOID_NO_BARRIER,
+            THROW
+        )
+
+        val writeOpcodes: EnumSet<Opcode> = EnumSet.of(
+            ARRAY_LENGTH,
+            INSTANCE_OF,
+            NEW_INSTANCE, NEW_ARRAY,
+            MOVE, MOVE_FROM16, MOVE_16, MOVE_WIDE, MOVE_WIDE_FROM16, MOVE_WIDE_16, MOVE_OBJECT,
+            MOVE_OBJECT_FROM16, MOVE_OBJECT_16, MOVE_RESULT, MOVE_RESULT_WIDE, MOVE_RESULT_OBJECT, MOVE_EXCEPTION,
+            CONST, CONST_4, CONST_16, CONST_HIGH16, CONST_WIDE_16, CONST_WIDE_32,
+            CONST_WIDE, CONST_WIDE_HIGH16, CONST_STRING, CONST_STRING_JUMBO,
+            IGET, IGET_WIDE, IGET_OBJECT, IGET_BOOLEAN, IGET_BYTE, IGET_CHAR, IGET_SHORT,
+            IGET_VOLATILE, IGET_WIDE_VOLATILE, IGET_OBJECT_VOLATILE,
+            SGET, SGET_WIDE, SGET_OBJECT, SGET_BOOLEAN, SGET_BYTE, SGET_CHAR, SGET_SHORT,
+            SGET_VOLATILE, SGET_WIDE_VOLATILE, SGET_OBJECT_VOLATILE,
+            AGET, AGET_WIDE, AGET_OBJECT, AGET_BOOLEAN, AGET_BYTE, AGET_CHAR, AGET_SHORT,
+            // Arithmetic and logical operations.
+            ADD_DOUBLE_2ADDR, ADD_DOUBLE, ADD_FLOAT_2ADDR, ADD_FLOAT, ADD_INT_2ADDR,
+            ADD_INT_LIT8, ADD_INT, ADD_LONG_2ADDR, ADD_LONG, ADD_INT_LIT16,
+            AND_INT_2ADDR, AND_INT_LIT8, AND_INT_LIT16, AND_INT, AND_LONG_2ADDR, AND_LONG,
+            DIV_DOUBLE_2ADDR, DIV_DOUBLE, DIV_FLOAT_2ADDR, DIV_FLOAT, DIV_INT_2ADDR,
+            DIV_INT_LIT16, DIV_INT_LIT8, DIV_INT, DIV_LONG_2ADDR, DIV_LONG,
+            DOUBLE_TO_FLOAT, DOUBLE_TO_INT, DOUBLE_TO_LONG,
+            FLOAT_TO_DOUBLE, FLOAT_TO_INT, FLOAT_TO_LONG,
+            INT_TO_BYTE, INT_TO_CHAR, INT_TO_DOUBLE, INT_TO_FLOAT, INT_TO_LONG, INT_TO_SHORT,
+            LONG_TO_DOUBLE, LONG_TO_FLOAT, LONG_TO_INT,
+            MUL_DOUBLE_2ADDR, MUL_DOUBLE, MUL_FLOAT_2ADDR, MUL_FLOAT, MUL_INT_2ADDR,
+            MUL_INT_LIT16, MUL_INT_LIT8, MUL_INT, MUL_LONG_2ADDR, MUL_LONG,
+            NEG_DOUBLE, NEG_FLOAT, NEG_INT, NEG_LONG,
+            NOT_INT, NOT_LONG,
+            OR_INT_2ADDR, OR_INT_LIT16, OR_INT_LIT8, OR_INT, OR_LONG_2ADDR, OR_LONG,
+            REM_DOUBLE_2ADDR, REM_DOUBLE, REM_FLOAT_2ADDR, REM_FLOAT, REM_INT_2ADDR,
+            REM_INT_LIT16, REM_INT_LIT8, REM_INT, REM_LONG_2ADDR, REM_LONG,
+            RSUB_INT_LIT8, RSUB_INT,
+            SHL_INT_2ADDR, SHL_INT_LIT8, SHL_INT, SHL_LONG_2ADDR, SHL_LONG,
+            SHR_INT_2ADDR, SHR_INT_LIT8, SHR_INT, SHR_LONG_2ADDR, SHR_LONG,
+            SUB_DOUBLE_2ADDR, SUB_DOUBLE, SUB_FLOAT_2ADDR, SUB_FLOAT, SUB_INT_2ADDR,
+            SUB_INT, SUB_LONG_2ADDR, SUB_LONG,
+            USHR_INT_2ADDR, USHR_INT_LIT8, USHR_INT, USHR_LONG_2ADDR, USHR_LONG,
+            XOR_INT_2ADDR, XOR_INT_LIT16, XOR_INT_LIT8, XOR_INT, XOR_LONG_2ADDR, XOR_LONG,
+        )
+    }
+}

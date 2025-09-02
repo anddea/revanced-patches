@@ -45,8 +45,6 @@ var bottomBarContainer = -1L
     private set
 var bottomSheetFooterText = -1L
     private set
-var bottomSheetRecyclerView = -1L
-    private set
 var bottomUiContainerStub = -1L
     private set
 var captionToggleContainer = -1L
@@ -129,6 +127,8 @@ var insetElementsWrapper = -1L
     private set
 var likeTapFeedbackCairo = -1L
     private set
+var mdxSeamlessTVSignInDrawerFragmentTitle = -1L
+    private set
 var menuItemView = -1L
     private set
 var miniplayerMaxSize = -1L
@@ -150,6 +150,8 @@ var notificationBigPictureIconWidth = -1L
 var offlineActionsVideoDeletedUndoSnackbarText = -1L
     private set
 var offlineNoContentBodyTextNotOfflineEligible = -1L
+    private set
+var p13nHeader = -1L
     private set
 var pairWithTVKey = -1L
     private set
@@ -202,6 +204,8 @@ var scrimOverlay = -1L
 var seekEasyHorizontalTouchOffsetToStartScrubbing = -1L
     private set
 var seekUndoEduOverlayStub = -1L
+    private set
+var seeMoreProceedingHeader = -1L
     private set
 var settingsFragment = -1L
     private set
@@ -291,7 +295,6 @@ internal val sharedResourceIdPatch = resourcePatch(
         barContainerHeight = getResourceId(DIMEN, "bar_container_height")
         bottomBarContainer = getResourceId(ID, "bottom_bar_container")
         bottomSheetFooterText = getResourceId(ID, "bottom_sheet_footer_text")
-        bottomSheetRecyclerView = getResourceId(LAYOUT, "bottom_sheet_recycler_view")
         bottomUiContainerStub = getResourceId(ID, "bottom_ui_container_stub")
         captionToggleContainer = getResourceId(ID, "caption_toggle_container")
         castMediaRouteButton = getResourceId(LAYOUT, "castmediaroutebutton")
@@ -335,6 +338,8 @@ internal val sharedResourceIdPatch = resourcePatch(
         interstitialsContainer = getResourceId(ID, "interstitials_container")
         insetElementsWrapper = getResourceId(LAYOUT, "inset_elements_wrapper")
         likeTapFeedbackCairo = getResourceId(RAW, "like_tap_feedback_cairo")
+        mdxSeamlessTVSignInDrawerFragmentTitle =
+            getResourceId(STRING, "mdx_seamless_tv_sign_in_drawer_fragment_title")
         menuItemView = getResourceId(ID, "menu_item_view")
         miniplayerMaxSize = getResourceId(DIMEN, "miniplayer_max_size")
         modernMiniPlayerClose = getResourceId(ID, "modern_miniplayer_close")
@@ -350,6 +355,7 @@ internal val sharedResourceIdPatch = resourcePatch(
             getResourceId(STRING, "offline_actions_video_deleted_undo_snackbar_text")
         offlineNoContentBodyTextNotOfflineEligible =
             getResourceId(STRING, "offline_no_content_body_text_not_offline_eligible")
+        p13nHeader = getResourceId(STRING, "p13n_header")
         pairWithTVKey = getResourceId(STRING, "pair_with_tv_key")
         playerCollapseButton = getResourceId(ID, "player_collapse_button")
         playerControlPreviousButtonTouchArea =
@@ -379,6 +385,7 @@ internal val sharedResourceIdPatch = resourcePatch(
         seekEasyHorizontalTouchOffsetToStartScrubbing =
             getResourceId(DIMEN, "seek_easy_horizontal_touch_offset_to_start_scrubbing")
         seekUndoEduOverlayStub = getResourceId(ID, "seek_undo_edu_overlay_stub")
+        seeMoreProceedingHeader = getResourceId(STRING, "see_more_proceeding_header")
         settingsFragment = getResourceId(XML, "settings_fragment")
         settingsFragmentCairo = getResourceId(XML, "settings_fragment_cairo")
         slidingDialogAnimation = getResourceId(STYLE, "SlidingDialogAnimation")

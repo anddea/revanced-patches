@@ -9,8 +9,7 @@ internal val imageShareLinkFormatterFingerprint = legacyFingerprint(
     name = "imageShareLinkFormatterFingerprint",
     returnType = "V",
     strings = listOf(
-        "image_share",
-        "Failed to get URI for lyrics share image.",
-        "android.intent.extra.TEXT"
+        "android.intent.extra.TEXT",
+        "Image Uri is null.",
     )
 )

@@ -4,6 +4,7 @@ import android.graphics.Color
 import app.revanced.extension.shared.utils.Utils.validateColor
 import app.revanced.extension.shared.utils.Utils.validateValue
 import app.revanced.extension.youtube.settings.Settings
+import app.revanced.extension.youtube.shared.FullscreenEngagementPanelState
 import app.revanced.extension.youtube.shared.LockModeState
 import app.revanced.extension.youtube.shared.PlayerType
 
@@ -44,9 +45,18 @@ class SwipeControlsConfigurationProvider {
 
     /**
      * Checks if the video player is currently in fullscreen mode.
+     *
+     * Since [PlayerType] changes are not immediately reflected in the Extension,
+     * Incorrect [PlayerType] may sometimes be used.
+     * In most cases, this does not cause any problems,
+     * But under certain conditions, the following issue may occur:
+     * [ReVanced_Extended#3052](https://github.com/inotia00/ReVanced_Extended/issues/3052)
+     *
+     * Instead of checking [PlayerType],
+     * Check whether the fullscreen engagement panel holder is attached to Windows.
      */
     private val isFullscreenVideo: Boolean
-        get() = PlayerType.current == PlayerType.WATCH_WHILE_FULLSCREEN
+        get() = FullscreenEngagementPanelState.current.isAttached()
 
     /**
      * is the video player currently in lock mode?
@@ -96,11 +106,58 @@ class SwipeControlsConfigurationProvider {
         )
     }
 
+    /**
+     * The distance of volume swipe gestures.
+     */
+    val volumeDistance: Float by lazy {
+        validateValue(
+            Settings.SWIPE_VOLUME_DISTANCE,
+            1,
+            1000,
+            "revanced_swipe_distance_invalid"
+        ).toFloat() / 100 * 10 // 10f
+    }
+
+    /**
+     * The distance of brightness swipe gestures.
+     */
+    val brightnessDistance: Float by lazy {
+        validateValue(
+            Settings.SWIPE_BRIGHTNESS_DISTANCE,
+            1,
+            1000,
+            "revanced_swipe_distance_invalid"
+        ).toFloat() / 100 // 1f
+    }
+
+    /**
+     * The distance of speed swipe gestures.
+     */
+    val speedDistance: Float by lazy {
+        validateValue(
+            Settings.SWIPE_SPEED_DISTANCE,
+            1,
+            1000,
+            "revanced_swipe_distance_invalid"
+        ).toFloat() / 100 * 10 // 10f
+    }
+
+    /**
+     * The distance of seek swipe gestures.
+     */
+    val seekDistance: Float by lazy {
+        validateValue(
+            Settings.SWIPE_SEEK_DISTANCE,
+            1,
+            1000,
+            "revanced_swipe_distance_invalid"
+        ).toFloat() / 100 * 10 // 10f
+    }
+
     // endregion
 
     // region overlay adjustments
 
-    //region overlay adjustments
     /**
      * Indicates whether haptic feedback should be enabled for swipe control interactions.
      */
