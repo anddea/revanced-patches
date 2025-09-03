@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.XmlResourceParser;
 import android.graphics.Insets;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -27,11 +28,11 @@ import android.view.WindowInsets;
 import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.EnumSetting;
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.LogBufferManager;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
@@ -68,6 +69,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     private static final int READ_REQUEST_CODE = 42;
     private static final int WRITE_REQUEST_CODE = 43;
     boolean settingExportInProgress = false;
+    private boolean mDynamicPrefsIndexed = false;
 
     /**
      * XML tag name for PreferenceScreen.
@@ -232,6 +234,15 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     listPreference.setEntryValues(CustomPlaybackSpeedPatch.getEntryValues());
                 }
                 updateListPreferenceSummary(listPreference, setting);
+            } else if (mPreference instanceof ColorPickerPreference colorPickerPreference) {
+                String newColor = sharedPreferences.getString(str, "");
+                if (!newColor.isEmpty()) {
+                    try {
+                        colorPickerPreference.setColor(newColor);
+                    } catch (IllegalArgumentException e) {
+                        Logger.printException(() -> "Failed to update ColorPickerPreference from listener", e);
+                    }
+                }
             } else {
                 Logger.printException(() -> "Setting cannot be handled: " + mPreference.getClass() + " " + mPreference);
                 return;
@@ -759,9 +770,12 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
 
         // Map of groups to their directly matched preferences
         Map<PreferenceGroup, List<Preference>> matchedPreferencesByGroup = new LinkedHashMap<>();
-        // This set tracks keyed preferences that have been fully processed (added along with their dependencies)
-        // during *this specific search operation* to prevent redundant processing and cycles.
-        Set<String> processedKeyedItemsForSearch = new HashSet<>();
+        Set<Preference> processedKeyedItemsForSearch = new HashSet<>();
+
+        // This map will store the relationship between an original preference and its created proxy.
+        // Key: Original Preference, Value: Proxy Preference.
+        // We need this to look up the proxy of a dependency.
+        final Map<Preference, Preference> originalToProxyMap = new HashMap<>();
 
         // Find direct matches
         findDirectMatches(lowerQuery, matchedPreferencesByGroup);
@@ -770,6 +784,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         if (matchedPreferencesByGroup.isEmpty()) {
             screen.addPreference(new NoResultsPreference(screen.getContext(), lowerQuery, false));
         } else {
+            // Create and add all proxies, but do not link dependencies yet
             matchedPreferencesByGroup.forEach((xmlParentOfMatchedItem, listOfDirectlyMatchedItems) -> {
                 PreferenceGroup displayGroupForMatchedItems = xmlParentOfMatchedItem == rootPreferenceScreen
                         ? screen
@@ -781,10 +796,32 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                             displayGroupForMatchedItems,
                             directlyMatchedItem,
                             getDependencyKey(directlyMatchedItem, xmlParentOfMatchedItem),
-                            processedKeyedItemsForSearch
+                            processedKeyedItemsForSearch,
+                            originalToProxyMap
                     );
                 }
             });
+
+            // Now that all proxies exist, link their dependencies
+            for (Map.Entry<Preference, Preference> entry : originalToProxyMap.entrySet()) {
+                Preference originalPref = entry.getKey();
+                Preference proxyPref = entry.getValue();
+                String dependencyKey = originalPref.getDependency();
+
+                if (dependencyKey != null) {
+                    // Find the original dependency preference
+                    Preference originalDependency = findPreferenceInAllGroups(dependencyKey);
+                    if (originalDependency != null) {
+                        // Find the proxy of that dependency
+                        Preference proxyDependency = originalToProxyMap.get(originalDependency);
+                        if (proxyDependency != null) {
+                            // Now it's safe to set the dependency, as both proxies exist
+                            // in the same final hierarchy.
+                            proxyPref.setDependency(proxyDependency.getKey());
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -815,7 +852,9 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @return The created ClickablePreferenceCategory.
      */
     private PreferenceGroup createCategoryGroup(PreferenceScreen screen, PreferenceGroup group) {
-        ClickablePreferenceCategory category = new ClickablePreferenceCategory(this, findClosestPreferenceScreen(group));
+        screen.addPreference(new SpacerPreference(getContext()));
+
+        SearchResultCategory category = new SearchResultCategory(this, findClosestPreferenceScreen(group));
         category.setTitle(groupFullPaths.get(group));
         screen.addPreference(category);
         return category;
@@ -881,137 +920,157 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     }
 
     /**
-     * Recursively adds a preference and its dependencies to the specified {@link PreferenceGroup}.
-     * Ensures that:
-     * <ul>
-     *   <li>Dependencies are added before dependent preferences to avoid display issues or crashes.</li>
-     *   <li>Each preference is added only once, using a set of visited preferences to prevent duplicates.</li>
-     * </ul>
+     * Recursively creates proxy preferences and adds them to the display group.
+     * It populates a map of original-to-proxy preferences for later dependency linking.
      *
-     * @param preferenceGroup    The {@link PreferenceGroup} to which the preference and its dependencies are added.
-     * @param preference         The {@link Preference} to add.
-     * @param dependencyKey      The key of the preference on which this preference depends, or null if none.
-     * @param visitedPreferences A {@link Set} tracking unique preference keys to avoid duplicate additions.
+     * @param preferenceGroup       The {@link PreferenceGroup} in the search results screen to add items to.
+     * @param originalPreference    The original {@link Preference} instance to process.
+     * @param dependencyKey         The key of the preference on which this preference depends (for recursive calls).
+     * @param visitedPreferences    A {@link Set} tracking unique preference instances to avoid duplicate processing.
+     * @param originalToProxyMap    A map to populate with <Original, Proxy> pairs.
      */
     private void addPreferenceWithDependencies(
             PreferenceGroup preferenceGroup,
-            Preference preference,
+            Preference originalPreference,
             String dependencyKey,
-            Set<String> visitedPreferences
+            Set<Preference> visitedPreferences,
+            Map<Preference, Preference> originalToProxyMap
     ) {
-        String preferenceKey = preference.getKey();
-
-        if (preferenceKey == null) {
-            // Handle keyless preference (e.g., <Preference title="foo"/>).
-            // These preferences already have a parent in the original hierarchy, so we cannot
-            // add the same instance to the search results screen.
-            // Instead, we create a new, simple Preference to act as a placeholder/link.
-            try {
-                // Create a new proxy preference that is safe to add.
-                final Preference proxyPreference = getProxyPreference(preference);
-
-                // Add the new, parent-less proxy preference to the search results.
-                preferenceGroup.addPreference(proxyPreference);
-            } catch (Exception e) {
-                Logger.printException(() -> "Failed to add proxy for keyless matched item: " + (preference.getTitle() != null ? preference.getTitle() : "Untitled"), e);
-            }
+        if (visitedPreferences.contains(originalPreference)) {
             return;
         }
+        visitedPreferences.add(originalPreference);
 
-        // Handle keyed preference
-        if (visitedPreferences.contains(preferenceKey)) {
-            // This item's dependency chain has been (or is being) processed.
-            // However, it might need to be visually added to *this specific* preferenceGroup
-            // if it wasn't already (e.g., if it's a dependency reached via another path).
-            boolean alreadyInThisGroup = false;
-            for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
-                Preference p = preferenceGroup.getPreference(i);
-                if (p == preference || (p.getKey() != null && p.getKey().equals(preferenceKey))) {
-                    alreadyInThisGroup = true;
-                    break;
-                }
-            }
-            if (!alreadyInThisGroup) {
-                try {
-                    preferenceGroup.addPreference(preference);
-                } catch (Exception e) {
-                    Logger.printException(() -> "Failed to re-add keyed item to a different group: " + preferenceKey, e);
-                }
-            }
-            return;
-        }
-        visitedPreferences.add(preferenceKey);
-
-        // Resolve and add its main dependency (dependencyKey refers to android:dependency or app:searchDependency parent)
+        // Handle dependencies first (recursive call)
         if (dependencyKey != null) {
             Preference dependency = findPreferenceInAllGroups(dependencyKey);
             if (dependency != null) {
-                PreferenceGroup dependencyParent = findParentGroup(dependency);
                 addPreferenceWithDependencies(preferenceGroup, dependency,
-                        getDependencyKey(dependency, dependencyParent),
-                        visitedPreferences);
-            } else {
-                Logger.printDebug(() -> "Dependency " + dependencyKey + " for " + preferenceKey + " not found.");
+                        getDependencyKey(dependency, findParentGroup(dependency)),
+                        visitedPreferences, originalToProxyMap);
             }
         }
 
-        // Add the preference itself to the preferenceGroup
-        // Ensure it's not already visually there (e.g. if it was added as a dependency of something else)
-        boolean alreadyInThisGroup = false;
-        for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
-            Preference p = preferenceGroup.getPreference(i);
-            // Check by instance and by key
-            if (p == preference || (p.getKey() != null && p.getKey().equals(preferenceKey))) {
-                alreadyInThisGroup = true;
-                break;
-            }
-        }
-        if (!alreadyInThisGroup) {
-            try {
-                preferenceGroup.addPreference(preference);
-            } catch (Exception e) {
-                Logger.printException(() -> "Failed to add keyed item: " + preferenceKey, e);
-                visitedPreferences.remove(preferenceKey);
-                return;
-            }
+        // Create proxy and add to group & map
+        try {
+            final Preference proxyPreference = getProxyPreference(originalPreference);
+            preferenceGroup.addPreference(proxyPreference);
+            originalToProxyMap.put(originalPreference, proxyPreference);
+        } catch (Exception e) {
+            Logger.printException(() -> "Failed to add proxy for matched item: " + (originalPreference.getTitle() != null ? originalPreference.getTitle() : "Untitled"), e);
+            visitedPreferences.remove(originalPreference);
+            return;
         }
 
-        // Resolve and add items that have 'preference' as their app:searchDependency parent.
-        // dependencyMap stores: parentKey -> List<prefs that have app:searchDependency="parentKey">
-        List<Preference> dependents = dependencyMap.get(preferenceKey);
-        if (dependents != null) {
-            for (Preference dependentPref : dependents) {
-                PreferenceGroup dependentParent = findParentGroup(dependentPref);
-                addPreferenceWithDependencies(preferenceGroup, dependentPref,
-                        getDependencyKey(dependentPref, dependentParent),
-                        visitedPreferences);
+        // Handle dependents (recursive call)
+        if (originalPreference.getKey() != null) {
+            List<Preference> dependents = dependencyMap.get(originalPreference.getKey());
+            if (dependents != null) {
+                for (Preference dependentPref : dependents) {
+                    addPreferenceWithDependencies(preferenceGroup, dependentPref,
+                            getDependencyKey(dependentPref, findParentGroup(dependentPref)),
+                            visitedPreferences, originalToProxyMap);
+                }
             }
         }
     }
 
+    /**
+     * Creates a functional "proxy" for a given preference for use in search results.
+     * - For standard types (Switch, EditText), it creates a fully interactive proxy.
+     * - For complex custom types (like DialogPreferences), it creates a "display" proxy
+     *   that correctly shows title/summary and delegates its click action by invoking the
+     *   original preference's protected onClick() method via reflection. This preserves
+     *   all custom behavior without violating access modifiers or relying on newer APIs.
+     *
+     * @param originalPreference The preference to create a proxy for.
+     * @return A new, functional Preference instance that mirrors the original.
+     */
     @NotNull
-    private Preference getProxyPreference(Preference preference) {
-        final Preference proxyPreference = new Preference(preference.getContext());
+    private Preference getProxyPreference(Preference originalPreference) {
+        final Context context = originalPreference.getContext();
+        Preference proxyPreference;
+        boolean useCustomClickHandler = false;
 
-        // The title and summary on the original 'preference' object have already been
-        // highlighted by the `applyHighlighting` call. We just copy these values.
-        proxyPreference.setTitle(preference.getTitle());
-        proxyPreference.setSummary(preference.getSummary());
-        proxyPreference.setIcon(preference.getIcon());
-        proxyPreference.setEnabled(preference.isEnabled());
-        proxyPreference.setOrder(preference.getOrder());
+        // Create a proxy of the same type to preserve the widget (e.g., a switch)
+        if (originalPreference instanceof SwitchPreference original) {
+            proxyPreference = new SwitchPreference(context);
+            ((SwitchPreference) proxyPreference).setSummaryOn(original.getSummaryOn());
+            ((SwitchPreference) proxyPreference).setSummaryOff(original.getSummaryOff());
+            ((SwitchPreference) proxyPreference).setChecked(original.isChecked());
+        }
+        else if (originalPreference instanceof EditTextPreference original) {
+            proxyPreference = new EditTextPreference(context);
+            ((EditTextPreference) proxyPreference).setDialogTitle(original.getDialogTitle());
+        }
+        else if (originalPreference instanceof ColorPickerPreference original) {
+            useCustomClickHandler = true; // Signal that we will not use the generic listener.
 
-        // Make the proxy behave like the original on click.
-        if (preference instanceof PreferenceScreen) {
-            // If the original was a PreferenceScreen, clicking the proxy should navigate to it.
+            // Create an anonymous subclass to take full control of the click behavior.
+            // Both clicks on the main row and on the color dot subview will trigger this
+            // preference's own onClick() method. We override it to be the only source
+            // of truth for click handling.
+            ColorPickerPreference proxy = new ColorPickerPreference(context) {
+                @Override
+                protected void onClick() {
+                    try {
+                        // Directly invoke the original preference's onClick method via reflection.
+                        java.lang.reflect.Method onClickMethod = Preference.class.getDeclaredMethod("onClick");
+                        onClickMethod.setAccessible(true);
+                        onClickMethod.invoke(originalPreference);
+                    } catch (Exception e) {
+                        Logger.printException(() -> "Failed to delegate onClick from ColorPicker proxy for " + originalPreference.getKey(), e);
+                    }
+                }
+            };
+
+            // Set the key before calling setColor to avoid possible initialization issues.
+            if (original.getKey() != null) {
+                proxy.setKey(original.getKey());
+            }
+
+            try {
+                proxy.setColor(original.getCurrentColorString());
+            } catch (Exception e) {
+                Logger.printException(() -> "Failed to set color on proxy ColorPickerPreference", e);
+            }
+            proxyPreference = proxy;
+        }
+        else {
+            // For other types, or as a fallback, create a basic preference.
+            proxyPreference = new Preference(context);
+        }
+
+        if (!useCustomClickHandler) {
             proxyPreference.setOnPreferenceClickListener(p -> {
-                setPreferenceScreen((PreferenceScreen) preference);
+                try {
+                    // Use reflection to call the protected onClick() method on the original object.
+                    // This ensures all of its internal logic and listeners are triggered.
+                    java.lang.reflect.Method onClickMethod = Preference.class.getDeclaredMethod("onClick");
+                    onClickMethod.setAccessible(true);
+                    onClickMethod.invoke(originalPreference);
+                } catch (Exception e) {
+                    Logger.printException(() -> "Failed to delegate onClick via reflection for " + originalPreference.getKey(), e);
+                }
+
+                // Always return true to signify that we have handled the click event
+                // and the framework should not perform any default actions on the proxy.
                 return true;
             });
-        } else {
-            // For all other types, just copy the original click listener.
-            proxyPreference.setOnPreferenceClickListener(preference.getOnPreferenceClickListener());
         }
+
+        // Set the key to link to SharedPreferences for state updates.
+        if (originalPreference.getKey() != null) {
+            proxyPreference.setKey(originalPreference.getKey());
+        }
+
+        // Copy highlighted title/summary.
+        proxyPreference.setTitle(originalPreference.getTitle());
+        proxyPreference.setSummary(originalPreference.getSummary());
+        proxyPreference.setIcon(originalPreference.getIcon());
+        proxyPreference.setEnabled(originalPreference.isEnabled());
+        proxyPreference.setOrder(originalPreference.getOrder());
+
         return proxyPreference;
     }
 
@@ -1717,6 +1776,71 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        // The dynamic preference group initializes itself in onAttachedToActivity,
+        // which happens before the fragment's onResume. This is the perfect
+        // time to check for and index its children, and we use a flag to
+        // ensure this operation only runs once per fragment instance.
+        if (!mDynamicPrefsIndexed) {
+            indexDynamicallyLoadedPreferences();
+            mDynamicPrefsIndexed = true;
+        }
+    }
+
+    /**
+     * Identifies all PreferenceGroups that load their children dynamically and triggers
+     * the process to add their preferences to the search index.
+     * This is called from onResume to ensure the dynamic groups have had
+     * time to initialize.
+     */
+    private void indexDynamicallyLoadedPreferences() {
+        Logger.printDebug(() -> "Attempting to index all dynamically loaded preference groups...");
+
+        // Define all keys for preference groups that load their children dynamically.
+        List<String> dynamicGroupKeys = Arrays.asList(
+                "revanced_preference_group_sb",
+                "revanced_sb_stats"
+        );
+
+        for (String key : dynamicGroupKeys) {
+            tryIndexDynamicGroup(key);
+        }
+
+        Logger.printDebug(() -> "Dynamic indexing finished. Final allPreferencesByKey size: "
+                + allPreferencesByKey.size());
+    }
+
+    /**
+     * Finds a PreferenceGroup by its key and, if it has been dynamically populated with children,
+     * adds them to the search index.
+     *
+     * @param preferenceKey The android:key of the PreferenceGroup to index.
+     */
+    private void tryIndexDynamicGroup(String preferenceKey) {
+        Preference preference = findPreference(preferenceKey);
+
+        if (preference instanceof PreferenceGroup dynamicGroup) {
+            if (dynamicGroup.getPreferenceCount() > 0) {
+                Logger.printDebug(() -> "Found populated group with key '" + preferenceKey + "'. Indexing "
+                        + dynamicGroup.getPreferenceCount() + " children.");
+                storeAllPreferences(dynamicGroup);
+            } else {
+                // This is a normal case if the group has no dynamic children to add.
+                Logger.printDebug(() -> "Found group with key '" + preferenceKey + "', but it is empty.");
+            }
+        } else {
+            // This is useful for debugging if the key is mistyped or the preference is not a group.
+            if (preference == null) {
+                Logger.printDebug(() -> "Could not find any preference with key '" + preferenceKey + "'.");
+            } else {
+                Logger.printDebug(() -> "Preference with key '" + preferenceKey + "' is not a PreferenceGroup.");
+            }
+        }
+    }
+
+    @Override
     public void setPreferenceScreen(PreferenceScreen preferenceScreen) {
         if (getPreferenceScreen() != null && getPreferenceScreen() != preferenceScreen) {
             preferenceScreenStack.push(getPreferenceScreen());
@@ -1823,9 +1947,61 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         preferenceScreenStack.clear();
         searchHistoryCache = null;
         historyViewPreferenceCache.clear();
+        mDynamicPrefsIndexed = false;
 
         Utils.resetLocalizedContext();
         super.onDestroy();
+    }
+
+    /**
+     * A custom {@link Preference} that acts as a visual separator between preference groups.
+     * It is non-selectable and has a fixed height to create vertical space.
+     */
+    private static class SpacerPreference extends Preference {
+        public SpacerPreference(Context context) {
+            super(context);
+            // This preference is purely for visual spacing and should not be interactive.
+            setSelectable(false);
+            setEnabled(false);
+            // Unique key to prevent any potential conflicts.
+            setKey("spacer_" + System.nanoTime() + "_" + Math.random());
+        }
+
+        @Override
+        protected void onBindView(View view) {
+            super.onBindView(view);
+            // Hide any default text or icons that might appear.
+            view.setVisibility(View.INVISIBLE);
+            int height = dipToPixels(16);
+            ViewGroup.LayoutParams params = view.getLayoutParams();
+            params.height = height;
+            view.setLayoutParams(params);
+        }
+    }
+
+    /**
+     * A custom {@link ClickablePreferenceCategory} for displaying group titles in search results.
+     * It adds styling to make the titles distinct, such as italic font and reduced opacity.
+     */
+    private static class SearchResultCategory extends ClickablePreferenceCategory {
+
+        public SearchResultCategory(ReVancedPreferenceFragment fragment, PreferenceScreen screen) {
+            super(fragment, screen);
+        }
+
+        @Override
+        protected void onBindView(View view) {
+            super.onBindView(view);
+
+            TextView titleView = view.findViewById(android.R.id.title);
+            if (titleView != null) {
+                // Make text bold and italic.
+                titleView.setTypeface(titleView.getTypeface(), Typeface.ITALIC);
+
+                // Set opacity to 80% to make it distinguishable.
+                titleView.setAlpha(0.7f);
+            }
+        }
     }
 
     /**

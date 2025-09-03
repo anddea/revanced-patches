@@ -60,6 +60,8 @@ public class ColorPickerPreference extends Preference {
     private int currentColor;
     private StringSetting colorSetting;
 
+    private boolean isInitialized = false;
+
     // Dialog UI elements
     private ColorPickerView mColorPickerView;
     private EditText mHexEditText;
@@ -77,7 +79,6 @@ public class ColorPickerPreference extends Preference {
      */
     public ColorPickerPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
     }
 
     /**
@@ -87,7 +88,35 @@ public class ColorPickerPreference extends Preference {
      */
     public ColorPickerPreference(Context context) {
         super(context);
-        init();
+    }
+
+    /**
+     * Ensures that the color setting has been loaded.
+     * This is called lazily to prevent issues where the key is not yet set during construction.
+     */
+    private void ensureInitialized() {
+        if (isInitialized) {
+            return;
+        }
+
+        // The key is needed to find the setting. If it's null, we can't proceed.
+        if (getKey() == null) {
+            // This can happen with programmatically created preferences (like proxies) before the key is set.
+            // We'll just return and let the next method call trigger this again.
+            return;
+        }
+
+        colorSetting = (StringSetting) Setting.getSettingFromPath(getKey());
+        if (colorSetting == null) {
+            // This is a critical error, the preference is misconfigured.
+            Logger.printException(() -> "Could not find color setting for: " + getKey());
+            // Prevent further attempts to initialize
+            isInitialized = true;
+            return;
+        }
+
+        loadFromSettings();
+        isInitialized = true;
     }
 
     /**
@@ -135,21 +164,12 @@ public class ColorPickerPreference extends Preference {
     }
 
     /**
-     * Initializes the preference by loading the color from settings.
-     */
-    private void init() {
-        colorSetting = (StringSetting) Setting.getSettingFromPath(getKey());
-        if (colorSetting == null) {
-            Logger.printException(() -> "Could not find color setting for: " + getKey());
-        }
-        loadFromSettings();
-    }
-
-    /**
      * Loads the color from the associated {@link StringSetting}.
      * If the color is invalid, it resets the setting to the default value and loads the default color.
      */
     private void loadFromSettings() {
+        if (colorSetting == null) return; // Should not happen if ensureInitialized is called
+
         try {
             currentColor = Color.parseColor(colorSetting.get()) & 0x00FFFFFF;
             updateColorDot();
@@ -162,12 +182,26 @@ public class ColorPickerPreference extends Preference {
     }
 
     /**
+     * @return The current color as an #RRGGBB hex string.
+     */
+    public String getCurrentColorString() {
+        ensureInitialized();
+        return getColorString(currentColor);
+    }
+
+    /**
      * Sets the currently selected color.
      *
      * @param colorString The color string in hexadecimal format (e.g., "#RRGGBB").
      * @throws IllegalArgumentException If the color string is invalid.
      */
     public void setColor(String colorString) throws IllegalArgumentException {
+        ensureInitialized();
+        if (colorSetting == null) {
+            Logger.printException(() -> "Attempted to set color on uninitialized ColorPickerPreference with key: " + getKey());
+            return;
+        }
+
         try {
             currentColor = Color.parseColor(colorString) & 0x00FFFFFF;
             colorSetting.save(getColorString(currentColor));
@@ -230,6 +264,7 @@ public class ColorPickerPreference extends Preference {
      */
     @Override
     protected void onBindView(View view) {
+        ensureInitialized();
         super.onBindView(view);
 
         if (colorPreviewDot == null) {
@@ -311,6 +346,7 @@ public class ColorPickerPreference extends Preference {
      */
     @Override
     protected void onClick() {
+        ensureInitialized();
         final int originalColor = currentColor & 0x00FFFFFF;
         Context context = getContext();
 
