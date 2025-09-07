@@ -2051,6 +2051,26 @@ Készen állsz a beküldésre?"</string>
     <string name="revanced_sb_vote_no_segments">Nincsen szakasz, amire szavazni lehet.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s-től %2$s-ig</string>
     <string name="revanced_sb_vote_upvote">Mellette szavazás</string>
+    <string name="revanced_set_transcript_cookies_all_summary_off">A sütik csak az automatikusan lefordított feliratokra vonatkozó kérésekhez vannak beállítva.</string>
+    <string name="revanced_set_transcript_cookies_all_summary_on">A rendszer minden Átirat API kéréshez beállítja a sütiket.</string>
+    <string name="revanced_set_transcript_cookies_all_title">Sütik beállítása minden Átirat API kéréshez</string>
+    <string name="revanced_set_transcript_cookies_summary_off">Az átirati sütik nincsenek beállítva.</string>
+    <string name="revanced_set_transcript_cookies_summary_on">Az átirati sütik be lettek állítva.</string>
+    <string name="revanced_set_transcript_cookies_title">Átirati sütik beállítása</string>
+    <string name="revanced_set_transcript_cookies_user_dialog_message">"Jelenleg egy hiba van a YouTube-on, amely miatt nem érhetők el az automatikusan lefordított feliratok.
+
+Ez a YouTube Átirat API-val kapcsolatos probléma, és a Google-nek kell kijavítania.
+
+Ideiglenes megoldásként a problémát a sütik beállításával oldhatja meg.
+
+[Jogi nyilatkozat]
+
+A sütik használata nem csodaszer.
+
+A következő esetekben esetleg nem működik:
+• A sütik lejártak.
+• Érvénytelen sütiket használ.
+• A YouTube Átirat API már nem ellenőrzi a sütiket."</string>
     <string name="revanced_settings_search_history_title">Beállítások keresési előzményeinek megjelenítése</string>
     <string name="revanced_share_copy_settings_success">A beállítások a vágólapra másolva.</string>
     <string name="revanced_share_copy_timestamp_success">Az időbélyeg a vágólapra másolva. (%s)</string>
@@ -2215,8 +2235,10 @@ Ha ez a beállítás engedélyezve van, a szerver válaszából származó legma
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Az audiosáv menü hiányzik."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Lejátszási problémák lehetnek (PoToken szükséges).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• A kiszolgáló teljes ASN/IP-tartományt blokkolhat.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• A stabil hangerő nem érhető el.
-• Előfordulhat, hogy a filmeket vagy a fizetős videókat nem lehet lejátszani.
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• A hangsáv menü hiányzik.
+• A kényszerített automatikus hangsávok letiltása nem elérhető.
+• A stabil hangerő nem áll rendelkezésre.
+• Előfordulhat, hogy a filmeket vagy fizetős videókat nem játsza le.
 • Előfordulhat, hogy a gyerekeknek szánt tartalmat nem lehet lejátszani, ha ki van jelentkezve vagy inkognitó módban van."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Hiányzik a hangsáv menü.
 • A kényszerített automatikus hangsávok letiltása nem érhető el.
@@ -2352,6 +2374,11 @@ Ha ez a beállítás nem működik, váltson inkognító módra."</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s nincs telepítve. Kérlek telepítsd.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">A telepített RVX Music csomag neve.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music csomag név</string>
+    <string name="revanced_transcript_cookies_about_summary">Kattintson ide a sütik fogadásának módjáról.</string>
+    <string name="revanced_transcript_cookies_about_title">Átirati sütikről</string>
+    <string name="revanced_transcript_cookies_dialog_title">Átirati sütik eportálása</string>
+    <string name="revanced_transcript_cookies_summary">Az Átirat API kérésekben használandó sütik.</string>
+    <string name="revanced_transcript_cookies_title">Átirati sütik</string>
     <string name="revanced_watch_history_about_status_blocked">• A megtekintési előzmények le vannak tiltva.</string>
     <string name="revanced_watch_history_about_status_original">"• Követi a Google-fiók megtekintési előzményeinek beállításait.
 • Előfordulhat, hogy a megtekintési előzmények nem működik a DNS vagy a VPN miatt."</string>
@@ -2363,6 +2390,23 @@ Ha ez a beállítás nem működik, váltson inkognító módra."</string>
     <string name="revanced_watch_history_type_entry_2">Domain cseréje</string>
     <string name="revanced_watch_history_type_entry_3">Megtekintési előzmények tiltása</string>
     <string name="revanced_watch_history_type_title">Megtekintési előzmények típusa</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Sütik fogadása</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Adatszinkron azonosító lekérése</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Látogató adatok lekérése</string>
+    <string name="revanced_webview_contextual_menu_refresh">Frissít</string>
+    <string name="revanced_webview_cookies">Sütik</string>
+    <string name="revanced_webview_copy">Másol</string>
+    <string name="revanced_webview_data_sync_id">Adatszinkron azonosító</string>
+    <string name="revanced_webview_intent_clear_cookies_on_shutdown">Sütik törlése bezáráskor</string>
+    <string name="revanced_webview_intent_clear_cookies_on_startup">Sütik törlése indításkor</string>
+    <string name="revanced_webview_intent_use_desktop_user_agent">Asztali felhasználó használata</string>
+    <string name="revanced_webview_summary">Nyissa meg a webes nézetet a sütikhez.</string>
+    <string name="revanced_webview_title">Webes nézet</string>
+    <string name="revanced_webview_toast_copy_success">%s vágólapra másolva.</string>
+    <string name="revanced_webview_toast_empty">%s üres.</string>
+    <string name="revanced_webview_toast_no_network">Kérem ellenőrizze a hálózati kapcsolatot.</string>
+    <string name="revanced_webview_toast_unavailable">A webes nézet nem elérhető.</string>
+    <string name="revanced_webview_visitor_data">Látogató adatok</string>
     <string name="revanced_whitelist_add_failed">Nem sikerült hozzáadni a(z) \'%1$s\' csatornát a(z) %2$s engedélyezőlistához.</string>
     <string name="revanced_whitelist_added">\'%1$s\' csatorna hozzá lett adva a %2$s kivételekhez.</string>
     <string name="revanced_whitelist_empty">Nincsenek engedélyezett csatornák.</string>

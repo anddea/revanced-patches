@@ -3,6 +3,8 @@ package app.revanced.extension.youtube.patches.player;
 import static app.revanced.extension.youtube.patches.player.ActionButtonsPatch.ActionButton.REMIX;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREATER;
 
+import android.net.Uri;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -10,8 +12,8 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
-import app.revanced.extension.shared.innertube.utils.AuthUtils;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.youtube.patches.player.requests.ActionButtonRequest;
@@ -99,29 +101,38 @@ public class ActionButtonsPatch {
     private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.eml";
     private static final boolean HIDE_ACTION_BUTTON_INDEX = Settings.HIDE_ACTION_BUTTON_INDEX.get();
     private static final int REMIX_INDEX = Settings.REMIX_BUTTON_INDEX.get() - 1;
+    private static String lastFetchedVideoId = "";
 
     /**
      * Injection point.
      */
-    public static void fetchRequest(@NonNull String videoId, boolean isShortAndOpeningOrPlaying) {
+    public static void fetchRequest(String urlString, Map<String, String> requestHeaders) {
         if (HIDE_ACTION_BUTTON_INDEX) {
             try {
-                final boolean videoIdIsShort = VideoInformation.lastPlayerResponseIsShort();
-                // Shorts shelf in home and subscription feed causes player response hook to be called,
-                // and the 'is opening/playing' parameter will be false.
-                // This hook will be called again when the Short is actually opened.
-                if (videoIdIsShort && !isShortAndOpeningOrPlaying) {
-                    return;
+                if (urlString != null) {
+                    var uri = Uri.parse(urlString);
+                    String path = uri.getPath();
+                    if (path != null) {
+                        if (path.contains("player") && uri.getQueryParameter("t") != null) {
+                            String id = uri.getQueryParameter("id");
+                            if (id != null && !id.equals(lastFetchedVideoId)) {
+                                lastFetchedVideoId = id;
+                                ActionButtonRequest.fetchRequestIfNeeded(id, requestHeaders);
+                            }
+                        } else if (path.contains("initplayback")) {
+                            if (!VideoInformation.lastPlayerResponseIsShort()) {
+                                String id = VideoInformation.getPlayerResponseVideoId();
+                                if (!id.isEmpty() && !id.equals(lastFetchedVideoId)) {
+                                    lastFetchedVideoId = id;
+                                    ActionButtonRequest.fetchRequestIfNeeded(
+                                            id,
+                                            requestHeaders
+                                    );
+                                }
+                            }
+                        }
+                    }
                 }
-
-                if (AuthUtils.isNotLoggedIn()) {
-                    return;
-                }
-
-                ActionButtonRequest.fetchRequestIfNeeded(
-                        videoId,
-                        AuthUtils.getRequestHeader()
-                );
             } catch (Exception ex) {
                 Logger.printException(() -> "fetchRequest failure", ex);
             }

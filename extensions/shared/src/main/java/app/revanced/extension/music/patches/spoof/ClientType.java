@@ -100,7 +100,7 @@ public enum ClientType {
             IOS_MUSIC_6_21.deviceMake,
             IOS_MUSIC_6_21.deviceModel,
             IOS_MUSIC_6_21.osName,
-            "18.6.1.22G90",
+            "18.6.2.22G100",
             IOS_MUSIC_6_21.androidSdkVersion,
             IOS_MUSIC_6_21.buildId,
             IOS_MUSIC_6_21.packageName,
@@ -285,7 +285,7 @@ public enum ClientType {
 
         Locale defaultLocale = Locale.getDefault();
         if (androidSdkVersion == null) {
-            // Convert version from '18.6.1.22G90' into '18_6_1'
+            // Convert version from '18.6.2.22G100' into '18_6_2'
             String userAgentOsVersion = osVersion
                     .substring(0, StringUtils.lastIndexOf(osVersion, "."))
                     .replace(".", "_");

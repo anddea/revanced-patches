@@ -454,7 +454,7 @@
     <string name="revanced_extended_audio_tracks_unavailable">"Αυτή η ρύθμιση δεν είναι διαθέσιμη προς το παρόν.
 Για να χρησιμοποιήσετε αυτή τη λειτουργία, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» στις ρυθμίσεις «Παραποίηση δεδομένων ροής» σε iOS TV, TV ή TV Simply.
 
-Σημείωση: Το πρόγραμμα πελάτη iOS TV δεν υποστηρίζει την αναπαραγωγή ορισμένων βίντεο, όπως μουσικών βίντεο. Άρα, αν το προεπιλεγμένο πρόγραμμα πελάτη οριστεί σε iOS TV, αυτή η ρύθμιση μπορεί να μη λειτουργεί σε κάποια βίντεο."</string>
+Σημείωση: Το πρόγραμμα πελάτη iOS TV δεν είναι διαθέσιμο σε ορισμένες περιοχές, οπότε αυτή η ρύθμιση μπορεί να μη λειτουργεί."</string>
     <string name="revanced_extended_confirm_user_dialog_title">Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</string>
     <string name="revanced_extended_reset_to_default_toast">Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
     <string name="revanced_extended_restart">Επανεκκίνηση</string>
@@ -2228,8 +2228,8 @@ Playlists
     <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Το κουμπί επαναφόρτωσης βίντεο εμφανίζεται.</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_title">Εμφάνιση κουμπιού επαναφόρτωσης βίντεο</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Το μενού «Κομμάτι ήχου» λείπει.
-• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη.
 • Η ρύθμιση «Απενεργοποίηση υποχρεωτικών κομματιών ήχου» δε λειτουργεί.
+• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη.
 • Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεμένοι ή σε λειτουργία ανώνυμης περιήγησης."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Το μενού «Κομμάτι ήχου» λείπει.
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη."</string>
@@ -2240,7 +2240,9 @@ Playlists
 • Ο κωδικοποιητής ήχου Opus ενδέχεται να μην υποστηρίζεται."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• Ολόκληρα αυτόνομα συστήματα (ASN) ή εύρη διευθύνσεων IP ενδέχεται να αποκλειστούν από τον διακομιστή.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Τα βίντεο μπορεί να τελειώνουν 1 δευτερόλεπτο νωρίτερα.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη.
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Το μενού «Κομμάτι ήχου» μπορεί να λείπει.
+• Η ρύθμιση «Απενεργοποίηση υποχρεωτικών κομματιών ήχου» δε λειτουργεί.
+• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη.
 • Οι ταινίες ή τα επί πληρωμή βίντεο ενδέχεται να μην αναπαράγονται.
 • Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεμένοι ή σε λειτουργία ανώνυμης περιήγησης."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Το μενού «Κομμάτι ήχου» λείπει.

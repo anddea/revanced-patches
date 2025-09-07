@@ -28,7 +28,7 @@ GmsCore 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="revanced_advanced_video_quality_menu_type_title">Shorts 고급 동영상 화질 메뉴 유형</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다. 
 
-이 설정을 활성화하면 동영상 URL이 API 서버로 전송되며, 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 원본 썸네일 또는 스틸 컷 썸네일이 표시됩니다.
+이 기능을 활성화하면 동영상 URL이 API 서버로 전송되며, 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 원본 썸네일 또는 스틸 컷 썸네일이 표시됩니다.
 
 DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow에 대한 정보</string>
@@ -79,7 +79,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">앰비언트 모드 제한 우회하기</string>
     <string name="revanced_bypass_image_region_restrictions_domain_summary">이미지를 가져올 대체 도메인을 입력하세요.\n알림: \'https\:\/\/\' 없이 도메인 이름만 입력해야 합니다.</string>
     <string name="revanced_bypass_image_region_restrictions_domain_title">대체 이미지 도메인</string>
-    <string name="revanced_bypass_image_region_restrictions_summary_off">기본 이미지 도메인을 사용합니다.\n\n이 설정을 활성화하면 일부 국가에서 차단된 이미지를 수신할 수 있습니다.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">기본 이미지 도메인을 사용합니다.\n\n이 기능을 활성화하면 일부 국가에서 차단된 이미지를 수신할 수 있습니다.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">대체 이미지 도메인을 사용합니다.\n\n대체 이미지 도메인 기본값: yt4.ggpht.com</string>
     <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 국가 우회하기</string>
     <string name="revanced_bypass_url_redirects_summary_off">앱 내에서 외부 링크를 열 경우에 URL 리다이렉션(youtube.com/redirect)을 거쳐서 연결됩니다.</string>
@@ -248,7 +248,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
 설정 → 자동재생 / 재생 → 다음 동영상 자동재생"</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">믹스 재생목록 자동전환을 비활성화합니다.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">믹스 재생목록 자동전환 비활성화하기</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">이 설정을 활성화하면 자동재생이 켜져 있는 동안에 음악 동영상을 재생하면 YouTube 믹스 재생목록으로 자동전환되지 않습니다.</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">이 기능을 활성화하면 자동재생이 켜져 있는 동안에 음악 동영상을 재생하면 YouTube 믹스 재생목록으로 자동전환되지 않습니다.</string>
     <string name="revanced_disable_default_playback_speed_music_off">음악 동영상에서 기본 동영상 재생 속도를 활성화합니다.</string>
     <string name="revanced_disable_default_playback_speed_music_on">음악 동영상에서 기본 동영상 재생 속도를 비활성화합니다.</string>
     <string name="revanced_disable_default_playback_speed_music_title">음악 기본 동영상 재생 속도 비활성화하기</string>
@@ -393,11 +393,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">재생바 터치 조작을 비활성화합니다.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">재생바 터치 조작을 활성화합니다.</string>
     <string name="revanced_enable_seekbar_tapping_title">재생바 터치 조작 활성화하기</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"이 설정을 활성화하면 재생바 썸네일이 없는 실시간 스트림에서 썸네일이 복원됩니다.
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"이 기능을 활성화하면 재생바 썸네일이 없는 실시간 스트림에서 썸네일이 복원됩니다.
 
 재생바 썸네일이 표시되기 전에 약간의 지연이 발생하고, 더 많은 모바일 데이터가 사용되오니 주의하세요.
 
-이 설정은 인터넷 연결이 매우 좋을 때 가장 잘 작동합니다."</string>
+이 기능은 인터넷 연결이 매우 좋을 때 가장 잘 작동합니다."</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">일반 화질 재생바 썸네일을 활성화합니다.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">고화질 재생바 썸네일을 활성화합니다.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_title">고화질 재생바 썸네일 활성화하기</string>
@@ -557,7 +557,7 @@ Shorts 플레이어 배경을 탭하면 상태바 및 플레이어 구성요소�
     <string name="revanced_gemini_transcription_parse_success">자막을 성공적으로 분석하였습니다.</string>
     <string name="revanced_gemini_transcription_result_title">Gemini 동영상 필사</string>
     <string name="revanced_gms_show_dialog_summary">앱을 시작할 때마다 GmsCore에 대한 배터리 최적화 다이얼로그를 표시합니다.</string>
-    <string name="revanced_gms_show_dialog_title">GmsCore 배터리 최적화 다이얼로그 표시하기</string>
+    <string name="revanced_gms_show_dialog_title">GmsCore 최적화 다이얼로그 표시하기</string>
     <string name="revanced_gradient_seekbar_positions_reset">Cairo 재생바의 경계를 기본값으로 초기화합니다.</string>
     <string name="revanced_gradient_seekbar_positions_summary">Cairo 재생바의 시작 위치와 종료 위치를 0에서 1까지 쉼표로 구분하여 설정할 수 있습니다.</string>
     <string name="revanced_gradient_seekbar_positions_title">Cairo 재생바 경계</string>
@@ -1164,7 +1164,7 @@ Shorts 플레이어 배경을 탭하면 상태바 및 플레이어 구성요소�
     <string name="revanced_hide_shorts_comments_button_title">댓글 버튼 숨기기</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">\'사용 중지됨\' 또는 \'0\'으로 표시된 댓글 버튼이 표시됩니다.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">\'사용 중지됨\' 또는 \'0\'으로 표시된 댓글 버튼이 숨겨집니다.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_title">\'사용 중지됨\' 또는 \'0\'으로 표시된 댓글 버튼 숨기기</string>
+    <string name="revanced_hide_shorts_comments_disabled_button_title">사용 중지된 댓글 버튼 숨기기</string>
     <string name="revanced_hide_shorts_comments_panel_summary_off">댓글 패널이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">댓글 패널이 표시됩니다.</string>
     <string name="revanced_hide_shorts_comments_panel_title">댓글 패널 숨기기</string>
@@ -1281,12 +1281,12 @@ Shorts 플레이어 배경을 탭하면 상태바 및 플레이어 구성요소�
     <string name="revanced_hide_shorts_trends_button_summary_off">트렌드 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_trends_button_summary_on">트렌드 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_trends_button_title">트렌드 버튼 숨기기</string>
-    <string name="revanced_hide_shorts_use_this_sound_button_summary_off">\'이 사운드 사용\' 버튼이 표시됩니다.</string>
-    <string name="revanced_hide_shorts_use_this_sound_button_summary_on">\'이 사운드 사용\' 버튼이 숨겨집니다.</string>
-    <string name="revanced_hide_shorts_use_this_sound_button_title">\'이 사운드 사용\' 버튼 숨기기</string>
-    <string name="revanced_hide_shorts_use_this_template_button_summary_off">\'이 템플릿 사용\' 버튼이 표시됩니다.</string>
-    <string name="revanced_hide_shorts_use_this_template_button_summary_on">\'이 템플릿 사용\' 버튼이 숨겨집니다.</string>
-    <string name="revanced_hide_shorts_use_this_template_button_title">\'이 템플릿 사용\' 버튼 숨기기</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_off">이 사운드 사용 버튼이 표시됩니다.</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_on">이 사운드 사용 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_title">이 사운드 사용 버튼 숨기기</string>
+    <string name="revanced_hide_shorts_use_this_template_button_summary_off">템플릿 사용 버튼이 표시됩니다.</string>
+    <string name="revanced_hide_shorts_use_this_template_button_summary_on">템플릿 사용 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_shorts_use_this_template_button_title">템플릿 사용 버튼 숨기기</string>
     <string name="revanced_hide_shorts_video_link_label_summary_off">동영상 링크 라벨이 표시됩니다.</string>
     <string name="revanced_hide_shorts_video_link_label_summary_on">동영상 링크 라벨이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_video_link_label_title">동영상 링크 라벨 숨기기</string>
@@ -2163,6 +2163,26 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_search_settings_no_results_summary">다른 키워드를 검색해 보세요.</string>
     <string name="revanced_search_settings_no_results_title">\"%1$s\"에 대한 검색 결과를 찾을 수 없습니다.</string>
     <string name="revanced_search_title">검색</string>
+    <string name="revanced_set_transcript_cookies_all_summary_off">자동 번역된 자막 요청에 대해서만 Cookies를 설정합니다.</string>
+    <string name="revanced_set_transcript_cookies_all_summary_on">모든 스크립트 API 요청에 대한 Cookies를 설정합니다.</string>
+    <string name="revanced_set_transcript_cookies_all_title">모든 스크립트 API 요청에 대한 Cookies 설정하기</string>
+    <string name="revanced_set_transcript_cookies_summary_off">스크립트 Cookies를 설정하지 않습니다.</string>
+    <string name="revanced_set_transcript_cookies_summary_on">스크립트 Cookies를 설정합니다.</string>
+    <string name="revanced_set_transcript_cookies_title">스크립트 Cookies 설정하기</string>
+    <string name="revanced_set_transcript_cookies_user_dialog_message">"현재 YouTube에서 자동 번역된 자막을 사용할 수 없는 문제가 있습니다.
+
+이는 YouTube 스크립트 API의 문제이며 Google에서 이 문제를 해결해야 합니다.
+
+임시 해결 방법으로 Cookies를 설정하여 이 문제를 해결할 수 있습니다.
+
+[고지 사항]
+
+Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
+
+다음과 같은 경우 작동하지 않을 수 있습니다:
+• 쿠키가 만료된 경우
+• 유효하지 않은 Cookies가 사용 중인 경우
+• YouTube 스크립트 API가 더 이상 Cookies의 유효성을 검사하지 않는 경우"</string>
     <string name="revanced_settings_search_highlight_color_summary">검색 결과에서 검색어와 일치하는 텍스트의 강조 색상을 지정할 수 있습니다.</string>
     <string name="revanced_settings_search_highlight_color_title">검색 강조 색상</string>
     <string name="revanced_settings_search_highlight_summary">검색 결과에서 검색어와 일치하는 텍스트를 선택된 색상으로 강조할 수 있습니다.</string>
@@ -2177,7 +2197,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"이 기능은 아직 실험 단계이므로, 완벽하게 작동한다는 보장은 없습니다.
 
 • 대부분의 버그는 클라이언트 측의 제한으로 인해 수정할 수 없으므로 테스트 목적으로만 사용하세요."</string>
-    <string name="revanced_shorts_custom_actions_about_summary">"이 설정은 아직 실험 기능이므로 완벽하게 작동한다는 보장은 없습니다.
+    <string name="revanced_shorts_custom_actions_about_summary">"이 기능은 아직 실험 단계이므로 완벽하게 작동한다는 보장은 없습니다.
 
 • 대부분의 버그는 클라이언트 측의 제한으로 인하여 수정할 수 없으므로 테스트 목적으로만 사용하세요."</string>
     <string name="revanced_shorts_custom_actions_about_title">사용자 정의 동작에 대한 정보</string>
@@ -2291,7 +2311,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"이 설정를 활성화하면 배터리 수명이 향상되고, 동영상 재생 끊김 문제가 해결될 수 있습니다.
 
 AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동영상을 재생할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요."</string>
-    <string name="revanced_spoof_streaming_data_message">재생 문제가 발생하는 경우에는 &lt;i&gt;&lt;u&gt;설정 &gt; %s &gt; 기타 &gt; 스트리밍 데이터 변경하기&lt;/u&gt;&lt;/i&gt;에서 \'스트리밍 데이터 변경하기\' 를 활성화하세요.</string>
+    <string name="revanced_spoof_streaming_data_message">재생 문제가 발생하는 경우에는 &lt;i&gt;&lt;u&gt;설정 &gt; %s &gt; 기타 &gt; 스트리밍 데이터 변경하기&lt;/u&gt;&lt;/i&gt; 에서 \'스트리밍 데이터 변경하기\' 를 활성화하세요.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">동영상 코덱이 우선시됩니다.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">동영상 화질이 우선시됩니다.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">동영상 화질 우선순위 지정하기</string>
@@ -2337,26 +2357,16 @@ VP9은 AVC보다 고급 코덱이지만, 일부 사용자는 '360p VP9'보다 '1
 • 안정적인 볼륨을 사용할 수 없습니다.
 • 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 오디오 트랙 메뉴가 표시되지 않습니다.
-• 안정적인 볼륨을 사용할 수 없습니다.
-• 자동 오디오 트랙을 비활성화할 수 없습니다.
-• 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다. (로그인 정보가 필요함)
-• VR은 Kids // TV는 재생목록, 음악 동영상 또는 로그인 정보가 없을 경우에는 다른 클라이언트가 사용될 수 있습니다.
-• TV는 AV1 코덱이 지원되지 않습니다.
-• 인증 없음: 로그인 정보를 사용하지 않음"</string>
+• 안정적인 볼륨을 사용할 수 없습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 오디오 트랙 메뉴가 표시되지 않습니다.
-• 안정적인 볼륨을 사용할 수 없습니다.
-• 자동 오디오 트랙을 비활성화할 수 없습니다.
-• 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다. (로그인 정보가 필요함)
-• VR은 Kids // TV는 재생목록, 음악 동영상 또는 로그인 정보가 없을 경우에는 다른 클라이언트가 사용될 수 있습니다.
-• TV는 AV1 코덱이 지원되지 않습니다.
-• 인증 없음: 로그인 정보를 사용하지 않음"</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• 동영상 재생 문제가 발생할 수 있습니다 (PoToken이 요구됨).\n• 영화, 유료, 비공개 그리고 연령 제한 동영상에서 다른 클라이언트가 사용될 수 있습니다.</string>
+• 안정적인 볼륨을 사용할 수 없습니다."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• 동영상 재생 문제가 발생할 수 있습니다 (PoToken이 요구됨).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• 동영상이 1초 일찍 종료될 수 있습니다.
 • OPUS 코덱이 지원되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• 서버에서 전체 ASNs/IP 범위가 차단될 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• 동영상이 1초 일찍 종료될 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• 오디오 트랙 메뉴가 표시되지 않을 수 있습니다.
-• 강제 사용이 설정된 오디오 트랙을 비활성화되지 않을 수 있습니다.
+• 강제 사용이 설정된 오디오 트랙이 비활성화되지 않을 수 있습니다.
 • 안정적인 볼륨을 사용할 수 없습니다.
 • 영화 또는 유료 동영상이 재생되지 않을 수 있습니다.
 • 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다."</string>
@@ -2514,6 +2524,36 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s 이 설치되어 있지 않습니다. 설치하세요.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">이 기기에 설치된 RVX Music 앱 패키지명을 설정하세요.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music 앱 패키지명</string>
+    <string name="revanced_transcript_cookies_about_summary">Cookies를 가져오는 방법을 보려면 여기를 탭하세요.</string>
+    <string name="revanced_transcript_cookies_about_title">스크립트 Cookies에 대한 정보</string>
+    <string name="revanced_transcript_cookies_dialog_auth_text">인증</string>
+    <string name="revanced_transcript_cookies_dialog_message">"인증
+══════════════
+1. '인증'을 탭하여 WebView에서 로그인 페이지를 엽니다.
+2. Google 계정에 로그인합니다.
+3. 자동 번역 자막을 지원하는 동영상을 재생합니다.
+4. 자동 번역 자막을 켜고 작동하는지 확인합니다.
+4-1. 자동 번역 자막이 작동하지 않으면 자동 번역 자막을 지원하는 다른 동영상으로 전환한 후 4단계를 다시 시도하세요.
+5. 툴바에서 점 3개를 탭하여 상황에 맞는 메뉴를 엽니다.
+6. 'Cookies 가져오기'를 클릭합니다.
+7. '복사'를 클릭하여 Cookies를 복사합니다.
+8. WebView를 닫고 복사한 Cookies를 ‘스크립트 Cookies’ 설정에 붙여넣습니다.
+
+
+인증 없음
+══════════════
+1. '인증 없음'을 탭하여 WebView에서 동영상을 엽니다.
+2. 동영상을 3초 이상 재생합니다.
+3. 툴바에서 점 3개를 탭하여 상황에 맞는 메뉴를 엽니다.
+4. 'Cookies 가져오기'를 클릭합니다.
+5. '복사'를 클릭하여 Cookies를 복사합니다.
+6. WebView를 닫고 복사한 Cookies를 ‘스크립트 Cookies’ 설정에 붙여넣습니다.
+
+고지 사항: 로그인하지 않고 발급된 Cookies는 유효하지 않거나 스크립트 API에서 사용할 수 있게 되는 데 시간이 걸릴 수 있습니다."</string>
+    <string name="revanced_transcript_cookies_dialog_no_auth_text">인증 없음</string>
+    <string name="revanced_transcript_cookies_dialog_title">스크립트 Cookies 내보내기</string>
+    <string name="revanced_transcript_cookies_summary">스크립트 API 요청에 사용될 Cookes를 설정할 수 있습니다.</string>
+    <string name="revanced_transcript_cookies_title">스크립트 Cookies</string>
     <string name="revanced_watch_history_about_status_blocked">• 시청 기록이 차단됩니다.</string>
     <string name="revanced_watch_history_about_status_original">"• Google 계정의 시청 기록 설정을 따릅니다.
 • DNS 또는 VPN으로 인하여 시청 기록이 작동되지 않을 수 있습니다."</string>
@@ -2525,6 +2565,23 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_watch_history_type_entry_2">도메인 변경</string>
     <string name="revanced_watch_history_type_entry_3">시청 기록 차단</string>
     <string name="revanced_watch_history_type_title">시청 기록 유형</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Cookies 가져오기</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Data Sync ID 가져오기</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Visitor Data 가져오기</string>
+    <string name="revanced_webview_contextual_menu_refresh">새로 고침</string>
+    <string name="revanced_webview_cookies">Cookies</string>
+    <string name="revanced_webview_copy">복사</string>
+    <string name="revanced_webview_data_sync_id">Data Sync ID</string>
+    <string name="revanced_webview_intent_clear_cookies_on_shutdown">앱 종료 시 Cookies 지우기</string>
+    <string name="revanced_webview_intent_clear_cookies_on_startup">앱 시작 시 Cookies 지우기</string>
+    <string name="revanced_webview_intent_use_desktop_user_agent">Desktop User-Agent 사용하기</string>
+    <string name="revanced_webview_summary">WebView를 열어 Cookies를 가져올 수 있습니다.</string>
+    <string name="revanced_webview_title">WebView</string>
+    <string name="revanced_webview_toast_copy_success">%s 를 클립보드에 복사하였습니다.</string>
+    <string name="revanced_webview_toast_empty">%s 가 비어 있습니다.</string>
+    <string name="revanced_webview_toast_no_network">네트워크 연결 상태를 확인하세요.</string>
+    <string name="revanced_webview_toast_unavailable">WebView를 사용할 수 없습니다.</string>
+    <string name="revanced_webview_visitor_data">Visitor Data</string>
     <string name="revanced_whitelist_add_failed">\'%1$s\' 채널을 %2$s 화이트리스트에 추가할 수 없습니다.</string>
     <string name="revanced_whitelist_added">\'%1$s\' 채널을 %2$s 화이트리스트에 추가하였습니다.</string>
     <string name="revanced_whitelist_empty">화이트리스트 채널이 없습니다.</string>

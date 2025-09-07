@@ -164,6 +164,9 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_FLOATING_MICROPHONE = new BooleanSetting("revanced_hide_floating_microphone", TRUE, true);
     public static final BooleanSetting HIDE_VISUAL_SPACERS = new BooleanSetting("revanced_hide_visual_spacers", TRUE);
     public static final BooleanSetting REMOVE_VIEWER_DISCRETION_DIALOG = new BooleanSetting("revanced_remove_viewer_discretion_dialog", FALSE);
+    public static final BooleanSetting SET_TRANSCRIPT_COOKIES = new BooleanSetting("revanced_set_transcript_cookies", FALSE, true, "revanced_set_transcript_cookies_user_dialog_message");
+    public static final BooleanSetting SET_TRANSCRIPT_COOKIES_ALL = new BooleanSetting("revanced_set_transcript_cookies_all", FALSE, true, parent(SET_TRANSCRIPT_COOKIES));
+    public static final StringSetting TRANSCRIPT_COOKIES = new StringSetting("revanced_transcript_cookies", "", true, parent(SET_TRANSCRIPT_COOKIES));
 
     public static final EnumSetting<FormFactor> CHANGE_FORM_FACTOR = new EnumSetting<>("revanced_change_form_factor", FormFactor.DEFAULT, true, "revanced_change_form_factor_user_dialog_message");
     public static final BooleanSetting CHANGE_LIVE_RING_CLICK_ACTION = new BooleanSetting("revanced_change_live_ring_click_action", FALSE, true);

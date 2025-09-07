@@ -192,7 +192,15 @@ public class BaseThemeUtils {
      */
     @ColorInt
     public static int getAppForegroundColor() {
-        return isDarkModeEnabled()
+        return getAppForegroundColor(isDarkModeEnabled());
+    }
+
+    /**
+     * @return The current app foreground color.
+     */
+    @ColorInt
+    public static int getAppForegroundColor(boolean isDarkModeEnabled) {
+        return isDarkModeEnabled
                 ? getThemeLightColor()
                 : getThemeDarkColor();
     }

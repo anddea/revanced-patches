@@ -80,11 +80,11 @@ object YouTubeClient {
     private val OS_VERSION_IOS_UNPLUGGED = if (forceAVC())
         "13.7.17H35" // Last release of iOS 13.
     else
-        "18.6.1.22G90"
+        "18.6.2.22G100"
     private val USER_AGENT_VERSION_IOS_UNPLUGGED = if (forceAVC())
         "13_7"
     else
-        "18_6_1"
+        "18_6_2"
 
     @SuppressLint("ConstantLocale")
     private val USER_AGENT_IOS_UNPLUGGED =
@@ -214,7 +214,7 @@ object YouTubeClient {
      * Note: Both 'Authorization' and 'Set-Cookie' are supported.
      * TODO: Find out why playback sometimes fails.
      */
-    private const val CLIENT_VERSION_TVHTML5 = "7.20250827.12.00"
+    private const val CLIENT_VERSION_TVHTML5 = "7.20250902.08.00"
     private const val USER_AGENT_TVHTML5 =
         "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)"
 
@@ -245,7 +245,7 @@ object YouTubeClient {
      * Note: Only 'Set-Cookie' is supported.
      * TODO: Find out why playback sometimes fails.
      */
-    private const val CLIENT_VERSION_MWEB = "2.20250820.01.00"
+    private const val CLIENT_VERSION_MWEB = "2.20250905.01.00"
     private const val USER_AGENT_MWEB =
         "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML; like Gecko) FxiOS/98.2  Mobile/15E148 Safari/605.1.15"
 
@@ -531,7 +531,7 @@ object YouTubeClient {
             userAgent = USER_AGENT_MWEB,
             requireJS = true,
             requirePoToken = true,
-            // RVX does not support 'Set-Cookie'.
+            // Android YouTube app does not support 'Cookie'.
             supportsCookies = false,
             refererFormat = CLIENT_REFERER_FORMAT_MWEB,
             clientName = "MWEB",

@@ -2040,6 +2040,26 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_sb_vote_no_segments">No hay segmentos por los cuales votar.</string>
     <string name="revanced_sb_vote_segment_time_to_from">De %1$s a %2$s</string>
     <string name="revanced_sb_vote_upvote">Voto positivo</string>
+    <string name="revanced_set_transcript_cookies_all_summary_off">Las cookies se establecen solo para las solicitudes de subtítulos traducidos automáticamente.</string>
+    <string name="revanced_set_transcript_cookies_all_summary_on">Las cookies se establecen para todas las solicitudes de la API de transcripción.</string>
+    <string name="revanced_set_transcript_cookies_all_title">Establecer cookies para todas las solicitudes de la API de transcripción</string>
+    <string name="revanced_set_transcript_cookies_summary_off">Las cookies de transcripción no se han establecido.</string>
+    <string name="revanced_set_transcript_cookies_summary_on">Las cookies de transcripción se han establecido.</string>
+    <string name="revanced_set_transcript_cookies_title">Establecer cookies de transcripción</string>
+    <string name="revanced_set_transcript_cookies_user_dialog_message">"Actualmente hay un error en YouTube que hace que los subtítulos traducidos automáticamente no estén disponibles.
+
+Se trata de un problema con la API de transcripción de YouTube, y Google debe solucionarlo.
+
+Como solución temporal, puedes resolver este problema estableciendo las cookies.
+
+[Descargo de responsabilidad]
+
+El uso de cookies no es una solución milagrosa.
+
+Puede que no funcione si:
+• Las cookies han caducado.
+• Se están utilizando cookies no válidas.
+• La API de transcripción de YouTube ya no valida las cookies."</string>
     <string name="revanced_settings_search_history_title">Mostrar el historial de búsqueda de ajustes</string>
     <string name="revanced_share_copy_settings_success">Ajustes copiados en el portapapeles.</string>
     <string name="revanced_share_copy_timestamp_success">Marca de tiempo copiada en el portapapeles. (%s)</string>
@@ -2348,6 +2368,36 @@ Si este ajuste no surte efecto, prueba a cambiar al modo incógnito."</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s no está instalado. Por favor, instálalo.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Nombre del paquete de RVX Music instalado.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nombre del paquete de RVX Music</string>
+    <string name="revanced_transcript_cookies_about_summary">Pulsa para ver cómo obtener cookies.</string>
+    <string name="revanced_transcript_cookies_about_title">Acerca de las cookies de transcripción</string>
+    <string name="revanced_transcript_cookies_dialog_auth_text">Autenticación</string>
+    <string name="revanced_transcript_cookies_dialog_message">"Autenticación
+══════════════
+1. Pulsa en «Autenticación» para abrir la página de inicio de sesión en WebView.
+2. Inicia sesión en tu cuenta de Google.
+3. Reproduce cualquier vídeo que admita subtítulos traducidos automáticamente.
+4. Activa los subtítulos traducidos automáticamente y comprueba si funcionan.
+4-1. Si los subtítulos traducidos automáticamente no funcionan, cambia a otro vídeo que admita subtítulos traducidos automáticamente y vuelve a probar el paso 4.
+5. Pulsa en los tres puntos de la barra de herramientas para abrir el menú contextual.
+6. Pulsa en «Obtener cookies».
+7. Pulsa en «Copiar» para copiar las cookies.
+8. Cierra WebView y pega las cookies copiadas en la configuración de «Cookies de transcripción».
+
+
+Sin autenticación
+══════════════
+1. Pulsa en «Sin autenticación» para abrir el vídeo en WebView.
+2. Reproduce el vídeo durante al menos 3 segundos.
+3. Pulsa en los tres puntos de la barra de herramientas para abrir el menú contextual.
+4. Pulsa en «Obtener cookies».
+5. Pulsa en «Copiar» para copiar las cookies.
+6. Cierra WebView y pega las cookies copiadas en la configuración de «Cookies de transcripción».
+
+Descargo de responsabilidad: las cookies emitidas sin iniciar sesión pueden no ser válidas o pueden tardar en estar disponibles para la API de transcripción."</string>
+    <string name="revanced_transcript_cookies_dialog_no_auth_text">Sin autenticación</string>
+    <string name="revanced_transcript_cookies_dialog_title">Exportar cookies de transcripción</string>
+    <string name="revanced_transcript_cookies_summary">Cookies para usar en solicitudes de la API de transcripción.</string>
+    <string name="revanced_transcript_cookies_title">Cookies de transcripción</string>
     <string name="revanced_watch_history_about_status_blocked">• El historial de reproducciones no funciona.</string>
     <string name="revanced_watch_history_about_status_original">"• Sigue la configuración del historial de reproducciones de la cuenta de Google.
 • Es posible que el historial de reproducciones no funcione debido a DNS o VPN."</string>
@@ -2359,6 +2409,23 @@ Si este ajuste no surte efecto, prueba a cambiar al modo incógnito."</string>
     <string name="revanced_watch_history_type_entry_2">Reemplazar dominio</string>
     <string name="revanced_watch_history_type_entry_3">Bloquear historial de reproducciones</string>
     <string name="revanced_watch_history_type_title">Tipo de historial de reproducciones</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Obtener cookies</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Obtener ID de sincronización de datos</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Obtener datos de visitante</string>
+    <string name="revanced_webview_contextual_menu_refresh">Actualizar</string>
+    <string name="revanced_webview_cookies">Cookies</string>
+    <string name="revanced_webview_copy">Copiar</string>
+    <string name="revanced_webview_data_sync_id">ID de sincronización de datos</string>
+    <string name="revanced_webview_intent_clear_cookies_on_shutdown">Borrar cookies al apagar</string>
+    <string name="revanced_webview_intent_clear_cookies_on_startup">Borrar cookies al iniciar</string>
+    <string name="revanced_webview_intent_use_desktop_user_agent">Usar agente de usuario de escritorio</string>
+    <string name="revanced_webview_summary">Abre WebView para obtener cookies.</string>
+    <string name="revanced_webview_title">WebView</string>
+    <string name="revanced_webview_toast_copy_success">%s copiado al portapapeles.</string>
+    <string name="revanced_webview_toast_empty">%s está vacío.</string>
+    <string name="revanced_webview_toast_no_network">Comprueba tu conexión a Internet.</string>
+    <string name="revanced_webview_toast_unavailable">WebView no está disponible.</string>
+    <string name="revanced_webview_visitor_data">Datos de visitante</string>
     <string name="revanced_whitelist_add_failed">Error al añadir el canal %1$s a la lista blanca %2$s.</string>
     <string name="revanced_whitelist_added">El canal %1$s se agregó a la lista blanca %2$s.</string>
     <string name="revanced_whitelist_empty">No hay canales en esta lista.</string>

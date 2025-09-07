@@ -14,6 +14,10 @@ public final class app/revanced/patches/all/misc/hex/HexPatchKt {
 	public static final fun getHexPatch ()Lapp/revanced/patcher/patch/RawResourcePatch;
 }
 
+public final class app/revanced/patches/all/misc/network/OverrideCertificatePinningPatchKt {
+	public static final fun getOverrideCertificatePinningPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public abstract interface class app/revanced/patches/all/misc/transformation/IMethodCall {
 	public abstract fun getDefinedClassName ()Ljava/lang/String;
 	public abstract fun getMethodName ()Ljava/lang/String;
@@ -866,6 +870,10 @@ public final class app/revanced/patches/youtube/general/toolbar/ToolBarComponent
 	public static final fun getToolBarComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/general/transcript/TranscriptCookiePatchKt {
+	public static final fun getAutoCaptionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/general/updates/LayoutUpdatesPatchKt {
 	public static final fun getLayoutUpdatesPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1394,6 +1402,10 @@ public final class app/revanced/patches/youtube/utils/sponsorblock/SponsorBlockP
 
 public final class app/revanced/patches/youtube/utils/toolbar/ToolBarHookPatchKt {
 	public static final fun getToolBarHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/utils/webview/WebViewPatchKt {
+	public static final fun getWebViewPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/video/information/FingerprintsKt {

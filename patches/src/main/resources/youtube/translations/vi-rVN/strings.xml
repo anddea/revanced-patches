@@ -211,7 +211,7 @@ Hạn chế: Nút Quay lại trên thanh công cụ có thể không hoạt đ�
     <string name="revanced_debug_title">Nhật ký gỡ lỗi</string>
     <string name="revanced_debug_toast_on_error_summary_off">Không hiện thông báo ngắn nếu xảy ra lỗi.</string>
     <string name="revanced_debug_toast_on_error_summary_on">Hiển thị thông báo ngắn nếu xảy ra lỗi.</string>
-    <string name="revanced_debug_toast_on_error_title">Thông báo ngắn khi RVX lỗi</string>
+    <string name="revanced_debug_toast_on_error_title">Hiện thông báo ngắn khi RVX lỗi</string>
     <string name="revanced_default_app_settings_summary">Để mở liên kết YouTube trong RVX, hãy bật \"Mở các đường liên kết được hỗ trợ\" và thêm các đường liên kết được hỗ trợ.</string>
     <string name="revanced_default_app_settings_title">Mở theo mặc định</string>
     <string name="revanced_default_playback_speed_shorts_title">Tốc độ phát mặc định trên Shorts</string>
@@ -461,7 +461,7 @@ Hạn chế: Không hoạt động nếu trình phát đang thu nhỏ, trong ch�
 Để dùng tính năng, hãy thay đổi 'Client mặc định (Giả mạo dữ liệu phát video)' sang iOS TV, TV hoặc TV Simply.
 
 Lưu ý:
-• iOS TV không hỗ trợ phát một số video, ví dụ như video nhạc."</string>
+• Cài đặt này có thể không hoạt động nếu iOS TV không khả dụng tại khu vực của bạn."</string>
     <string name="revanced_extended_confirm_user_dialog_title">Bạn có chắc chắn muốn tiếp tục không?</string>
     <string name="revanced_extended_reset_to_default_toast">Đã đặt lại giá trị về mặc định.</string>
     <string name="revanced_extended_restart">Khởi động lại</string>
@@ -593,7 +593,7 @@ Chi tiết:
     <string name="revanced_hide_autoplay_preview_summary_off">Bảng video tiếp theo được hiển thị ở màn hình kết thúc.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Bảng video tiếp theo đã ẩn khỏi màn hình kết thúc.</string>
     <string name="revanced_hide_autoplay_preview_title">Ẩn bảng video tiếp theo</string>
-    <string name="revanced_hide_carousel_shelf_about_summary">Ví dụ về kệ cá nhân hoá:&lt;br&gt;&lt;br&gt;&lt;b&gt;Tin nổi bật&lt;/b&gt;, &lt;b&gt;Tiếp tục xem&lt;/b&gt;, &lt;b&gt;Khám phá các chủ đề khác&lt;/b&gt;, &lt;b&gt;Nghe lại&lt;/b&gt;, &lt;b&gt;Phù hợp nhất&lt;/b&gt;, &lt;b&gt;Mua sắm&lt;/b&gt;, &lt;b&gt;Xem lại&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Ví dụ về kệ cá nhân hoá:&lt;br&gt;&lt;br&gt;&lt;b&gt;Tin nổi bật&lt;/b&gt;, &lt;b&gt;Tiếp tục xem&lt;/b&gt;, &lt;b&gt;Khám phá các chủ đề khác&lt;/b&gt;, &lt;b&gt;Dành cho bạn&lt;/b&gt;, &lt;b&gt;Nghe lại&lt;/b&gt;, &lt;b&gt;Phù hợp nhất&lt;/b&gt;, &lt;b&gt;Mua sắm&lt;/b&gt;, &lt;b&gt;Xem lại&lt;/b&gt;</string>
     <string name="revanced_hide_carousel_shelf_about_title">Đôi chút về kệ cá nhân hoá</string>
     <string name="revanced_hide_carousel_shelf_home_summary_off">Đã hiển thị trong thẻ Trang chủ và các video liên quan.</string>
     <string name="revanced_hide_carousel_shelf_home_summary_on">Đã ẩn trên thẻ Trang chủ và các video liên quan.</string>
@@ -1410,118 +1410,120 @@ Nếu YouTube Doodles đang hiển thị đồng thời tuỳ chọn ẩn này c
     <string name="revanced_keep_landscape_mode_timeout_summary">Số mili giây mà chế độ toàn màn hình được giữ.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Thời gian giữ chế độ toàn màn hình (mili giây)</string>
     <string name="revanced_keep_landscape_mode_title">Giữ chế độ toàn màn hình</string>
-    <string name="revanced_language_AM">"Amharic
+    <string name="revanced_language_AM">"Tiếng Amharic
 <small>አማርኛ</small>"</string>
-    <string name="revanced_language_AR">"Arabic
+    <string name="revanced_language_AR">"Tiếng Ả Rập
 <small>العربية</small>"</string>
-    <string name="revanced_language_AZ">"Azerbaijani
+    <string name="revanced_language_AZ">"Tiếng Azerbaijan
 <small>Azərbaycan</small>"</string>
-    <string name="revanced_language_BE">"Belarusian
+    <string name="revanced_language_BE">"Tiếng Belarus
 <small>беларуская</small>"</string>
-    <string name="revanced_language_BG">"Bulgarian
+    <string name="revanced_language_BG">"Tiếng Bulgaria
 <small>Български</small>"</string>
-    <string name="revanced_language_BN">"Bengali
+    <string name="revanced_language_BN">"Tiếng Bengal
 <small>বাংলা</small>"</string>
-    <string name="revanced_language_CA">"Catalan
+    <string name="revanced_language_CA">"Tiếng Catalan
 <small>Català</small>"</string>
-    <string name="revanced_language_CS">"Czech
+    <string name="revanced_language_CS">"Tiếng Séc
 <small>Čeština</small>"</string>
-    <string name="revanced_language_DA">"Danish
+    <string name="revanced_language_DA">"Tiếng Đan Mạch
 <small>Dansk</small>"</string>
-    <string name="revanced_language_DE">"German
+    <string name="revanced_language_DE">"Tiếng Đức
 <small>Deutsch</small>"</string>
     <string name="revanced_language_DEFAULT">Theo ứng dụng</string>
-    <string name="revanced_language_EL">"Greek
+    <string name="revanced_language_EL">"Tiếng Hy Lạp
 <small>Ελληνικά</small>"</string>
-    <string name="revanced_language_EN">"English
+    <string name="revanced_language_EN">"Tiếng Anh
 <small>English</small>"</string>
-    <string name="revanced_language_ES">"Spanish
+    <string name="revanced_language_ES">"Tiếng Tây Ban Nha
 <small>Español</small>"</string>
-    <string name="revanced_language_ET">"Estonian
+    <string name="revanced_language_ET">"Tiếng Estonia
 <small>Eesti</small>"</string>
-    <string name="revanced_language_FA">"Persian
+    <string name="revanced_language_FA">"Tiếng Ba Tư
 <small>فارسی</small>"</string>
-    <string name="revanced_language_FI">"Finnish
+    <string name="revanced_language_FI">"Tiếng Phần
 <small>Suomi</small>"</string>
-    <string name="revanced_language_FR">"French
+    <string name="revanced_language_FR">"Tiếng Pháp
 <small>Français</small>"</string>
-    <string name="revanced_language_GA">"Gaeilge
+    <string name="revanced_language_GA">"Tiếng Ireland
 <small>Gaeilge</small>"</string>
-    <string name="revanced_language_GU">"Gujarati
+    <string name="revanced_language_GU">"Tiếng Gujarati
 <small>ગુજરાતી</small>"</string>
-    <string name="revanced_language_HE">"Hebrew
+    <string name="revanced_language_HE">"Tiếng Hebrew
 <small>עברי</small>"</string>
-    <string name="revanced_language_HI">"Hindi
+    <string name="revanced_language_HI">"Tiếng Hindi
 <small>हिन्दी</small>"</string>
-    <string name="revanced_language_HR">"Croatian
+    <string name="revanced_language_HR">"Tiếng Croatia
 <small>Hrvatski</small>"</string>
-    <string name="revanced_language_HU">"Hungarian
+    <string name="revanced_language_HU">"Tiếng Hungary
 <small>Magyar</small>"</string>
-    <string name="revanced_language_ID">"Indonesian
+    <string name="revanced_language_ID">"Tiếng Indonesia
 <small>Indonesia</small>"</string>
-    <string name="revanced_language_IT">"Italian
+    <string name="revanced_language_IT">"Tiếng Ý
 <small>Italiano</small>"</string>
-    <string name="revanced_language_JA">"Japanese
+    <string name="revanced_language_JA">"Tiếng Nhật
 <small>日本語</small>"</string>
-    <string name="revanced_language_KK">"Kazakh
+    <string name="revanced_language_KK">"Tiếng Kazakh
 <small>Қазақ тілі</small>"</string>
-    <string name="revanced_language_KO">"Korean
+    <string name="revanced_language_KO">"Tiếng Hàn
 <small>한국어</small>"</string>
-    <string name="revanced_language_LT">"Lithuanian
+    <string name="revanced_language_LT">"Tiếng Litva
 <small>Lietuvių</small>"</string>
-    <string name="revanced_language_LV">"Latvian
+    <string name="revanced_language_LV">"Tiếng Latvia
 <small>Latviešu</small>"</string>
-    <string name="revanced_language_MK">"Macedonian
+    <string name="revanced_language_MK">"Tiếng Macedonia
 <small>Македонски</small>"</string>
-    <string name="revanced_language_MN">"Mongolian
+    <string name="revanced_language_MN">"Tiếng Mông Cổ
 <small>Монгол</small>"</string>
-    <string name="revanced_language_MR">"Marathi
+    <string name="revanced_language_MR">"Tiếng Marathi
 <small>मराठी</small>"</string>
-    <string name="revanced_language_MS">"Malay
+    <string name="revanced_language_MS">"Tiếng Mã Lai
 <small>Melayu</small>"</string>
-    <string name="revanced_language_MY">"Burmese
+    <string name="revanced_language_MY">"Tiếng Miến Điện
 <small>ဗမာ</small>"</string>
-    <string name="revanced_language_NL">"Dutch
+    <string name="revanced_language_NL">"Tiếng Hà Lan
 <small>Nederlands</small>"</string>
-    <string name="revanced_language_OR">"Odia
+    <string name="revanced_language_OR">"Tiếng Oriya
 <small>ଓଡ଼ିଆ</small>"</string>
-    <string name="revanced_language_PA">"Punjabi
+    <string name="revanced_language_PA">"Tiếng Punjab
 <small>ਪੰਜਾਬੀ</small>"</string>
-    <string name="revanced_language_PL">"Polish
+    <string name="revanced_language_PL">"Tiếng Ba Lan
 <small>Polski</small>"</string>
-    <string name="revanced_language_PT">"Portuguese
+    <string name="revanced_language_PT">"Tiếng Bồ
 <small>Português</small>"</string>
-    <string name="revanced_language_RO">"Romanian
+    <string name="revanced_language_RO">"Tiếng Romania
 <small>Română</small>"</string>
-    <string name="revanced_language_RU">"Russian
+    <string name="revanced_language_RU">"Tiếng Nga
 <small>Русский</small>"</string>
-    <string name="revanced_language_SK">"Slovak
+    <string name="revanced_language_SK">"Tiếng Slovak
 <small>Slovenčina</small>"</string>
-    <string name="revanced_language_SL">"Slovene
+    <string name="revanced_language_SL">"Tiếng Slovenia
 <small>Slovenščina</small>"</string>
-    <string name="revanced_language_SQ">"Albanian
+    <string name="revanced_language_SQ">"Tiếng Albania
 <small>Shqip</small>"</string>
-    <string name="revanced_language_SR">"Serbian
+    <string name="revanced_language_SR">"Tiếng Serbia
 <small>Српски</small>"</string>
-    <string name="revanced_language_SV">"Swedish
+    <string name="revanced_language_SV">"Tiếng Thụy Điển
 <small>Svenska</small>"</string>
-    <string name="revanced_language_SW">"Swahili
+    <string name="revanced_language_SW">"Tiếng Swahili
 <small>Kiswahili</small>"</string>
-    <string name="revanced_language_TA">"Tamil
+    <string name="revanced_language_TA">"Tiếng Tamil
 <small>தமிழ்</small>"</string>
-    <string name="revanced_language_TE">"Telugu
+    <string name="revanced_language_TE">"Tiếng Telugu
 <small>తెలుగు</small>"</string>
-    <string name="revanced_language_TH">"Thai
+    <string name="revanced_language_TH">"Tiếng Thái
 <small>ไทย</small>"</string>
-    <string name="revanced_language_TR">"Turkish
+    <string name="revanced_language_TL">"Tiếng Philippin
+<small>Filipino</small>"</string>
+    <string name="revanced_language_TR">"Tiếng Thổ Nhĩ Kỳ
 <small>Türkçe</small>"</string>
-    <string name="revanced_language_UK">"Ukrainian
+    <string name="revanced_language_UK">"Tiếng Ukraina
 <small>Українська</small>"</string>
-    <string name="revanced_language_UR">"Urdu
+    <string name="revanced_language_UR">"Tiếng Urdu
 <small>اردو</small>"</string>
-    <string name="revanced_language_VI">"Vietnamese
+    <string name="revanced_language_VI">"Tiếng Việt
 <small>Tiếng Việt</small>"</string>
-    <string name="revanced_language_ZH">"Chinese
+    <string name="revanced_language_ZH">"Tiếng Trung
 <small>中文</small>"</string>
     <string name="revanced_language_title">Ngôn ngữ trong cài đặt RVX</string>
     <string name="revanced_minimize">Thu gọn</string>
@@ -1826,7 +1828,7 @@ Mô tả
     <string name="revanced_remember_playback_speed_last_selected_title">Lưu lựa chọn tốc độ phát</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Không hiện thông báo ngắn khi thay đổi tốc độ phát mặc định.</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Hiển thị thông báo ngắn khi thay đổi tốc độ phát mặc định.</string>
-    <string name="revanced_remember_playback_speed_last_selected_toast_title">Thông báo ngắn</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Hiện thông báo ngắn</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_summary_off">Lựa chọn tốc độ phát đã chọn chỉ áp dụng cho video Shorts hiện tại.</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_summary_on">"Lựa chọn tốc độ phát đã chọn sẽ áp dụng cho tất cả video Shorts.
 
@@ -1836,7 +1838,7 @@ Chi tiết:
     <string name="revanced_remember_playback_speed_shorts_last_selected_title">Lưu lựa chọn tốc độ phát trên Shorts</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_off">Không hiện thông báo ngắn khi thay đổi tốc độ phát mặc định trên Shorts.</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_on">Hiển thị thông báo ngắn khi thay đổi tốc độ phát mặc định trên Shorts.</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_title">Thông báo ngắn</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_title">Hiện thông báo ngắn</string>
     <string name="revanced_remember_playback_speed_toast">Đã thay đổi tốc độ phát mặc định thành: %s.</string>
     <string name="revanced_remember_playback_speed_toast_shorts">Đã thay đổi tốc độ phát mặc định trên Shorts thành: %s.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Lựa chọn chất lượng video đã chọn chỉ áp dụng cho video hiện tại.</string>
@@ -1844,7 +1846,7 @@ Chi tiết:
     <string name="revanced_remember_video_quality_last_selected_title">Lưu lựa chọn chất lượng video</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Không hiện thông báo ngắn khi thay đổi chất lượng video mặc định.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Hiển thị thông báo ngắn khi thay đổi chất lượng video mặc định.</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_title">Thông báo ngắn</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Hiện thông báo ngắn</string>
     <string name="revanced_remember_video_quality_mobile">Mạng di động</string>
     <string name="revanced_remember_video_quality_none">Thay đổi lựa chọn chất lượng video thất bại.</string>
     <string name="revanced_remember_video_quality_shorts_last_selected_summary_off">Lựa chọn chất lượng video đã chọn chỉ áp dụng cho video Shorts hiện tại.</string>
@@ -1852,7 +1854,7 @@ Chi tiết:
     <string name="revanced_remember_video_quality_shorts_last_selected_title">Lưu lựa chọn chất lượng video Shorts</string>
     <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_off">Không hiện thông báo ngắn khi thay đổi chất lượng video Shorts mặc định.</string>
     <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_on">Hiển thị thông báo ngắn khi thay đổi chất lượng video Shorts mặc định.</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_toast_title">Thông báo ngắn</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_toast_title">Hiện thông báo ngắn</string>
     <string name="revanced_remember_video_quality_toast">Đã thay đổi chất lượng mặc định %1$s thành: %2$s.</string>
     <string name="revanced_remember_video_quality_toast_shorts">Đã thay đổi chất lượng Shorts mặc định %1$s thành: %2$s.</string>
     <string name="revanced_remember_video_quality_wifi">Wi-fi</string>
@@ -1891,12 +1893,12 @@ Không còn lề trên và dưới trong trình phát."</string>
 
 Giới hạn truy cập hàng ngày cho các khoá API trên gói miễn phí là 10000 lượt, với mỗi lượt truy cập chỉ áp dụng cho 1 bình luận.
 
-Nhấp vào đây để xem các bước phát hành khóa API."</string>
+Nhấn vào đây để xem các bước tạo khóa API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">Giới thiệu về khoá YouTube Data API</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">Khoá nhà phát triển để sử dụng YouTube Data API v3.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Khoá Youtube Data API</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;Tạo dự án mới&lt;/a&gt;.&lt;br&gt;2. Ấn vào &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Đi tới &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Ấn vào &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Ấn vào &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Chọn &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Ấn vào &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Sao chép mã khoá API.&lt;br&gt;&lt;br&gt;※ Không nên chia sẻ mã khoá API với người khác, vì vậy chúng cũng không có mặt trong mục Nhập/Xuất cài đặt.</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Phát hành mã khoá</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Tạo mã khoá</string>
     <string name="revanced_ryd_about">Giới thiệu</string>
     <string name="revanced_ryd_attribution_summary">Dữ liệu về lượt không thích được cung cấp bởi API Return YouTube Dislike. Nhấn vào đây để tìm hiểu thêm.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1925,7 +1927,7 @@ Hạn chế: Số lượt không thích có thể không hiển thị nếu ngư
     <string name="revanced_ryd_shorts_title">Hiện số lượt không thích trong Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Không hiện thông báo ngắn nếu Return YouTube Dislike không khả dụng.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Hiển thị thông báo ngắn nếu Return YouTube Dislike không khả dụng.</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Thông báo ngắn nếu API không khả dụng</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Hiện thông báo ngắn nếu API không khả dụng</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ẩn</string>
     <string name="revanced_sanitize_comments_category_bar_summary_off">Các nút danh mục được hiển thị trong thanh danh mục của bình luận.</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">"Các nút danh mục ngoại trừ 'Nổi bật nhất' và 'Mới nhất' đã ẩn trong thanh danh mục của bình luận."</string>
@@ -1975,7 +1977,7 @@ Hạn chế: Số lượt không thích có thể không hiển thị nếu ngư
     <string name="revanced_sb_general_skipcount">Theo dõi số lần bỏ qua</string>
     <string name="revanced_sb_general_skipcount_sum_off">Theo dõi số lần bỏ qua không được bật.</string>
     <string name="revanced_sb_general_skipcount_sum_on">Cho bảng xếp hạng của SponsorBlock biết lượng thời gian đã tiết kiệm được. Một thông báo sẽ được gửi tới bảng xếp hạng mỗi khi một phân đoạn đã bỏ qua.</string>
-    <string name="revanced_sb_general_skiptoast">Thông báo ngắn khi tự động bỏ qua</string>
+    <string name="revanced_sb_general_skiptoast">Hiện thông báo ngắn khi tự động bỏ qua</string>
     <string name="revanced_sb_general_skiptoast_sum_off">Không hiện thông báo ngắn mỗi khi tự động bỏ qua phân đoạn. Nhấn vào đây để xem ví dụ.</string>
     <string name="revanced_sb_general_skiptoast_sum_on">Hiển thị thông báo ngắn mỗi khi tự động bỏ qua phân đoạn. Nhấn vào đây để xem ví dụ.</string>
     <string name="revanced_sb_general_time_without">Hiển thị thời lượng video không có phân đoạn</string>
@@ -2123,7 +2125,7 @@ Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_sb_submit_succeeded">Đã gửi phân đoạn thành công.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Không hiện thông báo ngắn nếu SponsorBlock không khả dụng.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Hiển thị thông báo ngắn nếu SponsorBlock không khả dụng.</string>
-    <string name="revanced_sb_toast_on_connection_error_title">Thông báo ngắn nếu API không khả dụng</string>
+    <string name="revanced_sb_toast_on_connection_error_title">Hiện thông báo ngắn nếu API không khả dụng</string>
     <string name="revanced_sb_vote_category">Đổi danh mục</string>
     <string name="revanced_sb_vote_downvote">Phản đối</string>
     <string name="revanced_sb_vote_failed_forbidden">Không thể bỏ phiếu cho phân đoạn: %s.</string>
@@ -2145,6 +2147,25 @@ Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_search_settings_no_results_summary">Hãy thử một từ khoá khác.</string>
     <string name="revanced_search_settings_no_results_title">Không tìm thấy kết quả nào cho \"%1$s\"</string>
     <string name="revanced_search_title">Tìm kiếm</string>
+    <string name="revanced_set_transcript_cookies_all_summary_off">Cookie chỉ được thiết lập cho yêu cầu dịch phụ đề tự động.</string>
+    <string name="revanced_set_transcript_cookies_all_summary_on">Cookie đã được thiết lập cho mọi yêu cầu API Transcript.</string>
+    <string name="revanced_set_transcript_cookies_all_title">Thiết lập Cookie cho mọi yêu cầu API Transcript</string>
+    <string name="revanced_set_transcript_cookies_summary_off">Cookie cho Transcript chưa được thiết lập.</string>
+    <string name="revanced_set_transcript_cookies_summary_on">Cookie cho Transcript đã được thiết lập.</string>
+    <string name="revanced_set_transcript_cookies_title">Thiết lập Cookie cho Transcript</string>
+    <string name="revanced_set_transcript_cookies_user_dialog_message">"Hiện tại YouTube đang gặp lỗi khiến dịch phụ đề tự động không khả dụng.
+
+Nguyên nhân nằm ở YouTube Transcript API, và cần Google sửa.
+
+Tạm thời, bạn có thể thiết lập Cookie để giải quyết vấn đề này.
+
+[Miễn trừ trách nhiệm]
+
+Lưu ý: Cookie không phải giải pháp tuyệt đối. Nó có thể không hoạt động nếu:
+
+• Cookie đã hết hạn.
+• Cookie không hợp lệ.
+• YouTube Transcript API ngừng chấp nhận Cookie."</string>
     <string name="revanced_settings_search_highlight_color_summary">Chọn màu để đánh dấu cho từ khoá khớp trong kết quả tìm kiếm.</string>
     <string name="revanced_settings_search_highlight_color_title">Màu đánh dấu</string>
     <string name="revanced_settings_search_highlight_summary">Đánh dấu những từ khoá khớp trong kết quả tìm kiếm với màu bạn đã chọn.</string>
@@ -2211,7 +2232,7 @@ Hầu hết các lỗi không thể sửa được do hạn chế tới từ ph�
     <string name="revanced_show_video_title_section_summary">"Hiển thị phần tiêu đề video ở chế độ toàn màn hình.
 
 Hạn chế: Tiêu đề video sẽ biến mất khi nhấn vào."</string>
-    <string name="revanced_show_video_title_section_title">Hiển thị phần tiêu đề video</string>
+    <string name="revanced_show_video_title_section_title">Hiện phần tiêu đề video</string>
     <string name="revanced_skip_autoplay_countdown_summary_off">Nếu tính năng Tự động phát được bật, video tiếp theo sẽ được phát sau khi đếm ngược kết thúc.</string>
     <string name="revanced_skip_autoplay_countdown_summary_on">Nếu tính năng Tự động phát được bật, video tiếp theo sẽ được phát ngay lập tức mà không cần đếm ngược.</string>
     <string name="revanced_skip_autoplay_countdown_title">Bỏ qua thời gian đếm ngược trước khi phát</string>
@@ -2253,14 +2274,14 @@ Chi tiết:
 • Cài đặt này sẽ không khả dụng nếu \"Giả mạo dữ liệu phát video\" đang được bật."</string>
     <string name="revanced_spoof_device_dimensions_title">Giả mạo kích thước thiết bị</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_unplugged">"Android TV
-<small>(Cần đăng nhập)</small>"</string>
+<small>(Yêu cầu đăng nhập)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr_no_auth">"Android VR
 <small>(Không xác thực)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Không khuyến khích)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_unplugged">"iOS TV
-<small>(Cần đăng nhập)</small>"</string>
+<small>(Yêu cầu đăng nhập)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(Thử nghiệm)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">"TV
@@ -2317,8 +2338,8 @@ Ví dụ 2:
     <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Nút làm mới video đã được hiển thị.</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_title">Nút làm mới video</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Thiếu trình đơn Bản âm thanh.
-• Âm lượng ổn định không khả dụng.
 • Tắt buộc bản âm thanh tự động không khả dụng.
+• Âm lượng ổn định không khả dụng.
 • Video dành cho trẻ em có thể không phát được khi bạn đã đăng xuất hoặc bật chế độ ẩn danh."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Mục Bản âm thanh bị thiếu.
 • Âm lượng ổn định không khả dụng."</string>
@@ -2329,7 +2350,9 @@ Ví dụ 2:
 • Codec âm thanh opus có thể không được hỗ trợ."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• Máy chủ có thể chặn toàn bộ dải ASN/IP.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Video có thể kết thúc sớm hơn 1 giây.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Âm lượng ổn định không khả dụng.
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Trình đơn Bản âm thanh có thể bị thiếu.
+• Tắt buộc bản âm thanh tự động có thể không khả dụng.
+• Âm lượng ổn định không khả dụng.
 • Phim hoặc video trả phí có thể không phát được.
 • Video dành cho trẻ em có thể không phát được khi bạn đã đăng xuất hoặc bật chế độ ẩn danh."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Thiếu trình đơn Bản âm thanh.
@@ -2394,11 +2417,14 @@ Tính năng này vẫn đang được phát triển, vì vậy nó có thể ng�
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Codec video là AVC (H.264) hoặc VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Vô hiệu hóa AV1 (VR)</string>
     <string name="revanced_spoof_streaming_data_vr_language_title">Ngôn ngữ âm thanh mặc định (VR)</string>
+    <string name="revanced_swipe_brightness_distance_summary">Khoảng cách tối thiểu khi vuốt để điều chỉnh độ sáng (tính bằng pixel). Giá trị càng thấp, điều chỉnh độ sáng càng nhanh và ngược lại (1-1000).</string>
+    <string name="revanced_swipe_brightness_distance_title">Ngưỡng vuốt độ sáng</string>
     <string name="revanced_swipe_brightness_summary_off">Cử chỉ điều chỉnh độ sáng ở chế độ Toàn màn hình đã tắt.</string>
     <string name="revanced_swipe_brightness_summary_on">"Cử chỉ điều chỉnh độ sáng ở chế độ Toàn màn hình đã được bật.
  
 Điều chỉnh độ sáng bằng cách vuốt dọc bên cạnh trái màn hình."</string>
     <string name="revanced_swipe_brightness_title">Cử chỉ điều chỉnh độ sáng</string>
+    <string name="revanced_swipe_distance_invalid">Ngưỡng vuốt phải nằm trong khoảng từ 1 tới 1000.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Vuốt ở chế độ Khoá màn hình đã tắt.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Cử chỉ vuốt đã bật ở chế độ Khoá màn hình.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Vuốt ở chế độ Khoá màn hình</string>
@@ -2414,6 +2440,10 @@ Tính năng này vẫn đang được phát triển, vì vậy nó có thể ng�
     <string name="revanced_swipe_overlay_background_opacity_title">Độ mờ nền của lớp phủ vuốt</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Màu của thanh điều chỉnh độ sáng.</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Màu lớp phủ vuốt độ sáng</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_summary">Màu của thanh tiến trình khi vuốt để tua</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_title">Màu lớp phủ vuốt để tua</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">Màu của thanh điều chỉnh tốc độ phát</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">Màu lớp phủ vuốt tốc độ phát</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">Màu của thanh điều chỉnh âm lượng.</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Màu lớp phủ vuốt âm lượng</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Kích thước khu vực vuốt không được lớn hơn 50.</string>
@@ -2436,11 +2466,30 @@ Tính năng này vẫn đang được phát triển, vì vậy nó có thể ng�
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Không lưu và khôi phục độ sáng khi thoát ra hoặc vào chế độ Toàn màn hình.</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Lưu và khôi phục độ sáng khi thoát ra hoặc vào chế độ Toàn màn hình.</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Lưu và khôi phục độ sáng</string>
+    <string name="revanced_swipe_seek_distance_summary">Khoảng cách tối thiểu khi vuốt để tua video (tính bằng pixel). Giá trị càng thấp, tua càng nhanh và ngược lại (1-1000).</string>
+    <string name="revanced_swipe_seek_distance_title">Ngưỡng vuốt</string>
+    <string name="revanced_swipe_seek_summary_off">Vuốt để tua trong chế độ toàn màn hình đã tắt.</string>
+    <string name="revanced_swipe_seek_summary_on">"Vuốt để tua trong chế độ toàn màn hình đã bật.
+
+Tua video bằng cách vuốt ngang nửa trên màn hình."</string>
+    <string name="revanced_swipe_seek_title">Cử chỉ tua video</string>
+    <string name="revanced_swipe_speed_distance_summary">Khoảng cách tối thiểu khi vuốt để điều chỉnh tốc độ phát video (tính bằng pixel). Giá trị càng thấp, điều chỉnh tốc độ phát càng nhanh và ngược lại (1-1000).</string>
+    <string name="revanced_swipe_speed_distance_title">Ngưỡng vuốt</string>
+    <string name="revanced_swipe_speed_summary_off">Vuốt để điều chỉnh tốc độ phát trong chế độ toàn màn hình đã tắt.</string>
+    <string name="revanced_swipe_speed_summary_on">"Vuốt để điều chỉnh tốc độ phát trong chế độ toàn màn hình đã bật.
+
+Điều chỉnh tốc độ phát bằng cách vuốt ngang nửa dưới màn hình."</string>
+    <string name="revanced_swipe_speed_title">Cử chỉ điều chỉnh tốc độ phát</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_off">Vuốt nửa trên để tua, còn nửa dưới để điều chỉnh tốc độ phát.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_on">Vuốt nửa trên để điều chỉnh tốc độ phát, còn nửa dưới để tua.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_title">Hoán đổi cử chỉ tốc độ phát và tua</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">Cỡ chữ phải nằm trong khoảng từ 1 đến 30.</string>
     <string name="revanced_swipe_text_overlay_size_summary">Cỡ chữ trên lớp phủ vuốt thường nằm trong khoảng từ 1 đến 30.</string>
     <string name="revanced_swipe_text_overlay_size_title">Kích thước văn bản trên lớp phủ</string>
     <string name="revanced_swipe_threshold_summary">Ngưỡng vuốt tối thiểu để thao tác vuốt xảy ra.</string>
     <string name="revanced_swipe_threshold_title">Ngưỡng vuốt</string>
+    <string name="revanced_swipe_volume_distance_summary">Khoảng cách tối thiểu khi vuốt để điều chỉnh âm lượng (tính bằng pixel). Giá trị càng thấp, điều chỉnh âm lượng càng nhanh và ngược lại (1-1000).</string>
+    <string name="revanced_swipe_volume_distance_title">Ngưỡng vuốt âm lượng</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Độ nhạy khi vuốt để điều chỉnh âm lượng phải nằm trong khoảng từ 1 đến 1000.</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Mức âm lượng thay đổi sau mỗi lần vuốt.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Độ nhạy khi vuốt để điều chỉnh âm lượng</string>
@@ -2470,6 +2519,36 @@ Nếu cài đặt này không có hiệu lực, hãy thử chuyển sang chế �
     <string name="revanced_third_party_youtube_music_not_installed_warning">Hiện %s chưa được cài đặt. Hãy cài đặt và thử lại.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Tên gói của RVX Music đã được cài đặt.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Tên gói của RVX Music</string>
+    <string name="revanced_transcript_cookies_about_summary">Nhấn vào đây để xem cách lấy Cookie.</string>
+    <string name="revanced_transcript_cookies_about_title">Giới thiệu về Cookie cho Transcript</string>
+    <string name="revanced_transcript_cookies_dialog_auth_text">Xác thực</string>
+    <string name="revanced_transcript_cookies_dialog_message">"Xác thực
+══════════════
+1. Nhấn 'Auth' để mở trang đăng nhập trong WebView.
+2. Đăng nhập bằng tài khoản Google.
+3. Phát một video có hỗ trợ dịch phụ đề tự động.
+4. Bật dịch phụ đề tự động và kiểm tra xem có hoạt động không.
+4-1. Nếu không, hãy chuyển sang một video khác có hỗ trợ dịch phụ đề tự động và thử lại bước 4.
+5. Nhấn vào dấu ba chấm trên thanh công cụ để mở trình đơn.
+6. Chọn 'Get Cookies'.
+7. Nhấn 'Copy' để sao chép Cookie.
+8. Đóng WebView và dán Cookie vừa sao chép vào mục 'Transcript Cookies' trong cài đặt.
+
+
+Không xác thực
+══════════════
+1. Nhấn 'No Auth' để mở video trong WebView.
+2. Phát video ít nhất 3 giây.
+3. Nhấn vào dấu ba chấm trên thanh công cụ để mở trình đơn.
+4. Chọn 'Get Cookies'.
+5. Nhấn 'Copy' để sao chép Cookie.
+6. Đóng WebView và dán Cookie vừa sao chép vào mục 'Transcript Cookies' trong cài đặt.
+
+Miễn trừ trách nhiệm: Cookie tạo ra khi không đăng nhập có thể không hợp lệ hoặc cần thời gian mới được API Transcript chấp nhận."</string>
+    <string name="revanced_transcript_cookies_dialog_no_auth_text">Không xác thực</string>
+    <string name="revanced_transcript_cookies_dialog_title">Xuất Cookie cho Transcript</string>
+    <string name="revanced_transcript_cookies_summary">Cookie để dùng trong yêu cầu API Transcript.</string>
+    <string name="revanced_transcript_cookies_title">Cookie cho Transcript</string>
     <string name="revanced_watch_history_about_status_blocked">• Nhật ký xem bị chặn.</string>
     <string name="revanced_watch_history_about_status_original">"• Tuân theo cài đặt nhật ký xem của tài khoản Google.
 • Nhật ký xem có thể không hoạt động do DNS hoặc VPN."</string>
@@ -2481,6 +2560,23 @@ Nếu cài đặt này không có hiệu lực, hãy thử chuyển sang chế �
     <string name="revanced_watch_history_type_entry_2">Thay thế miền</string>
     <string name="revanced_watch_history_type_entry_3">Chặn nhật ký</string>
     <string name="revanced_watch_history_type_title">Kiểu nhật ký</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Lấy Cookie</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Lấy ID đồng bộ dữ liệu</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Lấy dữ liệu khách</string>
+    <string name="revanced_webview_contextual_menu_refresh">Tải lại</string>
+    <string name="revanced_webview_cookies">Cookie</string>
+    <string name="revanced_webview_copy">Sao chép</string>
+    <string name="revanced_webview_data_sync_id">ID đồng bộ dữ liệu</string>
+    <string name="revanced_webview_intent_clear_cookies_on_shutdown">Dọn dẹp Cookie khi thoát ứng dụng</string>
+    <string name="revanced_webview_intent_clear_cookies_on_startup">Dọn dẹp Cookie khi khởi động</string>
+    <string name="revanced_webview_intent_use_desktop_user_agent">Dùng User-Agent Desktop</string>
+    <string name="revanced_webview_summary">Mở WebView để lấy Cookie.</string>
+    <string name="revanced_webview_title">WebView</string>
+    <string name="revanced_webview_toast_copy_success">Đã sao chép %s vào bảng nhớ tạm.</string>
+    <string name="revanced_webview_toast_empty">%s trống.</string>
+    <string name="revanced_webview_toast_no_network">Hãy kiểm tra lại kết nối mạng của bạn.</string>
+    <string name="revanced_webview_toast_unavailable">WebView không khả dụng.</string>
+    <string name="revanced_webview_visitor_data">Dữ liệu khách</string>
     <string name="revanced_whitelist_add_failed">Không thêm được kênh \'%1$s\' vào Danh sách trắng của %2$s.</string>
     <string name="revanced_whitelist_added">Kênh \'%1$s\' đã được thêm vào Danh sách trắng của %2$s.</string>
     <string name="revanced_whitelist_empty">Không có kênh nào.</string>

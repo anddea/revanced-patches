@@ -354,7 +354,7 @@ object InnerTubeRequestBody {
                 if (!supportsCookies && StringUtils.equalsAny(
                         key,
                         AUTHORIZATION_HEADER,
-                        PAGE_ID_HEADER
+                        PAGE_ID_HEADER,
                     )
                 ) {
                     continue
