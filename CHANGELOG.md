@@ -1,3 +1,10 @@
+# [3.13.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.13.0-dev.1...v3.13.0-dev.2) (2025-09-07)
+
+
+### Bug Fixes
+
+* **YouTube:** Address small inconsistencies that caused the app to crash ([6a3043f](https://github.com/anddea/revanced-patches/commit/6a3043f8980783104cbc466205d38d6c0f6ba33d))
+
 # [3.13.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.12.0...v3.13.0-dev.1) (2025-09-07)
 
 
