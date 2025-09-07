@@ -927,19 +927,42 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             // This item's dependency chain has been (or is being) processed.
             // However, it might need to be visually added to *this specific* preferenceGroup
             // if it wasn't already (e.g., if it's a dependency reached via another path).
+            // Add the preference itself to the preferenceGroup
+            // Ensure it's not already visually there (e.g. if it was added as a dependency of something else)
             boolean alreadyInThisGroup = false;
             for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
                 Preference p = preferenceGroup.getPreference(i);
+                // Check by instance and by key
                 if (p == preference || (p.getKey() != null && p.getKey().equals(preferenceKey))) {
                     alreadyInThisGroup = true;
                     break;
                 }
             }
             if (!alreadyInThisGroup) {
+                // Temporarily disable dependency to skip findPreferenceInHierarchy validation during add
+                String originalDependency = preference.getDependency();
+                if (originalDependency != null) {
+                    preference.setDependency(null);
+                }
+
                 try {
                     preferenceGroup.addPreference(preference);
+
+                    // Immediately restore dependency AFTER add (while attached to search hierarchy)
+                    // This enables state evaluation (en/disabling) in search results
+                    if (originalDependency != null) {
+                        preference.setDependency(originalDependency);
+                    }
+
+                    // Optional: Force notify hierarchy change to trigger immediate dep state update
+                    // (e.g., if parent was added earlier and is unchecked, this grays out the pref now)
+                    if (preference.getPreferenceManager() != null) {
+                        preference.getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(listener); // Ensure listener is active
+                    }
                 } catch (Exception e) {
                     // Logger.printException(() -> "Failed to re-add keyed item to a different group: " + preferenceKey, e);
+                    visitedPreferences.remove(preferenceKey);
+                    return;
                 }
             }
             return;
@@ -971,12 +994,27 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             }
         }
         if (!alreadyInThisGroup) {
+            // Temporarily disable dependency to skip findPreferenceInHierarchy validation during add
+            String originalDependency = preference.getDependency();
+            if (originalDependency != null) {
+                preference.setDependency(null);
+            }
+
             try {
                 preferenceGroup.addPreference(preference);
             } catch (Exception e) {
+                // Restore dep even on failure
+                if (originalDependency != null) {
+                    preference.setDependency(originalDependency);
+                }
                 Logger.printException(() -> "Failed to add keyed item: " + preferenceKey, e);
                 visitedPreferences.remove(preferenceKey);
                 return;
+            } finally {
+                // Always restore original dependency after add (or failure)
+                if (originalDependency != null) {
+                    preference.setDependency(originalDependency);
+                }
             }
         }
 
@@ -1012,7 +1050,15 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 setPreferenceScreen((PreferenceScreen) preference);
                 return true;
             });
-        } else {
+        }
+        else if (preference instanceof ImportExportPreference originalPref) {
+            proxyPreference.setOnPreferenceClickListener(p -> {
+                originalPref.onPreferenceClick(originalPref);
+                originalPref.showDialog(null);
+                return true;
+            });
+        }
+        else {
             // For all other types, just copy the original click listener.
             proxyPreference.setOnPreferenceClickListener(preference.getOnPreferenceClickListener());
         }
