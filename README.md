@@ -67,6 +67,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Return YouTube Username` | Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3. | 19.05.36 ~ 19.47.53 |
 | `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 19.05.36 ~ 19.47.53 |
 | `Seekbar components` | Adds options to hide or change components related to the seekbar. | 19.05.36 ~ 19.47.53 |
+| `Set Transcript Cookies` | Adds an option to set Cookies in YouTube Transcript API requests. | 19.05.36 ~ 19.47.53 |
 | `Settings for YouTube` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 19.05.36 ~ 19.47.53 |
 | `Shorts components` | Adds options to hide or change components related to YouTube Shorts. | 19.05.36 ~ 19.47.53 |
 | `Snack bar components` | Adds options to hide or change components related to the snack bar. | 19.05.36 ~ 19.47.53 |

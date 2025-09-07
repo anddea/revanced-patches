@@ -1269,7 +1269,8 @@
     "description": "Adds an option for debugging and exporting RVX logs to the clipboard.",
     "use": true,
     "dependencies": [
-      "Settings for YouTube"
+      "Settings for YouTube",
+      "BytecodePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -2441,6 +2442,14 @@
     ]
   },
   {
+    "name": "Override certificate pinning",
+    "description": "Overrides certificate pinning, allowing to inspect traffic via a proxy.",
+    "use": false,
+    "dependencies": [],
+    "compatiblePackages": null,
+    "options": []
+  },
+  {
     "name": "Player components",
     "description": "Adds options to hide or change components related to the player.",
     "use": true,
@@ -2818,6 +2827,26 @@
       "Settings for YouTube",
       "BytecodePatch",
       "ResourcePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Set Transcript Cookies",
+    "description": "Adds an option to set Cookies in YouTube Transcript API requests.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch",
+      "Settings for YouTube",
+      "BytecodePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
