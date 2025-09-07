@@ -196,6 +196,10 @@ public class VideoQualityPatch {
         if (PatchStatus.VideoPlayback() && !userChangedQuality && !CollectionUtils.isEmpty(formats) &&
                 (currentFormats == null || !CollectionUtils.isEqualCollection(currentFormats, formats))) {
             try {
+                if (isShortsActive()) {
+                    userChangedQuality = true;
+                    return;
+                }
                 final int preferredQuality = getDefaultQualityResolution();
                 if (preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
                     userChangedQuality = true;

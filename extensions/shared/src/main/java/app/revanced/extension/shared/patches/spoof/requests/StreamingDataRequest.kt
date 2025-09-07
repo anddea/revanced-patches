@@ -28,7 +28,6 @@ import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.SocketTimeoutException
-import java.net.URL
 import java.nio.ByteBuffer
 import java.util.Collections
 import java.util.Objects
@@ -102,7 +101,6 @@ class StreamingDataRequest private constructor(
 
     companion object {
         private const val AUTHORIZATION_HEADER = "Authorization"
-        private const val PAGE_ID_HEADER = "X-Goog-PageId"
         private const val VISITOR_ID_HEADER: String = "X-Goog-Visitor-Id"
         private const val MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20 * 1000
 
@@ -192,17 +190,18 @@ class StreamingDataRequest private constructor(
          */
         private fun replaceVisitorData(
             clientType: ClientType,
+            videoId: String,
             requestHeader: Map<String, String>,
         ): Map<String, String> {
             if (clientType.requirePoToken) {
                 val finalRequestHeader: MutableMap<String, String> =
                     LinkedHashMap(requestHeader.size)
+                val visitorData = PoTokenGate.getVisitorData(videoId)
                 for (key in requestHeader.keys) {
                     val value = requestHeader[key]
                     if (value != null) {
                         if (key == VISITOR_ID_HEADER) {
-                            val visitorData = PoTokenGate.getVisitorData()
-                            if (visitorData != null) {
+                            if (!visitorData.isNullOrEmpty()) {
                                 finalRequestHeader.put(VISITOR_ID_HEADER, visitorData)
                                 continue
                             }
@@ -213,25 +212,6 @@ class StreamingDataRequest private constructor(
                 return finalRequestHeader
             }
             return requestHeader
-        }
-
-        /**
-         * The easiest way to check if streamingUrl has been deobfuscated properly is to send a request and check if the response code is 200.
-         * Typically, all n parameters included in the response are the same, so it is sufficient to test only for the stream Url at the first index.
-         */
-        private fun streamUrlIsAvailable(streamUrl: String): Boolean {
-            try {
-                val url = URL(streamUrl)
-                val connection = url.openConnection() as HttpURLConnection
-                connection.setFixedLengthStreamingMode(0)
-                connection.requestMethod = "HEAD"
-                return connection.responseCode == 200
-            } catch (ex: IOException) {
-                handleConnectionError("Network error", ex)
-            } catch (ex: Exception) {
-                Logger.printException({ "send failed" }, ex)
-            }
-            return false
         }
 
         private fun getPlayabilityStatus(
@@ -324,10 +304,7 @@ class StreamingDataRequest private constructor(
                             if (!deobfuscatedUrl.isNullOrEmpty() && !sessionPoToken.isNullOrEmpty()) {
                                 deobfuscatedUrl += "&pot=$sessionPoToken"
                             }
-                            if (deobfuscatedUrl.isNullOrEmpty() || i == 0 && !streamUrlIsAvailable(
-                                    deobfuscatedUrl
-                                )
-                            ) {
+                            if (deobfuscatedUrl.isNullOrEmpty()) {
                                 Logger.printDebug { "Failed to decrypt n-sig or signatureCipher, please check if latest regular expressions are being used" }
                                 return null
                             }
@@ -468,7 +445,7 @@ class StreamingDataRequest private constructor(
                     getInnerTubeResponseConnectionFromRoute(
                         GET_STREAMING_DATA,
                         clientType,
-                        replaceVisitorData(clientType, requestHeader)
+                        replaceVisitorData(clientType, videoId, requestHeader)
                     )
 
                 connection.setFixedLengthStreamingMode(requestBody.size)
@@ -507,10 +484,7 @@ class StreamingDataRequest private constructor(
             // Retry with different client if empty response body is received.
             for (clientType in CLIENT_ORDER_TO_USE) {
                 if (clientType.requireAuth &&
-                    StringUtils.isAllEmpty(
-                        requestHeader[AUTHORIZATION_HEADER],
-                        requestHeader[PAGE_ID_HEADER]
-                    )
+                    StringUtils.isEmpty(requestHeader[AUTHORIZATION_HEADER])
                 ) {
                     Logger.printDebug { "Skipped login-required client (clientType: $clientType, videoId: $videoId)" }
                     continue

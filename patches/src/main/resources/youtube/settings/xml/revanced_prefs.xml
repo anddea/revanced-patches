@@ -149,6 +149,12 @@
         <!-- SETTINGS: REMOVE_VIEWER_DISCRETION_DIALOG
         <SwitchPreference android:title="@string/revanced_remove_viewer_discretion_dialog_title" android:key="revanced_remove_viewer_discretion_dialog" android:summary="@string/revanced_remove_viewer_discretion_dialog_summary" />SETTINGS: REMOVE_VIEWER_DISCRETION_DIALOG -->
 
+        <!-- SETTINGS: SET_TRANSCRIPT_COOKIES
+        <SwitchPreference android:title="@string/revanced_set_transcript_cookies_title" android:key="revanced_set_transcript_cookies" android:summaryOn="@string/revanced_set_transcript_cookies_summary_on" android:summaryOff="@string/revanced_set_transcript_cookies_summary_off" />
+        <SwitchPreference android:title="@string/revanced_set_transcript_cookies_all_title" android:key="revanced_set_transcript_cookies_all" android:summaryOn="@string/revanced_set_transcript_cookies_all_summary_on" android:summaryOff="@string/revanced_set_transcript_cookies_all_summary_off" app:searchDependency="revanced_set_transcript_cookies" />
+        <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_transcript_cookies_title" android:key="revanced_transcript_cookies" android:summary="@string/revanced_transcript_cookies_summary" android:inputType="textMultiLine" app:searchDependency="revanced_set_transcript_cookies" />
+        <app.revanced.extension.youtube.settings.preference.GetCookiesPreference android:title="@string/revanced_transcript_cookies_about_title" android:key="revanced_transcript_cookies_about" android:summary="@string/revanced_transcript_cookies_about_summary" app:searchDependency="revanced_set_transcript_cookies" />SETTINGS: SET_TRANSCRIPT_COOKIES -->
+
         <!-- PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS
         <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS -->
 
@@ -881,6 +887,7 @@
             <Preference android:title="@string/revanced_debug_export_logs_to_clipboard_title" android:key="revanced_debug_export_logs_to_clipboard" android:summary="@string/revanced_debug_export_logs_to_clipboard_summary" />
             <Preference android:title="@string/revanced_debug_export_logs_to_file_title" android:key="revanced_debug_export_logs_to_file" android:summary="@string/revanced_debug_export_logs_to_file_summary" />
             <Preference android:title="@string/revanced_debug_logs_clear_buffer_title" android:key="revanced_debug_logs_clear_buffer" android:summary="@string/revanced_debug_logs_clear_buffer_summary" />
+            <app.revanced.extension.youtube.settings.preference.WebViewPreference android:title="@string/revanced_webview_title" android:key="revanced_webview" android:summary="@string/revanced_webview_summary" />
         </PreferenceScreen>SETTINGS: DEBUGGING -->
 
         <PreferenceScreen android:title="@string/revanced_preference_screen_import_export_title" android:key="revanced_preference_screen_import_export" android:summary="@string/revanced_preference_screen_import_export_summary">
@@ -994,6 +1001,7 @@
                 <Preference android:title="Hook download actions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Navigation bar components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Remove viewer discretion dialog" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Set Transcript Cookies" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Snack bar components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Spoof app version" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Toolbar components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

@@ -19,7 +19,6 @@ import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
-import app.revanced.patches.youtube.utils.fullScreenEngagementPanelFingerprint
 import app.revanced.patches.youtube.utils.fullscreen.fullscreenButtonHookPatch
 import app.revanced.patches.youtube.utils.indexOfFocusableInTouchModeInstruction
 import app.revanced.patches.youtube.utils.layoutConstructorFingerprint

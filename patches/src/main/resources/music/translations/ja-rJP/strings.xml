@@ -126,7 +126,11 @@
     <string name="revanced_enable_mini_player_next_button_title">「次の曲に進むボタン」を表示</string>
     <string name="revanced_enable_mini_player_previous_button_summary">ミニプレーヤーで「前の曲に戻るボタン」を表示します。</string>
     <string name="revanced_enable_mini_player_previous_button_title">「前の曲に戻るボタン」を表示</string>
-    <string name="revanced_enable_opus_codec_summary">"MP4A コーデックの代わりに、Opus コーデックを適用します。"</string>
+    <string name="revanced_enable_opus_codec_summary">"プレーヤーの応答にOPUSコーデックが含まれている場合、それを有効にします。
+
+情報:
+・最新のYouTube MusicクライアントはデフォルトでOPUSオーディオコーデックを使用します。
+・これはクライアントまたはビデオストリームが偽装されている場合に必要な場合があります。"</string>
     <string name="revanced_enable_opus_codec_title">Opus コーデックを有効化</string>
     <string name="revanced_enable_smooth_transition_animation_summary">"ミニプレイヤーを最大化したときのスムーズなアニメーションを有効にします。"</string>
     <string name="revanced_enable_smooth_transition_animation_title">スムーズな遷移アニメーションを有効化</string>
@@ -507,6 +511,7 @@ API キーの発行方法については、ここをタップしてください�
 副作用:
 • 字幕が下部ではなくプレーヤーの上部に配置されることがあります。"</string>
     <string name="revanced_spoof_player_parameter_title">プレイヤーパラメータを偽装</string>
+    <string name="revanced_spoof_streaming_data_message">再生に問題が発生した場合は以下のいずれかのオプションを有効にしてください。ご自身の環境で最も効果的な方を選択してください: &lt;i&gt;&lt;u&gt; 設定 &gt; %s &gt; その他 &lt;/u&gt;&lt;/i&gt; 内の「動画ストリームを偽装」または「クライアントを偽装」。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Stats for nerds でストリーミングデータの取得に使用されるクライアントを定義する。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">マニア向けの統計を表示</string>
     <string name="revanced_spoof_streaming_data_summary">"ストリーミングデータを偽装して、再生の問題を防ぎます。
@@ -514,7 +519,9 @@ API キーの発行方法については、ここをタップしてください�
 • Spoof client と併用すると、再生に問題が発生する場合があります。"</string>
     <string name="revanced_spoof_streaming_data_title">ストリーミングデータを偽装</string>
     <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32">Android VR 1.43.32</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32_no_auth">Android VR 1.43.32 (認証なし)</string>
     <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09">Android VR 1.65.09</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09_no_auth">Android VR 1.65.09 (認証なし)</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>

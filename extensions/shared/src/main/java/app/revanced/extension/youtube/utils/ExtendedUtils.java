@@ -5,6 +5,7 @@ import static app.revanced.extension.shared.utils.ResourceUtils.getInteger;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
@@ -13,6 +14,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
+import android.net.Uri;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -124,6 +126,26 @@ public class ExtendedUtils extends PackageUtils {
             additionalSettingsEnabled &= s.get();
         }
         return additionalSettingsEnabled;
+    }
+
+    public static void launchWebViewActivity(Context mContext,
+                                             boolean clearCookiesOnStartUp,
+                                             boolean clearCookiesOnShutDown,
+                                             boolean useDesktopUserAgent,
+                                             String url) {
+        try {
+            Intent intent = new Intent();
+            intent.setPackage(mContext.getPackageName());
+            intent.setData(Uri.parse("revanced_webview"));
+            intent.putExtra("clearCookiesOnStartUp", clearCookiesOnStartUp);
+            intent.putExtra("clearCookiesOnShutDown", clearCookiesOnShutDown);
+            intent.putExtra("useDesktopUserAgent", useDesktopUserAgent);
+            intent.putExtra("url", url);
+            intent.setClassName(mContext, "com.google.android.libraries.youtube.player.features.gl.vr.VrWelcomeActivity");
+            mContext.startActivity(intent);
+        } catch (Exception ex) {
+            Logger.printException(() -> "launchWebViewActivity failed", ex);
+        }
     }
 
     public static LinearLayout prepareMainLayout(Context mContext) {

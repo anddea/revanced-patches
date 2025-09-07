@@ -460,11 +460,10 @@ Ograniczenie: nie działa jeśli odtwarzacz jest zminimalizowany, w trybie PiP l
     <string name="revanced_expand_video_description_summary_on">Automatycznie</string>
     <string name="revanced_expand_video_description_title">Otwieraj opisy filmów</string>
     <string name="revanced_extended_audio_tracks_unavailable">"Opcja jest obecnie niedostępna.
-Aby używać tej fukcji, zmień domyślnego klienta oszukiwania strumienia danych na iOS TV, TV lub Uproszczony TV.
+Aby używać tej funkcji, zmień domyślnego klienta oszukiwania strumienia danych na iOS TV, TV lub Uproszczony TV.
 
 Notki:
-• iOS TV nie obsługuje odtwarzania niektórych filmów, jak muzycznych
-• dlatego jeśli domyślnym klientem jest iOS TV, ustawienie te może nie działać dla niektórych filmów"</string>
+• iOS TV nie jest dostępne w niektórych regionach, w rezultacie czego opcja ta może nie działać"</string>
     <string name="revanced_extended_confirm_user_dialog_title">Czy chcesz kontynuować?</string>
     <string name="revanced_extended_reset_to_default_toast">Przywrócono domyślne wartości.</string>
     <string name="revanced_extended_restart">Uruchom ponownie</string>
@@ -2150,6 +2149,26 @@ Gotowy do przesłania?"</string>
     <string name="revanced_search_settings_no_results_summary">Spróbuj innego terminu wyszukiwania.</string>
     <string name="revanced_search_settings_no_results_title">Nie znaleziono wyników dla: \"%1$s\"</string>
     <string name="revanced_search_title">Wyszukaj</string>
+    <string name="revanced_set_transcript_cookies_all_summary_off">Nie</string>
+    <string name="revanced_set_transcript_cookies_all_summary_on">Tak</string>
+    <string name="revanced_set_transcript_cookies_all_title">Pliki cookie dla wszystkich żądań transkrypcyjnego API</string>
+    <string name="revanced_set_transcript_cookies_summary_off">Wyłączone</string>
+    <string name="revanced_set_transcript_cookies_summary_on">Włączone</string>
+    <string name="revanced_set_transcript_cookies_title">Transkrypcyjne pliki cookie</string>
+    <string name="revanced_set_transcript_cookies_user_dialog_message">"Obecnie jest błąd na YouTube, gdzie napisy przetłumaczone automatycznie są niedostępne.
+
+Jest to problem wynikający z transkrypcyjnego API YouTube, który Google musi naprawić.
+
+Jako tymczasowe obejście, możesz rozwiązać ten problem ustawiając pliki cookie.
+
+[Zastrzeżenie]
+
+Korzystanie z plików cookie nie jest panaceum.
+
+Może to nie działać, jeśli:
+• pliki cookie wygasły
+• używane są nieprawidłowe pliki cookie
+• transkrypcyjne API YouTube nie weryfikuje już plików cookie"</string>
     <string name="revanced_settings_search_highlight_color_summary">Ustawia kolor podświetlenia dla dopasowanego tekstu w wynikach wyszukiwania.</string>
     <string name="revanced_settings_search_highlight_color_title">Kolor podświetlenia wyszukiwania</string>
     <string name="revanced_settings_search_highlight_summary">Podświetla dopasowany tekst w wynikach wyszukiwania wybranym kolorem.</string>
@@ -2323,8 +2342,8 @@ Przykład 2:
     <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Widoczny</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_title">Przycisk od odświeżenia filmu</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• brakuje menu od ścieżki dźwiękowej
-• stabilna głośność nie jest dostępna
 • automatyczne wymuszenie ścieżki dźwiękowej nie jest dostępne
+• stabilna głośność nie jest dostępna
 • filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Brakuje menu od ścieżki dźwiękowej
 • Stabilna głośność jest niedostępna"</string>
@@ -2335,7 +2354,9 @@ Przykład 2:
 • Kodek audio opus może nie być wspierany"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• Cały zakres ASNów/IP może być zablokowany przez serwer</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Filmy mogą kończyć się o 1 sekundę wcześniej</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• stabilna głośność nie jest dostępna
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• może brakować menu od ścieżki dźwiękowej
+• automatyczne wymuszenie ścieżki dźwiękowej może nie być dostępne
+• stabilna głośność nie jest dostępna
 • filmy kinowe lub płatne mogą się nie odtwarzać
 • filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• brakuje menu od ścieżki dźwiękowej
@@ -2500,6 +2521,35 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s nie jest zainstalowany. Proszę go zainstalować.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Nazwa pakietu zainstalowanego RVX Music</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nazwa pakietu RVX Music</string>
+    <string name="revanced_transcript_cookies_about_summary">Kliknij, by zobaczyć jak pobrać pliki cookie.</string>
+    <string name="revanced_transcript_cookies_about_title">O transkrypcyjnych plikach cookie</string>
+    <string name="revanced_transcript_cookies_dialog_auth_text">Z autoryzacją</string>
+    <string name="revanced_transcript_cookies_dialog_message">"Z autoryzacją
+══════════════
+1. Kliknij 'Z autoryzacją', by otworzyć okno logowania w WebView
+2. Zaloguj się na swoje konto Google
+3. Odtwórz jakikolwiek film wspierający napisy przetłumaczone automatycznie
+4. Włącz napisy przetłumaczone automatycznie i sprawdź, czy działają
+4-1. Jeśli napisy przetłumaczone automatycznie nie działają, odtwórz inny film wspierający napisy przetłumaczone automatycznie i powtórz krok 4
+5. Kliknij trzy kropki w pasku narzędzi i otwórz menu kontekstowe
+6. Kliknij 'Pobierz pliki cookie'
+7. Kliknij 'Kopiuj', by skopiować pliki cookie
+8. Zamknij WebView i wklej skopiowane pliki cookie do ustawień 'Transkrypcyjne pliki cookie'
+
+Bez autoryzacji
+══════════════
+1. Kliknij 'Bez autoryzacji', by otworzyć okno logowania w WebView
+2. Odtwórz film na co najmniej 3 sekundy
+3. Kliknij trzy kropki w pasku narzędzi i otwórz menu kontekstowe
+4. Kliknij 'Pobierz pliki cookie'
+5. Kliknij 'Kopiuj', by skopiować pliki cookie
+6. Zamknij WebView i wklej skopiowane pliki cookie do ustawień 'Transkrypcyjne pliki cookie'
+
+Zastrzeżenie: Pliki cookie wydane bez logowania mogą być nieprawidłowe lub ich udostępnienie w transkrypcyjnym API może potrwać."</string>
+    <string name="revanced_transcript_cookies_dialog_no_auth_text">Bez autoryzacji</string>
+    <string name="revanced_transcript_cookies_dialog_title">Eksportuj transkrypcyjne pliki cookie</string>
+    <string name="revanced_transcript_cookies_summary">Pliki cookie używane w żądaniach transkrypcyjnego API.</string>
+    <string name="revanced_transcript_cookies_title">Transkrypcyjne pliki cookie</string>
     <string name="revanced_watch_history_about_status_blocked">• Historia oglądania nie działa</string>
     <string name="revanced_watch_history_about_status_original">"• Stosuje się do ustawień historii oglądania konta Google
 • Historia oglądania może nie działać przy używaniu DNS lub VPN"</string>
@@ -2511,6 +2561,23 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_watch_history_type_entry_2">www.youtube.com</string>
     <string name="revanced_watch_history_type_entry_3">Wyłączona</string>
     <string name="revanced_watch_history_type_title">Historia</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Pobierz pliki cookie</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Pobierz ID synchronizacji danych</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Pobierz Visitor Data</string>
+    <string name="revanced_webview_contextual_menu_refresh">Odśwież</string>
+    <string name="revanced_webview_cookies">Pliki cookie</string>
+    <string name="revanced_webview_copy">Kopiuj</string>
+    <string name="revanced_webview_data_sync_id">ID synchronizacji danych</string>
+    <string name="revanced_webview_intent_clear_cookies_on_shutdown">Wyczyść pliki cookie po zamknięciu</string>
+    <string name="revanced_webview_intent_clear_cookies_on_startup">Wyczyść pliki cookie po otwarciu</string>
+    <string name="revanced_webview_intent_use_desktop_user_agent">Użyj komputerowego User-Agent</string>
+    <string name="revanced_webview_summary">Otwiera WebView w celu pobrania plików cookie.</string>
+    <string name="revanced_webview_title">WebView</string>
+    <string name="revanced_webview_toast_copy_success">%s skopiowane do schowka.</string>
+    <string name="revanced_webview_toast_empty">%s jest puste.</string>
+    <string name="revanced_webview_toast_no_network">Sprawdź swoje połączenie internetowe.</string>
+    <string name="revanced_webview_toast_unavailable">WebView jest niedostępne.</string>
+    <string name="revanced_webview_visitor_data">Visitor Data</string>
     <string name="revanced_whitelist_add_failed">Nie udało się dodać kanału \'%1$s\' do białej listy %2$s.</string>
     <string name="revanced_whitelist_added">Kanał \'%1$s\' został dodany do białej listy %2$s.</string>
     <string name="revanced_whitelist_empty">Brak kanałów na białej liście.</string>

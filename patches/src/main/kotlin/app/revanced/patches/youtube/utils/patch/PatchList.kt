@@ -221,6 +221,10 @@ internal enum class PatchList(
         "Seekbar components",
         "Adds options to hide or change components related to the seekbar."
     ),
+    SET_TRANSCRIPT_COOKIES(
+        "Set Transcript Cookies",
+        "Adds an option to set Cookies in YouTube Transcript API requests."
+    ),
     SETTINGS_FOR_YOUTUBE(
         "Settings for YouTube",
         "Applies mandatory patches to implement ReVanced Extended settings into the application."

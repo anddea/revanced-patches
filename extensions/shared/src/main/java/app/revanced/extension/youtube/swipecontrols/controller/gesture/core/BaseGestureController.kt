@@ -2,6 +2,8 @@ package app.revanced.extension.youtube.swipecontrols.controller.gesture.core
 
 import android.view.GestureDetector
 import android.view.MotionEvent
+import app.revanced.extension.youtube.shared.PlayerControlsVisibilityObserver
+import app.revanced.extension.youtube.shared.PlayerControlsVisibilityObserverImpl
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsHostActivity
 
 /**
@@ -14,6 +16,7 @@ abstract class BaseGestureController(
     private val controller: SwipeControlsHostActivity,
 ) : GestureController,
     GestureDetector.SimpleOnGestureListener(),
+    PlayerControlsVisibilityObserver by PlayerControlsVisibilityObserverImpl(controller),
     SwipeDetector by SwipeDetectorImpl(
         controller.config.swipeMagnitudeThreshold.toDouble(),
     ),
@@ -42,6 +45,9 @@ abstract class BaseGestureController(
     override fun submitTouchEvent(motionEvent: MotionEvent): Boolean {
         // ignore if swipe is disabled
         if (!controller.config.enableSwipeControls) {
+            return false
+        }
+        if (isFullscreenEngagementPanelVisible) {
             return false
         }
 

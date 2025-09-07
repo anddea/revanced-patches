@@ -89,13 +89,6 @@ internal val formatStreamModelToStringFingerprint = legacyFingerprint(
     }
 )
 
-internal val fullScreenEngagementPanelFingerprint = legacyFingerprint(
-    name = "fullScreenEngagementPanelFingerprint",
-    returnType = "L",
-    parameters = listOf("L"),
-    literals = listOf(fullScreenEngagementPanel),
-)
-
 internal val layoutConstructorFingerprint = legacyFingerprint(
     name = "layoutConstructorFingerprint",
     returnType = "V",

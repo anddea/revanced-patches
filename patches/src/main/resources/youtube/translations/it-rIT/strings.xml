@@ -458,7 +458,7 @@ Nota: non funziona se il riproduttore è minimizzato, in modalità PiP o in back
     <string name="revanced_extended_audio_tracks_unavailable">"Questa impostazione non è al momento disponibile.
 Per usare questa impostazione, cambia il client predefinito in iOS TV, TV o TV Simply.
 
-Nota: iOS TV non supporta la riproduzione di alcuni video, come i video musicali, quindi se il client predefinito è impostato su iOS TV, questa impostazione potrebbe non funzionare per alcuni video."</string>
+Nota: iOS TV non è disponibile in alcune regioni, nel tal caso questa impostazione potrebbe comunque non funzionare."</string>
     <string name="revanced_extended_confirm_user_dialog_title">Sei sicuro di voler procedere?</string>
     <string name="revanced_extended_reset_to_default_toast">Ripristinato ai valori predefiniti</string>
     <string name="revanced_extended_restart">Riavvia</string>
@@ -518,7 +518,10 @@ Se l'impostazione \"Riproduzione\" non funziona, attivarla potrebbe risolvere il
     <string name="revanced_gemini_error_api_failed">Richiesta API Gemini fallita: %s</string>
     <string name="revanced_gemini_error_dialog_show">Errore nella visualizzazione della finestra di dialogo</string>
     <string name="revanced_gemini_loading_default">Caricando...</string>
+    <string name="revanced_gemini_time_taken">(Ci sono voluti %d secondi)</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_title">Dimensione del carattere dei sottotitoli</string>
     <string name="revanced_gemini_transcription_parse_button">Sottotitoli</string>
+    <string name="revanced_gemini_transcription_parse_success">Sottotitolo analizzato correttamente</string>
     <string name="revanced_gms_show_dialog_summary">Visualizza la finestra di ottimizzazione per GMSCore a ogni avvio dell\'applicazione.</string>
     <string name="revanced_gms_show_dialog_title">Mostra la finestra di ottimizzazione per GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">L\'elenco dei nomi dei menù degli account da filtrare, separati da nuove righe.</string>
@@ -2084,6 +2087,19 @@ Pronto per l'invio?"</string>
     <string name="revanced_sb_vote_no_segments">Non ci sono segmenti per cui votare.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s a %2$s</string>
     <string name="revanced_sb_vote_upvote">Voto positivo</string>
+    <string name="revanced_set_transcript_cookies_all_summary_off">I cookie non sono impostati per tutte le richieste API di trascrizione.</string>
+    <string name="revanced_set_transcript_cookies_all_summary_on">I cookie sono impostati per tutte le richieste API di trascrizione.</string>
+    <string name="revanced_set_transcript_cookies_all_title">Imposta i cookie per tutte le richieste API di trascrizione</string>
+    <string name="revanced_set_transcript_cookies_summary_off">I cookie di trascrizione non sono impostati.</string>
+    <string name="revanced_set_transcript_cookies_summary_on">I cookie di trascrizione sono impostati.</string>
+    <string name="revanced_set_transcript_cookies_title">Imposta i cookie di trascrizione</string>
+    <string name="revanced_set_transcript_cookies_user_dialog_message">"Al momento su YouTube è presente un bug che non consente la traduzione automatica dei sottotitoli.
+Si tratta di un problema con l'API di trascrizione di YouTube e Google deve risolverlo.
+Come soluzione temporanea, puoi risolvere il problema impostando i cookie.
+
+Note: 
+• L'uso dei cookie non è una soluzione definitiva.
+• Questa soluzione potrebbe non funzionare se i cookie sono scaduti o non validi, oppure se l'API di trascrizione di YouTube non convalida più i cookie."</string>
     <string name="revanced_settings_search_history_title">Mostra la cronologia di ricerca delle impostazioni</string>
     <string name="revanced_share_copy_settings_success">Impostazioni copiate negli appunti</string>
     <string name="revanced_share_copy_timestamp_success">Timestamp copiato negli appunti (%s)</string>
@@ -2235,9 +2251,9 @@ Esempio 2:
     <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Il pulsante Ricarica Video è visibile.</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_title">Mostra il pulsante Ricarica Video</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Il menù Traccia Audio è nascosto.
-• Il menù Volume Stabile è nascosto.
 • La disattivazione delle tracce audio automatiche forzate non funziona.
-• I video per bambini potrebbero non essere riprodotti se si è disconnessi o navigando in incognito."</string>
+• Il menù Volume Stabile è nascosto.
+• I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Il menù Traccia Audio è mancante.
 • Il menù Volume Stabile è mancante."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Il menù Traccia Audio è mancante.
@@ -2247,9 +2263,11 @@ Esempio 2:
 • Il codec audio Opus potrebbe non funzionare."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• Interi intervalli di ASN/IP potrebbero essere bloccati dal server.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• I video potrebbero terminare 1 secondo prima.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Il menù Volume Stabile è nascosto.
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Il menù Traccia Audio potrebbe essere nascosto.
+• La disattivazione delle tracce audio automatiche forzate potrebbe non funzionare.
+• Il menù Volume Stabile è nascosto.
 • I film o i video a pagamento potrebbero non essere riproducibili.
-• I video per bambini potrebbero non essere riprodotti se si è disconnessi o navigando in incognito."</string>
+• I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Il menù Traccia Audio è nascosto.
 • La disattivazione delle tracce audio automatiche forzate non funziona.
 • Se il deoffuscamento fallisce, la riproduzione potrebbe non funzionare.
@@ -2382,6 +2400,35 @@ Se questa impostazione non ha effetto, prova a passare alla navigazione in incog
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s non è installato. Per favore installalo.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Il nome del pacchetto dell\'app RVX Music installata.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nome del pacchetto dell\'app RVX Music</string>
+    <string name="revanced_transcript_cookies_about_summary">Tocca qui per vedere come ottenere i cookie.</string>
+    <string name="revanced_transcript_cookies_about_title">Informazioni sui cookie di trascrizione</string>
+    <string name="revanced_transcript_cookies_dialog_auth_text">Autenticazione</string>
+    <string name="revanced_transcript_cookies_dialog_message">"Autenticazione
+══════════════
+1. Tocca su \"Autenticazione\" per aprire la pagina di accesso in WebView.
+2. Accedi al tuo account Google.
+3. Riproduci qualsiasi video che supporti i sottotitoli tradotti automaticamente.
+4. Attiva i sottotitoli tradotti automaticamente e verifica se funzionano.
+4.1. Se i sottotitoli tradotti automaticamente non funzionano, passa a un altro video che li supporti e riprova il passaggio 4.
+5. Fai clic sui tre puntini sulla barra degli strumenti per aprire il menu contestuale.
+6. Fai clic su \"Ottieni i cookie\".
+7. Fai clic su \"Copia\" per copiare i cookie.
+8. Chiudi WebView e incolla i cookie copiati nelle impostazioni \"Cookie di trascrizione\".
+
+Nessuna autenticazione
+══════════════
+1. Fai clic su \"Nessuna autenticazione\" per aprire il video in WebView.
+2. Riproduci il video per almeno 3 secondi.
+3. Fai clic sui tre puntini sulla barra degli strumenti per aprire il menu contestuale.
+4. Fai clic su \"Ottieni i cookie\".
+5. Fai clic su \"Copia\" per copiare i cookie.
+6. Chiudi WebView e incolla i cookie copiati nelle impostazioni \"Cookie di trascrizione\".
+
+Nota: i cookie generati senza effettuare l'accesso potrebbero non essere validi o potrebbero richiedere del tempo prima di essere disponibili per l'API di trascrizione."</string>
+    <string name="revanced_transcript_cookies_dialog_no_auth_text">Nessuna autenticazione</string>
+    <string name="revanced_transcript_cookies_dialog_title">Esporta i cookie di trascrizione</string>
+    <string name="revanced_transcript_cookies_summary">I cookie da usare per le richieste API di trascrizione.</string>
+    <string name="revanced_transcript_cookies_title">Cookie di trascrizione</string>
     <string name="revanced_watch_history_about_status_blocked">La cronologia è bloccata.</string>
     <string name="revanced_watch_history_about_status_original">"• Segue le impostazioni di cronologia dell'account Google.
 • La cronologia potrebbe non funzionare a causa di DNS o VPN."</string>
@@ -2393,6 +2440,23 @@ Se questa impostazione non ha effetto, prova a passare alla navigazione in incog
     <string name="revanced_watch_history_type_entry_2">Sostituisci dominio</string>
     <string name="revanced_watch_history_type_entry_3">Blocca cronologia</string>
     <string name="revanced_watch_history_type_title">Cambia il tipo di cronologia</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Ottieni i cookie</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Ottieni l\'ID di sincronizzazione dati</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Ottieni i dati del visitatore</string>
+    <string name="revanced_webview_contextual_menu_refresh">Ricarica</string>
+    <string name="revanced_webview_cookies">Cookie</string>
+    <string name="revanced_webview_copy">Copia</string>
+    <string name="revanced_webview_data_sync_id">ID di sincronizzazione dati</string>
+    <string name="revanced_webview_intent_clear_cookies_on_shutdown">Cancella i cookie allo spegnimento</string>
+    <string name="revanced_webview_intent_clear_cookies_on_startup">Cancella i cookie all\'avvio</string>
+    <string name="revanced_webview_intent_use_desktop_user_agent">Usa desktop user-agent</string>
+    <string name="revanced_webview_summary">Apri WebView per ottenere i cookie.</string>
+    <string name="revanced_webview_title">WebView</string>
+    <string name="revanced_webview_toast_copy_success">%s copiato negli appunti</string>
+    <string name="revanced_webview_toast_empty">%s è vuota</string>
+    <string name="revanced_webview_toast_no_network">Controlla la tua connessione di rete</string>
+    <string name="revanced_webview_toast_unavailable">WebView non è disponibile</string>
+    <string name="revanced_webview_visitor_data">Dati del visitatore</string>
     <string name="revanced_whitelist_add_failed">Aggiunta del canale \"%1$s\" alla whitelist %2$s non riuscita</string>
     <string name="revanced_whitelist_added">Il canale \"%1$s\" è stato aggiunto alla whitelist %2$s</string>
     <string name="revanced_whitelist_empty">Non ci sono canali nella whitelist.</string>
