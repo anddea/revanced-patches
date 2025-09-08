@@ -38,23 +38,25 @@ public class InitializationPatch {
                         2000
                 );
 
-                Activity context = getActivity();
+                if (PatchStatus.SpoofClient() || PatchStatus.SpoofVideoStreams()) {
+                    Activity context = getActivity();
 
-                String rvxSettingsLabel = str("revanced_extended_settings_title");
-                String spoofMessage = str("revanced_spoof_streaming_data_message");
-                String finalSpoofMessage = String.format(spoofMessage, rvxSettingsLabel);
-                Spanned formattedMessage = Html.fromHtml(finalSpoofMessage, Html.FROM_HTML_MODE_LEGACY);
+                    String rvxSettingsLabel = str("revanced_extended_settings_title");
+                    String spoofMessage = str("revanced_spoof_streaming_data_message");
+                    String finalSpoofMessage = String.format(spoofMessage, rvxSettingsLabel);
+                    Spanned formattedMessage = Html.fromHtml(finalSpoofMessage, Html.FROM_HTML_MODE_LEGACY);
 
-                Utils.runOnMainThreadDelayed(() -> {
-                    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context)
-                            .setIconAttribute(android.R.attr.alertDialogIcon)
-                            .setTitle(str("revanced_external_downloader_not_installed_dialog_title"))
-                            .setMessage(formattedMessage)
-                            .setPositiveButton(android.R.string.ok, null);
+                    Utils.runOnMainThreadDelayed(() -> {
+                        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context)
+                                .setIconAttribute(android.R.attr.alertDialogIcon)
+                                .setTitle(str("revanced_external_downloader_not_installed_dialog_title"))
+                                .setMessage(formattedMessage)
+                                .setPositiveButton(android.R.string.ok, null);
 
-                    dialogBuilder.setCancelable(false);
-                    dialogBuilder.show();
-                }, 2001);
+                        dialogBuilder.setCancelable(false);
+                        dialogBuilder.show();
+                    }, 2001);
+                }
             }
         }
     }
