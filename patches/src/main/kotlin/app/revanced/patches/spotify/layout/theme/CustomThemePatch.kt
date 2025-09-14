@@ -222,7 +222,7 @@ val customThemePatch = resourcePatch(
                 gradientNode.setAttribute("android:endColor", "@color/gray_7")
             }
         } catch (_: Exception) {
-            // It will fail for 9.0.66+
+            // Fails for 9.0.66+
             // printWarn("Failed to locate start_screen_gradient.xml, skipping modification.")
         }
 
