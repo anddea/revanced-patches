@@ -57,8 +57,7 @@ public class GeneralPatch {
      * Injection point.
      */
     public static boolean ignoreDefaultAudioStream(boolean original) {
-        if (Settings.DISABLE_AUTO_AUDIO_TRACKS.get()
-                || Settings.SPOOF_STREAMING_DATA_VR_AUDIO_TRACK_BUTTON.get()) {
+        if (Settings.DISABLE_AUTO_AUDIO_TRACKS.get()) {
             return false;
         }
         return original;

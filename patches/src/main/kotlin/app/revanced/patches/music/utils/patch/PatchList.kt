@@ -45,10 +45,6 @@ internal enum class PatchList(
         "Disable Cairo splash animation",
         "Adds an option to disable Cairo splash animation."
     ),
-    DISABLE_DRC_AUDIO(
-        "Disable DRC audio",
-        "Adds an option to disable DRC (Dynamic Range Compression) audio."
-    ),
     DISABLE_FORCED_AUTO_CAPTIONS(
         "Disable forced auto captions",
         "Adds an option to disable captions from being automatically enabled."
@@ -72,10 +68,6 @@ internal enum class PatchList(
     ENABLE_LANDSCAPE_MODE(
         "Enable landscape mode",
         "Adds an option to enable landscape mode when rotating the screen on phones."
-    ),
-    FIX_PLAYBACK(
-        "Fix playback",
-        "Adds options to fix playback issues."
     ),
     FLYOUT_MENU_COMPONENTS(
         "Flyout menu components",

@@ -239,6 +239,7 @@
         <PreferenceScreen android:title="@string/revanced_preference_screen_category_bar_title" android:key="revanced_preference_screen_category_bar" android:summary="@string/revanced_preference_screen_category_bar_summary">
             <SwitchPreference android:title="@string/revanced_hide_category_bar_in_feed_title" android:key="revanced_hide_category_bar_in_feed" android:summaryOn="@string/revanced_hide_category_bar_in_feed_summary_on" android:summaryOff="@string/revanced_hide_category_bar_in_feed_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_category_bar_in_related_videos_title" android:key="revanced_hide_category_bar_in_related_videos" android:summaryOn="@string/revanced_hide_category_bar_in_related_videos_summary_on" android:summaryOff="@string/revanced_hide_category_bar_in_related_videos_summary_off" app:searchDependency="revanced_hide_category_bar_in_feed" />
+            <SwitchPreference android:title="@string/revanced_hide_category_bar_in_playlist_title" android:key="revanced_hide_category_bar_in_playlist" android:summaryOn="@string/revanced_hide_category_bar_in_playlist_summary_on" android:summaryOff="@string/revanced_hide_category_bar_in_playlist_summary_off" app:searchDependency="revanced_hide_category_bar_in_feed" />
             <SwitchPreference android:title="@string/revanced_hide_category_bar_in_search_title" android:key="revanced_hide_category_bar_in_search" android:summaryOn="@string/revanced_hide_category_bar_in_search_summary_on" android:summaryOff="@string/revanced_hide_category_bar_in_search_summary_off" app:searchDependency="revanced_hide_category_bar_in_feed" />
             <SwitchPreference android:title="@string/revanced_hide_category_bar_in_history_title" android:key="revanced_hide_category_bar_in_history" android:summaryOn="@string/revanced_hide_category_bar_in_history_summary_on" android:summaryOff="@string/revanced_hide_category_bar_in_history_summary_off" app:searchDependency="revanced_hide_category_bar_in_feed" />
         </PreferenceScreen>
@@ -838,6 +839,7 @@
         <SwitchPreference android:title="@string/revanced_disable_default_playback_speed_music_type_title" android:key="revanced_disable_default_playback_speed_music_type" android:summaryOn="@string/revanced_disable_default_playback_speed_music_type_on" android:summaryOff="@string/revanced_disable_default_playback_speed_music_type_off" android:dependency="revanced_disable_default_playback_speed_music" />
 
         <PreferenceCategory android:title="@string/revanced_preference_category_codec" android:layout="@layout/revanced_settings_preferences_category"/>
+        <SwitchPreference android:title="@string/revanced_disable_drc_audio_title" android:key="revanced_disable_drc_audio" android:summaryOn="@string/revanced_disable_drc_audio_summary_on" android:summaryOff="@string/revanced_disable_drc_audio_summary_off" />
         <SwitchPreference android:title="@string/revanced_disable_hdr_video_title" android:key="revanced_disable_hdr_video" android:summaryOn="@string/revanced_disable_hdr_video_summary_on" android:summaryOff="@string/revanced_disable_hdr_video_summary_off" />
         <SwitchPreference android:title="@string/revanced_disable_vp9_codec_title" android:key="revanced_disable_vp9_codec" android:summaryOn="@string/revanced_disable_vp9_codec_summary_on" android:summaryOff="@string/revanced_disable_vp9_codec_summary_off" />
         <SwitchPreference android:title="@string/revanced_enable_opus_codec_title" android:key="revanced_enable_opus_codec" android:summary="@string/revanced_enable_opus_codec_summary" />
@@ -911,8 +913,10 @@
 
             <PreferenceCategory android:title="@string/revanced_preference_category_android_vr" android:layout="@layout/revanced_settings_preferences_category" />
             <SwitchPreference android:title="@string/revanced_spoof_streaming_data_vr_disable_av1_title" android:key="revanced_spoof_streaming_data_vr_disable_av1" android:summaryOn="@string/revanced_spoof_streaming_data_vr_disable_av1_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_vr_disable_av1_summary_off" android:dependency="revanced_spoof_streaming_data" />
-            <SwitchPreference android:title="@string/revanced_spoof_streaming_data_vr_audio_track_button_title" android:key="revanced_spoof_streaming_data_vr_audio_track_button" android:summaryOn="@string/revanced_spoof_streaming_data_vr_audio_track_button_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_vr_audio_track_button_summary_off" android:dependency="revanced_spoof_streaming_data" />
-            <app.revanced.extension.shared.settings.preference.SortedListPreference android:entries="@array/revanced_language_entries" android:title="@string/revanced_spoof_streaming_data_vr_language_title" android:key="revanced_spoof_streaming_data_vr_language" android:entryValues="@array/revanced_language_entry_values" android:dependency="revanced_spoof_streaming_data" />
+
+            <PreferenceCategory android:title="@string/revanced_preference_category_no_auth" android:layout="@layout/revanced_settings_preferences_category"/>
+            <app.revanced.extension.shared.settings.preference.SortedListPreference android:entries="@array/revanced_language_entries" android:title="@string/revanced_spoof_streaming_data_no_auth_language_title" android:key="revanced_spoof_streaming_data_no_auth_language" android:entryValues="@array/revanced_language_entry_values" />
+            <SwitchPreference android:title="@string/revanced_spoof_streaming_data_audio_track_button_title" android:key="revanced_spoof_streaming_data_audio_track_button" android:summaryOn="@string/revanced_spoof_streaming_data_audio_track_button_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_audio_track_button_summary_off" />
 
             <PreferenceCategory android:title="@string/revanced_preference_category_ios" android:layout="@layout/revanced_settings_preferences_category" />
             <SwitchPreference android:title="@string/revanced_spoof_streaming_data_ios_force_avc_title" android:key="revanced_spoof_streaming_data_ios_force_avc" android:summaryOn="@string/revanced_spoof_streaming_data_ios_force_avc_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_ios_force_avc_summary_off" android:dependency="revanced_spoof_streaming_data" />
@@ -1046,7 +1050,6 @@
                 <Preference android:title="Open links externally" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Remove background playback restrictions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Sanitize sharing links" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Spoof streaming data" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Spoof watch history" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             </PreferenceCategory>
 

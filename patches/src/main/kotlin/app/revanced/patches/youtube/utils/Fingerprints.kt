@@ -2,9 +2,7 @@ package app.revanced.patches.youtube.utils
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patches.youtube.player.components.playerComponentsPatch
-import app.revanced.patches.youtube.utils.fix.streamingdata.STREAMING_DATA_OUTER_CLASS
 import app.revanced.patches.youtube.utils.resourceid.fadeDurationFast
-import app.revanced.patches.youtube.utils.resourceid.fullScreenEngagementPanel
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
 import app.revanced.patches.youtube.utils.resourceid.insetOverlayViewLayout

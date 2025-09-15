@@ -6,22 +6,23 @@ import app.revanced.extension.shared.innertube.client.YouTubeClient.ClientType
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createApplicationRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createJSRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
+import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_AUDIO_TRACK
 import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_STREAMING_DATA
 import app.revanced.extension.shared.innertube.utils.PlayerResponseOuterClass.PlayerResponse
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.getAdaptiveFormats
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.getFormats
-import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.setServerAbrStreamingUrl
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.setUrl
 import app.revanced.extension.shared.innertube.utils.ThrottlingParameterUtils
-import app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingDataMobileWeb
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup
 import app.revanced.extension.shared.patches.spoof.StreamingDataOuterClassPatch.parseFrom
+import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.settings.BaseSettings
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.StringRef.str
 import app.revanced.extension.shared.utils.Utils
 import com.google.protos.youtube.api.innertube.StreamingDataOuterClass.StreamingData
 import com.liskovsoft.youtubeapi.app.PoTokenGate
+import org.apache.commons.lang3.BooleanUtils
 import org.apache.commons.lang3.StringUtils
 import java.io.BufferedInputStream
 import java.io.ByteArrayOutputStream
@@ -46,6 +47,7 @@ import java.util.concurrent.TimeoutException
  * the extension replace stream hook is called only if YT
  * did use its own client streams.
  */
+@Suppress("deprecation")
 class StreamingDataRequest private constructor(
     videoId: String,
     requestHeader: Map<String, String>,
@@ -106,22 +108,15 @@ class StreamingDataRequest private constructor(
 
         private val SPOOF_STREAMING_DATA_DEFAULT_CLIENT: ClientType =
             BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get()
-        private val DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH: Boolean =
-            SPOOF_STREAMING_DATA_DEFAULT_CLIENT == ClientType.ANDROID_VR_NO_AUTH
-        private val DEFAULT_CLIENT_IS_MWEB: Boolean =
-            SpoofStreamingDataMobileWeb() && SPOOF_STREAMING_DATA_DEFAULT_CLIENT == ClientType.MWEB
         private val CLIENT_ORDER_TO_USE: Array<ClientType> =
-            YouTubeClient.availableClientTypes(
-                SPOOF_STREAMING_DATA_DEFAULT_CLIENT,
-                DEFAULT_CLIENT_IS_MWEB
-            )
+            YouTubeClient.availableClientTypes(SPOOF_STREAMING_DATA_DEFAULT_CLIENT)
         private val liveStreams: ByteArrayFilterGroup =
             ByteArrayFilterGroup(
                 null,
                 "yt_live_broadcast",
                 "yt_premiere_broadcast"
             )
-        private var lastSpoofedClientFriendlyName: String? = null
+        private var lastSpoofedClient: ClientType? = null
 
         // When this value is not empty, it is used as the preferred language when creating the RequestBody.
         private var overrideLanguage: String = ""
@@ -138,18 +133,11 @@ class StreamingDataRequest private constructor(
 
         @JvmStatic
         val lastSpoofedClientName: String
-            get() {
-                return if (lastSpoofedClientFriendlyName != null) {
-                    lastSpoofedClientFriendlyName!!
-                } else {
-                    "Unknown"
-                }
-            }
+            get() = lastSpoofedClient?.friendlyName ?: "Unknown"
 
         @JvmStatic
-        val lastSpoofedAudioClientIsAndroidVRNoAuth: Boolean
-            get() = lastSpoofedClientFriendlyName != null
-                    && lastSpoofedClientFriendlyName!! == ClientType.ANDROID_VR_NO_AUTH.friendlyName
+        val lastSpoofedClientIsNoAuth: Boolean
+            get() = BooleanUtils.isFalse(lastSpoofedClient?.supportsCookies?: true)
 
         @JvmStatic
         fun overrideLanguage(language: String) {
@@ -240,7 +228,7 @@ class StreamingDataRequest private constructor(
             clientType: ClientType,
             videoId: String,
             streamBytes: ByteArray,
-        ): Triple<ArrayList<String>?, ArrayList<String>?, String?>? {
+        ): Pair<ArrayList<String>?, ArrayList<String>?>? {
             val startTime = System.currentTimeMillis()
 
             try {
@@ -367,20 +355,9 @@ class StreamingDataRequest private constructor(
                         }
                     }
 
-                    var serverAbrStreamingUrl = streamingData.serverAbrStreamingUrl
-                    if (!serverAbrStreamingUrl.isNullOrEmpty()) {
-                        serverAbrStreamingUrl = ThrottlingParameterUtils
-                            .getUrlWithThrottlingParameterDeobfuscated(
-                                videoId,
-                                serverAbrStreamingUrl,
-                                isTV
-                            )
-                    }
-
-                    return Triple(
+                    return Pair(
                         deobfuscatedAdaptiveFormatsArrayList,
-                        deobfuscatedFormatsArrayList,
-                        serverAbrStreamingUrl
+                        deobfuscatedFormatsArrayList
                     )
                 }
             } catch (ex: Exception) {
@@ -412,6 +389,116 @@ class StreamingDataRequest private constructor(
             return streamingData
         }
 
+        private fun setAudioTrackLanguage(
+            videoId: String,
+            requestHeader: Map<String, String>,
+        ) {
+            Objects.requireNonNull(videoId)
+            Objects.requireNonNull(requestHeader)
+
+            for (clientType in arrayOf(ClientType.ANDROID, ClientType.TV_SIMPLY_NO_AUTH, ClientType.ANDROID_VR)) {
+                val startTime = System.currentTimeMillis()
+                Logger.printDebug { "Fetching audio track for: $videoId using client: $clientType" }
+
+                try {
+                    val requestBody = if (clientType.requireJS) {
+                        createJSRequestBody(
+                            clientType = clientType,
+                            videoId = videoId,
+                            language = "en",
+                            isGVS = false,
+                        )
+                    } else {
+                        createApplicationRequestBody(
+                            clientType = clientType,
+                            videoId = videoId,
+                            language = "en"
+                        )
+                    }
+
+                    val connection =
+                        getInnerTubeResponseConnectionFromRoute(
+                            GET_AUDIO_TRACK,
+                            clientType,
+                            requestHeader
+                        )
+
+                    connection.setFixedLengthStreamingMode(requestBody.size)
+                    connection.outputStream.write(requestBody)
+
+                    val responseCode = connection.responseCode
+                    if (responseCode != 200) {
+                        // This situation likely means the patches are outdated.
+                        // Use a toast message that suggests updating.
+                        handleConnectionError(
+                            ("Playback error (App is outdated?) " + clientType + ": "
+                                    + responseCode + " response: " + connection.responseMessage),
+                            null
+                        )
+                        return
+                    }
+                    val json = Requester.parseJSONObject(connection)
+
+                    if (!json.has("captions")) {
+                        return
+                    }
+                    val captions =
+                        json.getJSONObject("captions")
+                    if (!captions.has("playerCaptionsTracklistRenderer")) {
+                        return
+                    }
+                    val playerCaptionsTracklistRenderer =
+                        captions.getJSONObject("playerCaptionsTracklistRenderer")
+                    if (!playerCaptionsTracklistRenderer.has("audioTracks")) {
+                        return
+                    }
+                    val audioTracks =
+                        playerCaptionsTracklistRenderer.getJSONArray("audioTracks")
+                    if (audioTracks.length() < 2) {
+                        return
+                    }
+                    if (!json.has("streamingData")) {
+                        return
+                    }
+                    val streamingData =
+                        json.getJSONObject("streamingData")
+                    if (!streamingData.has("adaptiveFormats")) {
+                        return
+                    }
+                    val adaptiveFormats =
+                        streamingData.getJSONArray("adaptiveFormats")
+                    if (adaptiveFormats.length() < 2) {
+                        return
+                    }
+                    for (i in adaptiveFormats.length() - 1 downTo 0) {
+                        val adaptiveFormat = adaptiveFormats.getJSONObject(i)
+
+                        if (adaptiveFormat.has("audioTrack")) {
+                            val audioTrack = adaptiveFormat.getJSONObject("audioTrack")
+                            val displayName = audioTrack.getString("displayName")
+                            if (StringUtils.contains(displayName, "original")) {
+                                val id = audioTrack.getString("id")
+                                val dotIndex = StringUtils.indexOf(id, ".")
+                                if (dotIndex > -1) {
+                                    val languageCode = id.substring(0, dotIndex)
+                                    overrideLanguage = languageCode
+                                    return
+                                }
+                            }
+                        }
+                    }
+                } catch (ex: SocketTimeoutException) {
+                    handleConnectionError("Connection timeout", ex)
+                } catch (ex: IOException) {
+                    handleConnectionError("Network error", ex)
+                } catch (ex: Exception) {
+                    Logger.printException({ "send failed" }, ex)
+                } finally {
+                    Logger.printDebug { "Fetching audio track request end (videoId: $videoId, took: ${(System.currentTimeMillis() - startTime)} ms)" }
+                }
+            }
+        }
+
         private fun send(
             clientType: ClientType,
             videoId: String,
@@ -430,14 +517,14 @@ class StreamingDataRequest private constructor(
                     createJSRequestBody(
                         clientType = clientType,
                         videoId = videoId,
+                        language = overrideLanguage,
                         isGVS = true,
                     )
                 } else {
                     createApplicationRequestBody(
                         clientType = clientType,
                         videoId = videoId,
-                        setLocale = DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH,
-                        language = overrideLanguage.ifEmpty { BaseSettings.SPOOF_STREAMING_DATA_VR_LANGUAGE.get().language }
+                        language = overrideLanguage
                     )
                 }
 
@@ -479,7 +566,8 @@ class StreamingDataRequest private constructor(
             requestHeader: Map<String, String>,
             reasonSkipped: String,
         ): StreamingData? {
-            lastSpoofedClientFriendlyName = null
+            Utils.verifyOffMainThread()
+            lastSpoofedClient = null
 
             // Retry with different client if empty response body is received.
             for (clientType in CLIENT_ORDER_TO_USE) {
@@ -495,6 +583,11 @@ class StreamingDataRequest private constructor(
                 if (clientType.requireJS && reasonSkipped.isNotEmpty()) {
                     Logger.printDebug { "Skipped javascript required client (reasonSkipped: $reasonSkipped, clientType: $clientType, videoId: $videoId)" }
                     continue
+                }
+                if (!clientType.supportsCookies
+                    && BaseSettings.DISABLE_AUTO_AUDIO_TRACKS.get()
+                    && overrideLanguage.isEmpty()) {
+                    setAudioTrackLanguage(videoId, requestHeader)
                 }
 
                 val connection = send(clientType, videoId, requestHeader)
@@ -523,7 +616,7 @@ class StreamingDataRequest private constructor(
                                     ) {
                                         Logger.printDebug { "Ignore Android Studio spoofing as it is a livestream (videoId: $videoId)" }
                                     } else {
-                                        lastSpoofedClientFriendlyName = null
+                                        lastSpoofedClient = null
 
                                         // Parses the Proto Buffer and returns StreamingData (GeneratedMessage).
                                         val streamBytes: ByteArray = stream.toByteArray()
@@ -549,7 +642,6 @@ class StreamingDataRequest private constructor(
                                                             arrayLists.first
                                                         val deobfuscatedFormatsArrayList =
                                                             arrayLists.second
-                                                        val serverAbrStreamingUrl = arrayLists.third
                                                         if (!deobfuscatedAdaptiveFormatsArrayList.isNullOrEmpty()) {
                                                             streamingData =
                                                                 deobfuscateStreamingData(
@@ -566,20 +658,14 @@ class StreamingDataRequest private constructor(
                                                                     streamingData = streamingData
                                                                 )
                                                         }
-                                                        if (!serverAbrStreamingUrl.isNullOrEmpty()) {
-                                                            setServerAbrStreamingUrl(
-                                                                streamingData,
-                                                                serverAbrStreamingUrl
-                                                            )
-                                                        }
 
-                                                        lastSpoofedClientFriendlyName =
-                                                            clientType.friendlyName
+                                                        lastSpoofedClient = clientType
+                                                        overrideLanguage = ""
                                                         return streamingData
                                                     }
                                                 } else {
-                                                    lastSpoofedClientFriendlyName =
-                                                        clientType.friendlyName
+                                                    lastSpoofedClient = clientType
+                                                    overrideLanguage = ""
                                                     return streamingData
                                                 }
                                             } else {
@@ -600,6 +686,8 @@ class StreamingDataRequest private constructor(
                     }
                 }
             }
+
+            overrideLanguage = ""
 
             val showToast = BaseSettings.DEBUG_TOAST_ON_ERROR.get()
             handleConnectionError(

@@ -4,10 +4,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
+import app.revanced.patches.youtube.player.overlaybuttons.overlayButtonsPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
@@ -222,14 +222,6 @@ val sponsorBlockPatch = resourcePatch(
         settingsPatch,
     )
 
-    val outlineIcon by booleanOption(
-        key = "outlineIcon",
-        default = true,
-        title = "Outline icons",
-        description = "Apply the outline icon.",
-        required = true
-    )
-
     val newSegmentAlignment by stringOption(
         key = "NewSegmentAlignment",
         default = RIGHT,
@@ -262,7 +254,12 @@ val sponsorBlockPatch = resourcePatch(
             copyResources("youtube/sponsorblock/shared", resourceGroup)
         }
 
-        if (outlineIcon == true) {
+        val iconType = overlayButtonsPatch
+            .getStringOptionValue("iconType")
+            .lowerCaseOrThrow()
+        val outlineIcon = iconType == "thin"
+
+        if (outlineIcon) {
             arrayOf(
                 ResourceGroup(
                     "layout",

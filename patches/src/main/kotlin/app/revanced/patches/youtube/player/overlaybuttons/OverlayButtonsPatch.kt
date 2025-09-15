@@ -118,7 +118,7 @@ val overlayButtonsPatch = resourcePatch(
 
     val changeTopButtons by booleanOption(
         key = "changeTopButtons",
-        default = false,
+        default = true,
         title = "Change top buttons",
         description = "Change the icons at the top of the player.",
         required = true
