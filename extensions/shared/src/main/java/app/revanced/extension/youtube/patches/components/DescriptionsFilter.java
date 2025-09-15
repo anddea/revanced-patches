@@ -54,6 +54,11 @@ public final class DescriptionsFilter extends Filter {
                 "youchat_entrypoint.eml"
         );
 
+        final StringFilterGroup hypePoints = new StringFilterGroup(
+                Settings.HIDE_HYPE_POINTS,
+                "hype_points_factoid.eml"
+        );
+
         howThisWasMadeSection = new StringFilterGroup(
                 Settings.HIDE_CONTENTS_SECTION,
                 "how_this_was_made_section.eml"
@@ -78,6 +83,7 @@ public final class DescriptionsFilter extends Filter {
 
         addPathCallbacks(
                 askSection,
+                hypePoints,
                 howThisWasMadeSection,
                 horizontalShelf,
                 infoCardsSection,
