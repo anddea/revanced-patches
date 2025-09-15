@@ -73,7 +73,6 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Snack bar components` | Adds options to hide or change components related to the snack bar. | 19.05.36 ~ 19.47.53 |
 | `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as sponsored content. | 19.05.36 ~ 19.47.53 |
 | `Spoof app version` | Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features. | 19.43.41 ~ 19.47.53 |
-| `Spoof streaming data` | Adds options to spoof the streaming data to allow playback. | 19.05.36 ~ 19.47.53 |
 | `Spoof watch history` | Adds an option to change the domain of the watch history or check its status. | 19.05.36 ~ 19.47.53 |
 | `Swipe controls` | Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player. | 19.05.36 ~ 19.47.53 |
 | `Theme` | Changes the app's themes to the values specified in patch options. | 19.05.36 ~ 19.47.53 |
@@ -98,14 +97,12 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Custom header for YouTube Music` | Applies a custom header in the top left corner within the app. | 6.20.51 ~ 8.30.54 |
 | `Dark theme` | Changes the app's dark theme to the values specified in patch options. | 6.20.51 ~ 8.30.54 |
 | `Disable Cairo splash animation` | Adds an option to disable Cairo splash animation. | 7.16.53 ~ 8.30.54 |
-| `Disable DRC audio` | Adds an option to disable DRC (Dynamic Range Compression) audio. | 6.20.51 ~ 8.30.54 |
 | `Disable QUIC protocol` | Adds an option to disable CronetEngine's QUIC protocol. | 6.20.51 ~ 8.30.54 |
 | `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 6.20.51 ~ 8.30.54 |
 | `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 6.20.51 ~ 8.30.54 |
 | `Disable music video in album` | Adds option to redirect music videos from albums for non-premium users. | 6.20.51 ~ 8.30.54 |
 | `Enable debug logging` | Adds an option for debugging. | 6.20.51 ~ 8.30.54 |
 | `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 6.20.51 ~ 8.30.54 |
-| `Fix playback` | Adds options to fix playback issues. | 6.20.51 ~ 8.30.54 |
 | `Flyout menu components` | Adds options to hide or change flyout menu components. | 6.20.51 ~ 8.30.54 |
 | `GmsCore support` | Allows the app to work without root by using a different package name when patched using a GmsCore instead of Google Play Services. | 6.20.51 ~ 8.30.54 |
 | `Hide account components` | Adds options to hide components related to the account menu. | 6.20.51 ~ 8.30.54 |
