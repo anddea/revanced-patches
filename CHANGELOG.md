@@ -1,3 +1,11 @@
+# [3.13.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.13.0-dev.2...v3.13.0-dev.3) (2025-09-15)
+
+
+### Features
+
+* Align with RVX [[v5.11.1-dev.2](https://github.com/inotia00/revanced-patches/releases/tag/v5.11.1-dev.2)] ([c2040ff](https://github.com/anddea/revanced-patches/commit/c2040ff4b964797e5a953b7c61fa0cbc31ed8d0d))
+* **YouTube - Description components:** Add `Hide Hype points` setting ([12cec3f](https://github.com/anddea/revanced-patches/commit/12cec3f91afd587f1ccd263707e146e4159419bd))
+
 # [3.13.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.13.0-dev.1...v3.13.0-dev.2) (2025-09-07)
 
 
