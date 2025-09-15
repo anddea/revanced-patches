@@ -3,12 +3,11 @@ package app.revanced.extension.youtube.patches.general;
 import android.net.Uri;
 
 import org.apache.commons.lang3.StringUtils;
-import org.chromium.net.UrlRequest;
 
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.youtube.settings.Settings;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"deprecation", "unused"})
 public final class TranscriptCookiePatch {
 
     private static final boolean SET_TRANSCRIPT_COOKIES =
@@ -32,7 +31,7 @@ public final class TranscriptCookiePatch {
         if (SET_TRANSCRIPT_COOKIES && !TRANSCRIPT_COOKIES.isEmpty()) {
             requireCookies = false;
             // https://www.youtube.com/api/timedtext?v={video_id}...
-            if (StringUtils.isNotEmpty(url) && url.contains("api/timedtext")) {
+            if (StringUtils.contains(url, "api/timedtext")) {
                 if (SET_TRANSCRIPT_COOKIES_ALL) {
                     requireCookies = true;
                 } else {
@@ -52,14 +51,22 @@ public final class TranscriptCookiePatch {
     /**
      * Injection point.
      */
-    public static UrlRequest overrideHeaders(UrlRequest.Builder builder) {
-        if (SET_TRANSCRIPT_COOKIES && requireCookies) {
-            return builder.addHeader("Cookie", TRANSCRIPT_COOKIES)
-                    .addHeader("User-Agent", USER_AGENT_CHROME)
-                    .build();
-        }
+    public static boolean requireCookies() {
+        return SET_TRANSCRIPT_COOKIES && requireCookies;
+    }
 
-        return builder.build();
+    /**
+     * Injection point.
+     */
+    public static String getCookies() {
+        return TRANSCRIPT_COOKIES;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static String getUserAgent() {
+        return USER_AGENT_CHROME;
     }
 
 }

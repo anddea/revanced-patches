@@ -447,6 +447,8 @@
     <string name="revanced_sb_reset_color">Сбросить цвет</string>
     <string name="revanced_sb_segments_filler">Отвлечённые темы / Шутки</string>
     <string name="revanced_sb_segments_filler_sum">Сегменты, которые увеличивают длительность видео за счёт отвлечённых тем или шуток, но не требуются для понимания основного содержания. Не включает сегменты, объясняющие контекст или предысторию.</string>
+    <string name="revanced_sb_segments_hook">Хук / Приветствие</string>
+    <string name="revanced_sb_segments_hook_sum">Озвученные трейлеры к предстоящему видео, приветствия и прощания. Не включает разделы с дополнительным контентом.</string>
     <string name="revanced_sb_segments_interaction">Напоминание о взаимодействии (подписка)</string>
     <string name="revanced_sb_segments_interaction_sum">Короткое напоминание поставить отметку \"Нравится\", подписаться на канал или соцсети посреди ролика. Если эта вставка длительная или о чём-то конкретном, она должна классифицироваться как самореклама.</string>
     <string name="revanced_sb_segments_intro">Пауза / Интро</string>
@@ -464,6 +466,7 @@
     <string name="revanced_sb_skip_automatically">Автоматически пропускать</string>
     <string name="revanced_sb_skip_ignore">Отключить</string>
     <string name="revanced_sb_skipped_filler">Пропущен наполнитель.</string>
+    <string name="revanced_sb_skipped_hook">Пропущен хук.</string>
     <string name="revanced_sb_skipped_interaction">Пропущено назойливое напоминание.</string>
     <string name="revanced_sb_skipped_intro_beginning">Пропущено интро.</string>
     <string name="revanced_sb_skipped_intro_end">Пропущена пауза.</string>
@@ -506,14 +509,6 @@
 • Всплывающее меню плеера может отображаться некорректно.
 • Эти побочные эффекты можно устранить, очистив данные приложения и повторно войдя в систему.</string>
     <string name="revanced_spoof_client_title">Подмена клиента</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (Блокировка запросов)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Блокировка запросов)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Блокировка запросов)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_34">iOS Music 8.34</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (Блокировка запросов)</string>
     <string name="revanced_spoof_client_type_summary">"Определяет клиент по умолчанию для подмены."</string>
     <string name="revanced_spoof_client_type_title">Клиент по умолчанию</string>
     <string name="revanced_spoof_player_parameter_summary">"Измените параметр проигрывателя, чтобы предотвратить проблемы с воспроизведением.
@@ -525,18 +520,13 @@
     <string name="revanced_spoof_streaming_data_message">Если у вас возникли какие-либо проблемы с воспроизведением, включите один из следующих параметров в зависимости от того, какой из них вам больше подходит: \"Spoof video streams\" или \"Spoof client\" в &lt;i&gt;&lt;u&gt;Настройках &gt; %s &gt; Разное;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показывает клиент, используемый для получения потоковых данных в Статистике для сисадминов.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показывать в \"Статистике для сисадминов\"</string>
-    <string name="revanced_spoof_streaming_data_summary">"Подделать потоковые данные, чтобы предотвратить проблемы с воспроизведением.
+    <string name="revanced_spoof_streaming_data_summary">"Подменяет клиентские видеопотоки для предотвращения проблем с воспроизведением.
 
-※ При использовании вместе с \"Подменой клиента\" могут возникнуть проблемы с воспроизведением."</string>
+Если вы являетесь пользователем YouTube Premium или исключили патч 'Поддержка GmsCore', эта настройка может быть не нужна."</string>
     <string name="revanced_spoof_streaming_data_title">Подмена потоковых данных</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32">Android VR 1.43.32</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32_no_auth">Android VR 1.43.32 (Без авторизации)</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09">Android VR 1.65.09</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09_no_auth">Android VR 1.65.09 (Без авторизации)</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">Музыка для iOS 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">Музыка для iOS 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">Музыка для iOS 8.12</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_34">iOS Music 8.34</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Определяет клиент по умолчанию для подмены."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Клиент по умолчанию</string>
     <string name="revanced_spoof_video_streams_summary">Подменять клиентские видеопотоки для предотвращения проблем с воспроизведением.

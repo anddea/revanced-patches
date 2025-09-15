@@ -245,10 +245,6 @@ internal enum class PatchList(
         "Spoof app version",
         "Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features."
     ),
-    SPOOF_STREAMING_DATA(
-        "Spoof streaming data",
-        "Adds options to spoof the streaming data to allow playback."
-    ),
     SWIPE_CONTROLS(
         "Swipe controls",
         "Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player."

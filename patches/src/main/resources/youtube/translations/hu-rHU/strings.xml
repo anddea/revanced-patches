@@ -1174,7 +1174,7 @@ Ha a lejátszó képernyőjének elrendezése a szerveroldali változtatások mi
 Információ: Csak azok a polcok lesznek elrejtve a kezdőlapon, amelyeknél a Shorts fejléce látható."</string>
     <string name="revanced_hide_shorts_shelf_channel_title">Elrejtés a csatorna oldalon</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Megjelenítve a nézési előzmények között.</string>
-    <string name="revanced_hide_shorts_shelf_history_summary_on">Elrejtve a nézési előzmények között.</string>
+    <string name="revanced_hide_shorts_shelf_history_summary_on">"Elrejtve a nézési előzmények között."</string>
     <string name="revanced_hide_shorts_shelf_history_title">Elrejtés a nézési előzmények között</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_off">Látható a kezdőlapon és a kapcsolódó videóknál.</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_on">Elrejtve a kezdőlapon és a kapcsolódó videóknál.</string>
@@ -1947,6 +1947,8 @@ Készen állsz a beküldésre?"</string>
     <string name="revanced_sb_segments_filler_sum">Témától eltérő vagy humoros hozzáadott részek, amik nem szükségesek a videó fő tartalmának megértéséhez. Ne tartalmazzon olyan szegmenseket, amik kontextust, vagy háttérinformációt szolgáltatnak.</string>
     <string name="revanced_sb_segments_highlight">Kiemelt</string>
     <string name="revanced_sb_segments_highlight_sum">A videónak azon része, amit a legtöbben keresnek.</string>
+    <string name="revanced_sb_segments_hook">Bevezetés / Üdvözlet</string>
+    <string name="revanced_sb_segments_hook_sum">Narrált előzetesek a közelgő videóhoz, üdvözlések és búcsúzások. Nem tartalmaz olyan szakaszokat, amelyek további tartalmat adnak hozzá</string>
     <string name="revanced_sb_segments_interaction">Interakció emlékeztető (Feliratkozás)</string>
     <string name="revanced_sb_segments_interaction_sum">Egy rövid emlékeztető arról, hogy like-oljunk, iratkozzunk fel, vagy kövessük őket a tartalom közben. Ha ez hosszabb vagy egy adott témáról szól, inkább az önpromóció alá tartozik.</string>
     <string name="revanced_sb_segments_intro">Megszakítás / Intro animáció</string>
@@ -1976,6 +1978,7 @@ Készen állsz a beküldésre?"</string>
     <string name="revanced_sb_skip_button_compact_highlight">Kiemelt rész</string>
     <string name="revanced_sb_skip_button_filler">Töltelékrész kihagyása</string>
     <string name="revanced_sb_skip_button_highlight">Kiemelt rész kihagyása</string>
+    <string name="revanced_sb_skip_button_hook">Horog kihagyása</string>
     <string name="revanced_sb_skip_button_interaction">Interakció kihagyása</string>
     <string name="revanced_sb_skip_button_intro_beginning">Intro kihagyása</string>
     <string name="revanced_sb_skip_button_intro_end">Szünet kihagyása</string>
@@ -1993,6 +1996,7 @@ Készen állsz a beküldésre?"</string>
     <string name="revanced_sb_skip_showbutton">Kihagyás gomb megjelenítése</string>
     <string name="revanced_sb_skipped_filler">Töltelékrész kihagyva.</string>
     <string name="revanced_sb_skipped_highlight">Kiemelt rész kihagyva.</string>
+    <string name="revanced_sb_skipped_hook">Horog kihagyva</string>
     <string name="revanced_sb_skipped_interaction">Zavaró emlékeztető kihagyva.</string>
     <string name="revanced_sb_skipped_intro_beginning">Intro kihagyva.</string>
     <string name="revanced_sb_skipped_intro_end">Szünet kihagyva.</string>
@@ -2165,19 +2169,15 @@ Infó:
 • Előfordulhat, hogy a jó minőség feloldódik bizonyos videóknál, amelyek nagy eszközméretet igényelnek, de nem mindnél.
 • Ez a beállítás nem érhető el, ha az 'Adatfolyam meghamisítása' be van kapcsolva."</string>
     <string name="revanced_spoof_device_dimensions_title">Eszközméret hamisítása</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_unplugged">"Android TV
-<small>(Belépés szükséges)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_no_auth">"Android VR
-<small>(Nincs hitelesítés)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_ios_unplugged">"iOS TV
-<small>(Belépés szükséges)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobil webböngésző
 <small>(fejlesztés alatt)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">"TV
-<small>(fejlesztés alatt)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">"TV egyszerű
-<small>(fejlesztés alatt)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV
+<small>(fejlesztés alatt)</small>
+    </string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV egyszerű
+<small>(fejlesztés alatt)</small>
+    </string>
     <string name="revanced_spoof_streaming_data_default_client_title">Alapértelmezett kliens</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Nem sikerült lekérni egyetlen kliens adatfolyamot sem.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Lehet, hogy nincs bejelentkezve.</string>
@@ -2280,23 +2280,9 @@ A JavaScript kliensek közül az ajánlott a TV egyszerű."</string>
 
 • Nagymértékben szerverfüggő, és az élesítés sikere vagy sikertelensége a szerveren aktuálisan használt JavaScripttől függ."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">Használja a legújabb JavaScriptet</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_off">A VR hangsáv megjelenítése gomb nem látható.</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_on">A VR hangsáv megjelenítése gomb látható.</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_title">VR hangsáv megjelenítése gomb</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_user_dialog_message">"Előfeltételek:
-• A streamelési adatok lekéréséhez használt kliens az „Android VR (nincs hitelesítés)”.
-• Több hangsávval rendelkező videó lejátszása folyamatban van.
-
-Ismert problémák:
-• Ha az alkalmazás nyelvét megváltoztatják a YouTube beállításaiban, és az alkalmazást nem indítják újra, előfordulhat, hogy a hangsáv párbeszédpanelén használt nyelv nem változik.
-• Előfordulhat, hogy a hangsáv párbeszédpanelén rossz nyelv van kiválasztva.
-• Egyes hangsávok, például az „angol leíró”, nem támogatottak.
-
-Ez a funkció még fejlesztés alatt áll, így a szerveroldali változások miatt bármikor meghibásodhat."</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">A videokodek meghatározása automatikusan történik.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">A videó kodek AVC (H.264) vagy VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">VR AV1 letiltása</string>
-    <string name="revanced_spoof_streaming_data_vr_language_title">VR hangfolyam alapértelmezett nyelve</string>
     <string name="revanced_swipe_brightness_summary_off">A teljes képernyős fényerő húzás nem engedélyezett.</string>
     <string name="revanced_swipe_brightness_summary_on">"A teljes képernyős fényerő húzás engedélyezett.
 
@@ -2376,6 +2362,38 @@ Ha ez a beállítás nem működik, váltson inkognító módra."</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music csomag név</string>
     <string name="revanced_transcript_cookies_about_summary">Kattintson ide a sütik fogadásának módjáról.</string>
     <string name="revanced_transcript_cookies_about_title">Átirati sütikről</string>
+    <string name="revanced_transcript_cookies_dialog_auth_text">Hitelesítés</string>
+    <string name="revanced_transcript_cookies_dialog_message">"Hitelesítés
+══════════════
+1. Kattintson a 'Hitelesítés' gombra a webes nézet bejelentkezési oldalának megnyitásához.
+
+2. Jelentkezzen be Google-fiókjába.
+
+3. Lejátszik minden olyan videót, amely támogatja az automatikusan lefordított feliratokat.
+
+4. Kapcsolja be az automatikusan lefordított feliratokat, és nézze meg, hogy működnek-e.
+
+4-1. Ha az automatikusan lefordított feliratok nem működnek, váltson egy másik videóra, amely támogatja az automatikusan lefordított feliratokat, és próbálja újra a 4. lépést.
+
+5. Kattintson az eszköztáron található három pontra a helyi menü megnyitásához.
+
+6. Kattintson a 'Sütik beszerzése' gombra.
+
+7. Kattintson a 'Másolás' gombra a sütik másolásához.
+
+8. Zárja be a webes nézetet, és illessze be a másolt sütiket az 'Átirati sütik' beállításaiba.
+
+Nincs hitelesítés
+══════════════
+1. Kattintson a 'Nincs hitelesítés' gombra a videó webes nézetben való megnyitásához.
+2. Játssza le a videót legalább 3 másodpercig.
+3. Kattintson az eszköztáron található három pontra a helyi menü megnyitásához.
+4. Kattintson a 'Sütik beszerzése' gombra.
+5. Kattintson a 'Másolás' gombra a sütik másolásához.
+6. Zárja be a webes nézetet, és illessze be a másolt sütiket a 'Transcript Cookies' beállításokba.
+
+Jogi nyilatkozat: A bejelentkezés nélkül kibocsátott sütik érvénytelenek lehetnek, vagy időbe telhet, mire elérhetővé válnak a Transcript API számára."</string>
+    <string name="revanced_transcript_cookies_dialog_no_auth_text">Nincs hitelesítés</string>
     <string name="revanced_transcript_cookies_dialog_title">Átirati sütik eportálása</string>
     <string name="revanced_transcript_cookies_summary">Az Átirat API kérésekben használandó sütik.</string>
     <string name="revanced_transcript_cookies_title">Átirati sütik</string>

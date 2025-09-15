@@ -28,7 +28,7 @@ import android.view.WindowInsets;
 import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch;
+import app.revanced.extension.shared.innertube.client.YouTubeClient;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.EnumSetting;
@@ -216,6 +216,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     ExtendedUtils.setPlayerFlyoutMenuAdditionalSettings();
                 } else if (setting.equals(HIDE_PREVIEW_COMMENT) || setting.equals(HIDE_PREVIEW_COMMENT_TYPE)) {
                     ExtendedUtils.setCommentPreviewSettings();
+                } else if (setting.equals(SPOOF_STREAMING_DATA_USE_JS)) {
+                    YouTubeClient.availableClientTypes(BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get());
                 }
             } else if (mPreference instanceof EditTextPreference editTextPreference) {
                 if (settingImportInProgress) {

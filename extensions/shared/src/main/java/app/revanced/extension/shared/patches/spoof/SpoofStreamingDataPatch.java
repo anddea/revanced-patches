@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 
 import com.google.protos.youtube.api.innertube.StreamingDataOuterClass.StreamingData;
 
-import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -29,22 +28,31 @@ import app.revanced.extension.youtube.shared.VideoInformation;
 public class SpoofStreamingDataPatch {
     public static final boolean SPOOF_STREAMING_DATA =
             BaseSettings.SPOOF_STREAMING_DATA.get() && PatchStatus.SpoofStreamingData();
-    private static final boolean J2V8_LIBRARY_AVAILABILITY = checkJ2V8();
     private static final boolean SPOOF_STREAMING_DATA_PRIORITIZE_VIDEO_QUALITY =
             SPOOF_STREAMING_DATA && BaseSettings.SPOOF_STREAMING_DATA_PRIORITIZE_VIDEO_QUALITY.get();
     private static final boolean SPOOF_STREAMING_DATA_USE_JS =
-            SPOOF_STREAMING_DATA && PatchStatus.GmsCoreSupport() &&
-                    BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get();
+            SPOOF_STREAMING_DATA && BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get();
     private static final boolean SPOOF_STREAMING_DATA_USE_JS_ALL =
             SPOOF_STREAMING_DATA_USE_JS && BaseSettings.SPOOF_STREAMING_DATA_USE_JS_ALL.get();
     private static final boolean SPOOF_STREAMING_DATA_USE_LATEST_JS =
             SPOOF_STREAMING_DATA_USE_JS && BaseSettings.SPOOF_STREAMING_DATA_USE_LATEST_JS.get();
 
     /**
-     * Any unreachable ip address.  Used to intentionally fail requests.
+     * Domain used for internet connectivity verification.
+     * It has an empty response body and is only used to check for a 204 response code.
+     * <p>
+     * If an unreachable IP address (127.0.0.1) is used, no response code is provided.
+     * <p>
+     * YouTube handles unreachable IP addresses without issue.
+     * YouTube Music has an issue with waiting for the Cronet connect timeout of 30_000L on mobile networks.
+     * <p>
+     * Using a VPN or DNS can temporarily resolve this issue,
+     * But the ideal workaround is to avoid using unreachable IP addresses.
      */
-    private static final String UNREACHABLE_HOST_URI_STRING = "https://127.0.0.0";
-    private static final Uri UNREACHABLE_HOST_URI = Uri.parse(UNREACHABLE_HOST_URI_STRING);
+    private static final String INTERNET_CONNECTION_CHECK_URI_STRING =
+            "https://www.google.com/gen_204";
+    private static final Uri INTERNET_CONNECTION_CHECK_URI =
+            Uri.parse(INTERNET_CONNECTION_CHECK_URI_STRING);
 
     /**
      * Parameters used when playing scrim.
@@ -67,7 +75,6 @@ public class SpoofStreamingDataPatch {
             "heartbeat",        // This request determines whether to pause playback when the user is AFK.
             "refresh",          // Waiting for a livestream to start.
     };
-    private static volatile boolean isInitialized = false;
     /**
      * If {@link SpoofStreamingDataPatch#SPOOF_STREAMING_DATA_USE_JS_ALL} is false,
      * Autoplay in feed, Clips, and Shorts will not use the JS client for fast playback.
@@ -75,35 +82,6 @@ public class SpoofStreamingDataPatch {
      */
     @NonNull
     private static volatile String reasonSkipped = "";
-
-    /**
-     * If the app is installed via mounting, it will fail to load the J2V8 library.
-     * So, when the class is loaded, it should first check if the J2V8 library is present.
-     * <p>
-     * TODO: A feature should be implemented in revanced-library to copy external libraries
-     *       to the original app's path (/data/data/com.google.android.youtube/lib/*).
-     *
-     * @return Whether the J2V8 library exists.
-     */
-    private static boolean checkJ2V8() {
-        if (!isInitialized) {
-            isInitialized = true;
-            if (SPOOF_STREAMING_DATA && PatchStatus.GmsCoreSupport()) {
-                try {
-                    String libraryDir = Utils.getContext()
-                            .getApplicationContext()
-                            .getApplicationInfo()
-                            .nativeLibraryDir;
-                    File j2v8 = new File(libraryDir + "/libj2v8.so");
-                    return j2v8.exists();
-                } catch (Exception ex) {
-                    Logger.printException(() -> "J2V8 native library not found", ex);
-                }
-            }
-        }
-
-        return false;
-    }
 
     /**
      * Injection point.
@@ -118,9 +96,9 @@ public class SpoofStreamingDataPatch {
                 String path = playerRequestUri.getPath();
 
                 if (path != null && path.contains("get_watch")) {
-                    Logger.printDebug(() -> "Blocking 'get_watch' by returning unreachable uri");
+                    Logger.printDebug(() -> "Blocking 'get_watch' by returning internet connection check uri");
 
-                    return UNREACHABLE_HOST_URI;
+                    return INTERNET_CONNECTION_CHECK_URI;
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "blockGetWatchRequest failure", ex);
@@ -137,9 +115,9 @@ public class SpoofStreamingDataPatch {
                 String path = originalUri.getPath();
 
                 if (path != null && path.contains("initplayback")) {
-                    Logger.printDebug(() -> "Blocking 'initplayback' by clearing query");
+                    Logger.printDebug(() -> "Blocking 'initplayback' by returning internet connection check uri");
 
-                    return originalUri.buildUpon().clearQuery().build().toString();
+                    return INTERNET_CONNECTION_CHECK_URI_STRING;
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "blockInitPlaybackRequest failure", ex);
@@ -147,6 +125,14 @@ public class SpoofStreamingDataPatch {
         }
 
         return originalUrlString;
+    }
+
+    /**
+     * Injection point.
+     * Fix audio stuttering in YouTube Music.
+     */
+    public static boolean disableSABR() {
+        return SPOOF_STREAMING_DATA;
     }
 
     /**
@@ -162,9 +148,9 @@ public class SpoofStreamingDataPatch {
 
     /**
      * Injection point.
-     * Skip response encryption in OnesiePlayerRequest.
+     * Turns off a feature flag that interferes with spoofing.
      */
-    public static boolean skipResponseEncryption(boolean original) {
+    public static boolean useMediaFetchHotConfigReplacement(boolean original) {
         if (!SPOOF_STREAMING_DATA) {
             return original;
         }
@@ -290,6 +276,14 @@ public class SpoofStreamingDataPatch {
 
     /**
      * Injection point.
+     */
+    @Nullable
+    public static String newPlayerResponseParameter(@NonNull String newlyLoadedVideoId, @Nullable String playerParameter) {
+        return newPlayerResponseParameter(newlyLoadedVideoId, playerParameter, null, false);
+    }
+
+    /**
+     * Injection point.
      * <p>
      * Since {@link SpoofStreamingDataPatch} is on a shared path,
      * {@link VideoInformation#newPlayerResponseParameter(String, String, String, boolean)} is not used.
@@ -354,25 +348,14 @@ public class SpoofStreamingDataPatch {
         if (!BaseSettings.SPOOF_STREAMING_DATA.get()) {
             return true;
         }
-        String defaultClient = BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().name();
-        // iOS TV is not available in some regions or for some users.
-        return defaultClient.equals("IOS_UNPLUGGED")
-                || defaultClient.startsWith("TV");
+        return BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().name().startsWith("TV");
     }
 
     public static final class ClientAndroidVRAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
             return BaseSettings.SPOOF_STREAMING_DATA.get() &&
-                    BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().name().startsWith("ANDROID_VR");
-        }
-    }
-
-    public static final class ClientAndroidVRNoAuthAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return BaseSettings.SPOOF_STREAMING_DATA.get() &&
-                    BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get() == ClientType.ANDROID_VR_NO_AUTH;
+                    BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get() == ClientType.ANDROID_VR;
         }
     }
 
@@ -388,28 +371,16 @@ public class SpoofStreamingDataPatch {
         @Override
         public boolean isAvailable() {
             return BaseSettings.SPOOF_STREAMING_DATA.get() &&
-                    J2V8_LIBRARY_AVAILABILITY &&
                     BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get() &&
                     BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getRequireJS();
         }
     }
 
-    public static final class ForceOriginalAudioAvailability implements Setting.Availability {
-        private static final boolean AVAILABLE_ON_LAUNCH = SpoofStreamingDataPatch.multiAudioTrackAvailable();
-
-        @Override
-        public boolean isAvailable() {
-            // Check conditions of launch and now. Otherwise if spoofing is changed
-            // without a restart the setting will show as available when it's not.
-            return AVAILABLE_ON_LAUNCH && SpoofStreamingDataPatch.multiAudioTrackAvailable();
-        }
-    }
-
-    public static final class J2V8Availability implements Setting.Availability {
+    public static final class ClientNoAuthAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
             return BaseSettings.SPOOF_STREAMING_DATA.get() &&
-                    J2V8_LIBRARY_AVAILABILITY;
+                    !BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getSupportsCookies();
         }
     }
 

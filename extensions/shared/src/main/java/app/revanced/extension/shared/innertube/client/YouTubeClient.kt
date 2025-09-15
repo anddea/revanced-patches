@@ -92,6 +92,10 @@ object YouTubeClient {
 
 
     // ANDROID
+    /**
+     * This client can only be used when logged in.
+     * Requires a DroidGuard PoToken to play videos longer than 1:00.
+     */
     private const val PACKAGE_NAME_ANDROID = "com.google.android.youtube"
     private val CLIENT_VERSION_ANDROID = PackageUtils.getAppVersionName()
     private val USER_AGENT_ANDROID = androidUserAgent(
@@ -102,8 +106,10 @@ object YouTubeClient {
 
     // ANDROID VR
     /**
-     * Video not playable: Kids.
+     * Video not playable: Kids / Paid / Movie / Private / Age-restricted.
      * Note: Audio track is not available.
+     *
+     * This client can only be used when logged out.
      *
      * Package name for YouTube VR (Google DayDream): com.google.android.apps.youtube.vr (Deprecated)
      * Package name for YouTube VR (Meta Quests): com.google.android.apps.youtube.vr.oculus
@@ -121,7 +127,7 @@ object YouTubeClient {
     private val CLIENT_VERSION_ANDROID_VR = if (disableAV1())
         "1.43.32" // Last version of minSdkVersion 24.
     else
-        "1.65.09"
+        "1.65.10"
 
     /**
      * The device machine id for the Meta Quest 3, used to get opus codec with the Android VR client.
@@ -154,57 +160,17 @@ object YouTubeClient {
     )
 
 
-    // ANDROID UNPLUGGED
-    /**
-     * Video not playable: Playlists / Music.
-     * Note: Audio track is not available.
-     */
-    private const val PACKAGE_NAME_ANDROID_UNPLUGGED = "com.google.android.apps.youtube.unplugged"
-    private const val CLIENT_VERSION_ANDROID_UNPLUGGED = "9.33.0"
-
-    /**
-     * The device machine id for the Chromecast with Google TV 4K.
-     * See [this GitLab](https://dumps.tadiphone.dev/dumps/google/kirkwood) for more information.
-     */
-    private const val DEVICE_MODEL_ANDROID_UNPLUGGED = "Google TV Streamer"
-    private const val DEVICE_MAKE_ANDROID_UNPLUGGED = "Google"
-    private const val OS_VERSION_ANDROID_UNPLUGGED = "14"
-    private const val ANDROID_SDK_VERSION_ANDROID_UNPLUGGED = "34"
-    private const val BUILD_ID_ANDROID_UNPLUGGED = "UTTK.250305.003"
-
-    private val USER_AGENT_ANDROID_UNPLUGGED = androidUserAgent(
-        packageName = PACKAGE_NAME_ANDROID_UNPLUGGED,
-        clientVersion = CLIENT_VERSION_ANDROID_UNPLUGGED,
-        osVersion = OS_VERSION_ANDROID_UNPLUGGED,
-        deviceModel = DEVICE_MODEL_ANDROID_UNPLUGGED,
-        buildId = BUILD_ID_ANDROID_UNPLUGGED
-    )
-
-
     // ANDROID CREATOR
     /**
      * Video not playable: Livestream / HDR.
      * Note: Audio track is not available.
      */
     private const val PACKAGE_NAME_ANDROID_CREATOR = "com.google.android.apps.youtube.creator"
-    private const val CLIENT_VERSION_ANDROID_CREATOR = "25.10.100"
-
-    /**
-     * The device machine id for the Google Pixel 9 Pro Fold.
-     * See [this GitLab](https://dumps.tadiphone.dev/dumps/google/caiman) for more information.
-     */
-    private const val DEVICE_MODEL_ANDROID_CREATOR = "Pixel 9 Pro Fold"
-    private const val DEVICE_MAKE_ANDROID_CREATOR = "Google"
-    private const val OS_VERSION_ANDROID_CREATOR = "15"
-    private const val ANDROID_SDK_VERSION_ANDROID_CREATOR = "35"
-    private const val BUILD_ID_ANDROID_CREATOR = "AP3A.241005.015.A2"
+    private const val CLIENT_VERSION_ANDROID_CREATOR = "23.47.101" // Last version of minSdkVersion 26.
 
     private val USER_AGENT_ANDROID_CREATOR = androidUserAgent(
         packageName = PACKAGE_NAME_ANDROID_CREATOR,
         clientVersion = CLIENT_VERSION_ANDROID_CREATOR,
-        osVersion = OS_VERSION_ANDROID_CREATOR,
-        deviceModel = DEVICE_MODEL_ANDROID_CREATOR,
-        buildId = BUILD_ID_ANDROID_CREATOR
     )
 
 
@@ -214,9 +180,9 @@ object YouTubeClient {
      * Note: Both 'Authorization' and 'Set-Cookie' are supported.
      * TODO: Find out why playback sometimes fails.
      */
-    private const val CLIENT_VERSION_TVHTML5 = "7.20250902.08.00"
+    private const val CLIENT_VERSION_TVHTML5 = "7.20250910.13.00"
     private const val USER_AGENT_TVHTML5 =
-        "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)"
+        "Mozilla/5.0(SMART-TV; Linux; Tizen 4.0.0.2) AppleWebkit/605.1.15 (KHTML, like Gecko) SamsungBrowser/9.2 TV Safari/605.1.15"
 
 
     // TVHTML5 SIMPLY
@@ -226,7 +192,8 @@ object YouTubeClient {
      * TODO: Find out why playback sometimes fails.
      */
     private const val CLIENT_VERSION_TVHTML5_SIMPLY = "1.0"
-    private const val USER_AGENT_TVHTML5_SIMPLY = USER_AGENT_TVHTML5
+    private const val USER_AGENT_TVHTML5_SIMPLY =
+        "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)"
 
 
     // TVHTML5 EMBEDDED
@@ -245,9 +212,9 @@ object YouTubeClient {
      * Note: Only 'Set-Cookie' is supported.
      * TODO: Find out why playback sometimes fails.
      */
-    private const val CLIENT_VERSION_MWEB = "2.20250905.01.00"
+    private const val CLIENT_VERSION_MWEB = "2.20250912.01.00"
     private const val USER_AGENT_MWEB =
-        "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML; like Gecko) FxiOS/98.2  Mobile/15E148 Safari/605.1.15"
+        "Mozilla/5.0 (Android 16; Mobile; rv:140.0) Gecko/140.0 Firefox/140.0"
 
 
     /**
@@ -276,12 +243,10 @@ object YouTubeClient {
         return BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get()
     }
 
-    fun availableClientTypes(
-        preferredClient: ClientType,
-        isWeb: Boolean
-    ): Array<ClientType> {
+    @JvmStatic
+    fun availableClientTypes(preferredClient: ClientType): Array<ClientType> {
         val availableClientTypes: Array<ClientType> = if (useJS()) {
-            if (isWeb) {
+            if (preferredClient == ClientType.MWEB) {
                 // If playback fails with MWEB, it will fall back to TV.
                 ClientType.CLIENT_ORDER_TO_USE_JS_PREFER_TV
             } else {
@@ -398,51 +363,18 @@ object YouTubeClient {
             userAgent = USER_AGENT_ANDROID_VR,
             androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_VR,
             clientVersion = CLIENT_VERSION_ANDROID_VR,
+            supportsCookies = false,
             clientName = "ANDROID_VR",
             friendlyName = if (disableAV1())
                 "Android VR No AV1"
             else
                 "Android VR"
         ),
-        ANDROID_VR_NO_AUTH(
-            id = 28,
-            deviceMake = DEVICE_MAKE_ANDROID_VR,
-            deviceModel = DEVICE_MODEL_ANDROID_VR,
-            osVersion = OS_VERSION_ANDROID_VR,
-            userAgent = USER_AGENT_ANDROID_VR,
-            androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_VR,
-            clientVersion = CLIENT_VERSION_ANDROID_VR,
-            supportsCookies = false,
-            clientName = "ANDROID_VR",
-            friendlyName = if (disableAV1())
-                "Android VR No auth No AV1"
-            else
-                "Android VR No auth"
-        ),
-        ANDROID_UNPLUGGED(
-            id = 29,
-            deviceMake = DEVICE_MAKE_ANDROID_UNPLUGGED,
-            deviceModel = DEVICE_MODEL_ANDROID_UNPLUGGED,
-            osVersion = OS_VERSION_ANDROID_UNPLUGGED,
-            userAgent = USER_AGENT_ANDROID_UNPLUGGED,
-            androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_UNPLUGGED,
-            clientVersion = CLIENT_VERSION_ANDROID_UNPLUGGED,
-            clientPlatform = CLIENT_PLATFORM_TV,
-            requireAuth = true,
-            clientName = "ANDROID_UNPLUGGED",
-            friendlyName = "Android TV"
-        ),
-
-        // Fallback client.
         ANDROID_CREATOR(
             id = 14,
-            deviceMake = DEVICE_MAKE_ANDROID_CREATOR,
-            deviceModel = DEVICE_MODEL_ANDROID_CREATOR,
-            osVersion = OS_VERSION_ANDROID_CREATOR,
             userAgent = USER_AGENT_ANDROID_CREATOR,
-            androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_CREATOR,
+            androidSdkVersion = Build.VERSION.SDK,
             clientVersion = CLIENT_VERSION_ANDROID_CREATOR,
-            clientPlatform = CLIENT_PLATFORM_TABLET,
             requireAuth = true,
             clientName = "ANDROID_CREATOR",
             friendlyName = "Android Studio"
@@ -481,7 +413,7 @@ object YouTubeClient {
         // Fallback client, not yet released.
         VISIONOS(
             id = 101,
-            deviceMake = DEVICE_MAKE_IOS_UNPLUGGED,
+            deviceMake = "Apple",
             deviceModel = "RealityDevice14,1",
             osName = "visionOS",
             osVersion = "1.3.21O771",
@@ -495,7 +427,7 @@ object YouTubeClient {
         TV(
             id = 7,
             clientVersion = CLIENT_VERSION_TVHTML5,
-            clientPlatform = CLIENT_PLATFORM_GAME_CONSOLE,
+            clientPlatform = CLIENT_PLATFORM_TV,
             userAgent = USER_AGENT_TVHTML5,
             requireJS = true,
             refererFormat = CLIENT_REFERER_FORMAT_TV,
@@ -512,12 +444,23 @@ object YouTubeClient {
             refererFormat = CLIENT_REFERER_FORMAT_TV,
             friendlyName = "TV Simply"
         ),
+        TV_SIMPLY_NO_AUTH(
+            id = 75,
+            clientVersion = CLIENT_VERSION_TVHTML5_SIMPLY,
+            clientPlatform = CLIENT_PLATFORM_GAME_CONSOLE,
+            userAgent = USER_AGENT_TVHTML5_SIMPLY,
+            requireJS = true,
+            clientName = "TVHTML5_SIMPLY",
+            refererFormat = CLIENT_REFERER_FORMAT_TV,
+            supportsCookies = false,
+            friendlyName = "TV Simply No Auth"
+        ),
 
         // Unused client.
         TV_EMBEDDED(
             id = 85,
             clientVersion = CLIENT_VERSION_TVHTML5_EMBEDDED,
-            clientPlatform = CLIENT_PLATFORM_GAME_CONSOLE,
+            clientPlatform = CLIENT_PLATFORM_TV,
             clientScreen = CLIENT_SCREEN_EMBED,
             userAgent = USER_AGENT_TVHTML5,
             requireJS = true,
@@ -540,20 +483,15 @@ object YouTubeClient {
 
         companion object {
             val CLIENT_ORDER_TO_USE: Array<ClientType> = arrayOf(
-                IOS_UNPLUGGED,
                 ANDROID_VR,
-                ANDROID_CREATOR,
-                ANDROID_UNPLUGGED,
-                ANDROID_VR_NO_AUTH,
                 VISIONOS,
+                ANDROID_CREATOR,
                 IOS_DEPRECATED,
             )
             val CLIENT_ORDER_TO_USE_JS: Array<ClientType> = arrayOf(
-                IOS_UNPLUGGED,
                 ANDROID_VR,
+                VISIONOS,
                 ANDROID_CREATOR,
-                ANDROID_UNPLUGGED,
-                ANDROID_VR_NO_AUTH,
                 TV,
                 TV_SIMPLY,
                 MWEB,
@@ -562,11 +500,9 @@ object YouTubeClient {
             )
             val CLIENT_ORDER_TO_USE_JS_PREFER_TV: Array<ClientType> = arrayOf(
                 TV_SIMPLY,
-                IOS_UNPLUGGED,
                 ANDROID_VR,
+                VISIONOS,
                 ANDROID_CREATOR,
-                ANDROID_UNPLUGGED,
-                ANDROID_VR_NO_AUTH,
                 TV,
                 MWEB,
                 VISIONOS,

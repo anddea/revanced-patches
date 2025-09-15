@@ -18,8 +18,7 @@ import static app.revanced.extension.music.settings.Settings.RETURN_YOUTUBE_USER
 import static app.revanced.extension.music.settings.Settings.SB_API_URL;
 import static app.revanced.extension.music.settings.Settings.SETTINGS_IMPORT_EXPORT;
 import static app.revanced.extension.music.settings.Settings.SPOOF_APP_VERSION_TARGET;
-import static app.revanced.extension.music.settings.Settings.SPOOF_CLIENT_TYPE;
-import static app.revanced.extension.music.settings.Settings.SPOOF_VIDEO_STREAMS_DEFAULT_CLIENT;
+import static app.revanced.extension.music.settings.Settings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT;
 import static app.revanced.extension.music.settings.Settings.WATCH_HISTORY_TYPE;
 import static app.revanced.extension.music.utils.ExtendedUtils.getDialogBuilder;
 import static app.revanced.extension.music.utils.ExtendedUtils.getLayoutParams;
@@ -176,11 +175,11 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 if (settings.equals(CHANGE_START_PAGE)
                         || settings.equals(DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE)
                         || settings.equals(RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT)
-                        || settings.equals(SPOOF_CLIENT_TYPE)
-                        || settings.equals(SPOOF_VIDEO_STREAMS_DEFAULT_CLIENT)
                         || settings.equals(WATCH_HISTORY_TYPE)
                 ) {
                     ResettableListPreference.showDialog(mActivity, enumSetting, 0);
+                } else if (settings.equals(SPOOF_STREAMING_DATA_DEFAULT_CLIENT)) {
+                    ResettableListPreference.showDialog(mActivity, enumSetting, 3);
                 }
             }
         } catch (Exception ex) {

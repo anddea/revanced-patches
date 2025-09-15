@@ -361,8 +361,10 @@
     <string name="revanced_expand_video_description_title">Автоматично отваряне на видео описание</string>
     <string name="revanced_extended_confirm_user_dialog_title">Желаете ли да продължите?</string>
     <string name="revanced_extended_reset_to_default_toast">Възстановяване на стандартните стойности.</string>
+    <string name="revanced_extended_restart_dialog_message">Рестартирайте приложението, за да влязат в сила тези промени.</string>
     <string name="revanced_extended_restart_first_run">Рестартирайте, за да заредите оформлението нормално</string>
     <string name="revanced_extended_restart_message">Опреснете и рестартирайте</string>
+    <string name="revanced_extended_settings_color_invalid">Невалиден цвят.</string>
     <string name="revanced_extended_settings_export_failed">Неуспешно експортиране на настройките.</string>
     <string name="revanced_extended_settings_export_success">Настройките са експортирани успешно.</string>
     <string name="revanced_extended_settings_export_summary">Експортирайте настройките във файл.</string>
@@ -377,6 +379,7 @@
     <string name="revanced_extended_settings_import_summary">Импортиране на настройки от файл.</string>
     <string name="revanced_extended_settings_import_title">Внасяне на настройки</string>
     <string name="revanced_extended_settings_reset">Нулирай</string>
+    <string name="revanced_extended_settings_reset_color">Нулиране на цвят</string>
     <string name="revanced_extended_settings_search_title">Търсене %s</string>
     <string name="revanced_extended_settings_title">Настройки ReVanced</string>
     <string name="revanced_external_downloader_dialog_title">Външна програма за изтегляне</string>
@@ -980,7 +983,7 @@
 • Скрити са само рафтовете със заглавката Shorts в началния раздел."</string>
     <string name="revanced_hide_shorts_shelf_channel_title">Скрит в канала</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Показват се в историята на гледане.</string>
-    <string name="revanced_hide_shorts_shelf_history_summary_on">Скрити в историята на гледане.</string>
+    <string name="revanced_hide_shorts_shelf_history_summary_on">"Скрити в историята на гледане."</string>
     <string name="revanced_hide_shorts_shelf_history_title">Скриване в историята на гледане</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_off">Показва се в емисиите „начало“ и „подобни видеоклипове“.</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_on">Скрити в емисиите „начало“ и „подобни видеоклипове“.</string>
@@ -1088,7 +1091,7 @@
     <string name="revanced_hide_video_by_view_counts_title">Скриване на видеоклипове въз основа на броя гледания</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">\'Хората също така гледаха\' и \'Може също да харесате\' етикетите в резултатите от търсене са показани</string>
     <string name="revanced_hide_video_recommendation_labels_summary_on">\'Хората също така гледаха\' и \'Може също да харесате\' етикетите в резултатите от търсене са скрити</string>
-    <string name="revanced_hide_video_recommendation_labels_title">Скриване на етикетите за препоръчани видеоклипове</string>
+    <string name="revanced_hide_video_recommendation_labels_title">Скриване на етикетите с видео препоръки</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Видеоклиповете с повече гледания от този брой няма да бъдат показани.</string>
     <string name="revanced_hide_video_view_counts_greater_than_title">Ограничение за максимален брой гледания</string>
     <string name="revanced_hide_video_view_counts_less_than_summary">Видеоклиповете с повече гледания от този брой ще бъдат скрити.</string>
@@ -1367,6 +1370,12 @@
     <string name="revanced_preference_screen_watch_history_summary">Променя настройките, за хронологията на гледане.</string>
     <string name="revanced_preference_screen_watch_history_title">История на гледане</string>
     <string name="revanced_queue_manager_add_to_queue">Добави към опашката</string>
+    <string name="revanced_queue_manager_check_failed_auth">Изисква се влизане</string>
+    <string name="revanced_queue_manager_external_downloader">Външна програма за изтегляне</string>
+    <string name="revanced_queue_manager_queue">Опашка</string>
+    <string name="revanced_queue_manager_remove_from_queue">Премахни от опашката</string>
+    <string name="revanced_queue_manager_save_queue">Запиши опашката</string>
+    <string name="revanced_queue_manager_video_information_copy">Копирай</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Височината трябва да е между 0-32, нулиране.</string>
     <string name="revanced_quick_actions_top_margin_summary">Промяна на височината на лентата за прогрес, стойности между 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Височина на лентата за напредък</string>
@@ -1549,6 +1558,8 @@
     <string name="revanced_sb_segments_filler_sum">Сцени извън темата, добавени само за пълнеж или хумор, които не са необходими за разбирането на основното съдържание на видеоклипа. Това не трябва да включва сегменти, предоставящи контекст или справочни данни.</string>
     <string name="revanced_sb_segments_highlight">Акцентиране</string>
     <string name="revanced_sb_segments_highlight_sum">Частта от видеото която повечето хора търсят.</string>
+    <string name="revanced_sb_segments_hook">Начало / Поздрави</string>
+    <string name="revanced_sb_segments_hook_sum">Озвучени трейлъри за предстоящото видео, поздрави и сбогувания. Не включва секции, които добавят допълнително съдържание</string>
     <string name="revanced_sb_segments_interaction">Напомняне за действие (абониране)</string>
     <string name="revanced_sb_segments_interaction_sum">Когато има кратко напомняне да харесате, да се абонирате или да последвате канала по средата на съдържанието. Ако е дълго или за нещо специфично, трябва да е под „самореклама“.</string>
     <string name="revanced_sb_segments_intro">Пауза / Начална анимация</string>
@@ -1579,6 +1590,7 @@
     <string name="revanced_sb_skip_button_compact_highlight">Акценти</string>
     <string name="revanced_sb_skip_button_filler">Пропусни пълнеж</string>
     <string name="revanced_sb_skip_button_highlight">Пропусни до акцент</string>
+    <string name="revanced_sb_skip_button_hook">Пропускане на увод</string>
     <string name="revanced_sb_skip_button_interaction">Пропусни подканване</string>
     <string name="revanced_sb_skip_button_intro_beginning">Пропусни въведение</string>
     <string name="revanced_sb_skip_button_intro_end">Пропусната пауза</string>
@@ -1596,6 +1608,7 @@
     <string name="revanced_sb_skip_showbutton">Пок. бутон за пропускане</string>
     <string name="revanced_sb_skipped_filler">Пропуснат пълнеж</string>
     <string name="revanced_sb_skipped_highlight">Пропуснато до акцент</string>
+    <string name="revanced_sb_skipped_hook">Пропуснато увод</string>
     <string name="revanced_sb_skipped_interaction">Пропуснато досадно напомняне</string>
     <string name="revanced_sb_skipped_intro_beginning">Пропуснато въведение</string>
     <string name="revanced_sb_skipped_intro_end">Пропусната пауза.</string>
@@ -1837,6 +1850,7 @@ AVC има максимална разделителна способност о
     <string name="revanced_watch_history_type_entry_2">Замени домейна</string>
     <string name="revanced_watch_history_type_entry_3">Блокиране на хронологията на гледане</string>
     <string name="revanced_watch_history_type_title">Тип хронология на гледане</string>
+    <string name="revanced_webview_toast_empty">%s е празно.</string>
     <string name="revanced_whitelist_add_failed">Неуспешно добавяне на \"%1$s\" канала към %2$s белия списък.</string>
     <string name="revanced_whitelist_added">Каналът %1$s е добавен в %2$s белия списък.</string>
     <string name="revanced_whitelist_empty">Няма канали в белия списък.</string>

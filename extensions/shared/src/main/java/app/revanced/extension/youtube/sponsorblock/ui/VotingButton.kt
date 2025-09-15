@@ -20,7 +20,7 @@ object VotingButton {
                 controlsViewGroup = controlsView,
                 imageViewButtonId = "revanced_sb_voting_button",
                 hasPlaceholder = false,
-                buttonVisibility = { shouldBeShown() },
+                buttonVisibility = { isButtonEnabled() },
                 onClickListener = { view: View -> onClick(view) }
             )
         } catch (ex: Exception) {
@@ -56,9 +56,10 @@ object VotingButton {
         SponsorBlockUtils.onVotingClicked(view.context)
     }
 
-    private fun shouldBeShown(): Boolean {
+    private fun isButtonEnabled(): Boolean {
         return Settings.SB_ENABLED.get() && Settings.SB_VOTING_BUTTON.get()
                 && SegmentPlaybackController.videoHasSegments()
+                && !SegmentPlaybackController.isAdProgressTextVisible()
     }
 
     @JvmStatic

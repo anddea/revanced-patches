@@ -8,6 +8,9 @@ import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_FILLE
 import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HIGHLIGHT;
 import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HIGHLIGHT_COLOR;
 import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HIGHLIGHT_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HOOK;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HOOK_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HOOK_OPACITY;
 import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTERACTION;
 import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTERACTION_COLOR;
 import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTERACTION_OPACITY;
@@ -82,6 +85,8 @@ public enum SegmentCategory {
             sf("revanced_sb_skip_button_preview_beginning"), sf("revanced_sb_skip_button_preview_middle"), sf("revanced_sb_skip_button_preview_end"),
             sf("revanced_sb_skipped_preview_beginning"), sf("revanced_sb_skipped_preview_middle"), sf("revanced_sb_skipped_preview_end"),
             SB_CATEGORY_PREVIEW, SB_CATEGORY_PREVIEW_COLOR, SB_CATEGORY_PREVIEW_OPACITY),
+    HOOK("hook", sf("revanced_sb_segments_hook"), sf("revanced_sb_segments_hook_sum"), sf("revanced_sb_skip_button_hook"), sf("revanced_sb_skipped_hook"),
+            SB_CATEGORY_HOOK, SB_CATEGORY_HOOK_COLOR, SB_CATEGORY_HOOK_OPACITY),
     FILLER("filler", sf("revanced_sb_segments_filler"), sf("revanced_sb_segments_filler_sum"), sf("revanced_sb_skip_button_filler"), sf("revanced_sb_skipped_filler"),
             SB_CATEGORY_FILLER, SB_CATEGORY_FILLER_COLOR, SB_CATEGORY_FILLER_OPACITY),
     MUSIC_OFFTOPIC("music_offtopic", sf("revanced_sb_segments_nomusic"), sf("revanced_sb_segments_nomusic_sum"), sf("revanced_sb_skip_button_nomusic"), sf("revanced_sb_skipped_nomusic"),
@@ -99,6 +104,7 @@ public enum SegmentCategory {
             INTRO,
             OUTRO,
             PREVIEW,
+            HOOK,
             FILLER,
             MUSIC_OFFTOPIC,
     };
@@ -111,6 +117,7 @@ public enum SegmentCategory {
             INTRO,
             OUTRO,
             PREVIEW,
+            HOOK,
             FILLER,
             MUSIC_OFFTOPIC,
     };

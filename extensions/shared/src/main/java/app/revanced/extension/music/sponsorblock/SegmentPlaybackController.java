@@ -407,21 +407,22 @@ public class SegmentPlaybackController {
      * Injection point
      */
     public static void setSponsorBarRect(final Object self, final String fieldName) {
-        try {
-            Field field = self.getClass().getDeclaredField(fieldName);
-            field.setAccessible(true);
-            Rect rect = (Rect) Objects.requireNonNull(field.get(self));
-            setSponsorBarAbsoluteLeft(rect);
-            setSponsorBarAbsoluteRight(rect);
-        } catch (Exception ex) {
-            Logger.printException(() -> "setSponsorBarRect failure", ex);
+        if (Settings.SB_ENABLED.get()) {
+            try {
+                Field field = self.getClass().getDeclaredField(fieldName);
+                field.setAccessible(true);
+                Rect rect = (Rect) Objects.requireNonNull(field.get(self));
+                setSponsorBarAbsoluteLeft(rect);
+                setSponsorBarAbsoluteRight(rect);
+            } catch (Exception ex) {
+                Logger.printException(() -> "setSponsorBarRect failure", ex);
+            }
         }
     }
 
     private static void setSponsorBarAbsoluteLeft(Rect rect) {
         final int left = rect.left;
         if (sponsorBarAbsoluteLeft != left) {
-            Logger.printDebug(() -> "setSponsorBarAbsoluteLeft: " + left);
             sponsorBarAbsoluteLeft = left;
         }
     }
@@ -429,7 +430,6 @@ public class SegmentPlaybackController {
     private static void setSponsorBarAbsoluteRight(Rect rect) {
         final int right = rect.right;
         if (sponsorAbsoluteBarRight != right) {
-            Logger.printDebug(() -> "setSponsorBarAbsoluteRight: " + right);
             sponsorAbsoluteBarRight = right;
         }
     }
@@ -438,9 +438,8 @@ public class SegmentPlaybackController {
      * Injection point
      */
     public static void setSponsorBarThickness(int thickness) {
-        if (sponsorBarThickness != thickness) {
+        if (Settings.SB_ENABLED.get() && sponsorBarThickness != thickness) {
             sponsorBarThickness = (int) Math.round(thickness * 1.2);
-            Logger.printDebug(() -> "setSponsorBarThickness: " + sponsorBarThickness);
         }
     }
 
@@ -449,7 +448,7 @@ public class SegmentPlaybackController {
      */
     public static void drawSponsorTimeBars(final Canvas canvas, final float posY) {
         try {
-            if (segments == null) return;
+            if (!Settings.SB_ENABLED.get() || segments == null) return;
             final long videoLength = VideoInformation.getVideoLength();
             if (videoLength <= 0) return;
 

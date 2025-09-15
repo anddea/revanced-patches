@@ -11,16 +11,11 @@ import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch;
 @SuppressWarnings({"deprecation", "unused"})
 public class ForceOriginalAudioSwitchPreference extends SwitchPreference {
     {
-        if (SpoofStreamingDataPatch.multiAudioTrackAvailable()) {
-            String summaryOn = str("revanced_disable_auto_audio_tracks_summary_on");
-            String summaryOff = str("revanced_disable_auto_audio_tracks_summary_off");
-            setSummaryOn(summaryOn);
-            setSummaryOff(summaryOff);
-        } else { // Show why force audio is not available.
-            String summary = str("revanced_disable_auto_audio_tracks_not_available");
-            setSummaryOn(summary);
-            setSummaryOff(summary);
-        }
+        String summaryOn = SpoofStreamingDataPatch.multiAudioTrackAvailable()
+                ? "revanced_disable_auto_audio_tracks_summary_on"
+                : "revanced_disable_auto_audio_tracks_summary_on_disclaimer";
+        setSummaryOn(str(summaryOn));
+        setSummaryOff(str("revanced_disable_auto_audio_tracks_summary_off"));
     }
 
     public ForceOriginalAudioSwitchPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {

@@ -23,6 +23,7 @@ import app.revanced.extension.youtube.shared.RootView;
 public final class FeedComponentsFilter extends Filter {
     private final String BROWSE_ID_CLIP = "FEclips";
     private final String BROWSE_ID_COURSES = "FEcourses_destination";
+    private final String BROWSE_ID_HISTORY = "FEhistory";
     private final String BROWSE_ID_HOME = "FEwhat_to_watch";
     private final String BROWSE_ID_LIBRARY = "FElibrary";
     private final String BROWSE_ID_LIBRARY_PLAYLIST = "FEplaylist_aggregation";
@@ -259,7 +260,7 @@ public final class FeedComponentsFilter extends Filter {
         );
 
         chipBar = new StringFilterGroup(
-                Settings.HIDE_CATEGORY_BAR_IN_HISTORY,
+                null,
                 "chip_bar"
         );
 
@@ -336,6 +337,36 @@ public final class FeedComponentsFilter extends Filter {
         return false;
     }
 
+    private boolean hideCategoryBar(int contentIndex) {
+        if (contentIndex != 0) {
+            return false;
+        }
+
+        final boolean hideHistory = Settings.HIDE_CATEGORY_BAR_IN_HISTORY.get();
+        final boolean hidePlaylist = Settings.HIDE_CATEGORY_BAR_IN_PLAYLIST.get();
+
+        if (hideHistory && hidePlaylist) {
+            return true;
+        }
+
+        if (!hideHistory && !hidePlaylist) {
+            return false;
+        }
+
+        // Must check player type first, as search bar can be active behind the player.
+        if (RootView.isPlayerActive()) {
+            return false;
+        }
+
+        // Must check second, as search can be from any tab.
+        if (RootView.isSearchBarActive()) {
+            return false;
+        }
+
+        String browseId = RootView.getBrowseId();
+        return (browseId.equals(BROWSE_ID_HISTORY) && hideHistory) || hidePlaylist;
+    }
+
     private boolean hideShelves() {
         final boolean hideHomeAndOthers = Settings.HIDE_CAROUSEL_SHELF_HOME.get();
         final boolean hideSearch = Settings.HIDE_CAROUSEL_SHELF_SEARCH.get();
@@ -387,7 +418,7 @@ public final class FeedComponentsFilter extends Filter {
         if (matchedGroup == channelProfile) {
             return contentIndex == 0 && channelProfileGroupList.check(buffer).isFiltered();
         } else if (matchedGroup == chipBar) {
-            return contentIndex == 0 && NavigationButton.getSelectedNavigationButton() == NavigationButton.LIBRARY;
+            return hideCategoryBar(contentIndex);
         } else if (matchedGroup == communityPosts) {
             if (!communityPostsFeedGroupSearch.matches(allValue) && Settings.HIDE_COMMUNITY_POSTS_CHANNEL.get()) {
                 return true;

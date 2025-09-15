@@ -14,7 +14,7 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 
 private val webViewResourcePatch = resourcePatch(
-    description = ""
+    description = "webViewResourcePatch"
 ) {
     execute {
         arrayOf(

@@ -6,10 +6,12 @@ import static app.revanced.extension.youtube.utils.VideoUtils.getFormattedTimeSt
 import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.text.TextUtils;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -112,6 +114,11 @@ public class SegmentPlaybackController {
     private static int toastNumberOfSegmentsSkipped;
     @Nullable
     private static SponsorSegment toastSegmentSkipped;
+
+    /**
+     * Visibility of the ad progress UI component.
+     */
+    private static volatile int adProgressTextVisibility = -1;
 
     @Nullable
     static SponsorSegment[] getSegments() {
@@ -270,6 +277,7 @@ public class SegmentPlaybackController {
      */
     static void executeDownloadSegments(@NonNull String newlyLoadedVideoId) {
         Objects.requireNonNull(newlyLoadedVideoId);
+        Utils.verifyOffMainThread();
         try {
             SponsorSegment[] segments = SBRequester.getSegments(newlyLoadedVideoId);
 
@@ -304,32 +312,31 @@ public class SegmentPlaybackController {
         }
     }
 
-    private static volatile int adProgressTextVisibility = -1;
-
     /**
      * Injection point.
      */
     public static void setAdProgressTextVisibility(int visibility) {
         if (Settings.SB_ENABLED.get() && adProgressTextVisibility != visibility) {
             adProgressTextVisibility = visibility;
-            String visibilityMessage = visibility == 0
-                    ? "VISIBLE"
-                    : visibility == 8
-                    ? "GONE"
-                    : visibility == 4
-                    ? "INVISIBLE"
-                    : "UNKNOWN";
-            Logger.printDebug(() -> "AdProgressText visibility changed to : " + visibilityMessage);
+
+            Logger.printDebug(() -> {
+                String visibilityMessage = switch (visibility) {
+                    case View.VISIBLE   -> "VISIBLE";
+                    case View.GONE      -> "GONE";
+                    case View.INVISIBLE -> "INVISIBLE";
+                    default -> "UNKNOWN";
+                };
+                return "AdProgressText visibility changed to: " + visibilityMessage;
+            });
         }
     }
 
     /**
      * When a video ad is playing in a regular video player, segments or the Skip button should be hidden.
-     * See: <a href="https://github.com/inotia00/ReVanced_Extended/issues/3134">ReVanced_Extended#3134</a>.
      * @return Whether the Ad Progress TextView is visible in the regular video player.
      */
-    private static boolean isAdProgressTextVisible() {
-        return adProgressTextVisibility == 0;
+    public static boolean isAdProgressTextVisible() {
+        return adProgressTextVisibility == View.VISIBLE;
     }
 
     /**
@@ -694,8 +701,15 @@ public class SegmentPlaybackController {
             if (!userManuallySkipped) {
                 // check for any smaller embedded segments, and count those as auto skipped
                 final boolean showSkipToast = Settings.SB_TOAST_ON_SKIP.get();
-                for (final SponsorSegment otherSegment : Objects.requireNonNull(segments)) {
-                    if (segmentToSkip.end < otherSegment.start) {
+                for (SponsorSegment otherSegment : Objects.requireNonNull(segments)) {
+                    if (otherSegment.end <= segmentToSkip.start) {
+                        // Other segment does not overlap, and is before this skipped segment.
+                        // This situation can only happen if a video is opened and adjusted to
+                        // a later time in the video where earlier auto skip segments
+                        // have not been encountered yet.
+                        continue;
+                    }
+                    if (segmentToSkip.end <= otherSegment.start) {
                         break; // no other segments can be contained
                     }
                     if (otherSegment == segmentToSkip ||
@@ -812,7 +826,8 @@ public class SegmentPlaybackController {
     public static String appendTimeWithoutSegments(String totalTime) {
         try {
             if (Settings.SB_ENABLED.get() && Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.get()
-                    && !TextUtils.isEmpty(totalTime) && !TextUtils.isEmpty(timeWithoutSegments)) {
+                    && !StringUtils.isAnyEmpty(totalTime, timeWithoutSegments)
+                    && !isAdProgressTextVisible()) {
                 // Force LTR layout, to match the same LTR video time/length layout YouTube uses for all languages
                 return "\u202D" + totalTime + timeWithoutSegments; // u202D = left to right override
             }

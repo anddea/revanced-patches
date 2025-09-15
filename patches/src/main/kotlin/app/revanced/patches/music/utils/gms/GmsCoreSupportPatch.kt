@@ -5,6 +5,7 @@ import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKA
 import app.revanced.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.utils.extension.sharedExtensionPatch
 import app.revanced.patches.music.utils.fix.fileprovider.fileProviderPatch
+import app.revanced.patches.music.utils.fix.streamingdata.spoofStreamingDataPatch
 import app.revanced.patches.music.utils.mainactivity.mainActivityFingerprint
 import app.revanced.patches.music.utils.patch.PatchList.GMSCORE_SUPPORT
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePackageName
@@ -46,6 +47,7 @@ private fun gmsCoreSupportResourcePatch(
 ) {
     dependsOn(
         baseSpoofUserAgentPatch(YOUTUBE_MUSIC_PACKAGE_NAME),
+        spoofStreamingDataPatch,
         settingsPatch,
         fileProviderPatch(
             packageNameYouTubeOption.valueOrThrow(),

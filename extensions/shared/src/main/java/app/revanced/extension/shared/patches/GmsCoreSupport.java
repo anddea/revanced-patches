@@ -29,7 +29,7 @@ import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"deprecation", "unused"})
 public class GmsCoreSupport {
     private static final String PACKAGE_NAME_YOUTUBE = "com.google.android.youtube";
     private static final String PACKAGE_NAME_YOUTUBE_MUSIC = "com.google.android.apps.youtube.music";
@@ -38,6 +38,8 @@ public class GmsCoreSupport {
             = getGmsCoreVendorGroupId() + ".android.gms";
     private static final Uri GMS_CORE_PROVIDER
             = Uri.parse("content://" + getGmsCoreVendorGroupId() + ".android.gsf.gservices/prefix");
+    private static final String GMS_CORE_ORIGINAL_VENDOR_GROUP_ID
+            = "com.google";
     private static final String DONT_KILL_MY_APP_LINK
             = "https://dontkillmyapp.com";
 
@@ -112,6 +114,11 @@ public class GmsCoreSupport {
      */
     public static void checkGmsCore(Activity mActivity) {
         try {
+            // The user is using LineageOS for microG and the original GmsCore.
+            // GmsCore is a system app, so no check is required.
+            if (GMS_CORE_ORIGINAL_VENDOR_GROUP_ID.equals(getGmsCoreVendorGroupId())) {
+                return;
+            }
             // Verify the user has not included GmsCore for a root installation.
             // GmsCore Support changes the package name, but with a mounted installation
             // all manifest changes are ignored and the original package name is used.

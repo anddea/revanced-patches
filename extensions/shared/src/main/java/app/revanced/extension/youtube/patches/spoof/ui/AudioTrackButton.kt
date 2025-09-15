@@ -1,7 +1,7 @@
 package app.revanced.extension.youtube.patches.spoof.ui
 
 import android.view.View
-import app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest.Companion.lastSpoofedAudioClientIsAndroidVRNoAuth
+import app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest.Companion.lastSpoofedClientIsNoAuth
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.patches.spoof.AudioTrackPatch
 import app.revanced.extension.youtube.settings.Settings
@@ -59,8 +59,8 @@ object AudioTrackButton {
 
     private fun shouldBeShown(): Boolean {
         return Settings.SPOOF_STREAMING_DATA.get()
-                && Settings.SPOOF_STREAMING_DATA_VR_AUDIO_TRACK_BUTTON.get()
-                && lastSpoofedAudioClientIsAndroidVRNoAuth
+                && Settings.SPOOF_STREAMING_DATA_AUDIO_TRACK_BUTTON.get()
+                && lastSpoofedClientIsNoAuth
                 && AudioTrackPatch.audioTrackMapIsNotNull()
     }
 }

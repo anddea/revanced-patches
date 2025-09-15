@@ -354,6 +354,10 @@ val sponsorBlockPatch = resourcePatch(
             "sb_enabled"
         )
         addSegmentsPreference(
+            "sb_segments_hook",
+            "sb_enabled"
+        )
+        addSegmentsPreference(
             "sb_segments_filler",
             "sb_enabled"
         )

@@ -449,8 +449,10 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_sb_enabled">Włącz SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock to system pomijania denerwujących fragmentów w filmach na YouTube.</string>
     <string name="revanced_sb_reset_color">Zresetuj kolor</string>
-    <string name="revanced_sb_segments_filler">Nietematyczny Wypełniacz / Żarty</string>
+    <string name="revanced_sb_segments_filler">Wypełniacze / Żarty</string>
     <string name="revanced_sb_segments_filler_sum">Segmenty nietematyczne dodawane tylko dla wypełnienia lub humor, który nie jest wymagany do zrozumienia głównej treści filmu. Nie dotyczy segmentów zawierających informacje kontekstowe lub szczegółowe.</string>
+    <string name="revanced_sb_segments_hook">Haczyki / Pozdrowienia</string>
+    <string name="revanced_sb_segments_hook_sum">Narracyjne zwiastuny nadchodzącego filmu, pozdrowienia i pożegnania. Nie obejmuje sekcji zawierających dodatkową treść.</string>
     <string name="revanced_sb_segments_interaction">Przypomnienie O Interakcji (Zasubskrybuj)</string>
     <string name="revanced_sb_segments_interaction_sum">Krótkie przypomnienie o łapce w górę, subskrypcji lub obserwowaniu w środku kontentu. Jeśli trwa długo lub dotyczy czegoś konkretnego, powinno być oznaczone jako autopromocja.</string>
     <string name="revanced_sb_segments_intro">Przerywnik / Animowane Intro</string>
@@ -459,7 +461,7 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_sb_segments_nomusic_sum">Do użytku jedynie w teledyskach. Sekcje teledysków, które nie są uwzględnione w innej kategorii.</string>
     <string name="revanced_sb_segments_outro">Karty / Napisy Końcowe</string>
     <string name="revanced_sb_segments_outro_sum">Napisy końcowe lub gdy pojawia się ekran końcowy. Nie dotyczy zakończeń zawierających informacje.</string>
-    <string name="revanced_sb_segments_preview">Zapowiedź / Podsumowanie / Haczyk</string>
+    <string name="revanced_sb_segments_preview">Zapowiedź / Podsumowanie</string>
     <string name="revanced_sb_segments_preview_sum">Zbiór klipów pokazujących to, co pojawi się lub co pojawiło się w tym filmie, oraz innych fiilmach z tej serii, w którym wszystkie informacje są gdzieś powtarzane.</string>
     <string name="revanced_sb_segments_selfpromo">Nieopłacona / Auto Reklama</string>
     <string name="revanced_sb_segments_selfpromo_sum">Podobne do treści sponsorowanych, z wyjątkiem nieopłaconych lub autoreklam. Obejmuje to sekcje o własnych towarach, darowiznach czy informacjach o tym, z kim współpracowali.</string>
@@ -468,6 +470,7 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_sb_skip_automatically">Pomiń automatycznie</string>
     <string name="revanced_sb_skip_ignore">Wyłącz</string>
     <string name="revanced_sb_skipped_filler">Pominięto wypełniacz.</string>
+    <string name="revanced_sb_skipped_hook">Pominięto haczyk.</string>
     <string name="revanced_sb_skipped_interaction">Pominięto irytujące przypomnienie.</string>
     <string name="revanced_sb_skipped_intro_beginning">Pominięto wstęp.</string>
     <string name="revanced_sb_skipped_intro_end">Pominięto przerywnik.</string>
@@ -505,14 +508,6 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_spoof_app_version_title">Oszukaj wersję aplikacji</string>
     <string name="revanced_spoof_client_summary">Oszukuje klienta, by zapobiec problemom z odtwarzaniem.</string>
     <string name="revanced_spoof_client_title">Oszukuj klienta</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (Blokada żądania)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Blokada żądania)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Blokada żądania)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_34">iOS Music 8.34</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (Blokada żądania)</string>
     <string name="revanced_spoof_client_type_summary">"Efekt uboczny:
 • przyciski akcji oraz menu ustawień odtwarzacza mogą nie wyświetlać się poprawnie
 • ten efekt uboczny można rozwiązać czyszcząc dane aplikacji i logując się ponownie
@@ -525,21 +520,27 @@ Efekt uboczny (blokada żądania):
 Efekt uboczny:
 • Czasem napisy są u góry odtwarzacza, zamiast na dole"</string>
     <string name="revanced_spoof_player_parameter_title">Oszukuj parametry odtwarzacza</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Creator</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobilny przeglądarkowy</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Uproszczony TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
+    <string name="revanced_spoof_streaming_data_default_client_summary">Definiuje domyślnego klienta do oszukiwania.
+
+Znane problemy:
+• może przerywać dźwięk podczas odtwarzania</string>
+    <string name="revanced_spoof_streaming_data_default_client_title">Domyślny klient</string>
     <string name="revanced_spoof_streaming_data_message">Jeśli występują jakiekolwiek problemy z odtwarzaniem, włącz jedną z poniższych opcji, w zależności od tego, która najlepiej ci odpowiada: \"Oszukaj strumień danych\" lub \"Domyślny klient\" w &lt;i&gt;&lt;u&gt;Ustawienia&gt; %s &gt; Pozostałe&lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Pokazuje używanego klienta do przechwytywania strumienia danych w statystykach dla nerdów.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Informacja w statystykach dla nerdów</string>
-    <string name="revanced_spoof_streaming_data_summary">"Oszukuj strumień danych, by zapobiec problemom z odtwarzaniem.
+    <string name="revanced_spoof_streaming_data_summary">"Oszukuje strumień filmu klienta, by zapobiec problemom z odtwarzaniem.
 
-※ Używane równolegle z opcją 'Oszukuj klienta', może powodować problemy z odtwarzaniem"</string>
+Jeśli jesteś użytkownikiem YouTube Premium lub odznaczono przy łataniu łatkę 'GmsCore support', to ustawienie te nie jest konieczne."</string>
     <string name="revanced_spoof_streaming_data_title">Oszukuj strumień danych</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32">Android VR 1.43.32</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32_no_auth">Android VR 1.43.32 (Bez autoryzacji)</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09">Android VR 1.65.09</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09_no_auth">Android VR 1.65.09 (Bez autoryzacji)</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_34">iOS Music 8.34</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Efekty uboczne:
 • aplikacja może wymusić zamknięcie się podczas korzystania z VPN lub DNS
 • dźwięk może sporadycznie się zacinać podczas odtwarzania na strumieniach klienta z adaptacyjną przepływnością (każdy z wyjątkiem Android VR 1.43.32)"</string>
