@@ -805,7 +805,7 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_hide_key_concepts_section_title">Hide Key concepts section</string>
     <string name="revanced_hide_keyword_content_about_summary">"Home / Subscriptions / Search results are filtered to hide content that matches keyword phrases.
 
-Limitations: 
+Limitations:
 • Shorts cannot be hidden by channel name.
 • Some UI components may not be hidden.
 • Searching for a keyword may show no results."</string>
@@ -1063,6 +1063,9 @@ If the layout of the player screen changes due to server-side changes, unintende
     <string name="revanced_hide_search_term_thumbnail_summary_off">Thumbnails in search term history are shown.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Thumbnails in search term history are hidden.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Hide search term thumbnails</string>
+    <string name="revanced_hide_section_header_in_feed_summary_off">Subscriptions section header is shown.\n\nThe Subscriptions section header includes \'Visit Community\' and \'Visit Channel\' buttons when clicking on a subscribed channel\’s icon in the Subscriptions section.</string>
+    <string name="revanced_hide_section_header_in_feed_summary_on">Subscriptions section header is hidden.\n\nThe Subscriptions section header includes \'Visit Community\' and \'Visit Channel\' buttons when clicking on a subscribed channel\’s icon in the Subscriptions section.</string>
+    <string name="revanced_hide_section_header_in_feed_title">Hide subscriptions section header</string>
     <string name="revanced_hide_seek_message_summary_off">Seek message is shown.</string>
     <string name="revanced_hide_seek_message_summary_on">Seek message is hidden.</string>
     <string name="revanced_hide_seek_message_title">Hide seek message</string>
@@ -1345,7 +1348,7 @@ Side effect: Official headers in search results will be hidden."</string>
     <string name="revanced_hide_video_ads_title">Hide video ads</string>
     <string name="revanced_hide_video_by_view_counts_about_summary">"Home / Subscriptions / Search results are filtered to hide videos with views less or greater than a specified number.
 
-Limitations: 
+Limitations:
 • Live streams or Shorts cannot be hidden.
 • Videos with 0 views are not filtered."</string>
     <string name="revanced_hide_video_by_view_counts_about_title">About view count filtering</string>
@@ -2294,7 +2297,7 @@ Info:
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"Audio track button is shown when the client used to fetch streaming data is 'Android VR', 'Mobile Web', or 'visionOS'."</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">Show audio track button</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Prerequisites:
-• The client used to fetch the streaming data is 'Android VR', 'Mobile Web', or 'visionOS'.
+• The client used to fetch the streaming data is 'Android VR', 'Mobile Web', 'iPadOS', or 'visionOS'.
 • A video with multiple audio tracks is being played.
 
 Known issues:
@@ -2309,6 +2312,8 @@ This feature is still in development, so it may break at any time due to server-
 <small>(No Auth)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Deprecated)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
+<small>(Outdated, No Auth)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(WIP, No Auth)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
@@ -2317,7 +2322,7 @@ This feature is still in development, so it may break at any time due to server-
 <small>(Unreleased, No Auth)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">You may not be logged in.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Try changing the default client to TV or TV Simply.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Video codec is determined automatically.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Video codec is forced to AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Force iOS AVC (H.264)</string>
@@ -2389,6 +2394,8 @@ Example 2:
 • Stable volume is not available.
 • Movies or paid videos may not play.
 • Kids videos may not play when logged out or in incognito mode."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ipados">"• AV1 is not supported.
+• Video may stop at 1:00, or may not be available in some regions."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Audio track menu is missing.
 • If deobfuscation fails, playback may fail.
 • Sometimes the video will not play even after 10 seconds, in which case you'll need to click the reload video button.
@@ -2419,6 +2426,23 @@ If you are a YouTube Premium user, this setting may not be necessary."</string>
 
 • JavaScript client still cannot play some videos."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Use JavaScript client for all videos</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Click for more information.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">About fake buffering</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"One reason videos start too late in the JavaScript client is due to YouTube's new anti-adblock measures.
+
+When a video ad is blocked, GVS (Google Video Server) generate fake buffering proportional to the ad duration (A/B testing).
+
+uBlock Origin has found a workaround for this issue, which can be enabled via the 'Bypass fake buffering' setting.
+
+Click 'Open' to read the article."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Open</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"YouTube's new anti-adblock measures"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Bypass fake buffering is disabled.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Bypass fake buffering is enabled.
+
+Limitations:
+• Due to server-side changes, this may stop working at any time."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Bypass fake buffering</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">JavaScript client not added to available clients.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">JavaScript client added to the available clients.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Use JavaScript client</string>

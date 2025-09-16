@@ -232,6 +232,11 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_disable_auto_audio_tracks_not_available">この機能を使用するには「デフォルトクライアント(ストリーミングデータを偽装)」をTV, TV Simply, またはiOS TVに変更してください。</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">音声トラックが自動で吹き替えに切り替わるのを無効にします。</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">音声トラックが自動で吹き替えに切り替わるのを無効にします。</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"音声トラックが自動で吹き替えに切り替わるのを無効にします。
+
+一部の環境下では機能しない可能性があります。機能しない場合は、以下の手順に従ってください:
+1. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[JavaScript クライアントを使用] をオンにします。
+2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV」または「TV Simply」を選択します。"</string>
     <string name="revanced_disable_auto_audio_tracks_title">音声トラックの強制を無効化</string>
     <string name="revanced_disable_auto_captions_summary_off">投稿者が設定している字幕の強制を無効にします。</string>
     <string name="revanced_disable_auto_captions_summary_on">投稿者が設定している字幕の強制を無効にします。</string>
@@ -917,7 +922,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"[音声トラック] メニューは非表示になっています。
 
 [音声トラック] メニューを表示するには:
-1. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、「JavaScript クライアントを使用] をオンにします。
+1. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[JavaScript クライアントを使用] をオンにします。
 2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV」または「TV Simply」を選択します。"</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">[音声トラック] メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">[音声トラック] メニューを非表示にします。</string>
@@ -1230,8 +1235,10 @@ DeArrow について詳しく知るには、ここをタップしてください
 
 注意: 「ショート」ヘッダーがあるショート欄のみが非表示になります。"</string>
     <string name="revanced_hide_shorts_shelf_channel_title">チャンネルページから非表示</string>
-    <string name="revanced_hide_shorts_shelf_history_summary_off">再生履歴から非表示にします。</string>
-    <string name="revanced_hide_shorts_shelf_history_summary_on">"再生履歴から非表示にします。"</string>
+    <string name="revanced_hide_shorts_shelf_history_summary_off">再生履歴から非表示にします。\n\n注意: [マイページ] タブから [履歴] 欄が非表示になる可能性があります。</string>
+    <string name="revanced_hide_shorts_shelf_history_summary_on">"再生履歴から非表示にします。
+
+注意: [マイページ] タブから [履歴] 欄が非表示になる可能性があります。"</string>
     <string name="revanced_hide_shorts_shelf_history_title">再生履歴から非表示</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_off">ホームフィードと関連動画から非表示にします。</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_on">ホームフィードと関連動画から非表示にします。</string>
@@ -2291,11 +2298,11 @@ Cookie の使用は万能薬ではありません。
 ・高いデバイス解像度を必要とする一部の動画では高画質が利用可能になる可能性がありますが、すべての動画で利用可能になるわけではありません。
 ・「ストリーミングデータを偽装」が有効化されている場合、この機能は利用できません。"</string>
     <string name="revanced_spoof_device_dimensions_title">デバイスの解像度を偽装</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_summary_off">ストリーミングデータの取得に使用されるクライアントが「Android VR」、「Mobile Web」、または「visionOS」の場合に [音声トラック] ボタンを表示します。</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"ストリーミングデータの取得に使用されるクライアントが「Android VR」、「Mobile Web」、または「visionOS」の場合に [音声トラック] ボタンを表示します。"</string>
+    <string name="revanced_spoof_streaming_data_audio_track_button_summary_off">ストリーミングデータの取得に使用するクライアントが「Android VR」、「Mobile Web」、または「visionOS」の場合に [音声トラック] ボタンを表示します。</string>
+    <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"ストリーミングデータの取得に使用するクライアントが「Android VR」、「Mobile Web」、または「visionOS」の場合に [音声トラック] ボタンを表示します。"</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">[音声トラック] ボタンを表示</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"前提条件:
-・ストリーミングデータの取得に使用するクライアントは「Android VR (認証なし)」、「Mobile Web」、または「visionOS」であること。
+・ストリーミングデータの取得に使用するクライアントは「Android VR (認証なし)」、「Mobile Web」、「iPadOS」、「visionOS」のいずれかであること。
 ・複数の音声トラックがある動画を再生していること。
 
 既知の問題:
@@ -2310,19 +2317,17 @@ Cookie の使用は万能薬ではありません。
 <small>(認証なし)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(非推奨)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
+<small>(古い、認証なし)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(開発途中、認証なし)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV
-<small>(開発途中)</small>
-    </string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply
-<small>(開発途中)</small>
-    </string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(未リリース、認証なし)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">偽装するクライアントを選択</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">クライアントストリームを取得できませんでした。</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">ログインしていない可能性があります。</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">偽装するクライアントを「TV」または「TV Simply」に変更してみてください。</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">iOS クライアントで AVC (H.264) を強制します。</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">iOS クライアントで AVC (H.264) を強制します。</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">iOS クライアントで AVC (H.264) を強制</string>
@@ -2397,6 +2402,8 @@ VP9 は AVC よりも高度なコーデックですが、利用者によって�
 • 一定音量が利用できません。
 • 映画や有料動画が再生されない場合があります。
 • ログアウト時やシークレットモードでは子供向け動画が再生されない場合があります。"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ipados">"・AV1 コーデックには対応していません。
+・動画を再生して 1 分後に止まる、または一部の地域では利用できない可能性があります。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"・[音声トラック] メニューは表示されません。
 ・難読化の解除に失敗すると、動画の再生に失敗する可能性があります。
 ・10 秒経っても動画が再生されない可能性があります。その場合は、動画の再読み込みボタンをタップする必要があります。
@@ -2423,6 +2430,22 @@ YouTube Premium に加入している場合は、この設定は必要ない可�
 
 注意: JavaScript クライアントでは、まだ一部の動画を再生できません。"</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">すべての動画に JavaScript クライアントを使用</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">詳細についてはタップしてください。</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">偽バッファリングについて</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"JavaScript クライアントで動画の再生開始が遅れる理由の 1 つは、YouTube の新しい広告ブロック対策によるものです。
+
+動画広告がブロックされると、GVS (Google Video Server) は広告の継続時間に比例した偽のバッファリングを生成します (A/B テスト)。
+
+uBlock Origin はこの問題の回避策を見つけました。これは、[偽のバッファリングを回避] 設定を有効にすることで回避できます。
+
+記事を読むには [開く] をタップしてください。"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">開く</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"YouTube の新しい広告ブロック対策"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">偽バッファリングを回避します。\n\n注意: サーバー側の変更により、いつでも動作しなくなる可能性があります。</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"偽バッファリングを回避します。
+
+注意: サーバー側の変更により、いつでも動作しなくなる可能性があります。"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">偽バッファリングを回避</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">偽装するクライアントの一覧に「JavaScript」を追加します。</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">偽装するクライアントの一覧に「JavaScript」を追加します。</string>
     <string name="revanced_spoof_streaming_data_use_js_title">JavaScript クライアントを使用</string>

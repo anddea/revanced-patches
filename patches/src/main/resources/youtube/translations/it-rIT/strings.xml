@@ -228,6 +228,9 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_disable_auto_audio_tracks_not_available">Per usare questa caratteristica, \'Client predefinito (Camuffa i dati in streaming)\' in TV, TV Simply o iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">La traccia audio automatica forzata è attivata.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">La traccia audio automatica forzata è disattivata.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"La traccia audio automatica forzata è disattivata.
+
+Nota: questa impostazione potrebbe non funzionare per alcuni utenti. Se non funziona, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili e cambia il client predefinito in TV o TV Simply."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disattiva la traccia audio automatica forzata</string>
     <string name="revanced_disable_auto_captions_summary_off">I sottotitoli automatici forzati sono attivati.</string>
     <string name="revanced_disable_auto_captions_summary_on">I sottotitoli automatici forzati sono disattivati.</string>
@@ -796,7 +799,7 @@ Impostazioni → Riproduzione → Riproduzione automatica video successivo"</str
     <string name="revanced_hide_key_concepts_section_title">Nascondi la sezione Momenti Chiave</string>
     <string name="revanced_hide_keyword_content_about_summary">"Le schede Home e Iscrizioni e i risultati di ricerca sono filtrati per nascondere i video che soddisfano le parole chiave o frasi.
 
-Note:
+Note: 
 • Gli Shorts non possono essere nascosti in base al nome del canale.
 • Alcuni componenti della interfaccia potrebbero non essere nascosti.
 • La ricerca di una parola chiave potrebbe non mostrare alcun risultato."</string>
@@ -1225,7 +1228,9 @@ Se l'interfaccia della schermata del riproduttore cambia a causa di modifiche la
 Nota: solo gli scaffali con l'intestazione Shorts nella scheda Home sono nascosti."</string>
     <string name="revanced_hide_shorts_shelf_channel_title">Nascondi nel profilo del canale</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Sono visibili nella cronologia.</string>
-    <string name="revanced_hide_shorts_shelf_history_summary_on">"Sono nascosti nella cronologia."</string>
+    <string name="revanced_hide_shorts_shelf_history_summary_on">"Sono nascosti nella cronologia.
+
+Nota: lo scaffale Cronologia nella scheda Tu potrebbe essere nascosto."</string>
     <string name="revanced_hide_shorts_shelf_history_title">Nascondi nella cronologia</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_off">Sono visibili nella scheda Home e nei video correlati.</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_on">Sono nascosti nella scheda Home e nei video correlati.</string>
@@ -1706,7 +1711,7 @@ Per mostrare il pulsante Scarica Playlist nativo, attiva il camuffamento della v
     <string name="revanced_preference_screen_ambient_mode_title">Modalità Ambient</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">Personalizza gli scaffali a carosello nelle schede, nei video correlati, e nei risultati di ricerca.</string>
     <string name="revanced_preference_screen_carousel_shelf_title">Scaffali a carosello</string>
-    <string name="revanced_preference_screen_category_bar_summary">Personalizza la barra dei filtri nelle schede, nei video correlati, nei risultati di ricerca, nella cronologia e nelle playlist.</string>
+    <string name="revanced_preference_screen_category_bar_summary">Personalizza la barra dei filtri nelle schede, nei video correlati, nelle playlist, nei risultati di ricerca e nella cronologia.</string>
     <string name="revanced_preference_screen_category_bar_title">Barra dei filtri</string>
     <string name="revanced_preference_screen_channel_bar_summary">Personalizza i componenti della barra del canale sotto i video.</string>
     <string name="revanced_preference_screen_channel_bar_title">Barra del canale</string>
@@ -2166,7 +2171,7 @@ Pronto per l'invio?"</string>
 Si tratta di un problema con l'API di trascrizione di YouTube e Google deve risolverlo.
 Come soluzione temporanea, puoi risolvere il problema impostando i cookie.
 
-Note:
+Note: 
 • L'uso dei cookie non è una soluzione definitiva.
 • Questa soluzione potrebbe non funzionare se i cookie sono scaduti o non validi, oppure se l'API di trascrizione di YouTube non convalida più i cookie."</string>
     <string name="revanced_settings_search_highlight_color_summary">Imposta il colore di evidenziazione per il testo abbinato nei risultati di ricerca.</string>
@@ -2281,7 +2286,7 @@ Note:
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"Il pulsante Traccia Audio è visibile quando il client usato per recuperare i dati in streaming è Android VR, Mobile Web o visionOS."</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">Mostra il pulsante Traccia Audio</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Prerequisiti:
-• Il client usato per recuperare i dati in streaming è Android VR, Mobile Web o visionOS.
+• Il client usato per recuperare i dati in streaming è Android VR, Mobile Web, iPadOS o visionOS.
 • È in riproduzione un video con più tracce audio.
 
 Note:
@@ -2296,14 +2301,12 @@ Questa funzionalità è ancora in fase di sviluppo, quindi potrebbe non funziona
 <small>(Nessun accesso richiesto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Obsoleto)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
+<small>(Obsoleto e nessun accesso richiesto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web Mobile
 <small>(In fase di sviluppo e nessun accesso richiesto)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV
-<small>(In fase di sviluppo)</small>
-    </string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply
-<small>(In fase di sviluppo)</small>
-    </string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Non rilasciato e nessun accesso richiesto)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Client predefinito</string>
@@ -2355,7 +2358,7 @@ Esempio 2:
     <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Il menù Traccia Audio è nascosto.
 • Il menù Volume Stabile è nascosto.
 • I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito.
-• 1080p+, AV1 e HDR non sono supportati."</string>
+• 1080p+, AV1 e HDR non funzionano."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Il menù Traccia Audio è mancante.
 • Il menù Volume Stabile è mancante."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Il menù Traccia Audio è nascosto.
@@ -2371,6 +2374,8 @@ Esempio 2:
 • Il menù Volume Stabile è nascosto.
 • I film o i video a pagamento potrebbero non essere riproducibili.
 • I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ipados">"• AV1 non funziona.
+• I video potrebbero interrompersi a 1:00 o non essere disponibili in alcune regioni."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Il menù Traccia Audio è nascosto.
 • Se il deoffuscamento fallisce, la riproduzione potrebbe non funzionare.
 • I video potrebbero iniziare in ritardo.

@@ -231,6 +231,11 @@ Hạn chế: Nút Quay lại trên thanh công cụ có thể không hoạt đ�
     <string name="revanced_disable_auto_audio_tracks_not_available">Để sử dụng tính năng này, hãy thay đổi \'Client mặc định (Giả mạo dữ liệu phát video)\' sang TV hoặc iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Tự động phát bản âm thanh khi phát video có bản âm thanh đã bật.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Tự động phát bản âm thanh khi phát video có bản âm thanh đã tắt.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Buộc bản âm thanh tự động đã tắt.
+
+Tính năng này có thể không hoạt động với một số người dùng, nếu bạn trong số đó:
+1. Đi tới Cài đặt - RVX - Khác - Giả mạo dữ liệu phát video, và bật \"Giả mạo JavaScript\".
+2. Đi tới Cài đặt - RVX - Khác - Giả mạo dữ liệu phát video, và chuyển \"Client mặc định\" sang TV hoặc TV Simpy."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Tắt tự động phát bản âm thanh</string>
     <string name="revanced_disable_auto_captions_summary_off">Tự động hiển thị phụ đề khi phát video có phụ đề đã bật.</string>
     <string name="revanced_disable_auto_captions_summary_on">Tự động hiển thị phụ đề khi phát video có phụ đề đã tắt.</string>
@@ -1226,7 +1231,9 @@ Nếu bố cục màn hình trình phát thay đổi từ phía máy chủ, cũn
 Chi tiết: Chỉ những kệ có tiêu đề Shorts trên thẻ trang chủ mới bị ẩn."</string>
     <string name="revanced_hide_shorts_shelf_channel_title">Ẩn trong trang kênh</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Đã hiển thị trong nhật ký xem.</string>
-    <string name="revanced_hide_shorts_shelf_history_summary_on">"Đã ẩn trong nhật ký xem."</string>
+    <string name="revanced_hide_shorts_shelf_history_summary_on">"Đã ẩn trong nhật ký xem.
+
+Hạn chế: Kệ nhật ký xem trong thẻ Bạn có thể bị ẩn."</string>
     <string name="revanced_hide_shorts_shelf_history_title">Ẩn trong nhật ký xem</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_off">Đã hiển thị trong thẻ Trang chủ và các video liên quan.</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_on">Đã ẩn trên thẻ Trang chủ và các video liên quan.</string>
@@ -2039,7 +2046,7 @@ Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_sb_segments_filler_sum">Phân cảnh lạc đề hoặc gây cười nhưng không cần thiết cho nội dung chính của video. Không bao gồm phần cung cấp bối cảnh hoặc chi tiết nền.</string>
     <string name="revanced_sb_segments_highlight">Khoảnh khắc nổi bật</string>
     <string name="revanced_sb_segments_highlight_sum">Phần video được nhiều người tìm kiếm nhất.</string>
-    <string name="revanced_sb_segments_hook">Gây chú ý/Lời chào</string>
+    <string name="revanced_sb_segments_hook">Mở đầu gây chú ý/Lời chào</string>
     <string name="revanced_sb_segments_hook_sum">Phân đoạn lồng tiếng trong trailer giới thiệu video sắp phát, lời chào mở đầu và kết thúc. Không bao gồm các đoạn chứa nội dung bổ sung.</string>
     <string name="revanced_sb_segments_interaction">Nhắc nhở tương tác (Đăng ký)</string>
     <string name="revanced_sb_segments_interaction_sum">Một lời nhắc ngắn rằng bạn hãy nhấn vào nút thích, đăng ký hoặc theo dõi họ ở giữa nội dung. Nếu chúng dài hoặc về một cái gì đó cụ thể, thay vào đó chúng sẽ được xếp vào phân đoạn Tự quảng cáo.</string>
@@ -2290,7 +2297,7 @@ Chi tiết:
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"Nút bản âm thanh sẽ được hiển thị khi client dùng để lấy dữ liệu phát là “Android VR”, “Mobile Web” hoặc “visionOS”."</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">Nút bản âm thanh</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Điều kiện tiên quyết:
-• Client dùng để lấy dữ liệu phát là “Android VR”, “Mobile Web” hoặc “visionOS”.
+• Client dùng để lấy dữ liệu phát là “Android VR”, “Mobile Web”, “iPadOS” hoặc “visionOS”.
 • Video đang phát có nhiều bản âm thanh.
 
 Sự cố đã biết:
@@ -2305,6 +2312,8 @@ Tính năng này vẫn đang trong quá trình phát triển, vì vậy nó có 
 <small>(Không xác thực)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Không khuyến khích)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
+<small>(Lỗi thời, Không xác thực)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(Thử nghiệm, Không xác thực)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV
@@ -2317,7 +2326,7 @@ Tính năng này vẫn đang trong quá trình phát triển, vì vậy nó có 
 <small>(Chưa phát hành, Không xác thực)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Client mặc định</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Không truy xuất được luồng phát từ client đã chọn.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Có thể bạn chưa đăng nhập.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Hãy thử chuyển client mặc định sang TV hoặc TV Simply.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Codec video được xác định tự động.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Codec video luôn là AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Buộc iOS sử dụng AVC (H.264)</string>
@@ -2388,6 +2397,8 @@ Ví dụ 2:
 • Âm lượng ổn định không khả dụng.
 • Phim hoặc video trả phí có thể không phát được.
 • Video dành cho trẻ em có thể không phát được khi bạn đã đăng xuất hoặc bật chế độ ẩn danh."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ipados">"• Không hỗ trợ codec AV1.
+• Video có thể bị dừng ở 1 phút đầu, hoặc có thể không khả dụng ở một số khu vực."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Thiếu trình đơn Bản âm thanh.
 • Nếu giải mã thất bại, video có thể không phát được.
 • Đôi khi video không phát dù đã chờ 10 giây, khi đó bạn cần nhấn vào nút tải lại video.
@@ -2546,24 +2557,24 @@ Nếu cài đặt này không có hiệu lực, hãy thử chuyển sang chế �
     <string name="revanced_transcript_cookies_dialog_auth_text">Xác thực</string>
     <string name="revanced_transcript_cookies_dialog_message">"Xác thực
 ══════════════
-1. Chọn &lt;b&gt;Xác thực&lt;/b&gt; để mở trang đăng nhập trong WebView.
+1. Chọn \"Xác thực\" để mở trang đăng nhập trong WebView.
 2. Đăng nhập bằng tài khoản Google.
 3. Phát một video có hỗ trợ dịch phụ đề tự động.
 4. Bật dịch phụ đề tự động và kiểm tra xem có hoạt động không. Nếu không, hãy chuyển sang một video khác có hỗ trợ và thử lại.
 5. Nhấn vào dấu ba chấm trên thanh công cụ.
-6. Chọn &lt;b&gt;Lấy Cookie&lt;/b&gt;.
-7. Chọn &lt;b&gt;Sao chép&lt;/b&gt;.
-8. Đóng WebView và dán Cookie vừa sao chép vào mục &lt;b&gt;Cookie cho Transcript&lt;/b&gt; trong cài đặt.
+6. Chọn \"Lấy Cookie\".
+7. Chọn \"Sao chép\".
+8. Đóng WebView và dán Cookie vừa sao chép vào mục \"Cookie cho Transcript\" trong cài đặt.
 
 
 Không xác thực
 ══════════════
-1. Chọn &lt;b&gt;Không xác thực&lt;/b&gt; để mở video trong WebView.
+1. Chọn \"Không xác thực\" để mở video trong WebView.
 2. Phát video ít nhất 3 giây.
 3. Nhấn vào dấu ba chấm trên thanh công cụ.
-4. Chọn &lt;b&gt;Lấy Cookie&lt;/b&gt;.
-5. Chọn &lt;b&gt;Sao chép&lt;/b&gt;.
-6. Đóng WebView và dán Cookie vừa sao chép vào mục &lt;b&gt;Cookie cho Transcript&lt;/b&gt; trong cài đặt.
+4. Chọn \"Lấy Cookie\".
+5. Chọn\"Sao chép\".
+6. Đóng WebView và dán Cookie vừa sao chép vào mục \"Cookie cho Transcript\" trong cài đặt.
 
 Miễn trừ trách nhiệm: Cookie tạo ra khi không đăng nhập có thể không hợp lệ hoặc cần thời gian mới được API của Transcript chấp nhận."</string>
     <string name="revanced_transcript_cookies_dialog_no_auth_text">Không xác thực</string>

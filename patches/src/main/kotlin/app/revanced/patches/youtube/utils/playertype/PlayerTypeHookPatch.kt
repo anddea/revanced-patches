@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.revanced.patches.youtube.utils.resourceid.reelWatchPlayer
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.addStaticFieldToExtension
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.matchOrThrow
@@ -26,6 +27,7 @@ import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -54,6 +56,24 @@ val playerTypeHookPatch = bytecodePatch(
     )
 
     execute {
+
+        // region patch for set ad progress text visibility
+
+        adProgressTextViewVisibilityFingerprint.methodOrThrow().apply {
+            val index =
+                indexOfAdProgressTextViewVisibilityInstruction(this)
+            val register =
+                getInstruction<FiveRegisterInstruction>(index).registerD
+
+            addInstructionsAtControlFlowLabel(
+                index,
+                "invoke-static { v$register }, " +
+                        EXTENSION_ROOT_VIEW_HOOK_CLASS_DESCRIPTOR +
+                        "->setAdProgressTextVisibility(I)V"
+            )
+        }
+
+        // endregion
 
         // region patch for set player type
 

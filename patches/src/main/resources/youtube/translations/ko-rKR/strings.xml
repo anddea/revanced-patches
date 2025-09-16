@@ -118,7 +118,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
 
 이러한 스낵바 배경 색상을 변경할 수 있습니다.
 
-서버 측 변경 사항이 있는 경우에는 스낵바 배경 색상이 변경되지 않을 수 있습니다."</string>
+서버 측 변경이 있는 경우에는 스낵바 배경 색상이 변경되지 않을 수 있습니다."</string>
     <string name="revanced_change_share_sheet_summary_off">기본 공유 시트를 사용합니다.</string>
     <string name="revanced_change_share_sheet_summary_on">시스템 공유 시트를 사용합니다.</string>
     <string name="revanced_change_share_sheet_title">공유 시트 변경하기</string>
@@ -793,6 +793,9 @@ Shorts 플레이어 배경을 탭하면 상태바 및 플레이어 구성요소�
     <string name="revanced_hide_hype_button_summary_off">Hype 버튼이 표시됩니다.</string>
     <string name="revanced_hide_hype_button_summary_on">Hype 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_hype_button_title">Hype 버튼 숨기기</string>
+    <string name="revanced_hide_hype_points_summary_off">Hype 점수가 표시됩니다.</string>
+    <string name="revanced_hide_hype_points_summary_on">Hype 점수가 숨겨집니다.</string>
+    <string name="revanced_hide_hype_points_title">Hype 점수 숨기기</string>
     <string name="revanced_hide_image_search_button_summary_off">Google 렌즈 버튼이 표시됩니다.</string>
     <string name="revanced_hide_image_search_button_summary_on">Google 렌즈 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_image_search_button_title">Google 렌즈 버튼 숨기기</string>
@@ -1061,7 +1064,7 @@ Shorts 플레이어 배경을 탭하면 상태바 및 플레이어 구성요소�
 
 일부 관련 동영상이 숨겨지지 않거나 동작 바 또는 댓글 섹션과 같은 의도하지 않은 레이아웃이 숨겨지는 경우에 오프셋을 변경하면 문제가 해결될 수 있습니다.
 
-서버 측 변경으로 인해 플레이어 화면의 레이아웃이 변경되면 플레이어 화면에서 의도하지 않은 레이아웃이 숨겨질 수 있습니다."</string>
+서버 측 변경으로 인하여 플레이어 화면의 레이아웃이 변경되면 플레이어 화면에서 의도하지 않은 레이아웃이 숨겨질 수 있습니다."</string>
     <string name="revanced_hide_remix_button_summary_off">리믹스 버튼이 표시됩니다.</string>
     <string name="revanced_hide_remix_button_summary_on">리믹스 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_remix_button_title">리믹스 버튼 숨기기</string>
@@ -2311,7 +2314,7 @@ Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"오디오 트랙 버튼이 스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 ‘Android VR’, ‘Mobile Web’ 또는 'visionOS'일 때 표시됩니다."</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">오디오 트랙 버튼 표시하기</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"전제 조건:
-• 스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 'Android VR', 'Mobile Web' 또는 'visionOS'으로 선택되어야 합니다.
+• 스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 'Android VR', 'Mobile Web', 'iPadOS' 또는 'visionOS'로 선택되어야 합니다.
 • 다양한 오디오 트랙이 포함된 동영상을 재생되어야 합니다.
 
 알려진 문제:
@@ -2326,6 +2329,8 @@ Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
 <small>(인증 없음)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(폐기 예정)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
+<small>(구형, 인증 없음)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(개발 중, 인증 없음)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
@@ -2334,7 +2339,7 @@ Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
 <small>(미출시, 인증 없음)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">기본 클라이언트</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">클라이언트 스트림을 가져올 수 없습니다.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">로그인하지 않았을 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">기본 클라이언트를 TV 또는 TV Simply로 변경해 보세요.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">동영상 코덱이 자동으로 결정됩니다.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">동영상 코덱이 AVC (H.264)로 강제로 결정됩니다.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
@@ -2406,6 +2411,8 @@ VP9은 AVC보다 고급 코덱이지만, 일부 사용자는 '360p VP9'보다 '1
 • 안정적인 볼륨을 사용할 수 없습니다.
 • 영화 또는 유료 동영상이 재생되지 않을 수 있습니다.
 • 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ipados">"• AV1이 지원되지 않습니다.
+• 동영상이 1:00에 멈출 수 있으며, 일부 지역에서는 이용이 불가능할 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• 오디오 트랙 메뉴가 표시되지 않습니다.
 • 복호화에 실패하면 재생이 실패할 수 있습니다.
 • 간혹 10초가 지나도 동영상이 재생되지 않는 경우가 있습니다. 이 경우에는 동영상 다시 로드 버튼을 탭해야 합니다.
@@ -2421,7 +2428,7 @@ VP9은 AVC보다 고급 코덱이지만, 일부 사용자는 '360p VP9'보다 '1
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 숨겨집니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
-    <string name="revanced_spoof_streaming_data_summary_off">"스트리밍 데이터를 변경하지 않습니다.\n동영상 재생 문제가 발생할 수 있습니다."</string>
+    <string name="revanced_spoof_streaming_data_summary_off">"스트리밍 데이터를 변경하지 않습니다.\n\n동영상 재생 문제가 발생할 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_summary_on">"스트리밍 데이터를 변경합니다.
 
 YouTube Premium 사용자라면 이 설정이 필요하지 않을 수 있습니다."</string>
@@ -2436,10 +2443,27 @@ YouTube Premium 사용자라면 이 설정이 필요하지 않을 수 있습니�
 
 • JavaScript 클라이언트에서 여전히 일부 동영상을 재생할 수 없습니다."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">모든 동영상에 JavaScript 클라이언트 사용하기</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">자세한 정보를 보려면 여기를 탭하세요.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">페이크 버퍼링에 대한 정보</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"JavaScript 클라이언트에서 동영상이 너무 늦게 시작되는 한 가지 이유는 YouTube의 새로운 광고 차단 방지 조치 때문입니다.
+
+동영상 광고가 차단되면 GVS (Google Video Server)는 광고 길이에 비례하는 페이크 버퍼링을 생성합니다 (A/B 테스트).
+
+uBlock Origin은 이 문제에 대한 해결 방법을 찾아냈으며, ‘페이크 버퍼링 우회하기’ 설정을 통해 활성화할 수 있습니다.
+
+기사를 읽으려면 '열기'를 탭하세요."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">열기</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"YouTube의 새로운 광고 차단 방지 조치"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">\'페이크 버퍼링 우회하기\'를 비활성화합니다.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"'페이크 버퍼링 우회하기'를 활성화합니다.
+
+제한 사항:
+• 서버 측 변경으로 인하여 언제든지 작동이 중단될 수 있습니다."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">페이크 버퍼링 우회하기</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">JavaScript 클라이언트가 사용 가능한 클라이언트에 추가되지 않습니다.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">JavaScript 클라이언트가 사용 가능한 클라이언트에 추가됩니다.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">JavaScript 클라이언트 사용하기</string>
-    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"JavaScript 클라이언트는 n-sig 패턴 디코딩 요구사항으로 인해 동영상 시작 시 약간의 지연이 발생할 수 있습니다.
+    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"JavaScript 클라이언트는 n-sig 패턴 디코딩 요구사항으로 인하여 동영상 시작 시 약간의 지연이 발생할 수 있습니다.
 
 때때로 n-sig 패턴 디코딩이 실패하여 동영상 시작이 지연되거나 동영상 스트림이 끊길 수 있습니다.
 

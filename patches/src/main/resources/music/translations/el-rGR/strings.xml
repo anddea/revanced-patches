@@ -447,7 +447,9 @@
     <string name="revanced_sb_enabled_sum">Το SponsorBlock είναι ένα σύστημα που προέρχεται από το κοινό για παράβλεψη ενοχλητικών τμημάτων σε βίντεο YouTube.</string>
     <string name="revanced_sb_reset_color">Επαναφορά χρώματος</string>
     <string name="revanced_sb_segments_filler">Εφαπτομενικές Σκηνές / Αστεία</string>
-    <string name="revanced_sb_segments_filler_sum">Παρεμβατικές σκηνές που προστίθενται μόνο για γέμισμα ή χιούμορ και δεν είναι απαραίτητες για την κατανόηση του κύριου περιεχομένου του βίντεο. Δεν περιλαμβάνει τμήματα που παρέχουν πλαίσιο ή λεπτομέρειες υποβάθρου.</string>
+    <string name="revanced_sb_segments_filler_sum">Παρεμβατικές σκηνές ή αστεία που δεν είναι απαραίτητα για την κατανόηση του κύριου περιεχομένου του βίντεο. Δεν περιλαμβάνει τμήματα που παρέχουν πλαίσιο ή λεπτομέρειες υποβάθρου.</string>
+    <string name="revanced_sb_segments_hook">Έναρξη / Χαιρετισμός</string>
+    <string name="revanced_sb_segments_hook_sum">Αφηγηματικά τρέιλερ για το επερχόμενο βίντεο, χαιρετισμοί και αποχαιρετισμοί. Δεν περιλαμβάνει τμήματα που προσθέτουν επιπλέον περιεχόμενο.</string>
     <string name="revanced_sb_segments_interaction">Υπενθύμιση αλληλεπίδρασης (Εγγραφή)</string>
     <string name="revanced_sb_segments_interaction_sum">Όταν υπάρχει μια σύντομη υπενθύμιση για να προσθέσετε το βίντεο στα βίντεο που σας αρέσουν, να εγγραφείτε ή να τους ακολουθήσετε στην μέση του περιεχομένου. Αν είναι μεγάλο ή αφορά κάτι συγκεκριμένο, θα πρέπει να είναι στην κατηγορία αυτοπροώθησης.</string>
     <string name="revanced_sb_segments_intro">Διάλειμμα / Εισαγωγή</string>
@@ -456,7 +458,7 @@
     <string name="revanced_sb_segments_nomusic_sum">Μόνο για χρήση σε βίντεο μουσικής. Τμήματα χωρίς μουσική σε βίντεο μουσικής, που δεν καλύπτονται ήδη από άλλη κατηγορία.</string>
     <string name="revanced_sb_segments_outro">Τελική Οθόνη / Συντελεστές</string>
     <string name="revanced_sb_segments_outro_sum">Όταν εμφανίζονται οι συντελεστές ή τα προτεινόμενα βίντεο των καναλιών. Όχι για επίλογους που περιέχουν πληροφορίες.</string>
-    <string name="revanced_sb_segments_preview">Προεπισκόπηση / Περίληψη / Έναρξη</string>
+    <string name="revanced_sb_segments_preview">Προεπισκόπηση / Περίληψη</string>
     <string name="revanced_sb_segments_preview_sum">Συλλογή από κλιπ που δείχνουν τι έρχεται ή τι συνέβη στο βίντεο ή σε άλλα βίντεο μιας σειράς, όπου όλες οι πληροφορίες επαναλαμβάνονται αλλού.</string>
     <string name="revanced_sb_segments_selfpromo">Αφιλοκέρδεια / Αυτοπροώθηση</string>
     <string name="revanced_sb_segments_selfpromo_sum">Παρόμοιο με το «Χορηγός» αλλά για μη κερδοσκοπικό σκοπό ή για προσωπική προώθηση. Περιλαμβάνει τμήματα σχετικά με εμπορεύματα, δωρεές ή πληροφορίες για το με ποιους συνεργάστηκαν.</string>
@@ -465,6 +467,7 @@
     <string name="revanced_sb_skip_automatically">Αυτόματη παράλειψη</string>
     <string name="revanced_sb_skip_ignore">Απενεργοποίηση</string>
     <string name="revanced_sb_skipped_filler">Παραλείφθηκε η σπατάλη χρόνου.</string>
+    <string name="revanced_sb_skipped_hook">Παραλείφθηκε η έναρξη.</string>
     <string name="revanced_sb_skipped_interaction">Παραλείφθηκε η ενοχλητική υπενθύμιση.</string>
     <string name="revanced_sb_skipped_intro_beginning">Παραλείφθηκε η εισαγωγή.</string>
     <string name="revanced_sb_skipped_intro_end">Παραλείφθηκε η διακοπή.</string>
@@ -515,11 +518,19 @@
 Περιορισμός:
 • Μερικές φορές οι υπότιτλοι βρίσκονται στην κορυφή της οθόνης αναπαραγωγής αντί του κάτω μέρους."</string>
     <string name="revanced_spoof_player_parameter_title">Παραποίηση παραμέτρου προγράμματος αναπαραγωγής</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_mweb">Web Κινητού</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
+    <string name="revanced_spoof_streaming_data_default_client_summary">Καθορισμός ενός προεπιλεγμένου πρόγραμμα πελάτη για παραποίηση.</string>
+    <string name="revanced_spoof_streaming_data_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Εμφάνιση του προγράμματος πελάτη που χρησιμοποιείται για τη λήψη δεδομένων ροής στο μενού «Στατιστικά για σπασίκλες».</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Εμφάνιση στο «Στατιστικά για σπασίκλες»</string>
-    <string name="revanced_spoof_streaming_data_summary">"Παραποίηση των δεδομένων ροής για την αποφυγή προβλημάτων αναπαραγωγής.
+    <string name="revanced_spoof_streaming_data_summary">"Τα δεδομένα ροής παραποιούνται.
 
-※ Αν ενεργοποιηθεί παράλληλα με τη λειτουργία «Παραποίηση προγράμματος πελάτη», ενδέχεται να εμφανιστούν προβλήματα αναπαραγωγής."</string>
+Αν είστε χρήστης του YouTube Premium, αυτή η ρύθμιση μπορεί να μην είναι απαραίτητη."</string>
     <string name="revanced_spoof_streaming_data_title">Παραποίηση δεδομένων ροής</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>

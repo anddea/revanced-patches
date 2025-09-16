@@ -25,6 +25,7 @@ BLACKLIST: set[str] = {
     "revanced_hide_hype_points",
     "revanced_hide_player_control_buttons_background",
     "revanced_hide_promote_button",
+    "revanced_hide_section_header_in_feed",
     "revanced_hide_shorts_comments_disabled_button",
     "revanced_hide_shorts_comments_panel",
     "revanced_hide_shorts_hashtag_button",

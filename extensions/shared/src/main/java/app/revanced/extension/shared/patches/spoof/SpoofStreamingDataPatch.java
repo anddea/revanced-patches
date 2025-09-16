@@ -85,10 +85,37 @@ public class SpoofStreamingDataPatch {
 
     /**
      * Injection point.
-     * Blocks /get_watch requests by returning an unreachable URI.
+     * /att/get requests are used to obtain a PoToken challenge.
+     * See: <a href="https://github.com/FreeTubeApp/FreeTube/blob/4b7208430bc1032019a35a35eb7c8a84987ddbd7/src/botGuardScript.js#L15">botGuardScript.js#L15</a>
+     * <p>
+     * Since the Spoof streaming data patch was implemented because a valid PoToken cannot be obtained,
+     * Blocking /att/get requests are not a problem.
+     */
+    public static String blockGetAttRequest(String originalUrlString) {
+        if (SPOOF_STREAMING_DATA) {
+            try {
+                var originalUri = Uri.parse(originalUrlString);
+                String path = originalUri.getPath();
+
+                if (path != null && path.contains("att/get")) {
+                    Logger.printDebug(() -> "Blocking 'att/get' by returning internet connection check uri");
+
+                    return INTERNET_CONNECTION_CHECK_URI_STRING;
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "blockGetAttRequest failure", ex);
+            }
+        }
+
+        return originalUrlString;
+    }
+
+    /**
+     * Injection point.
+     * Blocks /get_watch requests by returning an internet connection check URI.
      *
      * @param playerRequestUri The URI of the player request.
-     * @return An unreachable URI if the request is a /get_watch request, otherwise the original URI.
+     * @return An internet connection check URI if the request is a /get_watch request, otherwise the original URI.
      */
     public static Uri blockGetWatchRequest(Uri playerRequestUri) {
         if (SPOOF_STREAMING_DATA) {
@@ -108,6 +135,11 @@ public class SpoofStreamingDataPatch {
         return playerRequestUri;
     }
 
+    /**
+     * Injection point.
+     * <p>
+     * Blocks /initplayback requests.
+     */
     public static String blockInitPlaybackRequest(String originalUrlString) {
         if (SPOOF_STREAMING_DATA) {
             try {
@@ -348,7 +380,9 @@ public class SpoofStreamingDataPatch {
         if (!BaseSettings.SPOOF_STREAMING_DATA.get()) {
             return true;
         }
-        return BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().name().startsWith("TV");
+        final String clientName = BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().name();
+
+        return clientName.equals("IPADOS") || clientName.startsWith("TV");
     }
 
     public static final class ClientAndroidVRAvailability implements Setting.Availability {
