@@ -6,6 +6,7 @@ import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.patches.spoof.AudioTrackPatch
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerControlButton
+import app.revanced.extension.youtube.shared.RootView.isAdProgressTextVisible
 
 @Suppress("unused")
 object AudioTrackButton {
@@ -21,7 +22,7 @@ object AudioTrackButton {
                 controlsViewGroup = controlsView,
                 imageViewButtonId = "revanced_audio_track_button",
                 hasPlaceholder = false,
-                buttonVisibility = { shouldBeShown() },
+                buttonVisibility = { isButtonEnabled() },
                 onClickListener = { view: View -> onClick(view) }
             )
         } catch (ex: Exception) {
@@ -53,14 +54,15 @@ object AudioTrackButton {
         instance?.setVisibility(visible, animated)
     }
 
-    private fun onClick(view: View) {
-        AudioTrackPatch.showAudioTrackDialog(view.context)
-    }
-
-    private fun shouldBeShown(): Boolean {
+    private fun isButtonEnabled(): Boolean {
         return Settings.SPOOF_STREAMING_DATA.get()
                 && Settings.SPOOF_STREAMING_DATA_AUDIO_TRACK_BUTTON.get()
                 && lastSpoofedClientIsNoAuth
+                && !isAdProgressTextVisible()
                 && AudioTrackPatch.audioTrackMapIsNotNull()
+    }
+
+    private fun onClick(view: View) {
+        AudioTrackPatch.showAudioTrackDialog(view.context)
     }
 }

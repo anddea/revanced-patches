@@ -2187,7 +2187,7 @@
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"يتم عرض زر المقطع الصوتي عندما يكون العميل المستخدم لجلب بيانات البث هو 'Android VR' أو 'Mobile Web' أو 'visionOS'."</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">عرض زر المقطع الصوتي</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"المتطلبات الأساسية:
-• العميل المُستخدم لجلب بيانات البث هو 'Android VR'، أو 'Mobile Web'، أو 'visionOS'.
+• العميل المُستخدم لجلب بيانات البث هو 'Android VR'، أو 'Mobile Web'، أو 'iPadOS'، أو 'visionOS'.
 • يتم تشغيل فيديو يحتوي على مقاطع صوتية متعددة.
 
 المشاكل المعروفة:
@@ -2202,6 +2202,8 @@
 <small>(بدون مصادقة)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(مُهمَل)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
+<small>(قديم، بدون مصادقة)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(WIP, بدون مصادقة)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
@@ -2210,7 +2212,7 @@
 <small>(لم يصدر ، بدون مصادقة)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">العميل الافتراضي</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">لم يتمكن من جلب أي تدفقات عميل.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">ربما لم تتمكن من تسجيل الدخول.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">جرب تغيير العميل الافتراضي إلى TV أو TV Simply.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">يتم تحديد ترميز الفيديو تلقائيًا.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">يتم فرض ترميز الفيديو على AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">فرض iOS AVC (H.264)</string>
@@ -2279,6 +2281,8 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
 • مستوى الصوت الثابت غير متاح.
 • قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة.
 • قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو في وضع التصفح المتخفي."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ipados">"• AV1 غير مدعوم.
+• قد يتوقف الفيديو عند الدقيقة 1:00، أو قد لا يكون متاحًا في بعض المناطق."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• قائمة المقطع الصوتي مفقودة.
 • في حال فشل إزالة التشويش، قد يفشل التشغيل.
 • في بعض الأحيان، قد لا يعمل الفيديو حتى بعد 10 ثوانٍ، وفي هذه الحالة، ستحتاج إلى الضغط على زر إعادة تحميل الفيديو.
@@ -2309,6 +2313,23 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
 
 • لا يزال عميل JavaScript غير قادر على تشغيل بعض الفيديوهات."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">استخدام عميل JavaScript لجميع الفيديوهات</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">انقر لمزيد من المعلومات.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">لمحة عن تجاوز التخزين المؤقت الزائف</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"أحد أسباب تأخر بدء تشغيل الفيديوهات في عميل JavaScript هو إجراءات YouTube الجديدة لمكافحة حظر الإعلانات.
+
+عند حظر إعلان فيديو، يُنشئ GVS (خادم فيديو Google) تخزينًا مؤقتًا زائفًا يتناسب مع مدة الإعلان (اختبار A/B).
+
+وجد uBlock Origin حلاً لهذه المشكلة، ويمكن تفعيله عبر إعداد 'تجاوز التخزين المؤقت الزائف'.
+
+انقر على 'فتح' لقراءة المقال."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">فتح</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"إجراءات جديدة لمكافحة حظر الإعلانات على YouTube"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">تم تعطيل تجاوز التخزين المؤقت الزائف.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"تم تمكين تجاوز التخزين المؤقت الزائف.
+
+القيود:
+• بسبب تغييرات من جانب الخادم، قد يتوقف هذا عن العمل في أي وقت."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">تجاوز التخزين المؤقت الزائف</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">لم يتم إضافة عميل JavaScript إلى العملاء المتاحين.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">تم إضافة عميل JavaScript إلى العملاء المتاحين.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">استخدام عميل JavaScript</string>

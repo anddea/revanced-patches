@@ -6,6 +6,7 @@ import app.revanced.extension.shared.utils.StringRef
 import app.revanced.extension.shared.utils.Utils
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerControlButton
+import app.revanced.extension.youtube.shared.RootView.isAdProgressTextVisible
 import app.revanced.extension.youtube.shared.VideoInformation
 import app.revanced.extension.youtube.utils.VideoUtils
 
@@ -22,7 +23,7 @@ object PlaybackSpeedDialogButton {
             instance = PlayerControlButton(
                 controlsViewGroup = controlsView,
                 imageViewButtonId = "revanced_playback_speed_dialog_button",
-                buttonVisibility = { Settings.OVERLAY_BUTTON_SPEED_DIALOG.get() },
+                buttonVisibility = { isButtonEnabled() },
                 onClickListener = { view: View -> onClick(view) },
                 onLongClickListener = { view: View ->
                     onLongClick(view)
@@ -56,6 +57,11 @@ object PlaybackSpeedDialogButton {
     @JvmStatic
     fun setVisibility(visible: Boolean, animated: Boolean) {
         instance?.setVisibility(visible, animated)
+    }
+
+    private fun isButtonEnabled(): Boolean {
+        return Settings.OVERLAY_BUTTON_SPEED_DIALOG.get()
+                && !isAdProgressTextVisible()
     }
 
     private fun onClick(view: View) {

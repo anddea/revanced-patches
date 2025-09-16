@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.shared;
 import static app.revanced.extension.youtube.patches.components.LayoutReloadObserverFilter.isActionBarVisible;
 
 import android.graphics.drawable.Drawable;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import java.lang.ref.WeakReference;
@@ -22,6 +23,38 @@ public final class RootView {
 
     private static volatile WeakReference<AppCompatToolbarPatchInterface> toolbarResultsRef
             = new WeakReference<>(null);
+
+    /**
+     * Visibility of the ad progress UI component.
+     */
+    private static volatile int adProgressTextVisibility = -1;
+
+    /**
+     * When a video ad is playing in a regular video player, segments or the Skip button should be hidden.
+     * @return Whether the Ad Progress TextView is visible in the regular video player.
+     */
+    public static boolean isAdProgressTextVisible() {
+        return adProgressTextVisibility == View.VISIBLE;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setAdProgressTextVisibility(int visibility) {
+        if (adProgressTextVisibility != visibility) {
+            adProgressTextVisibility = visibility;
+
+            Logger.printDebug(() -> {
+                String visibilityMessage = switch (visibility) {
+                    case View.VISIBLE   -> "VISIBLE";
+                    case View.GONE      -> "GONE";
+                    case View.INVISIBLE -> "INVISIBLE";
+                    default -> "UNKNOWN";
+                };
+                return "AdProgressText visibility changed to: " + visibilityMessage;
+            });
+        }
+    }
 
     /**
      * Injection point.

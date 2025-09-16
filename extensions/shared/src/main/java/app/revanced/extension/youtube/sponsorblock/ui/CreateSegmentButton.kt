@@ -4,7 +4,7 @@ import android.view.View
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerControlButton
-import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController
+import app.revanced.extension.youtube.shared.RootView.isAdProgressTextVisible
 
 object CreateSegmentButton {
     private var instance: PlayerControlButton? = null
@@ -51,13 +51,13 @@ object CreateSegmentButton {
         instance?.setVisibility(visible, animated)
     }
 
-    private fun onClick() {
-        SponsorBlockViewController.toggleNewSegmentLayoutVisibility()
-    }
-
     private fun isButtonEnabled(): Boolean {
         return Settings.SB_ENABLED.get() && Settings.SB_CREATE_NEW_SEGMENT.get()
-                && !SegmentPlaybackController.isAdProgressTextVisible()
+                && !isAdProgressTextVisible()
+    }
+
+    private fun onClick() {
+        SponsorBlockViewController.toggleNewSegmentLayoutVisibility()
     }
 
     @JvmStatic

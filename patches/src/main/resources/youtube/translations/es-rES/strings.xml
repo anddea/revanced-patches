@@ -226,6 +226,11 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_disable_auto_audio_tracks_not_available">Para usar esta función, cambia «Cliente predeterminado (falsificación de datos de transmisión)» a iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Las pistas de audio automáticas forzadas están activadas.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Las pistas de audio automáticas forzadas están desactivadas.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Las pistas de audio automáticas forzadas están desactivadas.
+
+Es posible que esto no funcione para algunos usuarios. Si no funciona para ti:
+1. Ve a Configuración - RVX - Otros - Falsificar datos de transmisión, y activa «Usar cliente JavaScript».
+2. Ve a Configuración - RVX - Otros - Falsificar datos de transmisión, y cambia «Cliente predeterminado» a «TV» o «TV simple»."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Desactivar pistas de audio automáticas forzadas</string>
     <string name="revanced_disable_auto_captions_summary_off">Los subtítulos automáticos forzados están activados.</string>
     <string name="revanced_disable_auto_captions_summary_on">Los subtítulos automáticos forzados están desactivados.</string>
@@ -2211,6 +2216,8 @@ Esta función todavía está en desarrollo, por lo que puede fallar en cualquier
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Obsoleto)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
+<small>(obsoleto, sin autenticación)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web móvil
 <small>(todavía en desarrollo)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV
@@ -2290,6 +2297,8 @@ Se utiliza→ 1080p VP9."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• El volumen estable no está disponible.
 • Es posible que no se reproduzcan películas o vídeos de pago.
 • Es posible que los vídeos para niños no se reproduzcan cuando se cierra la sesión o en modo incógnito."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ipados">"• AV1 no es compatible.
+• El vídeo puede detenerse en 1:00 o no estar disponible en algunas regiones."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Falta el menú de la pista de audio.
 • La opción de desactivar las pistas de audio automáticas forzadas no está disponible.
 • Si la desofuscación falla, la reproducción puede fallar.
@@ -2320,6 +2329,23 @@ Se utiliza→ 1080p VP9."</string>
 
 • El cliente JavaScript todavía no puede reproducir algunos vídeos."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Usar cliente JavaScript para todos los vídeos</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Pulsa para más información.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">Acerca de búfer falso</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Una de las razones por las que los vídeos se inician demasiado tarde en el cliente de JavaScript se debe a las nuevas medidas de YouTube contra el bloqueo de anuncios.
+
+Cuando se bloquea un anuncio de vídeo, GVS (Google Video Server) genera un búfer falso proporcional a la duración del anuncio (prueba A/B).
+
+uBlock Origin ha encontrado una solución para este problema, que se puede activar a través del ajuste «Omitir búfer falso».
+
+Pulsa en «Abrir» para leer el artículo."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Abrir</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Nuevas medidas de YouTube contra el bloqueo de anuncios"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Omitir búfer falso está desactivado.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Omitir búfer falso está activado.
+
+Limitaciones:
+• Debido a cambios en el servidor, esto puede dejar de funcionar en cualquier momento."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Omitir búfer falso</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">El cliente JavaScript no se ha añadido a los clientes disponibles.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">El cliente JavaScript se ha añadido a los clientes disponibles.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Usar cliente JavaScript</string>

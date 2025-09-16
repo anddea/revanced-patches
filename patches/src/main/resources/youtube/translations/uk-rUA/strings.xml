@@ -229,6 +229,11 @@
     <string name="revanced_disable_auto_audio_tracks_not_available">Щоб скористатися цією функцією, змініть \'Основний клієнт (Підробка даних трансляції)\' на TV, Простий TV або iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Примусові автоматичні звукові доріжки увімкнено.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Примусові автоматичні звукові доріжки вимкнено.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Примусові автоматичні звукові доріжки вимкнено.
+
+Це може не працювати для деяких користувачів, якщо не працює то:
+1. Перейдіть до Налаштування - RVX - Різне - Підробка даних трансляції та увімкніть 'Використовувати клієнт JavaScript'.
+2. Перейдіть до Налаштування - RVX - Різне - Підробка даних трансляції і змініть 'Основний клієнт' на 'TV' чи 'Простий TV'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Вимкнути примусові автоматичні звукові доріжки</string>
     <string name="revanced_disable_auto_captions_summary_off">Примусові авто субтитри увімкнено.</string>
     <string name="revanced_disable_auto_captions_summary_on">Примусові авто субтитри вимкнено.</string>
@@ -912,8 +917,8 @@
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Меню Звукова доріжка приховано.
 
 Для показу меню Звукова доріжка:
-1. Перейдіть до Налаштування → RVX → Різне → Підробка даних трансляції та увімкніть 'Використовувати клієнт JavaScript'.
-2. Перейдіть до Налаштування → RVX → Різне → Підробка даних трансляції і змініть 'Основний клієнт' на 'TV' чи 'Простий TV'."</string>
+1. Перейдіть до Налаштування - RVX - Різне - Підробка даних трансляції та увімкніть 'Використовувати клієнт JavaScript'.
+2. Перейдіть до Налаштування - RVX - Різне - Підробка даних трансляції і змініть 'Основний клієнт' на 'TV' чи 'Простий TV'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Меню Звукова доріжка показується.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Меню Звукова доріжка приховано.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Приховати меню Звукова доріжка</string>
@@ -1227,7 +1232,9 @@
 • Лише полиці з заголовком Shorts на головній вкладці приховано."</string>
     <string name="revanced_hide_shorts_shelf_channel_title">Приховати у каналі</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Показується в історії перегляду.</string>
-    <string name="revanced_hide_shorts_shelf_history_summary_on">"Приховано в історії перегляду."</string>
+    <string name="revanced_hide_shorts_shelf_history_summary_on">"Приховано в історії перегляду.
+
+Публічний ефект: Полиця історії перегляду у вкладці Ви може бути прихована."</string>
     <string name="revanced_hide_shorts_shelf_history_title">Приховати в історії перегляду</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_off">Показується у головній стрічці та пов\'язаних відео.</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_on">Приховано у головній стрічці та пов\'язаних відео.</string>
@@ -2306,12 +2313,8 @@
 <small>(Застаріла)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web мобільний
 <small>(ще в розробці, Без авторизації)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV
-<small>(ще в розробці)</small>
-    </string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Простий TV
-<small>(ще в розробці)</small>
-    </string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Простий TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Невипущений, Без авторизації)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Основний клієнт</string>

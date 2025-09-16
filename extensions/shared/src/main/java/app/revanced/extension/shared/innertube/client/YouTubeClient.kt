@@ -10,7 +10,7 @@ import java.util.Locale
 /**
  * Used to fetch streaming data.
  */
-@Suppress("unused")
+@Suppress("ConstantLocale", "unused")
 object YouTubeClient {
     private const val CLIENT_SCREEN_WATCH = "WATCH"
     private const val CLIENT_SCREEN_EMBED = "EMBED"
@@ -174,13 +174,61 @@ object YouTubeClient {
     )
 
 
+    // IPAD OS
+    /**
+     * Video not playable: Paid / Movie / Private / Age-restricted.
+     * Note: Audio track available, AV1 hardware decoding is not supported.
+     *
+     * It appears that iOSGuard PoToken has been rolled out to YouTube 20+.
+     * See: [uYouEnhanced#908](https://github.com/arichornlover/uYouEnhanced/issues/908) and
+     * [yt-dlp#14133 (comment)](https://github.com/yt-dlp/yt-dlp/issues/14133#issuecomment-3217679575).
+     *
+     * Nevertheless, this client was added based on two reports:
+     * 1. According to a uYouEnhanced user, spoofing the app version to 19.01.1 is a temporary workaround.
+     * 2. Over the past few months, BotGuard PoToken has not been used on WEB_SAFARI (iPadOS).
+     *
+     * It may still not work for some users.
+     */
+    private const val PACKAGE_NAME_IPADOS = "com.google.ios.youtube"
+
+    /**
+     * YouTube 19.22.3 is the minimum version that supports the OPUS codec.
+     */
+    private const val CLIENT_VERSION_IPADOS = "19.22.3"
+
+    private const val DEVICE_MAKE_APPLE = "Apple"
+    private const val OS_NAME_IPADOS = "iPadOS"
+
+    /**
+     * The device machine id for the iPad 6th Gen (iPad7,6).
+     * See [this GitHub Gist](https://gist.github.com/adamawolf/3048717) for more information.
+     *
+     * Based on Google's actions to date, PoToken may not be required on devices with very low specs.
+     * For example, suppose the User-Agent for a PlayStation 3 (with 256MB of RAM) is used.
+     * Accessing 'Web' (https://www.youtube.com) will redirect to 'TV' (https://www.youtube.com/tv).
+     * 'TV' target devices with very low specs, such as embedded devices, game consoles, and blu-ray players, so PoToken is not required.
+     *
+     * For this reason, the device machine id for the iPad 6th Gen (with 2GB of RAM),
+     * the lowest spec device capable of running iPadOS 17, was used.
+     */
+    private const val DEVICE_MODEL_IPADOS = "iPad7,6"
+
+    /**
+     * iPadOS 17 is the minimum version that supports the OPUS codec.
+     */
+    private const val OS_VERSION_IPADOS = "17.7.10.21H450"
+    private const val USER_AGENT_VERSION_IPADOS = "17_7_10"
+    private val USER_AGENT_IPADOS =
+        "$PACKAGE_NAME_IPADOS/$CLIENT_VERSION_IPADOS ($DEVICE_MODEL_IPADOS; U; CPU iPadOS $USER_AGENT_VERSION_IPADOS like Mac OS X; ${Locale.getDefault()})"
+
+
     // TVHTML5
     /**
      * Video not playable: None.
      * Note: Both 'Authorization' and 'Set-Cookie' are supported.
      * TODO: Find out why playback sometimes fails.
      */
-    private const val CLIENT_VERSION_TVHTML5 = "7.20250910.13.00"
+    private const val CLIENT_VERSION_TVHTML5 = "7.20250914.19.00"
     private const val USER_AGENT_TVHTML5 =
         "Mozilla/5.0(SMART-TV; Linux; Tizen 4.0.0.2) AppleWebkit/605.1.15 (KHTML, like Gecko) SamsungBrowser/9.2 TV Safari/605.1.15"
 
@@ -212,7 +260,7 @@ object YouTubeClient {
      * Note: Only 'Set-Cookie' is supported.
      * TODO: Find out why playback sometimes fails.
      */
-    private const val CLIENT_VERSION_MWEB = "2.20250912.01.00"
+    private const val CLIENT_VERSION_MWEB = "2.20250915.01.00"
     private const val USER_AGENT_MWEB =
         "Mozilla/5.0 (Android 16; Mobile; rv:140.0) Gecko/140.0 Firefox/140.0"
 
@@ -411,9 +459,24 @@ object YouTubeClient {
         ),
 
         // Fallback client, not yet released.
+        // PoToken required?
+        IPADOS(
+            id = 5,
+            deviceMake = DEVICE_MAKE_APPLE,
+            deviceModel = DEVICE_MODEL_IPADOS,
+            osName = OS_NAME_IPADOS,
+            osVersion = OS_VERSION_IPADOS,
+            userAgent = USER_AGENT_IPADOS,
+            clientVersion = CLIENT_VERSION_IPADOS,
+            clientPlatform = CLIENT_PLATFORM_TABLET,
+            supportsCookies = false,
+            clientName = "IOS",
+            friendlyName = "iPadOS"
+        ),
+        // Unreleased.
         VISIONOS(
             id = 101,
-            deviceMake = "Apple",
+            deviceMake = DEVICE_MAKE_APPLE,
             deviceModel = "RealityDevice14,1",
             osName = "visionOS",
             osVersion = "1.3.21O771",
@@ -486,12 +549,14 @@ object YouTubeClient {
                 ANDROID_VR,
                 VISIONOS,
                 ANDROID_CREATOR,
+                IPADOS,
                 IOS_DEPRECATED,
             )
             val CLIENT_ORDER_TO_USE_JS: Array<ClientType> = arrayOf(
                 ANDROID_VR,
                 VISIONOS,
                 ANDROID_CREATOR,
+                IPADOS,
                 TV,
                 TV_SIMPLY,
                 MWEB,
@@ -503,6 +568,7 @@ object YouTubeClient {
                 ANDROID_VR,
                 VISIONOS,
                 ANDROID_CREATOR,
+                IPADOS,
                 TV,
                 MWEB,
                 VISIONOS,

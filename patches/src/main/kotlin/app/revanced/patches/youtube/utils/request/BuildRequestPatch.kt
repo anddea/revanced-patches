@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.utils.request
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -33,5 +34,18 @@ val buildRequestPatch = bytecodePatch(
 internal fun hookBuildRequest(descriptor: String) {
     buildRequestMethod.apply {
         addInstruction(builderIndex + 1, "invoke-static { v$urlRegister, v$freeRegister }, $descriptor")
+    }
+}
+
+internal fun hookBuildRequestUrl(descriptor: String) {
+    buildRequestMethod.apply {
+        val insertIndex = indexOfNewUrlRequestBuilderInstruction(this)
+
+        addInstructions(
+            insertIndex, """
+                invoke-static { v$urlRegister }, $descriptor
+                move-result-object v$urlRegister
+                """
+        )
     }
 }

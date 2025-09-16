@@ -233,6 +233,11 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">Aby używać tej funkcji, zmień domyślnego klienta (oszukiwanie strumienia danych) na TV, Uproszczony TV lub iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Włączone</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Wyłączone</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Automatyczne wymuszanie ścieżki dźwiękowej jest wyłączone
+
+Może to nie działać u niektórych użytkowników, więc jeśli nie działa u ciebie, to:
+1. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i użyj opcji 'Włącz klienta JavaScript'
+2. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i zmień domyślnego klienta na 'TV' lub 'Uproszczony TV'"</string>
     <string name="revanced_disable_auto_audio_tracks_title">Automatyczne wymuszanie ścieżki dźwiękowej</string>
     <string name="revanced_disable_auto_captions_summary_off">Włączone</string>
     <string name="revanced_disable_auto_captions_summary_on">Wyłączone</string>
@@ -776,6 +781,9 @@ Ustawienia → Autoodtwarzanie/Odtwarzanie → Autoodtwarzanie następnego filmu
     <string name="revanced_hide_hype_button_summary_off">Widoczny</string>
     <string name="revanced_hide_hype_button_summary_on">Ukryty</string>
     <string name="revanced_hide_hype_button_title">Przycisk od podbijania</string>
+    <string name="revanced_hide_hype_points_summary_off">Widoczne.</string>
+    <string name="revanced_hide_hype_points_summary_on">Ukryte.</string>
+    <string name="revanced_hide_hype_points_title">Punkty Hype</string>
     <string name="revanced_hide_image_search_button_summary_off">Widoczny</string>
     <string name="revanced_hide_image_search_button_summary_on">Ukryty</string>
     <string name="revanced_hide_image_search_button_title">Przycisk od wyszukiwania po obrazie</string>
@@ -913,9 +921,9 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Menu od oświetlenia kinowego</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Ukryty
+    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Menu od ścieżki dźwiękowej jest ukryte:
 
-By wyświetlić menu od ścieżki dźwiękowej
+By wyświetlić menu od ścieżki dźwiękowej:
 1. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i użyj opcji 'Włącz klienta JavaScript'
 2. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i zmień domyślnego klienta na 'TV' lub 'Uproszczony TV'
 "</string>
@@ -1232,7 +1240,9 @@ Informacja:
 • Tylko półki z nagłówkiem Shorts będą ukryte na stronie głównej kanału"</string>
     <string name="revanced_hide_shorts_shelf_channel_title">Na stronie kanału</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Widoczne</string>
-    <string name="revanced_hide_shorts_shelf_history_summary_on">"Ukryte"</string>
+    <string name="revanced_hide_shorts_shelf_history_summary_on">"Ukryte
+
+Efekt uboczny: półka z historią oglądania w zakładce Ty może być ukryta."</string>
     <string name="revanced_hide_shorts_shelf_history_title">W historii oglądania</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_on">Ukryte</string>
@@ -2039,7 +2049,7 @@ Gotowy do przesłania?"</string>
     <string name="revanced_sb_reset">Zresetuj</string>
     <string name="revanced_sb_reset_color">Zresetuj kolor</string>
     <string name="revanced_sb_segments_filler">Wypełniacze / Żarty</string>
-    <string name="revanced_sb_segments_filler_sum">Segmenty nietematyczne dodawane tylko dla wypełnienia lub humor, który nie jest wymagany do zrozumienia głównej treści filmu. Nie dotyczy segmentów zawierających informacje kontekstowe lub szczegółowe.</string>
+    <string name="revanced_sb_segments_filler_sum">Segmenty nietematyczne dodawane tylko dla wypełnienia lub humor, który nie jest wymagany do zrozumienia głównej treści filmu.  Nie dotyczy segmentów zawierających informacje kontekstowe lub szczegółowe.</string>
     <string name="revanced_sb_segments_highlight">Najważniejsze Informacje</string>
     <string name="revanced_sb_segments_highlight_sum">Część filmu, która interesuje większość osób.</string>
     <string name="revanced_sb_segments_hook">Haczyki / Pozdrowienia</string>
@@ -2071,7 +2081,7 @@ Gotowy do przesłania?"</string>
     <string name="revanced_sb_skip_automatically_once">Pomiń automatycznie jeden raz</string>
     <string name="revanced_sb_skip_button_compact">Pomiń</string>
     <string name="revanced_sb_skip_button_compact_highlight">Najważniejsze Informacje</string>
-    <string name="revanced_sb_skip_button_filler">Pomiń wypełniacz</string>
+    <string name="revanced_sb_skip_button_filler">Pomiń wypełniacz.</string>
     <string name="revanced_sb_skip_button_highlight">Przejdź do najważniejszych informacji</string>
     <string name="revanced_sb_skip_button_hook">Pomiń haczyk</string>
     <string name="revanced_sb_skip_button_interaction">Pomiń przypomnienie o interakcji</string>
@@ -2089,7 +2099,7 @@ Gotowy do przesłania?"</string>
     <string name="revanced_sb_skip_ignore">Wyłącz</string>
     <string name="revanced_sb_skip_seekbaronly">Pokazuj w pasku postępu filmu</string>
     <string name="revanced_sb_skip_showbutton">Pokaż przycisk od pomijania</string>
-    <string name="revanced_sb_skipped_filler">Pominięto wypełniacz.</string>
+    <string name="revanced_sb_skipped_filler">Pominięto wypełniacz</string>
     <string name="revanced_sb_skipped_highlight">Pominięto do najważniejszych informacji.</string>
     <string name="revanced_sb_skipped_hook">Pominięto haczyk</string>
     <string name="revanced_sb_skipped_interaction">Pominięto irytujące przypomnienie.</string>
@@ -2311,12 +2321,8 @@ Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w 
 <small>(Porzucone)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobilny przeglądarkowy
 <small>(W fazie rozwoju, bez autoryzacji)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV
-<small>(W fazie rozwoju)</small>
-    </string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Uproszczony TV
-<small>(W fazie rozwoju)</small>
-    </string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Uproszczony TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Niewydany, bez autoryzacji)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Domyślny klient</string>

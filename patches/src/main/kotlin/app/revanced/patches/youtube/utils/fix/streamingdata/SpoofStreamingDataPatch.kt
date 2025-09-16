@@ -21,6 +21,7 @@ import app.revanced.patches.youtube.utils.playservice.is_20_14_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.request.buildRequestPatch
 import app.revanced.patches.youtube.utils.request.hookBuildRequest
+import app.revanced.patches.youtube.utils.request.hookBuildRequestUrl
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.hookBackgroundPlayVideoInformation
@@ -69,6 +70,7 @@ val spoofStreamingDataPatch = spoofStreamingDataPatch(
         // region Get replacement streams at player requests.
 
         hookBuildRequest("$EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V")
+        hookBuildRequestUrl("$EXTENSION_CLASS_DESCRIPTOR->blockGetAttRequest(Ljava/lang/String;)Ljava/lang/String;")
 
         // endregion
 

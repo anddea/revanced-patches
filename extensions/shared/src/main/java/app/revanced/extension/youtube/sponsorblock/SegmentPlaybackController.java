@@ -1,12 +1,12 @@
 package app.revanced.extension.youtube.sponsorblock;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
+import static app.revanced.extension.youtube.shared.RootView.isAdProgressTextVisible;
 import static app.revanced.extension.youtube.utils.VideoUtils.getFormattedTimeStamp;
 
 import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -114,11 +114,6 @@ public class SegmentPlaybackController {
     private static int toastNumberOfSegmentsSkipped;
     @Nullable
     private static SponsorSegment toastSegmentSkipped;
-
-    /**
-     * Visibility of the ad progress UI component.
-     */
-    private static volatile int adProgressTextVisibility = -1;
 
     @Nullable
     static SponsorSegment[] getSegments() {
@@ -310,33 +305,6 @@ public class SegmentPlaybackController {
         } catch (Exception ex) {
             Logger.printException(() -> "executeDownloadSegments failure", ex);
         }
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void setAdProgressTextVisibility(int visibility) {
-        if (Settings.SB_ENABLED.get() && adProgressTextVisibility != visibility) {
-            adProgressTextVisibility = visibility;
-
-            Logger.printDebug(() -> {
-                String visibilityMessage = switch (visibility) {
-                    case View.VISIBLE   -> "VISIBLE";
-                    case View.GONE      -> "GONE";
-                    case View.INVISIBLE -> "INVISIBLE";
-                    default -> "UNKNOWN";
-                };
-                return "AdProgressText visibility changed to: " + visibilityMessage;
-            });
-        }
-    }
-
-    /**
-     * When a video ad is playing in a regular video player, segments or the Skip button should be hidden.
-     * @return Whether the Ad Progress TextView is visible in the regular video player.
-     */
-    public static boolean isAdProgressTextVisible() {
-        return adProgressTextVisibility == View.VISIBLE;
     }
 
     /**

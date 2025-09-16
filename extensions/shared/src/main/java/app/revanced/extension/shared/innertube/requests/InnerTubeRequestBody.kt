@@ -103,6 +103,7 @@ object InnerTubeRequestBody {
         setLocale: Boolean = !clientType.supportsCookies,
         language: String = "",
         isGVS: Boolean = false,
+        bypassFakeBuffering: Boolean = false,
     ): ByteArray {
         val innerTubeBody = JSONObject()
 
@@ -152,6 +153,10 @@ object InnerTubeRequestBody {
                     )
                 }
                 contentPlaybackContext.put("html5Preference", "HTML5_PREF_WANTS")
+                if (bypassFakeBuffering) {
+                    // https://iter.ca/post/yt-adblock/
+                    contentPlaybackContext.put("isInlinePlaybackNoAd", true)
+                }
                 val signatureTimestamp =
                     ThrottlingParameterUtils.getSignatureTimestamp(!requirePoToken)
                 if (signatureTimestamp != null) {

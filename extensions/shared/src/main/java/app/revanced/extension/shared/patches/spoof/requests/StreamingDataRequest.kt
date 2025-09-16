@@ -6,7 +6,6 @@ import app.revanced.extension.shared.innertube.client.YouTubeClient.ClientType
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createApplicationRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createJSRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
-import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_AUDIO_TRACK
 import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_STREAMING_DATA
 import app.revanced.extension.shared.innertube.utils.PlayerResponseOuterClass.PlayerResponse
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.getAdaptiveFormats
@@ -15,7 +14,6 @@ import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtil
 import app.revanced.extension.shared.innertube.utils.ThrottlingParameterUtils
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup
 import app.revanced.extension.shared.patches.spoof.StreamingDataOuterClassPatch.parseFrom
-import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.settings.BaseSettings
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.StringRef.str
@@ -110,6 +108,8 @@ class StreamingDataRequest private constructor(
             BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get()
         private val CLIENT_ORDER_TO_USE: Array<ClientType> =
             YouTubeClient.availableClientTypes(SPOOF_STREAMING_DATA_DEFAULT_CLIENT)
+        private val SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING: Boolean =
+            BaseSettings.SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING.get()
         private val liveStreams: ByteArrayFilterGroup =
             ByteArrayFilterGroup(
                 null,
@@ -389,116 +389,6 @@ class StreamingDataRequest private constructor(
             return streamingData
         }
 
-        private fun setAudioTrackLanguage(
-            videoId: String,
-            requestHeader: Map<String, String>,
-        ) {
-            Objects.requireNonNull(videoId)
-            Objects.requireNonNull(requestHeader)
-
-            for (clientType in arrayOf(ClientType.ANDROID, ClientType.TV_SIMPLY_NO_AUTH, ClientType.ANDROID_VR)) {
-                val startTime = System.currentTimeMillis()
-                Logger.printDebug { "Fetching audio track for: $videoId using client: $clientType" }
-
-                try {
-                    val requestBody = if (clientType.requireJS) {
-                        createJSRequestBody(
-                            clientType = clientType,
-                            videoId = videoId,
-                            language = "en",
-                            isGVS = false,
-                        )
-                    } else {
-                        createApplicationRequestBody(
-                            clientType = clientType,
-                            videoId = videoId,
-                            language = "en"
-                        )
-                    }
-
-                    val connection =
-                        getInnerTubeResponseConnectionFromRoute(
-                            GET_AUDIO_TRACK,
-                            clientType,
-                            requestHeader
-                        )
-
-                    connection.setFixedLengthStreamingMode(requestBody.size)
-                    connection.outputStream.write(requestBody)
-
-                    val responseCode = connection.responseCode
-                    if (responseCode != 200) {
-                        // This situation likely means the patches are outdated.
-                        // Use a toast message that suggests updating.
-                        handleConnectionError(
-                            ("Playback error (App is outdated?) " + clientType + ": "
-                                    + responseCode + " response: " + connection.responseMessage),
-                            null
-                        )
-                        return
-                    }
-                    val json = Requester.parseJSONObject(connection)
-
-                    if (!json.has("captions")) {
-                        return
-                    }
-                    val captions =
-                        json.getJSONObject("captions")
-                    if (!captions.has("playerCaptionsTracklistRenderer")) {
-                        return
-                    }
-                    val playerCaptionsTracklistRenderer =
-                        captions.getJSONObject("playerCaptionsTracklistRenderer")
-                    if (!playerCaptionsTracklistRenderer.has("audioTracks")) {
-                        return
-                    }
-                    val audioTracks =
-                        playerCaptionsTracklistRenderer.getJSONArray("audioTracks")
-                    if (audioTracks.length() < 2) {
-                        return
-                    }
-                    if (!json.has("streamingData")) {
-                        return
-                    }
-                    val streamingData =
-                        json.getJSONObject("streamingData")
-                    if (!streamingData.has("adaptiveFormats")) {
-                        return
-                    }
-                    val adaptiveFormats =
-                        streamingData.getJSONArray("adaptiveFormats")
-                    if (adaptiveFormats.length() < 2) {
-                        return
-                    }
-                    for (i in adaptiveFormats.length() - 1 downTo 0) {
-                        val adaptiveFormat = adaptiveFormats.getJSONObject(i)
-
-                        if (adaptiveFormat.has("audioTrack")) {
-                            val audioTrack = adaptiveFormat.getJSONObject("audioTrack")
-                            val displayName = audioTrack.getString("displayName")
-                            if (StringUtils.contains(displayName, "original")) {
-                                val id = audioTrack.getString("id")
-                                val dotIndex = StringUtils.indexOf(id, ".")
-                                if (dotIndex > -1) {
-                                    val languageCode = id.substring(0, dotIndex)
-                                    overrideLanguage = languageCode
-                                    return
-                                }
-                            }
-                        }
-                    }
-                } catch (ex: SocketTimeoutException) {
-                    handleConnectionError("Connection timeout", ex)
-                } catch (ex: IOException) {
-                    handleConnectionError("Network error", ex)
-                } catch (ex: Exception) {
-                    Logger.printException({ "send failed" }, ex)
-                } finally {
-                    Logger.printDebug { "Fetching audio track request end (videoId: $videoId, took: ${(System.currentTimeMillis() - startTime)} ms)" }
-                }
-            }
-        }
-
         private fun send(
             clientType: ClientType,
             videoId: String,
@@ -519,6 +409,7 @@ class StreamingDataRequest private constructor(
                         videoId = videoId,
                         language = overrideLanguage,
                         isGVS = true,
+                        bypassFakeBuffering = SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING,
                     )
                 } else {
                     createApplicationRequestBody(
@@ -587,7 +478,13 @@ class StreamingDataRequest private constructor(
                 if (!clientType.supportsCookies
                     && BaseSettings.DISABLE_AUTO_AUDIO_TRACKS.get()
                     && overrideLanguage.isEmpty()) {
-                    setAudioTrackLanguage(videoId, requestHeader)
+                    // Volapük (ISO 639-1 language code: vo) is a constructed language created in 1879 for academic purposes and is not used anywhere else.
+                    // Using this language code disables auto-dubbing.
+                    //
+                    // However, the 'Mobile Web' client did not receive a valid player response when using this language code.
+                    //
+                    // For compatibility with the 'Mobile Web' client, Norwegian (ISO 639-1 language code: no) is used.
+                    overrideLanguage = "no"
                 }
 
                 val connection = send(clientType, videoId, requestHeader)
@@ -689,17 +586,18 @@ class StreamingDataRequest private constructor(
 
             overrideLanguage = ""
 
-            val showToast = BaseSettings.DEBUG_TOAST_ON_ERROR.get()
             handleConnectionError(
                 str("revanced_spoof_streaming_data_failed_forbidden"),
                 null,
-                showToast
+                true
             )
-            handleConnectionError(
-                str("revanced_spoof_streaming_data_failed_forbidden_suggestion"),
-                null,
-                showToast
-            )
+            if (!SPOOF_STREAMING_DATA_DEFAULT_CLIENT.name.startsWith("TV")) {
+                handleConnectionError(
+                    str("revanced_spoof_streaming_data_failed_forbidden_suggestion"),
+                    null,
+                    true
+                )
+            }
             return null
         }
     }
