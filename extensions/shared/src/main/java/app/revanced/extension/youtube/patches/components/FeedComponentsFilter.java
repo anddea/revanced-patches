@@ -246,6 +246,11 @@ public final class FeedComponentsFilter extends Filter {
                 "subscriptions_chip_bar"
         );
 
+        final StringFilterGroup subscriptionsSectionHeader = new StringFilterGroup(
+                Settings.HIDE_SECTION_HEADER_IN_FEED,
+                "subscriptions_section_header"
+        );
+
         final var videoRecommendationLabels = new StringFilterGroup(
                 Settings.HIDE_VIDEO_RECOMMENDATION_LABELS,
                 "endorsement_header_footer.eml"
@@ -296,6 +301,7 @@ public final class FeedComponentsFilter extends Filter {
                 playables,
                 subscribedChannelsBar,
                 subscriptionsCategoryBar,
+                subscriptionsSectionHeader,
                 surveys,
                 ticketShelfPath,
                 videoRecommendationLabels
