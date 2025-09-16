@@ -162,7 +162,6 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Hide Create button` | Hides the "Create" button in the navigation bar. | ALL |
 | `Lyrics search` | Displays a "Search Lyrics" panel in the Main Activity that searches for lyrics on Google, and song meanings on Songtell. The activity is set to SpotifyMainActivity, so the "Search Lyrics" panel won't be shown in NowPlayingActivity (Player view) or possibly other activities. | ALL |
 | `Sanitize sharing links` | Removes the tracking query parameters from links before they are shared. | ALL |
-| `Spoof client` | Spoofs the client to fix various functions of the app. | ALL |
 | `Unlock Premium` | Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked. | ALL |
 </details>
 

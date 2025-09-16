@@ -1,3 +1,16 @@
+# [3.13.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.13.0-dev.3...v3.13.0-dev.4) (2025-09-16)
+
+
+### Bug Fixes
+
+* **Spotify:** Remove broken `Spoof client` patch ([6a532df](https://github.com/anddea/revanced-patches/commit/6a532df82a09a60ce385ad72fffe5c6f2a7a09ca))
+
+
+### Features
+
+* Align with RVX [[v5.11.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.11.1)] ([3787b58](https://github.com/anddea/revanced-patches/commit/3787b58dd0af32a2d419d1673df42b290bcc4d3c))
+* **YouTube - Feed components:** Add `Hide subscriptions section header` setting ([ea8673a](https://github.com/anddea/revanced-patches/commit/ea8673aa3e8117c52c6d03153eaaf4d5ef97b951))
+
 # [3.13.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.13.0-dev.2...v3.13.0-dev.3) (2025-09-15)
 
 
