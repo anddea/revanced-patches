@@ -104,6 +104,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SURVEYS = new BooleanSetting("revanced_hide_surveys", TRUE);
     public static final BooleanSetting HIDE_TICKET_SHELF = new BooleanSetting("revanced_hide_ticket_shelf", TRUE);
     public static final BooleanSetting HIDE_VIDEO_RECOMMENDATION_LABELS = new BooleanSetting("revanced_hide_video_recommendation_labels", TRUE);
+    public static final BooleanSetting HIDE_SECTION_HEADER_IN_FEED = new BooleanSetting("revanced_hide_section_header_in_feed", FALSE, true);
 
     // PreferenceScreen: Feed - Carousel shelf
     public static final BooleanSetting HIDE_CAROUSEL_SHELF_HOME = new BooleanSetting("revanced_hide_carousel_shelf_home", FALSE);
