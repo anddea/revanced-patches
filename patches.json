@@ -3191,56 +3191,6 @@
     "options": []
   },
   {
-    "name": "Spoof client",
-    "description": "Spoofs the client to fix various functions of the app.",
-    "use": false,
-    "dependencies": [
-      "BytecodePatch",
-      "RawResourcePatch"
-    ],
-    "compatiblePackages": {
-      "com.spotify.music": null
-    },
-    "options": [
-      {
-        "key": "requestListenerPort",
-        "title": "Request listener port",
-        "description": "The port to use for the listener that intercepts and handles spoofed requests. Port must be between 0 and 65535. Do not change this option, if you do not know what you are doing.",
-        "required": false,
-        "type": "kotlin.Int",
-        "default": 4345,
-        "values": null
-      },
-      {
-        "key": "clientVersion",
-        "title": "Client version",
-        "description": "The client version used for spoofing the client token. Do not change this option, if you do not know what you are doing.",
-        "required": false,
-        "type": "kotlin.String",
-        "default": "iphone-9.0.58.558.g200011c",
-        "values": null
-      },
-      {
-        "key": "hardwareMachine",
-        "title": "Hardware machine",
-        "description": "The hardware machine used for spoofing the client token. Do not change this option, if you do not know what you are doing.",
-        "required": false,
-        "type": "kotlin.String",
-        "default": "iPhone16,1",
-        "values": null
-      },
-      {
-        "key": "systemVersion",
-        "title": "System version",
-        "description": "The system version used for spoofing the client token. Do not change this option, if you do not know what you are doing.",
-        "required": false,
-        "type": "kotlin.String",
-        "default": "17.7.2",
-        "values": null
-      }
-    ]
-  },
-  {
     "name": "Spoof watch history",
     "description": "Adds an option to change the domain of the watch history or check its status.",
     "use": true,
