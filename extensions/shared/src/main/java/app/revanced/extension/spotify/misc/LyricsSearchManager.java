@@ -11,6 +11,8 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.DisplayMetrics;
 import android.view.*;
 import android.widget.Button;
@@ -84,8 +86,25 @@ public class LyricsSearchManager {
     private static volatile int screenHeight = -1;
 
     /**
+     * The delay in milliseconds to wait before updating the UI after a metadata change.
+     * This prevents stuttering from rapid-fire updates when changing tracks.
+     */
+    private static final long DEBOUNCE_DELAY_MS = 300;
+
+    /**
+     * Handler associated with the main UI thread to schedule and cancel UI updates.
+     */
+    private static final Handler updateHandler = new Handler(Looper.getMainLooper());
+
+    /**
+     * The Runnable that contains the logic to show or update the overlay.
+     * This is what gets scheduled with a delay.
+     */
+    private static final Runnable updateRunnable = LyricsSearchManager::showOrUpdateOverlay;
+
+    /**
      * Processes track metadata updates. Shows, hides, or updates the overlay content.
-     * Ensures the overlay is correctly displayed even after app restarts from recents.
+     * This method debounces UI updates to prevent performance issues from rapid calls.
      *
      * @param titleObj  The track title (expected String).
      * @param artistObj The track artist (expected String).
@@ -96,20 +115,34 @@ public class LyricsSearchManager {
 
         synchronized (buttonLock) {
             boolean hasValidMetadata = title != null && artist != null;
-            boolean metadataChanged = hasValidMetadata && (!title.equals(currentSearchTitle) || !artist.equals(currentSearchArtist));
 
             if (hasValidMetadata) {
+                // If the metadata hasn't actually changed, do nothing to avoid rescheduling.
+                if (title.equals(currentSearchTitle) && artist.equals(currentSearchArtist)) {
+                    Logger.printDebug(() -> TAG + ": Received same metadata. No update needed.");
+                    return;
+                }
+
+                // Update the track info immediately so the runnable has the latest data.
                 currentSearchTitle = title;
                 currentSearchArtist = artist;
 
-                Logger.printDebug(() -> TAG + ": Valid metadata received. Title=[" + currentSearchTitle + "], Artist=[" + currentSearchArtist + "]. Ensuring overlay.");
-                Utils.runOnMainThreadNowOrLater(LyricsSearchManager::showOrUpdateOverlay);
+                // Debounce the UI update.
+                updateHandler.removeCallbacks(updateRunnable); // Cancel any previously scheduled update.
+                updateHandler.postDelayed(updateRunnable, DEBOUNCE_DELAY_MS); // Schedule a new update.
+
+                Logger.printDebug(() -> TAG + ": Valid metadata received. Scheduled overlay update in " + DEBOUNCE_DELAY_MS + "ms. Title=[" + currentSearchTitle + "], Artist=[" + currentSearchArtist + "]");
             } else {
-                // Metadata is invalid or missing
+                // Metadata is invalid or missing. Remove the overlay immediately.
+
+                // Cancel any pending update to prevent it from showing up after we remove it.
+                updateHandler.removeCallbacks(updateRunnable);
+
                 if (currentSearchTitle != null || currentSearchArtist != null) {
-                    Logger.printInfo(() -> TAG + ": Received invalid title or artist. Removing overlay.");
+                    Logger.printInfo(() -> TAG + ": Received invalid title or artist. Removing overlay now.");
                     currentSearchTitle = null;
                     currentSearchArtist = null;
+                    // Run the removal on the main thread.
                     Utils.runOnMainThreadNowOrLater(LyricsSearchManager::removeOverlayInternal);
                 } else {
                     // Already removed or never shown, do nothing
