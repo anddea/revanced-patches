@@ -50,7 +50,7 @@ object InnerTubeRequestBody {
         clientType: YouTubeClient.ClientType,
         videoId: String,
         playlistId: String? = null,
-        setLocale: Boolean = false,
+        setLocale: Boolean = !clientType.supportsCookies,
         language: String = "",
     ): ByteArray {
         val innerTubeBody = JSONObject()
@@ -100,7 +100,10 @@ object InnerTubeRequestBody {
     fun createJSRequestBody(
         clientType: YouTubeClient.ClientType,
         videoId: String,
+        setLocale: Boolean = !clientType.supportsCookies,
+        language: String = "",
         isGVS: Boolean = false,
+        bypassFakeBuffering: Boolean = false,
     ): ByteArray {
         val innerTubeBody = JSONObject()
 
@@ -110,7 +113,14 @@ object InnerTubeRequestBody {
             client.put("clientVersion", ThrottlingParameterUtils.getClientVersion(clientType))
             client.put("platform", clientType.clientPlatform)
             client.put("clientScreen", clientType.clientScreen)
-            client.put("hl", LOCALE_LANGUAGE)
+            client.put(
+                "hl",
+                if (setLocale && language.isNotEmpty()) {
+                    language
+                } else {
+                    LOCALE_LANGUAGE
+                }
+            )
             client.put("gl", LOCALE_COUNTRY)
             client.put("timeZone", TIME_ZONE_ID)
             client.put("utcOffsetMinutes", UTC_OFFSET_MINUTES.toString())
@@ -143,6 +153,10 @@ object InnerTubeRequestBody {
                     )
                 }
                 contentPlaybackContext.put("html5Preference", "HTML5_PREF_WANTS")
+                if (bypassFakeBuffering) {
+                    // https://iter.ca/post/yt-adblock/
+                    contentPlaybackContext.put("isInlinePlaybackNoAd", true)
+                }
                 val signatureTimestamp =
                     ThrottlingParameterUtils.getSignatureTimestamp(!requirePoToken)
                 if (signatureTimestamp != null) {
@@ -354,7 +368,7 @@ object InnerTubeRequestBody {
                 if (!supportsCookies && StringUtils.equalsAny(
                         key,
                         AUTHORIZATION_HEADER,
-                        PAGE_ID_HEADER
+                        PAGE_ID_HEADER,
                     )
                 ) {
                     continue

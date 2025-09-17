@@ -4,6 +4,7 @@ import android.view.View
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerControlButton
+import app.revanced.extension.youtube.shared.RootView.isAdProgressTextVisible
 
 object CreateSegmentButton {
     private var instance: PlayerControlButton? = null
@@ -18,8 +19,8 @@ object CreateSegmentButton {
                 controlsViewGroup = controlsView,
                 imageViewButtonId = "revanced_sb_create_segment_button",
                 hasPlaceholder = false,
-                buttonVisibility = { shouldBeShown() },
-                onClickListener = { view: View -> onClick(view) }
+                buttonVisibility = { isButtonEnabled() },
+                onClickListener = { view: View -> onClick() }
             )
         } catch (ex: Exception) {
             Logger.printException({ "initializeButton failure" }, ex)
@@ -50,12 +51,13 @@ object CreateSegmentButton {
         instance?.setVisibility(visible, animated)
     }
 
-    private fun onClick(view: View) {
-        SponsorBlockViewController.toggleNewSegmentLayoutVisibility()
+    private fun isButtonEnabled(): Boolean {
+        return Settings.SB_ENABLED.get() && Settings.SB_CREATE_NEW_SEGMENT.get()
+                && !isAdProgressTextVisible()
     }
 
-    private fun shouldBeShown(): Boolean {
-        return Settings.SB_ENABLED.get() && Settings.SB_CREATE_NEW_SEGMENT.get()
+    private fun onClick() {
+        SponsorBlockViewController.toggleNewSegmentLayoutVisibility()
     }
 
     @JvmStatic

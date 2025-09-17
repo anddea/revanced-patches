@@ -14,6 +14,10 @@ public final class app/revanced/patches/all/misc/hex/HexPatchKt {
 	public static final fun getHexPatch ()Lapp/revanced/patcher/patch/RawResourcePatch;
 }
 
+public final class app/revanced/patches/all/misc/network/OverrideCertificatePinningPatchKt {
+	public static final fun getOverrideCertificatePinningPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public abstract interface class app/revanced/patches/all/misc/transformation/IMethodCall {
 	public abstract fun getDefinedClassName ()Ljava/lang/String;
 	public abstract fun getMethodName ()Ljava/lang/String;
@@ -147,10 +151,6 @@ public final class app/revanced/patches/music/misc/debugging/DebuggingPatchKt {
 	public static final fun getDebuggingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/misc/drc/DrcAudioPatchKt {
-	public static final fun getDrcAudioPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/music/misc/quic/QUICProtocolPatchKt {
 	public static final fun getQuicProtocolPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -199,12 +199,12 @@ public final class app/revanced/patches/music/utils/fix/fileprovider/FileProvide
 	public static final fun fileProviderPatch (Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/utils/fix/playback/PlaybackPatchKt {
-	public static final fun getPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/music/utils/fix/streamingdata/FingerprintsKt {
 	public static final field STREAMING_DATA_OUTER_CLASS Ljava/lang/String;
+}
+
+public final class app/revanced/patches/music/utils/fix/streamingdata/SpoofStreamingDataPatchKt {
+	public static final fun getSpoofStreamingDataPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/utils/fix/timedlyrics/TimedLyricsPatchKt {
@@ -521,6 +521,11 @@ public final class app/revanced/patches/shared/drawable/DrawableColorHookPatchKt
 	public static final fun getDrawableColorHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/shared/drc/DrcAudioPatchKt {
+	public static final fun drcAudioPatch (Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun drcAudioPatch$default (Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/shared/extension/ExtensionHook {
 	public final fun getFingerprint ()Lapp/revanced/patcher/Fingerprint;
 	public final fun invoke (Lapp/revanced/patcher/patch/BytecodePatchContext;Ljava/lang/String;)V
@@ -687,8 +692,22 @@ public final class app/revanced/patches/shared/spoof/appversion/BaseSpoofAppVers
 	public static final fun baseSpoofAppVersionPatch (Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/shared/spoof/blockrequest/BaseBlockRequestPatchKt {
-	public static final fun baseBlockRequestPatch (Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/shared/spoof/streamingdata/FingerprintsKt {
+	public static final field STREAMING_DATA_OUTER_CLASS Ljava/lang/String;
+}
+
+public final class app/revanced/patches/shared/spoof/streamingdata/SpoofStreamingDataPatchKt {
+	public static final field EXTENSION_AUTO_TRACK_BUTTON_CLASS_DESCRIPTOR Ljava/lang/String;
+	public static final field EXTENSION_AUTO_TRACK_CLASS_DESCRIPTOR Ljava/lang/String;
+	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
+	public static final field EXTENSION_RELOAD_VIDEO_BUTTON_CLASS_DESCRIPTOR Ljava/lang/String;
+	public static final field EXTENSION_RELOAD_VIDEO_CLASS_DESCRIPTOR Ljava/lang/String;
+	public static final field EXTENSION_STREAMING_DATA_INTERFACE Ljava/lang/String;
+	public static final field EXTENSION_STREAMING_DATA_OUTER_CLASS_DESCRIPTOR Ljava/lang/String;
+	public static final field EXTENSION_YOUTUBE_SPOOF_PATH Ljava/lang/String;
+	public static final fun getPlayerLoadingViewThin ()J
+	public static final fun spoofStreamingDataPatch (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun spoofStreamingDataPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/shared/spoof/useragent/BaseSpoofUserAgentPatchKt {
@@ -748,18 +767,6 @@ public final class app/revanced/patches/spotify/misc/UnlockPremiumPatchKt {
 
 public final class app/revanced/patches/spotify/misc/extension/ExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/spotify/misc/fix/SpoofClientPatchKt {
-	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/spotify/misc/fix/SpoofPackageInfoPatchKt {
-	public static final fun getSpoofPackageInfoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/spotify/misc/fix/SpoofSignaturePatchKt {
-	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/misc/fix/login/FixFacebookLoginPatchKt {
@@ -864,6 +871,10 @@ public final class app/revanced/patches/youtube/general/startpage/ChangeStartPag
 
 public final class app/revanced/patches/youtube/general/toolbar/ToolBarComponentsPatchKt {
 	public static final fun getToolBarComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/general/transcript/TranscriptCookiePatchKt {
+	public static final fun getAutoCaptionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/general/updates/LayoutUpdatesPatchKt {
@@ -1109,10 +1120,6 @@ public final class app/revanced/patches/youtube/utils/fix/splash/DarkModeSplashS
 	public static final fun getDarkModeSplashScreenPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/utils/fix/streamingdata/FingerprintsKt {
-	public static final field STREAMING_DATA_OUTER_CLASS Ljava/lang/String;
-}
-
 public final class app/revanced/patches/youtube/utils/fix/streamingdata/SpoofStreamingDataPatchKt {
 	public static final fun getSpoofStreamingDataPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1308,7 +1315,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getPlayerCollapseButton ()J
 	public static final fun getPlayerControlNextButtonTouchArea ()J
 	public static final fun getPlayerControlPreviousButtonTouchArea ()J
-	public static final fun getPlayerLoadingViewThin ()J
 	public static final fun getPlayerVideoTitleView ()J
 	public static final fun getPosterArtWidthDefault ()J
 	public static final fun getQualityAuto ()J
@@ -1394,6 +1400,10 @@ public final class app/revanced/patches/youtube/utils/sponsorblock/SponsorBlockP
 
 public final class app/revanced/patches/youtube/utils/toolbar/ToolBarHookPatchKt {
 	public static final fun getToolBarHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/utils/webview/WebViewPatchKt {
+	public static final fun getWebViewPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/video/information/FingerprintsKt {

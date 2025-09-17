@@ -87,8 +87,8 @@ Nếu có thể, hãy sử dụng màu tối vì ứng dụng không hỗ trợ 
     <string name="revanced_disable_cairo_splash_animation_title">Vô hiệu hóa hoạt ảnh Cairo</string>
     <string name="revanced_disable_dislike_redirection_summary">Không chuyển đến bài hát tiếp theo khi nhấn vào nút Không thích.</string>
     <string name="revanced_disable_dislike_redirection_title">Tắt chuyển hướng khi nhấn nút Không thích</string>
-    <string name="revanced_disable_drc_audio_summary">Vô hiệu hoá tính năng nén dải âm thanh động.</string>
-    <string name="revanced_disable_drc_audio_title">Vô hiệu hoá audio DRC</string>
+    <string name="revanced_disable_drc_audio_summary">Vô hiệu hoá tính năng nén dải động cho âm thanh.</string>
+    <string name="revanced_disable_drc_audio_title">Vô hiệu hoá DRC âm thanh</string>
     <string name="revanced_disable_miniplayer_gesture_summary">Tắt vuốt để chuyển bài hát trong trình phát thu nhỏ.</string>
     <string name="revanced_disable_miniplayer_gesture_title">Tắt cử chỉ trình phát thu nhỏ</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Nhấn vào nút chuyển đổi giữa Bài hát và Video</string>
@@ -446,8 +446,10 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_sb_enabled">Kích hoạt SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock là một tiện tích được đóng góp bởi cộng đồng nhằm bỏ qua các phân đoạn gây khó chịu trong video trên YouTube.</string>
     <string name="revanced_sb_reset_color">Đặt lại màu</string>
-    <string name="revanced_sb_segments_filler">Cảnh phụ/Lạc đề/Hài hước</string>
+    <string name="revanced_sb_segments_filler">Lạc đề/Hài hước</string>
     <string name="revanced_sb_segments_filler_sum">Phân cảnh được thêm vào chỉ để câu giờ hoặc gây cười nhưng không cần thiết cho nội dung chính của video. Không bao gồm phân đoạn cung cấp bối cảnh hoặc chi tiết nền.</string>
+    <string name="revanced_sb_segments_hook">Gây chú ý/Lời chào</string>
+    <string name="revanced_sb_segments_hook_sum">Phân đoạn lồng tiếng trong trailer giới thiệu video sắp phát, lời chào mở đầu và kết thúc. Không bao gồm các đoạn chứa nội dung bổ sung.</string>
     <string name="revanced_sb_segments_interaction">Nhắc nhở tương tác (Đăng ký)</string>
     <string name="revanced_sb_segments_interaction_sum">Một lời nhắc ngắn rằng bạn hãy nhấn vào nút thích, đăng ký hoặc theo dõi họ ở giữa nội dung. Nếu chúng dài hoặc về một cái gì đó cụ thể, thay vào đó chúng sẽ được xếp vào phân đoạn Tự quảng cáo.</string>
     <string name="revanced_sb_segments_intro">Đoạn tạm dừng/Phần Intro</string>
@@ -456,27 +458,28 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_sb_segments_nomusic_sum">Phần của video âm nhạc nhưng không có âm nhạc, cũng không thuộc danh mục nào.</string>
     <string name="revanced_sb_segments_outro">Đoạn kết thúc/Phần Credit</string>
     <string name="revanced_sb_segments_outro_sum">Phần danh đề hoặc đoạn Youtube chèn các thẻ liên kết video khác ở cuối video. Không chứa thông tin quan trọng.</string>
-    <string name="revanced_sb_segments_preview">Đoạn xem trước/Phần tóm tắt/Gây chú ý</string>
+    <string name="revanced_sb_segments_preview">Đoạn xem trước/Phần tóm tắt</string>
     <string name="revanced_sb_segments_preview_sum">Đoạn cắt thể hiện những gì đã xảy ra hoặc sắp xảy ra trong video này hoặc trong loạt video khác cùng bộ.</string>
     <string name="revanced_sb_segments_selfpromo">Không được trả tiền/Tự quảng cáo</string>
     <string name="revanced_sb_segments_selfpromo_sum">Tương tự như Nhà tài trợ, ngoại trừ việc không được trả phí hoặc tự quảng bá. Thì chúng bao gồm các phần về sản phẩm, quyên góp hoặc thông tin về người mà họ hợp tác.</string>
     <string name="revanced_sb_segments_sponsor">Nhà tài trợ</string>
     <string name="revanced_sb_segments_sponsor_sum">Dạng quảng cáo, giới thiệu được trả phí và quảng cáo trực tiếp. Không nhằm mục đích tự quảng bá hoặc giới thiệu với người xem về các hoạt động từ thiện, nhà sáng tạo khác, trang web hay các sản phẩm mà họ yêu thích.</string>
     <string name="revanced_sb_skip_automatically">Tự động bỏ qua</string>
-    <string name="revanced_sb_skip_ignore">Vô hiệu hoá</string>
-    <string name="revanced_sb_skipped_filler">Đã bỏ qua Cảnh phụ - lạc đề.</string>
-    <string name="revanced_sb_skipped_interaction">Đã bỏ qua Nhắc nhở tương tác.</string>
-    <string name="revanced_sb_skipped_intro_beginning">Đã bỏ qua Phần Intro.</string>
-    <string name="revanced_sb_skipped_intro_end">Đã bỏ qua Đoạn tạm dừng.</string>
-    <string name="revanced_sb_skipped_intro_middle">Đã bỏ qua Đoạn tạm dừng.</string>
+    <string name="revanced_sb_skip_ignore">Tắt</string>
+    <string name="revanced_sb_skipped_filler">Đã bỏ qua đoạn lạc đề.</string>
+    <string name="revanced_sb_skipped_hook">Đã bỏ qua đoạn gây chú ý.</string>
+    <string name="revanced_sb_skipped_interaction">Đã bỏ qua nhắc nhở tương tác.</string>
+    <string name="revanced_sb_skipped_intro_beginning">Đã bỏ qua phần intro.</string>
+    <string name="revanced_sb_skipped_intro_end">Đã bỏ qua đoạn tạm dừng.</string>
+    <string name="revanced_sb_skipped_intro_middle">Đã bỏ qua đoạn tạm dừng.</string>
     <string name="revanced_sb_skipped_multiple_segments">Đã bỏ qua nhiều phân đoạn.</string>
-    <string name="revanced_sb_skipped_nomusic">Đã bỏ qua Phần không phải nhạc.</string>
-    <string name="revanced_sb_skipped_outro">Đã bỏ qua Phần Outro.</string>
-    <string name="revanced_sb_skipped_preview_beginning">Đã bỏ qua Đoạn xem trước.</string>
-    <string name="revanced_sb_skipped_preview_end">Đã bỏ qua Phần tóm tắt.</string>
-    <string name="revanced_sb_skipped_preview_middle">Đã bỏ qua Đoạn xem trước.</string>
-    <string name="revanced_sb_skipped_selfpromo">Đã bỏ qua đoạn Tự quảng cáo.</string>
-    <string name="revanced_sb_skipped_sponsor">Đã bỏ qua Nhà tài trợ.</string>
+    <string name="revanced_sb_skipped_nomusic">Đã bỏ qua phần không phải nhạc.</string>
+    <string name="revanced_sb_skipped_outro">Đã bỏ qua phần outro.</string>
+    <string name="revanced_sb_skipped_preview_beginning">Đã bỏ qua đoạn xem trước.</string>
+    <string name="revanced_sb_skipped_preview_end">Đã bỏ qua phần tóm tắt.</string>
+    <string name="revanced_sb_skipped_preview_middle">Đã bỏ qua đoạn xem trước.</string>
+    <string name="revanced_sb_skipped_selfpromo">Đã bỏ qua đoạn tự quảng cáo.</string>
+    <string name="revanced_sb_skipped_sponsor">Đã bỏ qua nhà tài trợ.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock tạm thời không khả dụng.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock tạm thời không khả dụng (trạng thái %d).</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock tạm thời không khả dụng (API đã hết thời gian chờ).</string>
@@ -502,14 +505,6 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
     <string name="revanced_spoof_client_summary">Giả mạo client để tránh lỗi khi phát.</string>
     <string name="revanced_spoof_client_title">Giả mạo client</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (Chặn truy vấn)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Chặn truy vấn)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Chặn truy vấn)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_34">iOS Music 8.34</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (Chặn truy vấn)</string>
     <string name="revanced_spoof_client_type_summary">"Hạn chế:
 • Các nút thao tác hoặc trình đơn tuỳ chọn trong trình phát có thể không hiển thị đúng. Trong trường hợp đó, hãy thử xoá dữ liệu ứng dụng và đăng nhập lại.
 
@@ -521,20 +516,23 @@ Hạn chế (Chặn truy vấn):
 Hạn chế:
 • Đôi khi phụ đề hiển thị ở phía trên của trình phát thay vì ở phía dưới như thường lệ."</string>
     <string name="revanced_spoof_player_parameter_title">Giả mạo thông số trình phát</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
+    <string name="revanced_spoof_streaming_data_default_client_summary">Chọn client mặc định để giả mạo.</string>
+    <string name="revanced_spoof_streaming_data_default_client_title">Client mặc định</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Hiển thị ứng dụng khách được sử dụng để nạp luồng dữ liệu trực tuyến trong Thống kê chi tiết.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Thống kê chi tiết</string>
-    <string name="revanced_spoof_streaming_data_summary">"Giả mạo luồng dữ liệu trực tuyến nhằm khắc phục sự cố phát.
+    <string name="revanced_spoof_streaming_data_summary">"Giả mạo client phát video để tránh lỗi khi phát.
 
-• Khi được sử dụng đồng thời với \"Giả mạo ứng dụng khách\", có thể gây ra sự cố phát."</string>
-    <string name="revanced_spoof_streaming_data_title">Giả mạo luồng dữ liệu trực tuyến</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32">Android VR 1.43.32</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32_no_auth">Android VR 1.43.32 (Không xác thực)</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09">Android VR 1.65.09</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09_no_auth">Android VR 1.65.09 (Không xác thực)</string>
+Nếu bạn đã đăng ký YouTube Premium, thì có thể không cần thiết phải bật cài đặt này."</string>
+    <string name="revanced_spoof_streaming_data_title">Giả mạo dữ liệu phát</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_34">iOS Music 8.34</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Hạn chế:
 • Ứng dụng có thể bị buộc đóng khi dùng VPN hoặc DNS.
 • Âm thanh có thể bị ngắt quãng khi phát trên client dùng truyền phát bit thích ứng (trừ Android VR 1.43.32)."</string>

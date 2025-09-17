@@ -26,7 +26,7 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Stary</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Własny</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Typ zaawansowanego menu od jakości filmu w Shortsach</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki filmów z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube. 
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki filmów z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube.
 
 Jeśli opcja ta jest włączona, adresy URL filmów będą wysyłane do serwera API i nie będą wysyłane żadne inne dane. Jeśli film nie posiada miniaturki od DeArrow, to wyświetla się oryginalna lub przechwycona z filmu.
 
@@ -233,6 +233,11 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">Aby używać tej funkcji, zmień domyślnego klienta (oszukiwanie strumienia danych) na TV, Uproszczony TV lub iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Włączone</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Wyłączone</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Automatyczne wymuszanie ścieżki dźwiękowej jest wyłączone
+
+Może to nie działać u niektórych użytkowników, więc jeśli nie działa u ciebie, to:
+1. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i użyj opcji 'Włącz klienta JavaScript'
+2. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i zmień domyślnego klienta na 'TV' lub 'Uproszczony TV'"</string>
     <string name="revanced_disable_auto_audio_tracks_title">Automatyczne wymuszanie ścieżki dźwiękowej</string>
     <string name="revanced_disable_auto_captions_summary_off">Włączone</string>
     <string name="revanced_disable_auto_captions_summary_on">Wyłączone</string>
@@ -253,6 +258,9 @@ Ustawienia → Autoodtwarzanie / Odtwarzanie → Autoodtwarzanie następnego fil
     <string name="revanced_disable_default_playback_speed_music_type_off">Wyłączone dla filmów odtwarzalnych w YouTube Music</string>
     <string name="revanced_disable_default_playback_speed_music_type_on">Wyłączone dla filmów z kategorią muzyki</string>
     <string name="revanced_disable_default_playback_speed_music_type_title">Sprawdzaj przy użyciu kategorii</string>
+    <string name="revanced_disable_drc_audio_summary_off">Włączone</string>
+    <string name="revanced_disable_drc_audio_summary_on">Wyłączone</string>
+    <string name="revanced_disable_drc_audio_title">Audio DRC (Dynamic Range Compression)</string>
     <string name="revanced_disable_engagement_panel_summary_off">Widoczny</string>
     <string name="revanced_disable_engagement_panel_summary_on">Ukryty</string>
     <string name="revanced_disable_engagement_panel_title">Panel zaangażowania</string>
@@ -460,11 +468,10 @@ Ograniczenie: nie działa jeśli odtwarzacz jest zminimalizowany, w trybie PiP l
     <string name="revanced_expand_video_description_summary_on">Automatycznie</string>
     <string name="revanced_expand_video_description_title">Otwieraj opisy filmów</string>
     <string name="revanced_extended_audio_tracks_unavailable">"Opcja jest obecnie niedostępna.
-Aby używać tej fukcji, zmień domyślnego klienta oszukiwania strumienia danych na iOS TV, TV lub Uproszczony TV.
+Aby używać tej funkcji, zmień domyślnego klienta oszukiwania strumienia danych na iOS TV, TV lub Uproszczony TV.
 
 Notki:
-• iOS TV nie obsługuje odtwarzania niektórych filmów, jak muzycznych
-• dlatego jeśli domyślnym klientem jest iOS TV, ustawienie te może nie działać dla niektórych filmów"</string>
+• iOS TV nie jest dostępne w niektórych regionach, w rezultacie czego opcja ta może nie działać"</string>
     <string name="revanced_extended_confirm_user_dialog_title">Czy chcesz kontynuować?</string>
     <string name="revanced_extended_reset_to_default_toast">Przywrócono domyślne wartości.</string>
     <string name="revanced_extended_restart">Uruchom ponownie</string>
@@ -633,6 +640,9 @@ Informacje:
     <string name="revanced_hide_category_bar_in_history_summary_off">Widoczny</string>
     <string name="revanced_hide_category_bar_in_history_summary_on">Ukryty</string>
     <string name="revanced_hide_category_bar_in_history_title">W historii oglądania</string>
+    <string name="revanced_hide_category_bar_in_playlist_summary_off">Widoczny</string>
+    <string name="revanced_hide_category_bar_in_playlist_summary_on">Ukryty</string>
+    <string name="revanced_hide_category_bar_in_playlist_title">W playlistach</string>
     <string name="revanced_hide_category_bar_in_related_videos_summary_off">Widoczny</string>
     <string name="revanced_hide_category_bar_in_related_videos_summary_on">Ukryty</string>
     <string name="revanced_hide_category_bar_in_related_videos_title">Nad powiązanymi filmami</string>
@@ -771,6 +781,9 @@ Ustawienia → Autoodtwarzanie/Odtwarzanie → Autoodtwarzanie następnego filmu
     <string name="revanced_hide_hype_button_summary_off">Widoczny</string>
     <string name="revanced_hide_hype_button_summary_on">Ukryty</string>
     <string name="revanced_hide_hype_button_title">Przycisk od podbijania</string>
+    <string name="revanced_hide_hype_points_summary_off">Widoczne.</string>
+    <string name="revanced_hide_hype_points_summary_on">Ukryte.</string>
+    <string name="revanced_hide_hype_points_title">Punkty Hype</string>
     <string name="revanced_hide_image_search_button_summary_off">Widoczny</string>
     <string name="revanced_hide_image_search_button_summary_on">Ukryty</string>
     <string name="revanced_hide_image_search_button_title">Przycisk od wyszukiwania po obrazie</string>
@@ -908,9 +921,12 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Menu od oświetlenia kinowego</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Menu od ścieżki dźwiękowej jest ukryte.
+    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Menu od ścieżki dźwiękowej jest ukryte:
 
-Aby wyświetlało się menu od ścieżki dźwiękowej, zmień domyślnego klienta (oszukiwanie strumienia danych) na TV, Uproszczony TV lub iOS TV."</string>
+By wyświetlić menu od ścieżki dźwiękowej:
+1. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i użyj opcji 'Włącz klienta JavaScript'
+2. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i zmień domyślnego klienta na 'TV' lub 'Uproszczony TV'
+"</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Menu od ścieżki dźwiękowej</string>
@@ -1050,6 +1066,9 @@ Jeśli układ ekranu odtwarzacza zmieni się w skutek zmian po stronie serwera, 
     <string name="revanced_hide_search_term_thumbnail_summary_off">Widoczne</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Ukryte</string>
     <string name="revanced_hide_search_term_thumbnail_title">Miniaturki sugestii wyszukiwań</string>
+    <string name="revanced_hide_section_header_in_feed_summary_off">Wyświetlany jest nagłówek sekcji Subskrypcje.\n\nNagłówek sekcji Subskrypcje zawiera przyciski \'Odwiedź społeczność\' i \'Odwiedź kanał\' przyciski po kliknięciu subskrybowanego kanału\’ikona s w sekcji Subskrypcje.</string>
+    <string name="revanced_hide_section_header_in_feed_summary_on">Nagłówek sekcji Subskrypcje jest ukryty.\n\nNagłówek sekcji Subskrypcje zawiera przyciski \'Odwiedź społeczność\' i \'Odwiedź kanał\'przyciski „po kliknięciu subskrybowanego kanału”\’ikona s w sekcji Subskrypcje.</string>
+    <string name="revanced_hide_section_header_in_feed_title">Nagłówek sekcji subskrypcji</string>
     <string name="revanced_hide_seek_message_summary_off">Widoczna</string>
     <string name="revanced_hide_seek_message_summary_on">Ukryta</string>
     <string name="revanced_hide_seek_message_title">Wiadomość o przewijaniu</string>
@@ -1224,7 +1243,9 @@ Informacja:
 • Tylko półki z nagłówkiem Shorts będą ukryte na stronie głównej kanału"</string>
     <string name="revanced_hide_shorts_shelf_channel_title">Na stronie kanału</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Widoczne</string>
-    <string name="revanced_hide_shorts_shelf_history_summary_on">Ukryte</string>
+    <string name="revanced_hide_shorts_shelf_history_summary_on">"Ukryte
+
+Efekt uboczny: półka z historią oglądania w zakładce Ty może być ukryta."</string>
     <string name="revanced_hide_shorts_shelf_history_title">W historii oglądania</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_on">Ukryte</string>
@@ -1685,6 +1706,7 @@ Stuknij tutaj, by pobrać YouTube Music.</string>
     <string name="revanced_preference_category_ios">iOS</string>
     <string name="revanced_preference_category_js">JavaScript</string>
     <string name="revanced_preference_category_keyword_filter">Filtr słów</string>
+    <string name="revanced_preference_category_no_auth">Bez autoryzacji</string>
     <string name="revanced_preference_category_others">Inne</string>
     <string name="revanced_preference_category_overlay_buttons">Dodatkowe przyciski w odtwarzaczu</string>
     <string name="revanced_preference_category_patch_information">Informacje o łatkach</string>
@@ -2029,10 +2051,12 @@ Gotowy do przesłania?"</string>
     <string name="revanced_sb_new_segment_title">Nowy segment SponsorBlock</string>
     <string name="revanced_sb_reset">Zresetuj</string>
     <string name="revanced_sb_reset_color">Zresetuj kolor</string>
-    <string name="revanced_sb_segments_filler">Nietematyczny Wypełniacz / Żarty</string>
-    <string name="revanced_sb_segments_filler_sum">Segmenty nietematyczne dodawane tylko dla wypełnienia lub humor, który nie jest wymagany do zrozumienia głównej treści filmu. Nie dotyczy segmentów zawierających informacje kontekstowe lub szczegółowe.</string>
+    <string name="revanced_sb_segments_filler">Wypełniacze / Żarty</string>
+    <string name="revanced_sb_segments_filler_sum">Segmenty nietematyczne dodawane tylko dla wypełnienia lub humor, który nie jest wymagany do zrozumienia głównej treści filmu.  Nie dotyczy segmentów zawierających informacje kontekstowe lub szczegółowe.</string>
     <string name="revanced_sb_segments_highlight">Najważniejsze Informacje</string>
     <string name="revanced_sb_segments_highlight_sum">Część filmu, która interesuje większość osób.</string>
+    <string name="revanced_sb_segments_hook">Haczyki / Pozdrowienia</string>
+    <string name="revanced_sb_segments_hook_sum">Narracyjne zwiastuny nadchodzącego filmu, pozdrowienia i pożegnania. Nie obejmuje sekcji zawierających dodatkową treść.</string>
     <string name="revanced_sb_segments_interaction">Przypomnienie O Interakcji (Zasubskrybuj)</string>
     <string name="revanced_sb_segments_interaction_sum">Krótkie przypomnienie o łapce w górę, subskrypcji lub obserwowaniu. Jeśli trwa długo lub dotyczy czegoś konkretnego, powinno być oznaczone jako autopromocja.</string>
     <string name="revanced_sb_segments_intro">Przerywnik / Animowane Intro</string>
@@ -2041,7 +2065,7 @@ Gotowy do przesłania?"</string>
     <string name="revanced_sb_segments_nomusic_sum">Do użytku jedynie w teledyskach. Sekcje teledysków, które nie są uwzględnione w innej kategorii.</string>
     <string name="revanced_sb_segments_outro">Karty / Napisy Końcowe</string>
     <string name="revanced_sb_segments_outro_sum">Napisy końcowe lub gdy pojawia się ekran końcowy. Nie dotyczy zakończeń zawierających informacje.</string>
-    <string name="revanced_sb_segments_preview">Zapowiedź / Podsumowanie / Haczyk</string>
+    <string name="revanced_sb_segments_preview">Zapowiedź / Podsumowanie</string>
     <string name="revanced_sb_segments_preview_sum">Zbiór klipów pokazujących to, co pojawi się lub co pojawiło się w tym filmie, oraz innych fiilmach z tej serii, w którym wszystkie informacje są gdzieś powtarzane.</string>
     <string name="revanced_sb_segments_selfpromo">Nieopłacona / Auto Reklama</string>
     <string name="revanced_sb_segments_selfpromo_sum">Podobne do treści sponsorowanych, z wyjątkiem nieopłaconych lub auto reklam. Obejmuje to sekcje o własnych towarach, darowiznach czy informacjach o tym, z kim współpracowali.</string>
@@ -2060,8 +2084,9 @@ Gotowy do przesłania?"</string>
     <string name="revanced_sb_skip_automatically_once">Pomiń automatycznie jeden raz</string>
     <string name="revanced_sb_skip_button_compact">Pomiń</string>
     <string name="revanced_sb_skip_button_compact_highlight">Najważniejsze Informacje</string>
-    <string name="revanced_sb_skip_button_filler">Pomiń wypełniacz</string>
+    <string name="revanced_sb_skip_button_filler">Pomiń wypełniacz.</string>
     <string name="revanced_sb_skip_button_highlight">Przejdź do najważniejszych informacji</string>
+    <string name="revanced_sb_skip_button_hook">Pomiń haczyk</string>
     <string name="revanced_sb_skip_button_interaction">Pomiń przypomnienie o interakcji</string>
     <string name="revanced_sb_skip_button_intro_beginning">Pomiń wstęp</string>
     <string name="revanced_sb_skip_button_intro_end">Pomiń przerywnik</string>
@@ -2077,8 +2102,9 @@ Gotowy do przesłania?"</string>
     <string name="revanced_sb_skip_ignore">Wyłącz</string>
     <string name="revanced_sb_skip_seekbaronly">Pokazuj w pasku postępu filmu</string>
     <string name="revanced_sb_skip_showbutton">Pokaż przycisk od pomijania</string>
-    <string name="revanced_sb_skipped_filler">Pominięto wypełniacz.</string>
+    <string name="revanced_sb_skipped_filler">Pominięto wypełniacz</string>
     <string name="revanced_sb_skipped_highlight">Pominięto do najważniejszych informacji.</string>
+    <string name="revanced_sb_skipped_hook">Pominięto haczyk</string>
     <string name="revanced_sb_skipped_interaction">Pominięto irytujące przypomnienie.</string>
     <string name="revanced_sb_skipped_intro_beginning">Pominięto wstęp.</string>
     <string name="revanced_sb_skipped_intro_end">Pominięto przerywnik.</string>
@@ -2150,6 +2176,26 @@ Gotowy do przesłania?"</string>
     <string name="revanced_search_settings_no_results_summary">Spróbuj innego terminu wyszukiwania.</string>
     <string name="revanced_search_settings_no_results_title">Nie znaleziono wyników dla: \"%1$s\"</string>
     <string name="revanced_search_title">Wyszukaj</string>
+    <string name="revanced_set_transcript_cookies_all_summary_off">Nie</string>
+    <string name="revanced_set_transcript_cookies_all_summary_on">Tak</string>
+    <string name="revanced_set_transcript_cookies_all_title">Pliki cookie dla wszystkich żądań transkrypcyjnego API</string>
+    <string name="revanced_set_transcript_cookies_summary_off">Wyłączone</string>
+    <string name="revanced_set_transcript_cookies_summary_on">Włączone</string>
+    <string name="revanced_set_transcript_cookies_title">Transkrypcyjne pliki cookie</string>
+    <string name="revanced_set_transcript_cookies_user_dialog_message">"Obecnie jest błąd na YouTube, gdzie napisy przetłumaczone automatycznie są niedostępne.
+
+Jest to problem wynikający z transkrypcyjnego API YouTube, który Google musi naprawić.
+
+Jako tymczasowe obejście, możesz rozwiązać ten problem ustawiając pliki cookie.
+
+[Zastrzeżenie]
+
+Korzystanie z plików cookie nie jest panaceum.
+
+Może to nie działać, jeśli:
+• pliki cookie wygasły
+• używane są nieprawidłowe pliki cookie
+• transkrypcyjne API YouTube nie weryfikuje już plików cookie"</string>
     <string name="revanced_settings_search_highlight_color_summary">Ustawia kolor podświetlenia dla dopasowanego tekstu w wynikach wyszukiwania.</string>
     <string name="revanced_settings_search_highlight_color_title">Kolor podświetlenia wyszukiwania</string>
     <string name="revanced_settings_search_highlight_summary">Podświetla dopasowany tekst w wynikach wyszukiwania wybranym kolorem.</string>
@@ -2257,24 +2303,36 @@ Informacje:
 • wysoka jakość może być odblokowana na niektórych filmach, które wymagają wysokiej rozdzielczości urządzenia, lecz nie na wszystkich
 • ustawienie nie będzie dostępne, jeśli opcja 'Oszukuj strumień danych' jest włączona"</string>
     <string name="revanced_spoof_device_dimensions_title">Oszukaj rozdzielczość urządzenia</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_unplugged">"Android TV
+    <string name="revanced_spoof_streaming_data_audio_track_button_summary_off">Ukryty</string>
+    <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"Widoczny, lecz pod warunkiem używania klientów 'Android VR', 'Mobilny przeglądarkowy' bądź 'visionOS'"</string>
+    <string name="revanced_spoof_streaming_data_audio_track_button_title">Przycisk od ścieżki dźwiękowej</string>
+    <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Warunki:
+• używanym klientem przy przechwytywaniu strumienia danych jest 'Android VR', 'Mobilny przeglądarkowy' lub 'visionOS'
+• odtwarzany jest film z wieloma ścieżkami dźwiękowymi.
+
+Znane problemy:
+• jeśli język aplikacji został zmieniony w ustawieniach YouTube i aplikaja nie została uruchomiona ponownie, język w oknie dialogowym ścieżki dźwiękowej może nie ulec zmianie
+• czasem w oknie dialogowym ścieżki dźwiękowej jest wybierany niewłaściwy język
+• niektóre ścieżki dźwiękowe, jak 'Angielski (audiodeskrypcja)' nie są wspierane
+
+Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w każdej chwili przez zmiany po stronie serwera."</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Wymagane zalogowanie)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_no_auth">"Android VR
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(Bez autoryzacji)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Porzucone)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_ios_unplugged">"iOS TV
-<small>(Wymagane zalogowanie)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
+<small>(Nieaktualne, Brak autoryzacji)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobilny przeglądarkowy
-<small>(W fazie rozwoju)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">"TV
-<small>(W fazie rozwoju)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">"Uproszczony TV
-<small>(W fazie rozwoju)</small>"</string>
+<small>(W fazie rozwoju, bez autoryzacji)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Uproszczony TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
+<small>(Niewydany, bez autoryzacji)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Domyślny klient</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Nie można przechwycić żadnego ze strumieni klienta.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Możesz nie być zalogowany.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Spróbuj zmienić domyślnego klienta na TV lub TV Zwykły.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Określany automatycznie</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Wymuszony</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Wymuś kodek AVC (H.264)</string>
@@ -2282,6 +2340,7 @@ Informacje:
 
 AVC obsługuje maksymalnie rozdzielczość 1080p, kodek audio OPUS nie jest dostępny, a odtwarzanie wideo będzie zużywać więcej danych internetowych niż VP9 lub AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Jeśli doświadczasz problemów z odtwarzaniem, włącz \"Oszukuj strumień danych\" w &lt;i&gt;&lt;u&gt;Ustawienia &gt; %s &gt; Pozostałe &gt; Oszukuj strumień danych&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_title">Domyślny język dla transmisji na żywo</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Kodeków w filmie</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Jakości filmu</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Priorytet w filmie</string>
@@ -2323,23 +2382,31 @@ Przykład 2:
     <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Widoczny</string>
     <string name="revanced_spoof_streaming_data_reload_video_button_title">Przycisk od odświeżenia filmu</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• brakuje menu od ścieżki dźwiękowej
-• stabilna głośność nie jest dostępna
 • automatyczne wymuszenie ścieżki dźwiękowej nie jest dostępne
+• stabilna głośność nie jest dostępna
 • filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• brakuje menu od ścieżki dźwiękowej
+• stabilna głośność nie jest dostępna
+• filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito
+• 1080p+, AV1 oraz HDR nie są wspierane"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Brakuje menu od ścieżki dźwiękowej
 • Stabilna głośność jest niedostępna"</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Brakuje menu od ścieżki dźwiękowej
-• Stabilna głośność jest niedostępna"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• brakuje menu od ścieżki dźwiękowej
+• stabilna głośność nie jest dostępna
+• filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Mogą wystąpić problemy z odtwarzaniem (wymagany PoToken)</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Filmy mogą kończyć się o 1 sekundę wcześniej
 • Kodek audio opus może nie być wspierany"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• Cały zakres ASNów/IP może być zablokowany przez serwer</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Filmy mogą kończyć się o 1 sekundę wcześniej</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• stabilna głośność nie jest dostępna
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• może brakować menu od ścieżki dźwiękowej
+• automatyczne wymuszenie ścieżki dźwiękowej może nie być dostępne
+• stabilna głośność nie jest dostępna
 • filmy kinowe lub płatne mogą się nie odtwarzać
 • filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ipados">"• AV1 nie jest obsługiwane.
+• Film może zakończyć się w 1:00 lub może być niedostępny w niektórych regionach."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• brakuje menu od ścieżki dźwiękowej
-• automatyczne wymuszenie ścieżki dźwiękowej nie jest dostępne
 • jeśli odszyfrowywanie się nie powiedzie, odtwarzanie może się nie powieść
 • czasem film nie odtwarza się nawet po 10 sekundach, dlatego należy kliknąć przycisk od odświeżenia filmu
 • filmy mogą zacząć się z opóźnieniem"</string>
@@ -2348,13 +2415,16 @@ Przykład 2:
 • czasem film nie odtwarza się nawet po 10 sekundach, dlatego należy kliknąć przycisk od odświeżenia filmu
 • filmy mogą zacząć się z opóźnieniem"</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Nieznane</string>
+    <string name="revanced_spoof_streaming_data_side_effects_visionos">"• brakuje menu od ścieżki dźwiękowej
+• filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito
+• jako, że jest to niewydany klient, może przestać działać w każdej chwili"</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Ukryta</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Widoczna</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Informacja w statystykach dla nerdów</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Wyłączone. Odtwarzanie filmów może nie działać"</string>
     <string name="revanced_spoof_streaming_data_summary_on">"Włączone
 
-Jeśli jesteś użytkownikiem YouTube Premium lub odznaczono przy łataniu 'GmsCore support', to ustawienie te nie jest konieczne"</string>
+Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie te nie jest konieczne."</string>
     <string name="revanced_spoof_streaming_data_title">Oszukuj strumień danych</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Kreator Androida</string>
     <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"Nie. Nie jest używany dla niektórych filmów wymagających szybkiego odtwarzania:
@@ -2366,12 +2436,33 @@ Jeśli jesteś użytkownikiem YouTube Premium lub odznaczono przy łataniu 'GmsC
 
 • Klient JavaScript nie odtworzy niektórych filmów"</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Włącz klienta JavaScript na wszystkie filmy</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Kliknij, aby uzyskać więcej informacji.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">O fałszywym buforowaniu</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Jednym z powodów, dla których filmy zaczynają się zbyt późno w kliencie JavaScript, są nowe zabezpieczenia YouTube'a przed blokowaniem reklam.
+
+Gdy reklama wideo jest blokowana, GVS (serwer Google Wideo) generuje fałszywe buforowanie proporcjonalne do czasu trwania reklamy (testy A/B).
+
+uBlock Origin znalazł obejście tego problemu, które można włączyć za pomocą ustawienia „Omiń fałszywe buforowanie”.
+
+Kliknij „Otwórz”, aby przeczytać artykuł."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Otwarte</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Nowe środki YouTube'a zapobiegające blokowaniu reklam"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Funkcja pomijania buforowania jest wyłączona.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Włączono pomijanie buforowania.
+
+Ograniczenia:
+• Ze względu na zmiany po stronie serwera funkcja ta może przestać działać w dowolnym momencie."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Omiń fałszywe buforowanie</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">Nie</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">Tak</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Włącz klienta JavaScript</string>
     <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"Aplikacja używa więcej zasobów systemu, by znaleźć bądź dekodować wzorce n-sig, przez co film zaczyna się o wiele powolniej.
 
-Wzorzec n-sig zmienia się dość często na serwerach YouTube, a odtwarzanie może się nie powieść, jeśli wyrażenie regularne nie znajdzie takowego wzorca.
+Czasami wzorzec n-sig może nie zostać zdekodowany, co powoduje opóźnienie rozpoczęcia odtwarzania filmu, lub przerywanie strumienia filmu.
+
+Może być to łatwo rozwiązane poprzez kliknięcie przycisku od odświeżenia filmu w odtwarzaczu.
+
+Warunki: 'Przycisk od odświeżenia filmu' oraz 'Zawsze pokazuj przycisk od odświeżenia filmu.
 
 Spośród klientów JavaScript, rekomendowanym klientem jest Uproszczony TV."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"Wyłączony
@@ -2381,23 +2472,9 @@ Spośród klientów JavaScript, rekomendowanym klientem jest Uproszczony TV."</s
 
 • jest to wysoce zależne od serwera, a sukces lub porażka zależy od obecnie używanego na serwerze JavaScripta"</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">Najnowszy JavaScript</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_off">Ukyty</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_on">Widoczny</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_title">Przycisk od ścieżki dźwiękowej</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_user_dialog_message">"Warunki:
-• używanym klientem przy przechwytywaniu strumienia danych jest 'Android VR (Bez autoryzacji)'
-• odtwarzany jest film z wieloma ścieżkami dźwiękowymi
-
-Znane problemy:
-• jeśli język aplikacji został zmieniony w ustawieniach YouTube i aplikaja nie została uruchomiona ponownie, język w oknie dialogowym ścieżki dźwiękowej może nie ulec zmianie
-• czasem w oknie dialogowym ścieżki dźwiękowej jest wybierany niewłaściwy język
-• niektóre ścieżki dźwiękowe, jak 'Angielski (audiodeskrypcja)' nie są wspierane
-
-Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w każdej chwili przez zmiany po stronie serwera."</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Kodek filmu jest określany automatycznie</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Kodekiem filmu jest AVC (H.264) lub VP9</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Wyłącz kodek AV1</string>
-    <string name="revanced_spoof_streaming_data_vr_language_title">Domyślny język dla transmisji na żywo</string>
     <string name="revanced_swipe_brightness_distance_summary">Ilość pikseli do przesunięcia w celu zmiany jasności. Niższe wartości powodują szybszą zmianę jasności, wyższe sprawiają, że zmiana jest wolniejsza (1–1000).</string>
     <string name="revanced_swipe_brightness_distance_title">Odległość jasności</string>
     <string name="revanced_swipe_brightness_summary_off">Wyłączone</string>
@@ -2500,6 +2577,35 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s nie jest zainstalowany. Proszę go zainstalować.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Nazwa pakietu zainstalowanego RVX Music</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nazwa pakietu RVX Music</string>
+    <string name="revanced_transcript_cookies_about_summary">Kliknij, by zobaczyć jak pobrać pliki cookie.</string>
+    <string name="revanced_transcript_cookies_about_title">O transkrypcyjnych plikach cookie</string>
+    <string name="revanced_transcript_cookies_dialog_auth_text">Z autoryzacją</string>
+    <string name="revanced_transcript_cookies_dialog_message">"Z autoryzacją
+══════════════
+1. Kliknij 'Z autoryzacją', by otworzyć okno logowania w WebView
+2. Zaloguj się na swoje konto Google
+3. Odtwórz jakikolwiek film wspierający napisy przetłumaczone automatycznie
+4. Włącz napisy przetłumaczone automatycznie i sprawdź, czy działają
+4-1. Jeśli napisy przetłumaczone automatycznie nie działają, odtwórz inny film wspierający napisy przetłumaczone automatycznie i powtórz krok 4
+5. Kliknij trzy kropki w pasku narzędzi i otwórz menu kontekstowe
+6. Kliknij 'Pobierz pliki cookie'
+7. Kliknij 'Kopiuj', by skopiować pliki cookie
+8. Zamknij WebView i wklej skopiowane pliki cookie do ustawień 'Transkrypcyjne pliki cookie'
+
+Bez autoryzacji
+══════════════
+1. Kliknij 'Bez autoryzacji', by otworzyć okno logowania w WebView
+2. Odtwórz film na co najmniej 3 sekundy
+3. Kliknij trzy kropki w pasku narzędzi i otwórz menu kontekstowe
+4. Kliknij 'Pobierz pliki cookie'
+5. Kliknij 'Kopiuj', by skopiować pliki cookie
+6. Zamknij WebView i wklej skopiowane pliki cookie do ustawień 'Transkrypcyjne pliki cookie'
+
+Zastrzeżenie: Pliki cookie wydane bez logowania mogą być nieprawidłowe lub ich udostępnienie w transkrypcyjnym API może potrwać."</string>
+    <string name="revanced_transcript_cookies_dialog_no_auth_text">Bez autoryzacji</string>
+    <string name="revanced_transcript_cookies_dialog_title">Eksportuj transkrypcyjne pliki cookie</string>
+    <string name="revanced_transcript_cookies_summary">Pliki cookie używane w żądaniach transkrypcyjnego API.</string>
+    <string name="revanced_transcript_cookies_title">Transkrypcyjne pliki cookie</string>
     <string name="revanced_watch_history_about_status_blocked">• Historia oglądania nie działa</string>
     <string name="revanced_watch_history_about_status_original">"• Stosuje się do ustawień historii oglądania konta Google
 • Historia oglądania może nie działać przy używaniu DNS lub VPN"</string>
@@ -2511,6 +2617,23 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_watch_history_type_entry_2">www.youtube.com</string>
     <string name="revanced_watch_history_type_entry_3">Wyłączona</string>
     <string name="revanced_watch_history_type_title">Historia</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Pobierz pliki cookie</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Pobierz ID synchronizacji danych</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Pobierz Visitor Data</string>
+    <string name="revanced_webview_contextual_menu_refresh">Odśwież</string>
+    <string name="revanced_webview_cookies">Pliki cookie</string>
+    <string name="revanced_webview_copy">Kopiuj</string>
+    <string name="revanced_webview_data_sync_id">ID synchronizacji danych</string>
+    <string name="revanced_webview_intent_clear_cookies_on_shutdown">Wyczyść pliki cookie po zamknięciu</string>
+    <string name="revanced_webview_intent_clear_cookies_on_startup">Wyczyść pliki cookie po otwarciu</string>
+    <string name="revanced_webview_intent_use_desktop_user_agent">Użyj komputerowego User-Agent</string>
+    <string name="revanced_webview_summary">Otwiera WebView w celu pobrania plików cookie.</string>
+    <string name="revanced_webview_title">WebView</string>
+    <string name="revanced_webview_toast_copy_success">%s skopiowane do schowka.</string>
+    <string name="revanced_webview_toast_empty">%s jest puste.</string>
+    <string name="revanced_webview_toast_no_network">Sprawdź swoje połączenie internetowe.</string>
+    <string name="revanced_webview_toast_unavailable">WebView jest niedostępne.</string>
+    <string name="revanced_webview_visitor_data">Visitor Data</string>
     <string name="revanced_whitelist_add_failed">Nie udało się dodać kanału \'%1$s\' do białej listy %2$s.</string>
     <string name="revanced_whitelist_added">Kanał \'%1$s\' został dodany do białej listy %2$s.</string>
     <string name="revanced_whitelist_empty">Brak kanałów na białej liście.</string>

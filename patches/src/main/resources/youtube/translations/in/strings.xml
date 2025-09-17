@@ -162,15 +162,23 @@ Keterbatasan: Tombol Kembali pada bilah alat mungkin tidak berfungsi."</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Bilah status buram</string>
     <string name="revanced_disable_translucent_status_bar_title">Nonaktifkan bilah status tembus cahaya</string>
     <string name="revanced_disable_translucent_status_bar_user_dialog_message">Di beberapa perangkat, mengaktifkan fitur ini dapat mengubah bilah navigasi sistem menjadi transparan.</string>
+    <string name="revanced_dismiss_player_not_available_toast">Id video tidak tersedia. Buka ulang video secara manual.</string>
     <string name="revanced_exit_fullscreen_entry_1">Nonaktif</string>
     <string name="revanced_exit_fullscreen_entry_2">Potret</string>
     <string name="revanced_exit_fullscreen_entry_3">Lanskap</string>
     <string name="revanced_exit_fullscreen_entry_4">Potret dan lanskap</string>
     <string name="revanced_exit_fullscreen_title">Keluar dari mode layar penuh di akhir video</string>
     <string name="revanced_extended_confirm_user_dialog_title">Apakah Anda ingin melanjutkan?</string>
-    <string name="revanced_extended_reset_to_default_toast">Atur ulang ke nilai default.</string>
+    <string name="revanced_extended_reset_to_default_toast">Atur ulang ke nilai awal.</string>
+    <string name="revanced_extended_restart">Restart</string>
+    <string name="revanced_extended_restart_dialog_message">Restart aplikasi untuk menerapkan perubahan ini.</string>
     <string name="revanced_extended_restart_first_run">Mulai ulang aplikasi untuk memuat tata ruang dengan normal</string>
     <string name="revanced_extended_restart_message">Perbarui tampilan dan mulai ulang</string>
+    <string name="revanced_extended_restart_title">Memerlukan restart</string>
+    <string name="revanced_extended_settings_color_invalid">Warna tidak berlaku.</string>
+    <string name="revanced_extended_settings_color_picker">Pemilih warna</string>
+    <string name="revanced_extended_settings_reset">Atur ulang</string>
+    <string name="revanced_extended_settings_reset_color">Atur ulang warna</string>
     <string name="revanced_extended_settings_search_title">Cari %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Pengunduh eksternal</string>
@@ -252,9 +260,9 @@ Toko"</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Ditampilkan di feed langganan.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Disembunyikan di feed langganan.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Sembunyikan di feed langganan</string>
-    <string name="revanced_hide_creator_store_shelf_summary_off">Rak toko kreator di bawah pemutar video ditampilkan</string>
-    <string name="revanced_hide_creator_store_shelf_summary_on">Rak toko kreator di bawah pemutar video disembunyikan</string>
-    <string name="revanced_hide_creator_store_shelf_title">Sembunyikan rak toko kreator</string>
+    <string name="revanced_hide_creator_store_shelf_summary_off">Rak toko pembuat di bawah video ditampilkan.</string>
+    <string name="revanced_hide_creator_store_shelf_summary_on">Rak toko pembuat di bawah video tersembunyi.</string>
+    <string name="revanced_hide_creator_store_shelf_title">Sembunyikan rak toko pembuat</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Kotak penggalangan dana ditampilkan</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Kotak penggalangan dana disembunyikan</string>
     <string name="revanced_hide_crowdfunding_box_title">Sembunyikan kotak penggalangan dana</string>
@@ -264,8 +272,8 @@ Toko"</string>
     <string name="revanced_hide_end_screen_store_banner_summary_off">Spanduk toko ditampilkan.</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">Spanduk toko disembunyikan.</string>
     <string name="revanced_hide_end_screen_store_banner_title">Sembunyikan spanduk toko di layar akhir</string>
-    <string name="revanced_hide_expandable_card_summary_off">Kartu yang dapat diperluas di bawah video ditampilkan</string>
-    <string name="revanced_hide_expandable_card_summary_on">Kartu yang dapat diperluas di bawah video disembunyikan</string>
+    <string name="revanced_hide_expandable_card_summary_off">Kartu yang dapat diperluas di bawah video ditampilkan.</string>
+    <string name="revanced_hide_expandable_card_summary_on">Kartu yang dapat diperluas di bawah video disembunyikan.</string>
     <string name="revanced_hide_expandable_card_title">Sembunyikan kartu yang dapat diperluas</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Rak yang dapat diperluas ditampilkan.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Rak yang dapat diperluas disembunyikan.</string>
@@ -418,8 +426,8 @@ Jika tata letak layar pemutar berubah karena perubahan di sisi server, tata leta
     <string name="revanced_hide_share_button_summary_off">Tombol bagikan ditampilkan</string>
     <string name="revanced_hide_share_button_summary_on">Tombol bagikan disembunyikan</string>
     <string name="revanced_hide_share_button_title">Sembunyikan Bagikan</string>
-    <string name="revanced_hide_shopping_links_summary_off">Tautan belanja di deskripsi video ditampilkan</string>
-    <string name="revanced_hide_shopping_links_summary_on">Tautan belanja di deskripsi video disembunyikan</string>
+    <string name="revanced_hide_shopping_links_summary_off">Tautan belanja dalam deskripsi video ditampilkan.</string>
+    <string name="revanced_hide_shopping_links_summary_on">Tautan belanja di deskripsi video disembunyikan.</string>
     <string name="revanced_hide_shopping_links_title">Sembunyikan tautan belanja</string>
     <string name="revanced_hide_shorts_channel_bar_summary_off">Bilah saluran ditampilkan</string>
     <string name="revanced_hide_shorts_channel_bar_summary_on">Bilah saluran disembunyikan</string>
@@ -490,8 +498,11 @@ Jika tata letak layar pemutar berubah karena perubahan di sisi server, tata leta
     <string name="revanced_hide_stop_ads_button_summary_off">Tombol hentikan iklan ditampilkan</string>
     <string name="revanced_hide_stop_ads_button_summary_on">Tombol hentikan iklan disembunyikan</string>
     <string name="revanced_hide_stop_ads_button_title">Sembunyikan Hentikan iklan</string>
-    <string name="revanced_hide_surveys_summary_off">Survei ditampilkan</string>
-    <string name="revanced_hide_surveys_summary_on">Survei disembunyikan</string>
+    <string name="revanced_hide_subscribed_channels_bar_summary_off">Bilah saluran yang diikuti ditampilkan.</string>
+    <string name="revanced_hide_subscribed_channels_bar_summary_on">Bilah saluran langganan disembunyikan.</string>
+    <string name="revanced_hide_subscribed_channels_bar_title">Sembunyikan bilah saluran untuk mengikuti</string>
+    <string name="revanced_hide_surveys_summary_off">Survei ditampilkan.</string>
+    <string name="revanced_hide_surveys_summary_on">Survei disembunyikan.</string>
     <string name="revanced_hide_surveys_title">Sembunyikan survei</string>
     <string name="revanced_hide_thanks_button_summary_off">Tombol terima kasih ditampilkan</string>
     <string name="revanced_hide_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
@@ -523,8 +534,8 @@ Keterbatasan:
     <string name="revanced_hide_video_by_view_counts_subscriptions_summary_off">Video dalam feed langganan tidak disaring.</string>
     <string name="revanced_hide_video_by_view_counts_subscriptions_summary_on">Video di feed langganan disaring.</string>
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">Sembunyikan video langganan berdasarkan penayangan</string>
-    <string name="revanced_hide_video_recommendation_labels_summary_off">Label \'Orang juga menonton\' dan \'Anda mungkin juga menyukai\' di hasil pencarian ditampilkan</string>
-    <string name="revanced_hide_video_recommendation_labels_summary_on">Label \'Orang juga menonton\' dan \'Anda mungkin juga menyukai\' di hasil pencarian disembunyikan</string>
+    <string name="revanced_hide_video_recommendation_labels_summary_off">"Label gambar mini - seperti 'Orang lain juga menonton' dan 'Anda mungkin juga menyukai' - disembunyikan."</string>
+    <string name="revanced_hide_video_recommendation_labels_summary_on">"Label gambar mini - seperti 'Orang lain juga menonton' dan 'Anda mungkin juga suka' - disembunyikan."</string>
     <string name="revanced_hide_video_recommendation_labels_title">Sembunyikan label rekomendasi video</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Video dengan jumlah penayangan yang lebih besar dari angka ini akan disembunyikan.</string>
     <string name="revanced_hide_video_view_counts_greater_than_title">Lebih besar dari penayangan</string>
@@ -634,6 +645,7 @@ Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
     <string name="revanced_queue_manager_fetch_failed_delete">Gagal menghapus antrean.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">Gagal menyingkirkan video.</string>
     <string name="revanced_queue_manager_fetch_failed_save">Gagal menyimpan antrean.</string>
+    <string name="revanced_queue_manager_fetch_failed_video_information">Gagal mendapatkan informasi video.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">Video berhasil ditambahkan.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">Antrean berhasil dibuat.</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">Antrean berhasil dihapus.</string>
@@ -646,6 +658,7 @@ Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Hapus dari antrean dan buka antrean</string>
     <string name="revanced_queue_manager_remove_queue">Hapus antrean</string>
     <string name="revanced_queue_manager_save_queue">Simpan antrean</string>
+    <string name="revanced_queue_manager_show_original_video_information">Tampilkan informasi video asli</string>
     <string name="revanced_queue_manager_user_dialog_message">"Daripada membuka pengunduh eksternal, buka dialog pengelola antrean.
 
 Anda juga dapat membuka pengelola antrean dengan menekan dan menahan tombol kembali pada bilah navigasi.
@@ -653,6 +666,25 @@ Anda juga dapat membuka pengelola antrean dengan menekan dan menahan tombol kemb
 Fitur ini masih dalam tahap pengembangan, sehingga sebagian besar fitur mungkin tidak berfungsi.
 
 Harap gunakan untuk tujuan debugging saja."</string>
+    <string name="revanced_queue_manager_video_information">Informasi video</string>
+    <string name="revanced_queue_manager_video_information_copy">Salin</string>
+    <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"Kanal
+══════════════
+%1$s
+
+Judul
+══════════════
+%2$s"</string>
+    <string name="revanced_queue_manager_video_information_user_dialog_message">"Kanal
+══════════════
+%1$s
+Judul
+══════════════
+%2$s
+
+Deskripsi
+══════════════
+%3$s"</string>
     <string name="revanced_related_videos_offset_title">Offset</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Perubahan kecepatan pemutaran berlaku untuk video saat ini</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Perubahan kecepatan pemutaran berlaku untuk semua video</string>
@@ -772,10 +804,12 @@ Siap mengirim?"</string>
     <string name="revanced_sb_new_segment_time_end">Waktu segmen diakhiri pada</string>
     <string name="revanced_sb_new_segment_time_start">Waktu segmen dimulai pada</string>
     <string name="revanced_sb_new_segment_title">Segmen SponsorBlock Baru</string>
-    <string name="revanced_sb_segments_filler">Pengisi Tidak Relevan/Lelucon</string>
-    <string name="revanced_sb_segments_filler_sum">Adegan berbelit-belit yang ditambahkan hanya sebagai filler atau candaan yang tidak diperlukan untuk memahami isi utama video. Tidak termasuk bagian yang mengandung konteks atau detail latar belakang</string>
+    <string name="revanced_sb_segments_filler">Singgungan / Lelucon</string>
+    <string name="revanced_sb_segments_filler_sum">Adegan atau lelucon sampingan yang tidak diperlukan untuk memahami konten utama video. Tidak termasuk bagian yang memberikan konteks atau detail latar belakang</string>
     <string name="revanced_sb_segments_highlight">Sorotan</string>
     <string name="revanced_sb_segments_highlight_sum">Bagian video yang paling dilihat oleh orang</string>
+    <string name="revanced_sb_segments_hook">Pengantar / Sapaan</string>
+    <string name="revanced_sb_segments_hook_sum">Trailer yang dinarasikan untuk video mendatang, sapaan, dan perpisahan. Tidak termasuk bagian yang menambahkan konten tambahan</string>
     <string name="revanced_sb_segments_interaction">Pengingat Interaksi (Berlangganan)</string>
     <string name="revanced_sb_segments_interaction_sum">Pengingat singkat untuk menyukai, berlangganan, atau mengikuti mereka di tengah-tengah konten. Jika berdurasi panjang atau tentang sesuatu yang spesifik, sebaiknya berada di bawah promosi diri sendiri</string>
     <string name="revanced_sb_segments_intro">Jeda/Animasi Intro</string>
@@ -784,7 +818,7 @@ Siap mengirim?"</string>
     <string name="revanced_sb_segments_nomusic_sum">Hanya untuk digunakan pada video musik. Bagian video musik tanpa musiknya, yang belum tercakup dalam kategori lain</string>
     <string name="revanced_sb_segments_outro">Kartu Akhir / Kredit</string>
     <string name="revanced_sb_segments_outro_sum">Kredit atau ketika layar akhir YouTube muncul. Bukan kesimpulan dengan informasi</string>
-    <string name="revanced_sb_segments_preview">Pratinjau/Rekap/Pengait</string>
+    <string name="revanced_sb_segments_preview">Pratinjau / Rekap</string>
     <string name="revanced_sb_segments_preview_sum">Kumpulan klip yang menunjukkan apa yang akan datang atau apa yang terjadi di video atau di video lain dari sebuah seri, di mana semua informasi diulang di tempat lain</string>
     <string name="revanced_sb_segments_selfpromo">Tidak Dibayar/Promosi Diri Sendiri</string>
     <string name="revanced_sb_segments_selfpromo_sum">Serupa dengan Sponsor kecuali tidak dibayar atau promosi diri sendiri. Termasuk bagian merchandise, donasi, atau informasi tentang siapa yang berkolaborasi dengan mereka</string>
@@ -805,8 +839,9 @@ Id pengguna Anda seperti kata sandi dan jangan pernah dibagikan."</string>
     <string name="revanced_sb_skip_automatically_once">Lewati otomatis sekali</string>
     <string name="revanced_sb_skip_button_compact">Lewati</string>
     <string name="revanced_sb_skip_button_compact_highlight">Sorotan</string>
-    <string name="revanced_sb_skip_button_filler">Lewati filler</string>
+    <string name="revanced_sb_skip_button_filler">Lewati singgungan</string>
     <string name="revanced_sb_skip_button_highlight">Lewati ke sorotan</string>
+    <string name="revanced_sb_skip_button_hook">Lewati pengantar</string>
     <string name="revanced_sb_skip_button_interaction">Lewati interaksi</string>
     <string name="revanced_sb_skip_button_intro_beginning">Lewati intro</string>
     <string name="revanced_sb_skip_button_intro_end">Lewati jeda</string>
@@ -822,8 +857,9 @@ Id pengguna Anda seperti kata sandi dan jangan pernah dibagikan."</string>
     <string name="revanced_sb_skip_ignore">Nonaktifkan</string>
     <string name="revanced_sb_skip_seekbaronly">Tampilkan di seekbar</string>
     <string name="revanced_sb_skip_showbutton">Tampilkan tombol Lewati</string>
-    <string name="revanced_sb_skipped_filler">Pengisi dilewati</string>
+    <string name="revanced_sb_skipped_filler">Singgungan dilewati</string>
     <string name="revanced_sb_skipped_highlight">Dilewati ke sorotan</string>
+    <string name="revanced_sb_skipped_hook">Sapaan dilewati</string>
     <string name="revanced_sb_skipped_interaction">Pengingat mengganggu dilewati</string>
     <string name="revanced_sb_skipped_intro_beginning">Intro dilewati</string>
     <string name="revanced_sb_skipped_intro_end">Jeda dilewati</string>
@@ -885,6 +921,7 @@ Sudah ada"</string>
     <string name="revanced_settings_search_history_title">Tampilkan pengaturan riwayat pencarian</string>
     <string name="revanced_share_copy_url_success">URL disalin ke papan klip</string>
     <string name="revanced_share_copy_url_timestamp_success">URL dengan penanda waktu telah disalin</string>
+    <string name="revanced_share_copy_video_information_success">Informasi video disalin ke papan klip.</string>
     <string name="revanced_spoof_app_version_summary_off">Versi asli</string>
     <string name="revanced_spoof_app_version_summary_on">Versi yang dipalsukan</string>
     <string name="revanced_spoof_app_version_target_title">Target versi app yang dipalsukan</string>
@@ -953,4 +990,7 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Menonaktifkan setelan ini juga akan menonaktifkan pemblokiran iklan di Shorts.
 
 Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</string>
+    <string name="revanced_webview_summary">Buka tampilan Web untuk aktifkan cookie.</string>
+    <string name="revanced_webview_title">Tampilan web</string>
+    <string name="revanced_webview_toast_no_network">Silahkan periksa koneksi jaringan Anda.</string>
 </resources>

@@ -1,4 +1,4 @@
-package app.revanced.patches.music.misc.drc
+package app.revanced.patches.shared.drc
 
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
@@ -6,7 +6,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
- * YouTube Music 7.13.52 ~
+ * YouTube 19.30 ~
+ * YouTube Music 7.13 ~
  */
 internal val compressionRatioFingerprint = legacyFingerprint(
     name = "compressionRatioFingerprint",
@@ -21,7 +22,8 @@ internal val compressionRatioFingerprint = legacyFingerprint(
 )
 
 /**
- * ~ YouTube Music 7.12.52
+ * ~ YouTube 19.29
+ * ~ YouTube Music 7.12
  */
 internal val compressionRatioLegacyFingerprint = legacyFingerprint(
     name = "compressionRatioLegacyFingerprint",

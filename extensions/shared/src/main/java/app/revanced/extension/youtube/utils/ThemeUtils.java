@@ -24,9 +24,21 @@ public class ThemeUtils extends BaseThemeUtils {
     }
 
     public static Drawable getBackButtonDrawable() {
-        final String drawableName = isDarkModeEnabled()
+        return getBackButtonDrawable(isDarkModeEnabled());
+    }
+
+    public static Drawable getBackButtonDrawable(boolean isDarkModeEnabled) {
+        final String drawableName = isDarkModeEnabled
                 ? "yt_outline_arrow_left_white_24"
                 : "yt_outline_arrow_left_black_24";
+
+        return getDrawable(drawableName);
+    }
+
+    public static Drawable getMenuButtonDrawable(boolean isDarkModeEnabled) {
+        final String drawableName = isDarkModeEnabled
+                ? "yt_outline_overflow_vertical_white_24"
+                : "yt_outline_overflow_vertical_black_24";
 
         return getDrawable(drawableName);
     }

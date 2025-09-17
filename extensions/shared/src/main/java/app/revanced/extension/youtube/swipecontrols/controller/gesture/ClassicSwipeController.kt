@@ -18,8 +18,7 @@ import app.revanced.extension.youtube.swipecontrols.misc.toPoint
 class ClassicSwipeController(
     private val controller: SwipeControlsHostActivity,
     private val config: SwipeControlsConfigurationProvider,
-) : BaseGestureController(controller),
-    PlayerControlsVisibilityObserver by PlayerControlsVisibilityObserverImpl(controller) {
+) : BaseGestureController(controller) {
     /**
      * the last event captured in [onDown]
      */

@@ -3,8 +3,6 @@ package com.liskovsoft.youtubeapi.app.potokennp2.misc;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.util.Objects;
-
 /**
  * The result of a supported/successful {@code poToken} extraction request by a
  * {@link PoTokenProvider}.
@@ -50,9 +48,9 @@ public final class PoTokenResult {
                          @NonNull final String visitorData,
                          @NonNull final String playerRequestPoToken,
                          @Nullable final String streamingDataPoToken) {
-        this.videoId = Objects.requireNonNull(videoId);
-        this.visitorData = Objects.requireNonNull(visitorData);
-        this.playerRequestPoToken = Objects.requireNonNull(playerRequestPoToken);
+        this.videoId = videoId;
+        this.visitorData = visitorData;
+        this.playerRequestPoToken = playerRequestPoToken;
         this.streamingDataPoToken = streamingDataPoToken;
     }
 }

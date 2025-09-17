@@ -20,6 +20,9 @@ Toque no botão continuar e permita as alterações de otimização."</string>
     <string name="revanced_add_miniplayer_next_button_title">Adicionar o botão próximo ao mini reprodutor</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Adiciona o botão faixa anterior ao mini reprodutor.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Adicionar o botão anterior ao mini reprodutor</string>
+    <string name="revanced_app_info_dialog_title">Informações do aplicativo</string>
+    <string name="revanced_app_info_summary">Clique para checar o nome e versão do aplicativo, como também a versão e data do patch.</string>
+    <string name="revanced_app_info_title">Informações do aplicativo</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Ignora o domínio que está bloqueado em algumas regiões para que miniaturas para playlists, avatares de canais, etc. possam ser recebidos.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Ignorar restrições de imagem por região</string>
     <string name="revanced_change_action_bar_position_summary">Move a barra de ação para baixo do botão reproduzir.</string>
@@ -101,6 +104,7 @@ Limitações: Vídeos infantis não podem ser redirecionados."</string>
     <string name="revanced_disable_player_gesture_title">Desativar gesto do reprodutor</string>
     <string name="revanced_disable_quic_protocol_summary">"Desativa o protocolo QUIC da CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Desativar protocolo QUIC</string>
+    <string name="revanced_disable_trim_silence_title">Desativar alternador de Cortar silêncio</string>
     <string name="revanced_enable_comments_scroll_top_summary">"Clicar no título do painel de comentários (\"Comentários\") rola para a parte superior.
 
 Limitações: Não se aplica a respostas a comentários."</string>
@@ -127,6 +131,7 @@ Informações:
 • Os clientes mais recentes do YouTube Music usam o codec de áudio OPUS por padrão.
 • Isto só é válido para usuários que falsificam com clientes muito antigos."</string>
     <string name="revanced_enable_opus_codec_title">Ativar codec OPUS</string>
+    <string name="revanced_enable_smooth_transition_animation_title">Ativar animação de transição suave</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Permite deslizar para baixo para dispensar o mini reprodutor.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Ativar deslizar para dispensar o mini reprodutor</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Ativa deslizar para baixo para fechar o mini reprodutor.</string>
@@ -179,6 +184,8 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">Ocultar botão Salvar</string>
     <string name="revanced_hide_action_button_comment_summary">Oculta o botão de Comentários.</string>
     <string name="revanced_hide_action_button_comment_title">Ocultar botão Comentários</string>
+    <string name="revanced_hide_action_button_disabled_summary">Oculta botões desabilitados, como o botão \"Comentários\" desabilitado.</string>
+    <string name="revanced_hide_action_button_disabled_title">Esconder botão desabilitado</string>
     <string name="revanced_hide_action_button_download_summary">Oculta o botão de Download.</string>
     <string name="revanced_hide_action_button_download_title">Ocultar botão Download</string>
     <string name="revanced_hide_action_button_label_summary">Oculta os rótulos dos botões de ação.</string>
@@ -486,8 +493,6 @@ Se isto for ativado, o \"Spoofar parâmetro do reprodutor\" poderá ser desativa
 Efeito colateral:
 - O menu suspenso do reprodutor pode não ser exibido corretamente."</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_client_type_summary">"Define um cliente padrão para falsificar."</string>
     <string name="revanced_spoof_client_type_title">Cliente padrão</string>
     <string name="revanced_spoof_player_parameter_summary">"Falsificar o parâmetro de reprodutor para evitar problemas de reprodução.

@@ -4,6 +4,7 @@ import android.view.View
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerControlButton
+import app.revanced.extension.youtube.shared.RootView.isAdProgressTextVisible
 import app.revanced.extension.youtube.utils.GeminiManager
 import app.revanced.extension.youtube.utils.VideoUtils
 
@@ -20,7 +21,7 @@ object GeminiButton {
             instance = PlayerControlButton(
                 controlsViewGroup = controlsView,
                 imageViewButtonId = "revanced_gemini_button",
-                buttonVisibility = { Settings.OVERLAY_BUTTON_GEMINI.get() },
+                buttonVisibility = { isButtonEnabled() },
                 onClickListener = { view: View -> onClick(view) },
                 onLongClickListener = { view: View ->
                     onLongClick(view)
@@ -54,6 +55,11 @@ object GeminiButton {
     @JvmStatic
     fun setVisibility(visible: Boolean, animated: Boolean) {
         instance?.setVisibility(visible, animated)
+    }
+
+    private fun isButtonEnabled(): Boolean {
+        return Settings.OVERLAY_BUTTON_GEMINI.get()
+                && !isAdProgressTextVisible()
     }
 
     private fun onClick(view: View) {

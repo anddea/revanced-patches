@@ -4,7 +4,6 @@ import android.graphics.Color
 import app.revanced.extension.shared.utils.Utils.validateColor
 import app.revanced.extension.shared.utils.Utils.validateValue
 import app.revanced.extension.youtube.settings.Settings
-import app.revanced.extension.youtube.shared.FullscreenEngagementPanelState
 import app.revanced.extension.youtube.shared.LockModeState
 import app.revanced.extension.youtube.shared.PlayerType
 
@@ -56,7 +55,7 @@ class SwipeControlsConfigurationProvider {
      * Check whether the fullscreen engagement panel holder is attached to Windows.
      */
     private val isFullscreenVideo: Boolean
-        get() = FullscreenEngagementPanelState.current.isAttached()
+        get() = PlayerType.current.isFullScreenOrSlidingFullScreen()
 
     /**
      * is the video player currently in lock mode?

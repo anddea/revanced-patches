@@ -10,10 +10,8 @@ import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_STRE
 import app.revanced.extension.shared.innertube.utils.PlayerResponseOuterClass.PlayerResponse
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.getAdaptiveFormats
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.getFormats
-import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.setServerAbrStreamingUrl
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.setUrl
 import app.revanced.extension.shared.innertube.utils.ThrottlingParameterUtils
-import app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingDataMobileWeb
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup
 import app.revanced.extension.shared.patches.spoof.StreamingDataOuterClassPatch.parseFrom
 import app.revanced.extension.shared.settings.BaseSettings
@@ -22,13 +20,13 @@ import app.revanced.extension.shared.utils.StringRef.str
 import app.revanced.extension.shared.utils.Utils
 import com.google.protos.youtube.api.innertube.StreamingDataOuterClass.StreamingData
 import com.liskovsoft.youtubeapi.app.PoTokenGate
+import org.apache.commons.lang3.BooleanUtils
 import org.apache.commons.lang3.StringUtils
 import java.io.BufferedInputStream
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.SocketTimeoutException
-import java.net.URL
 import java.nio.ByteBuffer
 import java.util.Collections
 import java.util.Objects
@@ -47,6 +45,7 @@ import java.util.concurrent.TimeoutException
  * the extension replace stream hook is called only if YT
  * did use its own client streams.
  */
+@Suppress("deprecation")
 class StreamingDataRequest private constructor(
     videoId: String,
     requestHeader: Map<String, String>,
@@ -102,28 +101,22 @@ class StreamingDataRequest private constructor(
 
     companion object {
         private const val AUTHORIZATION_HEADER = "Authorization"
-        private const val PAGE_ID_HEADER = "X-Goog-PageId"
         private const val VISITOR_ID_HEADER: String = "X-Goog-Visitor-Id"
         private const val MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20 * 1000
 
         private val SPOOF_STREAMING_DATA_DEFAULT_CLIENT: ClientType =
             BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get()
-        private val DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH: Boolean =
-            SPOOF_STREAMING_DATA_DEFAULT_CLIENT == ClientType.ANDROID_VR_NO_AUTH
-        private val DEFAULT_CLIENT_IS_MWEB: Boolean =
-            SpoofStreamingDataMobileWeb() && SPOOF_STREAMING_DATA_DEFAULT_CLIENT == ClientType.MWEB
         private val CLIENT_ORDER_TO_USE: Array<ClientType> =
-            YouTubeClient.availableClientTypes(
-                SPOOF_STREAMING_DATA_DEFAULT_CLIENT,
-                DEFAULT_CLIENT_IS_MWEB
-            )
+            YouTubeClient.availableClientTypes(SPOOF_STREAMING_DATA_DEFAULT_CLIENT)
+        private val SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING: Boolean =
+            BaseSettings.SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING.get()
         private val liveStreams: ByteArrayFilterGroup =
             ByteArrayFilterGroup(
                 null,
                 "yt_live_broadcast",
                 "yt_premiere_broadcast"
             )
-        private var lastSpoofedClientFriendlyName: String? = null
+        private var lastSpoofedClient: ClientType? = null
 
         // When this value is not empty, it is used as the preferred language when creating the RequestBody.
         private var overrideLanguage: String = ""
@@ -140,18 +133,11 @@ class StreamingDataRequest private constructor(
 
         @JvmStatic
         val lastSpoofedClientName: String
-            get() {
-                return if (lastSpoofedClientFriendlyName != null) {
-                    lastSpoofedClientFriendlyName!!
-                } else {
-                    "Unknown"
-                }
-            }
+            get() = lastSpoofedClient?.friendlyName ?: "Unknown"
 
         @JvmStatic
-        val lastSpoofedAudioClientIsAndroidVRNoAuth: Boolean
-            get() = lastSpoofedClientFriendlyName != null
-                    && lastSpoofedClientFriendlyName!! == ClientType.ANDROID_VR_NO_AUTH.friendlyName
+        val lastSpoofedClientIsNoAuth: Boolean
+            get() = BooleanUtils.isFalse(lastSpoofedClient?.supportsCookies?: true)
 
         @JvmStatic
         fun overrideLanguage(language: String) {
@@ -192,17 +178,18 @@ class StreamingDataRequest private constructor(
          */
         private fun replaceVisitorData(
             clientType: ClientType,
+            videoId: String,
             requestHeader: Map<String, String>,
         ): Map<String, String> {
             if (clientType.requirePoToken) {
                 val finalRequestHeader: MutableMap<String, String> =
                     LinkedHashMap(requestHeader.size)
+                val visitorData = PoTokenGate.getVisitorData(videoId)
                 for (key in requestHeader.keys) {
                     val value = requestHeader[key]
                     if (value != null) {
                         if (key == VISITOR_ID_HEADER) {
-                            val visitorData = PoTokenGate.getVisitorData()
-                            if (visitorData != null) {
+                            if (!visitorData.isNullOrEmpty()) {
                                 finalRequestHeader.put(VISITOR_ID_HEADER, visitorData)
                                 continue
                             }
@@ -213,25 +200,6 @@ class StreamingDataRequest private constructor(
                 return finalRequestHeader
             }
             return requestHeader
-        }
-
-        /**
-         * The easiest way to check if streamingUrl has been deobfuscated properly is to send a request and check if the response code is 200.
-         * Typically, all n parameters included in the response are the same, so it is sufficient to test only for the stream Url at the first index.
-         */
-        private fun streamUrlIsAvailable(streamUrl: String): Boolean {
-            try {
-                val url = URL(streamUrl)
-                val connection = url.openConnection() as HttpURLConnection
-                connection.setFixedLengthStreamingMode(0)
-                connection.requestMethod = "HEAD"
-                return connection.responseCode == 200
-            } catch (ex: IOException) {
-                handleConnectionError("Network error", ex)
-            } catch (ex: Exception) {
-                Logger.printException({ "send failed" }, ex)
-            }
-            return false
         }
 
         private fun getPlayabilityStatus(
@@ -260,7 +228,7 @@ class StreamingDataRequest private constructor(
             clientType: ClientType,
             videoId: String,
             streamBytes: ByteArray,
-        ): Triple<ArrayList<String>?, ArrayList<String>?, String?>? {
+        ): Pair<ArrayList<String>?, ArrayList<String>?>? {
             val startTime = System.currentTimeMillis()
 
             try {
@@ -324,10 +292,7 @@ class StreamingDataRequest private constructor(
                             if (!deobfuscatedUrl.isNullOrEmpty() && !sessionPoToken.isNullOrEmpty()) {
                                 deobfuscatedUrl += "&pot=$sessionPoToken"
                             }
-                            if (deobfuscatedUrl.isNullOrEmpty() || i == 0 && !streamUrlIsAvailable(
-                                    deobfuscatedUrl
-                                )
-                            ) {
+                            if (deobfuscatedUrl.isNullOrEmpty()) {
                                 Logger.printDebug { "Failed to decrypt n-sig or signatureCipher, please check if latest regular expressions are being used" }
                                 return null
                             }
@@ -390,20 +355,9 @@ class StreamingDataRequest private constructor(
                         }
                     }
 
-                    var serverAbrStreamingUrl = streamingData.serverAbrStreamingUrl
-                    if (!serverAbrStreamingUrl.isNullOrEmpty()) {
-                        serverAbrStreamingUrl = ThrottlingParameterUtils
-                            .getUrlWithThrottlingParameterDeobfuscated(
-                                videoId,
-                                serverAbrStreamingUrl,
-                                isTV
-                            )
-                    }
-
-                    return Triple(
+                    return Pair(
                         deobfuscatedAdaptiveFormatsArrayList,
-                        deobfuscatedFormatsArrayList,
-                        serverAbrStreamingUrl
+                        deobfuscatedFormatsArrayList
                     )
                 }
             } catch (ex: Exception) {
@@ -453,14 +407,15 @@ class StreamingDataRequest private constructor(
                     createJSRequestBody(
                         clientType = clientType,
                         videoId = videoId,
+                        language = overrideLanguage,
                         isGVS = true,
+                        bypassFakeBuffering = SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING,
                     )
                 } else {
                     createApplicationRequestBody(
                         clientType = clientType,
                         videoId = videoId,
-                        setLocale = DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH,
-                        language = overrideLanguage.ifEmpty { BaseSettings.SPOOF_STREAMING_DATA_VR_LANGUAGE.get().language }
+                        language = overrideLanguage
                     )
                 }
 
@@ -468,7 +423,7 @@ class StreamingDataRequest private constructor(
                     getInnerTubeResponseConnectionFromRoute(
                         GET_STREAMING_DATA,
                         clientType,
-                        replaceVisitorData(clientType, requestHeader)
+                        replaceVisitorData(clientType, videoId, requestHeader)
                     )
 
                 connection.setFixedLengthStreamingMode(requestBody.size)
@@ -502,15 +457,13 @@ class StreamingDataRequest private constructor(
             requestHeader: Map<String, String>,
             reasonSkipped: String,
         ): StreamingData? {
-            lastSpoofedClientFriendlyName = null
+            Utils.verifyOffMainThread()
+            lastSpoofedClient = null
 
             // Retry with different client if empty response body is received.
             for (clientType in CLIENT_ORDER_TO_USE) {
                 if (clientType.requireAuth &&
-                    StringUtils.isAllEmpty(
-                        requestHeader[AUTHORIZATION_HEADER],
-                        requestHeader[PAGE_ID_HEADER]
-                    )
+                    StringUtils.isEmpty(requestHeader[AUTHORIZATION_HEADER])
                 ) {
                     Logger.printDebug { "Skipped login-required client (clientType: $clientType, videoId: $videoId)" }
                     continue
@@ -521,6 +474,17 @@ class StreamingDataRequest private constructor(
                 if (clientType.requireJS && reasonSkipped.isNotEmpty()) {
                     Logger.printDebug { "Skipped javascript required client (reasonSkipped: $reasonSkipped, clientType: $clientType, videoId: $videoId)" }
                     continue
+                }
+                if (!clientType.supportsCookies
+                    && BaseSettings.DISABLE_AUTO_AUDIO_TRACKS.get()
+                    && overrideLanguage.isEmpty()) {
+                    // Volapük (ISO 639-1 language code: vo) is a constructed language created in 1879 for academic purposes and is not used anywhere else.
+                    // Using this language code disables auto-dubbing.
+                    //
+                    // However, the 'Mobile Web' client did not receive a valid player response when using this language code.
+                    //
+                    // For compatibility with the 'Mobile Web' client, Norwegian (ISO 639-1 language code: no) is used.
+                    overrideLanguage = "no"
                 }
 
                 val connection = send(clientType, videoId, requestHeader)
@@ -549,7 +513,7 @@ class StreamingDataRequest private constructor(
                                     ) {
                                         Logger.printDebug { "Ignore Android Studio spoofing as it is a livestream (videoId: $videoId)" }
                                     } else {
-                                        lastSpoofedClientFriendlyName = null
+                                        lastSpoofedClient = null
 
                                         // Parses the Proto Buffer and returns StreamingData (GeneratedMessage).
                                         val streamBytes: ByteArray = stream.toByteArray()
@@ -575,7 +539,6 @@ class StreamingDataRequest private constructor(
                                                             arrayLists.first
                                                         val deobfuscatedFormatsArrayList =
                                                             arrayLists.second
-                                                        val serverAbrStreamingUrl = arrayLists.third
                                                         if (!deobfuscatedAdaptiveFormatsArrayList.isNullOrEmpty()) {
                                                             streamingData =
                                                                 deobfuscateStreamingData(
@@ -592,20 +555,14 @@ class StreamingDataRequest private constructor(
                                                                     streamingData = streamingData
                                                                 )
                                                         }
-                                                        if (!serverAbrStreamingUrl.isNullOrEmpty()) {
-                                                            setServerAbrStreamingUrl(
-                                                                streamingData,
-                                                                serverAbrStreamingUrl
-                                                            )
-                                                        }
 
-                                                        lastSpoofedClientFriendlyName =
-                                                            clientType.friendlyName
+                                                        lastSpoofedClient = clientType
+                                                        overrideLanguage = ""
                                                         return streamingData
                                                     }
                                                 } else {
-                                                    lastSpoofedClientFriendlyName =
-                                                        clientType.friendlyName
+                                                    lastSpoofedClient = clientType
+                                                    overrideLanguage = ""
                                                     return streamingData
                                                 }
                                             } else {
@@ -627,17 +584,20 @@ class StreamingDataRequest private constructor(
                 }
             }
 
-            val showToast = BaseSettings.DEBUG_TOAST_ON_ERROR.get()
+            overrideLanguage = ""
+
             handleConnectionError(
                 str("revanced_spoof_streaming_data_failed_forbidden"),
                 null,
-                showToast
+                true
             )
-            handleConnectionError(
-                str("revanced_spoof_streaming_data_failed_forbidden_suggestion"),
-                null,
-                showToast
-            )
+            if (!SPOOF_STREAMING_DATA_DEFAULT_CLIENT.name.startsWith("TV")) {
+                handleConnectionError(
+                    str("revanced_spoof_streaming_data_failed_forbidden_suggestion"),
+                    null,
+                    true
+                )
+            }
             return null
         }
     }

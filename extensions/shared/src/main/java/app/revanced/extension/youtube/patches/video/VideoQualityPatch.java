@@ -40,6 +40,12 @@ public class VideoQualityPatch {
      */
     public static final int AUTOMATIC_VIDEO_QUALITY_VALUE = -2;
 
+    /**
+     * The default setting for 'Hide video ads' is ON.
+     * Since 'Hide video ads' can only be changed in the settings when the 'Hide ads' patch is included, the patch status is not checked.
+     */
+    private static final boolean HIDE_VIDEO_ADS = Settings.HIDE_VIDEO_ADS.get();
+
     private static final IntegerSetting shortsQualityMobile = Settings.DEFAULT_VIDEO_QUALITY_MOBILE_SHORTS;
     private static final IntegerSetting shortsQualityWifi = Settings.DEFAULT_VIDEO_QUALITY_WIFI_SHORTS;
     private static final IntegerSetting videoQualityMobile = Settings.DEFAULT_VIDEO_QUALITY_MOBILE;
@@ -196,6 +202,12 @@ public class VideoQualityPatch {
         if (PatchStatus.VideoPlayback() && !userChangedQuality && !CollectionUtils.isEmpty(formats) &&
                 (currentFormats == null || !CollectionUtils.isEqualCollection(currentFormats, formats))) {
             try {
+                // If the video format is overridden while a Shorts is playing or a video ad is playing,
+                // the player UI becomes weird.
+                if (!HIDE_VIDEO_ADS || isShortsActive()) {
+                    userChangedQuality = true;
+                    return;
+                }
                 final int preferredQuality = getDefaultQualityResolution();
                 if (preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
                     userChangedQuality = true;

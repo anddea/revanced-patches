@@ -1,6 +1,5 @@
-package app.revanced.patches.youtube.utils.fix.streamingdata
+package app.revanced.patches.shared.spoof.streamingdata
 
-import app.revanced.patches.youtube.utils.resourceid.playerLoadingViewThin
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -23,6 +22,58 @@ internal val brotliInputStreamFingerprint = legacyFingerprint(
     parameters = listOf("Ljava/io/InputStream;"),
     strings = listOf("Brotli decoder initialization failed")
 )
+
+internal val buildInitPlaybackRequestFingerprint = legacyFingerprint(
+    name = "buildInitPlaybackRequestFingerprint",
+    returnType = "Lorg/chromium/net/UrlRequest\$Builder;",
+    opcodes = listOf(
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_OBJECT, // Moves the request URI string to a register to build the request with.
+    ),
+    strings = listOf(
+        "Content-Type",
+        "Range",
+    ),
+    customFingerprint = { method, _ ->
+        indexOfUriToStringInstruction(method) >= 0
+    },
+)
+
+internal val buildMediaDataSourceFingerprint = legacyFingerprint(
+    name = "buildMediaDataSourceFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    returnType = "V",
+    parameters = listOf(
+        "Landroid/net/Uri;",
+        "J",
+        "I",
+        "[B",
+        "Ljava/util/Map;",
+        "J",
+        "J",
+        "Ljava/lang/String;",
+        "I",
+        "Ljava/lang/Object;"
+    )
+)
+
+internal val buildPlayerRequestURIFingerprint = legacyFingerprint(
+    name = "buildPlayerRequestURIFingerprint",
+    returnType = "Ljava/lang/String;",
+    strings = listOf(
+        "key",
+        "asig",
+    ),
+    customFingerprint = { method, _ ->
+        indexOfUriToStringInstruction(method) >= 0
+    },
+)
+
+internal fun indexOfUriToStringInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>().toString() == "Landroid/net/Uri;->toString()Ljava/lang/String;"
+    }
 
 internal val createStreamingDataFingerprint = legacyFingerprint(
     name = "createStreamingDataFingerprint",
@@ -114,6 +165,18 @@ internal val videoStreamingDataToStringFingerprint = legacyFingerprint(
     },
 )
 
+internal const val DISABLED_BY_SABR_STREAMING_URI_STRING = "DISABLED_BY_SABR_STREAMING_URI"
+
+internal val mediaFetchEnumConstructorFingerprint = legacyFingerprint(
+    name = "mediaFetchEnumConstructorFingerprint",
+    returnType = "V",
+    strings = listOf(
+        "ENABLED",
+        "DISABLED_FOR_PLAYBACK",
+        DISABLED_BY_SABR_STREAMING_URI_STRING
+    )
+)
+
 internal const val HLS_CURRENT_TIME_FEATURE_FLAG = 45355374L
 
 internal val hlsCurrentTimeFingerprint = legacyFingerprint(
@@ -126,26 +189,26 @@ internal val hlsCurrentTimeFingerprint = legacyFingerprint(
 // This code appears to replace the player config after the streams are loaded.
 // Flag is present in YouTube 19.34, but is missing Platypus stream replacement code until 19.43.
 // Flag and Platypus code is also present in newer versions of YouTube Music.
-internal const val ONESIE_ENCRYPTION_FEATURE_FLAG = 45645570L
+internal const val MEDIA_FETCH_HOT_CONFIG_FEATURE_FLAG = 45645570L
 
-internal val onesieEncryptionFeatureFlagFingerprint = legacyFingerprint(
-    name = "onesieEncryptionFeatureFlagFingerprint",
-    literals = listOf(ONESIE_ENCRYPTION_FEATURE_FLAG),
+internal val mediaFetchHotConfigFingerprint = legacyFingerprint(
+    name = "mediaFetchHotConfigFingerprint",
+    literals = listOf(MEDIA_FETCH_HOT_CONFIG_FEATURE_FLAG),
 )
 
-// YouTube 20.10 ~
-internal const val ONESIE_ENCRYPTION_ALTERNATIVE_FEATURE_FLAG = 45683169L
+// YouTube 20.10 ~ / YouTube Music 8.12 ~
+internal const val MEDIA_FETCH_HOT_CONFIG_ALTERNATIVE_FEATURE_FLAG = 45683169L
 
-internal val onesieEncryptionAlternativeFeatureFlagFingerprint = legacyFingerprint(
-    name = "onesieEncryptionAlternativeFeatureFlagFingerprint",
-    literals = listOf(ONESIE_ENCRYPTION_ALTERNATIVE_FEATURE_FLAG),
+internal val mediaFetchHotConfigAlternativeFingerprint = legacyFingerprint(
+    name = "mediaFetchHotConfigAlternativeFingerprint",
+    literals = listOf(MEDIA_FETCH_HOT_CONFIG_ALTERNATIVE_FEATURE_FLAG),
 )
 
 // Feature flag that enables different code for parsing and starting video playback,
 // but it's exact purpose is not known. If this flag is enabled while stream spoofing
 // then videos will never start playback and load forever.
 // Flag does not seem to affect playback if spoofing is off.
-// YouTube 19.50 ~
+// YouTube 19.50 ~ / YouTube Music 7.33 ~
 internal const val PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG = 45665455L
 
 internal val playbackStartDescriptorFeatureFlagFingerprint = legacyFingerprint(

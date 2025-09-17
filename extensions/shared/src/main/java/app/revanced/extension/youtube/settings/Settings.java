@@ -11,6 +11,7 @@ import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.Mini
 import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_2;
 import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_3;
 import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_4;
+import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.IGNORE;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.MANUAL_SKIP;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE;
@@ -20,7 +21,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ForceOriginalAudioAvailability;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.HideAudioFlyoutMenuAvailability;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
@@ -104,6 +104,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SURVEYS = new BooleanSetting("revanced_hide_surveys", TRUE);
     public static final BooleanSetting HIDE_TICKET_SHELF = new BooleanSetting("revanced_hide_ticket_shelf", TRUE);
     public static final BooleanSetting HIDE_VIDEO_RECOMMENDATION_LABELS = new BooleanSetting("revanced_hide_video_recommendation_labels", TRUE);
+    public static final BooleanSetting HIDE_SECTION_HEADER_IN_FEED = new BooleanSetting("revanced_hide_section_header_in_feed", FALSE, true);
 
     // PreferenceScreen: Feed - Carousel shelf
     public static final BooleanSetting HIDE_CAROUSEL_SHELF_HOME = new BooleanSetting("revanced_hide_carousel_shelf_home", FALSE);
@@ -113,6 +114,7 @@ public class Settings extends BaseSettings {
     // PreferenceScreen: Feed - Category bar
     public static final BooleanSetting HIDE_CATEGORY_BAR_IN_FEED = new BooleanSetting("revanced_hide_category_bar_in_feed", FALSE, true);
     public static final BooleanSetting HIDE_CATEGORY_BAR_IN_HISTORY = new BooleanSetting("revanced_hide_category_bar_in_history", FALSE);
+    public static final BooleanSetting HIDE_CATEGORY_BAR_IN_PLAYLIST = new BooleanSetting("revanced_hide_category_bar_in_playlist", FALSE);
     public static final BooleanSetting HIDE_CATEGORY_BAR_IN_SEARCH = new BooleanSetting("revanced_hide_category_bar_in_search", FALSE, true);
     public static final BooleanSetting HIDE_CATEGORY_BAR_IN_RELATED_VIDEOS = new BooleanSetting("revanced_hide_category_bar_in_related_videos", FALSE, true);
 
@@ -157,18 +159,20 @@ public class Settings extends BaseSettings {
     public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.ORIGINAL, true);
     public static final BooleanSetting CHANGE_START_PAGE_TYPE = new BooleanSetting("revanced_change_start_page_type", FALSE, true,
             new ChangeStartPagePatch.ChangeStartPageTypeAvailability());
-    public static final BooleanSetting DISABLE_AUTO_AUDIO_TRACKS = new BooleanSetting("revanced_disable_auto_audio_tracks", FALSE, new ForceOriginalAudioAvailability());
     public static final BooleanSetting DISABLE_SIGNIN_TO_TV_POPUP = new BooleanSetting("revanced_disable_signin_to_tv_popup", FALSE);
     public static final BooleanSetting DISABLE_SPLASH_ANIMATION = new BooleanSetting("revanced_disable_splash_animation", PatchStatus.SplashAnimation(), true);
     public static final BooleanSetting ENABLE_GRADIENT_LOADING_SCREEN = new BooleanSetting("revanced_enable_gradient_loading_screen", FALSE, true);
     public static final BooleanSetting HIDE_FLOATING_MICROPHONE = new BooleanSetting("revanced_hide_floating_microphone", TRUE, true);
     public static final BooleanSetting HIDE_VISUAL_SPACERS = new BooleanSetting("revanced_hide_visual_spacers", TRUE);
     public static final BooleanSetting REMOVE_VIEWER_DISCRETION_DIALOG = new BooleanSetting("revanced_remove_viewer_discretion_dialog", FALSE);
+    public static final BooleanSetting SET_TRANSCRIPT_COOKIES = new BooleanSetting("revanced_set_transcript_cookies", FALSE, true, "revanced_set_transcript_cookies_user_dialog_message");
+    public static final BooleanSetting SET_TRANSCRIPT_COOKIES_ALL = new BooleanSetting("revanced_set_transcript_cookies_all", FALSE, true, parent(SET_TRANSCRIPT_COOKIES));
+    public static final StringSetting TRANSCRIPT_COOKIES = new StringSetting("revanced_transcript_cookies", "", true, parent(SET_TRANSCRIPT_COOKIES));
 
     public static final EnumSetting<FormFactor> CHANGE_FORM_FACTOR = new EnumSetting<>("revanced_change_form_factor", FormFactor.DEFAULT, true, "revanced_change_form_factor_user_dialog_message");
     public static final BooleanSetting CHANGE_LIVE_RING_CLICK_ACTION = new BooleanSetting("revanced_change_live_ring_click_action", FALSE, true);
     public static final BooleanSetting DISABLE_LAYOUT_UPDATES = new BooleanSetting("revanced_disable_layout_updates", FALSE, true, "revanced_disable_layout_updates_user_dialog_message");
-    public static final BooleanSetting DISABLE_TRANSLUCENT_STATUS_BAR = new BooleanSetting("revanced_disable_translucent_status_bar", FALSE, true, "revanced_disable_translucent_status_bar_user_dialog_message");
+    public static final BooleanSetting DISABLE_TRANSLUCENT_STATUS_BAR = new BooleanSetting("revanced_disable_translucent_status_bar", TRUE, true, "revanced_disable_translucent_status_bar_user_dialog_message");
     public static final BooleanSetting FIX_HYPE_BUTTON_ICON = new BooleanSetting("revanced_fix_hype_button_icon", TRUE, true, "revanced_fix_hype_button_icon_user_dialog_message");
     public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version", FALSE, true, "revanced_spoof_app_version_user_dialog_message");
     public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target", PatchStatus.SpoofAppVersionDefaultString(), true, parent(SPOOF_APP_VERSION));
@@ -473,6 +477,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_ATTRIBUTES_SECTION = new BooleanSetting("revanced_hide_attributes_section", FALSE);
     public static final BooleanSetting HIDE_CHAPTERS_SECTION = new BooleanSetting("revanced_hide_chapters_section", FALSE);
     public static final BooleanSetting HIDE_CONTENTS_SECTION = new BooleanSetting("revanced_hide_contents_section", FALSE);
+    public static final BooleanSetting HIDE_HYPE_POINTS = new BooleanSetting("revanced_hide_hype_points", FALSE);
     public static final BooleanSetting HIDE_PODCAST_SECTION = new BooleanSetting("revanced_hide_podcast_section", FALSE);
     public static final BooleanSetting HIDE_INFO_CARDS_SECTION = new BooleanSetting("revanced_hide_info_cards_section", FALSE);
     public static final BooleanSetting HIDE_KEY_CONCEPTS_SECTION = new BooleanSetting("revanced_hide_key_concepts_section", FALSE);
@@ -718,6 +723,9 @@ public class Settings extends BaseSettings {
     public static final StringSetting SB_CATEGORY_HIGHLIGHT = new StringSetting("sb_highlight", MANUAL_SKIP.reVancedKeyValue);
     public static final StringSetting SB_CATEGORY_HIGHLIGHT_COLOR = new StringSetting("sb_highlight_color", "#FF1684");
     public static final FloatSetting SB_CATEGORY_HIGHLIGHT_OPACITY = new FloatSetting("sb_highlight_opacity", 0.8f);
+    public static final StringSetting SB_CATEGORY_HOOK = new StringSetting("sb_hook", IGNORE.reVancedKeyValue);
+    public static final StringSetting SB_CATEGORY_HOOK_COLOR = new StringSetting("sb_hook_color", "#395699");
+    public static final FloatSetting  SB_CATEGORY_HOOK_OPACITY = new FloatSetting("sb_hook_opacity", 0.8f);
     public static final StringSetting SB_CATEGORY_INTRO = new StringSetting("sb_intro", SKIP_AUTOMATICALLY_ONCE.reVancedKeyValue);
     public static final StringSetting SB_CATEGORY_INTRO_COLOR = new StringSetting("sb_intro_color", "#00FFFF");
     public static final FloatSetting SB_CATEGORY_INTRO_OPACITY = new FloatSetting("sb_intro_opacity", 0.8f);
