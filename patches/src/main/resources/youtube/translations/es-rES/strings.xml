@@ -226,6 +226,11 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_disable_auto_audio_tracks_not_available">Para usar esta función, cambia «Cliente predeterminado (falsificación de datos de transmisión)» a iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Las pistas de audio automáticas forzadas están activadas.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Las pistas de audio automáticas forzadas están desactivadas.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Las pistas de audio automáticas forzadas están desactivadas.
+
+Es posible que esto no funcione para algunos usuarios. Si no funciona para ti:
+1. Ve a Configuración - RVX - Otros - Falsificar datos de transmisión, y activa «Usar cliente JavaScript».
+2. Ve a Configuración - RVX - Otros - Falsificar datos de transmisión, y cambia «Cliente predeterminado» a «TV» o «TV simple»."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Desactivar pistas de audio automáticas forzadas</string>
     <string name="revanced_disable_auto_captions_summary_off">Los subtítulos automáticos forzados están activados.</string>
     <string name="revanced_disable_auto_captions_summary_on">Los subtítulos automáticos forzados están desactivados.</string>
@@ -246,6 +251,9 @@ Configuración → Reproducción automática → Reproducción automática del s
     <string name="revanced_disable_default_playback_speed_music_type_off">La velocidad predeterminada de reproducción está desactivada para los vídeos reproducibles en YouTube Music.</string>
     <string name="revanced_disable_default_playback_speed_music_type_on">La velocidad predeterminada de reproducción se desactiva si la categoría de vídeo es Música.</string>
     <string name="revanced_disable_default_playback_speed_music_type_title">Validar mediante categorías</string>
+    <string name="revanced_disable_drc_audio_summary_off">El audio DRC (compresión de rango dinámico) está activado.</string>
+    <string name="revanced_disable_drc_audio_summary_on">El audio DRC (compresión de rango dinámico) está desactivado.</string>
+    <string name="revanced_disable_drc_audio_title">Desactivar audio DRC</string>
     <string name="revanced_disable_engagement_panel_summary_off">El panel de interacción está activado.</string>
     <string name="revanced_disable_engagement_panel_summary_on">El panel de interacción está desactivado.</string>
     <string name="revanced_disable_engagement_panel_title">Desactivar panel de interacción</string>
@@ -489,6 +497,8 @@ Por favor, descarga %2$s desde el sitio web."</string>
     <string name="revanced_external_downloader_not_installed_warning">%s no está instalado. Por favor, instálalo.</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Nombre del paquete de tu aplicación de descargas externas instalada, como YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nombre del paquete del descargador de listas de reproducción</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_summary">El nombre de paquete de tu descargador externo, como NewPipe o YTDLnis, al mantener pulsado</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_title">Nombre del paquete del descargador de videos al mantener presionado.</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nombre del paquete de tu aplicación de descargas externas instalada, como NewPipe o YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nombre del paquete del descargador de vídeo</string>
     <string name="revanced_fix_hype_button_icon_summary_off">El icono del botón Hypear está oculto.</string>
@@ -513,8 +523,33 @@ Si el ajuste «Reproducción» no funciona, activar este ajuste puede resolver e
 Si el ajuste «Reproducción» sigue sin funcionar incluso después de activar o desactivar este ajuste, debes borrar los datos de la aplicación."</string>
     <string name="revanced_fullscreen_ads_closed_toast">Los anuncios en pantalla completa están cerrados.</string>
     <string name="revanced_gemini_cancelled">Cancelado</string>
+    <string name="revanced_gemini_copy_success">Resumen copiado al portapapeles.</string>
+    <string name="revanced_gemini_error_already_running_summarize">Resumen ya en curso.</string>
+    <string name="revanced_gemini_error_already_running_transcribe">Transcripción ya en curso.</string>
+    <string name="revanced_gemini_error_already_running_yandex_transcribe">Transcripción de Yandex ya en marcha.</string>
+    <string name="revanced_gemini_error_api_failed">Error en la solicitud de la API de Gemini: %s</string>
+    <string name="revanced_gemini_error_dialog_show">Error al mostrar diálogo</string>
+    <string name="revanced_gemini_error_no_api_key">Clave API de Gemini no establecida en las configuraciones de ReVanced Extended.</string>
+    <string name="revanced_gemini_error_no_video">No se pudo obtener una URL del video.</string>
+    <string name="revanced_gemini_error_overlay_display">No se pudo mostrar la superposición de subtítulos.</string>
+    <string name="revanced_gemini_error_transcription_no_raw_data">No hay datos de transcripción sin procesar que analizar.</string>
+    <string name="revanced_gemini_error_transcription_parse">No se pudieron analizar los datos de transcripción.</string>
+    <string name="revanced_gemini_error_translation_failed">Error en la traducción de Gemini,</string>
+    <string name="revanced_gemini_error_translation_parse_failed">Error al analizar la traducción de Gemini.</string>
     <string name="revanced_gemini_error_unknown">Ha ocurrido un error de error desconocido</string>
     <string name="revanced_gemini_loading_default">Cargando...</string>
+    <string name="revanced_gemini_loading_summarize">Resumiendo el video...</string>
+    <string name="revanced_gemini_loading_transcribe">Transcribiendo el video...</string>
+    <string name="revanced_gemini_loading_yandex_transcribe">Yandex: Obteniendo subtítulos...</string>
+    <string name="revanced_gemini_status_translating">Traduciendo con Gemini...\n\n⚠️ Este paso puede fallar si Gemini ignora las instrucciones o alcanza el límite.</string>
+    <string name="revanced_gemini_summary_title">Resumen del video de Gemini</string>
+    <string name="revanced_gemini_time_taken">(Tomó %d segundos)</string>
+    <string name="revanced_gemini_transcribe_bad_token_exception">Habilita \"Mostrar sobre otras aplicaciones\" para mostrar como subtítulos</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">El tamaño de la fuente de los subtítulos transcritos del video. Toca el cuadro de subtítulos para ocultarlo o mantén presionado para arrastrarlo a otra posición.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_title">Tamaño de la fuente de los subtítulos</string>
+    <string name="revanced_gemini_transcription_parse_button">Subtítulos</string>
+    <string name="revanced_gemini_transcription_parse_success">Subtítulos analizados correctamente</string>
+    <string name="revanced_gemini_transcription_result_title">Transcripción del video de Gemini</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista de nombres del menú de la cuenta a filtrar separados por una nueva línea.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtro de menú de cuenta</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">Filtrar si coincide.&lt;br&gt;&lt;br&gt;Para ocultar el menú &lt;b&gt;\'Obtener YouTube Premium\'&lt;/b&gt;, solo puedes utilizar &lt;b&gt;\'Obtener YouTube Premium\'&lt;/b&gt; como palabras claves.</string>
@@ -591,6 +626,9 @@ Información:
     <string name="revanced_hide_category_bar_in_history_summary_off">Se muestra en el historial.</string>
     <string name="revanced_hide_category_bar_in_history_summary_on">Oculto en el historial.</string>
     <string name="revanced_hide_category_bar_in_history_title">Ocultar en el historial</string>
+    <string name="revanced_hide_category_bar_in_playlist_summary_off">Visible en la lista de reproducción.</string>
+    <string name="revanced_hide_category_bar_in_playlist_summary_on">Oculto en la lista de reproducción.</string>
+    <string name="revanced_hide_category_bar_in_playlist_title">Ocultar en lista de reproducción</string>
     <string name="revanced_hide_category_bar_in_related_videos_summary_off">Visible en los vídeos relacionados.</string>
     <string name="revanced_hide_category_bar_in_related_videos_summary_on">Oculto en los vídeos relacionados.</string>
     <string name="revanced_hide_category_bar_in_related_videos_title">Ocultar en vídeos relacionados</string>
@@ -863,7 +901,7 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Ocultar menú \"Modo ambiente\"</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"El menú de la pista de audio está oculto.
 
-Para mostrar el menú de la pista de audio, cambie «Cliente predeterminado (falsificación de datos de transmisión)» a iOS TV."</string>
+Para mostrar el menú de la pista de audio, cambie «Cliente predeterminado (falsificación de datos de transmisión)» a TV o TV simple."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">El menú \"Pista de audio\" está visible.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">El menú \"Pista de audio\" está oculto.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Ocultar menú \"Pista de audio\"</string>
@@ -942,7 +980,7 @@ Para mostrar el menú de la pista de audio, cambie «Cliente predeterminado (fal
     <string name="revanced_hide_preview_comment_type_off">Esto cambia el tamaño de la sección de comentarios, por lo que es imposible abrir una repetición del chat en directo en la sección de comentarios.</string>
     <string name="revanced_hide_preview_comment_type_on">Esto no cambia el tamaño de la sección de comentarios, por lo que es posible abrir la repetición del chat en directo en la sección de comentarios.</string>
     <string name="revanced_hide_preview_comment_type_title">Tipo de ocultación de vista previa de comentarios</string>
-    <string name="revanced_hide_promote_button_summary_off">El botón de Promocionar está visible</string>
+    <string name="revanced_hide_promote_button_summary_off">El botón de Promocionar es visible</string>
     <string name="revanced_hide_promote_button_summary_on">El botón de Promocionar está oculto</string>
     <string name="revanced_hide_promote_button_title">Ocultar pestaña \'Promocionar\'</string>
     <string name="revanced_hide_promotion_alert_banner_summary_off">El banner de alerta de promoción está visible.</string>
@@ -1167,7 +1205,7 @@ Información:
 • Solo se ocultan las estanterías con la cabecera Shorts en la pestaña de inicio."</string>
     <string name="revanced_hide_shorts_shelf_channel_title">Ocultar en canal</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Visible en el historial de reproducciones.</string>
-    <string name="revanced_hide_shorts_shelf_history_summary_on">Oculto en el historial de reproducciones.</string>
+    <string name="revanced_hide_shorts_shelf_history_summary_on">"Oculto en el historial de reproducciones."</string>
     <string name="revanced_hide_shorts_shelf_history_title">Ocultar en historial de reproducciones</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_off">Visible en el feed de inicio y los vídeos relacionados.</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_on">Oculto en el feed de inicio y los vídeos relacionados.</string>
@@ -1598,8 +1636,9 @@ Para mostrar el botón de descarga de la lista de reproducción nativa, activa �
     <string name="revanced_preference_category_import_export_as_file">Importar / Exportar como archivo</string>
     <string name="revanced_preference_category_import_export_as_text">Importar / Exportar como texto</string>
     <string name="revanced_preference_category_ios">iOS</string>
-    <string name="revanced_preference_category_js">JavaScript (todavía en desarrollo)</string>
+    <string name="revanced_preference_category_js">JavaScript</string>
     <string name="revanced_preference_category_keyword_filter">Filtro de palabras clave</string>
+    <string name="revanced_preference_category_no_auth">Sin autenticación</string>
     <string name="revanced_preference_category_others">Otros</string>
     <string name="revanced_preference_category_overlay_buttons">Botones superpuestos</string>
     <string name="revanced_preference_category_patch_information">Información de parches</string>
@@ -1936,6 +1975,8 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_sb_segments_filler_sum">Escenas tangenciales añadidas solo para relleno o humor que no son necesarias para entender el contenido principal del vídeo. No incluye segmentos que proporcionen contexto o detalles de fondo.</string>
     <string name="revanced_sb_segments_highlight">Destacado</string>
     <string name="revanced_sb_segments_highlight_sum">La parte del vídeo que la mayoría de la gente busca.</string>
+    <string name="revanced_sb_segments_hook">Enganche / Saludos</string>
+    <string name="revanced_sb_segments_hook_sum">Tráileres narrados para el próximo vídeo, saludos y despedidas. No incluye secciones que añadan contenido adicional.</string>
     <string name="revanced_sb_segments_interaction">Recordatorio de interacción (suscripción)</string>
     <string name="revanced_sb_segments_interaction_sum">Un breve recordatorio para que des me gusta, te suscribas o les sigas en medio del contenido. Si es largo o trata sobre algo específico, debería ir en la sección de promoción propia.</string>
     <string name="revanced_sb_segments_intro">Interrupción / Animación de introducción</string>
@@ -1965,6 +2006,7 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_sb_skip_button_compact_highlight">Destacado</string>
     <string name="revanced_sb_skip_button_filler">Omitir relleno</string>
     <string name="revanced_sb_skip_button_highlight">Ir a destacado</string>
+    <string name="revanced_sb_skip_button_hook">Omitir enganche</string>
     <string name="revanced_sb_skip_button_interaction">Omitir interacción</string>
     <string name="revanced_sb_skip_button_intro_beginning">Omitir introducción</string>
     <string name="revanced_sb_skip_button_intro_end">Omitir intermedio</string>
@@ -1982,6 +2024,7 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_sb_skip_showbutton">Mostrar botón de omitir</string>
     <string name="revanced_sb_skipped_filler">Relleno omitido.</string>
     <string name="revanced_sb_skipped_highlight">Saltado a destacado.</string>
+    <string name="revanced_sb_skipped_hook">Enganche omitido.</string>
     <string name="revanced_sb_skipped_interaction">Recordatorio molesto omitido.</string>
     <string name="revanced_sb_skipped_intro_beginning">Introducción omitida.</string>
     <string name="revanced_sb_skipped_intro_end">Intermedio omitido.</string>
@@ -2040,6 +2083,26 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_sb_vote_no_segments">No hay segmentos por los cuales votar.</string>
     <string name="revanced_sb_vote_segment_time_to_from">De %1$s a %2$s</string>
     <string name="revanced_sb_vote_upvote">Voto positivo</string>
+    <string name="revanced_set_transcript_cookies_all_summary_off">Las cookies se establecen solo para las solicitudes de subtítulos traducidos automáticamente.</string>
+    <string name="revanced_set_transcript_cookies_all_summary_on">Las cookies se establecen para todas las solicitudes de la API de transcripción.</string>
+    <string name="revanced_set_transcript_cookies_all_title">Establecer cookies para todas las solicitudes de la API de transcripción</string>
+    <string name="revanced_set_transcript_cookies_summary_off">Las cookies de transcripción no se han establecido.</string>
+    <string name="revanced_set_transcript_cookies_summary_on">Las cookies de transcripción se han establecido.</string>
+    <string name="revanced_set_transcript_cookies_title">Establecer cookies de transcripción</string>
+    <string name="revanced_set_transcript_cookies_user_dialog_message">"Actualmente hay un error en YouTube que hace que los subtítulos traducidos automáticamente no estén disponibles.
+
+Se trata de un problema con la API de transcripción de YouTube, y Google debe solucionarlo.
+
+Como solución temporal, puedes resolver este problema estableciendo las cookies.
+
+[Descargo de responsabilidad]
+
+El uso de cookies no es una solución milagrosa.
+
+Puede que no funcione si:
+• Las cookies han caducado.
+• Se están utilizando cookies no válidas.
+• La API de transcripción de YouTube ya no valida las cookies."</string>
     <string name="revanced_settings_search_history_title">Mostrar el historial de búsqueda de ajustes</string>
     <string name="revanced_share_copy_settings_success">Ajustes copiados en el portapapeles.</string>
     <string name="revanced_share_copy_timestamp_success">Marca de tiempo copiada en el portapapeles. (%s)</string>
@@ -2135,21 +2198,36 @@ Información:
 • La alta calidad puede ser desbloqueada en algunos vídeos que requieren altas dimensiones del dispositivo, pero no en todos los vídeos.
 • Este ajuste no está disponible si está activada la opción 'Falsificar datos de streaming'."</string>
     <string name="revanced_spoof_device_dimensions_title">Falsificar dimensiones del dispositivo</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_unplugged">"Android TV
+    <string name="revanced_spoof_streaming_data_audio_track_button_summary_off">No se muestra el botón de pista de audio.</string>
+    <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"El botón de pista de audio se muestra cuando el cliente utilizado para obtener datos de transmisión es «Android VR», «Web móvil» o «visionOS»."</string>
+    <string name="revanced_spoof_streaming_data_audio_track_button_title">Mostrar botón de pista de audio</string>
+    <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Requisitos previos:
+• El cliente utilizado para obtener los datos de transmisión es «Android VR», «Web móvil» o «visionOS».
+• Se está reproduciendo un vídeo con varias pistas de audio.
+
+Problemas conocidos:
+• Si se cambia el idioma de la aplicación en la configuración de YouTube y no se reinicia la aplicación, es posible que el idioma utilizado en el diálogo de la pista de audio no cambie.
+• A veces se selecciona el idioma incorrecto en el diálogo de la pista de audio.
+• Algunas pistas de audio, como «inglés descriptivo», no son compatibles.
+
+Esta función todavía está en desarrollo, por lo que puede fallar en cualquier momento debido a cambios en el servidor."</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio 
 <small>(Inicio de sesión requerido)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_no_auth">"Android VR
-<small>(Sin inicio de sesión)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Obsoleto)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_ios_unplugged">"iOS TV
-<small>(Inicio de sesión requerido)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
+<small>(obsoleto, sin autenticación)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web móvil
 <small>(todavía en desarrollo)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">"TV
-<small>(todavía en desarrollo)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">"TV simple
-<small>(todavía en desarrollo)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV
+<small>(todavía en desarrollo)</small>
+    </string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV simple
+<small>(todavía en desarrollo)</small>
+    </string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
+<small>(no publicado, sin autenticación)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Cliente predeterminado</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">No se han podido obtener las transmisiones de ningún cliente.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Puede que no hayas iniciado sesión.</string>
@@ -2159,6 +2237,7 @@ Información:
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Activar este ajuste podría mejorar la duración de la batería y solucionar el problema de la reproducción entrecortada.
 
 AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está disponible y la reproducción de vídeo utilizará más datos de Internet que VP9 o AV1."</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_title">Idioma predeterminado de la transmisión de audio</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Se priorizan los códecs de vídeo.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Se prioriza la calidad del vídeo.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Priorizar calidad de vídeo</string>
@@ -2203,16 +2282,23 @@ Se utiliza→ 1080p VP9."</string>
 • El volumen estable no está disponible.
 • La opción de desactivar las pistas de audio automáticas forzadas no está disponible.
 • Es posible que los vídeos para niños no se reproduzcan cuando se cierra la sesión o en modo incógnito."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Falta el menú de la pista de audio.
+• El volumen estable no está disponible.
+• Es posible que los vídeos para niños no se reproduzcan cuando se cierra la sesión o en modo incógnito.
+• No se admiten 1080p+, AV1 y HDR."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Falta el menú \"Pista de audio\".
 • \"Regular volumen\" no está disponible."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Falta el menú \"Pista de audio\".
-• \"Regular volumen\" no está disponible."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Falta el menú de la pista de audio.
+• El volumen estable no está disponible.
+• Es posible que los vídeos para niños no se reproduzcan cuando se cierra la sesión o en modo incógnito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Puede haber problemas de reproducción (PoToken requerido).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• El servidor puede bloquear ASN/rangos de IP completos.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Los vídeos pueden terminar 1 segundo antes.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• El volumen estable no está disponible.
 • Es posible que no se reproduzcan películas o vídeos de pago.
 • Es posible que los vídeos para niños no se reproduzcan cuando se cierra la sesión o en modo incógnito."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ipados">"• AV1 no es compatible.
+• El vídeo puede detenerse en 1:00 o no estar disponible en algunas regiones."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Falta el menú de la pista de audio.
 • La opción de desactivar las pistas de audio automáticas forzadas no está disponible.
 • Si la desofuscación falla, la reproducción puede fallar.
@@ -2224,6 +2310,9 @@ Se utiliza→ 1080p VP9."</string>
 • A veces, el vídeo no se reproducirá incluso después de 10 segundos, en cuyo caso deberás pulsar en el botón de recargar vídeo.
 • El vídeo puede comenzar tarde."</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Desconocido</string>
+    <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Falta el menú de la pista de audio.
+• Es posible que los vídeos para niños no se reproduzcan cuando se cierra la sesión o en modo incógnito.
+• Dado que se trata de un cliente no publicado, puede dejar de funcionar en cualquier momento."</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El cliente utilizado para obtener datos de transmisión no se muestra en estadísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">El cliente utilizado para obtener datos de transmisión se muestra en estadísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostrar en estadísticas para nerds</string>
@@ -2240,6 +2329,23 @@ Se utiliza→ 1080p VP9."</string>
 
 • El cliente JavaScript todavía no puede reproducir algunos vídeos."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Usar cliente JavaScript para todos los vídeos</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Pulsa para más información.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">Acerca de búfer falso</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Una de las razones por las que los vídeos se inician demasiado tarde en el cliente de JavaScript se debe a las nuevas medidas de YouTube contra el bloqueo de anuncios.
+
+Cuando se bloquea un anuncio de vídeo, GVS (Google Video Server) genera un búfer falso proporcional a la duración del anuncio (prueba A/B).
+
+uBlock Origin ha encontrado una solución para este problema, que se puede activar a través del ajuste «Omitir búfer falso».
+
+Pulsa en «Abrir» para leer el artículo."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Abrir</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Nuevas medidas de YouTube contra el bloqueo de anuncios"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Omitir búfer falso está desactivado.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Omitir búfer falso está activado.
+
+Limitaciones:
+• Debido a cambios en el servidor, esto puede dejar de funcionar en cualquier momento."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Omitir búfer falso</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">El cliente JavaScript no se ha añadido a los clientes disponibles.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">El cliente JavaScript se ha añadido a los clientes disponibles.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Usar cliente JavaScript</string>
@@ -2255,23 +2361,9 @@ Esta función todavía está en desarrollo, así que úsala solo para fines de d
 
 • Depende en gran medida del servidor, y el éxito o el fracaso de la desofuscación depende del JavaScript que se utilice en el servidor."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">Usar última versión de JavaScript</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_off">El botón de la pista de audio de VR está oculto.</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_on">El botón de la pista de audio de VR está visible.</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_title">Mostrar botón de pista de audio de VR</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_user_dialog_message">"Requisitos previos:
-• El cliente utilizado para obtener los datos de transmisión debe ser «Android VR (sin inicio de sesión)».
-• Se debe estar reproduciendo un vídeo con varias pistas de audio.
-
-Problemas conocidos:
-• Si se cambia el idioma de la aplicación en la configuración de YouTube y no se reinicia la aplicación, es posible que el idioma utilizado en el diálogo de la pista de audio no cambie.
-• A veces se selecciona el idioma incorrecto en el diálogo de la pista de audio.
-• Algunas pistas de audio, como «Inglés descriptivo», no son compatibles.
-
-Esta función todavía está en desarrollo, por lo que puede fallar en cualquier momento debido a cambios en el servidor."</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">El códec de vídeo se determina automáticamente.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">El códec de vídeo es AVC (H.264) o VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Desactivar VR AV1</string>
-    <string name="revanced_spoof_streaming_data_vr_language_title">Idioma por defecto de la transmisión de audio de RV</string>
     <string name="revanced_swipe_brightness_summary_off">El deslizamiento de brillo en pantalla completa está desactivado</string>
     <string name="revanced_swipe_brightness_summary_on">"El deslizamiento de brillo en pantalla completa está activado.
 
@@ -2348,6 +2440,36 @@ Si este ajuste no surte efecto, prueba a cambiar al modo incógnito."</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s no está instalado. Por favor, instálalo.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Nombre del paquete de RVX Music instalado.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nombre del paquete de RVX Music</string>
+    <string name="revanced_transcript_cookies_about_summary">Pulsa para ver cómo obtener cookies.</string>
+    <string name="revanced_transcript_cookies_about_title">Acerca de las cookies de transcripción</string>
+    <string name="revanced_transcript_cookies_dialog_auth_text">Autenticación</string>
+    <string name="revanced_transcript_cookies_dialog_message">"Autenticación
+══════════════
+1. Pulsa en «Autenticación» para abrir la página de inicio de sesión en WebView.
+2. Inicia sesión en tu cuenta de Google.
+3. Reproduce cualquier vídeo que admita subtítulos traducidos automáticamente.
+4. Activa los subtítulos traducidos automáticamente y comprueba si funcionan.
+4-1. Si los subtítulos traducidos automáticamente no funcionan, cambia a otro vídeo que admita subtítulos traducidos automáticamente y vuelve a probar el paso 4.
+5. Pulsa en los tres puntos de la barra de herramientas para abrir el menú contextual.
+6. Pulsa en «Obtener cookies».
+7. Pulsa en «Copiar» para copiar las cookies.
+8. Cierra WebView y pega las cookies copiadas en la configuración de «Cookies de transcripción».
+
+
+Sin autenticación
+══════════════
+1. Pulsa en «Sin autenticación» para abrir el vídeo en WebView.
+2. Reproduce el vídeo durante al menos 3 segundos.
+3. Pulsa en los tres puntos de la barra de herramientas para abrir el menú contextual.
+4. Pulsa en «Obtener cookies».
+5. Pulsa en «Copiar» para copiar las cookies.
+6. Cierra WebView y pega las cookies copiadas en la configuración de «Cookies de transcripción».
+
+Descargo de responsabilidad: las cookies emitidas sin iniciar sesión pueden no ser válidas o pueden tardar en estar disponibles para la API de transcripción."</string>
+    <string name="revanced_transcript_cookies_dialog_no_auth_text">Sin autenticación</string>
+    <string name="revanced_transcript_cookies_dialog_title">Exportar cookies de transcripción</string>
+    <string name="revanced_transcript_cookies_summary">Cookies para usar en solicitudes de la API de transcripción.</string>
+    <string name="revanced_transcript_cookies_title">Cookies de transcripción</string>
     <string name="revanced_watch_history_about_status_blocked">• El historial de reproducciones no funciona.</string>
     <string name="revanced_watch_history_about_status_original">"• Sigue la configuración del historial de reproducciones de la cuenta de Google.
 • Es posible que el historial de reproducciones no funcione debido a DNS o VPN."</string>
@@ -2359,6 +2481,23 @@ Si este ajuste no surte efecto, prueba a cambiar al modo incógnito."</string>
     <string name="revanced_watch_history_type_entry_2">Reemplazar dominio</string>
     <string name="revanced_watch_history_type_entry_3">Bloquear historial de reproducciones</string>
     <string name="revanced_watch_history_type_title">Tipo de historial de reproducciones</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Obtener cookies</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Obtener ID de sincronización de datos</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Obtener datos de visitante</string>
+    <string name="revanced_webview_contextual_menu_refresh">Actualizar</string>
+    <string name="revanced_webview_cookies">Cookies</string>
+    <string name="revanced_webview_copy">Copiar</string>
+    <string name="revanced_webview_data_sync_id">ID de sincronización de datos</string>
+    <string name="revanced_webview_intent_clear_cookies_on_shutdown">Borrar cookies al apagar</string>
+    <string name="revanced_webview_intent_clear_cookies_on_startup">Borrar cookies al iniciar</string>
+    <string name="revanced_webview_intent_use_desktop_user_agent">Usar agente de usuario de escritorio</string>
+    <string name="revanced_webview_summary">Abre WebView para obtener cookies.</string>
+    <string name="revanced_webview_title">WebView</string>
+    <string name="revanced_webview_toast_copy_success">%s copiado al portapapeles.</string>
+    <string name="revanced_webview_toast_empty">%s está vacío.</string>
+    <string name="revanced_webview_toast_no_network">Comprueba tu conexión a Internet.</string>
+    <string name="revanced_webview_toast_unavailable">WebView no está disponible.</string>
+    <string name="revanced_webview_visitor_data">Datos de visitante</string>
     <string name="revanced_whitelist_add_failed">Error al añadir el canal %1$s a la lista blanca %2$s.</string>
     <string name="revanced_whitelist_added">El canal %1$s se agregó a la lista blanca %2$s.</string>
     <string name="revanced_whitelist_empty">No hay canales en esta lista.</string>

@@ -5,6 +5,7 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.patch.PatchList.ENABLE_DEBUG_LOGGING
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.patches.youtube.utils.webview.webViewPatch
 
 @Suppress("unused")
 val debuggingPatch = bytecodePatch(
@@ -13,7 +14,10 @@ val debuggingPatch = bytecodePatch(
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
-    dependsOn(settingsPatch)
+    dependsOn(
+        settingsPatch,
+        webViewPatch,
+    )
 
     execute {
 

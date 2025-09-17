@@ -35,20 +35,3 @@ internal fun indexOfInvalidateInstruction(method: Method) =
     method.indexOfFirstInstructionReversed {
         getReference<MethodReference>()?.name == "invalidate"
     }
-
-internal val adProgressTextViewVisibilityFingerprint = legacyFingerprint(
-    name = "adProgressTextViewVisibilityFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("Z"),
-    customFingerprint = { method, _ ->
-        indexOfAdProgressTextViewVisibilityInstruction(method) >= 0
-    }
-)
-
-internal fun indexOfAdProgressTextViewVisibilityInstruction(method: Method) =
-    method.indexOfFirstInstructionReversed {
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>()?.toString() ==
-                "Lcom/google/android/libraries/youtube/ads/player/ui/AdProgressTextView;->setVisibility(I)V"
-    }

@@ -62,11 +62,11 @@ public class ThrottlingParameterUtils {
     /**
      * Hardcoded javascript url path (Mobile Web).
      */
-    private static final String PLAYER_JS_HARDCODED_URL_PATH_MOBILE_WEB = "3d3ba064";
+    private static final String PLAYER_JS_HARDCODED_URL_PATH_MOBILE_WEB = "4f8fa943";
     /**
      * Hardcoded javascript url path (TV).
      */
-    private static final String PLAYER_JS_HARDCODED_URL_PATH_TV = "6742b2b9";
+    private static final String PLAYER_JS_HARDCODED_URL_PATH_TV = "9bae1a63";
     /**
      * Regular expression pattern to find variables used in JavaScript url.
      */
@@ -91,7 +91,7 @@ public class ThrottlingParameterUtils {
      * User-agent (Mobile Web).
      */
     private static final String USER_AGENT_MOBILE_WEB =
-            "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML; like Gecko) FxiOS/98.2  Mobile/15E148 Safari/605.1.15";
+            "Mozilla/5.0 (Android 16; Mobile; rv:140.0) Gecko/140.0 Firefox/140.0";
     /**
      * User-agent (TV).
      */
@@ -627,7 +627,7 @@ public class ThrottlingParameterUtils {
             if (!deobfuscatedNParams.isEmpty()) {
                 // If the 'n' parameter obfuscation was successful, put it in the map.
                 nParamMap.putIfAbsent(obfuscatedNParams, deobfuscatedNParams);
-                Logger.printDebug(() -> "Deobfuscated the 'n' parameter, videoId: " + videoId + ", deobfuscatedNParams: " + deobfuscatedNParams);
+                Logger.printDebug(() -> "Deobfuscated the 'n' parameter, videoId: " + videoId + ", obfuscatedNParams: " + obfuscatedNParams + ", deobfuscatedNParams: " + deobfuscatedNParams);
                 return deobfuscatedUrl;
             }
         } catch (Exception ex) {

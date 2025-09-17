@@ -221,6 +221,10 @@ internal enum class PatchList(
         "Seekbar components",
         "Adds options to hide or change components related to the seekbar."
     ),
+    SET_TRANSCRIPT_COOKIES(
+        "Set Transcript Cookies",
+        "Adds an option to set Cookies in YouTube Transcript API requests."
+    ),
     SETTINGS_FOR_YOUTUBE(
         "Settings for YouTube",
         "Applies mandatory patches to implement ReVanced Extended settings into the application."
@@ -240,10 +244,6 @@ internal enum class PatchList(
     SPOOF_APP_VERSION(
         "Spoof app version",
         "Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features."
-    ),
-    SPOOF_STREAMING_DATA(
-        "Spoof streaming data",
-        "Adds options to spoof the streaming data to allow playback."
     ),
     SWIPE_CONTROLS(
         "Swipe controls",

@@ -1,6 +1,6 @@
 package app.revanced.extension.youtube.patches.spoof;
 
-import static app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest.getLastSpoofedAudioClientIsAndroidVRNoAuth;
+import static app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest.getLastSpoofedClientIsNoAuth;
 
 import android.content.Context;
 import android.widget.LinearLayout;
@@ -35,7 +35,7 @@ import kotlin.Pair;
 @SuppressWarnings("unused")
 public class AudioTrackPatch extends SpoofStreamingDataPatch {
     private static final boolean SPOOF_STREAMING_DATA_AUDIO_TRACK_BUTTON =
-            SPOOF_STREAMING_DATA && Settings.SPOOF_STREAMING_DATA_VR_AUDIO_TRACK_BUTTON.get();
+            SPOOF_STREAMING_DATA && Settings.SPOOF_STREAMING_DATA_AUDIO_TRACK_BUTTON.get();
 
     @NonNull
     private static String audioTrackId = "";
@@ -90,10 +90,10 @@ public class AudioTrackPatch extends SpoofStreamingDataPatch {
             if (Objects.equals(videoId, newlyLoadedVideoId)) {
                 return;
             }
-            // Only 'Android VR (No auth)' can change the audio track language when fetching.
-            // Check if the last spoofed client is 'Android VR (No auth)'.
-            if (!getLastSpoofedAudioClientIsAndroidVRNoAuth()) {
-                Logger.printDebug(() -> "Video is not Android VR No Auth");
+            // Only 'No auth' can change the audio track language when fetching.
+            // Check if the last spoofed client is 'No auth'.
+            if (!getLastSpoofedClientIsNoAuth()) {
+                Logger.printDebug(() -> "Video is not No Auth");
                 return;
             }
 
@@ -127,11 +127,11 @@ public class AudioTrackPatch extends SpoofStreamingDataPatch {
     /**
      * Injection point.
      * In general, the value of audioTrackId is not constant because all audioTrackIds are called.
-     * Since the patch has a prerequisite of using 'Android VR (No auth)', the value of the current audioTrackId is always used.
+     * Since the patch has a prerequisite of using 'No auth', the value of the current audioTrackId is always used.
      */
     public static void setAudioTrackId(String newlyLoadedAudioTrackId) {
         if (SPOOF_STREAMING_DATA_AUDIO_TRACK_BUTTON &&
-                getLastSpoofedAudioClientIsAndroidVRNoAuth() &&
+                getLastSpoofedClientIsNoAuth() &&
                 newlyLoadedAudioTrackId != null &&
                 newlyLoadedAudioTrackId.contains(".") &&
                 !audioTrackId.equals(newlyLoadedAudioTrackId)
@@ -166,7 +166,7 @@ public class AudioTrackPatch extends SpoofStreamingDataPatch {
 
         LinearLayout mainLayout = ExtendedUtils.prepareMainLayout(context);
         Map<LinearLayout, Runnable> actionsMap = new LinkedHashMap<>(displayNames.length);
-        EnumSetting<AppLanguage> appLanguage = BaseSettings.SPOOF_STREAMING_DATA_VR_LANGUAGE;
+        EnumSetting<AppLanguage> appLanguage = BaseSettings.SPOOF_STREAMING_DATA_NO_AUTH_LANGUAGE;
 
         int checkIconId = ResourceUtils.getDrawableIdentifier("quantum_ic_check_white_24");
 
@@ -185,9 +185,6 @@ public class AudioTrackPatch extends SpoofStreamingDataPatch {
                 // Due to structural limitations of the YouTube app, the url of a video that is already playing will not be opened.
                 // As a workaround, the video should be forcefully dismissed.
                 VideoUtils.reloadVideo(videoId);
-
-                // If the video has been reloaded, initialize the [overrideLanguage] field of the [StreamingDataRequest] class.
-                ExtendedUtils.runOnMainThreadDelayed(() -> StreamingDataRequest.overrideLanguage(""), 3000L);
             };
 
             LinearLayout itemLayout =

@@ -233,6 +233,11 @@ Limitation: Back button on the toolbar may not work."</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">To use this feature, change \'Default client (Spoof streaming data)\' to TV, TV Simply or iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Forced auto audio tracks are enabled.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Forced auto audio tracks are disabled.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Forced auto audio tracks are disabled.
+
+This may not work for some users, if it doesn't work for you:
+1. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use JavaScript client'.
+2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV' or 'TV Simply'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disable forced auto audio tracks</string>
     <string name="revanced_disable_auto_captions_summary_off">Forced auto captions are enabled.</string>
     <string name="revanced_disable_auto_captions_summary_on">Forced auto captions are disabled.</string>
@@ -253,6 +258,9 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_disable_default_playback_speed_music_type_off">Default playback speed is disabled for videos playable on YouTube Music.</string>
     <string name="revanced_disable_default_playback_speed_music_type_on">Default playback speed is disabled if the video category is Music.</string>
     <string name="revanced_disable_default_playback_speed_music_type_title">Validate using categories</string>
+    <string name="revanced_disable_drc_audio_summary_off">DRC (Dynamic Range Compression) audio is enabled.</string>
+    <string name="revanced_disable_drc_audio_summary_on">DRC (Dynamic Range Compression) audio is disabled.</string>
+    <string name="revanced_disable_drc_audio_title">Disable DRC audio</string>
     <string name="revanced_disable_engagement_panel_summary_off">Engagement panel is enabled.</string>
     <string name="revanced_disable_engagement_panel_summary_on">Engagement panel is disabled.</string>
     <string name="revanced_disable_engagement_panel_title">Disable engagement panel</string>
@@ -460,10 +468,7 @@ Limitation: Does not work if the player is minimized, in PiP mode, or in backgro
     <string name="revanced_expand_video_description_summary_on">Video descriptions expand automatically.</string>
     <string name="revanced_expand_video_description_title">Expand video descriptions</string>
     <string name="revanced_extended_audio_tracks_unavailable">"This setting is currently unavailable.
-To use this feature, change 'Default client (Spoof streaming data)' to iOS TV, TV or TV Simply.
-
-Note:
-• iOS TV is not available in some regions, in which case this setting may still not work."</string>
+To use this feature, change 'Default client (Spoof streaming data)' to TV or TV Simply."</string>
     <string name="revanced_extended_confirm_user_dialog_title">Are you sure you want to proceed?</string>
     <string name="revanced_extended_reset_to_default_toast">Reset to default values.</string>
     <string name="revanced_extended_restart">Restart</string>
@@ -633,6 +638,9 @@ Info:
     <string name="revanced_hide_category_bar_in_history_summary_off">Shown in watch history.</string>
     <string name="revanced_hide_category_bar_in_history_summary_on">Hidden in watch history.</string>
     <string name="revanced_hide_category_bar_in_history_title">Hide in watch history</string>
+    <string name="revanced_hide_category_bar_in_playlist_summary_off">Shown in playlist.</string>
+    <string name="revanced_hide_category_bar_in_playlist_summary_on">Hidden in playlist.</string>
+    <string name="revanced_hide_category_bar_in_playlist_title">Hide in playlist</string>
     <string name="revanced_hide_category_bar_in_related_videos_summary_off">Shown in related videos.</string>
     <string name="revanced_hide_category_bar_in_related_videos_summary_on">Hidden in related videos.</string>
     <string name="revanced_hide_category_bar_in_related_videos_title">Hide in related videos</string>
@@ -771,6 +779,9 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_hide_hype_button_summary_off">Hype button is shown.</string>
     <string name="revanced_hide_hype_button_summary_on">Hype button is hidden.</string>
     <string name="revanced_hide_hype_button_title">Hide Hype button</string>
+    <string name="revanced_hide_hype_points_summary_off">Hype points are shown.</string>
+    <string name="revanced_hide_hype_points_summary_on">Hype points are hidden.</string>
+    <string name="revanced_hide_hype_points_title">Hide Hype points</string>
     <string name="revanced_hide_image_search_button_summary_off">Image search button is shown.</string>
     <string name="revanced_hide_image_search_button_summary_on">Image search button is hidden.</string>
     <string name="revanced_hide_image_search_button_title">Hide image search button</string>
@@ -910,7 +921,9 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Hide Ambient mode menu</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Audio track menu is hidden.
 
-To show the Audio track menu, change \'Default client (Spoof streaming data)\' to TV, TV Simply or iOS TV."</string>
+To show the Audio track menu:
+1. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use JavaScript client'.
+2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV' or 'TV Simply'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Audio track menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Audio track menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Hide Audio track menu</string>
@@ -1050,6 +1063,9 @@ If the layout of the player screen changes due to server-side changes, unintende
     <string name="revanced_hide_search_term_thumbnail_summary_off">Thumbnails in search term history are shown.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Thumbnails in search term history are hidden.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Hide search term thumbnails</string>
+    <string name="revanced_hide_section_header_in_feed_summary_off">Subscriptions section header is shown.\n\nThe Subscriptions section header includes \'Visit Community\' and \'Visit Channel\' buttons when clicking on a subscribed channel\’s icon in the Subscriptions section.</string>
+    <string name="revanced_hide_section_header_in_feed_summary_on">Subscriptions section header is hidden.\n\nThe Subscriptions section header includes \'Visit Community\' and \'Visit Channel\' buttons when clicking on a subscribed channel\’s icon in the Subscriptions section.</string>
+    <string name="revanced_hide_section_header_in_feed_title">Hide subscriptions section header</string>
     <string name="revanced_hide_seek_message_summary_off">Seek message is shown.</string>
     <string name="revanced_hide_seek_message_summary_on">Seek message is hidden.</string>
     <string name="revanced_hide_seek_message_title">Hide seek message</string>
@@ -1223,7 +1239,9 @@ If the layout of the player screen changes due to server-side changes, unintende
 Info: Only shelves with the Shorts header on the Home tab are hidden."</string>
     <string name="revanced_hide_shorts_shelf_channel_title">Hide in channel page</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Shown in watch history.</string>
-    <string name="revanced_hide_shorts_shelf_history_summary_on">Hidden in watch history.</string>
+    <string name="revanced_hide_shorts_shelf_history_summary_on">"Hidden in watch history.
+
+Side effect: Watch history shelf in the You tab may be hidden."</string>
     <string name="revanced_hide_shorts_shelf_history_title">Hide in watch history</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_off">Shown in Home feed and related videos.</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_on">Hidden in Home feed and related videos.</string>
@@ -1685,6 +1703,7 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_category_ios">iOS</string>
     <string name="revanced_preference_category_js">JavaScript</string>
     <string name="revanced_preference_category_keyword_filter">Keyword filter</string>
+    <string name="revanced_preference_category_no_auth">No Auth</string>
     <string name="revanced_preference_category_others">Others</string>
     <string name="revanced_preference_category_overlay_buttons">Overlay buttons</string>
     <string name="revanced_preference_category_patch_information">Patch information</string>
@@ -2022,10 +2041,12 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_new_segment_title">New SponsorBlock segment</string>
     <string name="revanced_sb_reset">Reset</string>
     <string name="revanced_sb_reset_color">Reset color</string>
-    <string name="revanced_sb_segments_filler">Filler Tangent / Jokes</string>
-    <string name="revanced_sb_segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. Does not include segments providing context or background details.</string>
+    <string name="revanced_sb_segments_filler">Tangent / Jokes</string>
+    <string name="revanced_sb_segments_filler_sum">Tangential scenes or jokes that are not required to understand the main content of the video. Does not include sections providing context or background details.</string>
     <string name="revanced_sb_segments_highlight">Highlight</string>
     <string name="revanced_sb_segments_highlight_sum">The part of the video that most people are looking for.</string>
+    <string name="revanced_sb_segments_hook">Hook / Greetings</string>
+    <string name="revanced_sb_segments_hook_sum">Narrated trailers for the upcoming video, greetings and goodbyes. Does not include sections that add additional content.</string>
     <string name="revanced_sb_segments_interaction">Interaction Reminder (Subscribe)</string>
     <string name="revanced_sb_segments_interaction_sum">A short reminder to like, subscribe, or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion.</string>
     <string name="revanced_sb_segments_intro">Intermission / Intro Animation</string>
@@ -2034,7 +2055,7 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_segments_nomusic_sum">Only for use in music videos. Sections of music videos without music, that aren\'t already covered by another category.</string>
     <string name="revanced_sb_segments_outro">Endcards / Credits</string>
     <string name="revanced_sb_segments_outro_sum">Credits or when the YouTube endcards appear. Not for conclusions with information.</string>
-    <string name="revanced_sb_segments_preview">Preview / Recap / Hook</string>
+    <string name="revanced_sb_segments_preview">Preview / Recap</string>
     <string name="revanced_sb_segments_preview_sum">Collection of clips that show what is coming up or what happened in the video or in other videos of a series, where all information is repeated elsewhere.</string>
     <string name="revanced_sb_segments_selfpromo">Unpaid / Self Promotion</string>
     <string name="revanced_sb_segments_selfpromo_sum">Similar to Sponsor, except for unpaid or self promotion. Includes sections about merchandise, donations, or information about who they collaborated with.</string>
@@ -2053,8 +2074,9 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_skip_automatically_once">Skip automatically once</string>
     <string name="revanced_sb_skip_button_compact">Skip</string>
     <string name="revanced_sb_skip_button_compact_highlight">Highlight</string>
-    <string name="revanced_sb_skip_button_filler">Skip filler</string>
+    <string name="revanced_sb_skip_button_filler">Skip tangent</string>
     <string name="revanced_sb_skip_button_highlight">Skip to highlight</string>
+    <string name="revanced_sb_skip_button_hook">Skip hook</string>
     <string name="revanced_sb_skip_button_interaction">Skip interact</string>
     <string name="revanced_sb_skip_button_intro_beginning">Skip intro</string>
     <string name="revanced_sb_skip_button_intro_end">Skip intermission</string>
@@ -2070,8 +2092,9 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_skip_ignore">Disable</string>
     <string name="revanced_sb_skip_seekbaronly">Show in seekbar</string>
     <string name="revanced_sb_skip_showbutton">Show a skip button</string>
-    <string name="revanced_sb_skipped_filler">Skipped filler.</string>
+    <string name="revanced_sb_skipped_filler">Skipped tangent.</string>
     <string name="revanced_sb_skipped_highlight">Skipped to highlight.</string>
+    <string name="revanced_sb_skipped_hook">Skipped hook.</string>
     <string name="revanced_sb_skipped_interaction">Skipped annoying reminder.</string>
     <string name="revanced_sb_skipped_intro_beginning">Skipped intro.</string>
     <string name="revanced_sb_skipped_intro_end">Skipped intermission.</string>
@@ -2143,6 +2166,26 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_search_settings_no_results_summary">Try a different search term.</string>
     <string name="revanced_search_settings_no_results_title">No results found for \"%1$s\"</string>
     <string name="revanced_search_title">Search</string>
+    <string name="revanced_set_transcript_cookies_all_summary_off">Cookies are set only for auto-translated subtitle requests.</string>
+    <string name="revanced_set_transcript_cookies_all_summary_on">Cookies are set for all Transcript API requests.</string>
+    <string name="revanced_set_transcript_cookies_all_title">Set Cookies for all Transcript API requests</string>
+    <string name="revanced_set_transcript_cookies_summary_off">Transcript Cookies are not set.</string>
+    <string name="revanced_set_transcript_cookies_summary_on">Transcript Cookies are set.</string>
+    <string name="revanced_set_transcript_cookies_title">Set Transcript Cookies</string>
+    <string name="revanced_set_transcript_cookies_user_dialog_message">"There is currently a bug on YouTube where auto-translated subtitles are unavailable.
+
+This is an issue with the YouTube Transcript API, and Google needs to fix it.
+
+As a temporary workaround, you can resolve this issue by setting Cookies.
+
+[Disclaimer]
+
+Using Cookies is not a silver bullet.
+
+This may not work if:
+• Cookies have expired.
+• Invalid Cookies are being used.
+• YouTube Transcript API no longer validates Cookies."</string>
     <string name="revanced_settings_search_highlight_color_summary">Set the highlight color for matched text in search results.</string>
     <string name="revanced_settings_search_highlight_color_title">Search highlight color</string>
     <string name="revanced_settings_search_highlight_summary">Highlight matched text in search results with the selected color.</string>
@@ -2250,24 +2293,36 @@ Info:
 • High quality may be unlocked on some videos that require high device dimensions, but not all videos.
 • This setting is not available if 'Spoof streaming data' is turned on."</string>
     <string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_unplugged">"Android TV
+    <string name="revanced_spoof_streaming_data_audio_track_button_summary_off">Audio track button is not shown.</string>
+    <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"Audio track button is shown when the client used to fetch streaming data is 'Android VR', 'Mobile Web', or 'visionOS'."</string>
+    <string name="revanced_spoof_streaming_data_audio_track_button_title">Show audio track button</string>
+    <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Prerequisites:
+• The client used to fetch the streaming data is 'Android VR', 'Mobile Web', 'iPadOS', or 'visionOS'.
+• A video with multiple audio tracks is being played.
+
+Known issues:
+• If the app language is changed in YouTube settings and the app is not restarted, the language used in audio track dialog may not change.
+• Sometimes the wrong language is selected in audio track dialog.
+• Some audio tracks, such as 'English descriptive', are not supported.
+
+This feature is still in development, so it may break at any time due to server-side changes."</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Login required)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_no_auth">"Android VR
-<small>(No auth)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
+<small>(No Auth)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Deprecated)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_ios_unplugged">"iOS TV
-<small>(Login required)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
+<small>(Outdated, No Auth)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
-<small>(WIP)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">"TV
-<small>(WIP)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">"TV Simply
-<small>(WIP)</small>"</string>
+<small>(WIP, No Auth)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
+<small>(Unreleased, No Auth)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">You may not be logged in.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Try changing the default client to TV or TV Simply.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Video codec is determined automatically.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Video codec is forced to AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Force iOS AVC (H.264)</string>
@@ -2275,6 +2330,7 @@ Info:
 
 AVC has a maximum resolution of 1080p, Opus audio codec is not available, and video playback will use more internet data than VP9 or AV1."</string>
     <string name="revanced_spoof_streaming_data_message">If you experience any playback issues, enable \"Spoof streaming data\" in &lt;i&gt;&lt;u&gt;Settings &gt; %s &gt; Miscellaneous &gt; Spoof streaming data&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_title">Default audio stream language</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Video codecs are prioritized.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Video quality is prioritized.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Prioritize video quality</string>
@@ -2319,10 +2375,15 @@ Example 2:
 • Disable forced auto audio tracks is not available.
 • Stable volume is not available.
 • Kids videos may not play when logged out or in incognito mode."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Audio track menu is missing.
+• Stable volume is not available.
+• Kids videos may not play when logged out or in incognito mode.
+• 1080p+, AV1, and HDR are not supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Audio track menu is missing.
 • Stable volume is not available."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Audio track menu is missing.
-• Stable volume is not available."</string>
+• Stable volume is not available.
+• Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• There may be playback issues (PoToken required).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
@@ -2333,8 +2394,9 @@ Example 2:
 • Stable volume is not available.
 • Movies or paid videos may not play.
 • Kids videos may not play when logged out or in incognito mode."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ipados">"• AV1 is not supported.
+• Video may stop at 1:00, or may not be available in some regions."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Audio track menu is missing.
-• Disable forced auto audio tracks is not available.
 • If deobfuscation fails, playback may fail.
 • Sometimes the video will not play even after 10 seconds, in which case you'll need to click the reload video button.
 • Video may start late."</string>
@@ -2343,13 +2405,16 @@ Example 2:
 • Sometimes the video will not play even after 10 seconds, in which case you'll need to click the reload video button.
 • Video may start late."</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Unknown</string>
+    <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Audio track menu is missing.
+• Kids videos may not play when logged out or in incognito mode.
+• Since this is an unreleased client, it may stop working at any time."</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client used to fetch streaming data is hidden in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client used to fetch streaming data is shown in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Streaming data is not spoofed. Video playback may not work."</string>
     <string name="revanced_spoof_streaming_data_summary_on">"Streaming data is spoofed.
 
-If you are a YouTube Premium user or have excluded the 'GmsCore support' patch, this setting may not be necessary."</string>
+If you are a YouTube Premium user, this setting may not be necessary."</string>
     <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
     <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"JavaScript client is not used for some videos that require fast playback:
@@ -2361,12 +2426,33 @@ If you are a YouTube Premium user or have excluded the 'GmsCore support' patch, 
 
 • JavaScript client still cannot play some videos."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Use JavaScript client for all videos</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Click for more information.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">About fake buffering</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"One reason videos start too late in the JavaScript client is due to YouTube's new anti-adblock measures.
+
+When a video ad is blocked, GVS (Google Video Server) generate fake buffering proportional to the ad duration (A/B testing).
+
+uBlock Origin has found a workaround for this issue, which can be enabled via the 'Bypass fake buffering' setting.
+
+Click 'Open' to read the article."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Open</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"YouTube's new anti-adblock measures"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Bypass fake buffering is disabled.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Bypass fake buffering is enabled.
+
+Limitations:
+• Due to server-side changes, this may stop working at any time."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Bypass fake buffering</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">JavaScript client not added to available clients.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">JavaScript client added to the available clients.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Use JavaScript client</string>
-    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"The app uses more system resources to find or decode the n-sig pattern, and the video starts more slowly.
+    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"JavaScript clients may experience a slight delay in starting the video due to the requirement to decode the n-sig pattern.
 
-The n-sig pattern changes quite frequently on YouTube servers, and playback may fail if the regex fails to find the n-sig pattern.
+Occasionally, the n-sig pattern fails to be decoded, causing the video to start late or the video stream to stutter.
+
+This can be easily resolved by clicking the 'Reload video button' in the player to reload the video.
+
+(Prerequisites: Both 'Show reload video button' and 'Always show reload video button' are enabled)
 
 Among JavaScript clients, the recommended client is TV Simply."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"JavaScript for deobfuscation is not kept up to date.
@@ -2376,23 +2462,9 @@ Among JavaScript clients, the recommended client is TV Simply."</string>
 
 • It is highly server-dependent, and the success or failure of deobfuscation depends on the JavaScript currently used on the server."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">Use latest JavaScript</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_off">VR audio track button is not shown.</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_summary_on">VR audio track button is shown.</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_title">Show VR audio track button</string>
-    <string name="revanced_spoof_streaming_data_vr_audio_track_button_user_dialog_message">"Prerequisites:
-• The audio client used to fetch the streaming data is 'Android VR (No auth)'.
-• A video with multiple audio tracks is being played.
-
-Known issues:
-• If the app language is changed in YouTube settings and the app is not restarted, the language used in audio track dialog may not change.
-• Sometimes the wrong language is selected in audio track dialog.
-• Some audio tracks, such as 'English descriptive', are not supported.
-
-This feature is still in development, so it may break at any time due to server-side changes."</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Video codec is determined automatically.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Video codec is AVC (H.264) or VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Disable VR AV1</string>
-    <string name="revanced_spoof_streaming_data_vr_language_title">VR default audio stream language</string>
     <string name="revanced_swipe_brightness_distance_summary">The amount of pixels to swipe to change the brightness. Lower values make the brightness change faster, higher values make it slower (1-1000).</string>
     <string name="revanced_swipe_brightness_distance_title">Brightness distance</string>
     <string name="revanced_swipe_brightness_summary_off">Fullscreen brightness swipe is disabled</string>
@@ -2495,6 +2567,36 @@ If this setting do not take effect, try switching to Incognito mode."</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s is not installed. Please install it.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Package name of installed RVX Music.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music package name</string>
+    <string name="revanced_transcript_cookies_about_summary">Click to see how to get Cookies.</string>
+    <string name="revanced_transcript_cookies_about_title">About Transcript Cookies</string>
+    <string name="revanced_transcript_cookies_dialog_auth_text">Auth</string>
+    <string name="revanced_transcript_cookies_dialog_message">"Auth
+══════════════
+1. Click 'Auth' to open the sign in page in WebView.
+2. Sign in to your Google Account.
+3. Plays any video that supports auto-translated subtitles.
+4. Turn on auto-translated subtitles and see if it works.
+4-1. If auto-translated subtitles don't work, switch to another video that supports auto-translated subtitles and try step 4 again.
+5. Click the three dots on the toolbar to open the contextual menu.
+6. Click 'Get Cookies'.
+7. Click 'Copy' to copy the Cookies.
+8. Close WebView and paste the copied Cookies into the 'Transcript Cookies' settings.
+
+
+No Auth
+══════════════
+1. Click 'No Auth' to open the video in WebView.
+2. Play the video for at least 3 seconds.
+3. Click the three dots on the toolbar to open the contextual menu.
+4. Click 'Get Cookies'.
+5. Click 'Copy' to copy the Cookies.
+6. Close WebView and paste the copied Cookies into the 'Transcript Cookies' settings.
+
+Disclaimer: Cookies issued without signing in may be invalid or may take time to become available to the Transcript API."</string>
+    <string name="revanced_transcript_cookies_dialog_no_auth_text">No Auth</string>
+    <string name="revanced_transcript_cookies_dialog_title">Export Transcript Cookies</string>
+    <string name="revanced_transcript_cookies_summary">Cookies to use in Transcript API requests.</string>
+    <string name="revanced_transcript_cookies_title">Transcript Cookies</string>
     <string name="revanced_watch_history_about_status_blocked">• Watch history is blocked.</string>
     <string name="revanced_watch_history_about_status_original">"• Follows the watch history settings of Google account.
 • Watch history may not work due to DNS or VPN."</string>
@@ -2506,6 +2608,23 @@ If this setting do not take effect, try switching to Incognito mode."</string>
     <string name="revanced_watch_history_type_entry_2">Replace domain</string>
     <string name="revanced_watch_history_type_entry_3">Block watch history</string>
     <string name="revanced_watch_history_type_title">Watch history type</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Get Cookies</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Get Data Sync Id</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Get Visitor Data</string>
+    <string name="revanced_webview_contextual_menu_refresh">Refresh</string>
+    <string name="revanced_webview_cookies">Cookies</string>
+    <string name="revanced_webview_copy">Copy</string>
+    <string name="revanced_webview_data_sync_id">Data Sync Id</string>
+    <string name="revanced_webview_intent_clear_cookies_on_shutdown">Clear Cookies on Shutdown</string>
+    <string name="revanced_webview_intent_clear_cookies_on_startup">Clear Cookies on Startup</string>
+    <string name="revanced_webview_intent_use_desktop_user_agent">Use Desktop User-Agent</string>
+    <string name="revanced_webview_summary">Open WebView to get Cookies.</string>
+    <string name="revanced_webview_title">WebView</string>
+    <string name="revanced_webview_toast_copy_success">%s copied to clipboard.</string>
+    <string name="revanced_webview_toast_empty">%s is empty.</string>
+    <string name="revanced_webview_toast_no_network">Please check your network connection.</string>
+    <string name="revanced_webview_toast_unavailable">WebView is not available.</string>
+    <string name="revanced_webview_visitor_data">Visitor Data</string>
     <string name="revanced_whitelist_add_failed">Failed to add channel \'%1$s\' to the %2$s whitelist.</string>
     <string name="revanced_whitelist_added">Channel \'%1$s\' was added to the %2$s whitelist.</string>
     <string name="revanced_whitelist_empty">There are no whitelisted channels.</string>

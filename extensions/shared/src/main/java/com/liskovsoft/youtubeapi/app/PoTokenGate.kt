@@ -9,9 +9,9 @@ internal object PoTokenGate {
 
     @JvmStatic
     fun getContentPoToken(videoId: String): String? {
-        if (!isPotSupported()) return null
+        if (!PoTokenProviderImpl.isPotSupported) return null
 
-        if (mNpPoToken?.videoId == videoId && !isExpired()) {
+        if (mNpPoToken?.videoId == videoId && !PoTokenProviderImpl.isExpired) {
             return mNpPoToken?.playerRequestPoToken
         }
 
@@ -22,9 +22,9 @@ internal object PoTokenGate {
 
     @JvmStatic
     fun getSessionPoToken(videoId: String): String? {
-        if (!isPotSupported()) return null
+        if (!PoTokenProviderImpl.isPotSupported) return null
 
-        if (mNpPoToken?.videoId == videoId && !isExpired()) {
+        if (mNpPoToken?.videoId == videoId) {
             val streamingDataPoToken = mNpPoToken!!.streamingDataPoToken
             if (streamingDataPoToken != null) {
                 mNpPoToken = null
@@ -47,24 +47,24 @@ internal object PoTokenGate {
 
     @JvmStatic
     fun updatePoToken() {
-        if (isPotSupported()) {
+        if (PoTokenProviderImpl.isPotSupported) {
             //mNpPoToken = null // only refresh
             mNpPoToken = PoTokenProviderImpl.getWebClientPoToken("") // refresh and preload
         }
     }
 
     @JvmStatic
-    fun getVisitorData(): String? {
-        if (!isPotSupported()) return null
+    fun getVisitorData(videoId: String): String? {
+        if (!PoTokenProviderImpl.isPotSupported) return null
+
+        if (mNpPoToken?.videoId == videoId && !PoTokenProviderImpl.isExpired) {
+            return mNpPoToken?.visitorData
+        }
+
+        mNpPoToken = PoTokenProviderImpl.getWebClientPoToken(videoId)
 
         return mNpPoToken?.visitorData
     }
-
-    @JvmStatic
-    fun isPotSupported() = PoTokenProviderImpl.isPotSupported
-
-    @JvmStatic
-    fun isExpired() = PoTokenProviderImpl.isExpired
 
     @JvmStatic
     fun resetCache(): Boolean {
@@ -72,7 +72,7 @@ internal object PoTokenGate {
             return false
         }
 
-        if (isPotSupported()) {
+        if (PoTokenProviderImpl.isPotSupported) {
             mNpPoToken = null
         }
 

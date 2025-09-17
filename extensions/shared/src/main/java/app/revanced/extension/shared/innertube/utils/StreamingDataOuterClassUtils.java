@@ -235,15 +235,7 @@ public class StreamingDataOuterClassUtils {
                     if (id == null || !id.contains(".")) continue;
                     String displayName = audioTrack.getDisplayName();
                     if (StringUtils.isEmpty(displayName)) continue;
-                    if (audioTrackMap.get(displayName) == null) {
-                        audioTrackMap.put(displayName, id);
-                    } else {
-                        // AdaptiveFormats contains duplicate AudioTrack Ids.
-                        // (Two or more AudioTrack Ids with different audio formats)
-                        // If an element already exists in the audioTrackMap, this indicates that a cycle has ended.
-                        // Since only duplicate audio tracks will be found, the search can be aborted.
-                        break;
-                    }
+                    audioTrackMap.putIfAbsent(displayName, id);
                 }
             }
             return audioTrackMap;

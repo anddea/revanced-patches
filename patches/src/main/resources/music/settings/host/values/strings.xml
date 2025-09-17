@@ -449,8 +449,10 @@ Click to see how to issue an API key."</string>
     <string name="revanced_sb_enabled">Enable SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock is a crowdsourced system for skipping annoying parts of YouTube videos.</string>
     <string name="revanced_sb_reset_color">Reset color</string>
-    <string name="revanced_sb_segments_filler">Filler Tangent / Jokes</string>
-    <string name="revanced_sb_segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. Does not include segments providing context or background details.</string>
+    <string name="revanced_sb_segments_filler">Tangent / Jokes</string>
+    <string name="revanced_sb_segments_filler_sum">Tangential scenes or jokes that are not required to understand the main content of the video. Does not include sections providing context or background details.</string>
+    <string name="revanced_sb_segments_hook">Hook / Greetings</string>
+    <string name="revanced_sb_segments_hook_sum">Narrated trailers for the upcoming video, greetings and goodbyes. Does not include sections that add additional content.</string>
     <string name="revanced_sb_segments_interaction">Interaction Reminder (Subscribe)</string>
     <string name="revanced_sb_segments_interaction_sum">A short reminder to like, subscribe, or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion.</string>
     <string name="revanced_sb_segments_intro">Intermission / Intro Animation</string>
@@ -459,7 +461,7 @@ Click to see how to issue an API key."</string>
     <string name="revanced_sb_segments_nomusic_sum">Only for use in music videos. Sections of music videos without music, that aren\'t already covered by another category.</string>
     <string name="revanced_sb_segments_outro">Endcards / Credits</string>
     <string name="revanced_sb_segments_outro_sum">Credits or when the YouTube endcards appear. Not for conclusions with information.</string>
-    <string name="revanced_sb_segments_preview">Preview / Recap / Hook</string>
+    <string name="revanced_sb_segments_preview">Preview / Recap</string>
     <string name="revanced_sb_segments_preview_sum">Collection of clips that show what is coming up or what happened in the video or in other videos of a series, where all information is repeated elsewhere.</string>
     <string name="revanced_sb_segments_selfpromo">Unpaid / Self Promotion</string>
     <string name="revanced_sb_segments_selfpromo_sum">Similar to Sponsor, except for unpaid or self promotion. Includes sections about merchandise, donations, or information about who they collaborated with.</string>
@@ -467,7 +469,8 @@ Click to see how to issue an API key."</string>
     <string name="revanced_sb_segments_sponsor_sum">Paid promotion, paid referrals, and direct advertisements. Not for self-promotion or free shout-outs to causes / creators / websites / products they like.</string>
     <string name="revanced_sb_skip_automatically">Skip automatically</string>
     <string name="revanced_sb_skip_ignore">Disable</string>
-    <string name="revanced_sb_skipped_filler">Skipped filler.</string>
+    <string name="revanced_sb_skipped_filler">Skipped tangent.</string>
+    <string name="revanced_sb_skipped_hook">Skipped hook.</string>
     <string name="revanced_sb_skipped_interaction">Skipped annoying reminder.</string>
     <string name="revanced_sb_skipped_intro_beginning">Skipped intro.</string>
     <string name="revanced_sb_skipped_intro_end">Skipped intermission.</string>
@@ -505,14 +508,6 @@ Click to see how to issue an API key."</string>
     <string name="revanced_spoof_app_version_title">Spoof app version</string>
     <string name="revanced_spoof_client_summary">Spoof the client to prevent playback issues.</string>
     <string name="revanced_spoof_client_title">Spoof client</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21 (Block request)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04 (Block request)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12 (Block request)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_34">iOS Music 8.34</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (Block request)</string>
     <string name="revanced_spoof_client_type_summary">"Side effect:
 • Action buttons or player flyout menus may not show properly.
 • These side effects may be resolved by clearing the app data and logging in again.
@@ -526,21 +521,24 @@ Side effect:
 • Sometimes the subtitles are located at the top of the player instead of the bottom.
 • This may not work for some users."</string>
     <string name="revanced_spoof_player_parameter_title">Spoof player parameter</string>
-    <string name="revanced_spoof_streaming_data_message">If you experience any playback issues, enable one of the following options depending on which works best for you: \"Spoof video streams\" or \"Spoof client\" in &lt;i&gt;&lt;u&gt;Settings &gt; %s &gt; Miscellaneous&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
+    <string name="revanced_spoof_streaming_data_default_client_summary">Defines a default client for spoofing.</string>
+    <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
+    <string name="revanced_spoof_streaming_data_message">If you experience any playback issues, enable \"Spoof streaming data\" in &lt;i&gt;&lt;u&gt;Settings &gt; %s &gt; Miscellaneous&lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
-    <string name="revanced_spoof_streaming_data_summary">"Spoof the streaming data to prevent playback issues.
+    <string name="revanced_spoof_streaming_data_summary">"Spoof the client video streams to prevent playback issues.
 
-• When used with 'Spoof client', playback issues may occur."</string>
+If you are a YouTube Premium user, this setting may not be necessary."</string>
     <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32">Android VR 1.43.32</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32_no_auth">Android VR 1.43.32 (No auth)</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09">Android VR 1.65.09</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09_no_auth">Android VR 1.65.09 (No auth)</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_34">iOS Music 8.34</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Side effect:
 • App may be forced to close when using a VPN or DNS.
 • Audio may intermittently stutter during playback on adaptive bitrate streaming clients (All clients other than Android VR 1.43.32)."</string>

@@ -11,6 +11,7 @@ import app.revanced.extension.shared.utils.StringRef.str
 import app.revanced.extension.shared.utils.Utils.showToastShort
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerControlButton
+import app.revanced.extension.youtube.shared.RootView.isAdProgressTextVisible
 
 @Suppress("unused")
 object AlwaysRepeatButton {
@@ -29,7 +30,7 @@ object AlwaysRepeatButton {
             instance = PlayerControlButton(
                 controlsViewGroup = controlsView,
                 imageViewButtonId = "revanced_always_repeat_button",
-                buttonVisibility = { Settings.OVERLAY_BUTTON_ALWAYS_REPEAT.get() },
+                buttonVisibility = { isButtonEnabled() },
                 onClickListener = { view: View -> onClick(view) },
                 onLongClickListener = { view: View ->
                     onLongClick(view)
@@ -65,6 +66,11 @@ object AlwaysRepeatButton {
     @JvmStatic
     fun setVisibility(visible: Boolean, animated: Boolean) {
         instance?.setVisibility(visible, animated)
+    }
+
+    private fun isButtonEnabled(): Boolean {
+        return Settings.OVERLAY_BUTTON_ALWAYS_REPEAT.get()
+                && !isAdProgressTextVisible()
     }
 
     private fun onClick(view: View) {

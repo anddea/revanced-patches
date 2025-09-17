@@ -24,8 +24,8 @@ import app.revanced.patches.shared.gms.Constants.AUTHORITIES
 import app.revanced.patches.shared.gms.Constants.AUTHORITIES_LEGACY
 import app.revanced.patches.shared.gms.Constants.PERMISSIONS
 import app.revanced.patches.shared.gms.Constants.PERMISSIONS_LEGACY
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.Utils.trimIndentMultiline
-import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrNull
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -52,6 +52,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
 
+private const val GMS_CORE_ORIGINAL_VENDOR_GROUP_ID = "com.google"
 private const val CLONE_PACKAGE_NAME_YOUTUBE = "bill.youtube"
 private const val DEFAULT_PACKAGE_NAME_YOUTUBE = "anddea.youtube"
 internal const val ORIGINAL_PACKAGE_NAME_YOUTUBE = "com.google.android.youtube"
@@ -131,7 +132,7 @@ fun gmsCoreSupportPatch(
         title = "Package name of YouTube",
         description = "The name of the package to use in GmsCore support.",
         required = true
-    ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) && it != ORIGINAL_PACKAGE_NAME_YOUTUBE }
+    ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) }
 
     val packageNameYouTubeMusicOption = stringOption(
         key = "packageNameYouTubeMusic",
@@ -143,7 +144,7 @@ fun gmsCoreSupportPatch(
         title = "Package name of YouTube Music",
         description = "The name of the package to use in GmsCore support.",
         required = true
-    ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) && it != ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC }
+    ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) }
 
     val patchAllManifest by booleanOption(
         key = "patchAllManifest",
@@ -319,8 +320,12 @@ fun gmsCoreSupportPatch(
 
         // endregion
 
-        val packageName =
-            getPackageName(fromPackageName, packageNameYouTubeOption, packageNameYouTubeMusicOption)
+        val packageName = getPackageName(
+            fromPackageName,
+            gmsCoreVendorGroupIdOption,
+            packageNameYouTubeOption,
+            packageNameYouTubeMusicOption
+        )
 
         // Transform all strings using all provided transforms, first match wins.
         val transformations = arrayOf(
@@ -386,10 +391,6 @@ fun gmsCoreSupportPatch(
         gmsCoreSupportFingerprint.mutableClassOrThrow().methods
             .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
-
-        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
-            name == "GmsCoreSupport"
-        }.returnEarly(true)
 
         executeBlock()
     }
@@ -751,15 +752,30 @@ private object Constants {
     )
 }
 
+private fun printPackageNameWarn(packageName: String) =
+    printWarn("Invalid package name was used: $packageName. ROMs with pre-installed GApps cannot install patched apps.")
+
 private fun getPackageName(
     originalPackageName: String,
+    gmsCoreVendorGroupIdOption: Option<String>,
     packageNameYouTubeOption: Option<String>,
-    packageNameYouTubeMusicOption: Option<String>
+    packageNameYouTubeMusicOption: Option<String>,
 ): String {
+    val gmsCoreVendorGroupId = gmsCoreVendorGroupIdOption.valueOrThrow()
     if (originalPackageName == ORIGINAL_PACKAGE_NAME_YOUTUBE) {
-        return packageNameYouTubeOption.valueOrThrow()
+        val packageName = packageNameYouTubeOption.valueOrThrow()
+        if (packageName == ORIGINAL_PACKAGE_NAME_YOUTUBE &&
+            gmsCoreVendorGroupId != GMS_CORE_ORIGINAL_VENDOR_GROUP_ID) {
+            printPackageNameWarn(packageName)
+        }
+        return packageName
     } else if (originalPackageName == ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC) {
-        return packageNameYouTubeMusicOption.valueOrThrow()
+        val packageName = packageNameYouTubeMusicOption.valueOrThrow()
+        if (packageName == ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC &&
+            gmsCoreVendorGroupId != GMS_CORE_ORIGINAL_VENDOR_GROUP_ID) {
+            printPackageNameWarn(packageName)
+        }
+        return packageName
     }
     throw PatchException("Unknown package name: $originalPackageName")
 }
@@ -837,6 +853,7 @@ fun gmsCoreSupportResourcePatch(
         fun patchManifest() {
             val packageName = getPackageName(
                 fromPackageName,
+                gmsCoreVendorGroupIdOption,
                 packageNameYouTubeOption,
                 packageNameYouTubeMusicOption
             )

@@ -5,6 +5,7 @@ import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.patches.spoof.ReloadVideoPatch
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerControlButton
+import app.revanced.extension.youtube.shared.RootView.isAdProgressTextVisible
 import app.revanced.extension.youtube.utils.VideoUtils
 
 
@@ -22,7 +23,7 @@ object ReloadVideoButton {
                 controlsViewGroup = controlsView,
                 imageViewButtonId = "revanced_reload_video_button",
                 hasPlaceholder = false,
-                buttonVisibility = { shouldBeShown() },
+                buttonVisibility = { isButtonEnabled() },
                 onClickListener = { view: View -> onClick(view) }
             )
         } catch (ex: Exception) {
@@ -54,13 +55,14 @@ object ReloadVideoButton {
         instance?.setVisibility(visible, animated)
     }
 
-    private fun onClick(view: View) {
-        VideoUtils.reloadVideo()
-    }
-
-    private fun shouldBeShown(): Boolean {
+    private fun isButtonEnabled(): Boolean {
         return Settings.SPOOF_STREAMING_DATA.get()
                 && Settings.SPOOF_STREAMING_DATA_RELOAD_VIDEO_BUTTON.get()
+                && !isAdProgressTextVisible()
                 && (Settings.SPOOF_STREAMING_DATA_RELOAD_VIDEO_BUTTON_ALWAYS_SHOW.get() || ReloadVideoPatch.isProgressBarVisible())
+    }
+
+    private fun onClick(view: View) {
+        VideoUtils.reloadVideo()
     }
 }

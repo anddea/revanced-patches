@@ -934,29 +934,6 @@
     "options": []
   },
   {
-    "name": "Disable DRC audio",
-    "description": "Adds an option to disable DRC (Dynamic Range Compression) audio.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube Music",
-      "ResourcePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.12.54",
-        "8.28.54",
-        "8.30.54"
-      ]
-    },
-    "options": []
-  },
-  {
     "name": "Disable QUIC protocol",
     "description": "Adds an option to disable CronetEngine\u0027s QUIC protocol.",
     "use": true,
@@ -1269,7 +1246,8 @@
     "description": "Adds an option for debugging and exporting RVX logs to the clipboard.",
     "use": true,
     "dependencies": [
-      "Settings for YouTube"
+      "Settings for YouTube",
+      "BytecodePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -1332,51 +1310,6 @@
       "com.spotify.music": null
     },
     "options": []
-  },
-  {
-    "name": "Fix playback",
-    "description": "Adds options to fix playback issues.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube Music",
-      "Remove background playback restrictions",
-      "BytecodePatch",
-      "BytecodePatch",
-      "ResourcePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.12.54",
-        "8.28.54",
-        "8.30.54"
-      ]
-    },
-    "options": [
-      {
-        "key": "spoofClient",
-        "title": "Spoof client",
-        "description": "Includes the \u0027Spoof client\u0027 patch.\n\nSide effect:\n• Action buttons or player flyout menus may not show properly.\n• These side effects may be resolved by clearing the app data and logging in again.\n\nSide effect (Block request):\n• App may be forced to close when using a VPN or DNS.",
-        "required": true,
-        "type": "kotlin.Boolean",
-        "default": true,
-        "values": null
-      },
-      {
-        "key": "spoofVideoStreams",
-        "title": "Spoof video streams",
-        "description": "Includes the \u0027Spoof video streams\u0027 patch.\n\nSide effect:\n• App may be forced to close when using a DNS or VPN.\n• Audio may intermittently stutter during playback on adaptive bitrate streaming clients.",
-        "required": true,
-        "type": "kotlin.Boolean",
-        "default": true,
-        "values": null
-      }
-    ]
   },
   {
     "name": "Fix third party launchers widgets",
@@ -2435,10 +2368,18 @@
         "description": "Change the icons at the top of the player.",
         "required": true,
         "type": "kotlin.Boolean",
-        "default": false,
+        "default": true,
         "values": null
       }
     ]
+  },
+  {
+    "name": "Override certificate pinning",
+    "description": "Overrides certificate pinning, allowing to inspect traffic via a proxy.",
+    "use": false,
+    "dependencies": [],
+    "compatiblePackages": null,
+    "options": []
   },
   {
     "name": "Player components",
@@ -2831,6 +2772,25 @@
     "options": []
   },
   {
+    "name": "Set Transcript Cookies",
+    "description": "Adds an option to set Cookies in YouTube Transcript API requests.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube",
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
     "name": "Settings for Reddit",
     "description": "Applies mandatory patches to implement ReVanced Extended settings into the application.",
     "use": true,
@@ -3166,15 +3126,6 @@
     },
     "options": [
       {
-        "key": "outlineIcon",
-        "title": "Outline icons",
-        "description": "Apply the outline icon.",
-        "required": true,
-        "type": "kotlin.Boolean",
-        "default": true,
-        "values": null
-      },
-      {
         "key": "NewSegmentAlignment",
         "title": "New segment alignment",
         "description": "Align new segment window.",
@@ -3238,105 +3189,6 @@
       ]
     },
     "options": []
-  },
-  {
-    "name": "Spoof client",
-    "description": "Spoofs the client to fix various functions of the app.",
-    "use": false,
-    "dependencies": [
-      "BytecodePatch",
-      "RawResourcePatch"
-    ],
-    "compatiblePackages": {
-      "com.spotify.music": null
-    },
-    "options": [
-      {
-        "key": "requestListenerPort",
-        "title": "Request listener port",
-        "description": "The port to use for the listener that intercepts and handles spoofed requests. Port must be between 0 and 65535. Do not change this option, if you do not know what you are doing.",
-        "required": false,
-        "type": "kotlin.Int",
-        "default": 4345,
-        "values": null
-      },
-      {
-        "key": "clientVersion",
-        "title": "Client version",
-        "description": "The client version used for spoofing the client token. Do not change this option, if you do not know what you are doing.",
-        "required": false,
-        "type": "kotlin.String",
-        "default": "iphone-9.0.58.558.g200011c",
-        "values": null
-      },
-      {
-        "key": "hardwareMachine",
-        "title": "Hardware machine",
-        "description": "The hardware machine used for spoofing the client token. Do not change this option, if you do not know what you are doing.",
-        "required": false,
-        "type": "kotlin.String",
-        "default": "iPhone16,1",
-        "values": null
-      },
-      {
-        "key": "systemVersion",
-        "title": "System version",
-        "description": "The system version used for spoofing the client token. Do not change this option, if you do not know what you are doing.",
-        "required": false,
-        "type": "kotlin.String",
-        "default": "17.7.2",
-        "values": null
-      }
-    ]
-  },
-  {
-    "name": "Spoof streaming data",
-    "description": "Adds options to spoof the streaming data to allow playback.",
-    "use": true,
-    "dependencies": [
-      "RawResourcePatch",
-      "Settings for YouTube",
-      "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch",
-      "ResourcePatch",
-      "ResourcePatch",
-      "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53"
-      ]
-    },
-    "options": [
-      {
-        "key": "outlineIcon",
-        "title": "Outline icons",
-        "description": "Apply the outline icon.",
-        "required": true,
-        "type": "kotlin.Boolean",
-        "default": false,
-        "values": null
-      },
-      {
-        "key": "useMobileWebClient",
-        "title": "Use Mobile Web client",
-        "description": "Add Mobile Web to available clients.",
-        "required": true,
-        "type": "kotlin.Boolean",
-        "default": false,
-        "values": null
-      }
-    ]
   },
   {
     "name": "Spoof watch history",
@@ -3576,6 +3428,8 @@
     "use": true,
     "dependencies": [
       "Settings for YouTube Music",
+      "ResourcePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch",
@@ -3602,6 +3456,8 @@
     "use": true,
     "dependencies": [
       "Settings for YouTube",
+      "ResourcePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",

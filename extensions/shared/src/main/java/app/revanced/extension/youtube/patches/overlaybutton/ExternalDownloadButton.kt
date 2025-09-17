@@ -5,6 +5,7 @@ import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.patches.utils.PlaylistPatch
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerControlButton
+import app.revanced.extension.youtube.shared.RootView.isAdProgressTextVisible
 import app.revanced.extension.youtube.shared.VideoInformation
 import app.revanced.extension.youtube.utils.VideoUtils
 
@@ -21,7 +22,7 @@ object ExternalDownloadButton {
             instance = PlayerControlButton(
                 controlsViewGroup = controlsView,
                 imageViewButtonId = "revanced_external_download_button",
-                buttonVisibility = { Settings.OVERLAY_BUTTON_EXTERNAL_DOWNLOADER.get() },
+                buttonVisibility = { isButtonEnabled() },
                 onClickListener = { view: View -> onClick(view) },
                 onLongClickListener = { view: View ->
                     onLongClick(view)
@@ -55,6 +56,11 @@ object ExternalDownloadButton {
     @JvmStatic
     fun setVisibility(visible: Boolean, animated: Boolean) {
         instance?.setVisibility(visible, animated)
+    }
+
+    private fun isButtonEnabled(): Boolean {
+        return Settings.OVERLAY_BUTTON_EXTERNAL_DOWNLOADER.get()
+                && !isAdProgressTextVisible()
     }
 
     private fun onClick(view: View) {

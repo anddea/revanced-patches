@@ -4,10 +4,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
+import app.revanced.patches.youtube.player.overlaybuttons.overlayButtonsPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
@@ -178,20 +178,6 @@ val sponsorBlockBytecodePatch = bytecodePatch(
             }
         }
 
-        adProgressTextViewVisibilityFingerprint.methodOrThrow().apply {
-            val index =
-                indexOfAdProgressTextViewVisibilityInstruction(this)
-            val register =
-                getInstruction<FiveRegisterInstruction>(index).registerD
-
-            addInstructionsAtControlFlowLabel(
-                index,
-                "invoke-static { v$register }, " +
-                        EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR +
-                        "->setAdProgressTextVisibility(I)V"
-            )
-        }
-
         // The vote and create segment buttons automatically change their visibility when appropriate,
         // but if buttons are showing when the end of the video is reached then they will not automatically hide.
         // Add a hook to forcefully hide when the end of the video is reached.
@@ -220,14 +206,6 @@ val sponsorBlockPatch = resourcePatch(
         playerControlsPatch,
         sponsorBlockBytecodePatch,
         settingsPatch,
-    )
-
-    val outlineIcon by booleanOption(
-        key = "outlineIcon",
-        default = true,
-        title = "Outline icons",
-        description = "Apply the outline icon.",
-        required = true
     )
 
     val newSegmentAlignment by stringOption(
@@ -262,7 +240,12 @@ val sponsorBlockPatch = resourcePatch(
             copyResources("youtube/sponsorblock/shared", resourceGroup)
         }
 
-        if (outlineIcon == true) {
+        val iconType = overlayButtonsPatch
+            .getStringOptionValue("iconType")
+            .lowerCaseOrThrow()
+        val outlineIcon = iconType == "thin"
+
+        if (outlineIcon) {
             arrayOf(
                 ResourceGroup(
                     "layout",

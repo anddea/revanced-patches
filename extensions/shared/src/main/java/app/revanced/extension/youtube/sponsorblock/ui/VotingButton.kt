@@ -4,6 +4,7 @@ import android.view.View
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerControlButton
+import app.revanced.extension.youtube.shared.RootView.isAdProgressTextVisible
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils
 
@@ -20,7 +21,7 @@ object VotingButton {
                 controlsViewGroup = controlsView,
                 imageViewButtonId = "revanced_sb_voting_button",
                 hasPlaceholder = false,
-                buttonVisibility = { shouldBeShown() },
+                buttonVisibility = { isButtonEnabled() },
                 onClickListener = { view: View -> onClick(view) }
             )
         } catch (ex: Exception) {
@@ -52,13 +53,14 @@ object VotingButton {
         instance?.setVisibility(visible, animated)
     }
 
-    private fun onClick(view: View) {
-        SponsorBlockUtils.onVotingClicked(view.context)
-    }
-
-    private fun shouldBeShown(): Boolean {
+    private fun isButtonEnabled(): Boolean {
         return Settings.SB_ENABLED.get() && Settings.SB_VOTING_BUTTON.get()
                 && SegmentPlaybackController.videoHasSegments()
+                && !isAdProgressTextVisible()
+    }
+
+    private fun onClick(view: View) {
+        SponsorBlockUtils.onVotingClicked(view.context)
     }
 
     @JvmStatic

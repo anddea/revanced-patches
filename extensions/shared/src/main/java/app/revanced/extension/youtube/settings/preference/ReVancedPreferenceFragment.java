@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.XmlResourceParser;
 import android.graphics.Insets;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -27,7 +28,7 @@ import android.view.WindowInsets;
 import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch;
+import app.revanced.extension.shared.innertube.client.YouTubeClient;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.EnumSetting;
@@ -68,6 +69,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     private static final int READ_REQUEST_CODE = 42;
     private static final int WRITE_REQUEST_CODE = 43;
     boolean settingExportInProgress = false;
+    private boolean mDynamicPrefsIndexed = false;
 
     /**
      * XML tag name for PreferenceScreen.
@@ -214,6 +216,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     ExtendedUtils.setPlayerFlyoutMenuAdditionalSettings();
                 } else if (setting.equals(HIDE_PREVIEW_COMMENT) || setting.equals(HIDE_PREVIEW_COMMENT_TYPE)) {
                     ExtendedUtils.setCommentPreviewSettings();
+                } else if (setting.equals(SPOOF_STREAMING_DATA_USE_JS)) {
+                    YouTubeClient.availableClientTypes(BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get());
                 }
             } else if (mPreference instanceof EditTextPreference editTextPreference) {
                 if (settingImportInProgress) {
@@ -815,7 +819,9 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @return The created ClickablePreferenceCategory.
      */
     private PreferenceGroup createCategoryGroup(PreferenceScreen screen, PreferenceGroup group) {
-        ClickablePreferenceCategory category = new ClickablePreferenceCategory(this, findClosestPreferenceScreen(group));
+        screen.addPreference(new SpacerPreference(getContext()));
+
+        SearchResultCategory category = new SearchResultCategory(this, findClosestPreferenceScreen(group));
         category.setTitle(groupFullPaths.get(group));
         screen.addPreference(category);
         return category;
@@ -902,23 +908,18 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         String preferenceKey = preference.getKey();
 
         if (preferenceKey == null) {
-            // Handle keyless preference (e.g., <Preference title="foo"/>)
-            // These don't have dependencies in the same way keyed items do.
-            // Just add it to the search results under the appropriate preferenceGroup.
-            // Ensure it's not a duplicate instance in that specific preferenceGroup.
-            boolean alreadyAdded = false;
-            for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
-                if (preferenceGroup.getPreference(i) == preference) {
-                    alreadyAdded = true;
-                    break;
-                }
-            }
-            if (!alreadyAdded) {
-                try {
-                    preferenceGroup.addPreference(preference);
-                } catch (Exception e) {
-                    Logger.printException(() -> "Failed to add keyless matched item: " + (preference.getTitle() != null ? preference.getTitle() : "Untitled"), e);
-                }
+            // Handle keyless preference (e.g., <Preference title="foo"/>).
+            // These preferences already have a parent in the original hierarchy, so we cannot
+            // add the same instance to the search results screen.
+            // Instead, we create a new, simple Preference to act as a placeholder/link.
+            try {
+                // Create a new proxy preference that is safe to add.
+                final Preference proxyPreference = getProxyPreference(preference);
+
+                // Add the new, parent-less proxy preference to the search results.
+                preferenceGroup.addPreference(proxyPreference);
+            } catch (Exception e) {
+                Logger.printException(() -> "Failed to add proxy for keyless matched item: " + (preference.getTitle() != null ? preference.getTitle() : "Untitled"), e);
             }
             return;
         }
@@ -928,19 +929,42 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             // This item's dependency chain has been (or is being) processed.
             // However, it might need to be visually added to *this specific* preferenceGroup
             // if it wasn't already (e.g., if it's a dependency reached via another path).
+            // Add the preference itself to the preferenceGroup
+            // Ensure it's not already visually there (e.g. if it was added as a dependency of something else)
             boolean alreadyInThisGroup = false;
             for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
                 Preference p = preferenceGroup.getPreference(i);
+                // Check by instance and by key
                 if (p == preference || (p.getKey() != null && p.getKey().equals(preferenceKey))) {
                     alreadyInThisGroup = true;
                     break;
                 }
             }
             if (!alreadyInThisGroup) {
+                // Temporarily disable dependency to skip findPreferenceInHierarchy validation during add
+                String originalDependency = preference.getDependency();
+                if (originalDependency != null) {
+                    preference.setDependency(null);
+                }
+
                 try {
                     preferenceGroup.addPreference(preference);
+
+                    // Immediately restore dependency AFTER add (while attached to search hierarchy)
+                    // This enables state evaluation (en/disabling) in search results
+                    if (originalDependency != null) {
+                        preference.setDependency(originalDependency);
+                    }
+
+                    // Optional: Force notify hierarchy change to trigger immediate dep state update
+                    // (e.g., if parent was added earlier and is unchecked, this grays out the pref now)
+                    if (preference.getPreferenceManager() != null) {
+                        preference.getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(listener); // Ensure listener is active
+                    }
                 } catch (Exception e) {
-                    Logger.printException(() -> "Failed to re-add keyed item to a different group: " + preferenceKey, e);
+                    // Logger.printException(() -> "Failed to re-add keyed item to a different group: " + preferenceKey, e);
+                    visitedPreferences.remove(preferenceKey);
+                    return;
                 }
             }
             return;
@@ -972,12 +996,27 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             }
         }
         if (!alreadyInThisGroup) {
+            // Temporarily disable dependency to skip findPreferenceInHierarchy validation during add
+            String originalDependency = preference.getDependency();
+            if (originalDependency != null) {
+                preference.setDependency(null);
+            }
+
             try {
                 preferenceGroup.addPreference(preference);
             } catch (Exception e) {
+                // Restore dep even on failure
+                if (originalDependency != null) {
+                    preference.setDependency(originalDependency);
+                }
                 Logger.printException(() -> "Failed to add keyed item: " + preferenceKey, e);
                 visitedPreferences.remove(preferenceKey);
                 return;
+            } finally {
+                // Always restore original dependency after add (or failure)
+                if (originalDependency != null) {
+                    preference.setDependency(originalDependency);
+                }
             }
         }
 
@@ -992,6 +1031,40 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                         visitedPreferences);
             }
         }
+    }
+
+    @NotNull
+    private Preference getProxyPreference(Preference preference) {
+        final Preference proxyPreference = new Preference(preference.getContext());
+
+        // The title and summary on the original 'preference' object have already been
+        // highlighted by the `applyHighlighting` call. We just copy these values.
+        proxyPreference.setTitle(preference.getTitle());
+        proxyPreference.setSummary(preference.getSummary());
+        proxyPreference.setIcon(preference.getIcon());
+        proxyPreference.setEnabled(preference.isEnabled());
+        proxyPreference.setOrder(preference.getOrder());
+
+        // Make the proxy behave like the original on click.
+        if (preference instanceof PreferenceScreen) {
+            // If the original was a PreferenceScreen, clicking the proxy should navigate to it.
+            proxyPreference.setOnPreferenceClickListener(p -> {
+                setPreferenceScreen((PreferenceScreen) preference);
+                return true;
+            });
+        }
+        else if (preference instanceof ImportExportPreference originalPref) {
+            proxyPreference.setOnPreferenceClickListener(p -> {
+                originalPref.onPreferenceClick(originalPref);
+                originalPref.showDialog(null);
+                return true;
+            });
+        }
+        else {
+            // For all other types, just copy the original click listener.
+            proxyPreference.setOnPreferenceClickListener(preference.getOnPreferenceClickListener());
+        }
+        return proxyPreference;
     }
 
     /**
@@ -1696,6 +1769,71 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        // The dynamic preference group initializes itself in onAttachedToActivity,
+        // which happens before the fragment's onResume. This is the perfect
+        // time to check for and index its children, and we use a flag to
+        // ensure this operation only runs once per fragment instance.
+        if (!mDynamicPrefsIndexed) {
+            indexDynamicallyLoadedPreferences();
+            mDynamicPrefsIndexed = true;
+        }
+    }
+
+    /**
+     * Identifies all PreferenceGroups that load their children dynamically and triggers
+     * the process to add their preferences to the search index.
+     * This is called from onResume to ensure the dynamic groups have had
+     * time to initialize.
+     */
+    private void indexDynamicallyLoadedPreferences() {
+        Logger.printDebug(() -> "Attempting to index all dynamically loaded preference groups...");
+
+        // Define all keys for preference groups that load their children dynamically.
+        List<String> dynamicGroupKeys = Arrays.asList(
+                "revanced_preference_group_sb",
+                "revanced_sb_stats"
+        );
+
+        for (String key : dynamicGroupKeys) {
+            tryIndexDynamicGroup(key);
+        }
+
+        Logger.printDebug(() -> "Dynamic indexing finished. Final allPreferencesByKey size: "
+                + allPreferencesByKey.size());
+    }
+
+    /**
+     * Finds a PreferenceGroup by its key and, if it has been dynamically populated with children,
+     * adds them to the search index.
+     *
+     * @param preferenceKey The android:key of the PreferenceGroup to index.
+     */
+    private void tryIndexDynamicGroup(String preferenceKey) {
+        Preference preference = findPreference(preferenceKey);
+
+        if (preference instanceof PreferenceGroup dynamicGroup) {
+            if (dynamicGroup.getPreferenceCount() > 0) {
+                Logger.printDebug(() -> "Found populated group with key '" + preferenceKey + "'. Indexing "
+                        + dynamicGroup.getPreferenceCount() + " children.");
+                storeAllPreferences(dynamicGroup);
+            } else {
+                // This is a normal case if the group has no dynamic children to add.
+                Logger.printDebug(() -> "Found group with key '" + preferenceKey + "', but it is empty.");
+            }
+        } else {
+            // This is useful for debugging if the key is mistyped or the preference is not a group.
+            if (preference == null) {
+                Logger.printDebug(() -> "Could not find any preference with key '" + preferenceKey + "'.");
+            } else {
+                Logger.printDebug(() -> "Preference with key '" + preferenceKey + "' is not a PreferenceGroup.");
+            }
+        }
+    }
+
+    @Override
     public void setPreferenceScreen(PreferenceScreen preferenceScreen) {
         if (getPreferenceScreen() != null && getPreferenceScreen() != preferenceScreen) {
             preferenceScreenStack.push(getPreferenceScreen());
@@ -1802,9 +1940,61 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         preferenceScreenStack.clear();
         searchHistoryCache = null;
         historyViewPreferenceCache.clear();
+        mDynamicPrefsIndexed = false;
 
         Utils.resetLocalizedContext();
         super.onDestroy();
+    }
+
+    /**
+     * A custom {@link Preference} that acts as a visual separator between preference groups.
+     * It is non-selectable and has a fixed height to create vertical space.
+     */
+    private static class SpacerPreference extends Preference {
+        public SpacerPreference(Context context) {
+            super(context);
+            // This preference is purely for visual spacing and should not be interactive.
+            setSelectable(false);
+            setEnabled(false);
+            // Unique key to prevent any potential conflicts.
+            setKey("spacer_" + System.nanoTime() + "_" + Math.random());
+        }
+
+        @Override
+        protected void onBindView(View view) {
+            super.onBindView(view);
+            // Hide any default text or icons that might appear.
+            view.setVisibility(View.INVISIBLE);
+            int height = dipToPixels(16);
+            ViewGroup.LayoutParams params = view.getLayoutParams();
+            params.height = height;
+            view.setLayoutParams(params);
+        }
+    }
+
+    /**
+     * A custom {@link ClickablePreferenceCategory} for displaying group titles in search results.
+     * It adds styling to make the titles distinct, such as italic font and reduced opacity.
+     */
+    private static class SearchResultCategory extends ClickablePreferenceCategory {
+
+        public SearchResultCategory(ReVancedPreferenceFragment fragment, PreferenceScreen screen) {
+            super(fragment, screen);
+        }
+
+        @Override
+        protected void onBindView(View view) {
+            super.onBindView(view);
+
+            TextView titleView = view.findViewById(android.R.id.title);
+            if (titleView != null) {
+                // Make text bold and italic.
+                titleView.setTypeface(titleView.getTypeface(), Typeface.ITALIC);
+
+                // Set opacity to 80% to make it distinguishable.
+                titleView.setAlpha(0.7f);
+            }
+        }
     }
 
     /**

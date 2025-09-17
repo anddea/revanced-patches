@@ -19,9 +19,10 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="revanced_add_miniplayer_next_button_title">Añade un botón de siguiente al minireproductor</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Añade un botón de pista anterior al minireproductor.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Añade un botón de anterior al minireproductor</string>
-    <string name="revanced_app_info_dialog_title">Información de la aplicación</string>
-    <string name="revanced_app_info_summary">Haz clic para ver el nombre de la aplicación, la versión de la aplicación, la versión del parche y la fecha de aplicación del parche.</string>
-    <string name="revanced_app_info_title">Información de la aplicación</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;Nombre aplicación&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Versión Aplicación&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Parches Revanced&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Fecha Parcheado &lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_title">Información de la Aplicación</string>
+    <string name="revanced_app_info_summary">Clic para ver el nombre de la app, versión de la app, versión de parche y fecha de parcheo.</string>
+    <string name="revanced_app_info_title">Información de la Aplicación</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Reemplaza el dominio que está bloqueado en algunas regiones para que las miniaturas de la lista de reproducción, avatares de canales, etc. puedan ser recibidas.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Eludir las restricciones regionales de imágenes</string>
     <string name="revanced_change_action_bar_position_summary">Mueve la barra de acción debajo del botón de reproducción.</string>
@@ -103,17 +104,16 @@ Limitantes: Vídeos para niños puede que no se redirijan."</string>
     <string name="revanced_disable_player_gesture_title">Desactivar gesto del reproductor</string>
     <string name="revanced_disable_quic_protocol_summary">"Deshabilita el protocolo QUIC de CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Desactiva el protocolo QUIC</string>
-    <string name="revanced_disable_trim_silence_summary">Desactiva un interruptor de «Recortar silencios» en el menú desplegable de velocidad de reproducción.
+    <string name="revanced_disable_trim_silence_summary">"Deshabilita un interruptor para recortar silencios en el menú desplegable de velocidad de reproducción.
 
 Información:
-• Esta función está destinada a podcasts.
-• Esta función aún está en desarrollo, por lo que puede ser inestable.</string>
-    <string name="revanced_disable_trim_silence_title">Desactivar interruptor de Recortar silencios</string>
-    <string name="revanced_enable_comments_scroll_top_summary">Al hacer clic en el título del panel de comentarios («Comentarios»), se desplaza hasta la parte superior.
+• Esta función es para podcasts.
+• Esta función está en desarrollo, por lo que puede ser inestable."</string>
+    <string name="revanced_disable_trim_silence_title">Deshabilitar interruptor para recortar silencios</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"Clicando en título del panel (\"Comentarios\") vuelve al inicio de la lista.
 
-Limitaciones:
-• No se aplica a las respuestas de comentarios.</string>
-    <string name="revanced_enable_comments_scroll_top_title">Activar desplazamiento al inicio en comentarios</string>
+Limitaciones: no aplica en las respuestas de comentarios."</string>
+    <string name="revanced_enable_comments_scroll_top_title">Habilitar acción para desplazarse hasta arriba en los comentarios</string>
     <string name="revanced_enable_compact_dialog_summary">"Activa el diálogo compacto en el teléfono.
 
 Problemas conocidos:
@@ -132,11 +132,10 @@ Problemas conocidos:
     <string name="revanced_enable_mini_player_previous_button_title">Añadir botón anterior al minireproductor</string>
     <string name="revanced_enable_opus_codec_summary">"Activa el códec Opus 250/251 al reproducir audio."</string>
     <string name="revanced_enable_opus_codec_title">Activar códec opus</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">Activar una animación suave cuando el reproductor mini se maximiza desde el estado minimizado.
+    <string name="revanced_enable_smooth_transition_animation_summary">"Activa una animación suave, cuando el mini reproductor se expande después de estar minimizado.
 
-Limitaciones:
-• La interfaz de letras en tiempo real puede verse afectada para algunos usuarios.</string>
-    <string name="revanced_enable_smooth_transition_animation_title">Activar animación de transición suave</string>
+Limitaciones: La interfaz de letras sincronizadas puede estar rota para algunos usuarios."</string>
+    <string name="revanced_enable_smooth_transition_animation_title">Activar animación suave de transición</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Permite deslizar hacia abajo para descartar el minireproductor.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Activar deslizar para descartar el minireproductor</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Habilita que se pueda deslizar hacia abajo en el minireproductor para descartarlo.</string>
@@ -191,8 +190,8 @@ Descarga %2$s desde el sitio web."</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">Ocultar botón Guardar</string>
     <string name="revanced_hide_action_button_comment_summary">Oculta el botón de comentarios.</string>
     <string name="revanced_hide_action_button_comment_title">Ocultar botón de comentarios</string>
-    <string name="revanced_hide_action_button_disabled_summary">Oculta los botones deshabilitados, como el botón de Comentarios desactivado.</string>
-    <string name="revanced_hide_action_button_disabled_title">Ocultar botón deshabilitado</string>
+    <string name="revanced_hide_action_button_disabled_summary">Oculta botones inhabilitados, como el botón de comentarios cuando están desactivados.</string>
+    <string name="revanced_hide_action_button_disabled_title">Ocultar botones inhabilitados</string>
     <string name="revanced_hide_action_button_download_summary">Oculta el botón Descargar.</string>
     <string name="revanced_hide_action_button_download_title">Ocultar botón Descargar</string>
     <string name="revanced_hide_action_button_label_summary">Oculta las etiquetas de los botones de acción.</string>
@@ -266,8 +265,8 @@ Descarga %2$s desde el sitio web."</string>
     <string name="revanced_hide_handle_title">Ocultar asa</string>
     <string name="revanced_hide_history_button_summary">Oculta el botón de historial en la barra de herramientas.</string>
     <string name="revanced_hide_history_button_title">Ocultar botón de historial</string>
-    <string name="revanced_hide_lyrics_share_button_summary">Oculta el botón de compartir en las letras.</string>
-    <string name="revanced_hide_lyrics_share_button_title">Ocultar botón Compartir de la letra</string>
+    <string name="revanced_hide_lyrics_share_button_summary">Esconde el botón de compartir en las letras.</string>
+    <string name="revanced_hide_lyrics_share_button_title">Ocultar botón de compartir letra</string>
     <string name="revanced_hide_music_ads_summary">Oculta los anuncios antes de reproducir una pista.</string>
     <string name="revanced_hide_music_ads_title">Ocultar anuncios de música</string>
     <string name="revanced_hide_navigation_bar_summary">Oculta barra de navegación.</string>
@@ -346,8 +345,8 @@ Esto oculta no solo el menú de ajustes de YT Music, sino también el menú de a
     <string name="revanced_remember_repeat_state_title">Recordar estado de repetición</string>
     <string name="revanced_remember_shuffle_state_summary">Recuerda el estado del aleatorio (shuffle).</string>
     <string name="revanced_remember_shuffle_state_title">Recordar estado aleatorio</string>
-    <string name="revanced_remember_video_quality_auto_mobile">Cambiando la calidad predeterminada de datos móviles a Automático.</string>
-    <string name="revanced_remember_video_quality_auto_wifi">Cambiando la calidad predeterminada de Wi-Fi a Automático.</string>
+    <string name="revanced_remember_video_quality_auto_mobile">Cambia la calidad predeterminada con datos móviles a Auto.</string>
+    <string name="revanced_remember_video_quality_auto_wifi">Cambia la calidad predeterminada con Wi-Fi a Auto.</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Recuerda la última calidad de vídeo seleccionada.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Recordar cambios de calidad de vídeo</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">Mostrar un mensaje al cambiar la calidad de vídeo por defecto.</string>
@@ -439,6 +438,8 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_sb_reset_color">Restablecer color</string>
     <string name="revanced_sb_segments_filler">Tangente de relleno / Chistes</string>
     <string name="revanced_sb_segments_filler_sum">Escenas tangenciales añadidas solo para relleno o humor que no son necesarias para entender el contenido principal del vídeo. No incluye segmentos que proporcionen contexto o detalles de fondo.</string>
+    <string name="revanced_sb_segments_hook">Enganche / Saludos</string>
+    <string name="revanced_sb_segments_hook_sum">Tráileres narrados para el vídeo entrante, saludos y despedidas. No incluye secciones que incluyan contenido adicional.</string>
     <string name="revanced_sb_segments_interaction">Recordatorio de interacción (Suscribirse)</string>
     <string name="revanced_sb_segments_interaction_sum">Un breve recordatorio para dar me gusta, suscribirse o seguirlos en medio del contenido. Si es largo o sobre algo específico, debe estar en la sección de autopromoción.</string>
     <string name="revanced_sb_segments_intro">Intermedio / Animación de introducción</string>
@@ -456,6 +457,7 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_sb_skip_automatically">Omitir automáticamente</string>
     <string name="revanced_sb_skip_ignore">Deshabilitar</string>
     <string name="revanced_sb_skipped_filler">Relleno omitido.</string>
+    <string name="revanced_sb_skipped_hook">Enganche omitido.</string>
     <string name="revanced_sb_skipped_interaction">Recordatorio molesto omitido.</string>
     <string name="revanced_sb_skipped_intro_beginning">Introducción omitida.</string>
     <string name="revanced_sb_skipped_intro_end">Intermisión omitida.</string>
@@ -482,7 +484,7 @@ Toca para ver cómo crear una clave de API."</string>
 - Si más tarde se desactiva, la antigua interfaz de usuario puede permanecer hasta que se borren los datos de la aplicación."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Desactivar el modo radio en las regiones canadienses</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Desactivar letras en tiempo real</string>
-    <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Restaurar el panel desplegable antiguo</string>
+    <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Restaura el antiguo panel de control flotante</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Desactivar letras en tiempo real</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restaurar la antigua barra de acción</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - La sección de comentarios no aparece en el feed de inicio</string>
@@ -492,12 +494,6 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_spoof_app_version_title">Modificar versión de aplicación</string>
     <string name="revanced_spoof_client_summary">"Falsifica el cliente para prevenir problemas en la reproducción."</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_6_21_block_requst">iOS Music 6.21  (Bloquear solicitud)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_7_04_block_requst">iOS Music 7.04  (Bloquear solicitud)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_12_block_requst">iOS Music 8.12  (Bloquear solicitud)</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_8_34_block_requst">iOS Music 8.34 (Bloquear solicitud)</string>
     <string name="revanced_spoof_client_type_summary">"Define un cliente de por defecto para el falsificado."</string>
     <string name="revanced_spoof_client_type_title">Cliente por defecto</string>
     <string name="revanced_spoof_player_parameter_summary">"Falsifica el parámetro del reproductor para prevenir problemas de reproducción.
@@ -505,14 +501,23 @@ Toca para ver cómo crear una clave de API."</string>
 Efecto secundario:
 • Puede que los subtítulos aparezcan puestos arriba del reproductor en lugar de abajo."</string>
     <string name="revanced_spoof_player_parameter_title">Falsificar parámetro del reproductor</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Creador de android</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android RV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_mweb">Web Móvil</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV simplemente</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
+    <string name="revanced_spoof_streaming_data_default_client_summary">Define un cliente predeterminado para falsificar.
+
+Problemas conocidos:
+• El audio se puede trabar durante la reproducción.</string>
+    <string name="revanced_spoof_streaming_data_default_client_title">Cliente predeterminado</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Muestra el cliente utilizado para obtener datos de streaming en Estadísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostrar en estadísticas para nerds</string>
-    <string name="revanced_spoof_streaming_data_summary">"Falsificar los datos de streaming para evitar problemas de reproducción.
+    <string name="revanced_spoof_streaming_data_summary">"Falsifica las transmisiones de video para prevenir problemas de reproducción.
 
-※ Cuando se utiliza con 'Cliente de spoof', problemas de reproducción pueden producirse."</string>
+Si eres un usuario de YouTube Premium, esta opción puede ser necesaria."</string>
     <string name="revanced_spoof_streaming_data_title">Falsificar datos de transmisión</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_43_32_no_auth">Android VR 1.43.32 (Sin autenticación)</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_android_vr_1_65_09_no_auth">Android VR 1.65.09 (Sin autenticación)</string>
     <string name="revanced_spoof_video_streams_default_client_summary">Efecto secundario:
 • La aplicación puede verse forzada a cerrarse al usar una VPN o DNS.
 • El audio puede entrecortarse de forma intermitente durante la reproducción en clientes de transmisión con tasa de bits adaptable (todos los clientes excepto Android VR 1.43.32).</string>

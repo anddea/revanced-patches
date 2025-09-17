@@ -5,12 +5,30 @@ import app.revanced.patches.youtube.utils.resourceid.toolbarContainerId
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionReversed
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+
+internal val adProgressTextViewVisibilityFingerprint = legacyFingerprint(
+    name = "adProgressTextViewVisibilityFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Z"),
+    customFingerprint = { method, _ ->
+        indexOfAdProgressTextViewVisibilityInstruction(method) >= 0
+    }
+)
+
+internal fun indexOfAdProgressTextViewVisibilityInstruction(method: Method) =
+    method.indexOfFirstInstructionReversed {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>()?.toString() ==
+                "Lcom/google/android/libraries/youtube/ads/player/ui/AdProgressTextView;->setVisibility(I)V"
+    }
 
 internal val browseIdClassFingerprint = legacyFingerprint(
     name = "browseIdClassFingerprint",
