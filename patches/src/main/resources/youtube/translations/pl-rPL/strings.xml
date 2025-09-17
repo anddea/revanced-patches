@@ -26,7 +26,7 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Stary</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Własny</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Typ zaawansowanego menu od jakości filmu w Shortsach</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki filmów z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube. 
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki filmów z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube.
 
 Jeśli opcja ta jest włączona, adresy URL filmów będą wysyłane do serwera API i nie będą wysyłane żadne inne dane. Jeśli film nie posiada miniaturki od DeArrow, to wyświetla się oryginalna lub przechwycona z filmu.
 
@@ -1066,6 +1066,9 @@ Jeśli układ ekranu odtwarzacza zmieni się w skutek zmian po stronie serwera, 
     <string name="revanced_hide_search_term_thumbnail_summary_off">Widoczne</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Ukryte</string>
     <string name="revanced_hide_search_term_thumbnail_title">Miniaturki sugestii wyszukiwań</string>
+    <string name="revanced_hide_section_header_in_feed_summary_off">Wyświetlany jest nagłówek sekcji Subskrypcje.\n\nNagłówek sekcji Subskrypcje zawiera przyciski \'Odwiedź społeczność\' i \'Odwiedź kanał\' przyciski po kliknięciu subskrybowanego kanału\’ikona s w sekcji Subskrypcje.</string>
+    <string name="revanced_hide_section_header_in_feed_summary_on">Nagłówek sekcji Subskrypcje jest ukryty.\n\nNagłówek sekcji Subskrypcje zawiera przyciski \'Odwiedź społeczność\' i \'Odwiedź kanał\'przyciski „po kliknięciu subskrybowanego kanału”\’ikona s w sekcji Subskrypcje.</string>
+    <string name="revanced_hide_section_header_in_feed_title">Nagłówek sekcji subskrypcji</string>
     <string name="revanced_hide_seek_message_summary_off">Widoczna</string>
     <string name="revanced_hide_seek_message_summary_on">Ukryta</string>
     <string name="revanced_hide_seek_message_title">Wiadomość o przewijaniu</string>
@@ -2305,7 +2308,7 @@ Informacje:
     <string name="revanced_spoof_streaming_data_audio_track_button_title">Przycisk od ścieżki dźwiękowej</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Warunki:
 • używanym klientem przy przechwytywaniu strumienia danych jest 'Android VR', 'Mobilny przeglądarkowy' lub 'visionOS'
-• odtwarzany jest film z wieloma ścieżkami dźwiękowymi
+• odtwarzany jest film z wieloma ścieżkami dźwiękowymi.
 
 Znane problemy:
 • jeśli język aplikacji został zmieniony w ustawieniach YouTube i aplikaja nie została uruchomiona ponownie, język w oknie dialogowym ścieżki dźwiękowej może nie ulec zmianie
@@ -2319,6 +2322,8 @@ Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w 
 <small>(Bez autoryzacji)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Porzucone)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
+<small>(Nieaktualne, Brak autoryzacji)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobilny przeglądarkowy
 <small>(W fazie rozwoju, bez autoryzacji)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
@@ -2327,7 +2332,7 @@ Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w 
 <small>(Niewydany, bez autoryzacji)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Domyślny klient</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Nie można przechwycić żadnego ze strumieni klienta.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Możesz nie być zalogowany.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Spróbuj zmienić domyślnego klienta na TV lub TV Zwykły.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Określany automatycznie</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Wymuszony</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Wymuś kodek AVC (H.264)</string>
@@ -2399,6 +2404,8 @@ Przykład 2:
 • stabilna głośność nie jest dostępna
 • filmy kinowe lub płatne mogą się nie odtwarzać
 • filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ipados">"• AV1 nie jest obsługiwane.
+• Film może zakończyć się w 1:00 lub może być niedostępny w niektórych regionach."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• brakuje menu od ścieżki dźwiękowej
 • jeśli odszyfrowywanie się nie powiedzie, odtwarzanie może się nie powieść
 • czasem film nie odtwarza się nawet po 10 sekundach, dlatego należy kliknąć przycisk od odświeżenia filmu
@@ -2429,6 +2436,23 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie te nie jest koniecz
 
 • Klient JavaScript nie odtworzy niektórych filmów"</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Włącz klienta JavaScript na wszystkie filmy</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Kliknij, aby uzyskać więcej informacji.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">O fałszywym buforowaniu</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Jednym z powodów, dla których filmy zaczynają się zbyt późno w kliencie JavaScript, są nowe zabezpieczenia YouTube'a przed blokowaniem reklam.
+
+Gdy reklama wideo jest blokowana, GVS (serwer Google Wideo) generuje fałszywe buforowanie proporcjonalne do czasu trwania reklamy (testy A/B).
+
+uBlock Origin znalazł obejście tego problemu, które można włączyć za pomocą ustawienia „Omiń fałszywe buforowanie”.
+
+Kliknij „Otwórz”, aby przeczytać artykuł."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Otwarte</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Nowe środki YouTube'a zapobiegające blokowaniu reklam"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Funkcja pomijania buforowania jest wyłączona.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Włączono pomijanie buforowania.
+
+Ograniczenia:
+• Ze względu na zmiany po stronie serwera funkcja ta może przestać działać w dowolnym momencie."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Omiń fałszywe buforowanie</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">Nie</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">Tak</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Włącz klienta JavaScript</string>

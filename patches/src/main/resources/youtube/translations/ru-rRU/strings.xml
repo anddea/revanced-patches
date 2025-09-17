@@ -1040,6 +1040,9 @@ Shorts
     <string name="revanced_hide_search_term_thumbnail_summary_off">Миниатюры поискового запроса отображены.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Миниатюры поискового запроса скрыты.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Миниатюра поискового запроса</string>
+    <string name="revanced_hide_section_header_in_feed_summary_off">Отобразится заголовок раздела "Подписки".\n\nЗаголовок раздела «Подписки» содержит кнопки \'Посетить сообщество\' и \'Посетить канал\', которые появляются при нажатии на значок подписанного канала в разделе "Подписки.</string>
+    <string name="revanced_hide_section_header_in_feed_summary_on">Заголовок раздела "Подписки" скрыт.\n\nЗаголовок раздела "Подписки" содержит кнопки \'Посетить сообщество\' и \'Посетить канал\', которые появляются при нажатии на значок подписанного канала в разделе "Подписки.</string>
+    <string name="revanced_hide_section_header_in_feed_title">Скрыть заголовок раздела "Подписки"</string>
     <string name="revanced_hide_seek_message_summary_off">Сообщение при перемотке отображено.</string>
     <string name="revanced_hide_seek_message_summary_on">Сообщение при перемотке скрыто.</string>
     <string name="revanced_hide_seek_message_title">Сообщение при перемотке</string>
@@ -2296,6 +2299,8 @@ Shorts
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">iOS.\n<small>(устаревшее)</small>
     </string>
+    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
+<small>(Устарело, без авторизации)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web
 <small>(В разработке)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">ТВ
@@ -2376,6 +2381,8 @@ VP9 более продвинутый кодек, чем AVC, но некото�
 • Стабильная громкость недоступна.
 • Фильмы или платные видеоролики могут не воспроизводиться.
 • Детские видеоролики могут не воспроизводиться при выходе из системы или в режиме инкогнито."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ipados">"• AV1 не поддерживается.
+• Видео может остановиться в 1:00 или может быть недоступно в некоторых регионах."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Отсутствует меню аудиодорожки.
 • Отключить недоступные принудительные автозвуковые дорожки.
 • При ошибке разобфускации кода, просмотр может завершиться неудачей.
@@ -2407,6 +2414,23 @@ VP9 более продвинутый кодек, чем AVC, но некото�
 
 • ТВ клиент может не проигрывать некоторые видео."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Использовать клиент JavaScript для всех видео</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Нажмите для получения дополнительной информации.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">О поддельной буферизации</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Одной из причин, по которой видео начинают воспроизводиться слишком поздно в клиенте JavaScript, являются новые меры YouTube по борьбе с блокировщиками рекламы.
+
+Когда видеореклама блокируется, GVS (Google Video Server) генерирует ложную буферизацию, пропорциональную продолжительности рекламы (A/B-тестирование).
+
+uBlock Origin нашел обходной путь для решения этой проблемы, который можно включить с помощью настройки "Обход ложной буферизации".
+
+Нажмите "Открыть", чтобы прочитать статью."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Открыть</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Новые меры YouTube по борьбе с блокировщиками рекламы"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Обход поддельной буферизации отключен.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Включен обход поддельной буферизации.
+
+Ограничения:
+• Из-за изменений на стороне сервера эта функция может перестать работать в любой момент."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Обойти поддельную буферизацию</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">Клиент JavaScript не доступен.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">Клиент JavaScript используется.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Использовать клиент JavaScript</string>
