@@ -761,12 +761,20 @@ public final class app/revanced/patches/spotify/layout/theme/CustomThemePatchKt 
 	public static final fun getCustomThemePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/spotify/lite/ondemand/OnDemandPatchKt {
+	public static final fun getOnDemandPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/spotify/misc/UnlockPremiumPatchKt {
 	public static final fun getUnlockPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/misc/extension/ExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/misc/fix/SpoofClientPatchKt {
+	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/misc/fix/login/FixFacebookLoginPatchKt {
@@ -783,10 +791,6 @@ public final class app/revanced/patches/spotify/misc/privacy/SanitizeSharingLink
 
 public final class app/revanced/patches/spotify/misc/widgets/FixThirdPartyLaunchersWidgetsKt {
 	public static final fun getFixThirdPartyLaunchersWidgets ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabPatchKt {
-	public static final fun getPremiumNavbarTabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/ads/general/AdsPatchKt {

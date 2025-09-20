@@ -1,8 +1,8 @@
 package app.revanced.patches.spotify.misc.extension
 
-import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
+import app.revanced.patches.shared.misc.extension.sharedExtensionPatchNamed
 
-val sharedExtensionPatch = sharedExtensionPatch(
+val sharedExtensionPatch = sharedExtensionPatchNamed(
     "spotify", 
     mainActivityOnCreateHook,
     loadOrbitLibraryHook

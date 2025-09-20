@@ -7,8 +7,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.ResourceGroup
-import app.revanced.util.copyResources
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -46,7 +44,7 @@ private val customThemeBytecodePatch = bytecodePatch {
             }
             val parsedColorRegister = getInstruction<OneRegisterInstruction>(invokeParseColorIndex + 1).registerA
 
-            val replaceColorDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I"
+            val replaceColorDescriptor =  "$EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I"
 
             addInstructions(
                 invokeParseColorIndex + 2,
@@ -105,14 +103,6 @@ val customThemePatch = resourcePatch(
         required = false,
     )
 
-    val enableBackgroundColorSecondary by booleanOption(
-        key = "enableBackgroundColorSecondary",
-        default = false,
-        title = "Enable secondary background color",
-        description = "The option to enable the secondary background color.",
-        required = true,
-    )
-
     val backgroundColorSecondary by stringOption(
         key = "backgroundColorSecondary",
         default = "#FF121212",
@@ -136,22 +126,6 @@ val customThemePatch = resourcePatch(
         title = "Pressed accent color",
         description = "The color when accented buttons are pressed, by default slightly darker than accent. " +
                 "Can be a hex color or a resource reference.",
-        required = true,
-    )
-
-    val iconColor by booleanOption(
-        key = "iconColor",
-        default = true,
-        title = "Icon color",
-        description = "Apply the accent color to the launcher icon.",
-        required = true,
-    )
-
-    val minimalIcon by booleanOption(
-        key = "minimalIcon",
-        default = false,
-        title = "Minimal icon",
-        description = "Apply alternative minimal launcher icon.",
         required = true,
     )
 
@@ -188,16 +162,15 @@ val customThemePatch = resourcePatch(
                     "image_placeholder_color",
                         -> backgroundColor
 
-                    in setOf(
-                        // "About the artist" background color in song player.
-                        "gray_15",
-                        // Track credits, merch background color in song player.
-                        "track_credits_card_bg", "benefit_list_default_color", "merch_card_background",
-                        // Playlist list background in home page.
-                        "opacity_white_10",
-                        // "What's New" pills background.
-                        "dark_base_background_tinted_highlight"
-                    ) -> if (enableBackgroundColorSecondary!!) backgroundColorSecondary else continue
+                    // "About the artist" background color in song player.
+                    "gray_15",
+                    // Track credits, merch background color in song player.
+                    "track_credits_card_bg", "benefit_list_default_color", "merch_card_background",
+                    // Playlist list background in home page.
+                    "opacity_white_10",
+                    // "What's New" pills background.
+                    "dark_base_background_tinted_highlight"
+                        -> backgroundColorSecondary
 
                     "dark_brightaccent_background_base",
                     "dark_base_text_brightaccent",
@@ -224,34 +197,6 @@ val customThemePatch = resourcePatch(
         } catch (_: Exception) {
             // Fails for 9.0.66+
             // printWarn("Failed to locate start_screen_gradient.xml, skipping modification.")
-        }
-
-        if (iconColor!!) {
-            document("res/drawable/ic_launcher_renaissance_foreground.xml").use { document ->
-                val pathElement = document.getElementsByTagName("path").item(0) as Element
-                pathElement.setAttribute("android:fillColor", "$accentColor")
-            }
-        }
-
-        if (minimalIcon!!) {
-            copyResources(
-                "spotify/icons",
-                ResourceGroup(
-                    "drawable",
-                    "ic_launcher_monet.xml"
-                )
-            )
-
-            document("res/mipmap-anydpi-v26/ic_launcher.xml").use { document ->
-                mapOf(
-                    "background" to "@color/spotify_green_157",
-                    "foreground" to "@drawable/ic_launcher_monet",
-                    "monochrome" to "@drawable/ic_launcher_monet"
-                ).forEach { (tagName, drawableValue) ->
-                    val element = document.getElementsByTagName(tagName).item(0) as? Element
-                    element?.setAttribute("android:drawable", drawableValue)
-                }
-            }
         }
     }
 }
