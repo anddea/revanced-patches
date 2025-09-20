@@ -3,19 +3,15 @@ package app.revanced.patches.spotify.misc.privacy
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/spotify/misc/privacy/SanitizeSharingLinksPatch;"
-
-private val SHARE_PARAMETERS = setOf("context", "pi", "si", "utm_source")
 
 @Suppress("unused")
 val sanitizeSharingLinksPatch = bytecodePatch(
@@ -26,17 +22,9 @@ val sanitizeSharingLinksPatch = bytecodePatch(
 
     dependsOn(sharedExtensionPatch)
 
-    val shareParameters by stringOption(
-        key = "shareParameters",
-        default = SHARE_PARAMETERS.joinToString(", "),
-        title = "Parameters to remove",
-        description = "A list of parameters to be removed from sharing links, separated by commas.",
-        required = true,
-    )
-
     execute {
         val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->" +
-                "sanitizeUrl(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"
+                "sanitizeUrl(Ljava/lang/String;)Ljava/lang/String;"
 
         val copyFingerprint = if (shareCopyUrlFingerprint.originalMethodOrNull != null) {
             shareCopyUrlFingerprint
@@ -48,15 +36,13 @@ val sanitizeSharingLinksPatch = bytecodePatch(
             val newPlainTextInvokeIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "newPlainText"
             }
-            val register = getInstruction<FiveRegisterInstruction>(newPlainTextInvokeIndex).registerD
-            val freeRegister = getInstruction<OneRegisterInstruction>(newPlainTextInvokeIndex - 1).registerA
+            val urlRegister = getInstruction<FiveRegisterInstruction>(newPlainTextInvokeIndex).registerD
 
             addInstructions(
                 newPlainTextInvokeIndex,
                 """
-                    const-string v$freeRegister, "$shareParameters"
-                    invoke-static { v$register, v$freeRegister }, $extensionMethodDescriptor
-                    move-result-object v$register
+                    invoke-static { v$urlRegister }, $extensionMethodDescriptor
+                    move-result-object v$urlRegister
                 """
             )
         }
@@ -80,17 +66,12 @@ val sanitizeSharingLinksPatch = bytecodePatch(
             oldFormatAndroidShareSheetUrlFingerprint
         }
 
-        shareSheetFingerprint.method.apply {
-            val freeRegister = getInstruction<OneRegisterInstruction>(0).registerA
-
-            addInstructions(
-                0,
-                """
-                    const-string v$freeRegister, "$shareParameters"
-                    invoke-static { $shareUrlParameter, v$freeRegister }, $extensionMethodDescriptor
-                    move-result-object $shareUrlParameter
-                """
-            )
-        }
+        shareSheetFingerprint.method.addInstructions(
+            0,
+            """
+                invoke-static { $shareUrlParameter }, $extensionMethodDescriptor
+                move-result-object $shareUrlParameter
+            """
+        )
     }
 }
