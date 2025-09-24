@@ -156,7 +156,7 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_change_youtube_header_summary_off">La cabecera genérica está activada.</string>
     <string name="revanced_change_youtube_header_summary_on">La cabecera Premium está activada.</string>
     <string name="revanced_change_youtube_header_title">Cambiar cabecera de YouTube</string>
-    <string name="revanced_color_invalid_toast">Color no válido</string>
+    <string name="revanced_confirm_user_dialog_title">¿Realmente quieres continuar?</string>
     <string name="revanced_copy">Copiar</string>
     <string name="revanced_copy_error" />
     <string name="revanced_custom_filter_strings_summary">Lista de cadenas del constructor de rutas de componentes a filtrar separadas por una nueva línea.</string>
@@ -181,6 +181,7 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_custom_player_overlay_opacity_title">Opacidad personalizada de superposición del reproductor</string>
     <string name="revanced_custom_seekbar_color_accent_summary">Escribe el código hexadecimal del color de acento de la barra de progreso.</string>
     <string name="revanced_custom_seekbar_color_accent_title">Color de acento personalizado de barra de progreso</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Color de la barra de progreso no válido.</string>
     <string name="revanced_custom_seekbar_color_primary_summary">Escribe el código hexadecimal del color primario de la barra de progreso.</string>
     <string name="revanced_custom_seekbar_color_primary_title">Color primario personalizado de barra de progreso</string>
     <string name="revanced_debug_export_logs_to_clipboard_summary">Copia los registros de depuración de RVX al portapapeles.</string>
@@ -245,6 +246,9 @@ Configuración → Reproducción automática → Reproducción automática del s
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">El cambio automático de listas de reproducción Mix está desactivado.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">Desactivar cambio de listas de reproducción Mix</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Al activar esta función, se desactivará el cambio automático a YouTube Mix al reproducir música con la reproducción automática activada.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">El doble toque puede ocasionalmente activar un salto al capítulo siguiente / anterior.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">El doble toque nunca puede activar un salto al capítulo siguiente / anterior.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Desactivar salto de capítulo con doble toque</string>
     <string name="revanced_disable_default_playback_speed_music_off">La velocidad predeterminada de reproducción está activada para la música.</string>
     <string name="revanced_disable_default_playback_speed_music_on">La velocidad predeterminada de reproducción está desactivada para la música.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Desactivar velocidad de reproducción para música</string>
@@ -463,44 +467,37 @@ Limitación: No funciona si el reproductor está minimizado, en modo PiP o en se
 Nota:
 • iOS TV no admite la reproducción de algunos vídeos, como vídeos musicales.
 • Por lo tanto, si el cliente predeterminado está configurado en iOS TV, este ajuste puede no funcionar para algunos vídeos."</string>
-    <string name="revanced_extended_confirm_user_dialog_title">¿Quieres continuar?</string>
-    <string name="revanced_extended_reset_to_default_toast">Restablecer valores predeterminados.</string>
     <string name="revanced_extended_restart">Reiniciar</string>
-    <string name="revanced_extended_restart_dialog_message">Reinicia la app para que este cambio surta efecto.</string>
     <string name="revanced_extended_restart_first_run">Reiniciar para cargar el diseño normalmente</string>
-    <string name="revanced_extended_restart_message">Actualizar y reiniciar</string>
     <string name="revanced_extended_restart_title">Reinicio requerido</string>
-    <string name="revanced_extended_settings_color_invalid">Color no válido.</string>
-    <string name="revanced_extended_settings_color_picker">Selección de color</string>
     <string name="revanced_extended_settings_export_failed">Error al exportar los ajustes.</string>
     <string name="revanced_extended_settings_export_success">Los ajustes se han exportado correctamente.</string>
     <string name="revanced_extended_settings_export_summary">Exporta los ajustes a un archivo.</string>
     <string name="revanced_extended_settings_export_title">Exportar ajustes</string>
     <string name="revanced_extended_settings_import">Importar</string>
-    <string name="revanced_extended_settings_import_copy">Copiar</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">Importar o exportar los ajustes como texto.</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">Importar / Exportar como texto</string>
-    <string name="revanced_extended_settings_import_failed">Error al importar los ajustes.</string>
     <string name="revanced_extended_settings_import_reset">Los ajustes se restablecieron a los valores predeterminados.</string>
-    <string name="revanced_extended_settings_import_success">Los ajustes se han importado correctamente.</string>
     <string name="revanced_extended_settings_import_summary">Importa los ajustes desde un archivo guardado.</string>
     <string name="revanced_extended_settings_import_title">Importar ajustes</string>
-    <string name="revanced_extended_settings_reset">Restablecer</string>
-    <string name="revanced_extended_settings_reset_color">Restablecer color</string>
-    <string name="revanced_extended_settings_search_title">Buscar en %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Descargador externo</string>
+    <string name="revanced_external_downloader_empty_warning">El nombre del paquete no puede estar vacío</string>
+    <string name="revanced_external_downloader_not_found_title">App no instalada.</string>
     <string name="revanced_external_downloader_not_installed">No instalado</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s no está instalado.
 Por favor, descarga %2$s desde el sitio web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Advertencia</string>
     <string name="revanced_external_downloader_not_installed_warning">%s no está instalado. Por favor, instálalo.</string>
+    <string name="revanced_external_downloader_other_item">Otros</string>
+    <string name="revanced_external_downloader_other_item_hint">Introduzca el nombre del paquete</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Nombre del paquete de tu aplicación de descargas externas instalada, como YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nombre del paquete del descargador de listas de reproducción</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">El nombre de paquete de tu descargador externo, como NewPipe o YTDLnis, al mantener pulsado</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Nombre del paquete del descargador de videos al mantener presionado.</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nombre del paquete de tu aplicación de descargas externas instalada, como NewPipe o YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nombre del paquete del descargador de vídeo</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"No se pudo encontrar la aplicación instalada con el nombre de paquete: %s.
+
+Verifique que el nombre del paquete es correcto y que la aplicación está instalada."</string>
     <string name="revanced_fix_hype_button_icon_summary_off">El icono del botón Hypear está oculto.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">El icono del botón Hypear está visible.</string>
     <string name="revanced_fix_hype_button_icon_title">Corregir icono del botón Hypear</string>
@@ -810,6 +807,9 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">Los vídeos en el feed de suscripciones no están filtrados.</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">Los vídeos en el feed de suscripciones están filtrados.</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Ocultar vídeos de suscripciones por palabras clave</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_off">El operador AND (&amp;) está desactivado. &lt;br&gt;&lt;br&gt;Cuando se utiliza &lt;strong&gt;«Azul» &amp; «Rojo»&lt;/strong&gt; como palabra clave, se filtrarán las palabras clave que contengan &lt;strong&gt;«Azul» &amp; «Rojo»&lt;/strong&gt;</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_on">El operador AND (&amp;) está activado. &lt;br&gt;&lt;br&gt;Cuando se utiliza &lt;strong&gt;«Azul» &amp; «Rojo»&lt;/strong&gt; como palabra clave, se filtrarán las palabras clave que contengan &lt;strong&gt;Azul&lt;/strong&gt; y &lt;strong&gt;Rojo&lt;/strong&gt;</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_title">Usar operador AND (&amp;)</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">La palabra clave \"%1$s\" es demasiado amplia y ocultará todos los vídeos</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Palabra clave no válida. No se puede utilizar: \"%s\" como filtro</string>
     <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Añadir comillas para utilizar la palabra clave: %s.</string>
@@ -1037,8 +1037,8 @@ Si el diseño de la pantalla del reproductor cambia debido a cambios en el servi
     <string name="revanced_hide_search_term_thumbnail_summary_off">Las miniaturas en el historial de términos de búsqueda están visibles.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Las miniaturas en el historial de términos de búsqueda están ocultas.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Ocultar miniaturas en términos de búsqueda</string>
-    <string name="revanced_hide_seek_message_summary_off">El mensaje al desplazarse está visible.</string>
-    <string name="revanced_hide_seek_message_summary_on">El mensaje al desplazarse está oculto.</string>
+    <string name="revanced_hide_seek_message_summary_off">"El mensaje al desplazarse está visible."</string>
+    <string name="revanced_hide_seek_message_summary_on">"El mensaje al desplazarse está oculto."</string>
     <string name="revanced_hide_seek_message_title">Ocultar mensaje al desplazarse</string>
     <string name="revanced_hide_seek_undo_message_summary_off">El mensaje al deshacer desplazamiento está visible.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">El mensaje al deshacer desplazamiento está oculto.</string>
@@ -1833,6 +1833,11 @@ Mantén pulsado para abrir los ajustes de RVX."</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Pulsa para abrir los ajustes de RVX.
 Mantén pulsado para abrir la configuración de YouTube."</string>
     <string name="revanced_replace_toolbar_create_button_type_title">Tipo de acción a asignar al botón</string>
+    <string name="revanced_reset_to_default_toast">Restablecer valores predeterminados.</string>
+    <string name="revanced_restart">Reiniciar</string>
+    <string name="revanced_restart_dialog_message">Reinicie la app para que este cambio surta efecto.</string>
+    <string name="revanced_restart_first_run">Reinicie para cargar el diseño normalmente</string>
+    <string name="revanced_restart_title">Reinicio requerido</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Las miniaturas de la barra de progreso aparecerán en pantalla completa.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Las miniaturas de la barra de progreso aparecerán encima de la barra de progreso.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurar antiguas miniaturas de barra de progreso</string>
@@ -1906,7 +1911,6 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_sb_color_changed">Color cambiado.</string>
     <string name="revanced_sb_color_dot_label">Color:</string>
     <string name="revanced_sb_color_invalid">Código de color no válido.</string>
-    <string name="revanced_sb_color_opacity_label">Opacidad:</string>
     <string name="revanced_sb_color_reset">Color restablecido.</string>
     <string name="revanced_sb_create_segment_category">Creación de nuevos segmentos</string>
     <string name="revanced_sb_diff_segments">Cambiar comportamiento de segmentos</string>
@@ -2072,6 +2076,9 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock está temporalmente inactivo.</string>
     <string name="revanced_sb_submit_failed_unknown_error">No se puede enviar el segmento (estado: %1$d %2$s).</string>
     <string name="revanced_sb_submit_succeeded">Segmento enviado correctamente.</string>
+    <string name="revanced_sb_toast_on_connection_error">Mostrar mensaje si la API no está disponible</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">No se muestra el mensaje si SponsorBlock no está disponible.</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">Se muestra el mensaje si SponsorBlock no está disponible.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">No se muestra el mensaje si SponsorBlock no está disponible.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Se muestra el mensaje si SponsorBlock no está disponible.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Mostrar mensaje si la API no está disponible</string>
@@ -2103,7 +2110,42 @@ Puede que no funcione si:
 • Las cookies han caducado.
 • Se están utilizando cookies no válidas.
 • La API de transcripción de YouTube ya no valida las cookies."</string>
-    <string name="revanced_settings_search_history_title">Mostrar el historial de búsqueda de ajustes</string>
+    <string name="revanced_settings_color_invalid">Color no válido.</string>
+    <string name="revanced_settings_color_picker">Selección de color</string>
+    <string name="revanced_settings_export_failed">Error al exportar los ajustes.</string>
+    <string name="revanced_settings_export_success">Los ajustes se han exportado correctamente.</string>
+    <string name="revanced_settings_export_summary">Exporta los ajustes a un archivo.</string>
+    <string name="revanced_settings_export_title">Exportar ajustes</string>
+    <string name="revanced_settings_import">Importar</string>
+    <string name="revanced_settings_import_copy">Copiar</string>
+    <string name="revanced_settings_import_export_as_text_summary">Importar o exportar los ajustes como texto.</string>
+    <string name="revanced_settings_import_export_as_text_title">Importar / Exportar como texto</string>
+    <string name="revanced_settings_import_failed">Error al importar los ajustes.</string>
+    <string name="revanced_settings_import_reset">Los ajustes se restablecieron a los valores predeterminados.</string>
+    <string name="revanced_settings_import_success">Los ajustes se han importado correctamente.</string>
+    <string name="revanced_settings_import_summary">Importa los ajustes desde un archivo guardado.</string>
+    <string name="revanced_settings_import_title">Importar ajustes</string>
+    <string name="revanced_settings_reset">Restablecer</string>
+    <string name="revanced_settings_reset_color">Restablecer color</string>
+    <string name="revanced_settings_search_clear_history">Borrar historial de busqueda</string>
+    <string name="revanced_settings_search_clear_history_message">¿Realmente quieres borrar todo el historial de búsqueda?</string>
+    <string name="revanced_settings_search_empty_history_summary">Para guardar el historial de búsqueda, escriba una consulta de búsqueda y pulse Enter.</string>
+    <string name="revanced_settings_search_empty_history_title">El historial de búsqueda está vacío</string>
+    <string name="revanced_settings_search_history_summary_off">El historial de búsqueda de los ajustes está oculto.</string>
+    <string name="revanced_settings_search_history_summary_on">El historial de búsqueda de los ajustes está visible.</string>
+    <string name="revanced_settings_search_history_title">Mostrar historial de búsqueda de ajustes</string>
+    <string name="revanced_settings_search_no_results_summary">Prueba con otra palabra clave.</string>
+    <string name="revanced_settings_search_no_results_title">No se encontraron resultados para «%s».</string>
+    <string name="revanced_settings_search_recent_searches">Búsquedas recientes</string>
+    <string name="revanced_settings_search_remove_message">¿Eliminar del historial de búsqueda?</string>
+    <string name="revanced_settings_search_tips_summary">"• Toque una ruta para navegar hasta ella.
+• Mantenga pulsado un ajuste para navegar hasta el.
+• Pulse Enter para guardar una consulta de búsqueda en el historial.
+• La búsqueda ignora las mayúsculas y minúsculas y la puntuación.
+• Los ajustes principales aparecen por encima de los ajustes secundarios desactivados."</string>
+    <string name="revanced_settings_search_tips_title">Consejos de búsqueda</string>
+    <string name="revanced_settings_search_title">Buscar en %s</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Ajustes copiados en el portapapeles.</string>
     <string name="revanced_share_copy_timestamp_success">Marca de tiempo copiada en el portapapeles. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiada en el portapapeles.</string>
@@ -2164,6 +2206,8 @@ Limitación: el título de vídeo desaparece cuando se pulsa."</string>
     <string name="revanced_speed_overlay_value_invalid_toast">El valor de la superposición de velocidad debe estar entre 0-8.0. Restablezca a los valores predeterminados.</string>
     <string name="revanced_speed_overlay_value_summary">Valor de superposición de velocidad entre 0-8.0.</string>
     <string name="revanced_speed_overlay_value_title">Valor de superposición de velocidad</string>
+    <string name="revanced_spoof_app_version_other_item">Otra</string>
+    <string name="revanced_spoof_app_version_other_item_hint">Introduzca la versión de la app</string>
     <string name="revanced_spoof_app_version_summary">"Falsifica la versión del cliente a la versión antigua.
 
 • Esto cambiará la apariencia de la app, pero pueden producirse efectos secundarios desconocidos.
@@ -2182,6 +2226,7 @@ Limitación: el título de vídeo desaparece cuando se pulsa."</string>
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Desactivar icono de Cairo en la barra de navegación y herramientas</string>
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Restaura el antiguo encabezado de la lista de reproducción</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restaurar el antiguo panel desplegable de velocidad de reproducción</string>
+    <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restaurar funcionalidad de transcripción</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versión a falsificar de la app</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Versión de aplicación falsa no válida: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Escribe la versión a falsificar de la app.</string>
@@ -2437,7 +2482,6 @@ Si este ajuste no surte efecto, prueba a cambiar al modo incógnito."</string>
     <string name="revanced_theme_default">Predeterminado</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Advertencia</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s no está instalado. Por favor, instálalo.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Nombre del paquete de RVX Music instalado.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nombre del paquete de RVX Music</string>
     <string name="revanced_transcript_cookies_about_summary">Pulsa para ver cómo obtener cookies.</string>

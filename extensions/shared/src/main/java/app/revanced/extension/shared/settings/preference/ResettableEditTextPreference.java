@@ -16,8 +16,8 @@ import androidx.annotation.Nullable;
 import java.util.Objects;
 
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class ResettableEditTextPreference extends EditTextPreference {
@@ -68,25 +68,32 @@ public class ResettableEditTextPreference extends EditTextPreference {
             editText.setSelection(initialValue.length()); // Move cursor to end.
 
             // Create custom dialog.
-            String neutralButtonText = (setting != null) ? str("revanced_extended_settings_reset") : null;
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            String neutralButtonText = (setting != null) ? str("revanced_settings_reset") : null;
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     context,
-                    getTitle() != null ? getTitle().toString() : "", // Title.
-                    null,     // Message is replaced by EditText.
-                    editText, // Pass the EditText.
-                    null,     // OK button text.
+                    // Title.
+                    getTitle() != null ? getTitle().toString() : "",
+                    // Message.
+                    null,
+                    // EditText.
+                    editText,
+                    // OK button text.
+                    null,
+                    // OK button action.
                     () -> {
-                        // OK button action. Persist the EditText value when OK is clicked.
+                        // Persist the EditText value when OK is clicked.
                         String newValue = editText.getText().toString();
                         if (callChangeListener(newValue)) {
                             setText(newValue);
                         }
                     },
+                    // Cancel button action.
                     () -> {
-                    }, // Cancel button action (dismiss only).
-                    neutralButtonText, // Neutral button text (Reset).
+                    },
+                    // Neutral button text.
+                    neutralButtonText,
+                    // Neutral button action.
                     () -> {
-                        // Neutral button action.
                         if (setting != null) {
                             try {
                                 String defaultStringValue = Objects.requireNonNull(setting).defaultValue.toString();
@@ -97,7 +104,8 @@ public class ResettableEditTextPreference extends EditTextPreference {
                             }
                         }
                     },
-                    false // Do not dismiss dialog when onNeutralClick.
+                    // Do not dismiss dialog when onNeutralClick.
+                    false
             );
 
             // Show the dialog.

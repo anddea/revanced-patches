@@ -61,7 +61,7 @@ internal object JSInterpret {
         } catch (e: JsonSyntaxException) {
             null
         }
-
+        
         return response
     }
 

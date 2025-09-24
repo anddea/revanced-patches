@@ -22,6 +22,7 @@ import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.music.video.information.onCreateHook
 import app.revanced.patches.music.video.information.videoInformationPatch
+import app.revanced.patches.shared.FIXED_RESOLUTION_STRING
 import app.revanced.patches.shared.customspeed.customPlaybackSpeedPatch
 import app.revanced.patches.shared.drc.drcAudioPatch
 import app.revanced.patches.shared.opus.baseOpusCodecsPatch
@@ -183,7 +184,7 @@ val videoPlaybackPatch = bytecodePatch(
 
         val initialResolutionField =
             playbackStartParametersToStringFingerprint.originalMethodOrThrow()
-                .findFieldFromToString(", initialPlaybackVideoQualityFixedResolution=")
+                .findFieldFromToString(FIXED_RESOLUTION_STRING)
 
         playbackStartParametersConstructorFingerprint
             .methodOrThrow(playbackStartParametersToStringFingerprint)

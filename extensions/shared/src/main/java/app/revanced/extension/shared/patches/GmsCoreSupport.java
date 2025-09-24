@@ -25,6 +25,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
@@ -71,17 +72,28 @@ public class GmsCoreSupport {
         Utils.runOnMainThreadDelayed(() -> {
             if (BaseThemeUtils.isSupportModernDialog) {
                 // Create the custom dialog.
-                Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                // CORRECTED
+                Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                         context,
-                        str("gms_core_dialog_title"), // Title.
-                        str(dialogMessageRef),        // Message.
-                        null,                         // No EditText.
-                        str(positiveButtonTextRef),   // OK button text.
-                        () -> onPositiveClickListener.onClick(null, 0), // OK button action
-                        null,                         // onCancelClick: We don't want a "Cancel" button.
-                        showNegativeButton ? str("gms_core_dialog_dismiss_text") : null, // Use neutral button for custom "Dismiss" text.
-                        showNegativeButton ? () -> GMS_SHOW_DIALOG.save(false) : null,  // Action for the neutral/dismiss button.
-                        true                          // Dismiss dialog when onNeutralClick.
+                        // Title.
+                        str("gms_core_dialog_title"),
+                        // Message.
+                        str(dialogMessageRef),
+                        // No EditText.
+                        null,
+                        // OK button text.
+                        str(positiveButtonTextRef),
+                        // OK button action
+                        () -> onPositiveClickListener.onClick(null, 0),
+                        // onCancelClick: We don't want a "Cancel" button.
+                        null,
+                        // neutralButtonText
+                        showNegativeButton ? str("gms_core_dialog_dismiss_text") : null,
+                        // onNeutralClick
+                        showNegativeButton ? () -> GMS_SHOW_DIALOG.save(false) : null,
+
+                        // Dismiss dialog when onNeutralClick.
+                        true
                 );
 
                 Dialog dialog = dialogPair.first;

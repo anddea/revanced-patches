@@ -17,17 +17,21 @@ object DefaultHeaders {
 
     /// BEGIN TV Clients
 
+    // NOTE: only 320x180 thumbnails variant!
     private const val USER_AGENT_SAMSUNG =
         "Mozilla/5.0 (Linux; Tizen 2.3; SmartHub; SMART-TV; SmartTV; U; Maple2012) AppleWebKit/538.1+ (KHTML, like Gecko) TV Safari/538.1+"
     private const val USER_AGENT_SAMSUNG_2 = "Mozilla/5.0 (SMART-TV; Linux; Tizen 2.4.0) AppleWebkit/538.1 (KHTML, like Gecko) SamsungBrowser/1.1 TV Safari/538.1"
 
-    // Best (no throttling)
+    // NOTE: only 320x180 thumbnails variant!
+    // Best (no throttling).
     private const val USER_AGENT_SAMSUNG_3 =
         "Mozilla/5.0(SMART-TV; Linux; Tizen 4.0.0.2) AppleWebkit/605.1.15 (KHTML, like Gecko) SamsungBrowser/9.2 TV Safari/605.1.15"
 
+    // NOTE: only 320x180 thumbnails variant!
     // Bad. Doesn't contain 'Not recommend'/'Remove from history' context item
     private const val USER_AGENT_LG_2013 =
         "Mozilla/5.0 (Unknown; Linux armv7l) AppleWebKit/537.1+ (KHTML, like Gecko) Safari/537.1+ LG Browser/6.00.00(+mouse+3D+SCREEN+TUNER; LGE; 42LA660S-ZA; 04.25.05; 0x00000001;); LG NetCast.TV-2013 /04.25.05 (LG, 42LA660S-ZA, wired)"
+
     private const val USER_AGENT_COBALT_1 = "Mozilla/5.0 (DirectFB; Linux x86_64) Cobalt/4.13031-qa (unlike Gecko) Starboard/1"
     private const val USER_AGENT_COBALT_2 = "Mozilla/5.0 (DirectFB; Linux x86_64) Cobalt/20.lts.2.0-gold (unlike Gecko) Starboard/11"
     // See: https://github.com/youtube/cobalt/blob/main/cobalt/browser/user_agent/user_agent_platform_info.cc#L506
@@ -56,7 +60,10 @@ object DefaultHeaders {
     private const val USER_AGENT_MOBILE_CHROME_2 = "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.91 Mobile Safari/537.36"
     private const val USER_AGENT_MOBILE_FIREFOX = "Mozilla/5.0 (Android 16; Mobile; rv:140.0) Gecko/140.0 Firefox/140.0"
     private const val USER_AGENT_PS_VITA = "Mozilla/5.0 (PlayStation Vita 3.74) AppleWebKit/537.73 (KHTML, like Gecko) Silk/3.2"
-    private const val USER_AGENT_ANDROID_1 = "com.google.android.youtube/17.31.35 (Linux; U; Android 11) gzip"
+
+    // Example: 'com.google.android.youtube/20.32.35(Linux; U; Android 15; en_US; SM-S928U1 Build/AP3A.240905.015.A2) gzip'
+    // Source: https://whatmyuseragent.com/apps/youtube
+    private const val USER_AGENT_ANDROID_1 = "com.google.android.youtube/19.26.42(Linux; U; Android 13; en_US; Pixel 4a Build/TQ3A.230805.001.S2) gzip"
     private const val USER_AGENT_IOS_1 = "com.google.ios.youtube/17.33.2 (iPhone14,3; U; CPU iOS 15_6 like Mac OS X)"
     private const val USER_AGENT_IOS_2 = "com.google.ios.youtube/19.29.1 (iPhone16,2; U; CPU iOS 17_5_1 like Mac OS X;)"
     const val USER_AGENT_SAFARI = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.5 Safari/605.1.15,gzip(gfe)"

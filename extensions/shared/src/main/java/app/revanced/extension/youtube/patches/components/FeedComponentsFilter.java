@@ -438,7 +438,6 @@ public final class FeedComponentsFilter extends Filter {
                         || ticketShelfBuffer.check(buffer).isFiltered()
                         || (!carouselShelfExceptions.matches(path) && hideShelves());
             }
-
             return false;
         }
 

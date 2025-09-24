@@ -146,22 +146,13 @@
     <string name="revanced_enable_zen_mode_podcast_title">ポッドキャストでZenモードを有効化</string>
     <string name="revanced_enable_zen_mode_summary">動画プレーヤーに灰色の色合いを追加し、目の疲れを軽減します。</string>
     <string name="revanced_enable_zen_mode_title">Zen モードを有効化</string>
-    <string name="revanced_extended_reset_to_default_toast">デフォルト値にリセット。</string>
     <string name="revanced_extended_restart_first_run">再起動してレイアウトを正常に読み込みます</string>
-    <string name="revanced_extended_restart_message">再起動して更新</string>
-    <string name="revanced_extended_settings_export_as_file">設定をファイルにエクスポート</string>
     <string name="revanced_extended_settings_export_failed">設定のエクスポートに失敗しました。</string>
     <string name="revanced_extended_settings_export_success">設定は正常にエクスポートされました。</string>
     <string name="revanced_extended_settings_import">インポート</string>
-    <string name="revanced_extended_settings_import_as_file">ファイルから設定をインポート</string>
-    <string name="revanced_extended_settings_import_copy">コピー</string>
-    <string name="revanced_extended_settings_import_export_as_text">テキストとしてインポート/エクスポート</string>
     <string name="revanced_extended_settings_import_export_summary">設定をテキストとしてインポート/エクスポートします。</string>
     <string name="revanced_extended_settings_import_export_title">設定のインポート/エクスポート</string>
-    <string name="revanced_extended_settings_import_failed">インポートに失敗: %s</string>
     <string name="revanced_extended_settings_import_reset">設定をデフォルトにリセットしました。</string>
-    <string name="revanced_extended_settings_import_success">%d の設定をインポートしました。</string>
-    <string name="revanced_extended_settings_reset">リセット</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"ダウンロードボタンをでのダウンロードを外部のアプリで行います。
 
@@ -506,13 +497,20 @@ API キーの発行方法については、ここをタップしてください�
 副作用:
 • 字幕が下部ではなくプレーヤーの上部に配置されることがあります。"</string>
     <string name="revanced_spoof_player_parameter_title">プレイヤーパラメータを偽装</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
+    <string name="revanced_spoof_streaming_data_default_client_summary">偽装するデフォルトのクライアントを定義します。</string>
     <string name="revanced_spoof_streaming_data_default_client_title">デフォルトのクライアント</string>
     <string name="revanced_spoof_streaming_data_message">再生に問題が発生した場合は以下のいずれかのオプションを有効にしてください。ご自身の環境で最も効果的な方を選択してください: &lt;i&gt;&lt;u&gt; 設定 &gt; %s &gt; その他 &lt;/u&gt;&lt;/i&gt; 内の「動画ストリームを偽装」または「クライアントを偽装」。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Stats for nerds でストリーミングデータの取得に使用されるクライアントを定義する。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">マニア向けの統計を表示</string>
-    <string name="revanced_spoof_streaming_data_summary">"ストリーミングデータを偽装して、再生の問題を防ぎます。
+    <string name="revanced_spoof_streaming_data_summary">"クライアントの動画ストリームを偽装し再生の問題を防止します。
 
-• Spoof client と併用すると、再生に問題が発生する場合があります。"</string>
+YouTube Premiumを利用の場合この設定は不要かもしれません。"</string>
     <string name="revanced_spoof_streaming_data_title">ストリーミングデータを偽装</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>

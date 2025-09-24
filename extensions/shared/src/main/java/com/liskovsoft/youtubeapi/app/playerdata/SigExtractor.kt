@@ -76,7 +76,7 @@ internal object SigExtractor {
                 } catch (e: Exception) {
                     return null
                 }
-
+                
                 val (varName, globalList, varCode) = globalVar
                 fixedFuncCode = fixupGlobalObjIfNeeded(
                     jsCode, funcCode, Triple(varName, globalList, "${varCode?.let { "$it;" } ?: ""} $globalObjCode"), nestedCount + 1) ?: return null

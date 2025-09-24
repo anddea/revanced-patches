@@ -147,7 +147,7 @@ public final class ShortsShelfFilter extends Filter {
             // then immediately minimized before any suggestions are loaded.
             // In this state the player type will show minimized, which makes it not possible to
             // distinguish between Shorts suggestions loading in the player and between
-            // scrolling through search/home/subscription tabs while a player is minimized.
+            // scrolling thru search/home/subscription tabs while a player is minimized.
             //
             // To avoid this situation for users that never want to show Shorts (all hide Shorts options are enabled)
             // then hide all Shorts everywhere including the Library history and Library playlists.

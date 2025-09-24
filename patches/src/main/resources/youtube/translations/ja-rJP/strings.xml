@@ -162,7 +162,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_change_youtube_header_summary_off">左上のヘッダーを「Premium」に変更します。</string>
     <string name="revanced_change_youtube_header_summary_on">左上のヘッダーを「Premium」に変更します。</string>
     <string name="revanced_change_youtube_header_title">YouTube ヘッダーを変更</string>
-    <string name="revanced_color_invalid_toast">無効な色</string>
+    <string name="revanced_confirm_user_dialog_title">続行しますか？</string>
     <string name="revanced_copy">コピー</string>
     <string name="revanced_copy_error">テキストをコピーできませんでした</string>
     <string name="revanced_custom_filter_strings_summary">フィルタリングするコンポーネントパスビルダーの文字列のリストです。(改行区切り)</string>
@@ -187,6 +187,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_custom_player_overlay_opacity_title">プレーヤーオーバーレイのカスタム不透明度</string>
     <string name="revanced_custom_seekbar_color_accent_summary">シークバーのアクセントカラーを 16 進数カラーコードで入力してください。</string>
     <string name="revanced_custom_seekbar_color_accent_title">シークバーのアクセントカラー</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">無効なシークバーの色です。</string>
     <string name="revanced_custom_seekbar_color_primary_summary">シークバーのメインカラーを 16 進数カラーコードで入力してください。</string>
     <string name="revanced_custom_seekbar_color_primary_title">シークバーのメインカラー</string>
     <string name="revanced_debug_export_logs_to_clipboard_summary">Revanced Extended のデバッグログをクリップボードにコピーします。</string>
@@ -250,6 +251,9 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">自動再生がオンの状態で音楽を再生すると自動的にミックスリストに切り替わるのを無効にします。\n\n自動再生は YouTube の設定で変更できます:「設定 → 自動再生 → 次の動画を自動再生」</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">ミックスリストの自動切り替えを無効化</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">この機能を有効にすると、自動再生がオンになっている際に音楽を再生すると自動的にミックスリスト切り替わるのが無効になります。</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">ダブルタップした際に次/前のチャプターへスキップしないようにします。</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">ダブルタップした際に次/前のチャプターへスキップしないようにします。</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">ダブルタップでのチャプタースキップを無効化</string>
     <string name="revanced_disable_default_playback_speed_music_off">音楽を再生する際に、「デフォルトの再生速度」で設定した再生速度を無効にします。\n\n注意: この設定は、「YouTube Music で聴く」バナーが表示されている動画にのみ適用されます。</string>
     <string name="revanced_disable_default_playback_speed_music_on">音楽を再生する際に「デフォルトの再生速度」で設定した再生速度を無効にします。</string>
     <string name="revanced_disable_default_playback_speed_music_title">音楽再生時にデフォルトの再生速度を無効化</string>
@@ -472,44 +476,37 @@ DeArrow について詳しく知るには、ここをタップしてください
 
 注意:
 ・「iOS TV」は一部の地域では利用できません。その場合、この設定は機能しない可能性があります。"</string>
-    <string name="revanced_extended_confirm_user_dialog_title">続行しますか？</string>
-    <string name="revanced_extended_reset_to_default_toast">デフォルト値にリセットしました。</string>
     <string name="revanced_extended_restart">再起動</string>
-    <string name="revanced_extended_restart_dialog_message">この変更を反映させるためには、アプリを再起動する必要があります。</string>
     <string name="revanced_extended_restart_first_run">レイアウトを正常に読み込むためにはアプリを再起動する必要があります。\n\n続行しますか？</string>
-    <string name="revanced_extended_restart_message">設定を反映させるためにはアプリを再起動する必要があります。\n\n続行しますか？</string>
     <string name="revanced_extended_restart_title">再起動が必要です</string>
-    <string name="revanced_extended_settings_color_invalid">無効な色です。</string>
-    <string name="revanced_extended_settings_color_picker">カラーピッカー</string>
     <string name="revanced_extended_settings_export_failed">設定をエクスポートできませんでした。</string>
     <string name="revanced_extended_settings_export_success">設定をエクスポートしました。</string>
     <string name="revanced_extended_settings_export_summary">設定をファイルにエクスポートします。</string>
     <string name="revanced_extended_settings_export_title">設定をエクスポート</string>
     <string name="revanced_extended_settings_import">インポート</string>
-    <string name="revanced_extended_settings_import_copy">コピー</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">設定をテキストとしてインポートまたはエクスポートします。</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">テキストとしてインポート/エクスポート</string>
-    <string name="revanced_extended_settings_import_failed">設定をインポートできませんでした。</string>
     <string name="revanced_extended_settings_import_reset">設定をデフォルトにリセットしました。</string>
-    <string name="revanced_extended_settings_import_success">設定をインポートしました。</string>
     <string name="revanced_extended_settings_import_summary">設定をファイルからインポートします。</string>
     <string name="revanced_extended_settings_import_title">設定をインポート</string>
-    <string name="revanced_extended_settings_reset">リセット</string>
-    <string name="revanced_extended_settings_reset_color">色をリセット</string>
-    <string name="revanced_extended_settings_search_title">設定を検索</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">外部ダウンローダーを選択</string>
+    <string name="revanced_external_downloader_empty_warning">パッケージ名は空にできません</string>
+    <string name="revanced_external_downloader_not_found_title">アプリはインストールされていません。</string>
     <string name="revanced_external_downloader_not_installed">インストールされていません</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s はインストールされていません。
 ウェブサイトから %2$s をダウンロードしてください。"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">注意</string>
     <string name="revanced_external_downloader_not_installed_warning">%s はインストールされていません。インストールしてください。</string>
-    <string name="revanced_external_downloader_package_name_playlist_summary">NewPipe や YTDLnis などの、インストールされている外部ダウンローダーアプリのパッケージ名です。</string>
+    <string name="revanced_external_downloader_other_item">その他</string>
+    <string name="revanced_external_downloader_other_item_hint">パッケージ名を入力してください</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">このデバイスにインストールされている外部ダウンローダーアプリのパッケージ名です。</string>
     <string name="revanced_external_downloader_package_name_playlist_title">再生リストの外部ダウンローダーのパッケージ名</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">NewPipe や YTDLnis などの、インストールされている外部ダウンローダーアプリのパッケージ名です。(動画長押し時)</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">動画を長押しして起動する動画ダウンローダーのパッケージ名</string>
-    <string name="revanced_external_downloader_package_name_video_summary">NewPipe や YTDLnis などの、インストールされている外部ダウンローダーアプリのパッケージ名です。</string>
+    <string name="revanced_external_downloader_package_name_video_summary">このデバイスにインストールされている外部ダウンローダーアプリのパッケージ名です。</string>
     <string name="revanced_external_downloader_package_name_video_title">外部ダウンローダーのパッケージ名</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"パッケージ名「%s」のインストール済みアプリは見つかりませんでした。
+
+パッケージ名が正しいことと、アプリがインストールされていることを確認してください。"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">[ハイプ] ボタンのアイコンを修正します。</string>
     <string name="revanced_fix_hype_button_icon_summary_on">[ハイプ] ボタンのアイコンを修正します。</string>
     <string name="revanced_fix_hype_button_icon_title">[ハイプ] ボタンのアイコンを修正</string>
@@ -561,7 +558,6 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_gemini_transcription_result_title">Gemini 動画要約</string>
     <string name="revanced_gms_show_dialog_summary">各アプリの起動時に GMSCore の最適化ダイアログを表示します。</string>
     <string name="revanced_gms_show_dialog_title">GMSCore の最適化ダイアログを表示</string>
-    <string name="revanced_gradient_seekbar_positions_reset">グラデーションの位置はデフォルトにリセットされました。</string>
     <string name="revanced_gradient_seekbar_positions_summary">グラデーションの開始位置と終了位置を 0 から 1 の間でカンマ区切りで指定できます。</string>
     <string name="revanced_gradient_seekbar_positions_title">グラデーションシークバーの範囲</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">[マイページ] タブから非表示にする項目を入力してください。(改行区切り)</string>
@@ -818,11 +814,11 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_keyword_content_home_summary_off">キーワードでホームフィード内の動画をフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_home_summary_on">キーワードでホームフィード内の動画をフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_home_title">ホームフィードをフィルタリング</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"非表示にするキーワードやフレーズを入力してください。(改行区切り)
+    <string name="revanced_hide_keyword_content_phrases_summary">"非表示にするキーワードやフレーズを入力してください (改行区切り)。
 
 キーワードには、チャンネル名や動画のタイトルに表示されるテキストを使用できます。
 
-真ん中に大文字がある単語は、大文字と小文字を区別して入力する必要があります。(例: iPhone、TikTok、LeBlanc)"</string>
+真ん中に大文字がある単語は、大文字と小文字を区別して入力する必要があります (例: iPhone、TikTok、LeBlanc)。"</string>
     <string name="revanced_hide_keyword_content_phrases_title">キーワードでフィルタリング</string>
     <string name="revanced_hide_keyword_content_search_summary_off">キーワードで検索結果をフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_search_summary_on">キーワードで検索結果をフィルタリングします。</string>
@@ -830,6 +826,9 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">キーワードで登録チャンネルの動画をフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">キーワードで登録チャンネルの動画をフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">登録チャンネルをフィルタリング</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_off">「AND」演算子 (&amp;) を有効にします。&lt;br&gt;&lt;br&gt;&lt;strong&gt;「Blue」&amp;「Red」&lt;/strong&gt; をキーワードとして使用すると、&lt;strong&gt;「Blue」と「Red」&lt;/strong&gt;の両方を含むキーワードがフィルタリングされます。</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_on">「AND」演算子 (&amp;) を有効にします。&lt;br&gt;&lt;br&gt;&lt;strong&gt;「Blue」&amp;「Red」&lt;/strong&gt; をキーワードとして使用すると、&lt;strong&gt;「Blue」と「Red」&lt;/strong&gt;の両方を含むキーワードがフィルタリングされます。</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_title">「AND」演算子 (&amp;) を使用</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">キーワード「%1$s」は範囲が広すぎるため、この単語を含むすべての動画を非表示にします。</string>
     <string name="revanced_hide_keyword_toast_invalid_common">「%s」はキーワードとして使用できません。</string>
     <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">キーワードを使用するには、引用符を追加してください: %s</string>
@@ -1063,9 +1062,17 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_search_term_thumbnail_summary_off">検索履歴からサムネイルを非表示にします。</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">検索履歴からサムネイルを非表示にします。</string>
     <string name="revanced_hide_search_term_thumbnail_title">検索履歴のサムネイルを非表示</string>
-    <string name="revanced_hide_seek_message_summary_off">動画長押しシーク時に表示される「移動するには左右にスライドします」などのメッセージを非表示にします。</string>
-    <string name="revanced_hide_seek_message_summary_on">動画長押しシーク時に表示される「移動するには左右にスライドします」などのメッセージを非表示にします。</string>
-    <string name="revanced_hide_seek_message_title">シーク時のメッセージを非表示</string>
+    <string name="revanced_hide_seek_message_summary_off">"動画長押しシーク時に表示される「移動するには左右にスライドします」を非表示にします。
+
+注意:
+・この設定はサーバー上で非推奨になっているようです。
+・代わりに「フィルムストリップオーバーレイを非表示」または「シーク取り消しメッセージを非表示」を使用してください。"</string>
+    <string name="revanced_hide_seek_message_summary_on">"動画長押しシーク時に表示される「移動するには左右にスライドします」を非表示にします。
+
+注意:
+・この設定はサーバー上で非推奨になっているようです。
+・代わりに「フィルムストリップオーバーレイを非表示」または「シーク取り消しメッセージを非表示」を使用してください。"</string>
+    <string name="revanced_hide_seek_message_title">シーク時のメッセージを非表示 (非推奨)</string>
     <string name="revanced_hide_seek_undo_message_summary_off">シーク取り消しのメッセージを非表示にします。</string>
     <string name="revanced_hide_seek_undo_message_summary_on">シーク取り消しのメッセージを非表示にします。</string>
     <string name="revanced_hide_seek_undo_message_title">シーク取り消しメッセージを非表示</string>
@@ -1893,6 +1900,11 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"タップすると Revanced Extended の設定が開きます。
 長押しすると YouTube の設定が開きます。"</string>
     <string name="revanced_replace_toolbar_create_button_type_title">ボタンに割り当てるアクションの種類</string>
+    <string name="revanced_reset_to_default_toast">デフォルト値にリセットしました。</string>
+    <string name="revanced_restart">再起動</string>
+    <string name="revanced_restart_dialog_message">この変更を反映させるためには、アプリを再起動する必要があります。</string>
+    <string name="revanced_restart_first_run">レイアウトを正常に読み込むためにはアプリを再起動する必要があります。\n\n続行しますか？</string>
+    <string name="revanced_restart_title">再起動が必要です</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">現在の設定: 全画面表示時にシークバーの上にサムネイルを表示します。</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">現在の設定: シークバーの上にサムネイルを表示します。</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">旧バージョンのシークバーサムネイルを復元</string>
@@ -1932,10 +1944,10 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_ryd_estimated_like_summary_off">高評価数が非公開の動画で高評価数を推定して表示します。</string>
     <string name="revanced_ryd_estimated_like_summary_on">高評価数が非公開の動画で高評価数を推定して表示します。</string>
     <string name="revanced_ryd_estimated_like_title">推定の高評価数を表示</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は一時的に利用できません。(クライアント API が制限に達しました)</string>
-    <string name="revanced_ryd_failure_connection_status_code">低評価数は一時的に利用できません。(ステータス: %d)</string>
-    <string name="revanced_ryd_failure_connection_timeout">低評価数は一時的に利用できません。(API がタイムアウトしました)</string>
-    <string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません。(%s)</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は一時的に利用できません (クライアント API が制限に達しました)。</string>
+    <string name="revanced_ryd_failure_connection_status_code">低評価数は一時的に利用できません (ステータス: %d)。</string>
+    <string name="revanced_ryd_failure_connection_timeout">低評価数は一時的に利用できません (API がタイムアウトしました)。</string>
+    <string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません (%s)。</string>
     <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">投票するために Return YouTube Dislike を使用するため、動画を再読み込みします</string>
     <string name="revanced_ryd_shorts_summary_off">ショートで低評価数を表示します。\n\n注意: ログインしていない場合や、シークレットモードでは低評価数が表示されないことがあります。</string>
     <string name="revanced_ryd_shorts_summary_on">ショートで低評価数を表示します。\n\n注意: ログインしていない場合やシークレットモードでは、低評価数が表示されないことがあります。</string>
@@ -1965,7 +1977,6 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_color_changed">色を変更しました。</string>
     <string name="revanced_sb_color_dot_label">色:</string>
     <string name="revanced_sb_color_invalid">無効なカラーコードです。</string>
-    <string name="revanced_sb_color_opacity_label">不透明度:</string>
     <string name="revanced_sb_color_reset">色をリセットしました。</string>
     <string name="revanced_sb_create_segment_category">新しいセグメントの作成</string>
     <string name="revanced_sb_diff_segments">セグメントの設定</string>
@@ -2112,13 +2123,13 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_skipped_sponsor">スポンサーをスキップしました。</string>
     <string name="revanced_sb_skipped_unsubmitted">未送信のセグメントをスキップしました。</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock は一時的に利用できません。</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock は一時的に利用できません。(ステータス %d)</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock は一時的に利用できません。(API がタイムアウトしました)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock は一時的に利用できません (ステータス %d)。</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock は一時的に利用できません (API がタイムアウトしました)。</string>
     <string name="revanced_sb_square_layout">四角いボタンを使用</string>
     <string name="revanced_sb_square_layout_sum_off">ボタンとコントロールを四角くします。</string>
     <string name="revanced_sb_square_layout_sum_on">ボタンとコントロールを四角くします。</string>
     <string name="revanced_sb_stats">統計情報</string>
-    <string name="revanced_sb_stats_connection_failure">統計は一時的に利用できません (API がダウンしています)</string>
+    <string name="revanced_sb_stats_connection_failure">統計は一時的に利用できません (API がダウンしています)。</string>
     <string name="revanced_sb_stats_loading">読み込み中...</string>
     <string name="revanced_sb_stats_reputation">あなたの評価は &lt;b&gt;%.2f&lt;/b&gt; です。</string>
     <string name="revanced_sb_stats_saved">今までに &lt;b&gt;%s&lt;/b&gt; 個のセグメントから人々を守りました</string>
@@ -2141,30 +2152,28 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_submit_failed_duplicate">セグメントを送信できません。\n既に存在します。</string>
     <string name="revanced_sb_submit_failed_forbidden">セグメントを送信できません: %s</string>
     <string name="revanced_sb_submit_failed_invalid">セグメントを送信できませんでした: %s</string>
-    <string name="revanced_sb_submit_failed_rate_limit">セグメントを送信できませんでした。\nレート制限 (同じユーザー / IP からの送信が多すぎます)</string>
+    <string name="revanced_sb_submit_failed_rate_limit">セグメントを送信できませんでした。\nレート制限です (同じユーザー/IP からの送信が多すぎます)。</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock は一時的に停止しています。</string>
-    <string name="revanced_sb_submit_failed_unknown_error">セグメントを送信できませんでした (ステータス: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">セグメントを送信できませんでした (ステータス: %1$d %2$s)。</string>
     <string name="revanced_sb_submit_succeeded">セグメントを送信しました。</string>
+    <string name="revanced_sb_toast_on_connection_error">API が利用できない場合にトーストを表示</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock が利用できない場合、トーストを表示します。</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">SponsorBlock が利用できない場合、トーストを表示します。</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock が利用できない場合、トーストを表示します。</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock が利用できない場合、トーストを表示します。</string>
     <string name="revanced_sb_toast_on_connection_error_title">API が利用できない場合にトーストを表示</string>
     <string name="revanced_sb_vote_category">カテゴリーを変更</string>
     <string name="revanced_sb_vote_downvote">反対</string>
     <string name="revanced_sb_vote_failed_forbidden">セグメントに投票できません: %s</string>
-    <string name="revanced_sb_vote_failed_timeout">セグメントの評価を送信できませんでした (API がタイムアウトしました)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">セグメントの評価を送信できませんでした (ステータス: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_timeout">セグメントの評価を送信できませんでした (API がタイムアウトしました)。</string>
+    <string name="revanced_sb_vote_failed_unknown_error">セグメントの評価を送信できませんでした (ステータス: %1$d %2$s)。</string>
     <string name="revanced_sb_vote_no_segments">評価できるセグメントがありません</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s から %2$s</string>
     <string name="revanced_sb_vote_upvote">賛成</string>
     <string name="revanced_search_clear_confirm_message">検索履歴をすべて削除してもよろしいですか？</string>
     <string name="revanced_search_clear_confirm_title">検索履歴をクリア</string>
-    <string name="revanced_search_clear_history_title">履歴をクリア</string>
     <string name="revanced_search_delete_confirm_message">検索履歴から \"%1$s\" を削除しますか？</string>
     <string name="revanced_search_delete_confirm_title">検索履歴を削除</string>
-    <string name="revanced_search_delete_entry">検索履歴を削除</string>
-    <string name="revanced_search_history_title">最近の検索</string>
-    <string name="revanced_search_no_history_summary">検索履歴はここに表示されます。検索履歴を保存するにはエンターキーを押す必要があります。</string>
-    <string name="revanced_search_no_history_title">最近の検索はありません</string>
     <string name="revanced_search_settings_category_title">検索の設定</string>
     <string name="revanced_search_settings_no_results_summary">別の検索ワードをお試しください。</string>
     <string name="revanced_search_settings_no_results_title">\"%1$s\" に一致する結果は見つかりませんでした</string>
@@ -2189,12 +2198,43 @@ Cookie の使用は万能薬ではありません。
 ・Cookie の有効期限が切れている。
 ・無効な Cookie が使用されている。
 ・YouTube Transcript API が Cookie を検証しなくなった。"</string>
-    <string name="revanced_settings_search_highlight_color_summary">検索結果で一致したテキストのハイライト色を設定します。</string>
-    <string name="revanced_settings_search_highlight_color_title">検索ハイライトの色</string>
-    <string name="revanced_settings_search_highlight_summary">検索で一致したテキストを、選択した色でハイライトします。</string>
-    <string name="revanced_settings_search_highlight_title">検索ハイライトを有効にする</string>
+    <string name="revanced_settings_color_invalid">無効な色です。</string>
+    <string name="revanced_settings_color_picker">カラーピッカー</string>
+    <string name="revanced_settings_export_failed">設定をエクスポートできませんでした。</string>
+    <string name="revanced_settings_export_success">設定をエクスポートしました。</string>
+    <string name="revanced_settings_export_summary">設定をファイルにエクスポートします。</string>
+    <string name="revanced_settings_export_title">設定をエクスポート</string>
+    <string name="revanced_settings_import">インポート</string>
+    <string name="revanced_settings_import_copy">コピー</string>
+    <string name="revanced_settings_import_export_as_text_summary">設定をテキストとしてインポートまたはエクスポートします。</string>
+    <string name="revanced_settings_import_export_as_text_title">テキストとしてインポート/エクスポート</string>
+    <string name="revanced_settings_import_failed">設定をインポートできませんでした。</string>
+    <string name="revanced_settings_import_reset">設定をデフォルトにリセットしました。</string>
+    <string name="revanced_settings_import_success">設定をインポートしました。</string>
+    <string name="revanced_settings_import_summary">設定をファイルからインポートします。</string>
+    <string name="revanced_settings_import_title">設定をインポート</string>
+    <string name="revanced_settings_reset">リセット</string>
+    <string name="revanced_settings_reset_color">色をリセット</string>
+    <string name="revanced_settings_search_clear_history">検索履歴を消去</string>
+    <string name="revanced_settings_search_clear_history_message">すべての検索履歴を消去してもよろしいですか？</string>
+    <string name="revanced_settings_search_empty_history_summary">検索履歴を保存するには、検索クエリを入力してエンターキーを押してください。</string>
+    <string name="revanced_settings_search_empty_history_title">検索履歴はありません</string>
     <string name="revanced_settings_search_history_summary">最近の検索履歴を保存し、検索バーが空のときに表示します。</string>
+    <string name="revanced_settings_search_history_summary_off">設定の検索履歴を表示します。</string>
+    <string name="revanced_settings_search_history_summary_on">設定の検索履歴を表示します。</string>
     <string name="revanced_settings_search_history_title">設定の検索履歴を表示</string>
+    <string name="revanced_settings_search_no_results_summary">別のキーワードを試してみてください。</string>
+    <string name="revanced_settings_search_no_results_title">「%s」に該当する結果は見つかりませんでした。</string>
+    <string name="revanced_settings_search_recent_searches">検索履歴</string>
+    <string name="revanced_settings_search_remove_message">検索履歴から削除しますか？</string>
+    <string name="revanced_settings_search_tips_summary">"・カテゴリをタップするとそのカテゴリの設定メニューに移動します。
+・設定を長押しすると、その設定に移動できます。
+・エンターキーを押すと、検索クエリが履歴に保存されます。
+・検索では大文字と小文字および句読点は無視されます。
+・無効化されている下位設定の上には、その設定を無効化している上位設定が表示されます。"</string>
+    <string name="revanced_settings_search_tips_title">検索のヒント</string>
+    <string name="revanced_settings_search_title">設定を検索</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">設定をクリップボードにコピーしました。</string>
     <string name="revanced_share_copy_timestamp_success">タイムスタンプをクリップボードにコピーしました。(%s)</string>
     <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました。</string>
@@ -2262,6 +2302,8 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_speed_overlay_value_invalid_toast">倍速再生オーバーレイの値は 0 ~ 8.0 の間でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_speed_overlay_value_summary">倍速再生オーバーレイの値は 0 ~ 8.0 の間です。</string>
     <string name="revanced_speed_overlay_value_title">倍速再生オーバーレイの値</string>
+    <string name="revanced_spoof_app_version_other_item">その他</string>
+    <string name="revanced_spoof_app_version_other_item_hint">アプリのバージョンを入力してください</string>
     <string name="revanced_spoof_app_version_summary">"YouTube を古いバージョンに偽装します。
 
 注意:
@@ -2282,6 +2324,7 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - ナビゲーションとツールバーで Cairo アイコンを無効化</string>
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - 旧バージョンの再生リストヘッダーを復元</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - 旧バージョンの再生速度のフライアウトパネルを復元</string>
+    <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - 文字起こし機能を復元</string>
     <string name="revanced_spoof_app_version_target_entry_title">偽装するバージョン</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">無効な偽装アプリバージョンです: %s</string>
     <string name="revanced_spoof_app_version_target_summary">偽装するバージョンを入力してください。</string>
@@ -2384,6 +2427,7 @@ VP9 は AVC よりも高度なコーデックですが、利用者によって�
 • 一定音量は利用できません。
 • ログアウト時またはシークレットモードでは子供向け動画が再生できない場合があります。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_creator">"・[音声トラック] メニューは表示されません。
+・[音声トラックの強制を無効化] は利用できません。
 ・[一定音量] は利用できません。
 ・ログインしていない場合やシークレットモードでは、子ども向け動画は再生できない可能性があります。
 ・1080p+、AV1、HDR には対応していません。"</string>
@@ -2436,7 +2480,7 @@ YouTube Premium に加入している場合は、この設定は必要ない可�
 
 動画広告がブロックされると、GVS (Google Video Server) は広告の継続時間に比例した偽のバッファリングを生成します (A/B テスト)。
 
-uBlock Origin はこの問題の回避策を見つけました。これは、[偽のバッファリングを回避] 設定を有効にすることで回避できます。
+uBlock Origin はこの問題の回避策を発見しました。これは、[偽のバッファリングを回避] 設定を有効にすることで回避できます。
 
 記事を読むには [開く] をタップしてください。"</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">開く</string>
@@ -2567,7 +2611,6 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
     <string name="revanced_theme_default">オリジナル</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">注意</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s はインストールされていません。インストールしてください。</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">インストールされている RVX Music のパッケージ名です。</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music のパッケージ名</string>
     <string name="revanced_transcript_cookies_about_summary">Cookie を取得する方法を確認するにはここをタップしてください。</string>

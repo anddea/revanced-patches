@@ -53,7 +53,7 @@ public class PackageUtils extends Utils {
     }
 
     public static boolean isVersionOrGreater(String version) {
-        return getAppVersionName().compareTo(version) >= 0;
+        return getAppVersionName().compareTo(version) > 0;
     }
 
     public static int getSmallestScreenWidthDp() {

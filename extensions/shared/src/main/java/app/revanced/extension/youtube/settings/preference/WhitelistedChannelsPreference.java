@@ -18,6 +18,7 @@ import org.apache.commons.lang3.BooleanUtils;
 
 import java.util.ArrayList;
 
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
 import app.revanced.extension.youtube.utils.ExtendedUtils;
@@ -90,7 +91,7 @@ public class WhitelistedChannelsPreference extends Preference implements Prefere
 
     public static void showWhitelistedChannelDialog(Context context) {
         // Create the custom dialog.
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 str("revanced_whitelist_settings_title"), // Title.
                 null, // No message (replaced by contentLayout).
@@ -157,7 +158,7 @@ public class WhitelistedChannelsPreference extends Preference implements Prefere
                 String author = entry.getChannelName();
                 Runnable runnable = () -> {
                     // Create the custom dialog.
-                    Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                    Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                             context,
                             null, // No title.
                             str("revanced_whitelist_remove_dialog_message", author, whitelistType.getFriendlyName()), // Message.
@@ -196,7 +197,7 @@ public class WhitelistedChannelsPreference extends Preference implements Prefere
         contentScrollView.addView(contentLayout);
 
         // Create the custom dialog.
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 whitelistType.getFriendlyName(), // Title.
                 null, // No message (replaced by contentLayout).

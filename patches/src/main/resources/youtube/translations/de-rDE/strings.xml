@@ -157,7 +157,6 @@ Einschränkung: Zurück-Taste in der Symbolleiste funktioniert möglicherweise n
     <string name="revanced_change_youtube_header_summary_off">Standard Header wird verwendet.</string>
     <string name="revanced_change_youtube_header_summary_on">Premium Header wird verwendet.</string>
     <string name="revanced_change_youtube_header_title">YouTube Header ändern</string>
-    <string name="revanced_color_invalid_toast">Ungültige Farbe</string>
     <string name="revanced_copy">Kopieren</string>
     <string name="revanced_copy_error">Text konnte nicht kopiert werden</string>
     <string name="revanced_custom_filter_strings_summary">Komponenten nach zeilengetrennten Namen filtern</string>
@@ -181,6 +180,7 @@ Einschränkung: Zurück-Taste in der Symbolleiste funktioniert möglicherweise n
     <string name="revanced_custom_player_overlay_opacity_title">Benutzerdefinierte Spieler-Überlagerung Deckkraft</string>
     <string name="revanced_custom_seekbar_color_accent_summary">Geben Sie den Hex-Code der Suchleisten-Akzentfarbe ein.</string>
     <string name="revanced_custom_seekbar_color_accent_title">Farbliche Anpassung des Fortschrittsanzeige-Akzents</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Ungültige Suchleistenfarbe.</string>
     <string name="revanced_custom_seekbar_color_primary_summary">Geben Sie den Hex-Code der Suchbar-Primärfarbe ein.</string>
     <string name="revanced_custom_seekbar_color_primary_title">Benutzerdefinierte Suchleisten-Primärfarbe</string>
     <string name="revanced_debug_export_logs_to_clipboard_summary">Kopiert ReVanced-Debug-Protokolle in die Zwischenablage</string>
@@ -201,7 +201,7 @@ Einschränkung: Zurück-Taste in der Symbolleiste funktioniert möglicherweise n
     <string name="revanced_debug_summary_off">Debug-Protokolle sind deaktiviert</string>
     <string name="revanced_debug_summary_on">Debug-Protokolle sind aktiviert</string>
     <string name="revanced_debug_title">Debug-Protokollierung</string>
-    <string name="revanced_debug_toast_on_error_summary_off">Es wird keine Toast-Nachricht angezeigt, wenn ein Fehler Auftritt</string>
+    <string name="revanced_debug_toast_on_error_summary_off">Es wird keine Toast-Nachricht angezeigt, wenn ein Fehler auftritt</string>
     <string name="revanced_debug_toast_on_error_summary_on">Ein Toast wird angezeigt, wenn ein Fehler auftritt</string>
     <string name="revanced_debug_toast_on_error_title">Toast bei ReVanced Fehler anzeigen</string>
     <string name="revanced_default_app_settings_summary">Um RVX in einem externen Browser zu öffnen, aktivieren Sie \'Unterstützte Links öffnen\' und aktivieren Sie die unterstützen Web-Adressen</string>
@@ -236,6 +236,9 @@ Einstellungen → Autoplay / Wiedergabe → Nächstes Video Autoplay"</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Mix-Playlists sind deaktiviert.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">Mix-Playlists deaktivieren</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Aktivieren dieser Funktion deaktiviert den automatischen Wechsel zu YouTube-Mix, wenn Musik abgespielt wird, während Autoplay eingeschaltet ist.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">Doppeltippen kann gelegentlich ein Überspringen zum nächsten/vorherigen Kapitel auslösen</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">Doppeltippen kann niemals ein Überspringen zum nächsten/vorherigen Kapitel auslösen</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Doppeltippen zum Kapitelüberspringen deaktivieren</string>
     <string name="revanced_disable_default_playback_speed_music_off">Die Standardgeschwindigkeit der Wiedergabe ist für Musik aktiviert.</string>
     <string name="revanced_disable_default_playback_speed_music_on">Die Standardgeschwindigkeit der Wiedergabe ist für Musik deaktiviert.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Wiedergabegeschwindigkeit für Musik deaktivieren</string>
@@ -427,42 +430,35 @@ Einschränkung: Funktioniert nicht, wenn der Player minimiert ist, im PiP Modus 
     <string name="revanced_expand_video_description_summary_off">Videobeschreibungen werden nicht automatisch erweitert.</string>
     <string name="revanced_expand_video_description_summary_on">Videobeschreibungen werden automatisch erweitert.</string>
     <string name="revanced_expand_video_description_title">Videobeschreibungen erweitern</string>
-    <string name="revanced_extended_confirm_user_dialog_title">Möchtest Du fortfahren?</string>
-    <string name="revanced_extended_reset_to_default_toast">Auf Standardwerte zurücksetzen.</string>
     <string name="revanced_extended_restart">Neustart</string>
-    <string name="revanced_extended_restart_dialog_message">Starte die App neu, um diese Änderung anzuwenden.</string>
     <string name="revanced_extended_restart_first_run">Neustarten um das Layout zu laden</string>
-    <string name="revanced_extended_restart_message">Aktualisieren und Neustarten</string>
     <string name="revanced_extended_restart_title">Neustart benötigt</string>
-    <string name="revanced_extended_settings_color_invalid">Ungültige Farbe.</string>
-    <string name="revanced_extended_settings_color_picker">Farbauswahl</string>
     <string name="revanced_extended_settings_export_failed">Fehler beim Exportieren der Einstellungen.</string>
     <string name="revanced_extended_settings_export_success">Einstellungen wurden erfolgreich exportiert.</string>
     <string name="revanced_extended_settings_export_summary">Exportiere Einstellungen zu Datei.</string>
     <string name="revanced_extended_settings_export_title">Einstellungen exportieren</string>
     <string name="revanced_extended_settings_import">Importieren</string>
-    <string name="revanced_extended_settings_import_copy">Kopieren</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">Einstellungen als Text importieren / exportieren.</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">Importieren / Exportieren als Text</string>
-    <string name="revanced_extended_settings_import_failed">Fehler beim Importieren der Einstellungen.</string>
     <string name="revanced_extended_settings_import_reset">Einstellungen zurücksetzen</string>
-    <string name="revanced_extended_settings_import_success">Einstellungen wurden erfolgreich importiert.</string>
     <string name="revanced_extended_settings_import_summary">Einstellungen aus Datei Importieren</string>
     <string name="revanced_extended_settings_import_title">Einstellungen importieren</string>
-    <string name="revanced_extended_settings_reset">Zurücksetzen</string>
-    <string name="revanced_extended_settings_reset_color">Farbe zurücksetzen</string>
-    <string name="revanced_extended_settings_search_title">Suche %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Externer Downloader</string>
+    <string name="revanced_external_downloader_empty_warning">Der Paketname darf nicht leer sein</string>
+    <string name="revanced_external_downloader_not_found_title">App nicht installiert</string>
     <string name="revanced_external_downloader_not_installed">Nicht installiert</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s ist nicht installiert.
 Bitte lade %2$s von der Webseite herunter."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Warnung</string>
     <string name="revanced_external_downloader_not_installed_warning">%s ist nicht installiert. Bitte installieren.</string>
+    <string name="revanced_external_downloader_other_item">Andere</string>
+    <string name="revanced_external_downloader_other_item_hint">Paketnamen eingeben</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Paketname Ihrer installierten externen Downloader-App, wie z. B. YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Playlist Downloader Paketname</string>
     <string name="revanced_external_downloader_package_name_video_summary">Paketname der installierten externen Video-Downloader-App wie NewPipe oder YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Paketname des Video-Downloaders</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"Installierte App mit Paketnamen nicht gefunden: %s
+
+Stellen Sie sicher, dass der Paketname korrekt ist und die App installiert ist"</string>
     <string name="revanced_fullscreen_ads_closed_toast">Vollbildwerbung wurde geschlossen.</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Liste der Filter für das Account Menü, durch Zeilenumbrüche getrennt.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Konto-Menüfilter bearbeiten</string>
@@ -550,6 +546,9 @@ Store"</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Emoji und Zeitstempeltasten werden angezeigt.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Emoji und Zeitstempeltasten sind ausgeblendet.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Emoji und Zeitstempel ausblenden</string>
+    <string name="revanced_hide_comments_button_summary_off">Kommentare-Schaltfläche wird angezeigt</string>
+    <string name="revanced_hide_comments_button_summary_on">Kommentare-Schaltfläche ist ausgeblendet</string>
+    <string name="revanced_hide_comments_button_title">Kommentare ausblenden</string>
     <string name="revanced_hide_comments_by_members_summary_off">Kommentare nach Mitglieder-Banner werden angezeigt.</string>
     <string name="revanced_hide_comments_by_members_summary_on">Kommentare nach Mitglieder-Banner sind versteckt.</string>
     <string name="revanced_hide_comments_by_members_title">Kommentare nach Mitglieder-Banner ausblenden</string>
@@ -908,8 +907,8 @@ Wenn sich das Layout des Wiedergabebildschirms aufgrund serverseitiger Änderung
     <string name="revanced_hide_search_term_thumbnail_summary_off">Suchbegriff-Vorschaubilder werden angezeigt.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Suchbegriff-Vorschaubilder werden ausgeblendet.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Suchbegriff-Vorschaubilder ausblenden</string>
-    <string name="revanced_hide_seek_message_summary_off">Suche Nachricht wird angezeigt.</string>
-    <string name="revanced_hide_seek_message_summary_on">Nachricht suchen ist ausgeblendet.</string>
+    <string name="revanced_hide_seek_message_summary_off">"Suche Nachricht wird angezeigt."</string>
+    <string name="revanced_hide_seek_message_summary_on">"Nachricht suchen ist ausgeblendet."</string>
     <string name="revanced_hide_seek_message_title">Suchnachricht verbergen</string>
     <string name="revanced_hide_seek_undo_message_summary_off">Rückgängig suchen Nachricht wird angezeigt.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Rückgängig suchen Nachricht ist versteckt.</string>
@@ -1137,7 +1136,7 @@ Nebeneffekt: Offizielle Kopfzeilen in Suchergebnissen werden ausgeblendet.</stri
     <string name="revanced_hide_suggested_actions_summary_on">Vorgeschlagene Aktionen sind versteckt</string>
     <string name="revanced_hide_suggested_actions_title">Verstecke empfohlene Vorschläge</string>
     <string name="revanced_hide_surveys_summary_off">Umfragen werden angezeigt</string>
-    <string name="revanced_hide_surveys_summary_on">Umfragen sind ausgeblendet</string>
+    <string name="revanced_hide_surveys_summary_on">Umfragen werden ausgeblendet</string>
     <string name="revanced_hide_surveys_title">Umfragen ausblenden</string>
     <string name="revanced_hide_thanks_button_summary_off">\"Danke\" Schaltfläche wird angezeigt.</string>
     <string name="revanced_hide_thanks_button_summary_on">\"Danke\" Schaltfläche wird versteckt.</string>
@@ -1656,7 +1655,6 @@ Einschränkung: Dislikes werden im Inkognito Modus nicht angezeigt."</string>
     <string name="revanced_sb_color_changed">Farbe geändert</string>
     <string name="revanced_sb_color_dot_label">Farbe:</string>
     <string name="revanced_sb_color_invalid">Ungültiger Farbcode</string>
-    <string name="revanced_sb_color_opacity_label">Deckfähigkeit:</string>
     <string name="revanced_sb_color_reset">Farben zurücksetzen</string>
     <string name="revanced_sb_create_segment_category">Neue Segmente erstellen</string>
     <string name="revanced_sb_diff_segments">Segment Verhalten ändern</string>
@@ -1734,7 +1732,7 @@ Bereit zum Einreichen?"</string>
     <string name="revanced_sb_segments_highlight">Highlight</string>
     <string name="revanced_sb_segments_highlight_sum">Der Abschnitt des Videos, nach dem die meisten Menschen suchen.</string>
     <string name="revanced_sb_segments_hook">Hook / Begrüßungen</string>
-    <string name="revanced_sb_segments_hook_sum">Erzählte Trailer für das kommende Video, Begrüßungen und Verabschiedungen. Enthält keine Abschnitte, die zusätzlichen Inhalt hinzufügen</string>
+    <string name="revanced_sb_segments_hook_sum">Erzählte Trailer für das kommende Video, Begrüßungen und Verabschiedungen. Enthält keine Segmente, die zusätzlichen Inhalt hinzufügen</string>
     <string name="revanced_sb_segments_interaction">Interaktionserinnerung (Abonnieren)</string>
     <string name="revanced_sb_segments_interaction_sum">Wenn es eine kurze Erinnerung zum \"Daumen hoch\", Abonnieren, oder Folgen in der Mitte von Inhalt gibt. Falls es lang oder über etwas Bestimmtes ist, sollte es stattdessen \"Unbezahlt/Eigenwerbung\" sein.</string>
     <string name="revanced_sb_segments_intro">Unterbrechung/Introanimation</string>
@@ -1799,7 +1797,7 @@ Bereit zum Einreichen?"</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock temporarily unavailable.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock temporarily unavailable (status %d).</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock temporarily unavailable (API timed out).</string>
-    <string name="revanced_sb_square_layout">Quadratisches Layout verwenden</string>
+    <string name="revanced_sb_square_layout">Quadratische Bedienelemente verwenden</string>
     <string name="revanced_sb_square_layout_sum_off">Schaltflächen und Bedienelemente sind abgerundet</string>
     <string name="revanced_sb_square_layout_sum_on">Schaltflächen und Steuerelemente sind quadratisch</string>
     <string name="revanced_sb_stats">Statistiken</string>
@@ -1830,6 +1828,9 @@ Bereit zum Einreichen?"</string>
     <string name="revanced_sb_submit_failed_timeout">Segmente können nicht übermittelt werden (API Timeout)</string>
     <string name="revanced_sb_submit_failed_unknown_error">Segmente können nicht übermittelt werden (status: %1$d %2$s).</string>
     <string name="revanced_sb_submit_succeeded">Segment erfolgreich gesendet</string>
+    <string name="revanced_sb_toast_on_connection_error">Einen Toast anzeigen, wenn die API nicht verfügbar ist</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">Toast wird nicht angezeigt, wenn SponsorBlock nicht verfügbar ist</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">Toast wird angezeigt, wenn SponsorBlock nicht verfügbar ist</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Benachrichtigung wird nicht angezeigt, wenn „SponsorBlock“ nicht verfügbar ist.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Benachrichtigung wird angezeigt, wenn „SponsorBlock“ nicht verfügbar ist.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Zeige eine Benachrichtigung an, wenn die API nicht verfügbar ist</string>
@@ -1841,7 +1842,30 @@ Bereit zum Einreichen?"</string>
     <string name="revanced_sb_vote_no_segments">Es gibt keine Segmente zur Abstimmung</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s bis %2$s</string>
     <string name="revanced_sb_vote_upvote">Positiv bewerten</string>
+    <string name="revanced_settings_color_invalid">Ungültige Farbe</string>
+    <string name="revanced_settings_import">Importieren</string>
+    <string name="revanced_settings_import_copy">Kopieren</string>
+    <string name="revanced_settings_import_reset">ReVanced-Einstellungen auf Standardwerte zurückgesetzt</string>
+    <string name="revanced_settings_import_success">%d Einstellungen importiert</string>
+    <string name="revanced_settings_reset">Zurücksetzen</string>
+    <string name="revanced_settings_reset_color">Farbe zurücksetzen</string>
+    <string name="revanced_settings_search_clear_history">Suchverlauf löschen</string>
+    <string name="revanced_settings_search_clear_history_message">Möchten Sie wirklich den gesamten Suchverlauf löschen?</string>
+    <string name="revanced_settings_search_empty_history_summary">Um den Suchverlauf zu speichern, geben Sie eine Suchanfrage ein und drücken Sie Enter</string>
+    <string name="revanced_settings_search_empty_history_title">Suchverlauf ist leer</string>
+    <string name="revanced_settings_search_history_summary_off">Der Suchverlauf der Einstellungen wird nicht angezeigt</string>
+    <string name="revanced_settings_search_history_summary_on">Suchverlauf der Einstellungen wird angezeigt</string>
     <string name="revanced_settings_search_history_title">Suchverlauf der Einstellungen anzeigen</string>
+    <string name="revanced_settings_search_no_results_summary">Versuche ein anderes Schlüsselwort</string>
+    <string name="revanced_settings_search_no_results_title">Keine Ergebnisse für „%s“ gefunden</string>
+    <string name="revanced_settings_search_recent_searches">Kürzliche Suchen</string>
+    <string name="revanced_settings_search_remove_message">Aus Suchverlauf entfernen?</string>
+    <string name="revanced_settings_search_tips_summary">"• Tippen Sie auf einen Pfad, um dorthin zu navigieren
+• Halten Sie eine Einstellung gedrückt, um dorthin zu navigieren
+• Drücken Sie Enter, um eine Suchanfrage im Verlauf zu speichern
+• Die Suche ignoriert Groß- und Kleinschreibung sowie Satzzeichen
+• Übergeordnete Einstellungen erscheinen über deaktivierten untergeordneten Einstellungen"</string>
+    <string name="revanced_settings_search_tips_title">Suchtipps</string>
     <string name="revanced_share_copy_settings_success">Einstellungen in Zwischenablage kopiert.</string>
     <string name="revanced_share_copy_timestamp_success">Time stamp copied to clipboard. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copied to clipboard.</string>
@@ -2015,7 +2039,6 @@ Wenn diese Einstellung nicht wirksam ist, versuchen Sie in den Inkognito-Modus z
     <string name="revanced_theme_default">Stock</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Warnung</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s ist nicht installiert. Bitte installieren.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Paketname des installierten RVX Music.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music Paketname</string>
     <string name="revanced_watch_history_about_status_blocked">• Überwachungsverlauf blockiert.</string>

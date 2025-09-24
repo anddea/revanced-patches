@@ -150,22 +150,13 @@
     <string name="revanced_enable_zen_mode_podcast_title">Включить режим \"Дзен\" в подкастах</string>
     <string name="revanced_enable_zen_mode_summary">Меняет оттенок фона проигрывателя видео на светло-серый, чтобы уменьшить нагрузку на глаза.</string>
     <string name="revanced_enable_zen_mode_title">Режим \"Дзен\"</string>
-    <string name="revanced_extended_reset_to_default_toast">Сброшены до значений по умолчанию.</string>
     <string name="revanced_extended_restart_first_run">Перезапустите для правильной загрузки интерфейса</string>
-    <string name="revanced_extended_restart_message">Обновите и перезапустите</string>
-    <string name="revanced_extended_settings_export_as_file">Извлечь настройки в файл</string>
     <string name="revanced_extended_settings_export_failed">Не удалось извлечь настройки.</string>
     <string name="revanced_extended_settings_export_success">Настройки успешно извлечены.</string>
     <string name="revanced_extended_settings_import">Восстановить</string>
-    <string name="revanced_extended_settings_import_as_file">Восстановить настройки из файла</string>
-    <string name="revanced_extended_settings_import_copy">Копировать</string>
-    <string name="revanced_extended_settings_import_export_as_text">Восстановить / Извлечь настройки в виде текста</string>
     <string name="revanced_extended_settings_import_export_summary">Восстановить или извлечь настройки.</string>
     <string name="revanced_extended_settings_import_export_title">Восстановить / Извлечь настройки</string>
-    <string name="revanced_extended_settings_import_failed">Не удалось восстановить: %s.</string>
     <string name="revanced_extended_settings_import_reset">Настройки сброшены до начальных.</string>
-    <string name="revanced_extended_settings_import_success">Восстановлено %d настройки(ек).</string>
-    <string name="revanced_extended_settings_reset">Сбросить</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Кнопка \"Скачать\" открывает внешний загрузчик.
 
@@ -383,6 +374,9 @@
     <string name="revanced_replace_navigation_samples_button_title">Замена кнопки \"Сэмплы\"</string>
     <string name="revanced_replace_navigation_upgrade_button_summary">Заменяет кнопку \"Обновить\" на кнопку \"Настройки\".</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Замена кнопки \"Обновить\"</string>
+    <string name="revanced_reset_to_default_toast">Сброшены до значений по умолчанию.</string>
+    <string name="revanced_restart_first_run">Перезапустите для правильной загрузки интерфейса</string>
+    <string name="revanced_restart_message">Обновите и перезапустите</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Возвращает всплывающие панели комментариев к старому стилю.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Восстановить старые всплывающие панели комментариев</string>
     <string name="revanced_restore_old_player_background_summary">Возвращает фон проигрывателя к старому стилю.</string>
@@ -446,7 +440,7 @@
     <string name="revanced_sb_enabled_sum">SponsorBlock - это реализованная с помощью участия сообщества система для пропуска раздражающих частей видео в YouTube.</string>
     <string name="revanced_sb_reset_color">Сбросить цвет</string>
     <string name="revanced_sb_segments_filler">Отвлечённые темы / Шутки</string>
-    <string name="revanced_sb_segments_filler_sum">Сегменты, которые увеличивают длительность видео за счёт отвлечённых тем или шуток, но не требуются для понимания основного содержания. Не включает сегменты, объясняющие контекст или предысторию.</string>
+    <string name="revanced_sb_segments_filler_sum">Второстепенные сцены или шутки, которые не требуются для понимания основного содержания видео. Не включает разделы с контекстом или подробностями истории.</string>
     <string name="revanced_sb_segments_hook">Хук / Приветствие</string>
     <string name="revanced_sb_segments_hook_sum">Озвученные трейлеры к предстоящему видео, приветствия и прощания. Не включает разделы с дополнительным контентом.</string>
     <string name="revanced_sb_segments_interaction">Напоминание о взаимодействии (подписка)</string>
@@ -486,6 +480,20 @@
     <string name="revanced_sb_toast_on_connection_error_sum">Отображает всплывающее уведомление, когда SponsorBlock недоступен.</string>
     <string name="revanced_sb_toast_on_skip">Показать тост когда пропущен сегмент автоматически</string>
     <string name="revanced_sb_toast_on_skip_sum">Отображает всплывающее уведомление при автоматическом пропуске сегмента.</string>
+    <string name="revanced_settings_export_as_file">Экспорт настроек в файл</string>
+    <string name="revanced_settings_export_failed">Не удалось экспортировать настройки.</string>
+    <string name="revanced_settings_export_success">Настройки успешно экспортированы.</string>
+    <string name="revanced_settings_import">Импортировать</string>
+    <string name="revanced_settings_import_as_file">Импорт настроек из файла</string>
+    <string name="revanced_settings_import_copy">Копировать</string>
+    <string name="revanced_settings_import_export_as_text">Импорт / Экспорт настроек в виде текста</string>
+    <string name="revanced_settings_import_export_summary">Импорт / Экспорт настроек RVX Музыки.</string>
+    <string name="revanced_settings_import_export_title">Импорт / Экспорт настроек</string>
+    <string name="revanced_settings_import_failed">Не удалось импортировать: %s.</string>
+    <string name="revanced_settings_import_reset">Настройки сброшены до начальных.</string>
+    <string name="revanced_settings_import_success">Импортировано %d настроек.</string>
+    <string name="revanced_settings_reset">Сбросить</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Настройки скопированы в буфер.</string>
     <string name="revanced_spoof_app_version_summary">"Подменяет версию клиента на более старую.
 
@@ -517,12 +525,20 @@
 • Иногда субтитры располагаются в верхней части проигрывателя, а не в нижней.
 • У некоторых пользователей это может не работать."</string>
     <string name="revanced_spoof_player_parameter_title">Подменить параметр плеера</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_mweb">Мобильный веб</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">ТВ</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Простой ТВ</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
+    <string name="revanced_spoof_streaming_data_default_client_summary">Определяет клиент по умолчанию для подмены.</string>
+    <string name="revanced_spoof_streaming_data_default_client_title">Клиент по умолчанию</string>
     <string name="revanced_spoof_streaming_data_message">Если у вас возникли какие-либо проблемы с воспроизведением, включите один из следующих параметров в зависимости от того, какой из них вам больше подходит: \"Spoof video streams\" или \"Spoof client\" в &lt;i&gt;&lt;u&gt;Настройках &gt; %s &gt; Разное;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показывает клиент, используемый для получения потоковых данных в Статистике для сисадминов.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показывать в \"Статистике для сисадминов\"</string>
     <string name="revanced_spoof_streaming_data_summary">"Подменяет клиентские видеопотоки для предотвращения проблем с воспроизведением.
 
-Если вы являетесь пользователем YouTube Premium или исключили патч 'Поддержка GmsCore', эта настройка может быть не нужна."</string>
+Если вы являетесь пользователем YouTube Premium, эта настройка может быть не нужна."</string>
     <string name="revanced_spoof_streaming_data_title">Подмена потоковых данных</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">Музыка для iOS 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">Музыка для iOS 7.04</string>

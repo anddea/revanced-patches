@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="accessibility_settings_edu_opt_in_text">להפעיל בקרות נגישות עבור נגן הווידאו?</string>
+    <string name="accessibility_settings_edu_opt_out_text">הפקדים שלך שונו מכיוון ששירות נגישות מופעל. </string>
     <string name="gms_core_dialog_continue_text">המשך</string>
     <string name="gms_core_dialog_dismiss_text">אל תראה שוב</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"ל-MicroG GmsCore אין הרשאה לרוץ ברקע.
@@ -14,11 +16,15 @@
 הקש על הלחצן 'המשך' ואפשר שינויי מיטוב."</string>
     <string name="gms_core_dialog_open_website_text">פתח אתר</string>
     <string name="gms_core_dialog_title">דרושה פעולה</string>
+    <string name="gms_core_offline_account_login_error">אם שינית לאחרונה את פרטי ההתחברות לחשבון שלך, הסר את התקנת GmsCore והתקן אותה מחדש.</string>
     <string name="gms_core_settings_title">פתח הגדרות GmsCore</string>
     <string name="gms_core_toast_not_installed_message">היישום MicroG GmsCore אינו מותקן. התקן אותו.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">תפריט איכות סרטון מתקדם אינו מוצג</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">תפריט איכות סרטון מתקדם מוצג</string>
     <string name="revanced_advanced_video_quality_menu_title">הצג תפריט איכות סרטון מתקדם</string>
+    <string name="revanced_advanced_video_quality_menu_type_summary_off">נעשה שימוש בתפריט נשלף בסגנון ישן.</string>
+    <string name="revanced_advanced_video_quality_menu_type_summary_on">נעשה שימוש בדיאלוג מותאם אישית. </string>
+    <string name="revanced_advanced_video_quality_menu_type_title">סוג תפריט איכות וידאו מתקדמת ב-Shorts </string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"השירות DeArrow מספק תמונות ממוזערות של מיקור המונים עבור סרטוני YouTube. תמונות ממוזערות אלה הן לעתים קרובות רלוונטיות יותר מאלה שסופקו על ידי YouTube
 
 אם מופעל, כתובות URL של סרטונים יישלחו לשרת ה-API ושום נתונים אחרים לא יישלחו. אם לסרטון אין תמונות ממוזערות של DeArrow, אז מוצגות התמונות המקוריות או לכידות דוממות
@@ -128,6 +134,9 @@
     <string name="revanced_disable_auto_captions_summary_off">כתוביות אוטומטיות מושבתות</string>
     <string name="revanced_disable_auto_captions_summary_on">כתוביות אוטומטיות מופעלות</string>
     <string name="revanced_disable_auto_captions_title">השבת כתוביות אוטומטיות</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">הקשה כפולה יכולה לגרום מדי פעם דילוג לפרק הבא/הקודם</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">הקשה כפולה לעולם לא יכולה לגרום דילוג לפרק הבא/הקודם</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">השבת דילוג פרקים בהקשה כפולה</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">משוב ברטט עבור פרקים מופעל</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">משוב ברטט עבור פרקים מושבת</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">השבת משוב ברטט עבור פרקים</string>
@@ -158,7 +167,14 @@
     <string name="revanced_exit_fullscreen_entry_3">לרוחב</string>
     <string name="revanced_exit_fullscreen_entry_4">לאורך ולרוחב</string>
     <string name="revanced_exit_fullscreen_title">צא ממצב מסך מלא בסוף סרטון</string>
+    <string name="revanced_external_downloader_empty_warning">שם החבילה אינו יכול להיות ריק</string>
+    <string name="revanced_external_downloader_not_found_title">היישום לא מותקן</string>
     <string name="revanced_external_downloader_not_installed_warning">%s אינו מותקן. נא להתקין אותו.</string>
+    <string name="revanced_external_downloader_other_item">אחר</string>
+    <string name="revanced_external_downloader_other_item_hint">הזן את שם החבילה</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"לא ניתן למצוא יישום מותקן עם שם חבילה: %s
+
+יש לוודא ששם החבילה נכון ושהיישום מותקן"</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">קטע סיכום סרטון הנוצר על ידי AI מוצג</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">קטע סיכום סרטון הנוצר על ידי AI מוסתר</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">הסתר את \'סיכום הווידאו שנוצר על ידי בינה מלאכותית\'</string>
@@ -181,6 +197,9 @@
     <string name="revanced_hide_clip_button_summary_off">לחצן קליפ מוצג</string>
     <string name="revanced_hide_clip_button_summary_on">לחצן קליפ מוסתר</string>
     <string name="revanced_hide_clip_button_title">הסתר קליפ</string>
+    <string name="revanced_hide_comments_button_summary_off">הלחצן \'תגובות\' מוצג</string>
+    <string name="revanced_hide_comments_button_summary_on">הלחצן \'תגובות\' מוסתר</string>
+    <string name="revanced_hide_comments_button_title">הסתר תגובות</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">לחצן יצירת Short מוצג</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">לחצן יצירת Short מוסתר</string>
     <string name="revanced_hide_comments_create_a_short_button_title">הסתר לחצן \'יצירת Short\'</string>
@@ -317,6 +336,9 @@
     <string name="revanced_hide_share_button_summary_off">לחצן שיתוף מוצג</string>
     <string name="revanced_hide_share_button_summary_on">לחצן שיתוף מוסתר</string>
     <string name="revanced_hide_share_button_title">הסתר שיתוף</string>
+    <string name="revanced_hide_shop_button_summary_off">הלחצן \'חנות\' מוצג</string>
+    <string name="revanced_hide_shop_button_summary_on">הלחצן \'חנות\' מוסתר</string>
+    <string name="revanced_hide_shop_button_title">הסתר \'חנות\'</string>
     <string name="revanced_hide_shopping_links_summary_off">קישורי קניות בתיאור הסרטון מוצגים</string>
     <string name="revanced_hide_shopping_links_summary_on">קישורי קניות בתיאור הסרטון מוסתרים</string>
     <string name="revanced_hide_shopping_links_title">הסתר קישורי קניות</string>
@@ -509,12 +531,12 @@
     <string name="revanced_ryd_toast_on_connection_error_summary_on">הודעה קופצת מוצגת אם Return YouTube Dislike אינו זמין</string>
     <string name="revanced_ryd_toast_on_connection_error_title">הצג הודעה קופצת אם ה-API אינו זמין</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">מוסתר על ידי הבעלים</string>
+    <string name="revanced_sanitize_sharing_links_title">הסר פרמטר מעקב של שאילתה</string>
     <string name="revanced_sb_api_url_changed">כתובת API שונתה</string>
     <string name="revanced_sb_api_url_invalid">כתובת ה-URL של ה-API אינה חוקית</string>
     <string name="revanced_sb_api_url_reset">כתובת API אופסה</string>
     <string name="revanced_sb_appearance_category">מראה</string>
     <string name="revanced_sb_color_dot_label">צבע:</string>
-    <string name="revanced_sb_color_opacity_label">אטימות:</string>
     <string name="revanced_sb_create_segment_category">יוצר מקטעים חדשים</string>
     <string name="revanced_sb_diff_segments">שנה התנהגות מקטע</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">הסתר לחצן דילוג באופן אוטומטי</string>
@@ -685,6 +707,9 @@
     <string name="revanced_sb_submit_failed_timeout">המערכת SponsorBlock מושבתת באופן זמני</string>
     <string name="revanced_sb_submit_failed_unknown_error">לא ניתן לשלוח את המקטע (מצב: %1$d %2$s)</string>
     <string name="revanced_sb_submit_succeeded">המקטע נשלח בהצלחה</string>
+    <string name="revanced_sb_toast_on_connection_error">הצג הודעה קופצת אם ה-API אינו זמין</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">הודעה קופצת אינה מוצגת אם SponsorBlock אינו זמין</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">הודעה קופצת מוצגת אם SponsorBlock אינו זמין</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">הודעה קופצת אינה מוצגת אם SponsorBlock אינו זמין</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">הודעה קופצת מוצגת אם SponsorBlock אינו זמין</string>
     <string name="revanced_sb_toast_on_connection_error_title">הצג הודעה קופצת אם ה-API אינו זמין</string>
@@ -696,7 +721,30 @@
     <string name="revanced_sb_vote_no_segments">אין מקטעים להצביע עבורם</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s עד %2$s</string>
     <string name="revanced_sb_vote_upvote">הצבע בעד</string>
+    <string name="revanced_settings_color_invalid">צבע לא חוקי</string>
+    <string name="revanced_settings_import">ייבוא</string>
+    <string name="revanced_settings_import_copy">העתק</string>
+    <string name="revanced_settings_import_reset">הגדרות ReVanced אופסו לברירת מחדל</string>
+    <string name="revanced_settings_import_success">%d הגדרות יובאו</string>
+    <string name="revanced_settings_reset">איפוס</string>
+    <string name="revanced_settings_reset_color">אפס צבע</string>
+    <string name="revanced_settings_search_clear_history">נקה היסטוריית חיפושים</string>
+    <string name="revanced_settings_search_clear_history_message">האם אתה בטוח שברצונך למחוק את כל היסטוריית החיפושים?</string>
+    <string name="revanced_settings_search_empty_history_summary">כדי לשמור היסטוריית חיפוש, הקלד שאילתת חיפוש ולחץ על Enter</string>
+    <string name="revanced_settings_search_empty_history_title">היסטוריית החיפוש ריקה</string>
+    <string name="revanced_settings_search_history_summary_off">הגדרות היסטוריית חיפוש אינן מוצגות</string>
+    <string name="revanced_settings_search_history_summary_on">הגדרות היסטוריית חיפוש מוצגות</string>
     <string name="revanced_settings_search_history_title">הצג הגדרות היסטוריית חיפוש</string>
+    <string name="revanced_settings_search_no_results_summary">נסה מילת מפתח אחרת</string>
+    <string name="revanced_settings_search_no_results_title">לא נמצאו תוצאות עבור \'%s\'</string>
+    <string name="revanced_settings_search_recent_searches">חיפושים אחרונים</string>
+    <string name="revanced_settings_search_remove_message">להסיר מהיסטוריית חיפוש?</string>
+    <string name="revanced_settings_search_tips_summary">"• הקש על נתיב כדי לנווט אליו
+• לחיצה ארוכה על הגדרה כדי לנווט אליה
+• לחץ על Enter כדי לשמור שאילתת חיפוש להיסטוריה
+• החיפוש מתעלם מאותיות גדולות/קטנות וסימני פיסוק
+• הגדרות הורים מופיעות מעל הגדרות ילדים מושבתות"</string>
+    <string name="revanced_settings_search_tips_title">טיפים לחיפוש</string>
     <string name="revanced_share_copy_url_success">כתובת URL הועתקה אל הלוח</string>
     <string name="revanced_share_copy_url_timestamp_success">כתובת URL עם חותמת זמן הועתקה</string>
     <string name="revanced_spoof_app_version_summary_off">גרסה לא מזויפת</string>
@@ -767,4 +815,5 @@
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"השבתת הגדרה זו תשבית גם את חסימת המודעות של Shorts.
 
 אם שינוי הגדרה זו אינו נכנס לתוקף, נסה לעבור למצב פרטי."</string>
+    <string name="revanced_yandex_transcribe_subtitles_title">תמלול Yandex</string>
 </resources>

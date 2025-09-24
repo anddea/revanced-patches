@@ -3,6 +3,7 @@
     <string name="accessibility_settings_edu_opt_in_text">تمكين عناصر التحكم في إمكانية الوصول لمشغل الفيديو؟</string>
     <string name="accessibility_settings_edu_opt_out_text">تم تعديل عناصر التحكم الخاصة بك لأن خدمة إمكانية الوصول قيد التشغيل.</string>
     <string name="gms_core_dialog_continue_text">استمرار</string>
+    <string name="gms_core_dialog_dismiss_text">لا اريد مشاهدة هذا مجددا</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"ليس لدى GmsCore إذن للتشغيل في الخلفية.
 
 اتبع دليل 'لا تقتل تطبيقي!' الخاص بهاتفك، وقم بتطبيق التعليمات على تثبيت GmsCore الخاص بك.
@@ -84,6 +85,7 @@
     <string name="revanced_bypass_url_redirects_summary_off">لا يتم تجاوز عمليات إعادة توجيه عناوين URL.</string>
     <string name="revanced_bypass_url_redirects_summary_on">تم تجاوز عمليات إعادة توجيه عناوين URL.</string>
     <string name="revanced_bypass_url_redirects_title">تجاوز عمليات إعادة توجيه عناوين URL</string>
+    <string name="revanced_cancel">إلغاء</string>
     <string name="revanced_change_form_factor_entry_1">الافتراضي</string>
     <string name="revanced_change_form_factor_entry_2">الجوّال</string>
     <string name="revanced_change_form_factor_entry_3">الجوّال (الحد الأقصى 480 dp)</string>
@@ -161,7 +163,7 @@
     <string name="revanced_change_youtube_header_summary_off">تم تمكين العلامة العامة.</string>
     <string name="revanced_change_youtube_header_summary_on">تم تمكين علامة Premium.</string>
     <string name="revanced_change_youtube_header_title">تغيير علامة YouTube</string>
-    <string name="revanced_color_invalid_toast">لون غير موجود</string>
+    <string name="revanced_confirm_user_dialog_title">هل انت متاكد انك تريد المتابعة؟</string>
     <string name="revanced_copy">نسخ</string>
     <string name="revanced_copy_error">فشل نسخ النص</string>
     <string name="revanced_custom_filter_strings_summary">قائمة سلاسل منشئ مسار المكونات المراد تصفيتها، مفصولة بسطور جديدة.</string>
@@ -186,6 +188,7 @@
     <string name="revanced_custom_player_overlay_opacity_title">شفافية واجهة المشغل المخصصة</string>
     <string name="revanced_custom_seekbar_color_accent_summary">اكتب رمز اللون لشريط تمييز التقدم.</string>
     <string name="revanced_custom_seekbar_color_accent_title">اللون لشريط تمييز التقدم المخصص</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">قيمة لون شريط التقدم غير صالحة.</string>
     <string name="revanced_custom_seekbar_color_primary_summary">اكتب رمز اللون لشريط التقدم الأساسي.</string>
     <string name="revanced_custom_seekbar_color_primary_title">اللون الأساسي لشريط التقدم المخصص</string>
     <string name="revanced_debug_export_logs_to_clipboard_summary">نسخ سجلات تصحيح أخطاء RVX إلى الحافظة.</string>
@@ -250,6 +253,9 @@
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">تم تعطيل التبديل التلقائي لقوائم تشغيل التشكيلة.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">تعطيل تبديل قوائم تشغيل التشكيلة تلقائيًا</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">سيؤدي تمكين هذه الميزة إلى تعطيل التبديل التلقائي إلى YouTube Mix عند تشغيل الموسيقى أثناء تمكين التشغيل التلقائي.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">قد يؤدي النقر المزدوج في بعض الأحيان إلى الانتقال إلى الفصل التالي/السابق.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">لا يمكن للنقر المزدوج أن يؤدي أبدًا إلى الانتقال إلى الفصل التالي/السابق.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">تعطيل تخطي الفصل بالضغط المزدوج</string>
     <string name="revanced_disable_default_playback_speed_music_off">تم تمكين سرعة التشغيل الافتراضية للموسيقى.</string>
     <string name="revanced_disable_default_playback_speed_music_on">تم تعطيل سرعة التشغيل الافتراضية للموسيقى.</string>
     <string name="revanced_disable_default_playback_speed_music_title">تعطيل سرعة التشغيل للموسيقى</string>
@@ -470,44 +476,37 @@
 
 ملاحظة:
 • لا يتوفر iOS TV في بعض المناطق، وفي هذه الحالة قد لا يعمل هذا الإعداد."</string>
-    <string name="revanced_extended_confirm_user_dialog_title">هل انت متاكد انك تريد المتابعة؟</string>
-    <string name="revanced_extended_reset_to_default_toast">إعادة التعيين إلى القيم الافتراضية.</string>
     <string name="revanced_extended_restart">إعادة التشغيل</string>
-    <string name="revanced_extended_restart_dialog_message">أعد تشغيل التطبيق ليُفعّل هذا التغيير.</string>
     <string name="revanced_extended_restart_first_run">إعادة التشغيل لتحميل التخطيط بشكل طبيعي</string>
-    <string name="revanced_extended_restart_message">تحديث وإعادة تشغيل</string>
     <string name="revanced_extended_restart_title">يلزم إعادة التشغيل</string>
-    <string name="revanced_extended_settings_color_invalid">لون غير صالح.</string>
-    <string name="revanced_extended_settings_color_picker">منتقي الألوان</string>
     <string name="revanced_extended_settings_export_failed">فشل تصدير الإعدادات.</string>
     <string name="revanced_extended_settings_export_success">تم تصدير الإعدادات بنجاح.</string>
     <string name="revanced_extended_settings_export_summary">تصدير الإعدادات إلى ملف.</string>
     <string name="revanced_extended_settings_export_title">تصدير الإعدادات</string>
     <string name="revanced_extended_settings_import">استيراد</string>
-    <string name="revanced_extended_settings_import_copy">نسخ</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">استيراد \ تصدير الإعدادات كنص.</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">استيراد / تصدير كنص</string>
-    <string name="revanced_extended_settings_import_failed">فشل استيراد الإعدادات.</string>
     <string name="revanced_extended_settings_import_reset">إعادة تعيين الإعدادات إلى الافتراضي.</string>
-    <string name="revanced_extended_settings_import_success">تم استيراد الإعدادات بنجاح.</string>
     <string name="revanced_extended_settings_import_summary">استيراد الإعدادات من ملف محفوظ.</string>
     <string name="revanced_extended_settings_import_title">استيراد الإعدادات</string>
-    <string name="revanced_extended_settings_reset">إعادة تعيين</string>
-    <string name="revanced_extended_settings_reset_color">إعادة تعيين اللون</string>
-    <string name="revanced_extended_settings_search_title">بحث %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">التنزيل الخارجي</string>
+    <string name="revanced_external_downloader_empty_warning">لا يمكن أن يكون اسم الحزمة فارغًا</string>
+    <string name="revanced_external_downloader_not_found_title">التطبيق ليس مثبتًا.</string>
     <string name="revanced_external_downloader_not_installed">غير مثبّت</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"لم يتم تثبيت %1$s.
 الرجاء تنزيل %2$s من الموقع."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">تحذير</string>
     <string name="revanced_external_downloader_not_installed_warning">%s لم يتم تثبيته. الرجاء تثبيته.</string>
-    <string name="revanced_external_downloader_package_name_playlist_summary">اسم الحزمة لتطبيق التنزيل الخارجي المثبت لديك، مثل YTDLnis.</string>
+    <string name="revanced_external_downloader_other_item">أخرى</string>
+    <string name="revanced_external_downloader_other_item_hint">أدخل اسم الحزمة</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">اسم الحزمة لتطبيق التنزيل الخارجي المثبت لديك.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">اسم حزمة تنزيل قائمة التشغيل</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">‎اسم الحزمة لتطبيق التنزيل الخارجي المثبت لديك، مثل NewPipe أو YTDLnis،  اضغط لفترة طويلة.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">اسم حزمة تنزيل الفيديو بالضغط لفترة طويلة</string>
-    <string name="revanced_external_downloader_package_name_video_summary">اسم الحزمة لتطبيق التنزيل الخارجي المثبت لديك، مثل NewPipe أو YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_summary">اسم الحزمة لتطبيق التنزيل الخارجي المثبت لديك.</string>
     <string name="revanced_external_downloader_package_name_video_title">اسم حزمة تنزيل الفيديو</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"تعذر العثور على التطبيق المثبت بإسم الحزمة: %s.
+
+تحقق من صحة اسم الحزمة ومن تثبيت التطبيق."</string>
     <string name="revanced_fix_hype_button_icon_summary_off">تم إخفاء أيقونة زر التشجيع.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">يتم عرض أيقونة زر التشجيع.</string>
     <string name="revanced_fix_hype_button_icon_title">إصلاح أيقونة زر التشجيع</string>
@@ -529,6 +528,17 @@
 
 إذا استمر إعداد 'التشغيل' معطوبًا حتى بعد تمكينه أو تعطيله، فعليك مسح بيانات التطبيق."</string>
     <string name="revanced_fullscreen_ads_closed_toast">تم إغلاق الإعلانات على كامل الشاشة.</string>
+    <string name="revanced_gemini_cancelled">تم الالغاء</string>
+    <string name="revanced_gemini_copy_success">المخلص نُسخ للحافظة</string>
+    <string name="revanced_gemini_error_already_running_summarize">التخليص جاري بالفعل.</string>
+    <string name="revanced_gemini_error_already_running_transcribe" />
+    <string name="revanced_gemini_error_already_running_yandex_transcribe" />
+    <string name="revanced_gemini_error_api_failed">طلب Gemini API فشل : %s</string>
+    <string name="revanced_gemini_error_dialog_show">خطأ في عرض نافذة الحوار</string>
+    <string name="revanced_gemini_error_no_api_key">لم يتم تعيين مفتاح Gemini API في الاعدادات</string>
+    <string name="revanced_gemini_error_no_video">لم يستطيع الحصول على رابط المقطع</string>
+    <string name="revanced_gemini_error_overlay_display">فشل في عرض الترجمة</string>
+    <string name="revanced_gemini_error_translation_failed">فشل في ترجمة Gemini</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">قائمة بأسماء قائمة الحسابات المراد تصفيتها، مفصولة بسطور جديدة.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">تعديل فلتر قائمة الحساب</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">قم بالتصفية إذا تطابقت النتائج.&lt;br&gt;&lt;br&gt;لإخفاء قائمة &lt;b&gt;\'الحصول على YouTube Premium\'&lt;/b&gt;، يمكنك فقط استخدام &lt;b&gt;\'الحصول على YouTube Premium\'&lt;/b&gt; ككلمات مفتاحية.</string>
@@ -1028,9 +1038,17 @@
     <string name="revanced_hide_search_term_thumbnail_summary_off">يتم عرض المصغرات في سجل مصطلحات البحث.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">تم إخفاء المصغرات في سجل مصطلحات البحث.</string>
     <string name="revanced_hide_search_term_thumbnail_title">إخفاء مصغرات مصطلحات البحث</string>
-    <string name="revanced_hide_seek_message_summary_off">يتم عرض رسالة التمرير.</string>
-    <string name="revanced_hide_seek_message_summary_on">تم إخفاء رسالة التمرير.</string>
-    <string name="revanced_hide_seek_message_title">إخفاء رسالة التمرير</string>
+    <string name="revanced_hide_seek_message_summary_off">"يتم عرض رسالة التمرير.
+
+معلومات:
+• يبدو أن هذا الإعداد مُهمَل على الخادم.
+• استخدم 'إخفاء واجهة شريط الفيلم' أو 'إخفاء رسالة التراجع عن التمرير' بدلاً من ذلك."</string>
+    <string name="revanced_hide_seek_message_summary_on">"تم إخفاء رسالة التمرير.
+
+معلومات:
+• يبدو أن هذا الإعداد مُهمَل على الخادم.
+• استخدم 'إخفاء واجهة شريط الفيلم' أو 'إخفاء رسالة التراجع عن التمرير' بدلاً من ذلك."</string>
+    <string name="revanced_hide_seek_message_title">إخفاء رسالة التمرير (مهملة)</string>
     <string name="revanced_hide_seek_undo_message_summary_off">يتم عرض رسالة تراجع عن التمرير.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">تم إخفاء رسالة تراجع عن التمرير.</string>
     <string name="revanced_hide_seek_undo_message_title">إخفاء رسالة التراجع عن التمرير</string>
@@ -1811,6 +1829,11 @@
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"اضغط لفتح إعدادات RVX.
 اضغط مع الاستمرار لفتح إعدادات YouTube."</string>
     <string name="revanced_replace_toolbar_create_button_type_title">نوع الإجراء الذي سيتم تعيينه للزر</string>
+    <string name="revanced_reset_to_default_toast">إعادة التعيين إلى القيم الافتراضية.</string>
+    <string name="revanced_restart">إعادة التشغيل</string>
+    <string name="revanced_restart_dialog_message">أعد تشغيل التطبيق ليصبح هذا التغيير ساري المفعول.</string>
+    <string name="revanced_restart_first_run">إعادة التشغيل لتحميل التخطيط بشكل عادي</string>
+    <string name="revanced_restart_title">يلزم إعادة التشغيل</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">مصغرات شريط التقدم ستظهر في ملء الشاشة.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">مصغرات شريط التقدم ستظهر فوق شريط تقدم الفيديو.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">استعادة مصغرات شريط التقدم القديمة</string>
@@ -1883,7 +1906,6 @@
     <string name="revanced_sb_color_changed">تم تغيير اللون.</string>
     <string name="revanced_sb_color_dot_label">اللون:</string>
     <string name="revanced_sb_color_invalid">رمز اللون غير صالح.</string>
-    <string name="revanced_sb_color_opacity_label">الشفافية:</string>
     <string name="revanced_sb_color_reset">إعادة ضبط اللون.</string>
     <string name="revanced_sb_create_segment_category">إنشاء مقاطع جديدة</string>
     <string name="revanced_sb_diff_segments">تغيير سلوك المقطع</string>
@@ -2057,6 +2079,9 @@
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock متوقف مؤقتًا.</string>
     <string name="revanced_sb_submit_failed_unknown_error">غير قادر على إرسال المقطع (الحالة: %1$d %2$s).</string>
     <string name="revanced_sb_submit_succeeded">تم إرسال المقطع بنجاح.</string>
+    <string name="revanced_sb_toast_on_connection_error">عرض ملاحظة إذا كان API غير متوفر</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">لا يتم عرض الملاحظة في حالة عدم توفر SponsorBlock.</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">يتم عرض الملاحظة في حالة عدم توفر SponsorBlock.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">لا يتم عرض الملاحظة في حالة عدم توفر SponsorBlock.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">يتم عرض الملاحظة في حالة عدم توفر SponsorBlock.</string>
     <string name="revanced_sb_toast_on_connection_error_title">عرض ملاحظة إذا كان API غير متوفر</string>
@@ -2088,7 +2113,42 @@
 • انتهاء صلاحية ملفات تعريف الارتباط.
 • استخدام ملفات تعريف ارتباط غير صالحة.
 • لم تعد واجهة برمجة تطبيقات YouTube Transcript تُصادق على ملفات تعريف الارتباط."</string>
+    <string name="revanced_settings_color_invalid">لون غير صالح.</string>
+    <string name="revanced_settings_color_picker">منتقي الألوان</string>
+    <string name="revanced_settings_export_failed">فشل تصدير الإعدادات.</string>
+    <string name="revanced_settings_export_success">تم تصدير الإعدادات بنجاح.</string>
+    <string name="revanced_settings_export_summary">تصدير الإعدادات إلى ملف.</string>
+    <string name="revanced_settings_export_title">تصدير الإعدادات</string>
+    <string name="revanced_settings_import">استيراد</string>
+    <string name="revanced_settings_import_copy">نسخ</string>
+    <string name="revanced_settings_import_export_as_text_summary">استيراد \ تصدير الإعدادات كنص.</string>
+    <string name="revanced_settings_import_export_as_text_title">استيراد / تصدير كنص</string>
+    <string name="revanced_settings_import_failed">فشل استيراد الإعدادات.</string>
+    <string name="revanced_settings_import_reset">إعادة تعيين الإعدادات إلى الافتراضي.</string>
+    <string name="revanced_settings_import_success">تم استيراد الإعدادات بنجاح.</string>
+    <string name="revanced_settings_import_summary">استيراد الإعدادات من ملف محفوظ.</string>
+    <string name="revanced_settings_import_title">استيراد الإعدادات</string>
+    <string name="revanced_settings_reset">إعادة تعيين</string>
+    <string name="revanced_settings_reset_color">إعادة تعيين اللون</string>
+    <string name="revanced_settings_search_clear_history">مسح سجل البحث</string>
+    <string name="revanced_settings_search_clear_history_message">هل أنت متأكد من أنك تريد مسح سجل البحث بالكامل؟</string>
+    <string name="revanced_settings_search_empty_history_summary">لحفظ سجل البحث، اكتب استعلام بحث واضغط على Enter.</string>
+    <string name="revanced_settings_search_empty_history_title">سجل البحث فارغ</string>
+    <string name="revanced_settings_search_history_summary_off">لا يتم عرض سجل البحث في الإعدادات.</string>
+    <string name="revanced_settings_search_history_summary_on">يتم عرض سجل البحث في الإعدادات.</string>
     <string name="revanced_settings_search_history_title">عرض سجل بحث الإعدادات</string>
+    <string name="revanced_settings_search_no_results_summary">جرب كلمة مفتاحية أخرى.</string>
+    <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \'%s\'.</string>
+    <string name="revanced_settings_search_recent_searches">عمليات البحث الأخيرة</string>
+    <string name="revanced_settings_search_remove_message">إزالة من سجل البحث؟</string>
+    <string name="revanced_settings_search_tips_summary">"• انقر على مسار للانتقال إليه.
+• اضغط مطولًا على أحد الإعدادات للانتقال إليه.
+• اضغط على مفتاح الإدخال لحفظ استعلام البحث في السجل.
+• يتجاهل البحث حالة الأحرف وعلامات الترقيم.
+• تظهر إعدادات الوالدين أعلى إعدادات الطفل المعطلة."</string>
+    <string name="revanced_settings_search_tips_title">نصائح البحث</string>
+    <string name="revanced_settings_search_title">بحث %s</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">تم نسخ الإعدادات إلى الحافظة.</string>
     <string name="revanced_share_copy_timestamp_success">تم نسخ الطابع الزمني إلى الحافظة. (%s)</string>
     <string name="revanced_share_copy_url_success">تم نسخ الرابط إلى الحافظة.</string>
@@ -2148,6 +2208,8 @@
     <string name="revanced_speed_overlay_value_invalid_toast">يجب أن تكون قيمة نمط السرعة بين 0-8.0.</string>
     <string name="revanced_speed_overlay_value_summary">قيمة نمط السرعة بين 0-8.0.</string>
     <string name="revanced_speed_overlay_value_title">قيمة نمط السرعة</string>
+    <string name="revanced_spoof_app_version_other_item">أخرى</string>
+    <string name="revanced_spoof_app_version_other_item_hint">أدخل إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_summary">"خداع نسخة التطبيق الحالية إلى النسخة القديمة.
 
 • سيؤدي هذا إلى تغيير مظهر التطبيق، ولكن قد تحدث آثار جانبية غير معروفة
@@ -2166,6 +2228,7 @@
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - تعطيل أيقونة Cairo في شريط التنقل وشريط الأدوات</string>
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - استعادة علامة قائمة التشغيل القديمة</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - استعادة لوحة التحكم القديمة لسرعة التشغيل</string>
+    <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - استعادة وظيفة النسخ</string>
     <string name="revanced_spoof_app_version_target_entry_title">الهدف من خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">إصدار التطبيق الوهمي غير صالح: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق الوهمي.</string>
@@ -2265,6 +2328,7 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
 • مستوى الصوت الثابت غير متاح.
 • قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو في وضع التصفح المتخفي."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• قائمة المقطع الصوتي مفقودة.
+• لا يتوفر تعطيل المقطع الصوتي التلقائي المفروض.
 • مستوى الصوت الثابت غير متاح.
 • قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو في وضع التصفح المتخفي.
 • 1080p+, AV1, و HDR غير مدعومة."</string>
@@ -2425,7 +2489,6 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
     <string name="revanced_theme_default">الإفتراضي</string>
     <string name="revanced_third_party_youtube_music_dialog_title">موسيقى RVX</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">تحذير</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s لم يتم تثبيته. الرجاء تثبيته.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">اسم الحزمة لموسيقى RVX المثبتة.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">اسم حزمة موسيقى RVX</string>
     <string name="revanced_transcript_cookies_about_summary">انقر لمعرفة كيفية الحصول على ملفات تعريف الارتباط.</string>

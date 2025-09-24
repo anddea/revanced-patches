@@ -13,6 +13,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patcher.util.smali.toInstructions
+import app.revanced.patches.shared.FIXED_RESOLUTION_STRING
 import app.revanced.patches.shared.mdxPlayerDirectorSetVideoStageFingerprint
 import app.revanced.patches.shared.playbackStartParametersConstructorFingerprint
 import app.revanced.patches.shared.playbackStartParametersToStringFingerprint
@@ -756,7 +757,7 @@ val videoInformationPatch = bytecodePatch(
 
         val initialResolutionField =
             playbackStartParametersToStringFingerprint.originalMethodOrThrow()
-                .findFieldFromToString(", initialPlaybackVideoQualityFixedResolution=")
+                .findFieldFromToString(FIXED_RESOLUTION_STRING)
 
         playbackStartParametersConstructorFingerprint
             .methodOrThrow(playbackStartParametersToStringFingerprint)

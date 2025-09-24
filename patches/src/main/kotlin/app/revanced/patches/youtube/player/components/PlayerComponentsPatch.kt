@@ -13,6 +13,8 @@ import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.shared.spans.addSpanFilter
 import app.revanced.patches.shared.spans.inclusiveSpanPatch
+import app.revanced.patches.shared.textcomponent.hookSpannableString
+import app.revanced.patches.shared.textcomponent.textComponentPatch
 import app.revanced.patches.shared.startVideoInformerFingerprint
 import app.revanced.patches.youtube.utils.bottomsheet.bottomSheetHookPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
@@ -53,6 +55,7 @@ private val speedOverlayPatch = bytecodePatch(
     dependsOn(
         sharedExtensionPatch,
         sharedResourceIdPatch,
+        textComponentPatch,
         versionCheckPatch,
     )
 
@@ -274,7 +277,12 @@ private val speedOverlayPatch = bytecodePatch(
             }
 
             // Removed in YouTube 20.03+
-            if (!is_20_03_or_greater) {
+            if (is_20_03_or_greater) {
+                hookSpannableString(
+                    PLAYER_CLASS_DESCRIPTOR,
+                    "onCharSequenceLoaded"
+                )
+            } else {
                 speedOverlayTextValueFingerprint.methodOrThrow().apply {
                     val targetIndex =
                         indexOfFirstInstructionOrThrow(Opcode.CONST_WIDE_HIGH16)
@@ -328,11 +336,6 @@ val playerComponentsPatch = bytecodePatch(
     )
 
     execute {
-        var settingArray = arrayOf(
-            "PREFERENCE_SCREEN: PLAYER",
-            "SETTINGS: PLAYER_COMPONENTS"
-        )
-
         fun MutableMethod.getAllLiteralComponent(
             startIndex: Int,
             endIndex: Int
@@ -470,6 +473,24 @@ val playerComponentsPatch = bytecodePatch(
         // region patch for disable auto switch mix playlists
 
         hookVideoInformation("$PLAYER_CLASS_DESCRIPTOR->disableAutoSwitchMixPlaylists(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+
+        // endregion
+
+        // region patch for disable double tap chapters
+
+        mapOf(
+            doubleTapInfoConstructorFingerprint to "p3",
+            doubleTapInfoGetSeekSourceFingerprint to "p1",
+        ).forEach { (fingerprint, parameter) ->
+            fingerprint
+                .methodOrThrow(doubleTapInfoFloatFingerprint)
+                .addInstructions(
+                    0, """
+                        invoke-static { $parameter }, $PLAYER_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z
+                        move-result $parameter
+                        """
+                )
+        }
 
         // endregion
 
@@ -753,8 +774,6 @@ val playerComponentsPatch = bytecodePatch(
                         if-nez v$insertRegister, :default
                         """, ExternalLabel("default", getInstruction(onClickListenerIndex + 1))
                 )
-
-                settingArray += "SETTINGS: HIDE_SEEK_UNDO_MESSAGE"
             }
         }
 
@@ -821,7 +840,10 @@ val playerComponentsPatch = bytecodePatch(
         // region add settings
 
         addPreference(
-            settingArray,
+            arrayOf(
+                "PREFERENCE_SCREEN: PLAYER",
+                "SETTINGS: PLAYER_COMPONENTS"
+            ),
             PLAYER_COMPONENTS
         )
 

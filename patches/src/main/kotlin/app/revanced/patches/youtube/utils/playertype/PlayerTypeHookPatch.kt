@@ -30,6 +30,7 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
@@ -70,6 +71,23 @@ val playerTypeHookPatch = bytecodePatch(
                 "invoke-static { v$register }, " +
                         EXTENSION_ROOT_VIEW_HOOK_CLASS_DESCRIPTOR +
                         "->setAdProgressTextVisibility(I)V"
+            )
+        }
+
+        // endregion
+
+        // region patch for set context
+
+        componentHostFingerprint.methodOrThrow().apply {
+            val index = indexOfGetContextInstruction(this)
+            val register =
+                getInstruction<TwoRegisterInstruction>(index).registerA
+
+            addInstructionsAtControlFlowLabel(
+                index + 1,
+                "invoke-static { v$register }, " +
+                        EXTENSION_ROOT_VIEW_HOOK_CLASS_DESCRIPTOR +
+                        "->setContext(Landroid/content/Context;)V"
             )
         }
 

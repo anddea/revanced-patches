@@ -11,10 +11,12 @@ import android.text.InputType;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.util.TypedValue;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
@@ -77,22 +79,43 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
             EditText editText = getEditText();
 
             // Create a custom dialog with the EditText.
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     context,
-                    str("revanced_preference_screen_import_export_title"), // Title.
-                    null,     // No message (EditText replaces it).
-                    editText, // Pass the EditText.
-                    str("revanced_extended_settings_import"), // OK button text.
-                    () -> importSettings(context, editText.getText().toString()), // OK button action.
+                    // Title.
+                    str("revanced_preference_screen_import_export_title"),
+                    // Message.
+                    null,
+                    // EditText.
+                    editText,
+                    // OK button text.
+                    str("revanced_settings_import"),
+                    // OK button action.
+                    () -> importSettings(context, editText.getText().toString()),
+                    // Cancel button action.
                     () -> {
-                    }, // Cancel button action (dismiss only).
-                    str("revanced_extended_settings_import_copy"), // Neutral button (Copy) text.
-                    () -> {
-                        // Neutral button (Copy) action. Show the user the settings in JSON format.
-                        Utils.setClipboard(editText.getText().toString());
                     },
-                    true // Dismiss dialog when onNeutralClick.
+                    // Neutral button text.
+                    str("revanced_settings_import_copy"),
+                    // Neutral button action.
+                    () -> Utils.setClipboard(editText.getText().toString()),
+                    // Dismiss dialog when onNeutralClick.
+                    true
             );
+
+            // If there are no settings yet, then show the on screen keyboard and bring focus to
+            // the edit text. This makes it easier to paste saved settings after a reinstall.
+            dialogPair.first.setOnShowListener(dialogInterface -> {
+                if (existingSettings.isEmpty()) {
+                    editText.postDelayed(() -> {
+                        editText.requestFocus();
+
+                        if (editText.getContext().getSystemService(Context.INPUT_METHOD_SERVICE)
+                                instanceof InputMethodManager inputMethodManager) {
+                            inputMethodManager.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
+                        }
+                    }, 100);
+                }
+            });
 
             // Show the dialog.
             dialogPair.first.show();

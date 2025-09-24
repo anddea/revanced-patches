@@ -43,20 +43,3 @@ internal fun indexOfSetVideoIdInstruction(method: Method) =
         opcode == Opcode.IPUT_OBJECT &&
                 getReference<FieldReference>()?.type == "Ljava/lang/String;"
     }
-
-internal val setPivotBarVisibilityFingerprint = legacyFingerprint(
-    name = "setPivotBarVisibilityFingerprint",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    returnType = "V",
-    parameters = listOf("Z"),
-    opcodes = listOf(
-        Opcode.CHECK_CAST,
-        Opcode.IF_EQZ,
-    ),
-)
-
-internal val setPivotBarVisibilityParentFingerprint = legacyFingerprint(
-    name = "setPivotBarVisibilityFingerprint",
-    parameters = listOf("Z"),
-    strings = listOf("FEnotifications_inbox"),
-)

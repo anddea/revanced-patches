@@ -38,6 +38,7 @@ import androidx.annotation.RequiresApi;
 
 import org.apache.commons.lang3.StringUtils;
 
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.utils.ThemeUtils;
@@ -266,7 +267,7 @@ public class WebViewHostActivity extends Activity {
         if (context == null) {
             return;
         }
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 // Title.
                 title,

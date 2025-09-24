@@ -123,6 +123,9 @@ Layout ng automotive
     <string name="revanced_disable_auto_captions_summary_off">Naka-enable ang mga Auto caption</string>
     <string name="revanced_disable_auto_captions_summary_on">Naka-disable ang mga Auto caption</string>
     <string name="revanced_disable_auto_captions_title">Huwag paganahin ang mga auto caption</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">Ang doble tap ay paminsan-minsan ay maaaring mag-trigger ng paglaktaw sa susunod/nakaraang kabanata</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">Ang doble tap ay hindi kailanman maaaring mag-trigger ng paglaktaw sa susunod/nakaraang kabanata</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Huwag paganahin ang paglaktaw ng kabanata sa doble tap</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Pinagana ang Chapters haptics</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Hindi pinagana ang Chapters haptics</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Huwag paganahin ang chapters haptics</string>
@@ -153,7 +156,14 @@ Layout ng automotive
     <string name="revanced_exit_fullscreen_entry_3">Pahalang</string>
     <string name="revanced_exit_fullscreen_entry_4">Portrait at landscape</string>
     <string name="revanced_exit_fullscreen_title">Lumabas sa fullscreen mode sa katapusan ng video</string>
+    <string name="revanced_external_downloader_empty_warning">Hindi maaaring walang laman ang pangalan ng package</string>
+    <string name="revanced_external_downloader_not_found_title">Hindi naka-install ang app</string>
     <string name="revanced_external_downloader_not_installed_warning">Hindi naka-install ang %s. Mangyaring i-install ito.</string>
+    <string name="revanced_external_downloader_other_item">Iba pa</string>
+    <string name="revanced_external_downloader_other_item_hint">Ilagay ang pangalan ng package</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"Hindi makita ang naka-install na app na may pangalan ng package: %s
+
+Suriin kung tama ang pangalan ng package at kung naka-install ang app"</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Ipinapakita ang seksyon ng buod ng video na nabuo ng AI</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Ang seksyon ng buod ng video na binuo ng AI ay nakatago</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Itago ang \'Buod ng video na binuo ng AI\'</string>
@@ -176,6 +186,9 @@ Layout ng automotive
     <string name="revanced_hide_clip_button_summary_off">Ang pindutan ng clip ay ipinapakita</string>
     <string name="revanced_hide_clip_button_summary_on">Nakatago ang clip button</string>
     <string name="revanced_hide_clip_button_title">Itago ang Clip</string>
+    <string name="revanced_hide_comments_button_summary_off">Ipinapakita ang pindutan ng Mga Komento</string>
+    <string name="revanced_hide_comments_button_summary_on">Nakatago ang pindutan ng Mga Komento</string>
+    <string name="revanced_hide_comments_button_title">Itago ang mga Komento</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Ipinapakita ang button na Gumawa ng isang Short</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Nakatago ang button na Gumawa ng isang Short</string>
     <string name="revanced_hide_comments_create_a_short_button_title">Itago ang butong \'Gumawa ng Short\'</string>
@@ -312,6 +325,9 @@ Ang mga salita na may malalaking titik sa gitna ay dapat ipasok gamit ang casing
     <string name="revanced_hide_share_button_summary_off">Ang pindutan ng pagbabahagi ay ipinapakita</string>
     <string name="revanced_hide_share_button_summary_on">Nakatago ang share button</string>
     <string name="revanced_hide_share_button_title">Itago ang Ibahagi</string>
+    <string name="revanced_hide_shop_button_summary_off">Ang pindutan ng Tindahan ay nakikita</string>
+    <string name="revanced_hide_shop_button_summary_on">Ang pindutan ng Tindahan ay nakatago</string>
+    <string name="revanced_hide_shop_button_title">Itago ang Tindahan</string>
     <string name="revanced_hide_shopping_links_summary_off">Ang mga link sa pamimili sa paglalarawan ng video ay ipinapakita</string>
     <string name="revanced_hide_shopping_links_summary_on">Nakatago ang mga link ng shopping sa description ng video</string>
     <string name="revanced_hide_shopping_links_title">Itago ang mga link ng pamimili</string>
@@ -504,12 +520,12 @@ Limitasyon: Maaaring hindi lumabas ang mga Dislike sa incognito mode"</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Ipapakita ang toast kung hindi available ang Return YouTube Dislike</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Magpakita ng toast kung hindi available ang API</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nakatago ng may-ari</string>
+    <string name="revanced_sanitize_sharing_links_title">Alisin ang parameter ng query sa pagsubaybay</string>
     <string name="revanced_sb_api_url_changed">Binago ang URL ng API</string>
     <string name="revanced_sb_api_url_invalid">Di-wasto ang URL ng API</string>
     <string name="revanced_sb_api_url_reset">Pag-reset ng URL ng API</string>
     <string name="revanced_sb_appearance_category">Hitsura</string>
     <string name="revanced_sb_color_dot_label">Kulay:</string>
-    <string name="revanced_sb_color_opacity_label">Opacity:</string>
     <string name="revanced_sb_create_segment_category">Paglikha ng mga bagong segment</string>
     <string name="revanced_sb_diff_segments">Baguhin ang gawi ng segment</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">Awtomatikong itago ang button na Laktawan</string>
@@ -681,6 +697,9 @@ Umiiral na"</string>
     <string name="revanced_sb_submit_failed_timeout">Pansamantalang hindi gumagana ang SponsorBlock</string>
     <string name="revanced_sb_submit_failed_unknown_error">Hindi maisumite ang segment (status: %1$d %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Matagumpay na naisumite ang segment</string>
+    <string name="revanced_sb_toast_on_connection_error">Magpakita ng toast kung hindi available ang API</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">Hindi ipinapakita ang toast kung hindi available ang SponsorBlock</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">Ang toast ay ipinapakita kung hindi available ang SponsorBlock</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Hindi ipinapakita ang toast kung hindi available ang SponsorBlock</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Ang toast ay ipinapakita kung hindi available ang SponsorBlock</string>
     <string name="revanced_sb_toast_on_connection_error_title">Magpakita ng toast kung hindi available ang API</string>
@@ -692,7 +711,30 @@ Umiiral na"</string>
     <string name="revanced_sb_vote_no_segments">Walang mga segment na iboboto</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s hanggang %2$s</string>
     <string name="revanced_sb_vote_upvote">Itaas na Boto</string>
+    <string name="revanced_settings_color_invalid">Hindi wasto ang kulay</string>
+    <string name="revanced_settings_import">Angkat</string>
+    <string name="revanced_settings_import_copy">Kopya</string>
+    <string name="revanced_settings_import_reset">I-reset ang mga ReVanced na setting sa default</string>
+    <string name="revanced_settings_import_success">Na-import ang %d na mga setting</string>
+    <string name="revanced_settings_reset">I-reset</string>
+    <string name="revanced_settings_reset_color">I-reset ang kulay</string>
+    <string name="revanced_settings_search_clear_history">I-clear ang history ng paghahanap</string>
+    <string name="revanced_settings_search_clear_history_message">Sigurado ka bang gusto mong i-clear ang lahat ng history ng paghahanap?</string>
+    <string name="revanced_settings_search_empty_history_summary">Upang i-save ang kasaysayan ng paghahanap, mag-type ng query sa paghahanap at pindutin ang Enter</string>
+    <string name="revanced_settings_search_empty_history_title">Walang laman ang kasaysayan ng paghahanap</string>
+    <string name="revanced_settings_search_history_summary_off">Hindi ipinapakita ang kasaysayan ng paghahanap sa Mga Setting</string>
+    <string name="revanced_settings_search_history_summary_on">Ipinapakita ang history ng paghahanap sa mga setting</string>
     <string name="revanced_settings_search_history_title">Ipakita ang history ng paghahanap sa mga setting</string>
+    <string name="revanced_settings_search_no_results_summary">Subukan ang ibang keyword</string>
+    <string name="revanced_settings_search_no_results_title">Walang nakitang resulta para sa 																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	\'%s\'</string>
+    <string name="revanced_settings_search_recent_searches">Mga kamakailang paghahanap</string>
+    <string name="revanced_settings_search_remove_message">Alisin sa history ng paghahanap?</string>
+    <string name="revanced_settings_search_tips_summary">"• I-tap ang isang landas upang mag-navigate dito
+• Pindutin nang matagal ang isang setting upang mag-navigate dito
+• Pindutin ang Enter upang i-save ang isang query sa paghahanap sa kasaysayan
+• Hindi isinasaalang-alang ng paghahanap ang casing at bantas
+• Lumilitaw ang mga setting ng magulang sa itaas ng mga disabled na setting ng anak"</string>
+    <string name="revanced_settings_search_tips_title">Mga Tip sa Paghahanap</string>
     <string name="revanced_share_copy_url_success">Nakopya ang URL sa clipboard</string>
     <string name="revanced_share_copy_url_timestamp_success">URL na may timestamp na kinopya</string>
     <string name="revanced_spoof_app_version_summary_off">Hindi na-spoof ang bersyon</string>

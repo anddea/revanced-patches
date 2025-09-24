@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.shared;
 
 import static app.revanced.extension.youtube.patches.components.LayoutReloadObserverFilter.isActionBarVisible;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -11,7 +12,7 @@ import java.lang.ref.WeakReference;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "StaticFieldLeak"})
 public final class RootView {
 
     /**
@@ -28,6 +29,8 @@ public final class RootView {
      * Visibility of the ad progress UI component.
      */
     private static volatile int adProgressTextVisibility = -1;
+
+    private static Context mContext;
 
     /**
      * When a video ad is playing in a regular video player, segments or the Skip button should be hidden.
@@ -54,6 +57,17 @@ public final class RootView {
                 return "AdProgressText visibility changed to: " + visibilityMessage;
             });
         }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setContext(Context context) {
+        mContext = context;
+    }
+
+    public static Context getContext() {
+        return mContext;
     }
 
     /**

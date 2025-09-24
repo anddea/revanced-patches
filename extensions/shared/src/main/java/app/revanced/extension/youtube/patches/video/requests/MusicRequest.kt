@@ -241,7 +241,8 @@ class MusicRequest private constructor(
                         null
                     }
 
-                if (watchEndpointJsonObject == null) return false
+                if (watchEndpointJsonObject == null || !watchEndpointJsonObject.has("playerParams"))
+                    return false
 
                 val playerParams: String? = watchEndpointJsonObject.getString("playerParams")
                 return playerParams != null && VideoInformation.isMixPlaylistsOpenedByUser(

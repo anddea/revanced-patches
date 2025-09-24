@@ -4,12 +4,13 @@ import app.revanced.extension.music.settings.Settings;
 
 @SuppressWarnings("unused")
 public class MusicAdsPatch {
+    private static final boolean HIDE_MUSIC_ADS = Settings.HIDE_MUSIC_ADS.get();
 
     public static boolean hideMusicAds() {
-        return Settings.HIDE_MUSIC_ADS.get();
+        return HIDE_MUSIC_ADS;
     }
 
     public static boolean hideMusicAds(boolean original) {
-        return !Settings.HIDE_MUSIC_ADS.get() && original;
+        return !HIDE_MUSIC_ADS && original;
     }
 }

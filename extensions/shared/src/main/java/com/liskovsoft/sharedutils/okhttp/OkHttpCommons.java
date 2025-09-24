@@ -21,7 +21,7 @@ public final class OkHttpCommons {
     public static boolean enableProfiler = true;
 
     private OkHttpCommons() {
-
+        
     }
 
     // This is nearly equal to the cipher suites supported in Chrome 51, current as of 2016-05-25.
@@ -100,7 +100,7 @@ public final class OkHttpCommons {
     private static void fixStreamResetError(Builder okBuilder) {
         okBuilder.protocols(Collections.singletonList(Protocol.HTTP_1_1));
     }
-
+    
     public static OkHttpClient.Builder setupBuilder(OkHttpClient.Builder okBuilder) {
         setupConnectionFix(okBuilder);
         setupConnectionParams(okBuilder);

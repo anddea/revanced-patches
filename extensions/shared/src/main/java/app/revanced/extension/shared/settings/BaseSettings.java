@@ -2,7 +2,6 @@ package app.revanced.extension.shared.settings;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-import static app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingDataDefaultClient;
 import static app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingDataYouTube;
 import static app.revanced.extension.shared.settings.Setting.parent;
 
@@ -54,12 +53,12 @@ public class BaseSettings {
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS = new BooleanSetting("revanced_spoof_streaming_data_use_js", !SpoofStreamingDataYouTube(), true,
             "revanced_spoof_streaming_data_use_js_user_dialog_message", parent(SPOOF_STREAMING_DATA));
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS_ALL = new BooleanSetting("revanced_spoof_streaming_data_use_js_all", FALSE, true, new ClientJSAvailability());
-    public static final BooleanSetting SPOOF_STREAMING_DATA_USE_LATEST_JS = new BooleanSetting("revanced_spoof_streaming_data_use_latest_js", TRUE, true, new ClientJSAvailability());
+    public static final BooleanSetting SPOOF_STREAMING_DATA_USE_LATEST_PLAYER_JS = new BooleanSetting("revanced_spoof_streaming_data_use_latest_player_js", FALSE, true, new ClientJSAvailability());
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING = new BooleanSetting("revanced_spoof_streaming_data_use_js_bypass_fake_buffering", FALSE, true, new ClientJSAvailability());
 
     // Client type must be last spoof setting due to cyclic references.
     public static final EnumSetting<ClientType> SPOOF_STREAMING_DATA_DEFAULT_CLIENT = new EnumSetting<>("revanced_spoof_streaming_data_default_client",
-            SpoofStreamingDataDefaultClient(), true, parent(SPOOF_STREAMING_DATA));
+            ClientType.ANDROID_VR, true, parent(SPOOF_STREAMING_DATA));
 
     public static final BooleanSetting DISABLE_AUTO_AUDIO_TRACKS = new BooleanSetting("revanced_disable_auto_audio_tracks", FALSE);
 
@@ -82,7 +81,10 @@ public class BaseSettings {
     public static final EnumSetting<DisplayFormat> RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT = new EnumSetting<>("revanced_return_youtube_username_display_format", DisplayFormat.USERNAME_ONLY,
             true, parent(RETURN_YOUTUBE_USERNAME_ENABLED));
     public static final StringSetting RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY = new StringSetting("revanced_return_youtube_username_youtube_data_api_v3_developer_key", "",
-            true, true, null, parent(RETURN_YOUTUBE_USERNAME_ENABLED));
+            true, false, null, parent(RETURN_YOUTUBE_USERNAME_ENABLED));
+
+    public static final BooleanSetting SETTINGS_SEARCH_HISTORY = new BooleanSetting("revanced_settings_search_history", TRUE, true);
+    public static final StringSetting SETTINGS_SEARCH_ENTRIES = new StringSetting("revanced_settings_search_entries", "", true);
 
     /**
      * @noinspection DeprecatedIsStillUsed

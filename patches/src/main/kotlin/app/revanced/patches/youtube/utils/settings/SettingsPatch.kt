@@ -2,10 +2,8 @@ package app.revanced.patches.youtube.utils.settings
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
@@ -18,7 +16,6 @@ import app.revanced.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.revanced.patches.shared.settings.baseSettingsPatch
 import app.revanced.patches.youtube.utils.cairoFragmentConfigFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.fix.attributes.themeAttributesPatch
@@ -26,7 +23,6 @@ import app.revanced.patches.youtube.utils.fix.playbackspeed.playbackSpeedWhilePl
 import app.revanced.patches.youtube.utils.fix.splash.darkModeSplashScreenPatch
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE
-import app.revanced.patches.youtube.utils.playservice.is_19_15_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -36,19 +32,13 @@ import app.revanced.util.FilesCompat
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.printWarn
 import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.className
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodCall
 import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.getReference
-import app.revanced.util.hookClassHierarchy
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.insertNode
 import app.revanced.util.removeStringsElements
@@ -71,12 +61,14 @@ private const val EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR =
 private const val EXTENSION_THEME_METHOD_DESCRIPTOR =
     "$EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR->updateLightDarkModeStatus(Ljava/lang/Enum;)V"
 
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/settings/YouTubeActivityHook;"
+
 private lateinit var bytecodeContext: BytecodePatchContext
 
 internal fun getBytecodeContext() = bytecodeContext
 
 internal var cairoFragmentDisabled = false
-private var targetActivityClassName = ""
 
 private val settingsBytecodePatch = bytecodePatch(
     description = "settingsBytecodePatch"
@@ -167,10 +159,6 @@ private val settingsBytecodePatch = bytecodePatch(
         // Must modify an existing activity and cannot add a new activity to the manifest,
         // as that fails for root installations.
 
-        val extensionPackage = "app/revanced/extension/youtube"
-        val activityHookClassDescriptor = "L$extensionPackage/settings/LicenseActivityHook;"
-        val fragmentClassDescriptor = "L$extensionPackage/settings/preference/ReVancedPreferenceFragment;"
-
         licenseActivityOnCreateFingerprint.let {
             val superClass = it.classDef.superclass
 
@@ -179,7 +167,7 @@ private val settingsBytecodePatch = bytecodePatch(
                 """
                     # Some targets have extra instructions before the call to super method.
                     invoke-super { p0, p1 }, $superClass->onCreate(Landroid/os/Bundle;)V
-                    invoke-static { p0 }, $activityHookClassDescriptor->initialize(Landroid/app/Activity;)V
+                    invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->initialize(Landroid/app/Activity;)V
                     return-void
                 """
             )
@@ -192,67 +180,12 @@ private val settingsBytecodePatch = bytecodePatch(
 
         // Add onBackPressed to handle system back presses and gestures.
         licenseActivityOnCreateFingerprint.classDef.apply {
-            val onBackPressed = ImmutableMethod(
-                type,
-                "onBackPressed",
-                emptyList(),
-                "V",
-                AccessFlags.PUBLIC.value,
-                null,
-                null,
-                MutableMethodImplementation(4),
-            ).toMutable().apply {
-                addInstructions(
-                    """
-                        # Get fragment from LicenseActivityHook
-                        sget-object v0, $activityHookClassDescriptor->fragmentRef:Ljava/lang/ref/WeakReference;
-                        invoke-virtual { v0 }, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-                        move-result-object v0
-                        check-cast v0, $fragmentClassDescriptor
-
-                        # If fragment is null, call super
-                        if-eqz v0, :super_on_back_pressed
-
-                        # Get SearchView query or empty string
-                        sget-object v1, $activityHookClassDescriptor->searchViewRef:Ljava/lang/ref/WeakReference;
-                        invoke-virtual { v1 }, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-                        move-result-object v1
-                        check-cast v1, Landroid/widget/SearchView;
-
-                        # Assume query is initially empty string if searchView is null
-                        const-string v2, ""
-                        if-eqz v1, :call_handle_on_back_pressed_with_empty_query
-
-                        # If searchView is NOT null, get its query
-                        invoke-virtual { v1 }, Landroid/widget/SearchView;->getQuery()Ljava/lang/CharSequence;
-                        move-result-object v1
-                        invoke-interface { v1 }, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-                        move-result-object v2
-
-                        :call_handle_on_back_pressed_with_empty_query
-                        invoke-virtual { v0, v2 }, $fragmentClassDescriptor->handleOnBackPressed(Ljava/lang/String;)Z
-                        move-result v0
-
-                        # If handleOnBackPressed returned TRUE, call super.onBackPressed()
-                        if-nez v0, :super_on_back_pressed
-                        return-void
-
-                        :super_on_back_pressed
-                        invoke-super { p0 }, $superclass->onBackPressed()V
-                        return-void
-                    """
-                )
-            }
-
-            methods.add(onBackPressed)
-        }
-
-        // Add context override to force a specific settings language.
-        licenseActivityOnCreateFingerprint.classDef.apply {
-            val attachBaseContext = ImmutableMethod(
+            // Add attachBaseContext method to override the context for setting a specific language.
+            ImmutableMethod(
                 type,
                 "attachBaseContext",
-                listOf(ImmutableMethodParameter("Landroid/content/Context;", annotations, null)), "V",
+                listOf(ImmutableMethodParameter("Landroid/content/Context;", annotations, null)),
+                "V",
                 AccessFlags.PROTECTED.value,
                 null,
                 null,
@@ -260,15 +193,37 @@ private val settingsBytecodePatch = bytecodePatch(
             ).toMutable().apply {
                 addInstructions(
                     """
-                        invoke-static { p1 }, $activityHookClassDescriptor->getAttachBaseContext(Landroid/content/Context;)Landroid/content/Context;
+                        invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->getAttachBaseContext(Landroid/content/Context;)Landroid/content/Context;
                         move-result-object p1
                         invoke-super { p0, p1 }, $superclass->attachBaseContext(Landroid/content/Context;)V
                         return-void
                     """
                 )
-            }
+            }.let(methods::add)
 
-            methods.add(attachBaseContext)
+            // Override finish() to intercept back gesture.
+            ImmutableMethod(
+                licenseActivityOnCreateFingerprint.classDef.type,
+                "finish",
+                emptyList(),
+                "V",
+                AccessFlags.PUBLIC.value,
+                null,
+                null,
+                MutableMethodImplementation(3),
+            ).toMutable().apply {
+                addInstructions(
+                    """
+                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->handleFinish()Z
+                        move-result v0
+                        if-nez v0, :search_handled
+                        invoke-super { p0 }, Landroid/app/Activity;->finish()V
+                        return-void
+                        :search_handled
+                        return-void
+                    """
+                )
+            }.let(methods::add)
         }
     }
 }
@@ -337,14 +292,6 @@ val settingsPatch = resourcePatch(
         required = true,
     )
 
-    val settingsSummaries by booleanOption(
-        key = "settingsSummaries",
-        default = true,
-        title = "RVX settings summaries",
-        description = "Shows the summary / description of each RVX setting. If set to false, no descriptions will be provided.",
-        required = true,
-    )
-
     execute {
         /**
          * check patch options
@@ -399,17 +346,34 @@ val settingsPatch = resourcePatch(
         arrayOf(
             ResourceGroup(
                 "drawable",
+                "revanced_settings_arrow_time.xml",
                 "revanced_settings_cursor.xml",
                 "revanced_settings_custom_checkmark.xml",
+                "revanced_settings_icon.xml",
                 "revanced_settings_rounded_corners_background.xml",
+                "revanced_settings_search_icon.xml",
+                "revanced_settings_search_remove.xml",
+                "revanced_settings_toolbar_arrow_left.xml",
             ),
             ResourceGroup(
                 "layout",
+                "revanced_color_dot_widget.xml",
                 "revanced_color_picker.xml",
                 "revanced_custom_list_item_checked.xml",
-                "revanced_preference_with_icon_no_search_result.xml",
+                "revanced_preference_search_history_item.xml",
+                "revanced_preference_search_history_screen.xml",
+                "revanced_preference_search_no_result.xml",
+                "revanced_preference_search_result_color.xml",
+                "revanced_preference_search_result_group_header.xml",
+                "revanced_preference_search_result_list.xml",
+                "revanced_preference_search_result_regular.xml",
+                "revanced_preference_search_result_switch.xml",
                 "revanced_settings_preferences_category.xml",
                 "revanced_settings_with_toolbar.xml",
+            ),
+            ResourceGroup(
+                "menu",
+                "revanced_search_menu.xml",
             ),
             ResourceGroup(
                 "xml",
@@ -420,22 +384,10 @@ val settingsPatch = resourcePatch(
         }
 
         /**
-         * add searchDependency attribute to group parent and children settings
-         */
-        document("res/values/attrs.xml").use { document ->
-            (document.getElementsByTagName("resources").item(0) as Element).appendChild(
-                document.createElement("attr").apply {
-                    setAttribute("format", "string")
-                    setAttribute("name", "searchDependency")
-                }
-            )
-        }
-
-        /**
          * initialize ReVanced Extended Settings
          */
         ResourceUtils.addPreferenceFragment(
-            "revanced_extended_settings",
+            "revanced_settings",
             insertKey,
             "com.google.android.libraries.social.licenses.LicenseActivity"
         )
@@ -489,11 +441,11 @@ val settingsPatch = resourcePatch(
          */
         if (settingsLabel != DEFAULT_LABEL) {
             removeStringsElements(
-                arrayOf("revanced_extended_settings_title")
+                arrayOf("revanced_settings_title")
             )
             document("res/values/strings.xml").use { document ->
                 mapOf(
-                    "revanced_extended_settings_title" to settingsLabel
+                    "revanced_settings_title" to settingsLabel
                 ).forEach { (k, v) ->
                     val stringElement = document.createElement("string")
 
@@ -539,48 +491,6 @@ val settingsPatch = resourcePatch(
                             setAttribute("android:key", "@string/playback_key")
                         }
                     }
-            }
-        }
-
-        /**
-         * remove summaries from RVX settings
-         */
-        if (settingsSummaries == false) {
-            document("res/xml/revanced_prefs.xml").use { document ->
-                with(document) {
-                    // Get the root node of the XML document (in this case, "PreferenceScreen")
-                    val rootElement = getElementsByTagName("PreferenceScreen").item(0) as Element
-
-                    // List of attributes to remove
-                    val attributesToRemove = listOf("android:summary", "android:summaryOn", "android:summaryOff")
-
-                    // Define a recursive function to process each element
-                    fun processElement(element: Element) {
-                        // Skip elements with the HtmlPreference attribute to avoid errors
-                        if (element.tagName == "app.revanced.extension.shared.settings.preference.HtmlPreference") {
-                            return
-                        }
-
-                        // Remove specified attributes if they exist
-                        attributesToRemove.forEach { attribute ->
-                            if (element.hasAttribute(attribute)) {
-                                element.removeAttribute(attribute)
-                            }
-                        }
-
-                        // Process all child elements recursively
-                        for (i in 0 until element.childNodes.length) {
-                            val childNode = element.childNodes.item(i)
-
-                            if (childNode is Element) {
-                                processElement(childNode)
-                            }
-                        }
-                    }
-
-                    // Start processing from the root element
-                    processElement(rootElement)
-                }
             }
         }
     }

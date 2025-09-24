@@ -24,6 +24,7 @@ import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.ReplacementSpan;
+import android.widget.Toast;
 
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
@@ -539,6 +540,11 @@ public class ReturnYouTubeDislike {
         try {
             RYDVoteData votingData = getFetchData(MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH);
             if (votingData == null) {
+                // Method automatically prevents showing multiple toasts if the connection failed.
+                // This call is needed here in case the api call did succeed but took too long.
+                ReturnYouTubeDislikeApi.handleConnectionError(
+                        str("revanced_ryd_failure_connection_timeout"),
+                        null, null, Toast.LENGTH_SHORT);
                 Logger.printDebug(() -> "Cannot add dislike to UI (RYD data not available)");
                 return original;
             }
@@ -584,7 +590,7 @@ public class ReturnYouTubeDislike {
                     }
 
                     // Scrolling Shorts does not cause the Spans to be reloaded,
-                    // so there is no need to cache the likes for these situations.
+                    // so there is no need to cache the likes for this situations.
                     Logger.printDebug(() -> "Creating likes span for: " + votingData.videoId);
                     return newSpannableWithLikes(original, votingData);
                 }
@@ -707,7 +713,7 @@ class VerticallyCenteredImageSpan extends ImageSpan {
 
     /**
      * @param useOriginalWidth Use the original layout width of the text this span is applied to,
-     *                         and not the bounds of the Drawable. Drawable is always displayed using its own bounds,
+     *                         and not the bounds of the Drawable. Drawable is always displayed using it's own bounds,
      *                         and this setting only affects the layout width of the entire span.
      */
     public VerticallyCenteredImageSpan(Drawable drawable, boolean useOriginalWidth) {

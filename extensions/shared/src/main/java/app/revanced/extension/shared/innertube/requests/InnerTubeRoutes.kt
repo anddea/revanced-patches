@@ -8,7 +8,7 @@ object InnerTubeRoutes {
     @JvmField
     val CREATE_PLAYLIST = compileRoute(
         endpoint = "playlist/create",
-        fields = "playlistId",
+        params = arrayOf("fields=playlistId"),
     )
 
     @JvmField
@@ -19,93 +19,95 @@ object InnerTubeRoutes {
     @JvmField
     val EDIT_PLAYLIST = compileRoute(
         endpoint = "browse/edit_playlist",
-        fields = "status," + "playlistEditResults",
+        params = arrayOf("fields=status," + "playlistEditResults"),
     )
 
     @JvmField
     val GET_CATEGORY = compileRoute(
         endpoint = "player",
-        fields = "microformat.playerMicroformatRenderer.category",
+        params = arrayOf("fields=microformat.playerMicroformatRenderer.category"),
     )
 
     @JvmField
     val GET_PLAYLISTS = compileRoute(
         endpoint = "playlist/get_add_to_playlist",
-        fields = "contents.addToPlaylistRenderer.playlists.playlistAddToOptionRenderer",
+        params = arrayOf("fields=contents.addToPlaylistRenderer.playlists.playlistAddToOptionRenderer"),
     )
 
     @JvmField
     val GET_SET_VIDEO_ID = compileRoute(
         endpoint = "next",
-        fields = "contents.singleColumnWatchNextResults." +
+        params = arrayOf("fields=contents.singleColumnWatchNextResults." +
                 "playlist.playlist.contents.playlistPanelVideoRenderer." +
-                "playlistSetVideoId",
+                "playlistSetVideoId"),
     )
 
     @JvmField
     val GET_PLAYLIST_ENDPOINT = compileRoute(
         endpoint = "next",
-        fields = "contents.singleColumnWatchNextResults." +
+        params = arrayOf("fields=contents.singleColumnWatchNextResults." +
                 "playlist.playlist.contents.playlistPanelVideoRenderer." +
-                "navigationEndpoint"
+                "navigationEndpoint"),
     )
 
     @JvmField
     val GET_PLAYLIST_PAGE = compileRoute(
         endpoint = "next",
-        fields = "contents.singleColumnWatchNextResults.playlist.playlist",
-    )
-
-    @JvmField
-    val GET_STREAMING_DATA = compileRoute(
-        endpoint = "player",
-        fields = "playabilityStatus.status,streamingData",
-        alt = "proto",
+        params = arrayOf("fields=contents.singleColumnWatchNextResults.playlist.playlist"),
     )
 
     @JvmField
     val GET_VIDEO_ACTION_BUTTON = compileRoute(
         endpoint = "next",
-        fields = "contents.singleColumnWatchNextResults." +
+        params = arrayOf("fields=contents.singleColumnWatchNextResults." +
                 "results.results.contents.slimVideoMetadataSectionRenderer." +
                 "contents.elementRenderer.newElement.type.componentType." +
                 "model.videoActionBarModel.videoActionBarData.buttons." +
-                "buttonViewModel"
+                "buttonViewModel")
     )
 
     @JvmField
     val GET_VIDEO_DETAILS = compileRoute(
         endpoint = "player",
-        fields = "videoDetails"
+        params = arrayOf("fields=videoDetails")
     )
+
+    fun getStreamingDataRoute(
+        tParameter: String,
+        isInlinePlayback: Boolean = false,
+    ): CompiledRoute =
+        compileRoute(
+            endpoint = "player",
+            params = if (isInlinePlayback)
+                arrayOf(
+                    "fields=playabilityStatus.status,streamingData",
+                    "t=$tParameter",
+                    "inline=1",
+                    "alt=proto"
+                )
+            else
+                arrayOf(
+                    "fields=playabilityStatus.status,streamingData",
+                    "t=$tParameter",
+                    "alt=proto"
+                ),
+        )
 
     private fun compileRoute(
         endpoint: String,
-        fields: String? = null,
-        // json, media, proto, sse
-        alt: String? = null,
         prettier: Boolean = false,
+        vararg params: String,
     ): CompiledRoute {
-        val query = Array(4) { "&" }
-        var i = 0
-        query[i] = "?"
-
         val sb = StringBuilder(endpoint)
+        val fieldParams = params.toMutableList()
         if (!prettier) {
-            sb.append(query[i++])
-            sb.append("prettyPrint=false")
+            fieldParams += listOf("prettyPrint=false")
         }
-        if (fields != null) {
-            sb.append(query[i++])
-            sb.append("fields=")
-            sb.append(fields)
+        for (i in 0 until fieldParams.size) {
+            val query = if (i == 0) "?" else "&"
+            sb.append(query)
+            sb.append(fieldParams[i])
         }
-        if (alt != null) {
-            sb.append(query[i++])
-            sb.append("alt=")
-            sb.append(alt)
-        }
-
         return Route(
             Route.Method.POST,
             sb.toString()

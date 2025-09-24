@@ -147,15 +147,14 @@ Sunucu tarafında değişiklikler olursa, kısa bildirim çubuğunun arkaplan re
     <string name="revanced_change_start_page_entry_watch_later">Daha sonra izlenecekler</string>
     <string name="revanced_change_start_page_entry_your_clips">Klipleriniz</string>
     <string name="revanced_change_start_page_title">Başlangıç ​​sayfasını değiştir</string>
-    <string name="revanced_change_start_page_type_summary_off">Başlangıç sayfası yalnızca bir kez değişir.</string>
-    <string name="revanced_change_start_page_type_summary_on">"Başlangıç sayfası her zaman değişir.
+    <string name="revanced_change_start_page_type_summary_off">Başlangıç ​​sayfası yalnızca bir kez değişir.</string>
+    <string name="revanced_change_start_page_type_summary_on">"Başlangıç ​​sayfası her zaman değişir.
 
-Sınırlama: Araç çubuğundaki geri düğmesi çalışmayabilir."</string>
-    <string name="revanced_change_start_page_type_title">Başlangıç sayfası türünü değiştir</string>
+Sınırlama: Araç çubuğundaki Geri butonu çalışmayabilir."</string>
+    <string name="revanced_change_start_page_type_title">Başlangıç ​​sayfası türünü değiştir</string>
     <string name="revanced_change_youtube_header_summary_off">Genel başlıklar etkin.</string>
     <string name="revanced_change_youtube_header_summary_on">Premium başlık etkin.</string>
     <string name="revanced_change_youtube_header_title">YouTube başlığını değiştir</string>
-    <string name="revanced_color_invalid_toast">Geçersiz renk</string>
     <string name="revanced_copy">Kopyala</string>
     <string name="revanced_copy_error">Metin kopyalanamadı</string>
     <string name="revanced_custom_filter_strings_summary">Yeni satırlarla ayrılmış olarak hangi bileşenlerin filtreleneceğini yapılandırın.</string>
@@ -225,6 +224,11 @@ Sınırlama: Araç çubuğundaki geri düğmesi çalışmayabilir."</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">Bu özelliği kullanmak için, \'Varsayılan istemci (Yayın verilerini sahtele)\' ayarını TV, TV Simply veya iOS TV olarak değiştirin.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Ses parçalarının kendiliğinden açılması etkin.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Ses parçalarının kendiliğinden açılması kapalı.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Zorunlu otomatik ses parçaları devre dışı bırakıldı.
+
+Bu, bazı kullanıcılar için işe yaramayabilir, eğer sizin için işe yaramazsa:
+1. Ayarlar - RVX - Çeşitli - Sahte veri akışı'na gidin ve 'JavaScript istemcisini kullan' seçeneğini açın.
+2. Ayarlar - RVX - Çeşitli - Sahte akış verileri bölümüne gidin ve 'Varsayılan istemci'yi 'TV' veya 'TV Simply' olarak değiştirin."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Ses parçalarının kendiliğinden açılmasını kapat</string>
     <string name="revanced_disable_auto_captions_summary_off">Altyazılar kendiliğinden açılabiliyor</string>
     <string name="revanced_disable_auto_captions_summary_on">Altyazıların kendiliğinden açılması kapalı</string>
@@ -239,6 +243,9 @@ Ayarlar → Otomatik Oynatma / Oynatma → Sonraki videoyu otomatik oynat"</stri
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Mix oynatma listelerine otomatik geçiş devre dışı bırakıldı.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">Mix oynatma listelerine otomatik geçişi devre dışı bırak</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Bu özelliği etkinleştirmek, otomatik oynatma açıkken müzik dinlerken YouTube Mix\'e otomatik geçişi devre dışı bırakacaktır.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">Çift dokunuş zaman zaman bir sonraki/önceki bölüme atlamayı tetikleyebilir</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">Çift dokunuş asla bir sonraki/önceki bölüme atlamayı tetikleyemez</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Çift dokunuşla bölüm atlamayı devre dışı bırak</string>
     <string name="revanced_disable_default_playback_speed_music_off">Müzik için varsayılan oynatma hızı etkin.</string>
     <string name="revanced_disable_default_playback_speed_music_on">Müzik için varsayılan oynatma hızı devre dışı.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Müzik için oynatma hızını devre dışı bırak</string>
@@ -308,9 +315,9 @@ Değişiklikler şunları içerir:
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Beğen düğmesinin üstündeki fıskiye animasyonu etkin.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Beğen düğmesinin üstündeki fıskiye animasyonu devre dışı bırakıldı.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Beğen düğmesi fıskiye animasyonunu devre dışı bırak</string>
-    <string name="revanced_disable_signin_to_tv_popup_summary_off">TV\'de oturum açma açılır penceresi etkin</string>
-    <string name="revanced_disable_signin_to_tv_popup_summary_on">TV\'de oturum açma açılır penceresi devre dışı</string>
-    <string name="revanced_disable_signin_to_tv_popup_title">TV\'de oturum açma penceresini devre dışı bırak</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_off">TV\'ye giriş açılır penceresi etkin.</string>
+    <string name="revanced_disable_signin_to_tv_popup_summary_on">TV\'ye giriş açılır penceresi devre dışı.</string>
+    <string name="revanced_disable_signin_to_tv_popup_title">TV\'de oturum açma açılır penceresini devre dışı bırak</string>
     <string name="revanced_disable_speed_overlay_summary">"Videoya basılı tutarken '2x&gt;&gt;' devre dışı bırakın.
 
 Not: Bu özelliği devre dışı bırakmak, eski arayüzdeki \"Videoyu sarmak için çubuğu sağa sola kaydırma\" özelliğini geri getirecektir."</string>
@@ -450,44 +457,37 @@ Sınırlama: Oynatıcı küçültülmüşse, PiP modundaysa veya arka plandaysa 
     <string name="revanced_expand_video_description_summary_on">Video açıklaması otomatikman genişletilir.</string>
     <string name="revanced_expand_video_description_title">Açıklamayı genişlet</string>
     <string name="revanced_extended_audio_tracks_unavailable" />
-    <string name="revanced_extended_confirm_user_dialog_title">Devam etmek istediğinizden emin misiniz?</string>
-    <string name="revanced_extended_reset_to_default_toast">Varsayılan değerlere sıfırla.</string>
     <string name="revanced_extended_restart">Yeniden Başlat</string>
-    <string name="revanced_extended_restart_dialog_message">Değişikliklerin geçerli olması için uygulamayı yeniden başlatın.</string>
     <string name="revanced_extended_restart_first_run">Düzeni normal şekilde yüklemek için yeniden başlatın</string>
-    <string name="revanced_extended_restart_message">Yenile ve yeniden başlat</string>
     <string name="revanced_extended_restart_title">Yeniden başlatma gerekli</string>
-    <string name="revanced_extended_settings_color_invalid">Geçersiz renk.</string>
-    <string name="revanced_extended_settings_color_picker">Renk seçici</string>
     <string name="revanced_extended_settings_export_failed">Ayarlar dışa aktarılamadı.</string>
     <string name="revanced_extended_settings_export_success">Ayarlar başarıyla dışa aktarıldı.</string>
     <string name="revanced_extended_settings_export_summary">Ayarlarınızı bir dosyaya kaydedin.</string>
     <string name="revanced_extended_settings_export_title">Ayarları dışa aktarın</string>
     <string name="revanced_extended_settings_import">İçe aktar</string>
-    <string name="revanced_extended_settings_import_copy">Kopyala</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">Ayarları yazı olarak içe veya dışa aktarın.</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">İçe / Dışa yazı olarak aktar</string>
-    <string name="revanced_extended_settings_import_failed">İçe aktarma başarısız oldu: %s.</string>
     <string name="revanced_extended_settings_import_reset">Ayarlar varsayılana sıfırlandı.</string>
-    <string name="revanced_extended_settings_import_success">%d ayar içe aktarıldı.</string>
     <string name="revanced_extended_settings_import_summary">Ayarları kaydedilen dosyadan içe aktarın.</string>
     <string name="revanced_extended_settings_import_title">Ayarları içe aktar</string>
-    <string name="revanced_extended_settings_reset">Sıfırla</string>
-    <string name="revanced_extended_settings_reset_color">Rengi sıfırla</string>
-    <string name="revanced_extended_settings_search_title">Arama %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Harici indirici</string>
+    <string name="revanced_external_downloader_empty_warning">Paket adı boş olamaz</string>
+    <string name="revanced_external_downloader_not_found_title">Uygulama yüklü değil</string>
     <string name="revanced_external_downloader_not_installed">Yüklü değil</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s yüklü değil.
 Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Dikkat</string>
     <string name="revanced_external_downloader_not_installed_warning">%s kurulmamış. Lütfen önce indiriniz.</string>
+    <string name="revanced_external_downloader_other_item">Diğer</string>
+    <string name="revanced_external_downloader_other_item_hint">Paket adını girin</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Yüklü harici indirici uygulamanızın paket adı (örn. YTDLnis).</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Oynatma listesi indirici paket ismi</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Kullandığınız harici indirme uygulamasının paket adı, NewPipe yada YTDLnis, uzun basılı tutulduğunda</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_external_downloader_package_name_video_summary">Yüklü olan harici indirme uygulamanızın paket adı, örneğin NewPipe veya YTDLnis gibi.</string>
     <string name="revanced_external_downloader_package_name_video_title">Video indirici paket adı</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"%s paket adıyla yüklü uygulama bulunamadı
+
+Paket adının doğru olduğunu ve uygulamanın yüklü olduğunu doğrulayın"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Hype düğmesinin simgesi gizli</string>
     <string name="revanced_fix_hype_button_icon_summary_on">Hype düğmesinin simgesi görünür</string>
     <string name="revanced_fix_hype_button_icon_title">Hype düğmesinin simgesini düzelt</string>
@@ -592,6 +592,9 @@ Mağaza"</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Emoji ve zaman damgası düğmeleri gösteriliyor.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Emoji ve zaman damgası düğmeleri gizlendi.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Emoji ve zaman damgası düğmelerini gizle</string>
+    <string name="revanced_hide_comments_button_summary_off">Yorumlar düğmesi görünür</string>
+    <string name="revanced_hide_comments_button_summary_on">Yorumlar düğmesi gizli</string>
+    <string name="revanced_hide_comments_button_title">Yorumları gizle</string>
     <string name="revanced_hide_comments_by_members_summary_off">Üyeler tarafından yapılan yorumlar afişi gizlenmiyor.</string>
     <string name="revanced_hide_comments_by_members_summary_on">\'Üyeler tarafından yapılan yorumlar\' afişi gizleniyor.</string>
     <string name="revanced_hide_comments_by_members_title">\'Üyeler tarafından yapılan yorumlar\' afişini gizle</string>
@@ -954,8 +957,8 @@ Oynatıcı ekranının düzeni sunucu tarafındaki değişiklikler nedeniyle de�
     <string name="revanced_hide_search_term_thumbnail_summary_off">Arama geçmişindeki kapak fotoğrafları gösteriliyor.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Arama geçmişindeki kapak fotoğrafları gizleniyor.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Arama terimlerinde kapak fotoğraflarını gizle</string>
-    <string name="revanced_hide_seek_message_summary_off">\"Videoyu sarmak için çubuğu sağa veya sola hareket ettirin\" gibi yazılar gizlenmiyor.</string>
-    <string name="revanced_hide_seek_message_summary_on">\"Videoyu sarmak için çubuğu sağa veya sola hareket ettirin\" gibi yazılar gizleniyor.</string>
+    <string name="revanced_hide_seek_message_summary_off">"\"Videoyu sarmak için çubuğu sağa veya sola hareket ettirin\" gibi yazılar gizlenmiyor."</string>
+    <string name="revanced_hide_seek_message_summary_on">"\"Videoyu sarmak için çubuğu sağa veya sola hareket ettirin\" gibi yazılar gizleniyor."</string>
     <string name="revanced_hide_seek_message_title">Zaman çubuğunu kaydırırken çıkan yazıları gizle</string>
     <string name="revanced_hide_seek_undo_message_summary_off">\"İptal etmek için bırakın\" gibi yazılar gizlenmiyor.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">\"İptal etmek için bırakın\" gibi yazılar gizleniyor.</string>
@@ -1215,21 +1218,21 @@ Bilinen sorun: Arama sonuçlarındaki resmi başlıklar da gizlenebiliyor.</stri
     <string name="revanced_hide_video_ads_summary_off">Video reklamları gösteriliyor</string>
     <string name="revanced_hide_video_ads_summary_on">Video reklamları gizleniyor</string>
     <string name="revanced_hide_video_ads_title">Video reklamlarını gizle</string>
-    <string name="revanced_hide_video_by_view_counts_about_summary">"Ana sayfa / Abonelik / Arama sonuçları, belirtilen bir sayıdan daha az veya daha fazla izlenmeye sahip videoları gizlemek için filtrelenir.
+    <string name="revanced_hide_video_by_view_counts_about_summary">"Anasayfa / Abonelikler / Arama sonuçlarındaki belirli bir sayıdan az veya çok izlenen videoları gizlemek için filtrelenir.
 
 Sınırlamalar:
-• Shorts gizlenemez.
-• 0 izlenmeli videolar filtrelenmez."</string>
-    <string name="revanced_hide_video_by_view_counts_about_title">İzlenme sayısı filtreleme hakkında</string>
-    <string name="revanced_hide_video_by_view_counts_home_summary_off">Ana sayfa akışındaki videolar filtrelenmiyor.</string>
-    <string name="revanced_hide_video_by_view_counts_home_summary_on">Ana sayfa akışındaki videolar filtreleniyor.</string>
-    <string name="revanced_hide_video_by_view_counts_home_title">Ana sayfa videolarını izlenmeye göre gizle</string>
-    <string name="revanced_hide_video_by_view_counts_search_summary_off">Arama sonuçları filtrelenmiyor.</string>
+• Canlı yayınlar veya kısa videolar gizlenemez.
+• 0 izlenme sayısına sahip videolar filtrelenmez."</string>
+    <string name="revanced_hide_video_by_view_counts_about_title">Görüntüleme sayısı filtrelemesi hakkında</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_off">Ana sayfadaki videolar gizlenmedi.</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_on">Ana sayfadaki videolar gizlendi.</string>
+    <string name="revanced_hide_video_by_view_counts_home_title">Ana Sayfa vid. görüntüleme sayısına göre gizle</string>
+    <string name="revanced_hide_video_by_view_counts_search_summary_off">Arama sonuçları filtrelenmemiştir.</string>
     <string name="revanced_hide_video_by_view_counts_search_summary_on">Arama sonuçları filtreleniyor.</string>
     <string name="revanced_hide_video_by_view_counts_search_title">Arama sonuçlarını izlenmeye göre gizle</string>
-    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_off">Abonelikler akışındaki videolar filtrelenmiyor.</string>
-    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_on">Abonelikler akışındaki videolar filtreleniyor.</string>
-    <string name="revanced_hide_video_by_view_counts_subscriptions_title">Abonelik videolarını izlenmeye göre gizle</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_off">Abonelikler sayfasındaki videolar filtrelenmedi.</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_on">Abonelikler sayfasındaki videolar filtrelendi.</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_title">Abonelikler videolarını görüntüleme sayısına göre gizle</string>
     <string name="revanced_hide_video_by_view_counts_summary">Belirtilen görüntüleme sayısından daha az olan önerilen videoları gizleyin.\n\nBilinen sorun: 0 izleme alan videolar filtrelenmez.</string>
     <string name="revanced_hide_video_by_view_counts_title">Önerilen videoları izlenmeye göre gizle</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">"Küçük resim etiketleri - 'İnsanlar ayrıca izledi' ve 'Bunu da beğenebilirsiniz' gibi - gizlenmiştir."</string>
@@ -1785,7 +1788,6 @@ Kısıtlama: Gizli modda beğenmeme sayıları görünmeyebilir."</string>
     <string name="revanced_sb_color_changed">Renk değiştirildi.</string>
     <string name="revanced_sb_color_dot_label">Renk:</string>
     <string name="revanced_sb_color_invalid">Renk kodu geçersiz.</string>
-    <string name="revanced_sb_color_opacity_label">Opaklık:</string>
     <string name="revanced_sb_color_reset">Renk sıfırlandı.</string>
     <string name="revanced_sb_create_segment_category">Yeni segmentler oluşturma</string>
     <string name="revanced_sb_diff_segments">Segment davranışını değiştir</string>
@@ -1960,6 +1962,9 @@ Göndermeye hazır mısınız?"</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock geçici olarak kullanılamıyor.</string>
     <string name="revanced_sb_submit_failed_unknown_error">Bölüm gönderilemedi (durum: %1$d %2$s).</string>
     <string name="revanced_sb_submit_succeeded">Düzenlenen kısım gönderimi tamamlandı.</string>
+    <string name="revanced_sb_toast_on_connection_error">API kullanılamadığında bir bildirim göster</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock kullanılamadığında bildirim gösterilmez</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">SponsorBlock kullanılamadığında bir bildirim gösterilir</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock\'un mevcut olmaması durumunda uyarı gösterilmez.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock\'un mevcut olmaması durumunda uyarı gösterilir.</string>
     <string name="revanced_sb_toast_on_connection_error_title">API mevcut değilse bir uyarı göster</string>
@@ -1971,7 +1976,50 @@ Göndermeye hazır mısınız?"</string>
     <string name="revanced_sb_vote_no_segments">Oylanabilecek bir kısım yok.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s - %2$s</string>
     <string name="revanced_sb_vote_upvote">Olumlu Oy Ver</string>
+    <string name="revanced_set_transcript_cookies_all_summary_off">Çerezler yalnızca otomatik çevrilen altyazı istekleri için ayarlanır.</string>
+    <string name="revanced_set_transcript_cookies_all_summary_on">Tüm Transcript API istekleri için çerezler ayarlanır.</string>
+    <string name="revanced_set_transcript_cookies_all_title">Tüm Transkript API istekleri için Çerezleri ayarla</string>
+    <string name="revanced_set_transcript_cookies_summary_off">Transkript Çerezleri Ayarlanmadı.</string>
+    <string name="revanced_set_transcript_cookies_summary_on">Transkript Çerezleri Ayarlandı.</string>
+    <string name="revanced_set_transcript_cookies_title">Transkript Çerezlerini Ayarla</string>
+    <string name="revanced_set_transcript_cookies_user_dialog_message">"​Şu anda YouTube'da otomatik çevrilmiş altyazıların kullanılamadığı bir hata var.
+
+​Bu, YouTube Transcript API'sinde bir sorundur ve Google'ın bunu düzeltmesi gerekiyor.
+
+​Geçici bir çözüm olarak, Çerezleri ayarlayarak bu sorunu çözebilirsiniz.
+
+​[Uyarı]
+
+​Çerezleri kullanmak kesin bir çözüm değildir.
+
+• Bu, şu durumlarda işe yaramayabilir:
+• Çerezlerin süresi dolmuşsa.
+• Geçersiz Çerezler kullanılıyorsa.
+• ​YouTube Transcript API artık Çerezleri doğrulamıyorsa."</string>
+    <string name="revanced_settings_color_invalid">Geçersiz renk</string>
+    <string name="revanced_settings_import">İçe aktar</string>
+    <string name="revanced_settings_import_copy">Kopyala</string>
+    <string name="revanced_settings_import_reset">ReVanced ayarları varsayılanlara sıfırlandı</string>
+    <string name="revanced_settings_import_success">%d ayar içe aktarıldı</string>
+    <string name="revanced_settings_reset">Sıfırla</string>
+    <string name="revanced_settings_reset_color">Rengi sıfırla</string>
+    <string name="revanced_settings_search_clear_history">Arama geçmişini temizle</string>
+    <string name="revanced_settings_search_clear_history_message">Tüm arama geçmişini temizlemek istediğinizden emin misiniz?</string>
+    <string name="revanced_settings_search_empty_history_summary">Arama geçmişini kaydetmek için bir arama sorgusu yazın ve Enter\'a basın</string>
+    <string name="revanced_settings_search_empty_history_title">Arama geçmişi boş</string>
+    <string name="revanced_settings_search_history_summary_off">Ayarlar arama geçmişi gösterilmiyor</string>
+    <string name="revanced_settings_search_history_summary_on">Ayarlar arama geçmişi gösteriliyor</string>
     <string name="revanced_settings_search_history_title">Ayarlar arama geçmişini göster</string>
+    <string name="revanced_settings_search_no_results_summary">Başka bir anahtar kelime deneyin</string>
+    <string name="revanced_settings_search_no_results_title">\'%s\' için sonuç bulunamadı</string>
+    <string name="revanced_settings_search_recent_searches">Son aramalar</string>
+    <string name="revanced_settings_search_remove_message">Arama geçmişinden kaldırılsın mı?</string>
+    <string name="revanced_settings_search_tips_summary">"• Bir yola gitmek için ona dokunun
+• Bir ayara gitmek için üzerine uzun basın
+• Bir arama sorgusunu geçmişe kaydetmek için Enter'a basın
+• Arama, büyük/küçük harf ve noktalama işaretlerini dikkate almaz
+• Ana ayarlar, devre dışı bırakılmış alt ayarların üzerinde görünür"</string>
+    <string name="revanced_settings_search_tips_title">Arama İpuçları</string>
     <string name="revanced_share_copy_settings_success">Ayarlar panoya kopyalandı</string>
     <string name="revanced_share_copy_timestamp_success">Süre Sayacı panoya kopyalandı. (%s)</string>
     <string name="revanced_share_copy_url_success">URL panoya kopyalandı</string>
@@ -2154,9 +2202,37 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
     <string name="revanced_theme_default">Stok</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Uyarı</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s yüklü değil. Lütfen yükleyin.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Yüklü RVX Music\'in paket adı.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music paket adı</string>
+    <string name="revanced_transcript_cookies_about_summary">Çerezleri nasıl edineceğinizi görmek için tıklayın.</string>
+    <string name="revanced_transcript_cookies_about_title">Transkript Çerezleri Hakkında</string>
+    <string name="revanced_transcript_cookies_dialog_auth_text">Yetkilendirme</string>
+    <string name="revanced_transcript_cookies_dialog_message">"Yetkilendirme
+═════════════
+1. WebView'da oturum açma sayfasını açmak için 'Yetkilendirme'ye tıklayın.
+2. Google Hesabınızda oturum açın.
+3. Otomatik çevrilmiş altyazıları destekleyen tüm videoları oynatır.
+4. Otomatik çevrilmiş altyazıları açın ve çalışıp çalışmadığına bakın.
+4-1. Otomatik çevrilmiş altyazılar çalışmıyorsa, otomatik çevrilmiş altyazıları destekleyen başka bir videoya geçin ve 4. adımı tekrar deneyin.
+5. Bağlam menüsünü açmak için araç çubuğundaki üç noktaya tıklayın.
+6. 'Çerezleri Al'a tıklayın.
+7. Çerezleri kopyalamak için 'Kopyala'ya tıklayın.
+8. WebView'ı kapatın ve kopyaladığınız Çerezleri 'Transkript Çerezleri' ayarlarına yapıştırın.
+
+Yetkilendirme Yok
+══════════════
+1. Videoyu WebView'da açmak için 'Yetkilendirme Yok'a tıklayın.
+2. Videoyu en az 3 saniye oynatın.
+3. Bağlamsal menüyü açmak için araç çubuğundaki üç noktaya tıklayın.
+4. 'Çerezleri Al'a tıklayın.
+5. Çerezleri kopyalamak için 'Kopyala'ya tıklayın.
+6. WebView'ı kapatın ve kopyalanan Çerezleri 'Transkript Çerezleri' ayarlarına yapıştırın.
+
+Sorumluluk Reddi: Oturum açmadan gönderilen çerezler geçersiz olabilir veya Transkript API'sine sunulması zaman alabilir."</string>
+    <string name="revanced_transcript_cookies_dialog_no_auth_text">Yetkilendirme yok</string>
+    <string name="revanced_transcript_cookies_dialog_title">Transkript Çerezlerini Dışa Aktar</string>
+    <string name="revanced_transcript_cookies_summary">Transkript API isteklerinde kullanılacak çerezler.</string>
+    <string name="revanced_transcript_cookies_title">Transkript Çerezleri</string>
     <string name="revanced_watch_history_about_status_blocked">• İzleme geçmişi çalışmaz.</string>
     <string name="revanced_watch_history_about_status_original">"• Google hesabının izleme geçmişi ayarlarını takip eder.
 • DNS veya VPN nedeniyle izleme geçmişi çalışmayabilir."</string>

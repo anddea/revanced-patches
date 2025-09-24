@@ -39,7 +39,7 @@ public class ResettableListPreference {
                     .setSingleChoiceItems(mEntries, mClickedDialogEntryIndex,
                             (dialog, id) -> mClickedDialogEntryIndex = id)
                     .setNegativeButton(android.R.string.cancel, null)
-                    .setNeutralButton(str("revanced_extended_settings_reset"), (dialog, which) -> {
+                    .setNeutralButton(str("revanced_settings_reset"), (dialog, which) -> {
                         setting.resetToDefault();
                         ReVancedPreferenceFragment.showRebootDialog();
                     })
@@ -77,7 +77,7 @@ public class ResettableListPreference {
                     .setSingleChoiceItems(mEntries, mClickedDialogEntryIndex,
                             (dialog, id) -> mClickedDialogEntryIndex = id)
                     .setNegativeButton(android.R.string.cancel, null)
-                    .setNeutralButton(str("revanced_extended_settings_reset"), (dialog, which) -> {
+                    .setNeutralButton(str("revanced_settings_reset"), (dialog, which) -> {
                         setting.resetToDefault();
                         ReVancedPreferenceFragment.showRebootDialog();
                     })

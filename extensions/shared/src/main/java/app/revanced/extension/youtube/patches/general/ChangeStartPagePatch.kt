@@ -3,10 +3,12 @@ package app.revanced.extension.youtube.patches.general
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
+import app.revanced.extension.shared.settings.Setting
 import app.revanced.extension.shared.settings.Setting.Availability
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.settings.Settings
 import org.apache.commons.lang3.StringUtils
+
 
 @Suppress("unused", "DEPRECATION")
 object ChangeStartPagePatch {
@@ -147,6 +149,10 @@ object ChangeStartPagePatch {
     class ChangeStartPageTypeAvailability : Availability {
         override fun isAvailable(): Boolean {
             return Settings.CHANGE_START_PAGE.get() != StartPage.ORIGINAL
+        }
+
+        override fun getParentSettings(): MutableList<Setting<*>> {
+            return arrayOf(Settings.CHANGE_START_PAGE).toMutableList()
         }
     }
 }

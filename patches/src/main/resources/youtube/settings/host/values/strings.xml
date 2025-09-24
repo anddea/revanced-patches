@@ -163,7 +163,7 @@ Limitation: Back button on the toolbar may not work."</string>
     <string name="revanced_change_youtube_header_summary_off">Generic header is enabled.</string>
     <string name="revanced_change_youtube_header_summary_on">Premium header is enabled.</string>
     <string name="revanced_change_youtube_header_title">Change YouTube header</string>
-    <string name="revanced_color_invalid_toast">Invalid color</string>
+    <string name="revanced_confirm_user_dialog_title">Are you sure you want to proceed?</string>
     <string name="revanced_copy">Copy</string>
     <string name="revanced_copy_error">Failed to copy text</string>
     <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter, separated by new lines.</string>
@@ -188,6 +188,7 @@ Limitation: Back button on the toolbar may not work."</string>
     <string name="revanced_custom_player_overlay_opacity_title">Custom player overlay opacity</string>
     <string name="revanced_custom_seekbar_color_accent_summary">Type the hex code of the seekbar accent color.</string>
     <string name="revanced_custom_seekbar_color_accent_title">Custom seekbar accent color</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Invalid seekbar color.</string>
     <string name="revanced_custom_seekbar_color_primary_summary">Type the hex code of the seekbar primary color.</string>
     <string name="revanced_custom_seekbar_color_primary_title">Custom seekbar primary color</string>
     <string name="revanced_debug_export_logs_to_clipboard_summary">Copies RVX debug logs to the clipboard.</string>
@@ -200,6 +201,7 @@ Limitation: Back button on the toolbar may not work."</string>
     <string name="revanced_debug_logs_copied_to_clipboard">Logs copied.</string>
     <string name="revanced_debug_logs_disabled">Debug logging is disabled.</string>
     <string name="revanced_debug_logs_export_success">Logs were successfully exported.</string>
+    <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Logs are too large to copy.</string>
     <string name="revanced_debug_logs_failed_to_export">Failed to export logs: $s.</string>
     <string name="revanced_debug_logs_none_found">No logs found.</string>
     <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer.</string>
@@ -252,6 +254,9 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Auto switch mix playlists is disabled.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">Disable auto switch mix playlists</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Enabling this feature will disable automatic switching to YouTube Mix when playing music while autoplay is turned on.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">Double tap can occasionally trigger a skip to the next / previous chapter.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">Double tap can never trigger a skip to the next / previous chapter.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Disable double tap chapter skip</string>
     <string name="revanced_disable_default_playback_speed_music_off">Default playback speed is enabled for music.</string>
     <string name="revanced_disable_default_playback_speed_music_on">Default playback speed is disabled for music.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Disable playback speed for music</string>
@@ -434,6 +439,12 @@ Limitations:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Navigation bar is opaque.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Navigation bar is translucent.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Enable translucent navigation bar</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_off">Watch next processing delay is disabled.</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_on">Watch next processing delay is enabled.</string>
+    <string name="revanced_enable_watch_next_processing_delay_title">Enable watch next processing delay</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"This setting forces a delay before the player UI loads.
+
+This can be used when testing something on the MainThread."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Enabling this setting will disable the Settings button in the You tab.
 
 In this case, please use the following path to access the settings:
@@ -469,44 +480,37 @@ Limitation: Does not work if the player is minimized, in PiP mode, or in backgro
     <string name="revanced_expand_video_description_title">Expand video descriptions</string>
     <string name="revanced_extended_audio_tracks_unavailable">"This setting is currently unavailable.
 To use this feature, change 'Default client (Spoof streaming data)' to TV or TV Simply."</string>
-    <string name="revanced_extended_confirm_user_dialog_title">Are you sure you want to proceed?</string>
-    <string name="revanced_extended_reset_to_default_toast">Reset to default values.</string>
     <string name="revanced_extended_restart">Restart</string>
-    <string name="revanced_extended_restart_dialog_message">Restart the app for this change to take effect.</string>
     <string name="revanced_extended_restart_first_run">Restart to load the layout normally</string>
-    <string name="revanced_extended_restart_message">Refresh and restart</string>
     <string name="revanced_extended_restart_title">Restart required</string>
-    <string name="revanced_extended_settings_color_invalid">Invalid color.</string>
-    <string name="revanced_extended_settings_color_picker">Color picker</string>
     <string name="revanced_extended_settings_export_failed">Failed to export settings.</string>
     <string name="revanced_extended_settings_export_success">Settings were successfully exported.</string>
     <string name="revanced_extended_settings_export_summary">Export settings to a file.</string>
     <string name="revanced_extended_settings_export_title">Export settings</string>
     <string name="revanced_extended_settings_import">Import</string>
-    <string name="revanced_extended_settings_import_copy">Copy</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">Import / Export settings as text.</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">Import / Export as text</string>
-    <string name="revanced_extended_settings_import_failed">Failed to import settings.</string>
     <string name="revanced_extended_settings_import_reset">Settings reset to default.</string>
-    <string name="revanced_extended_settings_import_success">Settings were successfully imported.</string>
     <string name="revanced_extended_settings_import_summary">Import settings from a saved file.</string>
     <string name="revanced_extended_settings_import_title">Import settings</string>
-    <string name="revanced_extended_settings_reset">Reset</string>
-    <string name="revanced_extended_settings_reset_color">Reset color</string>
-    <string name="revanced_extended_settings_search_title">Search %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">External downloader</string>
+    <string name="revanced_external_downloader_empty_warning">The package name cannot be empty</string>
+    <string name="revanced_external_downloader_not_found_title">App not installed.</string>
     <string name="revanced_external_downloader_not_installed">Not installed</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s is not installed.
 Please download %2$s from the website."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Warning</string>
     <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
-    <string name="revanced_external_downloader_package_name_playlist_summary">Package name of your installed external downloader app, such as YTDLnis.</string>
+    <string name="revanced_external_downloader_other_item">Other</string>
+    <string name="revanced_external_downloader_other_item_hint">Enter the package name</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Package name of your installed external downloader app.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Playlist downloader package name</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
-    <string name="revanced_external_downloader_package_name_video_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Package name of your installed external downloader app.</string>
     <string name="revanced_external_downloader_package_name_video_title">Video downloader package name</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"Could not find installed app with package name: %s.
+
+Verify the package name is correct and the app is installed."</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Hype button icon is hidden.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">Hype button icon is shown.</string>
     <string name="revanced_fix_hype_button_icon_title">Fix Hype button icon</string>
@@ -558,7 +562,6 @@ If the 'Playback' setting is still broken even after enabling or disabling this 
     <string name="revanced_gemini_transcription_result_title">Gemini Video Transcription</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
-    <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
     <string name="revanced_gradient_seekbar_positions_summary">Gradient start and end positions from 0 to 1 separated by comma.</string>
     <string name="revanced_gradient_seekbar_positions_title">Gradient seekbar bounds</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">List of account menu names to filter, separated by new lines.</string>
@@ -810,7 +813,7 @@ Limitations:
 • Some UI components may not be hidden.
 • Searching for a keyword may show no results."</string>
     <string name="revanced_hide_keyword_content_about_title">About keyword filtering</string>
-    <string name="revanced_hide_keyword_content_about_whole_words_summary">Surrounding a keyword/phrase with double-quotes will prevent partial matches of video titles and channel names.&lt;br&gt;&lt;br&gt;For example,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; will hide the video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;but will not hide: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Surrounding a keyword / phrase with double-quotes will prevent partial matches of video titles and channel names.&lt;br&gt;&lt;br&gt;For example,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; will hide the video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;but will not hide: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Match whole words</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">Comments are not filtered.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Comments are filtered.</string>
@@ -830,6 +833,9 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videos in Subscriptions feed are not filtered.</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videos in Subscriptions feed are filtered.</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Hide Subscriptions videos by keywords</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_off">\'AND\' operator (\'&amp;\') is disabled.&lt;br&gt;&lt;br&gt;When &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; is used as a keyword, keywords containing &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; will be filtered.</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_on">\'AND\' operator (\'&amp;\') is enabled.&lt;br&gt;&lt;br&gt;When &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; is used as a keyword, keywords containing both &lt;strong&gt;Blue&lt;/strong&gt; and &lt;strong&gt;Red&lt;/strong&gt; will be filtered.</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_title">Use \'AND\' operator (\'&amp;\')</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Keyword will hide all videos: %s.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Cannot use keyword: %s.</string>
     <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Add quotes to use keyword: %s.</string>
@@ -1066,9 +1072,17 @@ If the layout of the player screen changes due to server-side changes, unintende
     <string name="revanced_hide_section_header_in_feed_summary_off">Subscriptions section header is shown.\n\nThe Subscriptions section header includes \'Visit Community\' and \'Visit Channel\' buttons when clicking on a subscribed channel\’s icon in the Subscriptions section.</string>
     <string name="revanced_hide_section_header_in_feed_summary_on">Subscriptions section header is hidden.\n\nThe Subscriptions section header includes \'Visit Community\' and \'Visit Channel\' buttons when clicking on a subscribed channel\’s icon in the Subscriptions section.</string>
     <string name="revanced_hide_section_header_in_feed_title">Hide subscriptions section header</string>
-    <string name="revanced_hide_seek_message_summary_off">Seek message is shown.</string>
-    <string name="revanced_hide_seek_message_summary_on">Seek message is hidden.</string>
-    <string name="revanced_hide_seek_message_title">Hide seek message</string>
+    <string name="revanced_hide_seek_message_summary_off">"Seek message is shown.
+
+Info:
+• This setting seems to be deprecated on the server.
+• Use 'Hide filmstrip overlay' or 'Hide seek undo message' instead."</string>
+    <string name="revanced_hide_seek_message_summary_on">"Seek message is hidden.
+
+Info:
+• This setting seems to be deprecated on the server.
+• Use 'Hide filmstrip overlay' or 'Hide seek undo message' instead."</string>
+    <string name="revanced_hide_seek_message_title">Hide seek message (Deprecated)</string>
     <string name="revanced_hide_seek_undo_message_summary_off">Seek undo message is shown.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Seek undo message is hidden.</string>
     <string name="revanced_hide_seek_undo_message_title">Hide seek undo message</string>
@@ -1898,6 +1912,11 @@ Tap and hold to open RVX settings."</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Tap to open RVX settings.
 Tap and hold to open YouTube settings."</string>
     <string name="revanced_replace_toolbar_create_button_type_title">Action type to assign to button</string>
+    <string name="revanced_reset_to_default_toast">Reset to default values.</string>
+    <string name="revanced_restart">Restart</string>
+    <string name="revanced_restart_dialog_message">Restart the app for this change to take effect.</string>
+    <string name="revanced_restart_first_run">Restart to load the layout normally</string>
+    <string name="revanced_restart_title">Restart required</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear in fullscreen.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar thumbnails will appear above the seekbar.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Restore old seekbar thumbnails</string>
@@ -1970,7 +1989,6 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_color_changed">Color changed.</string>
     <string name="revanced_sb_color_dot_label">Color:</string>
     <string name="revanced_sb_color_invalid">Invalid color code.</string>
-    <string name="revanced_sb_color_opacity_label">Opacity:</string>
     <string name="revanced_sb_color_reset">Color reset.</string>
     <string name="revanced_sb_create_segment_category">Creating new segments</string>
     <string name="revanced_sb_diff_segments">Change segment behavior</string>
@@ -2142,6 +2160,9 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock is temporarily down.</string>
     <string name="revanced_sb_submit_failed_unknown_error">Unable to submit segment (status: %1$d %2$s).</string>
     <string name="revanced_sb_submit_succeeded">Segment submitted successfully.</string>
+    <string name="revanced_sb_toast_on_connection_error">Show a toast if API is unavailable</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">Toast is not shown if SponsorBlock is unavailable.</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">Toast is shown if SponsorBlock is unavailable.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is unavailable.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is unavailable.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Show a toast if API is unavailable</string>
@@ -2155,13 +2176,8 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_vote_upvote">Upvote</string>
     <string name="revanced_search_clear_confirm_message">Are you sure you want to clear your entire search history?</string>
     <string name="revanced_search_clear_confirm_title">Clear Search History</string>
-    <string name="revanced_search_clear_history_title">Clear History</string>
     <string name="revanced_search_delete_confirm_message">Are you sure you want to delete \"%1$s\" from your search history?</string>
     <string name="revanced_search_delete_confirm_title">Delete Search Entry</string>
-    <string name="revanced_search_delete_entry">Delete search entry</string>
-    <string name="revanced_search_history_title">Recent Searches</string>
-    <string name="revanced_search_no_history_summary">Your search history will appear here. To save a search query to your search history, you must press Enter/Return.</string>
-    <string name="revanced_search_no_history_title">No recent searches</string>
     <string name="revanced_search_settings_category_title">Search settings</string>
     <string name="revanced_search_settings_no_results_summary">Try a different search term.</string>
     <string name="revanced_search_settings_no_results_title">No results found for \"%1$s\"</string>
@@ -2186,12 +2202,43 @@ This may not work if:
 • Cookies have expired.
 • Invalid Cookies are being used.
 • YouTube Transcript API no longer validates Cookies."</string>
-    <string name="revanced_settings_search_highlight_color_summary">Set the highlight color for matched text in search results.</string>
-    <string name="revanced_settings_search_highlight_color_title">Search highlight color</string>
-    <string name="revanced_settings_search_highlight_summary">Highlight matched text in search results with the selected color.</string>
-    <string name="revanced_settings_search_highlight_title">Enable search highlighting</string>
+    <string name="revanced_settings_color_invalid">Invalid color.</string>
+    <string name="revanced_settings_color_picker">Color picker</string>
+    <string name="revanced_settings_export_failed">Failed to export settings.</string>
+    <string name="revanced_settings_export_success">Settings were successfully exported.</string>
+    <string name="revanced_settings_export_summary">Export settings to a file.</string>
+    <string name="revanced_settings_export_title">Export settings</string>
+    <string name="revanced_settings_import">Import</string>
+    <string name="revanced_settings_import_copy">Copy</string>
+    <string name="revanced_settings_import_export_as_text_summary">Import / Export settings as text.</string>
+    <string name="revanced_settings_import_export_as_text_title">Import / Export as text</string>
+    <string name="revanced_settings_import_failed">Failed to import settings.</string>
+    <string name="revanced_settings_import_reset">Settings reset to default.</string>
+    <string name="revanced_settings_import_success">Settings were successfully imported.</string>
+    <string name="revanced_settings_import_summary">Import settings from a saved file.</string>
+    <string name="revanced_settings_import_title">Import settings</string>
+    <string name="revanced_settings_reset">Reset</string>
+    <string name="revanced_settings_reset_color">Reset color</string>
+    <string name="revanced_settings_search_clear_history">Clear search history</string>
+    <string name="revanced_settings_search_clear_history_message">Are you sure you want to clear all search history?</string>
+    <string name="revanced_settings_search_empty_history_summary">To save search history, type a search query and press Enter.</string>
+    <string name="revanced_settings_search_empty_history_title">Search history is empty</string>
     <string name="revanced_settings_search_history_summary">Save recent search queries to show them when the search bar is empty.</string>
-    <string name="revanced_settings_search_history_title">Enable search history</string>
+    <string name="revanced_settings_search_history_summary_off">Settings search history is not shown.</string>
+    <string name="revanced_settings_search_history_summary_on">Settings search history is shown.</string>
+    <string name="revanced_settings_search_history_title">Show settings search history</string>
+    <string name="revanced_settings_search_no_results_summary">Try another keyword.</string>
+    <string name="revanced_settings_search_no_results_title">No results found for \'%s\'.</string>
+    <string name="revanced_settings_search_recent_searches">Recent searches</string>
+    <string name="revanced_settings_search_remove_message">Remove from search history?</string>
+    <string name="revanced_settings_search_tips_summary">"• Tap a path to navigate to it.
+• Long-press a setting to navigate to it.
+• Press Enter to save a search query to history.
+• Search ignores casing and punctuation.
+• Parent settings appear above disabled child settings."</string>
+    <string name="revanced_settings_search_tips_title">Search Tips</string>
+    <string name="revanced_settings_search_title">Search %s</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Settings copied to clipboard.</string>
     <string name="revanced_share_copy_timestamp_success">Timestamp copied to clipboard. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copied to clipboard.</string>
@@ -2259,6 +2306,8 @@ Limitation: Video title disappears when clicked."</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Speed overlay value must be between 0-8.0.</string>
     <string name="revanced_speed_overlay_value_summary">Speed overlay value between 0-8.0.</string>
     <string name="revanced_speed_overlay_value_title">Speed overlay value</string>
+    <string name="revanced_spoof_app_version_other_item">Other</string>
+    <string name="revanced_spoof_app_version_other_item_hint">Enter the app version</string>
     <string name="revanced_spoof_app_version_summary">"Spoofing the client version to the old version.
 
 • This will change the appearance of the app, but unknown side effects may occur.
@@ -2277,6 +2326,7 @@ Limitation: Video title disappears when clicked."</string>
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Disable Cairo icon in navigation and toolbar</string>
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Restore old playlist header</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restore old playback speed flyout panel</string>
+    <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restore Transcript functionality</string>
     <string name="revanced_spoof_app_version_target_entry_title">Spoof app version target</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Invalid spoof app version: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Type the spoof app version target.</string>
@@ -2376,6 +2426,7 @@ Example 2:
 • Stable volume is not available.
 • Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Audio track menu is missing.
+• Disable forced auto audio tracks is not available.
 • Stable volume is not available.
 • Kids videos may not play when logged out or in incognito mode.
 • 1080p+, AV1, and HDR are not supported."</string>
@@ -2462,6 +2513,14 @@ Among JavaScript clients, the recommended client is TV Simply."</string>
 
 • It is highly server-dependent, and the success or failure of deobfuscation depends on the JavaScript currently used on the server."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">Use latest JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"Player JavaScript for deobfuscation is not kept up to date.
+
+• Player JavaScript that succeeds in deobfuscation is used, but it is still somewhat server-dependent."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"Player JavaScript for deobfuscation is kept up to date.
+
+• It is highly server-dependent, and the success or failure of deobfuscation depends on the Player JavaScript currently used on the server.
+• If you're having issues with JavaScript client, try disabling this first."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Use latest player JavaScript</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Video codec is determined automatically.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Video codec is AVC (H.264) or VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Disable VR AV1</string>
@@ -2564,7 +2623,6 @@ If this setting do not take effect, try switching to Incognito mode."</string>
     <string name="revanced_theme_default">Stock</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Warning</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s is not installed. Please install it.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Package name of installed RVX Music.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music package name</string>
     <string name="revanced_transcript_cookies_about_summary">Click to see how to get Cookies.</string>
@@ -2608,6 +2666,8 @@ Disclaimer: Cookies issued without signing in may be invalid or may take time to
     <string name="revanced_watch_history_type_entry_2">Replace domain</string>
     <string name="revanced_watch_history_type_entry_3">Block watch history</string>
     <string name="revanced_watch_history_type_title">Watch history type</string>
+    <string name="revanced_watch_next_processing_delay_summary">The amount of milliseconds delay in processing the watch next response.</string>
+    <string name="revanced_watch_next_processing_delay_title">Watch next processing delay</string>
     <string name="revanced_webview_contextual_menu_get_cookies">Get Cookies</string>
     <string name="revanced_webview_contextual_menu_get_data_sync_id">Get Data Sync Id</string>
     <string name="revanced_webview_contextual_menu_get_visitor_data">Get Visitor Data</string>

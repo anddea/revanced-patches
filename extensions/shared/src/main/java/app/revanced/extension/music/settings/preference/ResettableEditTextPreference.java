@@ -33,7 +33,7 @@ public class ResettableEditTextPreference {
                     .setTitle(str(setting.key + "_title"))
                     .setView(container)
                     .setNegativeButton(android.R.string.cancel, null)
-                    .setNeutralButton(str("revanced_extended_settings_reset"), (dialog, which) -> {
+                    .setNeutralButton(str("revanced_settings_reset"), (dialog, which) -> {
                         setting.resetToDefault();
                         ReVancedPreferenceFragment.showRebootDialog();
                     })

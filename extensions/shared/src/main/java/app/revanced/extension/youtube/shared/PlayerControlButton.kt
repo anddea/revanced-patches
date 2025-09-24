@@ -8,6 +8,7 @@ import app.revanced.extension.shared.utils.ResourceUtils
 import app.revanced.extension.shared.utils.Utils
 import java.lang.ref.WeakReference
 
+
 class PlayerControlButton(
     controlsViewGroup: View,
     imageViewButtonId: String,
@@ -36,13 +37,13 @@ class PlayerControlButton(
     private var isVisible: Boolean
 
     init {
-        val imageView = Utils.getChildView<ImageView>(controlsViewGroup, imageViewButtonId)
+        val imageView = Utils.getChildViewByResourceName<ImageView>(controlsViewGroup, imageViewButtonId)
         imageView.visibility = View.GONE
 
         var tempPlaceholder: View? = null
         if (hasPlaceholder) {
             tempPlaceholder =
-                Utils.getChildView<View>(controlsViewGroup, "${imageViewButtonId}_placeholder")
+                Utils.getChildViewByResourceName<View>(controlsViewGroup, "${imageViewButtonId}_placeholder")
             tempPlaceholder.visibility = View.GONE
         }
         placeholderExists = hasPlaceholder

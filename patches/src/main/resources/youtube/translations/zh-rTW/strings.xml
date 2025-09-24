@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">要啟用影片播放器的無障礙控制功能嗎？</string>
-    <string name="accessibility_settings_edu_opt_out_text">由於已啟用無障礙服務，因此你的控制選項已被修改。</string>
+    <string name="accessibility_settings_edu_opt_in_text">啟用影片播放器的無障礙控制功能嗎？</string>
+    <string name="accessibility_settings_edu_opt_out_text">由於已啟用無障礙服務，你的控制選項已被修改。</string>
     <string name="gms_core_dialog_continue_text">繼續</string>
     <string name="gms_core_dialog_dismiss_text">不再顯示</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore 沒有後台運行的權限。
@@ -161,7 +161,6 @@
     <string name="revanced_change_youtube_header_summary_off">預設標題已啟用。</string>
     <string name="revanced_change_youtube_header_summary_on">高級標題已啟用。</string>
     <string name="revanced_change_youtube_header_title">變更 YouTube 標題</string>
-    <string name="revanced_color_invalid_toast">無效的顏色</string>
     <string name="revanced_copy">複製</string>
     <string name="revanced_copy_error">複製文字失敗</string>
     <string name="revanced_custom_filter_strings_summary">依行分隔的名稱篩選元件</string>
@@ -186,6 +185,7 @@
     <string name="revanced_custom_player_overlay_opacity_title">自訂播放器的不透明度</string>
     <string name="revanced_custom_seekbar_color_accent_summary">輸入搜尋欄強調色的十六進位代碼。</string>
     <string name="revanced_custom_seekbar_color_accent_title">自訂搜尋欄強調色</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">搜尋欄顏色無效。</string>
     <string name="revanced_custom_seekbar_color_primary_summary">輸入搜尋欄原色的十六進位代碼。</string>
     <string name="revanced_custom_seekbar_color_primary_title">自訂搜尋欄原色</string>
     <string name="revanced_debug_export_logs_to_clipboard_summary">將 RVX 偵錯紀錄複製到剪貼簿。</string>
@@ -250,6 +250,9 @@
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">自動切換混合播放清單已停用。</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">停用切換混合播放列表</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">啟用此功能將禁止在自動播放開啟時播放音樂時自動切換到 YouTube Mix。</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">雙擊有時可能會觸發跳轉至下一章或上一章。</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">雙擊將永遠不會觸發跳轉至下一章或上一章。</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">停用雙擊跳轉章節</string>
     <string name="revanced_disable_default_playback_speed_music_off">音樂的預設播放速度已啟用。</string>
     <string name="revanced_disable_default_playback_speed_music_on">音樂的預設播放速度被禁用。</string>
     <string name="revanced_disable_default_playback_speed_music_title">停用音樂的播放速度</string>
@@ -469,44 +472,37 @@
 注意：
 • iOS TV 不支援播放某些影片，例如音樂影片。
 • 因此，如果將預設用戶端設定為 iOS TV，此設定可能不適用於某些影片。"</string>
-    <string name="revanced_extended_confirm_user_dialog_title">你想繼續嗎？</string>
-    <string name="revanced_extended_reset_to_default_toast">重設為預設值。</string>
     <string name="revanced_extended_restart">重新啟動</string>
-    <string name="revanced_extended_restart_dialog_message">重新啟動應用程式以此變更生效。</string>
     <string name="revanced_extended_restart_first_run">重新啟動以套用介面</string>
-    <string name="revanced_extended_restart_message">重新啟動以重新整理介面</string>
     <string name="revanced_extended_restart_title">需要重新啟動</string>
-    <string name="revanced_extended_settings_color_invalid">無效顏色。</string>
-    <string name="revanced_extended_settings_color_picker">取色工具</string>
     <string name="revanced_extended_settings_export_failed">導出配置失敗。</string>
     <string name="revanced_extended_settings_export_success">導出配置成功。</string>
     <string name="revanced_extended_settings_export_summary">導出配置到文件。</string>
     <string name="revanced_extended_settings_export_title">導出配置</string>
     <string name="revanced_extended_settings_import">匯入</string>
-    <string name="revanced_extended_settings_import_copy">複製</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">導入 / 導出設定檔案。</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">導入 / 導出設定檔案</string>
-    <string name="revanced_extended_settings_import_failed">匯入設定失敗。</string>
     <string name="revanced_extended_settings_import_reset">設定重設為預設值。</string>
-    <string name="revanced_extended_settings_import_success">匯入設定成功。</string>
     <string name="revanced_extended_settings_import_summary">從已儲存的檔案匯入設定。</string>
     <string name="revanced_extended_settings_import_title">匯入設定</string>
-    <string name="revanced_extended_settings_reset">重置</string>
-    <string name="revanced_extended_settings_reset_color">重置顏色</string>
-    <string name="revanced_extended_settings_search_title">搜尋 %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">外部下載器</string>
+    <string name="revanced_external_downloader_empty_warning">套件名稱不能為空</string>
+    <string name="revanced_external_downloader_not_found_title">應用程式未安裝</string>
     <string name="revanced_external_downloader_not_installed">未安裝</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">%1$s 未安裝。
 請從網站下載 %2$s。</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
     <string name="revanced_external_downloader_not_installed_warning">未安裝 %s。請安裝該應用程式。</string>
+    <string name="revanced_external_downloader_other_item">其他</string>
+    <string name="revanced_external_downloader_other_item_hint">輸入套件名稱</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">你安裝的外部下載器應用程式的套件名稱，例如 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_playlist_title">播放清單下載器套件名稱</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">您安裝的外部下載器應用程式套件名稱，例如 NewPipe 或 YTDLnis，長按時顯示。</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">長按時影片下載器套件名稱</string>
     <string name="revanced_external_downloader_package_name_video_summary">您安裝的外部下載器應用程式的套件名稱，例如 NewPipe 或 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_video_title">影片下載套件名稱</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"無法找到已安裝的應用程式，套件名稱為：%s
+
+請驗證套件名稱是否正確以及應用程式是否已安裝"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">熱門按鈕圖示已隱藏。</string>
     <string name="revanced_fix_hype_button_icon_summary_on">熱門按鈕圖示已顯示。</string>
     <string name="revanced_fix_hype_button_icon_title">修復熱門按鈕圖標</string>
@@ -560,7 +556,6 @@
     <string name="revanced_gemini_transcription_result_title">Gemini 影片轉錄</string>
     <string name="revanced_gms_show_dialog_summary">在每次應用程式啟動時，顯示 GMSCore 的優化對話框。</string>
     <string name="revanced_gms_show_dialog_title">顯示 GMSCore 優化對話框</string>
-    <string name="revanced_gradient_seekbar_positions_reset">漸變位置重設為預設值。</string>
     <string name="revanced_gradient_seekbar_positions_summary">漸變起始與結束位置範圍從 0 到 1，以逗號分隔。</string>
     <string name="revanced_gradient_seekbar_positions_title">進度條漸變邊界值</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">要篩選的帳戶選單名稱清單，每行一個名稱。</string>
@@ -1065,8 +1060,8 @@
     <string name="revanced_hide_section_header_in_feed_summary_off">訂閱部分標題已顯示。 \n\n點擊訂閱部分中已訂閱頻道的圖示後，訂閱部分標題包括\'造訪社群\'和\'造訪頻道\'按鈕。</string>
     <string name="revanced_hide_section_header_in_feed_summary_on">訂閱部分標題已隱藏。 \n\n點擊訂閱部分中已訂閱頻道的圖示後，訂閱部分標題包括\'造訪社群\'和\'造訪頻道\'按鈕。</string>
     <string name="revanced_hide_section_header_in_feed_title">隱藏訂閱部分標題</string>
-    <string name="revanced_hide_seek_message_summary_off">進度條訊息已顯示。</string>
-    <string name="revanced_hide_seek_message_summary_on">進度條訊息已隱藏。</string>
+    <string name="revanced_hide_seek_message_summary_off">"進度條訊息已顯示"</string>
+    <string name="revanced_hide_seek_message_summary_on">"進度條訊息已隱藏"</string>
     <string name="revanced_hide_seek_message_title">隱藏進度條訊息</string>
     <string name="revanced_hide_seek_undo_message_summary_off">進度條跳轉撤銷訊息已顯示。</string>
     <string name="revanced_hide_seek_undo_message_summary_on">進度條撤銷訊息已隱藏。</string>
@@ -1347,7 +1342,7 @@
     <string name="revanced_hide_video_ads_title">隱藏影片廣告</string>
     <string name="revanced_hide_video_by_view_counts_about_summary">"主頁/訂閱/搜尋結果將被篩選以隱藏觀看次數小於或大於指定數量的影片。
 
-限制：
+限制： 
 • 短影音無法隱藏。
 • 觀看次數為零的影片不會被篩選。"</string>
     <string name="revanced_hide_video_by_view_counts_about_title">關於觀看次數篩選</string>
@@ -1970,7 +1965,6 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_color_changed">顏色已更改。</string>
     <string name="revanced_sb_color_dot_label">顏色：</string>
     <string name="revanced_sb_color_invalid">無效的顏色代碼。</string>
-    <string name="revanced_sb_color_opacity_label">不透明度：</string>
     <string name="revanced_sb_color_reset">顏色已重置。</string>
     <string name="revanced_sb_create_segment_category">創建新片段</string>
     <string name="revanced_sb_diff_segments">更改片段行為</string>
@@ -2152,6 +2146,9 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock 暫時無法使用。</string>
     <string name="revanced_sb_submit_failed_unknown_error">無法提交片段 (狀態：%1$d %2$s)。</string>
     <string name="revanced_sb_submit_succeeded">片段提交成功。</string>
+    <string name="revanced_sb_toast_on_connection_error">若 API 無法使用，顯示提示</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">如果 SponsorBlock 無法使用，則不會顯示提示訊息</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">如果 SponsorBlock 無法使用，則顯示提示訊息</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">如果 SponsorBlock 無法使用，不顯示提示訊息。</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">如果 SponsorBlock 無法使用，顯示提示訊息。</string>
     <string name="revanced_sb_toast_on_connection_error_title">如果 API 無法使用，則顯示提示訊息</string>
@@ -2165,13 +2162,8 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_vote_upvote">按讚</string>
     <string name="revanced_search_clear_confirm_message">確定要清除所有搜尋記錄嗎？</string>
     <string name="revanced_search_clear_confirm_title">清除搜尋記錄</string>
-    <string name="revanced_search_clear_history_title">清除記錄</string>
     <string name="revanced_search_delete_confirm_message">確定要從搜尋記錄中刪除 \"%1$s\" 嗎？</string>
     <string name="revanced_search_delete_confirm_title">刪除搜尋項目</string>
-    <string name="revanced_search_delete_entry">刪除搜尋項目</string>
-    <string name="revanced_search_history_title">最近搜尋</string>
-    <string name="revanced_search_no_history_summary">你的搜尋記錄將顯示在這裡。要將搜尋查詢儲存到搜尋記錄，請按 Enter/Return。</string>
-    <string name="revanced_search_no_history_title">沒有最近搜尋</string>
     <string name="revanced_search_settings_category_title">搜尋設定</string>
     <string name="revanced_search_settings_no_results_summary">請嘗試其他搜尋詞。</string>
     <string name="revanced_search_settings_no_results_title">找不到 \"%1$s\" 的結果</string>
@@ -2196,12 +2188,31 @@ AI 生成的回應可能包含不準確的資訊。
 • Cookies 已過期。
 • 使用了無效的 Cookies。
 • YouTube Transcript API 不再驗證 Cookies。"</string>
-    <string name="revanced_settings_search_highlight_color_summary">設定搜尋結果中符合文字的高亮顏色。</string>
-    <string name="revanced_settings_search_highlight_color_title">搜尋高亮顏色</string>
-    <string name="revanced_settings_search_highlight_summary">以所選顏色高亮顯示搜尋結果中的符合文字。</string>
-    <string name="revanced_settings_search_highlight_title">啟用搜尋高亮</string>
+    <string name="revanced_settings_color_invalid">無效的顏色</string>
+    <string name="revanced_settings_import">匯入</string>
+    <string name="revanced_settings_import_copy">複製</string>
+    <string name="revanced_settings_import_reset">將 ReVanced 設定重設為預設值</string>
+    <string name="revanced_settings_import_success">已匯入 %d 個設定</string>
+    <string name="revanced_settings_reset">重設</string>
+    <string name="revanced_settings_reset_color">重設顏色</string>
+    <string name="revanced_settings_search_clear_history">清除搜尋記錄</string>
+    <string name="revanced_settings_search_clear_history_message">您確定要清除所有搜尋記錄嗎？</string>
+    <string name="revanced_settings_search_empty_history_summary">若要儲存搜尋記錄，請輸入搜尋查詢並按下 Enter 鍵</string>
+    <string name="revanced_settings_search_empty_history_title">搜尋記錄是空的</string>
     <string name="revanced_settings_search_history_summary">儲存最近的搜尋查詢，當搜尋列為空時顯示。</string>
+    <string name="revanced_settings_search_history_summary_off">不顯示設定搜尋記錄</string>
+    <string name="revanced_settings_search_history_summary_on">顯示設定搜尋記錄</string>
     <string name="revanced_settings_search_history_title">顯示設定搜尋記錄</string>
+    <string name="revanced_settings_search_no_results_summary">嘗試其他關鍵字</string>
+    <string name="revanced_settings_search_no_results_title">沒有找到「%s」的結果</string>
+    <string name="revanced_settings_search_recent_searches">最近搜尋</string>
+    <string name="revanced_settings_search_remove_message">要從搜尋記錄中移除嗎？</string>
+    <string name="revanced_settings_search_tips_summary">"• 輕觸路徑即可前往
+• 長按設定即可前往
+• 按下 Enter 鍵即可將搜尋查詢儲存至記錄
+• 搜尋會忽略大小寫和標點符號
+• 父設定會顯示在停用的子設定上方"</string>
+    <string name="revanced_settings_search_tips_title">搜尋秘訣</string>
     <string name="revanced_share_copy_settings_success">設定已複製到剪貼簿。</string>
     <string name="revanced_share_copy_timestamp_success">時間戳記已複製到剪貼簿。(%s)</string>
     <string name="revanced_share_copy_url_success">URL 已複製到剪貼簿。</string>
@@ -2450,12 +2461,12 @@ uBlock Origin 已找到解決此問題的方案，可透過 '繞過虛假緩衝'
 
 點擊 '開啟' 閱讀文章。"</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">開啟</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">YouTube 的新反廣告攔截措施</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"YouTube 的新反廣告攔截措施"</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">繞過虛假緩衝功能已停用。</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">已啟用繞過虛假緩衝。
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"繞過虛假緩衝已啟用。
 
 限制：
-• 由於伺服器端變更，此功能可能隨時停止運作。</string>
+• 由於伺服器端變更，此功能可能隨時停止運作。"</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">繞過虛假緩衝</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">JavaScript 用戶端未新增至可用用戶端。</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">JavaScript 用戶端已新增至可用用戶端。</string>
@@ -2574,7 +2585,6 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_theme_default">預設</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX 音樂</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">警告</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s 未安裝。 請安裝它。</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">已安裝的 RVX 音樂 套件名稱。</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX 音樂包名稱</string>
     <string name="revanced_transcript_cookies_about_summary">點擊查看如何取得 Cookies。</string>

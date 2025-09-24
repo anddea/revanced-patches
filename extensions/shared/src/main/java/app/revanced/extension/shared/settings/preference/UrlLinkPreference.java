@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.settings.preference;
+package app.revanced.extension.shared.settings.preference;
 
 import android.content.Context;
 import android.content.Intent;
@@ -32,15 +32,12 @@ public class UrlLinkPreference extends Preference {
     public UrlLinkPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
-
     public UrlLinkPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-
     public UrlLinkPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
-
     public UrlLinkPreference(Context context) {
         super(context);
     }

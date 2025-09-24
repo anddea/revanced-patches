@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import java.util.UUID;
 
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
@@ -51,11 +52,15 @@ public class SponsorBlockSettings {
             JSONArray categorySelectionsArray = settingsJson.getJSONArray("categorySelections");
 
             for (SegmentCategory category : SegmentCategory.categoriesWithoutUnsubmitted()) {
-                // clear existing behavior, as browser plugin exports no behavior for ignored categories
+                // Clear existing behavior, as browser plugin exports no behavior for ignored categories.
                 category.setBehaviour(CategoryBehaviour.IGNORE);
                 if (barTypesObject.has(category.keyValue)) {
                     JSONObject categoryObject = barTypesObject.getJSONObject(category.keyValue);
-                    category.setColor(categoryObject.getString("color"));
+                    // Older ReVanced SB exports lack an opacity value.
+                    if (categoryObject.has("color") && categoryObject.has("opacity")) {
+                        category.setColorWithOpacity(categoryObject.getString("color"));
+                        category.setOpacity((float) categoryObject.getDouble("opacity"));
+                    }
                 }
             }
 
@@ -65,7 +70,7 @@ public class SponsorBlockSettings {
                 String categoryKey = categorySelectionObject.getString("name");
                 SegmentCategory category = SegmentCategory.byCategoryKey(categoryKey);
                 if (category == null) {
-                    continue; // unsupported category, ignore
+                    continue; // Unsupported category, ignore.
                 }
 
                 final int desktopValue = categorySelectionObject.getInt("option");
@@ -74,7 +79,7 @@ public class SponsorBlockSettings {
                     Utils.showToastLong(categoryKey + " unknown behavior key: " + categoryKey);
                 } else if (category == SegmentCategory.HIGHLIGHT && behaviour == CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE) {
                     Utils.showToastLong("Skip-once behavior not allowed for " + category.keyValue);
-                    category.setBehaviour(CategoryBehaviour.SKIP_AUTOMATICALLY); // use closest match
+                    category.setBehaviour(CategoryBehaviour.SKIP_AUTOMATICALLY); // Use closest match.
                 } else {
                     category.setBehaviour(behaviour);
                 }
@@ -94,7 +99,7 @@ public class SponsorBlockSettings {
             Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.save(settingsJson.getBoolean("showTimeWithSkips"));
 
             String serverAddress = settingsJson.getString("serverAddress");
-            if (isValidSBServerAddress(serverAddress)) { // Old versions of ReVanced exported wrong url format
+            if (isValidSBServerAddress(serverAddress)) { // Old versions of ReVanced exported wrong url format.
                 Settings.SB_API_URL.save(serverAddress);
             }
 
@@ -104,7 +109,7 @@ public class SponsorBlockSettings {
             }
             Settings.SB_SEGMENT_MIN_DURATION.save(minDuration);
 
-            if (settingsJson.has("skipCount")) { // Value not exported in old versions of ReVanced
+            if (settingsJson.has("skipCount")) { // Value not exported in old versions of ReVanced.
                 int skipCount = settingsJson.getInt("skipCount");
                 if (skipCount < 0) {
                     throw new IllegalArgumentException("invalid skipCount: " + skipCount);
@@ -120,10 +125,10 @@ public class SponsorBlockSettings {
                 Settings.SB_LOCAL_TIME_SAVED_MILLISECONDS.save((long) (minutesSaved * 60 * 1000));
             }
 
-            Utils.showToastLong(str("revanced_sb_settings_import_successful"));
+            Utils.showToastShort(str("revanced_sb_settings_import_successful"));
         } catch (Exception ex) {
-            Logger.printInfo(() -> "failed to import settings", ex); // use info level, as we are showing our own toast
-            Utils.showToastLong(str("revanced_sb_settings_import_failed", ex.getMessage()));
+            Logger.printInfo(() -> "failed to import settings", ex); // Use info level, as we are showing our own toast.
+            Utils.showToastShort(str("revanced_sb_settings_import_failed", ex.getMessage()));
         }
     }
 
@@ -134,14 +139,16 @@ public class SponsorBlockSettings {
             Logger.printDebug(() -> "Creating SponsorBlock export settings string");
             JSONObject json = new JSONObject();
 
-            JSONObject barTypesObject = new JSONObject(); // categories' colors
-            JSONArray categorySelectionsArray = new JSONArray(); // categories' behavior
+            JSONObject barTypesObject = new JSONObject(); // Categories' colors.
+            JSONArray categorySelectionsArray = new JSONArray(); // Categories' behavior.
 
             SegmentCategory[] categories = SegmentCategory.categoriesWithoutUnsubmitted();
             for (SegmentCategory category : categories) {
                 JSONObject categoryObject = new JSONObject();
                 String categoryKey = category.keyValue;
-                categoryObject.put("color", category.getColorString());
+                // SB settings use separate color and opacity.
+                categoryObject.put("color", category.getColorStringWithoutOpacity());
+                categoryObject.put("opacity", category.getOpacity());
                 barTypesObject.put(categoryKey, categoryObject);
 
                 if (category.behaviour != CategoryBehaviour.IGNORE) {
@@ -168,8 +175,8 @@ public class SponsorBlockSettings {
 
             return json.toString(2);
         } catch (Exception ex) {
-            Logger.printInfo(() -> "failed to export settings", ex); // use info level, as we are showing our own toast
-            Utils.showToastLong(str("revanced_sb_settings_export_failed", ex));
+            Logger.printInfo(() -> "failed to export settings", ex); // Use info level, as we are showing our own toast.
+            Utils.showToastShort(str("revanced_sb_settings_export_failed", ex));
             return "";
         }
     }
@@ -185,7 +192,7 @@ public class SponsorBlockSettings {
         if (dialogContext != null && SponsorBlockSettings.userHasSBPrivateId()
                 && !Settings.SB_HIDE_EXPORT_WARNING.get()) {
             // Create the custom dialog.
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     dialogContext,
                     null, // No title.
                     str("revanced_sb_settings_revanced_export_user_id_warning"), // Message.
