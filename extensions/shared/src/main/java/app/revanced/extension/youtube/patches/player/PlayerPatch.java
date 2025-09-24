@@ -553,12 +553,36 @@ public class PlayerPatch {
         VideoUtils.openVideo(newlyLoadedVideoId);
     }
 
+    public static boolean disableDoubleTapChapters(boolean original) {
+        return !Settings.DISABLE_CHAPTER_SKIP_DOUBLE_TAP.get() && original;
+    }
+
     public static boolean disableSpeedOverlay() {
         return disableSpeedOverlay(true);
     }
 
     public static boolean disableSpeedOverlay(boolean original) {
         return !Settings.DISABLE_SPEED_OVERLAY.get() && original;
+    }
+
+    public static CharSequence onCharSequenceLoaded(@NonNull Object conversionContext,
+                                                    @NonNull CharSequence charSequence) {
+        try {
+            if (Settings.DISABLE_SPEED_OVERLAY.get() || SPEED_OVERLAY_VALUE == 2.0f) {
+                return charSequence;
+            }
+            final String conversionContextString = conversionContext.toString();
+            if (!conversionContextString.contains("identifierProperty=seek_edu_overlay_v2.eml")) {
+                return charSequence;
+            }
+            if (!conversionContextString.contains("elementId=0,0,0,0,")) {
+                return charSequence;
+            }
+            return VideoUtils.formatSpeedStringX(SPEED_OVERLAY_VALUE, 2) + ' ';
+        } catch (Exception ex) {
+            Logger.printException(() -> "onCharSequenceLoaded failed", ex);
+        }
+        return charSequence;
     }
 
     public static double speedOverlayValue() {

@@ -99,7 +99,7 @@ public class SponsorBlockUtils {
                 SegmentCategory[] categories = SegmentCategory.categoriesWithoutHighlights();
                 CharSequence[] titles = new CharSequence[categories.length];
                 for (int i = 0, length = categories.length; i < length; i++) {
-                    titles[i] = categories[i].getTitleWithColorDot();
+                    titles[i] = categories[i].getTitle().toString();
                 }
 
                 newUserCreatedSegmentCategory = null;
@@ -302,7 +302,7 @@ public class SponsorBlockUtils {
 
                 SpannableStringBuilder spannableBuilder = new SpannableStringBuilder();
 
-                spannableBuilder.append(segment.category.getTitleWithColorDot());
+                spannableBuilder.append(segment.category.getTitle().toString());
                 spannableBuilder.append('\n');
 
                 String startTime = formatSegmentTime(segment.start);
@@ -338,7 +338,7 @@ public class SponsorBlockUtils {
             final SegmentCategory[] values = SegmentCategory.categoriesWithoutHighlights();
             CharSequence[] titles = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
-                titles[i] = values[i].getTitleWithColorDot();
+                titles[i] = values[i].getTitle().toString();
             }
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context)

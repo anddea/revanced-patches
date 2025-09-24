@@ -90,6 +90,8 @@ object YouTubeClient {
     private val USER_AGENT_IOS_UNPLUGGED =
         "$PACKAGE_NAME_IOS_UNPLUGGED/$CLIENT_VERSION_IOS_UNPLUGGED ($DEVICE_MODEL_IOS_UNPLUGGED; U; CPU iOS $USER_AGENT_VERSION_IOS_UNPLUGGED like Mac OS X; ${Locale.getDefault()})"
 
+    private const val DEVICE_MAKE_APPLE = "Apple"
+
 
     // ANDROID
     /**
@@ -166,11 +168,24 @@ object YouTubeClient {
      * Note: Audio track is not available.
      */
     private const val PACKAGE_NAME_ANDROID_CREATOR = "com.google.android.apps.youtube.creator"
-    private const val CLIENT_VERSION_ANDROID_CREATOR = "23.47.101" // Last version of minSdkVersion 26.
+    private const val CLIENT_VERSION_ANDROID_CREATOR = "24.01.000"
+
+    /**
+     * The device machine id for the Google Pixel 7a.
+     * See [this GitLab](https://dumps.tadiphone.dev/dumps/google/lynx) for more information.
+     */
+    private const val DEVICE_MODEL_ANDROID_CREATOR = "Pixel 7a"
+    private const val DEVICE_MAKE_ANDROID_CREATOR = "Google"
+    private const val OS_VERSION_ANDROID_CREATOR = "13"
+    private const val ANDROID_SDK_VERSION_ANDROID_CREATOR = "33"
+    private const val BUILD_ID_ANDROID_CREATOR = "TQ3A.230901.001.C3" // Pixel 7a Verizon
 
     private val USER_AGENT_ANDROID_CREATOR = androidUserAgent(
         packageName = PACKAGE_NAME_ANDROID_CREATOR,
         clientVersion = CLIENT_VERSION_ANDROID_CREATOR,
+        osVersion = OS_VERSION_ANDROID_CREATOR,
+        deviceModel = DEVICE_MODEL_ANDROID_CREATOR,
+        buildId = BUILD_ID_ANDROID_CREATOR,
     )
 
 
@@ -195,9 +210,7 @@ object YouTubeClient {
      * YouTube 19.22.3 is the minimum version that supports the OPUS codec.
      */
     private const val CLIENT_VERSION_IPADOS = "19.22.3"
-
-    private const val DEVICE_MAKE_APPLE = "Apple"
-    private const val OS_NAME_IPADOS = "iPadOS"
+    private const val DEVICE_MAKE_IPADOS = DEVICE_MAKE_APPLE
 
     /**
      * The device machine id for the iPad 6th Gen (iPad7,6).
@@ -212,7 +225,7 @@ object YouTubeClient {
      * the lowest spec device capable of running iPadOS 17, was used.
      */
     private const val DEVICE_MODEL_IPADOS = "iPad7,6"
-
+    private const val OS_NAME_IPADOS = "iPadOS"
     /**
      * iPadOS 17 is the minimum version that supports the OPUS codec.
      */
@@ -222,13 +235,22 @@ object YouTubeClient {
         "$PACKAGE_NAME_IPADOS/$CLIENT_VERSION_IPADOS ($DEVICE_MODEL_IPADOS; U; CPU iPadOS $USER_AGENT_VERSION_IPADOS like Mac OS X; ${Locale.getDefault()})"
 
 
+    // VISION OS
+    private const val CLIENT_VERSION_VISIONOS = "0.1"
+    private const val DEVICE_MAKE_VISIONOS = DEVICE_MAKE_APPLE
+    private const val DEVICE_MODEL_VISIONOS = "RealityDevice14,1"
+    private const val OS_NAME_VISIONOS = "visionOS"
+    private const val OS_VERSION_VISIONS = "1.3.21O771"
+    private const val USER_AGENT_VISIONOS =
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15"
+
+
     // TVHTML5
     /**
      * Video not playable: None.
      * Note: Both 'Authorization' and 'Set-Cookie' are supported.
-     * TODO: Find out why playback sometimes fails.
      */
-    private const val CLIENT_VERSION_TVHTML5 = "7.20250914.19.00"
+    private const val CLIENT_VERSION_TVHTML5 = "7.20250917.13.00"
     private const val USER_AGENT_TVHTML5 =
         "Mozilla/5.0(SMART-TV; Linux; Tizen 4.0.0.2) AppleWebkit/605.1.15 (KHTML, like Gecko) SamsungBrowser/9.2 TV Safari/605.1.15"
 
@@ -237,7 +259,6 @@ object YouTubeClient {
     /**
      * Video not playable: None.
      * Note: Only 'Authorization' is supported.
-     * TODO: Find out why playback sometimes fails.
      */
     private const val CLIENT_VERSION_TVHTML5_SIMPLY = "1.0"
     private const val USER_AGENT_TVHTML5_SIMPLY =
@@ -248,7 +269,6 @@ object YouTubeClient {
     /**
      * Only embeddable videos available.
      * Note: Both 'Authorization' and 'Set-Cookie' are supported.
-     * TODO: Find out why playback sometimes fails.
      */
     private const val CLIENT_VERSION_TVHTML5_EMBEDDED = "2.0"
 
@@ -258,16 +278,15 @@ object YouTubeClient {
      * Video not playable: Paid / Movie / Private / Age-restricted.
      * Note: Audio track is not available.
      * Note: Only 'Set-Cookie' is supported.
-     * TODO: Find out why playback sometimes fails.
      */
-    private const val CLIENT_VERSION_MWEB = "2.20250915.01.00"
+    private const val CLIENT_VERSION_MWEB = "2.20250918.09.00"
     private const val USER_AGENT_MWEB =
         "Mozilla/5.0 (Android 16; Mobile; rv:140.0) Gecko/140.0 Firefox/140.0"
 
 
     /**
      * Same format as Android YouTube User-Agent.
-     * Example: 'com.google.android.youtube/19.46.40(Linux; U; Android 13; in_ID; 21061110AG Build/TP1A.220624.014) gzip'
+     * Example: 'com.google.android.youtube/20.32.35(Linux; U; Android 15; en_US; SM-S928U1 Build/AP3A.240905.015.A2) gzip'
      * Source: https://whatmyuseragent.com/apps/youtube.
      */
     private fun androidUserAgent(
@@ -420,8 +439,11 @@ object YouTubeClient {
         ),
         ANDROID_CREATOR(
             id = 14,
+            deviceMake = DEVICE_MAKE_ANDROID_CREATOR,
+            deviceModel = DEVICE_MODEL_ANDROID_CREATOR,
+            osVersion = OS_VERSION_ANDROID_CREATOR,
             userAgent = USER_AGENT_ANDROID_CREATOR,
-            androidSdkVersion = Build.VERSION.SDK,
+            androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_CREATOR,
             clientVersion = CLIENT_VERSION_ANDROID_CREATOR,
             requireAuth = true,
             clientName = "ANDROID_CREATOR",
@@ -462,7 +484,7 @@ object YouTubeClient {
         // PoToken required?
         IPADOS(
             id = 5,
-            deviceMake = DEVICE_MAKE_APPLE,
+            deviceMake = DEVICE_MAKE_IPADOS,
             deviceModel = DEVICE_MODEL_IPADOS,
             osName = OS_NAME_IPADOS,
             osVersion = OS_VERSION_IPADOS,
@@ -476,12 +498,12 @@ object YouTubeClient {
         // Unreleased.
         VISIONOS(
             id = 101,
-            deviceMake = DEVICE_MAKE_APPLE,
-            deviceModel = "RealityDevice14,1",
-            osName = "visionOS",
-            osVersion = "1.3.21O771",
-            userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15",
-            clientVersion = "0.1",
+            deviceMake = DEVICE_MAKE_VISIONOS,
+            deviceModel = DEVICE_MODEL_VISIONOS,
+            osName = OS_NAME_VISIONOS,
+            osVersion = OS_VERSION_VISIONS,
+            userAgent = USER_AGENT_VISIONOS,
+            clientVersion = CLIENT_VERSION_VISIONOS,
             clientPlatform = CLIENT_PLATFORM_DESKTOP,
             supportsCookies = false,
             clientName = "VISIONOS",
@@ -560,7 +582,6 @@ object YouTubeClient {
                 TV,
                 TV_SIMPLY,
                 MWEB,
-                VISIONOS,
                 IOS_DEPRECATED,
             )
             val CLIENT_ORDER_TO_USE_JS_PREFER_TV: Array<ClientType> = arrayOf(
@@ -571,7 +592,6 @@ object YouTubeClient {
                 IPADOS,
                 TV,
                 MWEB,
-                VISIONOS,
                 IOS_DEPRECATED,
             )
         }

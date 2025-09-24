@@ -16,7 +16,7 @@ internal object ResourceUtils {
         this.context = context
     }
 
-    private const val RVX_SETTINGS_KEY = "revanced_extended_settings"
+    private const val RVX_SETTINGS_KEY = "revanced_settings"
 
     const val SETTINGS_HEADER_PATH = "res/xml/settings_headers.xml"
 
@@ -209,9 +209,7 @@ internal object ResourceUtils {
                 .forEach {
                     it.adoptChild("Preference") {
                         setAttribute("android:title", "@string/$key" + "_title")
-                        if (isSettingsSummariesEnabled == true) {
                             setAttribute("android:summary", "@string/$key" + "_summary")
-                        }
                         setAttribute("android:key", key)
                         if (dependencyKey.isNotEmpty()) {
                             setAttribute("android:dependency", dependencyKey)
@@ -229,23 +227,6 @@ internal object ResourceUtils {
         }
     }
 
-    fun replaceSwitchPreference(
-        key: String,
-        defaultValue: String,
-    ) {
-        context.document(SETTINGS_HEADER_PATH).use { document ->
-            document.doRecursively node@{
-                if (it !is Element) return@node
-
-                it.getAttributeNode("android:key")?.let { attribute ->
-                    if (attribute.textContent == key) {
-                        it.setAttribute("android:defaultValue", defaultValue)
-                    }
-                }
-            }
-        }
-    }
-
     fun addRVXSettingsPreference(insertKey: String) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             document.doRecursively node@{
@@ -259,9 +240,9 @@ internal object ResourceUtils {
                         it.insertNode(PREFERENCE_SCREEN_TAG_NAME, it) {
                             setAttribute(
                                 "android:title",
-                                "@string/revanced_extended_settings_title"
+                                "@string/revanced_settings_title"
                             )
-                            setAttribute("android:key", "revanced_extended_settings")
+                            setAttribute("android:key", "revanced_settings")
                             setAttribute("app:allowDividerAbove", "false")
                         }
                         it.getAttributeNode("app:allowDividerBelow").textContent = "true"

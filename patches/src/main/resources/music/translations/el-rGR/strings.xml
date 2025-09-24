@@ -153,22 +153,13 @@
     <string name="revanced_enable_zen_mode_podcast_title">Λειτουργία zen σε ηχητικές εκπομπές</string>
     <string name="revanced_enable_zen_mode_summary">Ενεργοποίηση μιας γκρι απόχρωσης στο παρασκήνιο της οθόνης αναπαραγωγής για να μειωθεί η καταπόνηση των ματιών.</string>
     <string name="revanced_enable_zen_mode_title">Ενεργοποίηση λειτουργίας zen</string>
-    <string name="revanced_extended_reset_to_default_toast">Επαναφέρθηκε στην προεπιλεγμένη τιμή.</string>
     <string name="revanced_extended_restart_first_run">Επανεκκίνηση ώστε να φορτωθεί σωστά η διάταξη</string>
-    <string name="revanced_extended_restart_message">Ανανέωση και επανεκκίνηση</string>
-    <string name="revanced_extended_settings_export_as_file">Εξαγωγή ρυθμίσεων σε αρχείο</string>
     <string name="revanced_extended_settings_export_failed">Αποτυχία εξαγωγής ρυθμίσεων.</string>
     <string name="revanced_extended_settings_export_success">Οι ρυθμίσεις εξήχθησαν με επιτυχία.</string>
     <string name="revanced_extended_settings_import">Εισαγωγή</string>
-    <string name="revanced_extended_settings_import_as_file">Εισαγωγή ρυθμίσεων από αρχείο</string>
-    <string name="revanced_extended_settings_import_copy">Αντιγραφή</string>
-    <string name="revanced_extended_settings_import_export_as_text">Εισαγωγή / Εξαγωγή ρυθμίσεων ως κείμενο</string>
     <string name="revanced_extended_settings_import_export_summary">Εισαγωγή ή εξαγωγή των ρυθμίσεών RVX σας.</string>
     <string name="revanced_extended_settings_import_export_title">Εισαγωγή / Εξαγωγή</string>
-    <string name="revanced_extended_settings_import_failed">Η εισαγωγή απέτυχε: %s.</string>
     <string name="revanced_extended_settings_import_reset">Οι ρυθμίσεις επαναφέρθηκαν στις προεπιλογές.</string>
-    <string name="revanced_extended_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων.</string>
-    <string name="revanced_extended_settings_reset">Επαναφορά</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Το κουμπί «Λήψη» ανοίγει την εξωτερική εφαρμογή λήψης σας.
 
@@ -384,6 +375,9 @@
     <string name="revanced_replace_navigation_samples_button_title">Αντικατάσταση κουμπιού «Δείγματα»</string>
     <string name="revanced_replace_navigation_upgrade_button_summary">Αντικατάσταση του κουμπιού «Αναβάθμιση» με το κουμπί «Ρυθμίσεις».</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Αντικατάσταση κουμπιού «Αναβάθμιση»</string>
+    <string name="revanced_reset_to_default_toast">Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
+    <string name="revanced_restart_first_run">Επανεκκίνηση ώστε να φορτωθεί σωστά η διάταξη</string>
+    <string name="revanced_restart_message">Ανανέωση και επανεκκίνηση</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Επιστροφή του πίνακα αναδυόμενων σχολίων στο παλιό του στυλ.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Αναδυόμενα σχόλια παλιού στυλ</string>
     <string name="revanced_restore_old_player_background_summary">Επιστροφή του φόντου της οθόνης αναπαραγωγής στο παλιό στυλ.</string>
@@ -487,6 +481,20 @@
     <string name="revanced_sb_toast_on_connection_error_sum">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το SponsorBlock API δεν είναι διαθέσιμο.</string>
     <string name="revanced_sb_toast_on_skip">Εμφάνιση μηνύματος κατά την αυτόματη παράλειψη</string>
     <string name="revanced_sb_toast_on_skip_sum">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης όταν ένα τμήμα παραλείπεται αυτόματα.</string>
+    <string name="revanced_settings_export_as_file">Εξαγωγή ρυθμίσεων σε αρχείο</string>
+    <string name="revanced_settings_export_failed">Αποτυχία εξαγωγής ρυθμίσεων.</string>
+    <string name="revanced_settings_export_success">Η εξαγωγή ρυθμίσεων ολοκληρώθηκε επιτυχώς.</string>
+    <string name="revanced_settings_import">Εισαγωγή</string>
+    <string name="revanced_settings_import_as_file">Εισαγωγή ρυθμίσεων από αρχείο</string>
+    <string name="revanced_settings_import_copy">Αντιγραφή</string>
+    <string name="revanced_settings_import_export_as_text">Εισαγωγή / Εξαγωγή ρυθμίσεων ως κείμενο</string>
+    <string name="revanced_settings_import_export_summary">Εισαγωγή ή εξαγωγή των ρυθμίσεων RVX Music.</string>
+    <string name="revanced_settings_import_export_title">Εισαγωγή / Εξαγωγή ρυθμίσεων</string>
+    <string name="revanced_settings_import_failed">Η εισαγωγή απέτυχε: %s.</string>
+    <string name="revanced_settings_import_reset">Οι ρυθμίσεις επαναφέρθηκαν στις προεπιλογές.</string>
+    <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων.</string>
+    <string name="revanced_settings_reset">Επαναφορά</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Οι ρυθμίσεις αντιγράφηκαν στο πρόχειρο.</string>
     <string name="revanced_spoof_app_version_summary">"Παραποίηση έκδοσης εφαρμογής σε παλιότερη έκδοση.
 

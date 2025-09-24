@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
+
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.utils.ExtendedUtils;
@@ -18,7 +20,7 @@ public final class YouTubeMusicActionsPatch extends VideoUtils {
             Settings.OVERRIDE_YOUTUBE_MUSIC_BUTTON.get();
 
     private static final boolean overrideYouTubeMusicEnabled =
-            isOverrideYouTubeMusicEnabled && isYouTubeMusicEnabled();
+            isOverrideYouTubeMusicEnabled && ExtendedUtils.isPackageEnabled(PACKAGE_NAME_YOUTUBE_MUSIC);
 
     public static String overridePackageName(@NonNull String packageName) {
         if (!overrideYouTubeMusicEnabled) {
@@ -34,21 +36,15 @@ public final class YouTubeMusicActionsPatch extends VideoUtils {
         return thirdPartyPackageName;
     }
 
-    private static boolean isYouTubeMusicEnabled() {
-        return ExtendedUtils.isPackageEnabled(PACKAGE_NAME_YOUTUBE_MUSIC);
-    }
-
-    public static final class HookYouTubeMusicAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return isYouTubeMusicEnabled();
-        }
-    }
-
     public static final class HookYouTubeMusicPackageNameAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            return isOverrideYouTubeMusicEnabled && isYouTubeMusicEnabled();
+            return Settings.OVERRIDE_YOUTUBE_MUSIC_BUTTON.get();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.OVERRIDE_YOUTUBE_MUSIC_BUTTON);
         }
     }
 

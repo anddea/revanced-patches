@@ -1,13 +1,11 @@
 package app.revanced.patches.youtube.utils.playlist
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.mainactivity.getMainActivityMethod
-import app.revanced.patches.youtube.utils.YOUTUBE_PIVOT_BAR_CLASS_TYPE
 import app.revanced.patches.youtube.utils.auth.authHookPatch
 import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
@@ -50,20 +48,6 @@ val playlistPatch = bytecodePatch(
                     nop
                     """
             )
-
-        setPivotBarVisibilityFingerprint
-            .matchOrThrow(setPivotBarVisibilityParentFingerprint)
-            .let {
-                it.method.apply {
-                    val viewIndex = it.patternMatch!!.startIndex
-                    val viewRegister = getInstruction<OneRegisterInstruction>(viewIndex).registerA
-                    addInstruction(
-                        viewIndex + 1,
-                        "invoke-static {v$viewRegister}," +
-                                " $EXTENSION_CLASS_DESCRIPTOR->setPivotBar($YOUTUBE_PIVOT_BAR_CLASS_TYPE)V",
-                    )
-                }
-            }
 
         // Users deleted videos via YouTube's flyout menu.
         val setVideoIdReference = with(playlistEndpointFingerprint.methodOrThrow()) {

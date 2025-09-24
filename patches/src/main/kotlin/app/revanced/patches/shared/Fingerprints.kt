@@ -16,15 +16,6 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 internal const val CLIENT_INFO_CLASS_DESCRIPTOR =
     "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
 
-internal val clientEnumFingerprint = legacyFingerprint(
-    name = "clientEnumFingerprint",
-    returnType = "V",
-    strings = listOf("ANDROID_MUSIC"),
-    customFingerprint = { method, _ ->
-        !method.containsStringInstruction("android_music")
-    }
-)
-
 internal val clientTypeFingerprint = legacyFingerprint(
     name = "clientTypeFingerprint",
     opcodes = listOf(
@@ -209,11 +200,17 @@ internal val playbackStartParametersConstructorFingerprint = legacyFingerprint(
     opcodes = listOf(Opcode.IPUT_OBJECT)
 )
 
+internal const val FIXED_RESOLUTION_STRING = ", initialPlaybackVideoQualityFixedResolution="
+internal const val WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING = ", watchNextResponseProcessingDelay="
+
 internal val playbackStartParametersToStringFingerprint = legacyFingerprint(
     name = "playbackStartParametersToStringFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Ljava/lang/String;",
-    strings = listOf(", initialPlaybackVideoQualityFixedResolution="),
+    strings = listOf(
+        FIXED_RESOLUTION_STRING,
+        WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING
+    ),
     customFingerprint = { method, classDef ->
         method.name == "toString"
     }

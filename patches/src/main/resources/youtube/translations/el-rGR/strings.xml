@@ -159,6 +159,7 @@
     <string name="revanced_change_youtube_header_summary_off">Η επικεφαλίδα Premium είναι απενεργοποιημένη.</string>
     <string name="revanced_change_youtube_header_summary_on">Η επικεφαλίδα Premium είναι ενεργοποιημένη.</string>
     <string name="revanced_change_youtube_header_title">Επικεφαλίδα Premium</string>
+    <string name="revanced_confirm_user_dialog_title">Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</string>
     <string name="revanced_custom_filter_strings_summary">Λίστα από συμβολοσειρές στοιχείων που θα φιλτραριστούν, διαχωρισμένες με νέες γραμμές.</string>
     <string name="revanced_custom_filter_strings_title">Επεξεργασία προσαρμοσμένου φίλτρου</string>
     <string name="revanced_custom_filter_summary_off">Το προσαρμοσμένο φίλτρο χρήστη είναι απενεργοποιημένο.</string>
@@ -181,6 +182,7 @@
     <string name="revanced_custom_player_overlay_opacity_title">Αδιαφάνεια φόντου οθόνης αναπαραγωγής</string>
     <string name="revanced_custom_seekbar_color_accent_summary">Εισάγετε τον κωδικό hex του χρώματος έμφασης της γραμμής προόδου.</string>
     <string name="revanced_custom_seekbar_color_accent_title">Προσαρμοσμένο χρώμα έμφασης γραμμής προόδου</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Μη έγκυρο χρώμα γραμμής προόδου.</string>
     <string name="revanced_custom_seekbar_color_primary_summary">Εισάγετε τον κωδικό hex του πρωτεύοντος χρώματος της γραμμής προόδου.</string>
     <string name="revanced_custom_seekbar_color_primary_title">Προσαρμοσμένο χρώμα γραμμής προόδου</string>
     <string name="revanced_debug_export_logs_to_clipboard_summary">Αντιγραφή των αρχείων καταγραφής εντοπισμού σφαλμάτων RVX στο πρόχειρο.</string>
@@ -245,6 +247,9 @@
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Η αυτόματη εναλλαγή λιστών αναπαραγωγής μίξης είναι απενεργοποιημένη.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">Απενεργοποίηση αυτόματης εναλλαγής λιστών αναπαραγωγής μίξης</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Η ενεργοποίηση αυτής της ρύθμισης θα απενεργοποιήσει την αυτόματη εναλλαγή σε YouTube Mix κατά την αναπαραγωγή μουσικής ενώ η αυτόματη αναπαραγωγή είναι ενεργοποιημένη.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">Το διπλό πάτημα μπορεί περιστασιακά να παραλείψει στο επόμενο / προηγούμενο κεφάλαιο.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">Το διπλό πάτημα δεν παραλείπει ποτέ στο επόμενο / προηγούμενο κεφάλαιο.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Απενεργοποίηση παράλειψης κεφαλαίου με διπλό πάτημα</string>
     <string name="revanced_disable_default_playback_speed_music_off">Η προεπιλεγμένη ταχύτητα εφαρμόζεται σε βίντεο μουσικής.</string>
     <string name="revanced_disable_default_playback_speed_music_on">Η προεπιλεγμένη ταχύτητα δεν εφαρμόζεται σε βίντεο μουσικής.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Απενεργοποίηση προεπιλεγμένης ταχύτητας σε βίντεο μουσικής</string>
@@ -463,42 +468,35 @@
 Για να χρησιμοποιήσετε αυτή τη λειτουργία, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» στις ρυθμίσεις «Παραποίηση δεδομένων ροής» σε iOS TV, TV ή TV Simply.
 
 Σημείωση: Το πρόγραμμα πελάτη iOS TV δεν είναι διαθέσιμο σε ορισμένες περιοχές, οπότε αυτή η ρύθμιση μπορεί να μη λειτουργεί."</string>
-    <string name="revanced_extended_confirm_user_dialog_title">Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</string>
-    <string name="revanced_extended_reset_to_default_toast">Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
     <string name="revanced_extended_restart">Επανεκκίνηση</string>
-    <string name="revanced_extended_restart_dialog_message">Επανεκκινήστε την εφαρμογή για να εφαρμοστεί αυτή η αλλαγή.</string>
     <string name="revanced_extended_restart_first_run">Επανεκκίνηση ώστε να φορτωθεί σωστά η διάταξη</string>
-    <string name="revanced_extended_restart_message">Ανανέωση και επανεκκίνηση</string>
     <string name="revanced_extended_restart_title">Απαιτείται επανεκκίνηση</string>
-    <string name="revanced_extended_settings_color_invalid">Μη έγκυρο χρώμα.</string>
-    <string name="revanced_extended_settings_color_picker">Επιλογή χρώματος</string>
     <string name="revanced_extended_settings_export_failed">Αποτυχία εξαγωγής ρυθμίσεων.</string>
     <string name="revanced_extended_settings_export_success">Οι ρυθμίσεις εξήχθησαν με επιτυχία.</string>
     <string name="revanced_extended_settings_export_summary">Εξαγωγή ρυθμίσεων σε αρχείο.</string>
     <string name="revanced_extended_settings_export_title">Εξαγωγή ρυθμίσεων</string>
     <string name="revanced_extended_settings_import">Εισαγωγή</string>
-    <string name="revanced_extended_settings_import_copy">Αντιγραφή</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">Εισαγωγή ή εξαγωγή των ρυθμίσεων ως κείμενο.</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">Εισαγωγή / Εξαγωγή ως κείμενο</string>
-    <string name="revanced_extended_settings_import_failed">Η εισαγωγή ρυθμίσεων απέτυχε.</string>
     <string name="revanced_extended_settings_import_reset">Οι ρυθμίσεις επαναφέρθηκαν στις προεπιλογές.</string>
-    <string name="revanced_extended_settings_import_success">Οι ρυθμίσεις εισήχθησαν με επιτυχία.</string>
     <string name="revanced_extended_settings_import_summary">Εισαγωγή ρυθμίσεων από αποθηκευμένο αρχείο.</string>
     <string name="revanced_extended_settings_import_title">Εισαγωγή ρυθμίσεων</string>
-    <string name="revanced_extended_settings_reset">Επαναφορά</string>
-    <string name="revanced_extended_settings_reset_color">Επαναφορά χρώματος</string>
-    <string name="revanced_extended_settings_search_title">Αναζήτηση %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Εξωτερική εφαρμογή λήψης</string>
+    <string name="revanced_external_downloader_empty_warning">Το όνομα πακέτου δεν μπορεί να είναι κενό</string>
+    <string name="revanced_external_downloader_not_found_title">Η εφαρμογή δεν έχει εγκατασταθεί.</string>
     <string name="revanced_external_downloader_not_installed">Δεν έχει εγκατασταθεί</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"Το %1$s δεν είναι εγκατεστημένο.
 Παρακαλούμε εγκαταστήστε το %2$s από την ιστοσελίδα."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Προειδοποίηση</string>
     <string name="revanced_external_downloader_not_installed_warning">%s δεν έχει εγκατασταθεί. Παρακαλούμε εγκαταστήστε το.</string>
-    <string name="revanced_external_downloader_package_name_playlist_summary">Όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης (π.χ YTLDnis).</string>
+    <string name="revanced_external_downloader_other_item">Άλλο</string>
+    <string name="revanced_external_downloader_other_item_hint">Εισάγετε το όνομα πακέτου</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Όνομα πακέτου εφαρμογής λήψης λίστας αναπαραγωγής</string>
-    <string name="revanced_external_downloader_package_name_video_summary">Όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης (π.χ NewPipe, YTLDnis).</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης.</string>
     <string name="revanced_external_downloader_package_name_video_title">Όνομα πακέτου εφαρμογής λήψης βίντεο</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"Δεν ήταν δυνατή η εύρεση εγκατεστημένης εφαρμογής με όνομα πακέτου: %s.
+
+Επιβεβαιώστε ότι το όνομα πακέτου είναι σωστό και ότι η εφαρμογή είναι εγκατεστημένη."</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Το εικονίδιο του κουμπί «Hype» δεν εμφανίζεται.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">Το εικονίδιο του κουμπί «Hype» εμφανίζεται.</string>
     <string name="revanced_fix_hype_button_icon_title">Διόρθωση εικονιδίου κουμπιού Hype</string>
@@ -788,6 +786,9 @@ Playlists
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">Τα βίντεο στην καρτέλα «Εγγραφές» δε φιλτράρονται από λέξεις-κλειδιά.</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">Τα βίντεο στην καρτέλα «Εγγραφές» φιλτράρονται με τη χρήση λέξεων-κλειδιών.</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Φιλτράρισμα καρτέλας «Εγγραφές»</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_off">Ο τελεστής \'AND\' (\'&amp;\') είναι απενεργοποιημένος.&lt;br&gt;&lt;br&gt;Όταν το &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; χρησιμοποιείται ως λέξη-κλειδί, τότε οι λέξεις-κλειδιά που περιέχουν το &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; θα φιλτράρονται.</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_on">Ο τελεστής \'AND\' (\'&amp;\') είναι ενεργοποιημένος.&lt;br&gt;&lt;br&gt;Όταν το &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; χρησιμοποιείται ως λέξη-κλειδί, τότε οι λέξεις-κλειδιά που περιέχουν και τα δύο &lt;strong&gt;Blue&lt;/strong&gt; και &lt;strong&gt;Red&lt;/strong&gt; θα φιλτράρονται.</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_title">Χρήση τελεστή \'AND\' (\'&amp;\')</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Η λέξη θα κρύβει όλα τα βίντεο: %s.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Αδυναμία χρήσης λέξης: %s.</string>
     <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Προσθέστε εισαγωγικά για χρήση της λέξης: %s.</string>
@@ -1025,8 +1026,16 @@ Playlists
     <string name="revanced_hide_search_term_thumbnail_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Μικρογραφίες όρων αναζήτησης</string>
-    <string name="revanced_hide_seek_message_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_seek_message_summary_on">Κρυμμένη.</string>
+    <string name="revanced_hide_seek_message_summary_off">"Εμφανίζεται.
+
+Πληροφορίες:
+• Αυτή η λειτουργία φαίνεται να έχει καταργηθεί στον διακομιστή.
+• Μπορείτε να χρησιμοποιήσετε τη ρύθμιση «Απενεργοποίηση ακριβής αναζήτησης» ή την «Οδηγία «Αφήστε για ακύρωση»» αντί αυτού."</string>
+    <string name="revanced_hide_seek_message_summary_on">"Κρυμμένη.
+
+Πληροφορίες:
+• Αυτή η λειτουργία φαίνεται να έχει καταργηθεί στον διακομιστή.
+• Μπορείτε να χρησιμοποιήσετε τη ρύθμιση «Απενεργοποίηση ακριβής αναζήτησης» ή την «Οδηγία «Αφήστε για ακύρωση»» αντί αυτού."</string>
     <string name="revanced_hide_seek_message_title">Οδηγία συρσίματος γραμμής προόδου</string>
     <string name="revanced_hide_seek_undo_message_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Κρυμμένη.</string>
@@ -1834,6 +1843,11 @@ Playlists
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Πατήστε για να ανοίξετε τις ρυθμίσεις RVX.
 Πατήστε παρατεταμένα για να ανοίξετε τις ρυθμίσεις του YouTube."</string>
     <string name="revanced_replace_toolbar_create_button_type_title">Συμπεριφορά κουμπιού ρυθμίσεων</string>
+    <string name="revanced_reset_to_default_toast">Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
+    <string name="revanced_restart">Επανεκκίνηση</string>
+    <string name="revanced_restart_dialog_message">Επανεκκινήστε την εφαρμογή για να εφαρμοστεί αυτή η αλλαγή.</string>
+    <string name="revanced_restart_first_run">Επανεκκίνηση ώστε να φορτωθεί σωστά η διάταξη</string>
+    <string name="revanced_restart_title">Απαιτείται επανεκκίνηση</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Οι μικρογραφίες προεπισκόπησης εμφανίζονται σε πλήρη οθόνη.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Οι μικρογραφίες προεπισκόπησης εμφανίζονται πάνω από τη γραμμή προόδου.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Παλιές μικρογραφίες γραμμής προόδου</string>
@@ -1906,7 +1920,6 @@ Playlists
     <string name="revanced_sb_color_changed">Το χρώμα άλλαξε.</string>
     <string name="revanced_sb_color_dot_label">Χρώμα:</string>
     <string name="revanced_sb_color_invalid">Μη έγκυρος κωδικός χρώματος.</string>
-    <string name="revanced_sb_color_opacity_label">Αδιαφάνεια:</string>
     <string name="revanced_sb_color_reset">Το χρώμα επαναφέρθηκε.</string>
     <string name="revanced_sb_create_segment_category">Δημιουργία νέων τμημάτων</string>
     <string name="revanced_sb_diff_segments">Αλλαγή συμπεριφοράς τμημάτων</string>
@@ -2080,6 +2093,9 @@ Playlists
     <string name="revanced_sb_submit_failed_timeout">Το SponsorBlock είναι προσωρινά εκτός λειτουργίας.</string>
     <string name="revanced_sb_submit_failed_unknown_error">Αδυναμία υποβολής τμήματος (κατάσταση: %1$d %2$s).</string>
     <string name="revanced_sb_submit_succeeded">Το τμήμα υποβλήθηκε επιτυχώς.</string>
+    <string name="revanced_sb_toast_on_connection_error">Εμφάνιση μηνύματος αν το API δεν είναι διαθέσιμο</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το SponsorBlock δεν είναι διαθέσιμο.</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το SponsorBlock δεν είναι διαθέσιμο.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το SponsorBlock δεν είναι διαθέσιμο.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το SponsorBlock δεν είναι διαθέσιμο.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Εμφάνιση μηνύματος αν το API δεν είναι διαθέσιμο</string>
@@ -2111,7 +2127,42 @@ Playlists
 • Τα Cookies έχουν λήξει.
 • Χρησιμοποιούνται μη έγκυρα Cookies.
 • Το YouTube Transcript API δεν αποδέχεται πλέον τα Cookies."</string>
+    <string name="revanced_settings_color_invalid">Μη έγκυρο χρώμα.</string>
+    <string name="revanced_settings_color_picker">Επιλογή χρώματος</string>
+    <string name="revanced_settings_export_failed">Αποτυχία εξαγωγής ρυθμίσεων.</string>
+    <string name="revanced_settings_export_success">Η εξαγωγή ρυθμίσεων ολοκληρώθηκε επιτυχώς.</string>
+    <string name="revanced_settings_export_summary">Εξαγωγή ρυθμίσεων σε αρχείο.</string>
+    <string name="revanced_settings_export_title">Εξαγωγή ρυθμίσεων</string>
+    <string name="revanced_settings_import">Εισαγωγή</string>
+    <string name="revanced_settings_import_copy">Αντιγραφή</string>
+    <string name="revanced_settings_import_export_as_text_summary">Εισαγωγή / Εξαγωγή των ρυθμίσεων ως κείμενο.</string>
+    <string name="revanced_settings_import_export_as_text_title">Εισαγωγή / Εξαγωγή ως κείμενο</string>
+    <string name="revanced_settings_import_failed">Αποτυχία εισαγωγής ρυθμίσεων.</string>
+    <string name="revanced_settings_import_reset">Οι ρυθμίσεις επαναφέρθηκαν στις προεπιλογές.</string>
+    <string name="revanced_settings_import_success">Η εισαγωγή ρυθμίσεων ολοκληρώθηκε επιτυχώς.</string>
+    <string name="revanced_settings_import_summary">Εισαγωγή ρυθμίσεων από αποθηκευμένο αρχείο.</string>
+    <string name="revanced_settings_import_title">Εισαγωγή ρυθμίσεων</string>
+    <string name="revanced_settings_reset">Επαναφορά</string>
+    <string name="revanced_settings_reset_color">Επαναφορά χρώματος</string>
+    <string name="revanced_settings_search_clear_history">Εκκαθάριση ιστορικού αναζήτησης</string>
+    <string name="revanced_settings_search_clear_history_message">Είστε σίγουροι ότι θέλετε να εκκαθαρίσετε όλο το ιστορικό αναζήτησης;</string>
+    <string name="revanced_settings_search_empty_history_summary">Για να αποθηκεύσετε το ιστορικό αναζήτησης, πληκτρολογήστε ένα ερώτημα αναζήτησης και πατήστε Enter.</string>
+    <string name="revanced_settings_search_empty_history_title">Το ιστορικό αναζήτησης είναι κενό</string>
+    <string name="revanced_settings_search_history_summary_off">Το ιστορικό αναζήτησης ρυθμίσεων δεν εμφανίζεται.</string>
+    <string name="revanced_settings_search_history_summary_on">Το ιστορικό αναζήτησης ρυθμίσεων εμφανίζεται.</string>
     <string name="revanced_settings_search_history_title">Εμφάνιση ιστορικού αναζήτησης ρυθμίσεων</string>
+    <string name="revanced_settings_search_no_results_summary">Δοκιμάστε άλλη λέξη-κλειδί.</string>
+    <string name="revanced_settings_search_no_results_title">Δεν βρέθηκαν αποτελέσματα για \'%s\'.</string>
+    <string name="revanced_settings_search_recent_searches">Πρόσφατες αναζητήσεις</string>
+    <string name="revanced_settings_search_remove_message">Κατάργηση από το ιστορικό αναζήτησης;</string>
+    <string name="revanced_settings_search_tips_summary">"• Πατήστε μια διαδρομή για να μεταβείτε σε αυτήν.
+• Πατήστε παρατεταμένα μια ρύθμιση για να μεταβείτε σε αυτήν.
+• Πατήστε Enter για να αποθηκεύσετε ένα ερώτημα αναζήτησης στο ιστορικό.
+• Η αναζήτηση αγνοεί πεζά/κεφαλαία και σημεία στίξης.
+• Οι γονικές ρυθμίσεις εμφανίζονται πάνω από τις απενεργοποιημένες θυγατρικές ρυθμίσεις."</string>
+    <string name="revanced_settings_search_tips_title">Συμβουλές Αναζήτησης</string>
+    <string name="revanced_settings_search_title">Αναζήτηση %s</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Οι ρυθμίσεις αντιγράφηκαν στο πρόχειρο.</string>
     <string name="revanced_share_copy_timestamp_success">Η χρονική σήμανση αντιγράφηκε στο πρόχειρο. (%s)</string>
     <string name="revanced_share_copy_url_success">Η διεύθυνση URL αντιγράφηκε στο πρόχειρο.</string>
@@ -2171,6 +2222,8 @@ Playlists
     <string name="revanced_speed_overlay_value_invalid_toast">Η ταχύτητα πρέπει να ναι μεταξύ 0-8.0.</string>
     <string name="revanced_speed_overlay_value_summary">Τιμή ταχύτητας που εφαρμόζεται κατά το παρατεταμένο πάτημα, μεταξύ 0 και 8.0.</string>
     <string name="revanced_speed_overlay_value_title">Αλλαγή τιμής διεπαφής ταχύτητας</string>
+    <string name="revanced_spoof_app_version_other_item">Άλλη</string>
+    <string name="revanced_spoof_app_version_other_item_hint">Εισάγετε την έκδοση της εφαρμογής</string>
     <string name="revanced_spoof_app_version_summary">"Τροποποίηση έκδοσης της εφαρμογής σε παλιότερη έκδοση.
 
 Αυτό θα αλλάξει την εμφάνιση της εφαρμογής, αλλά ενδέχεται να προκύψουν άγνωστες παρενέργειες.
@@ -2189,6 +2242,7 @@ Playlists
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Απενεργοποίηση εικονιδίων θέματος Cairo στις γραμμές πλοήγησης και εργαλείων</string>
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Επαναφορά παλιάς επικεφαλίδας λίστας αναπαραγωγής</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Επαναφορά αναδυόμενου πίνακα ταχύτητας αναπαραγωγής παλιού στυλ</string>
+    <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Επαναφορά λειτουργικότητας μεταγραφής</string>
     <string name="revanced_spoof_app_version_target_entry_title">Έκδοση παραποίησης της εφαρμογής</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Μη έγκυρη έκδοση για παραποίηση: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Πληκτρολογήστε την έκδοση εφαρμογής που θα εφαρμοστεί.</string>
@@ -2233,7 +2287,7 @@ Playlists
 <small>(Ακυκλοφόρητο, χωρίς σύνδεση χρήστη)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Αδυναμία λήψης ροής του προγράμματος πελάτη.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Μπορεί να μην έχετε συνδεθεί.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Δοκιμάστε να αλλάξετε το προεπιλεγμένο πρόγραμμα πελάτη παραποίησης δεδομένων ροής σε TV ή TV Simply.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο ορίζεται αυτόματα.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο έχει οριστεί υποχρεωτικά σε AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Εξαναγκασμός iOS AVC (H.264)</string>
@@ -2285,6 +2339,7 @@ Playlists
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη.
 • Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεμένοι ή σε λειτουργία ανώνυμης περιήγησης."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Το μενού «Κομμάτι ήχου» λείπει.
+• O εξαναγκασμός αρχικής γλώσσας ήχου δεν είναι διαθέσιμoς.
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη.
 • Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεμένοι ή σε λειτουργία ανώνυμης περιήγησης.
 • Η ποιότητα 1080p+, HDR, και ο κωδικοποιητής AV1 δεν υποστηρίζονται."</string>
@@ -2304,7 +2359,7 @@ Playlists
 • Οι ταινίες ή τα επί πληρωμή βίντεο ενδέχεται να μην αναπαράγονται.
 • Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεμένοι ή σε λειτουργία ανώνυμης περιήγησης."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ipados">"• Ο κωδικοποιητής AV1 δεν υποστηρίζεται.
-• Το βίντεο μπορεί να σταματήσει στο 1:00, ή μπορεί να μην είναι διαθέσιμο σε ορισμένες περιοχές."</string>
+• Το βίντεο μπορεί να σταματήσει στο 1:00, ή να μην είναι διαθέσιμο σε ορισμένες περιοχές."</string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Το μενού «Κομμάτι ήχου» λείπει.
 • Αν η αποσυσκότιση αποτύχει, θα αποτύχει και η αναπαραγωγή.
 • Αν το βίντεο δεν ξεκινήσει εντός 10 δευτερολέπτων, πατήστε το κουμπί επαναφόρτωσης βίντεο.
@@ -2335,6 +2390,23 @@ Playlists
 
 • Ορισμένα βίντεο ενδέχεται να μην αναπαράγονται."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Χρήση του προγράμματος πελάτη JavaScript για όλα τα βίντεο</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Πατήστε για περισσότερες πληροφορίες.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">Σχετικά με το ψεύτικο κόλλημα</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Ένας λόγος για τον οποίο τα βίντεο καθυστερούν να ξεκινήσουν όταν χρησιμοποιείται πρόγραμμα πελάτη τύπου JavaScript, οφείλεται στα νέα μέτρα κατά του αποκλεισμού διαφημίσεων του YouTube.
+
+Όταν αποκλείεται διαφήμιση βίντεο. ο διακομιστής βίντεο της Google (GVS) δημιουργεί ψεύτικο κόλλημα ανάλογα με τη διάρκεια της διαφήμισης. (A/B testing)
+
+Το uBlock Origin έχει βρει μία λύση για αυτό το πρόβλημα, η οποία μπορεί να ενεργοποιηθεί μέσω της ρύθμισης «Παράκαμψη ψεύτικου κολλήματος».
+
+Πατήστε «Άνοιγμα» για να διαβάσετε το σχετικό άρθρο."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Άνοιγμα</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Τα νέα μέτρα Anti-Adblock του YouTube"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Η παράκαμψη ψεύτικου κολλήματος είναι απενεργοποιημένη.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Η παράκαμψη ψεύτικου κολλήματος είναι ενεργοποιημένη.
+
+Περιορισμοί:
+• Μπορεί να σταματήσει να λειτουργεί ανά πάσα στιγμή λόγω αλλαγών από πλευρά του διακομιστή."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Παράκαμψη ψεύτικου κολλήματος</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">Το JavaScript δεν προστέθηκε στα διαθέσιμα προγράμματα πελάτη.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">Το JavaScript προστέθηκε στα διαθέσιμα προγράμματα πελάτη.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Χρήση προγράμματος πελάτη JavaScript</string>
@@ -2429,7 +2501,6 @@ Playlists
     <string name="revanced_theme_default">Προεπιλογή</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Προειδοποίηση</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s δεν έχει εγκατασταθεί. Παρακαλούμε εγκαταστήστε το.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Όνομα πακέτου του εγκατεστημένου RVX Music.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Όνομα πακέτου RVX Music</string>
     <string name="revanced_transcript_cookies_about_summary">Πατήστε για να δείτε πως να αποκτήσετε Cookies.</string>

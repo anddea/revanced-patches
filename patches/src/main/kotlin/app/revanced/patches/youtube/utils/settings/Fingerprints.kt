@@ -44,12 +44,21 @@ internal val themeSetterSystemFingerprint = legacyFingerprint(
     literals = listOf(appearance),
 )
 
-internal val settingsHostActivityOnCreateFingerprint = legacyFingerprint(
-    name = "settingsHostActivityOnCreateFingerprint",
+internal val baseHostActivityOnCreateFingerprint = legacyFingerprint(
+    name = "baseHostActivityOnCreateFingerprint",
     returnType = "V",
     parameters = listOf("Landroid/os/Bundle;"),
     customFingerprint = { method, classDef ->
-        classDef.endsWith("/ReVancedSettingsHostActivity;") && method.name == "onCreate"
+        classDef.endsWith("/BaseHostActivity;") && method.name == "onCreate"
+    }
+)
+
+internal val youtubeHostActivityOnCreateFingerprint = legacyFingerprint(
+    name = "youtubeHostActivityOnCreateFingerprint",
+    returnType = "V",
+    parameters = listOf("Landroid/os/Bundle;"),
+    customFingerprint = { method, classDef ->
+        classDef.endsWith("/YouTubeHostActivity;") && method.name == "onCreate"
     }
 )
 

@@ -182,6 +182,7 @@ Limitation : Le bouton Retour de la barre d'outils peut ne pas fonctionner."</st
     <string name="revanced_custom_player_overlay_opacity_title">Personnaliser l\'opacité du voile du lecteur</string>
     <string name="revanced_custom_seekbar_color_accent_summary">Saisissez le code hexadécimal de la couleur d\'accentuation de la barre de progression.</string>
     <string name="revanced_custom_seekbar_color_accent_title">Personnaliser la couleur d\'accentuation de la barre de progression</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Couleur de la barre de progression invalide.</string>
     <string name="revanced_custom_seekbar_color_primary_summary">Saisissez le code hexadécimal de la couleur primaire de la barre de progression.</string>
     <string name="revanced_custom_seekbar_color_primary_title">Personnaliser la couleur primaire de la barre de progression</string>
     <string name="revanced_debug_export_logs_to_clipboard_summary">Copie les journaux de débogage RVX dans le presse-papiers.</string>
@@ -241,6 +242,9 @@ Paramètres → Lecture automatique / Lecture → Lecture automatique de la vid�
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Le mélange auto des playlists est désactivé.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">Désactiver le changement automatique des playlists mix</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Activer cette fonction désactivera le passage automatique à YouTube Mix lors de la lecture de musique lorsque la lecture automatique est activée.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">Le double appui peut occasionnellement déclencher un saut vers le chapitre suivant/précédent</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">Le double appui ne peut jamais déclencher de saut vers le chapitre suivant/précédent</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Désactiver le double appui pour passer à un chapitre</string>
     <string name="revanced_disable_default_playback_speed_music_off">La vitesse de lecture par défaut est activée pour la musique.</string>
     <string name="revanced_disable_default_playback_speed_music_on">La vitesse de lecture par défaut est activée pour la musique.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Désactiver la vitesse de lecture pour la musique</string>
@@ -436,42 +440,35 @@ Limitation : Ne fonctionne pas si le lecteur est minimisé, en mode PiP, ou en 
     <string name="revanced_expand_video_description_summary_off">La description s\'ouvre manuellement.</string>
     <string name="revanced_expand_video_description_summary_on">La description s\'ouvre automatiquement.</string>
     <string name="revanced_expand_video_description_title">Ouvrir la description automatiquement</string>
-    <string name="revanced_extended_confirm_user_dialog_title">Voulez-vous continuer ?</string>
-    <string name="revanced_extended_reset_to_default_toast">Réinitialiser les valeurs par défaut.</string>
     <string name="revanced_extended_restart">Redémarrer</string>
-    <string name="revanced_extended_restart_dialog_message">Redémarrez l\'application pour que cette modification prenne effet.</string>
     <string name="revanced_extended_restart_first_run">Redémarrer pour charger l\'interface correctement</string>
-    <string name="revanced_extended_restart_message">Appliquer et redémarrer ?</string>
     <string name="revanced_extended_restart_title">Redémarrage requis</string>
-    <string name="revanced_extended_settings_color_invalid">Couleur invalide.</string>
-    <string name="revanced_extended_settings_color_picker">Sélecteur de couleur</string>
     <string name="revanced_extended_settings_export_failed">Échec de l\'exportation des paramètres.</string>
     <string name="revanced_extended_settings_export_success">Les paramètres ont été exportés avec succès.</string>
     <string name="revanced_extended_settings_export_summary">Exporter les paramètres vers un fichier.</string>
     <string name="revanced_extended_settings_export_title">Exporter les paramètres</string>
     <string name="revanced_extended_settings_import">Importer</string>
-    <string name="revanced_extended_settings_import_copy">Copier</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">Importer ou exporter les paramètres sous forme de texte.</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">Importer / Exporter sous forme de texte</string>
-    <string name="revanced_extended_settings_import_failed">Échec de l\'importation des paramètres.</string>
     <string name="revanced_extended_settings_import_reset">Les paramètres ont étés réinitialisés.</string>
-    <string name="revanced_extended_settings_import_success">Les paramètres ont été importés avec succès.</string>
     <string name="revanced_extended_settings_import_summary">Importer les paramètres depuis un fichier enregistré.</string>
     <string name="revanced_extended_settings_import_title">Importer les paramètres</string>
-    <string name="revanced_extended_settings_reset">Réinitialiser</string>
-    <string name="revanced_extended_settings_reset_color">Réinitialiser la couleur</string>
-    <string name="revanced_extended_settings_search_title">Rechercher sur %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Téléchargeur externe</string>
+    <string name="revanced_external_downloader_empty_warning">Le nom du paquet ne peut pas être vide</string>
+    <string name="revanced_external_downloader_not_found_title">Application non installée</string>
     <string name="revanced_external_downloader_not_installed">Non installé</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s n'est pas installé.
 Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Attention</string>
     <string name="revanced_external_downloader_not_installed_warning">%s n\'est pas installé. Veuillez l’installer.</string>
+    <string name="revanced_external_downloader_other_item">Autre</string>
+    <string name="revanced_external_downloader_other_item_hint">Saisir le nom du paquet</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Nom de package du téléchargeur externe installé, telle que YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nom du paquet du téléchargeur de la playlist</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nom du paquet de l\'appli de téléchargement externe installée, telle que NewPipe ou YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nom du paquet du téléchargeur vidéo</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"Impossible de trouver une application installée ayant pour nom de paquet : %s
+
+Vérifiez que le nom de paquet est correct et que l'application est installée."</string>
     <string name="revanced_fullscreen_ads_closed_toast">Les publicités en plein écran sont fermées.</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Liste de noms du menu de compte à filtrer, séparés par un saut de ligne.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtre du menu du compte</string>
@@ -564,6 +561,9 @@ Boutique"</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Le sélecteur d\'émoji et l\'horodatage sont affichés.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Le sélecteur d\'émoji et l\'horodatage sont masqués.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Masquer le sélecteur d\'émoji et horodatage</string>
+    <string name="revanced_hide_comments_button_summary_off">Le bouton Commentaires est affiché</string>
+    <string name="revanced_hide_comments_button_summary_on">Le bouton Commentaires est masqué</string>
+    <string name="revanced_hide_comments_button_title">Masquer \"Commentaires\"</string>
     <string name="revanced_hide_comments_by_members_summary_off">Les commentaires des membres sont affichés.</string>
     <string name="revanced_hide_comments_by_members_summary_on">Les commentaires des membres sont cachés.</string>
     <string name="revanced_hide_comments_by_members_title">Masquer les commentaires des membres</string>
@@ -928,8 +928,8 @@ Si la mise en page de l'écran du lecteur change en raison de modifications côt
     <string name="revanced_hide_search_term_thumbnail_summary_off">Les miniatures sur la barre de recherche sont affichées.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Les miniatures sur la barre de recherche sont masquées.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Masquer les miniatures pendant la recherche</string>
-    <string name="revanced_hide_seek_message_summary_off">Les bandeaux de messages sont affichés.</string>
-    <string name="revanced_hide_seek_message_summary_on">Les bandeaux de messages sont masqués.</string>
+    <string name="revanced_hide_seek_message_summary_off">"Les bandeaux de messages sont affichés."</string>
+    <string name="revanced_hide_seek_message_summary_on">"Les bandeaux de messages sont masqués."</string>
     <string name="revanced_hide_seek_message_title">Masquer les bandeaux de messages</string>
     <string name="revanced_hide_seek_undo_message_summary_off">Le bandeau \'Relâchez pour annuler\' est affiché.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Le bandeau \'Relâchez pour annuler\' est masqué.</string>
@@ -1736,7 +1736,6 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
     <string name="revanced_sb_color_changed">Couleur modifiée.</string>
     <string name="revanced_sb_color_dot_label">Couleur :</string>
     <string name="revanced_sb_color_invalid">Code couleur invalide.</string>
-    <string name="revanced_sb_color_opacity_label">Opacité :</string>
     <string name="revanced_sb_color_reset">Couleur réinitialisée.</string>
     <string name="revanced_sb_create_segment_category">Création de nouveaux segments</string>
     <string name="revanced_sb_diff_segments">Modifier le fonctionnement des segments</string>
@@ -1782,7 +1781,7 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
     <string name="revanced_sb_guidelines_preference_sum">Les directives contiennent des règles et des conseils pour créer de nouveaux segments.</string>
     <string name="revanced_sb_guidelines_preference_title">Afficher les directives</string>
     <string name="revanced_sb_new_segment_choose_category">Choisissez la catégorie du segment</string>
-    <string name="revanced_sb_new_segment_confirm_content">"Le segment dure de
+    <string name="revanced_sb_new_segment_confirm_content">"Le segment s'étend de
 
 %1$s
 à
@@ -1790,7 +1789,7 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
 
 (%3$s)
 
-Prêt à soumettre ?"</string>
+Prêt à le soumettre ?"</string>
     <string name="revanced_sb_new_segment_confirm_contents">Le segment est de\n\n%1$s\nà\n%2$s\n\n(%3$s)\n\nPrêt à être soumis ?</string>
     <string name="revanced_sb_new_segment_confirm_title">La durée est-elle correcte ?</string>
     <string name="revanced_sb_new_segment_disabled_category">La catégorie est désactivée dans les paramètres. Activez la catégorie pour soumettre.</string>
@@ -1910,6 +1909,9 @@ Prêt à soumettre ?"</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock est temporairement indisponible.</string>
     <string name="revanced_sb_submit_failed_unknown_error">Impossible de soumettre le segment (état : %1$d %2$s).</string>
     <string name="revanced_sb_submit_succeeded">Segment soumis avec succès.</string>
+    <string name="revanced_sb_toast_on_connection_error">Afficher un message toast si l\'API n\'est pas disponible</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">Pas d\'affichage de message toast si SponsorBlock n\'est pas disponible</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">Un message toast est affiché si SponsorBlock n\'est pas disponible</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">N\'affiche pas de message si SponsorBlock est indisponible.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Affiche un message si SponsorBlock est indisponible.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Afficher un message si l\'API est indisponible</string>
@@ -1921,7 +1923,30 @@ Prêt à soumettre ?"</string>
     <string name="revanced_sb_vote_no_segments">Il n\'y a aucun segments pour lesquels voter.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s vers %2$s</string>
     <string name="revanced_sb_vote_upvote">Voter pour</string>
-    <string name="revanced_settings_search_history_title">Afficher l\'historique de recherche des paramètres</string>
+    <string name="revanced_settings_color_invalid">Couleur invalide</string>
+    <string name="revanced_settings_import">Importer</string>
+    <string name="revanced_settings_import_copy">Copier</string>
+    <string name="revanced_settings_import_reset">Paramètres ReVanced réinitialisés aux valeurs par défaut</string>
+    <string name="revanced_settings_import_success">%d paramètres importés</string>
+    <string name="revanced_settings_reset">Réinitialiser</string>
+    <string name="revanced_settings_reset_color">Réinitialiser la couleur</string>
+    <string name="revanced_settings_search_clear_history">Effacer l\'historique des recherches</string>
+    <string name="revanced_settings_search_clear_history_message">Voulez-vous vraiment effacer tout l\'historique des recherches ?</string>
+    <string name="revanced_settings_search_empty_history_summary">Pour enregistrer l\'historique des recherches, saisissez une requête de recherche et appuyez sur Entrée</string>
+    <string name="revanced_settings_search_empty_history_title">L\'historique des recherches est vide</string>
+    <string name="revanced_settings_search_history_summary_off">L\'historique des recherches dans les paramètres n\'est pas affiché</string>
+    <string name="revanced_settings_search_history_summary_on">L\'historique des recherches dans les paramètres est affiché</string>
+    <string name="revanced_settings_search_history_title">Afficher l\'historique des recherches dans les paramètres</string>
+    <string name="revanced_settings_search_no_results_summary">Essayez un autre mot-clé</string>
+    <string name="revanced_settings_search_no_results_title">Aucun résultat trouvé pour \"%s\"</string>
+    <string name="revanced_settings_search_recent_searches">Recherches récentes</string>
+    <string name="revanced_settings_search_remove_message">Supprimer de l\'historique des recherches ?</string>
+    <string name="revanced_settings_search_tips_summary">"• Appuyez sur un chemin pour y naviguer
+• Appuyez longuement sur un paramètre pour y naviguer
+• Appuyez sur Entrée pour enregistrer une requête de recherche dans l'historique
+• La recherche ignore la casse et la ponctuation
+• Les paramètres parents apparaissent au-dessus des paramètres enfants désactivés"</string>
+    <string name="revanced_settings_search_tips_title">Conseils de recherche</string>
     <string name="revanced_share_copy_settings_success">Paramètres copiés dans le presse-papier.</string>
     <string name="revanced_share_copy_timestamp_success">Lien avec horodatage copié dans le presse-papiers. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copié dans le presse-papier.</string>
@@ -2115,7 +2140,6 @@ Si ce paramètre ne fait pas effet, essayer de passer en mode Incognito."</strin
     <string name="revanced_theme_default">Officiel</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Attention</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s n\'est pas installé. Veuillez l’installer.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Nom du paquet de RVX Music installé.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nom du paquet de RVX Music</string>
     <string name="revanced_watch_history_about_status_blocked">• L\'historique de visionnage est bloqué.</string>

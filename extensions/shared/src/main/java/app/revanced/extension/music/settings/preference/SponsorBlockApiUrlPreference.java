@@ -38,7 +38,7 @@ public class SponsorBlockApiUrlPreference {
                     .setTitle(str("revanced_sb_api_url"))
                     .setView(container)
                     .setNegativeButton(android.R.string.cancel, null)
-                    .setNeutralButton(str("revanced_extended_settings_reset"), (dialog, which) -> {
+                    .setNeutralButton(str("revanced_settings_reset"), (dialog, which) -> {
                         apiUrl.resetToDefault();
                         Utils.showToastShort(str("revanced_sb_api_url_reset"));
                     })

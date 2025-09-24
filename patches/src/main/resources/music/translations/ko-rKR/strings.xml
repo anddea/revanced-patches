@@ -155,22 +155,13 @@
     <string name="revanced_enable_zen_mode_podcast_title">팟캐스트에서 집중 모드 활성화</string>
     <string name="revanced_enable_zen_mode_summary">동영상 플레이어의 색상을 회색조로 설정해 눈의 피로를 줄입니다.</string>
     <string name="revanced_enable_zen_mode_title">집중 모드 활성화</string>
-    <string name="revanced_extended_reset_to_default_toast">기본값으로 초기화하였습니다.</string>
     <string name="revanced_extended_restart_first_run">레이아웃을 정상적으로 불러오기 위해 다시 시작합니다.</string>
-    <string name="revanced_extended_restart_message">새로고침 및 다시 시작</string>
-    <string name="revanced_extended_settings_export_as_file">파일로 설정 내보내기</string>
     <string name="revanced_extended_settings_export_failed">설정을 내보내는 데 실패하였습니다.</string>
     <string name="revanced_extended_settings_export_success">설정을 성공적으로 내보냈습니다.</string>
     <string name="revanced_extended_settings_import">가져오기</string>
-    <string name="revanced_extended_settings_import_as_file">파일에서 설정 가져오기</string>
-    <string name="revanced_extended_settings_import_copy">복사하기</string>
-    <string name="revanced_extended_settings_import_export_as_text">텍스트로 설정 가져오기 / 내보내기</string>
     <string name="revanced_extended_settings_import_export_summary">RVX Music 설정을 가져오거나 내보낼 수 있습니다.</string>
     <string name="revanced_extended_settings_import_export_title">설정 가져오기 / 내보내기</string>
-    <string name="revanced_extended_settings_import_failed">가져오기를 실패하였습니다: %s</string>
     <string name="revanced_extended_settings_import_reset">설정을 기본값으로 초기화합니다.</string>
-    <string name="revanced_extended_settings_import_success">%d 설정을 가져왔습니다.</string>
-    <string name="revanced_extended_settings_reset">초기화</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"오프라인 저장 버튼으로 외부 다운로더 앱을 실행할 수 있습니다.
 
@@ -387,6 +378,9 @@ YouTube Music의 검색 및 설정과 같은 활동은 공개되지 않으므로
     <string name="revanced_replace_navigation_samples_button_title">샘플 버튼 변경</string>
     <string name="revanced_replace_navigation_upgrade_button_summary">업그레이드 버튼을 설정 버튼으로 변경합니다.</string>
     <string name="revanced_replace_navigation_upgrade_button_title">업그레이드 버튼 변경</string>
+    <string name="revanced_reset_to_default_toast">기본값으로 초기화하였습니다.</string>
+    <string name="revanced_restart_first_run">레이아웃을 정상적으로 불러오기 위해 다시 시작합니다.</string>
+    <string name="revanced_restart_message">새로고침 및 다시 시작</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">이전 댓글 팝업 패널으로 복원합니다.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">이전 댓글 팝업 패널으로 복원</string>
     <string name="revanced_restore_old_player_background_summary">이전 플레이어 배경으로 복원합니다.</string>
@@ -490,6 +484,20 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_sb_toast_on_connection_error_sum">SponsorBlock를 사용할 수 없을 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_sb_toast_on_skip">자동으로 구간을 건너뛸 때, 팝업 메시지 표시</string>
     <string name="revanced_sb_toast_on_skip_sum">자동으로 구간을 건너뛸 때, 팝업 메시지를 표시합니다.</string>
+    <string name="revanced_settings_export_as_file">파일로 설정 내보내기</string>
+    <string name="revanced_settings_export_failed">설정을 내보낼 수 없습니다.</string>
+    <string name="revanced_settings_export_success">설정을 성공적으로 내보냈습니다.</string>
+    <string name="revanced_settings_import">가져오기</string>
+    <string name="revanced_settings_import_as_file">파일에서 설정 가져오기</string>
+    <string name="revanced_settings_import_copy">복사하기</string>
+    <string name="revanced_settings_import_export_as_text">텍스트로 설정 가져오기 / 내보내기</string>
+    <string name="revanced_settings_import_export_summary">RVX Music 설정을 가져오거나 내보낼 수 있습니다.</string>
+    <string name="revanced_settings_import_export_title">설정 가져오기 / 내보내기</string>
+    <string name="revanced_settings_import_failed">설정을 가져올 수 없습니다: %s.</string>
+    <string name="revanced_settings_import_reset">설정을 기본값으로 초기화합니다.</string>
+    <string name="revanced_settings_import_success">%d 설정을 가져왔습니다.</string>
+    <string name="revanced_settings_reset">초기화</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">설정을 클립보드에 복사하였습니다.</string>
     <string name="revanced_spoof_app_version_summary">"클라이언트 버전을 이전 버전으로 변경합니다.
 
@@ -535,6 +543,10 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
 
 YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_title">스트리밍 데이터 변경</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"이 기능을 활성화하면, ‘TV’, ‘TV Simply’ 그리고 'Mobile Web'에서 최신 플레이어 JavaScript가 스트리밍 URL을 복호화하는 데 사용됩니다.
+
+JavaScript 클라이언트에 문제가 발생할 경우에 먼저 이 기능을 비활성화해보세요."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">최신 플레이어 JavaScript 사용</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>

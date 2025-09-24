@@ -149,7 +149,7 @@ public class CustomPlaybackSpeedPatch {
 
     private static void resetCustomSpeeds(@NonNull String toastMessage) {
         Utils.showToastLong(toastMessage);
-        Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
+        Utils.showToastShort(str("revanced_reset_to_default_toast"));
         Settings.CUSTOM_PLAYBACK_SPEEDS.resetToDefault();
     }
 

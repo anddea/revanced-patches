@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.utils;
 
+import static app.revanced.extension.shared.utils.BaseThemeUtils.getDialogBackgroundColor;
 import static app.revanced.extension.shared.utils.ResourceUtils.getString;
 import static app.revanced.extension.shared.utils.ResourceUtils.getStringArray;
 import static app.revanced.extension.shared.utils.StringRef.str;
@@ -9,6 +10,7 @@ import static app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPa
 import static app.revanced.extension.youtube.patches.video.PlaybackSpeedPatch.userSelectedPlaybackSpeed;
 import static app.revanced.extension.youtube.patches.video.VideoQualityPatch.AUTOMATIC_VIDEO_QUALITY_VALUE;
 import static app.revanced.extension.youtube.patches.video.VideoQualityPatch.setCurrentQuality;
+import static app.revanced.extension.youtube.utils.ThemeUtils.getAdjustedBackgroundColor;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -63,11 +65,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Function;
 
 import app.revanced.extension.shared.settings.EnumSetting;
+import app.revanced.extension.shared.ui.SheetBottomDialog;
+import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.utils.IntentUtils;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.shorts.ShortsRepeatStatePatch.ShortsLoopBehavior;
+import app.revanced.extension.youtube.patches.utils.PlaylistPatch;
 import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
 import app.revanced.extension.youtube.patches.video.PlaybackSpeedPatch;
@@ -78,6 +83,7 @@ import app.revanced.extension.youtube.settings.preference.ExternalDownloaderPlay
 import app.revanced.extension.youtube.settings.preference.ExternalDownloaderVideoLongPressPreference;
 import app.revanced.extension.youtube.settings.preference.ExternalDownloaderVideoPreference;
 import app.revanced.extension.youtube.shared.PlaylistIdPrefix;
+import app.revanced.extension.youtube.shared.RootView;
 import app.revanced.extension.youtube.shared.VideoInformation;
 
 @SuppressWarnings("unused")
@@ -102,6 +108,7 @@ public class VideoUtils extends IntentUtils {
 
     static {
         // Cap at 2 decimals (rounds automatically).
+        speedFormatter.setMinimumFractionDigits(2);
         speedFormatter.setMaximumFractionDigits(2);
     }
 
@@ -163,8 +170,9 @@ public class VideoUtils extends IntentUtils {
 
     public static void launchVideoExternalDownloader(@NonNull String videoId) {
         try {
-            final String downloaderPackageName = ExternalDownloaderVideoPreference.getExternalDownloaderPackageName();
-            if (ExternalDownloaderVideoPreference.checkPackageIsDisabled()) {
+            final String downloaderPackageName = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME_VIDEO.get();
+            // If the package is not installed, show a dialog.
+            if (ExternalDownloaderVideoPreference.showDialogIfAppIsNotInstalled(RootView.getContext(), downloaderPackageName)) {
                 return;
             }
 
@@ -183,8 +191,9 @@ public class VideoUtils extends IntentUtils {
 
     public static void launchLongPressVideoExternalDownloader(@NonNull String videoId) {
         try {
-            final String downloaderPackageName = ExternalDownloaderVideoLongPressPreference.getExternalDownloaderPackageName();
-            if (ExternalDownloaderVideoLongPressPreference.checkPackageIsDisabled()) {
+            final String downloaderPackageName = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME_VIDEO_LONG_PRESS.get();
+            // If the package is not installed, show a dialog.
+            if (ExternalDownloaderVideoLongPressPreference.showDialogIfAppIsNotInstalled(RootView.getContext(), downloaderPackageName)) {
                 return;
             }
 
@@ -199,8 +208,9 @@ public class VideoUtils extends IntentUtils {
 
     public static void launchPlaylistExternalDownloader(@NonNull String playlistId) {
         try {
-            final String downloaderPackageName = ExternalDownloaderPlaylistPreference.getExternalDownloaderPackageName();
-            if (ExternalDownloaderPlaylistPreference.checkPackageIsDisabled()) {
+            final String downloaderPackageName = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME_PLAYLIST.get();
+            // If the package is not installed, show a dialog.
+            if (ExternalDownloaderPlaylistPreference.showDialogIfAppIsNotInstalled(RootView.getContext(), downloaderPackageName)) {
                 return;
             }
 
@@ -443,16 +453,20 @@ public class VideoUtils extends IntentUtils {
         if (videoId.isEmpty()) {
             showToastShort(str("revanced_dismiss_player_not_available_toast"));
         } else {
-            dismissPlayer();
+            try {
+                dismissPlayer();
 
-            Utils.runOnMainThreadDelayed(() -> {
-                // Open the video.
-                if (playlistId.isEmpty()) {
-                    openVideo(videoId);
-                } else { // If the video is playing from a playlist, the url must include the playlistId.
-                    openPlaylist(playlistId, videoId, true);
-                }
-            }, 500);
+                Utils.runOnMainThreadDelayed(() -> {
+                    // Open the video.
+                    if (playlistId.isEmpty()) {
+                        openVideo(videoId);
+                    } else { // If the video is playing from a playlist, the url must include the playlistId.
+                        openPlaylist(playlistId, videoId, true);
+                    }
+                }, 500);
+            } catch (Exception ex) {
+                Logger.printException(() -> "reloadVideo failed", ex);
+            }
         }
     }
 
@@ -546,13 +560,13 @@ public class VideoUtils extends IntentUtils {
 
             ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
                     Utils.createCornerRadii(12), null, null));
-            background.getPaint().setColor(ThemeUtils.getDialogBackgroundColor());
+            background.getPaint().setColor(BaseThemeUtils.getDialogBackgroundColor());
             mainLayout.setBackground(background);
 
             View handleBar = new View(context);
             ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(
                     Utils.createCornerRadii(4), null, null));
-            final int baseColor = ThemeUtils.getDialogBackgroundColor();
+            final int baseColor = BaseThemeUtils.getDialogBackgroundColor();
             final int adjustedHandleBarBackgroundColor = ThemeUtils.adjustColorBrightness(
                     baseColor, 0.9f, 1.25f);
             handleBackground.getPaint().setColor(adjustedHandleBarBackgroundColor);
@@ -756,208 +770,224 @@ public class VideoUtils extends IntentUtils {
      * video playback. The dialog is dismissed if the player enters Picture-in-Picture (PiP) mode.
      */
     public static void showCustomModernPlaybackSpeedDialog(Context context) {
-        LinearLayout mainLayout = ExtendedUtils.prepareMainLayout(context, true);
+        try {
+            // Create main layout.
+            SheetBottomDialog.DraggableLinearLayout mainLayout =
+                    SheetBottomDialog.createMainLayout(context, getDialogBackgroundColor());
 
-        // Preset size constants.
-        final int dip5 = dipToPixels(5);
-        final int dip32 = dipToPixels(32); // Height for in-rows speed buttons.
-        final int dip36 = dipToPixels(36); // Height for minus and plus buttons.
-        final int dip60 = dipToPixels(60); // Height for speed button container.
+            // Preset size constants.
+            final int dip4 = dipToPixels(4);
+            final int dip8 = dipToPixels(8);
+            final int dip12 = dipToPixels(12);
+            final int dip20 = dipToPixels(20);
+            final int dip32 = dipToPixels(32);
+            final int dip60 = dipToPixels(60);
 
-        // Display current playback speed.
-        TextView currentSpeedText = new TextView(context);
-        float currentSpeed = VideoInformation.getPlaybackSpeed();
-        // Initially show with only 0 minimum digits, so 1.0 shows as 1x
-        currentSpeedText.setText(formatSpeedStringX(currentSpeed, 0));
-        currentSpeedText.setTextColor(ThemeUtils.getAppForegroundColor());
-        currentSpeedText.setTextSize(16);
-        currentSpeedText.setTypeface(Typeface.DEFAULT_BOLD);
-        currentSpeedText.setGravity(Gravity.CENTER);
-        LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        textParams.setMargins(0, 0, 0, 0);
-        currentSpeedText.setLayoutParams(textParams);
-        // Add current speed text view to main layout.
-        mainLayout.addView(currentSpeedText);
+            // Display current playback speed.
+            TextView currentSpeedText = new TextView(context);
+            float currentSpeed = VideoInformation.getPlaybackSpeed();
+            // Initially show with only 0 minimum digits, so 1.0 shows as 1x.
+            currentSpeedText.setText(formatSpeedStringX(currentSpeed));
+            currentSpeedText.setTextColor(ThemeUtils.getAppForegroundColor());
+            currentSpeedText.setTextSize(16);
+            currentSpeedText.setTypeface(Typeface.DEFAULT_BOLD);
+            currentSpeedText.setGravity(Gravity.CENTER);
+            LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            textParams.setMargins(0, dip20, 0, 0);
+            currentSpeedText.setLayoutParams(textParams);
+            // Add current speed text view to main layout.
+            mainLayout.addView(currentSpeedText);
 
-        // Create horizontal layout for slider and +/- buttons.
-        LinearLayout sliderLayout = new LinearLayout(context);
-        sliderLayout.setOrientation(LinearLayout.HORIZONTAL);
-        sliderLayout.setGravity(Gravity.CENTER_VERTICAL);
-        sliderLayout.setPadding(dip5, dip5, dip5, dip5); // 5dp padding.
+            // Create horizontal layout for slider and +/- buttons.
+            LinearLayout sliderLayout = new LinearLayout(context);
+            sliderLayout.setOrientation(LinearLayout.HORIZONTAL);
+            sliderLayout.setGravity(Gravity.CENTER_VERTICAL);
 
-        // Create minus button.
-        Button minusButton = new Button(context, null, 0); // Disable default theme style.
-        minusButton.setText(""); // No text on button.
-        ShapeDrawable minusBackground = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(20), null, null));
-        minusBackground.getPaint().setColor(ThemeUtils.getAdjustedBackgroundColor(false));
-        minusButton.setBackground(minusBackground);
-        OutlineSymbolDrawable minusDrawable = new OutlineSymbolDrawable(false); // Minus symbol.
-        minusButton.setForeground(minusDrawable);
-        LinearLayout.LayoutParams minusParams = new LinearLayout.LayoutParams(dip36, dip36);
-        minusParams.setMargins(0, 0, dip5, 0); // 5dp to slider.
-        minusButton.setLayoutParams(minusParams);
+            // Create +/- buttons.
+            Button minusButton = createStyledButton(context, false, dip8, dip8);
+            Button plusButton = createStyledButton(context, true, dip8, dip8);
 
-        // Create slider for speed adjustment.
-        SeekBar speedSlider = new SeekBar(context);
-        speedSlider.setMax(speedToProgressValue(CustomPlaybackSpeedPatch.getPlaybackSpeedMaximum()));
-        speedSlider.setProgress(speedToProgressValue(currentSpeed));
-        speedSlider.getProgressDrawable().setColorFilter(
-                ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme progress bar.
-        speedSlider.getThumb().setColorFilter(
-                ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme slider thumb.
-        LinearLayout.LayoutParams sliderParams = new LinearLayout.LayoutParams(
-                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
-        sliderParams.setMargins(dip5, 0, dip5, 0); // 5dp to -/+ buttons.
-        speedSlider.setLayoutParams(sliderParams);
+            // Create slider for speed adjustment.
+            SeekBar speedSlider = new SeekBar(context);
+            speedSlider.setFocusable(true);
+            speedSlider.setFocusableInTouchMode(true);
+            speedSlider.setMax(speedToProgressValue(CustomPlaybackSpeedPatch.getPlaybackSpeedMaximum()));
+            speedSlider.setProgress(speedToProgressValue(currentSpeed));
+            speedSlider.getProgressDrawable().setColorFilter(
+                    ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme progress bar.
+            speedSlider.getThumb().setColorFilter(
+                    ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme slider thumb.
+            LinearLayout.LayoutParams sliderParams = new LinearLayout.LayoutParams(
+                    0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+            speedSlider.setLayoutParams(sliderParams);
 
-        // Create plus button.
-        Button plusButton = new Button(context, null, 0); // Disable default theme style.
-        plusButton.setText(""); // No text on button.
-        ShapeDrawable plusBackground = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(20), null, null));
-        plusBackground.getPaint().setColor(ThemeUtils.getAdjustedBackgroundColor(false));
-        plusButton.setBackground(plusBackground);
-        OutlineSymbolDrawable plusDrawable = new OutlineSymbolDrawable(true); // Plus symbol.
-        plusButton.setForeground(plusDrawable);
-        LinearLayout.LayoutParams plusParams = new LinearLayout.LayoutParams(dip36, dip36);
-        plusParams.setMargins(dip5, 0, 0, 0); // 5dp to slider.
-        plusButton.setLayoutParams(plusParams);
+            // Add -/+ and slider views to slider layout.
+            sliderLayout.addView(minusButton);
+            sliderLayout.addView(speedSlider);
+            sliderLayout.addView(plusButton);
 
-        // Add -/+ and slider views to slider layout.
-        sliderLayout.addView(minusButton);
-        sliderLayout.addView(speedSlider);
-        sliderLayout.addView(plusButton);
+            // Add slider layout to main layout.
+            mainLayout.addView(sliderLayout);
 
-        LinearLayout.LayoutParams sliderLayoutParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        sliderLayoutParams.setMargins(0, 0, 0, dip5); // 5dp bottom margin.
-        sliderLayout.setLayoutParams(sliderLayoutParams);
-
-        // Add slider layout to main layout.
-        mainLayout.addView(sliderLayout);
-
-        Function<Float, Void> userSelectedSpeed = newSpeed -> {
-            final float roundedSpeed = roundSpeedToNearestIncrement(newSpeed);
-            if (VideoInformation.getPlaybackSpeed() == roundedSpeed) {
-                // Nothing has changed. New speed rounds to the current speed.
-                return null;
-            }
-
-            VideoInformation.overridePlaybackSpeed(roundedSpeed);
-            PlaybackSpeedPatch.userSelectedPlaybackSpeed(roundedSpeed);
-            currentSpeedText.setText(formatSpeedStringX(roundedSpeed, 2)); // Update display.
-            speedSlider.setProgress(speedToProgressValue(roundedSpeed)); // Update slider.
-            return null;
-        };
-
-        // Set listener for slider to update playback speed.
-        speedSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser) {
-                    // Convert from progress value to video playback speed.
-                    userSelectedSpeed.apply(CustomPlaybackSpeedPatch.getPlaybackSpeedMinimum() + (progress / PROGRESS_BAR_VALUE_SCALE));
+            Function<Float, Void> userSelectedSpeed = newSpeed -> {
+                final float roundedSpeed = roundSpeedToNearestIncrement(newSpeed);
+                if (VideoInformation.getPlaybackSpeed() == roundedSpeed) {
+                    // Nothing has changed. New speed rounds to the current speed.
+                    return null;
                 }
+
+                VideoInformation.overridePlaybackSpeed(roundedSpeed);
+                PlaybackSpeedPatch.userSelectedPlaybackSpeed(roundedSpeed);
+                currentSpeedText.setText(formatSpeedStringX(roundedSpeed, 2)); // Update display.
+                speedSlider.setProgress(speedToProgressValue(roundedSpeed)); // Update slider.
+                return null;
+            };
+
+            // Set listener for slider to update playback speed.
+            speedSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                    if (fromUser) {
+                        // Convert from progress value to video playback speed.
+                        userSelectedSpeed.apply(CustomPlaybackSpeedPatch.getPlaybackSpeedMinimum() + (progress / PROGRESS_BAR_VALUE_SCALE));
+                    }
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                }
+            });
+
+            minusButton.setOnClickListener(v -> userSelectedSpeed.apply(
+                    (float) (VideoInformation.getPlaybackSpeed() - SPEED_ADJUSTMENT_CHANGE)));
+            plusButton.setOnClickListener(v -> userSelectedSpeed.apply(
+                    (float) (VideoInformation.getPlaybackSpeed() + SPEED_ADJUSTMENT_CHANGE)));
+
+            // Create GridLayout for preset speed buttons.
+            GridLayout gridLayout = new GridLayout(context);
+            gridLayout.setColumnCount(5); // 5 columns for speed buttons.
+            gridLayout.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
+            gridLayout.setRowCount((int) Math.ceil(CustomPlaybackSpeedPatch.getLength() / 5.0));
+            LinearLayout.LayoutParams gridParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            gridParams.setMargins(dip4, dip12, dip4, dip12); // Speed buttons container.
+            gridLayout.setLayoutParams(gridParams);
+
+            // For button use 1 digit minimum.
+            speedFormatter.setMinimumFractionDigits(1);
+
+            // Add buttons for each preset playback speed.
+            for (float speed : CustomPlaybackSpeedPatch.getPlaybackSpeeds()) {
+                // Container for button and optional label.
+                FrameLayout buttonContainer = new FrameLayout(context);
+
+                // Set layout parameters for each grid cell.
+                GridLayout.LayoutParams containerParams = new GridLayout.LayoutParams();
+                containerParams.width = 0; // Equal width for columns.
+                containerParams.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f);
+                containerParams.setMargins(dip4, 0, dip4, 0); // Button margins.
+                containerParams.height = dip60; // Fixed height for button and label.
+                buttonContainer.setLayoutParams(containerParams);
+
+                // Create speed button.
+                Button speedButton = new Button(context, null, 0);
+                speedButton.setText(speedFormatter.format(speed));
+                speedButton.setTextColor(ThemeUtils.getAppForegroundColor());
+                speedButton.setTextSize(12);
+                speedButton.setAllCaps(false);
+                speedButton.setGravity(Gravity.CENTER);
+
+                ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(
+                        Utils.createCornerRadii(20), null, null));
+                buttonBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
+                speedButton.setBackground(buttonBackground);
+                speedButton.setPadding(dip4, dip4, dip4, dip4);
+
+                // Center button vertically and stretch horizontally in container.
+                FrameLayout.LayoutParams buttonParams = new FrameLayout.LayoutParams(
+                        FrameLayout.LayoutParams.MATCH_PARENT, dip32, Gravity.CENTER);
+                speedButton.setLayoutParams(buttonParams);
+
+                // Add speed buttons view to buttons container layout.
+                buttonContainer.addView(speedButton);
+
+                // Add "Normal" label for 1.0x speed.
+                if (speed == 1.0f) {
+                    TextView normalLabel = new TextView(context);
+                    // Use same 'Normal' string as stock YouTube.
+                    normalLabel.setText(str("revanced_playback_speed_normal"));
+                    normalLabel.setTextColor(ThemeUtils.getAppForegroundColor());
+                    normalLabel.setTextSize(10);
+                    normalLabel.setGravity(Gravity.CENTER);
+
+                    FrameLayout.LayoutParams labelParams = new FrameLayout.LayoutParams(
+                            FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT,
+                            Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
+                    labelParams.bottomMargin = 0; // Position label below button.
+                    normalLabel.setLayoutParams(labelParams);
+
+                    buttonContainer.addView(normalLabel);
+                }
+
+                speedButton.setOnClickListener(v -> userSelectedSpeed.apply(speed));
+
+                gridLayout.addView(buttonContainer);
             }
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
+            // Restore 2 digit minimum.
+            speedFormatter.setMinimumFractionDigits(2);
 
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
+            // Add in-rows speed buttons layout to main layout.
+            mainLayout.addView(gridLayout);
 
-        minusButton.setOnClickListener(v -> userSelectedSpeed.apply(
-                (float) (VideoInformation.getPlaybackSpeed() - SPEED_ADJUSTMENT_CHANGE)));
-        plusButton.setOnClickListener(v -> userSelectedSpeed.apply(
-                (float) (VideoInformation.getPlaybackSpeed() + SPEED_ADJUSTMENT_CHANGE)));
-
-        // Create GridLayout for preset speed buttons.
-        GridLayout gridLayout = new GridLayout(context);
-        gridLayout.setColumnCount(5); // 5 columns for speed buttons.
-        gridLayout.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
-        gridLayout.setRowCount((int) Math.ceil(CustomPlaybackSpeedPatch.getLength() / 5.0));
-        LinearLayout.LayoutParams gridParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        gridParams.setMargins(0, 0, 0, 0); // No margins around GridLayout.
-        gridLayout.setLayoutParams(gridParams);
-
-        // For all buttons show at least 1 zero in decimal (2 -> "2.0").
-        speedFormatter.setMinimumFractionDigits(1);
-
-        // Add buttons for each preset playback speed.
-        for (float speed : CustomPlaybackSpeedPatch.getPlaybackSpeeds()) {
-            // Container for button and optional label.
-            FrameLayout buttonContainer = new FrameLayout(context);
-
-            // Set layout parameters for each grid cell.
-            GridLayout.LayoutParams containerParams = new GridLayout.LayoutParams();
-            containerParams.width = 0; // Equal width for columns.
-            containerParams.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f);
-            containerParams.setMargins(dip5, 0, dip5, 0); // Button margins.
-            containerParams.height = dip60; // Fixed height for button and label.
-            buttonContainer.setLayoutParams(containerParams);
-
-            // Create speed button.
-            Button speedButton = new Button(context, null, 0);
-            speedButton.setText(speedFormatter.format(speed)); // Do not use 'x' speed format.
-            speedButton.setTextColor(ThemeUtils.getAppForegroundColor());
-            speedButton.setTextSize(12);
-            speedButton.setAllCaps(false);
-            speedButton.setGravity(Gravity.CENTER);
-
-            ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(
-                    Utils.createCornerRadii(20), null, null));
-            buttonBackground.getPaint().setColor(ThemeUtils.getAdjustedBackgroundColor(false));
-            speedButton.setBackground(buttonBackground);
-            speedButton.setPadding(dip5, dip5, dip5, dip5);
-
-            // Center button vertically and stretch horizontally in container.
-            FrameLayout.LayoutParams buttonParams = new FrameLayout.LayoutParams(
-                    FrameLayout.LayoutParams.MATCH_PARENT, dip32, Gravity.CENTER);
-            speedButton.setLayoutParams(buttonParams);
-
-            // Add speed buttons view to buttons container layout.
-            buttonContainer.addView(speedButton);
-
-            // Add "Normal" label for 1.0x speed.
-            if (speed == 1.0f) {
-                TextView normalLabel = new TextView(context);
-                // Use same 'Normal' string as stock YouTube.
-                normalLabel.setText(str("revanced_playback_speed_normal"));
-                normalLabel.setTextColor(ThemeUtils.getAppForegroundColor());
-                normalLabel.setTextSize(10);
-                normalLabel.setGravity(Gravity.CENTER);
-
-                FrameLayout.LayoutParams labelParams = new FrameLayout.LayoutParams(
-                        FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT,
-                        Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
-                labelParams.bottomMargin = 0; // Position label below button.
-                normalLabel.setLayoutParams(labelParams);
-
-                buttonContainer.addView(normalLabel);
-            }
-
-            speedButton.setOnClickListener(v -> userSelectedSpeed.apply(speed));
-
-            gridLayout.addView(buttonContainer);
+            ExtendedUtils.showBottomSheetDialog(context, mainLayout);
+        } catch (Exception ex) {
+            Logger.printException(() -> "showCustomModernPlaybackSpeedDialog failure", ex);
         }
+    }
 
-        // Add in-rows speed buttons layout to main layout.
-        mainLayout.addView(gridLayout);
-
-        ExtendedUtils.showBottomSheetDialog(context, mainLayout);
+    /**
+     * Creates a styled button with a plus or minus symbol.
+     *
+     * @param context The Android context used to create the button.
+     * @param isPlus  True to display a plus symbol, false to display a minus symbol.
+     * @param marginStart The start margin in pixels (left for LTR, right for RTL).
+     * @param marginEnd The end margin in pixels (right for LTR, left for RTL).
+     * @return A configured {@link Button} with the specified styling and layout parameters.
+     */
+    private static Button createStyledButton(Context context, boolean isPlus, int marginStart, int marginEnd) {
+        Button button = new Button(context, null, 0); // Disable default theme style.
+        button.setText(""); // No text on button.
+        ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
+                Utils.createCornerRadii(20), null, null));
+        background.getPaint().setColor(getAdjustedBackgroundColor(false));
+        button.setBackground(background);
+        button.setForeground(new OutlineSymbolDrawable(isPlus)); // Plus or minus symbol.
+        final int dip36 = dipToPixels(36);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(dip36, dip36);
+        params.setMargins(marginStart, 0, marginEnd, 0); // Set margins.
+        button.setLayoutParams(params);
+        return button;
     }
 
     /**
      * @param speed The playback speed value to format.
      * @return A string representation of the speed with 'x' (e.g. "1.25x" or "1.00x").
      */
-    private static String formatSpeedStringX(float speed, int minimumFractionDigits) {
+    private static String formatSpeedStringX(float speed) {
+        return speedFormatter.format(speed) + 'x';
+    }
+
+    /**
+     * @param speed The playback speed value to format.
+     * @return A string representation of the speed with 'x' (e.g. "1.25x" or "1.00x").
+     */
+    public static String formatSpeedStringX(float speed, int minimumFractionDigits) {
         speedFormatter.setMinimumFractionDigits(minimumFractionDigits);
         return speedFormatter.format(speed) + 'x';
     }

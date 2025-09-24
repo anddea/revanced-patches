@@ -185,6 +185,9 @@
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Автоматичното превключване на миксирани плейлисти е изключено.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">Деактивирайте превключването на микс плейлисти</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Активирането на тази функция ще деактивира автоматичното превключване към YouTube Mix при възпроизвеждане на музика, докато автоматичното пускане е включено.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">Двойното докосване може понякога да предизвика пропускане до следваща/предишна глава</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">Двойното докосване никога не може да предизвика пропускане до следваща/предишна глава</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Деактивиране на пропускане на глава с двойно докосване</string>
     <string name="revanced_disable_default_playback_speed_music_off">Скоростта на възпроизвеждане по подразбиране е активирана за музика.</string>
     <string name="revanced_disable_default_playback_speed_music_on">Скоростта на възпроизвеждане по подразбиране е деактивирана за музика.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Деактивирайте скоростта на възпроизвеждане за музика</string>
@@ -359,39 +362,33 @@
     <string name="revanced_expand_video_description_summary_off">Описанието на видеоклипа не се отваря автоматично.</string>
     <string name="revanced_expand_video_description_summary_on">Описанието на видеоклипа се отваря автоматично.</string>
     <string name="revanced_expand_video_description_title">Автоматично отваряне на видео описание</string>
-    <string name="revanced_extended_confirm_user_dialog_title">Желаете ли да продължите?</string>
-    <string name="revanced_extended_reset_to_default_toast">Възстановяване на стандартните стойности.</string>
-    <string name="revanced_extended_restart_dialog_message">Рестартирайте приложението, за да влязат в сила тези промени.</string>
     <string name="revanced_extended_restart_first_run">Рестартирайте, за да заредите оформлението нормално</string>
-    <string name="revanced_extended_restart_message">Опреснете и рестартирайте</string>
-    <string name="revanced_extended_settings_color_invalid">Невалиден цвят.</string>
     <string name="revanced_extended_settings_export_failed">Неуспешно експортиране на настройките.</string>
     <string name="revanced_extended_settings_export_success">Настройките са експортирани успешно.</string>
     <string name="revanced_extended_settings_export_summary">Експортирайте настройките във файл.</string>
     <string name="revanced_extended_settings_export_title">Експорт на настройки</string>
     <string name="revanced_extended_settings_import">Внасяне на настройки</string>
-    <string name="revanced_extended_settings_import_copy">Копирай</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">Импортирайте или експортирайте настройки като текст.</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">Импортирайте / Експортирайте настройки в текст</string>
-    <string name="revanced_extended_settings_import_failed">Неуспешно импортиране на настройките.</string>
     <string name="revanced_extended_settings_import_reset">Настройките се нулират до стойностите по подразбиране.</string>
-    <string name="revanced_extended_settings_import_success">Настройките са импортирани успешно.</string>
     <string name="revanced_extended_settings_import_summary">Импортиране на настройки от файл.</string>
     <string name="revanced_extended_settings_import_title">Внасяне на настройки</string>
-    <string name="revanced_extended_settings_reset">Нулирай</string>
-    <string name="revanced_extended_settings_reset_color">Нулиране на цвят</string>
-    <string name="revanced_extended_settings_search_title">Търсене %s</string>
     <string name="revanced_extended_settings_title">Настройки ReVanced</string>
     <string name="revanced_external_downloader_dialog_title">Външна програма за изтегляне</string>
+    <string name="revanced_external_downloader_empty_warning">Името на пакета не може да бъде празно</string>
+    <string name="revanced_external_downloader_not_found_title">Приложението не е инсталирано</string>
     <string name="revanced_external_downloader_not_installed">Не е инсталирано</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не е инсталиран.
 Моля, изтеглете %2$s от уебсайта."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Внимание</string>
     <string name="revanced_external_downloader_not_installed_warning">%s не е инсталирано. Моля инсталирайте го.</string>
+    <string name="revanced_external_downloader_other_item">Други</string>
+    <string name="revanced_external_downloader_other_item_hint">Въведете името на пакета</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Име на пакета на приложението за изтегляне като NewPipe или YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Име на приложението за изтегляне</string>
     <string name="revanced_external_downloader_package_name_video_summary">Име на пакета на приложението за изтегляне като NewPipe или YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Име на приложението за изтегляне на видео</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"Не може да бъде намерено инсталирано приложение с име на пакет: %s
+
+Проверете дали името на пакета е правилно и приложението е инсталирано"</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Разделен с нов ред списък с имена на раздели, на страници, на канали за филтриране.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Промяна на филтъра на менюто на акаунта</string>
     <string name="revanced_hide_account_menu_summary">"Скриване на елементи от менюто на акаунта и раздела \"Вие\".
@@ -466,6 +463,9 @@
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Бутоните за клеймо за време и емотикони се показват.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Бутоните за клеймо за време и емотикони са скрити.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Скриване на инструмента за избор на емоджи и клеймо за време</string>
+    <string name="revanced_hide_comments_button_summary_off">Бутонът за коментари е показан</string>
+    <string name="revanced_hide_comments_button_summary_on">Бутонът за коментари е скрит</string>
+    <string name="revanced_hide_comments_button_title">Скрий коментари</string>
     <string name="revanced_hide_comments_by_members_summary_off">Банера за коментари от членове се показва.</string>
     <string name="revanced_hide_comments_by_members_summary_on">Банера за коментари от членове е скрит.</string>
     <string name="revanced_hide_comments_by_members_title">Скриване на банер за коментари от членове</string>
@@ -821,8 +821,8 @@
     <string name="revanced_hide_search_term_thumbnail_summary_off">Показват се миниатюри в историята на търсене.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Миниатюрите в историята на търсене са скрити.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Подсказки, миниатюри на думи за търсене</string>
-    <string name="revanced_hide_seek_message_summary_off">Съобщението при превъртане се показва.</string>
-    <string name="revanced_hide_seek_message_summary_on">Съобщението при превъртане е скрито.</string>
+    <string name="revanced_hide_seek_message_summary_off">"Съобщението при превъртане се показва."</string>
+    <string name="revanced_hide_seek_message_summary_on">"Съобщението при превъртане е скрито."</string>
     <string name="revanced_hide_seek_message_title">Скриване на съобщение при превъртане</string>
     <string name="revanced_hide_seek_undo_message_summary_off">Съобщение при пренавиване се показва.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Съобщение при пренавиване е скрито.</string>
@@ -1481,7 +1481,6 @@
     <string name="revanced_sb_color_changed">Цветът е променен</string>
     <string name="revanced_sb_color_dot_label">Цвят:</string>
     <string name="revanced_sb_color_invalid">Невалидна стойност за цвета</string>
-    <string name="revanced_sb_color_opacity_label">Непрозрачност:</string>
     <string name="revanced_sb_color_reset">Цветът е възстановен</string>
     <string name="revanced_sb_create_segment_category">Създаване на нови части</string>
     <string name="revanced_sb_diff_segments">Промени поведението на сигмента</string>
@@ -1656,6 +1655,9 @@
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock временно не работи.</string>
     <string name="revanced_sb_submit_failed_unknown_error">Не могат да се изпратят сигменти: (статус:%1$d %2$s).</string>
     <string name="revanced_sb_submit_succeeded">Частта е изпратена успешно.</string>
+    <string name="revanced_sb_toast_on_connection_error">Показване на известие, ако API не е наличен</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">Показва се известие, ако SponsorBlock не е наличен</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">Показва се известие, ако SponsorBlock не е наличен</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Не се показва известие, ако Api на SponsorBlock не е наличен.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Показва се известие, ако Api на SponsorBlock не е наличен.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Показване на известие, ако API не е наличен</string>
@@ -1667,7 +1669,30 @@
     <string name="revanced_sb_vote_no_segments">Няма сегменти, за които да гласувате.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s до %2$s</string>
     <string name="revanced_sb_vote_upvote">Положителен вот</string>
+    <string name="revanced_settings_color_invalid">Невалиден цвят</string>
+    <string name="revanced_settings_import">Импортиране</string>
+    <string name="revanced_settings_import_copy">Копирай</string>
+    <string name="revanced_settings_import_reset">Настройките на ReVanced бяха нулирани</string>
+    <string name="revanced_settings_import_success">Следните настройки бяха импортирани успешно: %d</string>
+    <string name="revanced_settings_reset">Възстанови</string>
+    <string name="revanced_settings_reset_color">Нулиране на цвета</string>
+    <string name="revanced_settings_search_clear_history">Изчистване на историята на търсенията</string>
+    <string name="revanced_settings_search_clear_history_message">Сигурни ли сте, че искате да изчистите цялата история на търсенията?</string>
+    <string name="revanced_settings_search_empty_history_summary">За да запазите историята на търсене, въведете заявка за търсене и натиснете Enter</string>
+    <string name="revanced_settings_search_empty_history_title">Историята на търсене е празна</string>
+    <string name="revanced_settings_search_history_summary_off">Историята на търсенията в настройките не се показва</string>
+    <string name="revanced_settings_search_history_summary_on">Историята на търсенията в настройките е показана</string>
     <string name="revanced_settings_search_history_title">Показване на историята на търсенията в настройките</string>
+    <string name="revanced_settings_search_no_results_summary">Опитайте друга ключова дума</string>
+    <string name="revanced_settings_search_no_results_title">Няма намерени резултати за \",%s\"</string>
+    <string name="revanced_settings_search_recent_searches">Скорошни търсения</string>
+    <string name="revanced_settings_search_remove_message">Премахване от историята на търсенията?</string>
+    <string name="revanced_settings_search_tips_summary">"• Докоснете път, за да отидете до него
+• Натиснете продължително настройка, за да отидете до нея
+• Натиснете Enter, за да запазите заявка за търсене в историята
+• Търсенето не отчита главни/малки букви и препинателни знаци
+• Родителските настройки се появяват над деактивираните дъщерни настройки"</string>
+    <string name="revanced_settings_search_tips_title">Съвети за търсене</string>
     <string name="revanced_share_copy_settings_success">Настройките са копирани в клипборда.</string>
     <string name="revanced_share_copy_timestamp_success">Времевата отметка е копирана в клипборда. (%s)</string>
     <string name="revanced_share_copy_url_success">Връзката е копирана в клипборда.</string>
@@ -1836,7 +1861,6 @@ AVC има максимална разделителна способност о
     <string name="revanced_theme_default">По подразбиране</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Внимание</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s не е инсталирано. Моля инсталирайте го.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Името на пакета с инсталиран RVX Music.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Име на пакета RVX Music</string>
     <string name="revanced_watch_history_about_status_blocked">• Хронологията на гледане е блокирана.</string>

@@ -151,22 +151,13 @@
     <string name="revanced_enable_zen_mode_podcast_title">Увімкнути режим \"Дзен\" у подкастах</string>
     <string name="revanced_enable_zen_mode_summary">Вмикає світло-сірий колір фону плеєра, щоб зменшити навантаження на очі.</string>
     <string name="revanced_enable_zen_mode_title">Увімкнути режим \"Дзен\"</string>
-    <string name="revanced_extended_reset_to_default_toast">Скинуто до значень за замовчуванням.</string>
     <string name="revanced_extended_restart_first_run">Перезапустіть, щоб нормально завантажився макет</string>
-    <string name="revanced_extended_restart_message">Оновити та перезавантажити?</string>
-    <string name="revanced_extended_settings_export_as_file">Експорт налаштувань у файл</string>
     <string name="revanced_extended_settings_export_failed">Не вдалося експортувати налаштування.</string>
     <string name="revanced_extended_settings_export_success">Налаштування було вдало експортовано.</string>
     <string name="revanced_extended_settings_import">Імпортувати</string>
-    <string name="revanced_extended_settings_import_as_file">Імпорт налаштувань із файлу</string>
-    <string name="revanced_extended_settings_import_copy">Копіювати</string>
-    <string name="revanced_extended_settings_import_export_as_text">Імпорт або експорт налаштувань у вигляді тексту</string>
     <string name="revanced_extended_settings_import_export_summary">Імпортує або експортує налаштування RVX Music.</string>
     <string name="revanced_extended_settings_import_export_title">Імпорт / Експорт налаштувань</string>
-    <string name="revanced_extended_settings_import_failed">Не вдалося імпортувати налаштування: %s.</string>
     <string name="revanced_extended_settings_import_reset">Налаштування скинуто до стандартних.</string>
-    <string name="revanced_extended_settings_import_success">Налаштування в кількості: %d успішно відновлено</string>
-    <string name="revanced_extended_settings_reset">Скинути</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Кнопка \"Завантажити\" відкриває ваш зовнішній завантажувач.
 
@@ -381,6 +372,9 @@
     <string name="revanced_replace_navigation_samples_button_title">Заміна кнопки \"Семпли\"</string>
     <string name="revanced_replace_navigation_upgrade_button_summary">Замінює кнопку \"Оновити\" на кнопку \"Налаштування\".</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Заміна кнопки \"Оновити\"</string>
+    <string name="revanced_reset_to_default_toast">Скинуто до значень за замовчуванням.</string>
+    <string name="revanced_restart_first_run">Перезапустіть, щоб нормально завантажився макет</string>
+    <string name="revanced_restart_message">Оновити та перезавантажити?</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Відновлює старий стиль спливаючих панелей коментарів.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Відновити старі спливаючі панелі коментарів</string>
     <string name="revanced_restore_old_player_background_summary">Відновлює фон плеєра до старого стилю.</string>
@@ -445,6 +439,8 @@
     <string name="revanced_sb_reset_color">Скинути колір</string>
     <string name="revanced_sb_segments_filler">Дотичне наповнення / Жарти</string>
     <string name="revanced_sb_segments_filler_sum">Дотичні сцени, додані лише для наповнення або гумору, які не є необхідними для розуміння основного змісту відео. Не включає сегменти, що надають контекст або фонові деталі.</string>
+    <string name="revanced_sb_segments_hook">Хук / Привітання</string>
+    <string name="revanced_sb_segments_hook_sum">Озвучені трейлери до майбутнього відео, вітання та прощання. Не містить розділів із додатковим контентом.</string>
     <string name="revanced_sb_segments_interaction">Нагадування про взаємодію (Підписка)</string>
     <string name="revanced_sb_segments_interaction_sum">Коротке нагадування про вподобання, підписку або підписку посеред контенту. Якщо воно довге або про щось конкретне, його слід розмістити в розділі самореклами.</string>
     <string name="revanced_sb_segments_intro">Пауза / Вступна Анімація</string>
@@ -462,6 +458,7 @@
     <string name="revanced_sb_skip_automatically">Пропустити автоматично</string>
     <string name="revanced_sb_skip_ignore">Вимкнути</string>
     <string name="revanced_sb_skipped_filler">Пропущено наповнювач.</string>
+    <string name="revanced_sb_skipped_hook">Пропущено хук.</string>
     <string name="revanced_sb_skipped_interaction">Пропущено дратівливе нагадування.</string>
     <string name="revanced_sb_skipped_intro_beginning">Пропущено вступ.</string>
     <string name="revanced_sb_skipped_intro_end">Пропущено паузу.</string>
@@ -481,6 +478,20 @@
     <string name="revanced_sb_toast_on_connection_error_sum">Показує тост, якщо API SponsorBlock не доступний.</string>
     <string name="revanced_sb_toast_on_skip">Показати тост, коли сегмент пропущено автоматично</string>
     <string name="revanced_sb_toast_on_skip_sum">Показує тост, коли сегмент автоматично пропущено.</string>
+    <string name="revanced_settings_export_as_file">Експорт налаштувань у файл</string>
+    <string name="revanced_settings_export_failed">Не вдалося експортувати налаштування.</string>
+    <string name="revanced_settings_export_success">Налаштування було вдало експортовано.</string>
+    <string name="revanced_settings_import">Імпортувати</string>
+    <string name="revanced_settings_import_as_file">Імпорт налаштувань із файлу</string>
+    <string name="revanced_settings_import_copy">Копіювати</string>
+    <string name="revanced_settings_import_export_as_text">Імпорт або експорт налаштувань у вигляді тексту</string>
+    <string name="revanced_settings_import_export_summary">Імпортує або Експортує налаштування RVX Music.</string>
+    <string name="revanced_settings_import_export_title">Імпорт / Експорт налаштувань</string>
+    <string name="revanced_settings_import_failed">Не вдалося імпортувати налаштування: %s.</string>
+    <string name="revanced_settings_import_reset">Налаштування скинуто до стандартних.</string>
+    <string name="revanced_settings_import_success">Налаштування в кількості: %d успішно відновлено.</string>
+    <string name="revanced_settings_reset">Скинути</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Налаштування скопійовано до буфера обміну.</string>
     <string name="revanced_spoof_app_version_summary">"Підміняє версію клієнта на старішу версію.
 
@@ -510,11 +521,19 @@
 Побічний ефект:
 • Іноді субтитри розташовані у верхній частині плеєра, а не внизу."</string>
     <string name="revanced_spoof_player_parameter_title">Підмінити параметр плеєра</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_mweb">Мобільний веб</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">ТБ</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Просте ТБ</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
+    <string name="revanced_spoof_streaming_data_default_client_summary">Визначає клієнт за замовчуванням для підробки.</string>
+    <string name="revanced_spoof_streaming_data_default_client_title">Клієнт за замовчуванням</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показує клієнт, який використовується для отримання потокових даних у \"Статистиці для сисадмінів\".</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
-    <string name="revanced_spoof_streaming_data_summary">"Підробити потокові дані, щоб запобігти проблемам із відтворенням.
+    <string name="revanced_spoof_streaming_data_summary">"Підміняє клієнтські відеопотоки, щоб запобігти відтворенню проблем.
 
-※ Під час використання разом з \"Підміною клієнта\" можуть виникнути проблеми з відтворенням."</string>
+Якщо ви користувач YouTube Premium, цей параметр може бути не потрібен."</string>
     <string name="revanced_spoof_streaming_data_title">Підробка потокових даних</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>

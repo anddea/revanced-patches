@@ -127,6 +127,36 @@ internal val crowdfundingBoxFingerprint = legacyFingerprint(
     literals = listOf(donationCompanion),
 )
 
+internal val doubleTapInfoConstructorFingerprint = legacyFingerprint(
+    name = "doubleTapInfoConstructorFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    parameters = listOf(
+        "Landroid/view/MotionEvent;",
+        "I",
+        "Z",
+        "Lj\$/time/Duration;"
+    )
+)
+
+internal val doubleTapInfoFloatFingerprint = legacyFingerprint(
+    name = "doubleTapInfoFloatFingerprint",
+    returnType = "I",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = listOf("I", "I", "Z"),
+    literals = listOf(1051372203L, 2.0f.toRawBits().toLong())
+)
+
+internal val doubleTapInfoGetSeekSourceFingerprint = legacyFingerprint(
+    name = "doubleTapInfoGetSeekSourceFingerprint",
+    returnType = "L",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Z"),
+    opcodes = listOf(
+        Opcode.IF_EQZ,
+        Opcode.SGET_OBJECT,
+    )
+)
+
 /**
  * ~ YouTube 20.11
  */

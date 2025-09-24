@@ -229,21 +229,18 @@ public class Utils {
         boolean matches(T object);
     }
 
-    public static <R extends View> R getChildView(@NonNull Activity activity, @NonNull String str) {
-        final View decorView = activity.getWindow().getDecorView();
-        return getChildView(decorView, str);
+    /**
+     * Includes sub children.
+     */
+    public static <R extends View> R getChildViewByResourceName(View view, String str) {
+        var child = view.findViewById(ResourceUtils.getIdIdentifier(str));
+        //noinspection unchecked
+        return (R) child;
     }
 
-    /**
-     * @noinspection unchecked
-     */
-    public static <R extends View> R getChildView(@NonNull View view, @NonNull String str) {
-        view = view.findViewById(ResourceUtils.getIdIdentifier(str));
-        if (view != null) {
-            return (R) view;
-        } else {
-            throw new IllegalArgumentException("View with name" + str + " not found");
-        }
+    @Nullable
+    public static <T extends View> T getChildView(ViewGroup viewGroup, MatchFilter<View> filter) {
+        return getChildView(viewGroup, false, filter);
     }
 
     /**
@@ -252,10 +249,11 @@ public class Utils {
      * @return The first child view that matches the filter.
      */
     @Nullable
-    public static <T extends View> T getChildView(@NonNull ViewGroup viewGroup, boolean searchRecursively,
-                                                  @NonNull MatchFilter<View> filter) {
+    public static <T extends View> T getChildView(ViewGroup viewGroup, boolean searchRecursively,
+                                                  MatchFilter<View> filter) {
         for (int i = 0, childCount = viewGroup.getChildCount(); i < childCount; i++) {
             View childAt = viewGroup.getChildAt(i);
+
             if (filter.matches(childAt)) {
                 //noinspection unchecked
                 return (T) childAt;
@@ -266,21 +264,7 @@ public class Utils {
                 if (match != null) return match;
             }
         }
-        return null;
-    }
 
-    /**
-     * @return The first child view that matches the filter.
-     * @noinspection rawtypes, unchecked
-     */
-    @Nullable
-    public static <T extends View> T getChildView(@NonNull ViewGroup viewGroup, @NonNull MatchFilter filter) {
-        for (int i = 0, childCount = viewGroup.getChildCount(); i < childCount; i++) {
-            View childAt = viewGroup.getChildAt(i);
-            if (filter.matches(childAt)) {
-                return (T) childAt;
-            }
-        }
         return null;
     }
 
@@ -483,8 +467,7 @@ public class Utils {
 
     public static int validateColor(StringSetting settings) {
         try {
-            int color = Color.parseColor(settings.get());
-            return 0xBF000000 | color & 0x00FFFFFF;
+            return Color.parseColor(settings.get());
         } catch (IllegalArgumentException ex) {
             // This code should never be reached.
             // Color picker rejects and will not save bad colors to a setting.
@@ -502,7 +485,7 @@ public class Utils {
 
         if (value < min || value > max) {
             showToastShort(str(message));
-            showToastShort(str("revanced_extended_reset_to_default_toast"));
+            showToastShort(str("revanced_reset_to_default_toast"));
             settings.resetToDefault();
             value = settings.defaultValue;
         }
@@ -515,78 +498,12 @@ public class Utils {
 
         if (value < min || value > max) {
             showToastShort(str(message));
-            showToastShort(str("revanced_extended_reset_to_default_toast"));
+            showToastShort(str("revanced_reset_to_default_toast"));
             settings.resetToDefault();
             value = settings.defaultValue;
         }
 
         return value;
-    }
-
-    public static void setEditTextDialogTheme(final AlertDialog.Builder builder) {
-        setEditTextDialogTheme(builder, false);
-    }
-
-    /**
-     * No video id in these parameters.
-     */
-    private static final String[] PATH_NO_VIDEO_ID = {
-            "ad_break",         // This request fetches a list of times when ads can be displayed.
-            "get_drm_license",  // Waiting for a paid video to start.
-            "heartbeat",        // This request determines whether to pause playback when the user is AFK.
-            "refresh",          // Waiting for a livestream to start.
-    };
-
-    @Nullable
-    public static String getVideoIdFromRequest(String url) {
-        try {
-            Uri uri = Uri.parse(url);
-            String path = uri.getPath();
-            if (path != null && path.contains("player")) {
-                if (!containsAny(path, PATH_NO_VIDEO_ID)) {
-                    return uri.getQueryParameter("id");
-                } else {
-                    Logger.printDebug(() -> "Ignoring path: " + path);
-                }
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "getVideoIdFromRequest failure", ex);
-        }
-        return "";
-    }
-
-    /**
-     * If {@link Fragment} uses [Android library] rather than [AndroidX library],
-     * the Dialog theme corresponding to [Android library] should be used.
-     * <p>
-     * If not, the following issues will occur:
-     * <a href="https://github.com/ReVanced/revanced-patches/issues/3061">ReVanced/revanced-patches#3061</a>
-     * <p>
-     * To prevent these issues, apply the Dialog theme corresponding to [Android library].
-     *
-     * @param builder  Alertdialog builder to apply theme to.
-     *                 When used in a method containing an override, it must be called before 'super'.
-     * @param maxWidth Whether to use alertdialog as max width.
-     *                 It is used when there is a lot of content to show, such as an import/export dialog.
-     */
-    public static void setEditTextDialogTheme(final AlertDialog.Builder builder, boolean maxWidth) {
-        final String styleIdentifier = maxWidth
-                ? "revanced_edit_text_dialog_max_width_style"
-                : "revanced_edit_text_dialog_style";
-        final int editTextDialogStyle = ResourceUtils.getStyleIdentifier(styleIdentifier);
-        if (editTextDialogStyle != 0) {
-            builder.getContext().setTheme(editTextDialogStyle);
-        }
-    }
-
-    public static AlertDialog.Builder getEditTextDialogBuilder(final Context context) {
-        return getEditTextDialogBuilder(context, false);
-    }
-
-    public static AlertDialog.Builder getEditTextDialogBuilder(final Context context, boolean maxWidth) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        setEditTextDialogTheme(builder, maxWidth);
-        return builder;
     }
 
     @Nullable
@@ -679,351 +596,33 @@ public class Utils {
     }
 
     /**
-     * Creates a custom dialog with a styled layout, including a title, message, buttons, and an
-     * optional EditText. The dialog's appearance adapts to the app's dark mode setting, with
-     * rounded corners and customizable button actions. Buttons adjust dynamically to their text
-     * content and are arranged in a single row if they fit within 80% of the screen width,
-     * with the Neutral button aligned to the left and OK/Cancel buttons centered on the right.
-     * If buttons do not fit, each is placed on a separate row, all aligned to the right.
+     * Configures the parameters of a dialog window, including its width, gravity, vertical offset and background dimming.
+     * The width is calculated as a percentage of the screen's portrait width and the vertical offset is specified in DIP.
+     * The default dialog background is removed to allow for custom styling.
      *
-     * @param context                     Context used to create the dialog.
-     * @param title                       Title text of the dialog.
-     * @param message                     Message text of the dialog (supports Spanned for HTML), or null if replaced by EditText.
-     * @param editText                    EditText to include in the dialog, or null if no EditText is needed.
-     * @param okButtonText                OK button text, or null to use the default "OK" string.
-     * @param onOkClick                   Action to perform when the OK button is clicked.
-     * @param onCancelClick               Action to perform when the Cancel button is clicked, or null if no Cancel button is needed.
-     * @param neutralButtonText           Neutral button text, or null if no Neutral button is needed.
-     * @param onNeutralClick              Action to perform when the Neutral button is clicked, or null if no Neutral button is needed.
-     * @param dismissDialogOnNeutralClick If the dialog should be dismissed when the Neutral button is clicked.
-     * @return The Dialog and its main LinearLayout container.
+     * @param window The {@link Window} object to configure.
+     * @param gravity The gravity for positioning the dialog (e.g., {@link Gravity#BOTTOM}).
+     * @param yOffsetDip The vertical offset from the gravity position in DIP.
+     * @param widthPercentage The width of the dialog as a percentage of the screen's portrait width (0-100).
+     * @param dimAmount If true, sets the background dim amount to 0 (no dimming); if false, leaves the default dim amount.
      */
-    @SuppressWarnings("ExtractMethodRecommender")
-    public static Pair<Dialog, LinearLayout> createCustomDialog(
-            Context context, String title, CharSequence message, @Nullable EditText editText,
-            String okButtonText, Runnable onOkClick, Runnable onCancelClick,
-            @Nullable String neutralButtonText, @Nullable Runnable onNeutralClick,
-            boolean dismissDialogOnNeutralClick
-    ) {
-        Logger.printDebug(() -> "Creating custom dialog with title: " + title);
-
-        Dialog dialog = new Dialog(context);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
-
-        // Preset size constants.
-        final int dip4 = dipToPixels(4);
-        final int dip8 = dipToPixels(8);
-        final int dip16 = dipToPixels(16);
-        final int dip24 = dipToPixels(24);
-
-        // Create main layout.
-        MaxHeightLinearLayout mainLayout = new MaxHeightLinearLayout(context);
-        mainLayout.setOrientation(LinearLayout.VERTICAL);
-        mainLayout.setPadding(dip24, dip16, dip24, dip24);
-        // Set rounded rectangle background.
-        ShapeDrawable mainBackground = new ShapeDrawable(new RoundRectShape(
-                createCornerRadii(28), null, null));
-        mainBackground.getPaint().setColor(getDialogBackgroundColor()); // Dialog background.
-        mainLayout.setBackground(mainBackground);
-
-        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        int maxHeight = (int) (displayMetrics.heightPixels * 0.9);
-        mainLayout.setMaxHeight(maxHeight);
-        mainLayout.setMinimumHeight(0);
-
-        // Title.
-        if (!TextUtils.isEmpty(title)) {
-            TextView titleView = new TextView(context);
-            titleView.setText(title);
-            titleView.setTypeface(Typeface.DEFAULT_BOLD);
-            titleView.setTextSize(18);
-            titleView.setTextColor(getAppForegroundColor());
-            titleView.setGravity(Gravity.CENTER);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-            );
-            layoutParams.setMargins(0, 0, 0, dip16);
-            titleView.setLayoutParams(layoutParams);
-            mainLayout.addView(titleView);
-        }
-
-        // Create content container (message/EditText) inside a ScrollView only if message or editText is provided.
-        ScrollView contentScrollView = null;
-        LinearLayout contentContainer;
-        if (message != null || editText != null) {
-            contentScrollView = new ScrollView(context);
-            contentScrollView.setVerticalScrollBarEnabled(false); // Disable the vertical scrollbar.
-            contentScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER);
-            if (editText != null) {
-                ShapeDrawable scrollViewBackground = new ShapeDrawable(new RoundRectShape(
-                        createCornerRadii(10), null, null));
-                scrollViewBackground.getPaint().setColor(getEditTextBackground());
-                contentScrollView.setPadding(dip8, dip8, dip8, dip8);
-                contentScrollView.setBackground(scrollViewBackground);
-                contentScrollView.setClipToOutline(true);
-            }
-            LinearLayout.LayoutParams contentParams = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    0,
-                    1.0f // Weight to take available space.
-            );
-            contentScrollView.setLayoutParams(contentParams);
-            contentContainer = new LinearLayout(context);
-            contentContainer.setOrientation(LinearLayout.VERTICAL);
-            contentScrollView.addView(contentContainer);
-
-            // Message (if not replaced by EditText).
-            if (editText == null) {
-                TextView messageView = new TextView(context);
-                messageView.setText(message); // Supports Spanned (HTML).
-                messageView.setTextSize(16);
-                messageView.setTextColor(getAppForegroundColor());
-                // Enable HTML link clicking if the message contains links.
-                if (message instanceof Spanned) {
-                    messageView.setMovementMethod(LinkMovementMethod.getInstance());
-                }
-                LinearLayout.LayoutParams messageParams = new LinearLayout.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT
-                );
-                messageView.setLayoutParams(messageParams);
-                contentContainer.addView(messageView);
-            }
-
-            // EditText (if provided).
-            if (editText != null) {
-                // Remove EditText from its current parent, if any.
-                ViewGroup parent = (ViewGroup) editText.getParent();
-                if (parent != null) {
-                    parent.removeView(editText);
-                }
-                // Style the EditText to match the dialog theme.
-                editText.setTextColor(getAppForegroundColor());
-                editText.setBackgroundColor(Color.TRANSPARENT);
-                editText.setPadding(0, 0, 0, 0);
-                LinearLayout.LayoutParams editTextParams = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                );
-                contentContainer.addView(editText, editTextParams);
-            }
-        }
-
-        // Button container.
-        LinearLayout buttonContainer = new LinearLayout(context);
-        buttonContainer.setOrientation(LinearLayout.VERTICAL);
-        buttonContainer.removeAllViews();
-        LinearLayout.LayoutParams buttonContainerParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        buttonContainerParams.setMargins(0, dip16, 0, 0);
-        buttonContainer.setLayoutParams(buttonContainerParams);
-
-        // Lists to track buttons.
-        List<Button> buttons = new ArrayList<>();
-        List<Integer> buttonWidths = new ArrayList<>();
-
-        // Create buttons in order: Neutral, Cancel, OK.
-        if (neutralButtonText != null && onNeutralClick != null) {
-            Button neutralButton = addButton(
-                    context,
-                    neutralButtonText,
-                    onNeutralClick,
-                    false,
-                    dismissDialogOnNeutralClick,
-                    dialog
-            );
-            buttons.add(neutralButton);
-            neutralButton.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-            buttonWidths.add(neutralButton.getMeasuredWidth());
-        }
-
-        if (onCancelClick != null) {
-            Button cancelButton = addButton(
-                    context,
-                    context.getString(android.R.string.cancel),
-                    onCancelClick,
-                    false,
-                    true,
-                    dialog
-            );
-            buttons.add(cancelButton);
-            cancelButton.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-            buttonWidths.add(cancelButton.getMeasuredWidth());
-        }
-
-        if (onOkClick != null) {
-            Button okButton = addButton(
-                    context,
-                    okButtonText != null ? okButtonText : context.getString(android.R.string.ok),
-                    onOkClick,
-                    true,
-                    true,
-                    dialog
-            );
-            buttons.add(okButton);
-            okButton.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-            buttonWidths.add(okButton.getMeasuredWidth());
-        }
-
-        // Handle button layout.
-        int screenWidth = context.getResources().getDisplayMetrics().widthPixels;
-        int totalWidth = 0;
-        for (Integer width : buttonWidths) {
-            totalWidth += width;
-        }
-        if (buttonWidths.size() > 1) {
-            totalWidth += (buttonWidths.size() - 1) * dip8; // Add margins for gaps.
-        }
-
-        if (buttons.size() == 1) {
-            // Single button: stretch to full width.
-            Button singleButton = buttons.get(0);
-            LinearLayout singleContainer = new LinearLayout(context);
-            singleContainer.setOrientation(LinearLayout.HORIZONTAL);
-            singleContainer.setGravity(Gravity.CENTER);
-            ViewGroup parent = (ViewGroup) singleButton.getParent();
-            if (parent != null) {
-                parent.removeView(singleButton);
-            }
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    dipToPixels(36)
-            );
-            params.setMargins(0, 0, 0, 0);
-            singleButton.setLayoutParams(params);
-            singleContainer.addView(singleButton);
-            buttonContainer.addView(singleContainer);
-        } else if (buttons.size() > 1) {
-            // Check if buttons fit in one row.
-            if (totalWidth <= screenWidth * 0.8) {
-                // Single row: Neutral, Cancel, OK.
-                LinearLayout rowContainer = new LinearLayout(context);
-                rowContainer.setOrientation(LinearLayout.HORIZONTAL);
-                rowContainer.setGravity(Gravity.CENTER);
-                rowContainer.setLayoutParams(new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                ));
-
-                // Add all buttons with proportional weights and specific margins.
-                for (int i = 0; i < buttons.size(); i++) {
-                    Button button = buttons.get(i);
-                    ViewGroup parent = (ViewGroup) button.getParent();
-                    if (parent != null) {
-                        parent.removeView(button);
-                    }
-                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                            0,
-                            dipToPixels(36),
-                            buttonWidths.get(i) // Use measured width as weight.
-                    );
-                    // Set margins based on button type and combination.
-                    if (buttons.size() == 2) {
-                        // Neutral + OK or Cancel + OK.
-                        if (i == 0) { // Neutral or Cancel.
-                            params.setMargins(0, 0, dip4, 0);
-                        } else { // OK
-                            params.setMargins(dip4, 0, 0, 0);
-                        }
-                    } else if (buttons.size() == 3) {
-                        if (i == 0) { // Neutral.
-                            params.setMargins(0, 0, dip4, 0);
-                        } else if (i == 1) { // Cancel
-                            params.setMargins(dip4, 0, dip4, 0);
-                        } else { // OK
-                            params.setMargins(dip4, 0, 0, 0);
-                        }
-                    }
-                    button.setLayoutParams(params);
-                    rowContainer.addView(button);
-                }
-                buttonContainer.addView(rowContainer);
-            } else {
-                // Multiple rows: OK, Cancel, Neutral.
-                List<Button> reorderedButtons = new ArrayList<>();
-                // Reorder: OK, Cancel, Neutral.
-                if (onOkClick != null) {
-                    reorderedButtons.add(buttons.get(buttons.size() - 1));
-                }
-                if (onCancelClick != null) {
-                    reorderedButtons.add(buttons.get((neutralButtonText != null && onNeutralClick != null) ? 1 : 0));
-                }
-                if (neutralButtonText != null && onNeutralClick != null) {
-                    reorderedButtons.add(buttons.get(0));
-                }
-
-                // Add each button in its own row with spacers.
-                for (int i = 0; i < reorderedButtons.size(); i++) {
-                    Button button = reorderedButtons.get(i);
-                    LinearLayout singleContainer = new LinearLayout(context);
-                    singleContainer.setOrientation(LinearLayout.HORIZONTAL);
-                    singleContainer.setGravity(Gravity.CENTER);
-                    singleContainer.setLayoutParams(new LinearLayout.LayoutParams(
-                            LinearLayout.LayoutParams.MATCH_PARENT,
-                            dipToPixels(36)
-                    ));
-                    ViewGroup parent = (ViewGroup) button.getParent();
-                    if (parent != null) {
-                        parent.removeView(button);
-                    }
-                    LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(
-                            LinearLayout.LayoutParams.MATCH_PARENT,
-                            dipToPixels(36)
-                    );
-                    buttonParams.setMargins(0, 0, 0, 0);
-                    button.setLayoutParams(buttonParams);
-                    singleContainer.addView(button);
-                    buttonContainer.addView(singleContainer);
-
-                    // Add a spacer between the buttons (except the last one).
-                    // Adding a margin between buttons is not suitable, as it conflicts with the single row layout.
-                    if (i < reorderedButtons.size() - 1) {
-                        View spacer = new View(context);
-                        LinearLayout.LayoutParams spacerParams = new LinearLayout.LayoutParams(
-                                LinearLayout.LayoutParams.MATCH_PARENT,
-                                dipToPixels(8)
-                        );
-                        spacer.setLayoutParams(spacerParams);
-                        buttonContainer.addView(spacer);
-                    }
-                }
-            }
-        }
-
-        // Add ScrollView to main layout only if content exist.
-        if (contentScrollView != null) {
-            mainLayout.addView(contentScrollView);
-        }
-        mainLayout.addView(buttonContainer);
-        dialog.setContentView(mainLayout);
-
-        // Set dialog window attributes.
-        Window window = dialog.getWindow();
-        if (window != null) {
-            setDialogWindowParameters(window);
-        }
-
-        return new Pair<>(dialog, mainLayout);
-    }
-
-    public static void setDialogWindowParameters(Window window) {
+    public static void setDialogWindowParameters(Window window, int gravity, int yOffsetDip, int widthPercentage, boolean dimAmount) {
         WindowManager.LayoutParams params = window.getAttributes();
 
         DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
-        int portraitWidth = (int) (displayMetrics.widthPixels * 0.9);
+        int portraitWidth = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
         int maxHeight = (int) (displayMetrics.heightPixels * 0.9);
 
-        if (Resources.getSystem().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            portraitWidth = (int) Math.min(portraitWidth, displayMetrics.heightPixels * 0.9);
-        }
-        params.width = portraitWidth;
+        params.width = (int) (portraitWidth * (widthPercentage / 100.0f)); // Set width based on parameters.
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        params.gravity = Gravity.CENTER;
-        window.setAttributes(params);
-        window.setBackgroundDrawable(null); // Remove default dialog background.
+        params.gravity = gravity;
+        params.y = yOffsetDip > 0 ? dipToPixels(yOffsetDip) : 0;
+        if (dimAmount) {
+            params.dimAmount = 0f;
+        }
+
+        window.setAttributes(params); // Apply window attributes.
+        window.setBackgroundDrawable(null); // Remove default dialog background
     }
 
     /**
@@ -1101,6 +700,28 @@ public class Utils {
                 dip,
                 getResources(false).getDisplayMetrics()
         );
+    }
+
+    /**
+     * Converts a percentage of the screen height to actual device pixels.
+     *
+     * @param percentage The percentage of the screen height (e.g., 30 for 30%).
+     * @return The device pixel value corresponding to the percentage of screen height.
+     */
+    public static int percentageHeightToPixels(int percentage) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return (int) (metrics.heightPixels * (percentage / 100.0f));
+    }
+
+    /**
+     * Converts a percentage of the screen width to actual device pixels.
+     *
+     * @param percentage The percentage of the screen width (e.g., 30 for 30%).
+     * @return The device pixel value corresponding to the percentage of screen width.
+     */
+    public static int percentageWidthToPixels(int percentage) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return (int) (metrics.widthPixels * (percentage / 100.0f));
     }
 
     /**
@@ -1218,7 +839,13 @@ public class Utils {
         showToast(messageToToast, Toast.LENGTH_LONG);
     }
 
-    private static void showToast(String messageToToast, int toastDuration) {
+    /**
+     * Safe to call from any thread.
+     *
+     * @param messageToToast Message to show.
+     * @param toastDuration Either {@link Toast#LENGTH_SHORT} or {@link Toast#LENGTH_LONG}.
+     */
+    public static void showToast(String messageToToast, int toastDuration) {
         Objects.requireNonNull(messageToToast);
         runOnMainThreadNowOrLater(() -> {
             Context currentContext = context;
@@ -1553,11 +1180,29 @@ public class Utils {
         return context.getResources().getIdentifier(resourceIdentifierName, type, context.getPackageName());
     }
 
+    public static int getResourceIdentifierOrThrow(Context context, String resourceIdentifierName, @Nullable String type) {
+        final int resourceId = getResourceIdentifier(context, resourceIdentifierName, type);
+        if (resourceId == 0) {
+            throw new Resources.NotFoundException("No resource id exists with name: " + resourceIdentifierName
+                    + " type: " + type);
+        }
+        return resourceId;
+    }
+
     /**
      * @return zero, if the resource is not found
      */
     public static int getResourceIdentifier(@NonNull String resourceIdentifierName, @NonNull String type) {
         return getResourceIdentifier(getContext(), resourceIdentifierName, type);
+    }
+
+    public static int getResourceIdentifierOrThrow(String resourceIdentifierName, @Nullable String type) {
+        final int resourceId = getResourceIdentifier(getContext(), resourceIdentifierName, type);
+        if (resourceId == 0) {
+            throw new Resources.NotFoundException("No resource id exists with name: " + resourceIdentifierName
+                    + " type: " + type);
+        }
+        return resourceId;
     }
 
     public static int getResourceColor(@NonNull String resourceIdentifierName) throws Resources.NotFoundException {

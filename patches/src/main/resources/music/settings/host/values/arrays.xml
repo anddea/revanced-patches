@@ -32,10 +32,10 @@
         <item>ON_CLICK</item>
         <item>ON_LONG_CLICK</item>
     </string-array>
-    <string-array name="revanced_extended_settings_import_export_entries">
-        <item>@string/revanced_extended_settings_export_as_file</item>
-        <item>@string/revanced_extended_settings_import_as_file</item>
-        <item>@string/revanced_extended_settings_import_export_as_text</item>
+    <string-array name="revanced_settings_import_export_entries">
+        <item>@string/revanced_settings_export_as_file</item>
+        <item>@string/revanced_settings_import_as_file</item>
+        <item>@string/revanced_settings_import_export_as_text</item>
     </string-array>
     <string-array name="revanced_external_downloader_label">
         <item>NewPipe</item>
@@ -70,12 +70,14 @@
     <string-array name="revanced_spoof_app_version_target_entry_values">
     </string-array>
     <string-array name="revanced_spoof_streaming_data_default_client_entries">
+        <item>@string/revanced_spoof_streaming_data_client_entry_android_creator</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_android_vr</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_mweb</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_tv</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_tv_simply</item>
     </string-array>
     <string-array name="revanced_spoof_streaming_data_default_client_entry_values">
+        <item>ANDROID_CREATOR</item>
         <item>ANDROID_VR</item>
         <item>MWEB</item>
         <item>TV</item>

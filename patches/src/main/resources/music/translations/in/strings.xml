@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Lanjutkan</string>
+    <string name="gms_core_dialog_dismiss_text">Jangan tampilkan lagi</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore tidak memiliki izin untuk berjalan di latar belakang.
 
 Ikuti panduan 'Don't kill my app!' untuk perangkat Anda, dan terapkan petunjuk pada pemasangan GmsCore.
@@ -20,6 +21,7 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
     <string name="revanced_add_miniplayer_next_button_title">Menambahkan tombol berikutnya pemutar mini</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Menambahkan tombol trek sebelumnya ke pemutar mini.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Tambahkan tombol sebelumnya miniplayer</string>
+    <string name="revanced_app_info_dialog_title">Informasi aplikasi </string>
     <string name="revanced_bypass_image_region_restrictions_summary">Mengabaikan domain yang diblokir di beberapa wilayah sehingga thumbnail playlist, avatar saluran, dll. dapat diterima.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Abaikan pembatasan wilayah gambar</string>
     <string name="revanced_change_action_bar_position_summary">Pindahkan bilah tindakan di bawah tombol putar.</string>
@@ -40,7 +42,7 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
     <string name="revanced_change_start_page_entry_history">Riwayat</string>
     <string name="revanced_change_start_page_entry_library">Pustaka</string>
     <string name="revanced_change_start_page_entry_liked_music">Musik yang Disukai</string>
-    <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
+    <string name="revanced_change_start_page_entry_podcasts">Siniar</string>
     <string name="revanced_change_start_page_entry_samples">Sampel</string>
     <string name="revanced_change_start_page_entry_search">Cari</string>
     <string name="revanced_change_start_page_entry_subscription">Berlangganan</string>
@@ -95,6 +97,7 @@ Keterbatasan: Video anak-anak mungkin tidak dapat dialihkan."</string>
     <string name="revanced_disable_player_gesture_title">Nonaktifkan gerakan pemutar</string>
     <string name="revanced_disable_quic_protocol_summary">"Menonaktifkan protokol QUIC CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Nonaktifkan protokol QUIC</string>
+    <string name="revanced_enable_comments_scroll_top_title">Aktifkan gulir ke atas pada komentar </string>
     <string name="revanced_enable_compact_dialog_summary">"Mengaktifkan dialog ringkas di ponsel.
 
 Keterbatasan:
@@ -117,6 +120,7 @@ Info:
 • Klien YouTube Music terbaru menggunakan codec audio OPUS secara default.
 • Ini hanya berlaku untuk pengguna yang memalsukan dengan klien yang sangat lama."</string>
     <string name="revanced_enable_opus_codec_title">Aktifkan codec opus</string>
+    <string name="revanced_enable_smooth_transition_animation_title">Aktifkan animasi transisi halus</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Enables swipe down to dismiss miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Enable swipe to dismiss miniplayer</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Mengaktifkan gesek ke bawah untuk menutup pemutar mini.</string>
@@ -129,22 +133,13 @@ Keterbatasan: Segmen SponsorBlock tidak ditampilkan di seekbar."</string>
     <string name="revanced_enable_zen_mode_podcast_title">Aktifkan mode Zen di podcast</string>
     <string name="revanced_enable_zen_mode_summary">Mengaktifkan warna abu-abu muda untuk latar belakang pemutar untuk mengurangi kelelahan mata.</string>
     <string name="revanced_enable_zen_mode_title">Aktifkan mode Zen</string>
-    <string name="revanced_extended_reset_to_default_toast">Atur ulang ke nilai default.</string>
     <string name="revanced_extended_restart_first_run">Mulai ulang untuk memuat tata letak secara normal</string>
-    <string name="revanced_extended_restart_message">Segarkan dan mulai ulang</string>
-    <string name="revanced_extended_settings_export_as_file">Ekspor pengaturan ke berkas</string>
     <string name="revanced_extended_settings_export_failed">Gagal mengekspor pengaturan.</string>
     <string name="revanced_extended_settings_export_success">Pengaturan berhasil diekspor.</string>
     <string name="revanced_extended_settings_import">Impor</string>
-    <string name="revanced_extended_settings_import_as_file">Impor pengaturan dari berkas</string>
-    <string name="revanced_extended_settings_import_copy">Salin</string>
-    <string name="revanced_extended_settings_import_export_as_text">Impor / Ekspor pengaturan sebagai teks</string>
     <string name="revanced_extended_settings_import_export_summary">Impor / Ekspor pengaturan Musik RVX.</string>
     <string name="revanced_extended_settings_import_export_title">Ekspor / Impor</string>
-    <string name="revanced_extended_settings_import_failed">Impor gagal: %s.</string>
     <string name="revanced_extended_settings_import_reset">Pengaturan diatur ulang ke bawaan.</string>
-    <string name="revanced_extended_settings_import_success">Setelan %d diimpor.</string>
-    <string name="revanced_extended_settings_reset">Atur ulang</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Tombol Unduh membuka pengunduh eksternal Anda
 
@@ -211,7 +206,7 @@ Harap unduh %2$s dari website."</string>
     <string name="revanced_hide_flyout_menu_go_to_album_title">Sembunyikan menu Pergi ke album</string>
     <string name="revanced_hide_flyout_menu_go_to_artist_title">Sembunyikan menu Pergi ke artis</string>
     <string name="revanced_hide_flyout_menu_go_to_episode_title">Sembunyikan menu Pergi ke episode</string>
-    <string name="revanced_hide_flyout_menu_go_to_podcast_title">Sembunyikan menu Pergi ke podcast</string>
+    <string name="revanced_hide_flyout_menu_go_to_podcast_title">Sembunyikan menu Pergi ke siniar</string>
     <string name="revanced_hide_flyout_menu_help_title">Sembunyikan menu Bantuan &amp; saran</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Sembunyikan tombol Suka dan Tidak suka</string>
     <string name="revanced_hide_flyout_menu_not_interested_title">Sembunyikan menu Tidak tertarik</string>
@@ -245,6 +240,8 @@ Keterbatasan:
     <string name="revanced_hide_handle_title">Sembunyikan handle</string>
     <string name="revanced_hide_history_button_summary">Menyembunyikan Rombol riwayat di toolbar.</string>
     <string name="revanced_hide_history_button_title">Sembunyikan tombol Riwayat</string>
+    <string name="revanced_hide_lyrics_share_button_summary">Sembunyikan tombol bagi pada lirik</string>
+    <string name="revanced_hide_lyrics_share_button_title">Sembunyikan tombol bagi </string>
     <string name="revanced_hide_music_ads_summary">Menyembunyikan iklan sebelum memutar musik.</string>
     <string name="revanced_hide_music_ads_title">Sembunyikan iklan media</string>
     <string name="revanced_hide_navigation_bar_summary">Menyembunyikan bilah navigasi.</string>
@@ -478,6 +475,8 @@ Klik untuk melihat cara menerbitkan kunci API."</string>
 Efek samping:
 • Terkadang subtitel terletak di bagian atas pemutar, bukan di bagian bawah."</string>
     <string name="revanced_spoof_player_parameter_title">Palsukan parameter pemutar</string>
+    <string name="revanced_spoof_streaming_data_title">Palsukan data streaming </string>
+    <string name="revanced_spoof_video_streams_title">Palsukan stream video</string>
     <string name="revanced_watch_history_type_entry_1">Asli</string>
     <string name="revanced_watch_history_type_entry_2">Ganti domain</string>
     <string name="revanced_watch_history_type_entry_3">Blokir riwayat tontonan</string>

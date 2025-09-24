@@ -148,7 +148,6 @@
     <string name="revanced_change_youtube_header_summary_off">默认标题已启用</string>
     <string name="revanced_change_youtube_header_summary_on">高级标题已启用</string>
     <string name="revanced_change_youtube_header_title">更改 YouTube 标题</string>
-    <string name="revanced_color_invalid_toast">颜色无效</string>
     <string name="revanced_copy">复制</string>
     <string name="revanced_copy_error">复制文本失败</string>
     <string name="revanced_custom_filter_strings_summary">按行分隔的名称筛选组件</string>
@@ -221,6 +220,9 @@
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">自动切换混合播放列表已禁用</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">禁用切换混合播放列表</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">启用此功能将禁止在自动播放音乐时自动切换到 YouTube Mix</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">双击偶尔会触发跳到下一/上一章节</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">双击永远不会触发跳到下一/上一章节</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">禁用双击章节跳过</string>
     <string name="revanced_disable_default_playback_speed_music_off">音乐默认播放速度已启用</string>
     <string name="revanced_disable_default_playback_speed_music_on">"音乐默认播放速度已禁用
 
@@ -414,38 +416,35 @@
     <string name="revanced_expand_video_description_summary_off">手动展开视频描述</string>
     <string name="revanced_expand_video_description_summary_on">自动展开视频描述</string>
     <string name="revanced_expand_video_description_title">自动展开视频描述</string>
-    <string name="revanced_extended_confirm_user_dialog_title">你想继续吗?</string>
-    <string name="revanced_extended_reset_to_default_toast">重置为默认值</string>
     <string name="revanced_extended_restart_first_run">重启应用以正常加载界面布局</string>
-    <string name="revanced_extended_restart_message">刷新并重启</string>
     <string name="revanced_extended_settings_export_failed">导出配置失败</string>
     <string name="revanced_extended_settings_export_success">导出配置成功</string>
     <string name="revanced_extended_settings_export_summary">导出配置到文件</string>
     <string name="revanced_extended_settings_export_title">导出配置</string>
     <string name="revanced_extended_settings_import">导入</string>
-    <string name="revanced_extended_settings_import_copy">复制</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">导入 / 导出配置文本</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">导入 / 导出配置文本</string>
-    <string name="revanced_extended_settings_import_failed">导入配置失败</string>
     <string name="revanced_extended_settings_import_reset">配置已被重置为默认值</string>
-    <string name="revanced_extended_settings_import_success">导入配置成功</string>
     <string name="revanced_extended_settings_import_summary">从文件导入配置</string>
     <string name="revanced_extended_settings_import_title">导入配置</string>
-    <string name="revanced_extended_settings_reset">重置</string>
-    <string name="revanced_extended_settings_search_title">搜索 %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">外部下载器</string>
+    <string name="revanced_external_downloader_empty_warning">包名不能为空</string>
+    <string name="revanced_external_downloader_not_found_title">应用未安装</string>
     <string name="revanced_external_downloader_not_installed">未安装</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 未安装
 请从网站下载 %2$s"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
     <string name="revanced_external_downloader_not_installed_warning">%s 未安装，请先安装它。</string>
+    <string name="revanced_external_downloader_other_item">其他</string>
+    <string name="revanced_external_downloader_other_item_hint">输入包名</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">已安装的外部下载器应用包名，例如 YTDLnis</string>
     <string name="revanced_external_downloader_package_name_playlist_title">播放列表下载器名称</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">长按时显示已安装的外部下载器应用程序的包名，例如 NewPipe 或 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">长按视频下载器包名</string>
     <string name="revanced_external_downloader_package_name_video_summary">已安装的外部下载器应用的包名，例如 NewPipe 或 YTDLnis</string>
     <string name="revanced_external_downloader_package_name_video_title">视频下载器应用包名</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"找不到包名为 %s 的已安装应用
+
+请验证包名是否正确且应用已安装"</string>
     <string name="revanced_fullscreen_ads_closed_toast">全屏广告已关闭。</string>
     <string name="revanced_gemini_cancelled">已取消</string>
     <string name="revanced_gemini_copy_success">摘要已复制到剪贴板。</string>
@@ -477,7 +476,6 @@
     <string name="revanced_gemini_transcription_result_title">Gemini视频转录</string>
     <string name="revanced_gms_show_dialog_summary">每次启动应用时显示 GMSCore 的优化对话框</string>
     <string name="revanced_gms_show_dialog_title">显示 GMSCore 优化对话框</string>
-    <string name="revanced_gradient_seekbar_positions_reset">渐变位置已重置为默认。</string>
     <string name="revanced_gradient_seekbar_positions_summary">渐变的起始和结束位置从0到1用逗号分隔。</string>
     <string name="revanced_gradient_seekbar_positions_title">渐变 seekbar 边界</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">要过滤的帐户菜单名称列表，每行一个名称</string>
@@ -568,6 +566,9 @@
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">时间戳和表情按钮已显示</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">时间戳和表情按钮已隐藏</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">隐藏时间戳和表情按钮</string>
+    <string name="revanced_hide_comments_button_summary_off">评论按钮已显示</string>
+    <string name="revanced_hide_comments_button_summary_on">评论按钮已隐藏</string>
+    <string name="revanced_hide_comments_button_title">隐藏评论</string>
     <string name="revanced_hide_comments_by_members_summary_off">会员评论中横幅已显示</string>
     <string name="revanced_hide_comments_by_members_summary_on">会员评论中横幅已隐藏</string>
     <string name="revanced_hide_comments_by_members_title">隐藏会员评论横幅</string>
@@ -926,8 +927,8 @@
     <string name="revanced_hide_search_term_thumbnail_summary_off">搜索词历史记录中的缩略图已显示</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">搜索词历史记录中的缩略图已隐藏</string>
     <string name="revanced_hide_search_term_thumbnail_title">隐藏搜索词缩略图</string>
-    <string name="revanced_hide_seek_message_summary_off">进度条信息已显示</string>
-    <string name="revanced_hide_seek_message_summary_on">进度条信息已隐藏</string>
+    <string name="revanced_hide_seek_message_summary_off">"进度条信息已显示"</string>
+    <string name="revanced_hide_seek_message_summary_on">"进度条信息已隐藏"</string>
     <string name="revanced_hide_seek_message_title">隐藏进度条信息</string>
     <string name="revanced_hide_seek_undo_message_summary_off">进度条跳转撤销讯息已显示</string>
     <string name="revanced_hide_seek_undo_message_summary_on">进度条撤销消息已隐藏</string>
@@ -1708,7 +1709,6 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_color_changed">颜色已更改</string>
     <string name="revanced_sb_color_dot_label">颜色：</string>
     <string name="revanced_sb_color_invalid">无效的颜色代码</string>
-    <string name="revanced_sb_color_opacity_label">不透明度：</string>
     <string name="revanced_sb_color_reset">颜色已重置</string>
     <string name="revanced_sb_create_segment_category">创建新片段</string>
     <string name="revanced_sb_diff_segments">更改片段行为</string>
@@ -1892,6 +1892,9 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock 暂时无法使用</string>
     <string name="revanced_sb_submit_failed_unknown_error">无法提交片段(状态：%1$d %2$s)</string>
     <string name="revanced_sb_submit_succeeded">片段提交成功</string>
+    <string name="revanced_sb_toast_on_connection_error">如果 API 不可用，显示一个\"提示\"</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">如果 SponsorBlock 不可用，不显示\"提示\"</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">如果 SponsorBlock 不可用，显示一个\"提示\"</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">如果 SponsorBlock 不可用，则不显示提示</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">如果 SponsorBlock 不可用，则显示提示</string>
     <string name="revanced_sb_toast_on_connection_error_title">如果 API 不可用，则显示提示</string>
@@ -1905,23 +1908,37 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_vote_upvote">赞成</string>
     <string name="revanced_search_clear_confirm_message">您确定要清除整个搜索历史记录吗？</string>
     <string name="revanced_search_clear_confirm_title">清除搜索历史</string>
-    <string name="revanced_search_clear_history_title">清除历史</string>
     <string name="revanced_search_delete_confirm_message">您确定要从搜索历史中删除"%1$s"吗？</string>
     <string name="revanced_search_delete_confirm_title">删除搜索条目</string>
-    <string name="revanced_search_delete_entry">删除搜索条目</string>
-    <string name="revanced_search_history_title">最近搜索</string>
-    <string name="revanced_search_no_history_summary">您的搜索历史将显示在此处。要将搜索查询保存到搜索历史中，您必须按回车键。</string>
-    <string name="revanced_search_no_history_title">没有最近搜索</string>
     <string name="revanced_search_settings_category_title">搜索设置</string>
     <string name="revanced_search_settings_no_results_summary">尝试不同的搜索词。</string>
     <string name="revanced_search_settings_no_results_title">未找到"%1$s"的结果</string>
     <string name="revanced_search_title">搜索</string>
-    <string name="revanced_settings_search_highlight_color_summary">设置搜索结果中匹配文本的高亮颜色。</string>
-    <string name="revanced_settings_search_highlight_color_title">搜索高亮颜色</string>
-    <string name="revanced_settings_search_highlight_summary">在搜索结果中用选定颜色高亮显示匹配的文本。</string>
-    <string name="revanced_settings_search_highlight_title">启用搜索高亮</string>
+    <string name="revanced_settings_color_invalid">无效的颜色</string>
+    <string name="revanced_settings_import">导入</string>
+    <string name="revanced_settings_import_copy">复制</string>
+    <string name="revanced_settings_import_reset">ReVanced 设置重置为默认</string>
+    <string name="revanced_settings_import_success">导入 %d 个设置</string>
+    <string name="revanced_settings_reset">重置</string>
+    <string name="revanced_settings_reset_color">重置颜色</string>
+    <string name="revanced_settings_search_clear_history">清除搜索历史</string>
+    <string name="revanced_settings_search_clear_history_message">您确定要清除所有搜索历史吗？</string>
+    <string name="revanced_settings_search_empty_history_summary">要保存搜索历史，请键入搜索查询并按回车键</string>
+    <string name="revanced_settings_search_empty_history_title">搜索历史为空</string>
     <string name="revanced_settings_search_history_summary">保存最近的搜索查询，在搜索栏为空时显示它们。</string>
+    <string name="revanced_settings_search_history_summary_off">不显示设置搜索历史记录</string>
+    <string name="revanced_settings_search_history_summary_on">设置搜索历史记录已显示</string>
     <string name="revanced_settings_search_history_title">显示设置搜索历史记录</string>
+    <string name="revanced_settings_search_no_results_summary">尝试其他关键字</string>
+    <string name="revanced_settings_search_no_results_title">未找到“%s”的结果</string>
+    <string name="revanced_settings_search_recent_searches">最近搜索</string>
+    <string name="revanced_settings_search_remove_message">从搜索历史记录中删除？</string>
+    <string name="revanced_settings_search_tips_summary">"• 点击路径以导航到该位置
+• 长按设置以导航到该位置
+• 按回车键将搜索查询保存到历史记录
+• 搜索忽略大小写和标点符号
+• 父设置显示在禁用的子设置上方"</string>
+    <string name="revanced_settings_search_tips_title">搜索技巧</string>
     <string name="revanced_share_copy_settings_success">设置已复制到剪贴板</string>
     <string name="revanced_share_copy_timestamp_success">时间戳已复制到剪贴板 (%s)</string>
     <string name="revanced_share_copy_url_success">URL 已复制到剪贴板</string>
@@ -2137,7 +2154,6 @@ AVC 最大分辨率为 1080p，Opus 音频编解码器不可用，并且视频�
     <string name="revanced_theme_default">Stock</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">警告</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s 未安装，请先安装</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">已安装的 RVX Music 包名</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music 包名</string>
     <string name="revanced_watch_history_about_status_blocked">• 历史记录不可用</string>

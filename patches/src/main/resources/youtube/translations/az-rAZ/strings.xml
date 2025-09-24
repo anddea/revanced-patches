@@ -123,6 +123,9 @@ Avtomobil tərtibatı
     <string name="revanced_disable_auto_captions_summary_off">Avtomatik titrlər aktivdir</string>
     <string name="revanced_disable_auto_captions_summary_on">Avtomatik titrlər qapalıdır</string>
     <string name="revanced_disable_auto_captions_title">Avtomatik titrləri qapat</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">Cüt toxunma bəzən növbəti/əvvəlki fəsilə keçidi zorlaya bilər</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">Cüt toxunma heç vaxt növbəti/əvvəlki fəsilə keçidi zorlaya bilməz</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Cüt toxunuşla fəsil ötürməsini qapat</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Fəsillər reaksiyası aktivdir</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Fəsillər reaksiyası qapalıdır</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Fəsillər reaksiyasın qapat</string>
@@ -155,7 +158,14 @@ Avtomobil tərtibatı
     <string name="revanced_exit_fullscreen_entry_3">Üfüqi</string>
     <string name="revanced_exit_fullscreen_entry_4">Şaquli və üfüqi</string>
     <string name="revanced_exit_fullscreen_title">Video sonunda tam ekran rejimindən çıx</string>
+    <string name="revanced_external_downloader_empty_warning">Paket adı boş ola bilməz</string>
+    <string name="revanced_external_downloader_not_found_title">Tətbiq quraşdırılmayıb</string>
     <string name="revanced_external_downloader_not_installed_warning">%s quraşdırılmayıb. Lütfən, bunu quraşdır.</string>
+    <string name="revanced_external_downloader_other_item">Digər</string>
+    <string name="revanced_external_downloader_other_item_hint">Paket adını yerləşdir</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"Paket adı ilə quraşdırılan tətbiq tapılmadı: %s
+
+Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sİ ilə yaradılan video xülasə bölməsi görünür</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sİ ilə yaradılan video xülasə bölməsi gizlədilib</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">\"AI ilə yaradılan video xülasəsini\" gizlət</string>
@@ -178,6 +188,9 @@ Avtomobil tərtibatı
     <string name="revanced_hide_clip_button_summary_off">Kəsmə düyməsi göstərilir</string>
     <string name="revanced_hide_clip_button_summary_on">Kəsmə düyməsi gizlidir</string>
     <string name="revanced_hide_clip_button_title">Kəsmə/ gizlət</string>
+    <string name="revanced_hide_comments_button_summary_off">Şərhlər düyməsi görünür</string>
+    <string name="revanced_hide_comments_button_summary_on">Şərhlər düyməsi gizlidir</string>
+    <string name="revanced_hide_comments_button_title">Şərhləri Gizlət</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Short yarat düyməsi görünür</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Short yarat düyməsi gizlidir</string>
     <string name="revanced_hide_comments_create_a_short_button_title">\"Shorts Yarat\" düyməsini gizlət</string>
@@ -314,6 +327,9 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_share_button_summary_off">Paylaş düyməsi göstərilir</string>
     <string name="revanced_hide_share_button_summary_on">Paylaş düyməsi gizlidir</string>
     <string name="revanced_hide_share_button_title">\"Paylaş\"ı gizlət</string>
+    <string name="revanced_hide_shop_button_summary_off">Mağaza düyməsi görünür</string>
+    <string name="revanced_hide_shop_button_summary_on">Mağaza düyməsi gizlidir</string>
+    <string name="revanced_hide_shop_button_title">Mağazanı Gizlət</string>
     <string name="revanced_hide_shopping_links_summary_off">Alış-veriş linkləri video təsvirdə görünür</string>
     <string name="revanced_hide_shopping_links_summary_on">Alış-veriş linkləri video təsvirdə gizlidir</string>
     <string name="revanced_hide_shopping_links_title">Alış-veriş linklərini gizlət</string>
@@ -506,12 +522,12 @@ Məhdudiyyət: Bəyənməmələr gizli rejimdə görünməyə bilər"</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike əlçatan deyilsə ani bildiriş göstər</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API əlçatan deyilsə ani bildiriş göstər</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Sahib tərəfindən gizlədilib</string>
+    <string name="revanced_sanitize_sharing_links_title">İzləmə sorğusu faktorun sil</string>
     <string name="revanced_sb_api_url_changed">API URL dəyişdirildi</string>
     <string name="revanced_sb_api_url_invalid">API URL etibarsızdır</string>
     <string name="revanced_sb_api_url_reset">API URL sıfırlaması</string>
     <string name="revanced_sb_appearance_category">Görünüş</string>
     <string name="revanced_sb_color_dot_label">Rəng:</string>
-    <string name="revanced_sb_color_opacity_label">Qeyri-şəffaflıq:</string>
     <string name="revanced_sb_create_segment_category">Yeni bölümlər yaradılır</string>
     <string name="revanced_sb_diff_segments">Bölüm davranışını dəyişdir</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">Ötürmə düyməsini avtomatik gizlət</string>
@@ -683,6 +699,9 @@ Artıq mövcuddur"</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock müvəqqəti olaraq zəifləyir</string>
     <string name="revanced_sb_submit_failed_unknown_error">Bölüm göndərilmir (status: %1$d %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Bölüm uğurla göndərildi</string>
+    <string name="revanced_sb_toast_on_connection_error">API əlçatan deyilsə ani bildirişi göstər</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock əlçatan deyilsə, bildiriş göstərilmir</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">SponsorBlock əlçatan deyilsə bildiriş göstərilir</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock əlçatan deyilsə, bildiriş göstərilmir</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock əlçatan deyilsə bildiriş göstərilir</string>
     <string name="revanced_sb_toast_on_connection_error_title">API əlçatan deyilsə ani bildirişi göstər</string>
@@ -694,7 +713,30 @@ Artıq mövcuddur"</string>
     <string name="revanced_sb_vote_no_segments">Səsvermə üçün bölüm yoxdur</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s - %2$s</string>
     <string name="revanced_sb_vote_upvote">Müsbət səs</string>
+    <string name="revanced_settings_color_invalid">Yanlış rəng</string>
+    <string name="revanced_settings_import">İdxal et</string>
+    <string name="revanced_settings_import_copy">Köçür</string>
+    <string name="revanced_settings_import_reset">ReVanced tənzimləmələr standarta təyin edildi</string>
+    <string name="revanced_settings_import_success">%d tənzimləmə idxal edildi</string>
+    <string name="revanced_settings_reset">Sıfırla</string>
+    <string name="revanced_settings_reset_color">Rəngi sıfırla</string>
+    <string name="revanced_settings_search_clear_history">Axtarış tarixçəsini təmizlə</string>
+    <string name="revanced_settings_search_clear_history_message">Bütün axtarış tarixçəsini təmizləmək istədiyinizə əminsiniz?</string>
+    <string name="revanced_settings_search_empty_history_summary">Axtarış tarixçəsini saxlamaq üçün axtarış sorğusu yazın və Daxil Et basın</string>
+    <string name="revanced_settings_search_empty_history_title">Axtarış tarixçəsi boşdur</string>
+    <string name="revanced_settings_search_history_summary_off">Axtarış tarixçəsi tənzimləməsi göstərilmir</string>
+    <string name="revanced_settings_search_history_summary_on">Axtarış tarixçəsi tənzimləməsi göstərilir</string>
     <string name="revanced_settings_search_history_title">Axtarış tarixçəsi tənzimləməsin göstər</string>
+    <string name="revanced_settings_search_no_results_summary">Başqa açar sözü yoxla</string>
+    <string name="revanced_settings_search_no_results_title">‘%s’ üçün nəticə tapılmadı</string>
+    <string name="revanced_settings_search_recent_searches">Son axtarışlar</string>
+    <string name="revanced_settings_search_remove_message">Axtarış tarixçəsindən silinsin?</string>
+    <string name="revanced_settings_search_tips_summary">"• Buna keçmək üçün yola toxun
+• Buna keçmək üçün tənzimləməni uzun basın
+• Axtarış sorğusunu tarixçəyə qeyd etmək üçün Daxil Et düyməsini bas
+• Axtarış böyük/kiçik hərfləri və durğu işarələrini nəzərə almır
+• Valideyn tənzimləmələri qapadılan uşaq tənzimləmələrin üstündə görünür"</string>
+    <string name="revanced_settings_search_tips_title">Axtarış Tövsiyələri</string>
     <string name="revanced_share_copy_url_success">URL buferə köçürüldü</string>
     <string name="revanced_share_copy_url_timestamp_success">Vaxt möhürlü URL köçürüldü</string>
     <string name="revanced_spoof_app_version_summary_off">Versiya saxtalaşdırılmadı</string>

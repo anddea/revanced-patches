@@ -123,6 +123,9 @@ Automotive-layout
     <string name="revanced_disable_auto_captions_summary_off">Automatiske billedtekster er aktiveret</string>
     <string name="revanced_disable_auto_captions_summary_on">Automatiske billedtekster er deaktiveret</string>
     <string name="revanced_disable_auto_captions_title">Deaktivér auto-billedtekster</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dobbeltklik kan lejlighedsvis udløse et spring til næste/forrige kapitel</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dobbeltklik kan aldrig udløse et spring til næste/forrige kapitel</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Deaktiver dobbeltklik kapitelspring</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptics for kapitler er aktiveret</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptics for kapitler er deaktiveret</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Deaktivér haptics for kapitler</string>
@@ -153,7 +156,14 @@ Automotive-layout
     <string name="revanced_exit_fullscreen_entry_3">Landskab</string>
     <string name="revanced_exit_fullscreen_entry_4">Portræt og landskab</string>
     <string name="revanced_exit_fullscreen_title">Afslut fuldskærmstilstand ved videoens afslutning</string>
+    <string name="revanced_external_downloader_empty_warning">Pakkenavnet må ikke være tomt</string>
+    <string name="revanced_external_downloader_not_found_title">Appen er ikke installeret</string>
     <string name="revanced_external_downloader_not_installed_warning">%s er ikke installeret. Installér den.</string>
+    <string name="revanced_external_downloader_other_item">Andet</string>
+    <string name="revanced_external_downloader_other_item_hint">Indtast pakkenavnet</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"Kunne ikke finde installeret app med pakkenavn: %s
+
+Kontrollér, at pakkenavnet er korrekt, og at appen er installeret"</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI-genereret videooversigtssektion vises</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI-genereret videooversigt er skjult</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Skjul \"AI-genereret videooversigt\"</string>
@@ -176,6 +186,9 @@ Automotive-layout
     <string name="revanced_hide_clip_button_summary_off">Klip knappen er vist</string>
     <string name="revanced_hide_clip_button_summary_on">Klip knappen er skjult</string>
     <string name="revanced_hide_clip_button_title">Skjul klip</string>
+    <string name="revanced_hide_comments_button_summary_off">Kommentarknappen vises</string>
+    <string name="revanced_hide_comments_button_summary_on">Kommentarknappen er skjult</string>
+    <string name="revanced_hide_comments_button_title">Skjul kommentarer</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Opret en Short knap vises</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Opret en Short knap er skjult</string>
     <string name="revanced_hide_comments_create_a_short_button_title">Skjul knappen \"Opret en Short\"</string>
@@ -312,6 +325,9 @@ Ord med store bogstaver i midten skal indtastes med store og små bogstaver (f.e
     <string name="revanced_hide_share_button_summary_off">Deleknappen vises</string>
     <string name="revanced_hide_share_button_summary_on">Deleknappen er skjult</string>
     <string name="revanced_hide_share_button_title">Skjul Del</string>
+    <string name="revanced_hide_shop_button_summary_off">Butiksknappen vises</string>
+    <string name="revanced_hide_shop_button_summary_on">Butiksknappen er skjult</string>
+    <string name="revanced_hide_shop_button_title">Skjul butik</string>
     <string name="revanced_hide_shopping_links_summary_off">Shoppinglinks i videobeskrivelsen vises</string>
     <string name="revanced_hide_shopping_links_summary_on">Shoppinglinks i videobeskrivelse er skjult</string>
     <string name="revanced_hide_shopping_links_title">Skjul shopping-links</string>
@@ -504,12 +520,12 @@ Begrænsning: Synes ikke godt om vises muligvis ikke i inkognitotilstand"</strin
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast vises, hvis Return YouTube Dislike ikke er tilgængelig</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Vis en toast hvis API ikke er tilgængelig</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skjult af ejer</string>
+    <string name="revanced_sanitize_sharing_links_title">Fjern sporingsforespørgselsparameter</string>
     <string name="revanced_sb_api_url_changed">API URL ændret</string>
     <string name="revanced_sb_api_url_invalid">API URL er ugyldig</string>
     <string name="revanced_sb_api_url_reset">API-URL nulstillet</string>
     <string name="revanced_sb_appearance_category">Udseende</string>
     <string name="revanced_sb_color_dot_label">Farve:</string>
-    <string name="revanced_sb_color_opacity_label">Opacitet:</string>
     <string name="revanced_sb_create_segment_category">Opretter nye segmenter</string>
     <string name="revanced_sb_diff_segments">Ændr segmentadfærd</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">Skjul automatisk Spring over-knap</string>
@@ -681,6 +697,9 @@ Eksisterer allerede"</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock er midlertidigt nede</string>
     <string name="revanced_sb_submit_failed_unknown_error">Kan ikke indsende segment (status: %1$d %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Segment indsendt med succes</string>
+    <string name="revanced_sb_toast_on_connection_error">Vis en toast hvis API ikke er tilgængelig</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">Toast vises ikke, hvis SponsorBlock ikke er tilgængelig</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">Toast vises, hvis SponsorBlock ikke er tilgængelig</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Toast vises ikke, hvis SponsorBlock ikke er tilgængelig</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Toast vises, hvis SponsorBlock ikke er tilgængelig</string>
     <string name="revanced_sb_toast_on_connection_error_title">Vis en toast hvis API ikke er tilgængelig</string>
@@ -692,7 +711,30 @@ Eksisterer allerede"</string>
     <string name="revanced_sb_vote_no_segments">Der er ingen segmenter at stemme for</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s til %2$s</string>
     <string name="revanced_sb_vote_upvote">Op</string>
+    <string name="revanced_settings_color_invalid">Ugyldig farve</string>
+    <string name="revanced_settings_import">Importer</string>
+    <string name="revanced_settings_import_copy">Kopier</string>
+    <string name="revanced_settings_import_reset">ReVanced-indstillinger nulstillet til standard</string>
+    <string name="revanced_settings_import_success">%d indstillinger importeret</string>
+    <string name="revanced_settings_reset">Nulstil</string>
+    <string name="revanced_settings_reset_color">Nulstil farve</string>
+    <string name="revanced_settings_search_clear_history">Ryd søgehistorik</string>
+    <string name="revanced_settings_search_clear_history_message">Er du sikker på, at du vil rydde al søgehistorik?</string>
+    <string name="revanced_settings_search_empty_history_summary">For at gemme søgehistorik skal du skrive en søgeforespørgsel og trykke på Enter</string>
+    <string name="revanced_settings_search_empty_history_title">Søgehistorikken er tom</string>
+    <string name="revanced_settings_search_history_summary_off">Søgehistorik for indstillinger vises ikke</string>
+    <string name="revanced_settings_search_history_summary_on">Indstillingssøgehistorik vises</string>
     <string name="revanced_settings_search_history_title">Vis indstillingssøgehistorik</string>
+    <string name="revanced_settings_search_no_results_summary">Prøv et andet søgeord</string>
+    <string name="revanced_settings_search_no_results_title">Ingen resultater fundet for \'%s\'</string>
+    <string name="revanced_settings_search_recent_searches">Seneste søgninger</string>
+    <string name="revanced_settings_search_remove_message">Fjern fra søgehistorik?</string>
+    <string name="revanced_settings_search_tips_summary">"• Tryk på en sti for at navigere til den
+• Tryk længe på en indstilling for at navigere til den
+• Tryk på Enter for at gemme en søgeforespørgsel i historikken
+• Søgning ignorerer store/små bogstaver og tegnsætning
+• Overordnede indstillinger vises over deaktiverede underordnede indstillinger"</string>
+    <string name="revanced_settings_search_tips_title">Søgetips</string>
     <string name="revanced_share_copy_url_success">URL kopieret til udklipsholder</string>
     <string name="revanced_share_copy_url_timestamp_success">URL med tidsstempel kopieret</string>
     <string name="revanced_spoof_app_version_summary_off">Version ikke spoofed</string>

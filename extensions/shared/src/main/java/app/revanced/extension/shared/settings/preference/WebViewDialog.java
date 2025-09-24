@@ -8,6 +8,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.webkit.WebView;
@@ -74,7 +75,7 @@ public class WebViewDialog extends Dialog {
         // Set dialog window attributes
         Window window = getWindow();
         if (window != null) {
-            Utils.setDialogWindowParameters(window);
+            Utils.setDialogWindowParameters(window, Gravity.CENTER, 0, 90, false);
         }
     }
 

@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.patches.utils;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.runOnMainThreadDelayed;
+import static app.revanced.extension.youtube.shared.RootView.getContext;
 import static app.revanced.extension.youtube.utils.VideoUtils.launchVideoExternalDownloader;
 import static app.revanced.extension.youtube.utils.VideoUtils.openPlaylist;
 import static app.revanced.extension.youtube.utils.VideoUtils.reloadVideo;
@@ -13,8 +14,6 @@ import android.widget.LinearLayout;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 
-import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
-
 import org.apache.commons.collections4.BidiMap;
 import org.apache.commons.collections4.bidimap.DualHashBidiMap;
 import org.apache.commons.lang3.BooleanUtils;
@@ -25,6 +24,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import app.revanced.extension.shared.innertube.utils.AuthUtils;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
@@ -51,8 +51,6 @@ public class PlaylistPatch {
 
     private static volatile String playlistId = "";
     private static volatile String videoId = "";
-
-    private static Context mContext;
 
     private static String checkFailedAuth;
     private static String checkFailedPlaylistId;
@@ -108,7 +106,7 @@ public class PlaylistPatch {
         if (!QUEUE_MANAGER || keyCode != KeyEvent.KEYCODE_BACK) {
             return false;
         }
-        if (mContext == null) {
+        if (getContext() == null) {
             handleCheckError(checkFailedQueue);
             return false;
         }
@@ -130,22 +128,6 @@ public class PlaylistPatch {
                 }
             }
         }
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void setPivotBar(PivotBar view) {
-        if (QUEUE_MANAGER) {
-            mContext = view.getContext();
-        }
-    }
-
-    /**
-     * Invoked by extension.
-     */
-    public static void setContext(Context context) {
-        mContext = context;
     }
 
     /**
@@ -184,6 +166,7 @@ public class PlaylistPatch {
     }
 
     private static void buildBottomSheetDialog(QueueManager[] queueManagerEntries) {
+        Context mContext = getContext();
         LinearLayout mainLayout = ExtendedUtils.prepareMainLayout(mContext);
         Map<LinearLayout, Runnable> actionsMap = new LinkedHashMap<>(queueManagerEntries.length);
 
@@ -271,6 +254,7 @@ public class PlaylistPatch {
     }
 
     private static void summarizeVideo() {
+        Context mContext = getContext();
         if (mContext == null) {
             handleCheckError(checkFailedQueue);
             return;
@@ -294,7 +278,8 @@ public class PlaylistPatch {
                 if (request != null) {
                     String message = request.getMessage();
                     if (message != null) {
-                        Utils.createCustomDialog(
+                        Context mContext = getContext();
+                        CustomDialog.create(
                                 // context
                                 mContext,
                                 // title
@@ -340,6 +325,7 @@ public class PlaylistPatch {
             runOnMainThreadDelayed(() -> {
                 GetPlaylistsRequest request = GetPlaylistsRequest.getRequestForPlaylistId(currentPlaylistId);
                 if (request != null) {
+                    Context mContext = getContext();
                     Pair<String, String>[] playlists = request.getPlaylists();
                     if (playlists != null) {
                         LinearLayout mainLayout = ExtendedUtils.prepareMainLayout(mContext);

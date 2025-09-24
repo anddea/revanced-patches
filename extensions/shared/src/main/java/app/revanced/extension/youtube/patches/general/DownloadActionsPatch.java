@@ -3,8 +3,6 @@ package app.revanced.extension.youtube.patches.general;
 import static app.revanced.extension.youtube.utils.VideoUtils.launchPlaylistExternalDownloader;
 import static app.revanced.extension.youtube.utils.VideoUtils.launchVideoExternalDownloader;
 
-import android.view.View;
-
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
@@ -27,9 +25,6 @@ public final class DownloadActionsPatch {
     private static final boolean OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER =
             OVERRIDE_VIDEO_DOWNLOAD_BUTTON && Settings.OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER.get();
 
-    private static final String ELEMENTS_SENDER_VIEW =
-            "com.google.android.libraries.youtube.rendering.elements.sender_view";
-
     /**
      * Injection point.
      * <p>
@@ -44,9 +39,6 @@ public final class DownloadActionsPatch {
         try {
             if (OVERRIDE_VIDEO_DOWNLOAD_BUTTON && StringUtils.isNotEmpty(videoId)) {
                 if (OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER) {
-                    if (map != null && map.get(ELEMENTS_SENDER_VIEW) instanceof View view) {
-                        PlaylistPatch.setContext(view.getContext());
-                    }
                     PlaylistPatch.prepareDialogBuilder(videoId);
                 } else {
                     launchVideoExternalDownloader(videoId);

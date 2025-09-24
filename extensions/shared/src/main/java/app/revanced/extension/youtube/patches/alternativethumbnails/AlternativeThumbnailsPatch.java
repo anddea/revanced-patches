@@ -23,6 +23,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
@@ -69,6 +70,17 @@ public final class AlternativeThumbnailsPatch {
         public boolean isAvailable() {
             return usingDeArrowAnywhere();
         }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(
+                    ALT_THUMBNAIL_HOME,
+                    ALT_THUMBNAIL_SUBSCRIPTIONS,
+                    ALT_THUMBNAIL_LIBRARY,
+                    ALT_THUMBNAIL_PLAYER,
+                    ALT_THUMBNAIL_SEARCH
+            );
+        }
     }
 
     public static final class StillImagesAvailability implements Setting.Availability {
@@ -83,6 +95,17 @@ public final class AlternativeThumbnailsPatch {
         @Override
         public boolean isAvailable() {
             return usingStillImagesAnywhere();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(
+                    ALT_THUMBNAIL_HOME,
+                    ALT_THUMBNAIL_SUBSCRIPTIONS,
+                    ALT_THUMBNAIL_LIBRARY,
+                    ALT_THUMBNAIL_PLAYER,
+                    ALT_THUMBNAIL_SEARCH
+            );
         }
     }
 
@@ -158,7 +181,7 @@ public final class AlternativeThumbnailsPatch {
         String scheme = apiUri.getScheme();
         if (scheme == null || scheme.equals("http") || apiUri.getHost() == null) {
             Utils.showToastLong(str("revanced_alt_thumbnail_dearrow_api_url_invalid_toast"));
-            Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
+            Utils.showToastShort(str("revanced_reset_to_default_toast"));
             Settings.ALT_THUMBNAIL_DEARROW_API_URL.resetToDefault();
             return validateSettings();
         }
@@ -325,8 +348,11 @@ public final class AlternativeThumbnailsPatch {
      * <p>
      * Cronet considers all completed connections as a success, even if the response is 404 or 5xx.
      */
-    public static void handleCronetSuccess(UrlRequest request, @NonNull UrlResponseInfo responseInfo) {
+    public static void handleCronetSuccess(UrlRequest request, @Nullable UrlResponseInfo responseInfo) {
         try {
+            if (responseInfo == null) {
+                return;
+            }
             final int statusCode = responseInfo.getHttpStatusCode();
             if (statusCode == 200) {
                 return;
@@ -388,13 +414,15 @@ public final class AlternativeThumbnailsPatch {
                                            @Nullable UrlResponseInfo responseInfo,
                                            IOException exception) {
         try {
-            String url = ((CronetUrlRequest) request).getHookedUrl();
-            if (urlIsDeArrow(url)) {
-                Logger.printDebug(() -> "handleCronetFailure, exception: " + exception);
-                final int statusCode = (responseInfo != null)
-                        ? responseInfo.getHttpStatusCode()
-                        : 0;
-                handleDeArrowError(url, statusCode);
+            if (request instanceof CronetUrlRequest cronetUrlRequest) {
+                String url = cronetUrlRequest.getHookedUrl();
+                if (urlIsDeArrow(url)) {
+                    Logger.printDebug(() -> "handleCronetFailure, exception: " + exception);
+                    final int statusCode = (responseInfo != null)
+                            ? responseInfo.getHttpStatusCode()
+                            : 0;
+                    handleDeArrowError(url, statusCode);
+                }
             }
         } catch (Exception ex) {
             Logger.printException(() -> "Callback failure error", ex);
@@ -456,29 +484,29 @@ public final class AlternativeThumbnailsPatch {
             }
 
             final boolean useFastQuality = Settings.ALT_THUMBNAIL_STILLS_FAST.get();
-            switch (quality) {
-                case SDDEFAULT:
-                    // SD alt images have somewhat worse quality with washed out color and poor contrast.
-                    // But the 720 images look much better and don't suffer from these issues.
-                    // For unknown reasons, the 720 thumbnails are used only for the home feed,
-                    // while SD is used for the search and subscription feed
-                    // (even though search and subscriptions use the exact same layout as the home feed).
-                    // Of note, this image quality issue only appears with the alt thumbnail images,
-                    // and the regular thumbnails have identical color/contrast quality for all sizes.
-                    // Fix this by falling thru and upgrading SD to 720.
-                case HQ720:
+            return switch (quality) {
+                // SD alt images have somewhat worse quality with washed out color and poor contrast.
+                // But the 720 images look much better and don't suffer from these issues.
+                // For unknown reasons, the 720 thumbnails are used only for the home feed,
+                // while SD is used for the search and subscription feed
+                // (even though search and subscriptions use the exact same layout as the home feed).
+                // Of note, this image quality issue only appears with the alt thumbnail images,
+                // and the regular thumbnails have identical color/contrast quality for all sizes.
+                // Fix this by falling thru and upgrading SD to 720.
+                case SDDEFAULT, HQ720 -> {  // SD is max resolution for fast alt images.
                     if (useFastQuality) {
-                        return SDDEFAULT; // SD is max resolution for fast alt images.
+                        yield SDDEFAULT;
                     }
-                    return HQ720;
-                case MAXRESDEFAULT:
+                    yield HQ720;
+                }
+                case MAXRESDEFAULT -> {
                     if (useFastQuality) {
-                        return SDDEFAULT;
+                        yield SDDEFAULT;
                     }
-                    return MAXRESDEFAULT;
-                default:
-                    return quality;
-            }
+                    yield MAXRESDEFAULT;
+                }
+                default -> quality;
+            };
         }
 
         final String originalName;

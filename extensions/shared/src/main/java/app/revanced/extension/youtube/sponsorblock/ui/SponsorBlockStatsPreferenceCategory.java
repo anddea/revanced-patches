@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.settings.preference.ResettableEditTextPreference;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
@@ -196,7 +197,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
         updateStatsSelfSaved.run();
 
         preference.setOnPreferenceClickListener(preference1 -> {
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     preference.getContext(),
                     str("revanced_sb_stats_self_saved_reset_title"), // Title.
                     null, // No message.

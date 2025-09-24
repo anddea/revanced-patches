@@ -1,5 +1,7 @@
 package app.revanced.extension.shared.innertube.utils;
 
+import static app.revanced.extension.shared.innertube.utils.DeviceHardwareSupport.hasAV1Decoder;
+
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
@@ -62,11 +64,11 @@ public class ThrottlingParameterUtils {
     /**
      * Hardcoded javascript url path (Mobile Web).
      */
-    private static final String PLAYER_JS_HARDCODED_URL_PATH_MOBILE_WEB = "4f8fa943";
+    private static final String PLAYER_JS_HARDCODED_URL_PATH_MOBILE_WEB = "b66835e2";
     /**
      * Hardcoded javascript url path (TV).
      */
-    private static final String PLAYER_JS_HARDCODED_URL_PATH_TV = "9bae1a63";
+    private static final String PLAYER_JS_HARDCODED_URL_PATH_TV = "b66835e2";
     /**
      * Regular expression pattern to find variables used in JavaScript url.
      */
@@ -194,6 +196,7 @@ public class ThrottlingParameterUtils {
             return;
         }
         isInitialized = true;
+        hasAV1Decoder();
         ThrottlingParameterUtils.useLatestPlayerJs = useLatestPlayerJs;
 
         if (!useLatestPlayerJs) {
@@ -511,6 +514,8 @@ public class ThrottlingParameterUtils {
 
     @Nullable
     private static String fetchUrl(@NonNull String uri, boolean isTV) {
+        Utils.verifyOffMainThread();
+
         final long startTime = System.currentTimeMillis();
         Logger.printDebug(() -> "fetching url: " + uri);
 

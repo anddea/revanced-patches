@@ -150,7 +150,16 @@ public class GeneralPatch {
     // region [Hide layout components] patch
 
     public static boolean disableTranslucentStatusBar(boolean original) {
-        return !Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get() && original;
+        // Must check Android version, as forcing this on Android 11 or lower causes app hang and crash.
+        if (!Utils.isSDKAbove(31)) {
+            return original;
+        }
+
+        if (Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get()) {
+            return false;
+        }
+
+        return original;
     }
 
     private static String[] accountMenuBlockList;
@@ -723,7 +732,7 @@ public class GeneralPatch {
         Context context = view.getContext();
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.setPackage(context.getPackageName());
-        intent.setData(Uri.parse("revanced_extended_settings_intent"));
+        intent.setData(Uri.parse("revanced_settings_intent"));
         intent.setClassName(context.getPackageName(), "com.google.android.libraries.social.licenses.LicenseActivity");
         context.startActivity(intent);
     }

@@ -27,25 +27,16 @@ internal object ResourceUtils {
     fun getContext() = context
 
     var restoreOldSplashAnimationIncluded = false
-    var youtubeMusicPackageName = YOUTUBE_MUSIC_PACKAGE_NAME
-    var youtubePackageName = YOUTUBE_PACKAGE_NAME
 
     private var iconType = "default"
     fun getIconType() = iconType
 
-    fun updatePackageName(
-        fromPackageName: String,
-        toPackageName: String,
-        musicPackageName: String
-    ) {
-        youtubeMusicPackageName = musicPackageName
-        youtubePackageName = toPackageName
-
+    fun updatePackageName(newPackageName: String, ) {
         youtubeSettingFile.writeText(
             youtubeSettingFile.readText()
                 .replace(
-                    "android:targetPackage=\"$fromPackageName",
-                    "android:targetPackage=\"$toPackageName"
+                    "android:targetPackage=\"$YOUTUBE_PACKAGE_NAME",
+                    "android:targetPackage=\"$newPackageName"
                 )
         )
     }
@@ -144,7 +135,7 @@ internal object ResourceUtils {
                                     ownerDocument.createElement("intent").also { intentNode ->
                                         intentNode.setAttribute(
                                             "android:targetPackage",
-                                            youtubePackageName
+                                            YOUTUBE_PACKAGE_NAME
                                         )
                                         intentNode.setAttribute("android:data", key + "_intent")
                                         intentNode.setAttribute("android:targetClass", targetClass)

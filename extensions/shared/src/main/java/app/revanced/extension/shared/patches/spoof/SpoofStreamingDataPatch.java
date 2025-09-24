@@ -9,9 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.protos.youtube.api.innertube.StreamingDataOuterClass.StreamingData;
+import com.liskovsoft.googlecommon.common.helpers.YouTubeHelper;
+
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 import app.revanced.extension.shared.innertube.client.YouTubeClient.ClientType;
@@ -34,8 +38,8 @@ public class SpoofStreamingDataPatch {
             SPOOF_STREAMING_DATA && BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get();
     private static final boolean SPOOF_STREAMING_DATA_USE_JS_ALL =
             SPOOF_STREAMING_DATA_USE_JS && BaseSettings.SPOOF_STREAMING_DATA_USE_JS_ALL.get();
-    private static final boolean SPOOF_STREAMING_DATA_USE_LATEST_JS =
-            SPOOF_STREAMING_DATA_USE_JS && BaseSettings.SPOOF_STREAMING_DATA_USE_LATEST_JS.get();
+    private static final boolean SPOOF_STREAMING_DATA_USE_LATEST_PLAYER_JS =
+            SPOOF_STREAMING_DATA_USE_JS && BaseSettings.SPOOF_STREAMING_DATA_USE_LATEST_PLAYER_JS.get();
 
     /**
      * Domain used for internet connectivity verification.
@@ -66,22 +70,8 @@ public class SpoofStreamingDataPatch {
      * Prefix present in all Short player parameters signature.
      */
     private static final String SHORTS_PLAYER_PARAMETERS = "8AEB";
-    /**
-     * No video id in these parameters.
-     */
-    private static final String[] PATH_NO_VIDEO_ID = {
-            "ad_break",         // This request fetches a list of times when ads can be displayed.
-            "get_drm_license",  // Waiting for a paid video to start.
-            "heartbeat",        // This request determines whether to pause playback when the user is AFK.
-            "refresh",          // Waiting for a livestream to start.
-    };
-    /**
-     * If {@link SpoofStreamingDataPatch#SPOOF_STREAMING_DATA_USE_JS_ALL} is false,
-     * Autoplay in feed, Clips, and Shorts will not use the JS client for fast playback.
-     * The player parameter is used to detect the video type.
-     */
-    @NonNull
-    private static volatile String reasonSkipped = "";
+    @Nullable
+    private static volatile String playerResponseParameter = null;
 
     /**
      * Injection point.
@@ -210,25 +200,35 @@ public class SpoofStreamingDataPatch {
             if (path == null || !path.contains("player")) {
                 return;
             }
-            if (Utils.containsAny(path, PATH_NO_VIDEO_ID)) {
-                Logger.printDebug(() -> "Ignoring path: " + path);
-                return;
-            }
             String id = uri.getQueryParameter("id");
-            if (id == null) {
-                Logger.printException(() -> "Ignoring request with no id: " + url);
+            if (StringUtils.isEmpty(id)) {
                 return;
             }
-            if (SPOOF_STREAMING_DATA_USE_JS &&
-                    !SPOOF_STREAMING_DATA_USE_JS_ALL &&
-                    reasonSkipped.isEmpty()) {
-                String inline = uri.getQueryParameter("inline");
-                if ("1".equals(inline)) {
+            String tParameter = YouTubeHelper.generateTParameter(uri.getQueryParameter("t"));
+            String reasonSkipped;
+            if (playerResponseParameter != null &&
+                    SPOOF_STREAMING_DATA_USE_JS &&
+                    !SPOOF_STREAMING_DATA_USE_JS_ALL) {
+                String playerParameter = Objects.requireNonNull(playerResponseParameter);
+                if (playerParameter.startsWith(SHORTS_PLAYER_PARAMETERS)) {
+                    reasonSkipped = "Shorts";
+                } else if ("1".equals(uri.getQueryParameter("inline")) || playerParameter.equals(SCRIM_PARAMETERS)) {
                     reasonSkipped = "Autoplay in feed";
+                } else if (playerParameter.length() > 150 || playerParameter.startsWith(CLIPS_PARAMETERS)) {
+                    reasonSkipped = "Clips";
+                } else {
+                    reasonSkipped = "";
                 }
+            } else {
+                reasonSkipped = "";
             }
 
-            StreamingDataRequest.fetchRequest(id, requestHeader, reasonSkipped);
+            StreamingDataRequest.fetchRequest(
+                    id,
+                    tParameter,
+                    requestHeader,
+                    reasonSkipped
+            );
         }
     }
 
@@ -323,19 +323,7 @@ public class SpoofStreamingDataPatch {
     @Nullable
     public static String newPlayerResponseParameter(@NonNull String newlyLoadedVideoId, @Nullable String playerParameter,
                                                     @Nullable String newlyLoadedPlaylistId, boolean isShortAndOpeningOrPlaying) {
-        if (SPOOF_STREAMING_DATA_USE_JS) {
-            reasonSkipped = "";
-            if (!SPOOF_STREAMING_DATA_USE_JS_ALL && playerParameter != null) {
-                if (playerParameter.startsWith(SHORTS_PLAYER_PARAMETERS)) {
-                    reasonSkipped = "Shorts";
-                } else if (playerParameter.equals(SCRIM_PARAMETERS)) {
-                    reasonSkipped = "Autoplay in feed";
-                } else if (playerParameter.length() > 150 || playerParameter.startsWith(CLIPS_PARAMETERS)) {
-                    reasonSkipped = "Clips";
-                }
-            }
-        }
-
+        playerResponseParameter = playerParameter;
         return playerParameter; // Return the original value since we are observing and not modifying.
     }
 
@@ -350,7 +338,7 @@ public class SpoofStreamingDataPatch {
         if (SPOOF_STREAMING_DATA_USE_JS) {
             // Download JavaScript and initialize the Cipher class
             CompletableFuture.runAsync(() -> ThrottlingParameterUtils.initializeJavascript(
-                    SPOOF_STREAMING_DATA_USE_LATEST_JS,
+                    SPOOF_STREAMING_DATA_USE_LATEST_PLAYER_JS,
                     BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getRequirePoToken()
             ));
         }
@@ -391,6 +379,11 @@ public class SpoofStreamingDataPatch {
             return BaseSettings.SPOOF_STREAMING_DATA.get() &&
                     BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get() == ClientType.ANDROID_VR;
         }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(BaseSettings.SPOOF_STREAMING_DATA);
+        }
     }
 
     public static final class ClientiOSAvailability implements Setting.Availability {
@@ -408,6 +401,14 @@ public class SpoofStreamingDataPatch {
                     BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get() &&
                     BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getRequireJS();
         }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(
+                    BaseSettings.SPOOF_STREAMING_DATA,
+                    BaseSettings.SPOOF_STREAMING_DATA_USE_JS
+            );
+        }
     }
 
     public static final class ClientNoAuthAvailability implements Setting.Availability {
@@ -415,6 +416,11 @@ public class SpoofStreamingDataPatch {
         public boolean isAvailable() {
             return BaseSettings.SPOOF_STREAMING_DATA.get() &&
                     !BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getSupportsCookies();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(BaseSettings.SPOOF_STREAMING_DATA);
         }
     }
 
@@ -426,6 +432,11 @@ public class SpoofStreamingDataPatch {
             // Check conditions of launch and now. Otherwise if spoofing is changed
             // without a restart the setting will show as available when it's not.
             return AVAILABLE_ON_LAUNCH && SpoofStreamingDataPatch.multiAudioTrackAvailable();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(BaseSettings.SPOOF_STREAMING_DATA);
         }
     }
 
@@ -439,6 +450,14 @@ public class SpoofStreamingDataPatch {
             // without a restart the setting will show as available when it's not.
             return AVAILABLE_ON_LAUNCH && BaseSettings.SPOOF_STREAMING_DATA.get() &&
                     BaseSettings.SPOOF_STREAMING_DATA_RELOAD_VIDEO_BUTTON.get();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(
+                    BaseSettings.SPOOF_STREAMING_DATA,
+                    BaseSettings.SPOOF_STREAMING_DATA_RELOAD_VIDEO_BUTTON
+            );
         }
     }
 }

@@ -20,6 +20,7 @@ import androidx.annotation.NonNull;
 
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.utils.Utils;
 
@@ -45,7 +46,7 @@ public class InitializationPatch {
                 Activity context = getActivity();
 
                 runOnMainThreadDelayed(() -> {
-                    Pair<Dialog, LinearLayout> dialogPair = createCustomDialog(
+                    Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                             context,
                             str("revanced_external_downloader_not_installed_dialog_title"), // Title.
                             formattedMessage,             // Message.
@@ -78,7 +79,7 @@ public class InitializationPatch {
                 }, 1000);
             }
 
-            runOnMainThreadDelayed(() -> showRestartDialog(mActivity, str("revanced_extended_restart_first_run"), 3500), 500);
+            runOnMainThreadDelayed(() -> showRestartDialog(mActivity, str("revanced_restart_first_run"), 3500), 500);
             runOnMainThreadDelayed(() -> SETTINGS_INITIALIZED.save(true), 1000);
         }
     }

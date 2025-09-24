@@ -1,176 +1,222 @@
 package app.revanced.extension.shared.settings.preference;
 
+import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.getColorString;
+import static app.revanced.extension.shared.utils.Utils.dipToPixels;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.*;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.ComposeShader;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.RectF;
+import android.graphics.Shader;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.ColorInt;
+
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
+
 /**
- * A custom color picker view that allows the user to select a color using a hue slider and a saturation-value selector.
+ * A custom color picker view that allows the user to select a color using a hue slider, a saturation-value selector
+ * and an optional opacity slider.
  * This implementation is density-independent and responsive across different screen sizes and DPIs.
- *
  * <p>
  * This view displays three main components for color selection:
  * <ul>
- *     <li><b>Hue Bar:</b> A horizontal bar at the bottom that allows the user to select the hue component of the color.</li>
- *     <li><b>Saturation-Value Selector:</b> A rectangular area (on the right) that allows the user to select the saturation and value (brightness)
- *     components of the color based on the selected hue.</li>
- *     <li><b>Color Previews:</b> Two vertical rectangles on the left. The top shows the original/current color and the bottom shows the new color selected.</li>
+ *     <li><b>Hue Bar:</b> A horizontal bar at the bottom that allows the user to select the hue component of the color.
+ *     <li><b>Saturation-Value Selector:</b> A rectangular area above the hue bar that allows the user to select the
+ *     saturation and value (brightness) components of the color based on the selected hue.
+ *     <li><b>Opacity Slider:</b> An optional horizontal bar below the hue bar that allows the user to adjust
+ *     the opacity (alpha channel) of the color.
  * </ul>
- * </p>
- *
  * <p>
- * The view uses {@link LinearGradient} and {@link ComposeShader} to create the color gradients for the hue bar and the
- * saturation-value selector. It also uses {@link Paint} to draw the selectors (draggable handles) and preview rectangles.
- * </p>
- *
+ * The view uses {@link LinearGradient} and {@link ComposeShader} to create the color gradients for the hue bar,
+ * opacity slider, and the saturation-value selector. It also uses {@link Paint} to draw the selectors (draggable handles).
  * <p>
  * The selected color can be retrieved using {@link #getColor()} and can be set using {@link #setColor(int)}.
  * An {@link OnColorChangedListener} can be registered to receive notifications when the selected color changes.
- * </p>
  */
+@SuppressLint("DrawAllocation")
 public class ColorPickerView extends View {
+    /**
+     * Interface definition for a callback to be invoked when the selected color changes.
+     */
+    public interface OnColorChangedListener {
+        /**
+         * Called when the selected color has changed.
+         */
+        void onColorChanged(@ColorInt int color);
+    }
+
+    /** Expanded touch area for the hue and opacity bars to increase the touch-sensitive area. */
+    public static final float TOUCH_EXPANSION = dipToPixels(20f);
+
+    /** Margin between different areas of the view (saturation-value selector, hue bar, and opacity slider). */
+    private static final float MARGIN_BETWEEN_AREAS = dipToPixels(24);
+
+    /** Padding around the view. */
+    private static final float VIEW_PADDING = dipToPixels(16);
+
+    /** Height of the hue bar. */
+    private static final float HUE_BAR_HEIGHT = dipToPixels(12);
+
+    /** Height of the opacity slider. */
+    private static final float OPACITY_BAR_HEIGHT = dipToPixels(12);
+
+    /** Corner radius for the hue bar. */
+    private static final float HUE_CORNER_RADIUS = dipToPixels(6);
+
+    /** Corner radius for the opacity slider. */
+    private static final float OPACITY_CORNER_RADIUS = dipToPixels(6);
+
+    /** Radius of the selector handles. */
+    private static final float SELECTOR_RADIUS = dipToPixels(12);
+
+    /** Stroke width for the selector handle outlines. */
+    private static final float SELECTOR_STROKE_WIDTH = 8;
 
     /**
-     * Reusable array for HSV color calculations to avoid allocations during drawing
+     * Hue and opacity fill radius. Use slightly smaller radius for the selector handle fill,
+     * otherwise the anti-aliasing causes the fill color to bleed past the selector outline.
      */
-    private final float[] hsvArray = new float[3];
-    /**
-     * Paint object used to draw the hue bar.
-     */
-    private Paint huePaint;
-    /**
-     * Paint object used to draw the saturation-value selector.
-     */
-    private Paint saturationValuePaint;
-    /**
-     * Paint object used to draw the draggable handles.
-     */
-    private Paint selectorPaint;
-    /**
-     * Paint object used to fill the preview rectangles.
-     */
-    private Paint previewPaint;
+    private static final float SELECTOR_FILL_RADIUS = SELECTOR_RADIUS - SELECTOR_STROKE_WIDTH / 2;
 
-    /**
-     * Rectangle representing the bounds of the hue bar.
-     */
-    private RectF hueRect;
-    /**
-     * Rectangle representing the bounds of the saturation-value selector.
-     */
-    private RectF saturationValueRect;
-    /**
-     * Rectangle representing the preview area for original color (top left).
-     */
-    private RectF previewOriginalRect;
-    /**
-     * Rectangle representing the preview area for new color (bottom left).
-     */
-    private RectF previewNewRect;
-    /**
-     * Current hue value (0-360).
-     */
+    /** Thin dark outline stroke width for the selector rings. */
+    private static final float SELECTOR_EDGE_STROKE_WIDTH = 1;
+
+    /** Radius for the outer edge of the selector rings, including stroke width. */
+    public static final float SELECTOR_EDGE_RADIUS =
+            SELECTOR_RADIUS + SELECTOR_STROKE_WIDTH / 2 + SELECTOR_EDGE_STROKE_WIDTH / 2;
+
+    /** Selector outline inner color. */
+    @ColorInt
+    private static final int SELECTOR_OUTLINE_COLOR = Color.WHITE;
+
+    /** Dark edge color for the selector rings. */
+    @ColorInt
+    private static final int SELECTOR_EDGE_COLOR = Color.parseColor("#CFCFCF");
+
+    /** Precomputed array of hue colors for the hue bar (0-360 degrees). */
+    private static final int[] HUE_COLORS = new int[361];
+    static {
+        for (int i = 0; i < 361; i++) {
+            HUE_COLORS[i] = Color.HSVToColor(new float[]{i, 1, 1});
+        }
+    }
+
+    /** Paint for the hue bar. */
+    private final Paint huePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+    /** Paint for the opacity slider. */
+    private final Paint opacityPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+    /** Paint for the saturation-value selector. */
+    private final Paint saturationValuePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+    /** Paint for the draggable selector handles. */
+    private final Paint selectorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    {
+        selectorPaint.setStrokeWidth(SELECTOR_STROKE_WIDTH);
+    }
+
+    /** Bounds of the hue bar. */
+    private final RectF hueRect = new RectF();
+
+    /** Bounds of the opacity slider. */
+    private final RectF opacityRect = new RectF();
+
+    /** Bounds of the saturation-value selector. */
+    private final RectF saturationValueRect = new RectF();
+
+    /** HSV color calculations to avoid allocations during drawing. */
+    private final float[] hsvArray = {1, 1, 1};
+
+    /** Current hue value (0-360). */
     private float hue = 0f;
-    /**
-     * Current saturation value (0-1).
-     */
+
+    /** Current saturation value (0-1). */
     private float saturation = 1f;
-    /**
-     * Current value (brightness) value (0-1).
-     */
+
+    /** Current value (brightness) value (0-1). */
     private float value = 1f;
-    /**
-     * The currently selected color in ARGB format.
-     */
-    private int selectedColor = Color.HSVToColor(new float[]{hue, saturation, value});
-    /**
-     * The original color (before the user starts modifying).
-     */
-    private int originalColor = selectedColor;
-    /**
-     * Listener to be notified when the selected color changes.
-     */
+
+    /** Current opacity value (0-1). */
+    private float opacity = 1f;
+
+    /** The currently selected color, including alpha channel if opacity slider is enabled. */
+    @ColorInt
+    private int selectedColor;
+
+    /** Listener for color change events. */
     private OnColorChangedListener colorChangedListener;
-    /**
-     * Track if we're currently dragging the hue or saturation handle
-     */
-    private boolean isDraggingHue = false;
-    private boolean isDraggingSaturation = false;
-    /**
-     * Pixel dimensions calculated from DP values
-     */
-    private float hueBarHeight;
-    private float marginBetweenAreas;
-    private float previewWidth;
-    private float viewPadding;
-    private float selectorRadius;
-    private float hueCornerRadius;
-    /**
-     * Constructor for creating a ColorPickerView programmatically.
-     *
-     * @param context The Context the view is running in.
-     * @param attrs   The attributes of the XML tag that is inflating the view.
-     */
+
+    /** Tracks if the hue selector is being dragged. */
+    private boolean isDraggingHue;
+
+    /** Tracks if the saturation-value selector is being dragged. */
+    private boolean isDraggingSaturation;
+
+    /** Tracks if the opacity selector is being dragged. */
+    private boolean isDraggingOpacity;
+
+    /** Flag to enable/disable the opacity slider. */
+    private boolean opacitySliderEnabled = false;
+
+    public ColorPickerView(Context context) {
+        super(context);
+    }
+
     public ColorPickerView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initDimensions();
-        init();
+    }
+
+    public ColorPickerView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
 
     /**
-     * Initializes density-independent dimensions by converting them to pixels.
+     * Enables or disables the opacity slider.
      */
-    private void initDimensions() {
-        // Density-independent dimensions converted to pixels
-        float HUE_BAR_HEIGHT_DP = 12f;
-        float MARGIN_BETWEEN_AREAS_DP = 24f;
-        float PREVIEW_WIDTH_DP = 24f;
-        float VIEW_PADDING_DP = 16f;
-        float SELECTOR_RADIUS_DP = 12f;
-        float HUE_CORNER_RADIUS_DP = 6f;
-
-        hueBarHeight = dpToPx(HUE_BAR_HEIGHT_DP);
-        marginBetweenAreas = dpToPx(MARGIN_BETWEEN_AREAS_DP);
-        previewWidth = dpToPx(PREVIEW_WIDTH_DP);
-        viewPadding = dpToPx(VIEW_PADDING_DP);
-        selectorRadius = dpToPx(SELECTOR_RADIUS_DP);
-        hueCornerRadius = dpToPx(HUE_CORNER_RADIUS_DP);
+    public void setOpacitySliderEnabled(boolean enabled) {
+        if (opacitySliderEnabled != enabled) {
+            opacitySliderEnabled = enabled;
+            if (!enabled) {
+                opacity = 1f; // Reset to fully opaque when disabled.
+                updateSelectedColor();
+            }
+            updateOpacityShader();
+            requestLayout(); // Trigger re-measure to account for opacity slider.
+            invalidate();
+        }
     }
 
     /**
-     * Converts dp value to pixels.
-     *
-     * @param dp The density-independent pixels value
-     * @return The pixel value
+     * Measures the view, ensuring a consistent aspect ratio and minimum dimensions.
      */
-    private float dpToPx(float dp) {
-        return TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                dp,
-                getResources().getDisplayMetrics()
-        );
-    }
-
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        float DESIRED_ASPECT_RATIO = 1.2f; // height = width * 1.2
+        final float DESIRED_ASPECT_RATIO = 0.8f; // height = width * 0.8
 
-        int minWidth = (int) dpToPx(250);
-        int minHeight = (int) (minWidth * DESIRED_ASPECT_RATIO);
+        final int minWidth = dipToPixels(250);
+        final int minHeight = (int) (minWidth * DESIRED_ASPECT_RATIO) + (int) (HUE_BAR_HEIGHT + MARGIN_BETWEEN_AREAS)
+                + (opacitySliderEnabled ? (int) (OPACITY_BAR_HEIGHT + MARGIN_BETWEEN_AREAS) : 0);
 
         int width = resolveSize(minWidth, widthMeasureSpec);
         int height = resolveSize(minHeight, heightMeasureSpec);
 
-        // Ensure minimum dimensions for usability
+        // Ensure minimum dimensions for usability.
         width = Math.max(width, minWidth);
         height = Math.max(height, minHeight);
 
-        // Adjust height to maintain desired aspect ratio if possible
-        int desiredHeight = (int) (width * DESIRED_ASPECT_RATIO);
+        // Adjust height to maintain desired aspect ratio if possible.
+        final int desiredHeight = (int) (width * DESIRED_ASPECT_RATIO) + (int) (HUE_BAR_HEIGHT + MARGIN_BETWEEN_AREAS)
+                + (opacitySliderEnabled ? (int) (OPACITY_BAR_HEIGHT + MARGIN_BETWEEN_AREAS) : 0);
         if (MeasureSpec.getMode(heightMeasureSpec) != MeasureSpec.EXACTLY) {
             height = desiredHeight;
         }
@@ -179,102 +225,55 @@ public class ColorPickerView extends View {
     }
 
     /**
-     * Initializes the paint objects and the rectangle bounds.
-     */
-    private void init() {
-        // Initialize the paint for the hue bar with antialiasing enabled.
-        huePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-
-        // Initialize the paint for the saturation-value selector with antialiasing enabled.
-        saturationValuePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-
-        // Initialize the paint for the draggable handles with antialiasing, fill-and-stroke style.
-        selectorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        selectorPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        selectorPaint.setStrokeWidth(8f);
-        // The stroke color (white border) will be applied in onDraw.
-
-        // Initialize the paint for filling the preview rectangles.
-        previewPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        previewPaint.setStyle(Paint.Style.FILL);
-
-        // Initialize the rectangle objects for the different components.
-        hueRect = new RectF();
-        saturationValueRect = new RectF();
-        previewOriginalRect = new RectF();
-        previewNewRect = new RectF();
-    }
-
-    /**
-     * Called when the size of the view changes.
-     * This method calculates and sets the bounds of the hue bar, saturation-value selector, and the preview rectangles.
-     * It also creates the necessary shaders for the gradients.
-     *
-     * @param w    Current width of this view.
-     * @param h    Current height of this view.
-     * @param oldw Old width of this view.
-     * @param oldh Old height of this view.
+     * Updates the view's layout when its size changes, recalculating bounds and shaders.
      */
     @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
+    protected void onSizeChanged(int width, int height, int oldWidth, int oldHeight) {
+        super.onSizeChanged(width, height, oldWidth, oldHeight);
 
-        // Reduce the space taken by hue bar and margins to give more room for the color area
-        float effectiveHeight = h - (2 * viewPadding);
+        // Calculate bounds with hue bar and optional opacity bar at the bottom.
+        final float effectiveWidth = width - (2 * VIEW_PADDING);
+        final float effectiveHeight = height - (2 * VIEW_PADDING) - HUE_BAR_HEIGHT - MARGIN_BETWEEN_AREAS
+                - (opacitySliderEnabled ? OPACITY_BAR_HEIGHT + MARGIN_BETWEEN_AREAS : 0);
 
-        // Calculate optimal preview rectangle height
-        float previewHeight = effectiveHeight - hueBarHeight - marginBetweenAreas;
-
-        // Add a small gap between preview and saturation-value selector
-        float gapBetweenPreviewAndSelector = viewPadding / 2;
-
-        // Adjust all rectangles to account for padding and density-independent dimensions
-        previewOriginalRect.set(
-                viewPadding,
-                viewPadding,
-                viewPadding + previewWidth,
-                viewPadding + previewHeight / 2
-        );
-
-        previewNewRect.set(
-                viewPadding,
-                viewPadding + previewHeight / 2,
-                viewPadding + previewWidth,
-                viewPadding + previewHeight
-        );
-
+        // Adjust rectangles to account for padding and density-independent dimensions.
         saturationValueRect.set(
-                viewPadding + previewWidth + gapBetweenPreviewAndSelector,
-                viewPadding,
-                w - viewPadding,
-                viewPadding + previewHeight
+                VIEW_PADDING,
+                VIEW_PADDING,
+                VIEW_PADDING + effectiveWidth,
+                VIEW_PADDING + effectiveHeight
         );
 
         hueRect.set(
-                viewPadding,
-                h - viewPadding - hueBarHeight,
-                w - viewPadding,
-                h - viewPadding
+                VIEW_PADDING,
+                height - VIEW_PADDING - HUE_BAR_HEIGHT - (opacitySliderEnabled ? OPACITY_BAR_HEIGHT + MARGIN_BETWEEN_AREAS : 0),
+                VIEW_PADDING + effectiveWidth,
+                height - VIEW_PADDING - (opacitySliderEnabled ? OPACITY_BAR_HEIGHT + MARGIN_BETWEEN_AREAS : 0)
         );
 
-        // Update the shaders
+        if (opacitySliderEnabled) {
+            opacityRect.set(
+                    VIEW_PADDING,
+                    height - VIEW_PADDING - OPACITY_BAR_HEIGHT,
+                    VIEW_PADDING + effectiveWidth,
+                    height - VIEW_PADDING
+            );
+        }
+
+        // Update the shaders.
         updateHueShader();
         updateSaturationValueShader();
+        updateOpacityShader();
     }
 
     /**
-     * Generates an array of colors representing the full hue spectrum (0-360 degrees).
+     * Updates the shader for the hue bar to reflect the color gradient.
      */
     private void updateHueShader() {
-        int[] hueColors = new int[361];
-        for (int i = 0; i <= 360; i++) {
-            hueColors[i] = Color.HSVToColor(new float[]{i, 1f, 1f});
-        }
-
         LinearGradient hueShader = new LinearGradient(
                 hueRect.left, hueRect.top,
                 hueRect.right, hueRect.top,
-                hueColors,
+                HUE_COLORS,
                 null,
                 Shader.TileMode.CLAMP
         );
@@ -283,16 +282,37 @@ public class ColorPickerView extends View {
     }
 
     /**
-     * Updates the shader for the saturation-value selector based on the currently selected hue.
-     * This method creates a combined shader that blends a saturation gradient with a value gradient.
+     * Updates the shader for the opacity slider to reflect the current RGB color with varying opacity.
+     */
+    private void updateOpacityShader() {
+        if (!opacitySliderEnabled) {
+            opacityPaint.setShader(null);
+            return;
+        }
+
+        // Create a linear gradient for opacity from transparent to opaque, using the current RGB color.
+        int rgbColor = Color.HSVToColor(0, new float[]{hue, saturation, value});
+        LinearGradient opacityShader = new LinearGradient(
+                opacityRect.left, opacityRect.top,
+                opacityRect.right, opacityRect.top,
+                rgbColor & 0x00FFFFFF, // Fully transparent
+                rgbColor | 0xFF000000, // Fully opaque
+                Shader.TileMode.CLAMP
+        );
+
+        opacityPaint.setShader(opacityShader);
+    }
+
+    /**
+     * Updates the shader for the saturation-value selector to reflect the current hue.
      */
     private void updateSaturationValueShader() {
         // Create a saturation-value gradient based on the current hue.
         // Calculate the start color (white with the selected hue) for the saturation gradient.
-        int startColor = Color.HSVToColor(new float[]{hue, 0f, 1f});
+        final int startColor = Color.HSVToColor(new float[]{hue, 0f, 1f});
 
         // Calculate the middle color (fully saturated color with the selected hue) for the saturation gradient.
-        int midColor = Color.HSVToColor(new float[]{hue, 1f, 1f});
+        final int midColor = Color.HSVToColor(new float[]{hue, 1f, 1f});
 
         // Create a linear gradient for the saturation from startColor to midColor (horizontal).
         LinearGradient satShader = new LinearGradient(
@@ -320,249 +340,301 @@ public class ColorPickerView extends View {
     }
 
     /**
-     * Draws the color picker view on the canvas.
-     * This method draws the preview rectangles, the saturation-value selector, the hue bar with rounded corners,
-     * and the draggable handles.
-     *
-     * @param canvas The canvas on which to draw.
+     * Draws the color picker components, including the saturation-value selector, hue bar, opacity slider, and their respective handles.
      */
     @Override
     protected void onDraw(Canvas canvas) {
-        // Draw the original color preview rectangle (left top)
-        previewPaint.setColor(originalColor);
-        canvas.drawRect(previewOriginalRect, previewPaint);
-
-        // Draw the new color preview rectangle (left bottom)
-        previewPaint.setColor(selectedColor);
-        canvas.drawRect(previewNewRect, previewPaint);
-
-        // Draw the saturation-value selector rectangle
+        // Draw the saturation-value selector rectangle.
         canvas.drawRect(saturationValueRect, saturationValuePaint);
 
-        // Draw the hue bar
-        canvas.drawRoundRect(hueRect, hueCornerRadius, hueCornerRadius, huePaint);
+        // Draw the hue bar.
+        canvas.drawRoundRect(hueRect, HUE_CORNER_RADIUS, HUE_CORNER_RADIUS, huePaint);
 
-        // Draw the hue selector handle
-        float hueSelectorX = hueRect.left + (hue / 360f) * hueRect.width();
-        float hueSelectorY = hueRect.centerY();
+        // Draw the opacity bar if enabled.
+        if (opacitySliderEnabled) {
+            canvas.drawRoundRect(opacityRect, OPACITY_CORNER_RADIUS, OPACITY_CORNER_RADIUS, opacityPaint);
+        }
 
-        // Use the reusable array for HSV color calculation
+        final float hueSelectorX = hueRect.left + (hue / 360f) * hueRect.width();
+        final float hueSelectorY = hueRect.centerY();
+
+        final float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
+        final float satSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
+
+        // Draw the saturation and hue selector handles filled with their respective colors (fully opaque).
         hsvArray[0] = hue;
-        hsvArray[1] = 1f;
-        hsvArray[2] = 1f;
-        int hueHandleColor = Color.HSVToColor(hsvArray);
+        final int hueHandleColor = Color.HSVToColor(0xFF, hsvArray); // Force opaque for hue handle.
+        final int satHandleColor = Color.HSVToColor(0xFF, new float[]{hue, saturation, value}); // Force opaque for sat-val handle.
+        selectorPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
         selectorPaint.setColor(hueHandleColor);
-        canvas.drawCircle(hueSelectorX, hueSelectorY, selectorRadius, selectorPaint);
+        canvas.drawCircle(hueSelectorX, hueSelectorY, SELECTOR_FILL_RADIUS, selectorPaint);
 
-        // Draw a white border for the hue handle
+        selectorPaint.setColor(satHandleColor);
+        canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_FILL_RADIUS, selectorPaint);
+
+        if (opacitySliderEnabled) {
+            final float opacitySelectorX = opacityRect.left + opacity * opacityRect.width();
+            final float opacitySelectorY = opacityRect.centerY();
+            selectorPaint.setColor(selectedColor); // Use full ARGB color to show opacity.
+            canvas.drawCircle(opacitySelectorX, opacitySelectorY, SELECTOR_FILL_RADIUS, selectorPaint);
+        }
+
+        // Draw white outlines for the handles.
+        selectorPaint.setColor(SELECTOR_OUTLINE_COLOR);
         selectorPaint.setStyle(Paint.Style.STROKE);
-        selectorPaint.setColor(Color.WHITE);
-        canvas.drawCircle(hueSelectorX, hueSelectorY, selectorRadius, selectorPaint);
+        selectorPaint.setStrokeWidth(SELECTOR_STROKE_WIDTH);
+        canvas.drawCircle(hueSelectorX, hueSelectorY, SELECTOR_RADIUS, selectorPaint);
+        canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_RADIUS, selectorPaint);
+        if (opacitySliderEnabled) {
+            final float opacitySelectorX = opacityRect.left + opacity * opacityRect.width();
+            final float opacitySelectorY = opacityRect.centerY();
+            canvas.drawCircle(opacitySelectorX, opacitySelectorY, SELECTOR_RADIUS, selectorPaint);
+        }
 
-        // Reset the paint style
-        selectorPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-
-        // Draw the saturation-value selector handle
-        float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
-        float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
-
-        selectorPaint.setColor(selectedColor);
-        canvas.drawCircle(satSelectorX, valSelectorY, selectorRadius, selectorPaint);
-
-        // Draw a white border for the saturation handle
-        selectorPaint.setStyle(Paint.Style.STROKE);
-        selectorPaint.setColor(Color.WHITE);
-        canvas.drawCircle(satSelectorX, valSelectorY, selectorRadius, selectorPaint);
-        selectorPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        // Draw thin dark outlines for the handles at the outer edge of the white outline.
+        selectorPaint.setColor(SELECTOR_EDGE_COLOR);
+        selectorPaint.setStrokeWidth(SELECTOR_EDGE_STROKE_WIDTH);
+        canvas.drawCircle(hueSelectorX, hueSelectorY, SELECTOR_EDGE_RADIUS, selectorPaint);
+        canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_EDGE_RADIUS, selectorPaint);
+        if (opacitySliderEnabled) {
+            final float opacitySelectorX = opacityRect.left + opacity * opacityRect.width();
+            final float opacitySelectorY = opacityRect.centerY();
+            canvas.drawCircle(opacitySelectorX, opacitySelectorY, SELECTOR_EDGE_RADIUS, selectorPaint);
+        }
     }
 
     /**
-     * Handles touch events on the view.
-     * This method determines whether the touch event occurred within the hue bar or the saturation-value selector,
-     * updates the corresponding values (hue, saturation, value), and invalidates the view to trigger a redraw.
-     * <p>
-     * In addition to testing if the touch is within the strict rectangles, an expanded hit area (by selectorRadius)
-     * is used so that the draggable handles remain active even when half of the handle is outside the drawn bounds.
-     * </p>
+     * Handles touch events to allow dragging of the hue, saturation-value, and opacity selectors.
      *
      * @param event The motion event.
      * @return True if the event was handled, false otherwise.
      */
-    @SuppressLint("ClickableViewAccessibility") // performClick is not overridden, but not needed in this case.
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        float x = event.getX();
-        float y = event.getY();
+        try {
+            final float x = event.getX();
+            final float y = event.getY();
+            final int action = event.getAction();
+            Logger.printDebug(() -> "onTouchEvent action: " + action + " x: " + x + " y: " + y);
 
-        // Calculate current handle positions
-        float hueSelectorX = hueRect.left + (hue / 360f) * hueRect.width();
-        float hueSelectorY = hueRect.centerY();
+            // Define touch expansion for the hue and opacity bars.
+            RectF expandedHueRect = new RectF(
+                    hueRect.left,
+                    hueRect.top - TOUCH_EXPANSION,
+                    hueRect.right,
+                    hueRect.bottom + TOUCH_EXPANSION
+            );
+            RectF expandedOpacityRect = opacitySliderEnabled ? new RectF(
+                    opacityRect.left,
+                    opacityRect.top - TOUCH_EXPANSION,
+                    opacityRect.right,
+                    opacityRect.bottom + TOUCH_EXPANSION
+            ) : new RectF();
 
-        float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
-        float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
+            switch (action) {
+                case MotionEvent.ACTION_DOWN:
+                    // Calculate current handle positions.
+                    final float hueSelectorX = hueRect.left + (hue / 360f) * hueRect.width();
+                    final float hueSelectorY = hueRect.centerY();
 
-        // Create hit areas for both handles
-        RectF hueHitRect = new RectF(
-                hueSelectorX - selectorRadius,
-                hueSelectorY - selectorRadius,
-                hueSelectorX + selectorRadius,
-                hueSelectorY + selectorRadius
-        );
+                    final float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
+                    final float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
 
-        RectF satValHitRect = new RectF(
-                satSelectorX - selectorRadius,
-                valSelectorY - selectorRadius,
-                satSelectorX + selectorRadius,
-                valSelectorY + selectorRadius
-        );
+                    final float opacitySelectorX = opacitySliderEnabled ? opacityRect.left + opacity * opacityRect.width() : 0;
+                    final float opacitySelectorY = opacitySliderEnabled ? opacityRect.centerY() : 0;
 
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                // Check if the touch started on either handle
-                if (hueHitRect.contains(x, y)) {
-                    isDraggingHue = true;
-                    updateHueFromTouch(x);
-                } else if (satValHitRect.contains(x, y)) {
-                    isDraggingSaturation = true;
-                    updateSaturationValueFromTouch(x, y);
-                } else if (hueRect.contains(x, y)) {
-                    isDraggingHue = true;
-                    updateHueFromTouch(x);
-                } else if (saturationValueRect.contains(x, y)) {
-                    isDraggingSaturation = true;
-                    updateSaturationValueFromTouch(x, y);
-                }
-                break;
+                    // Create hit areas for all handles.
+                    RectF hueHitRect = new RectF(
+                            hueSelectorX - SELECTOR_RADIUS,
+                            hueSelectorY - SELECTOR_RADIUS,
+                            hueSelectorX + SELECTOR_RADIUS,
+                            hueSelectorY + SELECTOR_RADIUS
+                    );
+                    RectF satValHitRect = new RectF(
+                            satSelectorX - SELECTOR_RADIUS,
+                            valSelectorY - SELECTOR_RADIUS,
+                            satSelectorX + SELECTOR_RADIUS,
+                            valSelectorY + SELECTOR_RADIUS
+                    );
+                    RectF opacityHitRect = opacitySliderEnabled ? new RectF(
+                            opacitySelectorX - SELECTOR_RADIUS,
+                            opacitySelectorY - SELECTOR_RADIUS,
+                            opacitySelectorX + SELECTOR_RADIUS,
+                            opacitySelectorY + SELECTOR_RADIUS
+                    ) : new RectF();
 
-            case MotionEvent.ACTION_MOVE:
-                // Continue updating values even if touch moves outside the view
-                if (isDraggingHue) {
-                    updateHueFromTouch(x);
-                } else if (isDraggingSaturation) {
-                    updateSaturationValueFromTouch(x, y);
-                }
-                break;
+                    // Check if the touch started on a handle or within the expanded bar areas.
+                    if (hueHitRect.contains(x, y)) {
+                        isDraggingHue = true;
+                        updateHueFromTouch(x);
+                    } else if (satValHitRect.contains(x, y)) {
+                        isDraggingSaturation = true;
+                        updateSaturationValueFromTouch(x, y);
+                    } else if (opacitySliderEnabled && opacityHitRect.contains(x, y)) {
+                        isDraggingOpacity = true;
+                        updateOpacityFromTouch(x);
+                    } else if (expandedHueRect.contains(x, y)) {
+                        // Handle touch within the expanded hue bar area.
+                        isDraggingHue = true;
+                        updateHueFromTouch(x);
+                    } else if (saturationValueRect.contains(x, y)) {
+                        isDraggingSaturation = true;
+                        updateSaturationValueFromTouch(x, y);
+                    } else if (opacitySliderEnabled && expandedOpacityRect.contains(x, y)) {
+                        isDraggingOpacity = true;
+                        updateOpacityFromTouch(x);
+                    }
+                    break;
 
-            case MotionEvent.ACTION_UP:
-            case MotionEvent.ACTION_CANCEL:
-                isDraggingHue = false;
-                isDraggingSaturation = false;
-                break;
+                case MotionEvent.ACTION_MOVE:
+                    // Continue updating values even if touch moves outside the view.
+                    if (isDraggingHue) {
+                        updateHueFromTouch(x);
+                    } else if (isDraggingSaturation) {
+                        updateSaturationValueFromTouch(x, y);
+                    } else if (isDraggingOpacity) {
+                        updateOpacityFromTouch(x);
+                    }
+                    break;
+
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    isDraggingHue = false;
+                    isDraggingSaturation = false;
+                    isDraggingOpacity = false;
+                    break;
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "onTouchEvent failure", ex);
         }
 
         return true;
     }
 
     /**
-     * Updates the hue value based on touch position, clamping to valid range
-     *
-     * @param x The x-coordinate of the touch position
+     * Updates the hue value based on a touch event.
      */
     private void updateHueFromTouch(float x) {
-        // Clamp x to the hue rectangle bounds
-        float clampedX = Math.max(hueRect.left, Math.min(hueRect.right, x));
-        hue = ((clampedX - hueRect.left) / hueRect.width()) * 360f;
+        // Clamp x to the hue rectangle bounds.
+        final float clampedX = Utils.clamp(x, hueRect.left, hueRect.right);
+        final float updatedHue = ((clampedX - hueRect.left) / hueRect.width()) * 360f;
+        if (hue == updatedHue) {
+            return;
+        }
+
+        hue = updatedHue;
         updateSaturationValueShader();
+        updateOpacityShader();
         updateSelectedColor();
     }
 
     /**
-     * Updates saturation and value based on touch position, clamping to valid range
-     *
-     * @param x The x-coordinate of the touch position
-     * @param y The y-coordinate of the touch position
+     * Updates the saturation and value based on a touch event.
      */
     private void updateSaturationValueFromTouch(float x, float y) {
-        // Clamp x and y to the saturation-value rectangle bounds
-        float clampedX = Math.max(saturationValueRect.left, Math.min(saturationValueRect.right, x));
-        float clampedY = Math.max(saturationValueRect.top, Math.min(saturationValueRect.bottom, y));
+        // Clamp x and y to the saturation-value rectangle bounds.
+        final float clampedX = Utils.clamp(x, saturationValueRect.left, saturationValueRect.right);
+        final float clampedY = Utils.clamp(y, saturationValueRect.top, saturationValueRect.bottom);
 
-        saturation = (clampedX - saturationValueRect.left) / saturationValueRect.width();
-        value = 1 - ((clampedY - saturationValueRect.top) / saturationValueRect.height());
+        final float updatedSaturation = (clampedX - saturationValueRect.left) / saturationValueRect.width();
+        final float updatedValue = 1 - ((clampedY - saturationValueRect.top) / saturationValueRect.height());
+
+        if (saturation == updatedSaturation && value == updatedValue) {
+            return;
+        }
+        saturation = updatedSaturation;
+        value = updatedValue;
+        updateOpacityShader();
         updateSelectedColor();
     }
 
     /**
-     * Updates the selected color and notifies listeners
+     * Updates the opacity value based on a touch event.
+     */
+    private void updateOpacityFromTouch(float x) {
+        if (!opacitySliderEnabled) {
+            return;
+        }
+        final float clampedX = Utils.clamp(x, opacityRect.left, opacityRect.right);
+        final float updatedOpacity = (clampedX - opacityRect.left) / opacityRect.width();
+        if (opacity == updatedOpacity) {
+            return;
+        }
+        opacity = updatedOpacity;
+        updateSelectedColor();
+    }
+
+    /**
+     * Updates the selected color based on the current hue, saturation, value, and opacity.
      */
     private void updateSelectedColor() {
-        selectedColor = Color.HSVToColor(new float[]{hue, saturation, value});
-        if (colorChangedListener != null) {
-            colorChangedListener.onColorChanged(selectedColor);
+        final int rgbColor = Color.HSVToColor(0, new float[]{hue, saturation, value});
+        final int updatedColor = opacitySliderEnabled
+                ? (rgbColor & 0x00FFFFFF) | (((int) (opacity * 255)) << 24)
+                : (rgbColor & 0x00FFFFFF) | 0xFF000000;
+
+        if (selectedColor != updatedColor) {
+            selectedColor = updatedColor;
+
+            if (colorChangedListener != null) {
+                colorChangedListener.onColorChanged(updatedColor);
+            }
         }
+
+        // Must always redraw, otherwise if saturation is pure grey or black
+        // then the hue slider cannot be changed.
         invalidate();
     }
 
     /**
-     * Sets the initial color without updating the selection.
-     * This is used to show the original/current color in the preview.
-     *
-     * @param color The initial color in ARGB format.
+     * Sets the selected color, updating the hue, saturation, value and opacity sliders accordingly.
      */
-    public void setInitialColor(int color) {
-        originalColor = color;
-        // Also update the current selection.
-        setColor(color);
-    }
+    public void setColor(@ColorInt int color) {
+        if (selectedColor == color) {
+            return;
+        }
 
-    /**
-     * Gets the currently selected color.
-     *
-     * @return The selected color in ARGB format.
-     */
-    public int getColor() {
-        return selectedColor;
-    }
+        // Update the selected color.
+        selectedColor = color;
+        Logger.printDebug(() -> "setColor: " + getColorString(selectedColor, opacitySliderEnabled));
 
-    /**
-     * Sets the currently selected color.
-     *
-     * @param color The color to set in ARGB format.
-     */
-    public void setColor(int color) {
         // Convert the ARGB color to HSV values.
         float[] hsv = new float[3];
         Color.colorToHSV(color, hsv);
 
         // Update the hue, saturation, and value.
-        this.hue = hsv[0];
-        this.saturation = hsv[1];
-        this.value = hsv[2];
-
-        // Update the selected color.
-        selectedColor = color;
+        hue = hsv[0];
+        saturation = hsv[1];
+        value = hsv[2];
+        opacity = opacitySliderEnabled ? ((color >> 24) & 0xFF) / 255f : 1f;
 
         // Update the saturation-value shader based on the new hue.
         updateSaturationValueShader();
-
-        // Invalidate the view to trigger a redraw.
-        invalidate();
+        updateOpacityShader();
 
         // Notify the listener if it's set.
         if (colorChangedListener != null) {
             colorChangedListener.onColorChanged(selectedColor);
         }
+
+        // Invalidate the view to trigger a redraw.
+        invalidate();
     }
 
     /**
-     * Sets the listener to be notified when the selected color changes.
-     *
-     * @param listener The listener to set.
+     * Gets the currently selected color.
+     */
+    @ColorInt
+    public int getColor() {
+        return selectedColor;
+    }
+
+    /**
+     * Sets a listener to be notified when the selected color changes.
      */
     public void setOnColorChangedListener(OnColorChangedListener listener) {
-        this.colorChangedListener = listener;
-    }
-
-    /**
-     * Interface definition for a callback to be invoked when the selected color changes.
-     */
-    public interface OnColorChangedListener {
-        /**
-         * Called when the selected color has changed.
-         *
-         * @param color The new selected color.
-         */
-        void onColorChanged(int color);
+        colorChangedListener = listener;
     }
 }

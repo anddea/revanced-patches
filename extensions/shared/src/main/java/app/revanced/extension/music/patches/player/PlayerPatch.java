@@ -82,7 +82,7 @@ public class PlayerPatch {
             colorInitalized = true;
         } catch (Exception ex) {
             Utils.showToastShort(str("revanced_custom_player_background_invalid_toast"));
-            Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
+            Utils.showToastShort(str("revanced_reset_to_default_toast"));
             CUSTOM_PLAYER_BACKGROUND_COLOR_PRIMARY.resetToDefault();
             CUSTOM_PLAYER_BACKGROUND_COLOR_SECONDARY.resetToDefault();
 

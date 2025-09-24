@@ -3,8 +3,8 @@ package app.revanced.patches.music.ads.general
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.patch.Option
 import app.revanced.patcher.patch.booleanOption
-import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.navigation.components.navigationBarComponentsPatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.extension.Constants.ADS_PATH
@@ -16,16 +16,13 @@ import app.revanced.patches.music.utils.playservice.is_7_28_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.buttonContainer
 import app.revanced.patches.music.utils.resourceid.floatingLayout
-import app.revanced.patches.music.utils.resourceid.interstitialsContainer
 import app.revanced.patches.music.utils.resourceid.privacyTosFooter
 import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
-import app.revanced.patches.shared.ads.baseAdsPatch
-import app.revanced.patches.shared.ads.hookLithoFullscreenAds
-import app.revanced.patches.shared.ads.hookNonLithoFullscreenAds
+import app.revanced.patches.shared.ads.adsPatch
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.shared.mainactivity.onStartMethod
@@ -52,56 +49,41 @@ private const val PREMIUM_PROMOTION_POP_UP_CLASS_DESCRIPTOR =
 private const val PREMIUM_PROMOTION_BANNER_CLASS_DESCRIPTOR =
     "$ADS_PATH/PremiumRenewalPatch;"
 
+lateinit var hideFullscreenAds: Option<Boolean>
+
 @Suppress("unused")
-val adsPatch = bytecodePatch(
-    HIDE_ADS.title,
-    HIDE_ADS.summary,
-) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+val adsPatch = adsPatch(
+    block = {
+        compatibleWith(COMPATIBLE_PACKAGE)
 
-    dependsOn(
-        settingsPatch,
-        baseAdsPatch("$ADS_PATH/MusicAdsPatch;", "hideMusicAds"),
-        lithoFilterPatch,
-        navigationBarComponentsPatch, // for 'Hide upgrade button' setting
-        navigationBarHookPatch,
-        sharedResourceIdPatch,
-        versionCheckPatch,
-        mainActivityResolvePatch,
-    )
+        dependsOn(
+            settingsPatch,
+            lithoFilterPatch,
+            navigationBarComponentsPatch, // for 'Hide upgrade button' setting
+            navigationBarHookPatch,
+            sharedResourceIdPatch,
+            versionCheckPatch,
+            mainActivityResolvePatch,
+        )
 
-    val hideFullscreenAds by booleanOption(
-        key = "hideFullscreenAds",
-        default = false,
-        title = "Hide fullscreen ads",
-        description = """
-            Add an option to hide fullscreen ads.
-
-            This setting may not completely hide fullscreen ads due to server-side changes, and support for this is not provided.
-            
-            This setting may cause the app to become unusable, and users may need to clear app data.
-            """.trimIndent(),
-        required = true,
-    )
-
-    execute {
-
-        // region patch for hide fullscreen ads
-
-        if (hideFullscreenAds == true) {
-            // non-litho view, used in some old clients
-            interstitialsContainerFingerprint
-                .methodOrThrow()
-                .hookNonLithoFullscreenAds(interstitialsContainer)
-
-            // litho view, used in 'ShowDialogCommandOuterClass' in innertube
-            showDialogCommandFingerprint
-                .matchOrThrow()
-                .hookLithoFullscreenAds()
-        }
-
-        // endregion
-
+        hideFullscreenAds = booleanOption(
+            key = "hideFullscreenAds",
+            default = false,
+            title = "Hide fullscreen ads",
+            description = """
+                Add an option to hide fullscreen ads.
+                
+                This setting may not completely hide fullscreen ads due to server-side changes, and support for this is not provided.
+                
+                This setting may cause the app to become unusable, and users may need to clear app data.
+                """.trimIndent(),
+            required = true,
+        )
+    },
+    classDescriptor = "$ADS_PATH/MusicAdsPatch;",
+    methodDescriptor = "hideMusicAds",
+    hideFullscreenAdsOption = { hideFullscreenAds },
+    executeBlock = {
         // region patch for hide premium promotion popup
 
         // get premium bottom sheet
@@ -111,7 +93,7 @@ val adsPatch = bytecodePatch(
 
             addInstruction(
                 targetIndex + 1,
-                "invoke-static {v$targetRegister}, $PREMIUM_PROMOTION_POP_UP_CLASS_DESCRIPTOR->hidePremiumPromotionBottomSheet(Landroid/view/View;)V"
+                "invoke-static {v$targetRegister}, ${PREMIUM_PROMOTION_POP_UP_CLASS_DESCRIPTOR}->hidePremiumPromotionBottomSheet(Landroid/view/View;)V"
             )
         }
 
@@ -124,7 +106,7 @@ val adsPatch = bytecodePatch(
             ).forEach { (method, name) ->
                 method.addInstruction(
                     0,
-                    "invoke-static {}, $PREMIUM_PROMOTION_POP_UP_CLASS_DESCRIPTOR->$name()V"
+                    "invoke-static {}, ${PREMIUM_PROMOTION_POP_UP_CLASS_DESCRIPTOR}->$name()V"
                 )
             }
 
@@ -140,7 +122,7 @@ val adsPatch = bytecodePatch(
                     replaceInstruction(
                         setContentViewIndex,
                         "invoke-static {v$dialogRegister, v$viewRegister}, " +
-                                " $PREMIUM_PROMOTION_POP_UP_CLASS_DESCRIPTOR->hidePremiumPromotionDialog(Landroid/app/Dialog;Landroid/view/View;)V"
+                                " ${PREMIUM_PROMOTION_POP_UP_CLASS_DESCRIPTOR}->hidePremiumPromotionDialog(Landroid/app/Dialog;Landroid/view/View;)V"
                     )
                 }
         }
@@ -157,7 +139,7 @@ val adsPatch = bytecodePatch(
 
             addInstruction(
                 linearLayoutIndex + 1,
-                "invoke-static {v$linearLayoutRegister}, $PREMIUM_PROMOTION_BANNER_CLASS_DESCRIPTOR->hidePremiumRenewal(Landroid/widget/LinearLayout;)V"
+                "invoke-static {v$linearLayoutRegister}, ${PREMIUM_PROMOTION_BANNER_CLASS_DESCRIPTOR}->hidePremiumRenewal(Landroid/widget/LinearLayout;)V"
             )
         }
 
@@ -209,14 +191,13 @@ val adsPatch = bytecodePatch(
 
         // endregion
 
-        if (hideFullscreenAds == true) {
+        if (hideFullscreenAds.value == true) {
             addSwitchPreference(
                 CategoryType.ADS,
                 "revanced_hide_fullscreen_ads",
                 "false"
             )
         }
-
         addSwitchPreference(
             CategoryType.ADS,
             "revanced_hide_general_ads",
@@ -249,6 +230,5 @@ val adsPatch = bytecodePatch(
         )
 
         updatePatchStatus(HIDE_ADS)
-
     }
-}
+)

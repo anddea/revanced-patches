@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">ดำเนินการต่อ</string>
+    <string name="gms_core_dialog_dismiss_text">ห้ามแสดงอีก</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore ไม่มีสิทธิ์รันในพื้นหลัง
 
 ทำตามคําแนะนํา \"อย่าฆ่าแอปของฉัน\" สําหรับโทรศัพท์ของคุณ และใช้คําแนะนําเหล่านั้นกับการติดตั้ง MicroG ของคุณ
@@ -13,15 +14,18 @@
 แตะปุ่มตกลง และอนุญาตการเปลี่ยนแปลงการปรับแต่ง"</string>
     <string name="gms_core_dialog_open_website_text">เปิดเว็บไซต์</string>
     <string name="gms_core_dialog_title">ต้องดำเนินการ</string>
+    <string name="gms_core_settings_title">เปิดการตั้งค่าของ GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore ไม่ได้ติดตั้ง ติดตั้ง</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">เมนูคุณภาพวิดีโอขั้นสูงไม่ปรากฏ</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">เมนูคุณภาพวิดีโอขั้นสูงปรากฏขึ้น</string>
     <string name="revanced_advanced_video_quality_menu_title">แสดงเมนูคุณภาพวิดีโอขั้นสูง</string>
+    <string name="revanced_advanced_video_quality_menu_type_title">เมนูตัวเลือกคุณภาพวิดีโอขั้นสูงใน Shorts</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow ให้ภาพขนาดย่อที่รวบรวมจากฝูงชนสําหรับวิดีโอ YouTube ภาพขนาดย่อเหล่านี้มักจะเกี่ยวข้องมากกว่าภาพขนาดย่อที่ให้โดย YouTube
 
 ถ้าเปิดใช้งาน URL ของวิดีโอจะถูกส่งไปยังเซิร์ฟเวอร์ API และไม่มีข้อมูลอื่นๆ ถูกส่งไป หากวิดีโอไม่มีภาพขนาดย่อ DeArrow ภาพขนาดย่อดั้งเดิมหรือภาพนิ่งจะถูกแสดง
 
 แตะที่นี่เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับ DeArrow"</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">ลิงค์ DeArrow API ไม่ถูกต้อง</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL ของจุดสิ้นสุดแคชรูปขนาดย่อ DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">จุดสิ้นสุด API ของ DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">ไม่แสดง\"toast\"หาก DeArrow ไม่พร้อมใช้งาน</string>
@@ -46,6 +50,14 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_2">กลางของวิดีโอ</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">ท้ายของวิดีโอ</string>
     <string name="revanced_alt_thumbnail_stills_time_title">เวลาในวิดีโอที่จะถ่ายภาพนิ่งจาก</string>
+    <string name="revanced_alt_thumbnail_subscriptions_title">แท็บการติดตาม</string>
+    <string name="revanced_app_name_title">ชื่อแอป</string>
+    <string name="revanced_app_version_title">แอปเวอร์ชั่น</string>
+    <string name="revanced_append_time_stamp_information_playback_speed_menu_type_title">รูปแบบของความเร็ววิดีโอ</string>
+    <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">ใช้ไดอาล็อกแบบกำหนดเอง</string>
+    <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">รูปแบบเมนูคุณภาพวิดีโอ</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">ปิดใช้งานโหมดแอมเบียนท์ถในโหมดประหยังพลังงาน</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">เปิดใช้งานโหมดแอมเบียนท์ถในโหมดประหยังพลังงาน</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">"ใช้โฮสต์รูปภาพดั้งเดิม
 
 การเปิดใช้งานสิ่งนี้สามารถแก้ไขรูปภาพที่หายไปซึ่งถูกบล็อกในบางภูมิภาค"</string>
@@ -123,6 +135,9 @@
     <string name="revanced_disable_auto_captions_summary_off">คำบรรยาย\"Auto\"ถูกเปิดใช้งาน</string>
     <string name="revanced_disable_auto_captions_summary_on">คำบรรยาย\"Auto\"ถูกปิดใช้งาน</string>
     <string name="revanced_disable_auto_captions_title">ปิดใช้งานคำบรรยายอัตโนมัติ</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">การแตะสองครั้งสามารถเรียกให้เกิดการข้ามไปยังบทถัดไป/ก่อนหน้าได้เป็นบางครั้ง</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">การแตะสองครั้งจะไม่สามารถเรียกให้เกิดการข้ามไปยังบทถัดไป/ก่อนหน้าได้</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">ปิดใช้งานการแตะสองครั้งเพื่อข้ามบท</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">เปิดใช้งานแฮปติกบทแล้ว</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">ปิดใช้งานแฮปติกบทแล้ว</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">ปิดใช้งานแฮปติกบท</string>
@@ -153,7 +168,15 @@
     <string name="revanced_exit_fullscreen_entry_3">แนวนอน</string>
     <string name="revanced_exit_fullscreen_entry_4">แนวตั้งและแนวนอน</string>
     <string name="revanced_exit_fullscreen_title">ออกจากโหมดเต็มหน้าจอเมื่อสิ้นสุดวิดีโอ</string>
+    <string name="revanced_extended_settings_import_summary">สนใจสนใจ</string>
+    <string name="revanced_external_downloader_empty_warning">ชื่อแพ็กเกจต้องไม่ว่างเปล่า</string>
+    <string name="revanced_external_downloader_not_found_title">ไม่ได้ติดตั้งแอป</string>
     <string name="revanced_external_downloader_not_installed_warning">%s ไม่ได้ติดตั้ง โปรดติดตั้ง</string>
+    <string name="revanced_external_downloader_other_item">อื่น ๆ</string>
+    <string name="revanced_external_downloader_other_item_hint">ป้อนชื่อแพ็กเกจ</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"ไม่พบแอปที่ติดตั้งด้วยชื่อแพ็กเกจ: %s
+
+ตรวจสอบว่าชื่อแพ็กเกจถูกต้องและติดตั้งแอปแล้ว"</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">แสดงส่วนสรุปวิดีโอที่สร้างโดย AI</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">ส่วนสรุปวิดีโอที่สร้างโดย AI ถูกซ่อนอยู่</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">ซ่อน \",สรุปวิดีโอที่สร้างโดย AI\"</string>
@@ -176,6 +199,9 @@
     <string name="revanced_hide_clip_button_summary_off">ปุ่มคลิปถูกแสดง</string>
     <string name="revanced_hide_clip_button_summary_on">ปุ่มคลิปถูกซ่อน</string>
     <string name="revanced_hide_clip_button_title">ซ่อนคลิป</string>
+    <string name="revanced_hide_comments_button_summary_off">ปุ่มความคิดเห็นแสดงอยู่</string>
+    <string name="revanced_hide_comments_button_summary_on">ปุ่มความคิดเห็นถูกซ่อน</string>
+    <string name="revanced_hide_comments_button_title">ซ่อนความคิดเห็น</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">ปุ่มสร้าง Short แสดงอยู่</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">ปุ่มสร้าง Short ถูกซ่อน</string>
     <string name="revanced_hide_comments_create_a_short_button_title">ซ่อนปุ่ม \'สร้าง Shorts\'</string>
@@ -312,6 +338,9 @@
     <string name="revanced_hide_share_button_summary_off">ปุ่มแบ่งปันถูกแสดง</string>
     <string name="revanced_hide_share_button_summary_on">ปุ่มแบ่งปันถูกซ่อน</string>
     <string name="revanced_hide_share_button_title">ซ่อนแบ่งปัน</string>
+    <string name="revanced_hide_shop_button_summary_off">ปุ่มร้านค้าถูกแสดง</string>
+    <string name="revanced_hide_shop_button_summary_on">ปุ่มร้านค้าถูกซ่อน</string>
+    <string name="revanced_hide_shop_button_title">ซ่อนร้านค้า</string>
     <string name="revanced_hide_shopping_links_summary_off">แสดงลิงก์ช้อปปิ้งในคำอธิบายวิดีโอ</string>
     <string name="revanced_hide_shopping_links_summary_on">ลิงก์การช็อปปิ้งในคำอธิบายวิดีโอถูกซ่อนไว้</string>
     <string name="revanced_hide_shopping_links_title">ซ่อนลิงก์การช็อปปิ้ง</string>
@@ -507,12 +536,12 @@
     <string name="revanced_ryd_toast_on_connection_error_summary_on">ข้อความแจ้งเตือนแสดงขึ้น หาก Return YouTube Dislike ไม่พร้อมใช้งาน</string>
     <string name="revanced_ryd_toast_on_connection_error_title">แสดงคำอวยพรถ้า API ไม่พร้อมใช้งาน</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">ซ่อนโดยเจ้าของ</string>
+    <string name="revanced_sanitize_sharing_links_title">ลบพารามิเตอร์การติดตามแบบสอบถาม</string>
     <string name="revanced_sb_api_url_changed">API URL ถูกเปลื่ยนแล้ว</string>
     <string name="revanced_sb_api_url_invalid">API URL ไม่ถูกต้อง</string>
     <string name="revanced_sb_api_url_reset">API URL เปลื่ยนเป็นค่าเริ่มต้นแล้ว</string>
     <string name="revanced_sb_appearance_category">หน้าตา</string>
     <string name="revanced_sb_color_dot_label">สี:</string>
-    <string name="revanced_sb_color_opacity_label">ความทึบ:</string>
     <string name="revanced_sb_create_segment_category">การสร้างกลุ่มใหม่</string>
     <string name="revanced_sb_diff_segments">เปลี่ยนพฤติกรรมของส่วน</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">ซ่อนปุ่มข้ามโดยอัตโนมัติ</string>
@@ -684,6 +713,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock ไม่พร้อมใช้งานชั่วคราว</string>
     <string name="revanced_sb_submit_failed_unknown_error">ไม่สามารถส่งส่วน (สถานะ: %1$d %2$s)</string>
     <string name="revanced_sb_submit_succeeded">ส่งคำขอของคุณสำเร็จ</string>
+    <string name="revanced_sb_toast_on_connection_error">แสดงคำอวยพรถ้า API ไม่พร้อมใช้งาน</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">«Toast» ไม่แสดงหาก SponsorBlock ไม่พร้อมใช้งาน</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">แสดง «toast» หาก SponsorBlock ไม่พร้อมใช้งาน</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">«Toast» ไม่แสดงหาก SponsorBlock ไม่พร้อมใช้งาน</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">แสดง «toast» หาก SponsorBlock ไม่พร้อมใช้งาน</string>
     <string name="revanced_sb_toast_on_connection_error_title">แสดงคำอวยพรถ้า API ไม่พร้อมใช้งาน</string>
@@ -695,7 +727,30 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_sb_vote_no_segments">ไม่มีส่วนใดจะให้โหวต</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s ถึง %2$s</string>
     <string name="revanced_sb_vote_upvote">โหวตขึ้น</string>
+    <string name="revanced_settings_color_invalid">สีไม่ถูกต้อง</string>
+    <string name="revanced_settings_import">นำเข้า</string>
+    <string name="revanced_settings_import_copy">คัดลอก</string>
+    <string name="revanced_settings_import_reset">การตั้งค่า ReVanced ถูกตั้งค่าเป็นค่าเริ่มต้น</string>
+    <string name="revanced_settings_import_success">นำเข้าการตั้งค่า %d</string>
+    <string name="revanced_settings_reset">รีเซ็ต</string>
+    <string name="revanced_settings_reset_color">รีเซ็ตสี</string>
+    <string name="revanced_settings_search_clear_history">ล้างประวัติการค้นหา</string>
+    <string name="revanced_settings_search_clear_history_message">คุณแน่ใจหรือไม่ว่าต้องการล้างประวัติการค้นหาทั้งหมด</string>
+    <string name="revanced_settings_search_empty_history_summary">หากต้องการบันทึกประวัติการค้นหา ให้พิมพ์คำค้นหาแล้วกด Enter</string>
+    <string name="revanced_settings_search_empty_history_title">ประวัติการค้นหาว่างเปล่า</string>
+    <string name="revanced_settings_search_history_summary_off">ไม่แสดงประวัติการค้นหาการตั้งค่า</string>
+    <string name="revanced_settings_search_history_summary_on">ประวัติการค้นหาในการตั้งค่าจะปรากฏ</string>
     <string name="revanced_settings_search_history_title">แสดงประวัติการค้นหาในการตั้งค่า</string>
+    <string name="revanced_settings_search_no_results_summary">ลองใช้คำหลักอื่น</string>
+    <string name="revanced_settings_search_no_results_title">ไม่พบผลลัพธ์สำหรับ \",%s\"</string>
+    <string name="revanced_settings_search_recent_searches">การค้นหาล่าสุด</string>
+    <string name="revanced_settings_search_remove_message">นำออกจากประวัติการค้นหาใช่ไหม</string>
+    <string name="revanced_settings_search_tips_summary">"• แตะเส้นทางเพื่อไปยังเส้นทางนั้น
+• กดค้างที่การตั้งค่าเพื่อไปยังการตั้งค่า
+• กด Enter เพื่อบันทึกคำค้นหาลงในประวัติ
+• การค้นหาไม่สนใจตัวพิมพ์เล็ก/ใหญ่และเครื่องหมายวรรคตอน
+• การตั้งค่าหลักจะปรากฏอยู่เหนือการตั้งค่ารองที่ถูกปิดใช้งาน"</string>
+    <string name="revanced_settings_search_tips_title">เคล็ดลับการค้นหา</string>
     <string name="revanced_share_copy_url_success">คัดลอก URL ไปยังคลิปบอร์ด</string>
     <string name="revanced_share_copy_url_timestamp_success">คัดลอก URL พร้อมเวลาไปยังคลิปบอร์ด</string>
     <string name="revanced_spoof_app_version_summary_off">เวอร์ชันไม่ได้ปลอมแปลง</string>

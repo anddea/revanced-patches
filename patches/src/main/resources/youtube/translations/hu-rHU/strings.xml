@@ -159,6 +159,7 @@ Korlátozás: Előfordulhat, hogy az eszköztár Vissza gombja nem működik."</
     <string name="revanced_change_youtube_header_summary_off">Az általános fejléc van engedélyezve.</string>
     <string name="revanced_change_youtube_header_summary_on">A prémium fejléc van engedélyezve.</string>
     <string name="revanced_change_youtube_header_title">YouTube fejléc módosítása</string>
+    <string name="revanced_confirm_user_dialog_title">Biztos benne, hogy folytatni szeretné?</string>
     <string name="revanced_custom_filter_strings_summary">A szűrendő összetevők listája új sorokkal elválasztva.</string>
     <string name="revanced_custom_filter_strings_title">Egyéni szűrő</string>
     <string name="revanced_custom_filter_summary_off">Az egyéni szűrő le van tiltva.</string>
@@ -181,6 +182,7 @@ Korlátozás: Előfordulhat, hogy az eszköztár Vissza gombja nem működik."</
     <string name="revanced_custom_player_overlay_opacity_title">Egyéni lejátszó átlátszóság beállítása</string>
     <string name="revanced_custom_seekbar_color_accent_summary">Írja be a keresősáv kiemelő színének hexadecimális kódját.</string>
     <string name="revanced_custom_seekbar_color_accent_title">Keresősáv egyéni kiemelő színe</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Érvénytelen keresősáv szín.</string>
     <string name="revanced_custom_seekbar_color_primary_summary">Írja be a keresősáv elsődleges színének hexadecimális kódját.</string>
     <string name="revanced_custom_seekbar_color_primary_title">Keresősáv egyéni elsődleges színe</string>
     <string name="revanced_debug_export_logs_to_clipboard_summary">Az RVX hibakeresési naplókat a vágólapra másolja.</string>
@@ -246,6 +248,9 @@ Beállítások → Automatikus lejátszás → Következő videó automatikus le
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Az automatikus mix lejátszási listák le vannak tiltva.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">Mix listák automatikus lejátszásának letiltása</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">A funkció engedélyezése letiltja az automatikus váltást a YouTube Mix szolgáltatásra, amikor zenét játszik le, miközben az automatikus lejátszás be van kapcsolva.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">A dupla koppintás esetenként a következő/előző fejezetre ugrást válthat ki.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">A dupla koppintás soha nem indít el ugrást a következő/előző fejezetre.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Dupla koppintásos fejezetkihagyás letiltása</string>
     <string name="revanced_disable_default_playback_speed_music_off">Az alapértelmezett lejátszási sebesség engedélyezett zene lejátszásnál.</string>
     <string name="revanced_disable_default_playback_speed_music_on">Az alapértelmezett lejátszási sebesség le van tiltva zene lejátszásnál.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Lejátszási sebesség zenéhez kiválasztás elrejtése</string>
@@ -467,42 +472,35 @@ A funkció használatához módosítsa az 'Alapértelmezett kliens (hamis stream
 Megjegyzés:
 • Az iOS TV nem támogatja bizonyos videók, például zenei videók lejátszását.
 • Ezért, ha az alapértelmezett kliens az iOS TV-re van állítva, ez a beállítás egyes videók esetében nem biztos, hogy működik."</string>
-    <string name="revanced_extended_confirm_user_dialog_title">Szeretné folytatni?</string>
-    <string name="revanced_extended_reset_to_default_toast">Visszaállítás az alapértelmezett értékekre.</string>
     <string name="revanced_extended_restart">Újraindítás</string>
-    <string name="revanced_extended_restart_dialog_message">Indítsa újra az alkalmazást, hogy a módosítás érvénybe lépjen.</string>
     <string name="revanced_extended_restart_first_run">Indítsa újra a rendszert a normál elrendezés betöltéséhez</string>
-    <string name="revanced_extended_restart_message">Frissítés és újraindítás</string>
     <string name="revanced_extended_restart_title">Újraindítás szükséges</string>
-    <string name="revanced_extended_settings_color_invalid">Érvénytelen szín.</string>
-    <string name="revanced_extended_settings_color_picker">Színválasztó</string>
     <string name="revanced_extended_settings_export_failed">A beállítások exportálása sikertelen.</string>
     <string name="revanced_extended_settings_export_success">A beállítások exportálása sikeres.</string>
     <string name="revanced_extended_settings_export_summary">Beállítások exportálása fájlba.</string>
     <string name="revanced_extended_settings_export_title">Beállítások exportálása</string>
     <string name="revanced_extended_settings_import">Importálás</string>
-    <string name="revanced_extended_settings_import_copy">Másolás</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">Beállítások importálása vagy exportálása szövegként.</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">Importálás / Exportálás szövegként</string>
-    <string name="revanced_extended_settings_import_failed">A beállítások importálása sikertelen.</string>
     <string name="revanced_extended_settings_import_reset">Beállítások visszaállítása alapértelmezettre.</string>
-    <string name="revanced_extended_settings_import_success">A beállítások sikeresen importálva.</string>
     <string name="revanced_extended_settings_import_summary">Beállítások importálása mentett fájlból.</string>
     <string name="revanced_extended_settings_import_title">Beállítások importálása</string>
-    <string name="revanced_extended_settings_reset">Visszaállítás</string>
-    <string name="revanced_extended_settings_reset_color">Szín visszaállítása</string>
-    <string name="revanced_extended_settings_search_title">%s keresése</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Külső letöltéskezelő</string>
+    <string name="revanced_external_downloader_empty_warning">A csomagnév nem lehet üres</string>
+    <string name="revanced_external_downloader_not_found_title">Az alkalmazás nincs telepítve.</string>
     <string name="revanced_external_downloader_not_installed">Nincs telepítve</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"A(z) %1$s nincs telepítve.
 Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Figyelmeztetés</string>
     <string name="revanced_external_downloader_not_installed_warning">%s nincs telepítve. Kérlek telepítsd.</string>
+    <string name="revanced_external_downloader_other_item">Egyéb</string>
+    <string name="revanced_external_downloader_other_item_hint">Írja be a csomag nevét</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">A telepített külső letöltő alkalmazás csomagneve, például YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Lejátszási lista letöltő csomag neve</string>
     <string name="revanced_external_downloader_package_name_video_summary">A telepített külső letöltő alkalmazás csomagneve, például NewPipe vagy YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Videó letöltő csomag neve</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"Nem található telepített alkalmazás a következő csomagnévvel: %s.
+
+Ellenőrizze, hogy a csomagnév helyes-e, és hogy az alkalmazás telepítve van-e."</string>
     <string name="revanced_fix_hype_button_icon_summary_off">A Hype gomb ikonja rejtett.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">A Hype gomb ikonja látható.</string>
     <string name="revanced_fix_hype_button_icon_title">Hype gomb ikonjának kijavítása</string>
@@ -787,6 +785,9 @@ A középen nagybetűs szavakat a kis- és nagybetűkkel együtt kell megadni (p
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">A feliratkozott videók nincsenek szűrve.</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">A feliratkozott videók kulcsszavak alapján szűrve vannak.</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Feliratkozott videók elrejtése kulcsszavak alapján</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_off">Az \'ÉS\' operátor (\'&amp;\') nem engedélyezett.&lt;br&gt;&lt;br&gt; Ha &lt;strong&gt;\'Kék\' &amp; \'Piros\'&lt;/strong&gt; van használatban, mint kulcsszó, akkor a szavak, amelyek tartalmazzák a &lt;strong&gt;\'Kék\'-et &amp; \'Piros\'&lt;/strong&gt;-at; szűrve lesznek.</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_on">Az \'ÉS\' operátor (\'&amp;\') engedélyezett.&lt;br&gt;&lt;br&gt; Ha a &lt;strong&gt;\'Kék\' &amp; \'Piros\'&lt;/strong&gt; van használatban, mint kulcsszó, akkor a szavak, amelyek tartalmazzák mindkettőt &lt;strong&gt;Kék&lt;/strong&gt; és &lt;strong&gt;Piros&lt;/strong&gt; szűrve lesznek.</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_title">Használjon \'ÉS\' operátort (\'&amp;\')</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">A kulcsszó elrejti az összes videót: %s.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Érvénytelen kulcsszó:\'%s.</string>
     <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Adjon hozzá idézőjeleket a következő kulcsszóhoz: %s.</string>
@@ -1019,9 +1020,17 @@ Ha a lejátszó képernyőjének elrendezése a szerveroldali változtatások mi
     <string name="revanced_hide_search_term_thumbnail_summary_off">A bélyegképek a keresési kifejezések előzményeiben láthatóak.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">A bélyegképek a keresési kifejezések előzményeiben el vannak rejtve.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Keresési kifejezések bélyegképeinek elrejtése</string>
-    <string name="revanced_hide_seek_message_summary_off">A kereső üzenet látható.</string>
-    <string name="revanced_hide_seek_message_summary_on">A kereső üzenet el van rejtve.</string>
-    <string name="revanced_hide_seek_message_title">Kereső üzenet elrejtése</string>
+    <string name="revanced_hide_seek_message_summary_off">"A keresési üzenet látható.
+
+Információ:
+• Úgy tűnik, hogy ez a beállítás elavult a szerveren.
+• Használja helyette a 'Filmszalag-átfedés elrejtése' vagy a 'Keresés visszavonási üzenet elrejtése' lehetőséget."</string>
+    <string name="revanced_hide_seek_message_summary_on">"A keresési üzenet el van rejtve.
+
+Információ:
+• Úgy tűnik, hogy ez a beállítás elavult a szerveren.
+• Használja helyette a 'Filmszalag-átfedés elrejtése' vagy a 'Keresés visszavonási üzenet elrejtése' lehetőséget."</string>
+    <string name="revanced_hide_seek_message_title">Keresési üzenet elrejtése (elavult)</string>
     <string name="revanced_hide_seek_undo_message_summary_off">A keresés visszavonása üzenet látható.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">A keresés visszavonása üzenet el van rejtve.</string>
     <string name="revanced_hide_seek_undo_message_title">Keresés visszavonása üzenetet elrejtése</string>
@@ -1817,6 +1826,11 @@ Ez nem kerüli meg a korhatárt. Csak automatikusan fogadja el."</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Érintse meg az RVX beállítások megnyitásához.
 Érintse meg és tartsa lenyomva a YouTube-beállítások megnyitásához."</string>
     <string name="revanced_replace_toolbar_create_button_type_title">Gombhoz rendelhető művelet típusa</string>
+    <string name="revanced_reset_to_default_toast">Visszaállítás az alapértelmezett értékekre.</string>
+    <string name="revanced_restart">Újraindítás</string>
+    <string name="revanced_restart_dialog_message">Indítsa újra az alkalmazást, hogy a módosítás érvénybe lépjen.</string>
+    <string name="revanced_restart_first_run">Indítsa újra az elrendezés normális betöltéséhez</string>
+    <string name="revanced_restart_title">Újraindítás szükséges</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">A folyamatsáv bélyegképei megjelennek teljes képernyőn.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">A folyamatsáv bélyegképei megjelennek a keresősáv felett.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Régi folyamatsáv bélyegképek visszaállítása</string>
@@ -1889,7 +1903,6 @@ Korlátozás: A nem tetszések lehet nem jelennek meg kijelentkezett felhasznál
     <string name="revanced_sb_color_changed">A szín megváltoztatva.</string>
     <string name="revanced_sb_color_dot_label">Szín:</string>
     <string name="revanced_sb_color_invalid">A színkód érvénytelen.</string>
-    <string name="revanced_sb_color_opacity_label">Áttetszőség:</string>
     <string name="revanced_sb_color_reset">A szín alaphelyzetbe.</string>
     <string name="revanced_sb_create_segment_category">Új szegmensek létrehozása</string>
     <string name="revanced_sb_diff_segments">Szegmens viselkedésének módosítása</string>
@@ -2062,6 +2075,9 @@ Készen állsz a beküldésre?"</string>
     <string name="revanced_sb_submit_failed_timeout">A SponsorBlock átmenetileg nem működik.</string>
     <string name="revanced_sb_submit_failed_unknown_error">Nem lehet beküldeni a szakaszt (állapot: %1$d %2$s).</string>
     <string name="revanced_sb_submit_succeeded">A szakasz sikeresen beküldve.</string>
+    <string name="revanced_sb_toast_on_connection_error">Üzenet megjelenítése, ha az API nem elérhető</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">Nem látható üzenet, ha a SponsorBlock nem elérhető</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">Üzenet látható, ha a SponsorBlock nem elérhető</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Nem látható üzenet, ha a SponsorBlock nem elérhető.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Üzenet látható, ha a SponsorBlock nem elérhető.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Üzenet megjelenítése, ha az API nem elérhető</string>
@@ -2093,7 +2109,33 @@ A következő esetekben esetleg nem működik:
 • A sütik lejártak.
 • Érvénytelen sütiket használ.
 • A YouTube Átirat API már nem ellenőrzi a sütiket."</string>
-    <string name="revanced_settings_search_history_title">Beállítások keresési előzményeinek megjelenítése</string>
+    <string name="revanced_settings_color_invalid">Érvénytelen szín.</string>
+    <string name="revanced_settings_color_picker">Színválasztó</string>
+    <string name="revanced_settings_import">Importálás</string>
+    <string name="revanced_settings_import_copy">Másolás</string>
+    <string name="revanced_settings_import_reset">A ReVanced beállítások visszaállnak az alapértelmezettre</string>
+    <string name="revanced_settings_import_success">%d beállítás importálva</string>
+    <string name="revanced_settings_reset">Visszaállítás</string>
+    <string name="revanced_settings_reset_color">Szín visszaállítása</string>
+    <string name="revanced_settings_search_clear_history">Keresési előzmények törlése</string>
+    <string name="revanced_settings_search_clear_history_message">Biztosan ki akarja törölni a korábbi keresési előzményeket?</string>
+    <string name="revanced_settings_search_empty_history_summary">A keresési előzmények mentéséhez írjon be egy keresési lekérdezést, és nyomja meg az Enter billentyűt.</string>
+    <string name="revanced_settings_search_empty_history_title">A keresési előzmények üresek</string>
+    <string name="revanced_settings_search_history_summary_off">A beállítások keresési előzménye nem látható.</string>
+    <string name="revanced_settings_search_history_summary_on">A beállítások keresési előzménye látható.</string>
+    <string name="revanced_settings_search_history_title">Beállítások keresési előzményének megjelenítése</string>
+    <string name="revanced_settings_search_no_results_summary">Próbálkozzon másik kulcsszóval.</string>
+    <string name="revanced_settings_search_no_results_title">Nincs találat a(z) \'%s\' kifejezésre.</string>
+    <string name="revanced_settings_search_recent_searches">Legutóbbi keresések</string>
+    <string name="revanced_settings_search_remove_message">Eltávolítja a keresési előzményekből?</string>
+    <string name="revanced_settings_search_tips_summary">"• Koppintson egy elérési útra a navigáláshoz.
+• Nyomja meg hosszan a beállítást a navigáláshoz.
+• Nyomja meg az Enter billentyűt a keresési lekérdezés mentéséhez az előzmények közé.
+• A keresés figyelmen kívül hagyja a kis- és nagybetűket, valamint az írásjeleket.
+• A szülőbeállítások a letiltott gyermekbeállítások felett jelennek meg."</string>
+    <string name="revanced_settings_search_tips_title">Keresési tanácsok</string>
+    <string name="revanced_settings_search_title">%s keresése</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">A beállítások a vágólapra másolva.</string>
     <string name="revanced_share_copy_timestamp_success">Az időbélyeg a vágólapra másolva. (%s)</string>
     <string name="revanced_share_copy_url_success">Az URL a vágólapra másolva.</string>
@@ -2153,6 +2195,8 @@ Korlátozás: A videó címe eltűnik, ha rákattint."</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Az egyéni lejátszási sebességnek 0 és 8.0 között kell lennie. Visszaállítás az alapértelmezett értékekre.</string>
     <string name="revanced_speed_overlay_value_summary">Gyorsított lejátszás érték 0-8.0 között.</string>
     <string name="revanced_speed_overlay_value_title">Gyorsított lejátszás értéke</string>
+    <string name="revanced_spoof_app_version_other_item">Egyéb</string>
+    <string name="revanced_spoof_app_version_other_item_hint">Alkalmazás verzió megadása</string>
     <string name="revanced_spoof_app_version_summary">"A kliens verziójának hamisítása régi verzióra.
 
 • Ez megváltoztatja az alkalmazás megjelenését, de ismeretlen mellékhatások léphetnek fel.
@@ -2171,6 +2215,7 @@ Korlátozás: A videó címe eltűnik, ha rákattint."</string>
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Cairo ikon letiltása a navigációban és az eszköztárban</string>
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Régi lejátszási lista fejléc visszállítása</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - A régi lejátszási sebesség felugró menü visszaállítása</string>
+    <string name="revanced_spoof_app_version_target_entry_20_05_46">Hungary</string>
     <string name="revanced_spoof_app_version_target_entry_title">Hamis alkalmazásverzió</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Érvénytelen hamisított alkalmazásverzió: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Írja be a hamis alkalmazásverziót.</string>
@@ -2266,9 +2311,10 @@ Ha ez a beállítás engedélyezve van, a szerver válaszából származó legma
 • A kényszerített automatikus hangsávok letiltása nem elérhető.
 • A stabil hangerő nem áll rendelkezésre.
 • Előfordulhat, hogy a gyerekeknek szánt tartalmat nem lehet lejátszani, ha ki van jelentkezve vagy inkognitó módban van."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Hiányzik a hangsáv menüje.
-• Nem érhető el stabil hangerő.
-• Előfordulhat, hogy a gyerekeknek szóló videók nem játszhatók le kijelentkezéskor vagy inkognitómódban.
+    <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Hiányzik a hangsáv menü.
+• A kényszerített automatikus hangsávok letiltása nem érhető el.
+• A stabil hangerő nem érhető el.
+• Előfordulhat, hogy a gyermekvideók nem játszhatók le kijelentkezéskor vagy inkognitómódban.
 • Az 1080p+, AV1 és HDR felbontás nem támogatott."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Az audiosáv menü hiányzik."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Hiányzik a hangsáv menüje.
@@ -2312,6 +2358,23 @@ Ha YouTube Premium felhasználó vagy, akkor ez a beállítás nem feltétlenül
 
 • A TV kliens továbbra sem tud lejátszani bizonyos videókat."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">JavaScript kliens használata minden videóhoz</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Több infóért kattintson ide.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">A hamis pufferelésről</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Az egyik ok, amiért a videók túl későn indulnak el a JavaScript kliensben, a YouTube új hirdetésblokkolás elleni intézkedései.
+
+Amikor egy videóhirdetés blokkolva van, a GVS (Google Video Server) hamis pufferelést generál a hirdetés időtartamával arányosan (A/B tesztelés).
+
+Az uBlock Origin talált egy kerülő megoldást erre a problémára, amely a „Hamis pufferelés megkerülése” beállítással engedélyezhető.
+
+A cikk elolvasásához kattintson a 'Megnyitás' gombra."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Megnyitás</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"A YouTube új hirdetésblokkoló elleni intézkedései"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">A hamis pufferelés megkerülése kikapcsolva.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"A hamis pufferelés megkerülése engedélyezett.
+
+Korlátozások:
+• A szerveroldali változások miatt ez bármikor leállhat."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Kerülje a hamis pufferelést</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">A JavaScript kliens nem lett hozzáadva az elérhető kliensekhez.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">A JavaScript kliens hozzáadva az elérhető kliensekhez.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">JavaScript kliens használata</string>
@@ -2408,7 +2471,6 @@ Ha ez a beállítás nem működik, váltson inkognító módra."</string>
     <string name="revanced_theme_default">Alap</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Figyelmeztetés</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s nincs telepítve. Kérlek telepítsd.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">A telepített RVX Music csomag neve.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music csomag név</string>
     <string name="revanced_transcript_cookies_about_summary">Kattintson ide a sütik fogadásának módjáról.</string>

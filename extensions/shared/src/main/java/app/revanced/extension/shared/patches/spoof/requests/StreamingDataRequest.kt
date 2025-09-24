@@ -6,10 +6,11 @@ import app.revanced.extension.shared.innertube.client.YouTubeClient.ClientType
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createApplicationRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createJSRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
-import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_STREAMING_DATA
+import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.getStreamingDataRoute
 import app.revanced.extension.shared.innertube.utils.PlayerResponseOuterClass.PlayerResponse
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.getAdaptiveFormats
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.getFormats
+import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.setServerAbrStreamingUrl
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.setUrl
 import app.revanced.extension.shared.innertube.utils.ThrottlingParameterUtils
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup
@@ -48,6 +49,7 @@ import java.util.concurrent.TimeoutException
 @Suppress("deprecation")
 class StreamingDataRequest private constructor(
     videoId: String,
+    tParameter: String,
     requestHeader: Map<String, String>,
     reasonSkipped: String,
 ) {
@@ -60,6 +62,7 @@ class StreamingDataRequest private constructor(
         this.future = Utils.submitOnBackgroundThread {
             fetch(
                 videoId,
+                tParameter,
                 requestHeader,
                 reasonSkipped,
             )
@@ -147,6 +150,7 @@ class StreamingDataRequest private constructor(
         @JvmStatic
         fun fetchRequest(
             videoId: String,
+            tParameter: String,
             fetchHeaders: Map<String, String>,
             reasonSkipped: String,
         ) {
@@ -154,6 +158,7 @@ class StreamingDataRequest private constructor(
             cache[videoId] =
                 StreamingDataRequest(
                     videoId,
+                    tParameter,
                     fetchHeaders,
                     reasonSkipped,
                 )
@@ -228,7 +233,7 @@ class StreamingDataRequest private constructor(
             clientType: ClientType,
             videoId: String,
             streamBytes: ByteArray,
-        ): Pair<ArrayList<String>?, ArrayList<String>?>? {
+        ): Triple<ArrayList<String>?, ArrayList<String>?, String?>? {
             val startTime = System.currentTimeMillis()
 
             try {
@@ -355,9 +360,20 @@ class StreamingDataRequest private constructor(
                         }
                     }
 
-                    return Pair(
+                    var serverAbrStreamingUrl = streamingData.serverAbrStreamingUrl
+                    if (!serverAbrStreamingUrl.isNullOrEmpty()) {
+                        serverAbrStreamingUrl = ThrottlingParameterUtils
+                            .getUrlWithThrottlingParameterDeobfuscated(
+                                videoId,
+                                serverAbrStreamingUrl,
+                                isTV
+                            )
+                    }
+
+                    return Triple(
                         deobfuscatedAdaptiveFormatsArrayList,
-                        deobfuscatedFormatsArrayList
+                        deobfuscatedFormatsArrayList,
+                        serverAbrStreamingUrl
                     )
                 }
             } catch (ex: Exception) {
@@ -392,12 +408,9 @@ class StreamingDataRequest private constructor(
         private fun send(
             clientType: ClientType,
             videoId: String,
+            tParameter: String,
             requestHeader: Map<String, String>,
         ): HttpURLConnection? {
-            Objects.requireNonNull(clientType)
-            Objects.requireNonNull(videoId)
-            Objects.requireNonNull(requestHeader)
-
             val startTime = System.currentTimeMillis()
             Logger.printDebug { "Fetching video streams for: $videoId using client: $clientType" }
 
@@ -409,7 +422,7 @@ class StreamingDataRequest private constructor(
                         videoId = videoId,
                         language = overrideLanguage,
                         isGVS = true,
-                        bypassFakeBuffering = SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING,
+                        isInlinePlayback = SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING,
                     )
                 } else {
                     createApplicationRequestBody(
@@ -421,7 +434,7 @@ class StreamingDataRequest private constructor(
 
                 val connection =
                     getInnerTubeResponseConnectionFromRoute(
-                        GET_STREAMING_DATA,
+                        getStreamingDataRoute(tParameter, SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING),
                         clientType,
                         replaceVisitorData(clientType, videoId, requestHeader)
                     )
@@ -454,6 +467,7 @@ class StreamingDataRequest private constructor(
 
         private fun fetch(
             videoId: String,
+            tParameter: String,
             requestHeader: Map<String, String>,
             reasonSkipped: String,
         ): StreamingData? {
@@ -487,7 +501,12 @@ class StreamingDataRequest private constructor(
                     overrideLanguage = "no"
                 }
 
-                val connection = send(clientType, videoId, requestHeader)
+                val connection = send(
+                    clientType,
+                    videoId,
+                    tParameter,
+                    requestHeader,
+                )
                 if (connection != null) {
                     try {
                         // gzip encoding doesn't response with content length (-1),
@@ -539,6 +558,8 @@ class StreamingDataRequest private constructor(
                                                             arrayLists.first
                                                         val deobfuscatedFormatsArrayList =
                                                             arrayLists.second
+                                                        val serverAbrStreamingUrl =
+                                                            arrayLists.third
                                                         if (!deobfuscatedAdaptiveFormatsArrayList.isNullOrEmpty()) {
                                                             streamingData =
                                                                 deobfuscateStreamingData(
@@ -554,6 +575,12 @@ class StreamingDataRequest private constructor(
                                                                     isAdaptiveFormats = false,
                                                                     streamingData = streamingData
                                                                 )
+                                                        }
+                                                        if (!serverAbrStreamingUrl.isNullOrEmpty()) {
+                                                            setServerAbrStreamingUrl(
+                                                                streamingData,
+                                                                serverAbrStreamingUrl
+                                                            )
                                                         }
 
                                                         lastSpoofedClient = clientType

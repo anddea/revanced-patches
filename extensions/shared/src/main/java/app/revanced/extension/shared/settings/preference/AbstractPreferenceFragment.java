@@ -30,12 +30,15 @@ import java.util.Objects;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings({"unused", "deprecation"})
 public abstract class AbstractPreferenceFragment extends PreferenceFragment {
+
+    public static boolean settingExportInProgress;
 
     /**
      * Indicates that if a preference changes,
@@ -129,19 +132,24 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
         final var context = getContext();
         if (confirmDialogTitle == null) {
-            confirmDialogTitle = str("revanced_extended_confirm_user_dialog_title");
+            confirmDialogTitle = str("revanced_confirm_user_dialog_title");
         }
 
         showingUserDialogMessage = true;
 
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
-                confirmDialogTitle, // Title.
-                Objects.requireNonNull(setting.userDialogMessage).toString(), // No message.
-                null, // No EditText.
-                null, // OK button text.
+                // Title.
+                confirmDialogTitle,
+                // Message.
+                Objects.requireNonNull(setting.userDialogMessage).toString(),
+                // EditText.
+                null,
+                // OK button text.
+                null,
+                // OK button action.
                 () -> {
-                    // OK button action. User confirmed, save to the Setting.
+                    // User confirmed, save to the Setting.
                     updatePreference(pref, setting, true, false);
 
                     // Update availability of other preferences that may be changed.
@@ -151,13 +159,17 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                         showRestartDialog(context);
                     }
                 },
+                // Cancel button action.
                 () -> {
-                    // Cancel button action. Restore whatever the setting was before the change.
+                    // Restore whatever the setting was before the change.
                     updatePreference(pref, setting, true, true);
                 },
-                null, // No Neutral button.
-                null, // No Neutral button action.
-                true  // Dismiss dialog when onNeutralClick.
+                // Neutral button.
+                null,
+                // Neutral button action.
+                null,
+                // Dismiss dialog when onNeutralClick.
+                true
         );
 
         dialogPair.first.setOnDismissListener(d -> showingUserDialogMessage = false);
@@ -258,7 +270,8 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 Setting.privateSetValueFromString(setting, listPref.getValue());
             }
             updateListPreferenceSummary(listPref, setting);
-        } else {
+        } else if (!pref.getClass().equals(Preference.class)) {
+            // Ignore root preference class because there is no data to sync.
             Logger.printException(() -> "Setting cannot be handled: " + pref.getClass() + ": " + pref);
         }
     }
@@ -313,31 +326,39 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             return;
         }
         if (restartDialogTitle == null) {
-            restartDialogTitle = str("revanced_extended_restart_title");
+            restartDialogTitle = str("revanced_restart_title");
         }
         if (restartDialogMessage == null) {
-            restartDialogMessage = str("revanced_extended_restart_dialog_message");
+            restartDialogMessage = str("revanced_restart_dialog_message");
         }
         if (restartDialogButtonText == null) {
-            restartDialogButtonText = str("revanced_extended_restart");
+            restartDialogButtonText = str("revanced_restart");
         }
 
         showingRestartDialog = true;
 
         if (BaseThemeUtils.isSupportModernDialog) {
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(context,
-                    restartDialogTitle,              // Title.
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
+                    context,
+                    // Title.
+                    restartDialogTitle,
                     // Message.
                     message == null ? restartDialogMessage : message,
-                    null,                    // No EditText.
-                    restartDialogButtonText,         // OK button text.
+                    // EditText.
+                    null,
+                    // OK button text.
+                    restartDialogButtonText,
                     // OK button action.
                     () -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay),
+                    // Cancel button action.
                     () -> {
-                    },                        // Cancel button action (dismiss only).
-                    null,                            // No Neutral button text.
-                    null,                            // No Neutral button action.
-                    true                             // Dismiss dialog when onNeutralClick.
+                    },
+                    // Neutral button text.
+                    null,
+                    // Neutral button action.
+                    null,
+                    // Dismiss dialog when onNeutralClick.
+                    true
             );
 
             dialogPair.first.setOnDismissListener(d -> showingRestartDialog = false);

@@ -27,8 +27,6 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -407,20 +405,6 @@ public class ExtendedUtils extends PackageUtils {
         itemLayout.addView(textContainer);
 
         return itemLayout;
-    }
-
-    public static void updateRadioGroup(RadioGroup mRadioGroup, RadioGroup.OnCheckedChangeListener onCheckedChangeListener,
-                                        String[] mEntries, int mClickedDialogEntryIndex) {
-        if (mRadioGroup != null) {
-            mRadioGroup.setOnCheckedChangeListener(null);
-            for (int i = 0; i < mEntries.length; i++) {
-                if (mRadioGroup.getChildAt(i) instanceof RadioButton radioButton) {
-                    radioButton.setEnabled(true);
-                    radioButton.setChecked(i == mClickedDialogEntryIndex);
-                }
-            }
-            mRadioGroup.setOnCheckedChangeListener(onCheckedChangeListener);
-        }
     }
 
     public static class CustomAdapter extends ArrayAdapter<String> {
