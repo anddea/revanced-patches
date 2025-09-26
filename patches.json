@@ -1,22 +1,5 @@
 [
   {
-    "name": "Adds options to display useful overlay buttons in the video player.",
-    "description": null,
-    "use": true,
-    "dependencies": [],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53",
-        "20.05.46"
-      ]
-    },
-    "options": []
-  },
-  {
     "name": "Alternative thumbnails",
     "description": "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
     "use": true,
@@ -2377,7 +2360,7 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
-      "Adds options to display useful overlay buttons in the video player.",
+      "ResourcePatch",
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
@@ -3025,7 +3008,7 @@
     "use": true,
     "dependencies": [
       "Settings for YouTube",
-      "Adds options to display useful overlay buttons in the video player.",
+      "ResourcePatch",
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",

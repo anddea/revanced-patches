@@ -1,3 +1,10 @@
+# [3.14.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.14.0-dev.2...v3.14.0-dev.3) (2025-09-26)
+
+
+### Bug Fixes
+
+* **YouTube:** Remove a dependency patch from the patch list ([04a99a3](https://github.com/anddea/revanced-patches/commit/04a99a39f39f97f1349deeb4f392dc1c0d37470f))
+
 # [3.14.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.14.0-dev.1...v3.14.0-dev.2) (2025-09-26)
 
 

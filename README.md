@@ -13,7 +13,6 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `Adds options to display useful overlay buttons in the video player.` | null | 19.05.36 ~ 20.05.46 |
 | `Alternative thumbnails` | Adds options to replace video thumbnails using the DeArrow API or image captures from the video. | 19.05.36 ~ 20.05.46 |
 | `Ambient mode control` | Adds options to disable Ambient mode and to bypass Ambient mode restrictions. | 19.05.36 ~ 20.05.46 |
 | `Bypass URL redirects` | Adds an option to bypass URL redirects and open the original URL directly. | 19.05.36 ~ 20.05.46 |
