@@ -24,7 +24,7 @@ import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragme
 /**
  * Note that the superclass is overwritten to the superclass of the LicenseMenuActivity at patch time.
  */
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"BooleanMethodIsAlwaysInverted", "deprecation"})
 public abstract class BaseHostActivity extends Activity {
     private static final int ID_REVANCED_SETTINGS_FRAGMENTS =
             getIdIdentifier("revanced_settings_fragments");

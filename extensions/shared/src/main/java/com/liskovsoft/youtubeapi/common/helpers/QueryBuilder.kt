@@ -2,7 +2,6 @@ package com.liskovsoft.youtubeapi.common.helpers
 
 import app.revanced.extension.shared.innertube.utils.ThrottlingParameterUtils
 import app.revanced.extension.shared.utils.Utils
-import com.liskovsoft.sharedutils.helpers.Helpers
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
@@ -73,7 +72,7 @@ internal class QueryBuilder(private val client: AppClient) {
             //     cpn = appService.clientPlaybackNonce // get it somewhere else?
 
             if (signatureTimestamp == null)
-                signatureTimestamp = Helpers.parseInt(ThrottlingParameterUtils.getSignatureTimestamp(false)) // get it somewhere else?
+                signatureTimestamp = ThrottlingParameterUtils.getSignatureTimestamp(false) // get it somewhere else?
         }
 
         val json = """

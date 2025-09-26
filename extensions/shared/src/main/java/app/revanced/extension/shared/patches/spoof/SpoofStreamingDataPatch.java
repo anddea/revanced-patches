@@ -338,7 +338,6 @@ public class SpoofStreamingDataPatch {
         if (SPOOF_STREAMING_DATA_USE_JS) {
             // Download JavaScript and initialize the Cipher class
             CompletableFuture.runAsync(() -> ThrottlingParameterUtils.initializeJavascript(
-                    SPOOF_STREAMING_DATA_USE_LATEST_PLAYER_JS,
                     BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getRequirePoToken()
             ));
         }

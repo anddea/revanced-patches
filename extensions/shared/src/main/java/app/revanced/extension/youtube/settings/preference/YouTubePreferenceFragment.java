@@ -4,7 +4,6 @@ import static app.revanced.extension.shared.patches.PatchStatus.PatchVersion;
 import static app.revanced.extension.shared.patches.PatchStatus.PatchedTime;
 import static app.revanced.extension.shared.settings.BaseSettings.SPOOF_STREAMING_DATA_USE_JS;
 import static app.revanced.extension.shared.utils.StringRef.str;
-import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 import static app.revanced.extension.youtube.settings.Settings.HIDE_PREVIEW_COMMENT;
 import static app.revanced.extension.youtube.settings.Settings.HIDE_PREVIEW_COMMENT_TYPE;
 
@@ -315,10 +314,6 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
                 Settings.HIDE_NAVIGATION_NOTIFICATIONS_BUTTON,
                 Settings.REPLACE_TOOLBAR_CREATE_BUTTON,
                 Settings.REPLACE_TOOLBAR_CREATE_BUTTON_TYPE
-        );
-        disablePreferences(
-                !isSDKAbove(31),
-                Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR
         );
     }
 

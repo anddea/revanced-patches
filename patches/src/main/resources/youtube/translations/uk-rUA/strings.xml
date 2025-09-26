@@ -197,6 +197,7 @@
     <string name="revanced_debug_logs_copied_to_clipboard">Журнали скопійовано.</string>
     <string name="revanced_debug_logs_disabled">Журналювання налагодження вимкнено.</string>
     <string name="revanced_debug_logs_export_success">Журнали успішно експортовано.</string>
+    <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Логи завеликі для копіювання.</string>
     <string name="revanced_debug_logs_failed_to_export">Не вдалося експортувати журнали: $s.</string>
     <string name="revanced_debug_logs_none_found">Журналів не знайдено.</string>
     <string name="revanced_debug_protobuffer_summary_off">Журнали налагодження не включають протобуфер.</string>
@@ -434,6 +435,12 @@
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Панель навігації непрозора.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Панель навігації напівпрозора.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Увімкнути напівпрозорість панелі навігації</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_off">Затримку при обробці перегляду наступного вимкнено.</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_on">Затримку при обробці перегляду наступного увімкнено.</string>
+    <string name="revanced_enable_watch_next_processing_delay_title">Увімкнути затримку при обробці перегляду наступного</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"Це налаштування спричиняє затримку перед завантаженням інтерфейсу плеєра.
+
+Це може бути використано при тестуванні чогось на MainThread."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Увімкнення цього налаштування вимкне кнопку налаштувань у вкладці Ви.
 
 У цьому випадку, будь ласка, використовуйте такий шлях для доступу до налаштувань:
@@ -472,9 +479,6 @@
 
 Примітка:
 • iOS TV недоступний у деяких регіонах, і в цьому випадку це налаштування може все ще не працювати."</string>
-    <string name="revanced_extended_restart">Перезапустити</string>
-    <string name="revanced_extended_restart_first_run">Перезапустіть, щоб нормально завантажився макет</string>
-    <string name="revanced_extended_restart_title">Потрібно перезапустити</string>
     <string name="revanced_extended_settings_export_failed">Не вдалося експортувати налаштування.</string>
     <string name="revanced_extended_settings_export_success">Налаштування було вдало експортовано.</string>
     <string name="revanced_extended_settings_export_summary">Експорт налаштувань у файл.</string>
@@ -2505,6 +2509,14 @@ uBlock Origin знайшов обхідний шлях для вирішення
 
 • Це дуже залежить від сервера, і успіх або невдача деобфускації залежить від JavaScript, який наразі використовується на сервері."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">Використовувати останній JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"JavaScript відтворювача для деобфускації не підтримується в актуальному стані.
+
+• Використовується JavaScript відтворювача, який успішно виконує деобфускацію, але він все одно дещо залежний від сервера."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"JavaScript відтворювача для деобфускації підтримується в актуальному стані.
+
+• Він значною мірою залежить від сервера, і успіх чи невдача деобфускації залежить від JavaScript відтворювача, який наразі використовується на сервері.
+• Якщо виникли проблеми з клієнтом JavaScript, спробуйте спочатку вимкнути його."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Використовувати останній JavaScript відтворювача</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Відеокодек визначається автоматично.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Відеокодек AVC (H.264) або VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Вимкнути AV1 VR</string>
@@ -2646,6 +2658,8 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_watch_history_type_entry_2">Замінити домен</string>
     <string name="revanced_watch_history_type_entry_3">Блокувати історію перегляду</string>
     <string name="revanced_watch_history_type_title">Тип історії перегляду</string>
+    <string name="revanced_watch_next_processing_delay_summary">Кількість мілісекунд затримки при обробці відповіді перегляду наступного.</string>
+    <string name="revanced_watch_next_processing_delay_title">Затримка обробки перегляду наступного</string>
     <string name="revanced_webview_contextual_menu_get_cookies">Отримати куки</string>
     <string name="revanced_webview_contextual_menu_get_data_sync_id">Отримати ідентифікатор синхронізації даних</string>
     <string name="revanced_webview_contextual_menu_get_visitor_data">Отримати дані відвідувача</string>

@@ -154,12 +154,9 @@ Limitations: SponsorBlock segments are not shown in the seekbar."</string>
     <string name="revanced_enable_zen_mode_podcast_title">Enable Zen mode in podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Enables a light grey color for the player background to reduce eye strain.</string>
     <string name="revanced_enable_zen_mode_title">Enable Zen mode</string>
-    <string name="revanced_extended_restart_first_run">Restart to load the layout normally</string>
     <string name="revanced_extended_settings_export_failed">Failed to export settings.</string>
     <string name="revanced_extended_settings_export_success">Settings were successfully exported.</string>
     <string name="revanced_extended_settings_import">Import</string>
-    <string name="revanced_extended_settings_import_export_summary">Import / Export RVX Music settings.</string>
-    <string name="revanced_extended_settings_import_export_title">Import / Export settings</string>
     <string name="revanced_extended_settings_import_reset">Settings reset to default.</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Download button opens your external downloader.
@@ -497,6 +494,24 @@ Click to see how to issue an API key."</string>
     <string name="revanced_settings_import_reset">Settings reset to default.</string>
     <string name="revanced_settings_import_success">Imported %d settings.</string>
     <string name="revanced_settings_reset">Reset</string>
+    <string name="revanced_settings_search_clear_history">Clear search history</string>
+    <string name="revanced_settings_search_clear_history_message">Are you sure you want to clear all search history?</string>
+    <string name="revanced_settings_search_empty_history_summary">To save search history, type a search query and press Enter.</string>
+    <string name="revanced_settings_search_empty_history_title">Search history is empty</string>
+    <string name="revanced_settings_search_history_summary_off">Settings search history is not shown.</string>
+    <string name="revanced_settings_search_history_summary_on">Settings search history is shown.</string>
+    <string name="revanced_settings_search_history_title">Show settings search history</string>
+    <string name="revanced_settings_search_no_results_summary">Try another keyword.</string>
+    <string name="revanced_settings_search_no_results_title">No results found for \'%s\'.</string>
+    <string name="revanced_settings_search_recent_searches">Recent searches</string>
+    <string name="revanced_settings_search_remove_message">Remove from search history?</string>
+    <string name="revanced_settings_search_tips_summary">"• Tap a path to navigate to it.
+• Long-press a setting to navigate to it.
+• Press Enter to save a search query to history.
+• Search ignores casing and punctuation.
+• Parent settings appear above disabled child settings."</string>
+    <string name="revanced_settings_search_tips_title">Search Tips</string>
+    <string name="revanced_settings_search_title">Search %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Settings copied to clipboard.</string>
     <string name="revanced_spoof_app_version_summary">"Spoofs the client version to an older version.
@@ -537,6 +552,8 @@ Side effect:
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Defines a default client for spoofing.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Try changing the default client to TV or TV Simply.</string>
     <string name="revanced_spoof_streaming_data_message">If you experience any playback issues, enable \"Spoof streaming data\" in &lt;i&gt;&lt;u&gt;Settings &gt; %s &gt; Miscellaneous&lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>

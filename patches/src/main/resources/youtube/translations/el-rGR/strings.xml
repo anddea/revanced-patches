@@ -195,6 +195,7 @@
     <string name="revanced_debug_logs_copied_to_clipboard">Τα αρχεία καταγραφής αντιγράφηκαν.</string>
     <string name="revanced_debug_logs_disabled">Η καταγραφή εντοπισμού σφαλμάτων είναι απενεργοποιημένη.</string>
     <string name="revanced_debug_logs_export_success">Τα αρχεία καταγραφής εξήχθησαν με επιτυχία.</string>
+    <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Τα αρχεία καταγραφής είναι πολύ μεγάλα για αντιγραφή.</string>
     <string name="revanced_debug_logs_failed_to_export">Αποτυχία εξαγωγής αρχείων καταγραφής: $s.</string>
     <string name="revanced_debug_logs_none_found">Δεν βρέθηκαν αρχεία καταγραφής.</string>
     <string name="revanced_debug_protobuffer_summary_off">Τα αρχεία καταγραφής σφαλμάτων δεν περιλαμβάνουν τον buffer πρωτοκόλλου.</string>
@@ -389,7 +390,7 @@
     <string name="revanced_enable_narrow_navigation_buttons_summary_off">Το διάστημα μεταξύ των κουμπιών πλοήγησης δεν είναι στενότερο.</string>
     <string name="revanced_enable_narrow_navigation_buttons_summary_on">Το διάστημα μεταξύ των κουμπιών πλοήγησης είναι στενότερο.</string>
     <string name="revanced_enable_narrow_navigation_buttons_title">Κουμπιά πλοήγησης στενού στυλ</string>
-    <string name="revanced_enable_opus_codec_summary">Ενεργοποίηση του κωδικοποιητή OPUS αν η ανταπόκριση του προγράμματος αναπαραγωγής τον περιλαμβάνει.</string>
+    <string name="revanced_enable_opus_codec_summary">Ενεργοποίηση του κωδικοποιητή OPUS αν η απόκριση του προγράμματος αναπαραγωγής τον περιλαμβάνει.</string>
     <string name="revanced_enable_opus_codec_title">Ενεργοποίηση κωδικοποιητή OPUS</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Το πάτημα γραμμής προόδου είναι απενεργοποιημένο.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Το πάτημα γραμμής προόδου είναι ενεργοποιημένο.</string>
@@ -431,6 +432,12 @@
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Η γραμμή πλοήγησης δεν είναι διαφανής.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Η γραμμή πλοήγησης είναι διαφανής.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Διαφανή γραμμή πλοήγησης</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_off">Η καθυστέρηση επεξεργασίας επόμενης παρακολούθησης είναι απενεργοποιημένη.</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_on">Η καθυστέρηση επεξεργασίας επόμενης παρακολούθησης είναι ενεργοποιημένη.</string>
+    <string name="revanced_enable_watch_next_processing_delay_title">Ενεργοποίηση καθυστέρησης επεξεργασίας επόμενης παρακολούθησης</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"Αυτή η ρύθμιση εξαναγκάζει μια καθυστέρηση πριν τη φόρτωση της διεπαφής του προγράμματος αναπαραγωγής.
+
+Αυτό μπορεί να χρησιμοποιηθεί όταν δοκιμάζεται κάτι στο MainThread."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Η ενεργοποίηση αυτής της ρύθμισης θα απενεργοποιήσει το κουμπί ρυθμίσεων στην καρτέλα «Εσείς»
 
 Σε αυτή την περίπτωση, για πρόσβαση στις ρυθμίσεις χρησιμοποιήστε το εξής μονοπάτι:
@@ -468,9 +475,6 @@
 Για να χρησιμοποιήσετε αυτή τη λειτουργία, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» στις ρυθμίσεις «Παραποίηση δεδομένων ροής» σε iOS TV, TV ή TV Simply.
 
 Σημείωση: Το πρόγραμμα πελάτη iOS TV δεν είναι διαθέσιμο σε ορισμένες περιοχές, οπότε αυτή η ρύθμιση μπορεί να μη λειτουργεί."</string>
-    <string name="revanced_extended_restart">Επανεκκίνηση</string>
-    <string name="revanced_extended_restart_first_run">Επανεκκίνηση ώστε να φορτωθεί σωστά η διάταξη</string>
-    <string name="revanced_extended_restart_title">Απαιτείται επανεκκίνηση</string>
     <string name="revanced_extended_settings_export_failed">Αποτυχία εξαγωγής ρυθμίσεων.</string>
     <string name="revanced_extended_settings_export_success">Οι ρυθμίσεις εξήχθησαν με επιτυχία.</string>
     <string name="revanced_extended_settings_export_summary">Εξαγωγή ρυθμίσεων σε αρχείο.</string>
@@ -1390,7 +1394,7 @@ Playlists
     <string name="revanced_keep_landscape_mode_summary">Διατήρηση της οριζόντιας λειτουργίας στο κλείσιμο και άνοιγμα της οθόνης ενώ βρίσκεστε σε λειτουργία πλήρους οθόνης.</string>
     <string name="revanced_keep_landscape_mode_summary_off">Τα βίντεο αναπαράγονται σε κάθετη λειτουργία όταν κλείνεται και ξανανοίγεται η οθόνη.</string>
     <string name="revanced_keep_landscape_mode_summary_on">Τα βίντεο συνεχίζουν να αναπαράγονται σε οριζόντια λειτουργία ακόμη και όταν κλείνεται και ξανανοίγεται η οθόνη.</string>
-    <string name="revanced_keep_landscape_mode_timeout_summary">Ο αριθμός των χιλιοστών δευτερολέπτου που θα εξαναγκάζεται η οριζόντια λειτουργία.</string>
+    <string name="revanced_keep_landscape_mode_timeout_summary">Ο αριθμός των χιλιοστών του δευτερολέπτου που θα εξαναγκάζεται η οριζόντια λειτουργία μετά την ενεργοποίηση της οθόνης.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Χρονικό όριο οριζόντιας λειτουργίας</string>
     <string name="revanced_keep_landscape_mode_title">Διατήρηση οριζόντιας λειτουργίας</string>
     <string name="revanced_language_AM">"Αμχαρικά
@@ -2145,7 +2149,7 @@ Playlists
     <string name="revanced_settings_reset">Επαναφορά</string>
     <string name="revanced_settings_reset_color">Επαναφορά χρώματος</string>
     <string name="revanced_settings_search_clear_history">Εκκαθάριση ιστορικού αναζήτησης</string>
-    <string name="revanced_settings_search_clear_history_message">Είστε σίγουροι ότι θέλετε να εκκαθαρίσετε όλο το ιστορικό αναζήτησης;</string>
+    <string name="revanced_settings_search_clear_history_message">Είστε βέβαιοι ότι θέλετε να εκκαθαρίσετε όλο το ιστορικό αναζήτησης;</string>
     <string name="revanced_settings_search_empty_history_summary">Για να αποθηκεύσετε το ιστορικό αναζήτησης, πληκτρολογήστε ένα ερώτημα αναζήτησης και πατήστε Enter.</string>
     <string name="revanced_settings_search_empty_history_title">Το ιστορικό αναζήτησης είναι κενό</string>
     <string name="revanced_settings_search_history_summary_off">Το ιστορικό αναζήτησης ρυθμίσεων δεν εμφανίζεται.</string>
@@ -2426,6 +2430,14 @@ Playlists
 
 • Εξαρτάται σε μεγάλο βαθμό από τον διακομιστή, και η επιτυχία ή η αποτυχία της αποσυσκότισης βασίζεται στην έκδοση που χρησιμοποιείται εκείνη τη στιγμή στον διακομιστή."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">Χρήση τελευταίας εκδόσεως JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"Η Player JavaScript για αποσυσκότιση δεν τηρείται ενημερωμένη.
+
+• Χρησιμοποιείται η έκδοση Player JavaScript που πετυχαίνει στην αποσυσκότιση, αλλά παραμένει σε κάποιο βαθμό εξαρτημένη από τον διακομιστή."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"Η Player JavaScript για αποσυσκότιση τηρείται ενημερωμένη.
+
+• Είναι ιδιαίτερα εξαρτημένη από τον διακομιστή, και η επιτυχία ή η αποτυχία της αποσυσκότισης εξαρτάται από την έκδοση Player JavaScript που χρησιμοποιείται αυτή τη στιγμή στον διακομιστή.
+• Αν αντιμετωπίζετε προβλήματα με τον πελάτη JavaScript, δοκιμάστε πρώτα να απενεργοποιήσετε αυτή τη ρύθμιση."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Χρήση Player JavaScript τελευταίας έκδοσης</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Ο κωδικοποιητής βίντεο ορίζεται αυτόματα.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Ο κωδικοποιητής βίντεο είναι ο AVC (H.264) ή ο VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Απενεργοποίηση κωδικοποιητή VR AV1</string>
@@ -2463,7 +2475,7 @@ Playlists
     <string name="revanced_swipe_overlay_style_entry_6">Κάθετη διάταξη</string>
     <string name="revanced_swipe_overlay_style_entry_7">Κάθετη διάταξη (μινιμαλιστική)</string>
     <string name="revanced_swipe_overlay_style_title">Στυλ διάταξης σάρωσης</string>
-    <string name="revanced_swipe_overlay_timeout_summary">Το χρονικό διάστημα των χιλιοστών του δευτερολέπτου που είναι ορατό το φόντο σάρωσης.</string>
+    <string name="revanced_swipe_overlay_timeout_summary">Ο αριθμός των χιλιοστών του δευτερολέπτου που είναι ορατό το φόντο σάρωσης.</string>
     <string name="revanced_swipe_overlay_timeout_title">Χρονικό όριο φόντου σάρωσης</string>
     <string name="revanced_swipe_press_to_engage_summary_off">Η χειρονομία παρατεταμένου πατήματος για σάρωση είναι απενεργοποιημένη.</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Η χειρονομία παρατεταμένου πατήματος για σάρωση είναι ενεργοποιημένη.</string>
@@ -2543,6 +2555,8 @@ Playlists
     <string name="revanced_watch_history_type_entry_2">Αντικατάσταση του domain</string>
     <string name="revanced_watch_history_type_entry_3">Αποκλεισμός ιστορικού παρακολούθησης</string>
     <string name="revanced_watch_history_type_title">Τύπος ιστορικού παρακολούθησης</string>
+    <string name="revanced_watch_next_processing_delay_summary">Ο αριθμός των χιλιοστών του δευτερολέπτου που κρατάει η καθυστέρηση επεξεργασίας της απόκρισης επόμενης παρακολούθησης.</string>
+    <string name="revanced_watch_next_processing_delay_title">Καθυστέρηση επεξεργασίας επόμενης παρακολούθησης</string>
     <string name="revanced_webview_contextual_menu_get_cookies">Λήψη των Cookies</string>
     <string name="revanced_webview_contextual_menu_get_data_sync_id">Λήψη του Data Sync ID</string>
     <string name="revanced_webview_contextual_menu_get_visitor_data">Λήψη των Visitor Data</string>

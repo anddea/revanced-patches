@@ -48,7 +48,10 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
@@ -185,6 +188,47 @@ public final class Helpers {
             }
         }
         return false;
+    }
+
+    public static String toString(Throwable ex) {
+        if (ex instanceof IllegalStateException &&
+                ex.getCause() != null) {
+            ex = ex.getCause();
+        }
+
+        String message = ex.getMessage();
+
+        if (message == null || message.isEmpty()) {
+            StringWriter errors = new StringWriter();
+            ex.printStackTrace(new PrintWriter(errors));
+            message = errors.toString();
+        }
+
+        return String.format("%s: %s", ex.getClass().getCanonicalName(), message);
+    }
+
+    public static String toString(InputStream content) {
+        return FileHelpers.toString(content);
+    }
+
+    public static String toString(Intent intent) {
+        return dumpIntent(intent);
+    }
+
+    public static String toString(Object obj) {
+        if (obj == null) {
+            return null;
+        }
+
+        return obj.toString();
+    }
+
+    public static String toString(float num) {
+        if (num % 1.0 != 0) {
+            return String.valueOf(num);
+        } else {
+            return String.valueOf((int) num);
+        }
     }
 
     public static String toIntString(Object floatOrIntString) {
@@ -635,7 +679,6 @@ public final class Helpers {
         first = normalize(first);
         second = normalize(second);
 
-        //return first.contains(second) || second.contains(first);
         return first.contains(second);
     }
 

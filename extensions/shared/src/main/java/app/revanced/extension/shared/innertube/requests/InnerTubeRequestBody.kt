@@ -160,7 +160,7 @@ object InnerTubeRequestBody {
                 val signatureTimestamp =
                     ThrottlingParameterUtils.getSignatureTimestamp(!requirePoToken)
                 if (signatureTimestamp != null) {
-                    contentPlaybackContext.put("signatureTimestamp", signatureTimestamp.toInt())
+                    contentPlaybackContext.put("signatureTimestamp", signatureTimestamp)
                 }
                 val playbackContext = JSONObject()
                 playbackContext.put("contentPlaybackContext", contentPlaybackContext)

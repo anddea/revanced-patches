@@ -14,9 +14,6 @@ import app.revanced.extension.youtube.settings.preference.YouTubePreferenceFragm
 import app.revanced.extension.youtube.settings.search.YouTubeSearchViewController;
 import app.revanced.extension.youtube.utils.ThemeUtils;
 
-/**
- * Hooks LicenseActivity to inject a custom {@link YouTubePreferenceFragment} with a toolbar and search functionality.
- */
 public class YouTubeHostActivity extends BaseHostActivity {
 
     /**

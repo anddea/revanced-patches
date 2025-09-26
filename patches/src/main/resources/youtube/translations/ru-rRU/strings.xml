@@ -200,6 +200,7 @@
     <string name="revanced_debug_logs_copied_to_clipboard">Журналы скопированы.</string>
     <string name="revanced_debug_logs_disabled">Журнал отладки отключен.</string>
     <string name="revanced_debug_logs_export_success">Успех экспорта журналов.</string>
+    <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Логи слишком велики для копирования.</string>
     <string name="revanced_debug_logs_failed_to_export">Ошибка экспорта журналов: $s.</string>
     <string name="revanced_debug_logs_none_found">Записи в журнале не найдены.</string>
     <string name="revanced_debug_protobuffer_summary_off">Протобуфер журнала отладки отключен.</string>
@@ -433,6 +434,12 @@
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Полупрозрачность отключена.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Полупрозрачность включена.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Полупрозрачность панели навигации</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_off">Задержка перед \"смотреть следующее\" отключена.</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_on">Задержка перед \"смотреть следующее\" включена.</string>
+    <string name="revanced_enable_watch_next_processing_delay_title">Задержка перед \"смотреть следующее\"</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"Настройка принудительной задержки отображения пользовательского интерфейса.
+
+Это может быть нужно при тестировании на MainThread."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">Включение этого параметра отключит кнопку настроек на вкладке \"Вы\".\nИспользуйте следующий путь:\n   На страницу канала → Три точки → Настройки.</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary_off">Широкая панель поиска во вкладке «Вы» отключена.</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary_on">"Широкая панель поиска во вкладке «Вы» включена.
@@ -472,9 +479,6 @@
 Примечание:
 • iOS TV не поддерживает некоторые видео, например музыкальных клипов.
 • Если по умолчанию выбран iOS TV, эта настройка игнорируется в некоторых видео."</string>
-    <string name="revanced_extended_restart">Перезапустить</string>
-    <string name="revanced_extended_restart_first_run">Перезапустить для правильной загрузки интерфейса</string>
-    <string name="revanced_extended_restart_title">Требование перезапуска</string>
     <string name="revanced_extended_settings_export_failed">Не удалось экспортировать настройки.</string>
     <string name="revanced_extended_settings_export_success">Настройки успешно экспортированы.</string>
     <string name="revanced_extended_settings_export_summary">Экспорт настроек в файл.</string>
@@ -2485,6 +2489,7 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
 
 • Очень зависит от сервера, а успех или сбой разобфускации зависит от используемого на сервере JavaScript."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">Использовать актуальный JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Использовать актуальный JavaScript проигрыватель</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Видео кодек определяется автоматически.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Видео кодек AVC (H.264) или VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Отключить VR AV1</string>
@@ -2622,6 +2627,8 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_watch_history_type_entry_2">Замена домена</string>
     <string name="revanced_watch_history_type_entry_3">Блокировать историю просмотра</string>
     <string name="revanced_watch_history_type_title">Режим истории просмотра</string>
+    <string name="revanced_watch_next_processing_delay_summary">Миллисекунды задержки перед \"смотреть следующее\".</string>
+    <string name="revanced_watch_next_processing_delay_title">Задержка перед \"смотреть следующее\"</string>
     <string name="revanced_webview_contextual_menu_get_cookies">Получить куки</string>
     <string name="revanced_webview_contextual_menu_get_data_sync_id">Получить ID синхр. данных</string>
     <string name="revanced_webview_contextual_menu_get_visitor_data">Получить данные посещаемости</string>

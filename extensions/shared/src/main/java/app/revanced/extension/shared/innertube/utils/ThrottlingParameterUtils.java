@@ -1,7 +1,5 @@
 package app.revanced.extension.shared.innertube.utils;
 
-import static app.revanced.extension.shared.innertube.utils.DeviceHardwareSupport.hasAV1Decoder;
-
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
@@ -153,12 +151,12 @@ public class ThrottlingParameterUtils {
      * Field value included when sending a request (Mobile Web).
      */
     @Nullable
-    private volatile static String signatureTimestampMobileWeb = null;
+    private volatile static Integer signatureTimestampMobileWeb = null;
     /**
      * Field value included when sending a request (TV).
      */
     @Nullable
-    private volatile static String signatureTimestampTV = null;
+    private volatile static Integer signatureTimestampTV = null;
     /**
      * Visitor data from service worker (Mobile Web).
      */
@@ -171,7 +169,7 @@ public class ThrottlingParameterUtils {
     private volatile static String visitorIdTV = null;
 
     private volatile static boolean isInitialized = false;
-    private volatile static boolean useLatestPlayerJs = false;
+    private static final boolean useLatestPlayerJs = false;
 
     /**
      * Typically, there are 10 to 30 available formats for a video.
@@ -188,7 +186,7 @@ public class ThrottlingParameterUtils {
         }
     };
 
-    public static void initializeJavascript(boolean useLatestPlayerJs, boolean useMobileWeb) {
+    public static void initializeJavascript(boolean useMobileWeb) {
         if (isInitialized) {
             return;
         }
@@ -196,8 +194,6 @@ public class ThrottlingParameterUtils {
             return;
         }
         isInitialized = true;
-        hasAV1Decoder();
-        ThrottlingParameterUtils.useLatestPlayerJs = useLatestPlayerJs;
 
         if (!useLatestPlayerJs) {
             playerJsUrlMobileWeb = String.format(PLAYER_JS_URL_FORMAT_MOBILE_WEB, PLAYER_JS_HARDCODED_URL_PATH_MOBILE_WEB);
@@ -247,7 +243,7 @@ public class ThrottlingParameterUtils {
     }
 
     @Nullable
-    private static String setSignatureTimestamp(boolean isTV) {
+    private static Integer setSignatureTimestamp(boolean isTV) {
         try {
             String playerJs = getPlayerJs(isTV);
             if (playerJs != null) {
@@ -256,7 +252,7 @@ public class ThrottlingParameterUtils {
                     String signatureTimestamp = matcher.group(1);
                     if (StringUtils.isNotEmpty(signatureTimestamp)) {
                         Logger.printDebug(() -> "signatureTimestamp: " + signatureTimestamp);
-                        return signatureTimestamp;
+                        return Helpers.parseInt(signatureTimestamp);
                     }
                 }
             }
@@ -268,8 +264,8 @@ public class ThrottlingParameterUtils {
     }
 
     @Nullable
-    public static String getSignatureTimestamp(boolean isTV) {
-        String signatureTimestamp = isTV
+    public static Integer getSignatureTimestamp(boolean isTV) {
+        Integer signatureTimestamp = isTV
                 ? signatureTimestampTV
                 : signatureTimestampMobileWeb;
         if (signatureTimestamp == null) {
@@ -551,6 +547,37 @@ public class ThrottlingParameterUtils {
         return null;
     }
 
+    @Nullable
+    public static String deobfuscateStreamingUrl(
+            @NonNull String videoId,
+            @Nullable String url,
+            @Nullable String signatureCipher,
+            @Nullable String poToken,
+            boolean isTV) {
+        String streamUrl = null;
+        if (StringUtils.isNotEmpty(url)) {
+            streamUrl = url;
+        } else if (StringUtils.isNotEmpty(signatureCipher)) {
+            streamUrl = getUrlWithThrottlingParameterObfuscated(
+                    videoId,
+                    signatureCipher,
+                    isTV
+            );
+        }
+        if (StringUtils.isNotEmpty(streamUrl)) {
+            String deobfuscatedUrl = getUrlWithThrottlingParameterDeobfuscated(
+                    videoId,
+                    streamUrl,
+                    isTV
+            );
+            if (StringUtils.isNotEmpty(poToken)) {
+                deobfuscatedUrl += "&pot=" + poToken;
+            }
+            return deobfuscatedUrl;
+        }
+        return null;
+    }
+
     /**
      * Convert signatureCipher to streaming url with obfuscated 'n' parameter.
      * <p>
@@ -560,7 +587,7 @@ public class ThrottlingParameterUtils {
      * @return Streaming url with obfuscated 'n' parameter.
      */
     @Nullable
-    public static String getUrlWithThrottlingParameterObfuscated(@NonNull String videoId, @NonNull String signatureCipher,
+    private static String getUrlWithThrottlingParameterObfuscated(@NonNull String videoId, @NonNull String signatureCipher,
                                                                  boolean isTV) {
         try {
             PlayerDataExtractor extractor = getExtractor(isTV);
@@ -600,7 +627,7 @@ public class ThrottlingParameterUtils {
      * @return Deobfuscated streaming url.
      */
     @Nullable
-    public static String getUrlWithThrottlingParameterDeobfuscated(@NonNull String videoId, @Nullable String obfuscatedUrl,
+    private static String getUrlWithThrottlingParameterDeobfuscated(@NonNull String videoId, @NonNull String obfuscatedUrl,
                                                                    boolean isTV) {
         try {
             // Obfuscated url is empty.
@@ -631,7 +658,7 @@ public class ThrottlingParameterUtils {
             String deobfuscatedNParams = deobfuscatedNParamPairs.second;
             if (!deobfuscatedNParams.isEmpty()) {
                 // If the 'n' parameter obfuscation was successful, put it in the map.
-                nParamMap.putIfAbsent(obfuscatedNParams, deobfuscatedNParams);
+                nParamMap.put(obfuscatedNParams, deobfuscatedNParams);
                 Logger.printDebug(() -> "Deobfuscated the 'n' parameter, videoId: " + videoId + ", obfuscatedNParams: " + obfuscatedNParams + ", deobfuscatedNParams: " + deobfuscatedNParams);
                 return deobfuscatedUrl;
             }

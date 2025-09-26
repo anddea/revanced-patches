@@ -196,6 +196,7 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_debug_logs_copied_to_clipboard">Log di debug copiati negli appunti</string>
     <string name="revanced_debug_logs_disabled">I logs di debug sono disattivati</string>
     <string name="revanced_debug_logs_export_success">Log di debug esportati con successo</string>
+    <string name="revanced_debug_logs_failed_to_copy_to_clipboard">I logs di debug sono troppo lunghi per essere copiati</string>
     <string name="revanced_debug_logs_failed_to_export">Esportazione dei log di debug non riuscita ($s)</string>
     <string name="revanced_debug_logs_none_found">Nessun log trovato</string>
     <string name="revanced_debug_protobuffer_summary_off">I logs di debug non includono il buffer di protocollo.</string>
@@ -429,6 +430,11 @@ Note:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">La barra di navigazione è opaca.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">La barra di navigazione è traslucida.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Attiva la barra di navigazione traslucida</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_off">Il ritardo di elaborazione del video successivo è disattivato.</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_on">Il ritardo di elaborazione del video successivo è attivato.</string>
+    <string name="revanced_enable_watch_next_processing_delay_title">Attiva il ritardo di elaborazione del video successivo</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"Questa impostazione impone un ritardo prima del caricamento dell'interfaccia utente.
+Può essere usata quando si testa qualcosa sul MainThread."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"L'attivazione di questa impostazione disattiverà il pulsante Impostazioni nella scheda Tu.
 
 In questo caso, seguire questi percorsi per accedere alle impostazioni:
@@ -469,9 +475,6 @@ Nota: non funziona se il riproduttore è minimizzato, in modalità PiP o in back
 Per usare questa impostazione, cambia il client predefinito in iOS TV, TV o TV Simply.
 
 Nota: iOS TV non è disponibile in alcune regioni, nel tal caso questa impostazione potrebbe comunque non funzionare."</string>
-    <string name="revanced_extended_restart">Riavvia</string>
-    <string name="revanced_extended_restart_first_run">Riavvia per caricare l\'interfaccia normalmente</string>
-    <string name="revanced_extended_restart_title">Riavvio richiesto</string>
     <string name="revanced_extended_settings_export_failed">Esportazione delle impostazioni non riuscita</string>
     <string name="revanced_extended_settings_export_success">Impostazioni esportate con successo</string>
     <string name="revanced_extended_settings_export_summary">Esporta le impostazioni in un file.</string>
@@ -2196,7 +2199,7 @@ Note:
     <string name="revanced_settings_reset_color">Ripristina il colore</string>
     <string name="revanced_settings_search_clear_history">Cancella la cronologia delle ricerche</string>
     <string name="revanced_settings_search_clear_history_message">Sei sicuro di voler cancellare la cronologia delle ricerche?</string>
-    <string name="revanced_settings_search_empty_history_summary">Cerca qualcosa per salvare la cronologia delle ricerche.</string>
+    <string name="revanced_settings_search_empty_history_summary">Cerca qualcosa per salvarlo nella cronologia.</string>
     <string name="revanced_settings_search_empty_history_title">Cronologia delle ricerche vuota</string>
     <string name="revanced_settings_search_history_summary">Salva recenti query di ricerca per mostrarle quando la barra di ricerca è vuota.</string>
     <string name="revanced_settings_search_history_summary_off">La cronologia delle ricerche delle impostazioni è nascosta.</string>
@@ -2208,10 +2211,9 @@ Note:
     <string name="revanced_settings_search_remove_message">Cancellare dalla cronologia delle ricerche?</string>
     <string name="revanced_settings_search_tips_summary">"• Tocca un percorso per accedervi.
 • Tieni premuto un'impostazione per accedervi.
-• Premi Invio per salvare una ricerca nella cronologia.
 • ​​La ricerca ignora maiuscole, minuscole e punteggiatura.
 • Le impostazioni principali vengono mostrate sopra le impostazioni secondarie disattivate."</string>
-    <string name="revanced_settings_search_tips_title">Cerca suggerimenti</string>
+    <string name="revanced_settings_search_tips_title">Suggerimenti e note</string>
     <string name="revanced_settings_search_title">Cerca su %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Impostazioni copiate negli appunti</string>
@@ -2470,6 +2472,15 @@ Nota: viene usato la versione di JavaScript che riesce nel deoffuscamento, ma l'
 
 Nota: è altamente dipendente dal server, e il successo o il fallimento del deoffuscamento dipendono dalla versione di JavaScript attualmente usato sul server."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">Usa l\'ultima versione di JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"La versione di JavaScript per il deoffuscamento non viene mantenuta aggiornata.
+
+Nota: viene usata la versione di JavaScript che riesce nel deoffuscamento, ma l'operazione è comunque in qualche modo dipendente dal server."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"La versione di JavaScript per il deoffuscamento viene mantenuta aggiornata.
+
+Note:
+• È altamente dipendente dal server, e il successo o il fallimento del deoffuscamento dipende dal JavaScript attualmente usato sul server.
+• Se riscontri problemi con il client JavaScript, prova prima a disattivarlo."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Usa l\'ultima versione di JavaScript</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Il codec video è determinato automaticamente.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Il codec video usato è AVC (H.264) o VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Disattiva il codec VR AV1</string>
@@ -2603,6 +2614,8 @@ Nota: i cookie generati senza effettuare l'accesso potrebbero non essere validi 
     <string name="revanced_watch_history_type_entry_2">Sostituisci dominio</string>
     <string name="revanced_watch_history_type_entry_3">Blocca cronologia</string>
     <string name="revanced_watch_history_type_title">Cambia il tipo di cronologia</string>
+    <string name="revanced_watch_next_processing_delay_summary">La quantità di millisecondi di ritardo nell\'elaborazione della risposta del video successivo.</string>
+    <string name="revanced_watch_next_processing_delay_title">Ritardo di elaborazione del video successivo</string>
     <string name="revanced_webview_contextual_menu_get_cookies">Ottieni i cookie</string>
     <string name="revanced_webview_contextual_menu_get_data_sync_id">Ottieni l\'ID di sincronizzazione dati</string>
     <string name="revanced_webview_contextual_menu_get_visitor_data">Ottieni i dati del visitatore</string>

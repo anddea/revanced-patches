@@ -200,6 +200,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_debug_logs_copied_to_clipboard">ログをコピーしました。</string>
     <string name="revanced_debug_logs_disabled">デバッグログは無効です。</string>
     <string name="revanced_debug_logs_export_success">ログをエクスポートしました。</string>
+    <string name="revanced_debug_logs_failed_to_copy_to_clipboard">ログが大きすぎるため、コピーできません。</string>
     <string name="revanced_debug_logs_failed_to_export">ログのエクスポートに失敗しました: $s</string>
     <string name="revanced_debug_logs_none_found">ログが見つかりません。</string>
     <string name="revanced_debug_protobuffer_summary_off">デバッグログにプロトコルバッファを含みます。</string>
@@ -436,6 +437,12 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_enable_translucent_navigation_bar_summary_off">ナビゲーションバー ([ホーム]、[登録チャンネル] などのボタン) を半透明にします。</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">ナビゲーションバー ([ホーム]、[登録チャンネル] などのボタン) を半透明にします。</string>
     <string name="revanced_enable_translucent_navigation_bar_title">半透明のナビゲーションバーを有効化</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_off">自動再生時の事前読み込み処理の遅延を有効化します。</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_on">自動再生時の事前読み込み処理の遅延を有効化します。</string>
+    <string name="revanced_enable_watch_next_processing_delay_title">自動再生時の事前読み込み処理の遅延を有効化</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"この設定により、プレーヤーの UI が読み込まれる前に遅延が強制されます。
+
+これは、MainThread で何かをテストする際に使用できます。"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"この設定を有効にすると、[マイページ] タブ内の設定ボタンが無効になります。
 
 この場合、以下の手順に従ってください:
@@ -476,9 +483,6 @@ DeArrow について詳しく知るには、ここをタップしてください
 
 注意:
 ・「iOS TV」は一部の地域では利用できません。その場合、この設定は機能しない可能性があります。"</string>
-    <string name="revanced_extended_restart">再起動</string>
-    <string name="revanced_extended_restart_first_run">レイアウトを正常に読み込むためにはアプリを再起動する必要があります。\n\n続行しますか？</string>
-    <string name="revanced_extended_restart_title">再起動が必要です</string>
     <string name="revanced_extended_settings_export_failed">設定をエクスポートできませんでした。</string>
     <string name="revanced_extended_settings_export_success">設定をエクスポートしました。</string>
     <string name="revanced_extended_settings_export_summary">設定をファイルにエクスポートします。</string>
@@ -2505,6 +2509,15 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
 
 注意: サーバーに大きく依存し、難読化解除の成功または失敗はサーバー上で現在使用されている JavaScript に依存します。"</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">最新の JavaScript を使用</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"難読化解除用のプレーヤー JavaScript を最新の状態に保ちます。
+
+・サーバーに大きく依存しており、難読化解除の成功または失敗は、サーバー上で現在使用されているプレーヤー JavaScript によって決まります。
+・JavaScript クライアントに問題がある場合は、まずこれを無効にしてみてください。"</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"難読化解除用のプレーヤー JavaScript を最新の状態に保ちます。
+
+・サーバーに大きく依存しており、難読化解除の成功または失敗は、サーバー上で現在使用されているプレーヤー JavaScript によって決まります。
+・JavaScript クライアントに問題がある場合は、まずこれを無効にしてみてください。"</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">最新のプレーヤー JavaScript を使用</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">偽装するクライアントを「Android VR」に設定している場合、AVC (H.264) または VP9 コーデックを使用します。</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">偽装するクライアントを「Android VR」に設定している場合、AVC (H.264) または VP9 コーデックを使用します。</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Android VR で AV1 コーデックを無効化</string>
@@ -2654,6 +2667,8 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
     <string name="revanced_watch_history_type_entry_2">ドメインを置換</string>
     <string name="revanced_watch_history_type_entry_3">再生履歴をブロック</string>
     <string name="revanced_watch_history_type_title">再生履歴の種類</string>
+    <string name="revanced_watch_next_processing_delay_summary">自動再生の準備を開始するまでの遅延時間（ミリ秒）。</string>
+    <string name="revanced_watch_next_processing_delay_title">自動再生時の事前読み込み処理の遅延</string>
     <string name="revanced_webview_contextual_menu_get_cookies">Cookie を取得</string>
     <string name="revanced_webview_contextual_menu_get_data_sync_id">データ同期 ID を取得</string>
     <string name="revanced_webview_contextual_menu_get_visitor_data">Visitor Data を取得</string>

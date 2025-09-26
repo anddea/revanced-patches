@@ -859,6 +859,10 @@ public final class app/revanced/patches/youtube/general/snackbar/SnackBarCompone
 	public static final fun getSnackBarComponentsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/youtube/general/splashanimation/FingerprintsKt {
+	public static final fun indexOfStartAnimatedVectorDrawableInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+}
+
 public final class app/revanced/patches/youtube/general/splashanimation/SplashAnimationPatchKt {
 	public static final fun getSplashAnimationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1018,6 +1022,10 @@ public final class app/revanced/patches/youtube/player/miniplayer/general/Minipl
 
 public final class app/revanced/patches/youtube/player/miniplayer/startup/ResumingMiniplayerOnStartupPatchKt {
 	public static final fun getResumingMiniplayerOnStartupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/player/overlaybuttons/GeminiButtonKt {
+	public static final fun getGeminiButton ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/youtube/player/overlaybuttons/OverlayButtonsPatchKt {
@@ -1271,7 +1279,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getContentPill ()J
 	public static final fun getControlsLayoutStub ()J
 	public static final fun getDarkBackground ()J
-	public static final fun getDarkSplashAnimation ()J
 	public static final fun getDesignBottomSheet ()J
 	public static final fun getDonationCompanion ()J
 	public static final fun getDrawerContentView ()J

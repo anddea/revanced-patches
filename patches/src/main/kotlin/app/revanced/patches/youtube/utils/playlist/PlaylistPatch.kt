@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.mainactivity.getMainActivityMethod
+import app.revanced.patches.youtube.player.overlaybuttons.geminiButton
 import app.revanced.patches.youtube.utils.auth.authHookPatch
 import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
@@ -27,6 +28,8 @@ val playlistPatch = bytecodePatch(
     description = "playlistPatch",
 ) {
     dependsOn(
+        geminiButton,
+
         sharedExtensionPatch,
         mainActivityResolvePatch,
         dismissPlayerHookPatch,

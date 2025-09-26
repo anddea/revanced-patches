@@ -6,6 +6,7 @@ import app.revanced.extension.shared.innertube.client.YouTubeClient.ClientType
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createApplicationRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createJSRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
+import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_AUDIO_TRACK
 import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.getStreamingDataRoute
 import app.revanced.extension.shared.innertube.utils.PlayerResponseOuterClass.PlayerResponse
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.getAdaptiveFormats
@@ -15,6 +16,7 @@ import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtil
 import app.revanced.extension.shared.innertube.utils.ThrottlingParameterUtils
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup
 import app.revanced.extension.shared.patches.spoof.StreamingDataOuterClassPatch.parseFrom
+import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.settings.BaseSettings
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.StringRef.str
@@ -263,40 +265,14 @@ class StreamingDataRequest private constructor(
                         val adaptiveFormats = streamingData.getAdaptiveFormats(i)
 
                         if (adaptiveFormats != null) {
-                            var streamUrl: String?
-                            val url: String? = adaptiveFormats.url
-                            val signatureCipher: String? = adaptiveFormats.signatureCipher
-
-                            if (!url.isNullOrEmpty()) {
-                                streamUrl = url
-                            } else if (!signatureCipher.isNullOrEmpty()) {
-                                streamUrl =
-                                    ThrottlingParameterUtils.getUrlWithThrottlingParameterObfuscated(
-                                        videoId,
-                                        signatureCipher,
-                                        isTV
-                                    )
-                            } else {
-                                // Neither streamingUrl nor signatureCipher are present in the response.
-                                // In this case, decoding serverAbrStreamingUrl is required to obtain streamingUrl.
-                                // This feature is not yet implemented in RVX.
-                                Logger.printDebug { "Neither streamingUrl nor signatureCipher were found, legacy client will be used" }
-                                return null
-                            }
-                            // streamUrl not found, trying to fetch with legacy client.
-                            if (streamUrl.isNullOrEmpty()) {
-                                Logger.printDebug { "StreamUrl was not found, legacy client will be used" }
-                                return null
-                            }
-                            var deobfuscatedUrl =
-                                ThrottlingParameterUtils.getUrlWithThrottlingParameterDeobfuscated(
+                            val deobfuscatedUrl =
+                                ThrottlingParameterUtils.deobfuscateStreamingUrl(
                                     videoId,
-                                    streamUrl,
+                                    adaptiveFormats.url,
+                                    adaptiveFormats.signatureCipher,
+                                    sessionPoToken,
                                     isTV
                                 )
-                            if (!deobfuscatedUrl.isNullOrEmpty() && !sessionPoToken.isNullOrEmpty()) {
-                                deobfuscatedUrl += "&pot=$sessionPoToken"
-                            }
                             if (deobfuscatedUrl.isNullOrEmpty()) {
                                 Logger.printDebug { "Failed to decrypt n-sig or signatureCipher, please check if latest regular expressions are being used" }
                                 return null
@@ -315,42 +291,14 @@ class StreamingDataRequest private constructor(
                                 deobfuscatedFormatsArrayList.clear()
                                 break
                             }
-                            var streamUrl: String?
-                            val url: String? = formats.url
-                            val signatureCipher: String? = formats.signatureCipher
-
-                            if (!url.isNullOrEmpty()) {
-                                streamUrl = url
-                            } else if (!signatureCipher.isNullOrEmpty()) {
-                                streamUrl =
-                                    ThrottlingParameterUtils.getUrlWithThrottlingParameterObfuscated(
-                                        videoId,
-                                        signatureCipher,
-                                        isTV
-                                    )
-                            } else {
-                                // Neither streamingUrl nor signatureCipher are present in the response.
-                                // In this case, decoding serverAbrStreamingUrl is required to obtain streamingUrl.
-                                // This feature is not yet implemented in RVX.
-                                Logger.printDebug { "Neither streamingUrl nor signatureCipher were found" }
-                                deobfuscatedFormatsArrayList.clear()
-                                break
-                            }
-                            // streamUrl not found, trying to fetch with legacy client.
-                            if (streamUrl.isNullOrEmpty()) {
-                                Logger.printDebug { "StreamUrl was not found" }
-                                deobfuscatedFormatsArrayList.clear()
-                                break
-                            }
-                            var deobfuscatedUrl =
-                                ThrottlingParameterUtils.getUrlWithThrottlingParameterDeobfuscated(
+                            val deobfuscatedUrl =
+                                ThrottlingParameterUtils.deobfuscateStreamingUrl(
                                     videoId,
-                                    streamUrl,
+                                    formats.url,
+                                    formats.signatureCipher,
+                                    sessionPoToken,
                                     isTV
                                 )
-                            if (!deobfuscatedUrl.isNullOrEmpty() && !sessionPoToken.isNullOrEmpty()) {
-                                deobfuscatedUrl += "&pot=$sessionPoToken"
-                            }
                             if (deobfuscatedUrl.isNullOrEmpty()) {
                                 Logger.printDebug { "Failed to decrypt n-sig or signatureCipher" }
                                 deobfuscatedFormatsArrayList.clear()
@@ -363,9 +311,11 @@ class StreamingDataRequest private constructor(
                     var serverAbrStreamingUrl = streamingData.serverAbrStreamingUrl
                     if (!serverAbrStreamingUrl.isNullOrEmpty()) {
                         serverAbrStreamingUrl = ThrottlingParameterUtils
-                            .getUrlWithThrottlingParameterDeobfuscated(
+                            .deobfuscateStreamingUrl(
                                 videoId,
                                 serverAbrStreamingUrl,
+                                null,
+                                sessionPoToken,
                                 isTV
                             )
                     }
@@ -403,6 +353,115 @@ class StreamingDataRequest private constructor(
                 }
             }
             return streamingData
+        }
+
+        private fun setAudioTrackLanguage(
+            videoId: String,
+            requestHeader: Map<String, String>,
+        ) {
+            for (clientType in arrayOf(ClientType.ANDROID, ClientType.TV_SIMPLY_NO_AUTH, ClientType.ANDROID_VR)) {
+                val startTime = System.currentTimeMillis()
+                Logger.printDebug { "Fetching audio track for: $videoId using client: $clientType" }
+
+                try {
+                    val requestBody = if (clientType.requireJS) {
+                        createJSRequestBody(
+                            clientType = clientType,
+                            videoId = videoId,
+                            language = "en",
+                            isGVS = false,
+                        )
+                    } else {
+                        createApplicationRequestBody(
+                            clientType = clientType,
+                            videoId = videoId,
+                            language = "en"
+                        )
+                    }
+
+                    val connection =
+                        getInnerTubeResponseConnectionFromRoute(
+                            GET_AUDIO_TRACK,
+                            clientType,
+                            requestHeader
+                        )
+
+                    connection.setFixedLengthStreamingMode(requestBody.size)
+                    connection.outputStream.write(requestBody)
+
+                    val responseCode = connection.responseCode
+                    if (responseCode != 200) {
+                        connection.disconnect()
+                        continue
+                    }
+                    val json = Requester.parseJSONObjectAndDisconnect(connection)
+
+                    if (!json.has("captions")) {
+                        continue
+                    }
+                    val captions =
+                        json.getJSONObject("captions")
+                    if (!captions.has("playerCaptionsTracklistRenderer")) {
+                        continue
+                    }
+                    val playerCaptionsTracklistRenderer =
+                        captions.getJSONObject("playerCaptionsTracklistRenderer")
+                    if (!playerCaptionsTracklistRenderer.has("audioTracks")) {
+                        continue
+                    }
+                    val audioTracks =
+                        playerCaptionsTracklistRenderer.getJSONArray("audioTracks")
+                    if (audioTracks.length() < 2) {
+                        continue
+                    }
+                    if (!json.has("streamingData")) {
+                        continue
+                    }
+                    val streamingData =
+                        json.getJSONObject("streamingData")
+                    if (!streamingData.has("adaptiveFormats")) {
+                        continue
+                    }
+                    val adaptiveFormats =
+                        streamingData.getJSONArray("adaptiveFormats")
+                    if (adaptiveFormats.length() < 2) {
+                        continue
+                    }
+                    for (i in adaptiveFormats.length() - 1 downTo 0) {
+                        val adaptiveFormat = adaptiveFormats.getJSONObject(i)
+
+                        if (adaptiveFormat.has("audioTrack")) {
+                            val audioTrack = adaptiveFormat.getJSONObject("audioTrack")
+                            val displayName = audioTrack.getString("displayName")
+                            if (StringUtils.contains(displayName, "original")) {
+                                val id = audioTrack.getString("id")
+                                val dotIndex = StringUtils.indexOf(id, ".")
+                                if (dotIndex > -1) {
+                                    val languageCode = id.substring(0, dotIndex)
+                                    overrideLanguage = languageCode
+                                    return
+                                }
+                            }
+                        }
+                    }
+                } catch (ex: SocketTimeoutException) {
+                    handleConnectionError("Connection timeout", ex)
+                } catch (ex: IOException) {
+                    handleConnectionError("Network error", ex)
+                } catch (ex: Exception) {
+                    Logger.printException({ "send failed" }, ex)
+                } finally {
+                    Logger.printDebug { "Fetching audio track request end (videoId: $videoId, took: ${(System.currentTimeMillis() - startTime)} ms)" }
+                }
+            }
+            if (overrideLanguage.isEmpty()) {
+                // If client spoofing does not use authentication and lacks multi-audio streams,
+                // then can use any language code for the request and if that requested language is
+                // not available YT uses the original audio language. Authenticated requests ignore
+                // the language code and always use the account language. Use a language that is
+                // not auto-dubbed by YouTube: https://support.google.com/youtube/answer/15569972
+                overrideLanguage = "sv"
+            }
         }
 
         private fun send(
@@ -492,13 +551,7 @@ class StreamingDataRequest private constructor(
                 if (!clientType.supportsCookies
                     && BaseSettings.DISABLE_AUTO_AUDIO_TRACKS.get()
                     && overrideLanguage.isEmpty()) {
-                    // Volapük (ISO 639-1 language code: vo) is a constructed language created in 1879 for academic purposes and is not used anywhere else.
-                    // Using this language code disables auto-dubbing.
-                    //
-                    // However, the 'Mobile Web' client did not receive a valid player response when using this language code.
-                    //
-                    // For compatibility with the 'Mobile Web' client, Norwegian (ISO 639-1 language code: no) is used.
-                    overrideLanguage = "no"
+                    setAudioTrackLanguage(videoId, requestHeader)
                 }
 
                 val connection = send(

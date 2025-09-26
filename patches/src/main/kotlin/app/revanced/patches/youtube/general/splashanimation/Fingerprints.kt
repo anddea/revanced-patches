@@ -1,19 +1,31 @@
 package app.revanced.patches.youtube.general.splashanimation
 
-import app.revanced.patches.youtube.utils.resourceid.darkSplashAnimation
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val splashAnimationFingerprint = legacyFingerprint(
     name = "splashAnimationFingerprint",
     returnType = "V",
     parameters = listOf("Landroid/os/Bundle;"),
-    literals = listOf(darkSplashAnimation),
+    strings = listOf("PostCreateCalledKey"),
     customFingerprint = { method, _ ->
-        method.name == "onCreate"
+        method.definingClass.endsWith("Activity;") &&
+                method.name == "onCreate" &&
+                indexOfStartAnimatedVectorDrawableInstruction(method) >= 0
     }
 )
+
+fun indexOfStartAnimatedVectorDrawableInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>()?.toString() == "Landroid/graphics/drawable/AnimatedVectorDrawable;->start()V"
+    }
 
 internal val startUpResourceIdFingerprint = legacyFingerprint(
     name = "startUpResourceIdFingerprint",
