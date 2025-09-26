@@ -195,6 +195,7 @@ Korlátozás: Előfordulhat, hogy az eszköztár Vissza gombja nem működik."</
     <string name="revanced_debug_logs_copied_to_clipboard">Naplók átmásolva.</string>
     <string name="revanced_debug_logs_disabled">A hibakeresési naplózás nem engedélyezett.</string>
     <string name="revanced_debug_logs_export_success">A naplók exportálása sikeres.</string>
+    <string name="revanced_debug_logs_failed_to_copy_to_clipboard">A napló fájlok túl nagyok a másoláshoz.</string>
     <string name="revanced_debug_logs_failed_to_export">Sikertelen napló exportálás: $s.</string>
     <string name="revanced_debug_logs_none_found">Nem találhatók naplók.</string>
     <string name="revanced_debug_protobuffer_summary_off">A hibakeresési naplók nem tartalmazzák a protokoll puffert.</string>
@@ -432,6 +433,12 @@ Korlátozások:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">A navigációs sáv nem átlátszó.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">A navigációs sáv átlátszó.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Átlátszó navigációs sáv engedélyezése</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_off">A Következő a lejátszási sorban feldolgozási késleltetése tiltott.</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_on">A Következő a lejátszási sorban feldolgozási késleltetése engedélyezett.</string>
+    <string name="revanced_enable_watch_next_processing_delay_title">Következő a lejátszási sorban feldolgozási késleltetésének engedélyezése</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"Ez a beállítás késleltetést kényszerít ki a lejátszó felhasználói felületének betöltése előtt.
+
+Ez akkor hasznos, ha valamit tesztelni kell a MainThread-en."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Ha bekapcsolja ezt a beállítást, letiltja a beállítások gombot a Te lapon.
 
 Ebben az esetben kérjük használja a következő utat a beállításokhoz való hozzáféréshez:
@@ -472,9 +479,6 @@ A funkció használatához módosítsa az 'Alapértelmezett kliens (hamis stream
 Megjegyzés:
 • Az iOS TV nem támogatja bizonyos videók, például zenei videók lejátszását.
 • Ezért, ha az alapértelmezett kliens az iOS TV-re van állítva, ez a beállítás egyes videók esetében nem biztos, hogy működik."</string>
-    <string name="revanced_extended_restart">Újraindítás</string>
-    <string name="revanced_extended_restart_first_run">Indítsa újra a rendszert a normál elrendezés betöltéséhez</string>
-    <string name="revanced_extended_restart_title">Újraindítás szükséges</string>
     <string name="revanced_extended_settings_export_failed">A beállítások exportálása sikertelen.</string>
     <string name="revanced_extended_settings_export_success">A beállítások exportálása sikeres.</string>
     <string name="revanced_extended_settings_export_summary">Beállítások exportálása fájlba.</string>
@@ -494,9 +498,9 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_external_downloader_not_installed_warning">%s nincs telepítve. Kérlek telepítsd.</string>
     <string name="revanced_external_downloader_other_item">Egyéb</string>
     <string name="revanced_external_downloader_other_item_hint">Írja be a csomag nevét</string>
-    <string name="revanced_external_downloader_package_name_playlist_summary">A telepített külső letöltő alkalmazás csomagneve, például YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">A telepített külső letöltő alkalmazás csomagneve.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Lejátszási lista letöltő csomag neve</string>
-    <string name="revanced_external_downloader_package_name_video_summary">A telepített külső letöltő alkalmazás csomagneve, például NewPipe vagy YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_summary">A telepített külső letöltő alkalmazás csomagneve.</string>
     <string name="revanced_external_downloader_package_name_video_title">Videó letöltő csomag neve</string>
     <string name="revanced_external_downloader_package_not_found_warning">"Nem található telepített alkalmazás a következő csomagnévvel: %s.
 
@@ -2076,8 +2080,8 @@ Készen állsz a beküldésre?"</string>
     <string name="revanced_sb_submit_failed_unknown_error">Nem lehet beküldeni a szakaszt (állapot: %1$d %2$s).</string>
     <string name="revanced_sb_submit_succeeded">A szakasz sikeresen beküldve.</string>
     <string name="revanced_sb_toast_on_connection_error">Üzenet megjelenítése, ha az API nem elérhető</string>
-    <string name="revanced_sb_toast_on_connection_error_sum_off">Nem látható üzenet, ha a SponsorBlock nem elérhető</string>
-    <string name="revanced_sb_toast_on_connection_error_sum_on">Üzenet látható, ha a SponsorBlock nem elérhető</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">Nem látható üzenet, ha a SponsorBlock nem elérhető.</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">Üzenet látható, ha a SponsorBlock nem elérhető.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Nem látható üzenet, ha a SponsorBlock nem elérhető.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Üzenet látható, ha a SponsorBlock nem elérhető.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Üzenet megjelenítése, ha az API nem elérhető</string>
@@ -2111,10 +2115,19 @@ A következő esetekben esetleg nem működik:
 • A YouTube Átirat API már nem ellenőrzi a sütiket."</string>
     <string name="revanced_settings_color_invalid">Érvénytelen szín.</string>
     <string name="revanced_settings_color_picker">Színválasztó</string>
+    <string name="revanced_settings_export_failed">A beállítások exportálása sikertelen.</string>
+    <string name="revanced_settings_export_success">A beállítások exportálása sikeres.</string>
+    <string name="revanced_settings_export_summary">Beállítások exportálása fájlba.</string>
+    <string name="revanced_settings_export_title">Beállítások exportálása</string>
     <string name="revanced_settings_import">Importálás</string>
     <string name="revanced_settings_import_copy">Másolás</string>
-    <string name="revanced_settings_import_reset">A ReVanced beállítások visszaállnak az alapértelmezettre</string>
-    <string name="revanced_settings_import_success">%d beállítás importálva</string>
+    <string name="revanced_settings_import_export_as_text_summary">Beállítások importálása vagy exportálása szövegként.</string>
+    <string name="revanced_settings_import_export_as_text_title">Importálás / Exportálás szövegként</string>
+    <string name="revanced_settings_import_failed">A beállítások importálása sikertelen.</string>
+    <string name="revanced_settings_import_reset">Beállítások visszaállítása alapértelmezettre.</string>
+    <string name="revanced_settings_import_success">A beállítások sikeresen importálva.</string>
+    <string name="revanced_settings_import_summary">Beállítások importálása mentett fájlból.</string>
+    <string name="revanced_settings_import_title">Beállítások importálása</string>
     <string name="revanced_settings_reset">Visszaállítás</string>
     <string name="revanced_settings_reset_color">Szín visszaállítása</string>
     <string name="revanced_settings_search_clear_history">Keresési előzmények törlése</string>
@@ -2215,7 +2228,7 @@ Korlátozás: A videó címe eltűnik, ha rákattint."</string>
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Cairo ikon letiltása a navigációban és az eszköztárban</string>
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Régi lejátszási lista fejléc visszállítása</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - A régi lejátszási sebesség felugró menü visszaállítása</string>
-    <string name="revanced_spoof_app_version_target_entry_20_05_46">Hungary</string>
+    <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Átirat funkció visszaállítása</string>
     <string name="revanced_spoof_app_version_target_entry_title">Hamis alkalmazásverzió</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Érvénytelen hamisított alkalmazásverzió: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Írja be a hamis alkalmazásverziót.</string>
@@ -2394,6 +2407,14 @@ A JavaScript kliensek közül az ajánlott kliens a TV egyszerű."</string>
 
 • Nagymértékben szerverfüggő, és az élesítés sikere vagy sikertelensége a szerveren aktuálisan használt JavaScripttől függ."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">Használja a legújabb JavaScriptet</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"A deobfuszkációhoz használt lejátszó JavaScriptje nincs naprakészen.
+
+• A deobfuszkációban sikeresen részt vevő lejátszó JavaScriptjét használjuk, de ez még mindig némileg szerverfüggő."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"A deobfuszkációhoz használt lejátszó JavaScriptje naprakészen tartandó.
+
+• Ez nagymértékben szerverfüggő, és a deobfuszkáció sikere vagy sikertelensége a szerveren aktuálisan használt lejátszó JavaScripttől függ.
+• Ha problémái vannak a JavaScript klienssel, először próbálja meg letiltani ezt."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Használja a legújabb lejátszó JavaScriptjét</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">A videokodek meghatározása automatikusan történik.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">A videó kodek AVC (H.264) vagy VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">VR AV1 letiltása</string>
@@ -2521,6 +2542,8 @@ Jogi nyilatkozat: A bejelentkezés nélkül kibocsátott sütik érvénytelenek 
     <string name="revanced_watch_history_type_entry_2">Domain cseréje</string>
     <string name="revanced_watch_history_type_entry_3">Megtekintési előzmények tiltása</string>
     <string name="revanced_watch_history_type_title">Megtekintési előzmények típusa</string>
+    <string name="revanced_watch_next_processing_delay_summary">A következő a lejátszási listában válaszának feldolgozási késleltetése ezredmásodpercben.</string>
+    <string name="revanced_watch_next_processing_delay_title">Következő a lejátszási sorban feldolgozási késleltetés</string>
     <string name="revanced_webview_contextual_menu_get_cookies">Sütik fogadása</string>
     <string name="revanced_webview_contextual_menu_get_data_sync_id">Adatszinkron azonosító lekérése</string>
     <string name="revanced_webview_contextual_menu_get_visitor_data">Látogató adatok lekérése</string>

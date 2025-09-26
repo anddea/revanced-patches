@@ -21,10 +21,10 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
     <string name="revanced_add_miniplayer_next_button_title">Aggiungi il pulsante successivo nel miniplayer</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Aggiunge un pulsante traccia precedente al miniplayer.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Aggiungi il pulsante precedente nel miniplayer</string>
-    <string name="revanced_app_info_dialog_message">&lt;b&gt;Nome dell\'app&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Versione dell\'app&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Patch ReVanced&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Data della patch&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
-    <string name="revanced_app_info_dialog_title">Informazioni sull\'app</string>
-    <string name="revanced_app_info_summary">Premi per verificare il nome dell\'app, la versione dell\'app, la versione della patch e la data della patch.</string>
-    <string name="revanced_app_info_title">Informazioni sull\'app</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;Nome app&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Versione app&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Data patch&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_title">Info app</string>
+    <string name="revanced_app_info_summary">Clicca per controllare il nome dell\'app, versione dell\'app, versione e data della patch.</string>
+    <string name="revanced_app_info_title">Info app</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Ignora il dominio bloccato in alcune regioni in modo che le miniature della playlist, gli avatar del canale, ecc. possano essere ricevuti.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Aggira le restrizioni regionali delle immagini</string>
     <string name="revanced_change_action_bar_position_summary">Sposta l\'Action bar sotto il pulsante Play.</string>
@@ -106,16 +106,16 @@ Limitazioni: I video per bambini potrebbero non essere reindirizzati."</string>
     <string name="revanced_disable_player_gesture_title">Disabilita gestualità dal lettore</string>
     <string name="revanced_disable_quic_protocol_summary">"Disabilita il protocollo QUIC di CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Disabilita il protocollo QUIC</string>
-    <string name="revanced_disable_trim_silence_summary">"Disattiva l'opzione "Taglia silenzio" nel menu a comparsa della velocità di riproduzione.
+    <string name="revanced_disable_trim_silence_summary">"Disabilita un interruttore di Taglia silenzio nel menu flyout velocità di riproduzione.
 
 Info:
 • Questa funzione è per i podcast.
 • Questa funzione è ancora in fase di sviluppo, quindi potrebbe essere instabile."</string>
-    <string name="revanced_disable_trim_silence_title">Disabilita taglia silenzi</string>
-    <string name="revanced_enable_comments_scroll_top_summary">"Cliccando sul titolo del pannello dei commenti ("Commenti") si scorre fino in cima.
+    <string name="revanced_disable_trim_silence_title">Disabilita interruttore Taglia silenzio</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"Facendo clic sul titolo del pannello commenti ('Commenti') scorre in alto.
 
-Limitazione: non si applica alle risposte dei commenti."</string>
-    <string name="revanced_enable_comments_scroll_top_title">Abilita scorri in cima ai commenti</string>
+Limitazioni: Non si applica alle risposte ai commenti."</string>
+    <string name="revanced_enable_comments_scroll_top_title">Abilita lo scorrimento verso l\'alto nei commenti</string>
     <string name="revanced_enable_compact_dialog_summary">"Abilita il menù a comparsa compatto sui telefoni.
 
 Limitazioni:
@@ -141,7 +141,7 @@ Limitazioni:
     <string name="revanced_enable_smooth_transition_animation_summary">"Abilita un'animazione fluida quando il miniplayer viene massimizzato dallo stato ridotto a icona.
 
 ​Limiti: ​L'interfaccia utente dei testi in tempo reale potrebbe non funzionare correttamente per alcuni utenti."</string>
-    <string name="revanced_enable_smooth_transition_animation_title">Abilita l\'animazione di transizione fluida</string>
+    <string name="revanced_enable_smooth_transition_animation_title">Abilita animazione transizione fluida</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Abilita "scorrere verso il basso" per chiudere il miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Abilita scorri per nascondere il miniplayer</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Abilita lo scorrimento verso il basso per chiudere il miniplayer.</string>
@@ -154,12 +154,9 @@ Limitazioni: i segmenti SponsorBlock non vengono mostrati nella barra di ricerca
     <string name="revanced_enable_zen_mode_podcast_title">Abilita la modalità Zen nei podcast</string>
     <string name="revanced_enable_zen_mode_summary">Aggiunge una sfumatura grigia al riproduttore video per ridurre l\'affaticamento degli occhi.</string>
     <string name="revanced_enable_zen_mode_title">Abilita la modalità zen</string>
-    <string name="revanced_extended_restart_first_run">Riavvia per caricare il layout normalmente</string>
     <string name="revanced_extended_settings_export_failed">Esportazione impostazioni fallita.</string>
     <string name="revanced_extended_settings_export_success">Impostazioni esportate con successo.</string>
     <string name="revanced_extended_settings_import">Importa</string>
-    <string name="revanced_extended_settings_import_export_summary">Importa o esporta le impostazioni come testo.</string>
-    <string name="revanced_extended_settings_import_export_title">Importa/Esporta</string>
     <string name="revanced_extended_settings_import_reset">Ripristino impostazioni ai valori predefiniti</string>
     <string name="revanced_extended_settings_title">Impostazioni RVX</string>
     <string name="revanced_external_downloader_action_summary">"Il pulsante Download apre il downloader esterno.
@@ -187,7 +184,7 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">Nascondi il pulsante Salva</string>
     <string name="revanced_hide_action_button_comment_summary">Nascondi il pulsante Commenti.</string>
     <string name="revanced_hide_action_button_comment_title">Nascondi il pulsante Commenti</string>
-    <string name="revanced_hide_action_button_disabled_summary">Nascondi i pulsanti disabilitati, come il pulsante Commenti disabilitato.</string>
+    <string name="revanced_hide_action_button_disabled_summary">Nasconde i pulsanti disabilitati, come il pulsante Commenti disabilitati.</string>
     <string name="revanced_hide_action_button_disabled_title">Nascondi pulsante disabilitato</string>
     <string name="revanced_hide_action_button_download_summary">Nasconde il pulsante del download.</string>
     <string name="revanced_hide_action_button_download_title">Nascondi il pulsante Download</string>
@@ -263,7 +260,7 @@ Limitazioni:
     <string name="revanced_hide_handle_title">Nascondi l\'intestazione</string>
     <string name="revanced_hide_history_button_summary">Nasconde il pulsante Cronologia nella barra degli strumenti.</string>
     <string name="revanced_hide_history_button_title">Nascondi pulsante Cronologia</string>
-    <string name="revanced_hide_lyrics_share_button_summary">Nascondi il pulsante condividi dei testi.</string>
+    <string name="revanced_hide_lyrics_share_button_summary">Nasconde il pulsante Condividi nei testi.</string>
     <string name="revanced_hide_lyrics_share_button_title">Nascondi il pulsante Condividi testi</string>
     <string name="revanced_hide_music_ads_summary">Nasconde gli annunci durante la riproduzione.</string>
     <string name="revanced_hide_music_ads_title">Nascondi le pubblicità musicali</string>
@@ -377,6 +374,9 @@ Fai clic per aprire le impostazioni \"Modifica pagina iniziale\"."</string>
     <string name="revanced_replace_navigation_samples_button_title">Sostituisci il pulsante Esempi</string>
     <string name="revanced_replace_navigation_upgrade_button_summary">Sostituisce il pulsante Aggiorna con il pulsante Impostazioni.</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Sostituisci il pulsante Aggiorna</string>
+    <string name="revanced_reset_to_default_toast">Reimposta ai valori predefiniti.</string>
+    <string name="revanced_restart_first_run">Riavvia per caricare l\'interfaccia normalmente</string>
+    <string name="revanced_restart_message">Aggiorna e riavvia</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Ripristina i pannelli popup dei commenti al vecchio stile.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Ripristina i vecchi pannelli popup dei commenti</string>
     <string name="revanced_restore_old_player_background_summary">Ripristina lo sfondo del lettore al vecchio stile.</string>
@@ -441,6 +441,8 @@ Fai clic per vedere come emettere una chiave API."</string>
     <string name="revanced_sb_reset_color">Resetta colore</string>
     <string name="revanced_sb_segments_filler">Riempitivo Tangente / Scherzi</string>
     <string name="revanced_sb_segments_filler_sum">Scene tangenziali aggiunte solo come riempitivo o umorismo che non sono necessarie per comprendere il contenuto principale del video. Non include segmenti che forniscono contesto o dettagli di background.</string>
+    <string name="revanced_sb_segments_hook">Collegamento / Saluti</string>
+    <string name="revanced_sb_segments_hook_sum">Trailer narrati per il prossimo video, saluti e arrivederci. Non include sezioni che aggiungono contenuti aggiuntivi.</string>
     <string name="revanced_sb_segments_interaction">Promemoria interazione (Iscriviti)</string>
     <string name="revanced_sb_segments_interaction_sum">Una breve promemoria per mettere mi piace, iscriversi o seguirli su altre piattaforme durante la visione. Se è lungo o riguarda qualcosa di specifico, dovrebbe essere considerato autopromozione.</string>
     <string name="revanced_sb_segments_intro">Animazione di Intermezzo / Introduzione</string>
@@ -458,6 +460,7 @@ Fai clic per vedere come emettere una chiave API."</string>
     <string name="revanced_sb_skip_automatically">Salta automaticamente</string>
     <string name="revanced_sb_skip_ignore">Disabilita</string>
     <string name="revanced_sb_skipped_filler">Riempitivo saltato.</string>
+    <string name="revanced_sb_skipped_hook">Collegamento saltato.</string>
     <string name="revanced_sb_skipped_interaction">Promemoria indesiderato saltato.</string>
     <string name="revanced_sb_skipped_intro_beginning">Introduzione saltata.</string>
     <string name="revanced_sb_skipped_intro_end">Intermezzo saltato.</string>
@@ -477,6 +480,38 @@ Fai clic per vedere come emettere una chiave API."</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Mostra una notifica toast se l\'API SponsorBlock non è disponibile.</string>
     <string name="revanced_sb_toast_on_skip">Mostra una notifica toast quando si salta automaticamente</string>
     <string name="revanced_sb_toast_on_skip_sum">Mostra una notifica toast quando un segmento viene saltato automaticamente.</string>
+    <string name="revanced_settings_export_as_file">Esporta impostazioni in un file</string>
+    <string name="revanced_settings_export_failed">Esportazione impostazioni fallita.</string>
+    <string name="revanced_settings_export_success">Impostazioni esportate con successo.</string>
+    <string name="revanced_settings_import">Importa</string>
+    <string name="revanced_settings_import_as_file">Importa impostazioni da un file</string>
+    <string name="revanced_settings_import_copy">Copia</string>
+    <string name="revanced_settings_import_export_as_text">Importa / Esporta impostazioni come testo</string>
+    <string name="revanced_settings_import_export_summary">Importa / Esporta impostazioni di RVX Music.</string>
+    <string name="revanced_settings_import_export_title">Importa / Esporta impostazioni</string>
+    <string name="revanced_settings_import_failed">Importazione fallita: %s.</string>
+    <string name="revanced_settings_import_reset">Ripristino impostazioni ai valori predefiniti.</string>
+    <string name="revanced_settings_import_success">Impostazioni %d importate.</string>
+    <string name="revanced_settings_reset">Reimposta</string>
+    <string name="revanced_settings_search_clear_history">Cancella cronologia di ricerca</string>
+    <string name="revanced_settings_search_clear_history_message">Vuoi davvero cancellare la cronologia di ricerca?</string>
+    <string name="revanced_settings_search_empty_history_summary">Per salvare la cronologia di ricerca, digita una domanda di ricerca e premi Invio.</string>
+    <string name="revanced_settings_search_empty_history_title">La cronologia di ricerca è vuota</string>
+    <string name="revanced_settings_search_history_summary_off">La cronologia di ricerca delle impostazioni non è visualizzata.</string>
+    <string name="revanced_settings_search_history_summary_on">La cronologia di ricerca delle impostazioni è visualizzata.</string>
+    <string name="revanced_settings_search_history_title">Mostra cronologia di ricerca impostazioni</string>
+    <string name="revanced_settings_search_no_results_summary">Prova un\'altra parola chiave.</string>
+    <string name="revanced_settings_search_no_results_title">Nessun risultato trovato per \'%s\'.</string>
+    <string name="revanced_settings_search_recent_searches">Ricerche recenti</string>
+    <string name="revanced_settings_search_remove_message">Rimuovere dalla cronologia di ricerca?</string>
+    <string name="revanced_settings_search_tips_summary">"• Tocca un percorso per accedervi.
+• Tieni premuto un'impostazione per accedervi.
+• Premi Invio per salvare una ricerca nella cronologia.
+• ​​La ricerca ignora maiuscole, minuscole e punteggiatura.
+• Le impostazioni principali vengono mostrate sopra le impostazioni secondarie disattivate."</string>
+    <string name="revanced_settings_search_tips_title">Cerca Suggerimenti</string>
+    <string name="revanced_settings_search_title">Cerca %s</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Impostazioni copiate negli appunti.</string>
     <string name="revanced_spoof_app_version_summary">"Falsifica la versione client con una versione precedente.
 
@@ -501,13 +536,27 @@ Fai clic per vedere come emettere una chiave API."</string>
 Effetto collaterale:
 • A volte i sottotitoli si trovano nella parte superiore del lettore anziché in quella inferiore."</string>
     <string name="revanced_spoof_player_parameter_title">Falsifica i parametri del lettore</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
+    <string name="revanced_spoof_streaming_data_default_client_summary">Definisce un client predefinito per la falsificazione.</string>
+    <string name="revanced_spoof_streaming_data_default_client_title">Client predefinito</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">Non è stato possibile recuperare alcun flusso client.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Prova a cambiare il client predefinito in TV o TV Simply.</string>
     <string name="revanced_spoof_streaming_data_message">Se riscontri problemi di riproduzione, attiva una delle seguenti opzioni, a seconda di quella più adatta alle tue esigenze:: \"Falsifica lo streaming dei video\" o \"Falsifica client\" in &lt;i&gt;&lt;u&gt; Impostazioni &gt; %s &gt; Varie&lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Mostra il client utilizzato per recuperare i dati in streaming in statistiche per nerd.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra in statistiche per nerd</string>
-    <string name="revanced_spoof_streaming_data_summary">"Falsifica i dati in streaming per evitare problemi di riproduzione..
+    <string name="revanced_spoof_streaming_data_summary">"Falsifica i flussi video del client per evitare problemi di riproduzione.
 
-• Se utilizzato con 'Falsifica client', potrebbero verificarsi problemi di riproduzione.</string>
-    <string name="revanced_spoof_streaming_data_title">Falsifica i dati in streaming</string>
+Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necessaria."</string>
+    <string name="revanced_spoof_streaming_data_title">Falsifica streaming dei dati</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"Se abilitato, la versione JavaScript più recente verrà utilizzata per deoffuscare URL di streaming su 'TV', 'TV Simply' e 'Mobile Web'.
+
+Se hai problemi con il tuo client JavaScript, prova prima a disabilitarlo."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Usa l\'ultima versione di JavaScript</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>

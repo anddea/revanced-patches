@@ -194,6 +194,7 @@ Limitação: O botão voltar na barra de ferramentas pode não funcionar."</stri
     <string name="revanced_debug_logs_copied_to_clipboard">Registros copiados.</string>
     <string name="revanced_debug_logs_disabled">O registro de depuração está desativado.</string>
     <string name="revanced_debug_logs_export_success">Os registros foram exportados com sucesso.</string>
+    <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Os registros são muito grandes para copiar.</string>
     <string name="revanced_debug_logs_failed_to_export">Falha ao exportar registros: $s.</string>
     <string name="revanced_debug_logs_none_found">Nenhum registro encontrado.</string>
     <string name="revanced_debug_protobuffer_summary_off">Registro de depuração não incluem buffer do protocolo.</string>
@@ -428,6 +429,12 @@ Limitações:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">A barra de navegação está opaca.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">A barra de navegação está transparente.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Ativar barra de navegação transparente</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_off">Atraso de processamento do assistir ao próximo está desativado.</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_on">Atraso de processamento do assistir ao próximo está ativado.</string>
+    <string name="revanced_enable_watch_next_processing_delay_title">Ativar atraso de processamento do assistir ao próximo</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"Esta configuração força um atraso antes do carregamento da interface do reprodutor.
+
+Isso pode ser usado ao testar algo no MainThread."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Ativar essa configuração desativará o botão de configurações na aba Você.
 
 Nesse caso, por favor, use o seguinte caminho:
@@ -461,9 +468,6 @@ Limitação: não funciona se o reprodutor estiver minimizado, no modo PiP ou em
     <string name="revanced_expand_video_description_summary_off">A descrição do vídeo é expandida manualmente.</string>
     <string name="revanced_expand_video_description_summary_on">A descrição do vídeo é expandida automaticamente.</string>
     <string name="revanced_expand_video_description_title">Expandir descrição do vídeo</string>
-    <string name="revanced_extended_restart">Reiniciar</string>
-    <string name="revanced_extended_restart_first_run">Reinicie para carregar o layout normalmente</string>
-    <string name="revanced_extended_restart_title">Necessário reiniciar</string>
     <string name="revanced_extended_settings_export_failed">Falha ao exportar configurações.</string>
     <string name="revanced_extended_settings_export_success">As configurações foram exportadas com sucesso.</string>
     <string name="revanced_extended_settings_export_summary">Exportar configurações para um arquivo.</string>
@@ -2371,6 +2375,14 @@ Isto pode ser facilmente resolvido clicando no 'botão recarregar vídeo' no rep
 (Pré-requisitos: Tanto 'Exibir botão de recarregar vídeo' quanto 'Sempre exibir botão de recarregar vídeo' estão ativados)
 
 Entre os clientes JavaScript, o cliente recomendado é TV Simplis."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"O JavaScript do reprodutor para desfuscação não é mantido atualizado.
+
+• O JavaScript do reprodutor que tem sucesso na desofuscação é usado, mas ainda é algo dependente do servidor."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"O JavaScript do reprodutor para desfuscação é mantido atualizado.
+
+• É altamente dependente do servidor, e o sucesso ou a falha da desobfuscação depende do JavaScript do reprodutor usado atualmente no servidor.
+• Se você estiver tendo problemas com o cliente JavaScript, tente desativar isto primeiro."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Use JavaScript do reprodutor mais recente</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">O codec de vídeo é determinado automaticamente.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">O codec de vídeo é AVC (H.264) ou VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Desativar VR AV1</string>
@@ -2490,6 +2502,8 @@ Aviso: Cookies emitidos sem login podem ser inválidos ou levar algum tempo para
     <string name="revanced_watch_history_type_entry_2">Substituir domínio</string>
     <string name="revanced_watch_history_type_entry_3">Bloquear histórico de exibição</string>
     <string name="revanced_watch_history_type_title">Tipo de histórico de exibição</string>
+    <string name="revanced_watch_next_processing_delay_summary">A quantidade de milissegundos do atraso no processamento da resposta do assistir ao próximo.</string>
+    <string name="revanced_watch_next_processing_delay_title">Atraso de processamento do assistir ao próximo</string>
     <string name="revanced_webview_contextual_menu_get_cookies">Obter Cookies</string>
     <string name="revanced_webview_contextual_menu_get_data_sync_id">Obter Id de Sincronização de Dados</string>
     <string name="revanced_webview_contextual_menu_get_visitor_data">Obter Dados de Visitante</string>

@@ -199,6 +199,7 @@ Hạn chế: Nút Quay lại trên thanh công cụ có thể không hoạt đ�
     <string name="revanced_debug_logs_copied_to_clipboard">Đã sao chép nhật ký.</string>
     <string name="revanced_debug_logs_disabled">Nhật ký gỡ lỗi đã tắt.</string>
     <string name="revanced_debug_logs_export_success">Nhật ký đã được xuất thành công.</string>
+    <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Nhật ký quá dài, không thể sao chép.</string>
     <string name="revanced_debug_logs_failed_to_export">Không thể xuất nhật ký: $s.</string>
     <string name="revanced_debug_logs_none_found">Không tìm thấy nhật ký.</string>
     <string name="revanced_debug_protobuffer_summary_off">Nhật ký gỡ lỗi không bao gồm dữ liệu protobuf.</string>
@@ -436,6 +437,12 @@ Hạn chế:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Thanh điều hướng như mặc định.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Thanh điều hướng đang trong suốt.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Thanh điều hướng trong suốt</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_off">Độ trễ xử lý phát video tiếp theo đã tắt.</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_on">Độ trễ xử lý phát video tiếp theo đã được bật.</string>
+    <string name="revanced_enable_watch_next_processing_delay_title">Độ trễ xử lý phát video tiếp theo</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"Cài đặt này thêm một khoảng trễ trước khi giao diện trình phát được tải.
+
+Có thể sử dụng để thử nghiệm gì đó trên MainThread."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Bật cài đặt này sẽ làm ẩn nút Cài đặt trong thẻ Bạn.
 
 Trong trường hợp đó, vui lòng làm theo các bước sau để vào Cài đặt:
@@ -474,9 +481,6 @@ Hạn chế: Không hoạt động nếu trình phát đang thu nhỏ, trong ch�
 
 Lưu ý:
 • Cài đặt này có thể không hoạt động nếu iOS TV không khả dụng tại khu vực của bạn."</string>
-    <string name="revanced_extended_restart">Khởi động lại</string>
-    <string name="revanced_extended_restart_first_run">Vui lòng khởi động lại ứng dụng trong lần đầu khởi chạy để hiển thị đúng giao diện</string>
-    <string name="revanced_extended_restart_title">Yêu cầu khởi động lại</string>
     <string name="revanced_extended_settings_export_failed">Xuất cài đặt thất bại.</string>
     <string name="revanced_extended_settings_export_success">Cài đặt đã được xuất thành công.</string>
     <string name="revanced_extended_settings_export_summary">Xuất toàn bộ cài đặt của bạn dưới dạng tệp.</string>
@@ -2213,7 +2217,7 @@ Lưu ý: Cookie không phải giải pháp tuyệt đối. Nó có thể không 
     <string name="revanced_settings_search_clear_history">Xóa lịch sử tìm kiếm</string>
     <string name="revanced_settings_search_clear_history_message">Bạn chắc chắn muốn xóa toàn bộ lịch sử tìm kiếm không?</string>
     <string name="revanced_settings_search_empty_history_summary">Để lưu lịch sử tìm kiếm, hãy nhập từ khoá và ấn Enter.</string>
-    <string name="revanced_settings_search_empty_history_title">Lịch sử tìm kiếm trống</string>
+    <string name="revanced_settings_search_empty_history_title">Trống</string>
     <string name="revanced_settings_search_history_summary">Lưu các từ khóa tìm kiếm gần đây để hiển thị khi thanh tìm kiếm trống.</string>
     <string name="revanced_settings_search_history_summary_off">Lịch sử tìm kiếm cài đặt không được hiển thị.</string>
     <string name="revanced_settings_search_history_summary_on">Lịch sử tìm kiếm cài đặt đã được hiển thị.</string>
@@ -2501,6 +2505,15 @@ Chi tiết:
 Chi tiết:
 • Phụ thuộc vào máy chủ: giải mã thành công hay không, phụ thuộc vào JavaScript mà máy chủ đang dùng."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">JavaScript mới nhất</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"Player JS không được cập nhật để hỗ trợ gỡ rối mã.
+
+Chi tiết: Tiếp tục sử dụng Player JS từng hỗ trợ gỡ rối mã thành công, nhưng kết quả vẫn phụ thuộc vào máy chủ."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"Player JS luôn được cập nhật để hỗ trợ gỡ rối mã.
+
+Chi tiết:
+• Quá trình gỡ rối mã phụ thuộc rất nhiều vào Player JS mà máy chủ đang sử dụng, nên đôi khi có thể thành công hoặc thất bại.
+• Nếu bạn gặp sự cố với client JavaScript, hãy thử tắt cài đặt này trước."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Dùng Player JavaScript mới nhất</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Codec video sẽ được xác định tự động.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Codec video là AVC (H.264) hoặc VP9.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Vô hiệu hóa AV1 (VR)</string>
@@ -2645,6 +2658,8 @@ Miễn trừ trách nhiệm: Cookie tạo ra khi không đăng nhập có thể 
     <string name="revanced_watch_history_type_entry_2">Thay thế miền</string>
     <string name="revanced_watch_history_type_entry_3">Chặn nhật ký</string>
     <string name="revanced_watch_history_type_title">Kiểu nhật ký</string>
+    <string name="revanced_watch_next_processing_delay_summary">Nhập khoảng trễ (tính bằng mili giây) trong xử lý phản hồi phát video tiếp theo.</string>
+    <string name="revanced_watch_next_processing_delay_title">Độ trễ</string>
     <string name="revanced_webview_contextual_menu_get_cookies">Lấy Cookie</string>
     <string name="revanced_webview_contextual_menu_get_data_sync_id">Lấy ID đồng bộ dữ liệu</string>
     <string name="revanced_webview_contextual_menu_get_visitor_data">Lấy dữ liệu khách</string>

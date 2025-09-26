@@ -137,6 +137,13 @@ public class GeneralPatch {
         return !Settings.DISABLE_SPLASH_ANIMATION.get() && original;
     }
 
+    public static int disableSplashAnimation(int i, int i2) {
+        if (!Settings.DISABLE_SPLASH_ANIMATION.get() || i != i2) {
+            return i;
+        }
+        return i - 1;
+    }
+
     // endregion
 
     // region [Enable gradient loading screen] patch
@@ -150,11 +157,6 @@ public class GeneralPatch {
     // region [Hide layout components] patch
 
     public static boolean disableTranslucentStatusBar(boolean original) {
-        // Must check Android version, as forcing this on Android 11 or lower causes app hang and crash.
-        if (!Utils.isSDKAbove(31)) {
-            return original;
-        }
-
         if (Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get()) {
             return false;
         }

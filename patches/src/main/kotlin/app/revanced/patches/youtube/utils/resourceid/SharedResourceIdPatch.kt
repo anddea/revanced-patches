@@ -66,8 +66,6 @@ var controlsLayoutStub = -1L
     private set
 var darkBackground = -1L
     private set
-var darkSplashAnimation = -1L
-    private set
 var designBottomSheet = -1L
     private set
 var donationCompanion = -1L
@@ -299,7 +297,6 @@ internal val sharedResourceIdPatch = resourcePatch(
         contentPill = getResourceId(LAYOUT, "content_pill")
         controlsLayoutStub = getResourceId(ID, "controls_layout_stub")
         darkBackground = getResourceId(ID, "dark_background")
-        darkSplashAnimation = getResourceId(ID, "dark_splash_animation")
         designBottomSheet = getResourceId(ID, "design_bottom_sheet")
         donationCompanion = getResourceId(LAYOUT, "donation_companion")
         drawerContentView = getResourceId(ID, "drawer_content_view")

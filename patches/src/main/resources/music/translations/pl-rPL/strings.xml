@@ -154,12 +154,9 @@ Ograniczenie: segmenty SponsorBlocka nie są pokazywane na pasku."</string>
     <string name="revanced_enable_zen_mode_podcast_title">Włącz tryb zen w podcastach</string>
     <string name="revanced_enable_zen_mode_summary">Włącza jasnoszary kolor tła odtwarzacza, aby zmniejszyć zmęczenie oczu.</string>
     <string name="revanced_enable_zen_mode_title">Włącz tryb zen</string>
-    <string name="revanced_extended_restart_first_run">Uruchom ponownie, aby wczytać układ poprawnie</string>
     <string name="revanced_extended_settings_export_failed">Nie udało się wyeksportować ustawień.</string>
     <string name="revanced_extended_settings_export_success">Ustawienia zostały pomyślnie wyeksportowane.</string>
     <string name="revanced_extended_settings_import">Import</string>
-    <string name="revanced_extended_settings_import_export_summary">Zaimportuj / wyeksportuj ustawienia RVX Music</string>
-    <string name="revanced_extended_settings_import_export_title">Importuj/Eksportuj ustawienia</string>
     <string name="revanced_extended_settings_import_reset">Ustawienia zostały zresetowane do domyślnych.</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Przycisk od pobierania otwiera zewnętrzną aplikację do pobierania.
@@ -497,6 +494,24 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_settings_import_reset">Ustawienia zostały zresetowane do domyślnych.</string>
     <string name="revanced_settings_import_success">Zaimportowano %d ustawień.</string>
     <string name="revanced_settings_reset">Zresetuj</string>
+    <string name="revanced_settings_search_clear_history">Usuń historię wyszukiwania</string>
+    <string name="revanced_settings_search_clear_history_message">Czy na pewno chcesz usunąć całą historię wyszukiwania?</string>
+    <string name="revanced_settings_search_empty_history_summary">By zapisać historię wyszukiwania, wpisz zapytanie i kliknij enter.</string>
+    <string name="revanced_settings_search_empty_history_title">Historia wyszukiwania jest pusta</string>
+    <string name="revanced_settings_search_history_summary_off">Ukryta</string>
+    <string name="revanced_settings_search_history_summary_on">Widoczna</string>
+    <string name="revanced_settings_search_history_title">Historia wyszukiwania w ustawieniach</string>
+    <string name="revanced_settings_search_no_results_summary">Spróbuj użyć innego słowa kluczowego.</string>
+    <string name="revanced_settings_search_no_results_title">Nie znaleziono wyników dla \'%s\'.</string>
+    <string name="revanced_settings_search_recent_searches">Ostatnio wyszukiwane</string>
+    <string name="revanced_settings_search_remove_message">Usunąć z historii wyszukiwania?</string>
+    <string name="revanced_settings_search_tips_summary">"• kliknij ścieżkę, aby do niej przejść
+• naciśnij i przytrzymaj ustawienie, aby do niego przejść
+• naciśnij Enter, aby zapisać zapytanie wyszukiwania w historii
+• wyszukiwanie ignoruje wielkość liter i znaki interpunkcyjne
+• ustawienia nadrzędne pojawiają się nad wyłączonymi ustawieniami podrzędnymi"</string>
+    <string name="revanced_settings_search_tips_title">Wskazówki dotyczące wyszukiwania</string>
+    <string name="revanced_settings_search_title">Wyszukaj w %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Skopiowano ustawienia do schowka.</string>
     <string name="revanced_spoof_app_version_summary">"Oszukuje wersję klienta do starszej wersji.
@@ -536,6 +551,8 @@ Efekt uboczny:
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Definiuje domyślnego klienta do oszukiwania.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Domyślny klient</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">Nie można przechwycić żadnego ze strumieni klienta.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Spróbuj zmienić domyślnego klienta na TV lub Uproszczony TV.</string>
     <string name="revanced_spoof_streaming_data_message">Jeśli występują jakiekolwiek problemy z odtwarzaniem, włącz jedną z poniższych opcji w zależności od tego, która najlepiej ci odpowiada: \"Oszukaj strumień danych\" lub \"Domyślny klient\" w &lt;i&gt;&lt;u&gt;Ustawienia&gt; %s &gt; Pozostałe&lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Pokazuje używanego klienta do przechwytywania strumienia danych w statystykach dla nerdów.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Informacja w statystykach dla nerdów</string>
@@ -543,6 +560,10 @@ Efekt uboczny:
 
 Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie te nie jest konieczne."</string>
     <string name="revanced_spoof_streaming_data_title">Oszukuj strumień danych</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"Po włączeniu, najnowszy JavaScript odtwarzacza będzie używany do odszyfrowywania URL strumienia na klientach 'TV', 'Uproszczony TV' i 'Mobilny przeglądarkowy'.
+
+Jeśli masz problemy z klientem JavaScript, w pierwszej kolejności spróbuj to wyłączyć."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Użyj najnowszego JavaScript odtwarzacza</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>

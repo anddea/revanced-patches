@@ -246,8 +246,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
     <string name="revanced_disable_auto_captions_summary_off">강제 사용이 설정된 자동 자막을 활성화합니다.</string>
     <string name="revanced_disable_auto_captions_summary_on">강제 사용이 설정된 자동 자막을 비활성화합니다.</string>
     <string name="revanced_disable_auto_captions_title">강제된 자동 자막 비활성화하기</string>
-    <string name="revanced_disable_auto_player_popup_panels_summary_off">자동 플레이어 팝업 패널을 활성화합니다.</string>
-    <string name="revanced_disable_auto_player_popup_panels_summary_on">자동 플레이어 팝업 패널을 비활성화합니다.</string>
+    <string name="revanced_disable_auto_player_popup_panels_summary_off">자동 플레이어 팝업 패널을 활성화합니다.\n실시간 채팅, 재생목록, 태그된 제품</string>
+    <string name="revanced_disable_auto_player_popup_panels_summary_on">자동 플레이어 팝업 패널을 비활성화합니다.\n실시간 채팅, 재생목록, 태그된 제품</string>
     <string name="revanced_disable_auto_player_popup_panels_title">플레이어 팝업 패널 비활성화하기</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"자동재생이 켜져 있으면, 믹스 재생목록 자동전환을 활성화합니다.
 
@@ -368,7 +368,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
 
 알림:
 • 최대 해상도는 1080p입니다.
-• 동영상 재생 시 VP9보다 더 많은 모바일 데이터가 사용됩니다.
+• 동영상 재생 시 VP9보다 더 많은 인터넷 데이터가 사용됩니다.
 • HDR 동영상에는 여전히 VP9 코덱이 사용됩니다."</string>
     <string name="revanced_disable_vp9_codec_title">VP9 코덱 비활성화하기</string>
     <string name="revanced_dismiss_player_not_available_toast">동영상 ID를 사용할 수 없습니다. 동영상을 수동으로 다시 재생하세요.</string>
@@ -408,7 +408,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
     <string name="revanced_enable_seekbar_tapping_title">재생바 터치 조작 활성화하기</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"이 기능을 활성화하면 재생바 썸네일이 없는 실시간 스트림에서 썸네일이 복원됩니다.
 
-재생바 썸네일이 표시되기 전에 약간의 지연이 발생하고, 더 많은 모바일 데이터가 사용되오니 주의하세요.
+인터넷 데이터 사용량이 더 높아질 수 있으며, 재생바 썸네일이 표시되기 전에 약간의 지연이 발생할 수 있습니다.
 
 이 기능은 인터넷 연결이 매우 좋을 때 가장 잘 작동합니다."</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">일반 화질 재생바 썸네일을 활성화합니다.</string>
@@ -417,7 +417,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
     <string name="revanced_enable_shorts_clear_mode_summary_off">화면 클리어 모드를 비활성화합니다.</string>
     <string name="revanced_enable_shorts_clear_mode_summary_on">"화면 클리어 모드를 활성화합니다.
 
-Shorts 플레이어 배경을 탭하면 상태바 및 플레이어 구성요소를 숨길 수 있습니다."</string>
+Shorts 플레이어 배경을 탭하는 경우에 UI를 숨길 수 있습니다."</string>
     <string name="revanced_enable_shorts_clear_mode_title">화면 클리어 모드 활성화하기</string>
     <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">메뉴 구성요소에서 사용자 정의 동작을 비활성화합니다.</string>
     <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"메뉴 구성요소에서 사용자 정의 동작을 활성화합니다.
@@ -488,9 +488,6 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
 
 알림:
 • 일부 지역에서는 iOS TV를 사용할 수 없으며, 이 경우에 이 설정이 여전히 작동하지 않을 수 있습니다."</string>
-    <string name="revanced_extended_restart">다시 시작</string>
-    <string name="revanced_extended_restart_first_run">레이아웃을 정상적으로 불러오기 위해 다시 시작합니다.</string>
-    <string name="revanced_extended_restart_title">앱을 다시 시작하세요</string>
     <string name="revanced_extended_settings_export_failed">설정을 내보낼 수 없습니다.</string>
     <string name="revanced_extended_settings_export_success">설정을 성공적으로 내보냈습니다.</string>
     <string name="revanced_extended_settings_export_summary">설정을 파일로 내보낼 수 있습니다.</string>
@@ -824,7 +821,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
 
 제한 사항:
 • 채널 이름으로 Shorts를 숨길 수 없습니다.
-• 일부 화면 구성요소는 숨겨지지 않을 수 있습니다.
+• 일부 UI는 숨겨지지 않을 수 있습니다.
 • 필터링 키워드를 검색하면 검색 결과가 표시되지 않을 수 있습니다."</string>
     <string name="revanced_hide_keyword_content_about_title">키워드 필터링에 대한 정보</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">필터링할 키워드 및 구문을 큰따옴표로 묶으면 동영상 제목과 채널 이름이 부분적으로 일치하지 않도록 방지할 수 있습니다.&lt;br&gt;&lt;br&gt;• 예를 들어, &lt;b&gt;\"ai\"&lt;/b&gt;라는 키워드로 &lt;b&gt;AI 커리어 완벽 가이드&lt;/b&gt;라는 동영상을 숨길 수 있지만, &lt;b&gt;생성형AI가 바꿔놓은 세계&lt;/b&gt; 또는 &lt;b&gt;What does fair use mean?&lt;/b&gt;라는 동영상은 숨길 수 없습니다.&lt;br&gt;• 그리고 구두점을 단어의 경계로 간주하기 때문에 &lt;b&gt;인공지능(AI)의 원리&lt;/b&gt;라는 동영상은 숨길 수 있습니다. 큰따옴표는 다른 단어 내부의 하위 문자열만 무시합니다 (예: &lt;b&gt;fair&lt;/b&gt;는 숨길 수 없지만, &lt;b&gt;f(ai)r&lt;/b&gt;는 숨김).</string>
@@ -846,7 +843,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">구독 피드에서 키워드 필터를 비활성화합니다.</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">구독 피드에서 키워드 필터를 활성화합니다.</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">구독 피드에서 키워드 필터 활성화하기</string>
-    <string name="revanced_hide_keyword_content_use_and_operator_summary_off">\'AND\' 연산자 (‘&amp;’)를 비활성화합니다.&lt;br&gt;&lt;br&gt;&lt;strong&gt;“파랑” &amp; “빨강”&lt;/strong&gt;가 키워드로 사용할 경우에 &lt;strong&gt;\"파랑\" &amp; “빨강”&lt;/strong&gt;을 포함하는 키워드가 필터링됩니다.</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_off">\'AND\' 연산자 (‘&amp;’)를 비활성화합니다.&lt;br&gt;&lt;br&gt;&lt;strong&gt;“파랑” &amp; “빨강”&lt;/strong&gt;을 키워드로 사용할 경우에 &lt;strong&gt;\"파랑\" &amp; “빨강”&lt;/strong&gt;을 포함하는 키워드가 필터링됩니다.</string>
     <string name="revanced_hide_keyword_content_use_and_operator_summary_on">\'AND\' 연산자 (‘&amp;’)를 활성화합니다.&lt;br&gt;&lt;br&gt;&lt;strong&gt;“파랑” &amp; “빨강”&lt;/strong&gt;을 키워드로 사용할 경우에 &lt;strong&gt;파랑&lt;/strong&gt;과 &lt;strong&gt;빨강&lt;/strong&gt;을 모두 포함하는 키워드가 필터링됩니다.</string>
     <string name="revanced_hide_keyword_content_use_and_operator_title">\'AND\' 연산자 (\'&amp;\') 사용하기</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">키워드가 모든 동영상을 숨길 것입니다: %s</string>
@@ -1989,7 +1986,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_sanitize_comments_category_bar_summary_off">댓글 카테고리 바에서 카테고리 버튼이 표시됩니다.</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">"댓글 카테고리 바에서 '인기순'과 '최신순'을 제외한 카테고리 버튼이 숨겨집니다."</string>
     <string name="revanced_sanitize_comments_category_bar_title">카테고리 바 정리하기</string>
-    <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거합니다. (URL의 뒷부분 \'?si=...\' 이 제거됨.)</string>
+    <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거합니다.</string>
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"제목 하단에서 다음 문구들이 표시됩니다:\n#(해시태그), 모금 행사, 쇼핑, n개 제품,\nHype 순위 n위, 자동 더빙, 회원 전용, etc."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"제목 하단에서 다음 문구들이 숨겨집니다:\n#(해시태그), 모금 행사, 쇼핑, n개 제품,\nHype 순위 n위, 자동 더빙, 회원 전용, etc."</string>
@@ -2356,7 +2353,7 @@ Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
     <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 입력하세요.</string>
     <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
     <string name="revanced_spoof_app_version_title">앱 버전 변경하기</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"앱 버전을 이전 YouTube 앱 버전으로 변경합니다.\n\n변경하면 앱 레이아웃과 기능이 변경되지만 알려지지 않은 부작용이 발생할 수 있습니다.\n\n나중에 이 기능을 비활성화하게 되면 앱 레이아웃 문제점을 방지하기 위해 앱 데이터를 지우는 것이 좋습니다."</string>
+    <string name="revanced_spoof_app_version_user_dialog_message">"앱 버전을 이전 YouTube 앱 버전으로 변경합니다.\n\n변경하면 앱 레이아웃과 기능이 변경되지만 알려지지 않은 부작용이 발생할 수 있습니다.\n\n나중에 이 기능을 비활성화하게 되면, UI 문제점을 방지하기 위해 앱 데이터를 지우는 것이 좋습니다."</string>
     <string name="revanced_spoof_device_dimensions_summary">"기기 크기 정보를 최대 값으로 변경합니다.
 
 알림:

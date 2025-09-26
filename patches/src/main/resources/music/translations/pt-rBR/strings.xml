@@ -153,12 +153,9 @@ Limitações: segmentos de patrocinadores não são exibidos na barra de busca."
     <string name="revanced_enable_zen_mode_podcast_title">Ativar o modo Calmo em podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Ativa uma cor cinza claro para o fundo do reprodutor para reduzir o cansaço visual.</string>
     <string name="revanced_enable_zen_mode_title">Ativar modo Calmo</string>
-    <string name="revanced_extended_restart_first_run">Reinicie para carregar o layout normalmente</string>
     <string name="revanced_extended_settings_export_failed">Falha ao exportar configurações.</string>
     <string name="revanced_extended_settings_export_success">As configurações foram exportadas com sucesso.</string>
     <string name="revanced_extended_settings_import">Importar</string>
-    <string name="revanced_extended_settings_import_export_summary">Importar / Exportar configurações do RVX Music.</string>
-    <string name="revanced_extended_settings_import_export_title">Importar / Exportar configurações</string>
     <string name="revanced_extended_settings_import_reset">Configurações redefinidas para o padrão</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"O botão de Download abre seu aplicativo de download externo.
@@ -494,6 +491,24 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_settings_import_reset">Configurações redefinidas para o padrão.</string>
     <string name="revanced_settings_import_success">Configurações %d importadas.</string>
     <string name="revanced_settings_reset">Reiniciar</string>
+    <string name="revanced_settings_search_clear_history">Limpar histórico de pesquisa</string>
+    <string name="revanced_settings_search_clear_history_message">Tem certeza que deseja limpar todo o histórico de pesquisa?</string>
+    <string name="revanced_settings_search_empty_history_summary">Para salvar o histórico de pesquisa, digite uma consulta de pesquisa e pressione Enter.</string>
+    <string name="revanced_settings_search_empty_history_title">O histórico de pesquisa está vazio</string>
+    <string name="revanced_settings_search_history_summary_off">O histórico de pesquisa de configurações não será exibido.</string>
+    <string name="revanced_settings_search_history_summary_on">O histórico de pesquisa de configurações será exibido.</string>
+    <string name="revanced_settings_search_history_title">Exibir histórico de pesquisa de configurações</string>
+    <string name="revanced_settings_search_no_results_summary">Tentar outra palavra-chave.</string>
+    <string name="revanced_settings_search_no_results_title">Nenhum resultado encontrado para \'%s\'.</string>
+    <string name="revanced_settings_search_recent_searches">Pesquisas recentes</string>
+    <string name="revanced_settings_search_remove_message">Remover do histórico de pesquisa?</string>
+    <string name="revanced_settings_search_tips_summary">"• Toque em um caminho para navegar até ele.
+• Pressione e segure uma configuração para navegar até ele.
+• Pressione Enter para salvar uma consulta de pesquisa no histórico.
+• Pesquisa ignora o caso e a pontuação.
+• Configurações dos pais aparecem acima das configurações dos filhos desativadas."</string>
+    <string name="revanced_settings_search_tips_title">Dicas para busca</string>
+    <string name="revanced_settings_search_title">Pesquisar %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Configurações copiadas para área de transferência.</string>
     <string name="revanced_spoof_app_version_summary">"Falsifica a versão do cliente para uma versão mais antiga.
@@ -533,12 +548,18 @@ Efeito lateral:
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Define um cliente padrão para falsificar.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Cliente padrão</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">Não foi possível obter nenhum fluxo de cliente.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Tente alterar o cliente padrão para TV ou TV Simples.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Exibir o cliente usado para buscar dados de streaming em estatísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Exibir em Estatísticas para nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Falsificar o cliente de reprodução de vídeo para prevenir problemas de reprodução. 
 
 Se você é um usuário de YouTube Premium, essa configuração pode não ser necessária."</string>
     <string name="revanced_spoof_streaming_data_title">Dados de transmissão falsos</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"Quando ativado, o JavaScript do reprodutor mais recente será usado para desofuscar a URL de transmissão na 'TV', 'TV Simples' e 'Mobile Web'.
+
+Se você estiver tendo problemas com seu cliente JavaScript, tente desativar isto primeiro."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Use JavaScript do reprodutor mais recente</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
     <string name="revanced_watch_history_type_entry_2">Substituir domínio</string>
     <string name="revanced_watch_history_type_entry_3">Bloquear histórico de exibição</string>

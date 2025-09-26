@@ -5,7 +5,10 @@ import static app.revanced.extension.youtube.settings.Settings.*;
 
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -24,6 +27,7 @@ import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.youtube.settings.Settings;
 
+@SuppressWarnings({"unused", "FieldCanBeLocal"})
 public enum SegmentCategory {
     SPONSOR("sponsor", sf("revanced_sb_segments_sponsor"), sf("revanced_sb_segments_sponsor_sum"), sf("revanced_sb_skip_button_sponsor"), sf("revanced_sb_skipped_sponsor"),
             SB_CATEGORY_SPONSOR, SB_CATEGORY_SPONSOR_COLOR),
@@ -149,6 +153,8 @@ public enum SegmentCategory {
         }
         updateEnabledCategories();
     }
+
+    private final String COLOR_DOT_STRING = "⬤";
 
     public final String keyValue;
     public final StringSetting behaviorSetting;
@@ -322,6 +328,18 @@ public enum SegmentCategory {
      */
     public StringRef getTitle() {
         return title;
+    }
+
+    /**
+     * Gets the title with color dot.
+     * Temporary workaround for:
+     * <a href="https://github.com/ReVanced/revanced-patches/issues/5985">revanced-patches#5985</a>
+     */
+    public SpannableString getTitleWithColorDot() {
+        SpannableString dotSpan = new SpannableString(COLOR_DOT_STRING + " " + title);
+        dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return dotSpan;
     }
 
     /**

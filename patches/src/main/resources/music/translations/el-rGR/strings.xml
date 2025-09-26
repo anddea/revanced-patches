@@ -153,12 +153,9 @@
     <string name="revanced_enable_zen_mode_podcast_title">Λειτουργία zen σε ηχητικές εκπομπές</string>
     <string name="revanced_enable_zen_mode_summary">Ενεργοποίηση μιας γκρι απόχρωσης στο παρασκήνιο της οθόνης αναπαραγωγής για να μειωθεί η καταπόνηση των ματιών.</string>
     <string name="revanced_enable_zen_mode_title">Ενεργοποίηση λειτουργίας zen</string>
-    <string name="revanced_extended_restart_first_run">Επανεκκίνηση ώστε να φορτωθεί σωστά η διάταξη</string>
     <string name="revanced_extended_settings_export_failed">Αποτυχία εξαγωγής ρυθμίσεων.</string>
     <string name="revanced_extended_settings_export_success">Οι ρυθμίσεις εξήχθησαν με επιτυχία.</string>
     <string name="revanced_extended_settings_import">Εισαγωγή</string>
-    <string name="revanced_extended_settings_import_export_summary">Εισαγωγή ή εξαγωγή των ρυθμίσεών RVX σας.</string>
-    <string name="revanced_extended_settings_import_export_title">Εισαγωγή / Εξαγωγή</string>
     <string name="revanced_extended_settings_import_reset">Οι ρυθμίσεις επαναφέρθηκαν στις προεπιλογές.</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Το κουμπί «Λήψη» ανοίγει την εξωτερική εφαρμογή λήψης σας.
@@ -494,6 +491,24 @@
     <string name="revanced_settings_import_reset">Οι ρυθμίσεις επαναφέρθηκαν στις προεπιλογές.</string>
     <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων.</string>
     <string name="revanced_settings_reset">Επαναφορά</string>
+    <string name="revanced_settings_search_clear_history">Εκκαθάριση ιστορικού αναζήτησης</string>
+    <string name="revanced_settings_search_clear_history_message">Είστε βέβαιοι ότι θέλετε να εκκαθαρίσετε όλο το ιστορικό αναζήτησης;</string>
+    <string name="revanced_settings_search_empty_history_summary">Για να αποθηκεύσετε το ιστορικό αναζήτησης, πληκτρολογήστε ένα ερώτημα αναζήτησης και πατήστε Enter.</string>
+    <string name="revanced_settings_search_empty_history_title">Το ιστορικό αναζήτησης είναι κενό</string>
+    <string name="revanced_settings_search_history_summary_off">Το ιστορικό αναζήτησης ρυθμίσεων δεν εμφανίζεται.</string>
+    <string name="revanced_settings_search_history_summary_on">Το ιστορικό αναζήτησης ρυθμίσεων εμφανίζεται.</string>
+    <string name="revanced_settings_search_history_title">Εμφάνιση ιστορικού αναζήτησης ρυθμίσεων</string>
+    <string name="revanced_settings_search_no_results_summary">Δοκιμάστε άλλη λέξη-κλειδί.</string>
+    <string name="revanced_settings_search_no_results_title">Δεν βρέθηκαν αποτελέσματα για \'%s\'.</string>
+    <string name="revanced_settings_search_recent_searches">Πρόσφατες αναζητήσεις</string>
+    <string name="revanced_settings_search_remove_message">Κατάργηση από το ιστορικό αναζήτησης;</string>
+    <string name="revanced_settings_search_tips_summary">"• Πατήστε μια διαδρομή για να μεταβείτε σε αυτήν.
+• Πατήστε παρατεταμένα μια ρύθμιση για να μεταβείτε σε αυτήν.
+• Πατήστε Enter για να αποθηκεύσετε ένα ερώτημα αναζήτησης στο ιστορικό.
+• Η αναζήτηση αγνοεί πεζά/κεφαλαία και σημεία στίξης.
+• Οι γονικές ρυθμίσεις εμφανίζονται πάνω από τις απενεργοποιημένες θυγατρικές ρυθμίσεις."</string>
+    <string name="revanced_settings_search_tips_title">Συμβουλές Αναζήτησης</string>
+    <string name="revanced_settings_search_title">Αναζήτηση %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Οι ρυθμίσεις αντιγράφηκαν στο πρόχειρο.</string>
     <string name="revanced_spoof_app_version_summary">"Παραποίηση έκδοσης εφαρμογής σε παλιότερη έκδοση.
@@ -534,12 +549,18 @@
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Καθορισμός ενός προεπιλεγμένου πρόγραμμα πελάτη για παραποίηση.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">Αδυναμία λήψης ροής του προγράμματος πελάτη.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Δοκιμάστε να αλλάξετε το προεπιλεγμένο πρόγραμμα πελάτη παραποίησης δεδομένων ροής σε TV ή TV Simply.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Εμφάνιση του προγράμματος πελάτη που χρησιμοποιείται για τη λήψη δεδομένων ροής στο μενού «Στατιστικά για σπασίκλες».</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Εμφάνιση στο «Στατιστικά για σπασίκλες»</string>
     <string name="revanced_spoof_streaming_data_summary">"Τα δεδομένα ροής παραποιούνται.
 
 Αν είστε χρήστης του YouTube Premium, αυτή η ρύθμιση μπορεί να μην είναι απαραίτητη."</string>
     <string name="revanced_spoof_streaming_data_title">Παραποίηση δεδομένων ροής</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"Όταν ενεργοποιείται, θα χρησιμοποιείται η Player JavaScript τελευταίας έκδοσης για την αποσυσκότιση των streaming Url στους πελάτες «TV», «TV Simply», και «Web Κινητού».
+
+Αν αντιμετωπίζετε προβλήματα με τον πελάτη JavaScript, δοκιμάστε πρώτα να απενεργοποιήσετε αυτή τη ρύθμιση."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Χρήση Player JavaScript τελευταίας έκδοσης</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>

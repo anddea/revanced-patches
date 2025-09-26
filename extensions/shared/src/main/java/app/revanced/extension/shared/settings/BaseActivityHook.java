@@ -82,12 +82,7 @@ public abstract class BaseActivityHook extends Activity {
      */
     @SuppressWarnings("unused")
     public static Context getAttachBaseContext(Context original) {
-        AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
-        if (language == AppLanguage.DEFAULT) {
-            return original;
-        }
-
-        return Utils.getContext();
+        return Utils.getLocalizedContext(original);
     }
 
     /**

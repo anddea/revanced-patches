@@ -2,6 +2,8 @@ package com.liskovsoft.googlecommon.common.helpers;
 
 import com.liskovsoft.googlecommon.common.converters.gson.GsonConverterFactory;
 import com.liskovsoft.googlecommon.common.converters.gson.WithGson;
+import com.liskovsoft.googlecommon.common.converters.regexp.WithRegExp;
+import com.liskovsoft.googlecommon.common.converters.regexp.converter.RegExpConverterFactory;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
@@ -19,6 +21,10 @@ public class RetrofitHelper {
 
     private static <T> T withGson(Class<T> clazz) {
         return buildRetrofit(GsonConverterFactory.create()).create(clazz);
+    }
+
+    private static <T> T withRegExp(Class<T> clazz) {
+        return buildRetrofit(RegExpConverterFactory.create()).create(clazz);
     }
 
     //public static <T> T get(Call<T> wrapper) {
@@ -75,7 +81,9 @@ public class RetrofitHelper {
         Annotation[] annotations = clazz.getAnnotations();
 
         for (Annotation annotation : annotations) {
-            if (annotation instanceof WithGson) {
+            if (annotation instanceof WithRegExp) {
+                return withRegExp(clazz);
+            } else if (annotation instanceof WithGson) {
                 return withGson(clazz);
             }
         }

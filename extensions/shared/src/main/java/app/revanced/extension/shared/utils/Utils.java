@@ -1,10 +1,7 @@
 package app.revanced.extension.shared.utils;
 
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
-import static app.revanced.extension.shared.utils.BaseThemeUtils.getAppForegroundColor;
 import static app.revanced.extension.shared.utils.BaseThemeUtils.getCancelOrNeutralButtonBackgroundColor;
-import static app.revanced.extension.shared.utils.BaseThemeUtils.getDialogBackgroundColor;
-import static app.revanced.extension.shared.utils.BaseThemeUtils.getEditTextBackground;
 import static app.revanced.extension.shared.utils.BaseThemeUtils.getOkButtonBackgroundColor;
 import static app.revanced.extension.shared.utils.BaseThemeUtils.isDarkModeEnabled;
 import static app.revanced.extension.shared.utils.StringRef.str;
@@ -21,7 +18,6 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.net.ConnectivityManager;
@@ -37,8 +33,6 @@ import android.preference.PreferenceScreen;
 import android.text.Html;
 import android.text.SpannableString;
 import android.text.Spanned;
-import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -54,12 +48,9 @@ import android.widget.Button;
 import android.view.WindowManager;
 import android.webkit.CookieManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -1026,6 +1017,18 @@ public class Utils {
             Logger.printInfo(() -> "getBrotliInputStream");
         }
         return inputStream;
+    }
+
+    public static FrameLayout.LayoutParams getLayoutParams() {
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        int left_margin = dipToPixels(20);
+        int top_margin = dipToPixels(10);
+        int right_margin = dipToPixels(20);
+        int bottom_margin = dipToPixels(4);
+        params.setMargins(left_margin, top_margin, right_margin, bottom_margin);
+
+        return params;
     }
 
     /**

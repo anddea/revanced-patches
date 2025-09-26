@@ -14,8 +14,11 @@ import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.lang.ref.WeakReference;
 import java.text.NumberFormat;
@@ -99,7 +102,7 @@ public class SponsorBlockUtils {
                 SegmentCategory[] categories = SegmentCategory.categoriesWithoutHighlights();
                 CharSequence[] titles = new CharSequence[categories.length];
                 for (int i = 0, length = categories.length; i < length; i++) {
-                    titles[i] = categories[i].getTitle().toString();
+                    titles[i] = categories[i].getTitleWithColorDot();
                 }
 
                 newUserCreatedSegmentCategory = null;
@@ -138,11 +141,18 @@ public class SponsorBlockUtils {
                     textView.setText(formatSegmentTime(newSponsorSegmentEndMillis));
             }
 
+            TextInputLayout textInputLayout = new TextInputLayout(context);
+            textInputLayout.setLayoutParams(Utils.getLayoutParams());
+            textInputLayout.addView(textView);
+
+            FrameLayout container = new FrameLayout(context);
+            container.addView(textInputLayout);
+
             editByHandSaveDialogListener.settingStart = isStart;
             editByHandSaveDialogListener.editTextRef = new WeakReference<>(textView);
             AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setTitle(str(isStart ? "revanced_sb_new_segment_time_start" : "revanced_sb_new_segment_time_end"))
-                    .setView(textView)
+                    .setView(container)
                     .setNegativeButton(android.R.string.cancel, null)
                     .setNeutralButton(str("revanced_sb_new_segment_now"), editByHandSaveDialogListener)
                     .setPositiveButton(android.R.string.ok, editByHandSaveDialogListener);
@@ -302,7 +312,7 @@ public class SponsorBlockUtils {
 
                 SpannableStringBuilder spannableBuilder = new SpannableStringBuilder();
 
-                spannableBuilder.append(segment.category.getTitle().toString());
+                spannableBuilder.append(segment.category.getTitleWithColorDot());
                 spannableBuilder.append('\n');
 
                 String startTime = formatSegmentTime(segment.start);
@@ -338,7 +348,7 @@ public class SponsorBlockUtils {
             final SegmentCategory[] values = SegmentCategory.categoriesWithoutHighlights();
             CharSequence[] titles = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
-                titles[i] = values[i].getTitle().toString();
+                titles[i] = values[i].getTitleWithColorDot();
             }
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context)
