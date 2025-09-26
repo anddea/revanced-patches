@@ -435,9 +435,9 @@
     <string name="revanced_enable_translucent_navigation_bar_summary_off">導覽列不透明。</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">導覽列是半透明的。</string>
     <string name="revanced_enable_translucent_navigation_bar_title">啟用半透明導覽列</string>
-    <string name="revanced_enable_watch_next_processing_delay_summary_off">觀看下一個處理延遲被禁用。</string>
-    <string name="revanced_enable_watch_next_processing_delay_summary_on">觀看下一個處理延遲已啟用。</string>
-    <string name="revanced_enable_watch_next_processing_delay_title">啟用觀察下一個處理延遲</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_off">觀看下一部影片處理延遲已禁用。</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_on">觀看下一部影片處理延遲已啟用。</string>
+    <string name="revanced_enable_watch_next_processing_delay_title">啟用觀察下一部影片處理延遲</string>
     <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">此設定會在播放器介面載入前強制加入延遲。
 可用於測試主執行緒上的行為。</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">啟用這項設定後，將停用「你的內容」分頁中的設定按鈕
@@ -1956,7 +1956,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_ryd_shorts_title">在短影音中顯示不喜歡數</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 恢復 YouTube 倒讚 無法使用，不顯示訊息。</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 恢復 YouTube 倒讚 無法使用，則顯示提示訊息。</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">如果 API 無法使用，顯示提示訊息</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">當 API 無法使用時顯示提示訊息</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隱藏</string>
     <string name="revanced_sanitize_comments_category_bar_summary_off">類別按鈕顯示在評論類別列中。</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">"評論分類欄中除 '熱門' 和 '最新' 之外的分類按鈕均被隱藏。"</string>
@@ -2158,12 +2158,12 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock 暫時無法使用。</string>
     <string name="revanced_sb_submit_failed_unknown_error">無法提交片段 (狀態：%1$d %2$s)。</string>
     <string name="revanced_sb_submit_succeeded">片段提交成功。</string>
-    <string name="revanced_sb_toast_on_connection_error">若 API 無法使用，顯示提示</string>
-    <string name="revanced_sb_toast_on_connection_error_sum_off">如果 SponsorBlock 無法使用，則不會顯示提示訊息</string>
-    <string name="revanced_sb_toast_on_connection_error_sum_on">如果 SponsorBlock 無法使用，則顯示提示訊息</string>
+    <string name="revanced_sb_toast_on_connection_error">當 API 無法使用時顯示提示訊息</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">如果 SponsorBlock 無法使用，不顯示提示訊息</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">如果 SponsorBlock 無法使用，顯示提示訊息</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">如果 SponsorBlock 無法使用，不顯示提示訊息。</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">如果 SponsorBlock 無法使用，顯示提示訊息。</string>
-    <string name="revanced_sb_toast_on_connection_error_title">如果 API 無法使用，則顯示提示訊息</string>
+    <string name="revanced_sb_toast_on_connection_error_title">當 API 無法使用時顯示提示訊息</string>
     <string name="revanced_sb_vote_category">更改類別</string>
     <string name="revanced_sb_vote_downvote">反對</string>
     <string name="revanced_sb_vote_failed_forbidden">無法為片段投票：%s。</string>
@@ -2519,6 +2519,7 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
 • 它高度依賴伺服器，反混淆的成功或失敗取決於伺服器上目前使用的播放器 JavaScript。
 • 如果您在使用 JavaScript 用戶端時遇到問題，請先嘗試停用此功能。</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">使用最新的播放器 JavaScript</string>
+    <string name="revanced_spoof_streaming_data_user_dialog_message">關閉此設定可能會導致影片播放問題。</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">影片編解碼器自動確定。</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">影皮編解碼器為 AVC (H.264)或 VP9。</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_title">停用 VR AV1</string>
