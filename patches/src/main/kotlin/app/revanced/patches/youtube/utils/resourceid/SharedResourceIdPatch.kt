@@ -78,6 +78,8 @@ var easySeekEduContainer = -1L
     private set
 var editSettingsAction = -1L
     private set
+var eduOverlayStub = -1L
+    private set
 var endScreenElementLayoutCircle = -1L
     private set
 var endScreenElementLayoutIcon = -1L
@@ -303,6 +305,7 @@ internal val sharedResourceIdPatch = resourcePatch(
         drawerResults = getResourceId(ID, "drawer_results")
         easySeekEduContainer = getResourceId(ID, "easy_seek_edu_container")
         editSettingsAction = getResourceId(STRING, "edit_settings_action")
+        eduOverlayStub = getResourceId(ID, "edu_overlay_stub")
         endScreenElementLayoutCircle = getResourceId(LAYOUT, "endscreen_element_layout_circle")
         endScreenElementLayoutIcon = getResourceId(LAYOUT, "endscreen_element_layout_icon")
         endScreenElementLayoutVideo = getResourceId(LAYOUT, "endscreen_element_layout_video")

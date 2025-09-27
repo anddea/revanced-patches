@@ -334,6 +334,15 @@ internal val seekEduContainerFingerprint = legacyFingerprint(
     literals = listOf(easySeekEduContainer),
 )
 
+/**
+ * YouTube 18.39 - 20.02
+ */
+internal val playerEduOverlayFeatureFlagFingerprint = legacyFingerprint(
+    name = "playerEduOverlayFeatureFlagFingerprint",
+    returnType = "Z",
+    literals = listOf(45427491L),
+)
+
 internal val suggestedActionsFingerprint = legacyFingerprint(
     name = "suggestedActionsFingerprint",
     returnType = "V",

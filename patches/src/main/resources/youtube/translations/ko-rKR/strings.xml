@@ -241,13 +241,13 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
 
 일부 사용자에게는 작동하지 않을 수 있습니다. 작동하지 않는 경우에는:
 1. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 'JavaScript 클라이언트 사용하기'를 활성화합니다.
-2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV’ 또는 'TV Simply'로 변경합니다."</string>
+2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV’로 변경합니다."</string>
     <string name="revanced_disable_auto_audio_tracks_title">강제된 자동 오디오 트랙 비활성화하기</string>
     <string name="revanced_disable_auto_captions_summary_off">강제 사용이 설정된 자동 자막을 활성화합니다.</string>
     <string name="revanced_disable_auto_captions_summary_on">강제 사용이 설정된 자동 자막을 비활성화합니다.</string>
     <string name="revanced_disable_auto_captions_title">강제된 자동 자막 비활성화하기</string>
-    <string name="revanced_disable_auto_player_popup_panels_summary_off">자동 플레이어 팝업 패널을 활성화합니다.\n실시간 채팅, 재생목록, 태그된 제품</string>
-    <string name="revanced_disable_auto_player_popup_panels_summary_on">자동 플레이어 팝업 패널을 비활성화합니다.\n실시간 채팅, 재생목록, 태그된 제품</string>
+    <string name="revanced_disable_auto_player_popup_panels_summary_off">자동 플레이어 팝업 패널을 활성화합니다:\n실시간 채팅, 재생목록, 태그된 제품, etc.</string>
+    <string name="revanced_disable_auto_player_popup_panels_summary_on">자동 플레이어 팝업 패널을 비활성화합니다:\n실시간 채팅, 재생목록, 태그된 제품, etc.</string>
     <string name="revanced_disable_auto_player_popup_panels_title">플레이어 팝업 패널 비활성화하기</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"자동재생이 켜져 있으면, 믹스 재생목록 자동전환을 활성화합니다.
 
@@ -939,7 +939,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
 
 오디오 트랙 메뉴를 표시하려면:
 1. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 'JavaScript 클라이언트 사용하기'를 활성화합니다.
-2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV’ 또는 'TV Simply'로 변경합니다."</string>
+2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV’로 변경합니다."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">오디오 트랙 메뉴가 표시됩니다.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">오디오 트랙 메뉴가 숨겨집니다.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">오디오 트랙 메뉴 숨기기</string>
@@ -2384,12 +2384,11 @@ Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(개발 중, 인증 없음)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(미출시, 인증 없음)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">기본 클라이언트</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">클라이언트 스트림을 가져올 수 없습니다.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">기본 클라이언트를 TV 또는 TV Simply로 변경해 보세요.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">기본 클라이언트를 TV로 변경해 보세요.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">동영상 코덱이 자동으로 결정됩니다.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">동영상 코덱이 AVC (H.264)로 강제로 결정됩니다.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
@@ -2522,7 +2521,7 @@ uBlock Origin은 이 문제에 대한 해결 방법을 찾아냈으며, ‘페�
 
 (전제 조건: '동영상 새로고침 버튼 표시하기'와 '동영상 새로고침 버튼 항상 표시하기'가 모두 활성화된 상태)
 
-JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply입니다."</string>
+JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV입니다."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"복호화를 위한 JavaScript가 최신 상태로 유지되지 않습니다.
 
 • 복호화에 성공한 JavaScript가 사용되지만 여전히 서버에 따라 다소 달라질 수 있습니다."</string>

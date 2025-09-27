@@ -28,9 +28,9 @@ public class YouTubeHostActivity extends BaseHostActivity {
     }
 
     @Override
-    public void finish() {
-        if (!handleFinish()) {
-            super.finish();
+    public void onBackPressed() {
+        if (handleBackPress()) {
+            super.onBackPressed();
         }
     }
 
@@ -98,14 +98,10 @@ public class YouTubeHostActivity extends BaseHostActivity {
     }
 
     /**
-     * Injection point.
-     * <p>
-     * Overrides {@link Activity#finish()} of the injection Activity.
-     *
-     * @return if the original activity finish method should be allowed to run.
+     * @return Whether pressing the back button should be allowed.
      */
     @Override
-    protected boolean handleFinish() {
-        return YouTubeSearchViewController.handleFinish(searchViewController);
+    protected boolean handleBackPress() {
+        return YouTubeSearchViewController.handleBackPress(searchViewController);
     }
 }

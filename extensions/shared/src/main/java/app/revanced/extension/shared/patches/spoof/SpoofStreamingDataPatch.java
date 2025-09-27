@@ -332,7 +332,7 @@ public class SpoofStreamingDataPatch {
      * <p>
      * It takes about 3-5 seconds to download the JavaScript and initialize the Cipher class.
      * Initialize it before the video starts.
-     * Used for {@link ClientType#TV}, {@link ClientType#TV_SIMPLY} and {@link ClientType#TV_EMBEDDED}.
+     * Used for {@link ClientType#TV} and {@link ClientType#TV_EMBEDDED}.
      */
     public static void initializeJavascript() {
         if (SPOOF_STREAMING_DATA_USE_JS) {

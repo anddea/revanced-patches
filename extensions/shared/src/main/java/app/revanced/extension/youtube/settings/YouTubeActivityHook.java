@@ -144,14 +144,10 @@ public class YouTubeActivityHook extends BaseActivityHook {
     }
 
     /**
-     * Injection point.
-     * <p>
-     * Overrides {@link Activity#finish()} of the injection Activity.
-     *
-     * @return if the original activity finish method should be allowed to run.
+     * @return Whether pressing the back button should be allowed.
      */
     @SuppressWarnings("unused")
-    public static boolean handleFinish() {
-        return YouTubeSearchViewController.handleFinish(searchViewController);
+    public static boolean handleBackPress() {
+        return YouTubeSearchViewController.handleBackPress(searchViewController);
     }
 }

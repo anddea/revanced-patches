@@ -25,11 +25,9 @@ import app.revanced.patches.youtube.utils.totalTimeFingerprint
 import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.video.information.hookVideoInformation
 import app.revanced.patches.youtube.video.information.onCreateHook
-import app.revanced.patches.youtube.video.information.videoEndMethod
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.information.videoTimeHook
 import app.revanced.util.ResourceGroup
-import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.copyResources
 import app.revanced.util.*
 import app.revanced.util.fingerprint.matchOrThrow

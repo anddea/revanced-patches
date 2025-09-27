@@ -41,13 +41,12 @@ public class YouTubeMusicSearchViewController extends BaseSearchViewController {
         // This method can be empty or handle music-specific preferences if any.
     }
 
-    // Static method for handling Activity finish
-    public static boolean handleFinish(YouTubeMusicSearchViewController searchViewController) {
+    public static boolean handleBackPress(YouTubeMusicSearchViewController searchViewController) {
         if (searchViewController != null && searchViewController.isSearchActive()) {
             searchViewController.closeSearch();
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     // Adapter to wrap YouTubeMusicPreferenceFragment to BasePreferenceFragment interface.

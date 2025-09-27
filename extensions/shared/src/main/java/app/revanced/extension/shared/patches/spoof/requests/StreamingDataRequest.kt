@@ -358,100 +358,96 @@ class StreamingDataRequest private constructor(
         private fun setAudioTrackLanguage(
             videoId: String,
             requestHeader: Map<String, String>,
+            isMobileWeb: Boolean,
         ) {
-            for (clientType in arrayOf(ClientType.ANDROID, ClientType.TV_SIMPLY_NO_AUTH, ClientType.ANDROID_VR)) {
-                val startTime = System.currentTimeMillis()
-                Logger.printDebug { "Fetching audio track for: $videoId using client: $clientType" }
+            // On Mobile Web, if an invalid language code is used, it will fall back to English.
+            // Only use the YouTube API to fetch the default audio track language code when the client is Mobile Web.
+            if (isMobileWeb) {
+                for (clientType in arrayOf(ClientType.ANDROID, ClientType.ANDROID_VR)) {
+                    val startTime = System.currentTimeMillis()
+                    Logger.printDebug { "Fetching audio track for: $videoId using client: $clientType" }
 
-                try {
-                    val requestBody = if (clientType.requireJS) {
-                        createJSRequestBody(
-                            clientType = clientType,
-                            videoId = videoId,
-                            language = "en",
-                            isGVS = false,
-                        )
-                    } else {
-                        createApplicationRequestBody(
+                    try {
+                        val requestBody = createApplicationRequestBody(
                             clientType = clientType,
                             videoId = videoId,
                             language = "en"
                         )
-                    }
 
-                    val connection =
-                        getInnerTubeResponseConnectionFromRoute(
-                            GET_AUDIO_TRACK,
-                            clientType,
-                            requestHeader
-                        )
+                        val connection =
+                            getInnerTubeResponseConnectionFromRoute(
+                                GET_AUDIO_TRACK,
+                                clientType,
+                                requestHeader
+                            )
 
-                    connection.setFixedLengthStreamingMode(requestBody.size)
-                    connection.outputStream.write(requestBody)
+                        connection.setFixedLengthStreamingMode(requestBody.size)
+                        connection.outputStream.write(requestBody)
 
-                    val responseCode = connection.responseCode
-                    if (responseCode != 200) {
-                        connection.disconnect()
-                        continue
-                    }
-                    val json = Requester.parseJSONObjectAndDisconnect(connection)
+                        val responseCode = connection.responseCode
+                        if (responseCode != 200) {
+                            connection.disconnect()
+                            continue
+                        }
+                        val json = Requester.parseJSONObjectAndDisconnect(connection)
 
-                    if (!json.has("captions")) {
-                        continue
-                    }
-                    val captions =
-                        json.getJSONObject("captions")
-                    if (!captions.has("playerCaptionsTracklistRenderer")) {
-                        continue
-                    }
-                    val playerCaptionsTracklistRenderer =
-                        captions.getJSONObject("playerCaptionsTracklistRenderer")
-                    if (!playerCaptionsTracklistRenderer.has("audioTracks")) {
-                        continue
-                    }
-                    val audioTracks =
-                        playerCaptionsTracklistRenderer.getJSONArray("audioTracks")
-                    if (audioTracks.length() < 2) {
-                        continue
-                    }
-                    if (!json.has("streamingData")) {
-                        continue
-                    }
-                    val streamingData =
-                        json.getJSONObject("streamingData")
-                    if (!streamingData.has("adaptiveFormats")) {
-                        continue
-                    }
-                    val adaptiveFormats =
-                        streamingData.getJSONArray("adaptiveFormats")
-                    if (adaptiveFormats.length() < 2) {
-                        continue
-                    }
-                    for (i in adaptiveFormats.length() - 1 downTo 0) {
-                        val adaptiveFormat = adaptiveFormats.getJSONObject(i)
+                        if (!json.has("captions")) {
+                            continue
+                        }
+                        val captions =
+                            json.getJSONObject("captions")
+                        if (!captions.has("playerCaptionsTracklistRenderer")) {
+                            continue
+                        }
+                        val playerCaptionsTracklistRenderer =
+                            captions.getJSONObject("playerCaptionsTracklistRenderer")
+                        if (!playerCaptionsTracklistRenderer.has("audioTracks")) {
+                            continue
+                        }
+                        val audioTracks =
+                            playerCaptionsTracklistRenderer.getJSONArray("audioTracks")
+                        if (audioTracks.length() < 2) {
+                            continue
+                        }
+                        if (!json.has("streamingData")) {
+                            continue
+                        }
+                        val streamingData =
+                            json.getJSONObject("streamingData")
+                        if (!streamingData.has("adaptiveFormats")) {
+                            continue
+                        }
+                        val adaptiveFormats =
+                            streamingData.getJSONArray("adaptiveFormats")
+                        if (adaptiveFormats.length() < 2) {
+                            continue
+                        }
+                        for (i in adaptiveFormats.length() - 1 downTo 0) {
+                            val adaptiveFormat = adaptiveFormats.getJSONObject(i)
 
-                        if (adaptiveFormat.has("audioTrack")) {
-                            val audioTrack = adaptiveFormat.getJSONObject("audioTrack")
-                            val displayName = audioTrack.getString("displayName")
-                            if (StringUtils.contains(displayName, "original")) {
-                                val id = audioTrack.getString("id")
-                                val dotIndex = StringUtils.indexOf(id, ".")
-                                if (dotIndex > -1) {
-                                    val languageCode = id.substring(0, dotIndex)
-                                    overrideLanguage = languageCode
-                                    return
+                            if (adaptiveFormat.has("audioTrack")) {
+                                val audioTrack = adaptiveFormat.getJSONObject("audioTrack")
+                                val displayName = audioTrack.getString("displayName")
+                                if (StringUtils.contains(displayName, "original")) {
+                                    val id = audioTrack.getString("id")
+                                    val dotIndex = StringUtils.indexOf(id, ".")
+                                    if (dotIndex > -1) {
+                                        val languageCode = id.substring(0, dotIndex)
+                                        overrideLanguage = languageCode
+                                        return
+                                    }
                                 }
                             }
                         }
+                    } catch (ex: SocketTimeoutException) {
+                        handleConnectionError("Connection timeout", ex)
+                    } catch (ex: IOException) {
+                        handleConnectionError("Network error", ex)
+                    } catch (ex: Exception) {
+                        Logger.printException({ "send failed" }, ex)
+                    } finally {
+                        Logger.printDebug { "Fetching audio track request end (videoId: $videoId, took: ${(System.currentTimeMillis() - startTime)} ms)" }
                     }
-                } catch (ex: SocketTimeoutException) {
-                    handleConnectionError("Connection timeout", ex)
-                } catch (ex: IOException) {
-                    handleConnectionError("Network error", ex)
-                } catch (ex: Exception) {
-                    Logger.printException({ "send failed" }, ex)
-                } finally {
-                    Logger.printDebug { "Fetching audio track request end (videoId: $videoId, took: ${(System.currentTimeMillis() - startTime)} ms)" }
                 }
             }
             if (overrideLanguage.isEmpty()) {
@@ -551,7 +547,11 @@ class StreamingDataRequest private constructor(
                 if (!clientType.supportsCookies
                     && BaseSettings.DISABLE_AUTO_AUDIO_TRACKS.get()
                     && overrideLanguage.isEmpty()) {
-                    setAudioTrackLanguage(videoId, requestHeader)
+                    setAudioTrackLanguage(
+                        videoId,
+                        requestHeader,
+                        clientType == ClientType.MWEB
+                    )
                 }
 
                 val connection = send(

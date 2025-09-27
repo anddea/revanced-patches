@@ -2,6 +2,8 @@ package app.revanced.extension.youtube.swipecontrols.controller.gesture.core
 
 import android.view.GestureDetector
 import android.view.MotionEvent
+import app.revanced.extension.youtube.shared.PlayerControlsVisibilityObserver
+import app.revanced.extension.youtube.shared.PlayerControlsVisibilityObserverImpl
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsHostActivity
 
 /**
@@ -17,6 +19,7 @@ abstract class BaseGestureController(
     SwipeDetector by SwipeDetectorImpl(
         controller.config.swipeMagnitudeThreshold.toDouble(),
     ),
+    PlayerControlsVisibilityObserver by PlayerControlsVisibilityObserverImpl(controller),
     VolumeAndBrightnessScroller by VolumeAndBrightnessScrollerImpl(
         controller.audio,
         controller.screen,
@@ -42,6 +45,10 @@ abstract class BaseGestureController(
     override fun submitTouchEvent(motionEvent: MotionEvent): Boolean {
         // ignore if swipe is disabled
         if (!controller.config.enableSwipeControls) {
+            return false
+        }
+        // Fix https://github.com/inotia00/ReVanced_Extended/issues/3052
+        if (isFullscreenEngagementPanelVisible) {
             return false
         }
 

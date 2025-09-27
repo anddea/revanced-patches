@@ -1078,10 +1078,6 @@ public final class app/revanced/patches/youtube/utils/componentlist/LazilyConver
 	public static final fun getLazilyConvertedElementHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/utils/controlsoverlay/ControlsOverlayConfigPatchKt {
-	public static final fun getControlsOverlayConfigPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/youtube/utils/dismiss/DismissPlayerHookPatchKt {
 	public static final fun getDismissPlayerHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1285,6 +1281,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getDrawerResults ()J
 	public static final fun getEasySeekEduContainer ()J
 	public static final fun getEditSettingsAction ()J
+	public static final fun getEduOverlayStub ()J
 	public static final fun getEmojiPickerIcon ()J
 	public static final fun getEndScreenElementLayoutCircle ()J
 	public static final fun getEndScreenElementLayoutIcon ()J

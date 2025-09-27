@@ -1,8 +1,6 @@
 package app.revanced.extension.youtube.swipecontrols.controller.gesture
 
 import android.view.MotionEvent
-import app.revanced.extension.youtube.shared.PlayerControlsVisibilityObserver
-import app.revanced.extension.youtube.shared.PlayerControlsVisibilityObserverImpl
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsHostActivity
 import app.revanced.extension.youtube.swipecontrols.controller.gesture.core.BaseGestureController
@@ -18,8 +16,7 @@ import app.revanced.extension.youtube.swipecontrols.misc.toPoint
 class ClassicSwipeController(
     private val controller: SwipeControlsHostActivity,
     private val config: SwipeControlsConfigurationProvider,
-) : BaseGestureController(controller),
-    PlayerControlsVisibilityObserver by PlayerControlsVisibilityObserverImpl(controller) {
+) : BaseGestureController(controller) {
     /**
      * the last event captured in [onDown]
      */
@@ -29,10 +26,6 @@ class ClassicSwipeController(
         get() = currentSwipe == SwipeDetector.SwipeDirection.VERTICAL
 
     override fun isInSwipeZone(motionEvent: MotionEvent): Boolean {
-        // Fix https://github.com/inotia00/ReVanced_Extended/issues/3052
-        if (!isFullscreenEngagementPanelVisible) {
-            return false
-        }
         val inVolumeZone = if (controller.config.enableVolumeControls) {
             (motionEvent.toPoint() in controller.zones.volume)
         } else {

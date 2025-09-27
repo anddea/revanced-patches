@@ -31,6 +31,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toolbar;
+import android.window.OnBackInvokedDispatcher;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -141,7 +142,12 @@ public class WebViewHostActivity extends Activity {
                                 WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS);
                     }
                 }
-
+            }
+            if (isSDKAbove(33)) {
+                getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
+                        OnBackInvokedDispatcher.PRIORITY_DEFAULT,
+                        this::finish
+                );
             }
             webView = findViewById(getIdIdentifier("revanced_webview"));
 
@@ -207,7 +213,7 @@ public class WebViewHostActivity extends Activity {
         toolbar = new Toolbar(toolBarParent.getContext());
         toolbar.setBackgroundColor(Color.WHITE);
         toolbar.setNavigationIcon(ThemeUtils.getBackButtonDrawable(false));
-        toolbar.setNavigationOnClickListener(view -> this.onBackPressed());
+        toolbar.setNavigationOnClickListener(view -> this.finish());
         toolbar.setTitle(toolbarLabel);
         final int margin = Utils.dipToPixels(16);
         toolbar.setTitleMarginStart(margin);

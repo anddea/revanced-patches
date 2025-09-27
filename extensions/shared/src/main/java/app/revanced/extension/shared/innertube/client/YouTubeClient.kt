@@ -203,6 +203,11 @@ object YouTubeClient {
      * 2. Over the past few months, BotGuard PoToken has not been used on WEB_SAFARI (iPadOS).
      *
      * It may still not work for some users.
+     *
+     * Update:
+     * Playback issue occurs when the value of 'iosPlayerConfig.requestIosguardDataAfterPlaybackStarts' in the player response is 'true'.
+     * It appears that blocking the '/att/get' endpoint can prevent this, but I'm not sure.
+     * (More samples are needed)
      */
     private const val PACKAGE_NAME_IPADOS = "com.google.ios.youtube"
 
@@ -252,16 +257,6 @@ object YouTubeClient {
      */
     private const val CLIENT_VERSION_TVHTML5 = "7.20250917.13.00"
     private const val USER_AGENT_TVHTML5 =
-        "Mozilla/5.0(SMART-TV; Linux; Tizen 4.0.0.2) AppleWebkit/605.1.15 (KHTML, like Gecko) SamsungBrowser/9.2 TV Safari/605.1.15"
-
-
-    // TVHTML5 SIMPLY
-    /**
-     * Video not playable: None.
-     * Note: Only 'Authorization' is supported.
-     */
-    private const val CLIENT_VERSION_TVHTML5_SIMPLY = "1.0"
-    private const val USER_AGENT_TVHTML5_SIMPLY =
         "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)"
 
 
@@ -512,33 +507,12 @@ object YouTubeClient {
         TV(
             id = 7,
             clientVersion = CLIENT_VERSION_TVHTML5,
-            clientPlatform = CLIENT_PLATFORM_TV,
+            clientPlatform = CLIENT_PLATFORM_GAME_CONSOLE,
             userAgent = USER_AGENT_TVHTML5,
             requireJS = true,
             refererFormat = CLIENT_REFERER_FORMAT_TV,
             clientName = "TVHTML5",
             friendlyName = "TV"
-        ),
-        TV_SIMPLY(
-            id = 75,
-            clientVersion = CLIENT_VERSION_TVHTML5_SIMPLY,
-            clientPlatform = CLIENT_PLATFORM_GAME_CONSOLE,
-            userAgent = USER_AGENT_TVHTML5_SIMPLY,
-            requireJS = true,
-            clientName = "TVHTML5_SIMPLY",
-            refererFormat = CLIENT_REFERER_FORMAT_TV,
-            friendlyName = "TV Simply"
-        ),
-        TV_SIMPLY_NO_AUTH(
-            id = 75,
-            clientVersion = CLIENT_VERSION_TVHTML5_SIMPLY,
-            clientPlatform = CLIENT_PLATFORM_GAME_CONSOLE,
-            userAgent = USER_AGENT_TVHTML5_SIMPLY,
-            requireJS = true,
-            clientName = "TVHTML5_SIMPLY",
-            refererFormat = CLIENT_REFERER_FORMAT_TV,
-            supportsCookies = false,
-            friendlyName = "TV Simply No Auth"
         ),
 
         // Unused client.
@@ -580,17 +554,15 @@ object YouTubeClient {
                 ANDROID_CREATOR,
                 IPADOS,
                 TV,
-                TV_SIMPLY,
                 MWEB,
                 IOS_DEPRECATED,
             )
             val CLIENT_ORDER_TO_USE_JS_PREFER_TV: Array<ClientType> = arrayOf(
-                TV_SIMPLY,
+                TV,
                 ANDROID_VR,
                 VISIONOS,
                 ANDROID_CREATOR,
                 IPADOS,
-                TV,
                 MWEB,
                 IOS_DEPRECATED,
             )

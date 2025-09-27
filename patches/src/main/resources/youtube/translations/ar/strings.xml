@@ -439,6 +439,9 @@
     <string name="revanced_enable_translucent_navigation_bar_summary_off">شريط التنقل غير شفاف.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">شريط التنقل شفاف.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">تمكين شريط التنقل الشفاف</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"يفرض هذا الإعداد تأخيرًا قبل تحميل واجهة المستخدم.
+
+يمكن استخدامه عند اختبار شيء ما على MainThread."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"سيؤدي تمكين هذا الإعداد إلى تعطيل زر الإعدادات في علامة التبويب أنت.
 
 في هذه الحالة، يرجى استخدام المسار التالي للوصول إلى الإعدادات:
@@ -2268,7 +2271,6 @@
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(WIP, بدون مصادقة)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(لم يصدر ، بدون مصادقة)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">العميل الافتراضي</string>
@@ -2411,6 +2413,14 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
 
 • يعتمد بشكل كبير على الخادم، ويعتمد نجاح أو فشل إزالة التشويش على JavaScript المستخدم حاليًا على الخادم."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">استخدام أحدث JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"لا يتم تحديث مشغل JavaScript لإزالة التشويش.
+
+• يستخدم JavaScript المشغل الذي ينجح في إزالة التشويش، ولكنه لا يزال يعتمد إلى حد ما على الخادم."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"يتم تحديث مشغل JavaScript لإزالة التشويش باستمرار.
+
+• يعتمد بشكل كبير على الخادم، ويعتمد نجاح أو فشل إزالة التشويش على JavaScript المشغل المُستخدم حاليًا على الخادم.
+• إذا كنت تواجه مشاكل مع عميل JavaScript، فحاول تعطيله أولًا."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">استخدام أحدث مشغل JavaScript</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">يتم تحديد ترميز الفيديو تلقائيًا.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">ترميز الفيديو هو AVC (H.264) أو VP9.</string>

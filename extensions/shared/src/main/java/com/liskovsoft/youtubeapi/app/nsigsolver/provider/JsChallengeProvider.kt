@@ -3,6 +3,7 @@ package com.liskovsoft.youtubeapi.app.nsigsolver.provider
 import com.liskovsoft.youtubeapi.app.nsigsolver.common.YTInfoExtractor
 
 internal abstract class JsChallengeProvider {
+    protected val ie = YTInfoExtractor
     protected abstract val supportedTypes: List<JsChallengeType>
 
     private fun validateRequest(request: JsChallengeRequest) {
@@ -31,11 +32,11 @@ internal abstract class JsChallengeProvider {
     /**
      * Subclasses can override this method to handle bulk solving
      */
-    protected abstract fun realBulkSolve(validatedRequests: List<JsChallengeRequest>): Sequence<JsChallengeProviderResponse>
+    protected abstract fun realBulkSolve(requests: List<JsChallengeRequest>): Sequence<JsChallengeProviderResponse>
 
-    protected fun getPlayer(videoId: String, playerUrl: String): String? {
+    protected fun getPlayer(videoId: String?, playerUrl: String): String {
         return try {
-            YTInfoExtractor.loadPlayer(playerUrl)
+            ie.loadPlayer(playerUrl)
         } catch (e: Exception) {
             throw JsChallengeProviderError("Failed to load player for JS challenge: $playerUrl", e)
         }

@@ -178,5 +178,5 @@ public abstract class BaseHostActivity extends Activity {
      */
     protected void onPostToolbarSetup(Activity activity, Toolbar toolbar, PreferenceFragment fragment) {}
 
-    protected abstract boolean handleFinish();
+    protected abstract boolean handleBackPress();
 }

@@ -9,6 +9,7 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -644,6 +645,13 @@ public class PlayerPatch {
 
     public static boolean hideSeekMessage() {
         return Settings.HIDE_SEEK_MESSAGE.get();
+    }
+
+    @Nullable
+    public static ViewStub hideSeekMessage(ViewStub viewStub) {
+        return Settings.HIDE_SEEK_MESSAGE.get()
+                ? null
+                : viewStub;
     }
 
     public static boolean hideSeekUndoMessage() {
