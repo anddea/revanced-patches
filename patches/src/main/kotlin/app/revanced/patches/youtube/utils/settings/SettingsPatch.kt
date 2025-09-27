@@ -214,7 +214,7 @@ private val settingsBytecodePatch = bytecodePatch(
             ).toMutable().apply {
                 addInstructions(
                     """
-                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->handleFinish()Z
+                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->handleBackPress()Z
                         move-result v0
                         if-nez v0, :search_handled
                         invoke-super { p0 }, Landroid/app/Activity;->finish()V
