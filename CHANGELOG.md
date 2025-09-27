@@ -1,3 +1,10 @@
+# [3.14.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.14.0-dev.4...v3.14.0-dev.5) (2025-09-27)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Leaving RVX settings crashed the app ([52f912d](https://github.com/anddea/revanced-patches/commit/52f912dfe96aea04d422bb046eb21132ce8114f1))
+
 # [3.14.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.14.0-dev.3...v3.14.0-dev.4) (2025-09-27)
 
 
