@@ -49,6 +49,15 @@ public class YouTubeSearchViewController extends BaseSearchViewController {
         return true;
     }
 
+    // Static method for Activity finish.
+    public static boolean handleFinish(YouTubeSearchViewController searchViewController) {
+        if (searchViewController != null && searchViewController.isSearchActive()) {
+            searchViewController.closeSearch();
+            return true;
+        }
+        return false;
+    }
+
     // Adapter to wrap YouTubePreferenceFragment to BasePreferenceFragment interface.
     private record PreferenceFragmentAdapter(YouTubePreferenceFragment fragment) implements BasePreferenceFragment {
         @Override

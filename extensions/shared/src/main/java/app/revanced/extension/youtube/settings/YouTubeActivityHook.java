@@ -148,6 +148,6 @@ public class YouTubeActivityHook extends BaseActivityHook {
      */
     @SuppressWarnings("unused")
     public static boolean handleBackPress() {
-        return YouTubeSearchViewController.handleBackPress(searchViewController);
+        return YouTubeSearchViewController.handleFinish(searchViewController);
     }
 }
