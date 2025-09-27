@@ -239,7 +239,7 @@ Limitation: Back button on the toolbar may not work."</string>
 
 This may not work for some users, if it doesn't work for you:
 1. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use JavaScript client'.
-2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV' or 'TV Simply'."</string>
+2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disable forced auto audio tracks</string>
     <string name="revanced_disable_auto_captions_summary_off">Forced auto captions are enabled.</string>
     <string name="revanced_disable_auto_captions_summary_on">Forced auto captions are disabled.</string>
@@ -926,7 +926,7 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 
 To show the Audio track menu:
 1. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use JavaScript client'.
-2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV' or 'TV Simply'."</string>
+2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Audio track menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Audio track menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Hide Audio track menu</string>
@@ -2364,12 +2364,11 @@ This feature is still in development, so it may break at any time due to server-
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(WIP, No Auth)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Unreleased, No Auth)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Try changing the default client to TV or TV Simply.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Try changing the default client to TV.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Video codec is determined automatically.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Video codec is forced to AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Force iOS AVC (H.264)</string>
@@ -2502,7 +2501,7 @@ This can be easily resolved by clicking the 'Reload video button' in the player 
 
 (Prerequisites: Both 'Show reload video button' and 'Always show reload video button' are enabled)
 
-Among JavaScript clients, the recommended client is TV Simply."</string>
+Among JavaScript clients, the recommended client is TV."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"JavaScript for deobfuscation is not kept up to date.
 
 • JavaScript that succeeds in deobfuscation is used, but it is still somewhat server-dependent."</string>

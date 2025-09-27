@@ -62,11 +62,11 @@ public class ThrottlingParameterUtils {
     /**
      * Hardcoded javascript url path (Mobile Web).
      */
-    private static final String PLAYER_JS_HARDCODED_URL_PATH_MOBILE_WEB = "b66835e2";
+    private static final String PLAYER_JS_HARDCODED_URL_PATH_MOBILE_WEB = "0004de42";
     /**
      * Hardcoded javascript url path (TV).
      */
-    private static final String PLAYER_JS_HARDCODED_URL_PATH_TV = "b66835e2";
+    private static final String PLAYER_JS_HARDCODED_URL_PATH_TV = "0004de42";
     /**
      * Regular expression pattern to find variables used in JavaScript url.
      */

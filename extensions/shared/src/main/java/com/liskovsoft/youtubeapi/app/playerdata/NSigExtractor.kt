@@ -129,7 +129,7 @@ internal object NSigExtractor {
      *
      * yt-dlp\yt_dlp\extractor\youtube.py
      */
-    private fun extractNFunctionName1(jsCode: String): String? {
+    private fun extractNFunctionName1(jsCode: String): String? { // NOTE: looong running code
         val nFuncMatcher = mNFuncPattern.matcher(jsCode)
 
         if (nFuncMatcher.find() && nFuncMatcher.groupCount() >= 3) {

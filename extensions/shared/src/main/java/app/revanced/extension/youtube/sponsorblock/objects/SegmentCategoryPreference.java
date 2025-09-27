@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.sponsorblock.objects;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.dipToPixels;
+import static app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings.migrateOldColorString;
 
 import android.content.Context;
 import android.view.View;
@@ -54,6 +55,10 @@ public class SegmentCategoryPreference extends ColorPickerPreference {
     @Override
     public final void setText(String colorString) {
         try {
+            // Migrate old data imported in the settings UI.
+            // This migration is needed here because pasting into the settings
+            // immediately syncs the data with the preferences.
+            colorString = migrateOldColorString(colorString, SegmentCategory.CATEGORY_DEFAULT_OPACITY);
             super.setText(colorString);
 
             // Save to category.
@@ -68,7 +73,8 @@ public class SegmentCategoryPreference extends ColorPickerPreference {
             Utils.showToastShort(str("revanced_settings_color_invalid"));
             setText(category.colorSetting.defaultValue);
         } catch (Exception ex) {
-            Logger.printException(() -> "setText failure: " + colorString, ex);
+            String colorStringFinal = colorString;
+            Logger.printException(() -> "setText failure: " + colorStringFinal, ex);
         }
     }
 

@@ -230,14 +230,14 @@
     <string name="revanced_disable_ambient_mode_summary_off">已啟用微光效果。</string>
     <string name="revanced_disable_ambient_mode_summary_on">微光模式已停用。</string>
     <string name="revanced_disable_ambient_mode_title">停用微光模式</string>
-    <string name="revanced_disable_auto_audio_tracks_not_available">若要使用此功能，請更改 \' 預設用戶端（偽裝串流資料）\' 到電視, TV Simply 或 iOS TV。</string>
+    <string name="revanced_disable_auto_audio_tracks_not_available">"若要使用此功能，請更改 '預設用戶端 (偽裝串流資料)' 到電視, TV Simply 或 iOS TV。"</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">強制自動音軌已啟用。</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">強制自動音軌已停用。</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"強制自動音軌功能已停用。
 
-此操作可能對某些使用者無效，如果您無法操作，請執行下列操作：
-1. 前往設定 - RVX- 雜項 - 偽裝串流數據，然後啟用 '使用 JavaScript 用戶端'。
-2. 前往設定 - RVX - 雜項 - 偽裝串流數據，然後將 '預設客戶端' 變更為 'TV' 或 'TV Simply'。"</string>
+此功能可能對某些使用者無效，如果您無法使用此功能：
+1. 前往設定  - RVX - 雜項 - 偽裝串流資料，然後開啟 '使用 JavaScript 用戶端'。
+2. 前往設定 - RVX - 雜項 - 偽裝串流資料，並將 '預設客戶端' 變更為 'TV' 或 'TV Simply'。"</string>
     <string name="revanced_disable_auto_audio_tracks_title">停用強制自動音軌</string>
     <string name="revanced_disable_auto_captions_summary_off">強制顯示字幕已啟用。</string>
     <string name="revanced_disable_auto_captions_summary_on">強制顯示字幕已停用。</string>
@@ -438,8 +438,9 @@
     <string name="revanced_enable_watch_next_processing_delay_summary_off">觀看下一部影片處理延遲已禁用。</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">觀看下一部影片處理延遲已啟用。</string>
     <string name="revanced_enable_watch_next_processing_delay_title">啟用觀察下一部影片處理延遲</string>
-    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">此設定會在播放器介面載入前強制加入延遲。
-可用於測試主執行緒上的行為。</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"此設定會強制延遲播放器 UI 的載入。
+
+此功能可用於在主執行緒上測試某些內容。"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">啟用這項設定後，將停用「你的內容」分頁中的設定按鈕
 
 在這種情況下，請依序輕觸以下路徑來存取設定：
@@ -490,7 +491,7 @@
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">外部下載器</string>
     <string name="revanced_external_downloader_empty_warning">套件名稱不能為空</string>
-    <string name="revanced_external_downloader_not_found_title">應用程式未安裝</string>
+    <string name="revanced_external_downloader_not_found_title">應用程式未安裝。</string>
     <string name="revanced_external_downloader_not_installed">未安裝</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">%1$s 未安裝。
 請從網站下載 %2$s。</string>
@@ -504,9 +505,9 @@
     <string name="revanced_external_downloader_package_name_video_long_press_title">長按時影片下載器套件名稱</string>
     <string name="revanced_external_downloader_package_name_video_summary">您安裝的外部下載器應用程式的套件名稱。</string>
     <string name="revanced_external_downloader_package_name_video_title">影片下載套件名稱</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"無法找到已安裝的應用程式，套件名稱為：%s
+    <string name="revanced_external_downloader_package_not_found_warning">"找不到已安裝的應用程式，套件名稱為：%s。
 
-請驗證套件名稱是否正確以及應用程式是否已安裝"</string>
+請驗證套件名稱正確，且該應用程式已安裝。"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">熱門按鈕圖示已隱藏。</string>
     <string name="revanced_fix_hype_button_icon_summary_on">熱門按鈕圖示已顯示。</string>
     <string name="revanced_fix_hype_button_icon_title">修復熱門按鈕圖標</string>
@@ -564,8 +565,8 @@
     <string name="revanced_gradient_seekbar_positions_title">進度條漸變邊界值</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">要篩選的帳戶選單名稱清單，每行一個名稱。</string>
     <string name="revanced_hide_account_menu_filter_strings_title">編輯帳號選單篩選</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">如果匹配則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;\'獲取 YouTube Premium\'&lt;/b&gt; 選單中，您可以使用 &lt;b&gt;\'獲取 YouTube Premium\'&lt;/b&gt; 作為關鍵字。</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">如果包含則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;\'獲取 YouTube Premium\'&lt;/b&gt; 選單中，您可以使用 &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; 或 &lt;b&gt;\'Premium\'&lt;/b&gt; 作為關鍵字。</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">"如果匹配則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;'獲取 YouTube Premium'&lt;/b&gt; 選單中，您可以使用 &lt;b&gt;'獲取 YouTube Premium'&lt;/b&gt; 作為關鍵字。"</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">"如果包含則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;'獲取 YouTube Premium'&lt;/b&gt; 選單中，您可以使用 &lt;b&gt;'YouTube Premium'&lt;/b&gt; 或 &lt;b&gt;'Premium'&lt;/b&gt; 作為關鍵字。"</string>
     <string name="revanced_hide_account_menu_filter_type_title">帳戶選單過濾類型</string>
     <string name="revanced_hide_account_menu_summary">隱藏帳戶選單和你的內容分頁的元素。
 部分元件可能不會隱藏。</string>
@@ -746,8 +747,8 @@
     <string name="revanced_hide_feed_captions_button_title">隱藏動態字幕按鈕</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">要過濾的動態彈出選單名稱清單，每行一個名稱。</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">編輯資訊彈出式選單篩選</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">如果符合則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;\'播放隊列中的下一個\'&lt;/b&gt; 選單中，您只能使用 &lt;b&gt;\'播放隊列中下一個\'&lt;/b&gt; 作為關鍵字。</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">如果包含則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;\'播放隊列中的下一個\'&lt;/b&gt; 選單中，您可以使用 &lt;b&gt;\'播放下一個\'&lt;/b&gt; 或&lt;b&gt;\'在隊列\'&lt;/b&gt; 作為關鍵字。</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"如果符合則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;'播放隊列中的下一個'&lt;/b&gt; 選單中，您只能使用 &lt;b&gt;'播放隊列中下一個'&lt;/b&gt; 作為關鍵字。"</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"如果包含則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;'播放隊列中的下一個'&lt;/b&gt; 選單中，您可以使用 &lt;b&gt;'播放下一個'&lt;/b&gt; 或&lt;b&gt;'在隊列'&lt;/b&gt; 作為關鍵字。"</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">資訊彈出式選單過濾類型</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">資訊彈出式選單已顯示。</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">資訊彈出式選單已隱藏。</string>
@@ -830,9 +831,9 @@
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">訂閱影片的關鍵字篩選器已停用。</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">訂閱影片的關鍵字篩選器已啟用。</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">啟用訂閱影片關鍵字篩選器</string>
-    <string name="revanced_hide_keyword_content_use_and_operator_summary_off">\'AND\' 運算 (\'&amp;\') 已被停用。&lt;br&gt;&lt;br&gt;當 &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; 用作關鍵字時，包含該關鍵字 &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; 將被過濾。</string>
-    <string name="revanced_hide_keyword_content_use_and_operator_summary_on">\'AND\' 運算 (\'&amp;\') 已被停用。&lt;br&gt;&lt;br&gt;當 &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; 被作為關鍵字使用，包含兩者的關鍵字 &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; 將被過濾。</string>
-    <string name="revanced_hide_keyword_content_use_and_operator_title">使用 \'AND\' 運算 (\'&amp;\')</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_off">"'AND' 運算 ('&amp;') 已被停用。&lt;br&gt;&lt;br&gt;當 &lt;strong&gt;"Blue" &amp; "Red"&lt;/strong&gt; 用作關鍵字時，包含該關鍵字 &lt;strong&gt;"Blue" &amp; "Red"&lt;/strong&gt; 將被過濾。"</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_on">"'AND' 運算 ('&amp;') 已被啟用。&lt;br&gt;&lt;br&gt;當 &lt;strong&gt;"Blue" &amp; "Red"&lt;/strong&gt; 用作關鍵字時，包含兩者的關鍵字 &lt;strong&gt;Blue&lt;/strong&gt; 和 &lt;strong&gt;Red&lt;/strong&gt; 將被過濾。"</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_title">"使用 'AND' 運算 ('&amp;')"</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">關鍵字將隱藏所有影片：%s。</string>
     <string name="revanced_hide_keyword_toast_invalid_common">無效的關鍵字。不能使用：「%s」作為篩選器。</string>
     <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">添加引號以使用關鍵字：%s 。</string>
@@ -924,9 +925,9 @@
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">隱藏微光模式選單</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"音軌選單已隱藏。
 
-若要顯示音軌選單，請執行下列操作：
-1. 前往設定 - RVX - 雜項 - 偽裝串流資料，然後啟用 '使用 JavaScript 用戶端'。
-2. 前往設定 - RVX - 雜項 - 偽裝串流資料，然後將 '預設客戶端' 變更為 'TV' 或 'TV Simply'。"</string>
+若要顯示音軌選單：
+1. 前往設定  - RVX - 雜項 - 偽裝串流資料，然後開啟 '使用 JavaScript 用戶端'。
+2. 前往設定 - RVX - 雜項 - 偽裝串流資料，並將 '預設客戶端' 變更為 'TV' 或 'TV Simply'。"</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">音軌選單已顯示。</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">音軌選單已隱藏。</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">隱藏音軌選單</string>
@@ -1064,8 +1065,8 @@
     <string name="revanced_hide_search_term_thumbnail_summary_off">在歷史記錄中的搜尋字詞縮圖已顯示。</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">在歷史記錄中的搜尋字詞縮圖已隱藏。</string>
     <string name="revanced_hide_search_term_thumbnail_title">隱藏搜尋字詞縮圖</string>
-    <string name="revanced_hide_section_header_in_feed_summary_off">訂閱部分標題已顯示。 \n\n點擊訂閱部分中已訂閱頻道的圖示後，訂閱部分標題包括\'造訪社群\'和\'造訪頻道\'按鈕。</string>
-    <string name="revanced_hide_section_header_in_feed_summary_on">訂閱部分標題已隱藏。 \n\n點擊訂閱部分中已訂閱頻道的圖示後，訂閱部分標題包括\'造訪社群\'和\'造訪頻道\'按鈕。</string>
+    <string name="revanced_hide_section_header_in_feed_summary_off">"訂閱部分標題已顯示。 \n\n點擊訂閱部分中已訂閱頻道的圖示後，訂閱部分標題包括'造訪社群'和'造訪頻道'按鈕。"</string>
+    <string name="revanced_hide_section_header_in_feed_summary_on">"訂閱部分標題已隱藏。 \n\n點擊訂閱部分中已訂閱頻道的圖示後，訂閱部分標題包括'造訪社群'和'造訪頻道'按鈕。"</string>
     <string name="revanced_hide_section_header_in_feed_title">隱藏訂閱部分標題</string>
     <string name="revanced_hide_seek_message_summary_off">"進度條訊息已顯示"</string>
     <string name="revanced_hide_seek_message_summary_on">"進度條訊息已隱藏"</string>
@@ -1552,20 +1553,20 @@
     <string name="revanced_language_title">RVX 語言</string>
     <string name="revanced_minimize">最小化</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">已停用雙擊操作和縮放手勢來調整大小。</string>
-    <string name="revanced_miniplayer_double_tap_action_summary_on">啟用雙擊操作和縮放手勢來調整大小。
+    <string name="revanced_miniplayer_double_tap_action_summary_on">"啟用雙擊操作和縮放手勢來調整大小。
 
 • 雙擊可增加迷你播放器的大小。
-• 再次雙擊可恢復原始大小。</string>
+• 再次雙擊可恢復原始大小。"</string>
     <string name="revanced_miniplayer_double_tap_action_title">啟用雙擊操作和縮放手勢來調整大小</string>
     <string name="revanced_miniplayer_drag_and_drop_summary_off">拖曳已停用。</string>
-    <string name="revanced_miniplayer_drag_and_drop_summary_on">拖放已啟用。
+    <string name="revanced_miniplayer_drag_and_drop_summary_on">"拖放已啟用。
 
-迷你播放器可以拖曳到螢幕的任何角落。</string>
+迷你播放器可以拖曳到螢幕的任何角落。"</string>
     <string name="revanced_miniplayer_drag_and_drop_title">啟用拖曳</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">顯示擴展和關閉按鈕。</string>
-    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">按鈕被隱藏。
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"按鈕被隱藏。
 
-滑動即可展開或關閉。</string>
+滑動即可展開或關閉。"</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">隱藏展開和關閉按鈕</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">疊加按鈕已顯示。</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">疊加按鈕已隱藏。</string>
@@ -1577,9 +1578,9 @@
     <string name="revanced_miniplayer_hide_subtext_summary_on">對話已隱藏。</string>
     <string name="revanced_miniplayer_hide_subtext_title">隱藏對話</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">水平拖曳手勢已停用。</string>
-    <string name="revanced_miniplayer_horizontal_drag_summary_on">啟用水平拖曳手勢。
+    <string name="revanced_miniplayer_horizontal_drag_summary_on">"啟用水平拖曳手勢。
 
-迷你播放器可以向左或向右拖曳出螢幕。</string>
+迷你播放器可以向左或向右拖曳出螢幕。"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">啟用水平拖曳手勢。</string>
     <string name="revanced_miniplayer_opacity_invalid_toast">小型播放器覆蓋層不透明度必須介於 0-100 之間。重設為預設值。</string>
     <string name="revanced_miniplayer_opacity_summary">不透明度值介於 0-100 之間，其中 0 表示透明。</string>
@@ -1619,28 +1620,28 @@
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">佇列管理器</string>
     <string name="revanced_overlay_button_external_downloader_summary">點擊以開啟外部下載器。</string>
     <string name="revanced_overlay_button_external_downloader_title">外部下載按鈕</string>
-    <string name="revanced_overlay_button_gemini_about_summary">解析影片所需時間取決於影片長度。轉錄長影片可能會超過 Gemini 的限制。
+    <string name="revanced_overlay_button_gemini_about_summary">"解析影片所需時間取決於影片長度。轉錄長影片可能會超過 Gemini 的限制。
 
 AI 生成的回應可能包含不準確的資訊。
 
-點擊這裡取得 API 金鑰。</string>
+點擊這裡取得 API 金鑰。"</string>
     <string name="revanced_overlay_button_gemini_about_title">關於 Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize">摘要</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_summary">在 https://aistudio.google.com/apikey 取得 API 金鑰</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API 金鑰</string>
-    <string name="revanced_overlay_button_gemini_summarize_summary">點擊可摘要影片。長按可轉錄。
+    <string name="revanced_overlay_button_gemini_summarize_summary">"點擊可摘要影片。長按可轉錄。
 
-摘要和轉錄結果會被保存，除非你關閉應用程式或在其他影片上使用 Gemini。再次點擊按鈕可查看結果。</string>
+摘要和轉錄結果會被保存，除非你關閉應用程式或在其他影片上使用 Gemini。再次點擊按鈕可查看結果。"</string>
     <string name="revanced_overlay_button_gemini_summarize_title">顯示 Gemini 按鈕</string>
     <string name="revanced_overlay_button_mute_volume_summary">點選可將目前影片靜音。 再次點擊即可取消靜音。</string>
     <string name="revanced_overlay_button_mute_volume_title">顯示靜音按鈕</string>
     <string name="revanced_overlay_button_not_allowed_warning">長按以更改按鈕狀態。</string>
     <string name="revanced_overlay_button_play_all_not_available_toast">由於頻道ID不匹配 因此無法產生播放清單。</string>
-    <string name="revanced_overlay_button_play_all_summary">點選可產生頻道中所有影片的播放清單。
+    <string name="revanced_overlay_button_play_all_summary">"點選可產生頻道中所有影片的播放清單。
 點選並按住可撤銷。
 
 資訊:
-• 可能不適用於直播。</string>
+• 可能不適用於直播。"</string>
     <string name="revanced_overlay_button_play_all_title">顯示全部播放按鈕</string>
     <string name="revanced_overlay_button_play_all_type_entry_0">所有內容 (按時間排序，升序)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">所有內容 (按時間排序)</string>
@@ -1666,13 +1667,13 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_overlay_button_whitelist_title">顯示白名單按鈕</string>
     <string name="revanced_override_playlist_download_button_summary_off">原生播放清單下載按鈕可開啟本機應用程式內下載器。</string>
     <string name="revanced_override_playlist_download_button_summary_on">原生播放清單下載按鈕可開啟您的外部下載器。</string>
-    <string name="revanced_override_playlist_download_button_summary_on_disclaimer">如果顯示原生播放清單下載按鈕，則會開啟您的外部下載器。
+    <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"如果顯示原生播放清單下載按鈕，則會開啟您的外部下載器。
 
-若要顯示原生播放清單下載按鈕，請啟用\'偽裝應用程式版本\'，並將\'偽裝應用程式目標版本\'變更為\'19.28.42\'或更早版本。</string>
+若要顯示原生播放清單下載按鈕，請啟用'偽裝應用程式版本'，並將'偽裝應用程式目標版本'變更為'19.28.42'或更早版本。"</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer_1">如果顯示本機播放清單下載按鈕，則會開啟您的外部下載器。</string>
-    <string name="revanced_override_playlist_download_button_summary_on_disclaimer_2">如果顯示原生播放清單下載按鈕，則會開啟您的外部下載器。
+    <string name="revanced_override_playlist_download_button_summary_on_disclaimer_2">"如果顯示原生播放清單下載按鈕，則會開啟您的外部下載器。
 
-若要顯示原生播放清單下載按鈕，請啟用\'偽裝應用程式版本\'，並將\'偽裝應用程式目標版本\'變更為\'19.28.42\'或更早版本。</string>
+若要顯示原生播放清單下載按鈕，請啟用'偽裝應用程式版本'，並將'偽裝應用程式目標版本'變更為'19.28.42'或更早版本。"</string>
     <string name="revanced_override_playlist_download_button_title">覆蓋播放清單下載按鈕</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_off">原生影片下載按鈕開啟您的外部下載器。</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_on">原生影片下載按鈕開啟佇列管理器。</string>
@@ -1816,13 +1817,13 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_queue_manager_remove_queue">移除佇列</string>
     <string name="revanced_queue_manager_save_queue">儲存佇列</string>
     <string name="revanced_queue_manager_show_original_video_information">顯示原始影片資訊</string>
-    <string name="revanced_queue_manager_user_dialog_message">不要開啟外部下載器，而是開啟佇列管理器對話方塊。
+    <string name="revanced_queue_manager_user_dialog_message">"不要開啟外部下載器，而是開啟佇列管理器對話方塊。
 
 您也可以按住導覽列上的返回按鈕來開啟佇列管理器。
 
 此功能仍在開發中，因此大部分功能可能無法使用。
 
-請僅將其用於偵錯目的。</string>
+請僅將其用於偵錯目的。"</string>
     <string name="revanced_queue_manager_video_information">影片資訊</string>
     <string name="revanced_queue_manager_video_information_copy">複製</string>
     <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">頻道
@@ -1854,11 +1855,11 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">變更預設播放速度時會顯示提示訊息。</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_title">顯示提示訊息</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_summary_off">播放速度變更僅適用於目前的短影音。</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_summary_on">播放速度變更適用於所有短影音。
+    <string name="revanced_remember_playback_speed_shorts_last_selected_summary_on">"播放速度變更適用於所有短影音。
 
 資訊:
 • 在短影音播放器中變更播放速度的唯一方法是使用「自訂動作」中的「速度對話框」。
-• 如果您未包含「短影音元件」補丁，則此功能將無法使用。</string>
+• 如果您未包含「短影音元件」補丁，則此功能將無法使用。"</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_title">記住短影音的播放速度變更</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_off">變更短影音上的預設播放速度時，不會顯示提示訊息。</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_on">變更短影音上的預設播放速度時，會顯示提示訊息。</string>
@@ -1883,8 +1884,8 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_remember_video_quality_toast_shorts">將短影音 %1$s 的畫質變更為: %2$s。</string>
     <string name="revanced_remember_video_quality_wifi">無線上網</string>
     <string name="revanced_remix_button_index_title">混音按鈕索引</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">移除觀眾酌情觀看對話方塊。
-這項選項不會繞過年齡限制，它只會自動接受。</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"移除觀眾酌情觀看對話方塊。
+這項選項不會繞過年齡限制，它只會自動接受。"</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">移除查看器的自由裁量對話框</string>
     <string name="revanced_replace_channel_handle_summary_off">頻道代號已使用。</string>
     <string name="revanced_replace_channel_handle_summary_on">頻道名稱已使用。</string>
@@ -1901,8 +1902,8 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_replace_toolbar_create_button_type_title">分配給按鈕的操作類型</string>
     <string name="revanced_reset_to_default_toast">重設為預設值。</string>
     <string name="revanced_restart">重新啟動</string>
-    <string name="revanced_restart_dialog_message">重新啟動應用程式以使此變更生效。</string>
-    <string name="revanced_restart_first_run">重啟即可正常載入佈局</string>
+    <string name="revanced_restart_dialog_message">重新啟動應用程式以此變更生效。</string>
+    <string name="revanced_restart_first_run">重新啟動以正常載入介面佈局</string>
     <string name="revanced_restart_title">需要重新啟動</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">在全螢幕模式下顯示進度條縮略圖。</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">將進度條縮略圖顯示在進度條上方。</string>
@@ -1918,11 +1919,11 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_return_youtube_username_enabled_summary_off">使用者名稱已使用。</string>
     <string name="revanced_return_youtube_username_enabled_summary_on">使用者名稱已被使用。</string>
     <string name="revanced_return_youtube_username_enabled_title">啟用恢復 YouTube 使用者名稱</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">需要 YouTube 資料 API v3 開發人員金鑰才能將名字替換為使用者名稱。
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"需要 YouTube 資料 API v3 開發人員金鑰才能將名字替換為使用者名稱。
 
 免費方案的 API 金鑰每日配額為 10,000 個, 1個配額用於將名字替換為使用者名稱 以獲得1條留言。
 
-按一下查看如何取得 API 金鑰。</string>
+按一下查看如何取得 API 金鑰。"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">關於 YouTube 資料 API 金鑰</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">使用 YouTube 資料 API v3 的開發人員金鑰。</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube 資料 API 金鑰</string>
@@ -1950,9 +1951,9 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新載入影片以使用 恢復 YouTube 倒讚 進行投票</string>
     <string name="revanced_ryd_shorts_summary_off">短影音中的不喜歡數已隱藏。</string>
     <string name="revanced_ryd_shorts_summary_on">短影音顯示不喜歡數。</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">在短影音中顯示不喜歡數。
+    <string name="revanced_ryd_shorts_summary_on_disclaimer">"在短影音中顯示不喜歡數。
 
-限制：若使用者未登入或使用無痕模式，可能不會顯示不喜歡數。</string>
+限制：若使用者未登入或使用無痕模式，可能不會顯示不喜歡數。"</string>
     <string name="revanced_ryd_shorts_title">在短影音中顯示不喜歡數</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 恢復 YouTube 倒讚 無法使用，不顯示訊息。</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 恢復 YouTube 倒讚 無法使用，則顯示提示訊息。</string>
@@ -2200,41 +2201,41 @@ AI 生成的回應可能包含不準確的資訊。
 • Cookies 已過期。
 • 使用了無效的 Cookies。
 • YouTube Transcript API 不再驗證 Cookies。"</string>
-    <string name="revanced_settings_color_invalid">無效的顏色</string>
-    <string name="revanced_settings_color_picker">顏色選擇器</string>
+    <string name="revanced_settings_color_invalid">無效顏色。</string>
+    <string name="revanced_settings_color_picker">顏色選取器</string>
     <string name="revanced_settings_export_failed">匯出設定失敗。</string>
     <string name="revanced_settings_export_success">設定已成功匯出。</string>
     <string name="revanced_settings_export_summary">將設定匯出到檔案。</string>
     <string name="revanced_settings_export_title">匯出設定</string>
     <string name="revanced_settings_import">匯入</string>
     <string name="revanced_settings_import_copy">複製</string>
-    <string name="revanced_settings_import_export_as_text_summary">以文字形式匯入/匯出設定。</string>
+    <string name="revanced_settings_import_export_as_text_summary">使用文字匯入 / 匯出設定</string>
     <string name="revanced_settings_import_export_as_text_title">以文字形式匯入/匯出</string>
     <string name="revanced_settings_import_failed">匯入設定失敗。</string>
     <string name="revanced_settings_import_reset">設定重設為預設值。</string>
     <string name="revanced_settings_import_success">設定已成功匯入。</string>
     <string name="revanced_settings_import_summary">從已儲存的檔案匯入設定。</string>
     <string name="revanced_settings_import_title">匯入設定</string>
-    <string name="revanced_settings_reset">重設</string>
-    <string name="revanced_settings_reset_color">重設顏色</string>
+    <string name="revanced_settings_reset">重置</string>
+    <string name="revanced_settings_reset_color">重置顏色</string>
     <string name="revanced_settings_search_clear_history">清除搜尋記錄</string>
-    <string name="revanced_settings_search_clear_history_message">您確定要清除所有搜尋記錄嗎？</string>
-    <string name="revanced_settings_search_empty_history_summary">若要儲存搜尋記錄，請輸入搜尋查詢並按下 Enter 鍵</string>
-    <string name="revanced_settings_search_empty_history_title">搜尋記錄是空的</string>
+    <string name="revanced_settings_search_clear_history_message">您確定要清除所有搜尋紀錄嗎？</string>
+    <string name="revanced_settings_search_empty_history_summary">若要儲存搜尋記錄，請輸入搜尋查詢並按 Enter。</string>
+    <string name="revanced_settings_search_empty_history_title">搜尋紀錄為空</string>
     <string name="revanced_settings_search_history_summary">儲存最近的搜尋查詢，當搜尋列為空時顯示。</string>
-    <string name="revanced_settings_search_history_summary_off">不顯示設定搜尋記錄</string>
-    <string name="revanced_settings_search_history_summary_on">顯示設定搜尋記錄</string>
+    <string name="revanced_settings_search_history_summary_off">不顯示設定搜尋記錄。</string>
+    <string name="revanced_settings_search_history_summary_on">顯示設定搜尋記錄。</string>
     <string name="revanced_settings_search_history_title">顯示設定中搜尋記錄</string>
-    <string name="revanced_settings_search_no_results_summary">嘗試其他關鍵字</string>
-    <string name="revanced_settings_search_no_results_title">沒有找到「%s」的結果</string>
-    <string name="revanced_settings_search_recent_searches">最近搜尋</string>
-    <string name="revanced_settings_search_remove_message">要從搜尋記錄中移除嗎？</string>
-    <string name="revanced_settings_search_tips_summary">"• 輕觸路徑即可前往
-• 長按設定即可前往
-• 按下 Enter 鍵即可將搜尋查詢儲存至記錄
-• 搜尋會忽略大小寫和標點符號
-• 父設定會顯示在停用的子設定上方"</string>
-    <string name="revanced_settings_search_tips_title">搜尋秘訣</string>
+    <string name="revanced_settings_search_no_results_summary">嘗試另一個關鍵字。</string>
+    <string name="revanced_settings_search_no_results_title">"沒有找到 '%s' 的結果"</string>
+    <string name="revanced_settings_search_recent_searches">最近的搜尋</string>
+    <string name="revanced_settings_search_remove_message">從搜尋紀錄中移除？</string>
+    <string name="revanced_settings_search_tips_summary">"• 點選路徑即可導覽至該路徑。
+• 長按某個設定即可導覽至該設定。
+• 按 Enter 鍵可將搜尋查詢儲存至記錄。
+• 搜尋會忽略大小寫和標點符號。
+• 父級設定顯示在已停用的子級設定上方。"</string>
+    <string name="revanced_settings_search_tips_title">搜尋提示</string>
     <string name="revanced_settings_search_title">搜尋 %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">設定已複製到剪貼簿。</string>
@@ -2342,7 +2343,7 @@ AI 生成的回應可能包含不準確的資訊。
 • 如果開啟“偽裝串流數據”，則此設定無法使用。</string>
     <string name="revanced_spoof_device_dimensions_title">偽裝裝置尺寸</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_off">未顯示音軌按鈕。</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">當用於取得串流資料的用戶端是 ‘Android VR’, ‘Mobile Web’, 或 ‘visionOS’ 時, 會顯示音軌按鈕。</string>
+    <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"當用於取得串流資料的用戶端是 ‘Android VR’, ‘Mobile Web’, 或 ‘visionOS’ 時, 會顯示音軌按鈕。"</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">顯示音軌按鈕</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"使用前提：
 • 用來取得串流資料的用戶端是 'Android VR', '行動網路' 或 'visionOS'。
@@ -2367,14 +2368,11 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_spoof_streaming_data_client_entry_tv">電視
 <small>(開發中)</small>
     </string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">電視簡易功能
-<small>(開發中)</small>
-    </string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(未發布, 無需驗證)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">預設用戶端</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">無法獲取任何客戶端串流。</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">嘗試將預設用戶端變更為 TV 或 TV Simply。</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">您可能尚未登入。</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">影片編解碼器是自動決定的。</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">影片編解碼器強制為 AVC (H.264)。</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">強制 iOS AVC (H.264)</string>
@@ -2458,9 +2456,9 @@ AVC 的最大解析度為 1080p，Opus 音訊編解碼器不可用，影片播�
 • 有時影片即使播放 10 秒後也無法播放，在這種情況下，您需要點擊「重新載入影片」按鈕。
 • 影片可能會延遲播放。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 未知</string>
-    <string name="revanced_spoof_streaming_data_side_effects_visionos">• 缺少音軌選單。
+    <string name="revanced_spoof_streaming_data_side_effects_visionos">"• 缺少音軌選單。
 • 兒童影片在登出或隱身模式下可能無法播放。
-• 由於這是一個未發布的客戶端，因此它可能隨時停止工作。</string>
+• 由於這是一個未發布的客戶端，因此它可能隨時停止工作。"</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">用於獲取串流資料的用戶端隱藏在統計資料中。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">用於取得串流資料的用戶端顯示在統計資料中。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">顯示統計資料</string>
@@ -2504,20 +2502,19 @@ uBlock Origin 已找到解決此問題的方案，可透過 '繞過虛假緩衝'
 YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法找到 n-sig 模式，播放可能會失敗。
 
 此功能尚在開發中，請僅用於調試目的。"</string>
-    <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">用於反混淆的 JavaScript 未保持最新。
+    <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"用於反混淆的 JavaScript 未保持最新。
 
-• 雖然使用了可成功反混淆的 JavaScript，但它仍然在一定程度上依賴伺服器。</string>
-    <string name="revanced_spoof_streaming_data_use_latest_js_summary_on">用於反混淆的 JavaScript 會保持最新狀態。
+• 雖然使用了可成功反混淆的 JavaScript，但它仍然在一定程度上依賴伺服器。"</string>
+    <string name="revanced_spoof_streaming_data_use_latest_js_summary_on">"用於反混淆的 JavaScript 會保持最新狀態。
 
-• 它高度依賴伺服器，反混淆的成功或失敗取決於伺服器上目前使用的 JavaScript。</string>
+• 它高度依賴伺服器，反混淆的成功或失敗取決於伺服器上目前使用的 JavaScript。"</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">使用最新的 JavaScript</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">用於反混淆的播放器 JavaScript 未保持最新。
-
-• 使用了可成功反混淆的播放器 JavaScript，但它仍然在一定程度上依賴伺服器。</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">用於反混淆的播放器 JavaScript 會保持最新狀態。
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"用於反混淆的播放器 JavaScript 不會保持最新狀態。 
+• 使用的是已成功進行反混淆的播放器 JavaScript，但仍在某種程度上依賴伺服器。"</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"用於反混淆的播放器 JavaScript 會保持最新狀態。
 
 • 它高度依賴伺服器，反混淆的成功或失敗取決於伺服器上目前使用的播放器 JavaScript。
-• 如果您在使用 JavaScript 用戶端時遇到問題，請先嘗試停用此功能。</string>
+• 如果您在使用 JavaScript 用戶端時遇到問題，請先嘗試停用此功能。"</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">使用最新的播放器 JavaScript</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">關閉此設定可能會導致影片播放問題。</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">影片編解碼器自動確定。</string>
@@ -2526,9 +2523,9 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_swipe_brightness_distance_summary">調整亮度所需滑動的像素數量。數值越低，亮度變化越快，數值越高，亮度變化越慢（1-1000）。</string>
     <string name="revanced_swipe_brightness_distance_title">亮度範圍</string>
     <string name="revanced_swipe_brightness_summary_off">全螢幕亮度滑動已停用</string>
-    <string name="revanced_swipe_brightness_summary_on">已啟用全螢幕亮度滑動功能。
+    <string name="revanced_swipe_brightness_summary_on">"已啟用全螢幕亮度滑動功能。
 
-在螢幕左側垂直滑動即可調整亮度。</string>
+在螢幕左側垂直滑動即可調整亮度。"</string>
     <string name="revanced_swipe_brightness_title">啟用亮度手勢</string>
     <string name="revanced_swipe_distance_invalid">無效滑動範圍，必須介於 1 到 1000 之間。</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">在「鎖定螢幕」模式下停用滑動手勢</string>
@@ -2575,16 +2572,16 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_swipe_seek_distance_summary">滑動跳過影片內容所需的像素數。數值越低，搜尋速度越快，數值越高，搜尋速度越慢（1-1000）。</string>
     <string name="revanced_swipe_seek_distance_title">搜尋範圍</string>
     <string name="revanced_swipe_seek_summary_off">全螢幕進度搜尋滑動手勢已停用。</string>
-    <string name="revanced_swipe_seek_summary_on">全螢幕進度搜尋滑動手勢已啟用。
+    <string name="revanced_swipe_seek_summary_on">"全螢幕進度搜尋滑動手勢已啟用。
 
-在螢幕上半部左右滑動以搜尋影片。</string>
+在螢幕上半部左右滑動以搜尋影片。"</string>
     <string name="revanced_swipe_seek_title">啟用進度搜尋手勢</string>
     <string name="revanced_swipe_speed_distance_summary">調整影片速度所需滑動的像素數量。數值越低，速度變化越快；數值越高，速度變化越慢（1-1000）。</string>
     <string name="revanced_swipe_speed_distance_title">速度範圍</string>
     <string name="revanced_swipe_speed_summary_off">全螢幕速度滑動已停用。</string>
-    <string name="revanced_swipe_speed_summary_on">全螢幕速度滑動已啟用。
+    <string name="revanced_swipe_speed_summary_on">"全螢幕速度滑動已啟用。
 
-在螢幕下半部左右滑動以調整速度。</string>
+在螢幕下半部左右滑動以調整速度。"</string>
     <string name="revanced_swipe_speed_title">啟用速度手勢</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">進度搜尋滑動區域在上方，速度滑動區域在下方。</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">速度滑動區域在上方，進度搜尋滑動區域在下方。</string>
@@ -2600,25 +2597,25 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_swipe_volume_sensitivity_summary">每次滑動音量改變多少。</string>
     <string name="revanced_swipe_volume_sensitivity_title">滑動控制 (音量) 靈敏度</string>
     <string name="revanced_swipe_volume_summary_off">全螢幕音量滑動已停用。</string>
-    <string name="revanced_swipe_volume_summary_on">全螢幕音量滑動功能已啟用。
+    <string name="revanced_swipe_volume_summary_on">"全螢幕音量滑動功能已啟用。
 
-在螢幕右側垂直滑動即可調整音量。</string>
+在螢幕右側垂直滑動即可調整音量。"</string>
     <string name="revanced_swipe_volume_title">啟用音量手勢</string>
-    <string name="revanced_switch_create_with_notifications_button_summary">交換創作按鈕與通知按鈕的位置，透過偽裝裝置資訊來實現
+    <string name="revanced_switch_create_with_notifications_button_summary">"交換創作按鈕與通知按鈕的位置，透過偽裝裝置資訊來實現
 
 • 變更這項設定可能需要重新啟動裝置
 • 停用這項設定會從伺服器端載入更多廣告
-• 你應該停用這項設定以顯示影片廣告</string>
+• 你應該停用這項設定以顯示影片廣告"</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">「建立」按鈕未與「通知」按鈕交換。</string>
-    <string name="revanced_switch_create_with_notifications_button_summary_on">「建立」按鈕已與「通知」按鈕交換。
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"「建立」按鈕已與「通知」按鈕交換。
 
-注意：啟用此功能也會強制隱藏影片廣告。</string>
+注意：啟用此功能也會強制隱藏影片廣告。"</string>
     <string name="revanced_switch_create_with_notifications_button_title">交換創作和通知按鈕</string>
-    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">停用此功能可能會從伺服器載入更多廣告。
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"停用此功能可能會從伺服器載入更多廣告。
 
 此外，廣告將不再在 Shorts 中被封鎖。
 
-若此設定未生效，請嘗試切換至無痕模式。</string>
+若此設定未生效，請嘗試切換至無痕模式。"</string>
     <string name="revanced_theme_default">預設</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX 音樂</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">警告</string>
@@ -2627,7 +2624,7 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_transcript_cookies_about_summary">點擊查看如何取得 Cookies。</string>
     <string name="revanced_transcript_cookies_about_title">關於字幕 Cookie</string>
     <string name="revanced_transcript_cookies_dialog_auth_text">驗證</string>
-    <string name="revanced_transcript_cookies_dialog_message">驗證
+    <string name="revanced_transcript_cookies_dialog_message">"驗證
 ═══════════════
 1. 點選「驗證」在 WebView 中開啟登入頁面。
 2. 登入您的 Google 帳戶。
@@ -2648,7 +2645,7 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
 5. 點選「複製」以複製 Cookie。
 6. 關閉 WebView 並將複製的 Cookie 貼到「字幕 Cookie」設定中。
 
-免責聲明：未登入時發出的 Cookie 可能無效，或可能需要一些時間才能提供給轉錄 API。</string>
+免責聲明：未登入時發出的 Cookie 可能無效，或可能需要一些時間才能提供給轉錄 API。"</string>
     <string name="revanced_transcript_cookies_dialog_no_auth_text">無需驗證</string>
     <string name="revanced_transcript_cookies_dialog_title">匯出字幕 Cookies</string>
     <string name="revanced_transcript_cookies_summary">在 Transcript API 請求使用 Cookie。</string>
@@ -2683,17 +2680,17 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_webview_toast_no_network">請檢查您的網路連線。</string>
     <string name="revanced_webview_toast_unavailable">WebView 無法使用。</string>
     <string name="revanced_webview_visitor_data">訪客資料</string>
-    <string name="revanced_whitelist_add_failed">無法將頻道 %1$s 新增至 %2$s 白名單。</string>
-    <string name="revanced_whitelist_added">頻道 %1$s 已加入 %2$s 白名單。</string>
+    <string name="revanced_whitelist_add_failed">"無法將頻道 '%1$s' 新增至 %2$s 白名單。"</string>
+    <string name="revanced_whitelist_added">"頻道 '%1$s' 已加入 %2$s 白名單。"</string>
     <string name="revanced_whitelist_empty">沒有列入白名單的頻道。</string>
     <string name="revanced_whitelist_excluded">未加入白名單。</string>
     <string name="revanced_whitelist_failure_generic">載入頻道資訊失敗。</string>
     <string name="revanced_whitelist_included">已新增至白名單。</string>
     <string name="revanced_whitelist_playback_speed">播放速度</string>
     <string name="revanced_whitelist_reload_video">你想現在重新加載影片嗎？</string>
-    <string name="revanced_whitelist_remove_dialog_message">從 %2$s 白名單中刪除頻道 %1$s 嗎？</string>
-    <string name="revanced_whitelist_remove_failed">無法從 %2$s 白名單中刪除頻道 %1$s 。</string>
-    <string name="revanced_whitelist_removed">頻道 %1$s 已從 %2$s 白名單中刪除。</string>
+    <string name="revanced_whitelist_remove_dialog_message">"從 %2$s 白名單中刪除頻道 '%1$s' 嗎？"</string>
+    <string name="revanced_whitelist_remove_failed">"無法從 %2$s 白名單中刪除頻道 '%1$s' 。"</string>
+    <string name="revanced_whitelist_removed">"頻道 '%1$s' 已從 %2$s 白名單中刪除。"</string>
     <string name="revanced_whitelist_settings_summary">查看或刪除已新增至白名單的頻道清單。</string>
     <string name="revanced_whitelist_settings_title">頻道白名單</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>

@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Locale;
 import java.util.UUID;
 
 import app.revanced.extension.shared.settings.Setting;
@@ -259,6 +260,22 @@ public class SponsorBlockSettings {
             Settings.SB_PRIVATE_USER_ID.save(uuid);
         }
         return uuid;
+    }
+
+    public static String migrateOldColorString(String colorString, float opacity) {
+        if (colorString.length() >= 8) {
+            return colorString;
+        }
+
+        // Change color string from #RGB to #ARGB using default alpha.
+        if (colorString.startsWith("#")) {
+            colorString = colorString.substring(1);
+        }
+
+        String alphaHex = String.format(Locale.US, "%02X", (int)(opacity * 255));
+        String argbColorString = '#' + alphaHex + colorString.substring(0, 6);
+        Logger.printDebug(() -> "Migrating old color string with default opacity: " + argbColorString);
+        return argbColorString;
     }
 
     private static boolean initialized;

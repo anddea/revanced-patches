@@ -13,11 +13,11 @@ internal data class JsChallengeRequest(
 
 internal data class ChallengeInput(
     val playerUrl: String,
-    val challenges: MutableList<String> = mutableListOf()
+    val challenges: List<String>
 )
 
 internal data class ChallengeOutput(
-    val results: MutableMap<String, String> = mutableMapOf()
+    val results: Map<String, String>
 )
 
 internal data class JsChallengeProviderResponse(

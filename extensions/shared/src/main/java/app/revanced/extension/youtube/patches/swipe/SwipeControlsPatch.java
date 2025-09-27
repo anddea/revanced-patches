@@ -74,6 +74,11 @@ public class SwipeControlsPatch {
             return Settings.SWIPE_SPEED.get() &&
                     !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
         }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.SWIPE_SPEED, Settings.SWIPE_OVERLAY_STYLE);
+        }
     }
 
     public static final class SwipeOverlaySeekColorAvailability implements Setting.Availability {
@@ -81,6 +86,11 @@ public class SwipeControlsPatch {
         public boolean isAvailable() {
             return Settings.SWIPE_SEEK.get() &&
                     !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.SWIPE_SEEK, Settings.SWIPE_OVERLAY_STYLE);
         }
     }
 }

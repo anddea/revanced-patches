@@ -132,11 +132,11 @@
     <string name="revanced_enable_mini_player_next_button_title">Включить кнопку следующего в миниплеере</string>
     <string name="revanced_enable_mini_player_previous_button_summary">Включает кнопку предыдущего трека в миниплеере.</string>
     <string name="revanced_enable_mini_player_previous_button_title">Включить кнопку предыдущего в миниплеере</string>
-    <string name="revanced_enable_opus_codec_summary">"Включает аудио кодек opus вместо аудио кодека mp4a.
+    <string name="revanced_enable_opus_codec_summary">"Включает кодек OPUS, если он присутствует в ответе проигрывателя.
 
 Информация:
-• Последние Android клиенты используют аудио кодек opus по умолчанию.
-• Эта функция подходит только для очень старых клиентов."</string>
+• Последние версии клиентов YouTube Music по умолчанию используют аудиокодек OPUS.
+• Это может потребоваться, если клиент или видеопоток изменены."</string>
     <string name="revanced_enable_opus_codec_title">Кодек Opus</string>
     <string name="revanced_enable_smooth_transition_animation_summary">"Включает плавную анимацию при разворачивании миниплеера из свернутого состояния."</string>
     <string name="revanced_enable_smooth_transition_animation_title">Включить плавную анимацию перехода</string>
@@ -436,7 +436,7 @@
     <string name="revanced_sb_enabled">Включить SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock - это реализованная с помощью участия сообщества система для пропуска раздражающих частей видео в YouTube.</string>
     <string name="revanced_sb_reset_color">Сбросить цвет</string>
-    <string name="revanced_sb_segments_filler">Отвлечённые темы / Шутки</string>
+    <string name="revanced_sb_segments_filler">Касательные / шутки</string>
     <string name="revanced_sb_segments_filler_sum">Второстепенные сцены или шутки, которые не требуются для понимания основного содержания видео. Не включает разделы с контекстом или подробностями истории.</string>
     <string name="revanced_sb_segments_hook">Хук / Приветствие</string>
     <string name="revanced_sb_segments_hook_sum">Озвученные трейлеры к предстоящему видео, приветствия и прощания. Не включает разделы с дополнительным контентом.</string>
@@ -448,7 +448,7 @@
     <string name="revanced_sb_segments_nomusic_sum">Только для использования в музыкальных роликах. Разделы музыкальных видео без музыки, которые ещё не охвачены другой категорией.</string>
     <string name="revanced_sb_segments_outro">Конечная заставка / Титры</string>
     <string name="revanced_sb_segments_outro_sum">Титры или время появления конечных заставок YouTube. Не для подведения итогов сказанного в видео.</string>
-    <string name="revanced_sb_segments_preview">Предпросмотр / Краткое содержание / Завязка</string>
+    <string name="revanced_sb_segments_preview">Предварительный просмотр / краткое содержание</string>
     <string name="revanced_sb_segments_preview_sum">Краткое содержание предыдущих эпизодов или предварительный просмотр того, что будет в данном видео.</string>
     <string name="revanced_sb_segments_selfpromo">Безвозмездная реклама / Самореклама</string>
     <string name="revanced_sb_segments_selfpromo_sum">Похоже на спонсорскую рекламу, за исключением безвозмездной рекламы или саморекламы. Включает разделы о товарах, пожертвованиях или информации о том, с кем они сотрудничали.</string>
@@ -456,7 +456,7 @@
     <string name="revanced_sb_segments_sponsor_sum">Платные промоакции, платные рефералы и прямая реклама. Не для саморекламы или бесплатных рекомендаций о делах / создателях / веб-сайтах / продуктах, которые им нравятся.</string>
     <string name="revanced_sb_skip_automatically">Автоматически пропускать</string>
     <string name="revanced_sb_skip_ignore">Отключить</string>
-    <string name="revanced_sb_skipped_filler">Пропущен наполнитель.</string>
+    <string name="revanced_sb_skipped_filler">Пропущена касательная.</string>
     <string name="revanced_sb_skipped_hook">Пропущен хук.</string>
     <string name="revanced_sb_skipped_interaction">Пропущено назойливое напоминание.</string>
     <string name="revanced_sb_skipped_intro_beginning">Пропущено интро.</string>
@@ -490,6 +490,24 @@
     <string name="revanced_settings_import_reset">Настройки сброшены до начальных.</string>
     <string name="revanced_settings_import_success">Импортировано %d настроек.</string>
     <string name="revanced_settings_reset">Сбросить</string>
+    <string name="revanced_settings_search_clear_history">Очистить историю поиска</string>
+    <string name="revanced_settings_search_clear_history_message">Вы уверены, что хотите очистить всю историю поиска?</string>
+    <string name="revanced_settings_search_empty_history_summary">Чтобы сохранить историю поиска, введите поисковый запрос и нажмите Enter.</string>
+    <string name="revanced_settings_search_empty_history_title">Нет истории поиска</string>
+    <string name="revanced_settings_search_history_summary_off">История поиска в настройках не отображается.</string>
+    <string name="revanced_settings_search_history_summary_on">Отображается история поиска настроек.</string>
+    <string name="revanced_settings_search_history_title">Показывать историю поиска настроек</string>
+    <string name="revanced_settings_search_no_results_summary">Попробуйте другое ключевое слово.</string>
+    <string name="revanced_settings_search_no_results_title">По запросу \'%s\' ничего не найдено.</string>
+    <string name="revanced_settings_search_recent_searches">Недавние запросы</string>
+    <string name="revanced_settings_search_remove_message">Удалить из истории поиска?</string>
+    <string name="revanced_settings_search_tips_summary">"• Нажмите на путь, чтобы перейти к нему.
+• Нажмите и удерживайте настройку, чтобы перейти к ней.
+• Нажмите Enter, чтобы сохранить поисковый запрос в истории.
+• При поиске игнорируются регистр и знаки препинания.
+• Родительские настройки отображаются над отключенными дочерними настройками."</string>
+    <string name="revanced_settings_search_tips_title">Советы по поиску</string>
+    <string name="revanced_settings_search_title">Поиск %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Настройки скопированы в буфер.</string>
     <string name="revanced_spoof_app_version_summary">"Подменяет версию клиента на более старую.
@@ -507,12 +525,7 @@
     <string name="revanced_spoof_app_version_target_summary">Выберите целевую версию приложения для подмены.</string>
     <string name="revanced_spoof_app_version_target_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
-    <string name="revanced_spoof_client_summary">Подменяет клиент для предотвращения проблем с воспроизведением.
-
-Побочный эффект:
-• Кнопки действий могут быть всегда скрыты в YouTube Music 7.17+.
-• Всплывающее меню плеера может отображаться некорректно.
-• Эти побочные эффекты можно устранить, очистив данные приложения и повторно войдя в систему.</string>
+    <string name="revanced_spoof_client_summary">Измените клиент, чтобы предотвратить проблемы с воспроизведением.</string>
     <string name="revanced_spoof_client_title">Подмена клиента</string>
     <string name="revanced_spoof_client_type_summary">"Определяет клиент по умолчанию для подмены."</string>
     <string name="revanced_spoof_client_type_title">Клиент по умолчанию</string>
@@ -526,17 +539,22 @@
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">Мобильный веб</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">ТВ</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Простой ТВ</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Определяет клиент по умолчанию для подмены.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Клиент по умолчанию</string>
-    <string name="revanced_spoof_streaming_data_message">Если у вас возникли какие-либо проблемы с воспроизведением, включите один из следующих параметров в зависимости от того, какой из них вам больше подходит: \"Spoof video streams\" или \"Spoof client\" в &lt;i&gt;&lt;u&gt;Настройках &gt; %s &gt; Разное;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">Не удалось получить потоки клиента.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Попробуйте изменить клиент по умолчанию на TV или TV Simply.</string>
+    <string name="revanced_spoof_streaming_data_message">Если у вас возникли какие-либо проблемы с воспроизведением, включите функцию \"Подмена потоковых данных\" в &lt;i&gt;&lt;u&gt;Настройки &gt; %s &gt; Разное &lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показывает клиент, используемый для получения потоковых данных в Статистике для сисадминов.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показывать в \"Статистике для сисадминов\"</string>
     <string name="revanced_spoof_streaming_data_summary">"Подменяет клиентские видеопотоки для предотвращения проблем с воспроизведением.
 
 Если вы являетесь пользователем YouTube Premium, эта настройка может быть не нужна."</string>
     <string name="revanced_spoof_streaming_data_title">Подмена потоковых данных</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"При включении плеера будет использоваться последняя версия JavaScript для деобфускации URL-адресов потоковой передачи на 'TV', 'TV Simply' и 'Mobile Web'.
+
+Если у вас возникли проблемы с JavaScript-клиентом, попробуйте сначала отключить эту функцию."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Используйте последнюю версию JavaScript для проигрывателя</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">Музыка для iOS 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">Музыка для iOS 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">Музыка для iOS 8.12</string>
