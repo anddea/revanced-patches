@@ -1469,12 +1469,13 @@
       {
         "key": "gmsCoreVendorGroupId",
         "title": "GmsCore vendor group ID",
-        "description": "The vendor\u0027s group ID for GmsCore.",
+        "description": "The vendor\u0027s group ID for GmsCore. Do not change this option, if you do not know what you are doing.",
         "required": true,
         "type": "kotlin.String",
         "default": "app.revanced",
         "values": {
-          "ReVanced": "app.revanced"
+          "ReVanced MicroG": "app.revanced",
+          "Original MicroG": "com.google"
         }
       },
       {
@@ -1555,12 +1556,13 @@
       {
         "key": "gmsCoreVendorGroupId",
         "title": "GmsCore vendor group ID",
-        "description": "The vendor\u0027s group ID for GmsCore.",
+        "description": "The vendor\u0027s group ID for GmsCore. Do not change this option, if you do not know what you are doing.",
         "required": true,
         "type": "kotlin.String",
         "default": "app.revanced",
         "values": {
-          "ReVanced": "app.revanced"
+          "ReVanced MicroG": "app.revanced",
+          "Original MicroG": "com.google"
         }
       },
       {

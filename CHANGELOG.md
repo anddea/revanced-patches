@@ -1,3 +1,15 @@
+# [3.14.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.14.0-dev.5...v3.14.0-dev.6) (2025-09-28)
+
+
+### Bug Fixes
+
+* **YouTube - Player components:** Hide new end screen cards ([4e7aeb9](https://github.com/anddea/revanced-patches/commit/4e7aeb92ba87bc47915b614fbc61a644c154cc6b))
+
+
+### Features
+
+* Align with RVX [[v5.12.1-dev.5](https://github.com/inotia00/revanced-patches/releases/tag/v5.12.1-dev.5)] ([4c86848](https://github.com/anddea/revanced-patches/commit/4c868480db85028b3c9506e7495148cfa731eb5f))
+
 # [3.14.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.14.0-dev.4...v3.14.0-dev.5) (2025-09-27)
 
 
