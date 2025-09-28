@@ -235,7 +235,7 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">Aby używać tej funkcji, zmień domyślnego klienta (oszukiwanie strumienia danych) na TV, Uproszczony TV lub iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Włączone</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Wyłączone</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Automatyczne wymuszanie ścieżki dźwiękowej jest wyłączone
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Automatyczne wymuszanie ścieżki dźwiękowej jest wyłączone.
 
 Może to nie działać u niektórych użytkowników, więc jeśli nie działa u ciebie, to:
 1. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i użyj opcji 'Włącz klienta JavaScript'
@@ -927,8 +927,8 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Menu od ścieżki dźwiękowej jest ukryte:
 
 By wyświetlić menu od ścieżki dźwiękowej:
-1. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i użyj opcji 'Włącz klienta JavaScript'
-2. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i zmień domyślnego klienta na 'TV' lub 'Uproszczony TV'
+1. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych i użyj opcji 'Włącz klienta JavaScript'
+2. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych i zmień domyślnego klienta na 'TV' lub 'Uproszczony TV'
 "</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Ukryte</string>
@@ -2354,8 +2354,8 @@ Informacje:
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"Widoczny, lecz pod warunkiem używania klientów 'Android VR', 'Mobilny przeglądarkowy' bądź 'visionOS'"</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">Przycisk od ścieżki dźwiękowej</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Warunki:
-• używanym klientem przy przechwytywaniu strumienia danych jest 'Android VR', 'Mobilny przeglądarkowy' lub 'visionOS'
-• odtwarzany jest film z wieloma ścieżkami dźwiękowymi.
+• używanym klientem przy przechwytywaniu strumienia danych jest 'Android VR', 'Mobilny przeglądarkowy', 'iPadOS' lub 'visionOS'
+• odtwarzany jest film z wieloma ścieżkami dźwiękowymi
 
 Znane problemy:
 • jeśli język aplikacji został zmieniony w ustawieniach YouTube i aplikaja nie została uruchomiona ponownie, język w oknie dialogowym ścieżki dźwiękowej może nie ulec zmianie
@@ -2378,7 +2378,7 @@ Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w 
 <small>(Niewydany, bez autoryzacji)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Domyślny klient</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Nie można przechwycić żadnego ze strumieni klienta.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Spróbuj zmienić domyślnego klienta na TV lub Uproszczony TV.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Spróbuj zmienić domyślnego klienta na TV.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Określany automatycznie</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Wymuszony</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Wymuś kodek AVC (H.264)</string>
@@ -2505,7 +2505,7 @@ Ograniczenie:
     <string name="revanced_spoof_streaming_data_use_js_title">Włącz klienta JavaScript</string>
     <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"Aplikacja używa więcej zasobów systemu, by znaleźć bądź dekodować wzorce n-sig, przez co film zaczyna się o wiele powolniej.
 
-Czasami wzorzec n-sig może nie zostać zdekodowany, co powoduje opóźnienie rozpoczęcia odtwarzania filmu, lub przerywanie strumienia filmu.
+Czasami wzorzec n-sig może nie zostać zdekodowany, co powoduje opóźnienie rozpoczęcia odtwarzania filmu lub przerywanie strumienia filmu.
 
 Może być to łatwo rozwiązane poprzez kliknięcie przycisku od odświeżenia filmu w odtwarzaczu.
 

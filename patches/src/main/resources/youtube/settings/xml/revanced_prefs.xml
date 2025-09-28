@@ -922,7 +922,7 @@
             <SwitchPreference android:title="@string/revanced_spoof_streaming_data_vr_disable_av1_title" android:key="revanced_spoof_streaming_data_vr_disable_av1" android:summaryOn="@string/revanced_spoof_streaming_data_vr_disable_av1_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_vr_disable_av1_summary_off" />
 
             <PreferenceCategory android:title="@string/revanced_preference_category_no_auth" android:layout="@layout/revanced_settings_preferences_category"/>
-            <app.revanced.extension.shared.settings.preference.SortedListPreference android:entries="@array/revanced_language_entries" android:title="@string/revanced_spoof_streaming_data_no_auth_language_title" android:key="revanced_spoof_streaming_data_no_auth_language" android:entryValues="@array/revanced_language_entry_values" />
+            <app.revanced.extension.youtube.settings.preference.SpoofAudioSelectorListPreference android:entries="@array/revanced_language_entries" android:title="@string/revanced_spoof_streaming_data_no_auth_language_title" android:key="revanced_spoof_streaming_data_no_auth_language" android:entryValues="@array/revanced_language_entry_values" />
             <SwitchPreference android:title="@string/revanced_spoof_streaming_data_audio_track_button_title" android:key="revanced_spoof_streaming_data_audio_track_button" android:summaryOn="@string/revanced_spoof_streaming_data_audio_track_button_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_audio_track_button_summary_off" />
 
             <PreferenceCategory android:title="@string/revanced_preference_category_ios" android:layout="@layout/revanced_settings_preferences_category" />

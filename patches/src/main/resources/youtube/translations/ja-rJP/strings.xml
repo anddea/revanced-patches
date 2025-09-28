@@ -23,7 +23,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="revanced_advanced_video_quality_menu_summary_off">画質の詳細設定メニューを表示します。</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">画質の詳細設定メニューを表示します。</string>
     <string name="revanced_advanced_video_quality_menu_title">画質の詳細設定メニューを表示</string>
-    <string name="revanced_advanced_video_quality_menu_type_summary_off">現在の設定: 旧バージョンのフライアウトパネルが使用されます。</string>
+    <string name="revanced_advanced_video_quality_menu_type_summary_off">現在の設定: 昔のスタイルのフライアウトパネルが使用されます。</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">現在の設定: カスタムダイアログが使用されます。</string>
     <string name="revanced_advanced_video_quality_menu_type_title">ショートの画質の詳細設定メニュー</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow は YouTube の動画のサムネイルをクラウドソーシングで提供しています。これらのサムネイルは、YouTube が提供するサムネイルよりも関連性の高いものが多いです。
@@ -70,7 +70,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_append_time_stamp_information_type_summary_off">現在の設定: 再生速度を表示します。</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">現在の設定: 画質を表示します。</string>
     <string name="revanced_append_time_stamp_information_type_title">表示する情報の種類</string>
-    <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">現在の設定: 旧バージョンのフライアウトパネルが使用されます。</string>
+    <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">現在の設定: 昔のスタイルのフライアウトパネルが使用されます。</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">現在の設定: カスタムダイアログが使用されます。</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">画質設定メニューの種類</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">バッテリーセーバーモードでもアンビエントモードを有効にします。</string>
@@ -238,7 +238,7 @@ DeArrow について詳しく知るには、ここをタップしてください
 
 一部の環境下では機能しない可能性があります。機能しない場合は、以下の手順に従ってください:
 1. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[JavaScript クライアントを使用] をオンにします。
-2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV」または「TV Simply」を選択します。"</string>
+2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV」を選択します。"</string>
     <string name="revanced_disable_auto_audio_tracks_title">音声トラックの強制を無効化</string>
     <string name="revanced_disable_auto_captions_summary_off">投稿者が設定している字幕の強制を無効にします。</string>
     <string name="revanced_disable_auto_captions_summary_on">投稿者が設定している字幕の強制を無効にします。</string>
@@ -334,7 +334,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_disable_speed_overlay_summary">"画面を長押しして 2 倍速で再生する機能を無効にします。
 
 注意: 
-・倍速再生オーバーレイを無効にすると、旧バージョンのレイアウトの「スライドしてシーク」動作が復元されます。
+・倍速再生オーバーレイを無効にすると、以前のレイアウトの「スライドしてシーク」動作が復元されます。
 ・この設定を無効にしても、倍速再生オーバーレイが強制的に有効になるわけではありません。"</string>
     <string name="revanced_disable_speed_overlay_title">倍速再生オーバーレイを無効化</string>
     <string name="revanced_disable_splash_animation_summary_off">アプリ起動時のスプラッシュアニメーションを無効にします。</string>
@@ -926,7 +926,7 @@ DeArrow について詳しく知るには、ここをタップしてください
 
 [音声トラック] メニューを表示するには:
 1. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[JavaScript クライアントを使用] をオンにします。
-2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV」または「TV Simply」を選択します。"</string>
+2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV」を選択します。"</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">[音声トラック] メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">[音声トラック] メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">[音声トラック] メニューを非表示</string>
@@ -1911,11 +1911,11 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_restart_title">再起動が必要です</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">現在の設定: 全画面表示時にシークバーの上にサムネイルを表示します。</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">現在の設定: シークバーの上にサムネイルを表示します。</string>
-    <string name="revanced_restore_old_seekbar_thumbnails_title">旧バージョンのシークバーサムネイルを復元</string>
-    <string name="revanced_restore_shorts_old_player_layout_summary_off">旧バージョンのプレーヤーレイアウトを復元します。\nこれによりプレーヤーの上部と下部から余白が削除されます。</string>
-    <string name="revanced_restore_shorts_old_player_layout_summary_on">"旧バージョンのプレーヤーレイアウトを復元します。
+    <string name="revanced_restore_old_seekbar_thumbnails_title">昔のスタイルのシークバーサムネイルを復元</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">昔のスタイルのプレーヤーレイアウトを復元します。\nこれによりプレーヤーの上部と下部から余白が削除されます。</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"昔のスタイルのプレーヤーレイアウトを復元します。
 これによりプレーヤーの上部と下部から余白が削除されます。"</string>
-    <string name="revanced_restore_shorts_old_player_layout_title">旧バージョンのプレーヤーレイアウトを復元</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">昔のスタイルのプレーヤーレイアウトを復元</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@ハンドル名 + (ユーザー名)</string>
     <string name="revanced_return_youtube_username_display_format_title">表示形式</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">ユーザー名 + (@ハンドル名)</string>
@@ -2317,17 +2317,17 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_spoof_app_version_summary_off">アプリのバージョンを偽装できます。</string>
     <string name="revanced_spoof_app_version_summary_on">アプリのバージョンを偽装できます。</string>
     <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - 古い UI レイアウトを復元</string>
-    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - 旧バージョンの再生リスト欄を復元</string>
-    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 旧バージョンのコメント入力欄を復元</string>
-    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - 旧バージョンのプレーヤーフライアウトパネルを復元</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - 旧バージョンのショートのアクションバーを復元</string>
-    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - 旧バージョンのデフォルトの画質の動作を復元</string>
+    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - 昔のスタイルの再生リスト欄を復元</string>
+    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 昔のスタイルのコメント入力欄を復元</string>
+    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - 昔のスタイルのプレーヤーフライアウトパネルを復元</string>
+    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - 昔のスタイルのショートのアクションバーを復元</string>
+    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - 昔のスタイルのデフォルトの画質の動作を復元</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - リアルタイムで更新される再生回数と高評価数を無効化</string>
     <string name="revanced_spoof_app_version_target_entry_19_01_34">19.01.34 - 概要欄の操作を無効化</string>
     <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - 古いスタイルの数字の回転アニメーションを復元</string>
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - ナビゲーションとツールバーで Cairo アイコンを無効化</string>
-    <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - 旧バージョンの再生リストヘッダーを復元</string>
-    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - 旧バージョンの再生速度のフライアウトパネルを復元</string>
+    <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - 昔のスタイルの再生リストヘッダーを復元</string>
+    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - 昔のスタイルの再生速度のフライアウトパネルを復元</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - 文字起こし機能を復元</string>
     <string name="revanced_spoof_app_version_target_entry_title">偽装するバージョン</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">無効な偽装アプリバージョンです: %s</string>
@@ -2373,7 +2373,7 @@ Cookie の使用は万能薬ではありません。
 <small>(未リリース、認証なし)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">偽装するクライアントを選択</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">クライアントストリームを取得できませんでした。</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">偽装するクライアントを「TV」または「TV Simply」に変更してみてください。</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">偽装するクライアントを「TV」に変更してみてください。</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">iOS クライアントで AVC (H.264) を強制します。</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">iOS クライアントで AVC (H.264) を強制します。</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">iOS クライアントで AVC (H.264) を強制</string>
@@ -2500,9 +2500,9 @@ uBlock Origin はこの問題の回避策を発見しました。これは、[�
 
 場合によっては、n-sig パターンのデコードに失敗し、動画の再生開始が遅れたり、動画のストリーミングが途切れたりする可能性があります。
 
-この問題は、プレーヤーの「リロードボタン」をタップして動画を再読み込みすることで簡単に解決できます。(前提条件:「リロードボタンを表示」と「リロードボタンを常に表示」の両方が有効になっていること)
+この問題は、プレーヤーの「リロードボタン」をタップして動画を再読み込みすることで簡単に解決できます (前提条件:「リロードボタンを表示」と「リロードボタンを常に表示」の両方が有効になっていること)。
 
-JavaScript クライアントの中では、「TV Simply」が推奨されます。"</string>
+JavaScript クライアントの中では、「TV」が推奨されます。"</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"難読化解除用の JavaScript を最新の状態に保ちます。\n\n注意: サーバーに大きく依存し、難読化解除の成功または失敗はサーバー上で現在使用されている JavaScript に依存します。"</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_on">"難読化解除用の JavaScript を最新の状態に保ちます。
 

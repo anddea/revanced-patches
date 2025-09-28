@@ -1,9 +1,9 @@
 package com.liskovsoft.youtubeapi.app.nsigsolver.provider
 
-import com.liskovsoft.youtubeapi.app.nsigsolver.common.YTInfoExtractor
+import com.liskovsoft.youtubeapi.app.nsigsolver.common.YouTubeInfoExtractor
 
 internal abstract class JsChallengeProvider {
-    protected val ie = YTInfoExtractor
+    protected val ie = YouTubeInfoExtractor
     protected abstract val supportedTypes: List<JsChallengeType>
 
     private fun validateRequest(request: JsChallengeRequest) {

@@ -54,6 +54,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
 
 private const val GMS_CORE_ORIGINAL_VENDOR_GROUP_ID = "com.google"
+private const val GMS_CORE_REVANCED_VENDOR_GROUP_ID = "app.revanced"
 private const val CLONE_PACKAGE_NAME_YOUTUBE = "bill.youtube"
 private const val DEFAULT_PACKAGE_NAME_YOUTUBE = "anddea.youtube"
 internal const val ORIGINAL_PACKAGE_NAME_YOUTUBE = "com.google.android.youtube"
@@ -89,13 +90,15 @@ fun gmsCoreSupportPatch(
 ) {
     val gmsCoreVendorGroupIdOption = stringOption(
         key = "gmsCoreVendorGroupId",
-        default = "app.revanced",
+        default = GMS_CORE_REVANCED_VENDOR_GROUP_ID,
         values =
             mapOf(
-                "ReVanced" to "app.revanced",
+                "ReVanced MicroG" to GMS_CORE_REVANCED_VENDOR_GROUP_ID,
+                "Original MicroG" to GMS_CORE_ORIGINAL_VENDOR_GROUP_ID,
             ),
         title = "GmsCore vendor group ID",
-        description = "The vendor's group ID for GmsCore.",
+        description = "The vendor's group ID for GmsCore. " +
+                "Do not change this option, if you do not know what you are doing.",
         required = true,
     ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) }
 

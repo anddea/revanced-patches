@@ -6,7 +6,6 @@ import app.revanced.extension.shared.innertube.client.YouTubeClient.ClientType
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createApplicationRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createJSRequestBody
 import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
-import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_AUDIO_TRACK
 import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.getStreamingDataRoute
 import app.revanced.extension.shared.innertube.utils.PlayerResponseOuterClass.PlayerResponse
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.getAdaptiveFormats
@@ -16,14 +15,12 @@ import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtil
 import app.revanced.extension.shared.innertube.utils.ThrottlingParameterUtils
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup
 import app.revanced.extension.shared.patches.spoof.StreamingDataOuterClassPatch.parseFrom
-import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.settings.BaseSettings
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.StringRef.str
 import app.revanced.extension.shared.utils.Utils
 import com.google.protos.youtube.api.innertube.StreamingDataOuterClass.StreamingData
 import com.liskovsoft.youtubeapi.app.PoTokenGate
-import org.apache.commons.lang3.BooleanUtils
 import org.apache.commons.lang3.StringUtils
 import java.io.BufferedInputStream
 import java.io.ByteArrayOutputStream
@@ -141,8 +138,10 @@ class StreamingDataRequest private constructor(
             get() = lastSpoofedClient?.friendlyName ?: "Unknown"
 
         @JvmStatic
-        val lastSpoofedClientIsNoAuth: Boolean
-            get() = BooleanUtils.isFalse(lastSpoofedClient?.supportsCookies?: true)
+        val lastSpoofedClientHasSingleAudioTrack: Boolean
+            get() = lastSpoofedClient?.let {
+                !it.supportsCookies && !it.supportsMultiAudioTracks
+            }?: false
 
         @JvmStatic
         fun overrideLanguage(language: String) {
@@ -355,111 +354,6 @@ class StreamingDataRequest private constructor(
             return streamingData
         }
 
-        private fun setAudioTrackLanguage(
-            videoId: String,
-            requestHeader: Map<String, String>,
-            isMobileWeb: Boolean,
-        ) {
-            // On Mobile Web, if an invalid language code is used, it will fall back to English.
-            // Only use the YouTube API to fetch the default audio track language code when the client is Mobile Web.
-            if (isMobileWeb) {
-                for (clientType in arrayOf(ClientType.ANDROID, ClientType.ANDROID_VR)) {
-                    val startTime = System.currentTimeMillis()
-                    Logger.printDebug { "Fetching audio track for: $videoId using client: $clientType" }
-
-                    try {
-                        val requestBody = createApplicationRequestBody(
-                            clientType = clientType,
-                            videoId = videoId,
-                            language = "en"
-                        )
-
-                        val connection =
-                            getInnerTubeResponseConnectionFromRoute(
-                                GET_AUDIO_TRACK,
-                                clientType,
-                                requestHeader
-                            )
-
-                        connection.setFixedLengthStreamingMode(requestBody.size)
-                        connection.outputStream.write(requestBody)
-
-                        val responseCode = connection.responseCode
-                        if (responseCode != 200) {
-                            connection.disconnect()
-                            continue
-                        }
-                        val json = Requester.parseJSONObjectAndDisconnect(connection)
-
-                        if (!json.has("captions")) {
-                            continue
-                        }
-                        val captions =
-                            json.getJSONObject("captions")
-                        if (!captions.has("playerCaptionsTracklistRenderer")) {
-                            continue
-                        }
-                        val playerCaptionsTracklistRenderer =
-                            captions.getJSONObject("playerCaptionsTracklistRenderer")
-                        if (!playerCaptionsTracklistRenderer.has("audioTracks")) {
-                            continue
-                        }
-                        val audioTracks =
-                            playerCaptionsTracklistRenderer.getJSONArray("audioTracks")
-                        if (audioTracks.length() < 2) {
-                            continue
-                        }
-                        if (!json.has("streamingData")) {
-                            continue
-                        }
-                        val streamingData =
-                            json.getJSONObject("streamingData")
-                        if (!streamingData.has("adaptiveFormats")) {
-                            continue
-                        }
-                        val adaptiveFormats =
-                            streamingData.getJSONArray("adaptiveFormats")
-                        if (adaptiveFormats.length() < 2) {
-                            continue
-                        }
-                        for (i in adaptiveFormats.length() - 1 downTo 0) {
-                            val adaptiveFormat = adaptiveFormats.getJSONObject(i)
-
-                            if (adaptiveFormat.has("audioTrack")) {
-                                val audioTrack = adaptiveFormat.getJSONObject("audioTrack")
-                                val displayName = audioTrack.getString("displayName")
-                                if (StringUtils.contains(displayName, "original")) {
-                                    val id = audioTrack.getString("id")
-                                    val dotIndex = StringUtils.indexOf(id, ".")
-                                    if (dotIndex > -1) {
-                                        val languageCode = id.substring(0, dotIndex)
-                                        overrideLanguage = languageCode
-                                        return
-                                    }
-                                }
-                            }
-                        }
-                    } catch (ex: SocketTimeoutException) {
-                        handleConnectionError("Connection timeout", ex)
-                    } catch (ex: IOException) {
-                        handleConnectionError("Network error", ex)
-                    } catch (ex: Exception) {
-                        Logger.printException({ "send failed" }, ex)
-                    } finally {
-                        Logger.printDebug { "Fetching audio track request end (videoId: $videoId, took: ${(System.currentTimeMillis() - startTime)} ms)" }
-                    }
-                }
-            }
-            if (overrideLanguage.isEmpty()) {
-                // If client spoofing does not use authentication and lacks multi-audio streams,
-                // then can use any language code for the request and if that requested language is
-                // not available YT uses the original audio language. Authenticated requests ignore
-                // the language code and always use the account language. Use a language that is
-                // not auto-dubbed by YouTube: https://support.google.com/youtube/answer/15569972
-                overrideLanguage = "sv"
-            }
-        }
-
         private fun send(
             clientType: ClientType,
             videoId: String,
@@ -545,13 +439,15 @@ class StreamingDataRequest private constructor(
                     continue
                 }
                 if (!clientType.supportsCookies
+                    && !clientType.supportsMultiAudioTracks
                     && BaseSettings.DISABLE_AUTO_AUDIO_TRACKS.get()
                     && overrideLanguage.isEmpty()) {
-                    setAudioTrackLanguage(
-                        videoId,
-                        requestHeader,
-                        clientType == ClientType.MWEB
-                    )
+                    // If client spoofing does not use authentication and lacks multi-audio streams,
+                    // then can use any language code for the request and if that requested language is
+                    // not available YT uses the original audio language. Authenticated requests ignore
+                    // the language code and always use the account language. Use a language that is
+                    // not auto-dubbed by YouTube: https://support.google.com/youtube/answer/15569972
+                    overrideLanguage = "no"
                 }
 
                 val connection = send(

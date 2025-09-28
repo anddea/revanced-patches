@@ -3,6 +3,8 @@ package com.liskovsoft.youtubeapi.app.nsigsolver.runtime
 import app.revanced.extension.shared.utils.Logger
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
+import com.liskovsoft.youtubeapi.app.nsigsolver.common.CachedData
+import com.liskovsoft.youtubeapi.app.nsigsolver.common.loadScript
 import com.liskovsoft.youtubeapi.app.nsigsolver.provider.ChallengeOutput
 import com.liskovsoft.youtubeapi.app.nsigsolver.provider.JsChallengeProvider
 import com.liskovsoft.youtubeapi.app.nsigsolver.provider.JsChallengeProviderError
@@ -17,19 +19,18 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
     private val cacheSection = "challenge-solver"
 
     private val jcpGuideUrl = "https://github.com/yt-dlp/yt-dlp/wiki/YouTube-JS-Challenges"
-    private val repository = "yt-dlp/yt-dlp-jsc-deno"
-    private val supportedVersion = "0.0.1"
-
+    private val repository = "yt-dlp/ejs"
     override val supportedTypes = listOf(JsChallengeType.N, JsChallengeType.SIG)
+    protected val scriptVersion = "0.0.1"
 
     private val scriptFilenames = mapOf(
-        ScriptType.LIB to "lib.js",
-        ScriptType.CORE to "core.js"
+        ScriptType.LIB to "yt.solver.lib.js",
+        ScriptType.CORE to "yt.solver.core.js"
     )
 
     private val minScriptFilenames = mapOf(
-        ScriptType.LIB to "lib.min.js",
-        ScriptType.CORE to "core.min.js"
+        ScriptType.LIB to "yt.solver.lib.min.js",
+        ScriptType.CORE to "yt.solver.core.min.js"
     )
 
     abstract fun runJsRuntime(stdin: String): String
@@ -38,7 +39,8 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
         val grouped: Map<String, List<JsChallengeRequest>> = requests.groupBy { it.input.playerUrl }
 
         for ((playerUrl, groupedRequests) in grouped) {
-            var player = ie.cache.load(cacheSection, "player:$playerUrl")
+            val data = ie.cache.load(cacheSection, "player:$playerUrl")
+            var player = data?.code
 
             val cached = if (player != null) {
                 true
@@ -63,7 +65,7 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
 
             val preprocessed = output.preprocessed_player
             if (preprocessed != null)
-                ie.cache.store(cacheSection, "player:$playerUrl", preprocessed)
+                ie.cache.store(cacheSection, "player:$playerUrl", CachedData(preprocessed))
 
             for ((request, responseData) in groupedRequests.zip(output.responses)) {
                 if (responseData.type == "error") {
@@ -125,9 +127,9 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
             val script = fromSource(scriptType)
             if (script == null)
                 continue
-            if (script.version != supportedVersion)
-                Logger.printDebug { "Challenge solver ${scriptType.value} script version ${script.version} " +
-                        "is not supported (source: ${script.source.value}, supported version: $supportedVersion)" }
+            if (script.version != scriptVersion)
+                Logger.printInfo { "Challenge solver ${scriptType.value} script version ${script.version} " +
+                        "is not supported (source: ${script.source.value}, supported version: $scriptVersion)" }
 
             Logger.printDebug { "Using challenge solver ${script.type.value} script v${script.version} " +
                     "(source: ${script.source.value}, variant: ${script.variant.value})" }
@@ -136,20 +138,32 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
         throw JsChallengeProviderRejectedRequest("No usable challenge solver ${scriptType.value} script available")
     }
 
-    private fun iterScriptSources(): Sequence<Pair<ScriptSource, (scriptType: ScriptType) -> Script?>> = sequence {
+    protected open fun iterScriptSources(): Sequence<Pair<ScriptSource, (scriptType: ScriptType) -> Script?>> = sequence {
         yieldAll(listOf(
-            //Pair(ScriptSource.CACHE, cachedSource),
-            //Pair(ScriptSource.BUILTIN, builtinSource),
+            Pair(ScriptSource.CACHE, ::cachedSource),
+            Pair(ScriptSource.BUILTIN, ::builtinSource),
             Pair(ScriptSource.WEB, ::webReleaseSource)
         ))
     }
 
+    private fun cachedSource(scriptType: ScriptType): Script? {
+        val data = ie.cache.load(cacheSection, scriptType.value) ?: return null
+        return Script(scriptType, ScriptVariant.valueOf(data.variant), ScriptSource.CACHE, data.version, data.code)
+    }
+
+    private fun builtinSource(scriptType: ScriptType): Script? {
+        val fileName = scriptFilenames[scriptType] ?: return null
+        val code = loadScript(fileName, "Failed to read builtin challenge solver ${scriptType.value}")
+        return Script(scriptType, ScriptVariant.UNMINIFIED, ScriptSource.BUILTIN, scriptVersion, code)
+    }
+
     private fun webReleaseSource(scriptType: ScriptType): Script? {
-        val url = "https://github.com/$repository/releases/download/$supportedVersion/${minScriptFilenames[scriptType]}"
+        val fileName = minScriptFilenames[scriptType] ?: return null
+        val url = "https://github.com/$repository/releases/download/$scriptVersion/$fileName"
         val code = ie.downloadWebpageWithRetries(url, "[${tag}] Failed to download challenge solver ${scriptType.value} script")
         Logger.printDebug { "[${tag}] Downloading challenge solver ${scriptType.value} script from $url" }
-        ie.cache.store(cacheSection, scriptType.value, code)
-        return Script(scriptType, ScriptVariant.MINIFIED, ScriptSource.WEB, supportedVersion, code)
+        ie.cache.store(cacheSection, scriptType.value, CachedData(code))
+        return Script(scriptType, ScriptVariant.MINIFIED, ScriptSource.WEB, scriptVersion, code)
     }
 
     // endregion: challenge solver script

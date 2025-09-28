@@ -257,6 +257,16 @@ object YouTubeClient {
      */
     private const val CLIENT_VERSION_TVHTML5 = "7.20250917.13.00"
     private const val USER_AGENT_TVHTML5 =
+        "Mozilla/5.0 (RokuOS) Cobalt/20.lts.5.272122-gold (unlike Gecko) v8/6.5.254.43 gles Starboard/11, Roku_TV_MT10_2017/12.0 (TCL, 7121X, Wired)"
+
+
+    // TVHTML5 SIMPLY
+    /**
+     * Video not playable: None.
+     * Note: Only 'Authorization' is supported, PoToken required?
+     */
+    private const val CLIENT_VERSION_TVHTML5_SIMPLY = "1.1"
+    private const val USER_AGENT_TVHTML5_SIMPLY =
         "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)"
 
 
@@ -383,6 +393,10 @@ object YouTubeClient {
          */
         val supportsCookies: Boolean = true,
         /**
+         * Whether it supports multiple audio tracks.
+         */
+        val supportsMultiAudioTracks: Boolean = false,
+        /**
          * Referer of contentPlaybackContext.
          */
         val refererFormat: String? = null,
@@ -414,6 +428,7 @@ object YouTubeClient {
             userAgent = USER_AGENT_ANDROID,
             androidSdkVersion = Build.VERSION.SDK,
             clientVersion = CLIENT_VERSION_ANDROID,
+            supportsMultiAudioTracks = true,
             clientName = "ANDROID",
             friendlyName = "Android"
         ),
@@ -487,6 +502,7 @@ object YouTubeClient {
             clientVersion = CLIENT_VERSION_IPADOS,
             clientPlatform = CLIENT_PLATFORM_TABLET,
             supportsCookies = false,
+            supportsMultiAudioTracks = true,
             clientName = "IOS",
             friendlyName = "iPadOS"
         ),
@@ -507,14 +523,25 @@ object YouTubeClient {
         TV(
             id = 7,
             clientVersion = CLIENT_VERSION_TVHTML5,
-            clientPlatform = CLIENT_PLATFORM_GAME_CONSOLE,
+            clientPlatform = CLIENT_PLATFORM_TV,
             userAgent = USER_AGENT_TVHTML5,
             requireJS = true,
             refererFormat = CLIENT_REFERER_FORMAT_TV,
+            supportsMultiAudioTracks = true,
             clientName = "TVHTML5",
             friendlyName = "TV"
         ),
-
+        TV_SIMPLY_NO_POTOKEN(
+            id = 75,
+            clientVersion = CLIENT_VERSION_TVHTML5_SIMPLY,
+            clientPlatform = CLIENT_PLATFORM_GAME_CONSOLE,
+            userAgent = USER_AGENT_TVHTML5_SIMPLY,
+            requireJS = true,
+            supportsMultiAudioTracks = true,
+            clientName = "TVHTML5_SIMPLY",
+            refererFormat = CLIENT_REFERER_FORMAT_TV,
+            friendlyName = "TV Simply No PoToken"
+        ),
         // Unused client.
         TV_EMBEDDED(
             id = 85,
@@ -524,6 +551,7 @@ object YouTubeClient {
             userAgent = USER_AGENT_TVHTML5,
             requireJS = true,
             refererFormat = CLIENT_REFERER_FORMAT_TV,
+            supportsMultiAudioTracks = true,
             clientName = "TVHTML5_SIMPLY_EMBEDDED_PLAYER",
             friendlyName = "TV Embedded"
         ),
@@ -554,6 +582,7 @@ object YouTubeClient {
                 ANDROID_CREATOR,
                 IPADOS,
                 TV,
+                TV_SIMPLY_NO_POTOKEN,
                 MWEB,
                 IOS_DEPRECATED,
             )
@@ -563,6 +592,7 @@ object YouTubeClient {
                 VISIONOS,
                 ANDROID_CREATOR,
                 IPADOS,
+                TV_SIMPLY_NO_POTOKEN,
                 MWEB,
                 IOS_DEPRECATED,
             )
