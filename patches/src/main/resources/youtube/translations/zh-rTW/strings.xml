@@ -2497,11 +2497,15 @@ uBlock Origin 已找到解決此問題的方案，可透過 '繞過虛假緩衝'
     <string name="revanced_spoof_streaming_data_use_js_summary_off">JavaScript 用戶端未新增至可用用戶端。</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">JavaScript 用戶端已新增至可用用戶端。</string>
     <string name="revanced_spoof_streaming_data_use_js_title">使用 JavaScript 用戶端</string>
-    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"應用程式會佔用更多系統資源來尋找或解碼 n-sig 模式，導致影片啟動速度變慢。
+    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"由於需要解碼 N-Sig 模式，JavaScript 用戶端在啟動影片時可能會略有延遲。
 
-YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法找到 n-sig 模式，播放可能會失敗。
+有時，N-Sig 模式解碼失敗，導致影片啟動延遲或影片串流卡頓。
 
-此功能尚在開發中，請僅用於調試目的。"</string>
+點擊播放器中的 '重新載入影片按鈕' 即可輕鬆解決此問題。
+
+(前提條件：已啟用'顯示重新載入影片按鈕' 和 '始終顯示重新載入影片按鈕' )
+
+在 JavaScript 用戶端中，建議使用 TV 用戶端。"</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"用於反混淆的 JavaScript 未保持最新。
 
 • 雖然使用了可成功反混淆的 JavaScript，但它仍然在一定程度上依賴伺服器。"</string>

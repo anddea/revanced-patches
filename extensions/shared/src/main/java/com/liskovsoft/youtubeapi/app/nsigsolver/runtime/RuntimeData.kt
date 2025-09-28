@@ -12,7 +12,8 @@ internal enum class ScriptVariant(val value: String) {
     MINIFIED("minified"),
     UNMINIFIED("unminified"),
     DENO_NPM("deno_npm"),
-    BUN_NPM("bun_npm");
+    BUN_NPM("bun_npm"),
+    V8_NPM("v8_npm");
 }
 
 internal enum class ScriptSource(val value: String) {

@@ -21,7 +21,6 @@ import java.util.Date;
 import app.revanced.extension.shared.innertube.client.YouTubeClient;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.LogBufferManager;
-import app.revanced.extension.shared.settings.preference.SortedListPreference;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
@@ -422,13 +421,6 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
 
             listPreference.setEntries(ResourceUtils.getArrayIdentifier(entriesKey));
             listPreference.setEntryValues(ResourceUtils.getArrayIdentifier(entryValueKey));
-        }
-        if (findPreference(Settings.SPOOF_STREAMING_DATA_NO_AUTH_LANGUAGE.key) instanceof SortedListPreference sortedListPreference) {
-            boolean isAvailable = Settings.SPOOF_STREAMING_DATA.get() &&
-                    !Settings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getSupportsCookies() &&
-                    !Settings.DISABLE_AUTO_AUDIO_TRACKS.get();
-
-            sortedListPreference.setEnabled(isAvailable);
         }
     }
 

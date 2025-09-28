@@ -367,9 +367,7 @@ public class SpoofStreamingDataPatch {
         if (!BaseSettings.SPOOF_STREAMING_DATA.get()) {
             return true;
         }
-        final String clientName = BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().name();
-
-        return clientName.equals("IPADOS") || clientName.startsWith("TV");
+        return BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getSupportsMultiAudioTracks();
     }
 
     public static final class ClientAndroidVRAvailability implements Setting.Availability {
@@ -410,11 +408,12 @@ public class SpoofStreamingDataPatch {
         }
     }
 
-    public static final class ClientNoAuthAvailability implements Setting.Availability {
+    public static final class ClientSingleAudioTrackAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
             return BaseSettings.SPOOF_STREAMING_DATA.get() &&
-                    !BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getSupportsCookies();
+                    !BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getSupportsCookies() &&
+                    !BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getSupportsMultiAudioTracks();
         }
 
         @Override

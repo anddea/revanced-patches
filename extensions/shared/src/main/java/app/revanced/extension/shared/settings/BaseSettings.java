@@ -11,8 +11,9 @@ import app.revanced.extension.shared.patches.WatchHistoryPatch.WatchHistoryType;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientAndroidVRAvailability;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientJSAvailability;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientiOSAvailability;
-import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientNoAuthAvailability;
+import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientSingleAudioTrackAvailability;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.ShowReloadVideoButtonAvailability;
+import com.liskovsoft.youtubeapi.app.nsigsolver.provider.JsChallengeRequest;
 
 /**
  * Settings shared across multiple apps.
@@ -43,9 +44,9 @@ public class BaseSettings {
 
     public static final BooleanSetting SPOOF_STREAMING_DATA_VR_DISABLE_AV1 = new BooleanSetting("revanced_spoof_streaming_data_vr_disable_av1", !SpoofStreamingDataYouTube(), true, new ClientAndroidVRAvailability());
 
-    public static final EnumSetting<AppLanguage> SPOOF_STREAMING_DATA_NO_AUTH_LANGUAGE = new EnumSetting<>("revanced_spoof_streaming_data_no_auth_language", AppLanguage.DEFAULT);
+    public static final EnumSetting<AppLanguage> SPOOF_STREAMING_DATA_NO_AUTH_LANGUAGE = new EnumSetting<>("revanced_spoof_streaming_data_no_auth_language", AppLanguage.DEFAULT, new ClientSingleAudioTrackAvailability());
     public static final BooleanSetting SPOOF_STREAMING_DATA_AUDIO_TRACK_BUTTON = new BooleanSetting("revanced_spoof_streaming_data_audio_track_button", FALSE, true,
-            "revanced_spoof_streaming_data_audio_track_button_user_dialog_message", new ClientNoAuthAvailability());
+            "revanced_spoof_streaming_data_audio_track_button_user_dialog_message", new ClientSingleAudioTrackAvailability());
 
     public static final BooleanSetting SPOOF_STREAMING_DATA_IOS_FORCE_AVC = new BooleanSetting("revanced_spoof_streaming_data_ios_force_avc", FALSE, true,
             "revanced_spoof_streaming_data_ios_force_avc_user_dialog_message", new ClientiOSAvailability());
@@ -53,6 +54,9 @@ public class BaseSettings {
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS = new BooleanSetting("revanced_spoof_streaming_data_use_js", !SpoofStreamingDataYouTube(), true,
             "revanced_spoof_streaming_data_use_js_user_dialog_message", parent(SPOOF_STREAMING_DATA));
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS_ALL = new BooleanSetting("revanced_spoof_streaming_data_use_js_all", FALSE, true, new ClientJSAvailability());
+    /**
+     * TODO: Once the implementation of {@link JsChallengeRequest} is complete, restore this setting.
+     */
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_LATEST_PLAYER_JS = new BooleanSetting("revanced_spoof_streaming_data_use_latest_player_js", FALSE, true, new ClientJSAvailability());
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING = new BooleanSetting("revanced_spoof_streaming_data_use_js_bypass_fake_buffering", FALSE, true, new ClientJSAvailability());
 

@@ -2344,7 +2344,7 @@ Info:
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"Audio track button is shown when the client used to fetch streaming data is 'Android VR', 'Mobile Web', or 'visionOS'."</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">Show audio track button</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Prerequisites:
-• The client used to fetch the streaming data is 'Android VR', 'Mobile Web', 'iPadOS', or 'visionOS'.
+• The client used to fetch the streaming data is 'Android VR', 'Mobile Web', or 'visionOS'.
 • A video with multiple audio tracks is being played.
 
 Known issues:
@@ -2364,6 +2364,8 @@ This feature is still in development, so it may break at any time due to server-
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(WIP, No Auth)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
+<small>(No PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Unreleased, No Auth)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
@@ -2376,6 +2378,9 @@ This feature is still in development, so it may break at any time due to server-
 
 AVC has a maximum resolution of 1080p, Opus audio codec is not available, and video playback will use more internet data than VP9 or AV1."</string>
     <string name="revanced_spoof_streaming_data_message">If you experience any playback issues, enable \"Spoof streaming data\" in &lt;i&gt;&lt;u&gt;Settings &gt; %s &gt; Miscellaneous &gt; Spoof streaming data&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">Default audio stream language selection is not available with Android Studio.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">Default audio stream language selection is not available with iPadOS.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">To select a specific audio stream language, turn off \'Disable forced auto audio tracks\'.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">Default audio stream language</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Video codecs are prioritized.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Video quality is prioritized.</string>
@@ -2449,6 +2454,10 @@ Example 2:
 • Video may start late."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Spoofing side effects</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• If deobfuscation fails, playback may fail.
+• Sometimes the video will not play even after 10 seconds, in which case you'll need to click the reload video button.
+• Video may start late."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• If deobfuscation fails, playback may fail.
+• Some accounts may require a PoToken, in which case the playback will fail.
 • Sometimes the video will not play even after 10 seconds, in which case you'll need to click the reload video button.
 • Video may start late."</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Unknown</string>

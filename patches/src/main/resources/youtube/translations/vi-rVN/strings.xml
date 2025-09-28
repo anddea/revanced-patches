@@ -237,7 +237,7 @@ Hạn chế: Nút Quay lại trên thanh công cụ có thể không hoạt đ�
 
 Tính năng này có thể không hoạt động với một số người dùng, nếu bạn trong số đó:
 1. Đi tới Cài đặt - RVX - Khác - Giả mạo dữ liệu phát video, và bật \"Giả mạo JavaScript\".
-2. Đi tới Cài đặt - RVX - Khác - Giả mạo dữ liệu phát video, và chuyển \"Client mặc định\" sang TV hoặc TV Simpy."</string>
+2. Đi tới Cài đặt - RVX - Khác - Giả mạo dữ liệu phát video, và chuyển \"Client mặc định\" sang TV."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Tắt tự động phát bản âm thanh</string>
     <string name="revanced_disable_auto_captions_summary_off">Tự động hiển thị phụ đề khi phát video có phụ đề đã bật.</string>
     <string name="revanced_disable_auto_captions_summary_on">Tự động hiển thị phụ đề khi phát video có phụ đề đã tắt.</string>
@@ -923,7 +923,7 @@ Bộ lọc có phân biệt chữ hoa chữ thường, vì vậy bạn cần nh�
 
 Để hiện mục bản âm thanh:
 1. Đi tới Cài đặt → RVX → Khác → Giả mạo dữ liệu phát video, và bật \"Giả mạo JavaScript\".
-2. Đi tới Cài đặt → RVX → Khác → Giả mạo dữ liệu phát video, và chuyển \"Client mặc định\" sang \"TV\" hoặc \"TV Simply\"."</string>
+2. Đi tới Cài đặt → RVX → Khác → Giả mạo dữ liệu phát video, và chuyển \"Client mặc định\" sang TV."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Mục Bản âm thanh được hiển thị.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Mục Bản âm thanh đã ẩn.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Ẩn mục Bản âm thanh</string>
@@ -2342,7 +2342,7 @@ Chi tiết:
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"Nút bản âm thanh sẽ được hiển thị khi client dùng để lấy dữ liệu phát là “Android VR”, “Mobile Web” hoặc “visionOS”."</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">Nút bản âm thanh</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Điều kiện tiên quyết:
-• Client dùng để lấy dữ liệu phát là “Android VR”, “Mobile Web”, “iPadOS” hoặc “visionOS”.
+• Client dùng để lấy dữ liệu phát là “Android VR”, “Mobile Web” hoặc “visionOS”.
 • Video đang phát có nhiều bản âm thanh.
 
 Sự cố đã biết:
@@ -2362,11 +2362,13 @@ Tính năng này vẫn đang trong quá trình phát triển, vì vậy nó có 
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(Thử nghiệm, Không xác thực)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
+<small>(Không PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Chưa phát hành, Không xác thực)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Client mặc định</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Không truy xuất được luồng phát từ client đã chọn.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Hãy thử chuyển client mặc định sang TV hoặc TV Simply.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Hãy thử chuyển client mặc định sang TV.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Codec video được xác định tự động.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Codec video luôn là AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Buộc iOS sử dụng AVC (H.264)</string>
@@ -2377,6 +2379,9 @@ Hạn chế:
 • Codec âm thanh OPUS không khả dụng.
 • Dùng nhiều dữ liệu di động hơn với VP9 hoặc AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Nếu bạn gặp phải bất kỳ lỗi nào khi phát video, hãy bật \"Giả mạo dữ liệu phát video\" trong &lt;i&gt;&lt;u&gt;Cài đặt &gt; %s &gt; Khác &gt; Giả mạo dữ liệu phát video&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">Chọn ngôn ngữ luồng âm thanh mặc định không khả dụng với Android Studio.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">Chọn ngôn ngữ luồng âm thanh mặc định không khả dụng với iPadOS.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Để chọn ngôn ngữ luồng âm thanh, hãy tắt \"Tắt tự động phát bản âm thanh\".</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">Ngôn ngữ âm thanh mặc định</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Codec video được ưu tiên.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Chất lượng video được ưu tiên.</string>
@@ -2448,6 +2453,10 @@ Ví dụ 2:
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• Nếu giải mã thất bại, video có thể không phát được.
 • Đôi khi video không phát dù đã chờ 10 giây, khi đó bạn cần nhấn vào nút tải lại video.
 • Video có thể bắt đầu trễ hơn."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• Nếu giải mã thất bại, video có thể không phát được.
+• Một số tài khoản có thể yêu cầu PoToken, khi đó video có thể không phát được.
+• Đôi khi video không phát dù đã chờ 10 giây, khi đó bạn cần nhấn vào nút tải lại video.
+• Video có thể bắt đầu trễ hơn."</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Không rõ</string>
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Thiếu mục bản âm thanh.
 • Video dành cho trẻ em có thể không phát được khi bạn đã đăng xuất hoặc bật chế độ ẩn danh.
@@ -2494,7 +2503,7 @@ Hạn chế: Do những thay đổi từ phía máy chủ, cài đặt này có 
 Cách khắc phục: nhấn nút Tải lại video trong trình phát để phát lại.
 (Điều kiện tiên quyết: phải bật cả “Nút tải lại video” và “Luôn hiện nút tải lại video”)
 
-Trong số các client JavaScript, lựa chọn khuyên dùng là TV Simply."</string>
+Trong số các client JavaScript, lựa chọn khuyên dùng là TV."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"JavaScript dùng để giải mã không luôn được cập nhật thường xuyên.
 
 Chi tiết:
