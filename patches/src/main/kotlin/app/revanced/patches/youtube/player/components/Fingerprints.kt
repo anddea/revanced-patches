@@ -17,6 +17,7 @@ import app.revanced.patches.youtube.utils.resourceid.touchArea
 import app.revanced.patches.youtube.utils.resourceid.verticalTouchOffsetToEnterFineScrubbing
 import app.revanced.patches.youtube.utils.resourceid.verticalTouchOffsetToStartFineScrubbing
 import app.revanced.patches.youtube.utils.resourceid.videoZoomSnapIndicator
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -280,6 +281,27 @@ internal val layoutVideoFingerprint = legacyFingerprint(
         Opcode.CHECK_CAST,
     ),
     literals = listOf(endScreenElementLayoutVideo),
+)
+
+internal val newEndscreenParentFingerprint = legacyFingerprint(
+    name = "newEndscreenParentFingerprint",
+    returnType = "[L",
+    parameters = listOf("L"),
+    customFingerprint = { method, _ ->
+        // const-wide/16 v3, 0x400 ; literal value 1024
+        method.containsLiteralInstruction(1024L) &&
+                (method.implementation?.instructions?.count() ?: 0) > 20
+    }
+)
+
+internal val newEndscreenFingerprint = legacyFingerprint(
+    name = "newEndscreenFingerprint",
+    returnType = "V",
+    parameters = listOf("L"),
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    customFingerprint = { method, _ ->
+        (method.implementation?.instructions?.count() ?: 0) > 20
+    }
 )
 
 internal val linearLayoutManagerItemCountsFingerprint = legacyFingerprint(

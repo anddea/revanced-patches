@@ -618,6 +618,10 @@ public class PlayerPatch {
         }
     }
 
+    public static boolean hideNewEndScreenCards() {
+        return Settings.HIDE_END_SCREEN_CARDS.get();
+    }
+
     public static boolean hideEndScreenSuggestedVideo() {
         return Settings.HIDE_END_SCREEN_SUGGESTED_VIDEO.get();
     }
