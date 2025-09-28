@@ -565,6 +565,19 @@ val playerComponentsPatch = bytecodePatch(
             }
         }
 
+        if (is_20_14_or_greater) {
+            val targetMethod = newEndscreenFingerprint.methodOrThrow(newEndscreenParentFingerprint)
+            val returnIndex = targetMethod.indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
+
+            targetMethod.addInstructionsWithLabels(
+                0, """
+                invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideNewEndScreenCards()Z
+                move-result v0
+                if-nez v0, :return
+                """, ExternalLabel("return", targetMethod.getInstruction(returnIndex))
+            )
+        }
+
         // endregion
 
         // region patch for hide filmstrip overlay
