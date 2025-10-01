@@ -1,3 +1,16 @@
+# [3.14.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.14.0-dev.6...v3.14.0-dev.7) (2025-10-01)
+
+
+### Bug Fixes
+
+* **Spotify - Sanitize sharing links:** Bring back original logic ([40a14f4](https://github.com/anddea/revanced-patches/commit/40a14f46aab645e51a2c64df5b466691725f9b27))
+
+
+### Features
+
+* Align with RVX [[v5.12.1-dev.6](https://github.com/inotia00/revanced-patches/releases/tag/v5.12.1-dev.6)] ([fd42fc5](https://github.com/anddea/revanced-patches/commit/fd42fc54b19940c5e7e06fcd731a9df3e2536430))
+* **NetWall:** Add `Unlock Premium` patch ([9f63cdc](https://github.com/anddea/revanced-patches/commit/9f63cdcd5c2c8169864a25d77606e05ee3834a0b))
+
 # [3.14.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.14.0-dev.5...v3.14.0-dev.6) (2025-09-28)
 
 
