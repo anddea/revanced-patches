@@ -1,48 +1,33 @@
 package app.revanced.patches.spotify.misc.privacy
 
+import app.revanced.patcher.extensions.InstructionExtensions.instructionsOrNull
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
-internal val shareCopyUrlFingerprint = fingerprint {
-    returns("Ljava/lang/Object;")
-    parameters("Ljava/lang/Object;")
-    strings("clipboard", "Spotify Link")
-    custom { method, _ ->
-        method.name == "invokeSuspend"
-    }
-}
-
-internal val oldShareCopyUrlFingerprint = fingerprint {
-    returns("Ljava/lang/Object;")
-    parameters("Ljava/lang/Object;")
-    strings("clipboard", "createNewSession failed")
-    custom { method, _ ->
-        method.name == "apply"
-    }
-}
-
-internal val formatAndroidShareSheetUrlFingerprint = fingerprint {
-    returns("Ljava/lang/String;")
-    parameters("L", "Ljava/lang/String;")
-    opcodes(
-        Opcode.GOTO,
-        Opcode.IF_EQZ,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.RETURN_OBJECT
+val shareLinkFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters(
+        "Ljava/lang/String;",
+        "Ljava/lang/String;",
+        "Ljava/lang/String;",
+        "Ljava/lang/String;"
     )
-    literal {
-        '\n'.code.toLong()
-    }
-}
+    returns("V")
 
-internal val oldFormatAndroidShareSheetUrlFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC)
-    returns("Ljava/lang/String;")
-    parameters("Lcom/spotify/share/social/sharedata/ShareData;", "Ljava/lang/String;")
-    literal {
-        '\n'.code.toLong()
+    custom { _, classDef ->
+        val toStringMethod = classDef.methods.firstOrNull {
+            it.name == "toString" && it.parameters.isEmpty() && it.returnType == "Ljava/lang/String;"
+        } ?: return@custom false
+
+        val toStringInstructions = toStringMethod.instructionsOrNull ?: return@custom false
+        toStringInstructions.any { instruction ->
+            instruction.opcode == Opcode.CONST_STRING &&
+                    (instruction as? ReferenceInstruction)?.reference?.let { ref ->
+                        (ref as? StringReference)?.string?.startsWith("ShareUrl(url=") == true
+                    } == true
+        }
     }
 }
