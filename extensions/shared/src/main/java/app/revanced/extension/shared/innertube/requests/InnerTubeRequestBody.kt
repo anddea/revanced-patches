@@ -100,6 +100,7 @@ object InnerTubeRequestBody {
     fun createJSRequestBody(
         clientType: YouTubeClient.ClientType,
         videoId: String,
+        cpn: String = "",
         setLocale: Boolean = !clientType.supportsCookies,
         language: String = "",
         isGVS: Boolean = false,
@@ -138,6 +139,9 @@ object InnerTubeRequestBody {
             innerTubeBody.put("racyCheckOk", true)
             innerTubeBody.put("contentCheckOk", true)
             innerTubeBody.put("videoId", videoId)
+            if (cpn.isNotEmpty()) {
+                innerTubeBody.put("cpn", cpn)
+            }
 
             val user = JSONObject()
             user.put("lockedSafetyMode", false)

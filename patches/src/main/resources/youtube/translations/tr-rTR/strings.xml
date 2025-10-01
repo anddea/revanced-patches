@@ -1785,12 +1785,24 @@ Kısıtlama: Gizli modda beğenmeme sayıları görünmeyebilir."</string>
     <string name="revanced_sb_api_url_invalid">API bağlantısı geçersiz.</string>
     <string name="revanced_sb_api_url_reset">API URL\'si sıfırlandı.</string>
     <string name="revanced_sb_appearance_category">Görünüm</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration">Atlama düğmesi süresi</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration_sum">Atla ve vurguya atla düğmelerinin otomatik olarak gizlenmeden önce ne kadar süre gösterileceği</string>
     <string name="revanced_sb_color_changed">Renk değiştirildi.</string>
     <string name="revanced_sb_color_dot_label">Renk:</string>
     <string name="revanced_sb_color_invalid">Renk kodu geçersiz.</string>
     <string name="revanced_sb_color_reset">Renk sıfırlandı.</string>
     <string name="revanced_sb_create_segment_category">Yeni segmentler oluşturma</string>
     <string name="revanced_sb_diff_segments">Segment davranışını değiştir</string>
+    <string name="revanced_sb_duration_10s">10 saniye</string>
+    <string name="revanced_sb_duration_1s">1 saniye</string>
+    <string name="revanced_sb_duration_2s">2 saniye</string>
+    <string name="revanced_sb_duration_3s">3 saniye</string>
+    <string name="revanced_sb_duration_4s">4 saniye</string>
+    <string name="revanced_sb_duration_5s">5 saniye</string>
+    <string name="revanced_sb_duration_6s">6 saniye</string>
+    <string name="revanced_sb_duration_7s">7 saniye</string>
+    <string name="revanced_sb_duration_8s">8 saniye</string>
+    <string name="revanced_sb_duration_9s">9 saniye</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">Atla düğmesini otomatik olarak gizle</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Atlama düğmesi tüm segmentler için görüntülenir.</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Atla düğmesi birkaç saniye sonra gizlenir.</string>
@@ -1817,10 +1829,9 @@ Kısıtlama: Gizli modda beğenmeme sayıları görünmeyebilir."</string>
     <string name="revanced_sb_general_skipcount">Atlama sayısı izlemeyi etkinleştir</string>
     <string name="revanced_sb_general_skipcount_sum_off">Atlama sayısı izleme etkin değil</string>
     <string name="revanced_sb_general_skipcount_sum_on">SponsorBlock liderlik tablosunun ne kadar zaman kazanıldığını bilmesini sağlar. Bir segment her atlandığında skor tablosuna bir mesaj gönderilir.</string>
-    <string name="revanced_sb_general_skiptoast">Bir kısım otomatikman atlanırken uyarı ver</string>
-    <string name="revanced_sb_general_skiptoast_sum_off">Uyarı gizleniyor. Bir örnek görmek için buraya dokunun.</string>
-    <string name="revanced_sb_general_skiptoast_sum_on">Uyarı, bir bölüm otomatik olarak atlandığında gösterilir.
-Bir örnek görmek için buraya dokunun.</string>
+    <string name="revanced_sb_general_skiptoast">Atlamayı geri al bildirimini göster</string>
+    <string name="revanced_sb_general_skiptoast_sum_off">Bildirim gösterilmez</string>
+    <string name="revanced_sb_general_skiptoast_sum_on">Bir kısım otomatik olarak atlandığında bildirim gösterilir. Atlamayı geri almak için bildirime dokunun</string>
     <string name="revanced_sb_general_time_without">Video uzunluğunu bölümler olmadan göster</string>
     <string name="revanced_sb_general_time_without_sum_off">Tam video uzunluğu gizlenmiyor.</string>
     <string name="revanced_sb_general_time_without_sum_on">Video uzunluğu eksi tüm segmentler, tam video uzunluğunun yanında parantez içinde gösterilir.</string>
@@ -1968,6 +1979,8 @@ Göndermeye hazır mısınız?"</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock\'un mevcut olmaması durumunda uyarı gösterilmez.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock\'un mevcut olmaması durumunda uyarı gösterilir.</string>
     <string name="revanced_sb_toast_on_connection_error_title">API mevcut değilse bir uyarı göster</string>
+    <string name="revanced_sb_toast_on_skip_duration">Atlama bildirimi süresi</string>
+    <string name="revanced_sb_toast_on_skip_duration_sum">Atlamayı geri alma bildiriminin ne kadar süre gösterileceği</string>
     <string name="revanced_sb_vote_category">Kategoriyi değiştir</string>
     <string name="revanced_sb_vote_downvote">Olumsuz oy ver</string>
     <string name="revanced_sb_vote_failed_forbidden">Kısım oylanamadı: %s.</string>

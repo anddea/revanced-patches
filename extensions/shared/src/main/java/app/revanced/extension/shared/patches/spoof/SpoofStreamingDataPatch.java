@@ -1,5 +1,6 @@
 package app.revanced.extension.shared.patches.spoof;
 
+import static app.revanced.extension.shared.innertube.utils.J2V8Support.supportJ2V8;
 import static app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.prioritizeResolution;
 
 import android.net.Uri;
@@ -32,14 +33,15 @@ import app.revanced.extension.youtube.shared.VideoInformation;
 public class SpoofStreamingDataPatch {
     public static final boolean SPOOF_STREAMING_DATA =
             BaseSettings.SPOOF_STREAMING_DATA.get() && PatchStatus.SpoofStreamingData();
+    private static final boolean J2V8_LIBRARY_AVAILABILITY = supportJ2V8();
     private static final boolean SPOOF_STREAMING_DATA_PRIORITIZE_VIDEO_QUALITY =
             SPOOF_STREAMING_DATA && BaseSettings.SPOOF_STREAMING_DATA_PRIORITIZE_VIDEO_QUALITY.get();
     private static final boolean SPOOF_STREAMING_DATA_USE_JS =
-            SPOOF_STREAMING_DATA && BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get();
+            SPOOF_STREAMING_DATA && J2V8_LIBRARY_AVAILABILITY && BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get();
     private static final boolean SPOOF_STREAMING_DATA_USE_JS_ALL =
             SPOOF_STREAMING_DATA_USE_JS && BaseSettings.SPOOF_STREAMING_DATA_USE_JS_ALL.get();
-    private static final boolean SPOOF_STREAMING_DATA_USE_LATEST_PLAYER_JS =
-            SPOOF_STREAMING_DATA_USE_JS && BaseSettings.SPOOF_STREAMING_DATA_USE_LATEST_PLAYER_JS.get();
+    private static final boolean SPOOF_STREAMING_DATA_USE_YT_DLP_EJS =
+            SPOOF_STREAMING_DATA_USE_JS && BaseSettings.SPOOF_STREAMING_DATA_USE_YT_DLP_EJS.get();
 
     /**
      * Domain used for internet connectivity verification.
@@ -70,6 +72,8 @@ public class SpoofStreamingDataPatch {
      * Prefix present in all Short player parameters signature.
      */
     private static final String SHORTS_PLAYER_PARAMETERS = "8AEB";
+    @NonNull
+    private static volatile String playerResponseCpn = "";
     @Nullable
     private static volatile String playerResponseParameter = null;
 
@@ -205,6 +209,7 @@ public class SpoofStreamingDataPatch {
                 return;
             }
             String tParameter = YouTubeHelper.generateTParameter(uri.getQueryParameter("t"));
+            String cpn = YouTubeHelper.generateContentPlaybackNonce(playerResponseCpn);
             String reasonSkipped;
             if (playerResponseParameter != null &&
                     SPOOF_STREAMING_DATA_USE_JS &&
@@ -226,6 +231,7 @@ public class SpoofStreamingDataPatch {
             StreamingDataRequest.fetchRequest(
                     id,
                     tParameter,
+                    cpn,
                     requestHeader,
                     reasonSkipped
             );
@@ -309,6 +315,15 @@ public class SpoofStreamingDataPatch {
     /**
      * Injection point.
      */
+    public static void newPlayerResponseCpn(@Nullable String cpn) {
+        if (cpn != null && !cpn.isEmpty()) {
+            playerResponseCpn = cpn;
+        }
+    }
+
+    /**
+     * Injection point.
+     */
     @Nullable
     public static String newPlayerResponseParameter(@NonNull String newlyLoadedVideoId, @Nullable String playerParameter) {
         return newPlayerResponseParameter(newlyLoadedVideoId, playerParameter, null, false);
@@ -338,6 +353,7 @@ public class SpoofStreamingDataPatch {
         if (SPOOF_STREAMING_DATA_USE_JS) {
             // Download JavaScript and initialize the Cipher class
             CompletableFuture.runAsync(() -> ThrottlingParameterUtils.initializeJavascript(
+                    SPOOF_STREAMING_DATA_USE_YT_DLP_EJS,
                     BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getRequirePoToken()
             ));
         }
@@ -395,6 +411,7 @@ public class SpoofStreamingDataPatch {
         @Override
         public boolean isAvailable() {
             return BaseSettings.SPOOF_STREAMING_DATA.get() &&
+                    J2V8_LIBRARY_AVAILABILITY &&
                     BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get() &&
                     BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getRequireJS();
         }
@@ -435,6 +452,14 @@ public class SpoofStreamingDataPatch {
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(BaseSettings.SPOOF_STREAMING_DATA);
+        }
+    }
+
+    public static final class J2V8Availability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return BaseSettings.SPOOF_STREAMING_DATA.get() &&
+                    J2V8_LIBRARY_AVAILABILITY;
         }
     }
 

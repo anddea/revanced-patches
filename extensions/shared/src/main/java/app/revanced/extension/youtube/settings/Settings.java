@@ -5,6 +5,7 @@ import static java.lang.Boolean.TRUE;
 import static app.revanced.extension.shared.patches.PatchStatus.PackageNameYouTubeMusic;
 import static app.revanced.extension.shared.settings.Setting.migrateFromOldPreferences;
 import static app.revanced.extension.shared.settings.Setting.parent;
+import static app.revanced.extension.shared.settings.Setting.parentsAll;
 import static app.revanced.extension.shared.settings.Setting.parentsAny;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType;
@@ -49,6 +50,7 @@ import app.revanced.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOver
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
 import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
 import app.revanced.extension.youtube.shared.PlaylistIdPrefix;
+import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController.SponsorBlockDuration;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider.SwipeOverlayStyle;
 
@@ -702,7 +704,11 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SB_SQUARE_LAYOUT = new BooleanSetting("sb_square_layout", FALSE, parent(SB_ENABLED));
     public static final BooleanSetting SB_COMPACT_SKIP_BUTTON = new BooleanSetting("sb_compact_skip_button", FALSE, parent(SB_ENABLED));
     public static final BooleanSetting SB_AUTO_HIDE_SKIP_BUTTON = new BooleanSetting("sb_auto_hide_skip_button", TRUE, parent(SB_ENABLED));
+    public static final EnumSetting<SponsorBlockDuration> SB_AUTO_HIDE_SKIP_BUTTON_DURATION = new EnumSetting<>("sb_auto_hide_skip_button_duration",
+            SponsorBlockDuration.FOUR_SECONDS, parent(SB_ENABLED));
     public static final BooleanSetting SB_TOAST_ON_SKIP = new BooleanSetting("sb_toast_on_skip", TRUE, parent(SB_ENABLED));
+    public static final EnumSetting<SponsorBlockDuration> SB_TOAST_ON_SKIP_DURATION = new EnumSetting<>("sb_toast_on_skip_duration",
+            SponsorBlockDuration.FOUR_SECONDS, parentsAll(SB_ENABLED, SB_TOAST_ON_SKIP));
     public static final BooleanSetting SB_TOAST_ON_CONNECTION_ERROR = new BooleanSetting("sb_toast_on_connection_error", TRUE, parent(SB_ENABLED));
     public static final BooleanSetting SB_TRACK_SKIP_COUNT = new BooleanSetting("sb_track_skip_count", TRUE, parent(SB_ENABLED));
     public static final FloatSetting SB_SEGMENT_MIN_DURATION = new FloatSetting("sb_min_segment_duration", 0F, parent(SB_ENABLED));

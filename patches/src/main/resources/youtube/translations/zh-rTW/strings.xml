@@ -1975,12 +1975,24 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_api_url_invalid">API URL 無效。</string>
     <string name="revanced_sb_api_url_reset">API URL 已重置。</string>
     <string name="revanced_sb_appearance_category">外觀</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration">跳過按鈕顯示時間</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration_sum">跳過與「跳至重點」按鈕顯示多久後自動隱藏</string>
     <string name="revanced_sb_color_changed">顏色已更改。</string>
     <string name="revanced_sb_color_dot_label">顏色：</string>
     <string name="revanced_sb_color_invalid">無效的顏色代碼。</string>
     <string name="revanced_sb_color_reset">顏色已重置。</string>
     <string name="revanced_sb_create_segment_category">創建新片段</string>
     <string name="revanced_sb_diff_segments">更改片段行為</string>
+    <string name="revanced_sb_duration_10s">10 秒</string>
+    <string name="revanced_sb_duration_1s">1 秒</string>
+    <string name="revanced_sb_duration_2s">2 秒</string>
+    <string name="revanced_sb_duration_3s">3 秒</string>
+    <string name="revanced_sb_duration_4s">4 秒</string>
+    <string name="revanced_sb_duration_5s">5 秒</string>
+    <string name="revanced_sb_duration_6s">6 秒</string>
+    <string name="revanced_sb_duration_7s">7 秒</string>
+    <string name="revanced_sb_duration_8s">8 秒</string>
+    <string name="revanced_sb_duration_9s">9 秒</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">自動隱藏跳過按鈕</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">整個片段顯示跳過按鈕。</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">幾秒後隱藏跳過按鈕。</string>
@@ -2007,12 +2019,12 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_general_skipcount">啟用跳過計數追蹤</string>
     <string name="revanced_sb_general_skipcount_sum_off">不啟用跳過計數追蹤。</string>
     <string name="revanced_sb_general_skipcount_sum_on">允許 SponsorBlock 排行榜了解節省了多少時間每次跳過片段時都會向排行榜發送訊息。</string>
-    <string name="revanced_sb_general_skiptoast">自動跳過時顯示提示</string>
-    <string name="revanced_sb_general_skiptoast_sum_off">不顯示提示點擊此處查看範例。</string>
-    <string name="revanced_sb_general_skiptoast_sum_on">自動跳過片段時顯示提示點擊此處查看範例。</string>
+    <string name="revanced_sb_general_skiptoast">顯示「取消跳過」提示</string>
+    <string name="revanced_sb_general_skiptoast_sum_off">不顯示提示</string>
+    <string name="revanced_sb_general_skiptoast_sum_on">當片段自動跳過時會顯示提示。點擊提示通知可取消跳過</string>
     <string name="revanced_sb_general_time_without">顯示不含片段的影片長度</string>
     <string name="revanced_sb_general_time_without_sum_off">顯示完整影片長度。</string>
-    <string name="revanced_sb_general_time_without_sum_on">顯示影片長度減去所有片段的長度，括號中顯示完整影片長度。</string>
+    <string name="revanced_sb_general_time_without_sum_on">顯示影片長度減去所有片段的長度，括號中顯示完整影片長度</string>
     <string name="revanced_sb_general_uuid">您的私人用戶 ID</string>
     <string name="revanced_sb_general_uuid_invalid">私人用戶 ID 長度必須至少為30個字符。</string>
     <string name="revanced_sb_general_uuid_sum">此 ID 應保密這類似於密碼，不應與任何人分享如果有人獲取此 ID，他們可以冒充您。</string>
@@ -2165,6 +2177,8 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_toast_on_connection_error_summary_off">如果 SponsorBlock 無法使用，不顯示提示訊息。</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">如果 SponsorBlock 無法使用，顯示提示訊息。</string>
     <string name="revanced_sb_toast_on_connection_error_title">當 API 無法使用時顯示提示訊息</string>
+    <string name="revanced_sb_toast_on_skip_duration">跳過提示時長</string>
+    <string name="revanced_sb_toast_on_skip_duration_sum">「取消跳過」提示顯示多久</string>
     <string name="revanced_sb_vote_category">更改類別</string>
     <string name="revanced_sb_vote_downvote">反對</string>
     <string name="revanced_sb_vote_failed_forbidden">無法為片段投票：%s。</string>
@@ -2368,6 +2382,8 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_spoof_streaming_data_client_entry_tv">電視
 <small>(開發中)</small>
     </string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
+<small>(無 PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(未發布, 無需驗證)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">預設用戶端</string>
@@ -2380,6 +2396,9 @@ AI 生成的回應可能包含不準確的資訊。
 
 AVC 的最大解析度為 1080p，Opus 音訊編解碼器不可用，影片播放將使用比 VP9 或 AV1 更多的網路資料。</string>
     <string name="revanced_spoof_streaming_data_message">如果您遇到任何播放問題，請啟用 \"偽裝串流媒體數據\" 在 &lt;i&gt;&lt;u&gt;設定 &gt; %s &gt; 各種各樣的 &gt; 偽裝串流媒體數據&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">Android Studio 不提供預設音訊串流語言選擇。</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">IPadOS 不提供預設音訊串流語言選擇。</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">若要選擇特定的音訊串流語言，請關閉 \'停用強制自動音軌\'。</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">預設音訊串流語言</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">影片編解碼器優先。</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">影片畫質優先。</string>
@@ -2447,14 +2466,18 @@ AVC 的最大解析度為 1080p，Opus 音訊編解碼器不可用，影片播�
     <string name="revanced_spoof_streaming_data_side_effects_ipados">• AV1 不支援。
 • 影片可能會在 1:00 處停止，或在某些地區可能無法觀看。 </string>
     <string name="revanced_spoof_streaming_data_side_effects_mweb">"• 缺少音軌選單。
-• 如果反混淆失敗，播放可能會失敗。
+• 如果解碼去混淆失敗，播放可能會失敗。
 • 有時影片即使播放 10 秒後也無法播放，在這種情況下，您需要點擊重新載入影片按鈕。
 • 影片可能會延遲開始。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">從觀看紀錄中隱藏。
 可能影響：你分頁中的觀看紀錄可能會一併被隱藏。</string>
-    <string name="revanced_spoof_streaming_data_side_effects_tv">"• 如果反混淆失敗，播放可能會失敗。
+    <string name="revanced_spoof_streaming_data_side_effects_tv">"• 如果解碼去混淆失敗，播放可能會失敗。
 • 有時影片即使播放 10 秒後也無法播放，在這種情況下，您需要點擊「重新載入影片」按鈕。
 • 影片可能會延遲播放。"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• 如果解碼去混淆失敗，播放可能會失敗。
+• 某些帳號可能需要 PoToken，在這種情況下播放將會失敗。
+• 有時影片即使播放 10 秒後也無法播放，在這種情況下，您需要點擊重新載入影片按鈕。
+• 影片可能會延遲開始。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 未知</string>
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• 缺少音軌選單。
 • 兒童影片在登出或隱身模式下可能無法播放。
@@ -2513,7 +2536,7 @@ uBlock Origin 已找到解決此問題的方案，可透過 '繞過虛假緩衝'
 
 • 它高度依賴伺服器，反混淆的成功或失敗取決於伺服器上目前使用的 JavaScript。"</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">使用最新的 JavaScript</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"用於反混淆的播放器 JavaScript 不會保持最新狀態。 
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"用於反混淆的播放器 JavaScript 不會保持最新狀態。
 • 使用的是已成功進行反混淆的播放器 JavaScript，但仍在某種程度上依賴伺服器。"</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"用於反混淆的播放器 JavaScript 會保持最新狀態。
 

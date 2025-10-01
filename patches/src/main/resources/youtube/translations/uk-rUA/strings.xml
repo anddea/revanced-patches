@@ -1974,12 +1974,24 @@
     <string name="revanced_sb_api_url_invalid">URL API недійсне.</string>
     <string name="revanced_sb_api_url_reset">URL API скинуто.</string>
     <string name="revanced_sb_appearance_category">Вигляд</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration">Тривалість кнопки пропуску</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration_sum">Як довго показувати кнопки пропуску та переходу до Основного перед автоматичним приховуванням.</string>
     <string name="revanced_sb_color_changed">Колір змінено</string>
     <string name="revanced_sb_color_dot_label">Колір:</string>
     <string name="revanced_sb_color_invalid">Невірний код кольору</string>
     <string name="revanced_sb_color_reset">Колір скинуто</string>
     <string name="revanced_sb_create_segment_category">Створити нові сегменти</string>
     <string name="revanced_sb_diff_segments">Змінити поведінку сегмента</string>
+    <string name="revanced_sb_duration_10s">10 секунд</string>
+    <string name="revanced_sb_duration_1s">1 секунда</string>
+    <string name="revanced_sb_duration_2s">2 секунди</string>
+    <string name="revanced_sb_duration_3s">3 секунди</string>
+    <string name="revanced_sb_duration_4s">4 секунди</string>
+    <string name="revanced_sb_duration_5s">5 секунд</string>
+    <string name="revanced_sb_duration_6s">6 секунд</string>
+    <string name="revanced_sb_duration_7s">7 секунд</string>
+    <string name="revanced_sb_duration_8s">8 секунд</string>
+    <string name="revanced_sb_duration_9s">9 секунд</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">Автоматично приховувати кнопку пропуску</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопку пропуску показується для всього сегменту</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопку пропуску приховується після декількох секунд</string>
@@ -2006,12 +2018,12 @@
     <string name="revanced_sb_general_skipcount">Увімкнути відстеження кількості пропусків</string>
     <string name="revanced_sb_general_skipcount_sum_off">Відстеження кількості пропусків не ввімкнено</string>
     <string name="revanced_sb_general_skipcount_sum_on">Дозволяє таблиці лідерів Спонсорблок дізнатися, скільки часу заощаджено. Повідомлення надсилається в таблицю лідерів щоразу, коли сегмент пропущено</string>
-    <string name="revanced_sb_general_skiptoast">Показати тост коли пропущено сегмент автоматично</string>
-    <string name="revanced_sb_general_skiptoast_sum_off">Тост не показується. Натисніть тут, щоб побачити приклад.</string>
-    <string name="revanced_sb_general_skiptoast_sum_on">Тост показується, коли сегмент автоматично пропущено. Натисніть тут, щоб побачити приклад.</string>
+    <string name="revanced_sb_general_skiptoast">Показувати тост скасування пропуску</string>
+    <string name="revanced_sb_general_skiptoast_sum_off">Тост не показується.</string>
+    <string name="revanced_sb_general_skiptoast_sum_on">Тост показується, коли сегмент автоматично пропущено. Натисніть на нього, щоб скасувати пропуск.</string>
     <string name="revanced_sb_general_time_without">Показати тривалість відео без сегментів</string>
     <string name="revanced_sb_general_time_without_sum_off">Тривалість повного відео показується</string>
-    <string name="revanced_sb_general_time_without_sum_on">Тривалість відео мінус всі сегменти, вказано в дужках поруч з повною тривалістю відео</string>
+    <string name="revanced_sb_general_time_without_sum_on">Тривалість відео мінус всі сегменти показується на панелі прогресу.</string>
     <string name="revanced_sb_general_uuid">Ваш приватний id користувача</string>
     <string name="revanced_sb_general_uuid_invalid">Особистий id користувача повинен бути довжиною не менше 30 символів</string>
     <string name="revanced_sb_general_uuid_sum">Це повинно залишатися конфіденційним. Це як пароль, і його не можна нікому передавати. Якщо хтось має його, він може видавати себе за вас</string>
@@ -2162,6 +2174,8 @@
     <string name="revanced_sb_toast_on_connection_error_summary_off">Тост не показується, якщо Спонсорблок не доступний.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Тост показується, якщо Спонсорблок не доступний.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Показувати тост, якщо не доступний API</string>
+    <string name="revanced_sb_toast_on_skip_duration">Тривалість тосту пропуску</string>
+    <string name="revanced_sb_toast_on_skip_duration_sum">Як довго показувати тост скасування пропуску.</string>
     <string name="revanced_sb_vote_category">Змінити категорію</string>
     <string name="revanced_sb_vote_downvote">Проголосувати «проти»</string>
     <string name="revanced_sb_vote_failed_forbidden">Не вдалося проголосувати за сегмент: %s</string>
@@ -2343,7 +2357,7 @@
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"Кнопку звукової доріжки показується, якщо клієнтом для отримання даних трансляції є 'Android VR', 'Web мобільний', чи 'visionOS'."</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">Показувати кнопку звукової доріжки</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Необхідні умови:
-• Клієнтом, який використовується для отримання даних трансляції, є 'Android VR', 'Web мобільний', 'iPadOS', чи 'visionOS'.
+• Клієнтом, який використовується для отримання даних трансляції, є 'Android VR', 'Web мобільний', чи 'visionOS'.
 • Відтворюється відео з кількома звуковими доріжками.
 
 Відомі проблеми:
@@ -2363,6 +2377,8 @@
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web мобільний
 <small>(ще в розробці, Без авторизації)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"Простий TV
+<small>(Без PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Невипущений, Без авторизації)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Основний клієнт</string>
@@ -2375,6 +2391,9 @@
 
 AVC має максимальну роздільну здатність 1080p, аудіокодек Opus недоступний, а відтворення відео використовуватиме більше інтернет-даних, ніж кодек VP9 чи AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Якщо у вас виникли проблеми з відтворенням, увімкніть параметр \"Заміна потокових даних\" у &lt;i&gt;&lt;u&gt;Налаштування &gt; %s &gt; Різне &gt; Заміна потокових даних&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">Вибір основної мови трансляції звуку недоступний з Android Studio.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">Вибір основної мови трансляції звуку недоступний з iPadOS.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Щоб вибрати конкретну мову трансляції звуку, вимкніть \'Вимкнути примусові автоматичні звукові доріжки\'.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">Основна мова трансляції звуку</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Кодеки відео пріоритетні.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Якість відео пріоритетна.</string>
@@ -2450,6 +2469,10 @@ AVC має максимальну роздільну здатність 1080p, �
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• Якщо деобфускація не вдасться, відтворення може завершитися зі збоями.
 • Іноді відео не відтворюється навіть через 10 секунд, і тоді потрібно натиснути кнопку перезавантаження відео.
 • Відео може розпочинається із запізненням."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• Якщо деобфускація не вдасться, відтворення може завершитися зі збоями.
+• Для деяких акаунтів може знадобитися PoToken, і в цьому випадку відтворення завершиться зі збоями.
+• Іноді відео не відтворюється навіть через 10 секунд, і тоді потрібно натиснути кнопку перезавантаження відео.
+• Відео може розпочинається із запізненням."</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Невідомі</string>
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Меню звукової доріжки відсутнє.
 • Відео для дітей можуть не відтворюватися коли вийшли з облікового запису або в анонімному режимі.
@@ -2516,6 +2539,20 @@ uBlock Origin знайшов обхідний шлях для вирішення
 • Він значною мірою залежить від сервера, і успіх чи невдача деобфускації залежить від JavaScript відтворювача, який наразі використовується на сервері.
 • Якщо виникли проблеми з клієнтом JavaScript, спробуйте спочатку вимкнути його."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Використовувати останній JavaScript відтворювача</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"Використовується екстрактор SmartTube.
+
+• JavaScript відтворювача для деобфускації не в актуальному стані.
+• Найближчим часом це буде застаріле на серверах."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"Використовується зовнішній JavaScript для yt-dlp (yt-dlp-ejs).
+
+• JavaScript відтворювача для деобфускації підтримується в актуальному стані.
+• Запуск відео може зайняти від 5 до 15 секунд."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Використовувати ejs yt-dlp (Ще в розробці)</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"У зв'язку з новими заходами YouTube більше неможливо розшифрувати посилання трансляції загальними методами в останніх JavaScript відтворювача.
+
+Використовується зовнішній JavaScript для yt-dlp (yt-dlp-ejs) для розшифрування посилань трансляції в останніх JavaScript відтворювача.
+
+Наразі це перебуває на стадії розробки і використовуватиме більше апаратних ресурсів."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Вимикання цього налаштування може призвести до проблем відтворення відео.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Відеокодек визначається автоматично.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Відеокодек AVC (H.264) або VP9.</string>

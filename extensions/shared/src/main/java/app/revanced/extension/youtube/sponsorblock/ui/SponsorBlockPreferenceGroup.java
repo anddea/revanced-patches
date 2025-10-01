@@ -37,6 +37,7 @@ import app.revanced.extension.shared.settings.preference.ResettableEditTextPrefe
 import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
+import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController.SponsorBlockDuration;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryPreference;
@@ -216,6 +217,18 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             });
             appearanceCategory.addPreference(autoHideSkipSegmentButton);
 
+            CustomDialogListPreference autoHideSkipSegmentButtonDuration = new CustomDialogListPreference(context);
+            initializePreference(autoHideSkipSegmentButtonDuration, Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION,
+                    "revanced_sb_auto_hide_skip_button_duration");
+            autoHideSkipSegmentButtonDuration.setOnPreferenceChangeListener((preference1, newValue) -> {
+                SponsorBlockDuration newDuration = SponsorBlockDuration.valueOf((String) newValue);
+                Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.save(newDuration);
+                ((CustomDialogListPreference) preference1).setValue(newDuration.name());
+                updateUIDelayed();
+                return true;
+            });
+            appearanceCategory.addPreference(autoHideSkipSegmentButtonDuration);
+
             SwitchPreference showSkipToast = new SwitchPreference(context);
             initializePreference(showSkipToast, Settings.SB_TOAST_ON_SKIP,
                     "revanced_sb_general_skiptoast");
@@ -225,6 +238,20 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 return true;
             });
             appearanceCategory.addPreference(showSkipToast);
+
+            CustomDialogListPreference showSkipToastDuration = new CustomDialogListPreference(context);
+            initializePreference(showSkipToastDuration, Settings.SB_TOAST_ON_SKIP_DURATION,
+                    "revanced_sb_toast_on_skip_duration");
+            // Sets a static summary without overwriting it.
+            showSkipToastDuration.setStaticSummary(str("revanced_sb_toast_on_skip_duration_sum"));
+            showSkipToastDuration.setOnPreferenceChangeListener((preference1, newValue) -> {
+                SponsorBlockDuration newDuration = SponsorBlockDuration.valueOf((String) newValue);
+                Settings.SB_TOAST_ON_SKIP_DURATION.save(newDuration);
+                ((CustomDialogListPreference) preference1).setValue(newDuration.name());
+                updateUIDelayed();
+                return true;
+            });
+            appearanceCategory.addPreference(showSkipToastDuration);
 
             SwitchPreference showTimeWithoutSegments = new SwitchPreference(context);
             initializePreference(showTimeWithoutSegments, Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS,

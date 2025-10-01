@@ -2,7 +2,7 @@ package com.liskovsoft.googlecommon.common.helpers
 
 import app.revanced.extension.shared.innertube.utils.ThrottlingParameterUtils
 import com.liskovsoft.sharedutils.helpers.Helpers
-import com.liskovsoft.sharedutils.okhttp.OkHttpCommons
+import com.liskovsoft.sharedutils.okhttp.OkHttpManager
 import okhttp3.Headers
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
@@ -54,10 +54,18 @@ internal object RetrofitOkHttpHelper {
 
     private val tParamSuffixes = listOf("/browse", "/next", "/reel", "/playlist")
 
+    //private fun createClient(): OkHttpClient {
+    //    val builder = OkHttpClient.Builder()
+    //    addCommonHeaders(builder)
+    //    OkHttpCommons.setupBuilder(builder)
+    //    //addCronetInterceptor(builder)
+    //    return builder.build()
+    //}
+
     private fun createClient(): OkHttpClient {
-        val builder = OkHttpClient.Builder()
+        val builder = OkHttpManager.instance().client.newBuilder()
         addCommonHeaders(builder)
-        OkHttpCommons.setupBuilder(builder)
+        //addCronetInterceptor(builder)
         return builder.build()
     }
 

@@ -1,7 +1,6 @@
 package app.revanced.patches.shared
 
 import app.revanced.patches.shared.extension.Constants.EXTENSION_SETTING_CLASS_DESCRIPTOR
-import app.revanced.util.containsStringInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction

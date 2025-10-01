@@ -49,6 +49,7 @@ import java.util.concurrent.TimeoutException
 class StreamingDataRequest private constructor(
     videoId: String,
     tParameter: String,
+    cpn: String,
     requestHeader: Map<String, String>,
     reasonSkipped: String,
 ) {
@@ -60,10 +61,11 @@ class StreamingDataRequest private constructor(
         this.videoId = videoId
         this.future = Utils.submitOnBackgroundThread {
             fetch(
-                videoId,
-                tParameter,
-                requestHeader,
-                reasonSkipped,
+                videoId = videoId,
+                tParameter = tParameter,
+                cpn = cpn,
+                requestHeader = requestHeader,
+                reasonSkipped = reasonSkipped,
             )
         }
     }
@@ -152,6 +154,7 @@ class StreamingDataRequest private constructor(
         fun fetchRequest(
             videoId: String,
             tParameter: String,
+            cpn: String,
             fetchHeaders: Map<String, String>,
             reasonSkipped: String,
         ) {
@@ -160,6 +163,7 @@ class StreamingDataRequest private constructor(
                 StreamingDataRequest(
                     videoId,
                     tParameter,
+                    cpn,
                     fetchHeaders,
                     reasonSkipped,
                 )
@@ -233,6 +237,7 @@ class StreamingDataRequest private constructor(
         private fun getDeobfuscatedUrlArrayList(
             clientType: ClientType,
             videoId: String,
+            cpn: String,
             streamBytes: ByteArray,
         ): Triple<ArrayList<String>?, ArrayList<String>?, String?>? {
             val startTime = System.currentTimeMillis()
@@ -267,6 +272,7 @@ class StreamingDataRequest private constructor(
                             val deobfuscatedUrl =
                                 ThrottlingParameterUtils.deobfuscateStreamingUrl(
                                     videoId,
+                                    cpn,
                                     adaptiveFormats.url,
                                     adaptiveFormats.signatureCipher,
                                     sessionPoToken,
@@ -293,6 +299,7 @@ class StreamingDataRequest private constructor(
                             val deobfuscatedUrl =
                                 ThrottlingParameterUtils.deobfuscateStreamingUrl(
                                     videoId,
+                                    cpn,
                                     formats.url,
                                     formats.signatureCipher,
                                     sessionPoToken,
@@ -312,6 +319,7 @@ class StreamingDataRequest private constructor(
                         serverAbrStreamingUrl = ThrottlingParameterUtils
                             .deobfuscateStreamingUrl(
                                 videoId,
+                                "",
                                 serverAbrStreamingUrl,
                                 null,
                                 sessionPoToken,
@@ -358,6 +366,7 @@ class StreamingDataRequest private constructor(
             clientType: ClientType,
             videoId: String,
             tParameter: String,
+            cpn: String,
             requestHeader: Map<String, String>,
         ): HttpURLConnection? {
             val startTime = System.currentTimeMillis()
@@ -369,6 +378,7 @@ class StreamingDataRequest private constructor(
                     createJSRequestBody(
                         clientType = clientType,
                         videoId = videoId,
+                        cpn = cpn,
                         language = overrideLanguage,
                         isGVS = true,
                         isInlinePlayback = SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING,
@@ -417,6 +427,7 @@ class StreamingDataRequest private constructor(
         private fun fetch(
             videoId: String,
             tParameter: String,
+            cpn: String,
             requestHeader: Map<String, String>,
             reasonSkipped: String,
         ): StreamingData? {
@@ -431,9 +442,6 @@ class StreamingDataRequest private constructor(
                     Logger.printDebug { "Skipped login-required client (clientType: $clientType, videoId: $videoId)" }
                     continue
                 }
-                // Decrypting signatureCipher takes time, so videos start 5 to 15 seconds late.
-                // Unlike regular videos, no one would be willing to wait 5 to 15 seconds to play a 10-second Shorts.
-                // For this reason, Shorts uses legacy clients that are not protected by signatureCipher.
                 if (clientType.requireJS && reasonSkipped.isNotEmpty()) {
                     Logger.printDebug { "Skipped javascript required client (reasonSkipped: $reasonSkipped, clientType: $clientType, videoId: $videoId)" }
                     continue
@@ -454,6 +462,7 @@ class StreamingDataRequest private constructor(
                     clientType,
                     videoId,
                     tParameter,
+                    cpn,
                     requestHeader,
                 )
                 if (connection != null) {
@@ -498,6 +507,7 @@ class StreamingDataRequest private constructor(
                                                     val arrayLists = getDeobfuscatedUrlArrayList(
                                                         clientType,
                                                         videoId,
+                                                        cpn,
                                                         streamBytes
                                                     )
                                                     if (arrayLists != null) {

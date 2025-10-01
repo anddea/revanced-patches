@@ -1962,12 +1962,24 @@ To show the Audio track menu:
     <string name="revanced_sb_api_url_invalid">API адрес сервера недействителен.</string>
     <string name="revanced_sb_api_url_reset">API адрес сервера сброшен.</string>
     <string name="revanced_sb_appearance_category">Внешний вид</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration">Кнопка \"Пропустить\" время автоскрытия</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration_sum">Длительность показа кнопок пропуска и перехода к основному моменту до автоматического скрытия</string>
     <string name="revanced_sb_color_changed">Цвет изменен.</string>
     <string name="revanced_sb_color_dot_label">Цвет:</string>
     <string name="revanced_sb_color_invalid">Неверный (hex) код цвета.</string>
     <string name="revanced_sb_color_reset">Цвет сброшен.</string>
     <string name="revanced_sb_create_segment_category">Создание новых сегментов</string>
     <string name="revanced_sb_diff_segments">Изменить поведение сегмента</string>
+    <string name="revanced_sb_duration_10s">10 секунд</string>
+    <string name="revanced_sb_duration_1s">1 секунда</string>
+    <string name="revanced_sb_duration_2s">2 секунды</string>
+    <string name="revanced_sb_duration_3s">3 секунды</string>
+    <string name="revanced_sb_duration_4s">4 секунды</string>
+    <string name="revanced_sb_duration_5s">5 секунд</string>
+    <string name="revanced_sb_duration_6s">6 секунд</string>
+    <string name="revanced_sb_duration_7s">7 секунд</string>
+    <string name="revanced_sb_duration_8s">8 секунд</string>
+    <string name="revanced_sb_duration_9s">9 секунд</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">Скрытие кнопки \"Пропуск\"</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка \"Пропуск\" отображается до конца сегмента.</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопка \"Пропуск\" скрывается через несколько секунд.</string>
@@ -1994,9 +2006,9 @@ To show the Audio track menu:
     <string name="revanced_sb_general_skipcount">Подсчет количества пропусков</string>
     <string name="revanced_sb_general_skipcount_sum_off">Отслеживание количества пропусков не включено.</string>
     <string name="revanced_sb_general_skipcount_sum_on">Позволяет системе доски лидеров SponsorBlock знать, сколько времени было сэкономлено. Отправляет сообщение на сервер каждый раз при пропуске сегмента.</string>
-    <string name="revanced_sb_general_skiptoast">Уведомление при автоматическом пропуске сегмента</string>
-    <string name="revanced_sb_general_skiptoast_sum_off">Уведомление при автоматическом пропуске сегмента отключено.\nНажмите для примера.</string>
-    <string name="revanced_sb_general_skiptoast_sum_on">Уведомление при автоматическом пропуске сегмента включено.\nНажмите для примера.</string>
+    <string name="revanced_sb_general_skiptoast">Показывать уведомление отмены пропуска</string>
+    <string name="revanced_sb_general_skiptoast_sum_off">Всплывающее уведомление скрыто</string>
+    <string name="revanced_sb_general_skiptoast_sum_on">Всплывающее уведомление показано при автоматическом пропуске сегмента. Нажмите на всплывающее уведомление для отмены пропуска</string>
     <string name="revanced_sb_general_time_without">Продолжительность без сегментов</string>
     <string name="revanced_sb_general_time_without_sum_off">Отображается общая продолжительность видео.</string>
     <string name="revanced_sb_general_time_without_sum_on">Продолжительность видео без всех сегментов отображена в скобках рядом с общей продолжительностью видео.</string>
@@ -2150,6 +2162,8 @@ To show the Audio track menu:
     <string name="revanced_sb_toast_on_connection_error_summary_off">Уведомление при недоступности SponsorBlock API отключено.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Уведомление при недоступности SponsorBlock API включено.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Уведомление при недоступности SponsorBlock API</string>
+    <string name="revanced_sb_toast_on_skip_duration">Длительность всплывающего уведомления при пропуске</string>
+    <string name="revanced_sb_toast_on_skip_duration_sum">Как долго показывать всплывающее сообщение об отмене пропуска</string>
     <string name="revanced_sb_vote_category">Изменить категорию</string>
     <string name="revanced_sb_vote_downvote">Проголосовать против</string>
     <string name="revanced_sb_vote_failed_forbidden">Невозможно проголосовать за сегмент: %s.</string>
@@ -2347,6 +2361,8 @@ To show the Audio track menu:
     <string name="revanced_spoof_streaming_data_client_entry_tv">ТВ
 <small>(В разработке)</small>
     </string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"ТВ Простой
+<small>(Без PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Не релизный, Не авторизован)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Клиент по умолчанию</string>
@@ -2361,6 +2377,9 @@ To show the Audio track menu:
 
 Максимальное разрешение AVC - 1080p. Кодек Opus недоступен. Потребление трафика больше, чем при VP9 или AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Если у вас возникли проблемы с воспроизведением, включите параметр \"Замена потоковых данных\" в Настройках/Разное/Замена потоковых данных.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">Язык звукового потока, по умолчанию, не доступен для Android Studio.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">Язык звукового потока, по умолчанию, не доступен для iPadOS.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Чтобы выбрать язык звукового потока, отключите \'Принудительные звуковые авто дорожки\'.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">Язык аудио потока по умолчанию</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Приоритет качества видео отключен.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Приоритет качества видео включен.</string>
@@ -2431,6 +2450,10 @@ VP9 более продвинутый кодек, чем AVC, но некото�
 • Если деобфускация не удалась, воспроизведение может быть прервано.
 • Иногда видео не воспроизводится даже через 10 секунд, в этом случае необходимо нажать кнопку \"Перезагрузить видео\".
 • Видео может запускаться с опозданием."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• Если деобфускация не удается, просмотр может завершиться неудачей.
+• Может потребоваться PoToken, без него просмотр завершится ошибкой.
+• Иногда просмотр видео не будет доступен даже через 10 сек, тогда перезагрузить видео.
+• Видео может начинаться с опозданием."</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Неизвестно</string>
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Аудио меню пропадет.
 • Детские видео могут не проигрываться без логина или в режиме инкогнито.

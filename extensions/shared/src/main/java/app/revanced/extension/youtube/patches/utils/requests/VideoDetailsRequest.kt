@@ -121,7 +121,10 @@ class VideoDetailsRequest private constructor(
                     requestHeader,
                 )
 
-                val requestBody = createApplicationRequestBody(clientType, videoId)
+                val requestBody = createApplicationRequestBody(
+                    clientType = clientType,
+                    videoId = videoId
+                )
 
                 connection.setFixedLengthStreamingMode(requestBody.size)
                 connection.outputStream.write(requestBody)

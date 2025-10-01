@@ -12,8 +12,7 @@ internal data class JsChallengeRequest(
 )
 
 internal data class ChallengeInput(
-    val playerUrl: String,
-    val challenges: List<String>
+    val challenge: String
 )
 
 internal data class ChallengeOutput(

@@ -1985,12 +1985,24 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_sb_api_url_invalid">Adres API jest nieprawidłowy.</string>
     <string name="revanced_sb_api_url_reset">Adres API został zresetowany.</string>
     <string name="revanced_sb_appearance_category">Wygląd</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration">Długość widoczności przycisku pomijania</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration_sum">Określa długość pokazywania się przycisków od pomijania segmentów i pominięcia aż do najważniejszego momentu filmu przed automatycznym ukryciem</string>
     <string name="revanced_sb_color_changed">Kolor został zmieniony.</string>
     <string name="revanced_sb_color_dot_label">Kolor:</string>
     <string name="revanced_sb_color_invalid">Nieprawidłowy kod koloru.</string>
     <string name="revanced_sb_color_reset">Kolor został zresetowany.</string>
     <string name="revanced_sb_create_segment_category">Tworzenie nowych segmentów</string>
     <string name="revanced_sb_diff_segments">Zmień sposoby pomijania segmentów</string>
+    <string name="revanced_sb_duration_10s">10 sekund</string>
+    <string name="revanced_sb_duration_1s">1 sekunda</string>
+    <string name="revanced_sb_duration_2s">2 sekundy</string>
+    <string name="revanced_sb_duration_3s">3 sekundy</string>
+    <string name="revanced_sb_duration_4s">4 sekundy</string>
+    <string name="revanced_sb_duration_5s">5 sekund</string>
+    <string name="revanced_sb_duration_6s">6 sekund</string>
+    <string name="revanced_sb_duration_7s">7 sekund</string>
+    <string name="revanced_sb_duration_8s">8 sekund</string>
+    <string name="revanced_sb_duration_9s">9 sekund</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatyczne ukrywanie przycisku od pomijania</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Przycisk od pomijania jest wyświetlany podczas całego segmentu</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Przycisk od pomijania znika po kilku sekundach</string>
@@ -2018,8 +2030,8 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_sb_general_skipcount_sum_off">Wyłączone</string>
     <string name="revanced_sb_general_skipcount_sum_on">To pozwala systemowi wyników SponsorBlock wiedzieć, ile czasu zostało zaoszczędzone. Rozszerzenie wysyła wiadomość do serwera za każdym razem, gdy pominięty jest segment.</string>
     <string name="revanced_sb_general_skiptoast">Komunikaty po automatycznych pominięciach</string>
-    <string name="revanced_sb_general_skiptoast_sum_off">Komunikaty nie są pokazywane. Stuknij tutaj, aby zobaczyć przykład.</string>
-    <string name="revanced_sb_general_skiptoast_sum_on">Komunikaty są pokazywane, gdy segmenty są automatycznie pomijane. Stuknij tutaj, aby zobaczyć przykład.</string>
+    <string name="revanced_sb_general_skiptoast_sum_off">Wyłączone</string>
+    <string name="revanced_sb_general_skiptoast_sum_on">Włączone. Kliknij komunikat, by cofnąć pominięcie</string>
     <string name="revanced_sb_general_time_without">Czas bez segmentów</string>
     <string name="revanced_sb_general_time_without_sum_off">Nie</string>
     <string name="revanced_sb_general_time_without_sum_on">Pokazuje czas trwania filmu, odejmując czas trwania zsumowanej długości segmentów, pojawia się w nawiasach obok czasu trwania filmu.</string>
@@ -2173,6 +2185,8 @@ Gotowy do przesłania?"</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Widoczny</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Ukryty</string>
     <string name="revanced_sb_toast_on_connection_error_title">Komunikat, jeśli API jest niedostępne</string>
+    <string name="revanced_sb_toast_on_skip_duration">Długość trwania komunikatu o pominięciu</string>
+    <string name="revanced_sb_toast_on_skip_duration_sum">Określa, jak długo ma trwać wyświetlanie komunikatu po automatycznym pominięciu segmentu</string>
     <string name="revanced_sb_vote_category">Zmień kategorię</string>
     <string name="revanced_sb_vote_downvote">Głos przeciw</string>
     <string name="revanced_sb_vote_failed_forbidden">Nie można zagłosować na segment: %s.</string>
@@ -2354,7 +2368,7 @@ Informacje:
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"Widoczny, lecz pod warunkiem używania klientów 'Android VR', 'Mobilny przeglądarkowy' bądź 'visionOS'"</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">Przycisk od ścieżki dźwiękowej</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Warunki:
-• używanym klientem przy przechwytywaniu strumienia danych jest 'Android VR', 'Mobilny przeglądarkowy', 'iPadOS' lub 'visionOS'
+• używanym klientem przy przechwytywaniu strumienia danych jest 'Android VR', 'Mobilny przeglądarkowy', lub 'visionOS'
 • odtwarzany jest film z wieloma ścieżkami dźwiękowymi
 
 Znane problemy:
@@ -2374,6 +2388,7 @@ Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w 
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobilny przeglądarkowy
 <small>(W fazie rozwoju, bez autoryzacji)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"Uproszczony TV <small>(Bez PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Niewydany, bez autoryzacji)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Domyślny klient</string>
@@ -2386,6 +2401,9 @@ Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w 
 
 AVC obsługuje maksymalnie rozdzielczość 1080p, kodek audio OPUS nie jest dostępny, a odtwarzanie wideo będzie zużywać więcej danych internetowych niż VP9 lub AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Jeśli doświadczasz problemów z odtwarzaniem, włącz \"Oszukuj strumień danych\" w &lt;i&gt;&lt;u&gt;Ustawienia &gt; %s &gt; Pozostałe &gt; Oszukuj strumień danych&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">Domyślny język ścieżki dźwiękowej transmisji na żywo nie jest dostępny w Android Studio.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">Domyślny język ścieżki dźwiękowej transmisji na żywo nie jest dostępny w iPadOS.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">By wybrać określoną ścieżkę dźwiękową transmisji na żywo, wyłącz \'Automatyczne wymuszanie ścieżki dźwiękowej\'.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">Domyślny język dla transmisji na żywo</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Kodeków w filmie</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Jakości filmu</string>
@@ -2461,6 +2479,10 @@ Przykład 2:
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• jeśli odszyfrowywanie się nie powiedzie, odtwarzanie może się nie powieść
 • czasem film nie odtwarza się nawet po 10 sekundach, dlatego należy kliknąć przycisk od odświeżenia filmu
 • filmy mogą zacząć się z opóźnieniem"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• jeśli odszyfrowywanie się nie powiedzie, odtwarzanie może się nie powieść
+• niektóre konto wymagają PoToken, w rezultacie czego odtwarzanie może się nie powieść
+• czasem film nie odtwarza się nawet po 10 sekundach, dlatego należy kliknąć przycisk od odświeżenia filmu
+• filmy mogą zacząć się z opóźnieniem"</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Nieznane</string>
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• brakuje menu od ścieżki dźwiękowej
 • filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito
@@ -2527,6 +2549,20 @@ Spośród klientów JavaScript, rekomendowanym klientem jest Uproszczony TV."</s
 • jest to wysoce zależne od serwera, a sukces lub porażka odszyfrowywania zależy od wersji JavaScript odtwarzacza obecnie używanego na serwerze
 • jeśli masz problemy z klientem JavaScript, w pierwszej kolejności spróbuj to wyłączyć"</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Najnowszy JavaScript odtwarzacza</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"Ekstraktor SmartTube
+
+• JavaScript odtwarzacza do odszyfrowywania nie jest aktualny
+• może być porzucony przez serwery w najbliższej przyszłości"</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"yt-dlp-ejs (w fazie rozwoju)
+
+• JavaScript odtwarzacza do odszyfrowywania jest aktualizowany na bieżąco
+• film może się wczytywać od 5 do 15 sekund"</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Typ JavaScript odtwarzacza</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"W związku z nowymi środkami YouTube, nie jest już dłużej możliwe odszyfrowywać URL strumieni przy użyciu ogólnych metód w JavaScript odtwarzacza.
+
+Zewnętrzny JavaScript dla yt-dlp (yt-dlp-ejs) jest używany do odszyfrowywania URL strumieni w najnowszym JavaScript odtwarzacza.
+
+Obecnie jest w fazie rozwoju i może używać większej ilości zasobów sprzętowych."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Wyłączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Kodek filmu jest określany automatycznie</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Kodekiem filmu jest AVC (H.264) lub VP9</string>

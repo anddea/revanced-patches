@@ -20,7 +20,11 @@ import app.revanced.patches.youtube.utils.bottomsheet.bottomSheetHookPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
 import app.revanced.patches.youtube.utils.dismiss.hookDismissObserver
-import app.revanced.patches.youtube.utils.engagement.*
+import app.revanced.patches.youtube.utils.engagement.engagementPanelBuilderMethod
+import app.revanced.patches.youtube.utils.engagement.engagementPanelFreeRegister
+import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
+import app.revanced.patches.youtube.utils.engagement.engagementPanelIdIndex
+import app.revanced.patches.youtube.utils.engagement.engagementPanelIdRegister
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_PATH
@@ -38,13 +42,32 @@ import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.video.information.hookBackgroundPlayVideoInformation
 import app.revanced.patches.youtube.video.information.hookVideoInformation
 import app.revanced.patches.youtube.video.information.videoInformationPatch
-import app.revanced.util.*
+import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.Utils.printWarn
-import app.revanced.util.fingerprint.*
+import app.revanced.util.findMethodOrThrow
+import app.revanced.util.findMutableMethodOf
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
+import app.revanced.util.fingerprint.injectLiteralInstructionViewCall
+import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.fingerprint.mutableClassOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.*
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
@@ -548,9 +571,9 @@ val playerComponentsPatch = bytecodePatch(
         // region patch for hide end screen cards
 
         listOf(
-            layoutCircleFingerprint,
-            layoutIconFingerprint,
-            layoutVideoFingerprint
+            endScreenElementLayoutCircleFingerprint,
+            endScreenElementLayoutIconFingerprint,
+            endScreenElementLayoutVideoFingerprint
         ).forEach { fingerprint ->
             fingerprint.matchOrThrow().let {
                 it.method.apply {
@@ -565,16 +588,18 @@ val playerComponentsPatch = bytecodePatch(
             }
         }
 
-        if (is_20_14_or_greater) {
-            val targetMethod = newEndscreenFingerprint.methodOrThrow(newEndscreenParentFingerprint)
-            val returnIndex = targetMethod.indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
-
-            targetMethod.addInstructionsWithLabels(
+        if (is_19_43_or_greater) {
+            endScreenPlayerResponseModelFingerprint
+                .methodOrThrow()
+                .addInstructionsWithLabels(
                 0, """
-                invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideNewEndScreenCards()Z
-                move-result v0
-                if-nez v0, :return
-                """, ExternalLabel("return", targetMethod.getInstruction(returnIndex))
+                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideEndScreenCards()Z
+                    move-result v0
+                    if-eqz v0, :show
+                    return-void
+                    :show
+                    nop
+                    """
             )
         }
 
@@ -588,12 +613,14 @@ val playerComponentsPatch = bytecodePatch(
         ) {
             val stringInstructions = when (returnType) {
                 "Z" -> """
-                            const/4 v$register, 0x0
-                            return v$register
-                        """
+                    const/4 v$register, 0x0
+                    return v$register
+                    """
+
                 "V" -> """
-                            return-void
-                        """
+                    return-void
+                    """
+
                 else -> throw Exception("This case should never happen.")
             }
 

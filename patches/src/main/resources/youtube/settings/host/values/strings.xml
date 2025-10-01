@@ -1983,12 +1983,24 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_api_url_invalid">API URL is invalid.</string>
     <string name="revanced_sb_api_url_reset">API URL reset.</string>
     <string name="revanced_sb_appearance_category">Appearance</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration">Skip button duration</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration_sum">How long to show the skip and skip to highlight buttons before automatically hiding.</string>
     <string name="revanced_sb_color_changed">Color changed.</string>
     <string name="revanced_sb_color_dot_label">Color:</string>
     <string name="revanced_sb_color_invalid">Invalid color code.</string>
     <string name="revanced_sb_color_reset">Color reset.</string>
     <string name="revanced_sb_create_segment_category">Creating new segments</string>
     <string name="revanced_sb_diff_segments">Change segment behavior</string>
+    <string name="revanced_sb_duration_10s">10 seconds</string>
+    <string name="revanced_sb_duration_1s">1 second</string>
+    <string name="revanced_sb_duration_2s">2 seconds</string>
+    <string name="revanced_sb_duration_3s">3 seconds</string>
+    <string name="revanced_sb_duration_4s">4 seconds</string>
+    <string name="revanced_sb_duration_5s">5 seconds</string>
+    <string name="revanced_sb_duration_6s">6 seconds</string>
+    <string name="revanced_sb_duration_7s">7 seconds</string>
+    <string name="revanced_sb_duration_8s">8 seconds</string>
+    <string name="revanced_sb_duration_9s">9 seconds</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatically hide skip button</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button displayed for entire segment.</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after several seconds.</string>
@@ -2015,12 +2027,12 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_general_skipcount">Enable skip count tracking</string>
     <string name="revanced_sb_general_skipcount_sum_off">Skip count tracking is not enabled.</string>
     <string name="revanced_sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped.</string>
-    <string name="revanced_sb_general_skiptoast">Show a toast when skipping automatically</string>
-    <string name="revanced_sb_general_skiptoast_sum_off">Toast is not shown. Tap here to see an example.</string>
-    <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example.</string>
+    <string name="revanced_sb_general_skiptoast">Show undo skip toast</string>
+    <string name="revanced_sb_general_skiptoast_sum_off">Toast is not shown.</string>
+    <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap the toast notification to undo the skip.</string>
     <string name="revanced_sb_general_time_without">Show video length without segments</string>
     <string name="revanced_sb_general_time_without_sum_off">Full video length shown.</string>
-    <string name="revanced_sb_general_time_without_sum_on">Video length minus the combined segment length is shown in parentheses next to the full video length.</string>
+    <string name="revanced_sb_general_time_without_sum_on">Video length minus all segments is shown on the seekbar.</string>
     <string name="revanced_sb_general_uuid">Your private user id</string>
     <string name="revanced_sb_general_uuid_invalid">Private user id must be at least 30 characters long.</string>
     <string name="revanced_sb_general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you.</string>
@@ -2163,6 +2175,8 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is unavailable.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is unavailable.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Show a toast if API is unavailable</string>
+    <string name="revanced_sb_toast_on_skip_duration">Skip toast duration</string>
+    <string name="revanced_sb_toast_on_skip_duration_sum">How long to show the undo skip toast.</string>
     <string name="revanced_sb_vote_category">Change category</string>
     <string name="revanced_sb_vote_downvote">Downvote</string>
     <string name="revanced_sb_vote_failed_forbidden">Unable to vote for segment: %s.</string>
@@ -2526,6 +2540,20 @@ Among JavaScript clients, the recommended client is TV."</string>
 • It is highly server-dependent, and the success or failure of deobfuscation depends on the Player JavaScript currently used on the server.
 • If you're having issues with JavaScript client, try disabling this first."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Use latest player JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"SmartTube extractor is used.
+
+• Player JavaScript for deobfuscation is not up to date.
+• This will be deprecated by servers in the near future."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"External JavaScript for yt-dlp (yt-dlp-ejs) is used.
+
+• Player JavaScript for deobfuscation is kept up to date.
+• It may take 5 to 15 seconds for the video to start."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Use yt-dlp ejs (WIP)</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"Due to YouTube's new measures, it is no longer possible to decrypt streaming urls using general methods in the latest player JavaScript.
+
+External JavaScript for yt-dlp (yt-dlp-ejs) is used to decrypt streaming urls in the latest player JavaScript.
+
+It is currently under development and will use more hardware resources."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Turning off this setting may cause video playback issues.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Video codec is determined automatically.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Video codec is AVC (H.264) or VP9.</string>

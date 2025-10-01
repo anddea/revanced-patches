@@ -1974,12 +1974,24 @@ Hạn chế: Số lượt không thích có thể không hiển thị nếu ngư
     <string name="revanced_sb_api_url_invalid">URL của API không hợp lệ.</string>
     <string name="revanced_sb_api_url_reset">Đã đặt lại URL của API.</string>
     <string name="revanced_sb_appearance_category">Giao diện</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration">Thời gian hiện nút bỏ qua</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration_sum">Thời gian hiển thị nút bỏ qua và nút bỏ qua đến khoảng khắc nổi bật trước khi tự động ẩn.</string>
     <string name="revanced_sb_color_changed">Đã thay đổi màu.</string>
     <string name="revanced_sb_color_dot_label">Màu:</string>
     <string name="revanced_sb_color_invalid">Mã màu không hợp lệ.</string>
     <string name="revanced_sb_color_reset">Đặt lại màu</string>
     <string name="revanced_sb_create_segment_category">Tạo phân đoạn mới</string>
     <string name="revanced_sb_diff_segments">Cài đặt phân đoạn</string>
+    <string name="revanced_sb_duration_10s">10 giây</string>
+    <string name="revanced_sb_duration_1s">1 giây</string>
+    <string name="revanced_sb_duration_2s">2 giây</string>
+    <string name="revanced_sb_duration_3s">3 giây</string>
+    <string name="revanced_sb_duration_4s">4 giây</string>
+    <string name="revanced_sb_duration_5s">5 giây</string>
+    <string name="revanced_sb_duration_6s">6 giây</string>
+    <string name="revanced_sb_duration_7s">7 giây</string>
+    <string name="revanced_sb_duration_8s">8 giây</string>
+    <string name="revanced_sb_duration_9s">9 giây</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">Tự động ẩn nút Bỏ qua</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Nút bỏ qua được hiển thị cho toàn bộ phân đoạn.</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Nút bỏ qua sẽ ẩn sau vài giây.</string>
@@ -2006,9 +2018,9 @@ Hạn chế: Số lượt không thích có thể không hiển thị nếu ngư
     <string name="revanced_sb_general_skipcount">Theo dõi số lần bỏ qua</string>
     <string name="revanced_sb_general_skipcount_sum_off">Theo dõi số lần bỏ qua không được bật.</string>
     <string name="revanced_sb_general_skipcount_sum_on">Cho bảng xếp hạng của SponsorBlock biết lượng thời gian đã tiết kiệm được. Một thông báo sẽ được gửi tới bảng xếp hạng mỗi khi một phân đoạn đã bỏ qua.</string>
-    <string name="revanced_sb_general_skiptoast">Hiện thông báo ngắn khi tự động bỏ qua</string>
-    <string name="revanced_sb_general_skiptoast_sum_off">Không hiện thông báo ngắn mỗi khi tự động bỏ qua phân đoạn. Nhấn vào đây để xem ví dụ.</string>
-    <string name="revanced_sb_general_skiptoast_sum_on">Hiển thị thông báo ngắn mỗi khi tự động bỏ qua phân đoạn. Nhấn vào đây để xem ví dụ.</string>
+    <string name="revanced_sb_general_skiptoast">Hiện thông báo ngắn hoàn tác bỏ qua</string>
+    <string name="revanced_sb_general_skiptoast_sum_off">Không hiển thị thông báo ngắn.</string>
+    <string name="revanced_sb_general_skiptoast_sum_on">Hiển thị thông báo ngắn mỗi khi tự động bỏ qua một phân đoạn. Nhấn vào thông báo này để hoàn tác bỏ qua.</string>
     <string name="revanced_sb_general_time_without">Hiển thị thời lượng video không có phân đoạn</string>
     <string name="revanced_sb_general_time_without_sum_off">Độ dài video đầy đủ được hiển thị.</string>
     <string name="revanced_sb_general_time_without_sum_on">Thời lượng video trừ đi tất cả các phân đoạn, được hiển thị trong dấu ngoặc đơn bên cạnh thời lượng video đầy đủ.</string>
@@ -2162,6 +2174,8 @@ Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Không hiện thông báo ngắn nếu SponsorBlock không khả dụng.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Hiển thị thông báo ngắn nếu SponsorBlock không khả dụng.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Hiện thông báo ngắn nếu API không khả dụng</string>
+    <string name="revanced_sb_toast_on_skip_duration">Thời gian hiện thông báo ngắn</string>
+    <string name="revanced_sb_toast_on_skip_duration_sum">Thời gian hiển thị thông báo ngắn để hoàn tác.</string>
     <string name="revanced_sb_vote_category">Đổi danh mục</string>
     <string name="revanced_sb_vote_downvote">Phản đối</string>
     <string name="revanced_sb_vote_failed_forbidden">Không thể bỏ phiếu cho phân đoạn: %s.</string>
@@ -2522,6 +2536,22 @@ Chi tiết:
 • Quá trình gỡ rối mã phụ thuộc rất nhiều vào Player JS mà máy chủ đang sử dụng, nên đôi khi có thể thành công hoặc thất bại.
 • Nếu bạn gặp sự cố với client JavaScript, hãy thử tắt cài đặt này trước."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Dùng Player JavaScript mới nhất</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"Trình trích xuất SmartTube được sử dụng.
+
+Chi tiết:
+• Player JS luôn cập nhật để hỗ trợ gỡ rối mã.
+• Quá trình này mất khoảng 5 đến 15 giây trước khi video bắt đầu."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"JavaScript bên ngoài từ yt-dlp (yt-dlp-ejs) được sử dụng.
+
+Chi tiết:
+• Player JS luôn cập nhật để hỗ trợ gỡ rối mã.
+• Quá trình này mất khoảng 5 đến 15 giây trước khi video bắt đầu."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Dùng yt-dlp ejs (Thử nghiệm)</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"Vì YouTube áp dụng biện pháp mới, các cách thông thường không còn giải mã được URL phát trong Player JS mới nhất.
+
+Thay vào đó, ứng dụng sẽ dùng JavaScript bên ngoài từ yt-dlp (yt-dlp-ejs) để giải mã.
+
+Hiện tại tính năng này vẫn đang trong quá trình phát triển và sẽ dùng nhiều tài nguyên phần cứng hơn."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Tắt cài đặt này có thể gây ra lỗi khi phát video.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Codec video sẽ được xác định tự động.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Codec video là AVC (H.264) hoặc VP9.</string>

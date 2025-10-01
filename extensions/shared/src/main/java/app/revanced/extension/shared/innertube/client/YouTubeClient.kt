@@ -2,6 +2,7 @@ package app.revanced.extension.shared.innertube.client
 
 import android.annotation.SuppressLint
 import android.os.Build
+import app.revanced.extension.shared.innertube.utils.J2V8Support.supportJ2V8
 import app.revanced.extension.shared.settings.BaseSettings
 import app.revanced.extension.shared.utils.PackageUtils
 import org.apache.commons.lang3.ArrayUtils
@@ -312,7 +313,7 @@ object YouTubeClient {
     }
 
     private fun useJS(): Boolean {
-        return BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get()
+        return supportJ2V8() && BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get()
     }
 
     @JvmStatic
