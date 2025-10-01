@@ -756,6 +756,10 @@ public final class app/revanced/patches/spotify/extended/LyricsSearchPatchKt {
 	public static final fun getMediaSessionMetadataConstructorFingerprint ()Lapp/revanced/patcher/Fingerprint;
 }
 
+public final class app/revanced/patches/spotify/extended/SanitizeSharingLinksPatchKt {
+	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/spotify/extended/SetActivityContextPatchKt {
 	public static final fun getMainActivityOnCreateFingerprint ()Lapp/revanced/patcher/Fingerprint;
 	public static final fun getSetActivityContextPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
@@ -789,8 +793,8 @@ public final class app/revanced/patches/spotify/misc/lyrics/ChangeLyricsProvider
 	public static final fun getChangeLyricsProviderPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/spotify/misc/privacy/SanitizeSharingLinksPatchKt {
-	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/spotify/misc/privacy/FingerprintsKt {
+	public static final fun getShareLinkFingerprint ()Lapp/revanced/patcher/Fingerprint;
 }
 
 public final class app/revanced/patches/spotify/misc/widgets/FixThirdPartyLaunchersWidgetsKt {
