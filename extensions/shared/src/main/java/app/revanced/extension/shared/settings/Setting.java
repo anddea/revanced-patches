@@ -155,7 +155,6 @@ public abstract class Setting<T> {
      * @return All settings that have been created, sorted by keys.
      * @noinspection Java8ListSort
      */
-    @NonNull
     private static List<Setting<?>> allLoadedSettingsSorted() {
         //noinspection ComparatorCombinators
         Collections.sort(SETTINGS, (o1, o2) -> o1.key.compareTo(o2.key));

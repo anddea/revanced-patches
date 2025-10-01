@@ -612,14 +612,14 @@ public class PlayerPatch {
         hideViewByRemovingFromParentUnderCondition(Settings.HIDE_DOUBLE_TAP_OVERLAY_FILTER, view);
     }
 
+    public static boolean hideEndScreenCards() {
+        return Settings.HIDE_END_SCREEN_CARDS.get();
+    }
+
     public static void hideEndScreenCards(View view) {
         if (Settings.HIDE_END_SCREEN_CARDS.get()) {
             view.setVisibility(View.GONE);
         }
-    }
-
-    public static boolean hideNewEndScreenCards() {
-        return Settings.HIDE_END_SCREEN_CARDS.get();
     }
 
     public static boolean hideEndScreenSuggestedVideo() {

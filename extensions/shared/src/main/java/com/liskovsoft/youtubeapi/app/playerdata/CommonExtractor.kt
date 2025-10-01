@@ -4,6 +4,7 @@ import app.revanced.extension.shared.utils.Logger
 
 import com.google.gson.Gson
 import com.liskovsoft.googlecommon.common.js.JSInterpret
+import com.liskovsoft.sharedutils.helpers.Helpers
 import java.util.regex.Pattern
 
 internal object CommonExtractor {
@@ -18,6 +19,11 @@ internal object CommonExtractor {
                 )
             )[;,]
         """, Pattern.COMMENTS)
+
+    /**
+     * Used in get_video_info
+     */
+    private val mSignatureTimestamp: Pattern = Pattern.compile("signatureTimestamp:(\\d+)")
 
     fun extractPlayerJsGlobalVar(jsCode: String): Triple<String?, String?, String?> {
         val matcher = mGlobalVarPattern.matcher(jsCode)
@@ -45,5 +51,18 @@ internal object CommonExtractor {
         }
 
         return Triple(varName, globalList, varCode)
+    }
+
+    fun extractSignatureTimestamp(jsCode: String): Int? {
+        try {
+            val matcher = mSignatureTimestamp.matcher(jsCode)
+            if (matcher.find()) {
+                val signatureTimestamp = matcher.group(1)
+                return Helpers.parseInt(signatureTimestamp)
+            }
+        } catch (ex: Exception) {
+            Logger.printException({ "extractSignatureTimestamp failed" }, ex)
+        }
+        return null
     }
 }

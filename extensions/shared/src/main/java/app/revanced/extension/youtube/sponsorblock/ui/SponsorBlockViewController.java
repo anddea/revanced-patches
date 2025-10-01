@@ -215,7 +215,7 @@ public class SponsorBlockViewController {
             setSkipButtonMargins(skipSponsorButton, isWatchFullScreen);
             setViewVisibility(skipSponsorButton, skipSegment != null);
         } catch (Exception ex) {
-            Logger.printException(() -> "Player type changed failure", ex);
+            Logger.printException(() -> "playerTypeChanged failure", ex);
         }
     }
 

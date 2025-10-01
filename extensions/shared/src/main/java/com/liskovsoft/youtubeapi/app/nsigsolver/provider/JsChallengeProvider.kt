@@ -33,12 +33,4 @@ internal abstract class JsChallengeProvider {
      * Subclasses can override this method to handle bulk solving
      */
     protected abstract fun realBulkSolve(requests: List<JsChallengeRequest>): Sequence<JsChallengeProviderResponse>
-
-    protected fun getPlayer(videoId: String?, playerUrl: String): String {
-        return try {
-            ie.loadPlayer(playerUrl)
-        } catch (e: Exception) {
-            throw JsChallengeProviderError("Failed to load player for JS challenge: $playerUrl", e)
-        }
-    }
 }

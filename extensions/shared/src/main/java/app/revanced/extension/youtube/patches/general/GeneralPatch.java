@@ -371,6 +371,10 @@ public class GeneralPatch {
         return Settings.FIX_HYPE_BUTTON_ICON.get();
     }
 
+    public static String getWatchNextEndpointVersionOverride() {
+        return "19.26.42";
+    }
+
     // endregion
 
     // region [Spoof app version] patch

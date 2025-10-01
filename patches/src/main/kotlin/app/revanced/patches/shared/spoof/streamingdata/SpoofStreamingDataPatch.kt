@@ -437,6 +437,13 @@ fun spoofStreamingDataPatch(
             }
         }
 
+        playbackStartParametersFingerprint
+            .methodOrThrow()
+            .addInstruction(
+                1,
+                "invoke-static {p3}, $EXTENSION_CLASS_DESCRIPTOR->newPlayerResponseCpn(Ljava/lang/String;)V"
+            )
+
         // endregion
 
         // region JavaScript client
@@ -502,6 +509,11 @@ fun spoofStreamingDataPatch(
                 ResourceGroup(
                     "raw",
                     "po_token.html",
+                    // External JavaScript for yt-dlp: https://github.com/yt-dlp/ejs
+                    "astring.bundle.min.js",
+                    "meriyah.bundle.min.js",
+                    "polyfill.js",
+                    "yt.solver.core.js",
                 )
             ).forEach { resourceGroup ->
                 copyResources("shared/spoof/shared", resourceGroup)

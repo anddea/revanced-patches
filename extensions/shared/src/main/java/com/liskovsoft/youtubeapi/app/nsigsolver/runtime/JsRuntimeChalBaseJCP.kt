@@ -1,5 +1,7 @@
 package com.liskovsoft.youtubeapi.app.nsigsolver.runtime
 
+import androidx.annotation.GuardedBy
+import app.revanced.extension.shared.innertube.utils.ThrottlingParameterUtils
 import app.revanced.extension.shared.utils.Logger
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
@@ -13,19 +15,22 @@ import com.liskovsoft.youtubeapi.app.nsigsolver.provider.JsChallengeProviderResp
 import com.liskovsoft.youtubeapi.app.nsigsolver.provider.JsChallengeRequest
 import com.liskovsoft.youtubeapi.app.nsigsolver.provider.JsChallengeResponse
 import com.liskovsoft.youtubeapi.app.nsigsolver.provider.JsChallengeType
+import java.util.Collections
 
 internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
     private val tag = JsRuntimeChalBaseJCP::class.simpleName
     private val cacheSection = "challenge-solver"
+    private var playerJS = ""
 
     private val jcpGuideUrl = "https://github.com/yt-dlp/yt-dlp/wiki/YouTube-JS-Challenges"
     private val repository = "yt-dlp/ejs"
     override val supportedTypes = listOf(JsChallengeType.N, JsChallengeType.SIG)
     protected val scriptVersion = "0.0.1"
+    internal val libPrefix = "nsigsolver/"
 
     private val scriptFilenames = mapOf(
-        ScriptType.LIB to "yt.solver.lib.js",
-        ScriptType.CORE to "yt.solver.core.js"
+        ScriptType.LIB to "${libPrefix}yt.solver.lib.js",
+        ScriptType.CORE to "${libPrefix}yt.solver.core.js"
     )
 
     private val minScriptFilenames = mapOf(
@@ -33,24 +38,44 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
         ScriptType.CORE to "yt.solver.core.min.js"
     )
 
-    abstract fun runJsRuntime(stdin: String): String
+    protected abstract fun runJsRuntime(stdin: String): String
+
+    fun setPlayerJS(jsCode: String) {
+        playerJS = jsCode
+    }
 
     override fun realBulkSolve(requests: List<JsChallengeRequest>): Sequence<JsChallengeProviderResponse> = sequence {
-        val grouped: Map<String, List<JsChallengeRequest>> = requests.groupBy { it.input.playerUrl }
+        val stdin = constructStdin(playerJS = playerJS, requests = requests)
+        val stdout = runJsRuntime(stdin)
 
-        for ((playerUrl, groupedRequests) in grouped) {
-            val data = ie.cache.load(cacheSection, "player:$playerUrl")
-            var player = data?.code
+        val gson = Gson()
+        val output: SolverOutput = try {
+            gson.fromJson(stdout, solverOutputType)
+        } catch (e: JsonSyntaxException) {
+            throw JsChallengeProviderError("Cannot parse solver output", e)
+        }
 
-            val cached = if (player != null) {
-                true
+        if (output.type == "error")
+            throw JsChallengeProviderError(output.error ?: "Unknown solver output error")
+
+        for ((request, responseData) in requests.zip(output.responses)) {
+            if (responseData.type == "error") {
+                yield(JsChallengeProviderResponse(
+                    request, null, JsChallengeProviderError(responseData.error ?: "Unknown solver output error")))
             } else {
-                val videoId = groupedRequests.firstOrNull()?.videoId
-                player = getPlayer(videoId, playerUrl)
-                false
+                yield(JsChallengeProviderResponse(
+                    request, JsChallengeResponse(request.type, ChallengeOutput(responseData.data))
+                ))
             }
+        }
+    }
 
-            val stdin = constructStdin(player, cached, groupedRequests)
+    /*
+    override fun realBulkSolve(requests: List<JsChallengeRequest>): Sequence<JsChallengeProviderResponse> = sequence {
+        val grouped: Map<String, List<JsChallengeRequest>> = requests.groupBy { it.input.playerJS }
+
+        for ((playerJS, groupedRequests) in grouped) {
+            val stdin = constructStdin(playerJS = playerJS, requests = groupedRequests)
             val stdout = runJsRuntime(stdin)
 
             val gson = Gson()
@@ -62,10 +87,6 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
 
             if (output.type == "error")
                 throw JsChallengeProviderError(output.error ?: "Unknown solver output error")
-
-            val preprocessed = output.preprocessed_player
-            if (preprocessed != null)
-                ie.cache.store(cacheSection, "player:$playerUrl", CachedData(preprocessed))
 
             for ((request, responseData) in groupedRequests.zip(output.responses)) {
                 if (responseData.type == "error") {
@@ -79,25 +100,27 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
             }
         }
     }
+     */
 
-    private fun constructStdin(player: String, preprocessed: Boolean, requests: List<JsChallengeRequest>): String {
+    private fun constructStdin(playerJS: String, preprocessed: Boolean = false, requests: List<JsChallengeRequest>): String {
         val jsonRequests = requests.map { request ->
             mapOf(
                 // TODO: i despise nsig name
-                "type" to if (request.type.value == "n") "nsig" else request.type.value,
-                "challenges" to request.input.challenges
+                //"type" to if (request.type.value == "n") "nsig" else request.type.value,
+                "type" to request.type.value,
+                "challenges" to listOf(request.input.challenge)
             )
         }
         val data = if (preprocessed) {
             mapOf(
                 "type" to "preprocessed",
-                "preprocessed_player" to player,
+                "preprocessed_player" to playerJS,
                 "requests" to jsonRequests
             )
         } else {
             mapOf(
                 "type" to "player",
-                "player" to player,
+                "player" to playerJS,
                 "requests" to jsonRequests,
                 "output_preprocessed" to true
             )
@@ -105,10 +128,15 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
         val gson = Gson()
         val jsonData = gson.toJson(data)
         return """
+        JSON.stringify(jsc($jsonData));
+        """
+    }
+
+    protected fun constructCommonStdin(): String {
+        return """
         ${libScript.code}
-        const { astring, meriyah } = lib;
         ${coreScript.code}
-        console.log(JSON.stringify(jsc($jsonData)));
+        "";
         """
     }
 
@@ -128,7 +156,7 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
             if (script == null)
                 continue
             if (script.version != scriptVersion)
-                Logger.printInfo { "Challenge solver ${scriptType.value} script version ${script.version} " +
+                Logger.printWarn { "Challenge solver ${scriptType.value} script version ${script.version} " +
                         "is not supported (source: ${script.source.value}, supported version: $scriptVersion)" }
 
             Logger.printDebug { "Using challenge solver ${script.type.value} script v${script.version} " +
@@ -157,13 +185,36 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
         return Script(scriptType, ScriptVariant.UNMINIFIED, ScriptSource.BUILTIN, scriptVersion, code)
     }
 
+    @GuardedBy("itself")
+    val cache: MutableMap<String, String> = Collections.synchronizedMap(
+        object : LinkedHashMap<String, String>(30) {
+            private val CACHE_LIMIT = 15
+
+            override fun removeEldestEntry(eldest: Map.Entry<String, String>): Boolean {
+                return size > CACHE_LIMIT // Evict the oldest entry if over the cache limit.
+            }
+        })
+
     private fun webReleaseSource(scriptType: ScriptType): Script? {
         val fileName = minScriptFilenames[scriptType] ?: return null
-        val url = "https://github.com/$repository/releases/download/$scriptVersion/$fileName"
-        val code = ie.downloadWebpageWithRetries(url, "[${tag}] Failed to download challenge solver ${scriptType.value} script")
-        Logger.printDebug { "[${tag}] Downloading challenge solver ${scriptType.value} script from $url" }
-        ie.cache.store(cacheSection, scriptType.value, CachedData(code))
-        return Script(scriptType, ScriptVariant.MINIFIED, ScriptSource.WEB, scriptVersion, code)
+        if (fileName.isNotEmpty()) {
+            synchronized(cache) {
+                var code = cache[fileName]
+                if (code == null) {
+                    val url = "https://github.com/$repository/releases/download/$scriptVersion/$fileName"
+                    code = ThrottlingParameterUtils.fetch(url, false)
+                    Logger.printDebug { "[${tag}] Downloading challenge solver ${scriptType.value} script from $url" }
+                    if (code.isNullOrEmpty()) {
+                        return null
+                    } else {
+                        cache[fileName] = code
+                        ie.cache.store(cacheSection, scriptType.value, CachedData(code))
+                    }
+                }
+                return Script(scriptType, ScriptVariant.MINIFIED, ScriptSource.WEB, scriptVersion, code)
+            }
+        }
+        return null
     }
 
     // endregion: challenge solver script

@@ -122,6 +122,17 @@ internal val protobufClassParseByteBufferFingerprint = legacyFingerprint(
     customFingerprint = { method, _ -> method.name == "parseFrom" },
 )
 
+internal val playbackStartParametersFingerprint = legacyFingerprint(
+    name = "playbackStartParametersFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    returnType = "V",
+    strings = listOf("Null playbackStartParameters"),
+    customFingerprint = { method, _ ->
+        method.parameterTypes.size > 3 &&
+                method.parameterTypes[2].toString() == "Ljava/lang/String;"
+    }
+)
+
 internal val nerdsStatsFormatBuilderFingerprint = legacyFingerprint(
     name = "nerdsStatsFormatBuilderFingerprint",
     returnType = "Ljava/lang/String;",

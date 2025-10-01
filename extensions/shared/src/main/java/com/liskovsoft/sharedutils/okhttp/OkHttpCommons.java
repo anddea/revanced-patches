@@ -13,7 +13,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.OkHttpClient.Builder;
 import okhttp3.Protocol;
 
-public final class OkHttpCommons {
+final class OkHttpCommons {
     private static final String TAG = OkHttpCommons.class.getSimpleName();
     public static final long CONNECT_TIMEOUT_MS = 20_000;
     public static final long READ_TIMEOUT_MS = 20_000;

@@ -301,7 +301,7 @@ public class Utils {
 
     public static Context getContext() {
         if (context == null) {
-            Logger.initializationException(Utils.class, "Context is not set by extension hook, returning null", null);
+            Logger.printException(() -> "Context is not set by extension hook, returning null",  null);
         }
         return context;
     }
@@ -382,7 +382,7 @@ public class Utils {
                 }
             }
         } catch (Exception ex) {
-            Logger.initializationException(Utils.class, "resetLocalizedContext failed", null);
+            Logger.printException(() -> "resetLocalizedContext failed", null);
         }
     }
 
@@ -400,7 +400,7 @@ public class Utils {
 
         // Must initially set context to check the app language.
         context = appContext;
-        Logger.initializationInfo(Utils.class, "Set context: " + appContext);
+        Logger.printInfo(() -> "Set context: " + appContext);
 
         BaseThemeUtils.setThemeColor();
     }
@@ -842,7 +842,7 @@ public class Utils {
             Context currentContext = context;
 
             if (currentContext == null) {
-                Logger.initializationException(Utils.class, "Cannot show toast (context is null): " + messageToToast, null);
+                Logger.printException(() -> "Cannot show toast (context is null): " + messageToToast);
             } else {
                 Logger.printDebug(() -> "Showing toast: " + messageToToast);
                 Toast.makeText(currentContext, messageToToast, toastDuration).show();

@@ -574,9 +574,9 @@
     <string name="revanced_hide_ask_button_summary_off">يتم عرض زر طرح سؤال.</string>
     <string name="revanced_hide_ask_button_summary_on">تم إخفاء زر طرح سؤال.</string>
     <string name="revanced_hide_ask_button_title">إخفاء زر طرح سؤال</string>
-    <string name="revanced_hide_ask_section_summary_off">يتم عرض قسم \"Ask\"</string>
-    <string name="revanced_hide_ask_section_summary_on">تم إخفاء قسم \"Ask\"</string>
-    <string name="revanced_hide_ask_section_title">إخفاء \"Ask\"</string>
+    <string name="revanced_hide_ask_section_summary_off">يتم عرض قسم طرح سؤال</string>
+    <string name="revanced_hide_ask_section_summary_on">تم إخفاء قسم طرح سؤال</string>
+    <string name="revanced_hide_ask_section_title">إخفاء طرح سؤال</string>
     <string name="revanced_hide_attributes_section_summary_off">يتم عرض أقسام الأماكن المميزة، الألعاب، الموسيقى، والأشخاص المذكورون.</string>
     <string name="revanced_hide_attributes_section_summary_on">تم إخفاء أقسام الأماكن المميزة، الألعاب، الموسيقى، والأشخاص المذكورون.</string>
     <string name="revanced_hide_attributes_section_title">إخفاء قسم الصفات</string>
@@ -980,8 +980,8 @@
     <string name="revanced_hide_preview_comment_type_off">يؤدي هذا إلى تغيير حجم قسم التعليقات، لذلك من المستحيل فتح إعادة تشغيل المحادثات المباشرة في قسم التعليقات.</string>
     <string name="revanced_hide_preview_comment_type_on">لا يغير هذا حجم قسم التعليقات، لذلك من الممكن فتح إعادة المحادثات المباشرة في قسم التعليقات.</string>
     <string name="revanced_hide_preview_comment_type_title">إخفاء نوع معاينة التعليق</string>
-    <string name="revanced_hide_promote_button_summary_off">زر الترويج ظاهر</string>
-    <string name="revanced_hide_promote_button_summary_on">زر الترويج مخفي</string>
+    <string name="revanced_hide_promote_button_summary_off">يتم عرض زر الترويج</string>
+    <string name="revanced_hide_promote_button_summary_on">تم إخفاء زر الترويج</string>
     <string name="revanced_hide_promote_button_title">إخفاء الترويج</string>
     <string name="revanced_hide_promotion_alert_banner_summary_off">يتم عرض لافتة تنبيه الترقية.</string>
     <string name="revanced_hide_promotion_alert_banner_summary_on">تم إخفاء لافتة تنبيه الترقية.</string>
@@ -1904,12 +1904,24 @@
     <string name="revanced_sb_api_url_invalid">رابط API غير صالح.</string>
     <string name="revanced_sb_api_url_reset">إعادة تعيين رابط API.</string>
     <string name="revanced_sb_appearance_category">المظهر</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration">مدة زر التخطي</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration_sum">كم من الوقت يجب إظهار أزرار التخطي والتخطي للأبرز قبل إخفائها تلقائيًا.</string>
     <string name="revanced_sb_color_changed">تم تغيير اللون.</string>
     <string name="revanced_sb_color_dot_label">اللون:</string>
     <string name="revanced_sb_color_invalid">رمز اللون غير صالح.</string>
     <string name="revanced_sb_color_reset">إعادة ضبط اللون.</string>
     <string name="revanced_sb_create_segment_category">إنشاء مقاطع جديدة</string>
     <string name="revanced_sb_diff_segments">تغيير سلوك المقطع</string>
+    <string name="revanced_sb_duration_10s">10 ثوانٍ</string>
+    <string name="revanced_sb_duration_1s">1 ثانية</string>
+    <string name="revanced_sb_duration_2s">ثانيتان</string>
+    <string name="revanced_sb_duration_3s">3 ثوانٍ</string>
+    <string name="revanced_sb_duration_4s">4 ثوانٍ</string>
+    <string name="revanced_sb_duration_5s">5 ثوانٍ</string>
+    <string name="revanced_sb_duration_6s">6 ثوانٍ</string>
+    <string name="revanced_sb_duration_7s">7 ثوانٍ</string>
+    <string name="revanced_sb_duration_8s">8 ثوانٍ</string>
+    <string name="revanced_sb_duration_9s">9 ثوانٍ</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">إخفاء زر التخطي تلقائيًا</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">يتم عرض زر \"التخطي\" للمقطع بأكمله.</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">يختفي زر التخطي بعد بضع ثوانٍ.</string>
@@ -1936,12 +1948,12 @@
     <string name="revanced_sb_general_skipcount">تمكين تتبع مرات التخطي</string>
     <string name="revanced_sb_general_skipcount_sum_off">تم تعطيل تتبع مرات التخطي.</string>
     <string name="revanced_sb_general_skipcount_sum_on">يُتيح لـ SponsorBlock Leaderboard معرفة مقدار الوقت الذي وفره المشاهدين، يتم إعلام الخادم في كل مرة تتخطى فيها مقطعًا.</string>
-    <string name="revanced_sb_general_skiptoast">عرض ملاحظة عند تخطي المقطع تلقائيًا</string>
-    <string name="revanced_sb_general_skiptoast_sum_off">لا تظهر الملاحظة. اضغط هنا لمشاهدة مثال.</string>
-    <string name="revanced_sb_general_skiptoast_sum_on">تظهر الملاحظة عند تخطي مقطع تلقائيًا. اضغط هنا لمشاهدة مثال.</string>
+    <string name="revanced_sb_general_skiptoast">عرض التراجع عن التخطي</string>
+    <string name="revanced_sb_general_skiptoast_sum_off">لا يتم عرض الملاحظة.</string>
+    <string name="revanced_sb_general_skiptoast_sum_on">تظهر ملاحظة عند تخطي مقطع تلقائيًا. انقر على الملاحظة للتراجع عن التخطي.</string>
     <string name="revanced_sb_general_time_without">عرض مدة الفيديو بدون المقاطع</string>
     <string name="revanced_sb_general_time_without_sum_off">يتم عرض مدة الفيديو كاملةً.</string>
-    <string name="revanced_sb_general_time_without_sum_on">يعرض مدة الفيديو ناقصًا منها مدة المقطع المدمج بين قوسين بجوار مدة الفيديو الكامل.</string>
+    <string name="revanced_sb_general_time_without_sum_on">يعرض مدة الفيديو ناقصًا منه جميع المقاطع على شريط التقدم.</string>
     <string name="revanced_sb_general_uuid">معرف المستخدم User ID الفريد الخاص بك</string>
     <string name="revanced_sb_general_uuid_invalid">يجب أن يكون معرف المستخدم الخاص 30 حرفًا على الأقل.</string>
     <string name="revanced_sb_general_uuid_sum">يجب أن يبقى هذا خاصًا. انه مثل كلمة المرور ولا ينبغي مشاركته مع أي شخص. إذا كان شخص ما يملك هذا، فيمكنه انتحال شخصيتك.</string>
@@ -2086,6 +2098,8 @@
     <string name="revanced_sb_toast_on_connection_error_summary_off">لا يتم عرض الملاحظة في حالة عدم توفر SponsorBlock.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">يتم عرض الملاحظة في حالة عدم توفر SponsorBlock.</string>
     <string name="revanced_sb_toast_on_connection_error_title">عرض ملاحظة إذا كان API غير متوفر</string>
+    <string name="revanced_sb_toast_on_skip_duration">مدة ملاحظة التخطي</string>
+    <string name="revanced_sb_toast_on_skip_duration_sum">المدة اللازمة لإظهار التراجع عن التخطي.</string>
     <string name="revanced_sb_vote_category">تغيير الفئة</string>
     <string name="revanced_sb_vote_downvote">اعتراض</string>
     <string name="revanced_sb_vote_failed_forbidden">غير قادر على التصويت للمقطع: %s.</string>
@@ -2251,7 +2265,7 @@
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"يتم عرض زر المقطع الصوتي عندما يكون العميل المستخدم لجلب بيانات البث هو 'Android VR' أو 'Mobile Web' أو 'visionOS'."</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">عرض زر المقطع الصوتي</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"المتطلبات الأساسية:
-• العميل المُستخدم لجلب بيانات البث هو 'Android VR'، أو 'Mobile Web'، أو 'iPadOS'، أو 'visionOS'.
+• العميل المُستخدم لجلب بيانات البث هو 'Android VR'، أو 'Mobile Web'، أو 'visionOS'.
 • يتم تشغيل فيديو يحتوي على مقاطع صوتية متعددة.
 
 المشاكل المعروفة:
@@ -2284,6 +2298,9 @@
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح تقطيع التشغيل.
 
 AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الصوت Opus، وسوف يستخدم تشغيل الفيديو بيانات إنترنت أكثر من VP9 أو AV1."</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">لا يتوفر اختيار لغة بث الصوت الافتراضية مع Android Studio.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">لا يتوفر اختيار لغة بث الصوت الافتراضية مع iPadOS.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">لتحديد لغة بث صوتي معينة، قم بإيقاف تشغيل \'تعطيل المقطع الصوتي التلقائي المفروض\'.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">لغة البث الصوتي الافتراضية</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">يتم إعطاء الأولوية لترميزات الفيديو.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">يتم إعطاء الأولوية لجودة الفيديو.</string>
@@ -2427,6 +2444,21 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
 • يعتمد بشكل كبير على الخادم، ويعتمد نجاح أو فشل إزالة التشويش على JavaScript المشغل المُستخدم حاليًا على الخادم.
 • إذا كنت تواجه مشاكل مع عميل JavaScript، فحاول تعطيله أولًا."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">استخدام أحدث مشغل JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"تم استخدام مُستخرج SmartTube.
+
+• مُشغِّل JavaScript لإزالة التشويش غير مُحدَّث.
+
+• سيتم إيقاف هذا من قِبل الخوادم قريبًا."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"يُستخدم JavaScript خارجي لـ yt-dlp (yt-dlp-ejs).
+
+• يتم تحديث مشغل JavaScript لإزالة التشويش باستمرار.
+• قد يستغرق بدء الفيديو من 5 إلى 15 ثانية."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">استخدام yt-dlp ejs (WIP)</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"بسبب إجراءات YouTube الجديدة، لم يعد من الممكن فك تشفير روابط البث باستخدام الطرق العامة في أحدث إصدار من مشغل JavaScript.
+
+يُستخدم JavaScript خارجي لـ yt-dlp (yt-dlp-ejs) لفك تشفير روابط البث في أحدث إصدار من مشغل JavaScript.
+
+لا يزال هذا البرنامج قيد التطوير وسيستخدم موارد أجهزة إضافية."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">يتم تحديد ترميز الفيديو تلقائيًا.</string>
     <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">ترميز الفيديو هو AVC (H.264) أو VP9.</string>

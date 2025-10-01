@@ -20,6 +20,7 @@ BLACKLISTED_STRINGS: set[str] = {
     "revanced_remember_video_quality_mobile",
     "revanced_remember_video_quality_wifi",
     "revanced_sb_api_url_sum",
+    "revanced_sb_auto_hide_skip_button_duration_sum",
     "revanced_sb_enabled",
     "revanced_sb_enabled_sum",
     "revanced_sb_toast_on_skip",

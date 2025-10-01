@@ -124,7 +124,7 @@ public class StringRef extends Utils {
                     Logger.printException(() -> "Could not resolve resources!");
                 }
             } catch (Exception ex) {
-                Logger.initializationException(StringRef.class, "Context is null!", ex);
+                Logger.printException(() -> "Context is null!", ex);
             }
         }
 

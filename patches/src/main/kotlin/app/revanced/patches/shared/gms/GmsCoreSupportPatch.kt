@@ -368,6 +368,10 @@ fun gmsCoreSupportPatch(
         // Return these methods early to prevent the app from crashing.
         earlyReturnFingerprints.forEach { it.methodOrThrow().returnEarly() }
 
+        // Passes signature check of DroidGaurdResult (the.apk).
+        droidGuardSignatureFingerprint
+            .methodOrThrow().returnEarly(true)
+
         // Specific method that needs to be patched.
         transformPrimeMethod(packageName)
 

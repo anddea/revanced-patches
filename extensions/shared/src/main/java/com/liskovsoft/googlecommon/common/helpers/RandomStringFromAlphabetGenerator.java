@@ -13,10 +13,6 @@ public final class RandomStringFromAlphabetGenerator {
     private static final String CONTENT_PLAYBACK_NONCE_ALPHABET =
             "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
 
-    private RandomStringFromAlphabetGenerator() {
-        // No impl
-    }
-
     /**
      * Generate a random string from an alphabet.
      *

@@ -3,7 +3,6 @@ package app.revanced.extension.youtube.sponsorblock;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.setAlertDialogThemeAndShow;
 
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -58,10 +57,10 @@ public class SponsorBlockUtils {
         @Override
         public void onClick(DialogInterface dialog, int which) {
             switch (which) {
-                // start
+                // Start.
                 case DialogInterface.BUTTON_NEGATIVE ->
                         newSponsorSegmentStartMillis = newSponsorSegmentDialogShownMillis;
-                // end
+                // End.
                 case DialogInterface.BUTTON_POSITIVE ->
                         newSponsorSegmentEndMillis = newSponsorSegmentDialogShownMillis;
             }
@@ -175,7 +174,7 @@ public class SponsorBlockUtils {
             SponsorSegment segment = segments[which];
 
             SegmentVote[] voteOptions = (segment.category == SegmentCategory.HIGHLIGHT)
-                    ? SegmentVote.voteTypesWithoutCategoryChange // highlight segments cannot change category
+                    ? SegmentVote.voteTypesWithoutCategoryChange // Highlight segments cannot change category.
                     : SegmentVote.values();
             final int voteOptionsLength = voteOptions.length;
             final boolean userIsVip = Settings.SB_USER_IS_VIP.get();
@@ -238,11 +237,15 @@ public class SponsorBlockUtils {
             }
             clearUnsubmittedSegmentTimes();
             Utils.runOnBackgroundThread(() -> {
-                SBRequester.submitSegments(videoId, segmentCategory.keyValue, start, end, videoLength);
-                SegmentPlaybackController.executeDownloadSegments(videoId);
+                try {
+                    SBRequester.submitSegments(videoId, segmentCategory.keyValue, start, end, videoLength);
+                    SegmentPlaybackController.executeDownloadSegments(videoId);
+                } catch (Exception ex) {
+                    Logger.printException(() -> "submitNewSegment failure", ex);
+                }
             });
-        } catch (Exception e) {
-            Logger.printException(() -> "Unable to submit segment", e);
+        } catch (Exception ex) {
+            Logger.printException(() -> "submitNewSegment failure", ex);
         }
     }
 
@@ -290,7 +293,7 @@ public class SponsorBlockUtils {
         }
     }
 
-    public static void onVotingClicked(@NonNull Context context) {
+    public static void onVotingClicked(Context context) {
         try {
             Utils.verifyOnMainThread();
             SponsorSegment[] segments = SegmentPlaybackController.getSegments();
@@ -325,7 +328,7 @@ public class SponsorBlockUtils {
                 }
 
                 if (i + 1 != numberOfSegments) {
-                    // prevents trailing new line after last segment
+                    // Prevents trailing new line after last segment.
                     spannableBuilder.append('\n');
                 }
 
@@ -342,7 +345,7 @@ public class SponsorBlockUtils {
         }
     }
 
-    private static void onNewCategorySelect(@NonNull SponsorSegment segment, @NonNull Context context) {
+    private static void onNewCategorySelect(SponsorSegment segment, Context context) {
         try {
             Utils.verifyOnMainThread();
             final SegmentCategory[] values = SegmentCategory.categoriesWithoutHighlights();
@@ -379,8 +382,7 @@ public class SponsorBlockUtils {
         }
     }
 
-
-    static void sendViewRequestAsync(@NonNull SponsorSegment segment) {
+    static void sendViewRequestAsync(SponsorSegment segment) {
         if (segment.recordedAsSkipped || segment.category == SegmentCategory.UNSUBMITTED) {
             return;
         }
@@ -424,7 +426,7 @@ public class SponsorBlockUtils {
     }
 
     @SuppressWarnings("ConstantConditions")
-    private static long parseSegmentTime(@NonNull String time) {
+    private static long parseSegmentTime(String time) {
         Matcher matcher = manualEditTimePattern.matcher(time);
         if (!matcher.matches()) {
             return -1;
@@ -482,18 +484,31 @@ public class SponsorBlockUtils {
         return String.format(Locale.US, formatPattern, formatArgs);
     }
 
-    @TargetApi(26)
     public static String getTimeSavedString(long totalSecondsSaved) {
-        Duration duration = Duration.ofSeconds(totalSecondsSaved);
-        final long hours = duration.toHours();
-        final long minutes = duration.toMinutes() % 60;
+        long hours;
+        long minutes;
+        long seconds;
+
+        if (Utils.isSDKAbove(26)) {
+            final Duration duration = Duration.ofMillis(totalSecondsSaved);
+
+            hours = duration.toHours();
+            minutes = duration.toMinutes() % 60;
+            seconds = duration.getSeconds() % 60;
+        } else {
+            final long currentVideoTimeInSeconds = totalSecondsSaved / 1000;
+
+            hours = currentVideoTimeInSeconds / (60 * 60);
+            minutes = (currentVideoTimeInSeconds / 60) % 60;
+            seconds = currentVideoTimeInSeconds % 60;
+        }
+
         // Format all numbers so non-western numbers use a consistent appearance.
         String minutesFormatted = statsNumberFormatter.format(minutes);
         if (hours > 0) {
             String hoursFormatted = statsNumberFormatter.format(hours);
             return str("revanced_sb_stats_saved_hour_format", hoursFormatted, minutesFormatted);
         }
-        final long seconds = duration.getSeconds() % 60;
         String secondsFormatted = statsNumberFormatter.format(seconds);
         if (minutes > 0) {
             return str("revanced_sb_stats_saved_minute_format", minutesFormatted, secondsFormatted);
@@ -502,8 +517,8 @@ public class SponsorBlockUtils {
     }
 
     private static class EditByHandSaveDialogListener implements DialogInterface.OnClickListener {
-        boolean settingStart;
-        WeakReference<EditText> editTextRef = new WeakReference<>(null);
+        private boolean settingStart;
+        private WeakReference<EditText> editTextRef = new WeakReference<>(null);
 
         @Override
         public void onClick(DialogInterface dialog, int which) {
@@ -522,10 +537,11 @@ public class SponsorBlockUtils {
                     }
                 }
 
-                if (settingStart)
+                if (settingStart) {
                     newSponsorSegmentStartMillis = Math.max(time, 0);
-                else
+                } else {
                     newSponsorSegmentEndMillis = time;
+                }
 
                 if (which == DialogInterface.BUTTON_NEUTRAL)
                     editByHandDialogListener.onClick(dialog, settingStart ?

@@ -227,16 +227,9 @@ public class SponsorBlockSettings {
             return false;
         }
         // Verify url is only the server address and does not contain a path such as: "https://sponsor.ajay.app/api/"
-        // Could use Patterns.compile, but this is simpler
+        // Could use Patterns.compile, but this is simpler.
         final int lastDotIndex = serverAddress.lastIndexOf('.');
-        //noinspection RedundantIfStatement
-        if (lastDotIndex != -1 && serverAddress.substring(lastDotIndex).contains("/")) {
-            return false;
-        }
-        // Optionally, could also verify the domain exists using "InetAddress.getByName(serverAddress)"
-        // but that should not be done on the main thread.
-        // Instead, assume the domain exists and the user knows what they're doing.
-        return true;
+        return lastDotIndex > 0 && !serverAddress.substring(lastDotIndex).contains("/");
     }
 
     /**

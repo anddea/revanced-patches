@@ -16,7 +16,6 @@ import okhttp3.Response;
 
 public class OkHttpManager {
     private static final String TAG = OkHttpManager.class.getSimpleName();
-    private static final int NUM_TRIES = 1;
     private static OkHttpManager sInstance;
     private OkHttpClient mClient;
     private final boolean mEnableProfiler;
@@ -135,33 +134,6 @@ public class OkHttpManager {
         return doRequest(client, okHttpRequest);
     }
 
-    //private Response doRequest(OkHttpClient client, Request okHttpRequest) {
-    //    Response okHttpResponse = null;
-    //    Exception lastEx = null;
-    //
-    //    for (int tries = NUM_TRIES; tries > 0; tries--) {
-    //        try {
-    //            okHttpResponse = client.newCall(okHttpRequest).execute();
-    //            if (!okHttpResponse.isSuccessful()) {
-    //                throw new IllegalStateException("Unexpected code " + okHttpResponse);
-    //            }
-    //
-    //            break; // no exception is thrown - job is done
-    //        } catch (Exception ex) {
-    //            //Log.e(TAG, ex.getMessage()); // network error, just return null
-    //            okHttpResponse = null;
-    //            lastEx = ex;
-    //        }
-    //    }
-    //
-    //    if (lastEx != null && okHttpResponse == null) { // request failed
-    //        lastEx.printStackTrace();
-    //        Log.e(TAG, lastEx.getMessage());
-    //    }
-    //
-    //    return okHttpResponse;
-    //}
-
     private Response doRequest(OkHttpClient client, Request okHttpRequest) {
         try {
             return client.newCall(okHttpRequest).execute();
@@ -179,5 +151,17 @@ public class OkHttpManager {
         }
 
         return mClient;
+    }
+
+    public static long getConnectTimeoutMs() {
+        return OkHttpCommons.CONNECT_TIMEOUT_MS;
+    }
+
+    public static long getReadTimeoutMs() {
+        return OkHttpCommons.READ_TIMEOUT_MS;
+    }
+
+    public static long getWriteTimeoutMs() {
+        return OkHttpCommons.WRITE_TIMEOUT_MS;
     }
 }

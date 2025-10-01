@@ -166,7 +166,10 @@ class MusicRequest private constructor(
                     GET_CATEGORY,
                     clientType
                 )
-                val requestBody = createJSRequestBody(clientType, videoId)
+                val requestBody = createJSRequestBody(
+                    clientType = clientType,
+                    videoId = videoId
+                )
 
                 connection.setFixedLengthStreamingMode(requestBody.size)
                 connection.outputStream.write(requestBody)

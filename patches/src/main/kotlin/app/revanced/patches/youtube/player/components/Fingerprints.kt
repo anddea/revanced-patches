@@ -24,6 +24,7 @@ import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val horizontalTouchOffsetConstructorFingerprint = legacyFingerprint(
@@ -158,6 +159,61 @@ internal val doubleTapInfoGetSeekSourceFingerprint = legacyFingerprint(
     )
 )
 
+
+internal val endScreenElementLayoutCircleFingerprint = legacyFingerprint(
+    name = "endScreenElementLayoutCircleFingerprint",
+    returnType = "Landroid/view/View;",
+    opcodes = listOf(
+        Opcode.CONST,
+        Opcode.CONST_4,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CHECK_CAST,
+    ),
+    literals = listOf(endScreenElementLayoutCircle),
+)
+
+internal val endScreenElementLayoutIconFingerprint = legacyFingerprint(
+    name = "endScreenElementLayoutIconFingerprint",
+    returnType = "Landroid/view/View;",
+    opcodes = listOf(
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CHECK_CAST,
+    ),
+    literals = listOf(endScreenElementLayoutIcon),
+)
+
+internal val endScreenElementLayoutVideoFingerprint = legacyFingerprint(
+    name = "endScreenElementLayoutVideoFingerprint",
+    returnType = "Landroid/view/View;",
+    opcodes = listOf(
+        Opcode.CONST,
+        Opcode.CONST_4,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CHECK_CAST,
+    ),
+    literals = listOf(endScreenElementLayoutVideo),
+)
+
+internal val endScreenPlayerResponseModelFingerprint = legacyFingerprint(
+    name = "endScreenPlayerResponseModelFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("L"),
+    customFingerprint = { method, classDef ->
+        classDef.methods.count() == 5
+                && method.containsLiteralInstruction(0)
+                && method.containsLiteralInstruction(5)
+                && method.containsLiteralInstruction(8)
+                && method.indexOfFirstInstruction {
+            val reference = getReference<FieldReference>()
+            reference?.type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
+        } >= 0
+    }
+)
+
 /**
  * ~ YouTube 20.11
  */
@@ -244,64 +300,6 @@ internal val infoCardsIncognitoFingerprint = legacyFingerprint(
     parameters = listOf("L", "J"),
     opcodes = listOf(Opcode.IGET_BOOLEAN),
     strings = listOf("vibrator")
-)
-
-internal val layoutCircleFingerprint = legacyFingerprint(
-    name = "layoutCircleFingerprint",
-    returnType = "Landroid/view/View;",
-    opcodes = listOf(
-        Opcode.CONST,
-        Opcode.CONST_4,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-    ),
-    literals = listOf(endScreenElementLayoutCircle),
-)
-
-internal val layoutIconFingerprint = legacyFingerprint(
-    name = "layoutIconFingerprint",
-    returnType = "Landroid/view/View;",
-    opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-    ),
-    literals = listOf(endScreenElementLayoutIcon),
-)
-
-internal val layoutVideoFingerprint = legacyFingerprint(
-    name = "layoutVideoFingerprint",
-    returnType = "Landroid/view/View;",
-    opcodes = listOf(
-        Opcode.CONST,
-        Opcode.CONST_4,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-    ),
-    literals = listOf(endScreenElementLayoutVideo),
-)
-
-internal val newEndscreenParentFingerprint = legacyFingerprint(
-    name = "newEndscreenParentFingerprint",
-    returnType = "[L",
-    parameters = listOf("L"),
-    customFingerprint = { method, _ ->
-        // const-wide/16 v3, 0x400 ; literal value 1024
-        method.containsLiteralInstruction(1024L) &&
-                (method.implementation?.instructions?.count() ?: 0) > 20
-    }
-)
-
-internal val newEndscreenFingerprint = legacyFingerprint(
-    name = "newEndscreenFingerprint",
-    returnType = "V",
-    parameters = listOf("L"),
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { method, _ ->
-        (method.implementation?.instructions?.count() ?: 0) > 20
-    }
 )
 
 internal val linearLayoutManagerItemCountsFingerprint = legacyFingerprint(

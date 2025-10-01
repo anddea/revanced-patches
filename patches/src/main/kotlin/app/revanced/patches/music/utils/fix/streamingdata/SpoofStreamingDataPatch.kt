@@ -75,5 +75,11 @@ val spoofStreamingDataPatch = spoofStreamingDataPatch(
             "revanced_spoof_streaming_data_default_client",
             "revanced_spoof_streaming_data",
         )
+        addSwitchPreference(
+            CategoryType.MISC,
+            "revanced_spoof_streaming_data_use_yt_dlp_ejs",
+            "false",
+            "revanced_spoof_streaming_data"
+        )
     },
 )
