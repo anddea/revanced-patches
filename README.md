@@ -165,6 +165,14 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Unlock Premium` | Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked. | ALL |
 </details>
 
+### [📦 `com.ysy.app.firewall`](https://play.google.com/store/apps/details?id=com.ysy.app.firewall)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `Unlock Premium` | Unlocks NetWall Premium features once 'Unlock Premium Now' button is clicked. | ALL |
+</details>
+
 
 
 ## 📝 JSON Format
