@@ -3,18 +3,23 @@ package app.revanced.patches.netwall
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.*
+import app.revanced.util.FilesCompat
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.inputStreamFromBundledResourceOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import integrityCheckFingerprint
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 import premiumCheckFingerprint
+
+private lateinit var context: ResourcePatchContext
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch {
@@ -38,7 +43,30 @@ val unlockPremiumPatch = bytecodePatch {
             }
 
             replaceInstruction(constIndex, "const/16 p0, 0x1f4")
+
+            // Remove killProcess to avoid app crash
+            val targetMethod = integrityCheckFingerprint.methodOrThrow()
+
+            val killProcessIndex = targetMethod.indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_STATIC &&
+                        getReference<MethodReference>()?.toString() == "Landroid/os/Process;->killProcess(I)V"
+            }
+
+            val conditionalJumpIndex = targetMethod.indexOfFirstInstructionReversedOrThrow(killProcessIndex) {
+                opcode == Opcode.IF_EQZ
+            }
+
+            targetMethod.replaceInstruction(conditionalJumpIndex, "nop")
         }
+    }
+}
+
+@Suppress("unused")
+private val unlockPremiumRawResourcePatch = rawResourcePatch(
+    description = "unlockPremiumRawResourcePatch"
+) {
+    execute {
+        context = this
     }
 }
 
@@ -48,7 +76,7 @@ val unlockPremiumResourcePatch = resourcePatch(
     description = "Unlocks NetWall Premium features once 'Unlock Premium Now' button is clicked.",
 ) {
     compatibleWith("com.ysy.app.firewall")
-    dependsOn(unlockPremiumPatch)
+    dependsOn(unlockPremiumPatch, unlockPremiumRawResourcePatch)
 
     execute {
         document("AndroidManifest.xml").use { document ->
@@ -83,6 +111,29 @@ val unlockPremiumResourcePatch = resourcePatch(
                 val localeConfigElement = document.getElementsByTagName("locale-config").item(0) as? Element
                 if (localeConfigElement?.hasAttribute("android:defaultLocale") == true) {
                     localeConfigElement.removeAttribute("android:defaultLocale")
+                }
+            }
+        }
+
+        // Replace libnetwall.so with the patched one to avoid app crash.
+        with(context) {
+            setOf(
+                "arm64-v8a",
+                // "armeabi-v7a",
+                // "x86",
+                // "x86_64"
+            ).forEach { arch ->
+                val architectureDirectory = get("lib/$arch")
+
+                if (architectureDirectory.exists()) {
+                    val inputStream = inputStreamFromBundledResourceOrThrow(
+                        "shared/netwall/lib",
+                        "$arch/libnetwall.so"
+                    )
+                    FilesCompat.copy(
+                        inputStream,
+                        architectureDirectory.resolve("libnetwall.so"),
+                    )
                 }
             }
         }
