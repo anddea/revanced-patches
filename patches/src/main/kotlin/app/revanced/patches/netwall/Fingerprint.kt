@@ -6,3 +6,11 @@ internal val premiumCheckFingerprint = legacyFingerprint(
     parameters = listOf("I"),
     strings = listOf("ODAz")
 )
+
+internal val integrityCheckFingerprint = legacyFingerprint(
+    name = "integrityCheckFingerprint",
+    returnType = "Ljava/lang/Object;",
+    strings = listOf(
+        "System.exit returned normally, while it was supposed to halt JVM."
+    )
+)
