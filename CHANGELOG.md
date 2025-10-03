@@ -1,3 +1,10 @@
+# [3.14.0-dev.8](https://github.com/anddea/revanced-patches/compare/v3.14.0-dev.7...v3.14.0-dev.8) (2025-10-03)
+
+
+### Bug Fixes
+
+* **NetWall - Unlock Premium:** Add signature check bypass to avoid app crashes ([decae27](https://github.com/anddea/revanced-patches/commit/decae2732d9eeaa5dd44049ad644d8d7db60ab0d))
+
 # [3.14.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.14.0-dev.6...v3.14.0-dev.7) (2025-10-01)
 
 
