@@ -3469,7 +3469,8 @@
     "description": "Unlocks NetWall Premium features once \u0027Unlock Premium Now\u0027 button is clicked.",
     "use": true,
     "dependencies": [
-      "BytecodePatch"
+      "BytecodePatch",
+      "RawResourcePatch"
     ],
     "compatiblePackages": {
       "com.ysy.app.firewall": null
