@@ -38,6 +38,10 @@ internal data class Script(
     }
 
     override fun toString(): String {
-        return "<Script ${type.value} v${version} (source: ${source.value}) variant=${variant.value} size=${code.length} hash=${hash.take(7)}...>"
+        return "<Script ${type.value} v${version} (source: ${source.value}) variant=${variant.value} size=${code.length} hash=${
+            hash.take(
+                7
+            )
+        }...>"
     }
 }

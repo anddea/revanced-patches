@@ -2029,12 +2029,12 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_sb_general_skipcount">Śledzenie liczby pominięć</string>
     <string name="revanced_sb_general_skipcount_sum_off">Wyłączone</string>
     <string name="revanced_sb_general_skipcount_sum_on">To pozwala systemowi wyników SponsorBlock wiedzieć, ile czasu zostało zaoszczędzone. Rozszerzenie wysyła wiadomość do serwera za każdym razem, gdy pominięty jest segment.</string>
-    <string name="revanced_sb_general_skiptoast">Komunikaty po automatycznych pominięciach</string>
+    <string name="revanced_sb_general_skiptoast">Komunikaty po automatycznych pominięciach.</string>
     <string name="revanced_sb_general_skiptoast_sum_off">Wyłączone</string>
     <string name="revanced_sb_general_skiptoast_sum_on">Włączone. Kliknij komunikat, by cofnąć pominięcie</string>
     <string name="revanced_sb_general_time_without">Czas bez segmentów</string>
     <string name="revanced_sb_general_time_without_sum_off">Nie</string>
-    <string name="revanced_sb_general_time_without_sum_on">Pokazuje czas trwania filmu, odejmując czas trwania zsumowanej długości segmentów, pojawia się w nawiasach obok czasu trwania filmu.</string>
+    <string name="revanced_sb_general_time_without_sum_on">Pokazuje czas trwania filmu, odejmując czas trwania zsumowanej długości segmentów,pojawia się w nawiasach obok czasu trwania filmu.</string>
     <string name="revanced_sb_general_uuid">Twój prywatny identyfikator użytkownika</string>
     <string name="revanced_sb_general_uuid_invalid">Prywatny identyfikator użytkownika musi mieć przynajmniej 30 znaków.</string>
     <string name="revanced_sb_general_uuid_sum">Nie powinno się go dzielić, działa jak hasło. Jeżeli ktoś go posiada, może korzystać z SponsorBlock jako ty np. może wysyłać segmenty.</string>
@@ -2381,6 +2381,8 @@ Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w 
 <small>(Wymagane zalogowanie)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(Bez autoryzacji)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
+<small>(Z autoryzacją, wymagana akcja)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Porzucone)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
@@ -2401,9 +2403,8 @@ Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w 
 
 AVC obsługuje maksymalnie rozdzielczość 1080p, kodek audio OPUS nie jest dostępny, a odtwarzanie wideo będzie zużywać więcej danych internetowych niż VP9 lub AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Jeśli doświadczasz problemów z odtwarzaniem, włącz \"Oszukuj strumień danych\" w &lt;i&gt;&lt;u&gt;Ustawienia &gt; %s &gt; Pozostałe &gt; Oszukuj strumień danych&lt;/u&gt;&lt;/i&gt;.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">Domyślny język ścieżki dźwiękowej transmisji na żywo nie jest dostępny w Android Studio.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">Domyślny język ścieżki dźwiękowej transmisji na żywo nie jest dostępny w iPadOS.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_not_available">By wybrać określoną ścieżkę dźwiękową transmisji na żywo, wyłącz \'Automatyczne wymuszanie ścieżki dźwiękowej\'.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">Domyślny język dla transmisji na żywo nie jest dostępny w kliencie %s.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">Domyślny język dla transmisji na żywo</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Kodeków w filmie</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Jakości filmu</string>
@@ -2457,6 +2458,10 @@ Przykład 2:
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Brakuje menu od ścieżki dźwiękowej
 • Stabilna głośność jest niedostępna"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• brakuje menu od ścieżki dźwiękowej
+• stabilna głośność nie jest dostępna
+• filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• brakuje menu od ścieżki dźwiękowej
+• automatyczne wymuszenie ścieżki dźwiękowej nie jest dostępne
 • stabilna głośność nie jest dostępna
 • filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Mogą wystąpić problemy z odtwarzaniem (wymagany PoToken)</string>
@@ -2564,9 +2569,43 @@ Zewnętrzny JavaScript dla yt-dlp (yt-dlp-ejs) jest używany do odszyfrowywania 
 
 Obecnie jest w fazie rozwoju i może używać większej ilości zasobów sprzętowych."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Wyłączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Kodek filmu jest określany automatycznie</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Kodekiem filmu jest AVC (H.264) lub VP9</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Wyłącz kodek AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Kod aktywacyjny:
+%s
+
+1. Kliknij 'Otwórz stronę', aby przejść do 'https://yt.be/activate'
+2. Wprowadź kod aktywacyjny
+3. Zaloguj się, gdy pojawi się monit. Jeśli masz wiele kont Google, użyj tego, którego używasz w YouTube. Jeśli jesteś już zalogowany, przejdź do następnego kroku
+4. Po zalogowaniu się, wróć do RVX i kliknij ponownie 'O Android VR z autoryzacją'
+5. Kliknij 'Uzyskaj token uwierzytelniający', by go zdobyć"</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Otwórz stronę</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Kod aktywacyjny</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Skopiowano kod aktywacyjny do schowka: %s.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kliknij, by zobaczyć jak uzyskać token uwierzytelniający.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">O Android VR z autoryzacją</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Uzyskaj kod aktywacyjny</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Uzyskaj token uwierzytelniający</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"By uzyskać token uwierzytelniający dla Android VR, należy zalogować się do YouTube VR za pomocą kodu aktywacyjnego:
+
+1. Kliknij `Uzyskaj token uwierzytelniający', by wygenerować kod aktywacyjny
+2. Kliknij 'Otwórz stronę', aby przejść do 'https://yt.be/activate'
+3. Wprowadź kod aktywacyjny
+4. Zaloguj się, gdy pojawi się monit. Jeśli masz wiele kont Google, użyj tego, którego używasz w YouTube. Jeśli jesteś już zalogowany, przejdź do następnego kroku
+5. Po zalogowaniu się, wróć do RVX i kliknij ponownie 'O Android VR z autoryzacją'
+6. Kliknij 'Uzyskaj token uwierzytelniający', by go zdobyć
+
+※ Kliknij 'Zresetuj', by usunąć token uwierzytelniający lub kod aktywacyjny."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Zresetuj</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Uzyskaj token uwierzytelniający</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Zresetowano token uwierzytelniający i kod aktywacyjny.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Zapisano token uwierzytelniający.</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_off">Wyłączony</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"Włączony
+
+Podczas odtwarzania film może się zacinać lub pomijać klatki."</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_title">Kodek VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"Włączenie tego ustawienia może używać dekodowania oprogramowania AV1.
+
+Podczas odtwarzania film może się zacinać lub pomijać klatki."</string>
     <string name="revanced_swipe_brightness_distance_summary">Ilość pikseli do przesunięcia w celu zmiany jasności. Niższe wartości powodują szybszą zmianę jasności, wyższe sprawiają, że zmiana jest wolniejsza (1–1000).</string>
     <string name="revanced_swipe_brightness_distance_title">Odległość jasności</string>
     <string name="revanced_swipe_brightness_summary_off">Wyłączone</string>

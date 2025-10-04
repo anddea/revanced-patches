@@ -54,31 +54,49 @@ public class ColorPickerView extends View {
         void onColorChanged(@ColorInt int color);
     }
 
-    /** Expanded touch area for the hue and opacity bars to increase the touch-sensitive area. */
+    /**
+     * Expanded touch area for the hue and opacity bars to increase the touch-sensitive area.
+     */
     public static final float TOUCH_EXPANSION = dipToPixels(20f);
 
-    /** Margin between different areas of the view (saturation-value selector, hue bar, and opacity slider). */
+    /**
+     * Margin between different areas of the view (saturation-value selector, hue bar, and opacity slider).
+     */
     private static final float MARGIN_BETWEEN_AREAS = dipToPixels(24);
 
-    /** Padding around the view. */
+    /**
+     * Padding around the view.
+     */
     private static final float VIEW_PADDING = dipToPixels(16);
 
-    /** Height of the hue bar. */
+    /**
+     * Height of the hue bar.
+     */
     private static final float HUE_BAR_HEIGHT = dipToPixels(12);
 
-    /** Height of the opacity slider. */
+    /**
+     * Height of the opacity slider.
+     */
     private static final float OPACITY_BAR_HEIGHT = dipToPixels(12);
 
-    /** Corner radius for the hue bar. */
+    /**
+     * Corner radius for the hue bar.
+     */
     private static final float HUE_CORNER_RADIUS = dipToPixels(6);
 
-    /** Corner radius for the opacity slider. */
+    /**
+     * Corner radius for the opacity slider.
+     */
     private static final float OPACITY_CORNER_RADIUS = dipToPixels(6);
 
-    /** Radius of the selector handles. */
+    /**
+     * Radius of the selector handles.
+     */
     private static final float SELECTOR_RADIUS = dipToPixels(12);
 
-    /** Stroke width for the selector handle outlines. */
+    /**
+     * Stroke width for the selector handle outlines.
+     */
     private static final float SELECTOR_STROKE_WIDTH = 8;
 
     /**
@@ -87,85 +105,133 @@ public class ColorPickerView extends View {
      */
     private static final float SELECTOR_FILL_RADIUS = SELECTOR_RADIUS - SELECTOR_STROKE_WIDTH / 2;
 
-    /** Thin dark outline stroke width for the selector rings. */
+    /**
+     * Thin dark outline stroke width for the selector rings.
+     */
     private static final float SELECTOR_EDGE_STROKE_WIDTH = 1;
 
-    /** Radius for the outer edge of the selector rings, including stroke width. */
+    /**
+     * Radius for the outer edge of the selector rings, including stroke width.
+     */
     public static final float SELECTOR_EDGE_RADIUS =
             SELECTOR_RADIUS + SELECTOR_STROKE_WIDTH / 2 + SELECTOR_EDGE_STROKE_WIDTH / 2;
 
-    /** Selector outline inner color. */
+    /**
+     * Selector outline inner color.
+     */
     @ColorInt
     private static final int SELECTOR_OUTLINE_COLOR = Color.WHITE;
 
-    /** Dark edge color for the selector rings. */
+    /**
+     * Dark edge color for the selector rings.
+     */
     @ColorInt
     private static final int SELECTOR_EDGE_COLOR = Color.parseColor("#CFCFCF");
 
-    /** Precomputed array of hue colors for the hue bar (0-360 degrees). */
+    /**
+     * Precomputed array of hue colors for the hue bar (0-360 degrees).
+     */
     private static final int[] HUE_COLORS = new int[361];
+
     static {
         for (int i = 0; i < 361; i++) {
             HUE_COLORS[i] = Color.HSVToColor(new float[]{i, 1, 1});
         }
     }
 
-    /** Paint for the hue bar. */
+    /**
+     * Paint for the hue bar.
+     */
     private final Paint huePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-    /** Paint for the opacity slider. */
+    /**
+     * Paint for the opacity slider.
+     */
     private final Paint opacityPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-    /** Paint for the saturation-value selector. */
+    /**
+     * Paint for the saturation-value selector.
+     */
     private final Paint saturationValuePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-    /** Paint for the draggable selector handles. */
+    /**
+     * Paint for the draggable selector handles.
+     */
     private final Paint selectorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
     {
         selectorPaint.setStrokeWidth(SELECTOR_STROKE_WIDTH);
     }
 
-    /** Bounds of the hue bar. */
+    /**
+     * Bounds of the hue bar.
+     */
     private final RectF hueRect = new RectF();
 
-    /** Bounds of the opacity slider. */
+    /**
+     * Bounds of the opacity slider.
+     */
     private final RectF opacityRect = new RectF();
 
-    /** Bounds of the saturation-value selector. */
+    /**
+     * Bounds of the saturation-value selector.
+     */
     private final RectF saturationValueRect = new RectF();
 
-    /** HSV color calculations to avoid allocations during drawing. */
+    /**
+     * HSV color calculations to avoid allocations during drawing.
+     */
     private final float[] hsvArray = {1, 1, 1};
 
-    /** Current hue value (0-360). */
+    /**
+     * Current hue value (0-360).
+     */
     private float hue = 0f;
 
-    /** Current saturation value (0-1). */
+    /**
+     * Current saturation value (0-1).
+     */
     private float saturation = 1f;
 
-    /** Current value (brightness) value (0-1). */
+    /**
+     * Current value (brightness) value (0-1).
+     */
     private float value = 1f;
 
-    /** Current opacity value (0-1). */
+    /**
+     * Current opacity value (0-1).
+     */
     private float opacity = 1f;
 
-    /** The currently selected color, including alpha channel if opacity slider is enabled. */
+    /**
+     * The currently selected color, including alpha channel if opacity slider is enabled.
+     */
     @ColorInt
     private int selectedColor;
 
-    /** Listener for color change events. */
+    /**
+     * Listener for color change events.
+     */
     private OnColorChangedListener colorChangedListener;
 
-    /** Tracks if the hue selector is being dragged. */
+    /**
+     * Tracks if the hue selector is being dragged.
+     */
     private boolean isDraggingHue;
 
-    /** Tracks if the saturation-value selector is being dragged. */
+    /**
+     * Tracks if the saturation-value selector is being dragged.
+     */
     private boolean isDraggingSaturation;
 
-    /** Tracks if the opacity selector is being dragged. */
+    /**
+     * Tracks if the opacity selector is being dragged.
+     */
     private boolean isDraggingOpacity;
 
-    /** Flag to enable/disable the opacity slider. */
+    /**
+     * Flag to enable/disable the opacity slider.
+     */
     private boolean opacitySliderEnabled = false;
 
     public ColorPickerView(Context context) {

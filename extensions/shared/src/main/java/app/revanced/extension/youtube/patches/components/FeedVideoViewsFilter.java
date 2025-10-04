@@ -22,7 +22,7 @@ public final class FeedVideoViewsFilter extends Filter {
         addPathCallbacks(
                 new StringFilterGroup(
                         null,
-                        "video_lockup_with_attachment.eml"
+                        "video_lockup_with_attachment."
                 )
         );
     }

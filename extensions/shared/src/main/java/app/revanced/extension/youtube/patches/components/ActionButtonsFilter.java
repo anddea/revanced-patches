@@ -15,8 +15,8 @@ public final class ActionButtonsFilter extends Filter {
     /**
      * Video bar path when the video information is collapsed. Seems to shown only with 20.14+
      */
-    private static final String COMPACTIFY_VIDEO_ACTION_BAR_PATH = "compactify_video_action_bar.eml";
-    private static final String VIDEO_ACTION_BAR_PATH = "video_action_bar.eml";
+    private static final String COMPACTIFY_VIDEO_ACTION_BAR_PATH = "compactify_video_action_bar.";
+    private static final String VIDEO_ACTION_BAR_PATH = "video_action_bar.";
     private static final String ANIMATED_VECTOR_TYPE_PATH = "AnimatedVectorType";
 
     private final StringFilterGroup actionBarRule;
@@ -35,11 +35,11 @@ public final class ActionButtonsFilter extends Filter {
 
         bufferFilterPathRule = new StringFilterGroup(
                 null,
-                "|ContainerType|button.eml"
+                "|ContainerType|button."
         );
         likeSubscribeGlow = new StringFilterGroup(
                 Settings.DISABLE_LIKE_DISLIKE_GLOW,
-                "animated_button_border.eml"
+                "animated_button_border."
         );
         addPathCallbacks(
                 new StringFilterGroup(
@@ -48,11 +48,11 @@ public final class ActionButtonsFilter extends Filter {
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_DOWNLOAD_BUTTON,
-                        "|download_button.eml"
+                        "|download_button."
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_CLIP_BUTTON,
-                        "|clip_button.eml"
+                        "|clip_button."
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_PLAYLIST_BUTTON,

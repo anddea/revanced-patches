@@ -234,7 +234,7 @@ Korlátozás: Előfordulhat, hogy az eszköztár Vissza gombja nem működik."</
 Ez egyes felhasználóknál nem biztos, hogy működik, ha Önnek nem működik:
 1. Lépjen a Beállítások - RVX - Egyéb - Lejátszási adatok hamisítása menüpontra, és kapcsolja be a 'JavaScript kliens használata' beállítást.
 
-2. Lépjen a Beállítások - RVX - Egyéb - Lejátszási adatok hamisítása menüpontra, és módosítsa az 'Alapértelmezett kliens' beállítást 'TV' vagy 'TV Egyszerű' értékre."</string>
+2. Lépjen a Beállítások - RVX - Egyéb - Lejátszási adatok hamisítása menüpontra, és módosítsa az 'Alapértelmezett kliens' beállítást 'TV' értékre."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Kényszerített automatikus hangsávok letiltása</string>
     <string name="revanced_disable_auto_captions_summary_off">A kényszerített automatikus feliratok engedélyezve vannak.</string>
     <string name="revanced_disable_auto_captions_summary_on">A kényszerített automatikus feliratok le vannak tiltva.</string>
@@ -886,7 +886,7 @@ A középen nagybetűs szavakat a kis- és nagybetűkkel együtt kell megadni (p
 A hangsáv menü megjelenítéséhez:
 1. Lépjen a Beállítások - RVX - Egyéb - Lejátszási adatok hamisítása menüpontra, és kapcsolja be a 'JavaScript kliens használata' beállítást.
 
-2. Lépjen a Beállítások - RVX - Egyéb - Lejátszási adatok hamisítása menüpontra, és módosítsa az 'Alapértelmezett kliens' beállítást 'TV' vagy 'TV Egyszerű' értékre."</string>
+2. Lépjen a Beállítások - RVX - Egyéb - Lejátszási adatok hamisítása menüpontra, és módosítsa az 'Alapértelmezett kliens' beállítást 'TV' értékre."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">A hangsáv menü látható.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">A hangsáv menü el van rejtve.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Hangsáv menü elrejtése</string>
@@ -1904,8 +1904,8 @@ Korlátozás: A nem tetszések lehet nem jelennek meg kijelentkezett felhasznál
     <string name="revanced_sb_api_url_invalid">Az API URL érvénytelen.</string>
     <string name="revanced_sb_api_url_reset">Az API URL visszaállítása.</string>
     <string name="revanced_sb_appearance_category">Megjelenés</string>
-    <string name="revanced_sb_auto_hide_skip_button_duration">Átugrás gomb időtartama</string>
-    <string name="revanced_sb_auto_hide_skip_button_duration_sum">Mennyi ideig jelenjenek meg az átugrás és az átugrás kiemeléshez gombok az automatikus elrejtés előtt</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration">Kihagyás gomb megjelenítése</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration_sum">Mennyi ideig látszódjanak a kihagyás és a kiemelésre ugrás gombok, mielőtt automatikusan eltűnnének.</string>
     <string name="revanced_sb_color_changed">A szín megváltoztatva.</string>
     <string name="revanced_sb_color_dot_label">Szín:</string>
     <string name="revanced_sb_color_invalid">A színkód érvénytelen.</string>
@@ -1948,12 +1948,12 @@ Korlátozás: A nem tetszések lehet nem jelennek meg kijelentkezett felhasznál
     <string name="revanced_sb_general_skipcount">Átugrások számolásának engedélyezése</string>
     <string name="revanced_sb_general_skipcount_sum_off">A kihagyások számának követése nem engedélyezett.</string>
     <string name="revanced_sb_general_skipcount_sum_on">Értesíti a SponsorBlock ranglistáját, hogy mennyi időt takarított meg. Minden egyes szakasz kihagyásakor üzenetet küld a ranglistának.</string>
-    <string name="revanced_sb_general_skiptoast">Ugrás visszavonása felugró értesítés megjelenítése</string>
-    <string name="revanced_sb_general_skiptoast_sum_off">A felugró üzenet nem jelenik meg</string>
-    <string name="revanced_sb_general_skiptoast_sum_on">Felugró értesítés jelenik meg, amikor egy szegmens automatikusan átugrásra kerül. Érintse meg a felugró értesítést az átugrás visszavonásához</string>
+    <string name="revanced_sb_general_skiptoast">Kihagyás visszavonásának láthatósága</string>
+    <string name="revanced_sb_general_skiptoast_sum_off">Az értesítés nem látható.</string>
+    <string name="revanced_sb_general_skiptoast_sum_on">Felugró értesítés jelenik meg, amikor egy szegmens automatikusan átugrásra kerül. Érintse meg a felugró értesítést az átugrás visszavonásához.</string>
     <string name="revanced_sb_general_time_without">Videó hosszának megjelenítése szegmensek nélkül</string>
     <string name="revanced_sb_general_time_without_sum_off">A videó teljes hossza látható.</string>
-    <string name="revanced_sb_general_time_without_sum_on">A videó teljes hossza mellett zárójelben látható a szegmensek nélküli hossza.</string>
+    <string name="revanced_sb_general_time_without_sum_on">A videó hossza a szegmensek levonásával látható a keresősávon.</string>
     <string name="revanced_sb_general_uuid">A privát felhasználói azonosítója</string>
     <string name="revanced_sb_general_uuid_invalid">A privát felhasználói azonosítónak legalább 30 karakter hosszúnak kell lennie.</string>
     <string name="revanced_sb_general_uuid_sum">Ezt bizalmasan kell kezelni. Ez olyan, mint egy jelszó, és nem szabad megosztani senkivel. Ha ezt valaki megszerzi, akkor megszemélyesítheti Önt.</string>
@@ -2097,8 +2097,8 @@ Készen állsz a beküldésre?"</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Nem látható üzenet, ha a SponsorBlock nem elérhető.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Üzenet látható, ha a SponsorBlock nem elérhető.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Üzenet megjelenítése, ha az API nem elérhető</string>
-    <string name="revanced_sb_toast_on_skip_duration">Átugrási felugró üzenet időtartama</string>
-    <string name="revanced_sb_toast_on_skip_duration_sum">Mennyi ideig jelenjen meg az átugrás visszavonása felugró üzenet</string>
+    <string name="revanced_sb_toast_on_skip_duration">Kihagyási értesítés időtartama</string>
+    <string name="revanced_sb_toast_on_skip_duration_sum">Mennyi ideig jelenjen meg a kihagyás visszavonása üzenet.</string>
     <string name="revanced_sb_vote_category">Kategória módosítása</string>
     <string name="revanced_sb_vote_downvote">Leszavazás</string>
     <string name="revanced_sb_vote_failed_forbidden">Nem lehet szavazni a szakaszra: %s.</string>
@@ -2263,7 +2263,7 @@ Infó:
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"A hangsáv gomb akkor jelenik meg, ha a streamelt adatok lekéréséhez használt kliens az 'Android VR', a 'Mobile Web' vagy a 'visionOS'."</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">Hangsáv megjelenítése gomb</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Előfeltételek:
-• A streamelési adatok lekéréséhez használt kliens az 'Android VR', a 'Mobile Web', az 'iPadOS' vagy a 'visionOS'.
+• A streamelési adatok lekéréséhez használt kliens az 'Android VR', a 'Mobile Web' vagy a 'visionOS'.
 • Több hangsávval rendelkező videó lejátszása folyamatban van.
 
 Ismert problémák:
@@ -2281,17 +2281,20 @@ Ez a funkció még fejlesztés alatt áll, így a szerveroldali változások mia
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobil webböngésző
 <small>(fejlesztés alatt, nincs hitelesítés)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Egyszerű
+<small>(Nincs PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Kiadatlan, nincs hitelesítés)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Alapértelmezett kliens</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Nem sikerült lekérni egyetlen kliens adatfolyamot sem.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Próbálja meg az alapértelmezett klienst TV-re vagy TV Egyszerű-re módosítani.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Próbálja meg az alapértelmezett klienst TV-re módosítani.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">A videokodek meghatározása automatikusan történik.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">A kényszerített videó kodek az AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Kényszerített iOS AVC (H.264)</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Ennek engedélyezése javíthatja az akkumulátor élettartamát és javíthatja a lejátszás akadozását.
 
 Az AVC maximális felbontása 1080p, az Opus hangkodek nem érhető el, és a videolejátszás több adatforgalmat igényel, mint a VP9 vagy az AV1."</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Egy adott hangfolyam nyelvének kiválasztásához kapcsold ki a \'Kényszerített automatikus hangsávok letiltása\' beállítást.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">Alapértelmezett hangfolyam nyelve</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">A videokodekek elsőséget élveznek.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">A videó minőség az elsődleges.</string>
@@ -2363,6 +2366,10 @@ Ha ez a beállítás engedélyezve van, a szerver válaszából származó legma
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• Ha az élesítés sikertelen, a lejátszás sikertelen lehet.
 • Előfordulhat, hogy a videó 10 másodperc után sem indul el, ilyenkor a videó újratöltése gombra kell kattintani.
 • Előfordulhat, hogy a videó késik."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• Ha a deobfuszkáció sikertelen, a lejátszás sikertelen lehet.
+• Egyes fiókokhoz PoToken szükséges, ebben az esetben a lejátszás sikertelen lesz.
+• Előfordulhat, hogy a videó 10 másodperc után sem indul el, ilyenkor a videó újratöltése gombra kell kattintani.
+• Előfordulhat, hogy a videó késve indul el."</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Ismeretlen</string>
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Hiányzik a hangsáv menüje.
 • Előfordulhat, hogy a gyerekeknek szóló videók nem játszhatók le kijelentkezéskor vagy inkognitómódban.
@@ -2412,7 +2419,7 @@ Ez könnyen megoldható, ha a lejátszóban a 'Videó újratöltése' gombra kat
 
 (Előfeltételek: Mind a 'Videó újratöltése gomb megjelenítése', mind a 'Videó újratöltése gomb állandó megjelenítése' engedélyezve van)
 
-A JavaScript kliensek közül az ajánlott kliens a TV egyszerű."</string>
+A JavaScript kliensek közül az ajánlott kliens a TV."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"Az élesítéshez használt JavaScript nincs naprakészen tartva.
 
 • Az élesítésben sikeresen használható JavaScriptet használunk, de ez még mindig némileg szerverfüggő."</string>
@@ -2428,10 +2435,21 @@ A JavaScript kliensek közül az ajánlott kliens a TV egyszerű."</string>
 • Ez nagymértékben szerverfüggő, és a deobfuszkáció sikere vagy sikertelensége a szerveren aktuálisan használt lejátszó JavaScripttől függ.
 • Ha problémái vannak a JavaScript klienssel, először próbálja meg letiltani ezt."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Használja a legújabb lejátszó JavaScriptjét</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"SmartTube kliens használatban.
+
+• A lejátszó JavaScriptje a deobfuszkációhoz nem naprakész.
+• A szerverek a közeljövőben elavulttá teszik ezt a funkciót."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"Külső JavaScript van használatban az yt-dlp-hez (yt-dlp-ejs).
+
+• A lejátszó JavaScriptje a deobfuszkációhoz naprakész.
+• A videó elindítása 5 - 15 másodpercet is igénybe vehet."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Használjon yt-dlp-ejs (Folyamatban)</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"A YouTube új intézkedései miatt a legújabb lejátszó JavaScriptben már nem lehet általános metódusokkal visszafejteni a streaming Url-eket.
+
+A legújabb lejátszó JavaScriptben az yt-dlp külső JavaScriptjét (yt-dlp-ejs) használják a streaming Url-ek visszafejtésére.
+
+Jelenleg fejlesztés alatt áll, és több hardver erőforrást fog igénybe venni."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">A beállítás kikapcsolása videólejátszási problémákat okozhat.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">A videokodek meghatározása automatikusan történik.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">A videó kodek AVC (H.264) vagy VP9.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_title">VR AV1 letiltása</string>
     <string name="revanced_swipe_brightness_summary_off">A teljes képernyős fényerő húzás nem engedélyezett.</string>
     <string name="revanced_swipe_brightness_summary_on">"A teljes képernyős fényerő húzás engedélyezett.
 

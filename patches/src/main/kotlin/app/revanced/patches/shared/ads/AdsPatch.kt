@@ -124,7 +124,8 @@ fun adsPatch(
                 val showDialogIndex = indexOfFirstInstructionOrThrow {
                     getReference<MethodReference>()?.name == "show"
                 }
-                val dialogRegister = getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC
+                val dialogRegister =
+                    getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC
 
                 addInstruction(
                     showDialogIndex + 1,

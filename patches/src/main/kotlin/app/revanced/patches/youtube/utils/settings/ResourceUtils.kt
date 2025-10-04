@@ -30,7 +30,7 @@ internal object ResourceUtils {
     private var iconType = "default"
     fun getIconType() = iconType
 
-    fun updatePackageName(newPackageName: String, ) {
+    fun updatePackageName(newPackageName: String) {
         youtubeSettingFile.writeText(
             youtubeSettingFile.readText()
                 .replace(

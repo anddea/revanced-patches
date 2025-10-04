@@ -2277,6 +2277,8 @@ Esta función todavía está en desarrollo, por lo que puede fallar en cualquier
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio 
 <small>(Inicio de sesión requerido)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
+<small>(Autenticación, acción necesaria)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Obsoleto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
@@ -2299,9 +2301,8 @@ Esta función todavía está en desarrollo, por lo que puede fallar en cualquier
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Activar este ajuste podría mejorar la duración de la batería y solucionar el problema de la reproducción entrecortada.
 
 AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está disponible y la reproducción de vídeo utilizará más datos de Internet que VP9 o AV1."</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">La selección predeterminada del idioma de la transmisión de audio no está disponible con Android Studio.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">La selección predeterminada del idioma de la transmisión de audio no está disponible con iPadOS.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Para seleccionar un idioma de transmisión de audio específico, desactive «Desactivar pistas de audio automáticas forzadas».</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">La selección predeterminada del idioma de la transmisión de audio no está disponible con %s.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">Idioma predeterminado de la transmisión de audio</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Se priorizan los códecs de vídeo.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Se prioriza la calidad del vídeo.</string>
@@ -2356,6 +2357,10 @@ Se utiliza→ 1080p VP9."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Falta el menú de la pista de audio.
 • El volumen estable no está disponible.
 • Es posible que los vídeos para niños no se reproduzcan cuando se cierra la sesión o en modo incógnito."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• Falta el menú de pistas de audio.
+• Desactivar pistas de audio automáticas forzadas no está disponible.
+• El volumen estable no está disponible.
+• Es posible que los vídeos para niños no se reproduzcan al cerrar sesión o en modo incógnito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Puede haber problemas de reproducción (PoToken requerido).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• El servidor puede bloquear ASN/rangos de IP completos.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Los vídeos pueden terminar 1 segundo antes.</string>
@@ -2453,9 +2458,43 @@ El JavaScript externo para yt-dlp (yt-dlp-ejs) se utiliza para desencriptar las 
 
 Actualmente está en desarrollo y utilizará más recursos de hardware."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Desactivar este ajuste puede causar problemas de reproducción de vídeo.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">El códec de vídeo se determina automáticamente.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">El códec de vídeo es AVC (H.264) o VP9.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Desactivar VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Código de activación:
+%s
+
+1. Pulsa en «Abrir sitio web» para ir a «https://yt.be/activate».
+2. Introduce el código de activación.
+3. Inicia sesión cuando se te solicite. Si tienes varias cuentas de Google, selecciona la cuenta que utilizas con YouTube. Si ya has iniciado sesión, pasa al siguiente paso.
+4. Una vez que hayas iniciado sesión, vuelve a RVX y pulsa de nuevo en «Acerca de la autenticación de Android VR».
+5. Pulsa en «Obtener token de autorización» para obtener un token de autorización."</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Abrir sitio web</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Código de activación</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Código de activación copiado al portapapeles: %s.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Pulsa para ver cómo obtener un token de autenticación.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Acerca de la autenticación de Android VR</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Obtener código de activación</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Obtener token de autorización</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Para obtener un token de autorización para Android VR, debes iniciar sesión en YouTube VR utilizando un código de activación:
+
+1. Pulsa en «Obtener código de activación» para generar un código de activación.
+2. Pulsa en «Abrir sitio web» para ir a «https://yt.be/activate».
+3. Introduce el código de activación.
+4. Inicia sesión cuando se te solicite. Si tienes varias cuentas de Google, selecciona la cuenta que utilizas con YouTube. Si ya has iniciado sesión, salta al siguiente paso.
+5. Una vez iniciada la sesión, vuelve a RVX y pulsa de nuevo en «Acerca de la autenticación de Android VR».
+6. Pulsa en «Obtener token de autorización» para obtener un token de autorización.
+
+※ Pulsa «Restablecer» para eliminar un token de autenticación o un código de activación."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Restablecer</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Obtener token de autorización</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Token de autenticación y código de activación restablecido.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Token de autenticación guardado.</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_off">El códec de vídeo es AVC (H.264) o VP9.</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"El códec de vídeo es AVC (H.264), VP9 o AV1.
+
+La reproducción se puede atascar o perder fotogramas."</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_title">Activar VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"Si activas este ajuste, es posible que se utilice la descodificación AV1 por software.
+
+La reproducción se puede atascar o perder fotogramas."</string>
     <string name="revanced_swipe_brightness_summary_off">El deslizamiento de brillo en pantalla completa está desactivado</string>
     <string name="revanced_swipe_brightness_summary_on">"El deslizamiento de brillo en pantalla completa está activado.
 

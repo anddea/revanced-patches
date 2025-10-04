@@ -13,10 +13,10 @@ import androidx.annotation.Nullable;
 
 import java.util.Objects;
 
-import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.ui.ColorDot;
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings("deprecation")
 public class SegmentCategoryPreference extends ColorPickerPreference {

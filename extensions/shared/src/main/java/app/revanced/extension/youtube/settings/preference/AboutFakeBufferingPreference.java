@@ -12,7 +12,6 @@ import android.util.Pair;
 import android.widget.LinearLayout;
 
 import app.revanced.extension.shared.ui.CustomDialog;
-import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"deprecation", "unused"})

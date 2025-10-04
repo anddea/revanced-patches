@@ -1,7 +1,28 @@
 package app.revanced.extension.youtube.sponsorblock.objects;
 
 import static app.revanced.extension.shared.utils.StringRef.sf;
-import static app.revanced.extension.youtube.settings.Settings.*;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_FILLER;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_FILLER_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HIGHLIGHT;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HIGHLIGHT_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HOOK;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HOOK_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTERACTION;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTERACTION_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTRO;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTRO_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_MUSIC_OFFTOPIC;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_MUSIC_OFFTOPIC_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_OUTRO;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_OUTRO_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_PREVIEW;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_PREVIEW_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SELF_PROMO;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SELF_PROMO_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SPONSOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SPONSOR_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_UNSUBMITTED;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_UNSUBMITTED_COLOR;
 
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -21,10 +42,10 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
+import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.StringRef;
 import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"unused", "FieldCanBeLocal"})

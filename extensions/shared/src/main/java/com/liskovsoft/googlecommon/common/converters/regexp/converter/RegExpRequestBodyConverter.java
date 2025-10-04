@@ -1,7 +1,9 @@
 package com.liskovsoft.googlecommon.common.converters.regexp.converter;
 
 import android.util.Log;
+
 import com.liskovsoft.googlecommon.common.converters.regexp.typeadapter.RegExpTypeAdapter;
+
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Converter;

@@ -1,11 +1,7 @@
 package app.revanced.extension.music.utils;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
-
-import androidx.annotation.NonNull;
 
 import app.revanced.extension.shared.utils.PackageUtils;
 import app.revanced.extension.shared.utils.ResourceUtils;
@@ -25,14 +21,6 @@ public class ExtendedUtils extends PackageUtils {
     private static final String SHORTCUT_TYPE = "com.google.android.youtube.music.action.shortcut_type";
     private static final String SHORTCUT_ID_SEARCH = "Eh4IBRDTnQEYmgMiEwiZn+H0r5WLAxVV5OcDHcHRBmPqpd25AQA=";
     private static final int SHORTCUT_TYPE_SEARCH = 1;
-
-    @SuppressWarnings("deprecation")
-    public static AlertDialog.Builder getDialogBuilder(@NonNull Context context) {
-        return new AlertDialog.Builder(context, isSDKAbove(22)
-                ? android.R.style.Theme_DeviceDefault_Dialog_Alert
-                : AlertDialog.THEME_DEVICE_DEFAULT_DARK
-        );
-    }
 
     public static void openSearch() {
         Activity mActivity = ResourceUtils.getActivity();

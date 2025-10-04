@@ -2,6 +2,7 @@
 
 package app.revanced.patches.youtube.player.components
 
+import app.revanced.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.componentLongClickListener
 import app.revanced.patches.youtube.utils.resourceid.darkBackground
 import app.revanced.patches.youtube.utils.resourceid.donationCompanion
@@ -159,7 +160,6 @@ internal val doubleTapInfoGetSeekSourceFingerprint = legacyFingerprint(
     )
 )
 
-
 internal val endScreenElementLayoutCircleFingerprint = legacyFingerprint(
     name = "endScreenElementLayoutCircleFingerprint",
     returnType = "Landroid/view/View;",
@@ -208,8 +208,7 @@ internal val endScreenPlayerResponseModelFingerprint = legacyFingerprint(
                 && method.containsLiteralInstruction(5)
                 && method.containsLiteralInstruction(8)
                 && method.indexOfFirstInstruction {
-            val reference = getReference<FieldReference>()
-            reference?.type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
+            getReference<FieldReference>()?.type == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
         } >= 0
     }
 )

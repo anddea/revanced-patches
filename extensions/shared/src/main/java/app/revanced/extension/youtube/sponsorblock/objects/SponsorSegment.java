@@ -113,7 +113,7 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
         final long undoStart = category == SegmentCategory.HIGHLIGHT
                 ? 0
                 : start;
-        return Range.create(undoStart,  end - 1);
+        return Range.create(undoStart, end - 1);
     }
 
     /**

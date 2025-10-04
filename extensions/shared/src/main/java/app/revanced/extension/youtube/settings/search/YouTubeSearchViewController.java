@@ -59,7 +59,8 @@ public class YouTubeSearchViewController extends BaseSearchViewController {
     }
 
     // Adapter to wrap YouTubePreferenceFragment to BasePreferenceFragment interface.
-    private record PreferenceFragmentAdapter(YouTubePreferenceFragment fragment) implements BasePreferenceFragment {
+    private record PreferenceFragmentAdapter(
+            YouTubePreferenceFragment fragment) implements BasePreferenceFragment {
         @Override
         public PreferenceScreen getPreferenceScreenForSearch() {
             return fragment.getPreferenceScreenForSearch();

@@ -39,15 +39,15 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import app.revanced.extension.shared.utils.BaseThemeUtils;
-import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
+import app.revanced.extension.shared.utils.BaseThemeUtils;
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
 
 /**
  * Abstract controller for managing the overlay search view in ReVanced settings.
@@ -214,14 +214,18 @@ public abstract class BaseSearchViewController {
 
     // Abstract methods that subclasses must implement.
     protected abstract BaseSearchResultsAdapter createSearchResultsAdapter();
+
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     protected abstract boolean isSpecialPreferenceGroup(Preference preference);
+
     protected abstract void setupSpecialPreferenceListeners(BaseSearchResultItem item);
 
     // Abstract interface for preference fragments.
     public interface BasePreferenceFragment {
         PreferenceScreen getPreferenceScreenForSearch();
+
         android.view.View getView();
+
         Activity getActivity();
     }
 

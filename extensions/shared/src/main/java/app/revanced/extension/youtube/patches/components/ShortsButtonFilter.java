@@ -15,14 +15,14 @@ public final class ShortsButtonFilter extends Filter {
     // probably unstable.
     // If comment button does not have number of comments, then it is disabled or with label "0".
     private static final Pattern REEL_COMMENTS_DISABLED_PATTERN = Pattern.compile("reel_comment_button.+\\d\\s?\\p{L}.+4");
-    private static final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.eml";
-    private static final String REEL_LIVE_HEADER_PATH = "immersive_live_header.eml";
+    private static final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.";
+    private static final String REEL_LIVE_HEADER_PATH = "immersive_live_header.";
     /**
      * For paid promotion label and subscribe button that appears in the channel bar.
      */
-    private static final String REEL_METAPANEL_PATH = "reel_metapanel.eml";
+    private static final String REEL_METAPANEL_PATH = "reel_metapanel.";
 
-    private static final String SHORTS_PAUSED_STATE_BUTTON_PATH = "|ScrollableContainerType|ContainerType|button.eml|";
+    private static final String SHORTS_PAUSED_STATE_BUTTON_PATH = "|ScrollableContainerType|ContainerType|button.";
 
     private final StringFilterGroup subscribeButton;
     private final StringFilterGroup joinButton;
@@ -88,7 +88,7 @@ public final class ShortsButtonFilter extends Filter {
 
         StringFilterGroup stickers = new StringFilterGroup(
                 Settings.HIDE_SHORTS_STICKERS,
-                "stickers_layer.eml"
+                "stickers_layer."
         );
 
         StringFilterGroup liveHeader = new StringFilterGroup(
@@ -98,7 +98,7 @@ public final class ShortsButtonFilter extends Filter {
 
         StringFilterGroup paidPromotionButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_PAID_PROMOTION_LABEL,
-                "reel_player_disclosure.eml"
+                "reel_player_disclosure."
         );
 
         StringFilterGroup shortsCommentsPanel = new StringFilterGroup(
@@ -108,21 +108,21 @@ public final class ShortsButtonFilter extends Filter {
 
         StringFilterGroup likeButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_LIKE_BUTTON,
-                "shorts_like_button.eml",
-                "reel_like_button.eml",
-                "reel_like_toggled_button.eml"
+                "shorts_like_button.",
+                "reel_like_button.",
+                "reel_like_toggled_button."
         );
 
         StringFilterGroup dislikeButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_DISLIKE_BUTTON,
-                "shorts_dislike_button.eml",
-                "reel_dislike_button.eml",
-                "reel_dislike_toggled_button.eml"
+                "shorts_dislike_button.",
+                "reel_dislike_button.",
+                "reel_dislike_toggled_button."
         );
 
         metaPanelButton = new StringFilterGroup(
                 null,
-                "|ContainerType|button.eml|"
+                "|ContainerType|button."
         );
 
         joinButton = new StringFilterGroup(
@@ -137,13 +137,13 @@ public final class ShortsButtonFilter extends Filter {
 
         actionButton = new StringFilterGroup(
                 null,
-                "reel_action_button.eml",
-                "shorts_video_action_button.eml"
+                "reel_action_button.",
+                "shorts_video_action_button."
         );
 
         suggestedAction = new StringFilterGroup(
                 null,
-                "|suggested_action_inner.eml|"
+                "|suggested_action_inner."
         );
 
         addPathCallbacks(

@@ -1784,6 +1784,7 @@ public final class Helpers {
         return null;
     }
 
+    @Nullable
     public static <T> T findLast(Collection<T> collection, Filter<T> filter) {
         if (collection == null || filter == null) {
             return null;

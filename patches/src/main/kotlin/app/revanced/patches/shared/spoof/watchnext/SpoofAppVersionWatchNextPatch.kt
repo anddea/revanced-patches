@@ -101,7 +101,8 @@ fun spoofAppVersionWatchNextPatch(
                     val helperMethodName = "setClientInfo"
                     val checkCastIndex = it.patternMatch!!.startIndex
 
-                    val checkCastInstruction = getInstruction<OneRegisterInstruction>(checkCastIndex)
+                    val checkCastInstruction =
+                        getInstruction<OneRegisterInstruction>(checkCastIndex)
                     val requestMessageInstanceRegister = checkCastInstruction.registerA
                     val clientInfoContainerClassName =
                         checkCastInstruction.getReference<TypeReference>()!!.type
@@ -145,7 +146,7 @@ fun spoofAppVersionWatchNextPatch(
             // region patch for spoof client body for the '/next' endpoint.
 
             val watchNextResponseModelClass =
-                with (watchNextResponseModelClassResolverFingerprint.methodOrThrow()) {
+                with(watchNextResponseModelClassResolverFingerprint.methodOrThrow()) {
                     val listenableFutureIndex =
                         indexOfListenableFutureReference(this)
                     val watchNextResponseModelClassIndex =
@@ -242,7 +243,8 @@ fun spoofAppVersionWatchNextPatch(
                     val helperMethodName = "patch_setClientVersion"
 
                     val insertIndex = indexOfClientMessageInstruction(this)
-                    val messageRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+                    val messageRegister =
+                        getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                     addInstruction(
                         insertIndex,

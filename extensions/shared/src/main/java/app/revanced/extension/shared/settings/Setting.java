@@ -406,6 +406,7 @@ public abstract class Setting<T> {
 
     /**
      * Get the parent Settings that this setting depends on.
+     *
      * @return List of parent Settings (e.g., BooleanSetting or EnumSetting), or empty list if no dependencies exist.
      */
     public List<Setting<?>> getParentSettings() {

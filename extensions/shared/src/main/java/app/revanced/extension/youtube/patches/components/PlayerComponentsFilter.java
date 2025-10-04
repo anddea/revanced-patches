@@ -62,12 +62,12 @@ public final class PlayerComponentsFilter extends Filter {
 
         final StringFilterGroup channelWaterMark = new StringFilterGroup(
                 Settings.HIDE_CHANNEL_WATERMARK,
-                "featured_channel_watermark_overlay.eml"
+                "featured_channel_watermark_overlay."
         );
 
         final StringFilterGroup infoCards = new StringFilterGroup(
                 Settings.HIDE_INFO_CARDS,
-                "info_card_teaser_overlay.eml"
+                "info_card_teaser_overlay."
         );
 
         final StringFilterGroup infoPanel = new StringFilterGroup(
@@ -89,7 +89,7 @@ public final class PlayerComponentsFilter extends Filter {
 
         suggestedActions = new StringFilterGroup(
                 Settings.HIDE_SUGGESTED_ACTION,
-                "|suggested_action.eml|"
+                "|suggested_action."
         );
 
         final StringFilterGroup timedReactions = new StringFilterGroup(
@@ -113,7 +113,7 @@ public final class PlayerComponentsFilter extends Filter {
         final StringFilterGroup joinMembership = new StringFilterGroup(
                 Settings.HIDE_JOIN_BUTTON,
                 "compact_sponsor_button",
-                "|ContainerType|button.eml"
+                "|ContainerType|button."
         );
 
         final StringFilterGroup startTrial = new StringFilterGroup(

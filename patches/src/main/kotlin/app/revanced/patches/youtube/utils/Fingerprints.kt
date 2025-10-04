@@ -77,16 +77,6 @@ internal val cairoFragmentConfigFingerprint = legacyFingerprint(
     literals = listOf(CAIRO_FRAGMENT_FEATURE_FLAG),
 )
 
-internal val formatStreamModelToStringFingerprint = legacyFingerprint(
-    name = "formatStreamModelToStringFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "Ljava/lang/String;",
-    customFingerprint = { method, classDef ->
-        method.name == "toString"
-                && classDef.type == YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
-    }
-)
-
 internal val layoutConstructorFingerprint = legacyFingerprint(
     name = "layoutConstructorFingerprint",
     returnType = "V",

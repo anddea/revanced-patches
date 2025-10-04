@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.utils.audiotracks
+package app.revanced.patches.shared.audiotracks
 
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
@@ -13,7 +13,6 @@ internal val selectAudioStreamFingerprint = legacyFingerprint(
     returnType = "L",
     customFingerprint = { method, _ ->
         method.parameters.size > 2 // Method has a large number of parameters and may change.
-                && method.parameters[1].type == "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;"
                 && method.containsLiteralInstruction(AUDIO_STREAM_IGNORE_DEFAULT_FEATURE_FLAG)
     }
 )

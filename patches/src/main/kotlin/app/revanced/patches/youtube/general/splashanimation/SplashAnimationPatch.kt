@@ -64,13 +64,14 @@ val splashAnimationPatch = bytecodePatch(
             if (is_20_02_or_greater) {
                 val animatedVectorDrawableIndex =
                     indexOfStartAnimatedVectorDrawableInstruction(this)
-                val arrayIndex = indexOfFirstInstructionReversedOrThrow(animatedVectorDrawableIndex) {
-                    val reference = getReference<MethodReference>()
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            reference?.returnType == "V" &&
-                            reference.parameterTypes.size == 1 &&
-                            reference.parameterTypes.first().startsWith("[L")
-                }
+                val arrayIndex =
+                    indexOfFirstInstructionReversedOrThrow(animatedVectorDrawableIndex) {
+                        val reference = getReference<MethodReference>()
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                reference?.returnType == "V" &&
+                                reference.parameterTypes.size == 1 &&
+                                reference.parameterTypes.first().startsWith("[L")
+                    }
 
                 val insertIndex =
                     indexOfFirstInstructionOrThrow(arrayIndex, Opcode.IF_NE)

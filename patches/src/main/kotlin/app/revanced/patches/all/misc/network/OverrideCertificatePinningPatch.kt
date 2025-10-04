@@ -25,10 +25,13 @@ val overrideCertificatePinningPatch = resourcePatch(
             val applicationNode = document.getElementsByTagName("application").item(0) as Element
 
             if (applicationNode.hasAttribute(NETWORK_SECURITY_CONFIG_ATTRIBUTE_NAME)) {
-                networkSecurityFileName = applicationNode.getAttribute(NETWORK_SECURITY_CONFIG_ATTRIBUTE_NAME).split("/")[1] + ".xml"
+                networkSecurityFileName =
+                    applicationNode.getAttribute(NETWORK_SECURITY_CONFIG_ATTRIBUTE_NAME)
+                        .split("/")[1] + ".xml"
             } else {
                 document.createAttribute(NETWORK_SECURITY_CONFIG_ATTRIBUTE_NAME)
-                    .apply { value = "@xml/network_security_config" }.let(applicationNode.attributes::setNamedItem)
+                    .apply { value = "@xml/network_security_config" }
+                    .let(applicationNode.attributes::setNamedItem)
             }
         }
 

@@ -3,11 +3,11 @@ package app.revanced.extension.youtube.settings.search;
 import android.content.Context;
 import android.preference.PreferenceScreen;
 
+import java.util.List;
+
+import app.revanced.extension.shared.settings.search.BaseSearchResultItem;
 import app.revanced.extension.shared.settings.search.BaseSearchResultsAdapter;
 import app.revanced.extension.shared.settings.search.BaseSearchViewController;
-import app.revanced.extension.shared.settings.search.BaseSearchResultItem;
-
-import java.util.List;
 
 /**
  * YouTube-specific search results adapter.

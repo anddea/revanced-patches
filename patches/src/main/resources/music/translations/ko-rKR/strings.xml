@@ -79,6 +79,10 @@
     <string name="revanced_debug_title">디버그 로깅 활성화</string>
     <string name="revanced_default_app_settings_summary">YT Music 링크를 RVX Music으로 열려면 \'지원되는 링크 열기\'를 활성화하고 지원되는 링크를 추가하세요. 링크 추가가 잠겨있다면 순정 YT Music 앱 정보 → \'기본적으로 열기\'에서 \'지원되는 링크 열기\'를 비활성화한 후에 추가할 수 있습니다.</string>
     <string name="revanced_default_app_settings_title">기본 앱 설정 열기</string>
+    <string name="revanced_disable_auto_audio_tracks_summary">"팟캐스트를 위한 강제 사용이 설정된 자동 오디오 트랙을 비활성화합니다.
+
+제한 사항: '스트리밍 데이터 변경'이 활성화되어 있고 기본 클라이언트가 'Android VR 인증'인 경우에는 작동하지 않을 수 있습니다."</string>
+    <string name="revanced_disable_auto_audio_tracks_title">강제된 자동 오디오 트랙 비활성화</string>
     <string name="revanced_disable_auto_captions_summary">자동 자막이 강제로 활성화되지 않도록 설정합니다.</string>
     <string name="revanced_disable_auto_captions_title">강제된 자동 자막 비활성화</string>
     <string name="revanced_disable_cairo_splash_animation_summary">앱을 시작할 때, Cairo 스플래시 애니메이션을 비활성화합니다.</string>
@@ -545,6 +549,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_spoof_player_parameter_title">플레이어 매개변수 변경하기</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR 인증 (작업이 필요함)</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
@@ -568,6 +573,35 @@ JavaScript 클라이언트에 문제가 발생할 경우에 먼저 이 기능을
 • 복호화를 위한 플레이어 JavaScript는 최신 상태로 유지됩니다.
 • 동영상 재생 시작까지 5~15초가 소요될 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">yt-dlp ejs 사용 (개발 중)</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"활성화 코드:
+%s
+
+1. '웹사이트 열기'를 탭하여 'https://yt.be/activate'로 이동합니다.
+2. 활성화 코드를 입력합니다.
+3. 로그인을 요청하면 로그인합니다. 여러 Google 계정이 있는 경우에는 YouTube에서 사용하는 계정을 선택합니다. 이미 로그인된 상태라면 다음 단계로 건너뜁니다.
+4. 로그인 후에 RVX로 돌아가서 'Android VR 인증에 대한 정보'를 다시 탭합니다.
+5. '인증 토큰 받기'를 탭하여 인증 토큰을 받습니다."</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">웹사이트 열기</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">활성화 코드</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">활성화 코드를 클립보드에 복사하였습니다: %s.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">인증 토큰을 받는 방법을 보려면 여기를 탭하세요.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR 인증에 대한 정보</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">활성화 코드 받기</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">인증 토큰 받기</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Android VR을 위한 인증 토큰을 받으려면 활성화 코드를 사용하여 YouTube VR에 로그인해야 합니다:
+
+1. '활성화 코드 받기'를 탭하여 활성화 코드를 생성합니다.
+2. '웹사이트 열기'를 탭하여 'https://yt.be/activate'로 이동합니다.
+3. 활성화 코드를 입력합니다.
+4. 로그인을 요청하면 로그인합니다. 여러 Google 계정이 있는 경우에는 YouTube에서 사용하는 계정을 선택합니다. 이미 로그인된 상태라면 다음 단계로 건너뜁니다.
+5. 로그인 후에 RVX로 돌아가서 'Android VR 인증에 대한 정보'를 다시 탭합니다.
+6. '인증 토큰 받기'를 탭하여 인증 토큰을 받습니다.
+
+※ 인증 토큰 또는 활성화 코드를 삭제하려면 '초기화'를 탭하세요."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">초기화</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">인증 토큰 받기</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">인증 토큰과 활성화 코드를 초기화하였습니다.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">인증 토큰을 저장하였습니다.</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>

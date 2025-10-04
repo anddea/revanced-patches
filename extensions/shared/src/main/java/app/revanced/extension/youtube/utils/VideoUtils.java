@@ -72,7 +72,6 @@ import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.shorts.ShortsRepeatStatePatch.ShortsLoopBehavior;
-import app.revanced.extension.youtube.patches.utils.PlaylistPatch;
 import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
 import app.revanced.extension.youtube.patches.video.PlaybackSpeedPatch;
@@ -954,10 +953,10 @@ public class VideoUtils extends IntentUtils {
     /**
      * Creates a styled button with a plus or minus symbol.
      *
-     * @param context The Android context used to create the button.
-     * @param isPlus  True to display a plus symbol, false to display a minus symbol.
+     * @param context     The Android context used to create the button.
+     * @param isPlus      True to display a plus symbol, false to display a minus symbol.
      * @param marginStart The start margin in pixels (left for LTR, right for RTL).
-     * @param marginEnd The end margin in pixels (right for LTR, left for RTL).
+     * @param marginEnd   The end margin in pixels (right for LTR, left for RTL).
      * @return A configured {@link Button} with the specified styling and layout parameters.
      */
     private static Button createStyledButton(Context context, boolean isPlus, int marginStart, int marginEnd) {

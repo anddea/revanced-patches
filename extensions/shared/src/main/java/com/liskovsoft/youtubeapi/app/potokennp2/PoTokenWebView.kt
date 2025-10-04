@@ -52,7 +52,7 @@ internal class PoTokenWebView private constructor(
                     // supports a really old version of JS.
 
                     val fmt = "\"${m.message()}\", source: ${m.sourceId()} (${m.lineNumber()})"
-                    Logger.printException{ "This WebView implementation is broken: $fmt" }
+                    Logger.printException { "This WebView implementation is broken: $fmt" }
 
                     // TODO: not needed anymore?
                     //isBroken = true

@@ -16,10 +16,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
 import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
 
 /**
  * Note that the superclass is overwritten to the superclass of the LicenseMenuActivity at patch time.
@@ -176,7 +176,8 @@ public abstract class BaseHostActivity extends Activity {
      * @param toolbar  The configured toolbar.
      * @param fragment The PreferenceFragment associated with the activity.
      */
-    protected void onPostToolbarSetup(Activity activity, Toolbar toolbar, PreferenceFragment fragment) {}
+    protected void onPostToolbarSetup(Activity activity, Toolbar toolbar, PreferenceFragment fragment) {
+    }
 
     protected abstract boolean handleBackPress();
 }

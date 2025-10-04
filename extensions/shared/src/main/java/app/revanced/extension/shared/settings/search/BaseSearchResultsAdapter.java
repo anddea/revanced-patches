@@ -32,12 +32,12 @@ import androidx.annotation.Nullable;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import app.revanced.extension.shared.utils.BaseThemeUtils;
-import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.UrlLinkPreference;
 import app.revanced.extension.shared.ui.ColorDot;
+import app.revanced.extension.shared.utils.BaseThemeUtils;
+import app.revanced.extension.shared.utils.Logger;
 
 /**
  * Abstract adapter for displaying search results in overlay ListView with ViewHolder pattern.
@@ -48,6 +48,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
     protected final BaseSearchViewController.BasePreferenceFragment fragment;
     protected final BaseSearchViewController searchViewController;
     protected AnimatorSet currentAnimator;
+
     protected abstract PreferenceScreen getMainPreferenceScreen();
 
     protected static final int BLINK_DURATION = 400;
@@ -196,10 +197,12 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
     protected void bindDataToViewHolder(BaseSearchResultItem item, Object holder,
                                         BaseSearchResultItem.ViewType viewType, View view) {
         switch (viewType) {
-            case REGULAR, URL_LINK, LIST -> bindRegularViewHolder(item, (RegularViewHolder) holder, view);
+            case REGULAR, URL_LINK, LIST ->
+                    bindRegularViewHolder(item, (RegularViewHolder) holder, view);
             case SWITCH -> bindSwitchViewHolder(item, (SwitchViewHolder) holder, view);
             case COLOR_PICKER -> bindColorViewHolder(item, (ColorViewHolder) holder, view);
-            case GROUP_HEADER -> bindGroupHeaderViewHolder(item, (GroupHeaderViewHolder) holder, view);
+            case GROUP_HEADER ->
+                    bindGroupHeaderViewHolder(item, (GroupHeaderViewHolder) holder, view);
             case NO_RESULTS -> bindNoResultsViewHolder(item, (NoResultsViewHolder) holder);
             default -> throw new IllegalStateException("Unknown viewType: " + viewType);
         }
@@ -378,7 +381,8 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
                     }
 
                     @Override
-                    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {}
+                    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                    }
                 });
             }
         });
@@ -515,6 +519,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
 
     /**
      * Creates a smooth double-blink effect on a view's background without affecting the text.
+     *
      * @param view The View to apply the animation to.
      */
     protected void blinkView(View view) {

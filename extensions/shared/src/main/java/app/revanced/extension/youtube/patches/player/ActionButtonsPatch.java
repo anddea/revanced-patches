@@ -96,7 +96,7 @@ public class ActionButtonsPatch {
         }
     }
 
-    private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.eml";
+    private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.";
     private static final boolean HIDE_ACTION_BUTTON_INDEX = Settings.HIDE_ACTION_BUTTON_INDEX.get();
     private static final int REMIX_INDEX = Settings.REMIX_BUTTON_INDEX.get() - 1;
 

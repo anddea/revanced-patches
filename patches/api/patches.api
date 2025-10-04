@@ -58,6 +58,10 @@ public final class app/revanced/patches/music/flyoutmenu/components/FlyoutMenuCo
 	public static final fun getFlyoutMenuComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/general/audiotracks/AudioTracksPatchKt {
+	public static final fun getAudioTracksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/general/autocaptions/AutoCaptionsPatchKt {
 	public static final fun getAutoCaptionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -184,6 +188,10 @@ public final class app/revanced/patches/music/player/components/FingerprintsKt {
 
 public final class app/revanced/patches/music/player/components/PlayerComponentsPatchKt {
 	public static final fun getPlayerComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/utils/audiotracks/AudioTracksHookPatchKt {
+	public static final fun getAudioTracksHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/utils/dismiss/DismissQueueHookPatchKt {

@@ -27,14 +27,16 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 
-import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.shared.utils.Utils;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
 
 /**
  * A utility class for creating a customizable dialog with a title, message or EditText, and up to three buttons (OK, Cancel, Neutral).
@@ -281,9 +283,9 @@ public class CustomDialog {
     /**
      * Creates a styled button with customizable text, click behavior, and appearance.
      *
-     * @param text         The button text to display.
-     * @param onClick      The action to perform on button click.
-     * @param isOkButton   If this is the OK button, which uses distinct styling.
+     * @param text          The button text to display.
+     * @param onClick       The action to perform on button click.
+     * @param isOkButton    If this is the OK button, which uses distinct styling.
      * @param dismissDialog If the dialog should dismiss when the button is clicked.
      * @return The created Button.
      */

@@ -39,6 +39,7 @@ dependencies {
 
     implementation(libs.collections4)
     implementation(libs.gson)
+    implementation(libs.kotlinx.coroutines.core)
     implementation(libs.lang3)
     implementation(libs.nanojson)
     implementation(libs.okhttp3)

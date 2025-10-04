@@ -57,16 +57,16 @@ public final class ShortsCustomActionsFilter extends Filter {
     public ShortsCustomActionsFilter() {
         likeDislikeButton = new StringFilterGroup(
                 null,
-                "shorts_like_button.eml",
-                "reel_like_button.eml",
-                "reel_like_toggled_button.eml",
-                "shorts_dislike_button.eml",
-                "reel_dislike_button.eml",
-                "reel_dislike_toggled_button.eml"
+                "shorts_like_button.",
+                "reel_like_button.",
+                "reel_like_toggled_button.",
+                "shorts_dislike_button.",
+                "reel_dislike_button.",
+                "reel_dislike_toggled_button."
         );
         playerFlyoutMenu = new StringFilterGroup(
                 null,
-                "overflow_menu_item.eml"
+                "overflow_menu_item."
         );
 
         addIdentifierCallbacks(playerFlyoutMenu);

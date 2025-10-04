@@ -81,6 +81,10 @@ Jeśli to możliwe, użyj ciemnych kolorów, gdyż aplikacja nie obsługuje jasn
     <string name="revanced_debug_title">Włącz logi od debugowania</string>
     <string name="revanced_default_app_settings_summary">Aby otwierać linki YouTube Music w RVX Music, przejdź do opcji obsługiwanych linków w ustawieniach i włącz obsługiwane adresy internetowe dla RVX Music.</string>
     <string name="revanced_default_app_settings_title">Otwórz systemowe ustawienia aplikacji</string>
+    <string name="revanced_disable_auto_audio_tracks_summary">"Wyłącza automatyczne wymuszanie ścieżki dźwiękowej w podcastach.
+
+Ograniczenie: jeśli oszukiwanie strumienia danych jest włączone i domyślnym klientem jest 'Android VR z autoryzacją', ta opcja może nie działać."</string>
+    <string name="revanced_disable_auto_audio_tracks_title">Wyłącz automatyczne wymuszanie ścieżki dźwiękowej</string>
     <string name="revanced_disable_auto_captions_summary">Wyłącza automatycznie włączane napisy w odtwarzaczu filmów.</string>
     <string name="revanced_disable_auto_captions_title">Wyłącz automatyczne napisy</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Wyłącza animację ładowania aplikacji związaną z motywem Cairo podczas otwierania aplikacji.</string>
@@ -545,6 +549,7 @@ Efekt uboczny:
     <string name="revanced_spoof_player_parameter_title">Oszukuj parametry odtwarzacza</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR z autoryzacją (wymaga akcji)</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobilny przeglądarkowy</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
@@ -568,6 +573,35 @@ Jeśli masz problemy z klientem JavaScript w pierwszej kolejności spróbuj to w
 • JavaScript odtwarzacza do odszyfrowywania jest aktualizowany na bieżąco
 • film może się wczytywać od 5 do 15 sekund"</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Użyj yt-dlp ejs (W fazie rozwoju)</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Kod aktywacyjny:
+%s
+
+1. Kliknij 'Otwórz stronę', aby przejść do 'https://yt.be/activate'
+2. Wprowadź kod aktywacyjny
+3. Zaloguj się, gdy pojawi się monit. Jeśli masz wiele kont Google, użyj tego, którego używasz w YouTube. Jeśli jesteś już zalogowany, przejdź do następnego kroku
+4. Po zalogowaniu się, wróć do RVX i kliknij ponownie 'O Android VR z autoryzacją'
+5. Kliknij 'Uzyskaj token uwierzytelniający', by go zdobyć"</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Otwórz stronę</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Kod aktywacyjny</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Skopiowano kod aktywacyjny do schowka: %s.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kliknij, by zobaczyć jak uzyskać token uwierzytelniający.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">O Android VR z autoryzacją</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Uzyskaj kod aktywacyjny</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Uzyskaj token uwierzytelniający</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"By uzyskać token uwierzytelniający dla Android VR, należy zalogować się do YouTube VR za pomocą kodu aktywacyjnego:
+
+1. Kliknij `Uzyskaj token uwierzytelniający', by wygenerować kod aktywacyjny
+2. Kliknij 'Otwórz stronę', aby przejść do 'https://yt.be/activate'
+3. Wprowadź kod aktywacyjny
+4. Zaloguj się, gdy pojawi się monit. Jeśli masz wiele kont Google, użyj tego, którego używasz w YouTube. Jeśli jesteś już zalogowany, przejdź do następnego kroku
+5. Po zalogowaniu się, wróć do RVX i kliknij ponownie 'O Android VR z autoryzacją'
+6. Kliknij 'Uzyskaj token uwierzytelniający', by go zdobyć
+
+※ Kliknij 'Zresetuj', by usunąć token uwierzytelniający lub kod aktywacyjny."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Zresetuj</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Uzyskaj token uwierzytelniający</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Zresetowano token uwierzytelniający i kod aktywacyjny.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Zapisano token uwierzytelniający.</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>

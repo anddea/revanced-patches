@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.utils.fix.streamingdata
 
+import app.revanced.patches.shared.audiotracks.hookAudioTrackId
 import app.revanced.patches.shared.spoof.streamingdata.EXTENSION_AUTO_TRACK_BUTTON_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.spoof.streamingdata.EXTENSION_AUTO_TRACK_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.spoof.streamingdata.EXTENSION_CLASS_DESCRIPTOR
@@ -8,7 +9,6 @@ import app.revanced.patches.shared.spoof.streamingdata.spoofStreamingDataPatch
 import app.revanced.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
 import app.revanced.patches.youtube.player.overlaybuttons.overlayButtonsPatch
 import app.revanced.patches.youtube.utils.audiotracks.audioTracksHookPatch
-import app.revanced.patches.youtube.utils.audiotracks.hookAudioTrackId
 import app.revanced.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.addTopControl

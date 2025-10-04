@@ -42,7 +42,8 @@ public class BaseSettings {
     public static final BooleanSetting SPOOF_STREAMING_DATA_RELOAD_VIDEO_BUTTON_ALWAYS_SHOW = new BooleanSetting("revanced_spoof_streaming_data_reload_video_button_always_show", TRUE, true, new ShowReloadVideoButtonAvailability());
     public static final BooleanSetting SPOOF_STREAMING_DATA_STATS_FOR_NERDS = new BooleanSetting("revanced_spoof_streaming_data_stats_for_nerds", TRUE, parent(SPOOF_STREAMING_DATA));
 
-    public static final BooleanSetting SPOOF_STREAMING_DATA_VR_DISABLE_AV1 = new BooleanSetting("revanced_spoof_streaming_data_vr_disable_av1", !SpoofStreamingDataYouTube(), true, new ClientAndroidVRAvailability());
+    public static final BooleanSetting SPOOF_STREAMING_DATA_VR_ENABLE_AV1 = new BooleanSetting("revanced_spoof_streaming_data_vr_enable_av1", FALSE, true,
+            "revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message", new ClientAndroidVRAvailability());
 
     public static final EnumSetting<AppLanguage> SPOOF_STREAMING_DATA_NO_AUTH_LANGUAGE = new EnumSetting<>("revanced_spoof_streaming_data_no_auth_language", AppLanguage.DEFAULT, new ClientSingleAudioTrackAvailability());
     public static final BooleanSetting SPOOF_STREAMING_DATA_AUDIO_TRACK_BUTTON = new BooleanSetting("revanced_spoof_streaming_data_audio_track_button", FALSE, true,

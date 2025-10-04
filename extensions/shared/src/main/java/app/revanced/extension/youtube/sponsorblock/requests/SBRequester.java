@@ -232,9 +232,11 @@ public class SBRequester {
     public static void voteForSegmentOnBackgroundThread(SponsorSegment segment, SegmentVote voteOption) {
         voteOrRequestCategoryChange(segment, voteOption, null);
     }
+
     public static void voteToChangeCategoryOnBackgroundThread(SponsorSegment segment, SegmentCategory categoryToVoteFor) {
         voteOrRequestCategoryChange(segment, SegmentVote.CATEGORY_CHANGE, categoryToVoteFor);
     }
+
     private static void voteOrRequestCategoryChange(SponsorSegment segment, SegmentVote voteOption, SegmentCategory categoryToVoteFor) {
         Utils.runOnBackgroundThread(() -> {
             try {

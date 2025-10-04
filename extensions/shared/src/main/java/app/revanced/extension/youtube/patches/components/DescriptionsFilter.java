@@ -21,25 +21,25 @@ public final class DescriptionsFilter extends Filter {
         // game section, music section and places section now use the same identifier in the latest version.
         final StringFilterGroup attributesSection = new StringFilterGroup(
                 Settings.HIDE_ATTRIBUTES_SECTION,
-                "gaming_section.eml",
-                "music_section.eml",
-                "place_section.eml",
-                "video_attributes_section.eml"
+                "gaming_section.",
+                "music_section.",
+                "place_section.",
+                "video_attributes_section."
         );
 
         final StringFilterGroup podcastSection = new StringFilterGroup(
                 Settings.HIDE_PODCAST_SECTION,
-                "playlist_section.eml"
+                "playlist_section."
         );
 
         final StringFilterGroup transcriptSection = new StringFilterGroup(
                 Settings.HIDE_TRANSCRIPT_SECTION,
-                "transcript_section.eml"
+                "transcript_section."
         );
 
         final StringFilterGroup videoSummarySection = new StringFilterGroup(
                 Settings.HIDE_AI_GENERATED_VIDEO_SUMMARY_SECTION,
-                "cell_expandable_metadata.eml"
+                "cell_expandable_metadata."
         );
 
         addIdentifierCallbacks(
@@ -61,24 +61,24 @@ public final class DescriptionsFilter extends Filter {
 
         howThisWasMadeSection = new StringFilterGroup(
                 Settings.HIDE_CONTENTS_SECTION,
-                "how_this_was_made_section.eml"
+                "how_this_was_made_section."
         );
 
         // In the latest YouTube, the Attribute section has the same path as the Carousel shelf.
         // To hide only the Attribute section, check if the Description panel is open.
         horizontalShelf = new StringFilterGroup(
                 Settings.HIDE_ATTRIBUTES_SECTION,
-                "horizontal_shelf.eml"
+                "horizontal_shelf."
         );
 
         infoCardsSection = new StringFilterGroup(
                 Settings.HIDE_INFO_CARDS_SECTION,
-                "infocards_section.eml"
+                "infocards_section."
         );
 
         macroMarkerShelf = new StringFilterGroup(
                 null,
-                "macro_markers_carousel.eml"
+                "macro_markers_carousel."
         );
 
         addPathCallbacks(

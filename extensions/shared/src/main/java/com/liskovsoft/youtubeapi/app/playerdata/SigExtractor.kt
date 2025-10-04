@@ -21,12 +21,19 @@ internal object SigExtractor {
      *
      * yt-dlp\yt_dlp\extractor\youtube.py
      */
-    fun extractSigCode(jsCode: String, globalVar: Triple<String?, List<String>?, String?>): Pair<List<String>, String>? {
+    fun extractSigCode(
+        jsCode: String,
+        globalVar: Triple<String?, List<String>?, String?>
+    ): Pair<List<String>, String>? {
         val funcName = extractSigFunctionName(jsCode) ?: return null
 
         //val funcCode = fixupSigFunctionCode(JSInterpret.extractFunctionCode(jsCode, funcName), globalVarData)
 
-        return fixupGlobalObjIfNeeded(jsCode, JSInterpret.extractFunctionCode(jsCode, funcName), globalVar) ?: extractSigFunctionCodeAlt(jsCode, globalVar)
+        return fixupGlobalObjIfNeeded(
+            jsCode,
+            JSInterpret.extractFunctionCode(jsCode, funcName),
+            globalVar
+        ) ?: extractSigFunctionCodeAlt(jsCode, globalVar)
     }
 
     /**
@@ -42,7 +49,10 @@ internal object SigExtractor {
         return null
     }
 
-    private fun fixupSigFunctionCode(funcCode: Pair<List<String>, String>, globalVar: Triple<String?, List<String>?, String?>): Pair<List<String>, String> {
+    private fun fixupSigFunctionCode(
+        funcCode: Pair<List<String>, String>,
+        globalVar: Triple<String?, List<String>?, String?>
+    ): Pair<List<String>, String> {
         val argNames = funcCode.first
         var sigCode = funcCode.second
 
@@ -56,7 +66,12 @@ internal object SigExtractor {
         return Pair(argNames, sigCode)
     }
 
-    private fun fixupGlobalObjIfNeeded(jsCode: String, funcCode: Pair<List<String>, String>, globalVar: Triple<String?, List<String>?, String?>, nestedCount: Int = 0): Pair<List<String>, String>? {
+    private fun fixupGlobalObjIfNeeded(
+        jsCode: String,
+        funcCode: Pair<List<String>, String>,
+        globalVar: Triple<String?, List<String>?, String?>,
+        nestedCount: Int = 0
+    ): Pair<List<String>, String>? {
         var fixedFuncCode = fixupSigFunctionCode(funcCode, globalVar)
 
         // Test the function works
@@ -76,17 +91,23 @@ internal object SigExtractor {
                 } catch (e: Exception) {
                     return null
                 }
-                
+
                 val (varName, globalList, varCode) = globalVar
                 fixedFuncCode = fixupGlobalObjIfNeeded(
-                    jsCode, funcCode, Triple(varName, globalList, "${varCode?.let { "$it;" } ?: ""} $globalObjCode"), nestedCount + 1) ?: return null
+                    jsCode,
+                    funcCode,
+                    Triple(varName, globalList, "${varCode?.let { "$it;" } ?: ""} $globalObjCode"),
+                    nestedCount + 1) ?: return null
             }
         }
 
         return fixedFuncCode
     }
 
-    private fun extractSigFunctionCodeAlt(jsCode: String, globalVar: Triple<String?, List<String>?, String?>): Pair<List<String>, String>? {
+    private fun extractSigFunctionCodeAlt(
+        jsCode: String,
+        globalVar: Triple<String?, List<String>?, String?>
+    ): Pair<List<String>, String>? {
         val cipherMatcher = mSigPattern2.matcher(jsCode)
 
         if (cipherMatcher.find()) {

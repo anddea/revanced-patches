@@ -81,6 +81,10 @@ Use dark colors if possible, as the app does not support light themes."</string>
     <string name="revanced_debug_title">Enable debug logging</string>
     <string name="revanced_default_app_settings_summary">To open YouTube Music links in RVX Music, enable Open supported links and enable all the Supported web addresses.</string>
     <string name="revanced_default_app_settings_title">Open default app settings</string>
+    <string name="revanced_disable_auto_audio_tracks_summary">"Disables forced auto audio tracks for podcasts.
+
+Limitation: If 'Spoof streaming data' is enabled and the default client is 'Android VR Auth', this may not work."</string>
+    <string name="revanced_disable_auto_audio_tracks_title">Disable forced auto audio tracks</string>
     <string name="revanced_disable_auto_captions_summary">Disables auto captions from being forced on.</string>
     <string name="revanced_disable_auto_captions_title">Disable forced auto captions</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Disables Cairo splash animation when the app starts up.</string>
@@ -546,6 +550,7 @@ Side effect:
     <string name="revanced_spoof_player_parameter_title">Spoof player parameter</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR Auth (Action needed)</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
@@ -569,6 +574,35 @@ If you're having issues with your JavaScript client, try disabling this first."<
 • Player JavaScript for deobfuscation is kept up to date.
 • It may take 5 to 15 seconds for the video to start."</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Use yt-dlp ejs (WIP)</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Activation code:
+%s
+
+1. Click 'Open website' to go to 'https://yt.be/activate'.
+2. Enter the activation code.
+3. Sign in when prompted. If you have multiple Google Accounts, select the account you use with YouTube. If you're already signed in, skip to the next step.
+4. Once signed in, return to RVX and click 'About Android VR Auth' again.
+5. Click 'Get authorization token' to get an authorization token."</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Open website</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Activation code</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Activation code copied to clipboard: %s.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Click to see how to get an authentication token.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">About Android VR Auth</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Get activation code</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Get authorization token</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"To get an authorization token for Android VR, you should log in to YouTube VR using an activation code:
+
+1. Click 'Get activation code' to generate an activation code.
+2. Click 'Open website' to go to 'https://yt.be/activate'.
+3. Enter the activation code.
+4. Sign in when prompted. If you have multiple Google Accounts, select the account you use with YouTube. If you're already signed in, skip to the next step.
+5. Once signed in, return to RVX and click 'About Android VR Auth' again.
+6. Click 'Get authorization token' to get an authorization token.
+
+※ Click 'Reset' to remove an authentication token or activation code."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Reset</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Get Authorization Token</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Authentication token and activation code reset.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Authentication token saved.</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>

@@ -20,13 +20,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowInsetsController;
+import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.webkit.CookieManager;
-
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -419,6 +418,7 @@ public class WebViewHostActivity extends Activity {
                 Logger.printDebug(() -> "new Visitor Data loaded: " + newVisitorData);
             }
         }
+
         @JavascriptInterface
         public void onRetrieveDataSyncId(@Nullable String newDataSyncId) {
             if (newDataSyncId != null && !StringUtils.equals(dataSyncId, newDataSyncId)) {

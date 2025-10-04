@@ -111,7 +111,8 @@ fun spoofStreamingDataPatch(
                 getInstruction<OneRegisterInstruction>(index).registerA
 
             addInstructions(
-                index + 1, """
+                index + 1,
+                """
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$register
                     """,
@@ -128,7 +129,8 @@ fun spoofStreamingDataPatch(
                 getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
 
             addInstructions(
-                invokeToStringIndex, """
+                invokeToStringIndex,
+                """
                     invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
                     move-result-object v$uriRegister
                     """,
@@ -590,7 +592,7 @@ fun spoofStreamingDataPatch(
         // If SABR is disabled, it seems 'MediaFetchHotConfig' may no longer need to be overridden, but I'm not sure.
 
         val (mediaFetchEnumClass, sabrFieldReference) =
-            with (mediaFetchEnumConstructorFingerprint.methodOrThrow()) {
+            with(mediaFetchEnumConstructorFingerprint.methodOrThrow()) {
                 val mediaFetchEnumClass = definingClass
                 val stringIndex =
                     indexOfFirstStringInstructionOrThrow(DISABLED_BY_SABR_STREAMING_URI_STRING)

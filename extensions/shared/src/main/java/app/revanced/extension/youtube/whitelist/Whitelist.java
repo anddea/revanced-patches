@@ -437,7 +437,8 @@ public class Whitelist {
                 null,                       // No EditText.
                 null,                       // OK button text.
                 VideoUtils::reloadVideo,    // Convert DialogInterface.OnClickListener to Runnable.
-                () -> {},                   // Cancel button action (Dismiss).
+                () -> {
+                },                   // Cancel button action (Dismiss).
                 null,                       // No Neutral button text.
                 null,                       // No Neutral button action.
                 true                        // Dismiss dialog when onNeutralClick.

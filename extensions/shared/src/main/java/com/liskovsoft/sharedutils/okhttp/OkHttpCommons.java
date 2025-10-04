@@ -21,13 +21,13 @@ final class OkHttpCommons {
     public static boolean enableProfiler = true;
 
     private OkHttpCommons() {
-        
+
     }
 
     // This is nearly equal to the cipher suites supported in Chrome 51, current as of 2016-05-25.
     // All of these suites are available on Android 7.0; earlier releases support a subset of these
     // suites. https://github.com/square/okhttp/issues/1972
-    private static final CipherSuite[] APPROVED_CIPHER_SUITES = new CipherSuite[] {
+    private static final CipherSuite[] APPROVED_CIPHER_SUITES = new CipherSuite[]{
             // TLSv1.3
             CipherSuite.TLS_AES_128_GCM_SHA256,
             CipherSuite.TLS_AES_256_GCM_SHA384,
@@ -100,7 +100,7 @@ final class OkHttpCommons {
     private static void fixStreamResetError(Builder okBuilder) {
         okBuilder.protocols(Collections.singletonList(Protocol.HTTP_1_1));
     }
-    
+
     public static OkHttpClient.Builder setupBuilder(OkHttpClient.Builder okBuilder) {
         setupConnectionFix(okBuilder);
         setupConnectionParams(okBuilder);

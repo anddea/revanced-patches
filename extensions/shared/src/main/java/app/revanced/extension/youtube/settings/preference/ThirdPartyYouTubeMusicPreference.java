@@ -1,9 +1,9 @@
 package app.revanced.extension.youtube.settings.preference;
 
+import static app.revanced.extension.shared.patches.PatchStatus.PackageNameYouTubeMusic;
 import static app.revanced.extension.shared.utils.StringRef.sf;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.dipToPixels;
-import static app.revanced.extension.shared.patches.PatchStatus.PackageNameYouTubeMusic;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -33,10 +33,10 @@ import java.util.Objects;
 import java.util.function.Function;
 
 import app.revanced.extension.shared.settings.StringSetting;
-import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.utils.ThemeUtils;
 
@@ -82,6 +82,7 @@ public class ThirdPartyYouTubeMusicPreference extends CustomDialogListPreference
 
         /**
          * Finds a YouTubeMusic by its package name. This method can never return {@link #OTHER}.
+         *
          * @return The YouTubeMusic enum or null if not found.
          */
         @Nullable
@@ -269,10 +270,12 @@ public class ThirdPartyYouTubeMusicPreference extends CustomDialogListPreference
         editText.setEnabled(usingThirdPartyApp);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable edit) {
@@ -307,7 +310,8 @@ public class ThirdPartyYouTubeMusicPreference extends CustomDialogListPreference
                                 str("revanced_external_downloader_empty_warning"),
                                 null,
                                 null,
-                                () -> {}, // OK button does nothing (dismiss only).
+                                () -> {
+                                }, // OK button does nothing (dismiss only).
                                 null,
                                 null,
                                 null,
@@ -325,7 +329,8 @@ public class ThirdPartyYouTubeMusicPreference extends CustomDialogListPreference
                         setValue(newValue);
                     }
                 },
-                () -> {}, // Cancel button action (dismiss only).
+                () -> {
+                }, // Cancel button action (dismiss only).
                 str("revanced_settings_reset"),
                 () -> { // Reset action.
                     String defaultValue = settings.defaultValue;

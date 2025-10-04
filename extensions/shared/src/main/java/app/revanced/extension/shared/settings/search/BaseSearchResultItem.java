@@ -16,12 +16,12 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import app.revanced.extension.shared.utils.BaseThemeUtils;
-import app.revanced.extension.shared.utils.ResourceUtils;
-import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.UrlLinkPreference;
+import app.revanced.extension.shared.utils.BaseThemeUtils;
+import app.revanced.extension.shared.utils.ResourceUtils;
+import app.revanced.extension.shared.utils.Utils;
 
 /**
  * Abstract base class for search result items, defining common fields and behavior.
@@ -40,12 +40,15 @@ public abstract class BaseSearchResultItem {
         // Get the corresponding layout resource ID.
         public int getLayoutResourceId() {
             return switch (this) {
-                case REGULAR, URL_LINK -> getResourceIdentifier("revanced_preference_search_result_regular");
+                case REGULAR, URL_LINK ->
+                        getResourceIdentifier("revanced_preference_search_result_regular");
                 case SWITCH -> getResourceIdentifier("revanced_preference_search_result_switch");
-                case LIST   -> getResourceIdentifier("revanced_preference_search_result_list");
-                case COLOR_PICKER -> getResourceIdentifier("revanced_preference_search_result_color");
-                case GROUP_HEADER -> getResourceIdentifier("revanced_preference_search_result_group_header");
-                case NO_RESULTS   -> getResourceIdentifier("revanced_preference_search_no_result");
+                case LIST -> getResourceIdentifier("revanced_preference_search_result_list");
+                case COLOR_PICKER ->
+                        getResourceIdentifier("revanced_preference_search_result_color");
+                case GROUP_HEADER ->
+                        getResourceIdentifier("revanced_preference_search_result_group_header");
+                case NO_RESULTS -> getResourceIdentifier("revanced_preference_search_no_result");
             };
         }
 
@@ -72,7 +75,9 @@ public abstract class BaseSearchResultItem {
     }
 
     abstract boolean matchesQuery(String query);
+
     abstract void applyHighlighting(Pattern queryPattern);
+
     abstract void clearHighlighting();
 
     // Shared method for highlighting text with search query.
@@ -108,10 +113,12 @@ public abstract class BaseSearchResultItem {
         }
 
         @Override
-        void applyHighlighting(Pattern queryPattern) {}
+        void applyHighlighting(Pattern queryPattern) {
+        }
 
         @Override
-        void clearHighlighting() {}
+        void clearHighlighting() {
+        }
     }
 
     /**

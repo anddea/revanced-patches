@@ -6,7 +6,7 @@ import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public final class LayoutComponentsFilter extends Filter {
-    private static final String ACCOUNT_HEADER_PATH = "account_header.eml";
+    private static final String ACCOUNT_HEADER_PATH = "account_header.";
     private static final String HANDLE_PATH = "|CellType|ContainerType|ContainerType|ContainerType|TextType|";
 
     public LayoutComponentsFilter() {

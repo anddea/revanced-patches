@@ -21,7 +21,7 @@ public final class ShortsShelfFilter extends Filter {
     private static final String BROWSE_ID_SUBSCRIPTIONS = "FEsubscriptions";
     private static final String CONVERSATION_CONTEXT_FEED_IDENTIFIER =
             "horizontalCollectionSwipeProtector=null";
-    private static final String SHELF_HEADER_PATH = "shelf_header.eml";
+    private static final String SHELF_HEADER_PATH = "shelf_header.";
     private final StringFilterGroup channelProfile;
     private final StringFilterGroup compactFeedVideoPath;
     private final ByteArrayFilterGroup compactFeedVideoBuffer;
@@ -62,11 +62,11 @@ public final class ShortsShelfFilter extends Filter {
         compactFeedVideoPath = new StringFilterGroup(
                 hideShortsShelf,
                 // Shorts that appear in the feed/search when the device is using tablet layout.
-                "compact_video.eml",
-                // 'video_lockup_with_attachment.eml' is used instead of 'compact_video.eml' for some users. (A/B tests)
-                "video_lockup_with_attachment.eml",
+                "compact_video.",
+                // 'video_lockup_with_attachment.' is used instead of 'compact_video.' for some users. (A/B tests)
+                "video_lockup_with_attachment.",
                 // Search results that appear in a horizontal shelf.
-                "video_card.eml"
+                "video_card."
         );
 
         // Filter out items that use the 'frame0' thumbnail.

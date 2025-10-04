@@ -72,7 +72,8 @@ internal class QueryBuilder(private val client: AppClient) {
             //     cpn = appService.clientPlaybackNonce // get it somewhere else?
 
             if (signatureTimestamp == null)
-                signatureTimestamp = ThrottlingParameterUtils.getSignatureTimestamp(false) // get it somewhere else?
+                signatureTimestamp =
+                    ThrottlingParameterUtils.getSignatureTimestamp() // get it somewhere else?
         }
 
         val json = """
@@ -110,11 +111,11 @@ internal class QueryBuilder(private val client: AppClient) {
                 "browserName": "${client.browserName}",
                 "browserVersion": "${client.browserVersion}",
             """
-            else ""
+        else ""
         val postVars = client.postData ?: ""
         val postBrowseVars = if (requireNotNull(type) == PostDataType.Browse)
-                client.postDataBrowse ?: ""
-            else ""
+            client.postDataBrowse ?: ""
+        else ""
         val regionVars = """
             "acceptLanguage": "${requireNotNull(acceptLanguage)}",
             "acceptRegion": "${requireNotNull(acceptRegion)}",
@@ -150,7 +151,7 @@ internal class QueryBuilder(private val client: AppClient) {
                     "embedUrl": "https://www.youtube.com/embed/${requireNotNull(videoId)}"
                 },
             """
-           else ""
+        else ""
     }
 
     private fun createUserChunk(): String {

@@ -11,7 +11,8 @@ internal fun isThermalServiceAvailable(context: Context): Boolean {
     if (SDK_INT != 29)
         return true
 
-    val powerService = context.getSystemService(Context.POWER_SERVICE) as? PowerManager ?: return false
+    val powerService =
+        context.getSystemService(Context.POWER_SERVICE) as? PowerManager ?: return false
 
     val listener = PowerManager.OnThermalStatusChangedListener {
         // NOP
@@ -32,7 +33,8 @@ internal fun hasThermalServiceBug(context: Context): Boolean {
     if (SDK_INT != 29)
         return false
 
-    val powerService = context.getSystemService(Context.POWER_SERVICE) as? PowerManager ?: return false
+    val powerService =
+        context.getSystemService(Context.POWER_SERVICE) as? PowerManager ?: return false
 
     val listener = PowerManager.OnThermalStatusChangedListener {
         // NOP

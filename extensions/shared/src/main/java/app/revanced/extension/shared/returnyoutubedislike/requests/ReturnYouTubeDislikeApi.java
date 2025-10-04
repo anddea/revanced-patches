@@ -57,7 +57,7 @@ public class ReturnYouTubeDislikeApi {
      * RYD API sometimes returns 401 (authorization error), even though the user id is valid.
      * There is no known fix for this (resetting to a different user id does not fix it),
      * so instead just quietly ignore the error.
-     *
+     * <p>
      * See <a href="https://github.com/Anarios/return-youtube-dislike/issues/1153">RYD bug report</a>.
      */
     private static final int HTTP_STATUS_CODE_UNAUTHORIZED = 401;

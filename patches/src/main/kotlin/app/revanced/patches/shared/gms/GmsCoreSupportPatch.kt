@@ -782,14 +782,16 @@ private fun getPackageName(
     if (originalPackageName == ORIGINAL_PACKAGE_NAME_YOUTUBE) {
         val packageName = packageNameYouTubeOption.valueOrThrow()
         if (packageName == ORIGINAL_PACKAGE_NAME_YOUTUBE &&
-            gmsCoreVendorGroupId != GMS_CORE_ORIGINAL_VENDOR_GROUP_ID) {
+            gmsCoreVendorGroupId != GMS_CORE_ORIGINAL_VENDOR_GROUP_ID
+        ) {
             printPackageNameWarn(packageName)
         }
         return packageName
     } else if (originalPackageName == ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC) {
         val packageName = packageNameYouTubeMusicOption.valueOrThrow()
         if (packageName == ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC &&
-            gmsCoreVendorGroupId != GMS_CORE_ORIGINAL_VENDOR_GROUP_ID) {
+            gmsCoreVendorGroupId != GMS_CORE_ORIGINAL_VENDOR_GROUP_ID
+        ) {
             printPackageNameWarn(packageName)
         }
         return packageName

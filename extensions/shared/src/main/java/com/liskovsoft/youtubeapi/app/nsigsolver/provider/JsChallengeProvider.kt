@@ -16,18 +16,19 @@ internal abstract class JsChallengeProvider {
     /**
      * Solve multiple JS challenges and return the results
      */
-    fun bulkSolve(requests: List<JsChallengeRequest>): Sequence<JsChallengeProviderResponse> = sequence {
-        val validatedRequests: MutableList<JsChallengeRequest> = mutableListOf()
-        for (request in requests) {
-            try {
-                validateRequest(request)
-                validatedRequests.add(request)
-            } catch (e: JsChallengeProviderRejectedRequest) {
-                yield(JsChallengeProviderResponse(request=request, error=e))
+    fun bulkSolve(requests: List<JsChallengeRequest>): Sequence<JsChallengeProviderResponse> =
+        sequence {
+            val validatedRequests: MutableList<JsChallengeRequest> = mutableListOf()
+            for (request in requests) {
+                try {
+                    validateRequest(request)
+                    validatedRequests.add(request)
+                } catch (e: JsChallengeProviderRejectedRequest) {
+                    yield(JsChallengeProviderResponse(request = request, error = e))
+                }
             }
+            yieldAll(realBulkSolve(validatedRequests))
         }
-        yieldAll(realBulkSolve(validatedRequests))
-    }
 
     /**
      * Subclasses can override this method to handle bulk solving

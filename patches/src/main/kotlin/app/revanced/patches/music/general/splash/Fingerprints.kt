@@ -1,12 +1,9 @@
 package app.revanced.patches.music.general.splash
 
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patches.music.utils.resourceid.mainActivityLaunchAnimation
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionReversed
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstLiteralInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
