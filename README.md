@@ -99,6 +99,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Disable Cairo splash animation` | Adds an option to disable Cairo splash animation. | 7.16.53 ~ 8.30.54 |
 | `Disable QUIC protocol` | Adds an option to disable CronetEngine's QUIC protocol. | 6.20.51 ~ 8.30.54 |
 | `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 6.20.51 ~ 8.30.54 |
+| `Disable forced auto audio tracks` | Adds an option to disable audio tracks from being automatically enabled. | 6.20.51 ~ 8.30.54 |
 | `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 6.20.51 ~ 8.30.54 |
 | `Disable music video in album` | Adds option to redirect music videos from albums for non-premium users. | 6.20.51 ~ 8.30.54 |
 | `Enable debug logging` | Adds an option for debugging. | 6.20.51 ~ 8.30.54 |
