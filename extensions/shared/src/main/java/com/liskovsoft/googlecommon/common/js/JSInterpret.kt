@@ -5,7 +5,8 @@ import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
 import java.util.regex.Pattern
 
-@Suppress("SENSELESS_COMPARISON",
+@Suppress(
+    "SENSELESS_COMPARISON",
     "RegExpUnnecessaryNonCapturingGroup",
     "unused",
     "SameParameterValue"
@@ -61,7 +62,7 @@ internal object JSInterpret {
         } catch (e: JsonSyntaxException) {
             null
         }
-        
+
         return response
     }
 
@@ -177,7 +178,8 @@ internal object JSInterpret {
             return emptyList()
         }
 
-        val counters = mutableMapOf<Char, Int>().apply { putAll(MATCHING_PARENS.values.map { it to 0 }) }
+        val counters =
+            mutableMapOf<Char, Int>().apply { putAll(MATCHING_PARENS.values.map { it to 0 }) }
 
         var start = 0
         var splits = 0
@@ -209,8 +211,10 @@ internal object JSInterpret {
                 }
             }
             escaping = !escaping && inQuote != null && char == '\\'
-            val inUnaryOp = (inQuote == null && !inRegexCharGroup && afterOp && char in setOf('-', '+'))
-            afterOp = if (inQuote == null && char in opChars) true else (char.isWhitespace() && afterOp)  // ??? apfterOp
+            val inUnaryOp =
+                (inQuote == null && !inRegexCharGroup && afterOp && char in setOf('-', '+'))
+            afterOp =
+                if (inQuote == null && char in opChars) true else (char.isWhitespace() && afterOp)  // ??? apfterOp
 
             if (char != delim[pos] || counters.values.any { it != 0 } || inQuote != null || inUnaryOp) {
                 pos = 0
@@ -230,7 +234,11 @@ internal object JSInterpret {
         return result
     }
 
-    private fun separate2(expr: String, delim: String = ",", maxSplit: Int? = null): Sequence<String> = sequence {
+    private fun separate2(
+        expr: String,
+        delim: String = ",",
+        maxSplit: Int? = null
+    ): Sequence<String> = sequence {
         if (expr.isEmpty()) return@sequence
 
         val OP_CHARS = "+-*/%&|^=<>!,;{}:["
@@ -261,8 +269,10 @@ internal object JSInterpret {
             }
 
             escaping = !escaping && inQuote != null && char == '\\'
-            val inUnaryOp = (inQuote == null && !inRegexCharGroup && afterOp !is Boolean && char in "-+")
-            afterOp = if (inQuote == null && OP_CHARS.contains(char)) char else if (char.isWhitespace()) afterOp else false
+            val inUnaryOp =
+                (inQuote == null && !inRegexCharGroup && afterOp !is Boolean && char in "-+")
+            afterOp =
+                if (inQuote == null && OP_CHARS.contains(char)) char else if (char.isWhitespace()) afterOp else false
 
             if (char != delim[pos] || counters.values.any { it > 0 } || inQuote != null || inUnaryOp) {
                 pos = 0
@@ -282,9 +292,12 @@ internal object JSInterpret {
         yield(expr.substring(start))
     }
 
-    fun searchJson(startPattern: Pattern, content: String, endPattern: Pattern = Pattern.compile(";"),
-                   containsPattern: Pattern = Pattern.compile("""\{(?s:.+?)\}""")): String? {
-        val jsonRegex = Pattern.compile("""(?:$startPattern)\s*($containsPattern)\s*(?:$endPattern)""")
+    fun searchJson(
+        startPattern: Pattern, content: String, endPattern: Pattern = Pattern.compile(";"),
+        containsPattern: Pattern = Pattern.compile("""\{(?s:.+?)\}""")
+    ): String? {
+        val jsonRegex =
+            Pattern.compile("""(?:$startPattern)\s*($containsPattern)\s*(?:$endPattern)""")
         val matcher = jsonRegex.matcher(content)
 
         if (matcher.find() && matcher.groupCount() == 1) {

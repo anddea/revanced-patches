@@ -16,7 +16,7 @@ public final class ShareSheetMenuFilter extends Filter {
         addIdentifierCallbacks(
                 new StringFilterGroup(
                         Settings.CHANGE_SHARE_SHEET,
-                        "share_sheet_container.eml"
+                        "share_sheet_container."
                 )
         );
     }

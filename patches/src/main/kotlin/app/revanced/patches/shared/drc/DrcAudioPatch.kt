@@ -34,7 +34,7 @@ fun drcAudioPatch(
 
         val (formatFieldReference, loudnessDbFieldReference) =
             fingerprint.matchOrThrow(formatStreamModelConstructorFingerprint).let {
-                with (it.method) {
+                with(it.method) {
                     val loudnessDbIndex = it.patternMatch!!.startIndex + 1
                     val loudnessDbFieldReference =
                         getInstruction<ReferenceInstruction>(loudnessDbIndex).reference as FieldReference

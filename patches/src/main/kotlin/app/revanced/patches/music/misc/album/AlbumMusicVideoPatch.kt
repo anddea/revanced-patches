@@ -68,7 +68,7 @@ val albumMusicVideoPatch = bytecodePatch(
         snackBarFingerprint
             .methodOrThrow(snackBarAttributeFingerprint)
             .addInstructionsWithLabels(
-            0, """
+                0, """
                 invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideSnackBar()Z
                 move-result v0
                 if-eqz v0, :hide
@@ -76,7 +76,7 @@ val albumMusicVideoPatch = bytecodePatch(
                 :hide
                 nop
                 """
-        )
+            )
 
         // endregion
 

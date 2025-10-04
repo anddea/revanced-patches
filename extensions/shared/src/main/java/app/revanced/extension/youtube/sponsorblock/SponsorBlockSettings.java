@@ -265,7 +265,7 @@ public class SponsorBlockSettings {
             colorString = colorString.substring(1);
         }
 
-        String alphaHex = String.format(Locale.US, "%02X", (int)(opacity * 255));
+        String alphaHex = String.format(Locale.US, "%02X", (int) (opacity * 255));
         String argbColorString = '#' + alphaHex + colorString.substring(0, 6);
         Logger.printDebug(() -> "Migrating old color string with default opacity: " + argbColorString);
         return argbColorString;

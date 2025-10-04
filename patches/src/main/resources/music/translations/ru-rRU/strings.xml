@@ -2,21 +2,21 @@
 <resources>
     <string name="gms_core_dialog_continue_text">Продолжить</string>
     <string name="gms_core_dialog_dismiss_text">Больше не показывать</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Оптимизация батареи для GmsCore должна быть отключена для предотвращения проблем.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Оптимизация батареи для GmsCore или MicroG должна быть отключена для предотвращения проблем.
 
-Отключение оптимизации батареи для  GmsCore не окажет негативного влияния на использование батареи.
+Отключение оптимизации батареи для  GmsCore или MicroG не окажет негативного влияния на использование батареи.
 
 Нажмите кнопку \"Продолжить\" и разрешите внести изменения в оптимизацию."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Для избежания проблем необходимо отключить оптимизацию батареи в GmsCore.
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Для избежание проблем необходимо отключить оптимизацию батареи в GmsCore или MicroG.
 
-Отключение оптимизации батареи для GmsCore не окажет негативного влияния на использование батареи.
+Отключение оптимизации батареи для GmsCore или MicroG не окажет негативного влияния на использование батареи.
 
 Нажмите кнопку \"Продолжить\" и разрешите изменения оптимизации."</string>
     <string name="gms_core_dialog_open_website_text">Открыть сайт</string>
     <string name="gms_core_dialog_title">Требуется действие</string>
     <string name="gms_core_settings_summary">Включите \"Облачные уведомления\" для получения уведомлений.</string>
-    <string name="gms_core_settings_title">Откройте настройки GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">GmsCore не установлен. Установите его.</string>
+    <string name="gms_core_settings_title">Откройте настройки GmsCore или MicroG</string>
+    <string name="gms_core_toast_not_installed_message">GmsCore или MicroG не установлен. Установите его.</string>
     <string name="revanced_add_miniplayer_next_button_summary">Добавляет кнопку следующего трека в миниплеер.</string>
     <string name="revanced_add_miniplayer_next_button_title">Добавить кнопку следующее в миниплеер</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Добавляет кнопку предыдущего трека в миниплеер.</string>
@@ -555,6 +555,11 @@
 
 Если у вас возникли проблемы с JavaScript-клиентом, попробуйте сначала отключить эту функцию."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Используйте последнюю версию JavaScript для проигрывателя</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"При включении функции 'Внешний JavaScript для yt-dlp (yt-dlp-ejs)' будет использоваться для деобфускации Url URL-адресов потокового вещания на 'TV' и 'Mobile Web'.
+
+• Проигрыватель JavaScript для деобфускации поддерживается в актуальном состоянии.
+• Для запуска видео может потребоваться от 5 до 15 секунд."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Используйте yt-dlp ejs (WIP)</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">Музыка для iOS 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">Музыка для iOS 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">Музыка для iOS 8.12</string>

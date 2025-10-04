@@ -18,6 +18,7 @@ internal object PoTokenProviderImpl : PoTokenProvider {
     private var webViewBadImpl = false // whether the system has a bad WebView implementation
 
     private object WebPoTokenGenLock
+
     private var webPoTokenVisitorData: String? = null
     private var webPoTokenStreamingPot: String? = null
     private var webPoTokenGenerator: PoTokenGenerator? = null
@@ -33,10 +34,14 @@ internal object PoTokenProviderImpl : PoTokenProvider {
             // RxJava's Single wraps exceptions into RuntimeErrors, so we need to unwrap them here
             when (val cause = e.cause) {
                 is BadWebViewException -> {
-                    Logger.printException({ "Could not obtain poToken because WebView is broken" }, e )
+                    Logger.printException(
+                        { "Could not obtain poToken because WebView is broken" },
+                        e
+                    )
                     webViewBadImpl = true
                     return null
                 }
+
                 null -> throw e
                 else -> throw cause // includes PoTokenException
             }
@@ -54,8 +59,9 @@ internal object PoTokenProviderImpl : PoTokenProvider {
 
         val (poTokenGenerator, visitorData, streamingPot, hasBeenRecreated) =
             synchronized(WebPoTokenGenLock) {
-                val shouldRecreate = webPoTokenGenerator == null || webPoTokenVisitorData == null || webPoTokenStreamingPot == null ||
-                        forceRecreate || webPoTokenGenerator!!.isExpired()
+                val shouldRecreate =
+                    webPoTokenGenerator == null || webPoTokenVisitorData == null || webPoTokenStreamingPot == null ||
+                            forceRecreate || webPoTokenGenerator!!.isExpired()
 
                 if (shouldRecreate) {
                     // MOD: my visitor data
@@ -109,7 +115,7 @@ internal object PoTokenProviderImpl : PoTokenProvider {
                 // retry, this time recreating the [webPoTokenGenerator] from scratch;
                 // this might happen for example if NewPipe goes in the background and the WebView
                 // content is lost
-                Logger.printException({ "Failed to obtain poToken, retrying" }, throwable )
+                Logger.printException({ "Failed to obtain poToken, retrying" }, throwable)
 
                 return getWebClientPoToken(videoId = videoId, forceRecreate = true)
             }

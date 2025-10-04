@@ -81,6 +81,10 @@ Nếu có thể, hãy sử dụng màu tối vì ứng dụng không hỗ trợ 
     <string name="revanced_debug_title">Nhật ký gỡ lỗi</string>
     <string name="revanced_default_app_settings_summary">Để mở liên kết YouTube Music trong RVX Music, hãy kích hoạt \"Mở các đường liên kết được hỗ trợ\" và thêm các đường liên kết được hỗ trợ.</string>
     <string name="revanced_default_app_settings_title">Mở theo mặc định</string>
+    <string name="revanced_disable_auto_audio_tracks_summary">"Tắt tự động phát bản âm thanh cho podcast.
+
+Hạn chế: Nếu \"Giả mạo dữ liệu phát video\" đang bật và client mặc định là Android VR Auth, thì cài đặt này có thể không hoạt động."</string>
+    <string name="revanced_disable_auto_audio_tracks_title">Tắt tự động phát bản âm thanh</string>
     <string name="revanced_disable_auto_captions_summary">Tắt tự động hiển thị phụ đề khi phát video nhạc có phụ đề.</string>
     <string name="revanced_disable_auto_captions_title">Tắt tự động hiển thị phụ đề</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Vô hiệu hóa hoạt ảnh Cairo khi ứng dụng khởi chạy.</string>
@@ -541,6 +545,7 @@ Hạn chế:
     <string name="revanced_spoof_player_parameter_title">Giả mạo thông số trình phát</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR Auth (Cần thao tác)</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
@@ -558,6 +563,41 @@ Nếu bạn đã đăng ký YouTube Premium, thì có thể không cần thiết
 
 Nếu bạn gặp sự cố với client JavaScript, hãy thử tắt cài đặt này trước."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Dùng Player JavaScript mới nhất</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"Khi bật, JavaScript bên ngoài từ yt-dlp (yt-dlp-ejs) sẽ được sử dụng để gỡ rối URL phát trên TV và Mobile Web.
+
+Chi tiết:
+• Player JS luôn được cập nhật.
+• Video sẽ phải mất khoảng 5 tới 15 giây trước khi bắt đầu phát."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Dùng yt-dlp ejs (Thử nghiệm)</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Mã kích hoạt:
+%s
+
+1. Nhấn \"Mở trang web\" để đi tới https://yt.be/activate.
+2. Nhập mã kích hoạt.
+3. Đăng nhập khi được yêu cầu. Nếu bạn có nhiều tài khoản Google, hãy chọn tài khoản mà bạn sử dụng để xem Youtube. Còn nếu bạn đã đăng nhập thì hãy bỏ qua bước này.
+4. Sau khi đã đăng nhập, quay lại RVX và nhấn \"Giới thiệu Android VR Xác thực\" lần nữa.
+5. Nhấn \"Lấy mã xác thực\" để lấy mã."</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Mở trang web</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Mã kích hoạt</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Đã sao chép mã kích hoạt vào bảng nhớ tạm: %s.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Nhấn để biết cách lấy mã xác thực.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Giới thiệu về Android VR Auth</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Lấy mã kích hoạt</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Lấy mã xác thực</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Để lấy mã xác thực cho Android VR, bạn cần đăng nhập vào Youtube VR bằng mã kích hoạt:
+
+1. Nhấn \"Lấy mã kích hoạt\" để tạo mã.
+2. Nhấn \"Mở trang web\" để đi tới https://yt.be/activate.
+3. Nhập mã kích hoạt.
+4. Đăng nhập khi được yêu cầu. Nếu bạn có nhiều tài khoản Google, hãy chọn tài khoản mà bạn sử dụng để xem Youtube. Còn nếu bạn đã đăng nhập thì hãy bỏ qua bước này.
+5. Sau khi đã đăng nhập, quay lại RVX và nhấn \"Giới thiệu Android VR Xác thực\" lần nữa.
+6. Nhấn \"Lấy mã xác thực\" để lấy mã.
+
+※ Nhấn \"Đặt lại\" để xoá mã xác thực hoặc mã kích hoạt."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Đặt lại</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Lấy mã xác thực</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Đặt lại mã xác thực và mã kích hoạt.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Đã lưu mã xác thực.</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>

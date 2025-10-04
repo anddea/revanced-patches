@@ -6,7 +6,7 @@ import com.liskovsoft.youtubeapi.app.potokennp2.misc.PoTokenResult
 internal object PoTokenGate {
     private var mNpPoToken: PoTokenResult? = null
     private var mCacheResetTimeMs: Long = -1
-    
+
     @JvmStatic
     fun getContentPoToken(videoId: String): String? {
         if (!PoTokenProviderImpl.isPotSupported) return null

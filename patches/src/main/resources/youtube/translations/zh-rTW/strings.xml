@@ -1976,7 +1976,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_api_url_reset">API URL 已重置。</string>
     <string name="revanced_sb_appearance_category">外觀</string>
     <string name="revanced_sb_auto_hide_skip_button_duration">跳過按鈕顯示時間</string>
-    <string name="revanced_sb_auto_hide_skip_button_duration_sum">跳過與「跳至重點」按鈕顯示多久後自動隱藏</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration_sum">跳過與跳至重點按鈕顯示多久後自動隱藏。</string>
     <string name="revanced_sb_color_changed">顏色已更改。</string>
     <string name="revanced_sb_color_dot_label">顏色：</string>
     <string name="revanced_sb_color_invalid">無效的顏色代碼。</string>
@@ -2020,8 +2020,8 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_general_skipcount_sum_off">不啟用跳過計數追蹤。</string>
     <string name="revanced_sb_general_skipcount_sum_on">允許 SponsorBlock 排行榜了解節省了多少時間每次跳過片段時都會向排行榜發送訊息。</string>
     <string name="revanced_sb_general_skiptoast">顯示「取消跳過」提示</string>
-    <string name="revanced_sb_general_skiptoast_sum_off">不顯示提示</string>
-    <string name="revanced_sb_general_skiptoast_sum_on">當片段自動跳過時會顯示提示。點擊提示通知可取消跳過</string>
+    <string name="revanced_sb_general_skiptoast_sum_off">不顯示提示。</string>
+    <string name="revanced_sb_general_skiptoast_sum_on">當片段自動跳過時會顯示提示。點擊提示通知可取消跳過。</string>
     <string name="revanced_sb_general_time_without">顯示不含片段的影片長度</string>
     <string name="revanced_sb_general_time_without_sum_off">顯示完整影片長度。</string>
     <string name="revanced_sb_general_time_without_sum_on">顯示影片長度減去所有片段的長度，括號中顯示完整影片長度</string>
@@ -2396,8 +2396,6 @@ AI 生成的回應可能包含不準確的資訊。
 
 AVC 的最大解析度為 1080p，Opus 音訊編解碼器不可用，影片播放將使用比 VP9 或 AV1 更多的網路資料。</string>
     <string name="revanced_spoof_streaming_data_message">如果您遇到任何播放問題，請啟用 \"偽裝串流媒體數據\" 在 &lt;i&gt;&lt;u&gt;設定 &gt; %s &gt; 各種各樣的 &gt; 偽裝串流媒體數據&lt;/u&gt;&lt;/i&gt;.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">Android Studio 不提供預設音訊串流語言選擇。</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">IPadOS 不提供預設音訊串流語言選擇。</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_not_available">若要選擇特定的音訊串流語言，請關閉 \'停用強制自動音軌\'。</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">預設音訊串流語言</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">影片編解碼器優先。</string>
@@ -2529,24 +2527,36 @@ uBlock Origin 已找到解決此問題的方案，可透過 '繞過虛假緩衝'
 (前提條件：已啟用'顯示重新載入影片按鈕' 和 '始終顯示重新載入影片按鈕' )
 
 在 JavaScript 用戶端中，建議使用 TV 用戶端。"</string>
-    <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"用於反混淆的 JavaScript 未保持最新。
+    <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"用於去混淆的 JavaScript 未保持最新。
 
-• 雖然使用了可成功反混淆的 JavaScript，但它仍然在一定程度上依賴伺服器。"</string>
-    <string name="revanced_spoof_streaming_data_use_latest_js_summary_on">"用於反混淆的 JavaScript 會保持最新狀態。
+• 雖然使用了可成功去混淆的 JavaScript，但它仍然在一定程度上依賴伺服器。"</string>
+    <string name="revanced_spoof_streaming_data_use_latest_js_summary_on">"用於去混淆的 JavaScript 會保持最新狀態。
 
 • 它高度依賴伺服器，反混淆的成功或失敗取決於伺服器上目前使用的 JavaScript。"</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">使用最新的 JavaScript</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"用於反混淆的播放器 JavaScript 不會保持最新狀態。
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"用於去混淆的播放器 JavaScript 不會保持最新狀態。
+
 • 使用的是已成功進行反混淆的播放器 JavaScript，但仍在某種程度上依賴伺服器。"</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"用於反混淆的播放器 JavaScript 會保持最新狀態。
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"用於去混淆的播放器 JavaScript 會保持最新狀態。
 
 • 它高度依賴伺服器，反混淆的成功或失敗取決於伺服器上目前使用的播放器 JavaScript。
 • 如果您在使用 JavaScript 用戶端時遇到問題，請先嘗試停用此功能。"</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">使用最新的播放器 JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"SmartTube 提取器已使用。
+
+• 用於去混淆的播放器 JavaScript 未更新。
+• 伺服器將在不久的將來棄用此功能。"</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"yt-dlp 使用外部 JavaScript (yt-dlp-ejs)。
+
+• 用於去混淆的播放器 JavaScript 保持最新。
+• 影片啟動可能需要 5 到 15 秒。"</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">使用 yt-dlp ejs (開發中)</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"由於 YouTube 的新措施，最新播放器 JavaScript 中已無法使用常規方法解密串流 URL。
+
+yt-dlp 的外部 JavaScript (yt-dlp-ejs) 用於在最新播放器 JavaScript 中解密串流媒體 URL。
+
+該 JavaScript 目前正在開發中，將佔用更多硬體資源。"</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">關閉此設定可能會導致影片播放問題。</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">影片編解碼器自動確定。</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">影皮編解碼器為 AVC (H.264)或 VP9。</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_title">停用 VR AV1</string>
     <string name="revanced_swipe_brightness_distance_summary">調整亮度所需滑動的像素數量。數值越低，亮度變化越快，數值越高，亮度變化越慢（1-1000）。</string>
     <string name="revanced_swipe_brightness_distance_title">亮度範圍</string>
     <string name="revanced_swipe_brightness_summary_off">全螢幕亮度滑動已停用</string>

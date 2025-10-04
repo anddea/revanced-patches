@@ -38,7 +38,7 @@ public final class RandomStringFromAlphabetGenerator {
     /**
      * Generate a random string from an alphabet.
      *
-     * @param length   the length of the returned string (greater than 0)
+     * @param length the length of the returned string (greater than 0)
      * @return a random string of the requested length made of only characters from the provided
      * alphabet
      */

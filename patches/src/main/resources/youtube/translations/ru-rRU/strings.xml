@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">Включить специальные возможности в плеере?</string>
-    <string name="accessibility_settings_edu_opt_out_text">Служба специальных возможностей включена. Управление изменено.</string>
+    <string name="accessibility_settings_edu_opt_in_text">Включить элементы управления специальными возможностями для видеоплеера?</string>
+    <string name="accessibility_settings_edu_opt_out_text">Ваши элементы управления изменены, поскольку включена служба специальных возможностей.</string>
     <string name="gms_core_dialog_continue_text">Продолжить</string>
     <string name="gms_core_dialog_dismiss_text">Больше не показывать</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore не имеет разрешения на запуск в фоновом режиме.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore или MicroG не имеет разрешения на запуск в фоновом режиме.
 
-Следуйте инструкции \"Не закрывайте мое приложение!\" для вашего устройства и примените её к вашему GmsCore.
+Следуйте инструкции \"Не закрывайте мое приложение!\" для вашего устройства и примените её к вашему GmsCore или MicroG.
 
 Это необходимо для работы приложения."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Для предотвращения проблем необходимо отключить оптимизацию заряда батареи для GmsCore.
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Для предотвращения проблем необходимо отключить оптимизацию заряда батареи для GmsCore или MicroG.
 
-Отключение оптимизации заряда батареи для GmsCore не окажет негативного влияния на использование батареи.
+Отключение оптимизации заряда батареи для GmsCore или MicroG не окажет негативного влияния на использование батареи.
 
 Нажмите кнопку \"Продолжить\" и отключите оптимизацию заряда батареи."</string>
     <string name="gms_core_dialog_open_website_text">Открыть сайт</string>
     <string name="gms_core_dialog_title">Требуется действие</string>
     <string name="gms_core_offline_account_login_error">Если Вы недавно изменили данные для входа в свою учетную запись, то удалите и переустановите GmsCore или MicroG.</string>
     <string name="gms_core_settings_summary">Для получения уведомлений в RVX, включите \"Облачные уведомления\" сообщениями.</string>
-    <string name="gms_core_settings_title">Открыть GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">GmsCore не установлен. Установите его.</string>
+    <string name="gms_core_settings_title">Открыть GmsCore или MicroG</string>
+    <string name="gms_core_toast_not_installed_message">GmsCore или MicroG не установлен. Установите его.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Не отображается меню расширенных настроек качества видео.</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Отображается меню расширенных настроек качества видео.</string>
     <string name="revanced_advanced_video_quality_menu_title">Показать расширенное меню качества видео</string>
@@ -1963,23 +1963,23 @@ To show the Audio track menu:
     <string name="revanced_sb_api_url_reset">API адрес сервера сброшен.</string>
     <string name="revanced_sb_appearance_category">Внешний вид</string>
     <string name="revanced_sb_auto_hide_skip_button_duration">Кнопка \"Пропустить\" время автоскрытия</string>
-    <string name="revanced_sb_auto_hide_skip_button_duration_sum">Длительность показа кнопок пропуска и перехода к основному моменту до автоматического скрытия</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration_sum">Длительность пропуска и пропуск подсветки кнопок перед автоскрытием.</string>
     <string name="revanced_sb_color_changed">Цвет изменен.</string>
     <string name="revanced_sb_color_dot_label">Цвет:</string>
     <string name="revanced_sb_color_invalid">Неверный (hex) код цвета.</string>
     <string name="revanced_sb_color_reset">Цвет сброшен.</string>
     <string name="revanced_sb_create_segment_category">Создание новых сегментов</string>
     <string name="revanced_sb_diff_segments">Изменить поведение сегмента</string>
-    <string name="revanced_sb_duration_10s">10 секунд</string>
-    <string name="revanced_sb_duration_1s">1 секунда</string>
-    <string name="revanced_sb_duration_2s">2 секунды</string>
-    <string name="revanced_sb_duration_3s">3 секунды</string>
-    <string name="revanced_sb_duration_4s">4 секунды</string>
-    <string name="revanced_sb_duration_5s">5 секунд</string>
-    <string name="revanced_sb_duration_6s">6 секунд</string>
-    <string name="revanced_sb_duration_7s">7 секунд</string>
-    <string name="revanced_sb_duration_8s">8 секунд</string>
-    <string name="revanced_sb_duration_9s">9 секунд</string>
+    <string name="revanced_sb_duration_10s">10 сек.</string>
+    <string name="revanced_sb_duration_1s">1 сек.</string>
+    <string name="revanced_sb_duration_2s">2 сек.</string>
+    <string name="revanced_sb_duration_3s">3 сек.</string>
+    <string name="revanced_sb_duration_4s">4 сек.</string>
+    <string name="revanced_sb_duration_5s">5 сек.</string>
+    <string name="revanced_sb_duration_6s">6 сек.</string>
+    <string name="revanced_sb_duration_7s">7 сек.</string>
+    <string name="revanced_sb_duration_8s">8 сек.</string>
+    <string name="revanced_sb_duration_9s">9 сек.</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">Скрытие кнопки \"Пропуск\"</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка \"Пропуск\" отображается до конца сегмента.</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопка \"Пропуск\" скрывается через несколько секунд.</string>
@@ -2006,12 +2006,12 @@ To show the Audio track menu:
     <string name="revanced_sb_general_skipcount">Подсчет количества пропусков</string>
     <string name="revanced_sb_general_skipcount_sum_off">Отслеживание количества пропусков не включено.</string>
     <string name="revanced_sb_general_skipcount_sum_on">Позволяет системе доски лидеров SponsorBlock знать, сколько времени было сэкономлено. Отправляет сообщение на сервер каждый раз при пропуске сегмента.</string>
-    <string name="revanced_sb_general_skiptoast">Показывать уведомление отмены пропуска</string>
-    <string name="revanced_sb_general_skiptoast_sum_off">Всплывающее уведомление скрыто</string>
-    <string name="revanced_sb_general_skiptoast_sum_on">Всплывающее уведомление показано при автоматическом пропуске сегмента. Нажмите на всплывающее уведомление для отмены пропуска</string>
+    <string name="revanced_sb_general_skiptoast">Уведомление отмены пропуска</string>
+    <string name="revanced_sb_general_skiptoast_sum_off">Отключено.</string>
+    <string name="revanced_sb_general_skiptoast_sum_on">Включено. Нажмите на всплывающее уведомление для отмены пропуска.</string>
     <string name="revanced_sb_general_time_without">Продолжительность без сегментов</string>
     <string name="revanced_sb_general_time_without_sum_off">Отображается общая продолжительность видео.</string>
-    <string name="revanced_sb_general_time_without_sum_on">Продолжительность видео без всех сегментов отображена в скобках рядом с общей продолжительностью видео.</string>
+    <string name="revanced_sb_general_time_without_sum_on">Pokazuje czas trwania filmu, odejmując czas trwania zsumowanej długości segmentów, pojawia się w nawiasach obok czasu trwania filmu.</string>
     <string name="revanced_sb_general_uuid">Ваш приватный ID</string>
     <string name="revanced_sb_general_uuid_invalid">Приватный ID должен иметь длину не менее 30 символов.</string>
     <string name="revanced_sb_general_uuid_sum">Его нужно держать в секрете. Это как пароль, не стоит им ни с кем делиться. Если он у кого-то есть, он сможет выдать себя за вас.</string>
@@ -2162,8 +2162,8 @@ To show the Audio track menu:
     <string name="revanced_sb_toast_on_connection_error_summary_off">Уведомление при недоступности SponsorBlock API отключено.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Уведомление при недоступности SponsorBlock API включено.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Уведомление при недоступности SponsorBlock API</string>
-    <string name="revanced_sb_toast_on_skip_duration">Длительность всплывающего уведомления при пропуске</string>
-    <string name="revanced_sb_toast_on_skip_duration_sum">Как долго показывать всплывающее сообщение об отмене пропуска</string>
+    <string name="revanced_sb_toast_on_skip_duration">Длительность всплывающего уведомления</string>
+    <string name="revanced_sb_toast_on_skip_duration_sum">Как долго отображать уведомление отмены пропуска.</string>
     <string name="revanced_sb_vote_category">Изменить категорию</string>
     <string name="revanced_sb_vote_downvote">Проголосовать против</string>
     <string name="revanced_sb_vote_failed_forbidden">Невозможно проголосовать за сегмент: %s.</string>
@@ -2352,6 +2352,8 @@ To show the Audio track menu:
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Требуется вход)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
+<small>(Необходима авторизация)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">iOS.\n<small>(устаревшее)</small>
     </string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
@@ -2377,9 +2379,8 @@ To show the Audio track menu:
 
 Максимальное разрешение AVC - 1080p. Кодек Opus недоступен. Потребление трафика больше, чем при VP9 или AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Если у вас возникли проблемы с воспроизведением, включите параметр \"Замена потоковых данных\" в Настройках/Разное/Замена потоковых данных.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">Язык звукового потока, по умолчанию, не доступен для Android Studio.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">Язык звукового потока, по умолчанию, не доступен для iPadOS.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Чтобы выбрать язык звукового потока, отключите \'Принудительные звуковые авто дорожки\'.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">Язык аудио потока по умолчанию не доступен для %s.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">Язык аудио потока по умолчанию</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Приоритет качества видео отключен.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Приоритет качества видео включен.</string>
@@ -2430,6 +2431,10 @@ VP9 более продвинутый кодек, чем AVC, но некото�
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Аудио меню пропадет.
 • Стабильная громкость не доступна.
 • Детские видео могут не проигрываться без логина или в режиме инкогнито."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• Отсутствует меню аудиодорожки.
+• Отключение принудительных авто дорожек звука недоступно.
+• Стабильная громкость недоступна.
+• Детские видео не проигрываются при выходе из системы или в режиме инкогнито."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Фильмы или платные видео могут не воспроизводиться.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">• Видео может заканчиваться на 1 секунду раньше.\n• Аудиокодек OPUS может не поддерживаться.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• Целые диапазоны ASN/IP могут блокироваться сервером.</string>
@@ -2521,10 +2526,57 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
 • Сильная зависимость деобфускации от сервера и плеера JavaScript, на сервере.
 • Если у вас возникли проблемы с JavaScript-клиентом, попробуйте сначала отключить его."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Использовать актуальный JavaScript проигрыватель</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"Используется экстрактор SmartTube.
+
+• JavaScript для деобфускации не актуальный.
+• Это, через время, устареет на сервере."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"Используется внешний JavaScript для yt-dlp (yt-dlp-ejs).
+
+• JavaScript для деобфускации сохраняется в актуальном состоянии.
+• Для запуска видео может потребоваться от 5 до 15 секунд."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Использовать yt-dlp ejs (В разработке)</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"Новые меры YouTube не позволяют расшифровать URL-адреса потокового воспроизведения, общими методами в JavaScript.
+
+Внешний JavaScript для yt-dlp (yt-dlp-ejs) используется для расшифровки URL-адресов трансляций в последних JavaScript.
+
+Компонент в разработке и будет использовать больше ресурсов оборудования."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Отключение этой настройки вызовет проблемы с просмотром.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Видео кодек определяется автоматически.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Видео кодек AVC (H.264) или VP9.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Отключить VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Код активации:
+%s
+
+1. Нажмите 'Открыть веб-сайт', чтобы перейти к 'https://yt.be/activate'.
+2. Введите код активации.
+3. Когда появится запрос войдите в аккаунт Google, который используете для YouTube. Если вход уже выполнен, перейдите к следующему шагу.
+4. После входа вернитесь к RVX и нажмите 'О Android VR авторизации' снова.
+5. Нажмите 'Получить токен авторизации', чтобы получить токен авторизации."</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Открыть сайт</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Код активации</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Код активации скопирован в буфер обмена: %s.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Нажмите, чтобы посмотреть, как получить токен авторизации.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">О Android VR авторизации</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Получить код активации</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Получить токен авторизации</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Для получения токена авторизации Android VR, войдите в YouTube VR, используя код активации:
+
+1. Нажмите \"Получить код активации\" для генерации кода активации.
+2. Нажмите 'Открыть веб-сайт', чтобы перейти на 'https://yt.be/activate' и введите код активации.
+3. Когда появится запрос войдите в аккаунт Google, который используете для YouTube. Если вход уже выполнен, перейдите к следующему шагу.
+4. После входа вернитесь к RVX и снова нажмите \"О Android VR авторизации\".
+5. Нажмите 'Получить токен авторизации'.
+
+※ нажмите 'Сброс', чтобы удалить токен аутентификации или код активации."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Сброс</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Получить токен авторизации</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Токен аутентификации и код активации сброшены.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Токен авторизации сохранен.</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_off">Видео кодек AVC (H.264) или VP9.</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"Видео кодек AVC (H.264), VP9 или AV1.
+
+Проигрывание может запинаться или будут потери кадров."</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_title">Включить VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"При включении используется программный кодек AV1.
+
+Проигрывание может запинаться или будут потери кадров."</string>
     <string name="revanced_swipe_brightness_distance_summary">Количество пикселей, которое необходимо сдвинуть для изменения яркости. Чем меньше значение, тем быстрее меняется яркость, чем больше — тем медленнее (1 - 1000).</string>
     <string name="revanced_swipe_brightness_distance_title">Чувствительность жеста яркости</string>
     <string name="revanced_swipe_brightness_summary_off">Регулировка яркости жестом отключена</string>

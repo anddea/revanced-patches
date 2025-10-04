@@ -83,7 +83,7 @@ public final class FeedComponentsFilter extends Filter {
     private static final StringTrieSearch mixPlaylistsContextExceptions = new StringTrieSearch();
 
     public FeedComponentsFilter() {
-        carouselShelfExceptions.addPattern("library_recent_shelf.eml");
+        carouselShelfExceptions.addPattern("library_recent_shelf.");
         communityPostsFeedGroupSearch.addPatterns(
                 CONVERSATION_CONTEXT_FEED_IDENTIFIER,
                 CONVERSATION_CONTEXT_SUBSCRIPTIONS_IDENTIFIER
@@ -131,8 +131,8 @@ public final class FeedComponentsFilter extends Filter {
 
         final StringFilterGroup tasteBuilder = new StringFilterGroup(
                 Settings.HIDE_SURVEYS,
-                "selectable_item.eml",
-                "cell_button.eml"
+                "selectable_item.",
+                "cell_button."
         );
 
         final StringFilterGroup ticketShelfIdentifier = new StringFilterGroup(
@@ -160,8 +160,8 @@ public final class FeedComponentsFilter extends Filter {
 
         channelProfile = new StringFilterGroup(
                 null,
-                "channel_profile.eml",
-                "page_header.eml" // new layout
+                "channel_profile.",
+                "page_header." // new layout
         );
 
         channelProfileGroupList.addAll(
@@ -183,14 +183,14 @@ public final class FeedComponentsFilter extends Filter {
         final StringFilterGroup linksPreview = new StringFilterGroup(
                 Settings.HIDE_LINKS_PREVIEW,
                 "channel_header_links",
-                "attribution.eml" // new layout
+                "attribution." // new layout
         );
 
         expandableCard = new StringFilterGroup(
                 Settings.HIDE_EXPANDABLE_CARD,
                 INLINE_EXPANSION_PATH,
                 "inline_expander",
-                "expandable_metadata.eml"
+                "expandable_metadata."
         );
 
         final StringFilterGroup surveys = new StringFilterGroup(
@@ -233,7 +233,7 @@ public final class FeedComponentsFilter extends Filter {
         final StringFilterGroup playables = new StringFilterGroup(
                 Settings.HIDE_PLAYABLES,
                 "horizontal_gaming_shelf",
-                "mini_game_card.eml"
+                "mini_game_card."
         );
 
         final StringFilterGroup subscribedChannelsBar = new StringFilterGroup(
@@ -253,15 +253,15 @@ public final class FeedComponentsFilter extends Filter {
 
         final var videoRecommendationLabels = new StringFilterGroup(
                 Settings.HIDE_VIDEO_RECOMMENDATION_LABELS,
-                "endorsement_header_footer.eml"
+                "endorsement_header_footer."
         );
 
         carouselShelves = new StringFilterGroup(
                 null,
-                "horizontal_video_shelf.eml",
-                "horizontal_shelf.eml",
-                "horizontal_shelf_inline.eml",
-                "horizontal_tile_shelf.eml"
+                "horizontal_video_shelf.",
+                "horizontal_shelf.",
+                "horizontal_shelf_inline.",
+                "horizontal_tile_shelf."
         );
 
         chipBar = new StringFilterGroup(

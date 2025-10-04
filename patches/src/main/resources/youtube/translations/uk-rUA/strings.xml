@@ -2370,6 +2370,8 @@
 <small>(Потрібна авторизація)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(Без авторизації)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
+<small>(Авторизація, Необхідна дія)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Застаріла)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
@@ -2391,9 +2393,8 @@
 
 AVC має максимальну роздільну здатність 1080p, аудіокодек Opus недоступний, а відтворення відео використовуватиме більше інтернет-даних, ніж кодек VP9 чи AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Якщо у вас виникли проблеми з відтворенням, увімкніть параметр \"Заміна потокових даних\" у &lt;i&gt;&lt;u&gt;Налаштування &gt; %s &gt; Різне &gt; Заміна потокових даних&lt;/u&gt;&lt;/i&gt;.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">Вибір основної мови трансляції звуку недоступний з Android Studio.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">Вибір основної мови трансляції звуку недоступний з iPadOS.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Щоб вибрати конкретну мову трансляції звуку, вимкніть \'Вимкнути примусові автоматичні звукові доріжки\'.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">Вибір основної мови трансляції звуку недоступний з %s.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">Основна мова трансляції звуку</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Кодеки відео пріоритетні.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Якість відео пріоритетна.</string>
@@ -2447,6 +2448,10 @@ AVC має максимальну роздільну здатність 1080p, �
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Меню звукової доріжки відсутнє.
 • Стабілізація гучності недоступна."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Меню звукової доріжки відсутнє.
+• Стабілізація гучності недоступна.
+• Відео для дітей можуть не відтворюватися коли вийшли з облікового запису або в анонімному режимі."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• Меню звукової доріжки відсутнє.
+• Вимкнення примусових авто звукових доріжок недоступне.
 • Стабілізація гучності недоступна.
 • Відео для дітей можуть не відтворюватися коли вийшли з облікового запису або в анонімному режимі."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Можуть бути проблеми з відтворенням (Потрібен PoToken).</string>
@@ -2554,9 +2559,43 @@ uBlock Origin знайшов обхідний шлях для вирішення
 
 Наразі це перебуває на стадії розробки і використовуватиме більше апаратних ресурсів."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Вимикання цього налаштування може призвести до проблем відтворення відео.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Відеокодек визначається автоматично.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Відеокодек AVC (H.264) або VP9.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Вимкнути AV1 VR</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Код активації:
+%s
+
+1. Натисніть 'Відкрити сайт', щоб перейти до 'https://yt.be/activate'.
+2. Введіть код активації.
+3. Увійдіть, коли з'явиться запит. Якщо у вас кілька облікових записів Google, виберіть обліковий запис, який використовуєте для YouTube. Якщо вже увійшли, перейдіть до наступного кроку.
+4. Після входу поверніться до RVX і знову натисніть 'Про авторизацію Android VR'.
+5. Натисніть 'Отримати токен авторизації', щоб отримати токен авторизації."</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Відкрити сайт</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Код активації</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Код активації скопійовано в буфер обміну: %s.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Натисніть, щоб побачити, як отримати токен автентифікації.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Про авторизацію Android VR</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Отримати код активації</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Отримати токен авторизації</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Щоб отримати токен авторизації дляAndroid VR, необхідно увійти в YouTube VR за допомогою коду активації:
+
+1. Натисніть 'Отримати код активації', щоб згенерувати код активації.
+2. Натисніть 'Відкрити сайт', щоб перейти до 'https://yt.be/activate'.
+3. Введіть код активації.
+4. Увійдіть, коли з'явиться запит. Якщо у вас кілька облікових записів Google, виберіть обліковий запис, який використовуєте для YouTube. Якщо вже увійшли, перейдіть до наступного кроку.
+5. Після входу поверніться до RVX і знову натисніть 'Про авторизацію Android VR'.
+6. Натисніть 'Отримати токен авторизації', щоб отримати токен авторизації.
+
+※ Натисніть 'Скинути', щоб вилучити токен автентифікації або код активації."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Скинути</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Отримати токен авторизації</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Токен автентифікації та код активації скинуто.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Токен автентифікації збережено.</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_off">Відеокодек AVC (H.264) або VP9.</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"Відеокодек AVC (H.264), VP9 або AV1.
+
+Відтворення може затинатися або втрачати кадри."</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_title">Увімкнути AV1 VR</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"Якщо увімкнути це налаштування, може використовуватися програмне декодування AV1.
+
+Відтворення може затинатися або втрачати кадри."</string>
     <string name="revanced_swipe_brightness_distance_summary">Кількість пікселів для проведення, щоб змінити яскравість. Чим менше значення, тим яскравість змінюється швидше, чим більше, тим повільніше (1-1000).</string>
     <string name="revanced_swipe_brightness_distance_title">Відстань для яскравості</string>
     <string name="revanced_swipe_brightness_summary_off">Зміну яскравості жестом в повноекранному режимі вимкнено</string>

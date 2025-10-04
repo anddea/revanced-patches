@@ -99,10 +99,10 @@ public final class KeywordContentFilter extends Filter {
             "search_vwc_description_transition_key",
             "g-high-recZ",
             // Text and litho components found in the buffer that belong to path filters.
-            "expandable_metadata.eml",
-            "thumbnail.eml",
-            "avatar.eml",
-            "overflow_button.eml",
+            "expandable_metadata.",
+            "thumbnail.",
+            "avatar.",
+            "overflow_button.",
             "shorts-lockup-image",
             "shorts-lockup.overlay-metadata.secondary-text",
             "YouTubeSans-SemiBold",
@@ -114,11 +114,11 @@ public final class KeywordContentFilter extends Filter {
      */
     private final StringFilterGroup startsWithFilter = new StringFilterGroup(
             null, // Multiple settings are used and must be individually checked if active.
-            "video_lockup_with_attachment.eml",
-            "compact_video.eml",
+            "video_lockup_with_attachment.",
+            "compact_video.",
             "inline_shorts",
             "shorts_video_cell",
-            "shorts_pivot_item.eml"
+            "shorts_pivot_item."
     );
 
     /**
@@ -126,9 +126,9 @@ public final class KeywordContentFilter extends Filter {
      */
     private final StringFilterGroup containsFilter = new StringFilterGroup(
             null,
-            "modern_type_shelf_header_content.eml",
-            "shorts_lockup_cell.eml", // Part of 'shorts_shelf_carousel.eml'
-            "video_card.eml" // Shorts that appear in a horizontal shelf.
+            "modern_type_shelf_header_content.",
+            "shorts_lockup_cell.", // Part of 'shorts_shelf_carousel.'
+            "video_card." // Shorts that appear in a horizontal shelf.
     );
 
     /**
@@ -139,10 +139,10 @@ public final class KeywordContentFilter extends Filter {
      * the buffer of the parent component was already searched and passed.
      */
     private final StringTrieSearch exceptions = new StringTrieSearch(
-            "metadata.eml",
-            "thumbnail.eml",
-            "avatar.eml",
-            "overflow_button.eml"
+            "metadata.",
+            "thumbnail.",
+            "avatar.",
+            "overflow_button."
     );
 
     /**
@@ -607,7 +607,7 @@ public final class KeywordContentFilter extends Filter {
 
         commentsFilter = new StringFilterGroup(
                 Settings.HIDE_KEYWORD_CONTENT_COMMENTS,
-                "comment_thread.eml"
+                "comment_thread."
         );
 
         // Keywords are parsed on first call to isFiltered()

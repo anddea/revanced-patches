@@ -11,22 +11,22 @@ public final class LayoutComponentsFilter extends Filter {
 
         final StringFilterGroup buttonShelf = new StringFilterGroup(
                 Settings.HIDE_BUTTON_SHELF,
-                "entry_point_button_shelf.eml"
+                "entry_point_button_shelf."
         );
 
         final StringFilterGroup carouselShelf = new StringFilterGroup(
                 Settings.HIDE_CAROUSEL_SHELF,
-                "music_grid_item_carousel.eml"
+                "music_grid_item_carousel."
         );
 
         final StringFilterGroup playlistCardShelf = new StringFilterGroup(
                 Settings.HIDE_PLAYLIST_CARD_SHELF,
-                "music_container_card_shelf.eml"
+                "music_container_card_shelf."
         );
 
         final StringFilterGroup sampleShelf = new StringFilterGroup(
                 Settings.HIDE_SAMPLE_SHELF,
-                "immersive_card_shelf.eml"
+                "immersive_card_shelf."
         );
 
         addIdentifierCallbacks(

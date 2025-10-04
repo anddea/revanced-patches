@@ -17,7 +17,7 @@ import com.liskovsoft.youtubeapi.app.nsigsolver.provider.JsChallengeResponse
 import com.liskovsoft.youtubeapi.app.nsigsolver.provider.JsChallengeType
 import java.util.Collections
 
-internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
+internal abstract class JsRuntimeChalBaseJCP : JsChallengeProvider() {
     private val tag = JsRuntimeChalBaseJCP::class.simpleName
     private val cacheSection = "challenge-solver"
     private var playerJS = ""
@@ -44,38 +44,9 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
         playerJS = jsCode
     }
 
-    override fun realBulkSolve(requests: List<JsChallengeRequest>): Sequence<JsChallengeProviderResponse> = sequence {
-        val stdin = constructStdin(playerJS = playerJS, requests = requests)
-        val stdout = runJsRuntime(stdin)
-
-        val gson = Gson()
-        val output: SolverOutput = try {
-            gson.fromJson(stdout, solverOutputType)
-        } catch (e: JsonSyntaxException) {
-            throw JsChallengeProviderError("Cannot parse solver output", e)
-        }
-
-        if (output.type == "error")
-            throw JsChallengeProviderError(output.error ?: "Unknown solver output error")
-
-        for ((request, responseData) in requests.zip(output.responses)) {
-            if (responseData.type == "error") {
-                yield(JsChallengeProviderResponse(
-                    request, null, JsChallengeProviderError(responseData.error ?: "Unknown solver output error")))
-            } else {
-                yield(JsChallengeProviderResponse(
-                    request, JsChallengeResponse(request.type, ChallengeOutput(responseData.data))
-                ))
-            }
-        }
-    }
-
-    /*
-    override fun realBulkSolve(requests: List<JsChallengeRequest>): Sequence<JsChallengeProviderResponse> = sequence {
-        val grouped: Map<String, List<JsChallengeRequest>> = requests.groupBy { it.input.playerJS }
-
-        for ((playerJS, groupedRequests) in grouped) {
-            val stdin = constructStdin(playerJS = playerJS, requests = groupedRequests)
+    override fun realBulkSolve(requests: List<JsChallengeRequest>): Sequence<JsChallengeProviderResponse> =
+        sequence {
+            val stdin = constructStdin(playerJS = playerJS, requests = requests)
             val stdout = runJsRuntime(stdin)
 
             val gson = Gson()
@@ -88,21 +59,33 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
             if (output.type == "error")
                 throw JsChallengeProviderError(output.error ?: "Unknown solver output error")
 
-            for ((request, responseData) in groupedRequests.zip(output.responses)) {
+            for ((request, responseData) in requests.zip(output.responses)) {
                 if (responseData.type == "error") {
-                    yield(JsChallengeProviderResponse(
-                        request, null, JsChallengeProviderError(responseData.error ?: "Unknown solver output error")))
+                    yield(
+                        JsChallengeProviderResponse(
+                            request,
+                            null,
+                            JsChallengeProviderError(
+                                responseData.error ?: "Unknown solver output error"
+                            )
+                        )
+                    )
                 } else {
-                    yield(JsChallengeProviderResponse(
-                        request, JsChallengeResponse(request.type, ChallengeOutput(responseData.data))
-                    ))
+                    yield(
+                        JsChallengeProviderResponse(
+                            request,
+                            JsChallengeResponse(request.type, ChallengeOutput(responseData.data))
+                        )
+                    )
                 }
             }
         }
-    }
-     */
 
-    private fun constructStdin(playerJS: String, preprocessed: Boolean = false, requests: List<JsChallengeRequest>): String {
+    private fun constructStdin(
+        playerJS: String,
+        preprocessed: Boolean = false,
+        requests: List<JsChallengeRequest>
+    ): String {
         val jsonRequests = requests.map { request ->
             mapOf(
                 // TODO: i despise nsig name
@@ -156,33 +139,53 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
             if (script == null)
                 continue
             if (script.version != scriptVersion)
-                Logger.printWarn { "Challenge solver ${scriptType.value} script version ${script.version} " +
-                        "is not supported (source: ${script.source.value}, supported version: $scriptVersion)" }
+                Logger.printWarn {
+                    "Challenge solver ${scriptType.value} script version ${script.version} " +
+                            "is not supported (source: ${script.source.value}, supported version: $scriptVersion)"
+                }
 
-            Logger.printDebug { "Using challenge solver ${script.type.value} script v${script.version} " +
-                    "(source: ${script.source.value}, variant: ${script.variant.value})" }
+            Logger.printDebug {
+                "Using challenge solver ${script.type.value} script v${script.version} " +
+                        "(source: ${script.source.value}, variant: ${script.variant.value})"
+            }
             return script
         }
         throw JsChallengeProviderRejectedRequest("No usable challenge solver ${scriptType.value} script available")
     }
 
-    protected open fun iterScriptSources(): Sequence<Pair<ScriptSource, (scriptType: ScriptType) -> Script?>> = sequence {
-        yieldAll(listOf(
-            Pair(ScriptSource.CACHE, ::cachedSource),
-            Pair(ScriptSource.BUILTIN, ::builtinSource),
-            Pair(ScriptSource.WEB, ::webReleaseSource)
-        ))
-    }
+    protected open fun iterScriptSources(): Sequence<Pair<ScriptSource, (scriptType: ScriptType) -> Script?>> =
+        sequence {
+            yieldAll(
+                listOf(
+                    Pair(ScriptSource.CACHE, ::cachedSource),
+                    Pair(ScriptSource.BUILTIN, ::builtinSource),
+                    Pair(ScriptSource.WEB, ::webReleaseSource)
+                )
+            )
+        }
 
     private fun cachedSource(scriptType: ScriptType): Script? {
         val data = ie.cache.load(cacheSection, scriptType.value) ?: return null
-        return Script(scriptType, ScriptVariant.valueOf(data.variant), ScriptSource.CACHE, data.version, data.code)
+        return Script(
+            scriptType,
+            ScriptVariant.valueOf(data.variant),
+            ScriptSource.CACHE,
+            data.version,
+            data.code
+        )
     }
 
     private fun builtinSource(scriptType: ScriptType): Script? {
         val fileName = scriptFilenames[scriptType] ?: return null
-        val code = loadScript(fileName, "Failed to read builtin challenge solver ${scriptType.value}")
-        return Script(scriptType, ScriptVariant.UNMINIFIED, ScriptSource.BUILTIN, scriptVersion, code)
+        val code =
+            loadScript(fileName, "Failed to read builtin challenge solver ${scriptType.value}")
+        return Script(
+            scriptType,
+            ScriptVariant.UNMINIFIED,
+            ScriptSource.BUILTIN,
+            scriptVersion,
+            code
+        )
     }
 
     @GuardedBy("itself")
@@ -201,7 +204,8 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
             synchronized(cache) {
                 var code = cache[fileName]
                 if (code == null) {
-                    val url = "https://github.com/$repository/releases/download/$scriptVersion/$fileName"
+                    val url =
+                        "https://github.com/$repository/releases/download/$scriptVersion/$fileName"
                     code = ThrottlingParameterUtils.fetch(url, false)
                     Logger.printDebug { "[${tag}] Downloading challenge solver ${scriptType.value} script from $url" }
                     if (code.isNullOrEmpty()) {
@@ -211,7 +215,13 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
                         ie.cache.store(cacheSection, scriptType.value, CachedData(code))
                     }
                 }
-                return Script(scriptType, ScriptVariant.MINIFIED, ScriptSource.WEB, scriptVersion, code)
+                return Script(
+                    scriptType,
+                    ScriptVariant.MINIFIED,
+                    ScriptSource.WEB,
+                    scriptVersion,
+                    code
+                )
             }
         }
         return null

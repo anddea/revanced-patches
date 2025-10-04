@@ -1,10 +1,10 @@
 package app.revanced.extension.shared.settings.search;
 
+import static app.revanced.extension.shared.settings.BaseSettings.SETTINGS_SEARCH_ENTRIES;
+import static app.revanced.extension.shared.settings.BaseSettings.SETTINGS_SEARCH_HISTORY;
 import static app.revanced.extension.shared.utils.ResourceUtils.getIdIdentifier;
 import static app.revanced.extension.shared.utils.ResourceUtils.getLayoutIdentifier;
 import static app.revanced.extension.shared.utils.StringRef.str;
-import static app.revanced.extension.shared.settings.BaseSettings.SETTINGS_SEARCH_ENTRIES;
-import static app.revanced.extension.shared.settings.BaseSettings.SETTINGS_SEARCH_HISTORY;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -24,9 +24,9 @@ import java.util.Collection;
 import java.util.Deque;
 import java.util.LinkedList;
 
-import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.settings.preference.BulletPointPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
+import app.revanced.extension.shared.utils.Logger;
 
 /**
  * Manager for search history functionality.
@@ -274,9 +274,9 @@ public class SearchHistoryManager {
     /**
      * Creates and shows a dialog with the specified title, message, and confirmation action.
      *
-     * @param title            The title of the dialog.
-     * @param message          The message to display in the dialog.
-     * @param confirmAction    The action to perform when the dialog is confirmed.
+     * @param title         The title of the dialog.
+     * @param message       The message to display in the dialog.
+     * @param confirmAction The action to perform when the dialog is confirmed.
      */
     protected void createAndShowDialog(String title, String message, Runnable confirmAction) {
         Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
@@ -286,7 +286,8 @@ public class SearchHistoryManager {
                 null,
                 null,
                 confirmAction,
-                () -> {},
+                () -> {
+                },
                 null,
                 null,
                 false

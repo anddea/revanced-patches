@@ -20,7 +20,6 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 
 import app.revanced.extension.shared.ui.CustomDialog;
-import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class WebViewPreference extends Preference implements Preference.OnPreferenceClickListener {

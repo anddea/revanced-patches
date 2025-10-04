@@ -1,6 +1,7 @@
 package com.liskovsoft.googlecommon.common.converters.regexp.converter;
 
 import com.liskovsoft.googlecommon.common.converters.regexp.typeadapter.RegExpTypeAdapter;
+
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
 

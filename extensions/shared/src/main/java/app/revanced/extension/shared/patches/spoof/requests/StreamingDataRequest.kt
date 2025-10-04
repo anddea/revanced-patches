@@ -13,6 +13,7 @@ import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtil
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.setServerAbrStreamingUrl
 import app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.setUrl
 import app.revanced.extension.shared.innertube.utils.ThrottlingParameterUtils
+import app.revanced.extension.shared.patches.auth.AuthPatch
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup
 import app.revanced.extension.shared.patches.spoof.StreamingDataOuterClassPatch.parseFrom
 import app.revanced.extension.shared.settings.BaseSettings
@@ -143,7 +144,7 @@ class StreamingDataRequest private constructor(
         val lastSpoofedClientHasSingleAudioTrack: Boolean
             get() = lastSpoofedClient?.let {
                 !it.supportsCookies && !it.supportsMultiAudioTracks
-            }?: false
+            } ?: false
 
         @JvmStatic
         fun overrideLanguage(language: String) {
@@ -183,10 +184,7 @@ class StreamingDataRequest private constructor(
             Logger.printInfo({ toastMessage }, ex)
         }
 
-        /**
-         * Replace with visitorData bound to PoToken.
-         */
-        private fun replaceVisitorData(
+        private fun replaceHeader(
             clientType: ClientType,
             videoId: String,
             requestHeader: Map<String, String>,
@@ -203,6 +201,25 @@ class StreamingDataRequest private constructor(
                                 finalRequestHeader.put(VISITOR_ID_HEADER, visitorData)
                                 continue
                             }
+                        }
+                        finalRequestHeader.put(key, value)
+                    }
+                }
+                return finalRequestHeader
+            } else if (clientType == ClientType.ANDROID_VR_AUTH &&
+                AuthPatch.isAuthorizationAvailable()
+            ) {
+                val finalRequestHeader: MutableMap<String, String> =
+                    LinkedHashMap(requestHeader.size)
+                for (key in requestHeader.keys) {
+                    val value = requestHeader[key]
+                    if (value != null) {
+                        if (key == AUTHORIZATION_HEADER) {
+                            finalRequestHeader.put(
+                                AUTHORIZATION_HEADER,
+                                AuthPatch.getAuthorization()
+                            )
+                            continue
                         }
                         finalRequestHeader.put(key, value)
                     }
@@ -258,9 +275,7 @@ class StreamingDataRequest private constructor(
 
                     val deobfuscatedAdaptiveFormatsArrayList: ArrayList<String> =
                         ArrayList(adaptiveFormatsCount)
-                    val requirePoToken = clientType.requirePoToken
-                    val isTV = !requirePoToken
-                    val sessionPoToken = if (requirePoToken)
+                    val sessionPoToken = if (clientType.requirePoToken)
                         PoTokenGate.getSessionPoToken(videoId)
                     else
                         null
@@ -275,8 +290,7 @@ class StreamingDataRequest private constructor(
                                     cpn,
                                     adaptiveFormats.url,
                                     adaptiveFormats.signatureCipher,
-                                    sessionPoToken,
-                                    isTV
+                                    sessionPoToken
                                 )
                             if (deobfuscatedUrl.isNullOrEmpty()) {
                                 Logger.printDebug { "Failed to decrypt n-sig or signatureCipher, please check if latest regular expressions are being used" }
@@ -302,8 +316,7 @@ class StreamingDataRequest private constructor(
                                     cpn,
                                     formats.url,
                                     formats.signatureCipher,
-                                    sessionPoToken,
-                                    isTV
+                                    sessionPoToken
                                 )
                             if (deobfuscatedUrl.isNullOrEmpty()) {
                                 Logger.printDebug { "Failed to decrypt n-sig or signatureCipher" }
@@ -322,8 +335,7 @@ class StreamingDataRequest private constructor(
                                 "",
                                 serverAbrStreamingUrl,
                                 null,
-                                sessionPoToken,
-                                isTV
+                                sessionPoToken
                             )
                     }
 
@@ -393,9 +405,12 @@ class StreamingDataRequest private constructor(
 
                 val connection =
                     getInnerTubeResponseConnectionFromRoute(
-                        getStreamingDataRoute(tParameter, SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING),
+                        getStreamingDataRoute(
+                            tParameter,
+                            SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING
+                        ),
                         clientType,
-                        replaceVisitorData(clientType, videoId, requestHeader)
+                        replaceHeader(clientType, videoId, requestHeader)
                     )
 
                 connection.setFixedLengthStreamingMode(requestBody.size)
@@ -449,13 +464,14 @@ class StreamingDataRequest private constructor(
                 if (!clientType.supportsCookies
                     && !clientType.supportsMultiAudioTracks
                     && BaseSettings.DISABLE_AUTO_AUDIO_TRACKS.get()
-                    && overrideLanguage.isEmpty()) {
+                    && overrideLanguage.isEmpty()
+                ) {
                     // If client spoofing does not use authentication and lacks multi-audio streams,
                     // then can use any language code for the request and if that requested language is
                     // not available YT uses the original audio language. Authenticated requests ignore
                     // the language code and always use the account language. Use a language that is
                     // not auto-dubbed by YouTube: https://support.google.com/youtube/answer/15569972
-                    overrideLanguage = "no"
+                    overrideLanguage = "nb" // Norwegian Bokmal.
                 }
 
                 val connection = send(

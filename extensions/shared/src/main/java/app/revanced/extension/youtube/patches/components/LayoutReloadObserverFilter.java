@@ -37,7 +37,7 @@ public final class LayoutReloadObserverFilter extends Filter {
         addIdentifierCallbacks(
                 new StringFilterGroup(
                         null,
-                        "video_action_bar.eml"
+                        "video_action_bar."
                 )
         );
     }

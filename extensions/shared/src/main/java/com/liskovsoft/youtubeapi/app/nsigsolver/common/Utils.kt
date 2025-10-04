@@ -4,11 +4,11 @@ import app.revanced.extension.shared.utils.ResourceUtils.openRawResource
 import app.revanced.extension.shared.utils.Utils
 import com.liskovsoft.youtubeapi.app.nsigsolver.impl.V8ChallengeProvider.libPrefix
 
-internal open class ScriptLoaderError(message: String, cause: Exception? = null): Exception(message, cause)
+internal open class ScriptLoaderError(message: String, cause: Exception? = null) :
+    Exception(message, cause)
 
 internal fun loadScript(filename: String, errorMsg: String? = null): String {
-    Utils.getContext() ?:
-        throw ScriptLoaderError(formatError(errorMsg, "Context isn't available"))
+    Utils.getContext() ?: throw ScriptLoaderError(formatError(errorMsg, "Context isn't available"))
 
     val fixedFilename =
         filename.replace(libPrefix, "")
@@ -26,4 +26,5 @@ internal fun loadScript(filenames: List<String>, errorMsg: String? = null): Stri
     }
 }
 
-internal fun formatError(firstMsg: String?, secondMsg: String) = firstMsg?.let { "$it: $secondMsg" } ?: secondMsg
+internal fun formatError(firstMsg: String?, secondMsg: String) =
+    firstMsg?.let { "$it: $secondMsg" } ?: secondMsg

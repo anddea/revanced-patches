@@ -10,17 +10,22 @@ import com.liskovsoft.youtubeapi.app.nsigsolver.runtime.ScriptSource
 import com.liskovsoft.youtubeapi.app.nsigsolver.runtime.ScriptType
 import com.liskovsoft.youtubeapi.app.nsigsolver.runtime.ScriptVariant
 
-internal object V8ChallengeProvider: JsRuntimeChalBaseJCP() {
-    private val v8NpmLibFilename = listOf("${libPrefix}polyfill.js", "${libPrefix}meriyah.bundle.min.js", "${libPrefix}astring.bundle.min.js")
+internal object V8ChallengeProvider : JsRuntimeChalBaseJCP() {
+    private val v8NpmLibFilename = listOf(
+        "${libPrefix}polyfill.js",
+        "${libPrefix}meriyah.bundle.min.js",
+        "${libPrefix}astring.bundle.min.js"
+    )
     private var v8Runtime: V8? = null
 
-    override fun iterScriptSources(): Sequence<Pair<ScriptSource, (ScriptType) -> Script?>> = sequence {
-        for ((source, func) in super.iterScriptSources()) {
-            if (source == ScriptSource.WEB || source == ScriptSource.BUILTIN)
-                yield(Pair(ScriptSource.BUILTIN, ::v8NpmSource))
-            yield(Pair(source, func))
+    override fun iterScriptSources(): Sequence<Pair<ScriptSource, (ScriptType) -> Script?>> =
+        sequence {
+            for ((source, func) in super.iterScriptSources()) {
+                if (source == ScriptSource.WEB || source == ScriptSource.BUILTIN)
+                    yield(Pair(ScriptSource.BUILTIN, ::v8NpmSource))
+                yield(Pair(source, func))
+            }
         }
-    }
 
     private fun v8NpmSource(scriptType: ScriptType): Script? {
         if (scriptType != ScriptType.LIB)
@@ -39,7 +44,8 @@ internal object V8ChallengeProvider: JsRuntimeChalBaseJCP() {
     private fun runV8(stdin: String): String {
         try {
             v8Runtime?.locker?.acquire()
-            return v8Runtime?.executeStringScript(stdin) ?: throw JsChallengeProviderError("V8 runtime error: empty response")
+            return v8Runtime?.executeStringScript(stdin)
+                ?: throw JsChallengeProviderError("V8 runtime error: empty response")
         } catch (e: V8ScriptExecutionException) {
             throw JsChallengeProviderError("V8 runtime error", e)
         } finally {

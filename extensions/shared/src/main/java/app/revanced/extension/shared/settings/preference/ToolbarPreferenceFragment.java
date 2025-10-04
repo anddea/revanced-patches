@@ -117,7 +117,8 @@ public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
     /**
      * Allows subclasses to perform actions after toolbar setup.
      */
-    protected void onPostToolbarSetup(Toolbar toolbar, Dialog preferenceScreenDialog) {}
+    protected void onPostToolbarSetup(Toolbar toolbar, Dialog preferenceScreenDialog) {
+    }
 
     /**
      * Invoke the SAF(Storage Access Framework) to export settings

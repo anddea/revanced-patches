@@ -61,12 +61,12 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
         addPathCallbacks(
                 new StringFilterGroup(
                         null,
-                        "shorts_like_button.eml",
-                        "reel_like_button.eml",
-                        "reel_like_toggled_button.eml",
-                        "shorts_dislike_button.eml",
-                        "reel_dislike_button.eml",
-                        "reel_dislike_toggled_button.eml"
+                        "shorts_like_button.",
+                        "reel_like_button.",
+                        "reel_like_toggled_button.",
+                        "shorts_dislike_button.",
+                        "reel_dislike_button.",
+                        "reel_dislike_toggled_button."
                 )
         );
 

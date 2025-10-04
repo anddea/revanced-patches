@@ -37,13 +37,17 @@ class PlayerControlButton(
     private var isVisible: Boolean
 
     init {
-        val imageView = Utils.getChildViewByResourceName<ImageView>(controlsViewGroup, imageViewButtonId)
+        val imageView =
+            Utils.getChildViewByResourceName<ImageView>(controlsViewGroup, imageViewButtonId)
         imageView.visibility = View.GONE
 
         var tempPlaceholder: View? = null
         if (hasPlaceholder) {
             tempPlaceholder =
-                Utils.getChildViewByResourceName<View>(controlsViewGroup, "${imageViewButtonId}_placeholder")
+                Utils.getChildViewByResourceName<View>(
+                    controlsViewGroup,
+                    "${imageViewButtonId}_placeholder"
+                )
             tempPlaceholder.visibility = View.GONE
         }
         placeholderExists = hasPlaceholder

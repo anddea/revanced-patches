@@ -5,9 +5,9 @@ import android.preference.PreferenceScreen;
 import android.widget.Toolbar;
 
 import app.revanced.extension.music.settings.YouTubeMusicHostActivity;
+import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
 
 /**
  * Preference fragment for ReVanced settings.

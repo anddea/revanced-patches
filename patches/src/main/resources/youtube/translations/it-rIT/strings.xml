@@ -2352,6 +2352,8 @@ Questa funzionalità è ancora in fase di sviluppo, quindi potrebbe non funziona
 <small>(Accesso richiesto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(Nessun accesso richiesto)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
+<small>(Accesso richiesto e azione necessaria)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Obsoleto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
@@ -2373,9 +2375,8 @@ Questa funzionalità è ancora in fase di sviluppo, quindi potrebbe non funziona
 
 Nota: AVC ha una risoluzione massima di 1080p, il codec Opus non è disponibile e la riproduzione userà più dati internet rispetto a VP9 o AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Se stai verificano problemi di riproduzione, abilita \"Camuffa i dati in streaming\" in &lt;i&gt;&lt;u&gt; Impostazioni &gt; %s &gt; Varie &gt; Camuffa i dati in streaming &lt;/u&gt;&lt;/i&gt;.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">La selezione della lingua predefinita per l\'audio non è disponibile con il client Android Studio</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">La selezione della lingua predefinita per l\'audio non è disponibile con il client iPadOS</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Disattivare \"Disattiva la traccia audio automatica forzata\" per selezionare una lingua specifica per l\'audio</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">La selezione della lingua predefinita per l\'audio non è disponibile con il client %s</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">Lingua predefinita dell\'audio</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Codec</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Qualità</string>
@@ -2421,6 +2422,10 @@ Esempio 2:
 • Il menù Volume Stabile è mancante."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Il menù Traccia Audio è nascosto.
 • Il menù Volume Stabile è nascosto.
+• I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• Il menù Traccia Audio è nascosto.
+• Il menù Volume Stabile è nascosto.
+• La disattivazione della traccia audio automatica forzata non funziona.
 • I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Ci potrebbero essere problemi di riproduzione (PoToken richiesto).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• I video potrebbero terminare 1 secondo prima.
@@ -2470,7 +2475,7 @@ Nota: questo client non riesce ancora a riprodurre clip, riproduzione automatica
 Quando un annuncio viene bloccato, il Google Video Server (GVS) genera un falso buffering proporzionale alla durata dell'annuncio (test A/B).
 
 uBlock Origin ha trovato una soluzione alternativa a questo problema, che può essere attivata tramite l'impostazione \"Bypassa il falso buffering\".
-Tocca su \"Apri\" per leggere l'articolo."</string>
+Tocca \"Apri\" per leggere l'articolo."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Apri</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Nuove misure anti-adblock di YouTube"</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Il bypass del falso buffering è disattivato.</string>
@@ -2484,7 +2489,8 @@ Nota: questa impostazione potrebbe smettere di funzionare in qualsiasi momento a
     <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"I client JavaScript potrebbero riscontrare un leggero ritardo nell'avvio dei video a causa della necessità di decodificare il pattern n-sig.
 A volte, il pattern n-sig non viene decodificato, causando un avvio ritardato del video o un rallentamento del flusso video.
 Questo problema può essere facilmente risolto toccando il pulsante \"Ricarica Video\" nel riproduttore per ricaricare il video.
-Prerequisiti: sia \"Mostra il pulsante Ricarica Video\" che \"Mostra sempre il pulsante Ricarica Video\" sono attivati.
+
+Prerequisiti: devono essere sono attivati sia \"Mostra il pulsante Ricarica Video\" che \"Mostra sempre il pulsante Ricarica Video\".
 
 Tra i client JavaScript, il client consigliato è TV."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"La versione di JavaScript per il deoffuscamento non viene mantenuta aggiornata.
@@ -2517,9 +2523,42 @@ Note:
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"A causa delle nuove misure di YouTube, non è più possibile decriptare gli URL di streaming usando i metodi generali nell'ultimo JavaScript del riproduttore.
 Per decriptare gli URL di streaming nell'ultimo JavaScript, viene usato un JavaScript esterno per yt-dlp-ejs, ma è attualmente in fase di sviluppo e richiede maggiori risorse hardware."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">La disattivazione di questa impostazione potrebbe causare problemi di riproduzione.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Il codec video è determinato automaticamente.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Il codec video usato è AVC (H.264) o VP9.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Disattiva il codec VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Codice di attivazione:
+%s
+
+1. Tocca \"Apri sito\" per andare su \"https://yt.be/activate\".
+2. Inserisci il codice di attivazione.
+3. Accedi quando richiesto. Se hai più account Google, seleziona l'account che usi con YouTube. Se hai già effettuato l'accesso, vai al passaggio successivo.
+4. Una volta effettuato l'accesso, torna su RVX e tocca nuovamente \"Informazioni su Android VR (Accesso richiesto)\".
+5. Tocca \"Ottieni un token di accesso\" per ottenere un token."</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Apri sito</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Codice di attivazione</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Codice di attivazione copiato negli appunti (%s)</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Tocca per vedere come ottenere un token di accesso.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Informazioni su Android VR (Accesso richiesto)</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Ottieni un codice di attivazione</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Ottieni un token di accesso</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Per ottenere un token di accesso per Android VR, devi accedere a YouTube VR usando un codice di attivazione:
+1. Tocca \"Ottieni un codice di attivazione\" per generare un codice.
+2. Tocca \"Apri sito\" per andare su \"https://yt.be/activate\".
+3. Inserisci il codice di attivazione.
+4. Accedi quando richiesto. Se hai più account Google, seleziona l'account che usi con YouTube. Se hai già effettuato l'accesso, vai al passaggio successivo.
+5. Una volta effettuato l'accesso, torna su RVX e tocca nuovamente \"Informazioni su Android VR (Accesso richiesto)\".
+6. Tocca \"Ottieni un token di accesso\" per ottenere un token.
+
+Nota: tocca \"Ripristina\" per rimuovere un token di accesso o un codice di attivazione."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Ripristina</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Ottieni un token di accesso</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Token di accesso e codice di attivazione ripristinati</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Token di accesso salvato</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_off">Il codec video è AVC (H.264) o VP9.</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"Il codec video è AVC (H.264), VP9 o AV1.
+
+Nota: la riproduzione potrebbe avere rallentamenti o perdite di fotogrammi."</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_title">Attiva il codec VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"L'attivazione di questa impostazione potrebbe comportare l'uso della decodifica software AV1.
+
+Nota: la riproduzione potrebbe avere rallentamenti o perdite di fotogrammi."</string>
     <string name="revanced_swipe_brightness_distance_summary">La quantità di pixel da scorrere per cambiare la luminosità. I valori più bassi rendono la modifica della luminosità più velocemente, i valori più alti lo rendono più lento (1-1000).</string>
     <string name="revanced_swipe_brightness_distance_title">Distanza di luminosità</string>
     <string name="revanced_swipe_brightness_summary_off">Il gesto della luminosità a schermo intero è disattivato.</string>
@@ -2615,23 +2654,23 @@ Se questa impostazione non ha effetto, prova a passare alla navigazione in incog
     <string name="revanced_transcript_cookies_dialog_auth_text">Accesso richiesto</string>
     <string name="revanced_transcript_cookies_dialog_message">"Accesso richiesto
 ══════════════
-1. Tocca su \"Autenticazione\" per aprire la pagina di accesso in WebView.
+1. Tocca \"Autenticazione\" per aprire la pagina di accesso in WebView.
 2. Accedi al tuo account Google.
 3. Riproduci qualsiasi video che supporti i sottotitoli tradotti automaticamente.
 4. Attiva i sottotitoli tradotti automaticamente e verifica se funzionano.
 4.1. Se i sottotitoli tradotti automaticamente non funzionano, passa a un altro video che li supporti e riprova il passaggio 4.
-5. Fai clic sui tre puntini sulla barra degli strumenti per aprire il menu contestuale.
-6. Fai clic su \"Ottieni i cookie\".
-7. Fai clic su \"Copia\" per copiare i cookie.
+5. Tocca i tre puntini sulla barra degli strumenti per aprire il menu contestuale.
+6. Tocca \"Ottieni i cookie\".
+7. Tocca \"Copia\" per copiare i cookie.
 8. Chiudi WebView e incolla i cookie copiati nelle impostazioni \"Cookie di trascrizione\".
 
 Nessun accesso richiesto
 ══════════════
-1. Fai clic su \"Nessuna autenticazione\" per aprire il video in WebView.
+1. Tocca \"Nessuna autenticazione\" per aprire il video in WebView.
 2. Riproduci il video per almeno 3 secondi.
-3. Fai clic sui tre puntini sulla barra degli strumenti per aprire il menu contestuale.
-4. Fai clic su \"Ottieni i cookie\".
-5. Fai clic su \"Copia\" per copiare i cookie.
+3. Tocca i tre puntini sulla barra degli strumenti per aprire il menu contestuale.
+4. Tocca \"Ottieni i cookie\".
+5. Tocca \"Copia\" per copiare i cookie.
 6. Chiudi WebView e incolla i cookie copiati nelle impostazioni \"Cookie di trascrizione\".
 
 Nota: i cookie generati senza effettuare l'accesso potrebbero non essere validi o potrebbero richiedere del tempo prima di essere disponibili per l'API di trascrizione."</string>

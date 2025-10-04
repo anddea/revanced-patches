@@ -83,20 +83,28 @@ internal object RetrofitOkHttpHelper {
                 val doSkipAuth = authSkipList.remove(request)
 
                 // Empty Home fix (anonymous user) and improve Recommendations for everyone
-                headers["X-Goog-Visitor-Id"] ?: ThrottlingParameterUtils.getVisitorId(false)?.let { requestBuilder.header("X-Goog-Visitor-Id", it) }
+                headers["X-Goog-Visitor-Id"] ?: ThrottlingParameterUtils.getVisitorId(false)
+                    ?.let { requestBuilder.header("X-Goog-Visitor-Id", it) }
 
                 if (doSkipAuth) // visitor generation fix
                     requestBuilder.removeHeader("X-Goog-Visitor-Id")
 
                 applyHeaders(this.apiHeaders, headers, requestBuilder)
 
-                val tParam = if (tParamSuffixes.any { url.contains(it) }) YouTubeHelper.generateTParameter() else null
+                val tParam =
+                    if (tParamSuffixes.any { url.contains(it) }) YouTubeHelper.generateTParameter() else null
 
                 if (authHeaders.isEmpty() || doSkipAuth) {
-                    applyQueryKeys(mapOf("key" to API_KEY, "prettyPrint" to "false", "t" to tParam),
-                        request, requestBuilder)
+                    applyQueryKeys(
+                        mapOf("key" to API_KEY, "prettyPrint" to "false", "t" to tParam),
+                        request, requestBuilder
+                    )
                 } else {
-                    applyQueryKeys(mapOf("prettyPrint" to "false", "t" to tParam), request, requestBuilder)
+                    applyQueryKeys(
+                        mapOf("prettyPrint" to "false", "t" to tParam),
+                        request,
+                        requestBuilder
+                    )
                     // Fix suggestions on non branded accounts
                     if (url.startsWith(SEARCH_API_URL) && authHeaders2.isNotEmpty()) {
                         applyHeaders(authHeaders2, headers, requestBuilder)
@@ -110,18 +118,31 @@ internal object RetrofitOkHttpHelper {
         }
     }
 
-    private fun applyHeaders(newHeaders: Map<String, String?>, oldHeaders: Headers, builder: Request.Builder) {
+    private fun applyHeaders(
+        newHeaders: Map<String, String?>,
+        oldHeaders: Headers,
+        builder: Request.Builder
+    ) {
         for (header in newHeaders) {
             if (disableCompression && header.key == "Accept-Encoding") {
                 continue
             }
 
             // Don't override existing headers
-            oldHeaders[header.key] ?: header.value?.let { builder.header(header.key, it) } // NOTE: don't remove null check
+            oldHeaders[header.key] ?: header.value?.let {
+                builder.header(
+                    header.key,
+                    it
+                )
+            } // NOTE: don't remove null check
         }
     }
 
-    private fun applyQueryKeys(keys: Map<String, String?>, request: Request, builder: Request.Builder) {
+    private fun applyQueryKeys(
+        keys: Map<String, String?>,
+        request: Request,
+        builder: Request.Builder
+    ) {
         val originUrl = request.url
 
         var newUrlBuilder: HttpUrl.Builder? = null

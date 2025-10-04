@@ -15,8 +15,6 @@ import android.text.style.StyleSpan;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 
-import androidx.annotation.NonNull;
-
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.lang.ref.WeakReference;

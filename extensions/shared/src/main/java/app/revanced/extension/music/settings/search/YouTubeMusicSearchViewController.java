@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Toolbar;
 
 import app.revanced.extension.music.settings.preference.YouTubeMusicPreferenceFragment;
-import app.revanced.extension.shared.settings.search.*;
+import app.revanced.extension.shared.settings.search.BaseSearchResultItem;
+import app.revanced.extension.shared.settings.search.BaseSearchResultsAdapter;
+import app.revanced.extension.shared.settings.search.BaseSearchViewController;
 
 /**
  * YouTube Music-specific search view controller implementation.
@@ -16,7 +18,7 @@ import app.revanced.extension.shared.settings.search.*;
 public class YouTubeMusicSearchViewController extends BaseSearchViewController {
 
     public static YouTubeMusicSearchViewController addSearchViewComponents(Activity activity, Toolbar toolbar,
-                                                                    YouTubeMusicPreferenceFragment fragment) {
+                                                                           YouTubeMusicPreferenceFragment fragment) {
         return new YouTubeMusicSearchViewController(activity, toolbar, fragment);
     }
 
@@ -50,7 +52,8 @@ public class YouTubeMusicSearchViewController extends BaseSearchViewController {
     }
 
     // Adapter to wrap YouTubeMusicPreferenceFragment to BasePreferenceFragment interface.
-    private record PreferenceFragmentAdapter(YouTubeMusicPreferenceFragment fragment) implements BasePreferenceFragment {
+    private record PreferenceFragmentAdapter(
+            YouTubeMusicPreferenceFragment fragment) implements BasePreferenceFragment {
 
         @Override
         public PreferenceScreen getPreferenceScreenForSearch() {

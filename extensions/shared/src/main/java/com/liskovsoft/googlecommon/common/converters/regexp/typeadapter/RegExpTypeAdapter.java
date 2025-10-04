@@ -1,8 +1,8 @@
 package com.liskovsoft.googlecommon.common.converters.regexp.typeadapter;
 
-import com.liskovsoft.sharedutils.helpers.Helpers;
 import com.liskovsoft.googlecommon.common.converters.regexp.RegExp;
 import com.liskovsoft.googlecommon.common.helpers.ReflectionHelper;
+import com.liskovsoft.sharedutils.helpers.Helpers;
 
 import java.io.InputStream;
 import java.lang.annotation.Annotation;

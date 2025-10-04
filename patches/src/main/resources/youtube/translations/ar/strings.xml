@@ -1030,9 +1030,9 @@
     <string name="revanced_hide_remix_button_summary_off">يتم عرض زر ريمكس.</string>
     <string name="revanced_hide_remix_button_summary_on">تم إخفاء زر ريمكس.</string>
     <string name="revanced_hide_remix_button_title">إخفاء زر ريمكس</string>
-    <string name="revanced_hide_report_button_summary_off">يتم عرض زر الإبلاغ.</string>
-    <string name="revanced_hide_report_button_summary_on">تم إخفاء زر الإبلاغ.</string>
-    <string name="revanced_hide_report_button_title">إخفاء زر الإبلاغ</string>
+    <string name="revanced_hide_report_button_summary_off">يتم عرض زر إبلاغ.</string>
+    <string name="revanced_hide_report_button_summary_on">تم إخفاء زر إبلاغ.</string>
+    <string name="revanced_hide_report_button_title">إخفاء زر إبلاغ</string>
     <string name="revanced_hide_rewards_button_summary_off">يتم عرض زر المكافآت.</string>
     <string name="revanced_hide_rewards_button_summary_on">تم إخفاء زر المكافآت.</string>
     <string name="revanced_hide_rewards_button_title">إخفاء زر المكافآت</string>
@@ -2278,6 +2278,8 @@
 <small>(يتطلب تسجيل الدخول)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(بدون مصادقة)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
+<small>(المصادقة، الإجراء مطلوب)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(مُهمَل)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
@@ -2298,9 +2300,8 @@
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح تقطيع التشغيل.
 
 AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الصوت Opus، وسوف يستخدم تشغيل الفيديو بيانات إنترنت أكثر من VP9 أو AV1."</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">لا يتوفر اختيار لغة بث الصوت الافتراضية مع Android Studio.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">لا يتوفر اختيار لغة بث الصوت الافتراضية مع iPadOS.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_not_available">لتحديد لغة بث صوتي معينة، قم بإيقاف تشغيل \'تعطيل المقطع الصوتي التلقائي المفروض\'.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">اختيار لغة البث الصوتي الافتراضية غير متوفر مع %s.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">لغة البث الصوتي الافتراضية</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">يتم إعطاء الأولوية لترميزات الفيديو.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">يتم إعطاء الأولوية لجودة الفيديو.</string>
@@ -2354,6 +2355,10 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• قائمة المقطع الصوتي مفقودة.
 • مستوى الصوت الثابت غير متوفر."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• قائمة المقطع الصوتي مفقودة.
+• مستوى الصوت الثابت غير متاح.
+• قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو في وضع التصفح المتخفي."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• قائمة المقطع الصوتي مفقودة.
+• لا يتوفر تعطيل المقطع الصوتي التلقائي المفروض.
 • مستوى الصوت الثابت غير متاح.
 • قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو في وضع التصفح المتخفي."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• قد تكون هناك مشكلات في التشغيل (يتطلب PoToken).</string>
@@ -2460,9 +2465,42 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
 
 لا يزال هذا البرنامج قيد التطوير وسيستخدم موارد أجهزة إضافية."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">يتم تحديد ترميز الفيديو تلقائيًا.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">ترميز الفيديو هو AVC (H.264) أو VP9.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_title">تعطيل VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"رمز التفعيل:
+%s
+
+1. انقر على 'فتح الموقع' للانتقال إلى 'https://yt.be/activate'.
+2. أدخل رمز التفعيل.
+3. سجّل الدخول عند الطلب. إذا كان لديك حسابات جوجل متعددة، فحدد الحساب الذي تستخدمه مع YouTube. إذا كنت قد سجّلت الدخول بالفعل، فانتقل إلى الخطوة التالية.
+4. بعد تسجيل الدخول، ارجع إلى RVX وانقر على 'لمحة عن مصادقة Android VR' مرة أخرى.
+5. انقر على 'الحصول على رمز المصادقة' للحصول على رمز التفويض."</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">فتح الموقع</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">رمز التفعيل</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">تم نسخ رمز التفعيل إلى الحافظة: %s.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">انقر لمعرفة كيفية الحصول على رمز المصادقة.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">لمحة عن مصادقة Android VR</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">الحصول على رمز التفعيل</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">الحصول على رمز المصادقة</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"للحصول على رمز تفويض لـ Android VR، سجّل دخولك إلى YouTube VR باستخدام رمز التفعيل:
+
+1. انقر على 'الحصول على رمز التفعيل' لإنشاء رمز التفعيل.
+2. انقر على 'فتح الموقع' للانتقال إلى 'https://yt.be/activate'.
+3. أدخل رمز التفعيل.
+4. سجّل الدخول عند الطلب. إذا كان لديك حسابات Google متعددة، فحدد الحساب الذي تستخدمه مع YouTube. إذا كنت قد سجّلت الدخول بالفعل، فانتقل إلى الخطوة التالية.
+5. بعد تسجيل الدخول، ارجع إلى RVX وانقر على 'لمحة عن مصادقة Android VR' مرة أخرى.
+6. انقر على 'الحصول على رمز المصادقة' للحصول على رمز التفويض.
+※ انقر على 'إعادة تعيين' لإزالة رمز المصادقة أو رمز التفعيل."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">إعادة تعيين</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">الحصول على رمز المصادقة</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">إعادة تعيين رمز المصادقة و رمز التفعيل.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">تم حفظ رمز المصادقة.</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_off">ترميز الفيديو هو AVC (H.264) أو VP9.</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"ترميز الفيديو هو AVC (H.264)، أو VP9، أو AV1.
+
+قد يتقطع التشغيل أو تنخفض الإطارات."</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_title">تمكين VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"قد يؤدي تمكين هذا الإعداد إلى استخدام برنامج فك التشفير AV1.
+
+قد يتقطع التشغيل أو تنخفض الإطارات."</string>
     <string name="revanced_swipe_brightness_summary_off">تم تعطيل إيماءة مستوى السطوع بوضع ملء الشاشة.</string>
     <string name="revanced_swipe_brightness_summary_on">"تم تمكين ميزة إيماءة مستوى السطوع بوضع ملء الشاشة.
 
@@ -2480,13 +2518,13 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">تمكين إيماءة السطوع التلقائي</string>
     <string name="revanced_swipe_overlay_background_opacity_invalid_toast">يجب أن تكون شفافية التمرير بين 0-100.</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">قيمة الشفافية بين 0-100.</string>
-    <string name="revanced_swipe_overlay_background_opacity_title">تعتيم خلفية واجهة التمرير السريع</string>
+    <string name="revanced_swipe_overlay_background_opacity_title">تعتيم خلفية واجهة التمرير</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">لون شريط عناصر التحكم في مستوى السطوع.</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">لون نمط إيماءة السطوع</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">لون شريط عناصر التحكم في مستوى الصوت.</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">لون نمط إيماءة الصوت</string>
-    <string name="revanced_swipe_overlay_rect_size_invalid_toast">لا يمكن أن يزيد حجم المنطقة القابلة للتمرير السريع عن 50.</string>
-    <string name="revanced_swipe_overlay_rect_size_summary">النسبة المئوية لمساحة الشاشة القابلة للتمرير السريع.\n\nملاحظة: سيؤدي هذا أيضًا إلى تغيير حجم مساحة الشاشة لإيماءة النقر المزدوج للتقديم أو التأخير.</string>
+    <string name="revanced_swipe_overlay_rect_size_invalid_toast">لا يمكن أن يزيد حجم المنطقة القابلة للتمرير عن 50.</string>
+    <string name="revanced_swipe_overlay_rect_size_summary">النسبة المئوية لمساحة الشاشة القابلة للتمرير.\n\nملاحظة: سيؤدي هذا أيضًا إلى تغيير حجم مساحة الشاشة لإيماءة النقر المزدوج للتقديم أو التأخير.</string>
     <string name="revanced_swipe_overlay_rect_size_title">حجم واجهة إيماءة التمرير</string>
     <string name="revanced_swipe_overlay_style_entry_0">النمط القديم</string>
     <string name="revanced_swipe_overlay_style_entry_1">النمط الافقي</string>

@@ -918,13 +918,17 @@ public class SegmentPlaybackController {
             fadeIn.setDuration(fadeDurationFast);
             fadeOut.setDuration(fadeDurationFast);
             fadeOut.setAnimationListener(new Animation.AnimationListener() {
-                public void onAnimationStart(Animation animation) { }
+                public void onAnimationStart(Animation animation) {
+                }
+
                 public void onAnimationEnd(Animation animation) {
                     if (dialog.isShowing()) {
                         dialog.dismiss();
                     }
                 }
-                public void onAnimationRepeat(Animation animation) { }
+
+                public void onAnimationRepeat(Animation animation) {
+                }
             });
         }
 

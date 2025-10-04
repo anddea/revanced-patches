@@ -32,12 +32,15 @@ public class UrlLinkPreference extends Preference {
     public UrlLinkPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
+
     public UrlLinkPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+
     public UrlLinkPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
+
     public UrlLinkPreference(Context context) {
         super(context);
     }

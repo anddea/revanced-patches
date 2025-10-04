@@ -919,7 +919,8 @@
             <SwitchPreference android:title="@string/revanced_spoof_streaming_data_stats_for_nerds_title" android:key="revanced_spoof_streaming_data_stats_for_nerds" android:summaryOn="@string/revanced_spoof_streaming_data_stats_for_nerds_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_stats_for_nerds_summary_off" />
 
             <PreferenceCategory android:title="@string/revanced_preference_category_android_vr" android:layout="@layout/revanced_settings_preferences_category" />
-            <SwitchPreference android:title="@string/revanced_spoof_streaming_data_vr_disable_av1_title" android:key="revanced_spoof_streaming_data_vr_disable_av1" android:summaryOn="@string/revanced_spoof_streaming_data_vr_disable_av1_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_vr_disable_av1_summary_off" />
+            <SwitchPreference android:title="@string/revanced_spoof_streaming_data_vr_enable_av1_title" android:key="revanced_spoof_streaming_data_vr_enable_av1" android:summaryOn="@string/revanced_spoof_streaming_data_vr_enable_av1_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_vr_enable_av1_summary_off" />
+            <app.revanced.extension.youtube.settings.preference.SpoofStreamingDataVRAuthTokenPreference android:title="@string/revanced_spoof_streaming_data_vr_auth_token_about_title" android:summary="@string/revanced_spoof_streaming_data_vr_auth_token_about_summary" />
 
             <PreferenceCategory android:title="@string/revanced_preference_category_no_auth" android:layout="@layout/revanced_settings_preferences_category"/>
             <app.revanced.extension.youtube.settings.preference.SpoofAudioSelectorListPreference android:entries="@array/revanced_language_entries" android:title="@string/revanced_spoof_streaming_data_no_auth_language_title" android:key="revanced_spoof_streaming_data_no_auth_language" android:entryValues="@array/revanced_language_entry_values" />

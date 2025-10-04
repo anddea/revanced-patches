@@ -34,6 +34,7 @@ public final class RootView {
 
     /**
      * When a video ad is playing in a regular video player, segments or the Skip button should be hidden.
+     *
      * @return Whether the Ad Progress TextView is visible in the regular video player.
      */
     public static boolean isAdProgressTextVisible() {
@@ -49,8 +50,8 @@ public final class RootView {
 
             Logger.printDebug(() -> {
                 String visibilityMessage = switch (visibility) {
-                    case View.VISIBLE   -> "VISIBLE";
-                    case View.GONE      -> "GONE";
+                    case View.VISIBLE -> "VISIBLE";
+                    case View.GONE -> "GONE";
                     case View.INVISIBLE -> "INVISIBLE";
                     default -> "UNKNOWN";
                 };

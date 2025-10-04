@@ -80,6 +80,10 @@
     <string name="revanced_debug_title">Καταγραφή εντοπισμού σφαλμάτων</string>
     <string name="revanced_default_app_settings_summary">Για να ανοίγουν οι συνδέσμοι YouTube Music στο RVX Music, ενεργοποιήστε το «Άνοιγμα υποστηριζόμενων συνδέσμων» και τις υποστηριζόμενες διευθύνσεις ιστού.</string>
     <string name="revanced_default_app_settings_title">Άνοιγμα ρυθμίσεων προεπιλεγμένων εφαρμογών</string>
+    <string name="revanced_disable_auto_audio_tracks_summary">"Απενεργοποίηση των υποχρεωτικών κομματιών ήχου για τα podcasts.
+
+Περιορισμός: Αν η ρύθμιση «Παραποίηση δεδομένων ροής» είναι ενεργοποιημένη και ο προεπιλεγμένος πελάτης είναι ο «Android VR (με σύνδεση χρήστη, απαιτείται ενέργεια)», αυτό μπορεί να μη λειτουργεί."</string>
+    <string name="revanced_disable_auto_audio_tracks_title">Απενεργοποίηση υποχρεωτικών κομματιών ήχου</string>
     <string name="revanced_disable_auto_captions_summary">Απενεργοποίηση της εξαναγκαστικής ενεργοποίησης αυτόματων υπότιτλων.</string>
     <string name="revanced_disable_auto_captions_title">Απενεργοποίηση αυτόματων υπότιτλων</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Απενεργοποίηση των εφέ θέματος Cairo κατά την εκκίνηση της εφαρμογής.</string>
@@ -543,6 +547,7 @@
     <string name="revanced_spoof_player_parameter_title">Παραποίηση παραμέτρου προγράμματος αναπαραγωγής</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR (με σύνδεση χρήστη, απαιτείται ενέργεια)</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">Web Κινητού</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
@@ -565,6 +570,35 @@
 • Η Player JavaScript για την αποσυσκότιση διατηρείται ενημερωμένη.
 • Μπορεί να χρειαστούν από 5 έως 15 δευτερόλεπτα για να ξεκινήσει η αναπαραγωγή του βίντεο."</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Χρήση του yt-dlp ejs (λειτουργία σε εξέλιξη)</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Κωδικός ενεργοποίησης:
+%s
+
+1. Πατήστε «Άνοιγμα ιστοσελίδας» για να μεταβείτε στο 'https://yt.be/activate'.
+2. Εισάγετε τον κωδικό ενεργοποίησης.
+3. Συνδεθείτε όταν σας ζητηθεί. Αν έχετε πολλαπλούς λογαριασμούς Google, επιλέξτε τον λογαριασμό που χρησιμοποιείτε με το YouTube. Αν έχετε συνδεθεί ήδη, συνεχίστε στο επόμενο βήμα.
+4. Μόλις συνδεθείτε, επιστρέψτε στο RVX και πατήστε το «Σχετικά με το Android VR (με σύνδεση χρήστη)» ξανά.
+5. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να λάβετε διακριτικό εξουσιοδότησης."</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Κωδικός ενεργοποίησης</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Ο κωδικός αντιγράφηκε στο πρόχειρο: %s.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Πατήστε για να δείτε πώς να αποκτήσετε ένα διακριτικό εξουσιοδότησης.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Σχετικά με το Android VR (με σύνδεση χρήστη)</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Λήψη κωδικού ενεργοποίησης</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Λήψη διακριτικού εξουσιοδότησης</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Για να αποκτήσετε ένα διακριτικό εξουσιοδότησης για χρήση του πελάτη Android VR, θα πρέπει να συνδεθείτε στο YouTube VR χρησιμοποιώντας έναν κωδικό ενεργοποίησης:
+
+1. Πατήστε «Λήψη κωδικού ενεργοποίησης» για να δημιουργήσετε έναν κωδικό ενεργοποίησης.
+2. Πατήστε «Άνοιγμα ιστοσελίδας» για να μεταβείτε στο 'https://yt.be/activate'.
+3. Εισάγετε τον κωδικό ενεργοποίησης.
+4. Συνδεθείτε όταν σας ζητηθεί. Αν έχετε πολλαπλούς λογαριασμούς Google, επιλέξτε τον λογαριασμό που χρησιμοποιείτε με το YouTube. Αν έχετε συνδεθεί ήδη, συνεχίστε στο επόμενο βήμα.
+5. Μόλις συνδεθείτε, επιστρέψτε στο RVX και πατήστε το «Σχετικά με το Android VR (με σύνδεση χρήστη)» ξανά.
+6. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να λάβετε διακριτικό εξουσιοδότησης.
+
+※ Πατήστε «Επαναφορά» για να καταργήσετε το διακριτικό εξουσιοδότησης ή τον κωδικό ενεργοποίησης."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Επαναφορά</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Λήψη Διακριτικού Εξουσιοδότησης</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Το διακριτικό και ο κωδικός επαναφέρθηκαν.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Το διακριτικό εξουσιοδότησης αποθηκεύτηκε.</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>

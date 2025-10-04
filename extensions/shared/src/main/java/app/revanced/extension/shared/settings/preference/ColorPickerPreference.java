@@ -32,11 +32,11 @@ import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
+import app.revanced.extension.shared.ui.ColorDot;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.shared.ui.ColorDot;
-import app.revanced.extension.shared.ui.CustomDialog;
 
 /**
  * A custom preference for selecting a color via a hexadecimal code or a color picker dialog.
@@ -46,39 +46,61 @@ import app.revanced.extension.shared.ui.CustomDialog;
 @SuppressWarnings({"unused", "deprecation"})
 public class ColorPickerPreference extends EditTextPreference {
 
-    /** Length of a valid color string of format #RRGGBB (without alpha) or #AARRGGBB (with alpha). */
+    /**
+     * Length of a valid color string of format #RRGGBB (without alpha) or #AARRGGBB (with alpha).
+     */
     public static final int COLOR_STRING_LENGTH_WITHOUT_ALPHA = 7;
     public static final int COLOR_STRING_LENGTH_WITH_ALPHA = 9;
 
-    /** Matches everything that is not a hex number/letter. */
+    /**
+     * Matches everything that is not a hex number/letter.
+     */
     private static final Pattern PATTERN_NOT_HEX = Pattern.compile("[^0-9A-Fa-f]");
 
-    /** Alpha for dimming when the preference is disabled. */
+    /**
+     * Alpha for dimming when the preference is disabled.
+     */
     public static final float DISABLED_ALPHA = 0.5f; // 50%
 
-    /** View displaying a colored dot in the widget area. */
+    /**
+     * View displaying a colored dot in the widget area.
+     */
     private View widgetColorDot;
 
-    /** Dialog View displaying a colored dot for the selected color preview in the dialog. */
+    /**
+     * Dialog View displaying a colored dot for the selected color preview in the dialog.
+     */
     private View dialogColorDot;
 
-    /** Current color, including alpha channel if opacity slider is enabled. */
+    /**
+     * Current color, including alpha channel if opacity slider is enabled.
+     */
     @ColorInt
     private int currentColor;
 
-    /** Associated setting for storing the color value. */
+    /**
+     * Associated setting for storing the color value.
+     */
     private StringSetting colorSetting;
 
-    /** Dialog TextWatcher for the EditText to monitor color input changes. */
+    /**
+     * Dialog TextWatcher for the EditText to monitor color input changes.
+     */
     private TextWatcher colorTextWatcher;
 
-    /** Dialog color picker view. */
+    /**
+     * Dialog color picker view.
+     */
     protected ColorPickerView dialogColorPickerView;
 
-    /** Listener for color changes. */
+    /**
+     * Listener for color changes.
+     */
     protected OnColorChangeListener colorChangeListener;
 
-    /** Whether the opacity slider is enabled. */
+    /**
+     * Whether the opacity slider is enabled.
+     */
     private boolean opacitySliderEnabled = false;
 
     public static final int ID_REVANCED_COLOR_PICKER_VIEW =
@@ -107,7 +129,7 @@ public class ColorPickerPreference extends EditTextPreference {
     }
 
     /**
-     * @param color Color, with or without alpha channel.
+     * @param color        Color, with or without alpha channel.
      * @param includeAlpha Whether to include the alpha channel in the output string.
      * @return #RRGGBB or #AARRGGBB hex color string
      */

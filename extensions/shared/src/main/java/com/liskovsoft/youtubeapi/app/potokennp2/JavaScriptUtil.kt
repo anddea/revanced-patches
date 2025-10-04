@@ -30,15 +30,23 @@ internal fun parseChallengeData(rawChallengeData: String): String {
     val globalName = challengeData.getString(5)
     val clientExperimentsStateBlob = challengeData.getString(7)
 
-    val privateDoNotAccessOrElseSafeScriptWrappedValue = challengeData.getArray(1, null)?.find { it is String }
-    val privateDoNotAccessOrElseTrustedResourceUrlWrappedValue = challengeData.getArray(2, null)?.find { it is String }
+    val privateDoNotAccessOrElseSafeScriptWrappedValue =
+        challengeData.getArray(1, null)?.find { it is String }
+    val privateDoNotAccessOrElseTrustedResourceUrlWrappedValue =
+        challengeData.getArray(2, null)?.find { it is String }
 
     return JsonWriter.string(
         JsonObject.builder()
             .value("messageId", messageId)
             .`object`("interpreterJavascript")
-            .value("privateDoNotAccessOrElseSafeScriptWrappedValue", privateDoNotAccessOrElseSafeScriptWrappedValue)
-            .value("privateDoNotAccessOrElseTrustedResourceUrlWrappedValue", privateDoNotAccessOrElseTrustedResourceUrlWrappedValue)
+            .value(
+                "privateDoNotAccessOrElseSafeScriptWrappedValue",
+                privateDoNotAccessOrElseSafeScriptWrappedValue
+            )
+            .value(
+                "privateDoNotAccessOrElseTrustedResourceUrlWrappedValue",
+                privateDoNotAccessOrElseTrustedResourceUrlWrappedValue
+            )
             .end()
             .value("interpreterHash", interpreterHash)
             .value("program", program)
@@ -100,7 +108,9 @@ private fun base64ToU8(base64: String): String {
 }
 
 private fun newUint8Array(contents: ByteArray): String {
-    return "new Uint8Array([" + contents.joinToString(separator = ",") { it.toUByte().toString() } + "])"
+    return "new Uint8Array([" + contents.joinToString(separator = ",") {
+        it.toUByte().toString()
+    } + "])"
 }
 
 /**

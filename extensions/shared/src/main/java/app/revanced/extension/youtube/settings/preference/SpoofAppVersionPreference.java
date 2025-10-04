@@ -29,9 +29,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
-import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
+import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.utils.ThemeUtils;
 
@@ -204,10 +204,12 @@ public class SpoofAppVersionPreference extends CustomDialogListPreference {
         editText.setEnabled(isOther);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable edit) {
@@ -244,7 +246,8 @@ public class SpoofAppVersionPreference extends CustomDialogListPreference {
                         setValue(newValue);
                     }
                 },
-                () -> {}, // Cancel button action (dismiss only).
+                () -> {
+                }, // Cancel button action (dismiss only).
                 str("revanced_settings_reset"),
                 () -> { // Reset action.
                     String defaultValue = Settings.SPOOF_APP_VERSION_TARGET.defaultValue;

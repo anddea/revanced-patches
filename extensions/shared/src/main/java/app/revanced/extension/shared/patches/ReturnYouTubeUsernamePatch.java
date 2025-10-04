@@ -19,7 +19,7 @@ public class ReturnYouTubeUsernamePatch {
     private static final Boolean RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT =
             BaseSettings.RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT.get().userNameFirst;
 
-    private static final String AUTHOR_BADGE_PATH = "|author_badge.eml|";
+    private static final String AUTHOR_BADGE_PATH = "|author_badge.";
 
     /**
      * Injection point.

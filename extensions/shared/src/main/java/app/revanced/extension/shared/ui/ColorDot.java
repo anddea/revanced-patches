@@ -1,10 +1,10 @@
 package app.revanced.extension.shared.ui;
 
+import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.DISABLED_ALPHA;
 import static app.revanced.extension.shared.utils.BaseThemeUtils.adjustColorBrightness;
-import static app.revanced.extension.shared.utils.Utils.dipToPixels;
 import static app.revanced.extension.shared.utils.BaseThemeUtils.getAppBackgroundColor;
 import static app.revanced.extension.shared.utils.BaseThemeUtils.isDarkModeEnabled;
-import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.DISABLED_ALPHA;
+import static app.revanced.extension.shared.utils.Utils.dipToPixels;
 
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;

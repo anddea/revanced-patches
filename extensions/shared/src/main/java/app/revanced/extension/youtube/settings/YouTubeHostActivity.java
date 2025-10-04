@@ -8,8 +8,8 @@ import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.Toolbar;
 
-import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.settings.BaseHostActivity;
+import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.youtube.settings.preference.YouTubePreferenceFragment;
 import app.revanced.extension.youtube.settings.search.YouTubeSearchViewController;
 import app.revanced.extension.youtube.utils.ThemeUtils;

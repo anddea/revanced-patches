@@ -19,6 +19,7 @@ import static app.revanced.extension.music.settings.Settings.SB_API_URL;
 import static app.revanced.extension.music.settings.Settings.SETTINGS_IMPORT_EXPORT;
 import static app.revanced.extension.music.settings.Settings.SPOOF_APP_VERSION_TARGET;
 import static app.revanced.extension.music.settings.Settings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT;
+import static app.revanced.extension.music.settings.Settings.SPOOF_STREAMING_DATA_VR_AUTH_TOKEN_ABOUT;
 import static app.revanced.extension.music.settings.Settings.WATCH_HISTORY_TYPE;
 import static app.revanced.extension.music.utils.ExtendedUtils.getDialogBuilder;
 import static app.revanced.extension.music.utils.ExtendedUtils.getLayoutParams;
@@ -168,6 +169,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     YouTubeDataAPIDialogBuilder.showDialog(mActivity);
                 } else if (settings.equals(REPLACE_NAVIGATION_BUTTON_ABOUT)) {
                     ResettableListPreference.showDialog(mActivity, CHANGE_START_PAGE, 0);
+                } else if (settings.equals(SPOOF_STREAMING_DATA_VR_AUTH_TOKEN_ABOUT)) {
+                    SpoofStreamingDataVRAuthTokenDialogBuilder.showDialog(mActivity);
                 } else {
                     Logger.printDebug(() -> "Failed to find the right value: " + dataString);
                 }

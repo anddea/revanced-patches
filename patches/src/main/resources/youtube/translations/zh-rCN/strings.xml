@@ -2346,6 +2346,8 @@ AI生成的回复可能包含不准确的信息。
 <small>(需要登录)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(无需身份验证)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
+<small>（需要认证、操作）</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
 <small>(过时，无需身份验证)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"移动网页
@@ -2364,9 +2366,8 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"启用此功能可能会提高电池续航并修复播放卡顿。
 
 AVC 最大分辨率为 1080p，Opus 音频编解码器不可用，并且视频播放将比 VP9 或 AV1 使用更多的互联网数据。"</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_android_studio">Android Studio下无法选择默认音频流语言。</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_ipados">iPadOS下无法选择默认音频流语言。</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_not_available">要选择特定音频流语言，请关闭“禁用强制自动音轨”。</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">%s 下无法选择默认音频流语言。</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">默认音频流语言</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">视频编解码器被优先考虑。</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">视频画质被优先考虑。</string>
@@ -2419,6 +2420,10 @@ AVC 最大分辨率为 1080p，Opus 音频编解码器不可用，并且视频�
 • 不支持 1080p+、AV1 和 HDR。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 音轨菜单缺失"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 缺少音轨菜单。
+• 稳定音量不可用。
+• 登出或无痕模式下可能无法播放儿童视频。"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• 缺少音轨菜单。
+• 无法禁用强制自动音轨。
 • 稳定音量不可用。
 • 登出或无痕模式下可能无法播放儿童视频。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• 电影或付费视频可能无法播放"</string>
@@ -2507,9 +2512,25 @@ yt-dlp的外部JavaScript（yt-dlp-ejs）用于解密最新播放器JavaScript�
 
 目前仍在开发中，将使用更多硬件资源。"</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">关闭此选项可能会导致视频不能正常播放</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">视频编解码器自动确定。</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">视频编解码器为AVC（H。264）或VP9。</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_title">禁用VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">打开网站</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">激活码</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">激活码已复制到剪贴板：%s。</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">点击查看如何获取认证令牌。</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">关于 Android VR 认证</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">获取激活码</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">获取认证令牌</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">重置</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">获取认证令牌</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">认证令牌和激活码已重置。</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">认证令牌已保存。</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_off">视频编解码器为 AVC (H.264) 或 VP9。</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"视频编解码器为 AVC (H.264)、VP9 或 AV1。
+
+播放可能会出现卡顿或丢帧。"</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_title">启用 VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"启用此设置可能会使用软件 AV1 解码。
+
+播放可能会出现卡顿或丢帧。"</string>
     <string name="revanced_swipe_brightness_summary_off">全屏亮度滑动已禁用</string>
     <string name="revanced_swipe_brightness_summary_on">"全屏亮度滑动已启用。
 

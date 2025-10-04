@@ -329,7 +329,7 @@ public class PlayerPatch {
         return Settings.HIDE_COMMENTS_EMOJI_AND_TIMESTAMP_BUTTONS.get() ? null : object;
     }
 
-    private static final String CHIP_BAR_PATH_PREFIX = "chip_bar.eml";
+    private static final String CHIP_BAR_PATH_PREFIX = "chip_bar.";
 
     public static void sanitizeCommentsCategoryBar(@NonNull List<Object> list, @NonNull String identifier) {
         try {
@@ -573,7 +573,7 @@ public class PlayerPatch {
                 return charSequence;
             }
             final String conversionContextString = conversionContext.toString();
-            if (!conversionContextString.contains("identifierProperty=seek_edu_overlay_v2.eml")) {
+            if (!conversionContextString.contains("identifierProperty=seek_edu_overlay_v2.")) {
                 return charSequence;
             }
             if (!conversionContextString.contains("elementId=0,0,0,0,")) {

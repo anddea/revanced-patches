@@ -28,7 +28,7 @@ public final class SnackBarFilter extends Filter {
         addCallbacks(
                 new StringFilterGroup(
                         Settings.CHANGE_SERVER_SIDE_SNACK_BAR_BACKGROUND,
-                        "snackbar.eml|"
+                        "snackbar."
                 )
         );
     }

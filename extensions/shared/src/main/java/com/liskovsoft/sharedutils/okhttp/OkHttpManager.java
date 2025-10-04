@@ -83,7 +83,7 @@ public class OkHttpManager {
         if (headers == null) {
             headers = new HashMap<>();
         }
-        
+
         Request okHttpRequest = new Request.Builder()
                 .url(url)
                 .headers(Headers.of(headers))

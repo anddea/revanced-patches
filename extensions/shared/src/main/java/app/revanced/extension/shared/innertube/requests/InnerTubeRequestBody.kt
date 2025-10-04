@@ -162,7 +162,7 @@ object InnerTubeRequestBody {
                     contentPlaybackContext.put("isInlinePlaybackNoAd", true)
                 }
                 val signatureTimestamp =
-                    ThrottlingParameterUtils.getSignatureTimestamp(!requirePoToken)
+                    ThrottlingParameterUtils.getSignatureTimestamp()
                 if (signatureTimestamp != null) {
                     contentPlaybackContext.put("signatureTimestamp", signatureTimestamp)
                 }

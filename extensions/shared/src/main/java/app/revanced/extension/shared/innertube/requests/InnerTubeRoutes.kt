@@ -25,8 +25,10 @@ object InnerTubeRoutes {
     @JvmField
     val GET_AUDIO_TRACK = compileRoute(
         endpoint = "player",
-        params = arrayOf("fields=captions.playerCaptionsTracklistRenderer.audioTracks," +
-                "streamingData.adaptiveFormats.audioTrack")
+        params = arrayOf(
+            "fields=captions.playerCaptionsTracklistRenderer.audioTracks," +
+                    "streamingData.adaptiveFormats.audioTrack"
+        )
     )
 
     @JvmField
@@ -44,17 +46,21 @@ object InnerTubeRoutes {
     @JvmField
     val GET_SET_VIDEO_ID = compileRoute(
         endpoint = "next",
-        params = arrayOf("fields=contents.singleColumnWatchNextResults." +
-                "playlist.playlist.contents.playlistPanelVideoRenderer." +
-                "playlistSetVideoId"),
+        params = arrayOf(
+            "fields=contents.singleColumnWatchNextResults." +
+                    "playlist.playlist.contents.playlistPanelVideoRenderer." +
+                    "playlistSetVideoId"
+        ),
     )
 
     @JvmField
     val GET_PLAYLIST_ENDPOINT = compileRoute(
         endpoint = "next",
-        params = arrayOf("fields=contents.singleColumnWatchNextResults." +
-                "playlist.playlist.contents.playlistPanelVideoRenderer." +
-                "navigationEndpoint"),
+        params = arrayOf(
+            "fields=contents.singleColumnWatchNextResults." +
+                    "playlist.playlist.contents.playlistPanelVideoRenderer." +
+                    "navigationEndpoint"
+        ),
     )
 
     @JvmField
@@ -66,11 +72,13 @@ object InnerTubeRoutes {
     @JvmField
     val GET_VIDEO_ACTION_BUTTON = compileRoute(
         endpoint = "next",
-        params = arrayOf("fields=contents.singleColumnWatchNextResults." +
-                "results.results.contents.slimVideoMetadataSectionRenderer." +
-                "contents.elementRenderer.newElement.type.componentType." +
-                "model.videoActionBarModel.videoActionBarData.buttons." +
-                "buttonViewModel")
+        params = arrayOf(
+            "fields=contents.singleColumnWatchNextResults." +
+                    "results.results.contents.slimVideoMetadataSectionRenderer." +
+                    "contents.elementRenderer.newElement.type.componentType." +
+                    "model.videoActionBarModel.videoActionBarData.buttons." +
+                    "buttonViewModel"
+        )
     )
 
     @JvmField

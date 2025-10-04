@@ -27,14 +27,14 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.shared.utils.ResourceUtils;
-import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.ResettableEditTextPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.ResourceUtils;
+import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController.SponsorBlockDuration;
@@ -302,7 +302,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                             this::openGuidelines,                               // OK button action.
                             null,                                               // Cancel button action.
                             str("revanced_sb_guidelines_popup_already_read"), // Neutral button text.
-                            () -> {},                                           // Neutral button action (dismiss only).
+                            () -> {
+                            },                                           // Neutral button action (dismiss only).
                             true                                                // Dismiss dialog when onNeutralClick.
                     );
 
@@ -421,7 +422,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                                         setText(newValue);
                                     }
                                 },
-                                () -> {}, // Cancel button action (dismiss only).
+                                () -> {
+                                }, // Cancel button action (dismiss only).
                                 str("revanced_sb_settings_copy"), // Neutral button text (Copy).
                                 () -> {
                                     // Neutral button action (Copy).
@@ -485,7 +487,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                                 Utils.showToastLong(str("revanced_sb_api_url_changed"));
                             }
                         },
-                        () -> {}, // Cancel button action (dismiss dialog).
+                        () -> {
+                        }, // Cancel button action (dismiss dialog).
                         str("revanced_settings_reset"), // Neutral (Reset) button text.
                         () -> {
                             // Neutral button action.
@@ -525,7 +528,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                                         getOnPreferenceChangeListener().onPreferenceChange(this, newValue);
                                     }
                                 },
-                                () -> {}, // Cancel button action (dismiss only).
+                                () -> {
+                                }, // Cancel button action (dismiss only).
                                 str("revanced_sb_settings_copy"), // Neutral button text (Copy).
                                 () -> {
                                     // Neutral button action (Copy).

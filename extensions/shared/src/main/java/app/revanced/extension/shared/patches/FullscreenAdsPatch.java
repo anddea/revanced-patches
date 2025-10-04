@@ -21,7 +21,7 @@ public class FullscreenAdsPatch {
     private static final ByteArrayFilterGroup exception =
             new ByteArrayFilterGroup(
                     null,
-                    "post_image_lightbox.eml" // Community post image in fullscreen
+                    "post_image_lightbox." // Community post image in fullscreen
             );
 
     /**

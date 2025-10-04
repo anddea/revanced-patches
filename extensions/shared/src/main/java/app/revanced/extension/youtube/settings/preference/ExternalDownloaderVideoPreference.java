@@ -34,10 +34,10 @@ import java.util.Objects;
 import java.util.function.Function;
 
 import app.revanced.extension.shared.settings.StringSetting;
-import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.utils.ThemeUtils;
 
@@ -93,6 +93,7 @@ public class ExternalDownloaderVideoPreference extends CustomDialogListPreferenc
 
         /**
          * Finds a Downloader by its package name. This method can never return {@link #OTHER}.
+         *
          * @return The Downloader enum or null if not found.
          */
         @Nullable
@@ -284,10 +285,12 @@ public class ExternalDownloaderVideoPreference extends CustomDialogListPreferenc
         editText.setEnabled(usingCustomDownloader);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable edit) {
@@ -322,7 +325,8 @@ public class ExternalDownloaderVideoPreference extends CustomDialogListPreferenc
                                 str("revanced_external_downloader_empty_warning"),
                                 null,
                                 null,
-                                () -> {}, // OK button does nothing (dismiss only).
+                                () -> {
+                                }, // OK button does nothing (dismiss only).
                                 null,
                                 null,
                                 null,
@@ -340,7 +344,8 @@ public class ExternalDownloaderVideoPreference extends CustomDialogListPreferenc
                         setValue(newValue);
                     }
                 },
-                () -> {}, // Cancel button action (dismiss only).
+                () -> {
+                }, // Cancel button action (dismiss only).
                 str("revanced_settings_reset"),
                 () -> { // Reset action.
                     String defaultValue = settings.defaultValue;
@@ -437,7 +442,8 @@ public class ExternalDownloaderVideoPreference extends CustomDialogListPreferenc
                         Logger.printException(() -> "Failed to open downloader URL: " + downloader, ex);
                     }
                 },
-                () -> {}, // Cancel button action (dismiss only).
+                () -> {
+                }, // Cancel button action (dismiss only).
                 null,
                 null,
                 false
