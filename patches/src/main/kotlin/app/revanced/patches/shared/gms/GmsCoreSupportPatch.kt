@@ -26,6 +26,7 @@ import app.revanced.patches.shared.gms.Constants.PERMISSIONS
 import app.revanced.patches.shared.gms.Constants.PERMISSIONS_LEGACY
 import app.revanced.util.Utils.printWarn
 import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrNull
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -53,6 +54,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
 
 private const val GMS_CORE_ORIGINAL_VENDOR_GROUP_ID = "com.google"
+private const val GMS_CORE_REVANCED_VENDOR_GROUP_ID = "app.revanced"
 private const val CLONE_PACKAGE_NAME_YOUTUBE = "bill.youtube"
 private const val DEFAULT_PACKAGE_NAME_YOUTUBE = "anddea.youtube"
 internal const val ORIGINAL_PACKAGE_NAME_YOUTUBE = "com.google.android.youtube"
@@ -88,13 +90,15 @@ fun gmsCoreSupportPatch(
 ) {
     val gmsCoreVendorGroupIdOption = stringOption(
         key = "gmsCoreVendorGroupId",
-        default = "app.revanced",
+        default = GMS_CORE_REVANCED_VENDOR_GROUP_ID,
         values =
             mapOf(
-                "ReVanced" to "app.revanced",
+                "ReVanced MicroG" to GMS_CORE_REVANCED_VENDOR_GROUP_ID,
+                "Original MicroG" to GMS_CORE_ORIGINAL_VENDOR_GROUP_ID,
             ),
         title = "GmsCore vendor group ID",
-        description = "The vendor's group ID for GmsCore.",
+        description = "The vendor's group ID for GmsCore. " +
+                "Do not change this option, if you do not know what you are doing.",
         required = true,
     ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) }
 
@@ -364,6 +368,10 @@ fun gmsCoreSupportPatch(
         // Return these methods early to prevent the app from crashing.
         earlyReturnFingerprints.forEach { it.methodOrThrow().returnEarly() }
 
+        // Passes signature check of DroidGaurdResult (the.apk).
+        droidGuardSignatureFingerprint
+            .methodOrThrow().returnEarly(true)
+
         // Specific method that needs to be patched.
         transformPrimeMethod(packageName)
 
@@ -391,6 +399,15 @@ fun gmsCoreSupportPatch(
         gmsCoreSupportFingerprint.mutableClassOrThrow().methods
             .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
+
+        mapOf(
+            "PackageNameYouTube" to packageNameYouTubeOption.valueOrThrow(),
+            "PackageNameYouTubeMusic" to packageNameYouTubeMusicOption.valueOrThrow()
+        ).forEach { (methodName, value) ->
+            findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
+                name == methodName
+            }.returnEarly(value)
+        }
 
         executeBlock()
     }
@@ -765,14 +782,16 @@ private fun getPackageName(
     if (originalPackageName == ORIGINAL_PACKAGE_NAME_YOUTUBE) {
         val packageName = packageNameYouTubeOption.valueOrThrow()
         if (packageName == ORIGINAL_PACKAGE_NAME_YOUTUBE &&
-            gmsCoreVendorGroupId != GMS_CORE_ORIGINAL_VENDOR_GROUP_ID) {
+            gmsCoreVendorGroupId != GMS_CORE_ORIGINAL_VENDOR_GROUP_ID
+        ) {
             printPackageNameWarn(packageName)
         }
         return packageName
     } else if (originalPackageName == ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC) {
         val packageName = packageNameYouTubeMusicOption.valueOrThrow()
         if (packageName == ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC &&
-            gmsCoreVendorGroupId != GMS_CORE_ORIGINAL_VENDOR_GROUP_ID) {
+            gmsCoreVendorGroupId != GMS_CORE_ORIGINAL_VENDOR_GROUP_ID
+        ) {
             printPackageNameWarn(packageName)
         }
         return packageName

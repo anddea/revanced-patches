@@ -1,23 +1,13 @@
 package app.revanced.extension.music.utils;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
-import androidx.annotation.NonNull;
-
-import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.shared.utils.PackageUtils;
 import app.revanced.extension.shared.utils.ResourceUtils;
 
 public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_6_27_OR_GREATER = isVersionOrGreater("6.27.00");
-    public static final boolean IS_6_36_OR_GREATER = isVersionOrGreater("6.36.00");
-    public static final boolean IS_7_17_OR_GREATER = isVersionOrGreater("7.17.00");
-    public static final boolean IS_8_28_OR_GREATER = isVersionOrGreater("8.28.00");
     public static final boolean IS_8_29_OR_GREATER = isVersionOrGreater("8.29.00");
 
     private static final String SETTINGS_CLASS_DESCRIPTOR = "com.google.android.apps.youtube.music.settings.SettingsCompatActivity";
@@ -31,34 +21,6 @@ public class ExtendedUtils extends PackageUtils {
     private static final String SHORTCUT_TYPE = "com.google.android.youtube.music.action.shortcut_type";
     private static final String SHORTCUT_ID_SEARCH = "Eh4IBRDTnQEYmgMiEwiZn+H0r5WLAxVV5OcDHcHRBmPqpd25AQA=";
     private static final int SHORTCUT_TYPE_SEARCH = 1;
-
-    @SuppressWarnings("unused")
-    public static boolean isSpoofingToLessThan(@NonNull String versionName) {
-        if (!Settings.SPOOF_APP_VERSION.get())
-            return false;
-
-        return isVersionToLessThan(Settings.SPOOF_APP_VERSION_TARGET.get(), versionName);
-    }
-
-    @SuppressWarnings("deprecation")
-    public static AlertDialog.Builder getDialogBuilder(@NonNull Context context) {
-        return new AlertDialog.Builder(context, isSDKAbove(22)
-                ? android.R.style.Theme_DeviceDefault_Dialog_Alert
-                : AlertDialog.THEME_DEVICE_DEFAULT_DARK
-        );
-    }
-
-    public static FrameLayout.LayoutParams getLayoutParams() {
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
-        int left_margin = dipToPixels(20);
-        int top_margin = dipToPixels(10);
-        int right_margin = dipToPixels(20);
-        int bottom_margin = dipToPixels(4);
-        params.setMargins(left_margin, top_margin, right_margin, bottom_margin);
-
-        return params;
-    }
 
     public static void openSearch() {
         Activity mActivity = ResourceUtils.getActivity();

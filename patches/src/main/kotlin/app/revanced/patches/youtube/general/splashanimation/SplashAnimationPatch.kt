@@ -6,14 +6,20 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.patch.PatchList.DISABLE_SPLASH_ANIMATION
+import app.revanced.patches.youtube.utils.playservice.is_20_02_or_greater
+import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
-import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 val splashAnimationPatch = bytecodePatch(
@@ -25,6 +31,7 @@ val splashAnimationPatch = bytecodePatch(
     dependsOn(
         sharedResourceIdPatch,
         settingsPatch,
+        versionCheckPatch,
     )
 
     execute {
@@ -34,16 +41,16 @@ val splashAnimationPatch = bytecodePatch(
         val startUpResourceIdMethodCall =
             startUpResourceIdMethod.definingClass + "->" + startUpResourceIdMethod.name + "(I)Z"
 
-        splashAnimationFingerprint.matchOrThrow().let {
-            it.method.apply {
-                for (index in implementation!!.instructions.size - 1 downTo 0) {
-                    val instruction = getInstruction(index)
-                    if (instruction.opcode != Opcode.INVOKE_STATIC)
-                        continue
-
-                    if ((instruction as ReferenceInstruction).reference.toString() != startUpResourceIdMethodCall)
-                        continue
-
+        splashAnimationFingerprint.methodOrThrow().apply {
+            implementation!!.instructions
+                .withIndex()
+                .filter { (_, instruction) ->
+                    instruction.opcode == Opcode.INVOKE_STATIC &&
+                            (instruction as? ReferenceInstruction)?.reference?.toString() == startUpResourceIdMethodCall
+                }
+                .map { (index, _) -> index }
+                .reversed()
+                .forEach { index ->
                     val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
                     addInstructions(
@@ -53,6 +60,29 @@ val splashAnimationPatch = bytecodePatch(
                             """
                     )
                 }
+
+            if (is_20_02_or_greater) {
+                val animatedVectorDrawableIndex =
+                    indexOfStartAnimatedVectorDrawableInstruction(this)
+                val arrayIndex =
+                    indexOfFirstInstructionReversedOrThrow(animatedVectorDrawableIndex) {
+                        val reference = getReference<MethodReference>()
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                reference?.returnType == "V" &&
+                                reference.parameterTypes.size == 1 &&
+                                reference.parameterTypes.first().startsWith("[L")
+                    }
+
+                val insertIndex =
+                    indexOfFirstInstructionOrThrow(arrayIndex, Opcode.IF_NE)
+                val insertInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
+
+                addInstructions(
+                    insertIndex, """
+                        invoke-static {v${insertInstruction.registerA}, v${insertInstruction.registerB}}, $GENERAL_CLASS_DESCRIPTOR->disableSplashAnimation(II)I
+                        move-result v${insertInstruction.registerA}
+                        """
+                )
             }
         }
 

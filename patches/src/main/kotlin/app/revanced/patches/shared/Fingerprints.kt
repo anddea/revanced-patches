@@ -1,7 +1,6 @@
 package app.revanced.patches.shared
 
 import app.revanced.patches.shared.extension.Constants.EXTENSION_SETTING_CLASS_DESCRIPTOR
-import app.revanced.util.containsStringInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -15,15 +14,6 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 internal const val CLIENT_INFO_CLASS_DESCRIPTOR =
     "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
-
-internal val clientEnumFingerprint = legacyFingerprint(
-    name = "clientEnumFingerprint",
-    returnType = "V",
-    strings = listOf("ANDROID_MUSIC"),
-    customFingerprint = { method, _ ->
-        !method.containsStringInstruction("android_music")
-    }
-)
 
 internal val clientTypeFingerprint = legacyFingerprint(
     name = "clientTypeFingerprint",
@@ -120,6 +110,31 @@ internal val formatStreamModelConstructorFingerprint = legacyFingerprint(
     literals = listOf(45374643L),
 )
 
+internal const val IS_DEFAULT_AUDIO_TRACK_STRING =
+    "isDefaultAudioTrack="
+internal const val AUDIO_TRACK_DISPLAY_NAME_STRING =
+    "audioTrackDisplayName="
+internal const val AUDIO_TRACK_ID_STRING =
+    "audioTrackId="
+
+/**
+ * On YouTube, this class is 'Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;'
+ * On YouTube Music, class names are obfuscated.
+ */
+internal val formatStreamModelToStringFingerprint = legacyFingerprint(
+    name = "formatStreamModelToStringFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Ljava/lang/String;",
+    strings = listOf(
+        IS_DEFAULT_AUDIO_TRACK_STRING,
+        AUDIO_TRACK_DISPLAY_NAME_STRING,
+        AUDIO_TRACK_ID_STRING
+    ),
+    customFingerprint = { method, classDef ->
+        method.name == "toString"
+    }
+)
+
 internal val mdxPlayerDirectorSetVideoStageFingerprint = legacyFingerprint(
     name = "mdxPlayerDirectorSetVideoStageFingerprint",
     strings = listOf("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state ")
@@ -209,11 +224,18 @@ internal val playbackStartParametersConstructorFingerprint = legacyFingerprint(
     opcodes = listOf(Opcode.IPUT_OBJECT)
 )
 
+internal const val FIXED_RESOLUTION_STRING = ", initialPlaybackVideoQualityFixedResolution="
+internal const val WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING =
+    ", watchNextResponseProcessingDelay="
+
 internal val playbackStartParametersToStringFingerprint = legacyFingerprint(
     name = "playbackStartParametersToStringFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Ljava/lang/String;",
-    strings = listOf(", initialPlaybackVideoQualityFixedResolution="),
+    strings = listOf(
+        FIXED_RESOLUTION_STRING,
+        WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING
+    ),
     customFingerprint = { method, classDef ->
         method.name == "toString"
     }

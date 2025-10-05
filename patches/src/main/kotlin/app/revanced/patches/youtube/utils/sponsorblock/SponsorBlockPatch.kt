@@ -25,11 +25,9 @@ import app.revanced.patches.youtube.utils.totalTimeFingerprint
 import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.video.information.hookVideoInformation
 import app.revanced.patches.youtube.video.information.onCreateHook
-import app.revanced.patches.youtube.video.information.videoEndMethod
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.information.videoTimeHook
 import app.revanced.util.ResourceGroup
-import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.copyResources
 import app.revanced.util.*
 import app.revanced.util.fingerprint.matchOrThrow
@@ -177,14 +175,6 @@ val sponsorBlockBytecodePatch = bytecodePatch(
                 }
             }
         }
-
-        // The vote and create segment buttons automatically change their visibility when appropriate,
-        // but if buttons are showing when the end of the video is reached then they will not automatically hide.
-        // Add a hook to forcefully hide when the end of the video is reached.
-        videoEndMethod.addInstruction(
-            0,
-            "invoke-static {}, $EXTENSION_SPONSOR_BLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->endOfVideoReached()V"
-        )
 
         // Set current video id
         hookVideoInformation("$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")

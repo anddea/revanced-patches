@@ -2,7 +2,7 @@ package app.revanced.extension.youtube.sponsorblock.ui;
 
 import static app.revanced.extension.shared.utils.ResourceUtils.getDimension;
 import static app.revanced.extension.shared.utils.ResourceUtils.getLayoutIdentifier;
-import static app.revanced.extension.shared.utils.Utils.getChildView;
+import static app.revanced.extension.shared.utils.Utils.getChildViewByResourceName;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.isFullscreenHidden;
 
 import android.content.Context;
@@ -20,7 +20,6 @@ import java.util.Objects;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.player.PlayerPatch;
-import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
 import kotlin.Unit;
@@ -97,11 +96,11 @@ public class SponsorBlockViewController {
             youtubeOverlaysLayoutRef = new WeakReference<>(viewGroup);
 
             skipHighlightButtonRef = new WeakReference<>(
-                    Objects.requireNonNull(getChildView(layout, "revanced_sb_skip_highlight_button")));
+                    Objects.requireNonNull(getChildViewByResourceName(layout, "revanced_sb_skip_highlight_button")));
             skipSponsorButtonRef = new WeakReference<>(
-                    Objects.requireNonNull(getChildView(layout, "revanced_sb_skip_sponsor_button")));
+                    Objects.requireNonNull(getChildViewByResourceName(layout, "revanced_sb_skip_sponsor_button")));
             NewSegmentLayout newSegmentLayout = Objects.requireNonNull(
-                    getChildView(layout, "revanced_sb_new_segment_view"));
+                    getChildViewByResourceName(layout, "revanced_sb_new_segment_view"));
             newSegmentLayoutRef = new WeakReference<>(newSegmentLayout);
             newSegmentLayout.updateLayout();
 
@@ -216,7 +215,7 @@ public class SponsorBlockViewController {
             setSkipButtonMargins(skipSponsorButton, isWatchFullScreen);
             setViewVisibility(skipSponsorButton, skipSegment != null);
         } catch (Exception ex) {
-            Logger.printException(() -> "Player type changed failure", ex);
+            Logger.printException(() -> "playerTypeChanged failure", ex);
         }
     }
 
@@ -240,23 +239,5 @@ public class SponsorBlockViewController {
         }
         params.bottomMargin = fullScreen ? (isFullscreenHidden() ? hiddenBottomMargin : ctaBottomMargin) : defaultBottomMargin;
         view.setLayoutParams(params);
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void endOfVideoReached() {
-        try {
-            Logger.printDebug(() -> "endOfVideoReached");
-            // the buttons automatically set themselves to visible when appropriate,
-            // but if buttons are showing when the end of the video is reached then they need
-            // to be forcefully hidden
-            if (!Settings.ALWAYS_REPEAT.get()) {
-                CreateSegmentButton.hideControls();
-                VotingButton.hideControls();
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "endOfVideoReached failure", ex);
-        }
     }
 }

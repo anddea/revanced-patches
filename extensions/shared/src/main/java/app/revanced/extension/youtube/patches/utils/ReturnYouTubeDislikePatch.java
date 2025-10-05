@@ -153,11 +153,11 @@ public class ReturnYouTubeDislikePatch {
 
             String conversionContextString = conversionContext.toString();
 
-            if (isRollingNumber && !conversionContextString.contains("video_action_bar.eml")) {
+            if (isRollingNumber && !conversionContextString.contains("video_action_bar.")) {
                 return original;
             }
 
-            if (conversionContextString.contains("segmented_like_dislike_button.eml")) {
+            if (conversionContextString.contains("segmented_like_dislike_button.")) {
                 // Regular video.
                 ReturnYouTubeDislike videoData = currentVideoData;
                 if (videoData == null) {
@@ -175,13 +175,13 @@ public class ReturnYouTubeDislikePatch {
             }
 
             if (Utils.containsAny(conversionContextString,
-                    "|shorts_dislike_button.eml", "|reel_dislike_button.eml"
+                    "|shorts_dislike_button.", "|reel_dislike_button."
             )) {
                 return getShortsSpan(original, true);
             }
 
             if (Utils.containsAny(conversionContextString,
-                    "|shorts_like_button.eml", "|reel_like_button.eml"
+                    "|shorts_like_button.", "|reel_like_button."
             )) {
                 if (!Utils.containsNumber(original)) {
                     Logger.printDebug(() -> "Replacing hidden likes count");
@@ -223,8 +223,8 @@ public class ReturnYouTubeDislikePatch {
             }
 
             final boolean fetchDislikeLiveStream =
-                    conversionContextString.contains("immersive_live_video_action_bar.eml")
-                            && conversionContextString.contains("|dislike_button.eml");
+                    conversionContextString.contains("immersive_live_video_action_bar.")
+                            && conversionContextString.contains("|dislike_button.");
 
             if (!fetchDislikeLiveStream) {
                 return original;

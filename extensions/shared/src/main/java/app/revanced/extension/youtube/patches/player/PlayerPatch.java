@@ -9,6 +9,7 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -328,7 +329,7 @@ public class PlayerPatch {
         return Settings.HIDE_COMMENTS_EMOJI_AND_TIMESTAMP_BUTTONS.get() ? null : object;
     }
 
-    private static final String CHIP_BAR_PATH_PREFIX = "chip_bar.eml";
+    private static final String CHIP_BAR_PATH_PREFIX = "chip_bar.";
 
     public static void sanitizeCommentsCategoryBar(@NonNull List<Object> list, @NonNull String identifier) {
         try {
@@ -553,12 +554,36 @@ public class PlayerPatch {
         VideoUtils.openVideo(newlyLoadedVideoId);
     }
 
+    public static boolean disableDoubleTapChapters(boolean original) {
+        return !Settings.DISABLE_CHAPTER_SKIP_DOUBLE_TAP.get() && original;
+    }
+
     public static boolean disableSpeedOverlay() {
         return disableSpeedOverlay(true);
     }
 
     public static boolean disableSpeedOverlay(boolean original) {
         return !Settings.DISABLE_SPEED_OVERLAY.get() && original;
+    }
+
+    public static CharSequence onCharSequenceLoaded(@NonNull Object conversionContext,
+                                                    @NonNull CharSequence charSequence) {
+        try {
+            if (Settings.DISABLE_SPEED_OVERLAY.get() || SPEED_OVERLAY_VALUE == 2.0f) {
+                return charSequence;
+            }
+            final String conversionContextString = conversionContext.toString();
+            if (!conversionContextString.contains("identifierProperty=seek_edu_overlay_v2.")) {
+                return charSequence;
+            }
+            if (!conversionContextString.contains("elementId=0,0,0,0,")) {
+                return charSequence;
+            }
+            return VideoUtils.formatSpeedStringX(SPEED_OVERLAY_VALUE, 2) + ' ';
+        } catch (Exception ex) {
+            Logger.printException(() -> "onCharSequenceLoaded failed", ex);
+        }
+        return charSequence;
     }
 
     public static double speedOverlayValue() {
@@ -585,6 +610,10 @@ public class PlayerPatch {
 
     public static void hideDoubleTapOverlayFilter(View view) {
         hideViewByRemovingFromParentUnderCondition(Settings.HIDE_DOUBLE_TAP_OVERLAY_FILTER, view);
+    }
+
+    public static boolean hideEndScreenCards() {
+        return Settings.HIDE_END_SCREEN_CARDS.get();
     }
 
     public static void hideEndScreenCards(View view) {
@@ -620,6 +649,13 @@ public class PlayerPatch {
 
     public static boolean hideSeekMessage() {
         return Settings.HIDE_SEEK_MESSAGE.get();
+    }
+
+    @Nullable
+    public static ViewStub hideSeekMessage(ViewStub viewStub) {
+        return Settings.HIDE_SEEK_MESSAGE.get()
+                ? null
+                : viewStub;
     }
 
     public static boolean hideSeekUndoMessage() {

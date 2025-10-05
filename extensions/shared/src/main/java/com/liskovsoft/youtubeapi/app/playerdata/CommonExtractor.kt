@@ -1,7 +1,6 @@
 package com.liskovsoft.youtubeapi.app.playerdata
 
 import app.revanced.extension.shared.utils.Logger
-
 import com.google.gson.Gson
 import com.liskovsoft.googlecommon.common.js.JSInterpret
 import java.util.regex.Pattern

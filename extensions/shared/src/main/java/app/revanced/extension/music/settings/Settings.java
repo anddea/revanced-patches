@@ -119,8 +119,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_VOICE_SEARCH_BUTTON = new BooleanSetting("revanced_hide_voice_search_button", FALSE, true);
     public static final BooleanSetting REMOVE_VIEWER_DISCRETION_DIALOG = new BooleanSetting("revanced_remove_viewer_discretion_dialog", FALSE);
     public static final BooleanSetting RESTORE_OLD_STYLE_LIBRARY_SHELF = new BooleanSetting("revanced_restore_old_style_library_shelf", FALSE, true);
-    public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version",
-            PatchStatus.SpoofAppVersionDefaultBoolean(), true);
+    public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version", FALSE, true);
     public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target",
             PatchStatus.SpoofAppVersionDefaultString(), true);
 
@@ -198,7 +197,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting CHANGE_SHARE_SHEET = new BooleanSetting("revanced_change_share_sheet", FALSE, true);
     public static final BooleanSetting DISABLE_MUSIC_VIDEO_IN_ALBUM = new BooleanSetting("revanced_disable_music_video_in_album", FALSE, true);
     public static final EnumSetting<RedirectType> DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE = new EnumSetting<>("revanced_disable_music_video_in_album_redirect_type", RedirectType.REDIRECT, true);
-    public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_extended_settings_import_export", FALSE, false);
+    public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_settings_import_export", FALSE, false);
+    public static final BooleanSetting SPOOF_STREAMING_DATA_VR_AUTH_TOKEN_ABOUT = new BooleanSetting("revanced_spoof_streaming_data_vr_auth_token_about", FALSE, false);
     public static final BooleanSetting APP_INFO = new BooleanSetting("revanced_app_info", FALSE, false);
 
     // PreferenceScreen: Return YouTube Dislike
@@ -250,7 +250,7 @@ public class Settings extends BaseSettings {
         String spoofAppVersionTarget = SPOOF_APP_VERSION_TARGET.get();
         if (spoofAppVersionTarget.compareTo(SPOOF_APP_VERSION_TARGET.defaultValue) < 0) {
             Utils.showToastShort(str("revanced_spoof_app_version_target_invalid_toast", spoofAppVersionTarget));
-            Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
+            Utils.showToastShort(str("revanced_reset_to_default_toast"));
             Logger.printInfo(() -> "Resetting spoof app version target");
             SPOOF_APP_VERSION_TARGET.resetToDefault();
         }
@@ -296,6 +296,7 @@ public class Settings extends BaseSettings {
             SETTINGS_IMPORT_EXPORT.key,
             SPOOF_APP_VERSION_TARGET.key,
             SPOOF_STREAMING_DATA_DEFAULT_CLIENT.key,
+            SPOOF_STREAMING_DATA_VR_AUTH_TOKEN_ABOUT.key,
             WATCH_HISTORY_TYPE.key,
     };
 

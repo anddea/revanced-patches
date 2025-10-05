@@ -8,7 +8,7 @@ import app.revanced.extension.shared.patches.components.StringFilterGroup;
 
 @SuppressWarnings("unused")
 public final class ActionButtonsFilter extends Filter {
-    private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.eml";
+    private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.";
 
     private final StringFilterGroup actionBarRule;
     private final StringFilterGroup bufferFilterPathRule;
@@ -23,19 +23,19 @@ public final class ActionButtonsFilter extends Filter {
 
         bufferFilterPathRule = new StringFilterGroup(
                 null,
-                "|ContainerType|button.eml"
+                "|ContainerType|button."
         );
         final StringFilterGroup downloadButton = new StringFilterGroup(
                 Settings.HIDE_ACTION_BUTTON_DOWNLOAD,
-                "music_download_button.eml"
+                "music_download_button."
         );
         final StringFilterGroup likeDislikeContainer = new StringFilterGroup(
                 Settings.HIDE_ACTION_BUTTON_LIKE_DISLIKE,
-                "segmented_like_dislike_button.eml"
+                "segmented_like_dislike_button."
         );
         final StringFilterGroup songVideoButton = new StringFilterGroup(
                 Settings.HIDE_ACTION_BUTTON_SONG_VIDEO,
-                "music_audio_video_button.eml"
+                "music_audio_video_button."
         );
         addPathCallbacks(
                 bufferFilterPathRule,

@@ -6,6 +6,7 @@ import app.revanced.extension.shared.utils.Utils.validateValue
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.LockModeState
 import app.revanced.extension.youtube.shared.PlayerType
+import app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_20_OR_GREATER
 
 /**
  * Provides configuration settings for volume and brightness swipe controls in the YouTube player.
@@ -44,18 +45,12 @@ class SwipeControlsConfigurationProvider {
 
     /**
      * Checks if the video player is currently in fullscreen mode.
-     *
-     * Since [PlayerType] changes are not immediately reflected in the Extension,
-     * Incorrect [PlayerType] may sometimes be used.
-     * In most cases, this does not cause any problems,
-     * But under certain conditions, the following issue may occur:
-     * [ReVanced_Extended#3052](https://github.com/inotia00/ReVanced_Extended/issues/3052)
-     *
-     * Instead of checking [PlayerType],
-     * Check whether the fullscreen engagement panel holder is attached to Windows.
      */
     private val isFullscreenVideo: Boolean
-        get() = PlayerType.current.isFullScreenOrSlidingFullScreen()
+        get() = if (IS_19_20_OR_GREATER)
+            PlayerType.current == PlayerType.WATCH_WHILE_FULLSCREEN
+        else
+            PlayerType.current.isFullScreenOrSlidingFullScreen()
 
     /**
      * is the video player currently in lock mode?

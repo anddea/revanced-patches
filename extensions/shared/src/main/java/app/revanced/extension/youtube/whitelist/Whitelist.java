@@ -28,6 +28,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
@@ -316,7 +317,7 @@ public class Whitelist {
         // Set dialog window attributes.
         Window window = dialog.getWindow();
         if (window != null) {
-            Utils.setDialogWindowParameters(window);
+            Utils.setDialogWindowParameters(window, Gravity.CENTER, 0, 90, false);
         }
         dialog.show();
     }
@@ -429,14 +430,15 @@ public class Whitelist {
             message = message + "\n \n" + str("revanced_whitelist_reload_video");
         }
         // Create the custom dialog.
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 str("revanced_whitelist_settings_title"), // Title.
                 message,                    // Message.
                 null,                       // No EditText.
                 null,                       // OK button text.
                 VideoUtils::reloadVideo,    // Convert DialogInterface.OnClickListener to Runnable.
-                () -> {},                   // Cancel button action (Dismiss).
+                () -> {
+                },                   // Cancel button action (Dismiss).
                 null,                       // No Neutral button text.
                 null,                       // No Neutral button action.
                 true                        // Dismiss dialog when onNeutralClick.

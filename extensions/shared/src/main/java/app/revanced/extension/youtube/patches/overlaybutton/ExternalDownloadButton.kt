@@ -65,7 +65,6 @@ object ExternalDownloadButton {
 
     private fun onClick(view: View) {
         if (Settings.OVERLAY_BUTTON_EXTERNAL_DOWNLOADER_QUEUE_MANAGER.get()) {
-            PlaylistPatch.setContext(view.context)
             PlaylistPatch.prepareDialogBuilder(VideoInformation.getVideoId())
         } else {
             VideoUtils.launchVideoExternalDownloader()

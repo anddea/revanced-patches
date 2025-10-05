@@ -19,7 +19,7 @@ import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
-import app.revanced.extension.shared.utils.Utils;
+import app.revanced.extension.shared.ui.CustomDialog;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class WebViewPreference extends Preference implements Preference.OnPreferenceClickListener {
@@ -111,7 +111,7 @@ public class WebViewPreference extends Preference implements Preference.OnPrefer
         contentScrollView.addView(contentLayout);
 
         // Create the custom dialog.
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 // Context.
                 context,
                 // Title.
@@ -134,7 +134,7 @@ public class WebViewPreference extends Preference implements Preference.OnPrefer
                 () -> {
                 },
                 // Neutral button text.
-                str("revanced_extended_settings_reset"),
+                str("revanced_settings_reset"),
                 // Neutral button action.
                 () -> {
                     for (int i = 0; i < labels.length; i++) {

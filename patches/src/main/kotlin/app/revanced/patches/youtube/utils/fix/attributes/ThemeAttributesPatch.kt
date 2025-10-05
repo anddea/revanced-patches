@@ -5,8 +5,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_04_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.referenceMatchesOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -61,6 +63,17 @@ val themeAttributesPatch = bytecodePatch(
                 )
                 removeInstructions(getResourcesIndex, 2)
             }
+        }
+
+        /**
+         * If playback starts late, the app may force close when 'Stats for nerds' is open.
+         * (Unpatched YouTube issue)
+         */
+        if (is_20_04_or_greater) {
+            statsForNerdsFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                STATS_FOR_NERDS_FEATURE_FLAG,
+                "0x0"
+            )
         }
 
     }

@@ -7,19 +7,19 @@ import app.revanced.extension.shared.patches.components.StringFilterGroup;
 @SuppressWarnings({"FieldCanBeLocal", "unused"})
 public final class PlayerComponentsFilter extends Filter {
     private final String COMMENT_COMPOSER_PATH = "comment_composer";
-    private final String LYRICS_SHARE_BUTTON_PATH = "|CellType|ContainerType|button.eml";
+    private final String LYRICS_SHARE_BUTTON_PATH = "|CellType|ContainerType|button.";
     private final StringFilterGroup emojiPickerAndTimestamp;
     private final StringFilterGroup lyricsShare;
 
     public PlayerComponentsFilter() {
         final StringFilterGroup channelGuidelines = new StringFilterGroup(
                 Settings.HIDE_COMMENT_CHANNEL_GUIDELINES,
-                "channel_guidelines_entry_banner.eml",
-                "community_guidelines.eml"
+                "channel_guidelines_entry_banner.",
+                "community_guidelines."
         );
         lyricsShare = new StringFilterGroup(
                 Settings.HIDE_LYRICS_SHARE_BUTTON,
-                "timed_lyrics.eml"
+                "timed_lyrics."
         );
 
         addIdentifierCallbacks(channelGuidelines, lyricsShare);

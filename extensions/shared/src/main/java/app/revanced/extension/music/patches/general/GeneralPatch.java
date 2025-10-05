@@ -12,10 +12,22 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import app.revanced.extension.music.settings.Settings;
+import app.revanced.extension.shared.utils.PackageUtils;
 import app.revanced.extension.shared.utils.ResourceUtils;
 
 @SuppressWarnings("unused")
 public class GeneralPatch {
+    private static final boolean SPOOF_APP_VERSION =
+            Settings.SPOOF_APP_VERSION.get();
+    private static final String SPOOF_APP_VERSION_TARGET =
+            Settings.SPOOF_APP_VERSION_TARGET.get();
+    private static final boolean SPOOF_APP_VERSION_WATCH_NEXT_ENDPOINT =
+            SPOOF_APP_VERSION &&
+                    PackageUtils.isVersionToLessThan(SPOOF_APP_VERSION_TARGET, "7.17.00");
+    private static final String APP_VERSION =
+            PackageUtils.getAppVersionName();
+    private static final boolean SETTINGS_INITIALIZED =
+            Settings.SETTINGS_INITIALIZED.get();
 
     // region [Change header] patch
 
@@ -89,10 +101,9 @@ public class GeneralPatch {
     }
 
     public static boolean hideSoundSearchButton(boolean original) {
-        if (!Settings.SETTINGS_INITIALIZED.get()) {
-            return original;
-        }
-        return !Settings.HIDE_SOUND_SEARCH_BUTTON.get();
+        return SETTINGS_INITIALIZED
+                ? !Settings.HIDE_SOUND_SEARCH_BUTTON.get()
+                : original;
     }
 
     public static void hideVoiceSearchButton(ImageView view, int visibility) {
@@ -179,11 +190,18 @@ public class GeneralPatch {
 
     // region [Spoof app version] patch
 
-    public static String getVersionOverride(String version) {
-        if (!Settings.SPOOF_APP_VERSION.get())
-            return version;
+    public static boolean spoofWatchNextEndpointAppVersionEnabled() {
+        return SPOOF_APP_VERSION_WATCH_NEXT_ENDPOINT;
+    }
 
-        return Settings.SPOOF_APP_VERSION_TARGET.get();
+    public static String getWatchNextEndpointVersionOverride() {
+        return APP_VERSION;
+    }
+
+    public static String getVersionOverride(String version) {
+        return SPOOF_APP_VERSION
+                ? SPOOF_APP_VERSION_TARGET
+                : version;
     }
 
     // endregion

@@ -20,17 +20,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowInsetsController;
+import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.webkit.CookieManager;
-
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toolbar;
+import android.window.OnBackInvokedDispatcher;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,6 +38,7 @@ import androidx.annotation.RequiresApi;
 
 import org.apache.commons.lang3.StringUtils;
 
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.utils.ThemeUtils;
@@ -140,7 +141,12 @@ public class WebViewHostActivity extends Activity {
                                 WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS);
                     }
                 }
-
+            }
+            if (isSDKAbove(33)) {
+                getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
+                        OnBackInvokedDispatcher.PRIORITY_DEFAULT,
+                        this::finish
+                );
             }
             webView = findViewById(getIdIdentifier("revanced_webview"));
 
@@ -206,7 +212,7 @@ public class WebViewHostActivity extends Activity {
         toolbar = new Toolbar(toolBarParent.getContext());
         toolbar.setBackgroundColor(Color.WHITE);
         toolbar.setNavigationIcon(ThemeUtils.getBackButtonDrawable(false));
-        toolbar.setNavigationOnClickListener(view -> this.onBackPressed());
+        toolbar.setNavigationOnClickListener(view -> this.finish());
         toolbar.setTitle(toolbarLabel);
         final int margin = Utils.dipToPixels(16);
         toolbar.setTitleMarginStart(margin);
@@ -266,7 +272,7 @@ public class WebViewHostActivity extends Activity {
         if (context == null) {
             return;
         }
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 // Title.
                 title,
@@ -412,6 +418,7 @@ public class WebViewHostActivity extends Activity {
                 Logger.printDebug(() -> "new Visitor Data loaded: " + newVisitorData);
             }
         }
+
         @JavascriptInterface
         public void onRetrieveDataSyncId(@Nullable String newDataSyncId) {
             if (newDataSyncId != null && !StringUtils.equals(dataSyncId, newDataSyncId)) {

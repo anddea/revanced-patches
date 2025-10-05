@@ -14,7 +14,7 @@ public final class WatchHistoryPatch {
         BLOCK
     }
 
-    private static final Uri UNREACHABLE_HOST_URI = Uri.parse("https://127.0.0.0");
+    private static final Uri INTERNET_CONNECTION_CHECK_URI = Uri.parse("https://www.youtube.com/gen_204");
     private static final String WWW_TRACKING_URL_AUTHORITY = "www.youtube.com";
 
     public static Uri replaceTrackingUrl(Uri trackingUrl) {
@@ -24,7 +24,7 @@ public final class WatchHistoryPatch {
                 if (watchHistoryType == WatchHistoryType.REPLACE) {
                     return trackingUrl.buildUpon().authority(WWW_TRACKING_URL_AUTHORITY).build();
                 } else if (watchHistoryType == WatchHistoryType.BLOCK) {
-                    return UNREACHABLE_HOST_URI;
+                    return INTERNET_CONNECTION_CHECK_URI;
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "replaceTrackingUrl failure", ex);

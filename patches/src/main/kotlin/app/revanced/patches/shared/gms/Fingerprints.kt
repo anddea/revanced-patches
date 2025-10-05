@@ -33,6 +33,15 @@ internal val castDynamiteModuleV2Fingerprint = legacyFingerprint(
     strings = listOf("Failed to load module via V2: ")
 )
 
+internal val droidGuardSignatureFingerprint = legacyFingerprint(
+    name = "droidGuardSignatureFingerprint",
+    returnType = "Z",
+    strings = listOf(
+        "SHA-256",
+        "Failed to verify signatures"
+    )
+)
+
 internal val gmsServiceBrokerFingerprint = legacyFingerprint(
     name = "gmsServiceBrokerFingerprint",
     returnType = "V",

@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.revanced.patches.youtube.utils.patch.PatchList.HOOK_DOWNLOAD_ACTIONS
 import app.revanced.patches.youtube.utils.pip.pipStateHookPatch
+import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playlist.playlistPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -43,6 +44,7 @@ val downloadActionsPatch = bytecodePatch(
     dependsOn(
         pipStateHookPatch,
         playlistPatch,
+        playerTypeHookPatch,
         sharedResourceIdPatch,
         settingsPatch,
     )

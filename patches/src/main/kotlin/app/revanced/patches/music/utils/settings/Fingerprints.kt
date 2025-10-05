@@ -53,3 +53,30 @@ internal val settingsHeadersFragmentFingerprint = legacyFingerprint(
                 method.name == "onCreate"
     }
 )
+
+internal val baseHostActivityOnCreateFingerprint = legacyFingerprint(
+    name = "baseHostActivityOnCreateFingerprint",
+    returnType = "V",
+    parameters = listOf("Landroid/os/Bundle;"),
+    customFingerprint = { method, classDef ->
+        classDef.endsWith("/BaseHostActivity;") && method.name == "onCreate"
+    }
+)
+
+internal val youtubeMusicHostActivityOnCreateFingerprint = legacyFingerprint(
+    name = "youtubeHostActivityOnCreateFingerprint",
+    returnType = "V",
+    parameters = listOf("Landroid/os/Bundle;"),
+    customFingerprint = { method, classDef ->
+        classDef.endsWith("/YouTubeMusicHostActivity;") && method.name == "onCreate"
+    }
+)
+
+internal val licenseMenuActivityOnCreateFingerprint = legacyFingerprint(
+    name = "licenseMenuActivityOnCreateFingerprint",
+    returnType = "V",
+    parameters = listOf("Landroid/os/Bundle;"),
+    customFingerprint = { method, classDef ->
+        classDef.endsWith("/LicenseMenuActivity;") && method.name == "onCreate"
+    }
+)

@@ -32,10 +32,10 @@
         <item>ON_CLICK</item>
         <item>ON_LONG_CLICK</item>
     </string-array>
-    <string-array name="revanced_extended_settings_import_export_entries">
-        <item>@string/revanced_extended_settings_export_as_file</item>
-        <item>@string/revanced_extended_settings_import_as_file</item>
-        <item>@string/revanced_extended_settings_import_export_as_text</item>
+    <string-array name="revanced_settings_import_export_entries">
+        <item>@string/revanced_settings_export_as_file</item>
+        <item>@string/revanced_settings_import_as_file</item>
+        <item>@string/revanced_settings_import_export_as_text</item>
     </string-array>
     <string-array name="revanced_external_downloader_label">
         <item>NewPipe</item>
@@ -71,15 +71,17 @@
     </string-array>
     <string-array name="revanced_spoof_streaming_data_default_client_entries">
         <item>@string/revanced_spoof_streaming_data_client_entry_android_vr</item>
+        <item>@string/revanced_spoof_streaming_data_client_entry_android_vr_auth</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_mweb</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_tv</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_tv_simply</item>
+        <item>@string/revanced_spoof_streaming_data_client_entry_visionos</item>
     </string-array>
     <string-array name="revanced_spoof_streaming_data_default_client_entry_values">
         <item>ANDROID_VR</item>
+        <item>ANDROID_VR_AUTH</item>
         <item>MWEB</item>
         <item>TV</item>
-        <item>TV_SIMPLY</item>
+        <item>VISIONOS</item>
     </string-array>
     <string-array name="revanced_watch_history_type_entries">
         <item>@string/revanced_watch_history_type_entry_1</item>

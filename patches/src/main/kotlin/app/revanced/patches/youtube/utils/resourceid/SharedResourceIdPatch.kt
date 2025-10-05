@@ -10,7 +10,6 @@ import app.revanced.patches.shared.mapping.ResourceType.INTEGER
 import app.revanced.patches.shared.mapping.ResourceType.LAYOUT
 import app.revanced.patches.shared.mapping.ResourceType.RAW
 import app.revanced.patches.shared.mapping.ResourceType.STRING
-import app.revanced.patches.shared.mapping.ResourceType.STYLE
 import app.revanced.patches.shared.mapping.ResourceType.XML
 import app.revanced.patches.shared.mapping.getResourceId
 import app.revanced.patches.shared.mapping.resourceMappingPatch
@@ -67,8 +66,6 @@ var controlsLayoutStub = -1L
     private set
 var darkBackground = -1L
     private set
-var darkSplashAnimation = -1L
-    private set
 var designBottomSheet = -1L
     private set
 var donationCompanion = -1L
@@ -80,6 +77,8 @@ var drawerResults = -1L
 var easySeekEduContainer = -1L
     private set
 var editSettingsAction = -1L
+    private set
+var eduOverlayStub = -1L
     private set
 var endScreenElementLayoutCircle = -1L
     private set
@@ -120,8 +119,6 @@ var inlineTimeBarLiveSeekAbleRange = -1L
 var inlineTimeBarPlayedNotHighlightedColor = -1L
     private set
 var insetOverlayViewLayout = -1L
-    private set
-var interstitialsContainer = -1L
     private set
 var insetElementsWrapper = -1L
     private set
@@ -208,8 +205,6 @@ var seeMoreProceedingHeader = -1L
 var settingsFragment = -1L
     private set
 var settingsFragmentCairo = -1L
-    private set
-var slidingDialogAnimation = -1L
     private set
 var subtitleMenuSettingsFooterInfo = -1L
     private set
@@ -304,13 +299,13 @@ internal val sharedResourceIdPatch = resourcePatch(
         contentPill = getResourceId(LAYOUT, "content_pill")
         controlsLayoutStub = getResourceId(ID, "controls_layout_stub")
         darkBackground = getResourceId(ID, "dark_background")
-        darkSplashAnimation = getResourceId(ID, "dark_splash_animation")
         designBottomSheet = getResourceId(ID, "design_bottom_sheet")
         donationCompanion = getResourceId(LAYOUT, "donation_companion")
         drawerContentView = getResourceId(ID, "drawer_content_view")
         drawerResults = getResourceId(ID, "drawer_results")
         easySeekEduContainer = getResourceId(ID, "easy_seek_edu_container")
         editSettingsAction = getResourceId(STRING, "edit_settings_action")
+        eduOverlayStub = getResourceId(ID, "edu_overlay_stub")
         endScreenElementLayoutCircle = getResourceId(LAYOUT, "endscreen_element_layout_circle")
         endScreenElementLayoutIcon = getResourceId(LAYOUT, "endscreen_element_layout_icon")
         endScreenElementLayoutVideo = getResourceId(LAYOUT, "endscreen_element_layout_video")
@@ -333,7 +328,6 @@ internal val sharedResourceIdPatch = resourcePatch(
         inlineTimeBarPlayedNotHighlightedColor =
             getResourceId(COLOR, "inline_time_bar_played_not_highlighted_color")
         insetOverlayViewLayout = getResourceId(ID, "inset_overlay_view_layout")
-        interstitialsContainer = getResourceId(ID, "interstitials_container")
         insetElementsWrapper = getResourceId(LAYOUT, "inset_elements_wrapper")
         likeTapFeedbackCairo = getResourceId(RAW, "like_tap_feedback_cairo")
         mdxSeamlessTVSignInDrawerFragmentTitle =
@@ -385,7 +379,6 @@ internal val sharedResourceIdPatch = resourcePatch(
         seeMoreProceedingHeader = getResourceId(STRING, "see_more_proceeding_header")
         settingsFragment = getResourceId(XML, "settings_fragment")
         settingsFragmentCairo = getResourceId(XML, "settings_fragment_cairo")
-        slidingDialogAnimation = getResourceId(STYLE, "SlidingDialogAnimation")
         subtitleMenuSettingsFooterInfo = getResourceId(STRING, "subtitle_menu_settings_footer_info")
         suggestedAction = getResourceId(LAYOUT, "suggested_action")
         tapBloomView = getResourceId(ID, "tap_bloom_view")

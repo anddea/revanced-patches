@@ -1,6 +1,6 @@
 package app.revanced.extension.youtube.patches.spoof;
 
-import static app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest.getLastSpoofedClientIsNoAuth;
+import static app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest.getLastSpoofedClientHasSingleAudioTrack;
 
 import android.content.Context;
 import android.widget.LinearLayout;
@@ -92,7 +92,7 @@ public class AudioTrackPatch extends SpoofStreamingDataPatch {
             }
             // Only 'No auth' can change the audio track language when fetching.
             // Check if the last spoofed client is 'No auth'.
-            if (!getLastSpoofedClientIsNoAuth()) {
+            if (!getLastSpoofedClientHasSingleAudioTrack()) {
                 Logger.printDebug(() -> "Video is not No Auth");
                 return;
             }
@@ -131,7 +131,7 @@ public class AudioTrackPatch extends SpoofStreamingDataPatch {
      */
     public static void setAudioTrackId(String newlyLoadedAudioTrackId) {
         if (SPOOF_STREAMING_DATA_AUDIO_TRACK_BUTTON &&
-                getLastSpoofedClientIsNoAuth() &&
+                getLastSpoofedClientHasSingleAudioTrack() &&
                 newlyLoadedAudioTrackId != null &&
                 newlyLoadedAudioTrackId.contains(".") &&
                 !audioTrackId.equals(newlyLoadedAudioTrackId)

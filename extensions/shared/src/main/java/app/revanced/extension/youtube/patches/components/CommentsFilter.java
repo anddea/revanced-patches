@@ -15,7 +15,7 @@ public final class CommentsFilter extends Filter {
     private static final String COMMENT_ENTRY_POINT_TEASER_PATH = "comments_entry_point_teaser";
     private static final Pattern COMMENT_PREVIEW_TEXT_PATTERN = Pattern.compile("comments_entry_point_teaser.+ContainerType");
     private static final String FEED_VIDEO_PATH = "video_lockup_with_attachment";
-    private static final String VIDEO_METADATA_CAROUSEL_PATH = "video_metadata_carousel.eml";
+    private static final String VIDEO_METADATA_CAROUSEL_PATH = "video_metadata_carousel.";
 
     private final StringFilterGroup chipBar;
     private final ByteArrayFilterGroup aiCommentsSummary;
@@ -37,7 +37,7 @@ public final class CommentsFilter extends Filter {
 
         chipBar = new StringFilterGroup(
                 Settings.HIDE_AI_COMMENTS_SUMMARY,
-                "chip_bar.eml"
+                "chip_bar."
         );
 
         aiCommentsSummary = new ByteArrayFilterGroup(
@@ -60,8 +60,8 @@ public final class CommentsFilter extends Filter {
 
         final StringFilterGroup commentsByMembers = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_BY_MEMBERS,
-                "sponsorships_comments_header.eml",
-                "sponsorships_comments_footer.eml"
+                "sponsorships_comments_header.",
+                "sponsorships_comments_footer."
         );
 
         createAShort = new StringFilterGroup(
@@ -100,7 +100,7 @@ public final class CommentsFilter extends Filter {
 
         thanks = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_THANKS_BUTTON,
-                "|super_thanks_button.eml"
+                "|super_thanks_button."
         );
 
 

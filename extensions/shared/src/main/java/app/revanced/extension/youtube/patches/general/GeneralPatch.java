@@ -49,52 +49,6 @@ import app.revanced.extension.youtube.utils.ThemeUtils;
 @SuppressWarnings({"deprecation", "unused"})
 public class GeneralPatch {
 
-    // region [Disable auto audio tracks] patch
-
-    private static final String DEFAULT_AUDIO_TRACKS_SUFFIX = ".4";
-
-    /**
-     * Injection point.
-     */
-    public static boolean ignoreDefaultAudioStream(boolean original) {
-        if (Settings.DISABLE_AUTO_AUDIO_TRACKS.get()) {
-            return false;
-        }
-        return original;
-    }
-
-    /**
-     * Injection point.
-     */
-    public static boolean isDefaultAudioStream(boolean isDefault, String audioTrackId, String audioTrackDisplayName) {
-        try {
-            if (!Settings.DISABLE_AUTO_AUDIO_TRACKS.get()) {
-                return isDefault;
-            }
-
-            if (audioTrackId.isEmpty()) {
-                // Older app targets can have empty audio tracks and these might be placeholders.
-                // The real audio tracks are called after these.
-                return isDefault;
-            }
-
-            Logger.printDebug(() -> "default: " + String.format("%-5s", isDefault) + " id: "
-                    + String.format("%-8s", audioTrackId) + " name:" + audioTrackDisplayName);
-
-            final boolean isOriginal = audioTrackId.endsWith(DEFAULT_AUDIO_TRACKS_SUFFIX);
-            if (isOriginal) {
-                Logger.printDebug(() -> "Using audio: " + audioTrackId);
-            }
-
-            return isOriginal;
-        } catch (Exception ex) {
-            Logger.printException(() -> "isDefaultAudioStream failure", ex);
-            return isDefault;
-        }
-    }
-
-    // endregion
-
     // region [Disable layout updates] patch
 
     private static final String[] REQUEST_HEADER_KEYS = {
@@ -137,6 +91,13 @@ public class GeneralPatch {
         return !Settings.DISABLE_SPLASH_ANIMATION.get() && original;
     }
 
+    public static int disableSplashAnimation(int i, int i2) {
+        if (!Settings.DISABLE_SPLASH_ANIMATION.get() || i != i2) {
+            return i;
+        }
+        return i - 1;
+    }
+
     // endregion
 
     // region [Enable gradient loading screen] patch
@@ -150,7 +111,11 @@ public class GeneralPatch {
     // region [Hide layout components] patch
 
     public static boolean disableTranslucentStatusBar(boolean original) {
-        return !Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get() && original;
+        if (Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get()) {
+            return false;
+        }
+
+        return original;
     }
 
     private static String[] accountMenuBlockList;
@@ -358,6 +323,10 @@ public class GeneralPatch {
 
     public static boolean fixHypeButtonIconEnabled() {
         return Settings.FIX_HYPE_BUTTON_ICON.get();
+    }
+
+    public static String getWatchNextEndpointVersionOverride() {
+        return "19.26.42";
     }
 
     // endregion
@@ -723,7 +692,7 @@ public class GeneralPatch {
         Context context = view.getContext();
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.setPackage(context.getPackageName());
-        intent.setData(Uri.parse("revanced_extended_settings_intent"));
+        intent.setData(Uri.parse("revanced_settings_intent"));
         intent.setClassName(context.getPackageName(), "com.google.android.libraries.social.licenses.LicenseActivity");
         context.startActivity(intent);
     }

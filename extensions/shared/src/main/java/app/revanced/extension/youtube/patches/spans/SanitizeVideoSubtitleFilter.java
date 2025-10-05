@@ -14,7 +14,7 @@ public final class SanitizeVideoSubtitleFilter extends Filter {
         addCallbacks(
                 new StringFilterGroup(
                         Settings.SANITIZE_VIDEO_SUBTITLE,
-                        "|video_subtitle.eml|"
+                        "|video_subtitle."
                 )
         );
     }

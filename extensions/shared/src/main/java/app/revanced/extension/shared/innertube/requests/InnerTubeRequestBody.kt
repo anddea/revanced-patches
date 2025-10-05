@@ -100,10 +100,11 @@ object InnerTubeRequestBody {
     fun createJSRequestBody(
         clientType: YouTubeClient.ClientType,
         videoId: String,
+        cpn: String = "",
         setLocale: Boolean = !clientType.supportsCookies,
         language: String = "",
         isGVS: Boolean = false,
-        bypassFakeBuffering: Boolean = false,
+        isInlinePlayback: Boolean = false,
     ): ByteArray {
         val innerTubeBody = JSONObject()
 
@@ -138,6 +139,9 @@ object InnerTubeRequestBody {
             innerTubeBody.put("racyCheckOk", true)
             innerTubeBody.put("contentCheckOk", true)
             innerTubeBody.put("videoId", videoId)
+            if (cpn.isNotEmpty()) {
+                innerTubeBody.put("cpn", cpn)
+            }
 
             val user = JSONObject()
             user.put("lockedSafetyMode", false)
@@ -153,14 +157,14 @@ object InnerTubeRequestBody {
                     )
                 }
                 contentPlaybackContext.put("html5Preference", "HTML5_PREF_WANTS")
-                if (bypassFakeBuffering) {
+                if (isInlinePlayback) {
                     // https://iter.ca/post/yt-adblock/
                     contentPlaybackContext.put("isInlinePlaybackNoAd", true)
                 }
                 val signatureTimestamp =
-                    ThrottlingParameterUtils.getSignatureTimestamp(!requirePoToken)
+                    ThrottlingParameterUtils.getSignatureTimestamp()
                 if (signatureTimestamp != null) {
-                    contentPlaybackContext.put("signatureTimestamp", signatureTimestamp.toInt())
+                    contentPlaybackContext.put("signatureTimestamp", signatureTimestamp)
                 }
                 val playbackContext = JSONObject()
                 playbackContext.put("contentPlaybackContext", contentPlaybackContext)

@@ -13,6 +13,8 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patcher.util.smali.toInstructions
+import app.revanced.patches.shared.FIXED_RESOLUTION_STRING
+import app.revanced.patches.shared.formatStreamModelToStringFingerprint
 import app.revanced.patches.shared.mdxPlayerDirectorSetVideoStageFingerprint
 import app.revanced.patches.shared.playbackStartParametersConstructorFingerprint
 import app.revanced.patches.shared.playbackStartParametersToStringFingerprint
@@ -22,7 +24,6 @@ import app.revanced.patches.youtube.utils.YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
 import app.revanced.patches.youtube.utils.YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
 import app.revanced.patches.youtube.utils.extension.Constants.SHARED_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.VIDEO_PATH
-import app.revanced.patches.youtube.utils.formatStreamModelToStringFingerprint
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.videoEndFingerprint
@@ -756,7 +757,7 @@ val videoInformationPatch = bytecodePatch(
 
         val initialResolutionField =
             playbackStartParametersToStringFingerprint.originalMethodOrThrow()
-                .findFieldFromToString(", initialPlaybackVideoQualityFixedResolution=")
+                .findFieldFromToString(FIXED_RESOLUTION_STRING)
 
         playbackStartParametersConstructorFingerprint
             .methodOrThrow(playbackStartParametersToStringFingerprint)

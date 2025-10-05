@@ -3,11 +3,8 @@ package app.revanced.patches.youtube.ads.general
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.ads.baseAdsPatch
-import app.revanced.patches.shared.ads.hookLithoFullscreenAds
-import app.revanced.patches.shared.ads.hookNonLithoFullscreenAds
+import app.revanced.patches.shared.ads.adsPatch
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
@@ -16,7 +13,6 @@ import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_ADS
 import app.revanced.patches.youtube.utils.resourceid.adAttribution
-import app.revanced.patches.youtube.utils.resourceid.interstitialsContainer
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
@@ -34,36 +30,21 @@ private const val ADS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/AdsFilter;"
 
 @Suppress("unused")
-val adsPatch = bytecodePatch(
-    HIDE_ADS.title,
-    HIDE_ADS.summary,
-) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+val adsPatch = adsPatch(
+    block = {
+        compatibleWith(COMPATIBLE_PACKAGE)
 
-    dependsOn(
-        settingsPatch,
-        baseAdsPatch(ADS_CLASS_DESCRIPTOR, "hideVideoAds"),
-        lithoFilterPatch,
-        lithoLayoutPatch,
-        sharedResourceIdPatch,
-    )
-
-    execute {
+        dependsOn(
+            settingsPatch,
+            lithoFilterPatch,
+            lithoLayoutPatch,
+            sharedResourceIdPatch,
+        )
+    },
+    classDescriptor = ADS_CLASS_DESCRIPTOR,
+    methodDescriptor = "hideVideoAds",
+    executeBlock = {
         addLithoFilter(ADS_FILTER_CLASS_DESCRIPTOR)
-
-        // region patch for hide fullscreen ads
-
-        // non-litho view, used in some old clients
-        interstitialsContainerFingerprint
-            .methodOrThrow()
-            .hookNonLithoFullscreenAds(interstitialsContainer)
-
-        // litho view, used in 'ShowDialogCommandOuterClass' in innertube
-        showDialogCommandFingerprint
-            .matchOrThrow()
-            .hookLithoFullscreenAds()
-
-        // endregion
 
         // region patch for hide general ads
 
@@ -157,6 +138,5 @@ val adsPatch = bytecodePatch(
         )
 
         // endregion
-
     }
-}
+)

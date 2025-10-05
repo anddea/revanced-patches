@@ -92,7 +92,10 @@ class ChannelIdRequest private constructor(
                     GET_VIDEO_DETAILS,
                     clientType
                 )
-                val requestBody = createJSRequestBody(clientType, videoId)
+                val requestBody = createJSRequestBody(
+                    clientType = clientType,
+                    videoId = videoId
+                )
 
                 connection.setFixedLengthStreamingMode(requestBody.size)
                 connection.outputStream.write(requestBody)

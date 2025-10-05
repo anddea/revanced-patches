@@ -15,8 +15,6 @@ import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS
 import app.revanced.patches.youtube.utils.indexOfGetDrawableInstruction
 import app.revanced.patches.youtube.utils.patch.PatchList.SPOOF_APP_VERSION
 import app.revanced.patches.youtube.utils.playservice.is_19_26_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_19_28_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_19_29_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.settingsFragment
@@ -26,7 +24,6 @@ import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.utils.settingsFragmentSyntheticFingerprint
 import app.revanced.patches.youtube.utils.toolBarButtonFingerprint
 import app.revanced.util.Utils.printWarn
-import app.revanced.util.appendAppVersion
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.methodOrThrow
@@ -118,6 +115,7 @@ val spoofAppVersionPatch = resourcePatch(
             "19.43.41",
             "19.44.39",
             "19.47.53",
+            "20.05.46",
         ),
     )
 
@@ -148,25 +146,5 @@ val spoofAppVersionPatch = resourcePatch(
             settingArray,
             SPOOF_APP_VERSION
         )
-
-        appendAppVersion("19.01.34")
-
-        if (is_19_28_or_greater) {
-            appendAppVersion("19.26.42")
-        } else {
-            return@execute
-        }
-
-        if (is_19_29_or_greater) {
-            appendAppVersion("19.28.42")
-        } else {
-            return@execute
-        }
-
-        if (is_19_34_or_greater) {
-            appendAppVersion("19.33.37")
-        } else {
-            return@execute
-        }
     }
 }

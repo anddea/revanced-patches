@@ -9,7 +9,6 @@ import app.revanced.patches.shared.mapping.ResourceType.DRAWABLE
 import app.revanced.patches.shared.mapping.ResourceType.ID
 import app.revanced.patches.shared.mapping.ResourceType.LAYOUT
 import app.revanced.patches.shared.mapping.ResourceType.STRING
-import app.revanced.patches.shared.mapping.ResourceType.STYLE
 import app.revanced.patches.shared.mapping.getResourceId
 import app.revanced.patches.shared.mapping.resourceMappingPatch
 
@@ -46,8 +45,6 @@ var historyMenuItem = -1L
 var inlineTimeBarAdBreakMarkerColor = -1L
     private set
 var inlineTimeBarProgressColor = -1L
-    private set
-var interstitialsContainer = -1L
     private set
 var isTablet = -1L
     private set
@@ -88,8 +85,6 @@ var qualityAuto = -1L
 var remixGenericButtonSize = -1L
     private set
 var searchButton = -1L
-    private set
-var slidingDialogAnimation = -1L
     private set
 var tapBloomView = -1L
     private set
@@ -148,7 +143,6 @@ internal val sharedResourceIdPatch = resourcePatch(
         inlineTimeBarAdBreakMarkerColor =
             getResourceId(COLOR, "inline_time_bar_ad_break_marker_color")
         inlineTimeBarProgressColor = getResourceId(COLOR, "inline_time_bar_progress_color")
-        interstitialsContainer = getResourceId(ID, "interstitials_container")
         isTablet = getResourceId(BOOL, "is_tablet")
         likeDislikeContainer = getResourceId(ID, "like_dislike_container")
         mainActivityLaunchAnimation = getResourceId(LAYOUT, "main_activity_launch_animation")
@@ -170,7 +164,6 @@ internal val sharedResourceIdPatch = resourcePatch(
         qualityAuto = getResourceId(STRING, "quality_auto")
         remixGenericButtonSize = getResourceId(DIMEN, "remix_generic_button_size")
         searchButton = getResourceId(LAYOUT, "search_button")
-        slidingDialogAnimation = getResourceId(STYLE, "SlidingDialogAnimation")
         tapBloomView = getResourceId(ID, "tap_bloom_view")
         text1 = getResourceId(ID, "text1")
         toolTipContentView = getResourceId(LAYOUT, "tooltip_content_view")

@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
@@ -157,8 +156,6 @@ private const val DEFAULT_LABEL = "RVX"
 private const val FALLBACK_ELEMENT = "settings_header_general"
 private lateinit var settingsLabel: String
 
-var isSettingsSummariesEnabled: Boolean? = true
-
 private val SETTINGS_ELEMENTS_MAP = mapOf(
     "Parent settings" to DEFAULT_ELEMENT,
     "General" to FALLBACK_ELEMENT,
@@ -204,22 +201,12 @@ val settingsPatch = resourcePatch(
         required = true,
     )
 
-    val settingsSummaries by booleanOption(
-        key = "settingsSummaries",
-        default = true,
-        title = "RVX settings summaries",
-        description = "Shows the summary / description of each RVX setting. If set to false, no descriptions will be provided.",
-        required = true,
-    )
-
     execute {
         /**
          * check patch options
          */
         settingsLabel = rvxSettingsLabel
             .valueOrThrow()
-
-        isSettingsSummariesEnabled = settingsSummaries
 
         var insertKey = insertPosition
             .valueOrThrow()
@@ -287,7 +274,7 @@ val settingsPatch = resourcePatch(
          */
         addPreferenceWithIntent(
             CategoryType.MISC,
-            "revanced_extended_settings_import_export"
+            "revanced_settings_import_export"
         )
     }
 
@@ -298,11 +285,11 @@ val settingsPatch = resourcePatch(
          */
         if (settingsLabel != DEFAULT_LABEL) {
             removeStringsElements(
-                arrayOf("revanced_extended_settings_title")
+                arrayOf("revanced_settings_title")
             )
             document("res/values/strings.xml").use { document ->
                 mapOf(
-                    "revanced_extended_settings_title" to settingsLabel
+                    "revanced_settings_title" to settingsLabel
                 ).forEach { (k, v) ->
                     val stringElement = document.createElement("string")
 
@@ -387,13 +374,7 @@ internal fun addSwitchPreference(
 ) {
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)
-
-    // Check the exported value of isSettingsSummariesEnabled
-    if (isSettingsSummariesEnabled == true) {
         ResourceUtils.addSwitchPreference(categoryValue, key, defaultValue, dependencyKey, setSummary)
-    } else {
-        ResourceUtils.addSwitchPreference(categoryValue, key, defaultValue, dependencyKey, false)
-    }
 }
 
 internal fun addPreferenceWithIntent(
@@ -404,11 +385,4 @@ internal fun addPreferenceWithIntent(
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)
     ResourceUtils.addPreferenceWithIntent(categoryValue, key, dependencyKey)
-}
-
-internal fun replaceSwitchPreference(
-    key: String,
-    defaultValue: String
-) {
-    ResourceUtils.replaceSwitchPreference(key, defaultValue)
 }

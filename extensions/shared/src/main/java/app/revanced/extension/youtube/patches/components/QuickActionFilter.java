@@ -8,7 +8,7 @@ import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public final class QuickActionFilter extends Filter {
-    private static final String QUICK_ACTION_PATH = "quick_actions.eml";
+    private static final String QUICK_ACTION_PATH = "quick_actions.";
     private final StringFilterGroup quickActionRule;
 
     private final StringFilterGroup bufferFilterPathRule;
@@ -21,13 +21,13 @@ public final class QuickActionFilter extends Filter {
         addIdentifierCallbacks(quickActionRule);
         bufferFilterPathRule = new StringFilterGroup(
                 null,
-                "|ContainerType|button.eml",
-                "|fullscreen_video_action_button.eml"
+                "|ContainerType|button.",
+                "|fullscreen_video_action_button."
         );
 
         liveChatReplay = new StringFilterGroup(
                 Settings.HIDE_LIVE_CHAT_REPLAY_BUTTON,
-                "live_chat_ep_entrypoint.eml"
+                "live_chat_ep_entrypoint."
         );
 
         addIdentifierCallbacks(liveChatReplay);

@@ -16,10 +16,10 @@ abstract class BaseGestureController(
     private val controller: SwipeControlsHostActivity,
 ) : GestureController,
     GestureDetector.SimpleOnGestureListener(),
-    PlayerControlsVisibilityObserver by PlayerControlsVisibilityObserverImpl(controller),
     SwipeDetector by SwipeDetectorImpl(
         controller.config.swipeMagnitudeThreshold.toDouble(),
     ),
+    PlayerControlsVisibilityObserver by PlayerControlsVisibilityObserverImpl(controller),
     VolumeAndBrightnessScroller by VolumeAndBrightnessScrollerImpl(
         controller.audio,
         controller.screen,
@@ -47,6 +47,7 @@ abstract class BaseGestureController(
         if (!controller.config.enableSwipeControls) {
             return false
         }
+        // Fix https://github.com/inotia00/ReVanced_Extended/issues/3052
         if (isFullscreenEngagementPanelVisible) {
             return false
         }

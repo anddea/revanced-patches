@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.patches.components;
 
+import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
+import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
 import app.revanced.extension.shared.patches.components.StringFilterGroupList;
@@ -12,15 +14,33 @@ import app.revanced.extension.youtube.shared.RootView;
 public final class PlayerComponentsFilter extends Filter {
     private final StringFilterGroupList channelBarGroupList = new StringFilterGroupList();
     private final StringFilterGroup channelBar;
+    private final StringFilterGroup seekMessage;
     private final StringFilterGroup singleItemInformationPanel;
     private final StringTrieSearch suggestedActionsException = new StringTrieSearch();
     private final StringFilterGroup suggestedActions;
+    private final ByteArrayFilterGroup seekMessageGroupExceptions = new ByteArrayFilterGroup(
+            null,
+            "yt_fill_fast_forward_vd_theme_24"
+    );
+    private final ByteArrayFilterGroupList seekMessageGroupList = new ByteArrayFilterGroupList();
 
     public PlayerComponentsFilter() {
         suggestedActionsException.addPatterns(
                 "channel_bar",
                 "shorts"
         );
+
+        final StringFilterGroup crowdFundingBox = new StringFilterGroup(
+                Settings.HIDE_CROWDFUNDING_BOX,
+                "donation_shelf"
+        );
+
+        seekMessage = new StringFilterGroup(
+                null,
+                "seek_edu_overlay"
+        );
+
+        addIdentifierCallbacks(crowdFundingBox, seekMessage);
 
         // The player audio track button does the exact same function as the audio track flyout menu option.
         // But if the copy url button is shown, these button clashes and the the audio button does not work.
@@ -42,17 +62,12 @@ public final class PlayerComponentsFilter extends Filter {
 
         final StringFilterGroup channelWaterMark = new StringFilterGroup(
                 Settings.HIDE_CHANNEL_WATERMARK,
-                "featured_channel_watermark_overlay.eml"
-        );
-
-        final StringFilterGroup donationShelf = new StringFilterGroup(
-                Settings.HIDE_CROWDFUNDING_BOX,
-                "donation_shelf.eml"
+                "featured_channel_watermark_overlay."
         );
 
         final StringFilterGroup infoCards = new StringFilterGroup(
                 Settings.HIDE_INFO_CARDS,
-                "info_card_teaser_overlay.eml"
+                "info_card_teaser_overlay."
         );
 
         final StringFilterGroup infoPanel = new StringFilterGroup(
@@ -72,14 +87,9 @@ public final class PlayerComponentsFilter extends Filter {
                 "medical_panel"
         );
 
-        final StringFilterGroup seekMessage = new StringFilterGroup(
-                Settings.HIDE_SEEK_MESSAGE,
-                "seek_edu_overlay"
-        );
-
         suggestedActions = new StringFilterGroup(
                 Settings.HIDE_SUGGESTED_ACTION,
-                "|suggested_action.eml|"
+                "|suggested_action."
         );
 
         final StringFilterGroup timedReactions = new StringFilterGroup(
@@ -92,11 +102,9 @@ public final class PlayerComponentsFilter extends Filter {
                 audioTrackButton,
                 channelBar,
                 channelWaterMark,
-                donationShelf,
                 infoCards,
                 infoPanel,
                 medicalPanel,
-                seekMessage,
                 singleItemInformationPanel,
                 suggestedActions,
                 timedReactions
@@ -105,7 +113,7 @@ public final class PlayerComponentsFilter extends Filter {
         final StringFilterGroup joinMembership = new StringFilterGroup(
                 Settings.HIDE_JOIN_BUTTON,
                 "compact_sponsor_button",
-                "|ContainerType|button.eml"
+                "|ContainerType|button."
         );
 
         final StringFilterGroup startTrial = new StringFilterGroup(
@@ -117,6 +125,24 @@ public final class PlayerComponentsFilter extends Filter {
                 joinMembership,
                 startTrial
         );
+
+        seekMessageGroupList.addAll(
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_FILMSTRIP_OVERLAY,
+                        "seek_edu_fine_scrubbing_text"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SEEK_UNDO_MESSAGE,
+                        "ADBE Vector Shape"
+                )
+        );
+    }
+
+    private boolean isEveryFilterGroupEnabled() {
+        for (ByteArrayFilterGroup group : seekMessageGroupList)
+            if (!group.isEnabled()) return false;
+
+        return true;
     }
 
     @Override
@@ -135,6 +161,11 @@ public final class PlayerComponentsFilter extends Filter {
             return !suggestedActionsException.matches(path) && !PlayerType.getCurrent().isNoneOrHidden();
         } else if (matchedGroup == channelBar) {
             return channelBarGroupList.check(path).isFiltered();
+        } else if (matchedGroup == seekMessage) {
+            if (seekMessageGroupExceptions.check(buffer).isFiltered()) {
+                return false;
+            }
+            return isEveryFilterGroupEnabled() || seekMessageGroupList.check(buffer).isFiltered();
         }
 
         return true;

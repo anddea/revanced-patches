@@ -1,5 +1,7 @@
 package app.revanced.extension.shared.innertube.utils;
 
+import static app.revanced.extension.shared.innertube.utils.DeviceHardwareSupport.hasAV1Decoder;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -119,8 +121,9 @@ public class StreamingDataOuterClassUtils {
      */
     public static List<Object> prioritizeResolution(List<Object> adaptiveFormats) {
         try {
-            int maxAVCHeight = -1;
-            int maxVP9Height = -1;
+            int maxHeightAVC = -1;
+            int maxHeightAV1 = -1;
+            int maxHeightOthers = -1;
             for (Object adaptiveFormat : adaptiveFormats) {
                 if (adaptiveFormat instanceof MessageLite messageLite) {
                     var parsedAdaptiveFormat = PlayerResponseOuterClass.Format.parseFrom(messageLite.toByteArray());
@@ -129,18 +132,23 @@ public class StreamingDataOuterClassUtils {
                         if (StringUtils.startsWith(mimeType, "video")) {
                             int height = parsedAdaptiveFormat.getHeight();
                             if (mimeType.contains("avc")) {
-                                maxAVCHeight = Math.max(maxAVCHeight, height);
+                                maxHeightAVC = Math.max(maxHeightAVC, height);
+                            } else if (mimeType.contains("av01")) {
+                                maxHeightAV1 = Math.max(maxHeightAV1, height);
                             } else {
-                                maxVP9Height = Math.max(maxVP9Height, height);
+                                maxHeightOthers = Math.max(maxHeightOthers, height);
                             }
-                            if (maxAVCHeight != -1 && maxVP9Height != -1) {
+                            if (maxHeightAVC != -1 && maxHeightOthers != -1) {
                                 break;
                             }
                         }
                     }
                 }
             }
-            if (maxAVCHeight > maxVP9Height) {
+            boolean shouldOverride = maxHeightAV1 != -1 && hasAV1Decoder()
+                    ? maxHeightAVC > maxHeightAV1
+                    : maxHeightAVC > maxHeightOthers;
+            if (shouldOverride) {
                 ArrayList<Object> arrayList = new ArrayList<>(adaptiveFormats.size());
 
                 for (Object adaptiveFormat : adaptiveFormats) {

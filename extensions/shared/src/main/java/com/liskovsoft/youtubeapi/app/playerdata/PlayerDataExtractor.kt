@@ -3,95 +3,133 @@ package com.liskovsoft.youtubeapi.app.playerdata
 import app.revanced.extension.shared.utils.Logger
 import com.eclipsesource.v8.V8ScriptExecutionException
 import com.liskovsoft.googlecommon.common.js.JSInterpret
+import com.liskovsoft.youtubeapi.app.nsigsolver.impl.V8ChallengeProvider
+import com.liskovsoft.youtubeapi.app.nsigsolver.provider.ChallengeInput
+import com.liskovsoft.youtubeapi.app.nsigsolver.provider.JsChallengeRequest
+import com.liskovsoft.youtubeapi.app.nsigsolver.provider.JsChallengeType
 
-internal class PlayerDataExtractor(val jsCode: String?) {
+internal class PlayerDataExtractor(val playerJS: String, val ejs: Boolean) {
     private var mNFuncCode: Pair<List<String>, String>? = null
     private var mSigFuncCode: Pair<List<String>, String>? = null
-    private var mNSigTmp: Pair<String, String?>? = null
+
+    private var nSigTmp: Pair<String, String?>? = null
+    private var initialized: Boolean = false
 
     init {
-        if (mNFuncCode == null || mSigFuncCode == null) {
+        if (!initialized) {
+            initialized = true
+
+            if (ejs) {
+                V8ChallengeProvider.setPlayerJS(playerJS)
+            }
+
             fetchAllData()
             checkAllData()
         }
     }
 
     fun extractNSig(nParam: String): String? {
-        if (mNSigTmp?.first == nParam) return mNSigTmp?.second
+        if (nSigTmp?.first == nParam) return nSigTmp?.second
 
         val nSig = extractNSigReal(nParam)
 
-        mNSigTmp = Pair(nParam, nSig)
+        nSigTmp = Pair(nParam, nSig)
 
         return nSig
     }
 
     fun extractSig(sParam: String): String? {
-        val sig = extractSigReal(sParam)
+        if (ejs) {
+            val result = V8ChallengeProvider.bulkSolve(
+                listOf(JsChallengeRequest(JsChallengeType.SIG, ChallengeInput(sParam)))
+            )
 
-        return sig
+            return result.toList().firstOrNull()?.response?.output?.results?.values?.toList()
+                ?.firstOrNull()
+        } else {
+            val funcCode = mSigFuncCode ?: return null
+
+            val func = JSInterpret.extractFunctionFromCode(funcCode.first, funcCode.second)
+
+            return func(listOf(sParam))
+        }
     }
 
     private fun extractNSigReal(nParam: String): String? {
-        val funcCode = mNFuncCode ?: return null
+        if (ejs) {
+            val result = V8ChallengeProvider.bulkSolve(
+                listOf(JsChallengeRequest(JsChallengeType.N, ChallengeInput(nParam)))
+            )
 
-        val func = JSInterpret.extractFunctionFromCode(funcCode.first, funcCode.second)
+            return result.toList().firstOrNull()?.response?.output?.results?.get(nParam)
+        } else {
+            val funcCode = mNFuncCode ?: return null
 
-        return func(listOf(nParam))
-    }
+            val func = JSInterpret.extractFunctionFromCode(funcCode.first, funcCode.second)
 
-    private fun extractSigReal(sParam: String): String? {
-        val funcCode = mSigFuncCode ?: return null
-
-        val func = JSInterpret.extractFunctionFromCode(funcCode.first, funcCode.second)
-
-        return func(listOf(sParam))
+            return func(listOf(nParam))
+        }
     }
 
     private fun fetchAllData() {
-        val globalVarData = jsCode?.let { CommonExtractor.extractPlayerJsGlobalVar(it) } ?: Triple(null, null, null)
-        val globalVar = CommonExtractor.interpretPlayerJsGlobalVar(globalVarData)
+        if (ejs) return
 
-        mNFuncCode = jsCode?.let {
-            try {
-                NSigExtractor.extractNFuncCode(it, globalVar)
+        try {
+            val globalVarData = CommonExtractor.extractPlayerJsGlobalVar(playerJS)
+            val globalVar = CommonExtractor.interpretPlayerJsGlobalVar(globalVarData)
+
+            mNFuncCode = try {
+                NSigExtractor.extractNFuncCode(playerJS, globalVar)
             } catch (e: Throwable) {
-                Logger.printException({ "NSig init failed" }, e )
+                Logger.printException({ "NSig init failed" }, e)
                 null
             }
-        }
-        mSigFuncCode = jsCode?.let {
-            try {
-                SigExtractor.extractSigCode(it, globalVar)
+            mSigFuncCode = try {
+                SigExtractor.extractSigCode(playerJS, globalVar)
             } catch (e: Throwable) {
-                Logger.printException({ "Signature init failed" }, e )
+                Logger.printException({ "Signature init failed" }, e)
                 null
             }
+        } catch (e: Throwable) {
+            Logger.printException({ "fetchAllData failed" }, e)
+            null
         }
     }
 
     private fun checkAllData() {
-        mNFuncCode?.let {
+        val param = "5cNpZqIJ7ixNqU68Y7S"
+        if (ejs) {
             try {
-                val param = "5cNpZqIJ7ixNqU68Y7S"
-                val result = extractNSigReal(param)
-                if (result == null || result == param)
-                    mNFuncCode = null
-            } catch (error: V8ScriptExecutionException) {
-                Logger.printException({ "NSig check failed" }, error )
-                mNFuncCode = null
+                V8ChallengeProvider.bulkSolve(
+                    listOf(
+                        JsChallengeRequest(JsChallengeType.N, ChallengeInput(param)),
+                        JsChallengeRequest(JsChallengeType.SIG, ChallengeInput(param)),
+                    )
+                )
+            } catch (e: Exception) {
+                Logger.printException({ "checkAllData failed" }, e)
             }
-        }
+        } else {
+            mNFuncCode?.let {
+                try {
+                    val result = extractNSigReal(param)
+                    if (result == null || result == param)
+                        mNFuncCode = null
+                } catch (error: V8ScriptExecutionException) {
+                    Logger.printException({ "NSig check failed" }, error)
+                    mNFuncCode = null
+                }
+            }
 
-        mSigFuncCode?.let {
-            try {
-                val param = "5cNpZqIJ7ixNqU68Y7S"
-                val result = extractSigReal(param)
-                if (result == null || result == param)
+            mSigFuncCode?.let {
+                try {
+                    val result = extractSig(param)
+                    if (result == null || result == param)
+                        mSigFuncCode = null
+                } catch (error: V8ScriptExecutionException) {
+                    Logger.printException({ "Signature check failed" }, error)
                     mSigFuncCode = null
-            } catch (error: V8ScriptExecutionException) {
-                Logger.printException({ "Signature check failed" }, error )
-                mSigFuncCode = null
+                }
             }
         }
     }

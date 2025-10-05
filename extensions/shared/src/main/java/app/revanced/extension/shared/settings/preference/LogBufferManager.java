@@ -64,13 +64,22 @@ public final class LogBufferManager {
      */
     public static void exportToClipboard() {
         String message = exportToString();
-        if (message != null) {
+        if (message == null) return;
+        try {
+            Utils.setClipboard(message);
+
             // Most (but not all) Android 13+ devices always show a "copied to clipboard" toast
             // and there is no way to programmatically detect if a toast will show or not.
             // Show a toast even if using Android 13+, but show ReVanced toast first (before copying to clipboard).
             Utils.showToastShort(str("revanced_debug_logs_copied_to_clipboard"));
-
-            Utils.setClipboard(message);
+        } catch (Exception ignored) {
+            // Intent cannot contain more than 512KB (or 1024KB) of data at a time.
+            // If the message size exceeds 512KB (or 1024KB), an 'android.os.TransactionTooLargeException' will be thrown:
+            // https://stackoverflow.com/a/42158221
+            // https://stackoverflow.com/a/67954710
+            //
+            // RVX supports 'Export debug logs as file', so this shouldn't be a major issue.
+            Utils.showToastShort(str("revanced_debug_logs_failed_to_copy_to_clipboard"));
         }
     }
 
