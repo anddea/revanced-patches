@@ -1,3 +1,5 @@
+package app.revanced.patches.netwall
+
 import app.revanced.util.fingerprint.legacyFingerprint
 
 internal val premiumCheckFingerprint = legacyFingerprint(
@@ -13,4 +15,9 @@ internal val integrityCheckFingerprint = legacyFingerprint(
     strings = listOf(
         "System.exit returned normally, while it was supposed to halt JVM."
     )
+)
+
+internal val inAppBillingFingerprint = legacyFingerprint(
+    name = "inAppBillingFingerprint",
+    strings = listOf("InAppBillingService.BIND")
 )

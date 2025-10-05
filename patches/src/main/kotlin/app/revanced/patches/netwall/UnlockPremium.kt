@@ -4,20 +4,16 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.*
-import app.revanced.util.FilesCompat
+import app.revanced.util.*
+import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import app.revanced.util.inputStreamFromBundledResourceOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import integrityCheckFingerprint
 import org.w3c.dom.Element
 import org.w3c.dom.Node
-import premiumCheckFingerprint
 
 private lateinit var context: ResourcePatchContext
 
@@ -43,20 +39,29 @@ val unlockPremiumPatch = bytecodePatch {
             }
 
             replaceInstruction(constIndex, "const/16 p0, 0x1f4")
+        }
 
-            // Remove killProcess to avoid app crash
-            val targetMethod = integrityCheckFingerprint.methodOrThrow()
+        // Remove billing window
+        inAppBillingFingerprint.matchOrThrow().let {
+            it.method.apply {
+                val stringIndex = it.stringMatches!!.first().index
+                val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
+                replaceInstruction(stringIndex, """const-string v$stringRegister, "no.billing"""")
+            }
+        }
 
-            val killProcessIndex = targetMethod.indexOfFirstInstructionOrThrow {
+        // Remove killProcess to avoid app crash
+        integrityCheckFingerprint.methodOrThrow().apply {
+            val killProcessIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_STATIC &&
                         getReference<MethodReference>()?.toString() == "Landroid/os/Process;->killProcess(I)V"
             }
 
-            val conditionalJumpIndex = targetMethod.indexOfFirstInstructionReversedOrThrow(killProcessIndex) {
+            val conditionalJumpIndex = indexOfFirstInstructionReversedOrThrow(killProcessIndex) {
                 opcode == Opcode.IF_EQZ
             }
 
-            targetMethod.replaceInstruction(conditionalJumpIndex, "nop")
+            replaceInstruction(conditionalJumpIndex, "nop")
         }
     }
 }
