@@ -17,6 +17,7 @@
     <string name="gms_core_dialog_open_website_text">פתח אתר</string>
     <string name="gms_core_dialog_title">דרושה פעולה</string>
     <string name="gms_core_offline_account_login_error">אם שינית לאחרונה את פרטי ההתחברות לחשבון שלך, הסר את התקנת GmsCore והתקן אותה מחדש.</string>
+    <string name="gms_core_settings_summary">כדי לקבל התראות ב-RVX, הפעל את Cloud Messaging.</string>
     <string name="gms_core_settings_title">פתח הגדרות GmsCore</string>
     <string name="gms_core_toast_not_installed_message">היישום MicroG GmsCore אינו מותקן. התקן אותו.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">תפריט איכות סרטון מתקדם אינו מוצג</string>
@@ -45,6 +46,7 @@
     <string name="revanced_alt_thumbnail_options_entry_4">לכידות דוממות</string>
     <string name="revanced_alt_thumbnail_player_title">פלייליסטים &amp; המלצות של נגן</string>
     <string name="revanced_alt_thumbnail_search_title">תוצאות חיפוש</string>
+    <string name="revanced_alt_thumbnail_stills">צילום וידאו סטילס</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">לכידות דוממות נלקחות מהתחלת/אמצע/סוף של כל סרטון. תמונות אלו מובנות לתוך YouTube ולא נעשה שימוש ב-API חיצוני</string>
     <string name="revanced_alt_thumbnail_stills_about_title">לכידות סרטון דוממות</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">שימוש בלכידות דוממות באיכות גבוהה</string>
@@ -54,9 +56,22 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_2">אמצע הסרטון</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">סוף הסרטון</string>
     <string name="revanced_alt_thumbnail_stills_time_title">זמן הסרטון ממנו יש לקחת לכידות דוממות</string>
+    <string name="revanced_alt_thumbnail_subscriptions_title">כרטיסיית מנויים</string>
     <string name="revanced_app_name_title">שם היישום</string>
     <string name="revanced_app_version_title">גרסאת היישום</string>
+    <string name="revanced_append_time_stamp_information_playback_speed_menu_type_title">סוג תפריט מהירות השמעה</string>
+    <string name="revanced_append_time_stamp_information_summary_off">מידע לא מצורף ל-timestage mp.</string>
+    <string name="revanced_append_time_stamp_information_title">הוסף מידע על חותמת זמן.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">הוסף מהירות השמעה.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">הוסף איכות וידאו.</string>
+    <string name="revanced_append_time_stamp_information_type_title">הוסף סוג מידע</string>
+    <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">נעשה שימוש בתפריט נשלף בסגנון ישן.</string>
+    <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">נעשה שימוש בדיאלוג מותאם אישית.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">סוג תפריט איכות וידיאו</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">מצב אווירה מושבת במצב חיסכון בסוללה.</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">מצב אווירה מופעל במצב חיסכון בסוללה.</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">עוקף את הגבלות מצב הסביבה</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">תחום חלופי</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">"שימוש במארח תמונות מקורי
 
 הפעלת אפשרות זו יכולה לתקן תמונות חסרות שנחסמו באזורים מסוימים"</string>
@@ -65,10 +80,12 @@
     <string name="revanced_bypass_url_redirects_summary_off">הפניות מחדש של URL אינן נעקפות</string>
     <string name="revanced_bypass_url_redirects_summary_on">הפניות מחדש של URL נעקפות</string>
     <string name="revanced_bypass_url_redirects_title">עקוף הפניות מחדש של URL</string>
+    <string name="revanced_cancel">לבטל</string>
     <string name="revanced_change_form_factor_entry_1">ברירת מחדל</string>
     <string name="revanced_change_form_factor_entry_2">טלפון</string>
     <string name="revanced_change_form_factor_entry_3">טאבלט</string>
     <string name="revanced_change_form_factor_entry_4">רכב</string>
+    <string name="revanced_change_form_factor_entry_5">טאבלט (מינימום 600 dp)</string>
     <string name="revanced_change_form_factor_title">גורם צורת הפריסה</string>
     <string name="revanced_change_form_factor_user_dialog_message">"השינויים כוללים:
 
@@ -78,6 +95,12 @@
 פריסת רכב
 • סרטוני Shorts נפתחים בנגן הרגיל
 • פיד מאורגן לפי נושאים וערוצים"</string>
+    <string name="revanced_change_player_flyout_menu_toggle_summary_off">נעשה שימוש במתגים.</string>
+    <string name="revanced_change_player_flyout_menu_toggle_summary_on">נעשה שימוש בלחצני טקסט.</string>
+    <string name="revanced_change_player_flyout_menu_toggle_title">שנה את סוג החלפת המצב</string>
+    <string name="revanced_change_shorts_background_repeat_state_title">שנה את מצב החזרה של רקע מכנס קצר</string>
+    <string name="revanced_change_shorts_repeat_state_entry_auto_play">הפעלה אוטומטית</string>
+    <string name="revanced_change_shorts_repeat_state_title">שנה מצב חוזר של Shorts</string>
     <string name="revanced_change_start_page_entry_all_subscriptions">כל המינויים</string>
     <string name="revanced_change_start_page_entry_browse">עיין בערוצים</string>
     <string name="revanced_change_start_page_entry_courses">קורסים / למידה</string>
@@ -86,6 +109,7 @@
     <string name="revanced_change_start_page_entry_fashion">אופנה &amp; יופי</string>
     <string name="revanced_change_start_page_entry_gaming">גיימינג</string>
     <string name="revanced_change_start_page_entry_history">היסטוריה</string>
+    <string name="revanced_change_start_page_entry_hype">הייפ</string>
     <string name="revanced_change_start_page_entry_library">ספרייה</string>
     <string name="revanced_change_start_page_entry_liked_videos">סרטונים שאהבתי</string>
     <string name="revanced_change_start_page_entry_live">בשידור חי</string>
@@ -94,6 +118,7 @@
     <string name="revanced_change_start_page_entry_news">חדשות</string>
     <string name="revanced_change_start_page_entry_notifications">עדכונים</string>
     <string name="revanced_change_start_page_entry_playlists">פלייליסטים</string>
+    <string name="revanced_change_start_page_entry_podcasts">פודקאסטים</string>
     <string name="revanced_change_start_page_entry_search">חיפוש</string>
     <string name="revanced_change_start_page_entry_shopping">שופינג</string>
     <string name="revanced_change_start_page_entry_sports">ספורט</string>
@@ -103,12 +128,23 @@
     <string name="revanced_change_start_page_entry_watch_later">לצפייה בהמשך</string>
     <string name="revanced_change_start_page_entry_your_clips">הקליפים שלך</string>
     <string name="revanced_change_start_page_title">שנה את דף ההתחלה</string>
+    <string name="revanced_change_start_page_type_summary_off">דף הפתיחה משתנה פעם אחת בלבד.</string>
+    <string name="revanced_change_start_page_type_title">שנה את סוג דף הפתיחה</string>
+    <string name="revanced_change_youtube_header_summary_on">כותרת פרימיום מופעלת.</string>
+    <string name="revanced_change_youtube_header_title">שנה את הכותרת של YouTube</string>
+    <string name="revanced_confirm_user_dialog_title">האם אתה בטוח שאתה רוצה להמשיך?</string>
+    <string name="revanced_copy">להעתיק</string>
+    <string name="revanced_copy_error">העתקת הטקסט נכשלה</string>
     <string name="revanced_custom_filter_strings_summary">רשימה של מחרוזות בונה נתיב רכיבים לסינון מופרדות על ידי שורה חדשה</string>
     <string name="revanced_custom_filter_strings_title">מסנן מותאם אישית</string>
     <string name="revanced_custom_filter_summary_off">מסנן מותאם אישית מושבת</string>
     <string name="revanced_custom_filter_summary_on">מסנן מותאם אישית מופעל</string>
     <string name="revanced_custom_filter_title">הפעל מסנן מותאם אישית</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">מסנן מותאם אישית לא חוקי: %s</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">מותאם אישית (מדור קודם)</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">מותאם אישית (מודרני)</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">מותאם אישית (ללא נושא)</string>
+    <string name="revanced_custom_playback_speed_menu_type_summary_on">נעשה שימוש בדיאלוג מותאם אישית.</string>
     <string name="revanced_custom_playback_speeds_invalid">מהירויות מותאמות אישית חייבות להיות קטנות מ-%s</string>
     <string name="revanced_custom_playback_speeds_parse_exception">מהירויות הפעלה מותאמות אישית לא חוקיות</string>
     <string name="revanced_custom_playback_speeds_summary">הוסף או שנה את המהירויות הפעלה המותאמות אישית</string>
@@ -162,6 +198,10 @@
     <string name="revanced_disable_translucent_status_bar_summary_on">שורת מצב אטומה</string>
     <string name="revanced_disable_translucent_status_bar_title">השבת שורת מצב שקופה</string>
     <string name="revanced_disable_translucent_status_bar_user_dialog_message">בחלק מהמכשירים, הפעלת תכונה זו עשויה לשנות את סרגל הניווט של המערכת לשקוף.</string>
+    <string name="revanced_enable_seekbar_tapping_summary_off">הקשה בסרגל החיפוש מושבתת.</string>
+    <string name="revanced_enable_seekbar_tapping_summary_on">הקשה בסרגל החיפוש מופעלת.</string>
+    <string name="revanced_enable_seekbar_tapping_title">אפשר הקשה בסרגל החיפוש</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">תמונות ממוזערות של Seekbar הן באיכות בינונית.</string>
     <string name="revanced_exit_fullscreen_entry_1">מושבת</string>
     <string name="revanced_exit_fullscreen_entry_2">לאורך</string>
     <string name="revanced_exit_fullscreen_entry_3">לרוחב</string>
