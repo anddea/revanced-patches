@@ -37,9 +37,7 @@ private fun gmsCoreSupportResourcePatch(
     packageNameYouTubeMusicOption = packageNameYouTubeMusicOption,
     executeBlock = {
         updatePackageName(
-            YOUTUBE_PACKAGE_NAME,
-            packageNameYouTubeOption.valueOrThrow(),
-            packageNameYouTubeMusicOption.valueOrThrow()
+            packageNameYouTubeOption.valueOrThrow()
         )
         updateGmsCorePackageName(
             "app.revanced",

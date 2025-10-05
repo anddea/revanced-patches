@@ -9,13 +9,13 @@ import app.revanced.extension.youtube.settings.Settings;
  * If A/B testing is applied, ad components can only be filtered by identifier
  * <p>
  * Before A/B testing:
- * Identifier: video_display_button_group_layout.eml
- * Path: video_display_button_group_layout.eml|ContainerType|....
+ * Identifier: video_display_button_group_layout.
+ * Path: video_display_button_group_layout.e|ContainerType|....
  * (Path always starts with an Identifier)
  * <p>
  * After A/B testing:
- * Identifier: video_display_button_group_layout.eml
- * Path: video_lockup_with_attachment.eml|ContainerType|....
+ * Identifier: video_display_button_group_layout.
+ * Path: video_lockup_with_attachment.e|ContainerType|....
  * (Path does not contain an Identifier)
  */
 @SuppressWarnings("unused")
@@ -30,24 +30,24 @@ public final class AdsFilter extends Filter {
 
         final StringFilterGroup alertBannerPromo = new StringFilterGroup(
                 Settings.HIDE_PROMOTION_ALERT_BANNER,
-                "alert_banner_promo.eml"
+                "alert_banner_promo."
         );
 
         // Keywords checked in 2025:
         final StringFilterGroup generalAdsIdentifier = new StringFilterGroup(
                 Settings.HIDE_GENERAL_ADS,
-                // "brand_video_shelf.eml"
-                // "brand_video_singleton.eml"
+                // "brand_video_shelf."
+                // "brand_video_singleton."
                 "brand_video",
 
-                // "carousel_footered_layout.eml"
+                // "carousel_footered_layout."
                 // "composite_concurrent_carousel_layout"
                 "carousel_",
 
-                // "inline_injection_entrypoint_layout.eml"
+                // "inline_injection_entrypoint_layout."
                 "inline_injection_entrypoint_layout",
 
-                // "statement_banner.eml"
+                // "statement_banner."
                 "statement_banner",
 
                 // "video_display_button_group_layout"
@@ -56,23 +56,23 @@ public final class AdsFilter extends Filter {
                 // "video_display_full_buttoned_layout"
                 // "video_display_full_buttoned_short_dr_layout"
                 // "video_display_full_layout"
-                // "video_display_full_layout.eml"
+                // "video_display_full_layout."
                 "video_display_",
 
-                // "text_image_button_group_layout.eml"
+                // "text_image_button_group_layout."
                 "_button_group_layout",
 
-                // "landscape_image_wide_button_layout.eml"
-                // "text_image_no_button_layout.eml"
+                // "landscape_image_wide_button_layout."
+                // "text_image_no_button_layout."
                 "_button_layout",
 
-                // "banner_text_icon_buttoned_layout.eml"
+                // "banner_text_icon_buttoned_layout."
                 "_buttoned_layout",
 
-                // "compact_landscape_image_layout.eml"
-                // "full_width_portrait_image_layout.eml"
-                // "full_width_square_image_layout.eml"
-                // "square_image_layout.eml"
+                // "compact_landscape_image_layout."
+                // "full_width_portrait_image_layout."
+                // "full_width_square_image_layout."
+                // "square_image_layout."
                 "_image_layout"
         );
 
@@ -139,12 +139,12 @@ public final class AdsFilter extends Filter {
 
         creatorStoreShelf = new StringFilterGroup(
                 null,
-                "horizontal_shelf.eml"
+                "horizontal_shelf."
         );
 
         creatorStoreShelfBuffer = new ByteArrayFilterGroup(
                 Settings.HIDE_CREATOR_STORE_SHELF,
-                "shopping_item_card_list.eml"
+                "shopping_item_card_list."
         );
 
         addPathCallbacks(

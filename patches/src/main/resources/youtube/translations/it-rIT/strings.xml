@@ -158,7 +158,7 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_change_youtube_header_summary_off">Nativa</string>
     <string name="revanced_change_youtube_header_summary_on">Premium</string>
     <string name="revanced_change_youtube_header_title">Cambia l\'intestazione di YouTube</string>
-    <string name="revanced_color_invalid_toast">Colore invalido</string>
+    <string name="revanced_confirm_user_dialog_title">Sei sicuro di voler procedere?</string>
     <string name="revanced_copy">Copia</string>
     <string name="revanced_copy_error">Impossibile copiare il testo</string>
     <string name="revanced_custom_filter_strings_summary">L\'elenco dei componenti da filtrare, separati da nuove righe.</string>
@@ -183,6 +183,7 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_custom_player_overlay_opacity_title">Opacità personalizzata della sovrapposizione del riproduttore</string>
     <string name="revanced_custom_seekbar_color_accent_summary">Digita il codice esadecimale del colore.</string>
     <string name="revanced_custom_seekbar_color_accent_title">Colore accento personalizzato</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Colore della barra di avanzamento non valido</string>
     <string name="revanced_custom_seekbar_color_primary_summary">Digita il codice esadecimale del colore.</string>
     <string name="revanced_custom_seekbar_color_primary_title">Colore primario personalizzato</string>
     <string name="revanced_debug_export_logs_to_clipboard_summary">Copia i log di debug di RVX negli appunti.</string>
@@ -195,6 +196,7 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_debug_logs_copied_to_clipboard">Log di debug copiati negli appunti</string>
     <string name="revanced_debug_logs_disabled">I logs di debug sono disattivati</string>
     <string name="revanced_debug_logs_export_success">Log di debug esportati con successo</string>
+    <string name="revanced_debug_logs_failed_to_copy_to_clipboard">I logs di debug sono troppo lunghi per essere copiati</string>
     <string name="revanced_debug_logs_failed_to_export">Esportazione dei log di debug non riuscita ($s)</string>
     <string name="revanced_debug_logs_none_found">Nessun log trovato</string>
     <string name="revanced_debug_protobuffer_summary_off">I logs di debug non includono il buffer di protocollo.</string>
@@ -230,7 +232,7 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_disable_auto_audio_tracks_summary_on">La traccia audio automatica forzata è disattivata.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"La traccia audio automatica forzata è disattivata.
 
-Nota: questa impostazione potrebbe non funzionare per alcuni utenti. Se non funziona, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili e cambia il client predefinito in TV o TV Simply."</string>
+Nota: questa impostazione potrebbe non funzionare per alcuni utenti. Se non funziona, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili e cambia il client predefinito in TV."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disattiva la traccia audio automatica forzata</string>
     <string name="revanced_disable_auto_captions_summary_off">I sottotitoli automatici forzati sono attivati.</string>
     <string name="revanced_disable_auto_captions_summary_on">I sottotitoli automatici forzati sono disattivati.</string>
@@ -245,6 +247,9 @@ Impostazioni → Riproduzione automatica / Riproduzione → Riproduci automatic.
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Il cambio automatico alle playlist miste è disattivato.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">Disattiva il cambio automatico alle playlist miste</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">L\'attivazione di questa impostazione disattiverà il cambio automatico alle playlist miste durante la riproduzione di musica con la riproduzione automatica attiva.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">Il gesto Doppio Tocco attiva occasionalmente il salto al capitolo successivo o precedente.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">Il gesto Doppio Tocco non attiva mai il salto al capitolo successivo o precedente.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Disattiva il salto del capitolo con il gesto Doppio Tocco</string>
     <string name="revanced_disable_default_playback_speed_music_off">La velocità di riproduzione predefinita per la musica è attivata.</string>
     <string name="revanced_disable_default_playback_speed_music_on">La velocità di riproduzione predefinita per la musica è disattivata.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Disattiva la velocità di riproduzione predefinita per la musica</string>
@@ -425,6 +430,11 @@ Note:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">La barra di navigazione è opaca.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">La barra di navigazione è traslucida.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Attiva la barra di navigazione traslucida</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_off">Il ritardo di elaborazione del video successivo è disattivato.</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_on">Il ritardo di elaborazione del video successivo è attivato.</string>
+    <string name="revanced_enable_watch_next_processing_delay_title">Attiva il ritardo di elaborazione del video successivo</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"Questa impostazione impone un ritardo prima del caricamento dell'interfaccia utente.
+Può essere usata quando si testa qualcosa sul MainThread."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"L'attivazione di questa impostazione disattiverà il pulsante Impostazioni nella scheda Tu.
 
 In questo caso, seguire questi percorsi per accedere alle impostazioni:
@@ -465,44 +475,34 @@ Nota: non funziona se il riproduttore è minimizzato, in modalità PiP o in back
 Per usare questa impostazione, cambia il client predefinito in iOS TV, TV o TV Simply.
 
 Nota: iOS TV non è disponibile in alcune regioni, nel tal caso questa impostazione potrebbe comunque non funzionare."</string>
-    <string name="revanced_extended_confirm_user_dialog_title">Sei sicuro di voler procedere?</string>
-    <string name="revanced_extended_reset_to_default_toast">Ripristinato ai valori predefiniti</string>
-    <string name="revanced_extended_restart">Riavvia</string>
-    <string name="revanced_extended_restart_dialog_message">Riavvia l\'app per rendere effettiva questa modifica.</string>
-    <string name="revanced_extended_restart_first_run">Riavvia per caricare l\'interfaccia normalmente</string>
-    <string name="revanced_extended_restart_message">Aggiorna e riavvia</string>
-    <string name="revanced_extended_restart_title">Riavvio richiesto</string>
-    <string name="revanced_extended_settings_color_invalid">Colore non valido</string>
-    <string name="revanced_extended_settings_color_picker">Selettore del colore</string>
     <string name="revanced_extended_settings_export_failed">Esportazione delle impostazioni non riuscita</string>
     <string name="revanced_extended_settings_export_success">Impostazioni esportate con successo</string>
     <string name="revanced_extended_settings_export_summary">Esporta le impostazioni in un file.</string>
     <string name="revanced_extended_settings_export_title">Esporta le impostazioni</string>
     <string name="revanced_extended_settings_import">Importa</string>
-    <string name="revanced_extended_settings_import_copy">Copia</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">Esporta o importa le impostazioni come testo.</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">Esporta o importa come testo</string>
-    <string name="revanced_extended_settings_import_failed">Importazione delle impostazioni non riuscita</string>
     <string name="revanced_extended_settings_import_reset">Impostazioni ripristinati al predefinito</string>
-    <string name="revanced_extended_settings_import_success">Impostazioni importate con successo</string>
     <string name="revanced_extended_settings_import_summary">Importa le impostazioni dal file esportato.</string>
     <string name="revanced_extended_settings_import_title">Importa le impostazioni</string>
-    <string name="revanced_extended_settings_reset">Ripristina</string>
-    <string name="revanced_extended_settings_reset_color">Ripristina il colore</string>
-    <string name="revanced_extended_settings_search_title">Cerca su %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Downloader esterno</string>
+    <string name="revanced_external_downloader_empty_warning">Il nome del pacchetto non può essere vuoto</string>
+    <string name="revanced_external_downloader_not_found_title">App non installata</string>
     <string name="revanced_external_downloader_not_installed">Non installato</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s non è installato.
 Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Attenzione</string>
     <string name="revanced_external_downloader_not_installed_warning">%s non è installato. Per favore installalo.</string>
-    <string name="revanced_external_downloader_package_name_playlist_summary">Il nome del pacchetto dell\'app di download esterna installata, ad esempio YTDLnis.</string>
+    <string name="revanced_external_downloader_other_item">Altro</string>
+    <string name="revanced_external_downloader_other_item_hint">Immetti il nome del pacchetto</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Il nome del pacchetto dell\'app di download esterna installata.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nome del pacchetto del downloader esterno delle playlist</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Nome del pacchetto dell\'app downloader esterna installata, come Newpipe o YTDLnis, su lunga pressione.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Nome pacchetto del downloader video su lunga pressione</string>
-    <string name="revanced_external_downloader_package_name_video_summary">Il nome del pacchetto dell\'app di download esterna installata, ad esempio NewPipe o YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Il nome del pacchetto dell\'app di download esterna installata.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nome del pacchetto del downloader esterno dei video</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"Impossibile trovare l'app installata con il nome del pacchetto: %s
+
+Verifica che il nome del pacchetto sia corretto e che l'app sia installata"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">L\'icona del pulsante Dai Hype è nascosta.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">L\'icona del pulsante Dai Hype è visibile.</string>
     <string name="revanced_fix_hype_button_icon_title">Mostra l\'icona del pulsante Dai Hype</string>
@@ -548,7 +548,6 @@ Se l'impostazione \"Riproduzione\" non funziona, attivarla potrebbe risolvere il
     <string name="revanced_gemini_transcription_result_title">Trascrizione video Gemini</string>
     <string name="revanced_gms_show_dialog_summary">Visualizza la finestra di ottimizzazione per GMSCore a ogni avvio dell\'applicazione.</string>
     <string name="revanced_gms_show_dialog_title">Mostra la finestra di ottimizzazione per GMSCore</string>
-    <string name="revanced_gradient_seekbar_positions_reset">Posizioni del gradiente ripristinato a predefinito.</string>
     <string name="revanced_gradient_seekbar_positions_summary">Posizioni di avvio e fine gradiente da 0 a 1 separate da virgola.</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">L\'elenco dei nomi dei menù degli account da filtrare, separati da nuove righe.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Modifica il filtro dei menù dell\'account</string>
@@ -794,7 +793,7 @@ Impostazioni → Riproduzione → Riproduzione automatica video successivo"</str
     <string name="revanced_hide_join_button_summary_off">Il pulsante Abbonati è visibile.</string>
     <string name="revanced_hide_join_button_summary_on">Il pulsante Abbonati è nascosto.</string>
     <string name="revanced_hide_join_button_title">Nascondi il pulsante Abbonati</string>
-    <string name="revanced_hide_key_concepts_section_summary_off">La sezione Momenti Chiave è mostrata.</string>
+    <string name="revanced_hide_key_concepts_section_summary_off">La sezione Momenti Chiave è visibile.</string>
     <string name="revanced_hide_key_concepts_section_summary_on">La sezione Momenti Chiave è nascosta.</string>
     <string name="revanced_hide_key_concepts_section_title">Nascondi la sezione Momenti Chiave</string>
     <string name="revanced_hide_keyword_content_about_summary">"Le schede Home e Iscrizioni e i risultati di ricerca sono filtrati per nascondere i video che soddisfano le parole chiave o frasi.
@@ -824,6 +823,9 @@ Le parole con lettere maiuscole all'interno devono essere inserite con il maiusc
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">I video della scheda Iscrizioni non sono filtrati.</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">I video della scheda Iscrizioni sono filtrati.</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Nascondi i video della scheda Iscrizioni in base a parole chiave</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_off">L\'operatore \"AND\" (\"&amp;\") è disattivato.&lt;br&gt;&lt;br&gt;Quando &lt;strong&gt;\"Blu\" &amp; \"Rosso\"&lt;/strong&gt; viene usato come parola chiave, le parole chiave contenenti &lt;strong&gt;\"Blu\" &amp; \"Rosso\"&lt;/strong&gt; verranno filtrate.</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_on">L\'operatore \"AND\" (\"&amp;\") è attivato.&lt;br&gt;&lt;br&gt;Quando &lt;strong&gt;\"Blu\" &amp; \"Rosso\"&lt;/strong&gt; viene usato come parola chiave, le parole chiave contenenti sia &lt;strong&gt;Blu&lt;/strong&gt; che &lt;strong&gt;Rosso&lt;/strong&gt; verranno filtrate.</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_title">Attiva l\'operatore \"AND\" (\"&amp;\")</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">La parola chiave nasconderà tutti i video: %s</string>
     <string name="revanced_hide_keyword_toast_invalid_common"> Non è possibile usare la parola chiave: %s</string>
     <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Aggiungi le virgolette per usare la parola chiave: %s</string>
@@ -915,7 +917,7 @@ Le parole con lettere maiuscole all'interno devono essere inserite con il maiusc
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Nascondi il menù Modalità Ambient</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Il menù Traccia Audio è nascosto.
 
-Nota: per mostrare il menù Traccia Audio, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili e cambia il client predefinito in TV o TV Simply."</string>
+Nota: per mostrare il menù Traccia Audio, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili e cambia il client predefinito in TV."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Il menù Traccia Audio è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Il menù Traccia Audio è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Nascondi il menù Traccia Audio</string>
@@ -1055,9 +1057,11 @@ Se l'interfaccia della schermata del riproduttore cambia a causa di modifiche la
     <string name="revanced_hide_search_term_thumbnail_summary_off">I thumbnails nella cronologia delle ricerche sono visibili.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">I thumbnails nella cronologia delle ricerche sono nascosti.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Nascondi i thumbnails nella cronologia delle ricerche</string>
-    <string name="revanced_hide_seek_message_summary_off">Il messaggio di scorrimento è visibile.</string>
-    <string name="revanced_hide_seek_message_summary_on">Il messaggio di scorrimento è nascosto.</string>
-    <string name="revanced_hide_seek_message_title">Nascondi il messaggio di scorrimento</string>
+    <string name="revanced_hide_seek_message_summary_off">"Il messaggio di scorrimento è visibile."</string>
+    <string name="revanced_hide_seek_message_summary_on">"Il messaggio di scorrimento è nascosto.
+
+Nota: questa impostazione sembra essere obsoleta sul server. Usa invece \"Nascondi la sovrapposizione della pellicola\" o \"Nascondi il messaggio di annullamento\"."</string>
+    <string name="revanced_hide_seek_message_title">Nascondi il messaggio di scorrimento (Obsoleta)</string>
     <string name="revanced_hide_seek_undo_message_summary_off">Il messaggio di annullamento è visibile.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Il messaggio di annullamento è nascosto.</string>
     <string name="revanced_hide_seek_undo_message_title">Nascondi il messaggio di annullamento</string>
@@ -1644,7 +1648,7 @@ Nota: potrebbe non funzionare con i video live."</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Velocità di riproduzione ripristinata (%sx)</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Tocca per aprire la finestra della velocità di riproduzione.
 Tocca e tieni premuto per impostare la velocità di riproduzione a 1x.
-Tocca e tieni premuto di nuovo per ripristinare la velocità predefinita."</string>
+Tocca e tieni premuto di nuovo per ripristinare al valore predefinito."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Mostra il pulsante Velocità di Riproduzione</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">Cambia il tipo di finestra della velocità di riproduzione</string>
     <string name="revanced_overlay_button_whitelist_summary">Tocca per aprire la finestra della whitelist.
@@ -1836,8 +1840,8 @@ Descrizione
     <string name="revanced_remember_playback_speed_last_selected_summary_off">I cambiamenti alla velocità di riproduzione si applicano solo al video corrente.</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">I cambiamenti alla velocità di riproduzione si applicano a tutti i video.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Ricorda i cambiamenti della velocità di riproduzione dei video</string>
-    <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Una notifica toast non verrà mostrata al cambio della velocità di riproduzione predefinita dei video.</string>
-    <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Una notifica toast verrà mostrata al cambio della velocità di riproduzione predefinita dei video.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">La notifica toast è nascosta al cambio della velocità di riproduzione predefinita dei video.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">La notifica toast è visibile al cambio della velocità di riproduzione predefinita dei video.</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_title">Mostra una notifica toast al cambio della velocità di riproduzione predefinita dei video</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_summary_off">I cambiamenti alla velocità di riproduzione si applicano solo allo Short corrente.</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_summary_on">"I cambiamenti alla velocità di riproduzione si applicano a tutti gli Shorts.
@@ -1846,24 +1850,24 @@ Note:
 • L'unico modo per modificare la velocità di riproduzione nel riproduttore degli Shorts è usare il menù Velocità di Riproduzione in azioni personalizzate.
 • Se non hai incluso la patch \"Componenti Shorts\", questa impostazione non sarà disponibile."</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_title">Ricorda i cambiamenti della velocità di riproduzione degli Shorts</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_off">Una notifica toast non verrà mostrata al cambio della velocità di riproduzione predefinita degli Shorts.</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_on">Una notifica toast verrà mostrata al cambio della velocità di riproduzione predefinita degli Shorts.</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_off">La notifica toast è nascosta al cambio della velocità di riproduzione predefinita degli Shorts.</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_on">La notifica toast è visibile al cambio della velocità di riproduzione predefinita degli Shorts.</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_toast_title">Mostra una notifica toast al cambio della velocità di riproduzione predefinita degli Shorts</string>
     <string name="revanced_remember_playback_speed_toast">La velocità di riproduzione predefinita dei video è stata cambiata a %s</string>
     <string name="revanced_remember_playback_speed_toast_shorts">La velocità di riproduzione predefinita degli Shorts è stata cambiata a %s</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">I cambiamenti alla qualità si applicano solo al video corrente.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">I cambiamenti alla qualità si applicano a tutti i video.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Ricorda i cambiamenti della qualità dei video</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Una notifica toast non verrà mostrata al cambio della qualità predefinita dei video.</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Una notifica toast verrà mostrata al cambio della qualità predefinita dei video.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_off">La notifica toast è nascosta al cambio della qualità predefinita dei video.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_on">La notifica toast è visibile al cambio della qualità predefinita dei video.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_title">Mostra una notifica toast al cambio della qualità predefinita dei video</string>
     <string name="revanced_remember_video_quality_mobile">Cellulare</string>
     <string name="revanced_remember_video_quality_none">Impossibile impostare la qualità video</string>
     <string name="revanced_remember_video_quality_shorts_last_selected_summary_off">I cambiamenti alla qualità si applicano solo allo Short corrente.</string>
     <string name="revanced_remember_video_quality_shorts_last_selected_summary_on">I cambiamenti alla qualità si applicano a tutti gli Shorts.</string>
     <string name="revanced_remember_video_quality_shorts_last_selected_title">Ricorda i cambiamenti della qualità degli Shorts</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_off">Una notifica toast non verrà mostrata al cambio della qualità predefinita degli Shorts.</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_on">Una notifica toast verrà mostrata al cambio della qualità predefinita degli Shorts.</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_off">La notifica toast è nascosta al cambio della qualità predefinita degli Shorts.</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_on">La notifica toast è visibile al cambio della qualità predefinita degli Shorts.</string>
     <string name="revanced_remember_video_quality_shorts_last_selected_toast_title">Mostra una notifica toast al cambio della qualità predefinita degli Shorts</string>
     <string name="revanced_remember_video_quality_toast">La qualità predefinita dei video è stata cambiata da %1$s a %2$s</string>
     <string name="revanced_remember_video_quality_toast_shorts">La qualità predefinita degli Shorts è stata cambiata da %1$s a %2$s</string>
@@ -1885,6 +1889,11 @@ Tocca e tieni premuto per aprire le impostazioni di RVX."</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Tocca per aprire le impostazioni di RVX.
 Tocca e tieni premuto per aprire le impostazioni di YouTube."</string>
     <string name="revanced_replace_toolbar_create_button_type_title">Cambia il tipo di azione da assegnare al pulsante</string>
+    <string name="revanced_reset_to_default_toast">Ripristinato ai valori predefiniti</string>
+    <string name="revanced_restart">Riavvia</string>
+    <string name="revanced_restart_dialog_message">Riavvia l\'app per rendere effettiva questa modifica.</string>
+    <string name="revanced_restart_first_run">Riavvia per caricare l\'interfaccia normalmente</string>
+    <string name="revanced_restart_title">Riavvio richiesto</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">I thumbnails appariranno nel riproduttore.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">I thumbnails appariranno sopra la barra di avanzamento.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Attiva i vecchi thumbnails</string>
@@ -1954,13 +1963,24 @@ Nota: i non mi piace potrebbero non apparire se l'utente non ha effettuato l'acc
     <string name="revanced_sb_api_url_invalid">URL API non valido</string>
     <string name="revanced_sb_api_url_reset">URL API ripristinato</string>
     <string name="revanced_sb_appearance_category">Aspetto</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration">Durata del pulsante Salta</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration_sum">Il tempo da mostrare i pulsanti Salta e Salta al Momento Saliente.</string>
     <string name="revanced_sb_color_changed">Colore cambiato</string>
     <string name="revanced_sb_color_dot_label">Colore:</string>
     <string name="revanced_sb_color_invalid">Codice colore non valido</string>
-    <string name="revanced_sb_color_opacity_label">Opacità:</string>
     <string name="revanced_sb_color_reset">Colore ripristinato</string>
     <string name="revanced_sb_create_segment_category">Creazione di nuovi segmenti</string>
     <string name="revanced_sb_diff_segments">Cambia il comportamento dei segmenti</string>
+    <string name="revanced_sb_duration_10s">10 secondi</string>
+    <string name="revanced_sb_duration_1s">1 secondo</string>
+    <string name="revanced_sb_duration_2s">2 secondi</string>
+    <string name="revanced_sb_duration_3s">3 secondi</string>
+    <string name="revanced_sb_duration_4s">4 secondi</string>
+    <string name="revanced_sb_duration_5s">5 secondi</string>
+    <string name="revanced_sb_duration_6s">6 secondi</string>
+    <string name="revanced_sb_duration_7s">7 secondi</string>
+    <string name="revanced_sb_duration_8s">8 secondi</string>
+    <string name="revanced_sb_duration_9s">9 secondi</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">Nascondi automaticamente il pulsante Salta</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Il pulsante Salta è visibile per l\'intero segmento.</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Il pulsante Salta è nascosto dopo alcuni secondi.</string>
@@ -1987,12 +2007,12 @@ Nota: i non mi piace potrebbero non apparire se l'utente non ha effettuato l'acc
     <string name="revanced_sb_general_skipcount">Attiva il monitoraggio del conteggio dei salti</string>
     <string name="revanced_sb_general_skipcount_sum_off">Il monitoraggio del contatore dei salti è disattivato.</string>
     <string name="revanced_sb_general_skipcount_sum_on">Permette alla classifica di SponsorBlock di sapere quanto tempo è stato risparmiato. Viene inviato un messaggio alla classifica ogni volta che un segmento viene saltato.</string>
-    <string name="revanced_sb_general_skiptoast">Mostra una notifica toast quando un segmento è stato saltato automaticamente</string>
-    <string name="revanced_sb_general_skiptoast_sum_off">La notifica toast è nascosta.</string>
-    <string name="revanced_sb_general_skiptoast_sum_on">La notifica toast è visibile quando un segmento è saltato automaticamente. Tocca qui per vedere un esempio.</string>
+    <string name="revanced_sb_general_skiptoast">Mostra una notifica toast per annullare il salto</string>
+    <string name="revanced_sb_general_skiptoast_sum_off">La notifica toast è nascosta quando un segmento viene saltato automaticamente.</string>
+    <string name="revanced_sb_general_skiptoast_sum_on">La notifica toast è visibile quando un segmento viene saltato automaticamente. Tocca la notifica per annullare il salto.</string>
     <string name="revanced_sb_general_time_without">Mostra la durata dei video senza segmenti</string>
-    <string name="revanced_sb_general_time_without_sum_off">La durata completa del video è mostrata.</string>
-    <string name="revanced_sb_general_time_without_sum_on">La durata del video senza la durata complessiva dei segmenti è mostrata tra parentesi accanto alla durata completa del video.</string>
+    <string name="revanced_sb_general_time_without_sum_off">La durata completa del video è visibile sulla barra di ricerca.</string>
+    <string name="revanced_sb_general_time_without_sum_on">La durata del video, senza tutti i segmenti, è visibile sulla barra di ricerca.</string>
     <string name="revanced_sb_general_uuid">Il tuo ID utente privato</string>
     <string name="revanced_sb_general_uuid_invalid">L\'ID utente privato deve essere lungo almeno 30 caratteri</string>
     <string name="revanced_sb_general_uuid_sum">Questo dovrebbe essere tenuto privato perchè come una password e non dovrebbe essere condiviso con nessuno. Se qualcuno dovesse ottenerlo, potrebbe impersonarti.</string>
@@ -2137,9 +2157,14 @@ Pronto per l'invio?"</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock è temporaneamente inattivo.</string>
     <string name="revanced_sb_submit_failed_unknown_error">Invio del segmento non riuscito (Stato: %1$d %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Segmento inviato con successo.</string>
+    <string name="revanced_sb_toast_on_connection_error">Mostra una notifica toast se l\'API non è disponibile</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">La notifica toast è nascosta se SponsorBlock non è disponibile.</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">La notifica toast è visibile se SponsorBlock non è disponibile.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">La notifica toast non è visibile se SponsorBlock non è disponibile.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">La notifica toast è visibile se SponsorBlock non è disponibile.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Mostra una notifica toast se l\'API non è disponibile</string>
+    <string name="revanced_sb_toast_on_skip_duration">Durata della notifica toast per annullare il salto</string>
+    <string name="revanced_sb_toast_on_skip_duration_sum">Il tempo da mostrare la notifica toast per annullare il salto.</string>
     <string name="revanced_sb_vote_category">Cambia la categoria</string>
     <string name="revanced_sb_vote_downvote">Voto negativo</string>
     <string name="revanced_sb_vote_failed_forbidden">Impossibile votare per il segmento (%s)</string>
@@ -2150,13 +2175,8 @@ Pronto per l'invio?"</string>
     <string name="revanced_sb_vote_upvote">Voto positivo</string>
     <string name="revanced_search_clear_confirm_message">Sei sicuro di voler cancellare tutta la tua cronologia di ricerca?</string>
     <string name="revanced_search_clear_confirm_title">Cancella la Cronologia di Ricerca</string>
-    <string name="revanced_search_clear_history_title">cancella cronologia</string>
     <string name="revanced_search_delete_confirm_message">Sei sicuro di voler eliminare \"%1 $s\" dalla tua cronologia di ricerca?</string>
     <string name="revanced_search_delete_confirm_title">Elimina la voce di ricerca</string>
-    <string name="revanced_search_delete_entry">Elimina la voce di ricerca</string>
-    <string name="revanced_search_history_title">Ricerche Recenti</string>
-    <string name="revanced_search_no_history_summary">La tua cronologia di ricerca apparirà qui. Per salvare una query di ricerca nella cronologia della ricerca, è necessario premere Invio/Ritorno.</string>
-    <string name="revanced_search_no_history_title">Nessuna ricerca recente</string>
     <string name="revanced_search_settings_category_title">Impostazioni ricerca</string>
     <string name="revanced_search_settings_no_results_summary">Prova un termine di ricerca diverso.</string>
     <string name="revanced_search_settings_no_results_title">Nessun risultato trovato per \"%1 $s\"</string>
@@ -2174,12 +2194,42 @@ Come soluzione temporanea, puoi risolvere il problema impostando i cookie.
 Note: 
 • L'uso dei cookie non è una soluzione definitiva.
 • Questa soluzione potrebbe non funzionare se i cookie sono scaduti o non validi, oppure se l'API di trascrizione di YouTube non convalida più i cookie."</string>
-    <string name="revanced_settings_search_highlight_color_summary">Imposta il colore di evidenziazione per il testo abbinato nei risultati di ricerca.</string>
-    <string name="revanced_settings_search_highlight_color_title">Colore di evidenziazione della ricerca</string>
-    <string name="revanced_settings_search_highlight_summary">Evidenzia il testo abbinato nei risultati di ricerca con il colore selezionato.</string>
-    <string name="revanced_settings_search_highlight_title">Abilita l\'evidenziazione della ricerca</string>
+    <string name="revanced_settings_color_invalid">Colore non valido</string>
+    <string name="revanced_settings_color_picker">Selettore del colore</string>
+    <string name="revanced_settings_export_failed">Esportazione delle impostazioni non riuscita</string>
+    <string name="revanced_settings_export_success">Impostazioni esportate con successo</string>
+    <string name="revanced_settings_export_summary">Esporta le impostazioni in un file.</string>
+    <string name="revanced_settings_export_title">Esporta le impostazioni</string>
+    <string name="revanced_settings_import">Importa</string>
+    <string name="revanced_settings_import_copy">Copia</string>
+    <string name="revanced_settings_import_export_as_text_summary">Esporta o importa le impostazioni come testo.</string>
+    <string name="revanced_settings_import_export_as_text_title">Esporta o importa come testo</string>
+    <string name="revanced_settings_import_failed">Importazione delle impostazioni non riuscita</string>
+    <string name="revanced_settings_import_reset">Impostazioni ripristinate ai valori predefiniti</string>
+    <string name="revanced_settings_import_success">Impostazioni importate con successo</string>
+    <string name="revanced_settings_import_summary">Importa le impostazioni dal file esportato.</string>
+    <string name="revanced_settings_import_title">Importa le impostazioni</string>
+    <string name="revanced_settings_reset">Ripristina</string>
+    <string name="revanced_settings_reset_color">Ripristina il colore</string>
+    <string name="revanced_settings_search_clear_history">Cancella la cronologia delle ricerche</string>
+    <string name="revanced_settings_search_clear_history_message">Sei sicuro di voler cancellare la cronologia delle ricerche?</string>
+    <string name="revanced_settings_search_empty_history_summary">Cerca qualcosa per salvarlo nella cronologia.</string>
+    <string name="revanced_settings_search_empty_history_title">Cronologia delle ricerche vuota</string>
     <string name="revanced_settings_search_history_summary">Salva recenti query di ricerca per mostrarle quando la barra di ricerca è vuota.</string>
-    <string name="revanced_settings_search_history_title">Mostra la cronologia di ricerca delle impostazioni</string>
+    <string name="revanced_settings_search_history_summary_off">La cronologia delle ricerche delle impostazioni è nascosta.</string>
+    <string name="revanced_settings_search_history_summary_on">La cronologia delle ricerche delle impostazioni è visibile.</string>
+    <string name="revanced_settings_search_history_title">Mostra la cronologia delle ricerche delle impostazioni</string>
+    <string name="revanced_settings_search_no_results_summary">Prova un\'altra parola chiave</string>
+    <string name="revanced_settings_search_no_results_title">Nessun risultato trovato per \"%s\"</string>
+    <string name="revanced_settings_search_recent_searches">Ricerche recenti</string>
+    <string name="revanced_settings_search_remove_message">Cancellare dalla cronologia delle ricerche?</string>
+    <string name="revanced_settings_search_tips_summary">"• Tocca un percorso per accedervi.
+• Tieni premuto un'impostazione per accedervi.
+• ​​La ricerca ignora maiuscole, minuscole e punteggiatura.
+• Le impostazioni principali vengono mostrate sopra le impostazioni secondarie disattivate."</string>
+    <string name="revanced_settings_search_tips_title">Suggerimenti e note</string>
+    <string name="revanced_settings_search_title">Cerca su %s</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Impostazioni copiate negli appunti</string>
     <string name="revanced_share_copy_timestamp_success">Timestamp copiato negli appunti (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiato negli appunti</string>
@@ -2247,6 +2297,8 @@ Nota: il titolo scompare quando lo si tocca."</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Il valore di sovrapposizione della velocità di riproduzione deve essere tra 0 e 8</string>
     <string name="revanced_speed_overlay_value_summary">Il valore di sovrapposizione della velocità di riproduzione tra 0 e 8.</string>
     <string name="revanced_speed_overlay_value_title">Valore di sovrapposizione della velocità di riproduzione</string>
+    <string name="revanced_spoof_app_version_other_item">Altro</string>
+    <string name="revanced_spoof_app_version_other_item_hint">Immetti la versione dell\'app</string>
     <string name="revanced_spoof_app_version_summary">"Simula la versione del client a una versione precedente.
 
 Note:
@@ -2266,6 +2318,7 @@ Note:
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Disattiva l\'icona Cairo nella navigazione e nella barra degli strumenti</string>
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Ripristina la vecchia intestazione delle playlist</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Ripristina il vecchio pannello della velocità di riproduzione</string>
+    <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Ripristina la trascrizione</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versione dell\'app da camuffare</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Versione dell\'app da camuffare non valida: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da camuffare.</string>
@@ -2286,7 +2339,7 @@ Note:
     <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"Il pulsante Traccia Audio è visibile quando il client usato per recuperare i dati in streaming è Android VR, Mobile Web o visionOS."</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_title">Mostra il pulsante Traccia Audio</string>
     <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Prerequisiti:
-• Il client usato per recuperare i dati in streaming è Android VR, Mobile Web, iPadOS o visionOS.
+• Il client usato per recuperare i dati in streaming è Android VR, Mobile Web o visionOS.
 • È in riproduzione un video con più tracce audio.
 
 Note:
@@ -2299,6 +2352,8 @@ Questa funzionalità è ancora in fase di sviluppo, quindi potrebbe non funziona
 <small>(Accesso richiesto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(Nessun accesso richiesto)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
+<small>(Accesso richiesto e azione necessaria)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Obsoleto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
@@ -2306,12 +2361,13 @@ Questa funzionalità è ancora in fase di sviluppo, quindi potrebbe non funziona
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web Mobile
 <small>(In fase di sviluppo e nessun accesso richiesto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
+<small>(Nessun PoToken richiesto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Non rilasciato e nessun accesso richiesto)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Client predefinito</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Non è stato possibile recuperare alcun flusso client</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Potresti non essere connesso</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Prova a cambiare il client predefinito in TV.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Il codec video è determinato automaticamente.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Il codec video è forzato ad AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Forza iOS AVC (H.264)</string>
@@ -2319,7 +2375,9 @@ Questa funzionalità è ancora in fase di sviluppo, quindi potrebbe non funziona
 
 Nota: AVC ha una risoluzione massima di 1080p, il codec Opus non è disponibile e la riproduzione userà più dati internet rispetto a VP9 o AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Se stai verificano problemi di riproduzione, abilita \"Camuffa i dati in streaming\" in &lt;i&gt;&lt;u&gt; Impostazioni &gt; %s &gt; Varie &gt; Camuffa i dati in streaming &lt;/u&gt;&lt;/i&gt;.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_title">Lingua predefinita del flusso audio</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Disattivare \"Disattiva la traccia audio automatica forzata\" per selezionare una lingua specifica per l\'audio</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">La selezione della lingua predefinita per l\'audio non è disponibile con il client %s</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_title">Lingua predefinita dell\'audio</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Codec</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Qualità</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Cambia cosa dare priorità nei video</string>
@@ -2357,12 +2415,17 @@ Esempio 2:
 • I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Il menù Traccia Audio è nascosto.
 • Il menù Volume Stabile è nascosto.
+• La disattivazione della traccia audio automatica forzata non funziona.
 • I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito.
 • 1080p+, AV1 e HDR non funzionano."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Il menù Traccia Audio è mancante.
 • Il menù Volume Stabile è mancante."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Il menù Traccia Audio è nascosto.
 • Il menù Volume Stabile è nascosto.
+• I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• Il menù Traccia Audio è nascosto.
+• Il menù Volume Stabile è nascosto.
+• La disattivazione della traccia audio automatica forzata non funziona.
 • I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Ci potrebbero essere problemi di riproduzione (PoToken richiesto).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• I video potrebbero terminare 1 secondo prima.
@@ -2384,6 +2447,10 @@ Esempio 2:
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• Se il deoffuscamento fallisce, la riproduzione potrebbe non funzionare.
 • I video potrebbero iniziare in ritardo.
 • A volte i video non vengono riprodotti neanche dopo 10 secondi, in tal caso è necessario toccare il pulsante \"Ricarica Video\"."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• Se il deoffuscamento fallisce, la riproduzione potrebbe non funzionare.
+• Alcuni account potrebbero richiedere un PoToken, in tal caso la riproduzione non funzionerà.
+• I video potrebbero iniziare in ritardo.
+• A volte i video non vengono riprodotti neanche dopo 10 secondi, in tal caso è necessario toccare il pulsante \"Ricarica Video\"."</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Sconosciuti</string>
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Il menù Traccia Audio è nascosto.
 • I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito.
@@ -2402,15 +2469,30 @@ Nota: questa impostazione potrebbe non essere necessaria se sei un utente YouTub
 
 Nota: questo client non riesce ancora a riprodurre clip, riproduzione automatica nelle schede e Shorts."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Usa il client JavaScript per tutti i video</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Tocca per maggiori informazioni.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">Informazioni sul falso buffering</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Uno dei motivi per cui i video iniziano tardi con i client JavaScript è dovuto alle nuove misure anti-adblock di YouTube.
+Quando un annuncio viene bloccato, il Google Video Server (GVS) genera un falso buffering proporzionale alla durata dell'annuncio (test A/B).
+
+uBlock Origin ha trovato una soluzione alternativa a questo problema, che può essere attivata tramite l'impostazione \"Bypassa il falso buffering\".
+Tocca \"Apri\" per leggere l'articolo."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Apri</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Nuove misure anti-adblock di YouTube"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Il bypass del falso buffering è disattivato.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Il bypass del falso buffering è attivato.
+
+Nota: questa impostazione potrebbe smettere di funzionare in qualsiasi momento a causa di modifiche lato server."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Bypassa il falso buffering</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">I client JavaScript sono nascosti tra i client disponibili.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">I client JavaScript sono visibili tra i client disponibili.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Mostra i client JavaScript tra i client disponibili</string>
     <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"I client JavaScript potrebbero riscontrare un leggero ritardo nell'avvio dei video a causa della necessità di decodificare il pattern n-sig.
 A volte, il pattern n-sig non viene decodificato, causando un avvio ritardato del video o un rallentamento del flusso video.
 Questo problema può essere facilmente risolto toccando il pulsante \"Ricarica Video\" nel riproduttore per ricaricare il video.
-Prerequisiti: sia \"Mostra il pulsante Ricarica Video\" che \"Mostra sempre il pulsante Ricarica Video\" sono attivati.
 
-Tra i client JavaScript, il client consigliato è TV Simply."</string>
+Prerequisiti: devono essere sono attivati sia \"Mostra il pulsante Ricarica Video\" che \"Mostra sempre il pulsante Ricarica Video\".
+
+Tra i client JavaScript, il client consigliato è TV."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"La versione di JavaScript per il deoffuscamento non viene mantenuta aggiornata.
 
 Nota: viene usato la versione di JavaScript che riesce nel deoffuscamento, ma l'operazione è comunque in qualche modo dipendente dal server."</string>
@@ -2418,9 +2500,65 @@ Nota: viene usato la versione di JavaScript che riesce nel deoffuscamento, ma l'
 
 Nota: è altamente dipendente dal server, e il successo o il fallimento del deoffuscamento dipendono dalla versione di JavaScript attualmente usato sul server."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">Usa l\'ultima versione di JavaScript</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Il codec video è determinato automaticamente.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Il codec video usato è AVC (H.264) o VP9.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Disattiva il codec VR AV1</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"La versione di JavaScript per il deoffuscamento non viene mantenuta aggiornata.
+
+Nota: viene usata la versione di JavaScript che riesce nel deoffuscamento, ma l'operazione è comunque in qualche modo dipendente dal server."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"La versione di JavaScript per il deoffuscamento viene mantenuta aggiornata.
+
+Note:
+• È altamente dipendente dal server, e il successo o il fallimento del deoffuscamento dipende dal JavaScript attualmente usato sul server.
+• Se riscontri problemi con il client JavaScript, prova prima a disattivarlo."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Usa l\'ultima versione di JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"È in uso l'estrattore SmartTube.
+
+Note:
+• Il JavaScript del riproduttore per il deoffuscamento non è mantenuto aggiornato.
+• Questa impostazione verrà rimossa dai server in futuro."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"È in uso il JavaScript esterno per yt-dlp-ejs.
+
+Note:
+• Il JavaScript del riproduttore per il deoffuscamento è mantenuto aggiornato.
+• L'avvio dei video potrebbe richiedere dai 5 ai 15 secondi."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Usa yt-dlp ejs (In fase di sviluppo)</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"A causa delle nuove misure di YouTube, non è più possibile decriptare gli URL di streaming usando i metodi generali nell'ultimo JavaScript del riproduttore.
+Per decriptare gli URL di streaming nell'ultimo JavaScript, viene usato un JavaScript esterno per yt-dlp-ejs, ma è attualmente in fase di sviluppo e richiede maggiori risorse hardware."</string>
+    <string name="revanced_spoof_streaming_data_user_dialog_message">La disattivazione di questa impostazione potrebbe causare problemi di riproduzione.</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Codice di attivazione:
+%s
+
+1. Tocca \"Apri sito\" per andare su \"https://yt.be/activate\".
+2. Inserisci il codice di attivazione.
+3. Accedi quando richiesto. Se hai più account Google, seleziona l'account che usi con YouTube. Se hai già effettuato l'accesso, vai al passaggio successivo.
+4. Una volta effettuato l'accesso, torna su RVX e tocca nuovamente \"Informazioni su Android VR (Accesso richiesto)\".
+5. Tocca \"Ottieni un token di accesso\" per ottenere un token."</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Apri sito</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Codice di attivazione</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Codice di attivazione copiato negli appunti (%s)</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Tocca per vedere come ottenere un token di accesso.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Informazioni su Android VR (Accesso richiesto)</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Ottieni un codice di attivazione</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Ottieni un token di accesso</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Per ottenere un token di accesso per Android VR, devi accedere a YouTube VR usando un codice di attivazione:
+1. Tocca \"Ottieni un codice di attivazione\" per generare un codice.
+2. Tocca \"Apri sito\" per andare su \"https://yt.be/activate\".
+3. Inserisci il codice di attivazione.
+4. Accedi quando richiesto. Se hai più account Google, seleziona l'account che usi con YouTube. Se hai già effettuato l'accesso, vai al passaggio successivo.
+5. Una volta effettuato l'accesso, torna su RVX e tocca nuovamente \"Informazioni su Android VR (Accesso richiesto)\".
+6. Tocca \"Ottieni un token di accesso\" per ottenere un token.
+
+Nota: tocca \"Ripristina\" per rimuovere un token di accesso o un codice di attivazione."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Ripristina</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Ottieni un token di accesso</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Token di accesso e codice di attivazione ripristinati</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Token di accesso salvato</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_off">Il codec video è AVC (H.264) o VP9.</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"Il codec video è AVC (H.264), VP9 o AV1.
+
+Nota: la riproduzione potrebbe avere rallentamenti o perdite di fotogrammi."</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_title">Attiva il codec VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"L'attivazione di questa impostazione potrebbe comportare l'uso della decodifica software AV1.
+
+Nota: la riproduzione potrebbe avere rallentamenti o perdite di fotogrammi."</string>
     <string name="revanced_swipe_brightness_distance_summary">La quantità di pixel da scorrere per cambiare la luminosità. I valori più bassi rendono la modifica della luminosità più velocemente, i valori più alti lo rendono più lento (1-1000).</string>
     <string name="revanced_swipe_brightness_distance_title">Distanza di luminosità</string>
     <string name="revanced_swipe_brightness_summary_off">Il gesto della luminosità a schermo intero è disattivato.</string>
@@ -2509,7 +2647,6 @@ Se questa impostazione non ha effetto, prova a passare alla navigazione in incog
     <string name="revanced_theme_default">Predefinito</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Attenzione</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s non è installato. Per favore installalo.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Il nome del pacchetto dell\'app RVX Music installata.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nome del pacchetto dell\'app RVX Music</string>
     <string name="revanced_transcript_cookies_about_summary">Tocca qui per vedere come ottenere i cookie.</string>
@@ -2517,23 +2654,23 @@ Se questa impostazione non ha effetto, prova a passare alla navigazione in incog
     <string name="revanced_transcript_cookies_dialog_auth_text">Accesso richiesto</string>
     <string name="revanced_transcript_cookies_dialog_message">"Accesso richiesto
 ══════════════
-1. Tocca su \"Autenticazione\" per aprire la pagina di accesso in WebView.
+1. Tocca \"Autenticazione\" per aprire la pagina di accesso in WebView.
 2. Accedi al tuo account Google.
 3. Riproduci qualsiasi video che supporti i sottotitoli tradotti automaticamente.
 4. Attiva i sottotitoli tradotti automaticamente e verifica se funzionano.
 4.1. Se i sottotitoli tradotti automaticamente non funzionano, passa a un altro video che li supporti e riprova il passaggio 4.
-5. Fai clic sui tre puntini sulla barra degli strumenti per aprire il menu contestuale.
-6. Fai clic su \"Ottieni i cookie\".
-7. Fai clic su \"Copia\" per copiare i cookie.
+5. Tocca i tre puntini sulla barra degli strumenti per aprire il menu contestuale.
+6. Tocca \"Ottieni i cookie\".
+7. Tocca \"Copia\" per copiare i cookie.
 8. Chiudi WebView e incolla i cookie copiati nelle impostazioni \"Cookie di trascrizione\".
 
 Nessun accesso richiesto
 ══════════════
-1. Fai clic su \"Nessuna autenticazione\" per aprire il video in WebView.
+1. Tocca \"Nessuna autenticazione\" per aprire il video in WebView.
 2. Riproduci il video per almeno 3 secondi.
-3. Fai clic sui tre puntini sulla barra degli strumenti per aprire il menu contestuale.
-4. Fai clic su \"Ottieni i cookie\".
-5. Fai clic su \"Copia\" per copiare i cookie.
+3. Tocca i tre puntini sulla barra degli strumenti per aprire il menu contestuale.
+4. Tocca \"Ottieni i cookie\".
+5. Tocca \"Copia\" per copiare i cookie.
 6. Chiudi WebView e incolla i cookie copiati nelle impostazioni \"Cookie di trascrizione\".
 
 Nota: i cookie generati senza effettuare l'accesso potrebbero non essere validi o potrebbero richiedere del tempo prima di essere disponibili per l'API di trascrizione."</string>
@@ -2552,6 +2689,8 @@ Nota: i cookie generati senza effettuare l'accesso potrebbero non essere validi 
     <string name="revanced_watch_history_type_entry_2">Sostituisci dominio</string>
     <string name="revanced_watch_history_type_entry_3">Blocca cronologia</string>
     <string name="revanced_watch_history_type_title">Cambia il tipo di cronologia</string>
+    <string name="revanced_watch_next_processing_delay_summary">La quantità di millisecondi di ritardo nell\'elaborazione della risposta del video successivo.</string>
+    <string name="revanced_watch_next_processing_delay_title">Ritardo di elaborazione del video successivo</string>
     <string name="revanced_webview_contextual_menu_get_cookies">Ottieni i cookie</string>
     <string name="revanced_webview_contextual_menu_get_data_sync_id">Ottieni l\'ID di sincronizzazione dati</string>
     <string name="revanced_webview_contextual_menu_get_visitor_data">Ottieni i dati del visitatore</string>

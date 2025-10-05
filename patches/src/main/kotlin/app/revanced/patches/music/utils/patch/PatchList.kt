@@ -45,6 +45,10 @@ internal enum class PatchList(
         "Disable Cairo splash animation",
         "Adds an option to disable Cairo splash animation."
     ),
+    DISABLE_FORCED_AUTO_AUDIO_TRACKS(
+        "Disable forced auto audio tracks",
+        "Adds an option to disable audio tracks from being automatically enabled."
+    ),
     DISABLE_FORCED_AUTO_CAPTIONS(
         "Disable forced auto captions",
         "Adds an option to disable captions from being automatically enabled."

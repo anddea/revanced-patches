@@ -58,14 +58,14 @@ public class SeekbarColorPatch {
     /**
      * If {@link Settings#ENABLE_CUSTOM_SEEKBAR_COLOR} is enabled,
      * this is the color value of {@link Settings#CUSTOM_SEEKBAR_COLOR_PRIMARY}.
-     * Otherwise, this is {@link #ORIGINAL_SEEKBAR_COLOR}.
+     * Otherwise this is {@link #ORIGINAL_SEEKBAR_COLOR}.
      */
     private static final int customSeekbarColor;
 
     /**
      * If {@link Settings#ENABLE_CUSTOM_SEEKBAR_COLOR} is enabled,
      * this is the color value of {@link Settings#CUSTOM_SEEKBAR_COLOR_ACCENT}.
-     * Otherwise, this is {@link #ORIGINAL_SEEKBAR_COLOR_ACCENT}.
+     * Otherwise this is {@link #ORIGINAL_SEEKBAR_COLOR_ACCENT}.
      */
     private static int customSeekbarColorAccent = ORIGINAL_SEEKBAR_COLOR_ACCENT;
 
@@ -100,8 +100,8 @@ public class SeekbarColorPatch {
 
             return color;
         } catch (Exception ex) {
-            Utils.showToastShort(str("revanced_color_invalid_toast"));
-            Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
+            Utils.showToastShort(str("revanced_custom_seekbar_color_invalid_toast"));
+            Utils.showToastShort(str("revanced_reset_to_default_toast"));
             Settings.CUSTOM_SEEKBAR_COLOR_PRIMARY.resetToDefault();
             Settings.CUSTOM_SEEKBAR_COLOR_ACCENT.resetToDefault();
 

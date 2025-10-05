@@ -1,7 +1,6 @@
 package app.revanced.extension.shared.settings;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
-import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 
 import android.content.Context;
 
@@ -12,8 +11,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,24 +33,49 @@ public abstract class Setting<T> {
      */
     public interface Availability {
         boolean isAvailable();
+
+        /**
+         * @return parent settings (dependencies) of this availability.
+         */
+        default List<Setting<?>> getParentSettings() {
+            return Collections.emptyList();
+        }
     }
 
     /**
      * Availability based on a single parent setting being enabled.
      */
     public static Availability parent(BooleanSetting parent) {
-        return parent::get;
+        return new Availability() {
+            @Override
+            public boolean isAvailable() {
+                return parent.get();
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Collections.singletonList(parent);
+            }
+        };
     }
 
     /**
      * Availability based on all parents being enabled.
      */
     public static Availability parentsAll(BooleanSetting... parents) {
-        return () -> {
-            for (BooleanSetting parent : parents) {
-                if (!parent.get()) return false;
+        return new Availability() {
+            @Override
+            public boolean isAvailable() {
+                for (BooleanSetting parent : parents) {
+                    if (!parent.get()) return false;
+                }
+                return true;
             }
-            return true;
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Collections.unmodifiableList(Arrays.asList(parents));
+            }
         };
     }
 
@@ -59,11 +83,19 @@ public abstract class Setting<T> {
      * Availability based on any parent being enabled.
      */
     public static Availability parentsAny(BooleanSetting... parents) {
-        return () -> {
-            for (BooleanSetting parent : parents) {
-                if (parent.get()) return true;
+        return new Availability() {
+            @Override
+            public boolean isAvailable() {
+                for (BooleanSetting parent : parents) {
+                    if (parent.get()) return true;
+                }
+                return false;
             }
-            return false;
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Collections.unmodifiableList(Arrays.asList(parents));
+            }
         };
     }
 
@@ -123,14 +155,9 @@ public abstract class Setting<T> {
      * @return All settings that have been created, sorted by keys.
      * @noinspection Java8ListSort
      */
-    @NonNull
     private static List<Setting<?>> allLoadedSettingsSorted() {
-        if (isSDKAbove(24)) {
-            SETTINGS.sort(Comparator.comparing((Setting<?> o) -> o.key));
-        } else {
-            //noinspection ComparatorCombinators
-            Collections.sort(SETTINGS, (o1, o2) -> o1.key.compareTo(o2.key));
-        }
+        //noinspection ComparatorCombinators
+        Collections.sort(SETTINGS, (o1, o2) -> o1.key.compareTo(o2.key));
         return allLoadedSettings();
     }
 
@@ -232,9 +259,7 @@ public abstract class Setting<T> {
 
         SETTINGS.add(this);
         if (PATH_TO_SETTINGS.put(key, this) != null) {
-            // Debug setting may not be created yet so using Logger may cause an initialization crash.
-            // Show a toast instead.
-            Utils.showToastShort(this.getClass().getSimpleName()
+            Logger.printException(() -> this.getClass().getSimpleName()
                     + " error: Duplicate Setting key found: " + key);
         }
 
@@ -279,7 +304,7 @@ public abstract class Setting<T> {
             migratedValue = oldPrefs.getString(settingKey, (String) newValue);
         } else {
             Logger.printException(() -> "Unknown setting: " + setting);
-            // Remove otherwise it'll show a toast on every launch
+            // Remove otherwise it'll show a toast on every launch.
             oldPrefs.preferences.edit().remove(settingKey).apply();
             return;
         }
@@ -377,6 +402,15 @@ public abstract class Setting<T> {
      */
     public boolean isAvailable() {
         return availability == null || availability.isAvailable();
+    }
+
+    /**
+     * Get the parent Settings that this setting depends on.
+     *
+     * @return List of parent Settings (e.g., BooleanSetting or EnumSetting), or empty list if no dependencies exist.
+     */
+    public List<Setting<?>> getParentSettings() {
+        return availability == null ? Collections.emptyList() : availability.getParentSettings();
     }
 
     /**
@@ -497,13 +531,16 @@ public abstract class Setting<T> {
                 callback.settingsImported(alertDialogContext);
             }
 
-            Utils.showToastLong(numberOfSettingsImported == 0
-                    ? str("revanced_extended_settings_import_reset")
-                    : str("revanced_extended_settings_import_success", numberOfSettingsImported));
+            // Use a delay, otherwise the toast can move about on screen from the dismissing dialog.
+            final int numberOfSettingsImportedFinal = numberOfSettingsImported;
+            Utils.runOnMainThreadDelayed(() -> Utils.showToastLong(numberOfSettingsImportedFinal == 0
+                            ? str("revanced_settings_import_reset")
+                            : str("revanced_settings_import_success", numberOfSettingsImportedFinal)),
+                    150);
 
             return rebootSettingChanged;
         } catch (JSONException | IllegalArgumentException ex) {
-            Utils.showToastLong(str("revanced_extended_settings_import_failed", ex.getMessage()));
+            Utils.showToastLong(str("revanced_settings_import_failed", ex.getMessage()));
             Logger.printInfo(() -> "", ex);
         } catch (Exception ex) {
             Logger.printException(() -> "Import failure: " + ex.getMessage(), ex); // should never happen

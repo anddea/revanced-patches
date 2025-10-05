@@ -2,6 +2,7 @@
 
 package app.revanced.patches.youtube.player.components
 
+import app.revanced.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.componentLongClickListener
 import app.revanced.patches.youtube.utils.resourceid.darkBackground
 import app.revanced.patches.youtube.utils.resourceid.donationCompanion
@@ -17,12 +18,14 @@ import app.revanced.patches.youtube.utils.resourceid.touchArea
 import app.revanced.patches.youtube.utils.resourceid.verticalTouchOffsetToEnterFineScrubbing
 import app.revanced.patches.youtube.utils.resourceid.verticalTouchOffsetToStartFineScrubbing
 import app.revanced.patches.youtube.utils.resourceid.videoZoomSnapIndicator
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val horizontalTouchOffsetConstructorFingerprint = legacyFingerprint(
@@ -127,6 +130,89 @@ internal val crowdfundingBoxFingerprint = legacyFingerprint(
     literals = listOf(donationCompanion),
 )
 
+internal val doubleTapInfoConstructorFingerprint = legacyFingerprint(
+    name = "doubleTapInfoConstructorFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    parameters = listOf(
+        "Landroid/view/MotionEvent;",
+        "I",
+        "Z",
+        "Lj\$/time/Duration;"
+    )
+)
+
+internal val doubleTapInfoFloatFingerprint = legacyFingerprint(
+    name = "doubleTapInfoFloatFingerprint",
+    returnType = "I",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = listOf("I", "I", "Z"),
+    literals = listOf(1051372203L, 2.0f.toRawBits().toLong())
+)
+
+internal val doubleTapInfoGetSeekSourceFingerprint = legacyFingerprint(
+    name = "doubleTapInfoGetSeekSourceFingerprint",
+    returnType = "L",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Z"),
+    opcodes = listOf(
+        Opcode.IF_EQZ,
+        Opcode.SGET_OBJECT,
+    )
+)
+
+internal val endScreenElementLayoutCircleFingerprint = legacyFingerprint(
+    name = "endScreenElementLayoutCircleFingerprint",
+    returnType = "Landroid/view/View;",
+    opcodes = listOf(
+        Opcode.CONST,
+        Opcode.CONST_4,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CHECK_CAST,
+    ),
+    literals = listOf(endScreenElementLayoutCircle),
+)
+
+internal val endScreenElementLayoutIconFingerprint = legacyFingerprint(
+    name = "endScreenElementLayoutIconFingerprint",
+    returnType = "Landroid/view/View;",
+    opcodes = listOf(
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CHECK_CAST,
+    ),
+    literals = listOf(endScreenElementLayoutIcon),
+)
+
+internal val endScreenElementLayoutVideoFingerprint = legacyFingerprint(
+    name = "endScreenElementLayoutVideoFingerprint",
+    returnType = "Landroid/view/View;",
+    opcodes = listOf(
+        Opcode.CONST,
+        Opcode.CONST_4,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CHECK_CAST,
+    ),
+    literals = listOf(endScreenElementLayoutVideo),
+)
+
+internal val endScreenPlayerResponseModelFingerprint = legacyFingerprint(
+    name = "endScreenPlayerResponseModelFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("L"),
+    customFingerprint = { method, classDef ->
+        classDef.methods.count() == 5
+                && method.containsLiteralInstruction(0)
+                && method.containsLiteralInstruction(5)
+                && method.containsLiteralInstruction(8)
+                && method.indexOfFirstInstruction {
+            getReference<FieldReference>()?.type == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
+        } >= 0
+    }
+)
+
 /**
  * ~ YouTube 20.11
  */
@@ -215,43 +301,6 @@ internal val infoCardsIncognitoFingerprint = legacyFingerprint(
     strings = listOf("vibrator")
 )
 
-internal val layoutCircleFingerprint = legacyFingerprint(
-    name = "layoutCircleFingerprint",
-    returnType = "Landroid/view/View;",
-    opcodes = listOf(
-        Opcode.CONST,
-        Opcode.CONST_4,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-    ),
-    literals = listOf(endScreenElementLayoutCircle),
-)
-
-internal val layoutIconFingerprint = legacyFingerprint(
-    name = "layoutIconFingerprint",
-    returnType = "Landroid/view/View;",
-    opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-    ),
-    literals = listOf(endScreenElementLayoutIcon),
-)
-
-internal val layoutVideoFingerprint = legacyFingerprint(
-    name = "layoutVideoFingerprint",
-    returnType = "Landroid/view/View;",
-    opcodes = listOf(
-        Opcode.CONST,
-        Opcode.CONST_4,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-    ),
-    literals = listOf(endScreenElementLayoutVideo),
-)
-
 internal val linearLayoutManagerItemCountsFingerprint = legacyFingerprint(
     name = "linearLayoutManagerItemCountsFingerprint",
     returnType = "I",
@@ -302,6 +351,15 @@ internal val seekEduContainerFingerprint = legacyFingerprint(
     name = "seekEduContainerFingerprint",
     returnType = "V",
     literals = listOf(easySeekEduContainer),
+)
+
+/**
+ * YouTube 18.39 - 20.02
+ */
+internal val playerEduOverlayFeatureFlagFingerprint = legacyFingerprint(
+    name = "playerEduOverlayFeatureFlagFingerprint",
+    returnType = "Z",
+    literals = listOf(45427491L),
 )
 
 internal val suggestedActionsFingerprint = legacyFingerprint(

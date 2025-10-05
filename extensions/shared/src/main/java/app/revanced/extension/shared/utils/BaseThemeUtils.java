@@ -1,23 +1,21 @@
 package app.revanced.extension.shared.utils;
 
+import static app.revanced.extension.shared.utils.ResourceUtils.getDrawable;
 import static app.revanced.extension.shared.utils.Utils.clamp;
-import static app.revanced.extension.shared.utils.Utils.getResources;
+import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 
+import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.view.ViewGroup;
+import android.view.Window;
 
-import android.graphics.drawable.GradientDrawable;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
-import app.revanced.extension.youtube.settings.Settings;
-
-import java.util.regex.Pattern;
 
 @SuppressWarnings({"unused", "SameReturnValue"})
 public class BaseThemeUtils {
-    // Static pattern for validating hex colors (#FFFFFF or #000000)
-    private static final Pattern INVALID_HEX_PATTERN = Pattern.compile("^#?(FFFFFF|000000)$", Pattern.CASE_INSENSITIVE);
-
     // Must initially be a non-valid enum ordinal value.
     private static int currentThemeValueOrdinal = -1;
 
@@ -28,11 +26,6 @@ public class BaseThemeUtils {
 
     @Nullable
     private static Boolean isDarkModeEnabled;
-
-    @Nullable
-    private static Integer cachedHighlightColor;
-    private static boolean lastThemeWasDark;
-
 
     // For YouTube Music, Modern dialog not yet supported.
     public static boolean isSupportModernDialog = true;
@@ -46,6 +39,20 @@ public class BaseThemeUtils {
         isDarkModeEnabled = Boolean.TRUE;
         isSupportModernDialog = false;
         Logger.printDebug(() -> "Dark mode status: " + isDarkModeEnabled);
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Updates dark/light mode since YT settings can force light/dark mode
+     * which can differ from the global device settings.
+     */
+    public static void updateLightDarkModeStatus(int newOrdinalValue) {
+        final Boolean newDarkModeEnabled = newOrdinalValue == 2;
+        if (isDarkModeEnabled != newDarkModeEnabled) {
+            isDarkModeEnabled = newDarkModeEnabled;
+            Logger.printDebug(() -> "Dark mode status: " + newDarkModeEnabled);
+        }
     }
 
     /**
@@ -76,27 +83,6 @@ public class BaseThemeUtils {
         Configuration config = Utils.getResources(false).getConfiguration();
         final int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
         return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
-    }
-
-    /**
-     * Gets the background color for the current theme, using cached values if available.
-     * Caches the color for both light and dark themes to avoid repeated resource lookups.
-     *
-     * @return The background color for the current theme.
-     */
-    public static int getBackgroundColor() {
-        boolean isDark = isDarkModeEnabled();
-        // Check if theme has changed to invalidate cache if needed
-        if (lastThemeWasDark != isDark) {
-            cachedHighlightColor = null;
-            lastThemeWasDark = isDark;
-        }
-
-        if (isDark) {
-            return darkColor;
-        } else {
-            return lightColor;
-        }
     }
 
     public static void setThemeColor() {
@@ -276,9 +262,9 @@ public class BaseThemeUtils {
             blue = Math.round(blue + (255 - blue) * t);
         } else {
             // Darken or no change: Scale toward black.
-            red = (int) (red * factor);
-            green = (int) (green * factor);
-            blue = (int) (blue * factor);
+            red = Math.round(red * factor);
+            green = Math.round(green * factor);
+            blue = Math.round(blue * factor);
         }
 
         // Ensure values are within [0, 255].
@@ -289,42 +275,55 @@ public class BaseThemeUtils {
         return Color.argb(alpha, red, green, blue);
     }
 
-    public static GradientDrawable getSearchViewShape() {
-        GradientDrawable shape = new GradientDrawable();
-        int baseColor = getBackgroundColor();
-        int adjustedColor = isDarkModeEnabled()
-                ? adjustColorBrightness(baseColor, 1.15f)
-                : adjustColorBrightness(baseColor, 0.85f);
-        shape.setColor(adjustedColor);
-        shape.setCornerRadius(30 * getResources().getDisplayMetrics().density);
-        return shape;
+    /**
+     * Returns the drawable for the back button.
+     */
+    @SuppressLint("UseCompatLoadingForDrawables")
+    public static Drawable getBackButtonDrawable() {
+        Drawable drawable = getDrawable("revanced_settings_toolbar_arrow_left");
+        customizeBackButtonDrawable(drawable);
+        return drawable;
     }
 
     /**
-     * Gets the highlight color for search, caching it to avoid repeated calculations.
-     * Uses SETTINGS_SEARCH_HIGHLIGHT_COLOR, falling back to the background color if the setting
-     * is invalid or set to #FFFFFF/#000000. Adjusts brightness based on the current theme.
-     *
-     * @return The highlight color in ARGB format.
+     * Customizes the back button drawable.
      */
-    public static int getHighlightColor() {
-        if (cachedHighlightColor == null) {
-            String hexColor = Settings.SETTINGS_SEARCH_HIGHLIGHT_COLOR.get();
-            int baseColor;
-            if (INVALID_HEX_PATTERN.matcher(hexColor).matches()) {
-                baseColor = getBackgroundColor();
-            } else {
-                try {
-                    baseColor = Color.parseColor(hexColor);
-                } catch (IllegalArgumentException e) {
-                    baseColor = getBackgroundColor();
-                    Logger.printDebug(() -> "Invalid highlight color: " + hexColor + ", using background color");
-                }
-            }
-            float factor = isDarkModeEnabled() ? 1.30f : 0.90f; // Match new code's factors
-            cachedHighlightColor = adjustColorBrightness(baseColor, factor);
-            Logger.printDebug(() -> "Cached highlight color: " + cachedHighlightColor);
+    public static void customizeBackButtonDrawable(Drawable drawable) {
+        if (drawable != null) {
+            drawable.setTint(getAppForegroundColor());
         }
-        return cachedHighlightColor;
+    }
+
+    /**
+     * Allows subclasses to customize the dialog's root view background.
+     */
+    public static void customizeDialogBackground(ViewGroup rootView) {
+        rootView.setBackgroundColor(getAppBackgroundColor());
+    }
+
+    /**
+     * More actions
+     * Sets the system navigation bar color for the activity.
+     * Applies the background color obtained from {@link #getAppBackgroundColor()} to the navigation bar.
+     * For Android 10 (API 29) and above, enforces navigation bar contrast to ensure visibility.
+     */
+    public static void setNavigationBarColor(@Nullable Window window) {
+        if (window == null) {
+            Logger.printDebug(() -> "Cannot set navigation bar color, window is null");
+            return;
+        }
+
+        window.setNavigationBarColor(getAppBackgroundColor());
+        if (isSDKAbove(29)) {
+            window.setNavigationBarContrastEnforced(true);
+        }
+    }
+
+    /**
+     * Overrides dark mode status as returned by {@link #isDarkModeEnabled()}.
+     */
+    public static void setIsDarkModeEnabled(boolean isDarkMode) {
+        isDarkModeEnabled = isDarkMode;
+        Logger.printDebug(() -> "Dark mode status: " + isDarkMode);
     }
 }

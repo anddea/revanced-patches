@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.patches.swipe;
 
+import java.util.List;
+
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -46,6 +48,11 @@ public class SwipeControlsPatch {
             return Settings.SWIPE_BRIGHTNESS.get() &&
                     !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
         }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.SWIPE_BRIGHTNESS, Settings.SWIPE_OVERLAY_STYLE);
+        }
     }
 
     public static final class SwipeOverlayVolumeColorAvailability implements Setting.Availability {
@@ -53,6 +60,11 @@ public class SwipeControlsPatch {
         public boolean isAvailable() {
             return Settings.SWIPE_VOLUME.get() &&
                     !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.SWIPE_VOLUME, Settings.SWIPE_OVERLAY_STYLE);
         }
     }
 
@@ -62,6 +74,11 @@ public class SwipeControlsPatch {
             return Settings.SWIPE_SPEED.get() &&
                     !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
         }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.SWIPE_SPEED, Settings.SWIPE_OVERLAY_STYLE);
+        }
     }
 
     public static final class SwipeOverlaySeekColorAvailability implements Setting.Availability {
@@ -69,6 +86,11 @@ public class SwipeControlsPatch {
         public boolean isAvailable() {
             return Settings.SWIPE_SEEK.get() &&
                     !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.SWIPE_SEEK, Settings.SWIPE_OVERLAY_STYLE);
         }
     }
 }

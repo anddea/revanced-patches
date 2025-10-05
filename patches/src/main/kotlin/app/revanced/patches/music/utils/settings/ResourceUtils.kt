@@ -6,6 +6,7 @@ import app.revanced.patches.music.utils.patch.PatchList
 import app.revanced.util.adoptChild
 import app.revanced.util.cloneNodes
 import app.revanced.util.doRecursively
+import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.insertNode
 import org.w3c.dom.Element
 
@@ -16,7 +17,7 @@ internal object ResourceUtils {
         this.context = context
     }
 
-    private const val RVX_SETTINGS_KEY = "revanced_extended_settings"
+    private const val RVX_SETTINGS_KEY = "revanced_settings"
 
     const val SETTINGS_HEADER_PATH = "res/xml/settings_headers.xml"
 
@@ -166,6 +167,81 @@ internal object ResourceUtils {
         }
     }
 
+    fun addPreferenceFragment(
+        key: String,
+        insertKey: String,
+        targetClass: String,
+    ) = context.apply {
+        document(SETTINGS_HEADER_PATH).use { document ->
+            with(document) {
+                val processedKeys = mutableSetOf<String>() // To track processed keys
+
+                doRecursively loop@{ node ->
+                    if (node !is Element) return@loop // Skip if not an element
+
+                    val attributeNode = node.getAttributeNode("android:key")
+                        ?: return@loop // Skip if no key attribute
+                    val currentKey = attributeNode.textContent
+
+                    // Check if the current key has already been processed
+                    if (processedKeys.contains(currentKey)) {
+                        return@loop // Skip if already processed
+                    } else {
+                        processedKeys.add(currentKey) // Add the current key to processedKeys
+                    }
+
+                    when (currentKey) {
+                        insertKey -> {
+                            node.insertNode("Preference", node) {
+                                setAttribute("android:key", "${key}_key")
+                                setAttribute("android:title", "@string/${key}_title")
+                                this.appendChild(
+                                    ownerDocument.createElement("intent").also { intentNode ->
+                                        intentNode.setAttribute(
+                                            "android:targetPackage",
+                                            "com.google.android.apps.youtube.music"
+                                        )
+                                        intentNode.setAttribute("android:data", key + "_intent")
+                                        intentNode.setAttribute("android:targetClass", targetClass)
+                                    }
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Modify the manifest to enhance TargetActivity behavior:
+        // 1. Add a data intent filter with MIME type "text/plain".
+        //    Some devices crash if undeclared data is passed to an intent,
+        //    and this change appears to fix the issue.
+        // 2. Add android:configChanges="orientation|screenSize|keyboardHidden".
+        //    This prevents the activity from being recreated on configuration changes
+        //    (e.g., screen rotation), preserving its current state and fragment.
+        document("AndroidManifest.xml").use { document ->
+            val activityElement = document.childNodes.findElementByAttributeValueOrThrow(
+                "android:name",
+                targetClass,
+            )
+
+            if (!activityElement.hasAttribute("android:configChanges")) {
+                activityElement.setAttribute(
+                    "android:configChanges",
+                    "keyboardHidden|orientation|screenSize"
+                )
+            }
+
+            val mimeType = document.createElement("data")
+            mimeType.setAttribute("android:mimeType", "text/plain")
+
+            val intentFilter = document.createElement("intent-filter")
+            intentFilter.appendChild(mimeType)
+
+            activityElement.appendChild(intentFilter)
+        }
+    }
+
     fun addSwitchPreference(
         category: String,
         key: String,
@@ -209,9 +285,7 @@ internal object ResourceUtils {
                 .forEach {
                     it.adoptChild("Preference") {
                         setAttribute("android:title", "@string/$key" + "_title")
-                        if (isSettingsSummariesEnabled == true) {
                             setAttribute("android:summary", "@string/$key" + "_summary")
-                        }
                         setAttribute("android:key", key)
                         if (dependencyKey.isNotEmpty()) {
                             setAttribute("android:dependency", dependencyKey)
@@ -229,23 +303,6 @@ internal object ResourceUtils {
         }
     }
 
-    fun replaceSwitchPreference(
-        key: String,
-        defaultValue: String,
-    ) {
-        context.document(SETTINGS_HEADER_PATH).use { document ->
-            document.doRecursively node@{
-                if (it !is Element) return@node
-
-                it.getAttributeNode("android:key")?.let { attribute ->
-                    if (attribute.textContent == key) {
-                        it.setAttribute("android:defaultValue", defaultValue)
-                    }
-                }
-            }
-        }
-    }
-
     fun addRVXSettingsPreference(insertKey: String) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             document.doRecursively node@{
@@ -259,9 +316,9 @@ internal object ResourceUtils {
                         it.insertNode(PREFERENCE_SCREEN_TAG_NAME, it) {
                             setAttribute(
                                 "android:title",
-                                "@string/revanced_extended_settings_title"
+                                "@string/revanced_settings_title"
                             )
-                            setAttribute("android:key", "revanced_extended_settings")
+                            setAttribute("android:key", "revanced_settings")
                             setAttribute("app:allowDividerAbove", "false")
                         }
                         it.getAttributeNode("app:allowDividerBelow").textContent = "true"

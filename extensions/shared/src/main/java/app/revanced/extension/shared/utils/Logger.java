@@ -18,6 +18,7 @@ import app.revanced.extension.shared.settings.preference.LogBufferManager;
  * All methods are thread safe, and are safe to call even
  * if {@link Utils#getContext()} is not available.
  */
+@SuppressWarnings("unused")
 public class Logger {
 
     /**
@@ -34,7 +35,9 @@ public class Logger {
     private enum LogLevel {
         DEBUG,
         INFO,
-        ERROR
+        ERROR,
+        WARN,
+        WTF,
     }
 
     /**
@@ -109,9 +112,17 @@ public class Logger {
                 if (ex == null) Log.i(logTag, logText);
                 else Log.i(logTag, logText, ex);
                 break;
+            case WARN:
+                if (ex == null) Log.w(logTag, logText);
+                else Log.w(logTag, logText, ex);
+                break;
             case ERROR:
                 if (ex == null) Log.e(logTag, logText);
                 else Log.e(logTag, logText, ex);
+                break;
+            case WTF:
+                if (ex == null) Log.wtf(logTag, logText);
+                else Log.wtf(logTag, logText, ex);
                 break;
         }
 
@@ -169,6 +180,20 @@ public class Logger {
     }
 
     /**
+     * Logs warning messages using the outer class name of the code calling this method.
+     */
+    public static void printWarn(LogMessage message) {
+        printWarn(message, null);
+    }
+
+    /**
+     * Logs warning messages using the outer class name of the code calling this method.
+     */
+    public static void printWarn(LogMessage message, @Nullable Exception ex) {
+        logInternal(LogLevel.WARN, message, ex, false);
+    }
+
+    /**
      * Logs exceptions under the outer class name of the code calling this method.
      * Appends the log message, exception (if present), and toast message (if enabled) to logBuffer.
      */
@@ -190,19 +215,16 @@ public class Logger {
     }
 
     /**
-     * Logging to use if {@link BaseSettings#DEBUG} or {@link Utils#getContext()} may not be initialized.
-     * Normally this method should not be used.
+     * Logs WTF (What a Terrible Failure) messages using the outer class name of the code calling this method.
      */
-    public static void initializationInfo(@NonNull Class<?> callingClass, @NonNull String message) {
-        Log.i(REVANCED_LOG_TAG_PREFIX + callingClass.getSimpleName(), message);
+    public static void printWTF(LogMessage message) {
+        printWTF(message, null);
     }
 
     /**
-     * Logging to use if {@link BaseSettings#DEBUG} or {@link Utils#getContext()} may not be initialized.
-     * Normally this method should not be used.
+     * Logs WTF (What a Terrible Failure) messages using the outer class name of the code calling this method.
      */
-    public static void initializationException(@NonNull Class<?> callingClass, @NonNull String message,
-                                               @Nullable Exception ex) {
-        Log.e(REVANCED_LOG_TAG_PREFIX + callingClass.getSimpleName(), message, ex);
+    public static void printWTF(LogMessage message, @Nullable Exception ex) {
+        logInternal(LogLevel.WTF, message, ex, false);
     }
 }

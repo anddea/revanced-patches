@@ -99,7 +99,7 @@ public class ActionBarPatch {
                                                  @NonNull CharSequence original) {
         if (EXTERNAL_DOWNLOADER_ACTION_BUTTON &&
                 downloadButtonLabel.isEmpty() &&
-                conversionContext.toString().contains("music_download_button.eml")) {
+                conversionContext.toString().contains("music_download_button.")) {
             downloadButtonLabel = original.toString();
             Logger.printDebug(() -> "set download button label: " + original);
         }

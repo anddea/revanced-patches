@@ -14,12 +14,17 @@ import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.shared.spans.addSpanFilter
 import app.revanced.patches.shared.spans.inclusiveSpanPatch
 import app.revanced.patches.shared.startVideoInformerFingerprint
+import app.revanced.patches.shared.textcomponent.hookSpannableString
+import app.revanced.patches.shared.textcomponent.textComponentPatch
 import app.revanced.patches.youtube.utils.bottomsheet.bottomSheetHookPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.controlsoverlay.controlsOverlayConfigPatch
 import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
 import app.revanced.patches.youtube.utils.dismiss.hookDismissObserver
-import app.revanced.patches.youtube.utils.engagement.*
+import app.revanced.patches.youtube.utils.engagement.engagementPanelBuilderMethod
+import app.revanced.patches.youtube.utils.engagement.engagementPanelFreeRegister
+import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
+import app.revanced.patches.youtube.utils.engagement.engagementPanelIdIndex
+import app.revanced.patches.youtube.utils.engagement.engagementPanelIdRegister
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_PATH
@@ -37,15 +42,35 @@ import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.video.information.hookBackgroundPlayVideoInformation
 import app.revanced.patches.youtube.video.information.hookVideoInformation
 import app.revanced.patches.youtube.video.information.videoInformationPatch
-import app.revanced.util.*
+import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.Utils.printWarn
-import app.revanced.util.fingerprint.*
+import app.revanced.util.findMethodOrThrow
+import app.revanced.util.findMutableMethodOf
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
+import app.revanced.util.fingerprint.injectLiteralInstructionViewCall
+import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.fingerprint.mutableClassOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.*
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 private val speedOverlayPatch = bytecodePatch(
     description = "speedOverlayPatch"
@@ -53,6 +78,7 @@ private val speedOverlayPatch = bytecodePatch(
     dependsOn(
         sharedExtensionPatch,
         sharedResourceIdPatch,
+        textComponentPatch,
         versionCheckPatch,
     )
 
@@ -274,7 +300,12 @@ private val speedOverlayPatch = bytecodePatch(
             }
 
             // Removed in YouTube 20.03+
-            if (!is_20_03_or_greater) {
+            if (is_20_03_or_greater) {
+                hookSpannableString(
+                    PLAYER_CLASS_DESCRIPTOR,
+                    "onCharSequenceLoaded"
+                )
+            } else {
                 speedOverlayTextValueFingerprint.methodOrThrow().apply {
                     val targetIndex =
                         indexOfFirstInstructionOrThrow(Opcode.CONST_WIDE_HIGH16)
@@ -313,7 +344,6 @@ val playerComponentsPatch = bytecodePatch(
     dependsOn(
         settingsPatch,
         bottomSheetHookPatch,
-        controlsOverlayConfigPatch,
         endScreenSuggestedVideoPatch,
         engagementPanelHookPatch,
         dismissPlayerHookPatch,
@@ -328,11 +358,6 @@ val playerComponentsPatch = bytecodePatch(
     )
 
     execute {
-        var settingArray = arrayOf(
-            "PREFERENCE_SCREEN: PLAYER",
-            "SETTINGS: PLAYER_COMPONENTS"
-        )
-
         fun MutableMethod.getAllLiteralComponent(
             startIndex: Int,
             endIndex: Int
@@ -473,6 +498,24 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for disable double tap chapters
+
+        mapOf(
+            doubleTapInfoConstructorFingerprint to "p3",
+            doubleTapInfoGetSeekSourceFingerprint to "p1",
+        ).forEach { (fingerprint, parameter) ->
+            fingerprint
+                .methodOrThrow(doubleTapInfoFloatFingerprint)
+                .addInstructions(
+                    0, """
+                        invoke-static { $parameter }, $PLAYER_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z
+                        move-result $parameter
+                        """
+                )
+        }
+
+        // endregion
+
         // region patch for hide channel watermark
 
         watermarkFingerprint.matchOrThrow(watermarkParentFingerprint).let {
@@ -528,9 +571,9 @@ val playerComponentsPatch = bytecodePatch(
         // region patch for hide end screen cards
 
         listOf(
-            layoutCircleFingerprint,
-            layoutIconFingerprint,
-            layoutVideoFingerprint
+            endScreenElementLayoutCircleFingerprint,
+            endScreenElementLayoutIconFingerprint,
+            endScreenElementLayoutVideoFingerprint
         ).forEach { fingerprint ->
             fingerprint.matchOrThrow().let {
                 it.method.apply {
@@ -545,6 +588,21 @@ val playerComponentsPatch = bytecodePatch(
             }
         }
 
+        if (is_19_43_or_greater) {
+            endScreenPlayerResponseModelFingerprint
+                .methodOrThrow()
+                .addInstructionsWithLabels(
+                    0, """
+                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideEndScreenCards()Z
+                    move-result v0
+                    if-eqz v0, :show
+                    return-void
+                    :show
+                    nop
+                    """
+                )
+        }
+
         // endregion
 
         // region patch for hide filmstrip overlay
@@ -555,12 +613,14 @@ val playerComponentsPatch = bytecodePatch(
         ) {
             val stringInstructions = when (returnType) {
                 "Z" -> """
-                            const/4 v$register, 0x0
-                            return v$register
-                        """
+                    const/4 v$register, 0x0
+                    return v$register
+                    """
+
                 "V" -> """
-                            return-void
-                        """
+                    return-void
+                    """
+
                 else -> throw Exception("This case should never happen.")
             }
 
@@ -753,8 +813,34 @@ val playerComponentsPatch = bytecodePatch(
                         if-nez v$insertRegister, :default
                         """, ExternalLabel("default", getInstruction(onClickListenerIndex + 1))
                 )
+            }
+        }
 
-                settingArray += "SETTINGS: HIDE_SEEK_UNDO_MESSAGE"
+        if (is_18_39_or_greater && !is_20_03_or_greater) {
+            playerEduOverlayFeatureFlagFingerprint.methodOrThrow().apply {
+                val targetIndex = implementation!!.instructions.size - 1
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                addInstruction(
+                    targetIndex,
+                    "const/4 v$targetRegister, 0x0"
+                )
+            }
+        } else if (is_20_03_or_greater && !is_20_09_or_greater) {
+            youtubeControlsOverlayFingerprint.methodOrThrow().apply {
+                val constIndex = indexOfFirstLiteralInstructionOrThrow(eduOverlayStub)
+                val targetIndex = indexOfFirstInstructionOrThrow(constIndex) {
+                    opcode == Opcode.CHECK_CAST &&
+                            getReference<TypeReference>()?.type == "Landroid/view/ViewStub;"
+                }
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                addInstructions(
+                    targetIndex + 1, """
+                        invoke-static { v$targetRegister }, $PLAYER_CLASS_DESCRIPTOR->hideSeekMessage(Landroid/view/ViewStub;)Landroid/view/ViewStub;
+                        move-result-object v$targetRegister
+                        """
+                )
             }
         }
 
@@ -821,7 +907,10 @@ val playerComponentsPatch = bytecodePatch(
         // region add settings
 
         addPreference(
-            settingArray,
+            arrayOf(
+                "PREFERENCE_SCREEN: PLAYER",
+                "SETTINGS: PLAYER_COMPONENTS"
+            ),
             PLAYER_COMPONENTS
         )
 

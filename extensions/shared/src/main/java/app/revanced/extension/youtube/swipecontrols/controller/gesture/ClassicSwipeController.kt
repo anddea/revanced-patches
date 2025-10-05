@@ -1,8 +1,6 @@
 package app.revanced.extension.youtube.swipecontrols.controller.gesture
 
 import android.view.MotionEvent
-import app.revanced.extension.youtube.shared.PlayerControlsVisibilityObserver
-import app.revanced.extension.youtube.shared.PlayerControlsVisibilityObserverImpl
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsHostActivity
 import app.revanced.extension.youtube.swipecontrols.controller.gesture.core.BaseGestureController

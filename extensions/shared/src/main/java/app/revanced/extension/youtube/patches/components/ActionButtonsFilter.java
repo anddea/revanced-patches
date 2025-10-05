@@ -2,17 +2,21 @@ package app.revanced.extension.youtube.patches.components;
 
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREATER;
 
+import org.apache.commons.lang3.StringUtils;
+
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
 import app.revanced.extension.youtube.settings.Settings;
 
-import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREATER;
-
-@SuppressWarnings("unused")
+@SuppressWarnings({"deprecation", "unused"})
 public final class ActionButtonsFilter extends Filter {
-    private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.eml";
+    /**
+     * Video bar path when the video information is collapsed. Seems to shown only with 20.14+
+     */
+    private static final String COMPACTIFY_VIDEO_ACTION_BAR_PATH = "compactify_video_action_bar.";
+    private static final String VIDEO_ACTION_BAR_PATH = "video_action_bar.";
     private static final String ANIMATED_VECTOR_TYPE_PATH = "AnimatedVectorType";
 
     private final StringFilterGroup actionBarRule;
@@ -25,17 +29,17 @@ public final class ActionButtonsFilter extends Filter {
     public ActionButtonsFilter() {
         actionBarRule = new StringFilterGroup(
                 null,
-                VIDEO_ACTION_BAR_PATH_PREFIX
+                VIDEO_ACTION_BAR_PATH
         );
         addIdentifierCallbacks(actionBarRule);
 
         bufferFilterPathRule = new StringFilterGroup(
                 null,
-                "|ContainerType|button.eml"
+                "|ContainerType|button."
         );
         likeSubscribeGlow = new StringFilterGroup(
                 Settings.DISABLE_LIKE_DISLIKE_GLOW,
-                "animated_button_border.eml"
+                "animated_button_border."
         );
         addPathCallbacks(
                 new StringFilterGroup(
@@ -44,11 +48,11 @@ public final class ActionButtonsFilter extends Filter {
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_DOWNLOAD_BUTTON,
-                        "|download_button.eml"
+                        "|download_button."
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_CLIP_BUTTON,
-                        "|clip_button.eml"
+                        "|clip_button."
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_PLAYLIST_BUTTON,
@@ -136,7 +140,7 @@ public final class ActionButtonsFilter extends Filter {
         if (HIDE_ACTION_BUTTON_INDEX) {
             return false;
         }
-        if (!path.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX)) {
+        if (!StringUtils.startsWithAny(path, COMPACTIFY_VIDEO_ACTION_BAR_PATH, VIDEO_ACTION_BAR_PATH)) {
             return false;
         }
         if (matchedGroup == actionBarRule && !isEveryFilterGroupEnabled()) {

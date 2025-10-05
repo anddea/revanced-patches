@@ -19,6 +19,7 @@ import static app.revanced.extension.music.settings.Settings.SB_API_URL;
 import static app.revanced.extension.music.settings.Settings.SETTINGS_IMPORT_EXPORT;
 import static app.revanced.extension.music.settings.Settings.SPOOF_APP_VERSION_TARGET;
 import static app.revanced.extension.music.settings.Settings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT;
+import static app.revanced.extension.music.settings.Settings.SPOOF_STREAMING_DATA_VR_AUTH_TOKEN_ABOUT;
 import static app.revanced.extension.music.settings.Settings.WATCH_HISTORY_TYPE;
 import static app.revanced.extension.music.utils.ExtendedUtils.getDialogBuilder;
 import static app.revanced.extension.music.utils.ExtendedUtils.getLayoutParams;
@@ -73,7 +74,7 @@ import app.revanced.extension.shared.utils.Utils;
 @SuppressWarnings("all")
 public class ReVancedPreferenceFragment extends PreferenceFragment {
 
-    private static final String IMPORT_EXPORT_SETTINGS_ENTRY_KEY = "revanced_extended_settings_import_export_entries";
+    private static final String IMPORT_EXPORT_SETTINGS_ENTRY_KEY = "revanced_settings_import_export_entries";
     private static final int READ_REQUEST_CODE = 42;
     private static final int WRITE_REQUEST_CODE = 43;
 
@@ -168,6 +169,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     YouTubeDataAPIDialogBuilder.showDialog(mActivity);
                 } else if (settings.equals(REPLACE_NAVIGATION_BUTTON_ABOUT)) {
                     ResettableListPreference.showDialog(mActivity, CHANGE_START_PAGE, 0);
+                } else if (settings.equals(SPOOF_STREAMING_DATA_VR_AUTH_TOKEN_ABOUT)) {
+                    SpoofStreamingDataVRAuthTokenDialogBuilder.showDialog(mActivity);
                 } else {
                     Logger.printDebug(() -> "Failed to find the right value: " + dataString);
                 }
@@ -175,11 +178,10 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 if (settings.equals(CHANGE_START_PAGE)
                         || settings.equals(DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE)
                         || settings.equals(RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT)
+                        || settings.equals(SPOOF_STREAMING_DATA_DEFAULT_CLIENT)
                         || settings.equals(WATCH_HISTORY_TYPE)
                 ) {
                     ResettableListPreference.showDialog(mActivity, enumSetting, 0);
-                } else if (settings.equals(SPOOF_STREAMING_DATA_DEFAULT_CLIENT)) {
-                    ResettableListPreference.showDialog(mActivity, enumSetting, 3);
                 }
             }
         } catch (Exception ex) {
@@ -215,7 +217,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             final String[] mEntries = getStringArray(IMPORT_EXPORT_SETTINGS_ENTRY_KEY);
 
             getDialogBuilder(activity)
-                    .setTitle(str("revanced_extended_settings_import_export_title"))
+                    .setTitle(str("revanced_settings_import_export_title"))
                     .setItems(mEntries, (dialog, index) -> {
                         switch (index) {
                             case 0 -> exportActivity();
@@ -250,11 +252,11 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             container.addView(textInputLayout);
 
             getDialogBuilder(activity)
-                    .setTitle(str("revanced_extended_settings_import_export_title"))
+                    .setTitle(str("revanced_settings_import_export_title"))
                     .setView(container)
                     .setNegativeButton(android.R.string.cancel, null)
-                    .setNeutralButton(str("revanced_extended_settings_import_copy"), (dialog, which) -> Utils.setClipboard(textView.getText().toString(), str("revanced_share_copy_settings_success")))
-                    .setPositiveButton(str("revanced_extended_settings_import"), (dialog, which) -> importSettings(activity, textView.getText().toString()))
+                    .setNeutralButton(str("revanced_settings_import_copy"), (dialog, which) -> Utils.setClipboard(textView.getText().toString(), str("revanced_share_copy_settings_success")))
+                    .setPositiveButton(str("revanced_settings_import"), (dialog, which) -> importSettings(activity, textView.getText().toString()))
                     .show();
         } catch (Exception ex) {
             Logger.printException(() -> "importExportEditTextDialogBuilder failure", ex);
@@ -327,9 +329,9 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             printWriter.close();
             jsonFileWriter.close();
 
-            showToastShort(str("revanced_extended_settings_export_success"));
+            showToastShort(str("revanced_settings_export_success"));
         } catch (IOException e) {
-            showToastShort(str("revanced_extended_settings_export_failed"));
+            showToastShort(str("revanced_settings_export_failed"));
         }
     }
 
@@ -359,7 +361,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 ReVancedPreferenceFragment.showRebootDialog();
             }
         } catch (IOException e) {
-            showToastShort(str("revanced_extended_settings_import_failed"));
+            showToastShort(str("revanced_settings_import_failed"));
             throw new RuntimeException(e);
         }
     }

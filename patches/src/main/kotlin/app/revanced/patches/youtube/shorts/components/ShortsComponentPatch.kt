@@ -16,6 +16,7 @@ import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.revanced.patches.shared.textcomponent.hookSpannableString
 import app.revanced.patches.shared.textcomponent.textComponentPatch
+import app.revanced.patches.youtube.player.overlaybuttons.geminiButton
 import app.revanced.patches.youtube.utils.bottomSheetMenuItemBuilderFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
@@ -727,6 +728,8 @@ val shortsComponentPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
+
+        geminiButton,
 
         shortsAnimationPatch,
         shortsCustomActionsPatch,

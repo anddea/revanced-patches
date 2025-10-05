@@ -581,10 +581,16 @@ fun Method.containsLiteralInstruction(literal: Double) = indexOfFirstLiteralInst
 fun BytecodePatchContext.hookClassHierarchy(
     hostActivityClass: MutableClass,
     targetActivityClass: MutableClass,
+    hostAbstractActivityClass: MutableClass? = null,
 ) {
     // inject the wrapper class from extension into the class hierarchy of TargetActivity
-    hostActivityClass.setSuperClass(targetActivityClass.superclass)
-    targetActivityClass.setSuperClass(hostActivityClass.type)
+    if (hostAbstractActivityClass == null) {
+        hostActivityClass.setSuperClass(targetActivityClass.superclass)
+        targetActivityClass.setSuperClass(hostActivityClass.type)
+    } else {
+        hostAbstractActivityClass.setSuperClass(targetActivityClass.superclass)
+        targetActivityClass.setSuperClass(hostActivityClass.type)
+    }
 
     // ensure all classes and methods in the hierarchy are non-final, so we can override them in extension
     traverseClassHierarchy(targetActivityClass) {

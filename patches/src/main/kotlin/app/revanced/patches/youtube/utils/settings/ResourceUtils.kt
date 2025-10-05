@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.utils.settings
 
 import app.revanced.patcher.patch.ResourcePatchContext
-import app.revanced.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
 import app.revanced.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.utils.patch.PatchList
 import app.revanced.util.doRecursively
@@ -27,25 +26,16 @@ internal object ResourceUtils {
     fun getContext() = context
 
     var restoreOldSplashAnimationIncluded = false
-    var youtubeMusicPackageName = YOUTUBE_MUSIC_PACKAGE_NAME
-    var youtubePackageName = YOUTUBE_PACKAGE_NAME
 
     private var iconType = "default"
     fun getIconType() = iconType
 
-    fun updatePackageName(
-        fromPackageName: String,
-        toPackageName: String,
-        musicPackageName: String
-    ) {
-        youtubeMusicPackageName = musicPackageName
-        youtubePackageName = toPackageName
-
+    fun updatePackageName(newPackageName: String) {
         youtubeSettingFile.writeText(
             youtubeSettingFile.readText()
                 .replace(
-                    "android:targetPackage=\"$fromPackageName",
-                    "android:targetPackage=\"$toPackageName"
+                    "android:targetPackage=\"$YOUTUBE_PACKAGE_NAME",
+                    "android:targetPackage=\"$newPackageName"
                 )
         )
     }
@@ -144,7 +134,7 @@ internal object ResourceUtils {
                                     ownerDocument.createElement("intent").also { intentNode ->
                                         intentNode.setAttribute(
                                             "android:targetPackage",
-                                            youtubePackageName
+                                            YOUTUBE_PACKAGE_NAME
                                         )
                                         intentNode.setAttribute("android:data", key + "_intent")
                                         intentNode.setAttribute("android:targetClass", targetClass)
@@ -169,6 +159,10 @@ internal object ResourceUtils {
         // 2. Add android:configChanges="orientation|screenSize|keyboardHidden".
         //    This prevents the activity from being recreated on configuration changes
         //    (e.g., screen rotation), preserving its current state and fragment.
+        // 3. In Android 16+, the default value for the 'android:enableOnBackInvokedCallback' flag is 'true'.
+        //    According to the 'Unsupported platform APIs, but unable to migrate' section of the Android documentation,
+        //    Projects that don't use AndroidX APIs are recommended to change the 'android:enableOnBackInvokedCallback' attribute in the <activity> tag to 'false':
+        //    https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#update-custom
         document("AndroidManifest.xml").use { document ->
             val activityElement = document.childNodes.findElementByAttributeValueOrThrow(
                 "android:name",
@@ -181,6 +175,11 @@ internal object ResourceUtils {
                     "keyboardHidden|orientation|screenSize"
                 )
             }
+
+            activityElement.setAttribute(
+                "android:enableOnBackInvokedCallback",
+                "false"
+            )
 
             val mimeType = document.createElement("data")
             mimeType.setAttribute("android:mimeType", "text/plain")

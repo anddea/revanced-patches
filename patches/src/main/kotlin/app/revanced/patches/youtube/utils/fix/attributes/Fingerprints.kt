@@ -22,3 +22,11 @@ internal val setSleepTimerDrawableFingerprint = legacyFingerprint(
     ),
     literals = listOf(ytOutlineMoonZ),
 )
+
+internal const val STATS_FOR_NERDS_FEATURE_FLAG = 45673427L
+
+internal val statsForNerdsFeatureFlagFingerprint = legacyFingerprint(
+    name = "statsForNerdsFeatureFlagFingerprint",
+    returnType = "Z",
+    literals = listOf(STATS_FOR_NERDS_FEATURE_FLAG),
+)

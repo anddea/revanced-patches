@@ -30,13 +30,13 @@ public final class PlayerFlyoutMenuFilter extends Filter {
                 "bottom_sheet_list_option"
         );
         playerFlyoutMenuFooter.addPatterns(
-                "captions_sheet_content.eml",
-                "quality_sheet_content.eml"
+                "captions_sheet_content.",
+                "quality_sheet_content."
         );
 
         captionsSheet = new StringFilterGroup(
                 Settings.HIDE_PLAYER_FLYOUT_MENU_CAPTIONS_FOOTER,
-                "captions_sheet_content.eml"
+                "captions_sheet_content."
         );
 
         addIdentifierCallbacks(captionsSheet);
@@ -44,21 +44,21 @@ public final class PlayerFlyoutMenuFilter extends Filter {
         final StringFilterGroup captionsFooter = new StringFilterGroup(
                 Settings.HIDE_PLAYER_FLYOUT_MENU_CAPTIONS_FOOTER,
                 "|ContainerType|ContainerType|ContainerType|TextType|",
-                "|divider.eml|"
+                "|divider."
         );
 
         final StringFilterGroup qualityFooter = new StringFilterGroup(
                 Settings.HIDE_PLAYER_FLYOUT_MENU_QUALITY_FOOTER,
-                "quality_sheet_footer.eml",
-                "|divider.eml|"
+                "quality_sheet_footer.",
+                "|divider."
         );
 
         qualityHeader = new StringFilterGroup(
                 Settings.HIDE_PLAYER_FLYOUT_MENU_QUALITY_HEADER,
-                "quality_sheet_header.eml"
+                "quality_sheet_header."
         );
 
-        playerFlyoutMenu = new StringFilterGroup(null, "overflow_menu_item.eml");
+        playerFlyoutMenu = new StringFilterGroup(null, "overflow_menu_item.");
 
         // Using pathFilterGroupList due to new flyout panel(A/B)
         addPathCallbacks(

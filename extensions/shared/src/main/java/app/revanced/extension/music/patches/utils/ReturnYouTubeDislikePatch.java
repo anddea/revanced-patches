@@ -44,7 +44,7 @@ public class ReturnYouTubeDislikePatch {
 
             String conversionContextString = conversionContext.toString();
 
-            if (!conversionContextString.contains("segmented_like_dislike_button.eml")) {
+            if (!conversionContextString.contains("segmented_like_dislike_button.")) {
                 return original;
             }
             ReturnYouTubeDislike videoData = currentVideoData;

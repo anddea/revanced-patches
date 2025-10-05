@@ -33,13 +33,20 @@ internal object NSigExtractor {
      *
      * yt-dlp\yt_dlp\extractor\youtube.py
      */
-    fun extractNFuncCode(jsCode: String, globalVar: Triple<String?, List<String>?, String?>): Pair<List<String>, String>? {
-        val funcName = extractInitNFunctionName(jsCode, globalVar) ?: extractNFunctionName1(jsCode) ?: extractNFunctionName2(jsCode) ?: return null
+    fun extractNFuncCode(
+        jsCode: String,
+        globalVar: Triple<String?, List<String>?, String?>
+    ): Pair<List<String>, String>? {
+        val funcName = extractInitNFunctionName(jsCode, globalVar) ?: extractNFunctionName1(jsCode)
+        ?: extractNFunctionName2(jsCode) ?: return null
 
         return fixupNFunctionCode(JSInterpret.extractFunctionCode(jsCode, funcName), globalVar)
     }
 
-    private fun fixupNFunctionCode(funcCode: Pair<List<String>, String>, globalVar: Triple<String?, List<String>?, String?>): Pair<List<String>, String> {
+    private fun fixupNFunctionCode(
+        funcCode: Pair<List<String>, String>,
+        globalVar: Triple<String?, List<String>?, String?>
+    ): Pair<List<String>, String> {
         val argNames = funcCode.first
         var nSigCode = funcCode.second
 
@@ -77,7 +84,10 @@ internal object NSigExtractor {
      *
      * yt-dlp\yt_dlp\extractor\youtube.py
      */
-    private fun extractInitNFunctionName(jsCode: String, globalVar: Triple<String?, List<String>?, String?>): String? {
+    private fun extractInitNFunctionName(
+        jsCode: String,
+        globalVar: Triple<String?, List<String>?, String?>
+    ): String? {
         val (varName, globalList) = globalVar
         val itemValue = globalList?.first { it.endsWith("-_w8_") }
         var funcName: String? = null
@@ -129,12 +139,13 @@ internal object NSigExtractor {
      *
      * yt-dlp\yt_dlp\extractor\youtube.py
      */
-    private fun extractNFunctionName1(jsCode: String): String? {
+    private fun extractNFunctionName1(jsCode: String): String? { // NOTE: looong running code
         val nFuncMatcher = mNFuncPattern.matcher(jsCode)
 
         if (nFuncMatcher.find() && nFuncMatcher.groupCount() >= 3) {
             val funcName = nFuncMatcher.group(3) // nFuncMatcher.groupCount() - 1
-            val idx = if (nFuncMatcher.groupCount() >= 4) nFuncMatcher.group(4) else return funcName // nFuncMatcher.groupCount()
+            val idx =
+                if (nFuncMatcher.groupCount() >= 4) nFuncMatcher.group(4) else return funcName // nFuncMatcher.groupCount()
 
             val escapedFuncName = Pattern.quote(funcName)
 

@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.util.Pair;
 import android.widget.LinearLayout;
 
-import app.revanced.extension.shared.utils.Utils;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"FieldCanBeLocal", "deprecation", "unused"})
@@ -50,7 +50,7 @@ public class GetCookiesPreference extends Preference implements Preference.OnPre
     @Override
     public boolean onPreferenceClick(Preference preference) {
         Context context = getContext();
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 // Title.
                 str("revanced_transcript_cookies_dialog_title"),

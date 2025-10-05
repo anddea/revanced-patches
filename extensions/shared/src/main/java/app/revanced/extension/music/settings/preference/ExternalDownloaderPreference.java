@@ -79,7 +79,7 @@ public class ExternalDownloaderPreference {
             checkPackageIsValid(mActivity, packageName);
             dialog.dismiss();
         });
-        builder.setNeutralButton(str("revanced_extended_settings_reset"), (dialog, which) -> settings.resetToDefault());
+        builder.setNeutralButton(str("revanced_settings_reset"), (dialog, which) -> settings.resetToDefault());
         builder.setNegativeButton(android.R.string.cancel, null);
 
         builder.show();

@@ -2,11 +2,9 @@ package app.revanced.patches.music.ads.general
 
 import app.revanced.patches.music.utils.resourceid.buttonContainer
 import app.revanced.patches.music.utils.resourceid.floatingLayout
-import app.revanced.patches.music.utils.resourceid.interstitialsContainer
 import app.revanced.patches.music.utils.resourceid.modernDialogBackground
 import app.revanced.patches.music.utils.resourceid.musicNotifierShelf
 import app.revanced.patches.music.utils.resourceid.privacyTosFooter
-import app.revanced.patches.music.utils.resourceid.slidingDialogAnimation
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -79,35 +77,9 @@ internal val getPremiumTextViewFingerprint = legacyFingerprint(
     strings = listOf("FEmusic_history")
 )
 
-internal val interstitialsContainerFingerprint = legacyFingerprint(
-    name = "interstitialsContainerFingerprint",
-    returnType = "V",
-    strings = listOf("overlay_controller_param"),
-    literals = listOf(interstitialsContainer)
-)
-
 internal val notifierShelfFingerprint = legacyFingerprint(
     name = "notifierShelfFingerprint",
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     literals = listOf(musicNotifierShelf, buttonContainer)
-)
-
-internal val showDialogCommandFingerprint = legacyFingerprint(
-    name = "showDialogCommandFingerprint",
-    returnType = "V",
-    opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.IGET, // get dialog code
-    ),
-    literals = listOf(slidingDialogAnimation),
-    // 6.26 and earlier has a different first parameter.
-    // Since this fingerprint is somewhat weak, work around by checking for both method parameter signatures.
-    customFingerprint = custom@{ method, _ ->
-        // 6.26 and earlier parameters are: "L", "L"
-        // 6.27+ parameters are "[B", "L"
-        val parameterTypes = method.parameterTypes
-
-        parameterTypes.size == 2 && parameterTypes[1].startsWith("L")
-    },
 )

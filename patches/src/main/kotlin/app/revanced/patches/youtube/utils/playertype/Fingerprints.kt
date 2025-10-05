@@ -10,6 +10,7 @@ import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
@@ -37,6 +38,22 @@ internal val browseIdClassFingerprint = legacyFingerprint(
     parameters = listOf("Ljava/lang/Object;", "L"),
     strings = listOf("VL")
 )
+
+internal val componentHostFingerprint = legacyFingerprint(
+    name = "componentHostFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    customFingerprint = { method, classDef ->
+        classDef.superclass == "Lcom/facebook/litho/ComponentHost;" &&
+                indexOfGetContextInstruction(method) >= 0
+    }
+)
+
+internal fun indexOfGetContextInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.IGET_OBJECT &&
+                getReference<FieldReference>()?.type == "Landroid/content/Context;"
+    }
 
 internal val playerTypeFingerprint = legacyFingerprint(
     name = "playerTypeFingerprint",

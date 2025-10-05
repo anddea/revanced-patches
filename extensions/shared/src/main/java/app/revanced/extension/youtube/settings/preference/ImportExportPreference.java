@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
@@ -77,16 +78,16 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
             EditText editText = getEditText();
 
             // Create a custom dialog with the EditText.
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     context,
                     str("revanced_preference_screen_import_export_title"), // Title.
                     null,     // No message (EditText replaces it).
                     editText, // Pass the EditText.
-                    str("revanced_extended_settings_import"), // OK button text.
+                    str("revanced_settings_import"), // OK button text.
                     () -> importSettings(context, editText.getText().toString()), // OK button action.
                     () -> {
                     }, // Cancel button action (dismiss only).
-                    str("revanced_extended_settings_import_copy"), // Neutral button (Copy) text.
+                    str("revanced_settings_import_copy"), // Neutral button (Copy) text.
                     () -> {
                         // Neutral button (Copy) action. Show the user the settings in JSON format.
                         Utils.setClipboard(editText.getText().toString(), str("revanced_share_copy_settings_success"));
@@ -106,7 +107,7 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
             if (replacementSettings.equals(existingSettings)) {
                 return;
             }
-            ReVancedPreferenceFragment.settingImportInProgress = true;
+            AbstractPreferenceFragment.settingImportInProgress = true;
             final boolean rebootNeeded = Setting.importFromJSON(context, replacementSettings);
             if (rebootNeeded) {
                 AbstractPreferenceFragment.showRestartDialog(getContext());
@@ -114,7 +115,7 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
         } catch (Exception ex) {
             Logger.printException(() -> "importSettings failure", ex);
         } finally {
-            ReVancedPreferenceFragment.settingImportInProgress = false;
+            AbstractPreferenceFragment.settingImportInProgress = false;
         }
     }
 

@@ -18,6 +18,7 @@ import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
 import app.revanced.patches.shared.mapping.ResourceType.ID
 import app.revanced.patches.shared.mapping.getResourceId
 import app.revanced.patches.shared.mapping.resourceMappingPatch
+import app.revanced.util.FilesCompat
 import app.revanced.util.ResourceGroup
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.cloneMutable
@@ -49,9 +50,6 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
-import java.nio.file.Files
-import java.nio.file.StandardCopyOption
-import kotlin.io.path.notExists
 
 private lateinit var context: ResourcePatchContext
 var playerLoadingViewThin = -1L
@@ -113,7 +111,8 @@ fun spoofStreamingDataPatch(
                 getInstruction<OneRegisterInstruction>(index).registerA
 
             addInstructions(
-                index + 1, """
+                index + 1,
+                """
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$register
                     """,
@@ -130,7 +129,8 @@ fun spoofStreamingDataPatch(
                 getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
 
             addInstructions(
-                invokeToStringIndex, """
+                invokeToStringIndex,
+                """
                     invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
                     move-result-object v$uriRegister
                     """,
@@ -439,6 +439,13 @@ fun spoofStreamingDataPatch(
             }
         }
 
+        playbackStartParametersFingerprint
+            .methodOrThrow()
+            .addInstruction(
+                1,
+                "invoke-static {p3}, $EXTENSION_CLASS_DESCRIPTOR->newPlayerResponseCpn(Ljava/lang/String;)V"
+            )
+
         // endregion
 
         // region JavaScript client
@@ -479,39 +486,23 @@ fun spoofStreamingDataPatch(
         )
 
         // Copy the j2v8 library.
-        context.apply {
+        with(context) {
             setOf(
                 "arm64-v8a",
                 "armeabi-v7a",
                 "x86",
                 "x86_64"
-            ).forEach { lib ->
-                val libraryDirectory = get("lib")
-                val architectureDirectory = libraryDirectory.resolve(lib)
+            ).forEach { arch ->
+                val architectureDirectory = get("lib/$arch")
 
                 if (architectureDirectory.exists()) {
-                    val libraryFile = architectureDirectory.resolve("libj2v8.so")
-
-                    val libraryDirectoryPath = libraryDirectory.toPath()
-                    if (libraryDirectoryPath.notExists()) {
-                        Files.createDirectories(libraryDirectoryPath)
-                    }
-                    val architectureDirectoryPath = architectureDirectory.toPath()
-                    if (architectureDirectoryPath.notExists()) {
-                        Files.createDirectories(architectureDirectoryPath)
-                    }
-                    val libraryPath = libraryFile.toPath()
-                    Files.createFile(libraryPath)
-
                     val inputStream = inputStreamFromBundledResourceOrThrow(
                         "shared/spoof/jniLibs",
-                        "$lib/libj2v8.so"
+                        "$arch/libj2v8.so"
                     )
-
-                    Files.copy(
+                    FilesCompat.copy(
                         inputStream,
-                        libraryPath,
-                        StandardCopyOption.REPLACE_EXISTING,
+                        architectureDirectory.resolve("libj2v8.so"),
                     )
                 }
             }
@@ -520,6 +511,11 @@ fun spoofStreamingDataPatch(
                 ResourceGroup(
                     "raw",
                     "po_token.html",
+                    // External JavaScript for yt-dlp: https://github.com/yt-dlp/ejs
+                    "astring.bundle.min.js",
+                    "meriyah.bundle.min.js",
+                    "polyfill.js",
+                    "yt.solver.core.js",
                 )
             ).forEach { resourceGroup ->
                 copyResources("shared/spoof/shared", resourceGroup)
@@ -596,7 +592,7 @@ fun spoofStreamingDataPatch(
         // If SABR is disabled, it seems 'MediaFetchHotConfig' may no longer need to be overridden, but I'm not sure.
 
         val (mediaFetchEnumClass, sabrFieldReference) =
-            with (mediaFetchEnumConstructorFingerprint.methodOrThrow()) {
+            with(mediaFetchEnumConstructorFingerprint.methodOrThrow()) {
                 val mediaFetchEnumClass = definingClass
                 val stringIndex =
                     indexOfFirstStringInstructionOrThrow(DISABLED_BY_SABR_STREAMING_URI_STRING)

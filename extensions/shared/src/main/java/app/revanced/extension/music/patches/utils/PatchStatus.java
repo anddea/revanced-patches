@@ -7,10 +7,6 @@ public class PatchStatus {
         return false;
     }
 
-    public static boolean SpoofAppVersionDefaultBoolean() {
-        return false;
-    }
-
     public static String SpoofAppVersionDefaultString() {
         return "6.42.55";
     }

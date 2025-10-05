@@ -74,7 +74,7 @@ public class ReturnYouTubeChannelNamePatch {
                 return charSequence;
             }
             final String conversionContextString = conversionContext.toString();
-            if (!conversionContextString.contains("|reel_channel_bar_inner.eml|")) {
+            if (!conversionContextString.contains("|reel_channel_bar_inner.")) {
                 return charSequence;
             }
             final String originalString = charSequence.toString();

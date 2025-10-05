@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">Включить специальные возможности в плеере?</string>
-    <string name="accessibility_settings_edu_opt_out_text">Служба специальных возможностей включена. Управление изменено.</string>
+    <string name="accessibility_settings_edu_opt_in_text">Включить элементы управления специальными возможностями для видеоплеера?</string>
+    <string name="accessibility_settings_edu_opt_out_text">Ваши элементы управления изменены, поскольку включена служба специальных возможностей.</string>
     <string name="gms_core_dialog_continue_text">Продолжить</string>
     <string name="gms_core_dialog_dismiss_text">Больше не показывать</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore не имеет разрешения на запуск в фоновом режиме.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore или MicroG не имеет разрешения на запуск в фоновом режиме.
 
-Следуйте инструкции \"Не закрывайте мое приложение!\" для вашего устройства и примените её к вашему GmsCore.
+Следуйте инструкции \"Не закрывайте мое приложение!\" для вашего устройства и примените её к вашему GmsCore или MicroG.
 
 Это необходимо для работы приложения."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Для предотвращения проблем необходимо отключить оптимизацию заряда батареи для GmsCore.
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Для предотвращения проблем необходимо отключить оптимизацию заряда батареи для GmsCore или MicroG.
 
-Отключение оптимизации заряда батареи для GmsCore не окажет негативного влияния на использование батареи.
+Отключение оптимизации заряда батареи для GmsCore или MicroG не окажет негативного влияния на использование батареи.
 
 Нажмите кнопку \"Продолжить\" и отключите оптимизацию заряда батареи."</string>
     <string name="gms_core_dialog_open_website_text">Открыть сайт</string>
     <string name="gms_core_dialog_title">Требуется действие</string>
     <string name="gms_core_offline_account_login_error">Если Вы недавно изменили данные для входа в свою учетную запись, то удалите и переустановите GmsCore или MicroG.</string>
     <string name="gms_core_settings_summary">Для получения уведомлений в RVX, включите \"Облачные уведомления\" сообщениями.</string>
-    <string name="gms_core_settings_title">Открыть GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">GmsCore не установлен. Установите его.</string>
+    <string name="gms_core_settings_title">Открыть GmsCore или MicroG</string>
+    <string name="gms_core_toast_not_installed_message">GmsCore или MicroG не установлен. Установите его.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Не отображается меню расширенных настроек качества видео.</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Отображается меню расширенных настроек качества видео.</string>
     <string name="revanced_advanced_video_quality_menu_title">Показать расширенное меню качества видео</string>
@@ -162,7 +162,7 @@
     <string name="revanced_change_youtube_header_summary_off">Включен обычный логотип.</string>
     <string name="revanced_change_youtube_header_summary_on">Включен логотип Premium.</string>
     <string name="revanced_change_youtube_header_title">Логотип YouTube</string>
-    <string name="revanced_color_invalid_toast">Недопустимый цвет</string>
+    <string name="revanced_confirm_user_dialog_title">Вы, точно, хотите продолжить?</string>
     <string name="revanced_copy">Копировать</string>
     <string name="revanced_copy_error">Не удалось скопировать текст</string>
     <string name="revanced_custom_filter_strings_summary">Список компонентов для скрытия\nРазделять новой строкой.</string>
@@ -187,6 +187,7 @@
     <string name="revanced_custom_player_overlay_opacity_title">Видимость затемнения плеера</string>
     <string name="revanced_custom_seekbar_color_accent_summary">Введите hex код акцентного цвета полосы прогресса.</string>
     <string name="revanced_custom_seekbar_color_accent_title">Пользовательский акцентный цвет полосы прогресса</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Неверный цвет полосы прогресса.</string>
     <string name="revanced_custom_seekbar_color_primary_summary">Введите hex код основного цвета полосы прогресса.</string>
     <string name="revanced_custom_seekbar_color_primary_title">Пользовательский основной цвет полосы прогресса</string>
     <string name="revanced_debug_export_logs_to_clipboard_summary">Копирует журналы отладки RVX в буфер обмена.</string>
@@ -199,6 +200,7 @@
     <string name="revanced_debug_logs_copied_to_clipboard">Журналы скопированы.</string>
     <string name="revanced_debug_logs_disabled">Журнал отладки отключен.</string>
     <string name="revanced_debug_logs_export_success">Успех экспорта журналов.</string>
+    <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Логи слишком велики для копирования.</string>
     <string name="revanced_debug_logs_failed_to_export">Ошибка экспорта журналов: $s.</string>
     <string name="revanced_debug_logs_none_found">Записи в журнале не найдены.</string>
     <string name="revanced_debug_protobuffer_summary_off">Протобуфер журнала отладки отключен.</string>
@@ -232,11 +234,11 @@
     <string name="revanced_disable_auto_audio_tracks_not_available">Чтобы использовать эту функцию, измените  \'Клиент по умолчанию (Подмена потоковых данных)\' на TV, TV Simply или iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Принудительные автоматические звуковые дорожки включены.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Принудительные автоматические звуковые дорожки отключены.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Принудительные аудио авто дорожки отключены.
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Принудительное автоматическое воспроизведение звуковых дорожек отключено.
 
-Вероятность исправить проблему:
-1. Включить в \"Настройки\" → RVX → Разное → Подмена потоковых данных → \"Использовать клиент JavaScript\".
-2. Изменить в \"Настройки\" → RVX → Разное → Подмена потоковых данных → \"Клиент по умолчанию\" на \"TV\" или \"TV простой\"."</string>
+У некоторых пользователей это может не работать, если у вас это не работает:
+1. Перейдите в \"Настройки\" - RVX - Разное - Подмена потоковых данных и включите 'Использовать JavaScript-клиент'.
+2. Перейдите в \"Настройки\" - RVX - Разное - Подмена потоковых данных и измените 'Клиент по умолчанию' на 'TV'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Принудительные автоматические звуковые дорожки</string>
     <string name="revanced_disable_auto_captions_summary_off">Принудительные автоматические субтитры включены.</string>
     <string name="revanced_disable_auto_captions_summary_on">Принудительные автоматические субтитры отключены.</string>
@@ -251,6 +253,9 @@
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Авто-переключатель списков \"Джем\" отключен.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">Переключатель списков \"Джем\"</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Авто переключение списков \"Джем\", при проигрывании музыки и активном автопросмотре, отключено.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_off">Включен - пропуск, иногда, к следующей/предыдущей главе.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_summary_on">Отключен - пропуск к следующей/предыдущей главе.</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Пропуск главы двойным нажатием</string>
     <string name="revanced_disable_default_playback_speed_music_off">Скорость воспроизведения по умолчанию для музыки включена.</string>
     <string name="revanced_disable_default_playback_speed_music_on">Скорость по умолчанию для категории YouTube Музыка включена.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Скорость воспроизведения для музыки</string>
@@ -429,6 +434,12 @@
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Полупрозрачность отключена.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Полупрозрачность включена.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Полупрозрачность панели навигации</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_off">Задержка перед \"смотреть следующее\" отключена.</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_on">Задержка перед \"смотреть следующее\" включена.</string>
+    <string name="revanced_enable_watch_next_processing_delay_title">Задержка перед \"смотреть следующее\"</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"Настройка принудительной задержки отображения пользовательского интерфейса.
+
+Это может быть нужно при тестировании на MainThread."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">Включение этого параметра отключит кнопку настроек на вкладке \"Вы\".\nИспользуйте следующий путь:\n   На страницу канала → Три точки → Настройки.</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary_off">Широкая панель поиска во вкладке «Вы» отключена.</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary_on">"Широкая панель поиска во вкладке «Вы» включена.
@@ -468,44 +479,34 @@
 Примечание:
 • iOS TV не поддерживает некоторые видео, например музыкальных клипов.
 • Если по умолчанию выбран iOS TV, эта настройка игнорируется в некоторых видео."</string>
-    <string name="revanced_extended_confirm_user_dialog_title">Подтверждаете действие?</string>
-    <string name="revanced_extended_reset_to_default_toast">К значениям по умолчанию.</string>
-    <string name="revanced_extended_restart">Перезапустить</string>
-    <string name="revanced_extended_restart_dialog_message">Изменения требуют перезапуск приложения.</string>
-    <string name="revanced_extended_restart_first_run">Перезапустить для правильной загрузки интерфейса</string>
-    <string name="revanced_extended_restart_message">Перезапустить для применения?</string>
-    <string name="revanced_extended_restart_title">Требование перезапуска</string>
-    <string name="revanced_extended_settings_color_invalid">Неправильный цвет.</string>
-    <string name="revanced_extended_settings_color_picker">Цветовая палитра</string>
     <string name="revanced_extended_settings_export_failed">Не удалось экспортировать настройки.</string>
     <string name="revanced_extended_settings_export_success">Настройки успешно экспортированы.</string>
     <string name="revanced_extended_settings_export_summary">Экспорт настроек в файл.</string>
     <string name="revanced_extended_settings_export_title">Экспорт настроек</string>
     <string name="revanced_extended_settings_import">Импорт</string>
-    <string name="revanced_extended_settings_import_copy">Копировать</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">Импорт/экспорт настроек в виде текста.</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">Импорт/экспорт в виде текста</string>
-    <string name="revanced_extended_settings_import_failed">Не удалось импортировать настройки.</string>
     <string name="revanced_extended_settings_import_reset">Настройки сброшены к значениям по умолчанию.</string>
-    <string name="revanced_extended_settings_import_success">Настройки успешно импортированы.</string>
     <string name="revanced_extended_settings_import_summary">Импорт настроек из файла.</string>
     <string name="revanced_extended_settings_import_title">Импорт настроек</string>
-    <string name="revanced_extended_settings_reset">Сброс</string>
-    <string name="revanced_extended_settings_reset_color">Сбросить цвет</string>
-    <string name="revanced_extended_settings_search_title">Поиск %s</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Внешний загрузчик</string>
+    <string name="revanced_external_downloader_empty_warning">Не может быть пустым!</string>
+    <string name="revanced_external_downloader_not_found_title">Приложение не установлено.</string>
     <string name="revanced_external_downloader_not_installed">Не установлен</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не установлен.
 Пожалуйста, скачайте %2$s с сайта."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Предупреждение</string>
     <string name="revanced_external_downloader_not_installed_warning">%s не установлен. Установите его.</string>
-    <string name="revanced_external_downloader_package_name_playlist_summary">Например: NewPipe или YTDLnis, или др. (Для плейлиста).</string>
+    <string name="revanced_external_downloader_other_item">Другой</string>
+    <string name="revanced_external_downloader_other_item_hint">Введите имя пакета</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Название пакета установленного внешнего приложения для загрузки.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Внешний загрузчик для плейлиста, название пакета</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Имя пакета внешнего загрузчика видео, например NewPipe или YTDLnis, при долгом нажатии.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Приложение-загрузчик видео при долгом нажатии</string>
-    <string name="revanced_external_downloader_package_name_video_summary">Например: NewPipe или YTDLnis, или др.</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Название пакета установленного внешнего приложения для загрузки.</string>
     <string name="revanced_external_downloader_package_name_video_title">Внешний загрузчик для видео, название пакета</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"Не удалось найти приложение с именем пакета: %s.
+
+Проверьте правильность имени пакета и установлено ли приложение."</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Значок кнопки \"Шумиха\" скрыт.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">Значок кнопки \"Шумиха\" отображается.</string>
     <string name="revanced_fix_hype_button_icon_title">Исправить значок кнопки \"Шумиха\"</string>
@@ -557,7 +558,6 @@
     <string name="revanced_gemini_transcription_result_title">Транскрибация видео Gemini</string>
     <string name="revanced_gms_show_dialog_summary">Показывает диалоговое окно оптимизации GMSCore при запуске приложения.</string>
     <string name="revanced_gms_show_dialog_title">Показать диалог оптимизации GMSCore</string>
-    <string name="revanced_gradient_seekbar_positions_reset">Цвета градиента сброшены к значениям по умолчанию.</string>
     <string name="revanced_gradient_seekbar_positions_summary">Начальная и конечная позиции градиента (0 - 1), разделенные запятой.</string>
     <string name="revanced_gradient_seekbar_positions_title">Границы градиента шкалы воспроизведения</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Список элементов меню учетной записи для скрытия.\nРазделять новой строкой.</string>
@@ -764,6 +764,9 @@ Shorts
     <string name="revanced_hide_hype_button_summary_off">Кнопка \"Шумиха\" отображена.</string>
     <string name="revanced_hide_hype_button_summary_on">Кнопка \"Шумиха\" скрыта.</string>
     <string name="revanced_hide_hype_button_title">Кнопка \"Шумиха\"</string>
+    <string name="revanced_hide_hype_points_summary_off">Отображаются места обмана.</string>
+    <string name="revanced_hide_hype_points_summary_on">Места обмана скрыты.</string>
+    <string name="revanced_hide_hype_points_title">Скрыть место обмана</string>
     <string name="revanced_hide_image_search_button_summary_off">Кнопка поиска изображений отображена.</string>
     <string name="revanced_hide_image_search_button_summary_on">Кнопка поиска изображений скрыта.</string>
     <string name="revanced_hide_image_search_button_title">Кнопка поиска изображений</string>
@@ -792,8 +795,7 @@ Shorts
 • Некоторые компоненты интерфейса могут быть не скрыты.
 • Поиск по ключевому слову может не дать результатов."</string>
     <string name="revanced_hide_keyword_content_about_title">О фильтрах</string>
-    <string name="revanced_hide_keyword_content_about_whole_words_summary">Ключевые слова/фразы с двойными кавычками, принудительно, используют набор символов между кавычками &lt;br&gt;&lt;br&gt;, как слово.
-Например:&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; скроет видео: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;но не будет скрывать: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Если заключить ключевое слово / фразу в двойные кавычки, это предотвратит частичное совпадение названий видео и имен каналов.&lt;br&gt;&lt;br&gt;Например,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; скроет видео: &lt;b&gt;Как работает ИИ?&lt;/b&gt;&lt;br&gt;но не скроет: &lt;b&gt;Что означает добросовестное использование?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Ключевые слова обрабатываются целиком</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">Фильтр комментариев отключен.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Фильтр комментариев включен.</string>
@@ -811,6 +813,9 @@ Shorts
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">Фильтр видео в подписках отключен.</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">Фильтр видео в подписках включен.</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Фильтр видео в подписках</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_off">Оператор \'AND\' (\'&amp;\') отключен.&lt;br&gt;&lt;br&gt; Когда &lt;strong&gt;\"Синий\" &amp; \"Красный\"&lt;/strong&gt; используется как ключевые слова, будут отфильтрованы ключевые слова, содержащие &lt;strong&gt;\"Синий\" &amp; \"Красный\"&lt;/strong&gt;.</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_on">\'AND\' оператор (\'&amp;\') включен.&lt;br&gt;&lt;br&gt; Когда &lt;strong&gt;\"Синий\" &amp; \"Красный\"&lt;/strong&gt; используется как ключевые слова, будут отфильтрованы оба ключевых слова, содержащие &lt;strong&gt;\"Синий\"&lt;/strong&gt; и &lt;strong&gt;\"Красный\"&lt;/strong&gt;.</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_title">Использовать оператор \'AND\' (\'&amp;\')</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Ключевое слово \'%1$s\' не точное и скроет все видео</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Недопустимо. \'%s\' не подходит в качестве фильтра.</string>
     <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Добавьте кавычки для использования ключевого слова: %s.</string>
@@ -900,11 +905,11 @@ Shorts
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Меню отображено.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Меню скрыто.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Меню режима окружающей подсветки</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Меню аудио скрыто.
+    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Меню звуковых дорожек скрыто.
 
-Для отображения аудио меню нужно:
-1. Включить в \"Настройки\" → RVX → Разное → Подмена потоковых данных → \"Использовать клиент JavaScript\".
-2. Изменить в \"Настройки\" → RVX → Разное → Подмена потоковых данных → \"Клиент по умолчанию\" на \"TV\" или \"TV простой\"."</string>
+To show the Audio track menu:
+1. Перейдите в \"Настройки\" - RVX - Разное - Подделка потоковых данных и включите 'Использовать JavaScript-клиент'.
+2. Перейдите в \"Настройки\" - RVX - Разное - Подделка потоковых данных и измените 'Клиент по умолчанию' на 'TV'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Меню \"Звуковая дорожка\" отображено.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Меню \"Звуковая дорожка\" скрыто.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Меню \"Звуковая дорожка\"</string>
@@ -1043,9 +1048,9 @@ Shorts
     <string name="revanced_hide_section_header_in_feed_summary_off">Отобразится заголовок раздела "Подписки".\n\nЗаголовок раздела «Подписки» содержит кнопки \'Посетить сообщество\' и \'Посетить канал\', которые появляются при нажатии на значок подписанного канала в разделе "Подписки.</string>
     <string name="revanced_hide_section_header_in_feed_summary_on">Заголовок раздела "Подписки" скрыт.\n\nЗаголовок раздела "Подписки" содержит кнопки \'Посетить сообщество\' и \'Посетить канал\', которые появляются при нажатии на значок подписанного канала в разделе "Подписки.</string>
     <string name="revanced_hide_section_header_in_feed_title">Скрыть заголовок раздела "Подписки"</string>
-    <string name="revanced_hide_seek_message_summary_off">Сообщение при перемотке отображено.</string>
-    <string name="revanced_hide_seek_message_summary_on">Сообщение при перемотке скрыто.</string>
-    <string name="revanced_hide_seek_message_title">Сообщение при перемотке</string>
+    <string name="revanced_hide_seek_message_summary_off">"Сообщение при перемотке отображено."</string>
+    <string name="revanced_hide_seek_message_summary_on">"Сообщение при перемотке скрыто."</string>
+    <string name="revanced_hide_seek_message_title">Скрыть сообщение (устарело)</string>
     <string name="revanced_hide_seek_undo_message_summary_off">Сообщение при отмотке назад отображено.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Сообщение при отмотке назад скрыто.</string>
     <string name="revanced_hide_seek_undo_message_title">Сообщение при отмотке назад</string>
@@ -1880,6 +1885,11 @@ Shorts
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Нажать - Настройки RVX.
 Нажать и удерживать - Настройки YouTube."</string>
     <string name="revanced_replace_toolbar_create_button_type_title">Тип действия для назначения кнопке</string>
+    <string name="revanced_reset_to_default_toast">К значениям по умолчанию.</string>
+    <string name="revanced_restart">Перезапуск</string>
+    <string name="revanced_restart_dialog_message">Изменения требуют перезапуск приложения.</string>
+    <string name="revanced_restart_first_run">Перезапустить для применения интерфейса</string>
+    <string name="revanced_restart_title">Требуется перезапуск</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Миниатюры отображаются в полноэкранном режиме.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Миниатюры отображаются над шкалой воспроизведения.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Старые миниатюры шкалы воспроизведения</string>
@@ -1952,13 +1962,24 @@ Shorts
     <string name="revanced_sb_api_url_invalid">API адрес сервера недействителен.</string>
     <string name="revanced_sb_api_url_reset">API адрес сервера сброшен.</string>
     <string name="revanced_sb_appearance_category">Внешний вид</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration">Кнопка \"Пропустить\" время автоскрытия</string>
+    <string name="revanced_sb_auto_hide_skip_button_duration_sum">Длительность пропуска и пропуск подсветки кнопок перед автоскрытием.</string>
     <string name="revanced_sb_color_changed">Цвет изменен.</string>
     <string name="revanced_sb_color_dot_label">Цвет:</string>
     <string name="revanced_sb_color_invalid">Неверный (hex) код цвета.</string>
-    <string name="revanced_sb_color_opacity_label">Непрозрачность:</string>
     <string name="revanced_sb_color_reset">Цвет сброшен.</string>
     <string name="revanced_sb_create_segment_category">Создание новых сегментов</string>
     <string name="revanced_sb_diff_segments">Изменить поведение сегмента</string>
+    <string name="revanced_sb_duration_10s">10 сек.</string>
+    <string name="revanced_sb_duration_1s">1 сек.</string>
+    <string name="revanced_sb_duration_2s">2 сек.</string>
+    <string name="revanced_sb_duration_3s">3 сек.</string>
+    <string name="revanced_sb_duration_4s">4 сек.</string>
+    <string name="revanced_sb_duration_5s">5 сек.</string>
+    <string name="revanced_sb_duration_6s">6 сек.</string>
+    <string name="revanced_sb_duration_7s">7 сек.</string>
+    <string name="revanced_sb_duration_8s">8 сек.</string>
+    <string name="revanced_sb_duration_9s">9 сек.</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button">Скрытие кнопки \"Пропуск\"</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка \"Пропуск\" отображается до конца сегмента.</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопка \"Пропуск\" скрывается через несколько секунд.</string>
@@ -1985,12 +2006,12 @@ Shorts
     <string name="revanced_sb_general_skipcount">Подсчет количества пропусков</string>
     <string name="revanced_sb_general_skipcount_sum_off">Отслеживание количества пропусков не включено.</string>
     <string name="revanced_sb_general_skipcount_sum_on">Позволяет системе доски лидеров SponsorBlock знать, сколько времени было сэкономлено. Отправляет сообщение на сервер каждый раз при пропуске сегмента.</string>
-    <string name="revanced_sb_general_skiptoast">Уведомление при автоматическом пропуске сегмента</string>
-    <string name="revanced_sb_general_skiptoast_sum_off">Уведомление при автоматическом пропуске сегмента отключено.\nНажмите для примера.</string>
-    <string name="revanced_sb_general_skiptoast_sum_on">Уведомление при автоматическом пропуске сегмента включено.\nНажмите для примера.</string>
+    <string name="revanced_sb_general_skiptoast">Уведомление отмены пропуска</string>
+    <string name="revanced_sb_general_skiptoast_sum_off">Отключено.</string>
+    <string name="revanced_sb_general_skiptoast_sum_on">Включено. Нажмите на всплывающее уведомление для отмены пропуска.</string>
     <string name="revanced_sb_general_time_without">Продолжительность без сегментов</string>
     <string name="revanced_sb_general_time_without_sum_off">Отображается общая продолжительность видео.</string>
-    <string name="revanced_sb_general_time_without_sum_on">Продолжительность видео без всех сегментов отображена в скобках рядом с общей продолжительностью видео.</string>
+    <string name="revanced_sb_general_time_without_sum_on">Pokazuje czas trwania filmu, odejmując czas trwania zsumowanej długości segmentów, pojawia się w nawiasach obok czasu trwania filmu.</string>
     <string name="revanced_sb_general_uuid">Ваш приватный ID</string>
     <string name="revanced_sb_general_uuid_invalid">Приватный ID должен иметь длину не менее 30 символов.</string>
     <string name="revanced_sb_general_uuid_sum">Его нужно держать в секрете. Это как пароль, не стоит им ни с кем делиться. Если он у кого-то есть, он сможет выдать себя за вас.</string>
@@ -2034,8 +2055,8 @@ Shorts
     <string name="revanced_sb_new_segment_title">Новый сегмент SponsorBlock</string>
     <string name="revanced_sb_reset">Сброс</string>
     <string name="revanced_sb_reset_color">Сбросить цвет</string>
-    <string name="revanced_sb_segments_filler">Отвлеченные темы/шутки</string>
-    <string name="revanced_sb_segments_filler_sum">Сегменты, которые увеличивают длительность видео за счет отвлеченных тем или шуток, но не требуются для понимания основного содержания. Не должно иметь сегментов, объясняющие контекст или предысторию.</string>
+    <string name="revanced_sb_segments_filler">Отвлеченные темы/шутки.</string>
+    <string name="revanced_sb_segments_filler_sum">Второстепенные сцены или шутки, которые не требуются для понимания основного содержания видео. Не содержит разделы, предоставляющие контекст или подробности истории.</string>
     <string name="revanced_sb_segments_highlight">Часто просматриваемое</string>
     <string name="revanced_sb_segments_highlight_sum">Часть видео, которую ищут большинство людей.</string>
     <string name="revanced_sb_segments_hook">Вступление / Приветствие</string>
@@ -2048,7 +2069,7 @@ Shorts
     <string name="revanced_sb_segments_nomusic_sum">Только для использования в музыкальных видеороликах. Разделы музыкальных видео без музыки, которые еще не охвачены другой категорией.</string>
     <string name="revanced_sb_segments_outro">Конечные заставки/титры</string>
     <string name="revanced_sb_segments_outro_sum">Титры или появление конечных заставок YouTube. Не для подведения итогов сказанного в видео.</string>
-    <string name="revanced_sb_segments_preview">Предпросмотр/краткое содержание/отсылка</string>
+    <string name="revanced_sb_segments_preview">Предварительный просмотр/краткое содержание</string>
     <string name="revanced_sb_segments_preview_sum">Краткое содержание предыдущих эпизодов или препросмотр того, что будет в данном видео. Предназначено для сегментов, смонтированных из кусков видео, а не для дополнительной информации.</string>
     <string name="revanced_sb_segments_selfpromo">Самореклама/рекомендация</string>
     <string name="revanced_sb_segments_selfpromo_sum">Похоже на спонсорскую рекламу, но для бесплатной рекламы и саморекламы. Включает в себя вставки про мерчендайз, пожертвования или информацию о тех, вместе с кем было сделано видео.</string>
@@ -2067,7 +2088,7 @@ Shorts
     <string name="revanced_sb_skip_automatically_once">Автоматически пропустить единожды</string>
     <string name="revanced_sb_skip_button_compact">Пропустить</string>
     <string name="revanced_sb_skip_button_compact_highlight">Основные моменты</string>
-    <string name="revanced_sb_skip_button_filler">Пропустить наполнитель контента</string>
+    <string name="revanced_sb_skip_button_filler">Пропустить наполнитель контента.</string>
     <string name="revanced_sb_skip_button_highlight">Ключевой момент</string>
     <string name="revanced_sb_skip_button_hook">Пропуск вступления</string>
     <string name="revanced_sb_skip_button_interaction">Пропустить напоминание о взаимодействии</string>
@@ -2085,7 +2106,7 @@ Shorts
     <string name="revanced_sb_skip_ignore">Ничего не делать</string>
     <string name="revanced_sb_skip_seekbaronly">Показывать в шкале воспроизведения</string>
     <string name="revanced_sb_skip_showbutton">Показывать кнопку \"Пропуск\"</string>
-    <string name="revanced_sb_skipped_filler">Пропущен наполнитель контента.</string>
+    <string name="revanced_sb_skipped_filler">Пропущен наполнитель контента</string>
     <string name="revanced_sb_skipped_highlight">Пропущены основные моменты.</string>
     <string name="revanced_sb_skipped_hook">Вступление пропущено.</string>
     <string name="revanced_sb_skipped_interaction">Пропущено напоминание о взаимодействии.</string>
@@ -2135,9 +2156,14 @@ Shorts
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock временно не работает.</string>
     <string name="revanced_sb_submit_failed_unknown_error">Невозможно отправить сегмент (статус: %1$d %2$s).</string>
     <string name="revanced_sb_submit_succeeded">Сегмент успешно отправлен.</string>
+    <string name="revanced_sb_toast_on_connection_error">Уведомление при недоступности SponsorBlock API</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">Уведомление при недоступности SponsorBlock API отключено.</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_on">Уведомление при недоступности SponsorBlock API включено.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Уведомление при недоступности SponsorBlock API отключено.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Уведомление при недоступности SponsorBlock API включено.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Уведомление при недоступности SponsorBlock API</string>
+    <string name="revanced_sb_toast_on_skip_duration">Длительность всплывающего уведомления</string>
+    <string name="revanced_sb_toast_on_skip_duration_sum">Как долго отображать уведомление отмены пропуска.</string>
     <string name="revanced_sb_vote_category">Изменить категорию</string>
     <string name="revanced_sb_vote_downvote">Проголосовать против</string>
     <string name="revanced_sb_vote_failed_forbidden">Невозможно проголосовать за сегмент: %s.</string>
@@ -2148,13 +2174,8 @@ Shorts
     <string name="revanced_sb_vote_upvote">Голосовать за</string>
     <string name="revanced_search_clear_confirm_message">Вы уверены, что хотите очистить всю историю поиска?</string>
     <string name="revanced_search_clear_confirm_title">Очистить историю поиска</string>
-    <string name="revanced_search_clear_history_title">Очистить историю поиска</string>
     <string name="revanced_search_delete_confirm_message">Вы уверены, что хотите удалить \"%1$s\" из истории поиска?</string>
     <string name="revanced_search_delete_confirm_title">Удалить запись поиска</string>
-    <string name="revanced_search_delete_entry">Удалить запись поиска</string>
-    <string name="revanced_search_history_title">Недавние поисковые запросы</string>
-    <string name="revanced_search_no_history_summary">Здесь отображается история поиска. Чтобы сохранить поисковый запрос в истории поиска, необходимо нажать Ввод/Возврат.</string>
-    <string name="revanced_search_no_history_title">Недавние поисковые запросы отсутствуют</string>
     <string name="revanced_search_settings_category_title">Настройки поиска</string>
     <string name="revanced_search_settings_no_results_summary">Попробуйте ввести другой поисковый запрос.</string>
     <string name="revanced_search_settings_no_results_title">Результаты поиска \"%1$s\" не найдены</string>
@@ -2178,12 +2199,43 @@ Shorts
 • Cookies просрочены.
 • Используются недопустимые Cookies.
 • API субтитров YouTube больше не проверяет cookies."</string>
-    <string name="revanced_settings_search_highlight_color_summary">Установите цвет подсветки для совпадающего текста в результатах поиска.</string>
-    <string name="revanced_settings_search_highlight_color_title">Цвет подсветки при поиске</string>
-    <string name="revanced_settings_search_highlight_summary">Подсветка совпадающего текста в результатах поиска выбранным цветом.</string>
-    <string name="revanced_settings_search_highlight_title">Включить подсветку поиска</string>
+    <string name="revanced_settings_color_invalid">Неправильный цвет.</string>
+    <string name="revanced_settings_color_picker">Цветовая палитра</string>
+    <string name="revanced_settings_export_failed">Ошибка экспорта настроек.</string>
+    <string name="revanced_settings_export_success">Настройки успешно экспортированы.</string>
+    <string name="revanced_settings_export_summary">Экспорт настроек в файл.</string>
+    <string name="revanced_settings_export_title">Экспорт настроек</string>
+    <string name="revanced_settings_import">Импорт</string>
+    <string name="revanced_settings_import_copy">Копия</string>
+    <string name="revanced_settings_import_export_as_text_summary">Импорт/Экспорт Настроек как текст.</string>
+    <string name="revanced_settings_import_export_as_text_title">Импорт/Экспорт Настроек как текст</string>
+    <string name="revanced_settings_import_failed">Ошибка импорта настроек.</string>
+    <string name="revanced_settings_import_reset">Настройки сброшены по умолчанию.</string>
+    <string name="revanced_settings_import_success">Настройки успешно импортированы.</string>
+    <string name="revanced_settings_import_summary">Импорт настроек из файла.</string>
+    <string name="revanced_settings_import_title">Импорт настроек</string>
+    <string name="revanced_settings_reset">Сброс</string>
+    <string name="revanced_settings_reset_color">Сброс цвета</string>
+    <string name="revanced_settings_search_clear_history">Очистить историю поиска</string>
+    <string name="revanced_settings_search_clear_history_message">Очистить всю историю поиска?</string>
+    <string name="revanced_settings_search_empty_history_summary">История поиска сохранится нажатием \"Ввод\".</string>
+    <string name="revanced_settings_search_empty_history_title">История поиска пуста</string>
     <string name="revanced_settings_search_history_summary">Сохранение недавних поисковых запросов, чтобы отображать их, когда строка поиска пуста.</string>
-    <string name="revanced_settings_search_history_title">Показать историю поиска настроек</string>
+    <string name="revanced_settings_search_history_summary_off">История поиска настроек скрыта.</string>
+    <string name="revanced_settings_search_history_summary_on">История поиска настроек отображена.</string>
+    <string name="revanced_settings_search_history_title">История поиска настроек</string>
+    <string name="revanced_settings_search_no_results_summary">Попробуйте другое ключевое слово.</string>
+    <string name="revanced_settings_search_no_results_title">\'%s\' Не найдено.</string>
+    <string name="revanced_settings_search_recent_searches">Недавно искали</string>
+    <string name="revanced_settings_search_remove_message">Удалить из истории поиска?</string>
+    <string name="revanced_settings_search_tips_summary">"• Нажмите на путь, чтобы перейти к нему.
+• Долгое нажатие для перехода к настройкам.
+• Нажмите \"Ввод\", чтобы сохранить запросы поиска.
+• Поиск игнорирует регистр и пунктуацию.
+• Родительские настройки приоритетнее настроек ребенка."</string>
+    <string name="revanced_settings_search_tips_title">Подсказки поиска</string>
+    <string name="revanced_settings_search_title">Искать %s</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Настройки скопированы в буфер обмена.</string>
     <string name="revanced_share_copy_timestamp_success">Метка времени скопирована в буфер. (%s)</string>
     <string name="revanced_share_copy_url_success">Ссылка скопирована в буфер обмена.</string>
@@ -2250,6 +2302,8 @@ Shorts
     <string name="revanced_speed_overlay_value_invalid_toast">Значение должно быть в диапазоне от 0 до 8.0. Сброс по умолчанию.</string>
     <string name="revanced_speed_overlay_value_summary">Значение от 0 до 8.0.</string>
     <string name="revanced_speed_overlay_value_title">Значение скорости</string>
+    <string name="revanced_spoof_app_version_other_item">Другое</string>
+    <string name="revanced_spoof_app_version_other_item_hint">Введите версию приложения</string>
     <string name="revanced_spoof_app_version_summary">Подменяет номер версии клиента.\nЭто позволяет изменить внешний вид приложения, но могут возникнуть различные проблемы.\nПри дальнейшем отключении данной опции, измененный интерфейс может остаться до очистки данных приложения!</string>
     <string name="revanced_spoof_app_version_summary_off">Версия приложения не подменена</string>
     <string name="revanced_spoof_app_version_summary_on">Версия приложения подменена</string>
@@ -2265,6 +2319,7 @@ Shorts
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Выключится значок Каир в навигации и панели инструментов</string>
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Со старым заголовком плейлиста</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Восстановит старый стиль выпадающей панели скорости проигрывания</string>
+    <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Восстановление функциональности Transcript</string>
     <string name="revanced_spoof_app_version_target_entry_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Неверная версия подмены: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Введите целевую версию приложения для подмены.</string>
@@ -2297,18 +2352,19 @@ Shorts
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Требуется вход)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
+<small>(Необходима авторизация)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">iOS.\n<small>(устаревшее)</small>
     </string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
-<small>(Устарело, без авторизации)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web
-<small>(В разработке)</small>"</string>
+<small>(Просрочено, Не авторизовано)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_mweb">"Мобильный Интернет
+<small>(WIP, без авторизации)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">ТВ
 <small>(В разработке)</small>
     </string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Простой ТВ
-<small>(В разработке)</small>
-    </string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"ТВ Простой
+<small>(Без PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Не релизный, Не авторизован)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Клиент по умолчанию</string>
@@ -2323,6 +2379,8 @@ Shorts
 
 Максимальное разрешение AVC - 1080p. Кодек Opus недоступен. Потребление трафика больше, чем при VP9 или AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Если у вас возникли проблемы с воспроизведением, включите параметр \"Замена потоковых данных\" в Настройках/Разное/Замена потоковых данных.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Чтобы выбрать язык звукового потока, отключите \'Принудительные звуковые авто дорожки\'.</string>
+    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">Язык аудио потока по умолчанию не доступен для %s.</string>
     <string name="revanced_spoof_streaming_data_no_auth_language_title">Язык аудио потока по умолчанию</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Приоритет качества видео отключен.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Приоритет качества видео включен.</string>
@@ -2364,14 +2422,19 @@ VP9 более продвинутый кодек, чем AVC, но некото�
 • Функция принудительного отключения автоматического выбора аудиодорожек недоступна.
 • Стабильная громкость недоступна.
 • Детские видеоролики могут не воспроизводиться при выходе из системы или в режиме инкогнито."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Аудио меню пропадет.
-• Стабильная громкость не доступна.
-• Детские видео могут не проигрываться без логина или в режиме инкогнито.
-• 1080p+, AV1, HDR не поддерживаются."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Отсутствует меню звуковых дорожек.
+• Функция отключения принудительного автоматического воспроизведения звуковых дорожек недоступна.
+• Стабильная громкость недоступна.
+• Детские видеоролики могут не воспроизводиться при выходе из системы или в режиме инкогнито.
+• Форматы 1080p+, AV1 и HDR не поддерживаются."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• Отсутствует меню \"Аудио\".\n• Отсутствует меню \"Постоянный уровень громкости\".</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Аудио меню пропадет.
 • Стабильная громкость не доступна.
 • Детские видео могут не проигрываться без логина или в режиме инкогнито."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• Отсутствует меню аудиодорожки.
+• Отключение принудительных авто дорожек звука недоступно.
+• Стабильная громкость недоступна.
+• Детские видео не проигрываются при выходе из системы или в режиме инкогнито."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Фильмы или платные видео могут не воспроизводиться.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">• Видео может заканчиваться на 1 секунду раньше.\n• Аудиокодек OPUS может не поддерживаться.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• Целые диапазоны ASN/IP могут блокироваться сервером.</string>
@@ -2382,17 +2445,20 @@ VP9 более продвинутый кодек, чем AVC, но некото�
 • Фильмы или платные видеоролики могут не воспроизводиться.
 • Детские видеоролики могут не воспроизводиться при выходе из системы или в режиме инкогнито."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ipados">"• AV1 не поддерживается.
-• Видео может остановиться в 1:00 или может быть недоступно в некоторых регионах."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Отсутствует меню аудиодорожки.
-• Отключить недоступные принудительные автозвуковые дорожки.
-• При ошибке разобфускации кода, просмотр может завершиться неудачей.
-• Иногда видео не проигрывается даже через 10 секунд, есть кнопка перезагрузить видео.
-• Видео может начинаться с опозданием."</string>
+• Видео может останавливаться в 1:00, или не работать в некоторых регионах."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Отсутствует меню звуковой дорожки.
+• При сбое деобфускации воспроизведение может прекратиться.
+• Если видео не воспроизводится даже через 10 секунд, в этом случае вам необходимо нажать кнопку /"Перезагрузить видео/".
+• Видео может запуститься с задержкой."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Эффекты от подмены</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• Кодек AVC (H.264) может быть недоступен.
 • Если деобфускация не удалась, воспроизведение может быть прервано.
 • Иногда видео не воспроизводится даже через 10 секунд, в этом случае необходимо нажать кнопку \"Перезагрузить видео\".
 • Видео может запускаться с опозданием."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• Если деобфускация не удается, просмотр может завершиться неудачей.
+• Может потребоваться PoToken, без него просмотр завершится ошибкой.
+• Иногда просмотр видео не будет доступен даже через 10 сек, тогда перезагрузить видео.
+• Видео может начинаться с опозданием."</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Неизвестно</string>
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Аудио меню пропадет.
 • Детские видео могут не проигрываться без логина или в режиме инкогнито.
@@ -2402,7 +2468,9 @@ VP9 более продвинутый кодек, чем AVC, но некото�
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Статистика для сисадминов</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Подмена потоковых данных отключена.
 Просмотр может быть не доступен."</string>
-    <string name="revanced_spoof_streaming_data_summary_on">"Подмена потоковых данных включена."</string>
+    <string name="revanced_spoof_streaming_data_summary_on">"Потоковые данные изменены.
+
+Если вы являетесь пользователем YouTube Premium, эта настройка может быть необязательной."</string>
     <string name="revanced_spoof_streaming_data_title">Подмена потоковых данных</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator.</string>
     <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"Клиент JavaScript не используется для видео, требующих быстрого просмотра:
@@ -2414,31 +2482,35 @@ VP9 более продвинутый кодек, чем AVC, но некото�
 
 • ТВ клиент может не проигрывать некоторые видео."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Использовать клиент JavaScript для всех видео</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Нажмите для получения дополнительной информации.</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Нажмите для дополнительной информации.</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">О поддельной буферизации</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Одной из причин, по которой видео начинают воспроизводиться слишком поздно в клиенте JavaScript, являются новые меры YouTube по борьбе с блокировщиками рекламы.
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Одна из причин того, что видео запускаются слишком поздно в клиенте JavaScript из-за новых анти-блокировочных мер YouTube.
 
-Когда видеореклама блокируется, GVS (Google Video Server) генерирует ложную буферизацию, пропорциональную продолжительности рекламы (A/B-тестирование).
+При блокировке, GVS (Google Video Server) генерирует подделку буферизации по длительности рекламы (A/B testing).
 
-uBlock Origin нашел обходной путь для решения этой проблемы, который можно включить с помощью настройки "Обход ложной буферизации".
+uBlock Origin обнаружил обход этой проблемы, включением параметра \"Обход поддельной буферизации\".
 
-Нажмите "Открыть", чтобы прочитать статью."</string>
+Нажмите \"Открыть\" для чтения статьи."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Открыть</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Новые меры YouTube по борьбе с блокировщиками рекламы"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Новые меры анти-блокировок YouTube"</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Обход поддельной буферизации отключен.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Включен обход поддельной буферизации.
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Обход поддельной буферизации включен.
 
 Ограничения:
-• Из-за изменений на стороне сервера эта функция может перестать работать в любой момент."</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Обойти поддельную буферизацию</string>
+• Зависит от сервера, может перестать работать."</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Обход поддельной буферизации</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">Клиент JavaScript не доступен.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">Клиент JavaScript используется.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Использовать клиент JavaScript</string>
-    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"Используется больше ресурсов для обработки шаблона n-sig, видео запускается медленнее.
+    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"Клиенты JavaScript могут испытывать небольшую задержку при запуске видео из-за необходимости декодирования шаблона n-sig.
 
-Шаблон n-sig часто меняется на серверах YouTube, и просмотр может быть прерван, если регулярное выражение не найдет шаблон n-sig.
+Иногда не удается декодировать шаблон n-sig, что приводит к задержке запуска видео или сбоям в видеопотоке.
 
-Функция в разработке, используйте только для отладки."</string>
+Это можно легко решить, нажав кнопку 'Перезагрузить видео' в проигрывателе, чтобы перезагрузить видео.
+
+(Предварительные условия: включены как 'Показывать кнопку перезагрузки видео', так и 'Всегда показывать кнопку перезагрузки видео')
+
+Среди клиентов JavaScript рекомендуемым клиентом является TV."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"JavaScript для разобфускации не сохранен в актуальном состоянии.
 
 • Используется JavaScript, но все еще зависит от сервера."</string>
@@ -2446,9 +2518,65 @@ uBlock Origin нашел обходной путь для решения это�
 
 • Очень зависит от сервера, а успех или сбой разобфускации зависит от используемого на сервере JavaScript."</string>
     <string name="revanced_spoof_streaming_data_use_latest_js_title">Использовать актуальный JavaScript</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_off">Видео кодек определяется автоматически.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_summary_on">Видео кодек AVC (H.264) или VP9.</string>
-    <string name="revanced_spoof_streaming_data_vr_disable_av1_title">Отключить VR AV1</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"JavaScript для деобфускации не хранится в актуальном состоянии.
+
+• Используется JavaScript, но все еще зависит от сервера."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"Плеер JavaScript для хранения деобфускации в актуальном состоянии.
+
+• Сильная зависимость деобфускации от сервера и плеера JavaScript, на сервере.
+• Если у вас возникли проблемы с JavaScript-клиентом, попробуйте сначала отключить его."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Использовать актуальный JavaScript проигрыватель</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"Используется экстрактор SmartTube.
+
+• JavaScript для деобфускации не актуальный.
+• Это, через время, устареет на сервере."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"Используется внешний JavaScript для yt-dlp (yt-dlp-ejs).
+
+• JavaScript для деобфускации сохраняется в актуальном состоянии.
+• Для запуска видео может потребоваться от 5 до 15 секунд."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Использовать yt-dlp ejs (В разработке)</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"Новые меры YouTube не позволяют расшифровать URL-адреса потокового воспроизведения, общими методами в JavaScript.
+
+Внешний JavaScript для yt-dlp (yt-dlp-ejs) используется для расшифровки URL-адресов трансляций в последних JavaScript.
+
+Компонент в разработке и будет использовать больше ресурсов оборудования."</string>
+    <string name="revanced_spoof_streaming_data_user_dialog_message">Отключение этой настройки вызовет проблемы с просмотром.</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Код активации:
+%s
+
+1. Нажмите 'Открыть веб-сайт', чтобы перейти к 'https://yt.be/activate'.
+2. Введите код активации.
+3. Когда появится запрос войдите в аккаунт Google, который используете для YouTube. Если вход уже выполнен, перейдите к следующему шагу.
+4. После входа вернитесь к RVX и нажмите 'О Android VR авторизации' снова.
+5. Нажмите 'Получить токен авторизации', чтобы получить токен авторизации."</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Открыть сайт</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Код активации</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Код активации скопирован в буфер обмена: %s.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Нажмите, чтобы посмотреть, как получить токен авторизации.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">О Android VR авторизации</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Получить код активации</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Получить токен авторизации</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Для получения токена авторизации Android VR, войдите в YouTube VR, используя код активации:
+
+1. Нажмите \"Получить код активации\" для генерации кода активации.
+2. Нажмите 'Открыть веб-сайт', чтобы перейти на 'https://yt.be/activate' и введите код активации.
+3. Когда появится запрос войдите в аккаунт Google, который используете для YouTube. Если вход уже выполнен, перейдите к следующему шагу.
+4. После входа вернитесь к RVX и снова нажмите \"О Android VR авторизации\".
+5. Нажмите 'Получить токен авторизации'.
+
+※ нажмите 'Сброс', чтобы удалить токен аутентификации или код активации."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Сброс</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Получить токен авторизации</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Токен аутентификации и код активации сброшены.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Токен авторизации сохранен.</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_off">Видео кодек AVC (H.264) или VP9.</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"Видео кодек AVC (H.264), VP9 или AV1.
+
+Проигрывание может запинаться или будут потери кадров."</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_title">Включить VR AV1</string>
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"При включении используется программный кодек AV1.
+
+Проигрывание может запинаться или будут потери кадров."</string>
     <string name="revanced_swipe_brightness_distance_summary">Количество пикселей, которое необходимо сдвинуть для изменения яркости. Чем меньше значение, тем быстрее меняется яркость, чем больше — тем медленнее (1 - 1000).</string>
     <string name="revanced_swipe_brightness_distance_title">Чувствительность жеста яркости</string>
     <string name="revanced_swipe_brightness_summary_off">Регулировка яркости жестом отключена</string>
@@ -2540,7 +2668,6 @@ uBlock Origin нашел обходной путь для решения это�
     <string name="revanced_theme_default">По умолчанию</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Предупреждение</string>
-    <string name="revanced_third_party_youtube_music_not_installed_warning">%s не установлен. Установите его.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Название пакета установленной RVX Music.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Имя пакета RVX Music</string>
     <string name="revanced_transcript_cookies_about_summary">Нажмите, чтобы посмотреть, как получить куки.</string>
@@ -2584,6 +2711,8 @@ uBlock Origin нашел обходной путь для решения это�
     <string name="revanced_watch_history_type_entry_2">Замена домена</string>
     <string name="revanced_watch_history_type_entry_3">Блокировать историю просмотра</string>
     <string name="revanced_watch_history_type_title">Режим истории просмотра</string>
+    <string name="revanced_watch_next_processing_delay_summary">Миллисекунды задержки перед \"смотреть следующее\".</string>
+    <string name="revanced_watch_next_processing_delay_title">Задержка перед \"смотреть следующее\"</string>
     <string name="revanced_webview_contextual_menu_get_cookies">Получить куки</string>
     <string name="revanced_webview_contextual_menu_get_data_sync_id">Получить ID синхр. данных</string>
     <string name="revanced_webview_contextual_menu_get_visitor_data">Получить данные посещаемости</string>

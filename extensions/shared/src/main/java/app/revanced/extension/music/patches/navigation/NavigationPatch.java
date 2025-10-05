@@ -44,7 +44,7 @@ public class NavigationPatch {
             }
         } catch (Exception ex) {
             Utils.showToastShort(str("revanced_custom_navigation_bar_color_value_invalid_invalid_toast"));
-            Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
+            Utils.showToastShort(str("revanced_reset_to_default_toast"));
             Settings.ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE.resetToDefault();
         }
 
