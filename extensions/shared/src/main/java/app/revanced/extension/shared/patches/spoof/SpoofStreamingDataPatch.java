@@ -427,20 +427,6 @@ public class SpoofStreamingDataPatch {
         }
     }
 
-    public static final class ClientSingleAudioTrackAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return BaseSettings.SPOOF_STREAMING_DATA.get() &&
-                    !BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getSupportsCookies() &&
-                    !BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getSupportsMultiAudioTracks();
-        }
-
-        @Override
-        public List<Setting<?>> getParentSettings() {
-            return List.of(BaseSettings.SPOOF_STREAMING_DATA);
-        }
-    }
-
     public static final class HideAudioFlyoutMenuAvailability implements Setting.Availability {
         private static final boolean AVAILABLE_ON_LAUNCH = SpoofStreamingDataPatch.multiAudioTrackAvailable();
 

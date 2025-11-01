@@ -227,13 +227,14 @@
     <string name="revanced_disable_ambient_mode_summary_on">Η λειτουργία περιβάλλοντος είναι απενεργοποιημένη.</string>
     <string name="revanced_disable_ambient_mode_title">Απενεργοποίηση λειτουργίας περιβάλλοντος</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">Για να χρησιμοποιήσετε αυτή τη λειτουργία, πρέπει να γίνει αλλαγή του προεπιλεγμένου προγράμματος πελάτη σε TV, TV Simply ή iOS TV στις ρυθμίσεις «Παραποίηση δεδομένων ροής».</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_off">Τα υποχρεωτικά κομμάτια ήχου είναι ενεργοποιημένα.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_off">"Τα υποχρεωτικά κομμάτια ήχου είναι ενεργοποιημένα."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Τα υποχρεωτικά κομμάτια ήχου είναι απενεργοποιημένα.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Τα υποχρεωτικά κομμάτια ήχου είναι απενεργοποιημένα.
 
 Αυτή η ρύθμιση μπορεί να μη λειτουργεί για ορισμένους χρήστες, αν δε λειτουργεί για εσάς:
 1. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, ενεργοποιήστε τη ρύθμιση «Χρήση προγράμματος πελάτη JavaScript».
-2. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» σε «TV»."</string>
+2. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» σε «TV».
+3. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, ενεργοποιήστε την ρύθμιση «Χρήση του yt-dlp ejs (λειτουργία σε εξέλιξη)»."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Απενεργοποίηση υποχρεωτικών κομματιών ήχου</string>
     <string name="revanced_disable_auto_captions_summary_off">Οι υποχρεωτικοί αυτόματοι υπότιτλοι εμφανίζονται.</string>
     <string name="revanced_disable_auto_captions_summary_on">Οι υποχρεωτικοί αυτόματοι υπότιτλοι είναι απενεργοποιημένοι.</string>
@@ -521,6 +522,11 @@
 Αν η ρύθμιση «Αναπαραγωγή» δε λειτουργεί, η ενεργοποίηση αυτής της λειτουργίας μπορεί να διορθώσει το πρόβλημα.
 
 Αν η ρύθμιση «Αναπαραγωγή» δε λειτουργεί ακόμη και μετά την ενεργοποίηση ή απενεργοποίηση αυτής της λειτουργίας, θα πρέπει να κάνετε εκκαθάριση δεδομένων εφαρμογής."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">Το παρατεταμένο πάτημα για αλλαγή ταχύτητας μπορεί μερικές φορές να ενεργοποιείται ακόμη και αν ο χρήστης δεν πατάει παρατεταμένα την οθόνη αναπαραγωγής.</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"Το παρατεταμένο πάτημα για αλλαγή ταχύτητας ενεργοποιείται μόνο όταν ο χρήστης πατάει παρατεταμένα την οθόνη αναπαραγωγής.
+
+Γνωστό θέμα: Μερικές φορές εμφανίζεται η διάταξη ελέγχων σάρωσης πριν γίνει μετάβαση σε λειτουργία πλήρους οθόνης."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_title">Διόρθωση ελέγχων σάρωσης και διεπαφής ταχύτητας</string>
     <string name="revanced_fullscreen_ads_closed_toast">Οι διαφημίσεις πλήρους οθόνης έκλεισαν.</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Λίστα ονομάτων των επιλογών του μενού λογαριασμού για φιλτράρισμα, διαχωρισμένα με νέες γραμμές.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Επεξεργασία φίλτρου μενού λογαριασμού</string>
@@ -886,7 +892,8 @@ Playlists
 
 Για να εμφανίζεται το μενού «Κομμάτι ήχου»:
 1. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, ενεργοποιήστε τη ρύθμιση «Χρήση προγράμματος πελάτη JavaScript».
-2. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» σε «TV»."</string>
+2. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» σε «TV».
+3. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, ενεργοποιήστε την ρύθμιση «Χρήση του yt-dlp ejs (λειτουργία σε εξέλιξη)»."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Μενού «Κομμάτι ήχου»</string>
@@ -1005,10 +1012,10 @@ Playlists
     <string name="revanced_hide_quick_actions_title">Γρήγορες ενέργειες</string>
     <string name="revanced_hide_related_videos_overlay_summary_off">Εμφανίζονται.
 
-Αφορά την ενότητα «Περισσότερα βίντεο» στις γρήγορες ενέργειες και τα σχετικά βίντεο στην τελική οθόνη.</string>
+Αφορά την ενότητα «Περισσότερα βίντεο» στις γρήγορες ενέργειες και τα σχετικά βίντεο.</string>
     <string name="revanced_hide_related_videos_overlay_summary_on">Κρυμμένα.
 
-Αφορά την ενότητα «Περισσότερα βίντεο» στις γρήγορες ενέργειες και τα σχετικά βίντεο στην τελική οθόνη.</string>
+Αφορά την ενότητα «Περισσότερα βίντεο» στις γρήγορες ενέργειες και τα σχετικά βίντεο.</string>
     <string name="revanced_hide_related_videos_overlay_title">Σχετικά βίντεο</string>
     <string name="revanced_hide_related_videos_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_related_videos_summary_on">Κρυμμένα.</string>
@@ -2291,6 +2298,8 @@ Playlists
 Η λειτουργία αυτή είναι ακόμη υπό ανάπτυξη, και μπορεί να πάψει να λειτουργεί ανά πάσα στιγμή λόγω αλλαγών από πλευράς διακομιστή."</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Απαιτείται σύνδεση)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
+<small>(χωρίς SDK)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(χωρίς σύνδεση χρήστη)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
@@ -2298,14 +2307,14 @@ Playlists
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Ξεπερασμένο)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
-<small>(Ξεπερασμένο, χωρίς σύνδεση χρήστη)</small>"</string>
+<small>(Ξεπερασμένο)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web Κινητού
-<small>(λειτουργία σε εξέλιξη, χωρίς σύνδεση χρήστη)</small>"</string>
+<small>(λειτουργία σε εξέλιξη)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
 <small>(Χωρίς PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
-<small>(Ακυκλοφόρητο, χωρίς σύνδεση χρήστη)</small>"</string>
+<small>(Ακυκλοφόρητο)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Αδυναμία λήψης ροής του προγράμματος πελάτη.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Δοκιμάστε να αλλάξετε το προεπιλεγμένο πρόγραμμα πελάτη παραποίησης δεδομένων ροής σε TV.</string>
@@ -2315,9 +2324,6 @@ Playlists
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Η ενεργοποίηση αυτής της λειτουργίας ενδέχεται να βελτιώσει τη διάρκεια ζωής της μπαταρίας και να διορθώσει κολλήματα αναπαραγωγής.
 
 Ο AVC έχει μέγιστη ανάλυση 1080p, ο κωδικοποιητής ήχου Opus δεν είναι διαθέσιμος και η αναπαραγωγή βίντεο θα χρησιμοποιεί περισσότερα δεδομένα ίντερνετ από τον VP9 ή τον AV1."</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Για να επιλέξετε μια συγκεκριμένη γλώσσα ροής ήχου, απενεργοποιήστε την επιλογή «Απενεργοποίηση υποχρεωτικών κομματιών ήχου».</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">Η προεπιλογή γλώσσας ροής ήχου δεν είναι διαθέσιμη με τον πελάτη %s.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_title">Προεπιλεγμένη γλώσσα ροής ήχου</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Προτεραιοποιούνται οι κωδικοποιητές βίντεο.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Προτεραιοποιείται η ποιότητα βίντεο.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Προτεραιοποίηση ποιότητας βίντεο</string>
@@ -2366,6 +2372,7 @@ Playlists
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη.
 • Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεμένοι ή σε λειτουργία ανώνυμης περιήγησης.
 • Η ποιότητα 1080p+, HDR, και ο κωδικοποιητής AV1 δεν υποστηρίζονται."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_no_sdk">• Το βίντεο μπορεί να σταματάει στο 1:00, ή να μην είναι διαθέσιμο σε ορισμένες περιοχές.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Το μενού «Κομμάτι ήχου» λείπει.
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Το μενού «Κομμάτι ήχου» λείπει.

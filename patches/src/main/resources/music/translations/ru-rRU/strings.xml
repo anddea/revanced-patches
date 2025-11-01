@@ -81,6 +81,10 @@
     <string name="revanced_debug_title">Ведение журнала отладки</string>
     <string name="revanced_default_app_settings_summary">Чтобы открыть ссылку на YouTube Music в RVX Music, включите \"Открывать поддерживаемые ссылки\" и включите поддерживаемые веб-адреса.</string>
     <string name="revanced_default_app_settings_title">Открыть настройки по умолчанию</string>
+    <string name="revanced_disable_auto_audio_tracks_summary">"Отключает автоматические звуковые дорожки для подкастов.
+
+Ограничение: Если включена опция 'Подмена потоковых данных', а клиент по умолчанию 'Android VR авторизация', это может не работать."</string>
+    <string name="revanced_disable_auto_audio_tracks_title">Отключить автоматические звуковые дорожки</string>
     <string name="revanced_disable_auto_captions_summary">Отключает автоматическое включение субтитров.</string>
     <string name="revanced_disable_auto_captions_title">Отключить автоматические субтитры</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Отключает анимацию Кайро при запуске приложения.</string>
@@ -491,21 +495,21 @@
     <string name="revanced_settings_import_success">Импортировано %d настроек.</string>
     <string name="revanced_settings_reset">Сбросить</string>
     <string name="revanced_settings_search_clear_history">Очистить историю поиска</string>
-    <string name="revanced_settings_search_clear_history_message">Вы уверены, что хотите очистить всю историю поиска?</string>
-    <string name="revanced_settings_search_empty_history_summary">Чтобы сохранить историю поиска, введите поисковый запрос и нажмите Enter.</string>
+    <string name="revanced_settings_search_clear_history_message">Очистить всю историю поиска?</string>
+    <string name="revanced_settings_search_empty_history_summary">Для сохранения истории поиска, введите поисковый запрос и нажмите Ввод.</string>
     <string name="revanced_settings_search_empty_history_title">Нет истории поиска</string>
-    <string name="revanced_settings_search_history_summary_off">История поиска в настройках не отображается.</string>
-    <string name="revanced_settings_search_history_summary_on">Отображается история поиска настроек.</string>
-    <string name="revanced_settings_search_history_title">Показывать историю поиска настроек</string>
+    <string name="revanced_settings_search_history_summary_off">История поиска настроек скрыта.</string>
+    <string name="revanced_settings_search_history_summary_on">История поиска настроек отображена.</string>
+    <string name="revanced_settings_search_history_title">Показать историю поиска настроек</string>
     <string name="revanced_settings_search_no_results_summary">Попробуйте другое ключевое слово.</string>
-    <string name="revanced_settings_search_no_results_title">По запросу \'%s\' ничего не найдено.</string>
+    <string name="revanced_settings_search_no_results_title">\'%s\' Не найдено.</string>
     <string name="revanced_settings_search_recent_searches">Недавние запросы</string>
     <string name="revanced_settings_search_remove_message">Удалить из истории поиска?</string>
     <string name="revanced_settings_search_tips_summary">"• Нажмите на путь, чтобы перейти к нему.
-• Нажмите и удерживайте настройку, чтобы перейти к ней.
-• Нажмите Enter, чтобы сохранить поисковый запрос в истории.
-• При поиске игнорируются регистр и знаки препинания.
-• Родительские настройки отображаются над отключенными дочерними настройками."</string>
+• Длительное нажатие для перехода к настройкам.
+• Нажмите \"Ввод\", для сохранения запросов поиска.
+• Поиск игнорирует регистр и пунктуацию.
+• Родительские настройки приоритетнее настроек ребенка."</string>
     <string name="revanced_settings_search_tips_title">Советы по поиску</string>
     <string name="revanced_settings_search_title">Поиск %s</string>
     <string name="revanced_settings_title">RVX</string>
@@ -536,13 +540,15 @@
 • У некоторых пользователей это может не работать."</string>
     <string name="revanced_spoof_player_parameter_title">Подменить параметр плеера</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android без SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR авторизация (требуется действие)</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">Мобильный веб</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">ТВ</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Определяет клиент по умолчанию для подмены.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Клиент по умолчанию</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">Не удалось получить потоки клиента.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">Не получены клиентские потоки.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Попробуйте изменить клиент по умолчанию на TV.</string>
     <string name="revanced_spoof_streaming_data_message">Если у вас возникли какие-либо проблемы с воспроизведением, включите функцию \"Подмена потоковых данных\" в &lt;i&gt;&lt;u&gt;Настройки &gt; %s &gt; Разное &lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показывает клиент, используемый для получения потоковых данных в Статистике для сисадминов.</string>
@@ -555,11 +561,40 @@
 
 Если у вас возникли проблемы с JavaScript-клиентом, попробуйте сначала отключить эту функцию."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Используйте последнюю версию JavaScript для проигрывателя</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"При включении функции 'Внешний JavaScript для yt-dlp (yt-dlp-ejs)' будет использоваться для деобфускации Url URL-адресов потокового вещания на 'TV' и 'Mobile Web'.
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"При включении 'Внешний JavaScript для yt-dlp (yt-dlp-ejs)' будет использоваться для деобфускации URL-адреса потоковой передачи на 'ТВ' и 'Мобильном просмотре'.
 
-• Проигрыватель JavaScript для деобфускации поддерживается в актуальном состоянии.
-• Для запуска видео может потребоваться от 5 до 15 секунд."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Используйте yt-dlp ejs (WIP)</string>
+• JavaScript-код проигрывателя для деобфускации постоянно обновляется.
+• Запуск видео может занять от 5 до 15 секунд."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Использовать yt-dlp ejs (В разработке)</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Код активации:
+%s
+
+1. Нажмите 'Открыть веб-сайт', чтобы перейти к 'https://yt.be/activate'.
+2. Введите код активации.
+3. Когда появится запрос войдите в аккаунт Google, который используете для YouTube. Если вход уже выполнен, перейдите к следующему шагу.
+4. После входа вернитесь к RVX и нажмите 'О Android VR авторизации' снова.
+5. Нажмите 'Получить токен авторизации', чтобы получить токен авторизации."</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Открыть сайт</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Код активации</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Код активации скопирован в буфер обмена: %s.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Нажмите, чтобы узнать, как получить токен аутентификации.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">О Android VR авторизации</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Получить код активации</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Получить токен авторизации</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Для получения токена авторизации Android VR, войдите в YouTube VR, используя код активации:
+
+1. Нажмите \"Получить код активации\" для генерации кода активации.
+2. Нажмите 'Открыть веб-сайт', чтобы перейти на 'https://yt.be/activate' и введите код активации.
+3. Введите код активации.
+4. Когда появится запрос войдите в аккаунт Google, который используете для YouTube. Если вход уже выполнен, перейдите к следующему шагу.
+5. После входа вернитесь к RVX и снова нажмите \"О Android VR авторизации\".
+6. Нажмите 'Получить токен авторизации', для получения токена авторизации.
+
+※ нажмите 'Сброс', чтобы удалить токен аутентификации или код активации."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Сбросить</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Получить Токен Авторизации</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Токен аутентификации и код активации сброшены.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Токен аутентификации сохранен.</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">Музыка для iOS 6.21</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">Музыка для iOS 7.04</string>
     <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">Музыка для iOS 8.12</string>

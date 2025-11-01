@@ -79,10 +79,14 @@ Uygulama açık temaları desteklemediğinden mümkünse koyu renkler kullanın.
     <string name="revanced_debug_title">Hata ayıklama günlüğünü etkinleştirme</string>
     <string name="revanced_default_app_settings_summary">YouTube Müzik bağlantılarını RVX Music\'te açmak için \'Desteklenen bağlantıları aç\'ı etkinleştirin ve desteklenen web adreslerini etkinleştirin.</string>
     <string name="revanced_default_app_settings_title">Varsayılan uygulama ayarlarını aç</string>
+    <string name="revanced_disable_auto_audio_tracks_summary">"Podcast'ler için zorunlu otomatik ses parçalarını devre dışı bırakır.
+
+Sınırlama: ‘Spoof streaming data’ (Sahte akış verileri) etkinleştirilmişse ve varsayılan istemci ‘Android VR Auth’ ise, bu özellik çalışmayabilir."</string>
+    <string name="revanced_disable_auto_audio_tracks_title">Zorunlu otomatik ses parçalarını devre dışı bırak</string>
     <string name="revanced_disable_auto_captions_summary">Altyazıların kendiliğinden açılmasını devre dışı bırakır.</string>
     <string name="revanced_disable_auto_captions_title">Altyazıların kendiliğinden açılmasını kapat</string>
-    <string name="revanced_disable_cairo_splash_animation_summary">Uygulama açılışındaki Kahire açılış animasyonunu devre dışı bırakır.</string>
-    <string name="revanced_disable_cairo_splash_animation_title">Kahire açılış animasyonunu devre dışı bırak</string>
+    <string name="revanced_disable_cairo_splash_animation_summary">Uygulama açılışındaki Cairo açılış animasyonunu devre dışı bırakır.</string>
+    <string name="revanced_disable_cairo_splash_animation_title">Cairo açılış animasyonunu devre dışı bırak</string>
     <string name="revanced_disable_dislike_redirection_summary">Beğenmedim düğmesine tıklandığında sonraki parçaya yönlendirmeyi devre dışı bırakır.</string>
     <string name="revanced_disable_dislike_redirection_title">Beğenmeme yönlendirmesini devre dışı bırak</string>
     <string name="revanced_disable_drc_audio_summary">Sese uygulanan Dinamik Aralık Sıkıştırmayı devre dışı bırakır.</string>
@@ -130,11 +134,11 @@ Bilinen sorunlar:
     <string name="revanced_enable_mini_player_next_button_title">Mini oynatıcıyıdaki sonraki düğmesini etkinleştir</string>
     <string name="revanced_enable_mini_player_previous_button_summary">Mini oynatıcıda önceki düğmesini etkinleştirir.</string>
     <string name="revanced_enable_mini_player_previous_button_title">Mini oynatıcıdaki önceki düğmesini etkinleştir</string>
-    <string name="revanced_enable_opus_codec_summary">"Mp4a ses codec bileşeni yerine opus ses codec bileşenini etkinleştirir.
+    <string name="revanced_enable_opus_codec_summary">"Oynatıcı yanıtında OPUS codec'i varsa etkinleştirir.
 
 Bilgi:
-• En yeni Android istemcileri varsayılan olarak opus ses codec bileşenini kullanır.
-• Bu yalnızca çok eski istemcilerle sahtecilik yapan kullanıcılar için geçerlidir."</string>
+• En son YouTube Music istemcileri varsayılan olarak OPUS ses codec'ini kullanır.
+• İstemci veya video akışı sahteyse bu gerekli olabilir."</string>
     <string name="revanced_enable_opus_codec_title">Opus kodeğini etkinleştir</string>
     <string name="revanced_enable_smooth_transition_animation_summary">"Mini oynatıcı simge durumuna küçültülmüş durumdan büyütüldüğünde akıcı animasyon sağlar.
 
@@ -170,6 +174,8 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_external_downloader_package_name_summary">Yüklü olan harici indirme uygulamanızın paket adı, örneğin NewPipe veya YTDLnis gibi.</string>
     <string name="revanced_external_downloader_package_name_title">Harici indirici paket adı</string>
     <string name="revanced_fullscreen_ads_closed_toast">Tam ekran reklamlar kapatıldı.</string>
+    <string name="revanced_gms_show_dialog_summary">Her uygulama başlatıldığında GMSCore için optimizasyon iletişim kutusunu görüntüler.</string>
+    <string name="revanced_gms_show_dialog_title">GMSCore için optimizasyon iletişim kutusunu göster</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Hesap menüsündeki boş bileşenleri gizler.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Boş bileşenleri gizle</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Filtrelenecek hesap menüsü adlarının yeni satırlarla ayrılmış listesi.</string>
@@ -369,6 +375,9 @@ Bilinen Sorunlar:
     <string name="revanced_replace_navigation_samples_button_title">Örnekleri Değiştir düğmesi</string>
     <string name="revanced_replace_navigation_upgrade_button_summary">Yükselt düğmesini Ayarlar düğmesiyle değiştirir.</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Replace Upgrade button</string>
+    <string name="revanced_reset_to_default_toast">Varsayılan değerlere sıfırla.</string>
+    <string name="revanced_restart_first_run">Yeniden başlatarak arayüzü normal şekilde yükleyin</string>
+    <string name="revanced_restart_message">Yenile ve yeniden başlat</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Yorum açılır pencerelerini eski stile döndürür.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Eski yorum açılır panellerini geri getir</string>
     <string name="revanced_restore_old_player_background_summary">Oynatıcı arkaplanını eski stile döndürür.</string>
@@ -439,8 +448,8 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_sb_enabled">SponsorBlock\'u etkinleştir</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock, YouTube videolarının sinir bozucu kısımlarını atlamak için kitle kaynaklı bir sistemdir.</string>
     <string name="revanced_sb_reset_color">Rengi sıfırla</string>
-    <string name="revanced_sb_segments_filler">Dolgu Tanjantı / Şakalar</string>
-    <string name="revanced_sb_segments_filler_sum">Sadece videoyu doldurmak ya da mizah için eklenmiş, videonun ana içeriğini anlamak için gerekli olmayan alakasız sahneler. Bu, içerik veya arka plan detayları hakkında bilgi veren kısımları içermemelidir.</string>
+    <string name="revanced_sb_segments_filler">Konudan sapma / Şakalar</string>
+    <string name="revanced_sb_segments_filler_sum">Videonun ana içeriğini anlamak için gerekli olmayan, konuyla ilgisi olmayan sahneler veya espriler. Bağlam veya arka plan ayrıntıları sağlayan bölümler içermez.</string>
     <string name="revanced_sb_segments_hook">Kanca / Selamlar</string>
     <string name="revanced_sb_segments_hook_sum">Gelecek video için fragmanlar, selamlar ve vedalar. Ek içerik ekleyen bölümler içermez.</string>
     <string name="revanced_sb_segments_interaction">Etkileşim Hatırlatıcısı (Abone Ol)</string>
@@ -451,7 +460,7 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_sb_segments_nomusic_sum">Yalnızca müzik videolarında kullanım içindir. Henüz başka bir kategoride yer almayan müzik videolarının müziksiz bölümleri.</string>
     <string name="revanced_sb_segments_outro">Bitiş Kartları / Hakkında</string>
     <string name="revanced_sb_segments_outro_sum">Videoda emeği geçenlerin veya video sonunda çıkan kartların gösterildiği kısımlar. Bilgilendirici sona sahip videolar için değil.</string>
-    <string name="revanced_sb_segments_preview">Önizleme / Özet / Hook</string>
+    <string name="revanced_sb_segments_preview">Önizleme / Özet</string>
     <string name="revanced_sb_segments_preview_sum">Videoda veya bir dizinin diğer videolarında neler olduğunu veya neler olduğunu gösteren, tüm bilgilerin başka bir yerde tekrarlandığı klip koleksiyonu.</string>
     <string name="revanced_sb_segments_selfpromo">Karşılıksız/Kişisel Promosyon</string>
     <string name="revanced_sb_segments_selfpromo_sum">Ücretsiz veya kendi kendine tanıtım haricinde Sponsora benzer. Ürünler, bağışlar veya kiminle işbirliği yaptıklarına ilişkin bilgilerle ilgili bölümler içerir.</string>
@@ -459,7 +468,7 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_sb_segments_sponsor_sum">Ücretli tanıtım, ücretli yönlendirmeler ve doğrudan reklamlar. Kendi tanıtımını yapmak veya beğendikleri olaylara / içerik üreticilerine / web sitelerine / ürünlere ücretsiz olarak atıfta bulunanlar için değil.</string>
     <string name="revanced_sb_skip_automatically">Otomatik olarak atla</string>
     <string name="revanced_sb_skip_ignore">Devre dışı bırak</string>
-    <string name="revanced_sb_skipped_filler">Dolgu atlandı.</string>
+    <string name="revanced_sb_skipped_filler">Konudan sapma atlandı.</string>
     <string name="revanced_sb_skipped_hook">Atlanan kanca.</string>
     <string name="revanced_sb_skipped_interaction">Rahatsız edici hatırlatıcı atlandı.</string>
     <string name="revanced_sb_skipped_intro_beginning">Giriş ekranı atlandı.</string>
@@ -480,6 +489,38 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_sb_toast_on_connection_error_sum">SponsorBlock API\'nin mevcut olmaması durumunda uyarı gösterilir.</string>
     <string name="revanced_sb_toast_on_skip">Otomatik olarak atlarken bir uyarı göster</string>
     <string name="revanced_sb_toast_on_skip_sum">Bölüm otomatik olarak atandığında uyarı gösterilir.</string>
+    <string name="revanced_settings_export_as_file">Ayarları dosyaya aktar</string>
+    <string name="revanced_settings_export_failed">Ayarları dışa aktaramadı.</string>
+    <string name="revanced_settings_export_success">Ayarlar başarıyla dışa aktarıldı.</string>
+    <string name="revanced_settings_import">İçe aktar</string>
+    <string name="revanced_settings_import_as_file">Ayarları dosyadan içe aktar</string>
+    <string name="revanced_settings_import_copy">Kopyala</string>
+    <string name="revanced_settings_import_export_as_text">Ayarları metin olarak içe/dışa aktar</string>
+    <string name="revanced_settings_import_export_summary">RVX Müzik ayarlarını içe/dışa aktarın.</string>
+    <string name="revanced_settings_import_export_title">İçe aktarma / Dışa aktarma ayarları</string>
+    <string name="revanced_settings_import_failed">İçe aktarma başarısız: %s.</string>
+    <string name="revanced_settings_import_reset">Ayarları varsayılan değerlere sıfırla.</string>
+    <string name="revanced_settings_import_success">%d ayarları içe aktarıldı.</string>
+    <string name="revanced_settings_reset">Sıfırla</string>
+    <string name="revanced_settings_search_clear_history">Arama geçmişini temizle</string>
+    <string name="revanced_settings_search_clear_history_message">Tüm arama geçmişini silmek istediğinizden emin misiniz?</string>
+    <string name="revanced_settings_search_empty_history_summary">Arama geçmişini kaydetmek için bir arama sorgusu yazın ve Enter tuşuna basın.</string>
+    <string name="revanced_settings_search_empty_history_title">Arama geçmişi boş</string>
+    <string name="revanced_settings_search_history_summary_off">Ayarlar arama geçmişi gösterilmiyor.</string>
+    <string name="revanced_settings_search_history_summary_on">Ayarlar arama geçmişi gösterilir.</string>
+    <string name="revanced_settings_search_history_title">Ayarlar arama geçmişini göster</string>
+    <string name="revanced_settings_search_no_results_summary">Başka bir anahtar kelime deneyin.</string>
+    <string name="revanced_settings_search_no_results_title">\'%s\' için sonuç bulunamadı.</string>
+    <string name="revanced_settings_search_recent_searches">Son aramalar</string>
+    <string name="revanced_settings_search_remove_message">Arama geçmişinden silmek ister misiniz?</string>
+    <string name="revanced_settings_search_tips_summary">"• Bir dizine gitmek için üzerine dokunun.
+• Bir ayara uzun basarak o ayara gidin.
+• Enter tuşuna basarak arama sorgusunu geçmişe kaydedin.
+• Arama, büyük/küçük harf ve noktalama işaretlerini dikkate almaz.
+• Üst ayarlar, devre dışı bırakılmış alt ayarların üzerinde görünür."</string>
+    <string name="revanced_settings_search_tips_title">Arama İpuçları</string>
+    <string name="revanced_settings_search_title">Ara %s</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Ayarlar panoya kopyalandı</string>
     <string name="revanced_spoof_app_version_summary">"İstemciyi sürümünün eski sürümle sahteleştir 
 
@@ -495,12 +536,19 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_spoof_app_version_target_summary">Sahte uygulama sürümü hedefini seçin.</string>
     <string name="revanced_spoof_app_version_target_title">Uygulama hedef sürümünü kandırma hedefi</string>
     <string name="revanced_spoof_app_version_title">Uygulama Versiyonunu taklit et</string>
-    <string name="revanced_spoof_client_summary">"Oynatma sorunlarını çözmek için istemciyi taklit eder."</string>
+    <string name="revanced_spoof_client_summary">"Oynatma sorunlarını önlemek için istemciyi taklit eder."</string>
     <string name="revanced_spoof_client_title">Sahte istemci</string>
     <string name="revanced_spoof_client_type_summary">"Taklit etmek için varsayılan bir istemci tanımlar."</string>
     <string name="revanced_spoof_client_type_title">Varsayılan istemci</string>
+    <string name="revanced_spoof_player_parameter_summary">"Oynatma sorunlarını önlemek için oynatıcı parametresini taklit edin.
+
+Yan etki:
+• Bazen altyazılar oynatıcının alt kısmında değil üst kısmında görüntülenir.
+• Bu, bazı kullanıcılar için işe yaramayabilir."</string>
+    <string name="revanced_spoof_player_parameter_title">Oynatıcı parametresini taklit et</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Oluşturucu</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR Kimlik Doğrulama (Eylem gerekli)</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobil İnternet</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">vizyon işletim sistemi</string>
@@ -509,10 +557,62 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
 Bilinen Sorunlar:
 • Oynatma sırasında ses aralıklı olarak takılabilir.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Varsayılan istemci</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">Hiçbir istemci akışı alınamadı.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Varsayılan istemciyi TV olarak değiştirmeyi deneyin.</string>
+    <string name="revanced_spoof_streaming_data_message">Eğer oynatma sorunu yaşıyorsanız, \"Akış verilerini taklit et\" etkinleştir; &lt;i&gt;&lt;u&gt;Ayarlar &gt; %s &gt; Çeşitler&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Stats for nerds\'te akış verilerini almak için kullanılan istemciyi gösterir.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">İstatistikleri inekler için göster</string>
     <string name="revanced_spoof_streaming_data_summary">"Oynatma sorunlarını önlemek için istemci video akışlarını taklit edin.
 
 YouTube Premium kullanıcısıysanız bu ayar gerekli olmayabilir."</string>
     <string name="revanced_spoof_streaming_data_title">Sahte akış verileri</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"Etkinleştirildiğinde, en son oyuncu JavaScript'i ‘TV’ ve 'Mobil Web'de akış URL'sini anlaşılır hale getirmek için kullanılacaktır.
+
+JavaScript istemcinizde sorun yaşıyorsanız, önce bunu devre dışı bırakmayı deneyin."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">En son oynatıcı JavaScript\'i kullanın</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"Etkinleştirildiğinde, ‘yt-dlp için Harici JavaScript (yt-dlp-ejs)’ 'TV' ve ‘Mobil Web’ üzerinde akış URL'sini gizlemeyi kaldırmak için kullanılır.
+
+• Gizlemeyi kaldırmak için kullanılan oynatıcı JavaScript'i güncel tutulur.
+• Videonun başlaması 5 ila 15 saniye sürebilir."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Kullan yt-dlp ejs (Yapım aşamasında)</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Etkinleştirme kodu:
+%s
+
+1. “Web sitesini aç” seçeneğine tıklayarak “https://yt.be/activate” adresine gidin.
+2. Etkinleştirme kodunu girin.
+3. İstendiğinde oturum açın. Birden fazla Google Hesabınız varsa, YouTube ile kullandığınız hesabı seçin. Zaten oturum açtıysanız, bir sonraki adıma geçin.
+4. Oturum açtıktan sonra RVX'e geri dönün ve “Android VR Auth Hakkında” seçeneğine tekrar tıklayın.
+5. Yetkilendirme belirtecini almak için “Yetkilendirme belirtecini al” seçeneğine tıklayın."</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Web sitesini aç</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Aktivasyon kodu</string>
+    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Etkinleştirme kodu panoya kopyalandı: %s.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kimlik doğrulama jetonunu nasıl alacağınızı görmek için tıklayın.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR Auth hakkında</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Aktivasyon kodunu al</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Yetki jetonunu al</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Android VR için yetkilendirme jetonu almak için, bir aktivasyon kodu kullanarak YouTube VR'da oturum açmalısınız:
+
+1. Aktivasyon kodu oluşturmak için “Aktivasyon kodunu al”ı tıklayın.
+2. “Web sitesini aç”ı tıklayarak “https://yt.be/activate” adresine gidin.
+3. Aktivasyon kodunu girin.
+4. İstendiğinde oturum açın. Birden fazla Google Hesabınız varsa, YouTube ile kullandığınız hesabı seçin. Zaten oturum açtıysanız, bir sonraki adıma geçin.
+5. Oturum açtıktan sonra RVX'e geri dönün ve “Android VR Kimlik Doğrulama Hakkında” seçeneğine tekrar tıklayın.
+6. Yetki belirteci almak için “Yetki belirteci al” seçeneğine tıklayın.
+
+※ Kimlik doğrulama belirtecini veya aktivasyon kodunu kaldırmak için “Sıfırla” seçeneğine tıklayın."</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Sıfırla</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Yetki jetonunu al</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Kimlik doğrulama jetonu ve etkinleştirme kodu sıfırla.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Kimlik doğrulama jetonu kaydedildi.</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Müzik 6.21</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Müzik 7.04</string>
+    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Müzik 8.12</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">"Yan etki:
+• VPN veya DNS kullanırken uygulama zorla kapatılabilir.
+• Uyarlanabilir bit hızı akış istemcilerinde (Android VR 1.43.32 dışındaki tüm istemciler) oynatma sırasında ses aralıklı olarak kesilebilir."</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Varsayılan işlemci</string>
+    <string name="revanced_spoof_video_streams_summary">Oynatma sorunlarını önlemek için istemci video akışlarını taklit edin.</string>
+    <string name="revanced_spoof_video_streams_title">Video akışlarını taklit et</string>
     <string name="revanced_watch_history_type_entry_1">Orijinal</string>
     <string name="revanced_watch_history_type_entry_2">Alan adını değiştir</string>
     <string name="revanced_watch_history_type_entry_3">İzleme geçmişini engelle</string>

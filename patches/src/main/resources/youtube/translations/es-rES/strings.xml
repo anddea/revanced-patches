@@ -226,7 +226,7 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_disable_ambient_mode_summary_on">El modo ambiente está desactivado.</string>
     <string name="revanced_disable_ambient_mode_title">Desactivar modo ambiente</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">Para usar esta función, cambia «Cliente predeterminado (falsificación de datos de transmisión)» a iOS TV.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_off">Las pistas de audio automáticas forzadas están activadas.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_off">"Las pistas de audio automáticas forzadas están activadas."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Las pistas de audio automáticas forzadas están desactivadas.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Las pistas de audio automáticas forzadas están desactivadas.
 
@@ -522,6 +522,11 @@ Esto depende de la respuesta que reciba la aplicación del servidor.
 Si el ajuste «Reproducción» no funciona, activar este ajuste puede resolver el problema.
 
 Si el ajuste «Reproducción» sigue sin funcionar incluso después de activar o desactivar este ajuste, debes borrar los datos de la aplicación."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">Pulsar y mantener la velocidad a veces se puede activar incluso si el usuario no pulsa y mantiene pulsado.</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"Pulsar y mantener la velocidad solo se activa cuando el usuario pulsa y mantiene pulsado.
+
+Problema conocido: a veces, la superposición de deslizamiento aparece antes de cambiar al modo de pantalla completa."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_title">Arreglar controles de deslizamiento de pulsar y mantener la velocidad</string>
     <string name="revanced_fullscreen_ads_closed_toast">Los anuncios en pantalla completa están cerrados.</string>
     <string name="revanced_gemini_cancelled">Cancelado</string>
     <string name="revanced_gemini_copy_success">Resumen copiado al portapapeles.</string>
@@ -2276,6 +2281,8 @@ Problemas conocidos:
 Esta función todavía está en desarrollo, por lo que puede fallar en cualquier momento debido a cambios en el servidor."</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio 
 <small>(Inicio de sesión requerido)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
+<small>(sin SDK)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
 <small>(Autenticación, acción necesaria)</small>"</string>
@@ -2301,9 +2308,6 @@ Esta función todavía está en desarrollo, por lo que puede fallar en cualquier
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Activar este ajuste podría mejorar la duración de la batería y solucionar el problema de la reproducción entrecortada.
 
 AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está disponible y la reproducción de vídeo utilizará más datos de Internet que VP9 o AV1."</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Para seleccionar un idioma de transmisión de audio específico, desactive «Desactivar pistas de audio automáticas forzadas».</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">La selección predeterminada del idioma de la transmisión de audio no está disponible con %s.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_title">Idioma predeterminado de la transmisión de audio</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Se priorizan los códecs de vídeo.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Se prioriza la calidad del vídeo.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Priorizar calidad de vídeo</string>
@@ -2352,15 +2356,16 @@ Se utiliza→ 1080p VP9."</string>
 • El volumen estable no está disponible.
 • Es posible que los vídeos para niños no se reproduzcan cuando se cierra la sesión o en modo incógnito.
 • No se admiten 1080p+, AV1 y HDR."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_no_sdk">• El vídeo puede detenerse en 1:00 o no estar disponible en algunas regiones.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Falta el menú \"Pista de audio\".
 • \"Regular volumen\" no está disponible."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Falta el menú de la pista de audio.
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Falta el menú de pista de audio.
 • El volumen estable no está disponible.
-• Es posible que los vídeos para niños no se reproduzcan cuando se cierra la sesión o en modo incógnito."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• Falta el menú de pistas de audio.
+• Es posible que los vídeos para niños no se reproduzcan con la sesión cerrada o en modo incógnito."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• Falta el menú de pista de audio.
 • Desactivar pistas de audio automáticas forzadas no está disponible.
 • El volumen estable no está disponible.
-• Es posible que los vídeos para niños no se reproduzcan al cerrar sesión o en modo incógnito."</string>
+• Es posible que los vídeos para niños no se reproduzcan con la sesión cerrada o en modo incógnito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Puede haber problemas de reproducción (PoToken requerido).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• El servidor puede bloquear ASN/rangos de IP completos.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Los vídeos pueden terminar 1 segundo antes.</string>
@@ -2492,7 +2497,7 @@ Actualmente está en desarrollo y utilizará más recursos de hardware."</string
 
 La reproducción se puede atascar o perder fotogramas."</string>
     <string name="revanced_spoof_streaming_data_vr_enable_av1_title">Activar VR AV1</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"Si activas este ajuste, es posible que se utilice la descodificación AV1 por software.
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"Si activas este ajuste, es posible que se utilice la decodificación AV1 por software.
 
 La reproducción se puede atascar o perder fotogramas."</string>
     <string name="revanced_swipe_brightness_summary_off">El deslizamiento de brillo en pantalla completa está desactivado</string>

@@ -233,13 +233,16 @@ Limitation: Back button on the toolbar may not work."</string>
     <string name="revanced_disable_ambient_mode_summary_on">Ambient mode is disabled.</string>
     <string name="revanced_disable_ambient_mode_title">Disable Ambient mode</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">To use this feature, change \'Default client (Spoof streaming data)\' to TV, TV Simply or iOS TV.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_off">Forced auto audio tracks are enabled.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_off">"Forced auto audio tracks are enabled.
+
+Info: In some accounts, the original audio track is used."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Forced auto audio tracks are disabled.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Forced auto audio tracks are disabled.
 
 This may not work for some users, if it doesn't work for you:
 1. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use JavaScript client'.
-2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV'."</string>
+2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV'.
+3. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use yt-dlp ejs (WIP)'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disable forced auto audio tracks</string>
     <string name="revanced_disable_auto_captions_summary_off">Forced auto captions are enabled.</string>
     <string name="revanced_disable_auto_captions_summary_on">Forced auto captions are disabled.</string>
@@ -528,6 +531,11 @@ This depends on what response the app receives from the server.
 If the 'Playback' setting is broken, turning on this setting may resolve the issue.
 
 If the 'Playback' setting is still broken even after enabling or disabling this setting, then you should clear the app data."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">Tap and hold speed may sometimes be activated even if the user does not tap and hold.</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"Tap and hold speed is only activated when the user taps and holds.
+
+Known issue: Sometimes the swipe overlay appears before switching to fullscreen mode."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_title">Fix swipe controls tap and hold speed</string>
     <string name="revanced_fullscreen_ads_closed_toast">Fullscreen ads are closed.</string>
     <string name="revanced_gemini_cancelled">Canceled</string>
     <string name="revanced_gemini_copy_success">Summary copied to clipboard.</string>
@@ -926,7 +934,8 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 
 To show the Audio track menu:
 1. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use JavaScript client'.
-2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV'."</string>
+2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV'.
+3. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use yt-dlp ejs (WIP)'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Audio track menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Audio track menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Hide Audio track menu</string>
@@ -2369,6 +2378,8 @@ Known issues:
 This feature is still in development, so it may break at any time due to server-side changes."</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Login required)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
+<small>(No SDK)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(No Auth)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
@@ -2376,14 +2387,14 @@ This feature is still in development, so it may break at any time due to server-
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Deprecated)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
-<small>(Outdated, No Auth)</small>"</string>
+<small>(Outdated)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
-<small>(WIP, No Auth)</small>"</string>
+<small>(WIP)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
 <small>(No PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
-<small>(Unreleased, No Auth)</small>"</string>
+<small>(Unreleased)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Try changing the default client to TV.</string>
@@ -2394,9 +2405,6 @@ This feature is still in development, so it may break at any time due to server-
 
 AVC has a maximum resolution of 1080p, Opus audio codec is not available, and video playback will use more internet data than VP9 or AV1."</string>
     <string name="revanced_spoof_streaming_data_message">If you experience any playback issues, enable \"Spoof streaming data\" in &lt;i&gt;&lt;u&gt;Settings &gt; %s &gt; Miscellaneous &gt; Spoof streaming data&lt;/u&gt;&lt;/i&gt;.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">To select a specific audio stream language, turn off \'Disable forced auto audio tracks\'.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">Default audio stream language selection is not available with %s.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_title">Default audio stream language</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Video codecs are prioritized.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Video quality is prioritized.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Prioritize video quality</string>
@@ -2442,17 +2450,18 @@ Example 2:
 • Stable volume is not available.
 • Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Audio track menu is missing.
-• Disable forced auto audio tracks is not available.
+• Disable forced auto audio tracks may not be available.
 • Stable volume is not available.
 • Kids videos may not play when logged out or in incognito mode.
 • 1080p+, AV1, and HDR are not supported."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_no_sdk">• Video may stop at 1:00, or may not be available in some regions.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Audio track menu is missing.
 • Stable volume is not available."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Audio track menu is missing.
 • Stable volume is not available.
 • Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• Audio track menu is missing.
-• Disable forced auto audio tracks is not available.
+• Disable forced auto audio tracks may not be available.
 • Stable volume is not available.
 • Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• There may be playback issues (PoToken required).</string>

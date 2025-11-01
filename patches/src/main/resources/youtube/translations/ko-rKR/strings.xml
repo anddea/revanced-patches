@@ -79,9 +79,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">앰비언트 모드 제한 우회하기</string>
     <string name="revanced_bypass_image_region_restrictions_domain_summary">이미지를 가져올 대체 도메인을 입력하세요.\n알림: \'https\:\/\/\' 없이 도메인 이름만 입력해야 합니다.</string>
     <string name="revanced_bypass_image_region_restrictions_domain_title">대체 이미지 도메인</string>
-    <string name="revanced_bypass_image_region_restrictions_summary_off">기본 이미지 도메인을 사용합니다.\n\n이 기능을 활성화하면 일부 국가에서 차단된 이미지를 수신할 수 있습니다.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">기본 이미지 도메인을 사용합니다.\n\n이 기능을 활성화하면 일부 지역에서 차단된 이미지를 수신할 수 있습니다.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">대체 이미지 도메인을 사용합니다.\n\n대체 이미지 도메인 기본값: yt4.ggpht.com</string>
-    <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 국가 우회하기</string>
+    <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 지역 우회하기</string>
     <string name="revanced_bypass_url_redirects_summary_off">앱 내에서 외부 링크를 열 경우에 URL 리다이렉션(youtube.com/redirect)을 거쳐서 연결됩니다.</string>
     <string name="revanced_bypass_url_redirects_summary_on">앱 내에서 외부 링크를 열 경우에 URL 리다이렉션(youtube.com/redirect)을 거치지 않고 연결됩니다.</string>
     <string name="revanced_bypass_url_redirects_title">리다이렉션 없이 링크 바로 열기</string>
@@ -235,13 +235,14 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
     <string name="revanced_disable_ambient_mode_summary_on">앰비언트 모드를 비활성화합니다.</string>
     <string name="revanced_disable_ambient_mode_title">앱비언트 모드 비활성화하기</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">이 기능을 사용하려면, \'스트리밍 데이터 변경하기\'에서 기본 클라이언트를 TV, TV Simply 또는 iOS TV로 변경하세요.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_off">강제 사용이 설정된 자동 오디오 트랙을 활성화합니다.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_off">"강제 사용이 설정된 자동 오디오 트랙을 활성화합니다."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">강제 사용이 설정된 자동 오디오 트랙을 비활성화합니다.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"강제 사용이 설정된 자동 오디오 트랙을 비활성화합니다.
 
 일부 사용자에게는 작동하지 않을 수 있습니다. 작동하지 않는 경우에는:
 1. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 'JavaScript 클라이언트 사용하기'를 활성화합니다.
-2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV’로 변경합니다."</string>
+2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV’로 변경합니다.
+3. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 'yt-dlp ejs 사용하기 (개발 중)'을 활성화합니다."</string>
     <string name="revanced_disable_auto_audio_tracks_title">강제된 자동 오디오 트랙 비활성화하기</string>
     <string name="revanced_disable_auto_captions_summary_off">강제 사용이 설정된 자동 자막을 활성화합니다.</string>
     <string name="revanced_disable_auto_captions_summary_on">강제 사용이 설정된 자동 자막을 비활성화합니다.</string>
@@ -536,6 +537,11 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
 '재생' 설정이 깨지면 이 설정을 활성화하면 문제가 해결될 수 있습니다.
 
 이 설정을 활성화하거나 비활성화한 후에도 '재생' 설정이 여전히 깨지는 경우에는 앱 데이터를 삭제해야 합니다."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">길게 탭하기 속도는 사용자가 화면을 길게 탭하지 않았더라도 작동될 수 있습니다.</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"길게 탭하기 속도는 사용자가 화면을 길게 탭했을 경우에만 작동됩니다.
+
+알려진 문제점: 전체 화면 모드로 전환하기 전에 가끔 스와이프 오버레이가 표시됩니다."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_title">스와이프 제스처 길게 탭하기 속도 수정하기</string>
     <string name="revanced_fullscreen_ads_closed_toast">전체 화면 광고가 닫아졌습니다.</string>
     <string name="revanced_gemini_cancelled">취소하였습니다.</string>
     <string name="revanced_gemini_copy_success">요약을 클립보드에 복사하였습니다.</string>
@@ -939,7 +945,8 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
 
 오디오 트랙 메뉴를 표시하려면:
 1. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 'JavaScript 클라이언트 사용하기'를 활성화합니다.
-2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV’로 변경합니다."</string>
+2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV’로 변경합니다.
+3. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 'yt-dlp ejs 사용하기 (개발 중)'을 활성화합니다."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">오디오 트랙 메뉴가 표시됩니다.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">오디오 트랙 메뉴가 숨겨집니다.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">오디오 트랙 메뉴 숨기기</string>
@@ -1237,8 +1244,8 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_shorts_paused_header_summary_off">일시 정지 헤더가 표시됩니다.</string>
     <string name="revanced_hide_shorts_paused_header_summary_on">일시 정지 헤더가 숨겨집니다.</string>
     <string name="revanced_hide_shorts_paused_header_title">일시 정지 헤더 숨기기</string>
-    <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">일시 정지 오버레이 버튼이 표시됩니다.</string>
-    <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">일시 정지 오버레이 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">플레이어 왼쪽 상단에서 다음 버튼들이 표시됩니다.\n• 구독 &amp; 라이브 &amp; 렌즈 &amp; 트렌드 &amp; 쇼핑</string>
+    <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">플레이어 왼쪽 상단에서 다음 버튼들이 숨겨집니다.\n• 구독 &amp; 라이브 &amp; 렌즈 &amp; 트렌드 &amp; 쇼핑</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">일시 정지 오버레이 버튼 숨기기</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">재생 &amp; 일시 정지 버튼 배경이 표시됩니다.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">재생 &amp; 일시 정지 버튼 배경이 숨겨집니다.</string>
@@ -1723,7 +1730,7 @@ Gemini API Key를 발급받으려면 여기를 누르세요."</string>
     <string name="revanced_preference_category_custom_actions">사용자 정의 동작</string>
     <string name="revanced_preference_category_download_button">오프라인 저장 버튼</string>
     <string name="revanced_preference_category_experimental_flag">실험 기능</string>
-    <string name="revanced_preference_category_image_region_restrictions">이미지 표시 제한 국가</string>
+    <string name="revanced_preference_category_image_region_restrictions">이미지 표시 제한 지역</string>
     <string name="revanced_preference_category_import_export_as_file">파일로 가져오기 / 내보내기</string>
     <string name="revanced_preference_category_import_export_as_text">텍스트로 가져오기 / 내보내기</string>
     <string name="revanced_preference_category_ios">iOS</string>
@@ -2389,21 +2396,23 @@ Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
 이 기능은 아직 개발 중이므로 서버 측 변경으로 인하여 언제든지 중단될 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(로그인이 요구됨)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
+<small>(SDK 없음)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(인증 없음)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
-<small>(인증, 작업이 필요함)</small>"</string>
+<small>(인증 있음, 작업이 필요함)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(폐기 예정)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
-<small>(구형, 인증 없음)</small>"</string>
+<small>(구형)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
-<small>(개발 중, 인증 없음)</small>"</string>
+<small>(개발 중)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
 <small>(PoToken 없음)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
-<small>(미출시, 인증 없음)</small>"</string>
+<small>(미출시)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">기본 클라이언트</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">클라이언트 스트림을 가져올 수 없습니다.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">기본 클라이언트를 TV로 변경해 보세요.</string>
@@ -2414,9 +2423,6 @@ Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
 
 AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동영상을 재생할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요."</string>
     <string name="revanced_spoof_streaming_data_message">재생 문제가 발생하는 경우에는 &lt;i&gt;&lt;u&gt;설정 &gt; %s &gt; 기타 &gt; 스트리밍 데이터 변경하기&lt;/u&gt;&lt;/i&gt; 에서 \'스트리밍 데이터 변경하기\' 를 활성화하세요.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">특정 오디오 스트림 언어를 선택하려면, \'강제된 자동 오디오 트랙 비활성화하기\'를 끄세요.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">기본 오디오 스트림 언어는 %s에서 선택할 수 없습니다.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_title">기본 오디오 스트림 언어</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">동영상 코덱이 우선시됩니다.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">동영상 화질이 우선시됩니다.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">동영상 화질 우선순위 지정하기</string>
@@ -2462,17 +2468,18 @@ VP9은 AVC보다 고급 코덱이지만, 일부 사용자는 '360p VP9'보다 '1
 • 안정적인 볼륨을 사용할 수 없습니다.
 • 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• 오디오 트랙 메뉴가 표시되지 않습니다.
-• 강제 사용이 설정된 자동 오디오 트랙을 비활성화할 수 없습니다.
+• 강제 사용이 설정된 오디오 트랙이 비활성화되지 않을 수 있습니다.
 • 안정적인 볼륨을 사용할 수 없습니다.
 • 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.
 • 1080p+, AV1 그리고 HDR 동영상은 지원되지 않습니다."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_no_sdk">• 동영상이 1:00에 멈출 수 있으며, 일부 지역에서는 이용이 불가능할 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 오디오 트랙 메뉴가 표시되지 않습니다.
 • 안정적인 볼륨을 사용할 수 없습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 오디오 트랙 메뉴가 표시되지 않습니다.
 • 안정적인 볼륨을 사용할 수 없습니다.
 • 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• 오디오 트랙 메뉴가 표시되지 않습니다.
-• 강제 사용이 설정된 오디오 트랙을 비활성화할 수 없습니다.
+• 강제 사용이 설정된 오디오 트랙이 비활성화되지 않을 수 있습니다.
 • 안정적인 볼륨을 사용할 수 없습니다.
 • 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• 동영상 재생 문제가 발생할 수 있습니다 (PoToken이 요구됨).</string>
@@ -2586,13 +2593,13 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV입니다
 1. '웹사이트 열기'를 탭하여 'https://yt.be/activate'로 이동합니다.
 2. 활성화 코드를 입력합니다.
 3. 로그인을 요청하면 로그인합니다. 여러 Google 계정이 있는 경우에는 YouTube에서 사용하는 계정을 선택합니다. 이미 로그인된 상태라면 다음 단계로 건너뜁니다.
-4. 로그인 후에 RVX로 돌아가서 'Android VR 인증에 대한 정보'를 다시 탭합니다.
+4. 로그인 후에 RVX로 돌아가서 'Android VR 인증 있음에 대한 정보'를 다시 탭합니다.
 5. '인증 토큰 받기'를 탭하여 인증 토큰을 받습니다."</string>
     <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">웹사이트 열기</string>
     <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">활성화 코드</string>
     <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">활성화 코드를 클립보드에 복사하였습니다: %s.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">인증 토큰을 받는 방법을 보려면 여기를 탭하세요.</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR 인증에 대한 정보</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR 인증 있음에 대한 정보</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">활성화 코드 받기</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">인증 토큰 받기</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Android VR을 위한 인증 토큰을 받으려면 활성화 코드를 사용하여 YouTube VR에 로그인해야 합니다:
@@ -2601,7 +2608,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV입니다
 2. '웹사이트 열기'를 탭하여 'https://yt.be/activate'로 이동합니다.
 3. 활성화 코드를 입력합니다.
 4. 로그인을 요청하면 로그인합니다. 여러 Google 계정이 있는 경우에는 YouTube에서 사용하는 계정을 선택합니다. 이미 로그인된 상태라면 다음 단계로 건너뜁니다.
-5. 로그인 후에 RVX로 돌아가서 'Android VR 인증에 대한 정보'를 다시 탭합니다.
+5. 로그인 후에 RVX로 돌아가서 'Android VR 인증 있음에 대한 정보'를 다시 탭합니다.
 6. '인증 토큰 받기'를 탭하여 인증 토큰을 받습니다.
 
 ※ 인증 토큰 또는 활성화 코드를 삭제하려면 '초기화'를 탭하세요."</string>
@@ -2610,7 +2617,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV입니다
     <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">인증 토큰과 활성화 코드를 초기화하였습니다.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">인증 토큰을 저장하였습니다.</string>
     <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_off">동영상 코덱이 AVC (H.264) 또는 VP9으로 결정됩니다.</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"동영상 코덱이 AVC(H.264), VP9 또는 AV1으로 결정됩니다.
+    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"동영상 코덱이 AVC (H.264), VP9 또는 AV1으로 결정됩니다.
 
 동영상 재생이 끊기거나 프레임이 손실될 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_vr_enable_av1_title">VR AV1 활성화하기</string>
@@ -2712,10 +2719,10 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV입니다
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music 앱 패키지명</string>
     <string name="revanced_transcript_cookies_about_summary">Cookies를 가져오는 방법을 보려면 여기를 탭하세요.</string>
     <string name="revanced_transcript_cookies_about_title">스크립트 Cookies에 대한 정보</string>
-    <string name="revanced_transcript_cookies_dialog_auth_text">인증</string>
-    <string name="revanced_transcript_cookies_dialog_message">"인증
+    <string name="revanced_transcript_cookies_dialog_auth_text">인증 있음</string>
+    <string name="revanced_transcript_cookies_dialog_message">"인증 있음
 ══════════════
-1. '인증'을 탭하여 WebView에서 로그인 페이지를 엽니다.
+1. '인증 있음'을 탭하여 WebView에서 로그인 페이지를 엽니다.
 2. Google 계정에 로그인합니다.
 3. 자동 번역 자막을 지원하는 동영상을 재생합니다.
 4. 자동 번역 자막을 켜고 작동하는지 확인합니다.

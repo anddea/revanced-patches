@@ -228,11 +228,11 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_disable_ambient_mode_summary_on">La modalità Ambient è disattivata.</string>
     <string name="revanced_disable_ambient_mode_title">Disattiva la modalità Ambient</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">Per usare questa caratteristica, \'Client predefinito (Camuffa i dati in streaming)\' in TV, TV Simply o iOS TV.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_off">La traccia audio automatica forzata è attivata.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_off">"La traccia audio automatica forzata è attivata."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">La traccia audio automatica forzata è disattivata.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"La traccia audio automatica forzata è disattivata.
 
-Nota: questa impostazione potrebbe non funzionare per alcuni utenti. Se non funziona, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili e cambia il client predefinito in TV."</string>
+Nota: questa impostazione potrebbe non funzionare per alcuni utenti. Se non funziona, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili, cambia il client predefinito in TV e attiva \"Usa yt-dlp ejs (In fase di sviluppo)\"."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disattiva la traccia audio automatica forzata</string>
     <string name="revanced_disable_auto_captions_summary_off">I sottotitoli automatici forzati sono attivati.</string>
     <string name="revanced_disable_auto_captions_summary_on">I sottotitoli automatici forzati sono disattivati.</string>
@@ -517,6 +517,11 @@ Ma anche se questa impostazione è disattivata, il pulsante Dai Hype potrebbe no
     <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"Se la versione dell'app è stata cammuffata alla 19.30 o a una versione precedente anche solo una volta, l'impostazione \"Riproduzione\" potrebbe non funzionare. Ciò dipende dalla risposta che l'app riceve dal server.
 
 Se l'impostazione \"Riproduzione\" non funziona, attivarla potrebbe risolvere il problema. Se l'impostazione \"Riproduzione\" continua a non funzionare anche dopo averla attivata o disattivata, è necessario cancellare i dati dell'app."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">Il gesto Tocca e Tieni Premuto della velocità potrebbe attivarsi anche se l\'utente non tocca e non tiene premuto.</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"Il gesto Tocca e Tieni Premuto della velocità si attiva solo quando l'utente tocca e tiene premuto.
+
+Nota: a volte la sovrapposizione di scorrimento appare prima di passare alla modalità a schermo intero."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_title">Correggi il gesto Tocca e Tieni Premuto della velocità</string>
     <string name="revanced_fullscreen_ads_closed_toast">Annunci a schermo intero chiusi</string>
     <string name="revanced_gemini_cancelled">Cancellato</string>
     <string name="revanced_gemini_copy_success">Riassunto copiato negli appunti.</string>
@@ -574,9 +579,9 @@ Note:
     <string name="revanced_hide_ai_comments_summary_summary_off">I riepiloghi IA nei commenti sono visibili.</string>
     <string name="revanced_hide_ai_comments_summary_summary_on">I riepiloghi IA nei commenti sono nascosti.</string>
     <string name="revanced_hide_ai_comments_summary_title">Nascondi i riepiloghi IA nei commenti</string>
-    <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sezione Riepilogo Video Generato dall\'IA è visibile.</string>
-    <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sezione Riepilogo Video Generato dall\'IA è nascosta.</string>
-    <string name="revanced_hide_ai_generated_video_summary_section_title">Nascondi la sezione Riepilogo Video Generato dall\'IA</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sezione Riepilogo del Video Creato con l\'IA è visibile.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sezione Riepilogo del Video Creato con l\'IA è nascosta.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_title">Nascondi la sezione Riepilogo del Video Creato con l\'IA</string>
     <string name="revanced_hide_album_card_summary_off">Gli album sono visibili.</string>
     <string name="revanced_hide_album_card_summary_on">Gli album sono nascosti.</string>
     <string name="revanced_hide_album_card_title">Nascondi gli album</string>
@@ -917,7 +922,7 @@ Le parole con lettere maiuscole all'interno devono essere inserite con il maiusc
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Nascondi il menù Modalità Ambient</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Il menù Traccia Audio è nascosto.
 
-Nota: per mostrare il menù Traccia Audio, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili e cambia il client predefinito in TV."</string>
+Nota: per mostrare il menù Traccia Audio, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili, cambia il client predefinito in TV e attiva \"Usa yt-dlp ejs (In fase di sviluppo)\"."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Il menù Traccia Audio è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Il menù Traccia Audio è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Nascondi il menù Traccia Audio</string>
@@ -2350,6 +2355,8 @@ Note:
 Questa funzionalità è ancora in fase di sviluppo, quindi potrebbe non funzionare in qualsiasi momento a causa di modifiche lato server."</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Accesso richiesto)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
+<small>(Nessun SDK richiesto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(Nessun accesso richiesto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
@@ -2357,14 +2364,14 @@ Questa funzionalità è ancora in fase di sviluppo, quindi potrebbe non funziona
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Obsoleto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
-<small>(Obsoleto e nessun accesso richiesto)</small>"</string>
+<small>(Obsoleto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web Mobile
-<small>(In fase di sviluppo e nessun accesso richiesto)</small>"</string>
+<small>(In fase di sviluppo)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
 <small>(Nessun PoToken richiesto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
-<small>(Non rilasciato e nessun accesso richiesto)</small>"</string>
+<small>(Non rilasciato)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Client predefinito</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Non è stato possibile recuperare alcun flusso client</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Prova a cambiare il client predefinito in TV.</string>
@@ -2375,9 +2382,6 @@ Questa funzionalità è ancora in fase di sviluppo, quindi potrebbe non funziona
 
 Nota: AVC ha una risoluzione massima di 1080p, il codec Opus non è disponibile e la riproduzione userà più dati internet rispetto a VP9 o AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Se stai verificano problemi di riproduzione, abilita \"Camuffa i dati in streaming\" in &lt;i&gt;&lt;u&gt; Impostazioni &gt; %s &gt; Varie &gt; Camuffa i dati in streaming &lt;/u&gt;&lt;/i&gt;.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Disattivare \"Disattiva la traccia audio automatica forzata\" per selezionare una lingua specifica per l\'audio</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">La selezione della lingua predefinita per l\'audio non è disponibile con il client %s</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_title">Lingua predefinita dell\'audio</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Codec</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Qualità</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Cambia cosa dare priorità nei video</string>
@@ -2415,9 +2419,10 @@ Esempio 2:
 • I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Il menù Traccia Audio è nascosto.
 • Il menù Volume Stabile è nascosto.
-• La disattivazione della traccia audio automatica forzata non funziona.
+• La disattivazione della traccia audio automatica forzata potrebbe non funzionare.
 • I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito.
 • 1080p+, AV1 e HDR non funzionano."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_no_sdk">• I video potrebbero interrompersi a 1:00 o non essere disponibili in alcune regioni.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Il menù Traccia Audio è mancante.
 • Il menù Volume Stabile è mancante."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Il menù Traccia Audio è nascosto.
@@ -2425,7 +2430,7 @@ Esempio 2:
 • I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• Il menù Traccia Audio è nascosto.
 • Il menù Volume Stabile è nascosto.
-• La disattivazione della traccia audio automatica forzata non funziona.
+• La disattivazione della traccia audio automatica forzata potrebbe non funzionare.
 • I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Ci potrebbero essere problemi di riproduzione (PoToken richiesto).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• I video potrebbero terminare 1 secondo prima.

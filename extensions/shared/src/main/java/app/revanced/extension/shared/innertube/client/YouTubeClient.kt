@@ -96,8 +96,7 @@ object YouTubeClient {
 
     // ANDROID
     /**
-     * This client can only be used when logged in.
-     * Requires a DroidGuard PoToken to play videos longer than 1:00.
+     * Requires a DroidGuard PoToken (if the user is logged in) to play videos longer than 1:00.
      */
     private const val PACKAGE_NAME_ANDROID = "com.google.android.youtube"
     private val CLIENT_VERSION_ANDROID = PackageUtils.getAppVersionName()
@@ -105,6 +104,28 @@ object YouTubeClient {
         packageName = PACKAGE_NAME_ANDROID,
         clientVersion = CLIENT_VERSION_ANDROID,
     )
+
+
+    // ANDROID (NO SDK)
+    /**
+     * Video not playable: Paid / Movie / Private / Age-restricted.
+     * Note: The 'Authorization' key must be excluded from the header.
+     *
+     * According to TeamNewPipe in 2022, if the 'androidSdkVersion' field is missing, the GVS did not return a valid response:
+     * [NewPipe#8713 (comment)](https://github.com/TeamNewPipe/NewPipe/issues/8713#issuecomment-1207443550).
+     * According to the latest commit in yt-dlp, the GVS returns a valid response even if the 'androidSdkVersion' field is missing:
+     * [yt-dlp#14693](https://github.com/yt-dlp/yt-dlp/pull/14693).
+     *
+     * For some reason, PoToken is not required.
+     * Tested on YouTube 20+ only.
+     */
+    private const val CLIENT_VERSION_ANDROID_NO_SDK = "20.05.46"
+    private const val DEVICE_MODEL_ANDROID_NO_SDK = ""
+    private const val DEVICE_MAKE_ANDROID_NO_SDK = ""
+    private val OS_VERSION_ANDROID_NO_SDK = Build.VERSION.RELEASE
+    private val ANDROID_SDK_VERSION_ANDROID_NO_SDK: String? = null
+    private val USER_AGENT_ANDROID_NO_SDK =
+        "$PACKAGE_NAME_ANDROID/$CLIENT_VERSION_ANDROID_NO_SDK (Linux; U; Android $OS_VERSION_ANDROID_NO_SDK) gzip"
 
 
     // ANDROID VR
@@ -117,6 +138,7 @@ object YouTubeClient {
      * Package name for YouTube VR (Google DayDream): com.google.android.apps.youtube.vr (Deprecated)
      * Package name for YouTube VR (Meta Quests): com.google.android.apps.youtube.vr.oculus
      * Package name for YouTube VR (ByteDance Pico): com.google.android.apps.youtube.vr.pico
+     * Package name for YouTube XR (Samsung Galaxy XR): com.google.android.apps.youtube.xr
      */
     private const val PACKAGE_NAME_ANDROID_VR = "com.google.android.apps.youtube.vr.oculus"
 
@@ -434,6 +456,19 @@ object YouTubeClient {
             clientName = "ANDROID",
             friendlyName = "Android"
         ),
+        ANDROID_NO_SDK(
+            id = 3,
+            deviceMake = DEVICE_MAKE_ANDROID_NO_SDK,
+            deviceModel = DEVICE_MODEL_ANDROID_NO_SDK,
+            osVersion = OS_VERSION_ANDROID_NO_SDK,
+            userAgent = USER_AGENT_ANDROID_NO_SDK,
+            androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_NO_SDK,
+            clientVersion = CLIENT_VERSION_ANDROID_NO_SDK,
+            supportsCookies = false,
+            supportsMultiAudioTracks = true,
+            clientName = "ANDROID",
+            friendlyName = "Android No SDK"
+        ),
         ANDROID_VR(
             id = 28,
             deviceMake = DEVICE_MAKE_ANDROID_VR,
@@ -592,6 +627,7 @@ object YouTubeClient {
                 ANDROID_VR,
                 VISIONOS,
                 ANDROID_CREATOR,
+                ANDROID_NO_SDK,
                 IPADOS,
                 ANDROID_VR_AUTH,
                 IOS_DEPRECATED,
@@ -600,6 +636,7 @@ object YouTubeClient {
                 ANDROID_VR,
                 VISIONOS,
                 ANDROID_CREATOR,
+                ANDROID_NO_SDK,
                 IPADOS,
                 TV,
                 TV_SIMPLY_NO_POTOKEN,
@@ -612,6 +649,7 @@ object YouTubeClient {
                 ANDROID_VR,
                 VISIONOS,
                 ANDROID_CREATOR,
+                ANDROID_NO_SDK,
                 IPADOS,
                 TV_SIMPLY_NO_POTOKEN,
                 MWEB,
