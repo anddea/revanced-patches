@@ -233,13 +233,14 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
     <string name="revanced_disable_ambient_mode_summary_on">Wyłączone</string>
     <string name="revanced_disable_ambient_mode_title">Oświetlenie kinowe</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">Aby używać tej funkcji, zmień domyślnego klienta (oszukiwanie strumienia danych) na TV, Uproszczony TV lub iOS TV.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_off">Włączone</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_off">"Włączone"</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Wyłączone</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Automatyczne wymuszanie ścieżki dźwiękowej jest wyłączone.
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Automatyczne wymuszanie ścieżki dźwiękowej jest wyłączone
 
 Może to nie działać u niektórych użytkowników, więc jeśli nie działa u ciebie, to:
-1. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i użyj opcji 'Włącz klienta JavaScript'
-2. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i zmień domyślnego klienta na 'TV' lub 'Uproszczony TV'"</string>
+1. Idź do ustawień - RVX - Pozostałe - Oszukuj strumień danych, i użyj opcji 'Włącz klienta JavaScript'
+2. Idź do ustawień - RVX - Pozostałe - Oszukuj strumień danych, i zmień domyślnego klienta na 'TV'
+3. Idź do ustawień - RVX - Pozostałe - Oszukuj strumień danych, i użyj opcji 'Typ JavaScript odtwarzacza', klikając w nią, by pojawił się 'yt-dlp-ejs (w fazie rozwoju)'"</string>
     <string name="revanced_disable_auto_audio_tracks_title">Automatyczne wymuszanie ścieżki dźwiękowej</string>
     <string name="revanced_disable_auto_captions_summary_off">Włączone</string>
     <string name="revanced_disable_auto_captions_summary_on">Wyłączone</string>
@@ -531,6 +532,11 @@ Jest to zależne od odpowiedzi, jaką aplikacja dostanie z serwera.
 Jeśli ustawienie 'Odtwarzanie' jest uszkodzone, włączenie tego ustawienia powinno rozwiązać problem.
 
 Jeśli nadal występują problemy z tym ustawieniem nawet po włączeniu/wyłączeniu tego ustawienia, należy wyczyścić dane aplikacji."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">Wyłączona</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"Włączona
+
+Znany problem: czasem nakładka prędkości odtwarzania pojawia się przed przełączeniem do trybu pełnoekranowego."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_title">Naprawa sterowania prędkością odtwarzania przesunięciem</string>
     <string name="revanced_fullscreen_ads_closed_toast">Zamknięto pełnoreklamowe reklamy.</string>
     <string name="revanced_gemini_cancelled">Anulowane</string>
     <string name="revanced_gemini_copy_success">Podsumowanie skopiowane do schowka</string>
@@ -927,9 +933,9 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Menu od ścieżki dźwiękowej jest ukryte:
 
 By wyświetlić menu od ścieżki dźwiękowej:
-1. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych i użyj opcji 'Włącz klienta JavaScript'
-2. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych i zmień domyślnego klienta na 'TV' lub 'Uproszczony TV'
-"</string>
+1. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i użyj opcji 'Włącz klienta JavaScript'
+2. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i zmień domyślnego klienta na 'TV'
+3. Idź do ustawień - RVX - Pozostałe - Oszukuj strumień danych, i użyj opcji 'Typ JavaScript odtwarzacza', klikając w nią, by pojawił się 'yt-dlp-ejs (w fazie rozwoju)'"</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Menu od ścieżki dźwiękowej</string>
@@ -2379,6 +2385,8 @@ Znane problemy:
 Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w każdej chwili przez zmiany po stronie serwera."</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Wymagane zalogowanie)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
+<small>(Bez SDK)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(Bez autoryzacji)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
@@ -2386,13 +2394,13 @@ Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w 
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Porzucone)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
-<small>(Nieaktualny, bez autoryzacji)</small>"</string>
+<small>(Nieaktualny)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobilny przeglądarkowy
-<small>(W fazie rozwoju, bez autoryzacji)</small>"</string>
+<small>(W fazie rozwoju)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"Uproszczony TV <small>(Bez PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
-<small>(Niewydany, bez autoryzacji)</small>"</string>
+<small>(Niewydany)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Domyślny klient</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Nie można przechwycić żadnego ze strumieni klienta.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Spróbuj zmienić domyślnego klienta na TV.</string>
@@ -2403,9 +2411,6 @@ Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w 
 
 AVC obsługuje maksymalnie rozdzielczość 1080p, kodek audio OPUS nie jest dostępny, a odtwarzanie wideo będzie zużywać więcej danych internetowych niż VP9 lub AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Jeśli doświadczasz problemów z odtwarzaniem, włącz \"Oszukuj strumień danych\" w &lt;i&gt;&lt;u&gt;Ustawienia &gt; %s &gt; Pozostałe &gt; Oszukuj strumień danych&lt;/u&gt;&lt;/i&gt;.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">By wybrać określoną ścieżkę dźwiękową transmisji na żywo, wyłącz \'Automatyczne wymuszanie ścieżki dźwiękowej\'.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">Domyślny język dla transmisji na żywo nie jest dostępny w kliencie %s.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_title">Domyślny język dla transmisji na żywo</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Kodeków w filmie</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Jakości filmu</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Priorytet w filmie</string>
@@ -2451,17 +2456,18 @@ Przykład 2:
 • stabilna głośność nie jest dostępna
 • filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• brakuje menu od ścieżki dźwiękowej
-• wyłączenie wymuszania ścieżki dźwiękowej nie jest dostępne
+• wyłączenie wymuszania ścieżki dźwiękowej może nie być dostępne
 • stabilna głośność nie jest dostępna
 • filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito
 • 1080p+, AV1 i HDR nie są wspierane"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_no_sdk">• film może się zatrzymać na równo minucie lub być niedostępny w niektórych regionach</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Brakuje menu od ścieżki dźwiękowej
 • Stabilna głośność jest niedostępna"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• brakuje menu od ścieżki dźwiękowej
 • stabilna głośność nie jest dostępna
 • filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• brakuje menu od ścieżki dźwiękowej
-• automatyczne wymuszenie ścieżki dźwiękowej nie jest dostępne
+• wyłączenie wymuszania ścieżki dźwiękowej może nie być dostępne
 • stabilna głośność nie jest dostępna
 • filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Mogą wystąpić problemy z odtwarzaniem (wymagany PoToken)</string>
@@ -2586,7 +2592,7 @@ Obecnie jest w fazie rozwoju i może używać większej ilości zasobów sprzęt
     <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Uzyskaj token uwierzytelniający</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"By uzyskać token uwierzytelniający dla Android VR, należy zalogować się do YouTube VR za pomocą kodu aktywacyjnego:
 
-1. Kliknij `Uzyskaj token uwierzytelniający', by wygenerować kod aktywacyjny
+1. Kliknij 'Uzyskaj token uwierzytelniający', by wygenerować kod aktywacyjny
 2. Kliknij 'Otwórz stronę', aby przejść do 'https://yt.be/activate'
 3. Wprowadź kod aktywacyjny
 4. Zaloguj się, gdy pojawi się monit. Jeśli masz wiele kont Google, użyj tego, którego używasz w YouTube. Jeśli jesteś już zalogowany, przejdź do następnego kroku

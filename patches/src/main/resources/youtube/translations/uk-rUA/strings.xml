@@ -229,7 +229,7 @@
     <string name="revanced_disable_ambient_mode_summary_on">Кінематографічне освітлення вимкнено.</string>
     <string name="revanced_disable_ambient_mode_title">Вимкнути кінематографічне освітлення</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">Щоб скористатися цією функцією, змініть \'Основний клієнт (Підробка даних трансляції)\' на TV, Простий TV або iOS TV.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_off">Примусові автоматичні звукові доріжки увімкнено.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_off">"Примусові автоматичні звукові доріжки увімкнено."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Примусові автоматичні звукові доріжки вимкнено.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Примусові автоматичні звукові доріжки вимкнено.
 
@@ -527,6 +527,11 @@
 Якщо налаштування 'Відтворення' порушене, увімкнення цього налаштування може вирішити проблему.
 
 Якщо налаштування 'Відтворення' не працює навіть після увімкнення або вимкнення цього налаштування, слід очистити дані програми."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">Натискання і утримання для швидкості може іноді активовуватись, навіть якщо користувач не натискав і утримував.</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"Натискання і утримання для швидкості активовується тільки коли користувач натискає і утримує.
+
+Відома проблема: Іноді жест з'являється перед переходом в повноекранний режим."</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_title">Виправити жест керування швидкістю натисканням і утриманням</string>
     <string name="revanced_fullscreen_ads_closed_toast">Повноекранну рекламу закрито.</string>
     <string name="revanced_gemini_cancelled">Скасовано</string>
     <string name="revanced_gemini_copy_success">Підсумок скопійовано в буфер обміну.</string>
@@ -2393,9 +2398,6 @@
 
 AVC має максимальну роздільну здатність 1080p, аудіокодек Opus недоступний, а відтворення відео використовуватиме більше інтернет-даних, ніж кодек VP9 чи AV1."</string>
     <string name="revanced_spoof_streaming_data_message">Якщо у вас виникли проблеми з відтворенням, увімкніть параметр \"Заміна потокових даних\" у &lt;i&gt;&lt;u&gt;Налаштування &gt; %s &gt; Різне &gt; Заміна потокових даних&lt;/u&gt;&lt;/i&gt;.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available">Щоб вибрати конкретну мову трансляції звуку, вимкніть \'Вимкнути примусові автоматичні звукові доріжки\'.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_not_available_by_client">Вибір основної мови трансляції звуку недоступний з %s.</string>
-    <string name="revanced_spoof_streaming_data_no_auth_language_title">Основна мова трансляції звуку</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Кодеки відео пріоритетні.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Якість відео пріоритетна.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Пріоритетна якість відео</string>
@@ -2574,7 +2576,7 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Про авторизацію Android VR</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Отримати код активації</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Отримати токен авторизації</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Щоб отримати токен авторизації дляAndroid VR, необхідно увійти в YouTube VR за допомогою коду активації:
+    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Щоб отримати токен авторизації для Android VR, необхідно увійти в YouTube VR за допомогою коду активації:
 
 1. Натисніть 'Отримати код активації', щоб згенерувати код активації.
 2. Натисніть 'Відкрити сайт', щоб перейти до 'https://yt.be/activate'.

@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.innertube.client.YouTubeClient;
 import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -169,6 +170,7 @@ public class ThrottlingParameterUtils {
 
         if (!useEJS) {
             playerJsUrl = String.format(PLAYER_JS_URL_FORMAT, PLAYER_JS_HARDCODED_URL_PATH);
+            playerJs = setLocalPlayerJs();
         }
 
         extractor = getExtractor();
@@ -388,6 +390,10 @@ public class ThrottlingParameterUtils {
             playerJsUrl = setPlayerJsUrl();
         }
         return playerJsUrl;
+    }
+
+    private static String setLocalPlayerJs() {
+        return ResourceUtils.getRawResource("tv-player-ias-0004de42");
     }
 
     @Nullable

@@ -81,7 +81,7 @@
     <string name="revanced_default_app_settings_title">기본 앱 설정 열기</string>
     <string name="revanced_disable_auto_audio_tracks_summary">"팟캐스트를 위한 강제 사용이 설정된 자동 오디오 트랙을 비활성화합니다.
 
-제한 사항: '스트리밍 데이터 변경'이 활성화되어 있고 기본 클라이언트가 'Android VR 인증'인 경우에는 작동하지 않을 수 있습니다."</string>
+제한 사항: '스트리밍 데이터 변경'이 활성화되어 있고 기본 클라이언트가 'Android VR 인증 있음'인 경우에는 작동하지 않을 수 있습니다."</string>
     <string name="revanced_disable_auto_audio_tracks_title">강제된 자동 오디오 트랙 비활성화</string>
     <string name="revanced_disable_auto_captions_summary">자동 자막이 강제로 활성화되지 않도록 설정합니다.</string>
     <string name="revanced_disable_auto_captions_title">강제된 자동 자막 비활성화</string>
@@ -98,7 +98,7 @@
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">리다이렉션</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_summary">정식 음원으로 리다이렉션하는 방법을 지정할 수 있습니다.</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_title">리다이렉션 유형</string>
-    <string name="revanced_disable_music_video_in_album_summary">"프리미엄이 아닌 사용자가 앨범에 포함된 노래를 재생할 때, 간혹 정식 음원 대신 뮤직 비디오가 재생되는 경우가 있습니다.
+    <string name="revanced_disable_music_video_in_album_summary">"Premium이 아닌 사용자가 앨범에 포함된 노래를 재생할 때, 간혹 정식 음원 대신 뮤직 비디오가 재생되는 경우가 있습니다.
 
 앨범에서 뮤직 비디오가 재생되는 것이 감지되면 정식 음원을 찾아줍니다.
 
@@ -548,8 +548,9 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
 • 자막이 플레이어 하단이 아닌 상단에 위치하는 경우가 있습니다."</string>
     <string name="revanced_spoof_player_parameter_title">플레이어 매개변수 변경하기</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android SDK 없음</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR 인증 (작업이 필요함)</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR 인증 있음 (작업이 필요함)</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
@@ -579,13 +580,13 @@ JavaScript 클라이언트에 문제가 발생할 경우에 먼저 이 기능을
 1. '웹사이트 열기'를 탭하여 'https://yt.be/activate'로 이동합니다.
 2. 활성화 코드를 입력합니다.
 3. 로그인을 요청하면 로그인합니다. 여러 Google 계정이 있는 경우에는 YouTube에서 사용하는 계정을 선택합니다. 이미 로그인된 상태라면 다음 단계로 건너뜁니다.
-4. 로그인 후에 RVX로 돌아가서 'Android VR 인증에 대한 정보'를 다시 탭합니다.
+4. 로그인 후에 RVX로 돌아가서 'Android VR 인증 있음에 대한 정보'를 다시 탭합니다.
 5. '인증 토큰 받기'를 탭하여 인증 토큰을 받습니다."</string>
     <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">웹사이트 열기</string>
     <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">활성화 코드</string>
     <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">활성화 코드를 클립보드에 복사하였습니다: %s.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">인증 토큰을 받는 방법을 보려면 여기를 탭하세요.</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR 인증에 대한 정보</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR 인증 있음에 대한 정보</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">활성화 코드 받기</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">인증 토큰 받기</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Android VR을 위한 인증 토큰을 받으려면 활성화 코드를 사용하여 YouTube VR에 로그인해야 합니다:
@@ -594,7 +595,7 @@ JavaScript 클라이언트에 문제가 발생할 경우에 먼저 이 기능을
 2. '웹사이트 열기'를 탭하여 'https://yt.be/activate'로 이동합니다.
 3. 활성화 코드를 입력합니다.
 4. 로그인을 요청하면 로그인합니다. 여러 Google 계정이 있는 경우에는 YouTube에서 사용하는 계정을 선택합니다. 이미 로그인된 상태라면 다음 단계로 건너뜁니다.
-5. 로그인 후에 RVX로 돌아가서 'Android VR 인증에 대한 정보'를 다시 탭합니다.
+5. 로그인 후에 RVX로 돌아가서 'Android VR 인증 있음에 대한 정보'를 다시 탭합니다.
 6. '인증 토큰 받기'를 탭하여 인증 토큰을 받습니다.
 
 ※ 인증 토큰 또는 활성화 코드를 삭제하려면 '초기화'를 탭하세요."</string>
