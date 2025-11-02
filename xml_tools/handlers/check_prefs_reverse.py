@@ -49,6 +49,7 @@ BLACKLIST: set[str] = {
     "revanced_swipe_seek_sensitivity",
     "revanced_swipe_show_circular_overlay",
     "revanced_swipe_speed",
+    "revanced_swipe_speed_and_seek_delay",
     "revanced_swipe_speed_distance",
     "revanced_swipe_speed_sensitivity",
     "revanced_swipe_switch_speed_and_seek",

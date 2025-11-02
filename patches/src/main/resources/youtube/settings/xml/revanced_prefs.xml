@@ -779,6 +779,7 @@
         <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_swipe_seek_distance_title" android:key="revanced_swipe_seek_distance" android:summary="@string/revanced_swipe_seek_distance_summary" android:inputType="number" />
 
         <SwitchPreference android:title="@string/revanced_swipe_switch_speed_and_seek_title" android:key="revanced_swipe_switch_speed_and_seek" android:summaryOn="@string/revanced_swipe_switch_speed_and_seek_summary_on" android:summaryOff="@string/revanced_swipe_switch_speed_and_seek_summary_off" />
+        <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_swipe_speed_and_seek_delay_title" android:key="revanced_swipe_speed_and_seek_delay" android:summary="@string/revanced_swipe_speed_and_seek_delay_summary" android:inputType="number" />
 
         <SwitchPreference android:title="@string/revanced_swipe_press_to_engage_title" android:key="revanced_swipe_press_to_engage" android:summaryOn="@string/revanced_swipe_press_to_engage_summary_on" android:summaryOff="@string/revanced_swipe_press_to_engage_summary_off" />
         <SwitchPreference android:title="@string/revanced_swipe_haptic_feedback_title" android:key="revanced_swipe_haptic_feedback" android:summaryOn="@string/revanced_swipe_haptic_feedback_summary_on" android:summaryOff="@string/revanced_swipe_haptic_feedback_summary_off" />
