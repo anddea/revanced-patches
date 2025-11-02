@@ -1,6 +1,9 @@
 package app.revanced.extension.youtube.swipecontrols.controller.gesture
 
+import android.os.Handler
+import android.os.Looper
 import android.view.MotionEvent
+import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerControlsVisibilityObserver
 import app.revanced.extension.youtube.shared.PlayerControlsVisibilityObserverImpl
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider
@@ -15,6 +18,7 @@ import app.revanced.extension.youtube.swipecontrols.misc.toPoint
  *
  * @param controller reference to the main swipe controller
  */
+@Suppress("DEPRECATED_SMARTCAST_ON_DELEGATED_PROPERTY")
 class ClassicSwipeController(
     private val controller: SwipeControlsHostActivity,
     private val config: SwipeControlsConfigurationProvider,
@@ -25,6 +29,11 @@ class ClassicSwipeController(
      * the last event captured in [onDown]
      */
     private var lastOnDownEvent: MotionEvent? = null
+
+    private val handler = Handler(Looper.getMainLooper())
+    private var horizontalSwipeRunnable: Runnable? = null
+    private var isHorizontalSwipeConfirmed = false
+    private val horizontalSwipeDelayMs = Settings.SWIPE_SPEED_AND_SEEK_DELAY.get()
 
     override val shouldForceInterceptEvents: Boolean
         get() = currentSwipe == SwipeDetector.SwipeDirection.VERTICAL
@@ -56,6 +65,10 @@ class ClassicSwipeController(
         // ignore gestures with more than one pointer
         // when such a gesture is detected, dispatch the first event of the gesture to downstream
         if (motionEvent.pointerCount > 1) {
+            // This is a multitouch gesture (like pinch-to-zoom), so cancel any pending swipe action.
+            cancelHorizontalSwipeRunnable()
+            isHorizontalSwipeConfirmed = false
+
             lastOnDownEvent?.let {
                 controller.dispatchDownstreamTouchEvent(it)
                 it.recycle()
@@ -69,12 +82,21 @@ class ClassicSwipeController(
     }
 
     override fun onDown(motionEvent: MotionEvent): Boolean {
+        cancelHorizontalSwipeRunnable()
+        isHorizontalSwipeConfirmed = false
+
         // save the event for later
         lastOnDownEvent?.recycle()
         lastOnDownEvent = MotionEvent.obtain(motionEvent)
 
         // must be inside swipe zone
         return isInSwipeZone(motionEvent) || isInHorizontalSwipeZone(motionEvent)
+    }
+
+    override fun onUp(motionEvent: MotionEvent) {
+        super.onUp(motionEvent)
+        cancelHorizontalSwipeRunnable()
+        isHorizontalSwipeConfirmed = false
     }
 
     override fun onSingleTapUp(motionEvent: MotionEvent): Boolean {
@@ -114,6 +136,9 @@ class ClassicSwipeController(
         // cancel if locked
         if (!config.enableSwipeControlsLockMode && config.isScreenLocked) return false
         if (currentSwipe == SwipeDetector.SwipeDirection.VERTICAL) {
+            cancelHorizontalSwipeRunnable()
+            isHorizontalSwipeConfirmed = false
+
             return when (from.toPoint()) {
                 in controller.zones.volume -> {
                     scrollVolume(distanceY)
@@ -122,31 +147,51 @@ class ClassicSwipeController(
 
                 in controller.zones.brightness -> {
                     scrollBrightness(distanceY)
-                    true}
-
-
-                else -> false
-            }
-        } else if (currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL) {
-            return when (from.toPoint()) {
-                in controller.zones.speed -> {
-                    if (config.enableSpeedControl) {
-                        scrollSpeed(distanceX)
-                        true
-                    }
-                    false
+                    true
                 }
-                in controller.zones.seek -> {
-                    if (config.enableSeekControl) {
-                        scrollSeek(distanceX)
-                        true
-                    }
-                    false
-                }
-
                 else -> false
             }
         }
+        else if (currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL) {
+            if (isHorizontalSwipeConfirmed) {
+                return processHorizontalSwipe(from, distanceX)
+            }
+
+            if (horizontalSwipeRunnable == null) {
+                horizontalSwipeRunnable = Runnable {
+                    isHorizontalSwipeConfirmed = true
+                    processHorizontalSwipe(from, distanceX)
+                }
+                handler.postDelayed(horizontalSwipeRunnable!!, horizontalSwipeDelayMs)
+            }
+            return true
+        }
+
         return false
+    }
+
+    private fun processHorizontalSwipe(from: MotionEvent, distanceX: Double): Boolean {
+        return when (from.toPoint()) {
+            in controller.zones.speed -> {
+                if (config.enableSpeedControl) {
+                    scrollSpeed(distanceX)
+                    true
+                } else false
+            }
+            in controller.zones.seek -> {
+                if (config.enableSeekControl) {
+                    scrollSeek(distanceX)
+                    true
+                } else false
+            }
+            else -> false
+        }
+    }
+
+    private fun cancelHorizontalSwipeRunnable() {
+        horizontalSwipeRunnable?.let {
+            handler.removeCallbacks(it)
+        }
+        horizontalSwipeRunnable = null
     }
 }
