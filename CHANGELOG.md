@@ -1,3 +1,11 @@
+# [3.15.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.14.0...v3.15.0-dev.1) (2025-11-02)
+
+
+### Features
+
+* Align with RVX [[v5.13.1-dev.2](https://github.com/inotia00/revanced-patches/releases/tag/v5.13.1-dev.2)] ([b73819f](https://github.com/anddea/revanced-patches/commit/b73819f5d28b65c0c5f5b334decd0dd327cedf61))
+* **YouTube - Swipe controls:** Add `Speed and seek gestures delay` setting to defer horizontal swipe gestures to prevent conflict with pinch-to-zoom ([8dfd715](https://github.com/anddea/revanced-patches/commit/8dfd715a3ff596afc6242b633480167662f3ce28))
+
 # [3.14.0](https://github.com/anddea/revanced-patches/compare/v3.13.0...v3.14.0) (2025-10-05)
 
 
