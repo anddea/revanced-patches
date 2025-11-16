@@ -239,8 +239,7 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
 
 Może to nie działać u niektórych użytkowników, więc jeśli nie działa u ciebie, to:
 1. Idź do ustawień - RVX - Pozostałe - Oszukuj strumień danych, i użyj opcji 'Włącz klienta JavaScript'
-2. Idź do ustawień - RVX - Pozostałe - Oszukuj strumień danych, i zmień domyślnego klienta na 'TV'
-3. Idź do ustawień - RVX - Pozostałe - Oszukuj strumień danych, i użyj opcji 'Typ JavaScript odtwarzacza', klikając w nią, by pojawił się 'yt-dlp-ejs (w fazie rozwoju)'"</string>
+2. Idź do ustawień - RVX - Pozostałe - Oszukuj strumień danych, i zmień domyślnego klienta na 'TV'"</string>
     <string name="revanced_disable_auto_audio_tracks_title">Automatyczne wymuszanie ścieżki dźwiękowej</string>
     <string name="revanced_disable_auto_captions_summary_off">Włączone</string>
     <string name="revanced_disable_auto_captions_summary_on">Wyłączone</string>
@@ -604,9 +603,9 @@ Informacje:
     <string name="revanced_hide_ask_button_summary_off">Widoczny</string>
     <string name="revanced_hide_ask_button_summary_on">Ukryty</string>
     <string name="revanced_hide_ask_button_title">Przycisk od zapytania</string>
-    <string name="revanced_hide_ask_section_summary_off">Sekcja Pytania jest widoczna</string>
-    <string name="revanced_hide_ask_section_summary_on">Sekcja Pytania jest ukryta</string>
-    <string name="revanced_hide_ask_section_title">Ukryj Pytanie</string>
+    <string name="revanced_hide_ask_section_summary_off">Widoczna</string>
+    <string name="revanced_hide_ask_section_summary_on">Ukryta</string>
+    <string name="revanced_hide_ask_section_title">Sekcja zapytania</string>
     <string name="revanced_hide_attributes_section_summary_off">Sekcje wyróżnionych miejsc, gier, muzyki i wyróżnionych ludzi są widoczne</string>
     <string name="revanced_hide_attributes_section_summary_on">Sekcje wyróżnionych miejsc, gier, muzyki i wyróżnionych ludzi są ukryte</string>
     <string name="revanced_hide_attributes_section_title">Sekcja atrybutów</string>
@@ -716,9 +715,9 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Widoczne</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Ukryte</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Na stronie subskrypcji</string>
-    <string name="revanced_hide_contents_section_summary_off">Widoczna</string>
-    <string name="revanced_hide_contents_section_summary_on">Ukryta</string>
-    <string name="revanced_hide_contents_section_title">Sekcja \'Jak powstały te treści\'</string>
+    <string name="revanced_hide_creator_section_summary_off">Widoczna</string>
+    <string name="revanced_hide_creator_section_summary_on">Ukryta</string>
+    <string name="revanced_hide_creator_section_title">Sekcja twórcy</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Widoczna</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Ukryta</string>
     <string name="revanced_hide_creator_store_shelf_title">Półka ze sklepem twórcy</string>
@@ -749,6 +748,12 @@ Ustawienia → Autoodtwarzanie/Odtwarzanie → Autoodtwarzanie następnego filmu
     <string name="revanced_hide_expandable_shelf_summary_off">Widoczne</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_expandable_shelf_title">Rozszeralne półki</string>
+    <string name="revanced_hide_explore_podcast_section_summary_off">Widoczna</string>
+    <string name="revanced_hide_explore_podcast_section_summary_on">Ukryta</string>
+    <string name="revanced_hide_explore_podcast_section_title">Sekcja eksplorowania podcastu</string>
+    <string name="revanced_hide_featured_section_summary_off">Widoczne</string>
+    <string name="revanced_hide_featured_section_summary_on">Ukryte</string>
+    <string name="revanced_hide_featured_section_title">Wyróżnione treści</string>
     <string name="revanced_hide_feed_captions_button_off">Widoczny</string>
     <string name="revanced_hide_feed_captions_button_on">Ukryty</string>
     <string name="revanced_hide_feed_captions_button_title">Przycisk od napisów na stronie głównej</string>
@@ -784,21 +789,27 @@ Ustawienia → Autoodtwarzanie/Odtwarzanie → Autoodtwarzanie następnego filmu
     <string name="revanced_hide_handle_summary_off">Widoczne</string>
     <string name="revanced_hide_handle_summary_on">Ukryte</string>
     <string name="revanced_hide_handle_title">Nicki</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">Widoczna</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">Ukryta</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Sekcja \'Jak powstały te treści\'</string>
     <string name="revanced_hide_hype_button_summary_off">Widoczny</string>
     <string name="revanced_hide_hype_button_summary_on">Ukryty</string>
     <string name="revanced_hide_hype_button_title">Przycisk od podbijania</string>
-    <string name="revanced_hide_hype_points_summary_off">Widoczne.</string>
-    <string name="revanced_hide_hype_points_summary_on">Ukryte.</string>
-    <string name="revanced_hide_hype_points_title">Punkty Hype</string>
+    <string name="revanced_hide_hype_points_section_summary_off">Widoczna</string>
+    <string name="revanced_hide_hype_points_section_summary_on">Ukryta</string>
+    <string name="revanced_hide_hype_points_section_title">Sekcja punktów za podbijanie</string>
+    <string name="revanced_hide_hype_points_summary_off">Punkty Hype są pokazane</string>
+    <string name="revanced_hide_hype_points_summary_on">Punkty Hype są ukryte</string>
+    <string name="revanced_hide_hype_points_title">Ukryj punkty Hype</string>
     <string name="revanced_hide_image_search_button_summary_off">Widoczny</string>
     <string name="revanced_hide_image_search_button_summary_on">Ukryty</string>
     <string name="revanced_hide_image_search_button_title">Przycisk od wyszukiwania po obrazie</string>
     <string name="revanced_hide_image_shelf_summary_off">Widoczne</string>
     <string name="revanced_hide_image_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_image_shelf_title">Półki z obrazkami</string>
-    <string name="revanced_hide_info_cards_section_summary_off">Widoczne</string>
-    <string name="revanced_hide_info_cards_section_summary_on">Ukryte</string>
-    <string name="revanced_hide_info_cards_section_title">Nazwy kanałów pod opisami</string>
+    <string name="revanced_hide_info_cards_section_summary_off">Sekcja kart informacyjnych jest widoczna</string>
+    <string name="revanced_hide_info_cards_section_summary_on">Sekcja kart informacyjnych jest ukryta</string>
+    <string name="revanced_hide_info_cards_section_title">Ukryj karty informacyjne</string>
     <string name="revanced_hide_info_cards_summary_off">Widoczne</string>
     <string name="revanced_hide_info_cards_summary_on">Ukryte</string>
     <string name="revanced_hide_info_cards_title">Karty z informacjami</string>
@@ -934,8 +945,7 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
 
 By wyświetlić menu od ścieżki dźwiękowej:
 1. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i użyj opcji 'Włącz klienta JavaScript'
-2. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i zmień domyślnego klienta na 'TV'
-3. Idź do ustawień - RVX - Pozostałe - Oszukuj strumień danych, i użyj opcji 'Typ JavaScript odtwarzacza', klikając w nią, by pojawił się 'yt-dlp-ejs (w fazie rozwoju)'"</string>
+2. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i zmień domyślnego klienta na 'TV'"</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Menu od ścieżki dźwiękowej</string>
@@ -1007,9 +1017,9 @@ Ograniczenie: wszystkie przyciski w odtwarzaczu mogą zostać ukryte po zakończ
     <string name="revanced_hide_playlist_button_summary_off">Widoczny</string>
     <string name="revanced_hide_playlist_button_summary_on">Ukryty</string>
     <string name="revanced_hide_playlist_button_title">Przycisk od zapisywania do playlisty</string>
-    <string name="revanced_hide_podcast_section_summary_off">Widoczne</string>
-    <string name="revanced_hide_podcast_section_summary_on">Ukryte</string>
-    <string name="revanced_hide_podcast_section_title">Sekcje eksplorowania podcastów</string>
+    <string name="revanced_hide_podcast_section_summary_off">Sekcja „Odkryj podcast” jest widoczna</string>
+    <string name="revanced_hide_podcast_section_summary_on">Sekcja „Odkryj podcast” jest ukryta</string>
+    <string name="revanced_hide_podcast_section_title">Ukryj „Odkryj podcast”</string>
     <string name="revanced_hide_preview_comment_off">Widoczne</string>
     <string name="revanced_hide_preview_comment_on">Ukryte</string>
     <string name="revanced_hide_preview_comment_title">Wyróżnione komentarze</string>
@@ -1329,6 +1339,9 @@ Efekt uboczny: półka z historią oglądania w zakładce Ty może być ukryta."
     <string name="revanced_hide_stop_ads_button_summary_off">Widoczny</string>
     <string name="revanced_hide_stop_ads_button_summary_on">Ukryty</string>
     <string name="revanced_hide_stop_ads_button_title">Przycisk od wstrzymania reklam</string>
+    <string name="revanced_hide_subscribe_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_subscribe_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_subscribe_button_title">Przycisk od subskrybowania w sekcji twórcy</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">Widoczny</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">Ukryty</string>
     <string name="revanced_hide_subscribed_channels_bar_title">Pasek z subskrybowanymi kanałami</string>
@@ -2398,6 +2411,8 @@ Funkcja jest nadal w fazie rozwoju, więc może przerwać się jej działanie w 
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobilny przeglądarkowy
 <small>(W fazie rozwoju)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
+<small>(Stare)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"Uproszczony TV <small>(Bez PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Niewydany)</small>"</string>
@@ -2668,6 +2683,8 @@ Dostosuj jasność, przesuwając pionowo po lewej stronie ekranu."</string>
 
 Przewiń wideo, przesuwając palcem w poziomie po górnej połowie ekranu."</string>
     <string name="revanced_swipe_seek_title">Gest przewijania</string>
+    <string name="revanced_swipe_speed_and_seek_delay_summary">Opóźnienie w milisekundach przed rozpoznaniem przesunięcia poziomego. Zwiększ tę wartość, jeśli koliduje z gestem szczypania w celu powiększenia.</string>
+    <string name="revanced_swipe_speed_and_seek_delay_title">Opóźnienie gestów prędkości i szukania</string>
     <string name="revanced_swipe_speed_distance_summary">Ilość pikseli do przesunięcia w celu zmiany prędkości odtwarzania filmów. Niższe wartości powodują szybszą zmianę prędkości, wyższe sprawiają, że zmiana jest wolniejsza (1–1000).</string>
     <string name="revanced_swipe_speed_distance_title">Odległość prędkości</string>
     <string name="revanced_swipe_speed_summary_off">Wyłączony</string>

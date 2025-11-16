@@ -167,10 +167,10 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_custom_filter_summary_on">Il filtro personalizzato è attivato.</string>
     <string name="revanced_custom_filter_title">Attiva il filtro personalizzato</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizzato non valido (%s)</string>
-    <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Personalizzato (Originale)</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Personalizzato (Vecchio)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">Personalizzato (Moderno)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">Personalizzato (Nessun tema)</string>
-    <string name="revanced_custom_playback_speed_menu_type_entry_youtube_legacy">YouTube originale</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_youtube_legacy">YouTube (Vecchio)</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_off">Vecchio menù a comparsa</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_on">Finestra personalizzata</string>
     <string name="revanced_custom_playback_speed_menu_type_title">Cambia il menù della velocità di riproduzione personalizzata</string>
@@ -232,7 +232,7 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_disable_auto_audio_tracks_summary_on">La traccia audio automatica forzata è disattivata.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"La traccia audio automatica forzata è disattivata.
 
-Nota: questa impostazione potrebbe non funzionare per alcuni utenti. Se non funziona, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili, cambia il client predefinito in TV e attiva \"Usa yt-dlp ejs (In fase di sviluppo)\"."</string>
+Nota: questa impostazione potrebbe non funzionare per alcuni utenti. Se non funziona, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili e cambia il client predefinito in TV."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disattiva la traccia audio automatica forzata</string>
     <string name="revanced_disable_auto_captions_summary_off">I sottotitoli automatici forzati sono attivati.</string>
     <string name="revanced_disable_auto_captions_summary_on">I sottotitoli automatici forzati sono disattivati.</string>
@@ -588,9 +588,9 @@ Note:
     <string name="revanced_hide_ask_button_summary_off">Il pulsante Chiedi è visibile.</string>
     <string name="revanced_hide_ask_button_summary_on">Il pulsante Chiedi è nascosto.</string>
     <string name="revanced_hide_ask_button_title">Nascondi il pulsante Chiedi</string>
-    <string name="revanced_hide_ask_section_summary_off">La sezione \"Chiedi\" è visibile</string>
-    <string name="revanced_hide_ask_section_summary_on">La sezione \"Chiedi\" è nascosta</string>
-    <string name="revanced_hide_ask_section_title">Nascondi \"Chiedi\"</string>
+    <string name="revanced_hide_ask_section_summary_off">La sezione Chiedi è visibile.</string>
+    <string name="revanced_hide_ask_section_summary_on">La sezione Chiedi è nascosta.</string>
+    <string name="revanced_hide_ask_section_title">Nascondi la sezione Chiedi</string>
     <string name="revanced_hide_attributes_section_summary_off">Le sezioni Musica, Giochi, Persone Menzionate e Luoghi in Primo Piano sono visibili.</string>
     <string name="revanced_hide_attributes_section_summary_on">Le sezioni Musica, Giochi, Persone Menzionate e Luoghi in Primo Piano sono nascoste.</string>
     <string name="revanced_hide_attributes_section_title">Nascondi le sezioni Musica, Giochi, Persone Menzionate e Luoghi in Primo Piano</string>
@@ -709,9 +709,9 @@ Nota: alcuni link di ricerca evidenziati che non hanno uno stile di testo predef
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Sono visibili nella scheda Iscrizioni.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Sono nascosti nella scheda Iscrizioni.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Nascondi nella scheda Iscrizioni</string>
-    <string name="revanced_hide_contents_section_summary_off">La sezione Come È Stato Creato Questo Contenuto è visibile.</string>
-    <string name="revanced_hide_contents_section_summary_on">La sezione Come È Stato Creato Questo Contenuto è nascosto.</string>
-    <string name="revanced_hide_contents_section_title">Nascondi la sezione Come È Stato Creato Questo Contenuto</string>
+    <string name="revanced_hide_creator_section_summary_off">La sezione del canale è visibile.</string>
+    <string name="revanced_hide_creator_section_summary_on">La sezione del canale è nascosta.</string>
+    <string name="revanced_hide_creator_section_title">Nascondi la sezione del canale</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Lo scaffale del negozio dei creator è visibile.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Lo scaffale del negozio dei creator è nascosto.</string>
     <string name="revanced_hide_creator_store_shelf_title">Nascondi lo scaffale del negozio dei creator</string>
@@ -742,6 +742,12 @@ Impostazioni → Riproduzione → Riproduzione automatica video successivo"</str
     <string name="revanced_hide_expandable_shelf_summary_off">Gli scaffali espandibili sono visibili.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Gli scaffali espandibili sono nascosti.</string>
     <string name="revanced_hide_expandable_shelf_title">Nascondi gli scaffali espandibili</string>
+    <string name="revanced_hide_explore_podcast_section_summary_off">La sezione Esplora il Podcast è visibile.</string>
+    <string name="revanced_hide_explore_podcast_section_summary_on">La sezione Esplora il Podcast è nascosta.</string>
+    <string name="revanced_hide_explore_podcast_section_title">Nascondi la sezione Esplora il Podcast</string>
+    <string name="revanced_hide_featured_section_summary_off">La sezione dei contenuti in evidenza è visibile.</string>
+    <string name="revanced_hide_featured_section_summary_on">La sezione dei contenuti in evidenza è nascosta.</string>
+    <string name="revanced_hide_featured_section_title">Nascondi la sezione dei contenuti in evidenza</string>
     <string name="revanced_hide_feed_captions_button_off">Il pulsante Sottotitoli è visibile.</string>
     <string name="revanced_hide_feed_captions_button_on">Il pulsante Sottotitoli è nascosto.</string>
     <string name="revanced_hide_feed_captions_button_title">Nascondi il pulsante Sottotitoli</string>
@@ -777,18 +783,27 @@ Impostazioni → Riproduzione → Riproduzione automatica video successivo"</str
     <string name="revanced_hide_handle_summary_off">L\'handle è visibile.</string>
     <string name="revanced_hide_handle_summary_on">L\'handle è nascosto.</string>
     <string name="revanced_hide_handle_title">Nascondi l\'handle</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">La sezione Come È Stato Realizzato è visibile.</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">La sezione Come È Stato Realizzato è nascosta.</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Nascondi la sezione Come È Stato Realizzato</string>
     <string name="revanced_hide_hype_button_summary_off">Il pulsante Dai Hype è visibile.</string>
     <string name="revanced_hide_hype_button_summary_on">Il pulsante Dai Hype è nascosto.</string>
     <string name="revanced_hide_hype_button_title">Nascondi il pulsante Dai Hype</string>
+    <string name="revanced_hide_hype_points_section_summary_off">I punti hype sono visibili.</string>
+    <string name="revanced_hide_hype_points_section_summary_on">I punti hype sono nascosti.</string>
+    <string name="revanced_hide_hype_points_section_title">Nascondi i punti hype</string>
+    <string name="revanced_hide_hype_points_summary_off">I punti Hype sono mostrati</string>
+    <string name="revanced_hide_hype_points_summary_on">I punti Hype sono nascosti</string>
+    <string name="revanced_hide_hype_points_title">Nascondi i punti Hype</string>
     <string name="revanced_hide_image_search_button_summary_off">Il pulsante di ricerca immagine è visibile.</string>
     <string name="revanced_hide_image_search_button_summary_on">Il pulsante di ricerca immagine è nascosto.</string>
     <string name="revanced_hide_image_search_button_title">Nascondi il pulsante di ricerca immagine</string>
     <string name="revanced_hide_image_shelf_summary_off">Lo scaffale delle immagini è visibile.</string>
     <string name="revanced_hide_image_shelf_summary_on">Lo scaffale delle immagini è nascosto.</string>
     <string name="revanced_hide_image_shelf_title">Nascondi lo scaffale delle immagini</string>
-    <string name="revanced_hide_info_cards_section_summary_off">La sezione Schede Informative è visibile.</string>
-    <string name="revanced_hide_info_cards_section_summary_on">La sezione Schede Informative è nascosta.</string>
-    <string name="revanced_hide_info_cards_section_title">Nascondi la sezione Schede Informative</string>
+    <string name="revanced_hide_info_cards_section_summary_off">La sezione Schede Informative è visibile</string>
+    <string name="revanced_hide_info_cards_section_summary_on">La sezione Schede Informative è nascosta</string>
+    <string name="revanced_hide_info_cards_section_title">Nascondi le schede informative</string>
     <string name="revanced_hide_info_cards_summary_off">Le schede informative sono visibili.</string>
     <string name="revanced_hide_info_cards_summary_on">Le schede informative sono nascoste.</string>
     <string name="revanced_hide_info_cards_title">Nascondi le schede informative</string>
@@ -922,7 +937,7 @@ Le parole con lettere maiuscole all'interno devono essere inserite con il maiusc
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Nascondi il menù Modalità Ambient</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Il menù Traccia Audio è nascosto.
 
-Nota: per mostrare il menù Traccia Audio, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili, cambia il client predefinito in TV e attiva \"Usa yt-dlp ejs (In fase di sviluppo)\"."</string>
+Nota: per mostrare il menù Traccia Audio, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili e cambia il client predefinito in TV."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Il menù Traccia Audio è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Il menù Traccia Audio è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Nascondi il menù Traccia Audio</string>
@@ -994,9 +1009,9 @@ Nota: tutti i pulsanti in sovrapposizione potrebbero essere nascosti al termine 
     <string name="revanced_hide_playlist_button_summary_off">Il pulsante Salva è visibile.</string>
     <string name="revanced_hide_playlist_button_summary_on">Il pulsante Salva è nascosto.</string>
     <string name="revanced_hide_playlist_button_title">Nascondi il pulsante Salva</string>
-    <string name="revanced_hide_podcast_section_summary_off">La sezione Podcast è visibile.</string>
-    <string name="revanced_hide_podcast_section_summary_on">La sezione Podcast è nascosta.</string>
-    <string name="revanced_hide_podcast_section_title">Nascondi la sezione Podcast</string>
+    <string name="revanced_hide_podcast_section_summary_off">La sezione Esplora il podcast è visibile</string>
+    <string name="revanced_hide_podcast_section_summary_on">La sezione Esplora il podcast è nascosta</string>
+    <string name="revanced_hide_podcast_section_title">Nascondi \"Esplora il podcast\"</string>
     <string name="revanced_hide_preview_comment_off">L\'anteprima dei commenti è visibile.</string>
     <string name="revanced_hide_preview_comment_on">L\'anteprima dei commenti è nascosto.</string>
     <string name="revanced_hide_preview_comment_title">Nascondi l\'anteprima dei commenti</string>
@@ -1306,6 +1321,9 @@ Nota: lo scaffale Cronologia nella scheda Tu potrebbe essere nascosto."</string>
     <string name="revanced_hide_stop_ads_button_summary_off">Il pulsante Nascondi Annunci è visibile.</string>
     <string name="revanced_hide_stop_ads_button_summary_on">Il pulsante Nascondi Annunci è nascosto.</string>
     <string name="revanced_hide_stop_ads_button_title">Nascondi il pulsante Nascondi Annunci</string>
+    <string name="revanced_hide_subscribe_button_summary_off">Il pulsante Iscriviti è visibile.</string>
+    <string name="revanced_hide_subscribe_button_summary_on">Il pulsante Iscriviti è nascosto.</string>
+    <string name="revanced_hide_subscribe_button_title">Nascondi il pulsante Iscriviti</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">La barra delle iscrizioni è visibile.</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">La barra delle iscrizioni è nascosta.</string>
     <string name="revanced_hide_subscribed_channels_bar_title">Nascondi la barra delle iscrizioni</string>
@@ -2368,6 +2386,8 @@ Questa funzionalità è ancora in fase di sviluppo, quindi potrebbe non funziona
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web Mobile
 <small>(In fase di sviluppo)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
+<small>(Vecchio)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
 <small>(Nessun PoToken richiesto)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
@@ -2594,7 +2614,7 @@ Regola la luminosità scorrendo verticalmente sul lato sinistro dello schermo."<
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">La dimensione dell\'area non può essere superiore a 50</string>
     <string name="revanced_swipe_overlay_rect_size_summary">La dimensione dell\'area trascinabile.\n\nNota: questo modificherà anche la dimensione dell\'area dello schermo del gesto Doppio Tocco.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Dimensione dello schermo in sovrapposizione durante il trascinamento</string>
-    <string name="revanced_swipe_overlay_style_entry_0">Originale</string>
+    <string name="revanced_swipe_overlay_style_entry_0">Vecchio</string>
     <string name="revanced_swipe_overlay_style_entry_1">Orizzontale</string>
     <string name="revanced_swipe_overlay_style_entry_2">Orizzontale (Minima superiore)</string>
     <string name="revanced_swipe_overlay_style_entry_3">Orizzontale (Minima centrale)</string>

@@ -239,8 +239,7 @@
 
 قد لا ينجح هذا الأمر مع بعض المستخدمين، إذا لم ينجح معك:
 1. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم فعّل 'استخدام عميل JavaScript'.
-2. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم غيّر 'العميل الافتراضي' إلى 'TV'.
-3. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم فعّل 'استخدام yt-dlp ejs (WIP)'."</string>
+2. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم غيّر 'العميل الافتراضي' إلى 'TV'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">تعطيل المقطع الصوتي التلقائي المفروض</string>
     <string name="revanced_disable_auto_captions_summary_off">تم تمكين الترجمة التلقائية المفروضة.</string>
     <string name="revanced_disable_auto_captions_summary_on">تم تعطيل الترجمة التلقائية المفروضة.</string>
@@ -583,9 +582,9 @@
     <string name="revanced_hide_ask_button_summary_off">يتم عرض زر طرح سؤال.</string>
     <string name="revanced_hide_ask_button_summary_on">تم إخفاء زر طرح سؤال.</string>
     <string name="revanced_hide_ask_button_title">إخفاء زر طرح سؤال</string>
-    <string name="revanced_hide_ask_section_summary_off">يتم عرض قسم طرح سؤال</string>
-    <string name="revanced_hide_ask_section_summary_on">تم إخفاء قسم طرح سؤال</string>
-    <string name="revanced_hide_ask_section_title">إخفاء طرح سؤال</string>
+    <string name="revanced_hide_ask_section_summary_off">يتم عرض قسم طرح سؤال.</string>
+    <string name="revanced_hide_ask_section_summary_on">تم إخفاء قسم طرح سؤال.</string>
+    <string name="revanced_hide_ask_section_title">إخفاء قسم طرح سؤال</string>
     <string name="revanced_hide_attributes_section_summary_off">يتم عرض أقسام الأماكن المميزة، الألعاب، الموسيقى، والأشخاص المذكورون.</string>
     <string name="revanced_hide_attributes_section_summary_on">تم إخفاء أقسام الأماكن المميزة، الألعاب، الموسيقى، والأشخاص المذكورون.</string>
     <string name="revanced_hide_attributes_section_title">إخفاء قسم الصفات</string>
@@ -696,9 +695,9 @@
     <string name="revanced_hide_community_posts_subscriptions_summary_off">يُعرض في موجز الاشتراكات.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">مخفي في موجز الاشتراكات.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">إخفاء في موجز الاشتراكات</string>
-    <string name="revanced_hide_contents_section_summary_off">يتم عرض قسم كيفية إنشاء هذا المحتوى.</string>
-    <string name="revanced_hide_contents_section_summary_on">تم إخفاء قسم كيفية إنشاء هذا المحتوى.</string>
-    <string name="revanced_hide_contents_section_title">إخفاء قسم كيف تم إنشاء هذا المحتوى</string>
+    <string name="revanced_hide_creator_section_summary_off">يتم عرض قسم Creator.</string>
+    <string name="revanced_hide_creator_section_summary_on">تم إخفاء قسم Creator.</string>
+    <string name="revanced_hide_creator_section_title">إخفاء قسم Creator</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">يتم عرض رف متجر المنشئ أسفل الفيديوهات.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">تم إخفاء رف متجر المنشئ أسفل الفيديوهات.</string>
     <string name="revanced_hide_creator_store_shelf_title">إخفاء رف متجر المنشئ</string>
@@ -729,6 +728,12 @@
     <string name="revanced_hide_expandable_shelf_summary_off">يتم عرض الرفوف القابلة للتوسع.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">تم إخفاء الرفوف القابلة للتوسع.</string>
     <string name="revanced_hide_expandable_shelf_title">إخفاء الرفوف القابلة للتوسع</string>
+    <string name="revanced_hide_explore_podcast_section_summary_off">يتم عرض قسم استكشاف البودكاست.</string>
+    <string name="revanced_hide_explore_podcast_section_summary_on">تم إخفاء قسم استكشاف البودكاست.</string>
+    <string name="revanced_hide_explore_podcast_section_title">إخفاء قسم استكشاف البودكاست</string>
+    <string name="revanced_hide_featured_section_summary_off">يتم عرض قسم المحتوى المميز في قسم Creator.</string>
+    <string name="revanced_hide_featured_section_summary_on">تم إخفاء قسم المحتوى المميز في قسم Creator.</string>
+    <string name="revanced_hide_featured_section_title">إخفاء قسم المحتوى المميز</string>
     <string name="revanced_hide_feed_captions_button_off">يتم عرض زر الترجمة.</string>
     <string name="revanced_hide_feed_captions_button_on">تم إخفاء زر الترجمة.</string>
     <string name="revanced_hide_feed_captions_button_title">إخفاء زر الترجمة</string>
@@ -764,18 +769,27 @@
     <string name="revanced_hide_handle_summary_off">يتم عرض الاسم المعرِّف.</string>
     <string name="revanced_hide_handle_summary_on">تم إخفاء الاسم المعرِّف.</string>
     <string name="revanced_hide_handle_title">إخفاء الاسم المعرِّف</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">يتم عرض قسم كيف تم إنشاء هذا المحتوى.</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">تم إخفاء قسم كيف تم إنشاء هذا المحتوى.</string>
+    <string name="revanced_hide_how_this_was_made_section_title">إخفاء قسم كيف تم إنشاء هذا المحتوى</string>
     <string name="revanced_hide_hype_button_summary_off">يتم عرض زر التشجيع.</string>
     <string name="revanced_hide_hype_button_summary_on">تم إخفاء زر التشجيع.</string>
     <string name="revanced_hide_hype_button_title">إخفاء زر التشجيع</string>
+    <string name="revanced_hide_hype_points_section_summary_off">يتم عرض قسم نقاط التشجيع.</string>
+    <string name="revanced_hide_hype_points_section_summary_on">تم إخفاء قسم نقاط التشجيع.</string>
+    <string name="revanced_hide_hype_points_section_title">إخفاء قسم نقاط التشجيع</string>
+    <string name="revanced_hide_hype_points_summary_off">يتم عرض نقاط التشجيع</string>
+    <string name="revanced_hide_hype_points_summary_on">تم إخفاء نقاط التشجيع</string>
+    <string name="revanced_hide_hype_points_title">إخفاء نقاط التشجيع</string>
     <string name="revanced_hide_image_search_button_summary_off">يتم عرض زر البحث عن الصورة.</string>
     <string name="revanced_hide_image_search_button_summary_on">تم إخفاء زر البحث عن الصورة.</string>
     <string name="revanced_hide_image_search_button_title">إخفاء زر البحث عن الصورة</string>
     <string name="revanced_hide_image_shelf_summary_off">يتم عرض رفوف الصور.</string>
     <string name="revanced_hide_image_shelf_summary_on">تم إخفاء رفوف الصور.</string>
     <string name="revanced_hide_image_shelf_title">إخفاء رفوف الصور</string>
-    <string name="revanced_hide_info_cards_section_summary_off">يتم عرض قسم بطاقات المعلومات.</string>
-    <string name="revanced_hide_info_cards_section_summary_on">تم إخفاء قسم بطاقات المعلومات.</string>
-    <string name="revanced_hide_info_cards_section_title">إخفاء قسم بطاقات المعلومات</string>
+    <string name="revanced_hide_info_cards_section_summary_off">يتم عرض قسم بطاقات المعلومات</string>
+    <string name="revanced_hide_info_cards_section_summary_on">تم إخفاء قسم بطاقات المعلومات</string>
+    <string name="revanced_hide_info_cards_section_title">إخفاء بطاقات المعلومات</string>
     <string name="revanced_hide_info_cards_summary_off">يتم عرض بطاقات المعلومات.</string>
     <string name="revanced_hide_info_cards_summary_on">تم إخفاء بطاقات المعلومات.</string>
     <string name="revanced_hide_info_cards_title">إخفاء بطاقات المعلومات</string>
@@ -911,8 +925,7 @@
 
 لعرض قائمة المقطع الصوتي:
 1. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم فعّل 'استخدام عميل JavaScript'.
-2. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم غيّر 'العميل الافتراضي' إلى 'TV'.
-3. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم فعّل 'استخدام yt-dlp ejs (WIP)'."</string>
+2. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم غيّر 'العميل الافتراضي' إلى 'TV'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">يتم عرض قائمة المقطع الصوتي.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">تم إخفاء قائمة المقطع الصوتي.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">إخفاء قائمة المقطع الصوتي</string>
@@ -984,9 +997,9 @@
     <string name="revanced_hide_playlist_button_summary_off">يتم عرض زر الحفظ.</string>
     <string name="revanced_hide_playlist_button_summary_on">تم إخفاء زر الحفظ.</string>
     <string name="revanced_hide_playlist_button_title">إخفاء زر الحفظ</string>
-    <string name="revanced_hide_podcast_section_summary_off">يتم عرض استكشاف قسم بودكاست.</string>
-    <string name="revanced_hide_podcast_section_summary_on">تم إخفاء استكشاف قسم بودكاست.</string>
-    <string name="revanced_hide_podcast_section_title">إخفاء استكشاف قسم البودكاست</string>
+    <string name="revanced_hide_podcast_section_summary_off">يتم عرض قسم استكشاف البودكاست</string>
+    <string name="revanced_hide_podcast_section_summary_on">تم إخفاء قسم استكشاف البودكاست</string>
+    <string name="revanced_hide_podcast_section_title">إخفاء \'استكشاف البودكاست\'</string>
     <string name="revanced_hide_preview_comment_off">يتم عرض تعليق المعاينة.</string>
     <string name="revanced_hide_preview_comment_on">تم إخفاء تعليق المعاينة.</string>
     <string name="revanced_hide_preview_comment_title">إخفاء تعليق المعاينة</string>
@@ -1301,6 +1314,9 @@
     <string name="revanced_hide_stop_ads_button_summary_off">يتم عرض زر إيقاف الإعلانات.</string>
     <string name="revanced_hide_stop_ads_button_summary_on">تم إخفاء زر إيقاف الإعلانات.</string>
     <string name="revanced_hide_stop_ads_button_title">إخفاء إيقاف الإعلانات</string>
+    <string name="revanced_hide_subscribe_button_summary_off">يتم عرض زر اشتراك في قسم Creator.</string>
+    <string name="revanced_hide_subscribe_button_summary_on">تم إخفاء زر اشتراك في قسم Creator.</string>
+    <string name="revanced_hide_subscribe_button_title">إخفاء زر اشتراك</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">يتم عرض شريط القنوات المشترك بها.</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">تم إخفاء شريط القنوات المشترك بها.</string>
     <string name="revanced_hide_subscribed_channels_bar_title">إخفاء شريط القنوات المشترك بها</string>
@@ -2301,6 +2317,7 @@
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(WIP)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV <small>(Legacy)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
 <small>(بدون رمز PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS

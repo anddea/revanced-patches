@@ -231,7 +231,9 @@ Hạn chế: Nút Quay lại trên thanh công cụ có thể không hoạt đ�
     <string name="revanced_disable_ambient_mode_summary_on">Chế độ môi trường xung quanh đã tắt.</string>
     <string name="revanced_disable_ambient_mode_title">Tắt chế độ môi trường xung quanh</string>
     <string name="revanced_disable_auto_audio_tracks_not_available">Để sử dụng tính năng này, hãy thay đổi \'Client mặc định (Giả mạo dữ liệu phát video)\' sang TV hoặc iOS TV.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_off">"Tự động phát bản âm thanh khi phát video có bản âm thanh đã bật."</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_off">"Tự động phát bản âm thanh khi phát video có bản âm thanh đã bật.
+
+Chi tiết: Với một số tài khoản, bản âm thanh gốc sẽ được sử dụng."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Tự động phát bản âm thanh khi phát video có bản âm thanh đã tắt.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Tự động phát bản âm thanh đã tắt.
 
@@ -711,9 +713,6 @@ Hạn chế: Các bình luận chữ xanh không dùng kiểu chữ mặc địn
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Đã hiển thị trên thẻ Kênh đăng ký.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Đã ẩn trên thẻ Kênh đăng ký.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Ẩn trên thẻ Kênh đăng ký</string>
-    <string name="revanced_hide_contents_section_summary_off">Phần Cách nội dung này được tạo ra được hiển thị.</string>
-    <string name="revanced_hide_contents_section_summary_on">Phần Cách nội dung này được tạo ra đã ẩn.</string>
-    <string name="revanced_hide_contents_section_title">Ẩn phần Cách nội dung này được tạo ra</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Kệ cửa hàng của nhà sáng tạo bên dưới video được hiển thị.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Kệ cửa hàng của nhà sáng tạo bên dưới video đã ẩn.</string>
     <string name="revanced_hide_creator_store_shelf_title">Ẩn kệ cửa hàng của nhà sáng tạo</string>
@@ -744,6 +743,9 @@ Cài đặt → Tự động phát/Phát → Tự động phát video tiếp the
     <string name="revanced_hide_expandable_shelf_summary_off">Kệ mở rộng được hiển thị.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Kệ mở rộng đã ẩn.</string>
     <string name="revanced_hide_expandable_shelf_title">Ẩn kệ mở rộng</string>
+    <string name="revanced_hide_featured_section_summary_off">Phần nội dung nổi bật được hiển thị</string>
+    <string name="revanced_hide_featured_section_summary_on">Phần nội dung nổi bật đã bị ẩn</string>
+    <string name="revanced_hide_featured_section_title">Ẩn Nội dung nổi bật</string>
     <string name="revanced_hide_feed_captions_button_off">Nút Phụ đề được hiển thị.</string>
     <string name="revanced_hide_feed_captions_button_on">Nút Phụ đề đã ẩn.</string>
     <string name="revanced_hide_feed_captions_button_title">Ẩn nút Phụ đề</string>
@@ -779,18 +781,27 @@ Cài đặt → Tự động phát/Phát → Tự động phát video tiếp the
     <string name="revanced_hide_handle_summary_off">Tên hiển thị được hiển thị.</string>
     <string name="revanced_hide_handle_summary_on">Tên hiển thị đã ẩn.</string>
     <string name="revanced_hide_handle_title">Ẩn tên hiển thị</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">Phần cách nội dung được tạo ra được hiển thị</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">Phần cách nội dung được tạo ra đã bị ẩn</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Ẩn \'Cách nội dung này được tạo ra\'</string>
     <string name="revanced_hide_hype_button_summary_off">Nút Khuấy động được hiển thị.</string>
     <string name="revanced_hide_hype_button_summary_on">Nút Khuấy động đã ẩn.</string>
     <string name="revanced_hide_hype_button_title">Ẩn nút Khuấy động</string>
+    <string name="revanced_hide_hype_points_section_summary_off">Phần Điểm khuấy động được hiển thị.</string>
+    <string name="revanced_hide_hype_points_section_summary_on">Phần Điểm khuấy động đã ẩn.</string>
+    <string name="revanced_hide_hype_points_section_title">Ẩn phần Điểm khuấy động</string>
+    <string name="revanced_hide_hype_points_summary_off">Điểm khuấy động được hiển thị</string>
+    <string name="revanced_hide_hype_points_summary_on">Điểm khuấy động đã bị ẩn</string>
+    <string name="revanced_hide_hype_points_title">Ẩn Điểm khuấy động</string>
     <string name="revanced_hide_image_search_button_summary_off">Nút tìm kiếm bằng hình ảnh được hiển thị.</string>
     <string name="revanced_hide_image_search_button_summary_on">Nút tìm kiếm bằng hình ảnh đã ẩn.</string>
     <string name="revanced_hide_image_search_button_title">Ẩn nút tìm kiếm bằng hình ảnh</string>
     <string name="revanced_hide_image_shelf_summary_off">Kệ Hình ảnh từ web được hiển thị trong kết quả tìm kiếm.</string>
     <string name="revanced_hide_image_shelf_summary_on">Kệ Hình ảnh từ web đã ẩn khỏi kết quả tìm kiếm.</string>
     <string name="revanced_hide_image_shelf_title">Ẩn kệ Hình ảnh từ web</string>
-    <string name="revanced_hide_info_cards_section_summary_off">Phần thẻ thông tin được hiển thị.</string>
-    <string name="revanced_hide_info_cards_section_summary_on">Phần thẻ thông tin đã ẩn.</string>
-    <string name="revanced_hide_info_cards_section_title">Ẩn phần thẻ thông tin</string>
+    <string name="revanced_hide_info_cards_section_summary_off">Phần thẻ thông tin được hiển thị</string>
+    <string name="revanced_hide_info_cards_section_summary_on">Phần thẻ thông tin đã bị ẩn</string>
+    <string name="revanced_hide_info_cards_section_title">Ẩn thẻ Thông tin</string>
     <string name="revanced_hide_info_cards_summary_off">Thẻ thông tin được hiển thị.</string>
     <string name="revanced_hide_info_cards_summary_on">Thẻ thông tin đã ẩn.</string>
     <string name="revanced_hide_info_cards_title">Ẩn thẻ thông tin</string>
@@ -1000,9 +1011,9 @@ Hạn chế: Toàn bộ nút trên lớp phủ có thể bị ẩn sau khi video
     <string name="revanced_hide_playlist_button_summary_off">Nút Lưu được hiển thị.</string>
     <string name="revanced_hide_playlist_button_summary_on">Nút Lưu đã ẩn.</string>
     <string name="revanced_hide_playlist_button_title">Ẩn nút Lưu</string>
-    <string name="revanced_hide_podcast_section_summary_off">Phần Khám phá podcast được hiển thị.</string>
-    <string name="revanced_hide_podcast_section_summary_on">Phần Khám phá podcast đã ẩn.</string>
-    <string name="revanced_hide_podcast_section_title">Ẩn phần Khám phá podcast</string>
+    <string name="revanced_hide_podcast_section_summary_off">Phần Khám phá podcast được hiển thị</string>
+    <string name="revanced_hide_podcast_section_summary_on">Phần Khám phá podcast đã bị ẩn</string>
+    <string name="revanced_hide_podcast_section_title">Ẩn \'Khám phá podcast\'</string>
     <string name="revanced_hide_preview_comment_off">Phần Xem trước bình luận được hiển thị.</string>
     <string name="revanced_hide_preview_comment_on">Phần Xem trước bình luận đã ẩn.</string>
     <string name="revanced_hide_preview_comment_title">Ẩn phần Xem trước bình luận</string>
@@ -2372,6 +2383,8 @@ Sự cố đã biết:
 Tính năng này vẫn đang trong quá trình phát triển, vì vậy nó có thể ngừng hoạt động bất kỳ lúc nào do thay đổi từ phía máy chủ."</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Yêu cầu Đăng nhập)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
+<small>(Không SDK)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(Không xác thực)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
@@ -2379,14 +2392,16 @@ Tính năng này vẫn đang trong quá trình phát triển, vì vậy nó có 
     <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
 <small>(Không khuyến khích)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
-<small>(Lỗi thời, Không xác thực)</small>"</string>
+<small>(Lỗi thời)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
-<small>(Thử nghiệm, Không xác thực)</small>"</string>
+<small>(Thử nghiệm)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
+<small>(Cũ)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
 <small>(Không PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
-<small>(Chưa phát hành, Không xác thực)</small>"</string>
+<small>(Chưa phát hành)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Ứng dụng khách mặc định</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Không truy xuất được luồng phát từ ứng dụng khách đã chọn.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Hãy thử chuyển ứng dụng khách mặc định sang TV.</string>
@@ -2441,17 +2456,18 @@ Ví dụ 2:
 • Âm lượng ổn định không khả dụng.
 • Video dành cho trẻ em có thể không phát được khi bạn đã đăng xuất hoặc bật chế độ ẩn danh."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Thiếu mục bản âm thanh.
-• Tắt tự động phát bản âm thanh không khả dụng.
+• Tắt tự động phát bản âm thanh có thể không khả dụng.
 • Âm lượng ổn định không khả dụng.
 • Video dành cho trẻ em có thể không phát được khi bạn đã đăng xuất hoặc bật chế độ ẩn danh.
 • Không hỗ trợ chất lượng cao hơn 1080p, codec AV1 và video HDR có thể không khả dụng."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_no_sdk">• Video có thể bị dừng ở phút thứ 1, hoặc có thể không khả dụng ở một số khu vực.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Mục Bản âm thanh bị thiếu.
 • Âm lượng ổn định không khả dụng."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Thiếu mục bản âm thanh.
 • Âm lượng ổn định không khả dụng.
 • Video dành cho trẻ em có thể không phát được khi bạn đã đăng xuất hoặc bật chế độ ẩn danh."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• Thiếu trình đơn Bản âm thanh.
-• Tắt tự động phát bản âm thanh không khả dụng.
+• Tắt tự động phát bản âm thanh có thể không khả dụng.
 • Âm lượng ổn định không khả dụng.
 • Video dành cho trẻ em có thể không phát được khi bạn đã đăng xuất hoặc bật chế độ ẩn danh."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Có thể xảy ra sự cố phát (Không khuyến khích).</string>

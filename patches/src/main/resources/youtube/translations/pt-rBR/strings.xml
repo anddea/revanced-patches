@@ -676,9 +676,6 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Exibido no feed de inscrições.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Oculto no feed de inscrições.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Ocultar no feed de inscrições</string>
-    <string name="revanced_hide_contents_section_summary_off">A seção Como este conteúdo foi feito será exibida.</string>
-    <string name="revanced_hide_contents_section_summary_on">A seção Como este conteúdo foi feito está oculta.</string>
-    <string name="revanced_hide_contents_section_title">Ocultar seção de Conteúdo</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">A prateleira da loja do criador abaixo dos vídeos será exibida.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">A prateleira da loja do criador abaixo dos vídeos está oculta.</string>
     <string name="revanced_hide_creator_store_shelf_title">Ocultar prateleira da loja do criador</string>
@@ -708,6 +705,9 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_expandable_shelf_summary_off">Os painéis expansíveis serão exibidos.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Os painéis expansíveis estão ocultos.</string>
     <string name="revanced_hide_expandable_shelf_title">Ocultar painéis expansíveis</string>
+    <string name="revanced_hide_featured_section_summary_off">A seção de conteúdo em destaque está visível</string>
+    <string name="revanced_hide_featured_section_summary_on">A seção de conteúdo em destaque está oculta</string>
+    <string name="revanced_hide_featured_section_title">Ocultar conteúdo em destaque</string>
     <string name="revanced_hide_feed_captions_button_off">O botão de legendas será exibido.</string>
     <string name="revanced_hide_feed_captions_button_on">O botão de legendas está oculto.</string>
     <string name="revanced_hide_feed_captions_button_title">Ocultar botão de legendas no feed</string>
@@ -743,18 +743,27 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_handle_summary_off">O identificador será exibido.</string>
     <string name="revanced_hide_handle_summary_on">O identificador está oculto.</string>
     <string name="revanced_hide_handle_title">Ocultar identificador</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">A seção Como este conteúdo foi feito é mostrada</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">A seção Como este conteúdo foi feito está oculta</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Ocultar \"Como este conteúdo foi feito\"</string>
     <string name="revanced_hide_hype_button_summary_off">O botão Hypar será exibido.</string>
     <string name="revanced_hide_hype_button_summary_on">O botão Hypar está oculto.</string>
     <string name="revanced_hide_hype_button_title">Ocultar botão Hypar</string>
+    <string name="revanced_hide_hype_points_section_summary_off">A seção de pontos de destaque é exibida.</string>
+    <string name="revanced_hide_hype_points_section_summary_on">A seção de pontos de hype está oculta.</string>
+    <string name="revanced_hide_hype_points_section_title">Ocultar seção de pontos de hype</string>
+    <string name="revanced_hide_hype_points_summary_off">Pontos de Hype estão visíveis</string>
+    <string name="revanced_hide_hype_points_summary_on">Pontos de Hype estão ocultos</string>
+    <string name="revanced_hide_hype_points_title">Ocultar pontos de Hype</string>
     <string name="revanced_hide_image_search_button_summary_off">O botão de busca de imagens será exibido.</string>
     <string name="revanced_hide_image_search_button_summary_on">O botão de busca de imagens está oculto.</string>
     <string name="revanced_hide_image_search_button_title">Ocultar botão de busca de imagem</string>
     <string name="revanced_hide_image_shelf_summary_off">Os painéis de imagens serão exibidos.</string>
     <string name="revanced_hide_image_shelf_summary_on">Os painéis de imagens estão ocultos.</string>
     <string name="revanced_hide_image_shelf_title">Ocultar painel de imagens</string>
-    <string name="revanced_hide_info_cards_section_summary_off">As seções de cartões de informação serão exibidas.</string>
-    <string name="revanced_hide_info_cards_section_summary_on">As seções de cartões de informações estão ocultas.</string>
-    <string name="revanced_hide_info_cards_section_title">Ocultar seções de cartões de informação</string>
+    <string name="revanced_hide_info_cards_section_summary_off">A seção de cartões de informações é mostrada</string>
+    <string name="revanced_hide_info_cards_section_summary_on">Seção de cartões de informações está oculto</string>
+    <string name="revanced_hide_info_cards_section_title">Ocultar cartões de informações</string>
     <string name="revanced_hide_info_cards_summary_off">Os cartões de informações serão exibidos.</string>
     <string name="revanced_hide_info_cards_summary_on">Os cartões de informações estão ocultos.</string>
     <string name="revanced_hide_info_cards_title">Ocultar cartões de informações</string>
@@ -957,9 +966,9 @@ Para exibir o menu de faixa de áudio:
     <string name="revanced_hide_playlist_button_summary_off">O botão salvar para lista de reprodução será exibido.</string>
     <string name="revanced_hide_playlist_button_summary_on">O botão salvar para lista de reprodução está oculto.</string>
     <string name="revanced_hide_playlist_button_title">Ocultar botão salvar para lista de reprodução</string>
-    <string name="revanced_hide_podcast_section_summary_off">As seções de podcast serão exibidas.</string>
-    <string name="revanced_hide_podcast_section_summary_on">As seções de podcast estão ocultas.</string>
-    <string name="revanced_hide_podcast_section_title">Ocultar seções de podcast</string>
+    <string name="revanced_hide_podcast_section_summary_off">A seção Explore o podcast é mostrada</string>
+    <string name="revanced_hide_podcast_section_summary_on">A seção Explore o podcast está oculta</string>
+    <string name="revanced_hide_podcast_section_title">Ocultar \"Explore o podcast\"</string>
     <string name="revanced_hide_preview_comment_off">A prévia do comentário será exibida.</string>
     <string name="revanced_hide_preview_comment_on">A prévia do comentário está oculta.</string>
     <string name="revanced_hide_preview_comment_title">Ocultar prévia de comentário</string>
@@ -2275,6 +2284,8 @@ Esse recurso ainda está em desenvolvimento, portanto pode quebrar a qualquer mo
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(WIP, Sem Autenticação)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
+<small>(Legado)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simples
 <small>(Sem PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS

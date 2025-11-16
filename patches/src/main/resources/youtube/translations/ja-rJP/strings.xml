@@ -238,8 +238,7 @@ DeArrow について詳しく知るには、ここをタップしてください
 
 一部の環境下では機能しない可能性があります。機能しない場合は、以下の手順に従ってください:
 1. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[JavaScript クライアントを使用] をオンにします。
-2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV」を選択します。
-3. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[yt-dlp ejs を使用 (開発途中)] をオンにします。"</string>
+2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV」を選択します。"</string>
     <string name="revanced_disable_auto_audio_tracks_title">音声トラックの強制を無効化</string>
     <string name="revanced_disable_auto_captions_summary_off">投稿者が設定している字幕の強制を無効にします。</string>
     <string name="revanced_disable_auto_captions_summary_on">投稿者が設定している字幕の強制を無効にします。</string>
@@ -604,9 +603,9 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_ask_button_summary_off">[質問する] ボタンを非表示にします。</string>
     <string name="revanced_hide_ask_button_summary_on">[質問する] ボタンを非表示にします。</string>
     <string name="revanced_hide_ask_button_title">[質問する] ボタンを非表示</string>
-    <string name="revanced_hide_ask_section_summary_off">「質問する」セクションは表示されます</string>
-    <string name="revanced_hide_ask_section_summary_on">「質問する」セクションは表示されません</string>
-    <string name="revanced_hide_ask_section_title">「質問する」を非表示</string>
+    <string name="revanced_hide_ask_section_summary_off">[質問する] 欄を非表示にします。\n\n備考: このボタンは、ユーザーの IP がアメリカやヨーロッパなどの特定の地域のである場合にのみ表示されます。</string>
+    <string name="revanced_hide_ask_section_summary_on">[質問する] 欄を非表示にします。\n\n備考: このボタンは、ユーザーの IP がアメリカやヨーロッパなどの特定の地域のである場合にのみ表示されます。</string>
+    <string name="revanced_hide_ask_section_title">[質問する] 欄を非表示</string>
     <string name="revanced_hide_attributes_section_summary_off">注目の場所、ゲーム、音楽、人物セクションを非表示にします。</string>
     <string name="revanced_hide_attributes_section_summary_on">注目の場所、ゲーム、音楽、人物セクションを非表示にします。</string>
     <string name="revanced_hide_attributes_section_title">属性セクションを非表示</string>
@@ -717,9 +716,9 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_community_posts_subscriptions_summary_off">登録チャンネルフィードから非表示にします。</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">登録チャンネルフィードから非表示にします。</string>
     <string name="revanced_hide_community_posts_subscriptions_title">登録チャンネルフィードから非表示</string>
-    <string name="revanced_hide_contents_section_summary_off">概要欄下部にある「このコンテンツの作成手段」を非表示にします。</string>
-    <string name="revanced_hide_contents_section_summary_on">概要欄下部にある「このコンテンツの作成手段」を非表示にします。</string>
-    <string name="revanced_hide_contents_section_title">コンテンツ欄を非表示</string>
+    <string name="revanced_hide_creator_section_summary_off">概要欄から投稿者の SNS リンクや動画を非表示にします。</string>
+    <string name="revanced_hide_creator_section_summary_on">概要欄から投稿者の SNS リンクや動画を非表示にします。</string>
+    <string name="revanced_hide_creator_section_title">クリエイター欄を非表示</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">コメント欄の下に表示されるストア欄を非表示にします。</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">コメント欄の下に表示されるストア欄を非表示にします。</string>
     <string name="revanced_hide_creator_store_shelf_title">クリエイターのストア欄を非表示</string>
@@ -750,6 +749,9 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_expandable_shelf_summary_off">検索結果にある、展開可能な棚を非表示にします。</string>
     <string name="revanced_hide_expandable_shelf_summary_on">検索結果にある、展開可能な棚を非表示にします。</string>
     <string name="revanced_hide_expandable_shelf_title">展開可能な棚を非表示</string>
+    <string name="revanced_hide_featured_section_summary_off">クリエイター欄内から注目の動画を非表示にします。</string>
+    <string name="revanced_hide_featured_section_summary_on">クリエイター欄内から注目の動画を非表示にします。</string>
+    <string name="revanced_hide_featured_section_title">注目のコンテンツ欄を非表示</string>
     <string name="revanced_hide_feed_captions_button_off">フィードから字幕のボタンを非表示にします。</string>
     <string name="revanced_hide_feed_captions_button_on">フィードから字幕のボタンを非表示にします。</string>
     <string name="revanced_hide_feed_captions_button_title">字幕ボタンを非表示</string>
@@ -785,18 +787,27 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_handle_summary_off">ハンドル (例: @youtubecreators) を非表示にします。</string>
     <string name="revanced_hide_handle_summary_on">ハンドル (例: @youtubecreators) を非表示にします。</string>
     <string name="revanced_hide_handle_title">ハンドルを非表示</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">概要欄から「制作の裏側」欄を非表示にします。</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">概要欄から「制作の裏側」欄を非表示にします。</string>
+    <string name="revanced_hide_how_this_was_made_section_title">「制作の裏側」欄を非表示</string>
     <string name="revanced_hide_hype_button_summary_off">[ハイプ] ボタンを非表示にします。</string>
     <string name="revanced_hide_hype_button_summary_on">[ハイプ] ボタンを非表示にします。</string>
     <string name="revanced_hide_hype_button_title">[ハイプ] ボタンを非表示</string>
+    <string name="revanced_hide_hype_points_section_summary_off">ハイプポイントセクションを非表示にします。</string>
+    <string name="revanced_hide_hype_points_section_summary_on">ハイプポイントセクションを非表示にします。</string>
+    <string name="revanced_hide_hype_points_section_title">ハイプポイントセクションを非表示</string>
+    <string name="revanced_hide_hype_points_summary_off">[ハイプ] ポイントを非表示にします。</string>
+    <string name="revanced_hide_hype_points_summary_on">[ハイプ] ポイントを非表示にします。</string>
+    <string name="revanced_hide_hype_points_title">ハイプポイントを非表示</string>
     <string name="revanced_hide_image_search_button_summary_off">画像検索ボタンを非表示にします。</string>
     <string name="revanced_hide_image_search_button_summary_on">画像検索ボタンを非表示にします。</string>
     <string name="revanced_hide_image_search_button_title">画像検索ボタンを非表示</string>
     <string name="revanced_hide_image_shelf_summary_off">画像欄を非表示にします。</string>
     <string name="revanced_hide_image_shelf_summary_on">画像欄を非表示にします。</string>
     <string name="revanced_hide_image_shelf_title">画像欄を非表示</string>
-    <string name="revanced_hide_info_cards_section_summary_off">概要欄のチャンネル情報カードを非表示にします。</string>
-    <string name="revanced_hide_info_cards_section_summary_on">概要欄のチャンネル情報カードを非表示にします。</string>
-    <string name="revanced_hide_info_cards_section_title">チャンネル情報カードを非表示</string>
+    <string name="revanced_hide_info_cards_section_summary_off">情報カード セクションは表示されます</string>
+    <string name="revanced_hide_info_cards_section_summary_on">情報カード セクションは表示されません</string>
+    <string name="revanced_hide_info_cards_section_title">情報カードを非表示</string>
     <string name="revanced_hide_info_cards_summary_off">プレーヤーの右上に表示される情報カードを非表示にします。</string>
     <string name="revanced_hide_info_cards_summary_on">プレーヤーの右上に表示される情報カードを非表示にします。</string>
     <string name="revanced_hide_info_cards_title">情報カードを非表示</string>
@@ -932,8 +943,7 @@ DeArrow について詳しく知るには、ここをタップしてください
 
 [音声トラック] メニューを表示するには:
 1. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[JavaScript クライアントを使用] をオンにします。
-2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV」を選択します。
-3. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[yt-dlp ejs を使用 (開発途中)] をオンにします。"</string>
+2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV」を選択します。"</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">[音声トラック] メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">[音声トラック] メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">[音声トラック] メニューを非表示</string>
@@ -1005,9 +1015,9 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_playlist_button_summary_off">[再生リストに保存] ボタンを非表示にします。</string>
     <string name="revanced_hide_playlist_button_summary_on">[再生リストに保存] ボタンを非表示にします。</string>
     <string name="revanced_hide_playlist_button_title">[保存] ボタンを非表示</string>
-    <string name="revanced_hide_podcast_section_summary_off">概要欄のポッドキャストセクションを非表示にします。</string>
-    <string name="revanced_hide_podcast_section_summary_on">概要欄のポッドキャストセクションを非表示にします。</string>
-    <string name="revanced_hide_podcast_section_title">ポッドキャストセクションを非表示</string>
+    <string name="revanced_hide_podcast_section_summary_off">「ポッドキャストを検索」セクションは表示されます</string>
+    <string name="revanced_hide_podcast_section_summary_on">「ポッドキャストを検索」セクションは表示されません</string>
+    <string name="revanced_hide_podcast_section_title">「ポッドキャストを検索」を非表示</string>
     <string name="revanced_hide_preview_comment_off">コメントのプレビューを非表示にします。</string>
     <string name="revanced_hide_preview_comment_on">コメントのプレビューを非表示にします。</string>
     <string name="revanced_hide_preview_comment_title">コメントのプレビューを非表示</string>
@@ -1323,6 +1333,9 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_stop_ads_button_summary_off">[広告の停止] ボタンを非表示にします。</string>
     <string name="revanced_hide_stop_ads_button_summary_on">[広告の停止] ボタンを非表示にします。</string>
     <string name="revanced_hide_stop_ads_button_title">[広告の停止] ボタンを非表示</string>
+    <string name="revanced_hide_subscribe_button_summary_off">クリエイター欄から [チャンネル登録] ボタンを非表示にします。</string>
+    <string name="revanced_hide_subscribe_button_summary_on">クリエイター欄から [チャンネル登録] ボタンを非表示にします。</string>
+    <string name="revanced_hide_subscribe_button_title">[チャンネル登録] ボタンを非表示</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">[登録チャンネル] タブの上部にある、登録しているチャンネル一覧を非表示にします。</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">[登録チャンネル] タブの上部にある、登録しているチャンネル一覧を非表示にします。</string>
     <string name="revanced_hide_subscribed_channels_bar_title">チャンネルバーを非表示</string>
@@ -1742,7 +1755,7 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_preference_screen_channel_bar_title">チャンネルバー</string>
     <string name="revanced_preference_screen_channel_page_summary">チャンネルページのコンポーネントを非表示または表示します。</string>
     <string name="revanced_preference_screen_channel_page_title">チャンネルページ</string>
-    <string name="revanced_preference_screen_comments_summary">コメントセクションのコンポーネントを非表示または表示します。</string>
+    <string name="revanced_preference_screen_comments_summary">コメント欄のコンポーネントを非表示または表示します。</string>
     <string name="revanced_preference_screen_comments_title">コメント</string>
     <string name="revanced_preference_screen_community_posts_summary">関連動画、[チャンネル] タブ、フィードにあるコミュニティ投稿を非表示または表示します。</string>
     <string name="revanced_preference_screen_community_posts_title">コミュニティ投稿</string>
@@ -2394,6 +2407,8 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(開発途中)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
+<small>(従来)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
 <small>(PoToken なし)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS

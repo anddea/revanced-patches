@@ -498,10 +498,9 @@ fun spoofStreamingDataPatch(
                 ResourceGroup(
                     "raw",
                     "po_token.html",
-                    "tv-player-ias-0004de42.js",
                     // External JavaScript for yt-dlp: https://github.com/yt-dlp/ejs
-                    "astring.bundle.min.js",
-                    "meriyah.bundle.min.js",
+                    "astring-1.9.0.min.js",
+                    "meriyah-6.1.4.min.js",
                     "polyfill.js",
                     "yt.solver.core.js",
                 )
