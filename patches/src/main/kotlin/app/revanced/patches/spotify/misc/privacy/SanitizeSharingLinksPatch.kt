@@ -21,7 +21,11 @@ val sanitizeSharingLinksPatch = bytecodePatch(
     name = "Sanitize sharing links",
     description = "Removes the tracking query parameters from links before they are shared.",
 ) {
-    compatibleWith("com.spotify.music")
+    compatibleWith(
+        "com.spotify.music"(
+            "9.0.90.1229",
+        ),
+    )
 
     execute {
         val originalMethod = shareLinkFingerprint.method
