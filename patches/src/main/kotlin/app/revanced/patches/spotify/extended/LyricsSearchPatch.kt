@@ -37,7 +37,11 @@ val lyricsSearchPatch = bytecodePatch(
     name = "Lyrics search",
     description = "Displays a \"Search Lyrics\" panel in the Main Activity that searches for lyrics on Google, and song meanings on Songtell. The activity is set to SpotifyMainActivity, so the \"Search Lyrics\" panel won't be shown in NowPlayingActivity (Player view) or possibly other activities.",
 ) {
-    compatibleWith("com.spotify.music")
+    compatibleWith(
+        "com.spotify.music"(
+            "9.0.90.1229",
+        ),
+    )
     dependsOn(setActivityContextPatch)
 
     execute {

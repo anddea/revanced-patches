@@ -30,7 +30,11 @@ val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium",
     description = "Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked.",
 ) {
-    compatibleWith("com.spotify.music")
+    compatibleWith(
+        "com.spotify.music"(
+            "9.0.90.1229",
+        ),
+    )
 
     dependsOn(
         sharedExtensionPatch,
