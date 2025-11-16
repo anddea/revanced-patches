@@ -241,8 +241,7 @@ Info: In some accounts, the original audio track is used."</string>
 
 This may not work for some users, if it doesn't work for you:
 1. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use JavaScript client'.
-2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV'.
-3. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use yt-dlp ejs (WIP)'."</string>
+2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disable forced auto audio tracks</string>
     <string name="revanced_disable_auto_captions_summary_off">Forced auto captions are enabled.</string>
     <string name="revanced_disable_auto_captions_summary_on">Forced auto captions are disabled.</string>
@@ -603,8 +602,8 @@ Info:
     <string name="revanced_hide_ask_button_summary_off">Ask button is shown.</string>
     <string name="revanced_hide_ask_button_summary_on">Ask button is hidden.</string>
     <string name="revanced_hide_ask_button_title">Hide Ask button</string>
-    <string name="revanced_hide_ask_section_summary_off">Ask section is shown</string>
-    <string name="revanced_hide_ask_section_summary_on">Ask section is hidden</string>
+    <string name="revanced_hide_ask_section_summary_off">Ask section is shown.</string>
+    <string name="revanced_hide_ask_section_summary_on">Ask section is hidden.</string>
     <string name="revanced_hide_ask_section_title">Hide Ask section</string>
     <string name="revanced_hide_attributes_section_summary_off">Featured places, Games, Music, and People mentioned sections are shown.</string>
     <string name="revanced_hide_attributes_section_summary_on">Featured places, Games, Music, and People mentioned sections are hidden.</string>
@@ -716,9 +715,9 @@ Limitation: Some highlighted search links that do not have a default text style 
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Shown in Subscriptions feed.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Hidden in Subscriptions feed.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Hide in Subscriptions feed</string>
-    <string name="revanced_hide_contents_section_summary_off">How this content was made section is shown.</string>
-    <string name="revanced_hide_contents_section_summary_on">How this content was made section is hidden.</string>
-    <string name="revanced_hide_contents_section_title">Hide How this content was made section</string>
+    <string name="revanced_hide_creator_section_summary_off">Creator section is shown.</string>
+    <string name="revanced_hide_creator_section_summary_on">Creator section is hidden.</string>
+    <string name="revanced_hide_creator_section_title">Hide Creator section</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Creator store shelf under videos is shown.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Creator store shelf under videos is hidden.</string>
     <string name="revanced_hide_creator_store_shelf_title">Hide creator store shelf</string>
@@ -749,6 +748,12 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Expandable shelves are shown.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Expandable shelves are hidden.</string>
     <string name="revanced_hide_expandable_shelf_title">Hide expandable shelves</string>
+    <string name="revanced_hide_explore_podcast_section_summary_off">Explore the podcast section is shown.</string>
+    <string name="revanced_hide_explore_podcast_section_summary_on">Explore the podcast section is hidden.</string>
+    <string name="revanced_hide_explore_podcast_section_title">Hide Explore the podcast section</string>
+    <string name="revanced_hide_featured_section_summary_off">Featured content section in Creator section is shown.</string>
+    <string name="revanced_hide_featured_section_summary_on">Featured content section in Creator section is hidden.</string>
+    <string name="revanced_hide_featured_section_title">Hide Featured content section</string>
     <string name="revanced_hide_feed_captions_button_off">Captions button is shown.</string>
     <string name="revanced_hide_feed_captions_button_on">Captions button is hidden.</string>
     <string name="revanced_hide_feed_captions_button_title">Hide Captions button</string>
@@ -784,9 +789,15 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_hide_handle_summary_off">Handle is shown.</string>
     <string name="revanced_hide_handle_summary_on">Handle is hidden.</string>
     <string name="revanced_hide_handle_title">Hide handle</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">How this content was made section is shown.</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">How this content was made section is hidden.</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Hide How this content was made section</string>
     <string name="revanced_hide_hype_button_summary_off">Hype button is shown.</string>
     <string name="revanced_hide_hype_button_summary_on">Hype button is hidden.</string>
     <string name="revanced_hide_hype_button_title">Hide Hype button</string>
+    <string name="revanced_hide_hype_points_section_summary_off">Hype points section is shown.</string>
+    <string name="revanced_hide_hype_points_section_summary_on">Hype points section is hidden.</string>
+    <string name="revanced_hide_hype_points_section_title">Hide Hype points section</string>
     <string name="revanced_hide_hype_points_summary_off">Hype points are shown.</string>
     <string name="revanced_hide_hype_points_summary_on">Hype points are hidden.</string>
     <string name="revanced_hide_hype_points_title">Hide Hype points</string>
@@ -934,8 +945,7 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 
 To show the Audio track menu:
 1. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use JavaScript client'.
-2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV'.
-3. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use yt-dlp ejs (WIP)'."</string>
+2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Audio track menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Audio track menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Hide Audio track menu</string>
@@ -1330,6 +1340,9 @@ Side effect: Official headers in search results will be hidden."</string>
     <string name="revanced_hide_stop_ads_button_summary_off">Stop ads button is shown.</string>
     <string name="revanced_hide_stop_ads_button_summary_on">Stop ads button is hidden.</string>
     <string name="revanced_hide_stop_ads_button_title">Hide Stop ads</string>
+    <string name="revanced_hide_subscribe_button_summary_off">Subscribe button in Creator section is shown.</string>
+    <string name="revanced_hide_subscribe_button_summary_on">Subscribe button in Creator section is hidden.</string>
+    <string name="revanced_hide_subscribe_button_title">Hide Subscribe button</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">Subscribed channels bar is shown.</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">Subscribed channels bar is hidden.</string>
     <string name="revanced_hide_subscribed_channels_bar_title">Hide subscribed channels bar</string>
@@ -2391,6 +2404,8 @@ This feature is still in development, so it may break at any time due to server-
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Mobile Web
 <small>(WIP)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
+<small>(Legacy)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
 <small>(No PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS

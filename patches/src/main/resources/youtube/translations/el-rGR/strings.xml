@@ -233,8 +233,7 @@
 
 Αυτή η ρύθμιση μπορεί να μη λειτουργεί για ορισμένους χρήστες, αν δε λειτουργεί για εσάς:
 1. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, ενεργοποιήστε τη ρύθμιση «Χρήση προγράμματος πελάτη JavaScript».
-2. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» σε «TV».
-3. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, ενεργοποιήστε την ρύθμιση «Χρήση του yt-dlp ejs (λειτουργία σε εξέλιξη)»."</string>
+2. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» σε «TV»."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Απενεργοποίηση υποχρεωτικών κομματιών ήχου</string>
     <string name="revanced_disable_auto_captions_summary_off">Οι υποχρεωτικοί αυτόματοι υπότιτλοι εμφανίζονται.</string>
     <string name="revanced_disable_auto_captions_summary_on">Οι υποχρεωτικοί αυτόματοι υπότιτλοι είναι απενεργοποιημένοι.</string>
@@ -675,13 +674,6 @@ Playlists
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Δημοσιεύσεις κοινότητας στη ροή «Εγγραφές»</string>
-    <string name="revanced_hide_contents_section_summary_off">Εμφανίζεται.
-
-Αφορά την ενότητα «Πως δημιουργήθηκε αυτό το περιεχόμενο».</string>
-    <string name="revanced_hide_contents_section_summary_on">Κρυμμένη.
-
-Αφορά την ενότητα «Πως δημιουργήθηκε αυτό το περιεχόμενο».</string>
-    <string name="revanced_hide_contents_section_title">Ενότητα «Πώς δημιουργήθηκε αυτό το περιεχόμενο»</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Εμφανίζεται\n\nΑφορά την ενότητα καταστήματος δημιουργού κάτω από την οθόνη αναπαραγωγής.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Κρυμμένη\n\nΑφορά την ενότητα καταστήματος δημιουργού κάτω από την οθόνη αναπαραγωγής.</string>
     <string name="revanced_hide_creator_store_shelf_title">Ενότητα καταστήματος δημιουργού</string>
@@ -712,6 +704,9 @@ Playlists
     <string name="revanced_hide_expandable_shelf_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_expandable_shelf_title">Επεκτάσιμες ενότητες</string>
+    <string name="revanced_hide_featured_section_summary_off">Εμφανίζεται</string>
+    <string name="revanced_hide_featured_section_summary_on">Κρυμμένη</string>
+    <string name="revanced_hide_featured_section_title">Ενότητα προτεινόμενων συνδέσμων</string>
     <string name="revanced_hide_feed_captions_button_off">Εμφανίζεται.</string>
     <string name="revanced_hide_feed_captions_button_on">Κρυμμένο.</string>
     <string name="revanced_hide_feed_captions_button_title">Κουμπί υπότιτλων</string>
@@ -747,18 +742,27 @@ Playlists
     <string name="revanced_hide_handle_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_handle_summary_on">Κρυμμένα.</string>
     <string name="revanced_hide_handle_title">Ψευδώνυμο &amp; διεύθυνση e-mail</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">Εμφανίζεται</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">Κρυμμένη</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Ενότητα «Πως δημιουργήθηκε αυτό το περιεχόμενο»</string>
     <string name="revanced_hide_hype_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_hype_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_hype_button_title">Κουμπί «Hype»</string>
+    <string name="revanced_hide_hype_points_section_summary_off">Εμφανίζονται.</string>
+    <string name="revanced_hide_hype_points_section_summary_on">Κρυμμένοι.</string>
+    <string name="revanced_hide_hype_points_section_title">Πόντοι Hype</string>
+    <string name="revanced_hide_hype_points_summary_off">Εμφανίζονται</string>
+    <string name="revanced_hide_hype_points_summary_on">Κρυμμένοι</string>
+    <string name="revanced_hide_hype_points_title">Πόντοι Hype</string>
     <string name="revanced_hide_image_search_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_image_search_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_image_search_button_title">Κουμπί αναζήτησης εικόνας</string>
     <string name="revanced_hide_image_shelf_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_image_shelf_summary_on">Κρυμμένη.</string>
     <string name="revanced_hide_image_shelf_title">Ενότητα εικόνων</string>
-    <string name="revanced_hide_info_cards_section_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_info_cards_section_summary_on">Κρυμμένη.</string>
-    <string name="revanced_hide_info_cards_section_title">Ενότητα καρτών πληροφοριών</string>
+    <string name="revanced_hide_info_cards_section_summary_off">Εμφανίζεται</string>
+    <string name="revanced_hide_info_cards_section_summary_on">Κρυμμένη</string>
+    <string name="revanced_hide_info_cards_section_title">Κάρτες πληροφοριών</string>
     <string name="revanced_hide_info_cards_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_info_cards_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_info_cards_title">Κάρτες πληροφοριών</string>
@@ -892,8 +896,7 @@ Playlists
 
 Για να εμφανίζεται το μενού «Κομμάτι ήχου»:
 1. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, ενεργοποιήστε τη ρύθμιση «Χρήση προγράμματος πελάτη JavaScript».
-2. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» σε «TV».
-3. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, ενεργοποιήστε την ρύθμιση «Χρήση του yt-dlp ejs (λειτουργία σε εξέλιξη)»."</string>
+2. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» σε «TV»."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Μενού «Κομμάτι ήχου»</string>
@@ -965,9 +968,9 @@ Playlists
     <string name="revanced_hide_playlist_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_playlist_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_playlist_button_title">Κουμπί «Αποθήκευση»</string>
-    <string name="revanced_hide_podcast_section_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_podcast_section_summary_on">Κρυμμένη.</string>
-    <string name="revanced_hide_podcast_section_title">Ενότητα «Εξερευνήστε του podcast»</string>
+    <string name="revanced_hide_podcast_section_summary_off">Εμφανίζεται</string>
+    <string name="revanced_hide_podcast_section_summary_on">Κρυμμένη</string>
+    <string name="revanced_hide_podcast_section_title">Ενότητα «Εξερευνήστε το podcast»</string>
     <string name="revanced_hide_preview_comment_off">Εμφανίζεται.</string>
     <string name="revanced_hide_preview_comment_on">Κρυμμένη.</string>
     <string name="revanced_hide_preview_comment_title">Προεπισκόπηση σχολίου</string>
@@ -2311,6 +2314,8 @@ Playlists
     <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web Κινητού
 <small>(λειτουργία σε εξέλιξη)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
+<small>(Παλιό)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
 <small>(Χωρίς PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS

@@ -279,9 +279,31 @@ object YouTubeClient {
      * Video not playable: None.
      * Note: Both 'Authorization' and 'Set-Cookie' are supported.
      */
-    private const val CLIENT_VERSION_TVHTML5 = "7.20250917.13.00"
+    private const val CLIENT_VERSION_TVHTML5 = "7.20251105.10.00"
+    /**
+     * authenticatedConfig.flags.attest_botguard_on_tvhtml5: false.
+     */
     private const val USER_AGENT_TVHTML5 =
-        "Mozilla/5.0 (RokuOS) Cobalt/20.lts.5.272122-gold (unlike Gecko) v8/6.5.254.43 gles Starboard/11, Roku_TV_MT10_2017/12.0 (TCL, 7121X, Wired)"
+        "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)"
+
+
+    // TVHTML5 (Downgraded)
+    /**
+     * Same as TVHTML5, but can play SABR format-only videos.
+     * See: https://github.com/yt-dlp/yt-dlp/pull/14887.
+     *
+     * Available version
+     * ===============
+     * '5.20150304'
+     * '5.20160729'
+     * '6.20180913'
+     */
+    private const val CLIENT_VERSION_TVHTML5_LEGACY = "5.20150304"
+    /**
+     * authenticatedConfig.flags.attest_botguard_on_tvhtml5: false.
+     */
+    private const val USER_AGENT_TVHTML5_LEGACY =
+        "Mozilla/5.0 (Linux mipsel) Cobalt/9.28152-debug (unlike Gecko) Starboard/4"
 
 
     // TVHTML5 SIMPLY
@@ -290,8 +312,11 @@ object YouTubeClient {
      * Note: Only 'Authorization' is supported, PoToken required?
      */
     private const val CLIENT_VERSION_TVHTML5_SIMPLY = "1.1"
+    /**
+     * authenticatedConfig.flags.attest_botguard_on_tvhtml5: false.
+     */
     private const val USER_AGENT_TVHTML5_SIMPLY =
-        "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)"
+        "Mozilla/5.0 (PS4; Leanback Shell) Gecko/20100101 Firefox/65.0 LeanbackShell/01.00.01.75 Sony PS4/ (PS4, , no, CH)"
 
 
     // TVHTML5 EMBEDDED
@@ -308,7 +333,7 @@ object YouTubeClient {
      * Note: Audio track is not available.
      * Note: Only 'Set-Cookie' is supported.
      */
-    private const val CLIENT_VERSION_MWEB = "2.20250918.09.00"
+    private const val CLIENT_VERSION_MWEB = "2.20251105.03.00"
     private const val USER_AGENT_MWEB =
         "Mozilla/5.0 (Android 16; Mobile; rv:140.0) Gecko/140.0 Firefox/140.0"
 
@@ -576,13 +601,24 @@ object YouTubeClient {
         TV(
             id = 7,
             clientVersion = CLIENT_VERSION_TVHTML5,
-            clientPlatform = CLIENT_PLATFORM_TV,
+            clientPlatform = CLIENT_PLATFORM_GAME_CONSOLE,
             userAgent = USER_AGENT_TVHTML5,
             requireJS = true,
             refererFormat = CLIENT_REFERER_FORMAT_TV,
             supportsMultiAudioTracks = true,
             clientName = "TVHTML5",
             friendlyName = "TV"
+        ),
+        TV_LEGACY(
+            id = 7,
+            clientVersion = CLIENT_VERSION_TVHTML5_LEGACY,
+            clientPlatform = CLIENT_PLATFORM_DESKTOP,
+            userAgent = USER_AGENT_TVHTML5_LEGACY,
+            requireJS = true,
+            refererFormat = CLIENT_REFERER_FORMAT_TV,
+            supportsMultiAudioTracks = true,
+            clientName = "TVHTML5",
+            friendlyName = "TV Legacy"
         ),
         TV_SIMPLY_NO_POTOKEN(
             id = 75,
@@ -600,7 +636,7 @@ object YouTubeClient {
         TV_EMBEDDED(
             id = 85,
             clientVersion = CLIENT_VERSION_TVHTML5_EMBEDDED,
-            clientPlatform = CLIENT_PLATFORM_TV,
+            clientPlatform = CLIENT_PLATFORM_GAME_CONSOLE,
             clientScreen = CLIENT_SCREEN_EMBED,
             userAgent = USER_AGENT_TVHTML5,
             requireJS = true,
@@ -609,6 +645,13 @@ object YouTubeClient {
             clientName = "TVHTML5_SIMPLY_EMBEDDED_PLAYER",
             friendlyName = "TV Embedded"
         ),
+
+        /**
+         * PoToken client is currently not working.
+         * Mobile Web has been temporarily removed from the available clients.
+         *
+         * TODO: Fix me when the SABR extractor is implemented in the future.
+         */
         MWEB(
             id = 2,
             clientVersion = CLIENT_VERSION_MWEB,
@@ -640,7 +683,8 @@ object YouTubeClient {
                 IPADOS,
                 TV,
                 TV_SIMPLY_NO_POTOKEN,
-                MWEB,
+                TV_LEGACY,
+                //MWEB,
                 ANDROID_VR_AUTH,
                 IOS_DEPRECATED,
             )
@@ -652,7 +696,8 @@ object YouTubeClient {
                 ANDROID_NO_SDK,
                 IPADOS,
                 TV_SIMPLY_NO_POTOKEN,
-                MWEB,
+                TV_LEGACY,
+                //MWEB,
                 ANDROID_VR_AUTH,
                 IOS_DEPRECATED,
             )

@@ -262,7 +262,7 @@ class StreamingDataRequest private constructor(
                     val deobfuscatedAdaptiveFormatsArrayList: ArrayList<String> =
                         ArrayList(adaptiveFormatsCount)
                     val sessionPoToken = if (clientType.requirePoToken)
-                        PoTokenGate.getSessionPoToken(videoId)
+                        PoTokenGate.getWebSessionPoToken(videoId)
                     else
                         null
 
