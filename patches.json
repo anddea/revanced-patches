@@ -152,6 +152,7 @@
     "dependencies": [
       "Settings for YouTube",
       "BytecodePatch",
+      "BytecodePatch",
       "BytecodePatch"
     ],
     "compatiblePackages": {
@@ -194,7 +195,9 @@
     "use": false,
     "dependencies": [],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": [
       {
@@ -774,7 +777,9 @@
       "BytecodePatch"
     ],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": [
       {
@@ -1358,7 +1363,9 @@
     "use": true,
     "dependencies": [],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": []
   },
@@ -1368,7 +1375,9 @@
     "use": true,
     "dependencies": [],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": []
   },
@@ -1498,7 +1507,8 @@
         "default": "app.revanced",
         "values": {
           "ReVanced MicroG": "app.revanced",
-          "Original MicroG": "com.google"
+          "Original MicroG": "com.google",
+          "Vanced MicroG": "com.mgoogle"
         }
       },
       {
@@ -1585,7 +1595,8 @@
         "default": "app.revanced",
         "values": {
           "ReVanced MicroG": "app.revanced",
-          "Original MicroG": "com.google"
+          "Original MicroG": "com.google",
+          "Vanced MicroG": "com.mgoogle"
         }
       },
       {
@@ -1649,7 +1660,9 @@
       "BytecodePatch"
     ],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": []
   },
@@ -1806,6 +1819,8 @@
     "dependencies": [
       "Settings for YouTube",
       "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch",
       "BytecodePatch",
       "ResourcePatch",
       "ResourcePatch"
@@ -2229,7 +2244,9 @@
       "BytecodePatch"
     ],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": []
   },
@@ -2282,6 +2299,7 @@
       "ResourcePatch",
       "Settings for YouTube",
       "ResourcePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch"
     ],
@@ -2752,7 +2770,9 @@
     "use": true,
     "dependencies": [],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": []
   },
@@ -3483,7 +3503,9 @@
       "BytecodePatch"
     ],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": []
   },
@@ -3496,7 +3518,9 @@
       "RawResourcePatch"
     ],
     "compatiblePackages": {
-      "com.ysy.app.firewall": null
+      "com.ysy.app.firewall": [
+        "1.3.4"
+      ]
     },
     "options": []
   },
