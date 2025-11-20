@@ -1387,6 +1387,11 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_toolbar_notification_button_summary_off">알림 버튼이 표시됩니다.</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">알림 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_toolbar_notification_button_title">알림 버튼 숨기기</string>
+    <string name="revanced_hide_toolbar_search_button_summary_off">검색 버튼이 표시됩니다.</string>
+    <string name="revanced_hide_toolbar_search_button_summary_on">"검색 버튼이 숨겨집니다.
+
+넓은 검색창이 활성화되어있는 경우에는 이 설정이 작동하지 않을 수 있습니다."</string>
+    <string name="revanced_hide_toolbar_search_button_title">검색 버튼 숨기기</string>
     <string name="revanced_hide_transcript_section_summary_off">스크립트 섹션이 표시됩니다.</string>
     <string name="revanced_hide_transcript_section_summary_on">스크립트 섹션이 숨겨집니다.</string>
     <string name="revanced_hide_transcript_section_title">스크립트 섹션 숨기기</string>
@@ -1933,6 +1938,13 @@ Gemini API Key를 발급받으려면 여기를 누르세요."</string>
     <string name="revanced_replace_channel_handle_summary_off">채널 핸들(@채널 아이디)을 사용합니다.</string>
     <string name="revanced_replace_channel_handle_summary_on">채널 이름을 사용합니다.</string>
     <string name="revanced_replace_channel_handle_title">채널 핸들 변경하기</string>
+    <string name="revanced_replace_navigation_button_summary">탐색 버튼을 검색 버튼으로 변경합니다.</string>
+    <string name="revanced_replace_navigation_button_target_entry_home">홈</string>
+    <string name="revanced_replace_navigation_button_target_entry_notifications">알림</string>
+    <string name="revanced_replace_navigation_button_target_entry_shorts">Shorts</string>
+    <string name="revanced_replace_navigation_button_target_entry_subscriptions">구독</string>
+    <string name="revanced_replace_navigation_button_target_title">탐색 버튼 변경하기</string>
+    <string name="revanced_replace_navigation_button_title">탐색 버튼 변경하기</string>
     <string name="revanced_replace_time_stamp_action_summary_off">타임스탬프를 탭하면 남은 시간을 표시할 수 있습니다.</string>
     <string name="revanced_replace_time_stamp_action_summary_on">타임스탬프를 탭하면 동영상 재생 속도 또는 동영상 화질 설정 메뉴 구성요소를 열 수 있습니다.</string>
     <string name="revanced_replace_time_stamp_action_title">타임스탬프 탭하기 동작 변경하기</string>
@@ -2382,6 +2394,7 @@ Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - 이전 재생목록 헤더로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - 이전 동영상 재생 속도 구성요소 패널을 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - 스크립트 기능을 복원합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - 접히지 않은 동영상 동작바를 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_title">변경할 앱 버전</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">변경할 앱 버전이 잘못되었습니다: %s</string>
     <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 입력하세요.</string>
@@ -2720,15 +2733,9 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV입니다
 • 이 설정을 활성화하면 일부 광고가 강제로 숨겨집니다. (동영상 광고, 일반 레이아웃 광고)
 • 광고 설정에 있는 일부 설정들을 비활성화하려면 이 설정도 비활성화해야 합니다."</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">만들기 버튼과 알림 버튼의 위치를 교환하지 않습니다.</string>
-    <string name="revanced_switch_create_with_notifications_button_summary_on">"만들기 버튼과 알림 버튼의 위치를 교환합니다.
-
-알림: 이 설정을 활성화하면 동영상 광고도 강제로 숨겨집니다."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">만들기 버튼과 알림 버튼의 위치를 교환합니다.</string>
     <string name="revanced_switch_create_with_notifications_button_title">만들기 버튼과 알림 버튼 위치 교환하기</string>
-    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"이 설정을 비활성화하면 서버에서 더 많은 광고가 불러오게 될 수 있습니다.
-
-또한, Shorts에서 광고가 더 이상 숨겨지지 않습니다.
-
-이 설정이 적용되지 않는 경우에는 시크릿 모드로 전환해 보세요."</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">이 설정이 적용되지 않는 경우에는 시크릿 모드로 전환해 보세요.</string>
     <string name="revanced_theme_default">YouTube</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">경고</string>

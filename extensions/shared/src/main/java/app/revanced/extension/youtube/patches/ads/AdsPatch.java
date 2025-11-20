@@ -8,6 +8,7 @@ import java.util.List;
 
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.utils.ExtendedUtils;
 
 @SuppressWarnings("unused")
 public class AdsPatch {
@@ -60,6 +61,13 @@ public class AdsPatch {
     /**
      * Injection point.
      */
+    public static boolean hideShortsAds(boolean original) {
+        return HIDE_VIDEO_ADS || original;
+    }
+
+    /**
+     * Injection point.
+     */
     public static boolean hideVideoAds() {
         return HIDE_VIDEO_ADS;
     }
@@ -74,4 +82,17 @@ public class AdsPatch {
         return !HIDE_VIDEO_ADS && original;
     }
 
+    /**
+     * Injection point.
+     * <p>
+     * Toolbar buttons (including the YouTube logo) and navigation bar buttons depend on the
+     * '<a href="https://www.youtube.com/youtubei/v1/guide">'/guide' endpoint</a>' requests.
+     * <p>
+     * Therefore, the patch works if the 'osName' value is spoofed only in '/guide' endpoint requests.
+     *
+     * @return osName.
+     */
+    public static String overrideOSName() {
+        return ExtendedUtils.getOSName();
+    }
 }

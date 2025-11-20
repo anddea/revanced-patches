@@ -707,6 +707,10 @@ public final class app/revanced/patches/shared/spoof/appversion/BaseSpoofAppVers
 	public static final fun baseSpoofAppVersionPatch (Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/shared/spoof/guide/SpoofClientGuideEndpointPatchKt {
+	public static final fun getSpoofClientGuideEndpointPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/shared/spoof/streamingdata/FingerprintsKt {
 	public static final field STREAMING_DATA_OUTER_CLASS Ljava/lang/String;
 }
@@ -1183,6 +1187,7 @@ public final class app/revanced/patches/youtube/utils/navigation/NavigationBarHo
 	public static final fun addBottomBarContainerHook (Ljava/lang/String;)V
 	public static final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function1;
 	public static final fun getNavigationBarHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getNavigationButtonsMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 	public static final fun setHookNavigationButtonCreated (Lkotlin/jvm/functions/Function1;)V
 }
 
@@ -1231,6 +1236,7 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_19_32_or_greater ()Z
 	public static final fun is_19_34_or_greater ()Z
 	public static final fun is_19_36_or_greater ()Z
+	public static final fun is_19_37_or_greater ()Z
 	public static final fun is_19_41_or_greater ()Z
 	public static final fun is_19_42_or_greater ()Z
 	public static final fun is_19_43_or_greater ()Z
@@ -1242,6 +1248,7 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_20_03_or_greater ()Z
 	public static final fun is_20_04_or_greater ()Z
 	public static final fun is_20_05_or_greater ()Z
+	public static final fun is_20_06_or_greater ()Z
 	public static final fun is_20_07_or_greater ()Z
 	public static final fun is_20_09_or_greater ()Z
 	public static final fun is_20_10_or_greater ()Z
@@ -1272,6 +1279,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getAccountSwitcherAccessibility ()J
 	public static final fun getActionBarRingo ()J
 	public static final fun getActionBarRingoBackground ()J
+	public static final fun getActionBarSearchResultsViewMic ()J
 	public static final fun getAdAttribution ()J
 	public static final fun getAppRelatedEndScreenResults ()J
 	public static final fun getAppearance ()J
@@ -1326,6 +1334,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getLikeTapFeedbackCairo ()J
 	public static final fun getMdxSeamlessTVSignInDrawerFragmentTitle ()J
 	public static final fun getMenuItemView ()J
+	public static final fun getMenuSearch ()J
 	public static final fun getMiniplayerMaxSize ()J
 	public static final fun getModernMiniPlayerClose ()J
 	public static final fun getModernMiniPlayerExpand ()J
@@ -1333,6 +1342,8 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getModernMiniPlayerOverlayActionButton ()J
 	public static final fun getModernMiniPlayerRewindButton ()J
 	public static final fun getMusicAppDeeplinkButtonView ()J
+	public static final fun getNewContentCount ()J
+	public static final fun getNewContentDot ()J
 	public static final fun getNotificationBigPictureIconWidth ()J
 	public static final fun getOfflineActionsVideoDeletedUndoSnackbarText ()J
 	public static final fun getOfflineNoContentBodyTextNotOfflineEligible ()J
@@ -1360,6 +1371,8 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getRelatedChipCloudMargin ()J
 	public static final fun getRightComment ()J
 	public static final fun getScrimOverlay ()J
+	public static final fun getSearchBox ()J
+	public static final fun getSearchQuery ()J
 	public static final fun getSeeMoreProceedingHeader ()J
 	public static final fun getSeekEasyHorizontalTouchOffsetToStartScrubbing ()J
 	public static final fun getSeekUndoEduOverlayStub ()J

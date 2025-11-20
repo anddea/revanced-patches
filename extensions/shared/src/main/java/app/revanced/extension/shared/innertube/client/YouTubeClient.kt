@@ -150,9 +150,15 @@ object YouTubeClient {
      * in the `Additional details` section.
      */
     private val CLIENT_VERSION_ANDROID_VR = if (useAV1())
-        "1.65.10"
+        // Lowest version that supports AV1.
+        // According to the changelog, only Quest 3 supports the AV1 codec in this version.
+        // SABR is not used.
+        // Cronet version: 122.0.6238.3
+        "1.54.20"
     else
-        "1.43.32" // Last version of minSdkVersion 24.
+        // SABR is not used.
+        // Cronet version: 113.0.5672.24
+        "1.47.48"
 
     /**
      * The device machine id for the Meta Quest 3, used to get opus codec with the Android VR client.
@@ -166,15 +172,15 @@ object YouTubeClient {
     private val OS_VERSION_ANDROID_VR = if (useAV1())
         "14"
     else
-        "7.1.1"
+        "10"
     private val ANDROID_SDK_VERSION_ANDROID_VR = if (useAV1())
         "34"
     else
-        "25"
+        "29"
     private val BUILD_ID_ANDROID_VR = if (useAV1())
         "UP1A.231005.007.A1"
     else
-        "NGI77B"
+        "QQ3A.200805.001"
 
     private val USER_AGENT_ANDROID_VR = androidUserAgent(
         packageName = PACKAGE_NAME_ANDROID_VR,
@@ -325,6 +331,21 @@ object YouTubeClient {
      * Note: Both 'Authorization' and 'Set-Cookie' are supported.
      */
     private const val CLIENT_VERSION_TVHTML5_EMBEDDED = "2.0"
+
+
+    // WEB (Downgraded)
+    /**
+     * Same as WEB, but for some reason SABR is not applied.
+     *
+     * Available version
+     * ===============
+     * '1.20160315'
+     * '1.20161001'
+     * '1.20170222'
+     */
+    private const val CLIENT_VERSION_WEB_LEGACY = "1.20160315"
+    private const val USER_AGENT_WEB_LEGACY =
+        "Mozilla/5.0 (X11; OpenBSD amd64; rv:45.0) Gecko/20100101 Firefox/45.0"
 
 
     // MWEB
@@ -648,9 +669,9 @@ object YouTubeClient {
 
         /**
          * PoToken client is currently not working.
-         * Mobile Web has been temporarily removed from the available clients.
+         * Mobile Web / Web has been temporarily removed from the available clients.
          *
-         * TODO: Fix me when the SABR extractor is implemented in the future.
+         * TODO: Content PoToken must be generated using the '/att/get' endpoint.
          */
         MWEB(
             id = 2,
@@ -658,11 +679,31 @@ object YouTubeClient {
             userAgent = USER_AGENT_MWEB,
             requireJS = true,
             requirePoToken = true,
-            // Android YouTube app does not support 'Cookie'.
+            // Android YouTube app does not support 'Cookie'?.
             supportsCookies = false,
             refererFormat = CLIENT_REFERER_FORMAT_MWEB,
             clientName = "MWEB",
             friendlyName = "Mobile Web"
+        ),
+
+        /**
+         * PoToken client is currently not working.
+         * Mobile Web / Web has been temporarily removed from the available clients.
+         *
+         * TODO: Content PoToken must be generated using the '/att/get' endpoint.
+         */
+        WEB_LEGACY(
+            id = 1,
+            clientVersion = CLIENT_VERSION_WEB_LEGACY,
+            clientPlatform = CLIENT_PLATFORM_DESKTOP,
+            userAgent = USER_AGENT_WEB_LEGACY,
+            requireJS = true,
+            requirePoToken = true,
+            // Android YouTube app does not support 'Cookie'?.
+            supportsCookies = false,
+            refererFormat = CLIENT_REFERER_FORMAT_WEB,
+            clientName = "WEB",
+            friendlyName = "Web"
         );
 
         companion object {
@@ -684,7 +725,6 @@ object YouTubeClient {
                 TV,
                 TV_SIMPLY_NO_POTOKEN,
                 TV_LEGACY,
-                //MWEB,
                 ANDROID_VR_AUTH,
                 IOS_DEPRECATED,
             )
@@ -697,7 +737,6 @@ object YouTubeClient {
                 IPADOS,
                 TV_SIMPLY_NO_POTOKEN,
                 TV_LEGACY,
-                //MWEB,
                 ANDROID_VR_AUTH,
                 IOS_DEPRECATED,
             )

@@ -49,6 +49,7 @@ import app.revanced.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOver
 import app.revanced.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOverlaySeekColorAvailability;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
 import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
+import app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 import app.revanced.extension.youtube.shared.PlaylistIdPrefix;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController.SponsorBlockDuration;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
@@ -202,6 +203,8 @@ public class Settings extends BaseSettings {
             "revanced_switch_create_with_notifications_button_user_dialog_message");
     public static final BooleanSetting ENABLE_TRANSLUCENT_NAVIGATION_BAR = new BooleanSetting("revanced_enable_translucent_navigation_bar", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR = new BooleanSetting("revanced_hide_navigation_bar", FALSE, true);
+    public static final BooleanSetting REPLACE_NAVIGATION_BUTTON = new BooleanSetting("revanced_replace_navigation_button", FALSE, true);
+    public static final EnumSetting<NavigationButton> REPLACE_NAVIGATION_BUTTON_TARGET = new EnumSetting<>("revanced_replace_navigation_button_target", NavigationButton.SHORTS, true, parent(REPLACE_NAVIGATION_BUTTON));
 
     // PreferenceScreen: General - Override buttons
     public static final BooleanSetting OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON = new BooleanSetting("revanced_override_playlist_download_button", FALSE, true);
@@ -261,6 +264,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_TOOLBAR_CAST_BUTTON = new BooleanSetting("revanced_hide_toolbar_cast_button", TRUE, true);
     public static final BooleanSetting HIDE_TOOLBAR_CREATE_BUTTON = new BooleanSetting("revanced_hide_toolbar_create_button", FALSE, true);
     public static final BooleanSetting HIDE_TOOLBAR_NOTIFICATION_BUTTON = new BooleanSetting("revanced_hide_toolbar_notification_button", FALSE, true);
+    public static final BooleanSetting HIDE_TOOLBAR_SEARCH_BUTTON = new BooleanSetting("revanced_hide_toolbar_search_button", FALSE, true);
     public static final BooleanSetting HIDE_SEARCH_TERM_THUMBNAIL = new BooleanSetting("revanced_hide_search_term_thumbnail", FALSE);
     public static final BooleanSetting HIDE_IMAGE_SEARCH_BUTTON = new BooleanSetting("revanced_hide_image_search_button", FALSE, true);
     public static final BooleanSetting HIDE_VOICE_SEARCH_BUTTON = new BooleanSetting("revanced_hide_voice_search_button", FALSE, true);

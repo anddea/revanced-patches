@@ -33,6 +33,9 @@ internal const val EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR =
 private lateinit var bottomBarContainerMethod: MutableMethod
 private var bottomBarContainerOffset = 0
 
+lateinit var navigationButtonsMethod: MutableMethod
+    private set
+
 lateinit var hookNavigationButtonCreated: (String) -> Unit
 
 val navigationBarHookPatch = bytecodePatch(
@@ -66,6 +69,8 @@ val navigationBarHookPatch = bytecodePatch(
         }
 
         initializeButtonsFingerprint.methodOrThrow(pivotBarConstructorFingerprint).apply {
+            navigationButtonsMethod = this
+
             // Hook the current navigation bar enum value. Note, the 'You' tab does not have an enum value.
             val navigationEnumClassName = navigationEnumFingerprint.mutableClassOrThrow().type
             addHook(NavigationHook.SET_LAST_APP_NAVIGATION_ENUM) {
@@ -147,7 +152,7 @@ fun addBottomBarContainerHook(descriptor: String) {
     }
 }
 
-private enum class NavigationHook(val methodName: String, val parameters: String) {
+internal enum class NavigationHook(val methodName: String, val parameters: String) {
     SET_LAST_APP_NAVIGATION_ENUM("setLastAppNavigationEnum", "Ljava/lang/Enum;"),
     NAVIGATION_TAB_LOADED("navigationTabLoaded", "Landroid/view/View;"),
     NAVIGATION_IMAGE_RESOURCE_TAB_LOADED(

@@ -564,9 +564,9 @@ Információ:
     <string name="revanced_hide_ask_button_summary_off">A kérdés gomb látható.</string>
     <string name="revanced_hide_ask_button_summary_on">A kérdés gomb el van rejtve.</string>
     <string name="revanced_hide_ask_button_title">Kérdés gomb elrejtése</string>
-    <string name="revanced_hide_ask_section_summary_off">A kérdezés szakasz megjelenik</string>
-    <string name="revanced_hide_ask_section_summary_on">A kérdezés szakasz el van rejtve</string>
-    <string name="revanced_hide_ask_section_title">Kérdezés elrejtése</string>
+    <string name="revanced_hide_ask_section_summary_off">A kérdés rész látható.</string>
+    <string name="revanced_hide_ask_section_summary_on">A kérdés rész rejtett.</string>
+    <string name="revanced_hide_ask_section_title">Kérdés rész elrejtése</string>
     <string name="revanced_hide_attributes_section_summary_off">A kiemelt helyek, a Játékok és a Zene szakaszok láthatóak.</string>
     <string name="revanced_hide_attributes_section_summary_on">A kiemelt helyek, a játékok, a zene és a megemlített emberek részek el vannak rejtve.</string>
     <string name="revanced_hide_attributes_section_title">Tulajdonságok szakasz elrejtése</string>
@@ -674,6 +674,9 @@ Lejátszási listák
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Látható a feliratkozások között.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Elrejtve a feliratkozások között.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Elrejtés a feliratkozások között</string>
+    <string name="revanced_hide_creator_section_summary_off">A létrehozói rész látható.</string>
+    <string name="revanced_hide_creator_section_summary_on">A létrehozói rész rejtett.</string>
+    <string name="revanced_hide_creator_section_title">Létrehozói rész elrejtése</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">A videók alatti alkotói áruház polc látható.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">A videók alatti alkotói áruház polc el van rejtve.</string>
     <string name="revanced_hide_creator_store_shelf_title">Alkotói áruház polcának elrejtése</string>
@@ -704,9 +707,12 @@ Beállítások → Automatikus lejátszás / Lejátszás → Következő videó 
     <string name="revanced_hide_expandable_shelf_summary_off">A kinyitható polcok láthatóak.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">A kinyitható polcok el vannak rejtve.</string>
     <string name="revanced_hide_expandable_shelf_title">Kinyitható polcok elrejtése</string>
-    <string name="revanced_hide_featured_section_summary_off">A kiemelt tartalmak szekció látható</string>
-    <string name="revanced_hide_featured_section_summary_on">A kiemelt tartalmak szekció elrejtve</string>
-    <string name="revanced_hide_featured_section_title">Kiemelt tartalom elrejtése</string>
+    <string name="revanced_hide_explore_podcast_section_summary_off">A podcastok felfedezése rész látható.</string>
+    <string name="revanced_hide_explore_podcast_section_summary_on">A podcastok felfedezése rész rejtett.</string>
+    <string name="revanced_hide_explore_podcast_section_title">Podcastok felfedezése rész elrejtése</string>
+    <string name="revanced_hide_featured_section_summary_off">A Kiemelt tartalom rész látható az Alkotó részben.</string>
+    <string name="revanced_hide_featured_section_summary_on">A Kiemelt tartalom rész rejtett az Alkotó részben.</string>
+    <string name="revanced_hide_featured_section_title">Kiemelt tartalom rész elrejtése</string>
     <string name="revanced_hide_feed_captions_button_off">A feliratok gomb látható.</string>
     <string name="revanced_hide_feed_captions_button_on">A feliratok gomb el van rejtve.</string>
     <string name="revanced_hide_feed_captions_button_title">Feliratok gomb elrejtése</string>
@@ -2570,15 +2576,13 @@ A hangerő beállításához simítson függőlegesen a képernyő jobb oldalán
 • Ha ezt a beállítást letiltja, több hirdetést tölt be a szerver oldalról.
 • Ha a videó hirdetések láthatóak akarja tenni, letiltja ezt a beállítást."</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">A Létrehozás gomb nincs felcserélve az Értesítések gombbal.</string>
-    <string name="revanced_switch_create_with_notifications_button_summary_on">"A létrehozás gomb helyet cserél az értesítések gombbal.
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"A Létrehozás gomb kicserélve az Értesítések gombbal
 
-Megjegyzés: engedélyezés esetén a videó hirdetéseket is elrejti."</string>
+Megjegyzés: Ez a beállítás a videóhirdetések kényszerű elrejtését is magában foglalja"</string>
     <string name="revanced_switch_create_with_notifications_button_title">Létrehozás és értesítések gombok felcserélése</string>
-    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Ennek kikapcsolása esetleg több reklámot tölt be a szerverről.
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Ennek a beállításnak a letiltása a Shorts hirdetések blokkolását is letiltja.
 
-Tovább, a reklámok nem lesznek tiltva a Shortokban.
-
-Ha ez a beállítás nem működik, váltson inkognító módra."</string>
+Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó módra váltani."</string>
     <string name="revanced_theme_default">Alap</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Figyelmeztetés</string>
