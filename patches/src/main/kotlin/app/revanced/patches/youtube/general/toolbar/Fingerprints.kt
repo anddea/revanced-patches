@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.general.toolbar
 import app.revanced.patches.youtube.utils.resourceid.actionBarRingo
 import app.revanced.patches.youtube.utils.resourceid.actionBarRingoBackground
 import app.revanced.patches.youtube.utils.resourceid.drawerContentView
+import app.revanced.patches.youtube.utils.resourceid.menuSearch
 import app.revanced.patches.youtube.utils.resourceid.p13nHeader
 import app.revanced.patches.youtube.utils.resourceid.seeMoreProceedingHeader
 import app.revanced.patches.youtube.utils.resourceid.voiceSearch
@@ -225,6 +226,26 @@ internal val searchBarParentFingerprint = legacyFingerprint(
     returnType = "Landroid/view/View;",
     strings = listOf("voz-target-id"),
     literals = listOf(voiceSearch),
+)
+
+internal val toolbarSearchButtonFingerprint = legacyFingerprint(
+    name = "toolbarSearchButtonFingerprint",
+    returnType = "V",
+    parameters = listOf("Landroid/view/MenuItem;"),
+    customFingerprint = { method, _ ->
+        indexOfShowAsActionInstruction(method) >= 0
+    }
+)
+
+internal fun indexOfShowAsActionInstruction(method: Method) =
+    method.indexOfFirstInstructionReversed {
+        getReference<MethodReference>()?.name == "setShowAsAction"
+    }
+
+internal val toolbarSearchButtonLabelFingerprint = legacyFingerprint(
+    name = "toolbarSearchButtonLabelFingerprint",
+    returnType = "Ljava/lang/CharSequence;",
+    literals = listOf(menuSearch),
 )
 
 internal val voiceInputControllerParentFingerprint = legacyFingerprint(

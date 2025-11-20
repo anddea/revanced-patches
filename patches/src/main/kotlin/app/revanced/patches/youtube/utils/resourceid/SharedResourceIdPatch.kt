@@ -20,6 +20,8 @@ var actionBarRingo = -1L
     private set
 var actionBarRingoBackground = -1L
     private set
+var actionBarSearchResultsViewMic = -1L
+    private set
 var adAttribution = -1L
     private set
 var appearance = -1L
@@ -128,6 +130,8 @@ var mdxSeamlessTVSignInDrawerFragmentTitle = -1L
     private set
 var menuItemView = -1L
     private set
+var menuSearch = -1L
+    private set
 var miniplayerMaxSize = -1L
     private set
 var modernMiniPlayerClose = -1L
@@ -141,6 +145,10 @@ var modernMiniPlayerOverlayActionButton = -1L
 var modernMiniPlayerRewindButton = -1L
     private set
 var musicAppDeeplinkButtonView = -1L
+    private set
+var newContentCount = -1L
+    private set
+var newContentDot = -1L
     private set
 var notificationBigPictureIconWidth = -1L
     private set
@@ -195,6 +203,10 @@ var relatedChipCloudMargin = -1L
 var rightComment = -1L
     private set
 var scrimOverlay = -1L
+    private set
+var searchBox = -1L
+    private set
+var searchQuery = -1L
     private set
 var seekEasyHorizontalTouchOffsetToStartScrubbing = -1L
     private set
@@ -276,6 +288,7 @@ internal val sharedResourceIdPatch = resourcePatch(
         accountSwitcherAccessibility = getResourceId(STRING, "account_switcher_accessibility_label")
         actionBarRingo = getResourceId(LAYOUT, "action_bar_ringo")
         actionBarRingoBackground = getResourceId(LAYOUT, "action_bar_ringo_background")
+        actionBarSearchResultsViewMic = getResourceId(LAYOUT, "action_bar_search_results_view_mic")
         adAttribution = getResourceId(ID, "ad_attribution")
         appearance = getResourceId(STRING, "app_theme_appearance_dark")
         appRelatedEndScreenResults = getResourceId(LAYOUT, "app_related_endscreen_results")
@@ -333,6 +346,7 @@ internal val sharedResourceIdPatch = resourcePatch(
         mdxSeamlessTVSignInDrawerFragmentTitle =
             getResourceId(STRING, "mdx_seamless_tv_sign_in_drawer_fragment_title")
         menuItemView = getResourceId(ID, "menu_item_view")
+        menuSearch = getResourceId(STRING, "menu_search")
         miniplayerMaxSize = getResourceId(DIMEN, "miniplayer_max_size")
         modernMiniPlayerClose = getResourceId(ID, "modern_miniplayer_close")
         modernMiniPlayerExpand = getResourceId(ID, "modern_miniplayer_expand")
@@ -341,6 +355,8 @@ internal val sharedResourceIdPatch = resourcePatch(
             getResourceId(ID, "modern_miniplayer_overlay_action_button")
         modernMiniPlayerRewindButton = getResourceId(ID, "modern_miniplayer_rewind_button")
         musicAppDeeplinkButtonView = getResourceId(ID, "music_app_deeplink_button_view")
+        newContentCount = getResourceId(ID, "new_content_count")
+        newContentDot = getResourceId(ID, "new_content_dot")
         notificationBigPictureIconWidth =
             getResourceId(DIMEN, "notification_big_picture_icon_width")
         offlineActionsVideoDeletedUndoSnackbarText =
@@ -373,6 +389,8 @@ internal val sharedResourceIdPatch = resourcePatch(
         relatedChipCloudMargin = getResourceId(LAYOUT, "related_chip_cloud_reduced_margins")
         rightComment = getResourceId(DRAWABLE, "ic_right_comment_32c")
         scrimOverlay = getResourceId(ID, "scrim_overlay")
+        searchBox = getResourceId(ID, "search_box")
+        searchQuery = getResourceId(ID, "search_query")
         seekEasyHorizontalTouchOffsetToStartScrubbing =
             getResourceId(DIMEN, "seek_easy_horizontal_touch_offset_to_start_scrubbing")
         seekUndoEduOverlayStub = getResourceId(ID, "seek_undo_edu_overlay_stub")

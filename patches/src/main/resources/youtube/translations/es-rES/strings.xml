@@ -700,9 +700,9 @@ Tienda"</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Visible en el feed de suscripciones.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Oculto en el feed de suscripciones.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Ocultar en feed de suscripciones</string>
-    <string name="revanced_hide_creator_section_summary_off">La sección «Creador» está visible.</string>
-    <string name="revanced_hide_creator_section_summary_on">La sección «Creador» está oculta.</string>
-    <string name="revanced_hide_creator_section_title">Ocultar sección «Creador»</string>
+    <string name="revanced_hide_creator_section_summary_off">La sección de creador está visible.</string>
+    <string name="revanced_hide_creator_section_summary_on">La sección de creador está oculta.</string>
+    <string name="revanced_hide_creator_section_title">Ocultar sección de creador</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">El estante de la tienda del creador debajo de los vídeos está visible.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">El estante de la tienda del creador debajo de los vídeos está oculta.</string>
     <string name="revanced_hide_creator_store_shelf_title">Ocultar estante de la tienda del creador</string>
@@ -736,8 +736,8 @@ Configuración → Reproducción → Reproducción automática del siguiente ví
     <string name="revanced_hide_explore_podcast_section_summary_off">La sección «Explorar el podcast» está visible.</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">La sección «Explorar el podcast» está oculta.</string>
     <string name="revanced_hide_explore_podcast_section_title">Ocultar sección «Explorar el podcast»</string>
-    <string name="revanced_hide_featured_section_summary_off">La sección «Contenido destacado» en la sección «Creador» está visible.</string>
-    <string name="revanced_hide_featured_section_summary_on">La sección «Contenido destacado» en la sección «Creador» está oculta.</string>
+    <string name="revanced_hide_featured_section_summary_off">La sección de contenido destacado en la sección de creador está visible.</string>
+    <string name="revanced_hide_featured_section_summary_on">La sección de contenido destacado en la sección de creador está oculta.</string>
     <string name="revanced_hide_featured_section_title">Ocultar sección «Contenido destacado»</string>
     <string name="revanced_hide_feed_captions_button_off">El botón de subtítulos está visible.</string>
     <string name="revanced_hide_feed_captions_button_on">El botón de subtítulos está oculto.</string>
@@ -1298,8 +1298,8 @@ Limitación: las cabeceras oficiales en los resultados de búsqueda estarán ocu
     <string name="revanced_hide_stop_ads_button_summary_off">El botón para detener los anuncios está visible.</string>
     <string name="revanced_hide_stop_ads_button_summary_on">El botón para detener los anuncios está oculto.</string>
     <string name="revanced_hide_stop_ads_button_title">Ocultar Detener anuncios</string>
-    <string name="revanced_hide_subscribe_button_summary_off">El botón «Suscribirme» en la sección «Creador» está visible.</string>
-    <string name="revanced_hide_subscribe_button_summary_on">El botón «Suscribirme» en la sección «Creador» está oculto.</string>
+    <string name="revanced_hide_subscribe_button_summary_off">El botón «Suscribirme» en la sección de creador está visible.</string>
+    <string name="revanced_hide_subscribe_button_summary_on">El botón «Suscribirme» en la sección de creador está oculto.</string>
     <string name="revanced_hide_subscribe_button_title">Ocultar botón «Suscribirme»</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">La barra de canales suscritos está visible.</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">La barra de canales suscritos está oculta.</string>
@@ -1331,6 +1331,11 @@ Limitación: las cabeceras oficiales en los resultados de búsqueda estarán ocu
     <string name="revanced_hide_toolbar_notification_button_summary_off">El botón de notificaciones está visible.</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">El botón de notificaciones está oculto.</string>
     <string name="revanced_hide_toolbar_notification_button_title">Ocultar botón de notificaciones</string>
+    <string name="revanced_hide_toolbar_search_button_summary_off">El botón de buscar está visible.</string>
+    <string name="revanced_hide_toolbar_search_button_summary_on">"El botón de buscar está oculto.
+
+Este ajuste puede no funcionar si la barra de búsqueda ancha está activada."</string>
+    <string name="revanced_hide_toolbar_search_button_title">Ocultar botón de buscar</string>
     <string name="revanced_hide_transcript_section_summary_off">Las secciones de transcripción están visibles.</string>
     <string name="revanced_hide_transcript_section_summary_on">Las secciones de transcripción están ocultas.</string>
     <string name="revanced_hide_transcript_section_title">Ocultar secciones de transcripción</string>
@@ -1850,6 +1855,13 @@ Esto no evita la restricción de edad. Solo la acepta automáticamente."</string
     <string name="revanced_replace_channel_handle_summary_off">Se utiliza el nombre de usuario del canal.</string>
     <string name="revanced_replace_channel_handle_summary_on">Se utiliza el nombre del canal.</string>
     <string name="revanced_replace_channel_handle_title">Reemplazar nombre de usuario del canal</string>
+    <string name="revanced_replace_navigation_button_summary">Reemplaza el botón de navegación con el botón de búsqueda.</string>
+    <string name="revanced_replace_navigation_button_target_entry_home">Inicio</string>
+    <string name="revanced_replace_navigation_button_target_entry_notifications">Notificaciones</string>
+    <string name="revanced_replace_navigation_button_target_entry_shorts">Shorts</string>
+    <string name="revanced_replace_navigation_button_target_entry_subscriptions">Suscripciones</string>
+    <string name="revanced_replace_navigation_button_target_title">Reemplazar botón de navegación</string>
+    <string name="revanced_replace_navigation_button_title">Reemplazar botón de navegación</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Pulsa para mostrar el tiempo restante.</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Pulsa para abrir el menú desplegable de velocidad de reproducción o de calidad de vídeo.</string>
     <string name="revanced_replace_time_stamp_action_title">Reemplazar acción de marca de tiempo</string>
@@ -2268,6 +2280,7 @@ Limitación: el título de vídeo desaparece cuando se pulsa."</string>
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Restaura el antiguo encabezado de la lista de reproducción</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restaurar el antiguo panel desplegable de velocidad de reproducción</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restaurar funcionalidad de transcripción</string>
+    <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Restaurar la barra de acción de vídeo no contraída</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versión a falsificar de la app</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Versión de aplicación falsa no válida: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Escribe la versión a falsificar de la app.</string>
@@ -2581,15 +2594,9 @@ Ajusta el volumen deslizando verticalmente en el lado derecho de la pantalla."</
 • Al desactivar este ajuste se cargan más anuncios desde el servidor.
 • Debes desactivar este ajuste para que los anuncios de vídeo sean visibles."</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">El botón de crear no se cambia por el botón de notificaciones.</string>
-    <string name="revanced_switch_create_with_notifications_button_summary_on">"El botón de crear se cambia por el botón de notificaciones.
-
-Nota: Al activar esto también se ocultan forzosamente los anuncios de vídeos."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">El botón de crear se cambia por el botón de notificaciones.</string>
     <string name="revanced_switch_create_with_notifications_button_title">Cambiar botón de crear con el de notificaciones</string>
-    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Desactivar esto podría cargar más anuncios del servidor.
-
-Además, los anuncios ya no se bloquearán en Shorts.
-
-Si este ajuste no surte efecto, prueba a cambiar al modo incógnito."</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Si este ajuste no surte efecto, intente cambiar al modo incógnito.</string>
     <string name="revanced_theme_default">Predeterminado</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Advertencia</string>

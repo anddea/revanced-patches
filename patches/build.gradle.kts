@@ -2,12 +2,12 @@ group = "app.revanced"
 
 patches {
     about {
-        name = "ReVanced Patches"
-        description = "Patches for ReVanced"
-        source = "git@github.com:revanced/revanced-patches.git"
-        author = "ReVanced"
-        contact = "contact@revanced.app"
-        website = "https://revanced.app"
+        name = "RVX Patches"
+        description = "Patches for RVX"
+        source = "git@github.com:anddea/revanced-patches.git"
+        author = "Aaron Veil (anddea)"
+        contact = "https://github.com/anddea/revanced-patches/issues"
+        website = "https://rvxtranslate.netlify.app/"
         license = "GNU General Public License v3.0"
     }
 }

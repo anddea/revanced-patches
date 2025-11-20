@@ -39,6 +39,10 @@ public class PackageUtils extends Utils {
         return null;
     }
 
+    public static boolean hasSystemFeature(String feature) {
+        return getPackageManager().hasSystemFeature(feature);
+    }
+
     public static boolean isPackageEnabled(@NonNull String packageName) {
         ApplicationInfo applicationInfo = getApplicationInfo(packageName);
         if (applicationInfo != null) {

@@ -3,12 +3,12 @@ package app.revanced.extension.shared.innertube.utils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import app.revanced.extension.shared.utils.Logger;
@@ -19,7 +19,6 @@ public class AuthUtils {
     // Used to identify brand accounts.
     private static final String PAGE_ID_HEADER = "X-Goog-PageId";
     private static final String VISITOR_ID_HEADER = "X-Goog-Visitor-Id";
-    private static final Map<String, String> REQUEST_HEADER = new LinkedHashMap<>(3);
     @NonNull
     private static String authorization = "";
     @NonNull
@@ -32,25 +31,21 @@ public class AuthUtils {
      * Injection point.
      */
     public static void setRequestHeaders(String url, Map<String, String> requestHeaders) {
-        if (requestHeaders == null) {
-            return;
-        }
-        String newlyLoadedAuthorization = requestHeaders.get(AUTHORIZATION_HEADER);
-        String newlyLoadedVisitorId = requestHeaders.get(VISITOR_ID_HEADER);
-        boolean authorizationNeedsUpdating =
-                StringUtils.isNotEmpty(newlyLoadedAuthorization) && !authorization.equals(newlyLoadedAuthorization);
-        boolean visitorIdNeedsUpdating =
-                StringUtils.isNotEmpty(newlyLoadedVisitorId) && !visitorId.equals(newlyLoadedVisitorId);
+        if (!MapUtils.isEmpty(requestHeaders)) {
+            String newlyLoadedAuthorization = requestHeaders.get(AUTHORIZATION_HEADER);
+            String newlyLoadedVisitorId = requestHeaders.get(VISITOR_ID_HEADER);
 
-        if (authorizationNeedsUpdating && visitorIdNeedsUpdating) {
-            REQUEST_HEADER.remove(AUTHORIZATION_HEADER);
-            REQUEST_HEADER.remove(VISITOR_ID_HEADER);
-            REQUEST_HEADER.put(AUTHORIZATION_HEADER, newlyLoadedAuthorization);
-            REQUEST_HEADER.put(VISITOR_ID_HEADER, newlyLoadedVisitorId);
-            authorization = newlyLoadedAuthorization;
-            visitorId = newlyLoadedVisitorId;
-            Logger.printDebug(() -> "new Authorization loaded: " + newlyLoadedAuthorization);
-            Logger.printDebug(() -> "new VisitorId loaded: " + newlyLoadedVisitorId);
+            if (StringUtils.isNotEmpty(newlyLoadedAuthorization) &&
+                    StringUtils.isNotEmpty(newlyLoadedVisitorId)) {
+                if (!authorization.equals(newlyLoadedAuthorization)) {
+                    Logger.printDebug(() -> "new Authorization loaded: " + newlyLoadedAuthorization);
+                }
+                if (!visitorId.equals(newlyLoadedVisitorId)) {
+                    Logger.printDebug(() -> "new VisitorId loaded: " + newlyLoadedVisitorId);
+                }
+                authorization = newlyLoadedAuthorization;
+                visitorId = newlyLoadedVisitorId;
+            }
         }
     }
 
@@ -60,11 +55,8 @@ public class AuthUtils {
     public static void setAccountIdentity(@Nullable String newlyLoadedPageId,
                                           boolean newlyLoadedIncognitoStatus) {
         if (StringUtils.isEmpty(newlyLoadedPageId)) {
-            REQUEST_HEADER.remove(PAGE_ID_HEADER);
             pageId = "";
         } else if (!pageId.equals(newlyLoadedPageId)) {
-            REQUEST_HEADER.remove(PAGE_ID_HEADER);
-            REQUEST_HEADER.put(PAGE_ID_HEADER, newlyLoadedPageId);
             pageId = newlyLoadedPageId;
             Logger.printDebug(() -> "new PageId loaded: " + newlyLoadedPageId);
         }
@@ -72,7 +64,11 @@ public class AuthUtils {
     }
 
     public static Map<String, String> getRequestHeader() {
-        return REQUEST_HEADER;
+        return new HashMap<>() {{
+            put(AUTHORIZATION_HEADER, authorization);
+            put(VISITOR_ID_HEADER, visitorId);
+            put(PAGE_ID_HEADER, pageId);
+        }};
     }
 
     public static boolean isNotLoggedIn() {

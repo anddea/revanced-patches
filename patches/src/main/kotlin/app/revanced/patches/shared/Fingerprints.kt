@@ -12,8 +12,23 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
+internal const val ANDROID_AUTOMOTIVE_STRING = "Android Automotive"
 internal const val CLIENT_INFO_CLASS_DESCRIPTOR =
     "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
+
+internal val autoMotiveFingerprint = legacyFingerprint(
+    name = "autoMotiveFingerprint",
+    opcodes = listOf(
+        Opcode.GOTO,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT,
+        Opcode.IF_EQZ
+    ),
+    strings = listOf(ANDROID_AUTOMOTIVE_STRING),
+    customFingerprint = { _, classDef ->
+        !classDef.type.startsWith("Lapp/")
+    }
+)
 
 internal val clientTypeFingerprint = legacyFingerprint(
     name = "clientTypeFingerprint",
@@ -130,7 +145,7 @@ internal val formatStreamModelToStringFingerprint = legacyFingerprint(
         AUDIO_TRACK_DISPLAY_NAME_STRING,
         AUDIO_TRACK_ID_STRING
     ),
-    customFingerprint = { method, classDef ->
+    customFingerprint = { method, _ ->
         method.name == "toString"
     }
 )
@@ -236,7 +251,7 @@ internal val playbackStartParametersToStringFingerprint = legacyFingerprint(
         FIXED_RESOLUTION_STRING,
         WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING
     ),
-    customFingerprint = { method, classDef ->
+    customFingerprint = { method, _ ->
         method.name == "toString"
     }
 )

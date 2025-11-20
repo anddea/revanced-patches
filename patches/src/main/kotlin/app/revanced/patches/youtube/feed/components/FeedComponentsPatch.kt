@@ -20,12 +20,14 @@ import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_FEED_COMPONENTS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_20_02_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_10_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.bar
 import app.revanced.patches.youtube.utils.resourceid.captionToggleContainer
 import app.revanced.patches.youtube.utils.resourceid.channelListSubMenu
 import app.revanced.patches.youtube.utils.resourceid.contentPill
 import app.revanced.patches.youtube.utils.resourceid.horizontalCardList
+import app.revanced.patches.youtube.utils.resourceid.relatedChipCloudMargin
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.scrollTopParentFingerprint
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -208,16 +210,56 @@ val feedComponentsPatch = bytecodePatch(
             """
         }
 
-        relatedChipCloudFingerprint.patch<OneRegisterInstruction>(1) { register ->
-            "invoke-static { v$register }, " +
-                    "$FEED_CLASS_DESCRIPTOR->hideCategoryBarInRelatedVideos(Landroid/view/View;)V"
-        }
-
         searchResultsChipBarFingerprint.patch<OneRegisterInstruction>(-1, -2) { register ->
             """
                 invoke-static { v$register }, $FEED_CLASS_DESCRIPTOR->hideCategoryBarInSearch(I)I
                 move-result v$register
             """
+        }
+
+        relatedChipCloudFingerprint.methodOrThrow().apply {
+            val literalIndex =
+                indexOfFirstLiteralInstructionOrThrow(relatedChipCloudMargin)
+            val viewIndex =
+                indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT_OBJECT)
+            val viewRegister =
+                getInstruction<OneRegisterInstruction>(viewIndex).registerA
+
+            addInstruction(
+                viewIndex + 1,
+                "invoke-static { v$viewRegister }, " +
+                        "$FEED_CLASS_DESCRIPTOR->hideCategoryBarInRelatedVideos(Landroid/view/View;)V"
+            )
+
+            if (is_20_10_or_greater) {
+                val heightIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "setMinimumHeight"
+                }
+                val heightRegister =
+                    getInstruction<FiveRegisterInstruction>(heightIndex).registerD
+
+                addInstructions(
+                    heightIndex, """
+                        invoke-static { v$heightRegister }, $FEED_CLASS_DESCRIPTOR->hideCategoryBarInRelatedVideos(I)I
+                        move-result v$heightRegister
+                        """
+                )
+
+                val experimentalFlagIndex =
+                    indexOfFirstLiteralInstructionOrThrow(45682279L)
+                val booleanIndex =
+                    indexOfFirstInstructionOrThrow(experimentalFlagIndex, Opcode.MOVE_RESULT)
+                val booleanRegister =
+                    getInstruction<OneRegisterInstruction>(booleanIndex).registerA
+
+                addInstructions(
+                    booleanIndex + 1, """
+                        invoke-static { v$booleanRegister }, $FEED_CLASS_DESCRIPTOR->hideCategoryBarInRelatedVideos(Z)Z
+                        move-result v$booleanRegister
+                        """
+                )
+            }
         }
 
         // endregion

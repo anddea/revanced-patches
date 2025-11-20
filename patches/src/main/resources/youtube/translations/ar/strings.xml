@@ -1347,6 +1347,11 @@
     <string name="revanced_hide_toolbar_notification_button_summary_off">يتم عرض زر الإشعارات.</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">تم إخفاء زر الإشعارات.</string>
     <string name="revanced_hide_toolbar_notification_button_title">إخفاء زر الإشعارات</string>
+    <string name="revanced_hide_toolbar_search_button_summary_off">يتم عرض زر البحث.</string>
+    <string name="revanced_hide_toolbar_search_button_summary_on">"تم إخفاء زر البحث.
+
+قد لا يعمل هذا الإعداد إذا تم تمكين شريط البحث العريض."</string>
+    <string name="revanced_hide_toolbar_search_button_title">إخفاء زر البحث</string>
     <string name="revanced_hide_transcript_section_summary_off">يتم عرض قسم النص.</string>
     <string name="revanced_hide_transcript_section_summary_on">تم إخفاء قسم النص.</string>
     <string name="revanced_hide_transcript_section_title">إخفاء قسم النص</string>
@@ -1849,6 +1854,13 @@
     <string name="revanced_replace_channel_handle_summary_off">يتم استخدام الاسم المعرِّف.</string>
     <string name="revanced_replace_channel_handle_summary_on">يتم استخدام اسم القناة.</string>
     <string name="revanced_replace_channel_handle_title">استبدال معالج القناة</string>
+    <string name="revanced_replace_navigation_button_summary">تبديل زر التنقل بزر البحث.</string>
+    <string name="revanced_replace_navigation_button_target_entry_home">الصفحة الرئيسية</string>
+    <string name="revanced_replace_navigation_button_target_entry_notifications">الإشعارات</string>
+    <string name="revanced_replace_navigation_button_target_entry_shorts">Shorts</string>
+    <string name="revanced_replace_navigation_button_target_entry_subscriptions">الاشتراكات</string>
+    <string name="revanced_replace_navigation_button_target_title">تغيير زر التنقل</string>
+    <string name="revanced_replace_navigation_button_title">استبدال زر التنقل</string>
     <string name="revanced_replace_time_stamp_action_summary_off">انقر لعرض الوقت المتبقي.</string>
     <string name="revanced_replace_time_stamp_action_summary_on">انقر لفتح القائمة المنبثقة لسرعة التشغيل أو جودة الفيديو.</string>
     <string name="revanced_replace_time_stamp_action_title">استبدال إجراء الطابع الزمني</string>
@@ -2273,6 +2285,7 @@
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - استعادة علامة قائمة التشغيل القديمة</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - استعادة لوحة التحكم القديمة لسرعة التشغيل</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - استعادة وظيفة النسخ</string>
+    <string name="revanced_spoof_app_version_target_entry_20_13_41">\"20.13.41 - استعاده عرض شريط إجراءات الفيديو بالكامل</string>
     <string name="revanced_spoof_app_version_target_entry_title">الهدف من خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">إصدار التطبيق الوهمي غير صالح: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق الوهمي.</string>
@@ -2591,15 +2604,9 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
 • يؤدي تعطيل هذا الإعداد إلى تحميل المزيد من الإعلانات من جانب الخادم.
 • يجب عليك تعطيل هذا الإعداد لجعل إعلانات الفيديو مرئية."</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">لا يتم تبديل زر الإنشاء بزر الإشعارات.</string>
-    <string name="revanced_switch_create_with_notifications_button_summary_on">"تم تبديل زر الإنشاء بـزر الإشعارات.
-
-ملاحظة: يؤدي تمكين هذا أيضًا إلى إخفاء إعلانات الفيديو بالقوة."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">يتم تبديل زر الإنشاء بزر الإشعارات.</string>
     <string name="revanced_switch_create_with_notifications_button_title">تبديل أزرار الإنشاء و الإشعارات</string>
-    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"قد يؤدي تعطيل هذا إلى تحميل المزيد من الإعلانات من الخادم.
-
-كما لن يتم حظر الإعلانات في فيديوهات Shorts بعد الآن.
-
-إذا لم يتم تفعيل هذا الإعداد، فحاول التبديل إلى وضع التصفح المتخفي."</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">إذا لم يكن هذا الإعداد ساري المفعول، جرّب التبديل إلى وضع التصفّح المتخفي.</string>
     <string name="revanced_theme_default">الإفتراضي</string>
     <string name="revanced_third_party_youtube_music_dialog_title">موسيقى RVX</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">تحذير</string>

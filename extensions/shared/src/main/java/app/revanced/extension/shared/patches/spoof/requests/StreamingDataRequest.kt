@@ -184,11 +184,11 @@ class StreamingDataRequest private constructor(
                     if (value != null) {
                         if (key == VISITOR_ID_HEADER) {
                             if (!visitorData.isNullOrEmpty()) {
-                                finalRequestHeader.put(VISITOR_ID_HEADER, visitorData)
+                                finalRequestHeader[VISITOR_ID_HEADER] = visitorData
                                 continue
                             }
                         }
-                        finalRequestHeader.put(key, value)
+                        finalRequestHeader[key] = value
                     }
                 }
                 return finalRequestHeader
@@ -201,13 +201,10 @@ class StreamingDataRequest private constructor(
                     val value = requestHeader[key]
                     if (value != null) {
                         if (key == AUTHORIZATION_HEADER) {
-                            finalRequestHeader.put(
-                                AUTHORIZATION_HEADER,
-                                AuthPatch.getAuthorization()
-                            )
+                            finalRequestHeader[AUTHORIZATION_HEADER] = AuthPatch.getAuthorization()
                             continue
                         }
-                        finalRequestHeader.put(key, value)
+                        finalRequestHeader[key] = value
                     }
                 }
                 return finalRequestHeader

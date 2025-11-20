@@ -1373,6 +1373,11 @@ Side effect: Official headers in search results will be hidden."</string>
     <string name="revanced_hide_toolbar_notification_button_summary_off">Notifications button is shown.</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">Notifications button is hidden.</string>
     <string name="revanced_hide_toolbar_notification_button_title">Hide Notifications button</string>
+    <string name="revanced_hide_toolbar_search_button_summary_off">Search button is shown.</string>
+    <string name="revanced_hide_toolbar_search_button_summary_on">"Search button is hidden.
+
+This setting may not work if the wide search bar is enabled."</string>
+    <string name="revanced_hide_toolbar_search_button_title">Hide Search button</string>
     <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown.</string>
     <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden.</string>
     <string name="revanced_hide_transcript_section_title">Hide Transcript section</string>
@@ -1921,6 +1926,13 @@ This does not bypass the age restriction. It just accepts it automatically."</st
     <string name="revanced_replace_channel_handle_summary_off">Channel handle is used.</string>
     <string name="revanced_replace_channel_handle_summary_on">Channel name is used.</string>
     <string name="revanced_replace_channel_handle_title">Replace channel handle</string>
+    <string name="revanced_replace_navigation_button_summary">Replaces the navigation button with the Search button.</string>
+    <string name="revanced_replace_navigation_button_target_entry_home">Home</string>
+    <string name="revanced_replace_navigation_button_target_entry_notifications">Notifications</string>
+    <string name="revanced_replace_navigation_button_target_entry_shorts">Shorts</string>
+    <string name="revanced_replace_navigation_button_target_entry_subscriptions">Subscriptions</string>
+    <string name="revanced_replace_navigation_button_target_title">Replace navigation button</string>
+    <string name="revanced_replace_navigation_button_title">Replace navigation button</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Tap to show the remaining time.</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Tap to open playback speed or video quality flyout menu.</string>
     <string name="revanced_replace_time_stamp_action_title">Replace timestamp action</string>
@@ -2360,6 +2372,7 @@ Limitation: Video title disappears when clicked."</string>
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Restore old playlist header</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restore old playback speed flyout panel</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restore Transcript functionality</string>
+    <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Restore non collapsed video action bar</string>
     <string name="revanced_spoof_app_version_target_entry_title">Spoof app version target</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Invalid spoof app version: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Type the spoof app version target.</string>
@@ -2710,15 +2723,9 @@ Adjust volume by swiping vertically on the right side of the screen."</string>
 • Disabling this setting loads more ads from the server side.
 • You should disable this setting to make video ads visible."</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with Notifications button.</string>
-    <string name="revanced_switch_create_with_notifications_button_summary_on">"Create button is switched with Notifications button.
-
-Note: Enabling this also forcibly hides video ads."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with Notifications button.</string>
     <string name="revanced_switch_create_with_notifications_button_title">Swap Create and Notifications buttons</string>
-    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Disabling this might load more ads from the server.
-
-Also, ads will no longer be blocked in Shorts.
-
-If this setting do not take effect, try switching to Incognito mode."</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">If this setting do not take effect, try switching to Incognito mode.</string>
     <string name="revanced_theme_default">Stock</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Warning</string>

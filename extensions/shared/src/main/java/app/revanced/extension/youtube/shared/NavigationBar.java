@@ -117,6 +117,10 @@ public final class NavigationBar {
     @Nullable
     private static String lastYTNavigationEnumName;
 
+    public static String getLastAppNavigationEnum() {
+        return lastYTNavigationEnumName;
+    }
+
     /**
      * Injection point.
      */
@@ -223,10 +227,6 @@ public final class NavigationBar {
          * This tab will never be in a selected state, even if the create video UI is on screen.
          */
         CREATE("CREATION_TAB_LARGE", "CREATION_TAB_LARGE_CAIRO"),
-        /**
-         * Only shown to automotive layout.
-         */
-        EXPLORE("TAB_EXPLORE"),
         SUBSCRIPTIONS("PIVOT_SUBSCRIPTIONS", "TAB_SUBSCRIPTIONS_CAIRO"),
         /**
          * Notifications tab.  Only present when
@@ -281,7 +281,7 @@ public final class NavigationBar {
         /**
          * YouTube enum name for this tab.
          */
-        private final List<String> ytEnumNames;
+        public final List<String> ytEnumNames;
 
         NavigationButton(String... ytEnumNames) {
             this.ytEnumNames = Arrays.asList(ytEnumNames);

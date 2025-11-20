@@ -1,6 +1,12 @@
 package app.revanced.patches.youtube.general.navigation
 
 import app.revanced.patches.youtube.utils.YOUTUBE_PIVOT_BAR_CLASS_TYPE
+import app.revanced.patches.youtube.utils.resourceid.actionBarSearchResultsViewMic
+import app.revanced.patches.youtube.utils.resourceid.newContentCount
+import app.revanced.patches.youtube.utils.resourceid.newContentDot
+import app.revanced.patches.youtube.utils.resourceid.searchBox
+import app.revanced.patches.youtube.utils.resourceid.searchQuery
+import app.revanced.patches.youtube.utils.resourceid.youTubeLogo
 import app.revanced.patches.youtube.utils.resourceid.ytFillBell
 import app.revanced.patches.youtube.utils.resourceid.ytOutlineLibrary
 import app.revanced.util.fingerprint.legacyFingerprint
@@ -8,24 +14,37 @@ import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal const val ANDROID_AUTOMOTIVE_STRING = "Android Automotive"
+internal const val UNKNOWN_STRING = "UNKNOWN"
+internal const val SEARCH_STRING = "SEARCH"
+internal const val SEARCH_CAIRO_STRING = "SEARCH_CAIRO"
+internal const val TAB_ACTIVITY_STRING = "TAB_ACTIVITY"
 internal const val TAB_ACTIVITY_CAIRO_STRING = "TAB_ACTIVITY_CAIRO"
 
-internal val autoMotiveFingerprint = legacyFingerprint(
-    name = "autoMotiveFingerprint",
-    opcodes = listOf(
-        Opcode.GOTO,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ
-    ),
-    strings = listOf(ANDROID_AUTOMOTIVE_STRING)
+internal val actionBarSearchResultsFingerprint = legacyFingerprint(
+    name = "actionBarSearchResultsFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Landroid/view/View;",
+    literals = listOf(actionBarSearchResultsViewMic, searchQuery),
 )
 
 internal val imageEnumConstructorFingerprint = legacyFingerprint(
     name = "imageEnumConstructorFingerprint",
     returnType = "V",
-    strings = listOf(TAB_ACTIVITY_CAIRO_STRING)
+    strings = listOf(
+        UNKNOWN_STRING,
+        SEARCH_STRING,
+        TAB_ACTIVITY_STRING
+    )
+)
+
+internal val pivotBarBuilderFingerprint = legacyFingerprint(
+    name = "pivotBarBuilderFingerprint",
+    returnType = "V",
+    literals = listOf(newContentCount, newContentDot),
+    customFingerprint = { method, classDef ->
+        method.name == "<init>" &&
+                classDef.fields.find { it.type.endsWith("/PivotBar;") } != null
+    }
 )
 
 internal val pivotBarChangedFingerprint = legacyFingerprint(
@@ -69,6 +88,24 @@ internal val pivotBarStyleFingerprint = legacyFingerprint(
     customFingerprint = { method, _ ->
         method.definingClass.endsWith("/PivotBar;")
     }
+)
+
+// 19.37 ~
+internal val searchBarOnClickListenerFingerprint = legacyFingerprint(
+    name = "searchBarOnClickListenerFingerprint",
+    returnType = "Landroid/view/View;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L", "L"),
+    literals = listOf(searchBox, youTubeLogo),
+)
+
+// ~ 19.36
+internal val searchBarOnClickListenerLegacyFingerprint = legacyFingerprint(
+    name = "searchBarOnClickListenerLegacyFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Landroid/view/View;", "L", "Z", "Z"),
+    literals = listOf(searchBox, youTubeLogo),
 )
 
 internal val setEnumMapFingerprint = legacyFingerprint(

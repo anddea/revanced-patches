@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.patches.feed;
 
 import static app.revanced.extension.shared.utils.Utils.hideViewBy0dpUnderCondition;
 import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
+import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_20_10_OR_GREATER;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +23,59 @@ public class FeedPatch {
         return Settings.HIDE_CATEGORY_BAR_IN_FEED.get() ? 0 : height;
     }
 
+    public static boolean hideCategoryBarInRelatedVideos() {
+        return Settings.HIDE_CATEGORY_BAR_IN_RELATED_VIDEOS.get();
+    }
+
+    /**
+     * Whether to enforce a minimum height for subviews of the category bar.
+     * This experimental flag was added in YouTube 20.10+ and must be true to hide the category bar without leaving any gaps.
+     * Even if the experimental flag is removed in the future, this value will remain true.
+     */
+    public static boolean hideCategoryBarInRelatedVideos(boolean original) {
+        return hideCategoryBarInRelatedVideos() || original;
+    }
+
     public static void hideCategoryBarInRelatedVideos(final View chipView) {
-        Utils.hideViewBy0dpUnderCondition(
-                Settings.HIDE_CATEGORY_BAR_IN_RELATED_VIDEOS.get() || Settings.HIDE_RELATED_VIDEOS.get(),
-                chipView
-        );
+        if (hideCategoryBarInRelatedVideos()) {
+            // If the minimum height is 0, we can hide the view with setVisibility instead of changing LayoutParams.
+            // Minimum height is only available in YouTube 20.10+.
+            // In earlier versions, hide the view using LayoutParams.
+            if (IS_20_10_OR_GREATER) {
+                chipView.setVisibility(View.GONE);
+
+                // If you want to hide a View with LayoutParams, use the code enclosed in comments.
+
+                /*
+                chipView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+                    try {
+                        if (chipView instanceof ViewGroup viewGroup &&
+                                viewGroup.getParent() instanceof ViewGroup parentView) {
+                            if (parentView.getId() == ResourceUtils.getIdIdentifier("fullscreen_watch_next_chips") &&
+                                    viewGroup.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                                Utils.hideViewGroupByMarginLayoutParams(viewGroup);
+                            } else {
+                                viewGroup.setVisibility(View.GONE);
+                            }
+                        }
+                    } catch (Exception ex) {
+                        Logger.printException(() -> "hideCategoryBarInRelatedVideos failed.", ex);
+                    }
+                });
+                 */
+
+            } else {
+                Utils.hideViewByLayoutParams(chipView);
+            }
+        }
+    }
+
+    /**
+     * The minimum height to apply to subviews in the category bar.
+     * This method is only available in YouTube 20.10+.
+     */
+    public static int hideCategoryBarInRelatedVideos(final int height) {
+        return hideCategoryBarInRelatedVideos() ? 0 : height;
     }
 
     public static int hideCategoryBarInSearch(final int height) {

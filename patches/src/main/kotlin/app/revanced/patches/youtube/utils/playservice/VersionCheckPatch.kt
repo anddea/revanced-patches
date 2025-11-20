@@ -53,6 +53,8 @@ var is_19_34_or_greater = false
     private set
 var is_19_36_or_greater = false
     private set
+var is_19_37_or_greater = false
+    private set
 var is_19_41_or_greater = false
     private set
 var is_19_42_or_greater = false
@@ -74,6 +76,8 @@ var is_20_03_or_greater = false
 var is_20_04_or_greater = false
     private set
 var is_20_05_or_greater = false
+    private set
+var is_20_06_or_greater = false
     private set
 var is_20_07_or_greater = false
     private set
@@ -147,6 +151,7 @@ val versionCheckPatch = resourcePatch(
         is_19_32_or_greater = isGreaterThan(243305000)
         is_19_34_or_greater = isGreaterThan(243499000)
         is_19_36_or_greater = isGreaterThan(243705000)
+        is_19_37_or_greater = isGreaterThan(243805000)
         is_19_41_or_greater = isGreaterThan(244205000)
         is_19_42_or_greater = isGreaterThan(244305000)
         is_19_43_or_greater = isGreaterThan(244405000)
@@ -158,6 +163,7 @@ val versionCheckPatch = resourcePatch(
         is_20_03_or_greater = isGreaterThan(250405000)
         is_20_04_or_greater = isGreaterThan(250505000)
         is_20_05_or_greater = isGreaterThan(250605000)
+        is_20_06_or_greater = isGreaterThan(250705000)
         is_20_07_or_greater = isGreaterThan(250805000)
         is_20_09_or_greater = isGreaterThan(251006000)
         is_20_10_or_greater = isGreaterThan(251105000)

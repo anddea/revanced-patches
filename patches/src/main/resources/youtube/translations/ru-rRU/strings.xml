@@ -171,10 +171,10 @@
     <string name="revanced_custom_filter_summary_on">Пользовательский фильтр включен.</string>
     <string name="revanced_custom_filter_title">Пользовательский фильтр</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Недопустимый фильтр: %s.</string>
-    <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Свой (Предыдущий)</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Свой (Старый)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">Свой (Современный)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">Свой (Без темы)</string>
-    <string name="revanced_custom_playback_speed_menu_type_entry_youtube_legacy">YouTube Предыдущий</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_youtube_legacy">YouTube Старый</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_off">Современный стиль всплывающего меню скорости воспроизведения.</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_on">Пользовательское меню скорости воспроизведения.</string>
     <string name="revanced_custom_playback_speed_menu_type_title">Стиль меню скорости</string>
@@ -234,11 +234,11 @@
     <string name="revanced_disable_auto_audio_tracks_not_available">Чтобы использовать эту функцию, измените  \'Клиент по умолчанию (Подмена потоковых данных)\' на TV, TV Simply или iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">"Принудительные автоматические звуковые дорожки включены."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Принудительные автоматические звуковые дорожки отключены.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Принудительные аудио авто дорожки отключены.
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Принудительное автоматическое воспроизведение звуковых дорожек отключено.
 
-Вероятность исправить проблему:
-1. Включить в \"Настройки\" → RVX → Разное → Подмена потоковых данных → \"Использовать клиент JavaScript\".
-2. Изменить в \"Настройки\" → RVX → Разное → Подмена потоковых данных → \"Клиент по умолчанию\" на \"TV\" или \"TV простой\"."</string>
+Это может не работать для некоторых пользователей, если у вас это не работает:
+1. Перейдите в - RVX - Разное - Подмена потоковых данных и включите 'Использовать JavaScript-клиент'.
+2. Перейдите в - RVX - Разное - Подмена потоковых данных и измените 'Клиент по умолчанию' на 'TV'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Принудительные автоматические звуковые дорожки</string>
     <string name="revanced_disable_auto_captions_summary_off">Принудительные автоматические субтитры включены.</string>
     <string name="revanced_disable_auto_captions_summary_on">Принудительные автоматические субтитры отключены.</string>
@@ -922,11 +922,11 @@ Shorts
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Меню отображено.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Меню скрыто.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Меню режима окружающей подсветки</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Меню аудио скрыто.
+    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Меню звуковых дорожек скрыто.
 
-Для отображения аудио меню нужно:
-1. Включить в \"Настройки\" → RVX → Разное → Подмена потоковых данных → \"Использовать клиент JavaScript\".
-2. Изменить в \"Настройки\" → RVX → Разное → Подмена потоковых данных → \"Клиент по умолчанию\" на \"TV\" или \"TV простой\"."</string>
+Чтобы отобразить меню звуковых дорожек:
+1. Перейдите в Настройки - RVX - Разное - Подмена потоковых данных и включите 'Использовать JavaScript-клиент'.
+2. Перейдите в Настройки - RVX - Разное - Подмена потоковых данных и измените 'Клиент по умолчанию' на 'TV'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Меню \"Звуковая дорожка\" отображено.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Меню \"Звуковая дорожка\" скрыто.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Меню \"Звуковая дорожка\"</string>
@@ -2386,7 +2386,7 @@ Shorts
 <small>(В разработке)</small>
     </string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
-<small>(Устаревший)</small>"</string>
+<small>(Старый)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"ТВ Простой
 <small>(Без PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
@@ -2679,15 +2679,9 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_swipe_volume_title">Жест изменения громкости</string>
     <string name="revanced_switch_create_with_notifications_button_summary">Примечание:\n• Если подмена кнопки не происходит, перезагрузите устройство.\n• Отключение этого параметра загружает больше рекламы со стороны сервера.\n• Чтобы видеореклама была видна, следует отключить этот параметр.</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">Кнопки \"Создать\" и \"Уведомления\" не поменяны местами.</string>
-    <string name="revanced_switch_create_with_notifications_button_summary_on">"Кнопки \"Создать\" и \"Уведомления\" поменяны местами.
-
-Примечание: Включение опции принудительно скрывает видеорекламу."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">Кнопка \"Создать\" заменена на \"Уведомления\".</string>
     <string name="revanced_switch_create_with_notifications_button_title">Подмена кнопки \"Создать\" на \"Уведомления\"</string>
-    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Отключение этого параметра может привести к загрузке большего количества рекламы с сервера.
-
-Кроме того, реклама больше не будет блокироваться в Shorts.
-
-Если эта настройка не вступила в силу, попробуйте перейти в режим инкогнито."</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Если этот параметр не вступил в силу, попробуйте в режиме инкогнито.</string>
     <string name="revanced_theme_default">По умолчанию</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Предупреждение</string>
