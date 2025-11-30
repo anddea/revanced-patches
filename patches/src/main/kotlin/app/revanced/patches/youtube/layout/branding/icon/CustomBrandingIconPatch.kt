@@ -25,7 +25,7 @@ private const val ADAPTIVE_ICON_FOREGROUND_FILE_NAME =
     "adaptiveproduct_youtube_foreground_color_108"
 private const val ADAPTIVE_ICON_MONOCHROME_FILE_NAME =
     "adaptive_monochrome_ic_youtube_launcher"
-private const val DEFAULT_ICON = "xisr_special"
+private const val DEFAULT_ICON = "xisr_winter"
 
 private val availableIcon = mapOf(
     "AFN Blue" to "afn_blue",
@@ -42,7 +42,8 @@ private val availableIcon = mapOf(
     "Squid Game" to "squid_game",
     "Vanced Black" to "vanced_black",
     "Vanced Light" to "vanced_light",
-    "Xisr Special" to DEFAULT_ICON,
+    "Xisr Special" to "xisr_special",
+    "Xisr Winter" to DEFAULT_ICON,
     "Xisr Yellow" to "xisr_yellow",
     "YouTube" to "youtube",
     "YouTube Black" to "youtube_black",
