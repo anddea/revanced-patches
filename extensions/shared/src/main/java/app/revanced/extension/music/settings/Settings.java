@@ -198,6 +198,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting DISABLE_MUSIC_VIDEO_IN_ALBUM = new BooleanSetting("revanced_disable_music_video_in_album", FALSE, true);
     public static final EnumSetting<RedirectType> DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE = new EnumSetting<>("revanced_disable_music_video_in_album_redirect_type", RedirectType.REDIRECT, true);
     public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_settings_import_export", FALSE, false);
+    public static final BooleanSetting SPOOF_STREAMING_DATA_NO_SDK_AUTH_TOKEN_ABOUT = new BooleanSetting("revanced_spoof_streaming_data_no_sdk_auth_token_about", FALSE, false);
     public static final BooleanSetting SPOOF_STREAMING_DATA_VR_AUTH_TOKEN_ABOUT = new BooleanSetting("revanced_spoof_streaming_data_vr_auth_token_about", FALSE, false);
     public static final BooleanSetting APP_INFO = new BooleanSetting("revanced_app_info", FALSE, false);
 
@@ -296,6 +297,7 @@ public class Settings extends BaseSettings {
             SETTINGS_IMPORT_EXPORT.key,
             SPOOF_APP_VERSION_TARGET.key,
             SPOOF_STREAMING_DATA_DEFAULT_CLIENT.key,
+            SPOOF_STREAMING_DATA_NO_SDK_AUTH_TOKEN_ABOUT.key,
             SPOOF_STREAMING_DATA_VR_AUTH_TOKEN_ABOUT.key,
             WATCH_HISTORY_TYPE.key,
     };

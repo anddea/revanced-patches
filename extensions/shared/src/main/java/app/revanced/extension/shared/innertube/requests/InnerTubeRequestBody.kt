@@ -7,7 +7,6 @@ import app.revanced.extension.shared.requests.Route.CompiledRoute
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.StringRef.str
 import app.revanced.extension.shared.utils.Utils
-import com.liskovsoft.youtubeapi.app.PoTokenGate
 import org.apache.commons.lang3.StringUtils
 import org.json.JSONArray
 import org.json.JSONException
@@ -97,7 +96,6 @@ object InnerTubeRequestBody {
     fun createJSRequestBody(
         clientType: YouTubeClient.ClientType,
         videoId: String,
-        cpn: String = "",
         isGVS: Boolean = false,
         isInlinePlayback: Boolean = false,
     ): ByteArray {
@@ -127,9 +125,6 @@ object InnerTubeRequestBody {
             innerTubeBody.put("racyCheckOk", true)
             innerTubeBody.put("contentCheckOk", true)
             innerTubeBody.put("videoId", videoId)
-            if (cpn.isNotEmpty()) {
-                innerTubeBody.put("cpn", cpn)
-            }
 
             val user = JSONObject()
             user.put("lockedSafetyMode", false)
@@ -137,7 +132,6 @@ object InnerTubeRequestBody {
 
             if (isGVS) {
                 val contentPlaybackContext = JSONObject()
-                val requirePoToken = clientType.requirePoToken
                 if (clientType.refererFormat != null) {
                     contentPlaybackContext.put(
                         "referer",
@@ -164,15 +158,6 @@ object InnerTubeRequestBody {
                 playbackContext.put("devicePlaybackCapabilities", devicePlaybackCapabilities)
 
                 innerTubeBody.put("playbackContext", playbackContext)
-
-                if (requirePoToken) {
-                    val playerRequestPoToken = PoTokenGate.getWebContentPoToken(videoId)
-                    if (playerRequestPoToken != null) {
-                        val serviceIntegrityDimensions = JSONObject()
-                        serviceIntegrityDimensions.put("poToken", playerRequestPoToken)
-                        innerTubeBody.put("serviceIntegrityDimensions", serviceIntegrityDimensions)
-                    }
-                }
             }
         } catch (e: JSONException) {
             Logger.printException({ "Failed to create js innerTubeBody" }, e)

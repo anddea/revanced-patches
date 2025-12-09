@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.util.Pair;
 import android.widget.LinearLayout;
 
-import app.revanced.extension.shared.patches.auth.AuthPatch;
+import app.revanced.extension.shared.patches.auth.YouTubeVRAuthPatch;
 import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -49,7 +49,7 @@ public class SpoofStreamingDataVRAuthTokenPreference extends Preference implemen
         String dialogTitle = str("revanced_spoof_streaming_data_vr_auth_token_dialog_title");
         String dialogMessage = str("revanced_spoof_streaming_data_vr_auth_token_dialog_message");
         String resetButtonText = str("revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text");
-        if (AuthPatch.isDeviceCodeAvailable()) {
+        if (YouTubeVRAuthPatch.isDeviceCodeAvailable()) {
             dialogPair = CustomDialog.create(
                     context,
                     // Title.
@@ -62,15 +62,15 @@ public class SpoofStreamingDataVRAuthTokenPreference extends Preference implemen
                     str("revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text"),
                     // OK button action.
                     () -> {
-                        AuthPatch.setRefreshToken();
-                        AuthPatch.setAccessToken(true);
+                        YouTubeVRAuthPatch.setRefreshToken();
+                        YouTubeVRAuthPatch.setAccessToken(true);
                     },
                     // Cancel button action.
                     null,
                     // Neutral button text.
                     resetButtonText,
                     // Neutral button action.
-                    AuthPatch::clearAll,
+                    YouTubeVRAuthPatch::clearAll,
                     // Dismiss dialog when onNeutralClick.
                     true
             );
@@ -86,13 +86,13 @@ public class SpoofStreamingDataVRAuthTokenPreference extends Preference implemen
                     // OK button text.
                     str("revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text"),
                     // OK button action.
-                    () -> AuthPatch.setActivationCode(context),
+                    () -> YouTubeVRAuthPatch.setActivationCode(context),
                     // Cancel button action.
                     null,
                     // Neutral button text.
                     resetButtonText,
                     // Neutral button action.
-                    AuthPatch::clearAll,
+                    YouTubeVRAuthPatch::clearAll,
                     // Dismiss dialog when onNeutralClick.
                     true
             );

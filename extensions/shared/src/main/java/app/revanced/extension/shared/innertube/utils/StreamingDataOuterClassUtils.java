@@ -39,43 +39,6 @@ public class StreamingDataOuterClassUtils {
     }
 
     /**
-     * Add the desired formats to the ArrayList in AdaptiveFormats.
-     *
-     * @param streamingData StreamingData (GeneratedMessage) parsed by ProtoParser.
-     * @param arrayList     An ArrayList where formats are added, this is what is actually used for playback.
-     *                      Since formats that are not in this ArrayList will not be used for playback, you can filter by not adding unwanted formats.
-     *                      See {@link #removeAV1Codecs(ArrayList)} for examples.
-     * @param isVideo       This method only distinguishes between video and audio formats.
-     */
-    public static void setAdaptiveFormats(StreamingDataOuterClass.StreamingData streamingData, ArrayList<Object> arrayList, boolean isVideo) {
-        try {
-            List<?> adaptiveFormats = getAdaptiveFormats(streamingData);
-            if (adaptiveFormats != null) {
-                for (Object adaptiveFormat : adaptiveFormats) {
-                    // 'audio/webm; codecs="opus"', 'audio/mp4; codecs="mp4a.40.2"', ...
-                    // 'video/webm; codecs="vp9"', 'video/mp4; codecs="av01.0.00M.08.0.110.05.01.06.0"', ...
-                    String mimeType = getMimeType(adaptiveFormat);
-
-                    // mimeType starts with 'video', which means it is a video format.
-                    boolean isVideoType = StringUtils.startsWith(mimeType, "video");
-
-                    // streamingData is AudioFormat, and mimeType also starts with 'audio'.
-                    boolean isAudioFormat = !isVideo && !isVideoType;
-                    // streamingData is VideoFormat, and mimeType also starts with 'video'.
-                    boolean isVideoFormat = isVideo && isVideoType;
-
-                    if (isAudioFormat || isVideoFormat) {
-                        // Add formats.
-                        arrayList.add(adaptiveFormat);
-                    }
-                }
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "setAdaptiveFormats failed", ex);
-        }
-    }
-
-    /**
      * Get formats from parsed streamingData.
      * <p>
      *
@@ -164,33 +127,6 @@ public class StreamingDataOuterClassUtils {
             Logger.printException(() -> "prioritizeResolution failed", ex);
         }
         return adaptiveFormats;
-    }
-
-    /**
-     * Remove 'AV1' video format from arrayList.
-     *
-     * @param arrayList An ArrayList where formats are added.
-     */
-    public static void removeAV1Codecs(ArrayList<Object> arrayList) {
-        try {
-            for (Object adaptiveFormat : arrayList) {
-                // 'audio/webm; codecs="opus"', 'audio/mp4; codecs="mp4a.40.2"', ...
-                // 'video/webm; codecs="vp9"', 'video/mp4; codecs="av01.0.00M.08.0.110.05.01.06.0"', ...
-                String mimeType = getMimeType(adaptiveFormat);
-
-                // mimeType starts with 'video', which means it is a video format.
-                boolean isVideoType = StringUtils.startsWith(mimeType, "video");
-
-                if (isVideoType) {
-                    if (mimeType.contains("av01")) {
-                        // Remove formats.
-                        arrayList.remove(adaptiveFormat);
-                    }
-                }
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "removeAV1Codecs failed", ex);
-        }
     }
 
     public static void setServerAbrStreamingUrl(StreamingDataOuterClass.StreamingData streamingData, String url) {

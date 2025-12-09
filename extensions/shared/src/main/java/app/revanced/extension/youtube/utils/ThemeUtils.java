@@ -18,27 +18,6 @@ public class ThemeUtils extends BaseThemeUtils {
         return getStyleIdentifier(themeName);
     }
 
-    public static Drawable getBackButtonDrawable(boolean isDarkModeEnabled) {
-        Drawable drawable = getDrawable("revanced_settings_toolbar_arrow_left");
-        if (drawable != null) {
-            drawable.setTint(getAppForegroundColor(isDarkModeEnabled));
-            return drawable;
-        }
-        final String drawableName = isDarkModeEnabled
-                ? "yt_outline_arrow_left_white_24"
-                : "yt_outline_arrow_left_black_24";
-
-        return getDrawable(drawableName);
-    }
-
-    public static Drawable getMenuButtonDrawable(boolean isDarkModeEnabled) {
-        final String drawableName = isDarkModeEnabled
-                ? "yt_outline_overflow_vertical_white_24"
-                : "yt_outline_overflow_vertical_black_24";
-
-        return getDrawable(drawableName);
-    }
-
     public static Drawable getTrashButtonDrawable() {
         final String drawableName = isDarkModeEnabled()
                 ? "yt_outline_trash_can_white_24"

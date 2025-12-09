@@ -223,7 +223,7 @@ internal abstract class JsRuntimeChalBaseJCP : JsChallengeProvider() {
                 if (code == null) {
                     val url =
                         "https://github.com/$repository/releases/download/$scriptVersion/$fileName"
-                    code = ThrottlingParameterUtils.fetch(url, false)
+                    code = ThrottlingParameterUtils.fetch(url)
                     Logger.printDebug { "[${tag}] Downloading challenge solver ${scriptType.value} script from $url" }
                     if (code.isNullOrEmpty()) {
                         return null

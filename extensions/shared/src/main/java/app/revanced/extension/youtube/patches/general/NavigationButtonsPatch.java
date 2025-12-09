@@ -77,14 +77,6 @@ public final class NavigationButtonsPatch {
     private static int emptyContentDotId = -1;
     private static int libraryCairoId = -1;
 
-    /**
-     * Injection point.
-     */
-    public static Enum<?> search;
-    /**
-     * Injection point.
-     */
-    public static Enum<?> searchCairo;
 
     /**
      * Injection point.
@@ -231,8 +223,8 @@ public final class NavigationButtonsPatch {
         if (REPLACE_NAVIGATION_BUTTON && shouldReplace(original)) {
             String enumName = original.name();
             return original.name().endsWith("CAIRO")
-                    ? searchCairo
-                    : search;
+                    ? YouTubeIcon.searchCairo
+                    : YouTubeIcon.search;
         }
 
         return original;

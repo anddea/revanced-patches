@@ -518,7 +518,7 @@ Cela dépend de la réponse que l'application reçoit du serveur.
 Si le paramètre 'Lecture' est défectueux, l'activation de ce paramètre peut résoudre le problème.
 
 Si le paramètre 'Lecture' est toujours défectueux même après avoir activé ou désactivé ce paramètre, vous devez effacer les données de l'application."</string>
-    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">La vitesse de pression prolongée peut parfois s\'activer même si l\'utilisateur ne maintient pas la pression.</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">La vitesse de pression prolongée peut parfois s\'activer même si l\'utilisateur ne maintient pas son doigt sur l\'écran.</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"La vitesse de pression prolongée n'est activée que lorsque l'utilisateur appuie longuement.
 
 Problème connu : Il arrive que l'interface de balayage s'affiche avant le passage en mode plein écran."</string>
@@ -558,9 +558,9 @@ Info :
     <string name="revanced_hide_ask_button_summary_off">Le bouton \'Demander\' est affiché.</string>
     <string name="revanced_hide_ask_button_summary_on">Le bouton \'Demander\' est masqué.</string>
     <string name="revanced_hide_ask_button_title">Masquer le bouton \'Demander\'</string>
-    <string name="revanced_hide_ask_section_summary_off">La section « Poser une question » est affichée.</string>
-    <string name="revanced_hide_ask_section_summary_on">La section « Poser une question » est masquée.</string>
-    <string name="revanced_hide_ask_section_title">Masquer la section Poser une question</string>
+    <string name="revanced_hide_ask_section_summary_off">La section \'Poser une question\' est affichée.</string>
+    <string name="revanced_hide_ask_section_summary_on">La section \'Poser une question\' est masquée.</string>
+    <string name="revanced_hide_ask_section_title">Masquer la section \'Poser une question\'</string>
     <string name="revanced_hide_attributes_section_summary_off">Les sections \'Lieux Populaires\', \'Jeux\' et \'Musique\' présent sous la description sont affichés.</string>
     <string name="revanced_hide_attributes_section_summary_on">Les sections \'Lieux Populaires\', \'Jeux\' et \'Musique\' présent sous la description sont masquées.</string>
     <string name="revanced_hide_attributes_section_title">Masquer la section \'Mentions\'</string>
@@ -670,9 +670,6 @@ Limitation : certains liens de recherche mis en surbrillance qui n'ont pas de st
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Affiché dans le flux \'Abonnements\'.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Masqué dans le flux \'Abonnements\'.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Masquer dans le flux \'Abonnements\'</string>
-    <string name="revanced_hide_creator_section_summary_off">La section Créateur est affichée.</string>
-    <string name="revanced_hide_creator_section_summary_on">La section Créateur est masquée.</string>
-    <string name="revanced_hide_creator_section_title">Masquer la section Créateur</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">L\'étagère de boutique du créateur est affichée.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">L\'étagère de boutique du créateur est masquée.</string>
     <string name="revanced_hide_creator_store_shelf_title">Masquer l\'étagère de boutique du créateur</string>
@@ -703,12 +700,9 @@ Paramètres → Lecture auto / Lecture → Lecture auto. de la prochaine vidéo"
     <string name="revanced_hide_expandable_shelf_summary_off">Les étagères coulissantes sont affichés.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Les étagères coulissantes sont masqués.</string>
     <string name="revanced_hide_expandable_shelf_title">Masquer les étagères coulissantes</string>
-    <string name="revanced_hide_explore_podcast_section_summary_off">La section « Explorer les podcasts » s\'affiche.</string>
-    <string name="revanced_hide_explore_podcast_section_summary_on">La section « Explorer les podcasts » est cachée.</string>
-    <string name="revanced_hide_explore_podcast_section_title">Masquer Explorer la section podcast</string>
-    <string name="revanced_hide_featured_section_summary_off">La section « Contenu mis en avant » de la section Créateur est affichée.</string>
-    <string name="revanced_hide_featured_section_summary_on">La section « Contenu mis en avant » de la section Créateur est masquée.</string>
-    <string name="revanced_hide_featured_section_title">Masquer la section Contenu en vedette</string>
+    <string name="revanced_hide_explore_podcast_section_summary_off">La section \'Découvrir le podcast\' est affichée.</string>
+    <string name="revanced_hide_explore_podcast_section_summary_on">La section \'Découvrir le podcast\' est masquée.</string>
+    <string name="revanced_hide_explore_podcast_section_title">Masquer la section \'Découvrir le podcast\'</string>
     <string name="revanced_hide_feed_captions_button_off">Le bouton \'Sous-titres\' est affiché.</string>
     <string name="revanced_hide_feed_captions_button_on">Le bouton \'Sous-titres\' est masqué.</string>
     <string name="revanced_hide_feed_captions_button_title">Masquer le bouton \'Sous-titres\'</string>
@@ -745,14 +739,14 @@ Paramètres → Lecture auto / Lecture → Lecture auto. de la prochaine vidéo"
     <string name="revanced_hide_handle_summary_on">L\'identifiant est masqué.</string>
     <string name="revanced_hide_handle_title">Masquer l\'identifiant</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">La section « Comment ce contenu a été créé » s\'affiche.</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_on">La section « Comment ce contenu a été créé » est masquée.</string>
-    <string name="revanced_hide_how_this_was_made_section_title">Masquer la section « Comment ce contenu a été créé »</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">La section \'Comment ce contenu a été créé\' est masquée.</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Masquer la section \'Comment ce contenu a été créé\'</string>
     <string name="revanced_hide_hype_button_summary_off">Le bouton \'Booster\' est affiché.</string>
     <string name="revanced_hide_hype_button_summary_on">Le bouton \'Booster\' est masqué.</string>
     <string name="revanced_hide_hype_button_title">Masquer le bouton \'Booster\'</string>
-    <string name="revanced_hide_hype_points_section_summary_off">La section des points forts est affichée.</string>
-    <string name="revanced_hide_hype_points_section_summary_on">La section des points forts est masquée.</string>
-    <string name="revanced_hide_hype_points_section_title">Masquer la section des points forts</string>
+    <string name="revanced_hide_hype_points_section_summary_off">La section des points hype est affichée.</string>
+    <string name="revanced_hide_hype_points_section_summary_on">La section des points hype est masquée.</string>
+    <string name="revanced_hide_hype_points_section_title">Masquer la section des points hype</string>
     <string name="revanced_hide_hype_points_summary_off">Les points Boost sont affichés</string>
     <string name="revanced_hide_hype_points_summary_on">Les points Boost sont masqués</string>
     <string name="revanced_hide_hype_points_title">Masquer les points Boost</string>
@@ -1273,9 +1267,9 @@ Effet secondaire : Les fiches officielles dans les résultats de recherche sont 
     <string name="revanced_hide_stop_ads_button_summary_off">Le bouton \'Zéro annonce\' est affiché.</string>
     <string name="revanced_hide_stop_ads_button_summary_on">Le bouton \'Zéro annonce\' est masqué.</string>
     <string name="revanced_hide_stop_ads_button_title">Masquer le bouton \'Zéro annonce\'</string>
-    <string name="revanced_hide_subscribe_button_summary_off">Le bouton « S\'abonner » de la section Créateur est affiché.</string>
-    <string name="revanced_hide_subscribe_button_summary_on">Le bouton « S\'abonner » de la section Créateur est masqué.</string>
-    <string name="revanced_hide_subscribe_button_title">Masquer le bouton S\'abonner</string>
+    <string name="revanced_hide_subscribe_button_summary_off">Le bouton \'S\'abonner\' de la section Créateur est affiché.</string>
+    <string name="revanced_hide_subscribe_button_summary_on">Le bouton \'S\'abonner\' de la section Créateur est masqué.</string>
+    <string name="revanced_hide_subscribe_button_title">Masquer le bouton \'S\'abonner\'</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">La liste des chaînes dans \"Abonnements\"est affichée.</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">La liste des chaînes dans \"Abonnements\"est masquée.</string>
     <string name="revanced_hide_subscribed_channels_bar_title">Masquer la liste des chaînes</string>
@@ -1306,6 +1300,11 @@ Effet secondaire : Les fiches officielles dans les résultats de recherche sont 
     <string name="revanced_hide_toolbar_notification_button_summary_off">Le bouton \'Notifications\' est affiché.</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">Le bouton \'Notifications\' est masqué.</string>
     <string name="revanced_hide_toolbar_notification_button_title">Masquer le bouton \'Notifications\'</string>
+    <string name="revanced_hide_toolbar_search_button_summary_off">Le bouton de recherche est affiché.</string>
+    <string name="revanced_hide_toolbar_search_button_summary_on">"Le bouton de recherche est masqué.
+
+Ce paramètre peut ne pas fonctionner si la barre de recherche large est activée."</string>
+    <string name="revanced_hide_toolbar_search_button_title">Masquer le bouton de recherche</string>
     <string name="revanced_hide_transcript_section_summary_off">La section \'Transcription\' est affiché.</string>
     <string name="revanced_hide_transcript_section_summary_on">La section \'Transcription\' est masqué.</string>
     <string name="revanced_hide_transcript_section_title">Masquer la section \'Transcription\'</string>
@@ -1821,6 +1820,13 @@ Cela ne contourne pas la restriction d'âge, mais le confirme automatiquement."<
     <string name="revanced_replace_channel_handle_summary_off">L\'identifiant de la chaîne est utilisé.</string>
     <string name="revanced_replace_channel_handle_summary_on">Le nom de la chaîne est utilisé.</string>
     <string name="revanced_replace_channel_handle_title">Remplacer l\'identifiant de la chaîne</string>
+    <string name="revanced_replace_navigation_button_summary">Remplace le bouton de navigation par le bouton Rechercher.</string>
+    <string name="revanced_replace_navigation_button_target_entry_home">Accueil</string>
+    <string name="revanced_replace_navigation_button_target_entry_notifications">Notifications</string>
+    <string name="revanced_replace_navigation_button_target_entry_shorts">Shorts</string>
+    <string name="revanced_replace_navigation_button_target_entry_subscriptions">Abonnements</string>
+    <string name="revanced_replace_navigation_button_target_title">Remplacer le bouton de navigation</string>
+    <string name="revanced_replace_navigation_button_title">Remplacer le bouton de navigation</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Appuyez pour afficher le temps restant.</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Appuyez pour ouvrir le menu déroulant de la vitesse de lecture ou de la qualité vidéo.</string>
     <string name="revanced_replace_time_stamp_action_title">Modifie l\'action de l\'horodatage</string>
@@ -2245,6 +2251,7 @@ Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut 
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Restaure l\'ancien menu \'Playlist\'</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restaure l\'ancien menu déroulant de vitesse de lecture du lecteur</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restaure la fonctionnalité de transcription</string>
+    <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Restauration de la barre d\'action vidéo non réduite</string>
     <string name="revanced_spoof_app_version_target_entry_title">Choisir la version à falsifier</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Version de falsification de l\'app invalide : %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Saisissez la version de l\'application à falsifier.</string>
@@ -2529,13 +2536,9 @@ Ajustez le volume en balayant verticalement sur le côté droit de l'écran."</s
 • Désactiver ce paramètre charge plus de publicités depuis le serveur.
 • Vous devez désactiver ce paramètre afin de rendre les publicités vidéo visibles."</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">Le bouton \'Créer\' n\'est pas échangé avec le bouton \'Notification\'.</string>
-    <string name="revanced_switch_create_with_notifications_button_summary_on">"Le bouton Créer est échangé avec le bouton Notifications
-
-Remarque : Activer cette option masque également de force les annonces vidéo"</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">Le bouton Créer est remplacé par le bouton Notifications.</string>
     <string name="revanced_switch_create_with_notifications_button_title">Échanger \'Créer\' et \'Notifications\'</string>
-    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"La désactivation de ce paramètre désactivera également le blocage des publicités Shorts.
-
-Si la modification de ce paramètre ne prend pas effet, essayez de passer en mode navigation privée."</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Si ce paramètre ne fonctionne pas, essayez de passer en mode navigation privée.</string>
     <string name="revanced_theme_default">Officiel</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Attention</string>

@@ -560,6 +560,20 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">클라이언트 스트림을 가져올 수 없습니다.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">기본 클라이언트를 TV로 변경해 보세요.</string>
     <string name="revanced_spoof_streaming_data_message">재생 문제가 발생하는 경우에는 &lt;i&gt;&lt;u&gt;설정 &gt; %s &gt; 기타 &gt; 스트리밍 데이터 변경하기&lt;/u&gt;&lt;/i&gt; 에서 \'스트리밍 데이터 변경하기\' 를 활성화하세요.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">인증 토큰을 받는 방법을 보려면 여기를 탭하세요.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Android SDK 인증 없음에 대한 정보</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_get_authorization_token_text">승인 토큰 받기</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_message">"Android SDK 없음용 승인 토큰을 받으려면 GmsCore를 사용할 때와 마찬가지로 Google 계정에 로그인해야 합니다.
+
+1. '승인 토큰 받기'를 클릭하여 WebView에서 로그인 페이지를 엽니다.
+
+2. Google 계정에 로그인합니다.
+
+* 인증 토큰을 제거하려면 '초기화'을 탭하세요."</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_reset_text">초기화</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_title">승인 토큰 받기</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset">인증 토큰을 초기화하였습니다.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_success">인증 토큰을 저장하였습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 동영상 통계에서 표시됩니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">동영상 통계에서 표시</string>
     <string name="revanced_spoof_streaming_data_summary">"클라이언트 동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다.
@@ -620,4 +634,16 @@ JavaScript 클라이언트에 문제가 발생할 경우에 먼저 이 기능을
 • 도메인 변경: Google 계정의 시청 기록 설정을 따릅니다.
 • 시청 기록 차단: 시청 기록이 차단됩니다."</string>
     <string name="revanced_watch_history_type_title">시청 기록 유형</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Cookies 가져오기</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Data Sync ID 가져오기</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Visitor Data 가져오기</string>
+    <string name="revanced_webview_contextual_menu_refresh">새로고침</string>
+    <string name="revanced_webview_cookies">Cookies</string>
+    <string name="revanced_webview_copy">복사</string>
+    <string name="revanced_webview_data_sync_id">Data Sync ID</string>
+    <string name="revanced_webview_toast_copy_success">%s 를 클립보드에 복사하였습니다.</string>
+    <string name="revanced_webview_toast_empty">%s 가 비워져있습니다.</string>
+    <string name="revanced_webview_toast_no_network">네트워크 연결상태를 확인하세요.</string>
+    <string name="revanced_webview_toast_unavailable">WebView를 사용할 수 없습니다.</string>
+    <string name="revanced_webview_visitor_data">Visitor Data</string>
 </resources>
