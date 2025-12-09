@@ -10,6 +10,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.utils.Logger;
 
@@ -85,6 +87,18 @@ public class AuthUtils {
             }
         }
         return cookies;
+    }
+
+    public static Map<String, String> parseCookieString(String cookies) {
+        Map<String, String> cookieList = new HashMap<>();
+        Pattern cookiePattern = Pattern.compile("([^=]+)=([^;]*);?\\s?");
+        Matcher matcher = cookiePattern.matcher(cookies);
+        while (matcher.find()) {
+            String cookieKey = matcher.group(1);
+            String cookieValue = matcher.group(2);
+            cookieList.put(cookieKey, cookieValue);
+        }
+        return cookieList;
     }
 
     public static String sha1(String input) {

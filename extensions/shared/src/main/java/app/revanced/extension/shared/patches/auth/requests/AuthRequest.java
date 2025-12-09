@@ -5,7 +5,11 @@ import static app.revanced.extension.shared.patches.auth.requests.AuthRoutes.cre
 import static app.revanced.extension.shared.patches.auth.requests.AuthRoutes.createActivationCodeBody;
 import static app.revanced.extension.shared.patches.auth.requests.AuthRoutes.createRefreshTokenBody;
 
+import android.util.Pair;
+
 import androidx.annotation.Nullable;
+
+import com.aurora.store.task.AuthTask;
 
 import org.json.JSONObject;
 
@@ -44,6 +48,25 @@ public class AuthRequest {
             return Utils.submitOnBackgroundThread(() -> fetchUrl(requestType, token)).get();
         } catch (ExecutionException | InterruptedException ex) {
             Logger.printDebug(() -> "fetch failed: " + requestType, ex);
+        }
+
+        return null;
+    }
+
+    @Nullable
+    public static Pair<String, String> fetch(String email, String token, boolean isAASToken) {
+        try {
+            return Utils.submitOnBackgroundThread(() -> {
+                AuthTask authTask = new AuthTask();
+
+                if (isAASToken) {
+                    return new Pair<>(token, authTask.refreshAuthToken(email, token));
+                } else {
+                    return authTask.getAuthToken(email, token);
+                }
+            }).get();
+        } catch (ExecutionException | InterruptedException ex) {
+            Logger.printDebug(() -> "fetch failed", ex);
         }
 
         return null;

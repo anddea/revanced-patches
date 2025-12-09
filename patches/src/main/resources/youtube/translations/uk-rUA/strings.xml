@@ -711,9 +711,6 @@
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Показується в стрічці підписок.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Приховано в стрічці підписок.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Приховати у стрічці підписок</string>
-    <string name="revanced_hide_creator_section_summary_off">Секцію Автор показується.</string>
-    <string name="revanced_hide_creator_section_summary_on">Секцію Автор приховано.</string>
-    <string name="revanced_hide_creator_section_title">Приховати секцію Автор</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Полицю магазину автора під відео показується.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Полицю магазину автора під відео приховано.</string>
     <string name="revanced_hide_creator_store_shelf_title">Приховати полицю магазину автора</string>
@@ -747,9 +744,6 @@
     <string name="revanced_hide_explore_podcast_section_summary_off">Секцію Послухайте подкаст показується.</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">Секцію Послухайте подкаст приховано.</string>
     <string name="revanced_hide_explore_podcast_section_title">Приховати секцію Послухайте подкаст</string>
-    <string name="revanced_hide_featured_section_summary_off">Секцію Основний вміст у секції Автор показується.</string>
-    <string name="revanced_hide_featured_section_summary_on">Секцію Основний вміст у секції Автор приховано.</string>
-    <string name="revanced_hide_featured_section_title">Приховати секцію Основний вміст</string>
     <string name="revanced_hide_feed_captions_button_off">Кнопку субтитрів показується.</string>
     <string name="revanced_hide_feed_captions_button_on">Кнопку субтитрів приховано.</string>
     <string name="revanced_hide_feed_captions_button_title">Приховати кнопку Субтитри</string>
@@ -1367,6 +1361,11 @@
     <string name="revanced_hide_toolbar_notification_button_summary_off">Кнопку сповіщень показується.</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">Кнопку сповіщень приховано.</string>
     <string name="revanced_hide_toolbar_notification_button_title">Приховати кнопку сповіщень</string>
+    <string name="revanced_hide_toolbar_search_button_summary_off">Кнопку Пошук показується.</string>
+    <string name="revanced_hide_toolbar_search_button_summary_on">"Кнопку Пошук приховано.
+
+Це налаштування може не працювати, якщо увімкнено широку панель пошуку."</string>
+    <string name="revanced_hide_toolbar_search_button_title">Приховати кнопку Пошук</string>
     <string name="revanced_hide_transcript_section_summary_off">Секції Текст відео показується.</string>
     <string name="revanced_hide_transcript_section_summary_on">Секції Текст відео приховано.</string>
     <string name="revanced_hide_transcript_section_title">Приховати секції Текст відео</string>
@@ -1913,6 +1912,13 @@
     <string name="revanced_replace_channel_handle_summary_off">Використовується ідентифікатор каналу.</string>
     <string name="revanced_replace_channel_handle_summary_on">Використовується назву каналу.</string>
     <string name="revanced_replace_channel_handle_title">Замінити ідентифікатор каналу</string>
+    <string name="revanced_replace_navigation_button_summary">Заміна кнопки навігації кнопкою Пошук.</string>
+    <string name="revanced_replace_navigation_button_target_entry_home">Головна</string>
+    <string name="revanced_replace_navigation_button_target_entry_notifications">Сповіщення</string>
+    <string name="revanced_replace_navigation_button_target_entry_shorts">YouTube Shorts</string>
+    <string name="revanced_replace_navigation_button_target_entry_subscriptions">Підписки</string>
+    <string name="revanced_replace_navigation_button_target_title">Замінити кнопку навігації</string>
+    <string name="revanced_replace_navigation_button_title">Замінити кнопку навігації</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Натисніть, щоб показувався залишок часу.</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Натисніть, щоб відкрити висувне меню швидкості відтворення або якості відео.</string>
     <string name="revanced_replace_time_stamp_action_title">Замінити дію мітки часу</string>
@@ -2360,6 +2366,7 @@
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Відновлення старого заголовка списку відтворення</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Відновлення старої висувної панелі швидкості відтворення</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Відновлення функції Транскрипція</string>
+    <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Відновлення не згорнутої панелі дій відео</string>
     <string name="revanced_spoof_app_version_target_entry_title">Підробити цільову версію програми</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Недійсне підроблення версії програми: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Введіть цільову версію підробки програми</string>

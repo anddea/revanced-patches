@@ -561,6 +561,19 @@ Side effect:
     <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Try changing the default client to TV.</string>
     <string name="revanced_spoof_streaming_data_message">If you experience any playback issues, enable \"Spoof streaming data\" in &lt;i&gt;&lt;u&gt;Settings &gt; %s &gt; Miscellaneous&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Click to see how to get an authentication token.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">About Android No SDK Auth</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_get_authorization_token_text">Get authorization token</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_message">"To get an authorization token for Android No SDK, you need to sign in to your Google account, just like when using GmsCore:
+
+1. Click 'Get authorization token' to open the sign in page in WebView.
+2. Sign in to your Google Account.
+
+※ Click 'Reset' to remove an authentication token."</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_reset_text">Reset</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_title">Get Authorization Token</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset">Authentication token reset.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_success">Authentication token saved.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Spoof the client video streams to prevent playback issues.
@@ -621,4 +634,16 @@ If you're having issues with your JavaScript client, try disabling this first."<
 • Replace domain: Follows the watch history settings of Google account.
 • Block watch history: Watch history is blocked."</string>
     <string name="revanced_watch_history_type_title">Watch history type</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Get Cookies</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Get Data Sync Id</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Get Visitor Data</string>
+    <string name="revanced_webview_contextual_menu_refresh">Refresh</string>
+    <string name="revanced_webview_cookies">Cookies</string>
+    <string name="revanced_webview_copy">Copy</string>
+    <string name="revanced_webview_data_sync_id">Data Sync Id</string>
+    <string name="revanced_webview_toast_copy_success">%s copied to clipboard.</string>
+    <string name="revanced_webview_toast_empty">%s is empty.</string>
+    <string name="revanced_webview_toast_no_network">Please check your network connection.</string>
+    <string name="revanced_webview_toast_unavailable">WebView is not available.</string>
+    <string name="revanced_webview_visitor_data">Visitor Data</string>
 </resources>

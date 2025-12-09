@@ -489,13 +489,13 @@
     <string name="revanced_extended_settings_import_title">Импорт настроек</string>
     <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Внешний загрузчик</string>
-    <string name="revanced_external_downloader_empty_warning">Не может быть пустым!</string>
+    <string name="revanced_external_downloader_empty_warning">Имя пакета не может быть пустым</string>
     <string name="revanced_external_downloader_not_found_title">Приложение не установлено.</string>
     <string name="revanced_external_downloader_not_installed">Не установлен</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не установлен.
 Пожалуйста, скачайте %2$s с сайта."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Предупреждение</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s не установлен. Установите его.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s Не установлен. Установите его.</string>
     <string name="revanced_external_downloader_other_item">Другой</string>
     <string name="revanced_external_downloader_other_item_hint">Введите имя пакета</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Название пакета установленного внешнего приложения для загрузки.</string>
@@ -698,9 +698,6 @@ Shorts
     <string name="revanced_hide_community_posts_subscriptions_summary_off">В подписках отображены.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">В подписках скрыты.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Посты сообщества в подписках</string>
-    <string name="revanced_hide_creator_section_summary_off">Отображена.</string>
-    <string name="revanced_hide_creator_section_summary_on">Скрыта.</string>
-    <string name="revanced_hide_creator_section_title">Секция \"Создатель\"</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Полка творчество отображена.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Полка творчество скрыта.</string>
     <string name="revanced_hide_creator_store_shelf_title">Полка творчество под видео</string>
@@ -734,9 +731,6 @@ Shorts
     <string name="revanced_hide_explore_podcast_section_summary_off">Отображена.</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">Скрыта.</string>
     <string name="revanced_hide_explore_podcast_section_title">Секция обзора подкаста</string>
-    <string name="revanced_hide_featured_section_summary_off">Отображена.</string>
-    <string name="revanced_hide_featured_section_summary_on">Скрыта.</string>
-    <string name="revanced_hide_featured_section_title">Секция избранного контента</string>
     <string name="revanced_hide_feed_captions_button_off">Кнопка \"Субтитры\" в ленте отображена.</string>
     <string name="revanced_hide_feed_captions_button_on">Кнопка \"Субтитры\" в ленте скрыта.</string>
     <string name="revanced_hide_feed_captions_button_title">Кнопка \"Субтитры\" в ленте</string>
@@ -1346,6 +1340,11 @@ Shorts
     <string name="revanced_hide_toolbar_notification_button_summary_off">Кнопка \"Уведомления\" отображена.</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">Кнопка \"Уведомления\" скрыта.</string>
     <string name="revanced_hide_toolbar_notification_button_title">Кнопка \"Уведомления\"</string>
+    <string name="revanced_hide_toolbar_search_button_summary_off">Кнопка поиска отображена.</string>
+    <string name="revanced_hide_toolbar_search_button_summary_on">"Кнопка поиска скрыта.
+
+Эта настройка может не работать, если включена широкая строка поиска."</string>
+    <string name="revanced_hide_toolbar_search_button_title">Кнопка поиска</string>
     <string name="revanced_hide_transcript_section_summary_off">Секция \"Расшифровка видео\" отображена.</string>
     <string name="revanced_hide_transcript_section_summary_on">Секция \"Расшифровка видео\" скрыта.</string>
     <string name="revanced_hide_transcript_section_title">Секция \"Расшифровка видео\"</string>
@@ -1895,6 +1894,13 @@ Shorts
     <string name="revanced_replace_channel_handle_summary_off">Используется псевдоним канала.</string>
     <string name="revanced_replace_channel_handle_summary_on">Используется имя канала.</string>
     <string name="revanced_replace_channel_handle_title">Заменить псевдоним канала</string>
+    <string name="revanced_replace_navigation_button_summary">Заменяет кнопку навигации на кнопку Поиска.</string>
+    <string name="revanced_replace_navigation_button_target_entry_home">Главная</string>
+    <string name="revanced_replace_navigation_button_target_entry_notifications">Уведомления</string>
+    <string name="revanced_replace_navigation_button_target_entry_shorts">Shorts</string>
+    <string name="revanced_replace_navigation_button_target_entry_subscriptions">Подписки</string>
+    <string name="revanced_replace_navigation_button_target_title">Заменить кнопку навигации</string>
+    <string name="revanced_replace_navigation_button_title">Заменить кнопку навигации</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Нажмите, чтобы показать оставшееся время.</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Открыть меню скорости просмотра или качества видео.</string>
     <string name="revanced_replace_time_stamp_action_title">Заменить действие метки времени</string>
@@ -2340,6 +2346,7 @@ Shorts
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Со старым заголовком плейлиста</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Восстановит старый стиль выпадающей панели скорости проигрывания</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Восстановление функциональности Transcript</string>
+    <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 — Восстановлена несвернутая панель действий под видео</string>
     <string name="revanced_spoof_app_version_target_entry_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Неверная версия подмены: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Введите целевую версию приложения для подмены.</string>

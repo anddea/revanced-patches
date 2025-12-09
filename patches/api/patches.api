@@ -210,10 +210,6 @@ public final class app/revanced/patches/music/utils/fix/fileprovider/FileProvide
 	public static final fun fileProviderPatch (Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/utils/fix/streamingdata/FingerprintsKt {
-	public static final field STREAMING_DATA_OUTER_CLASS Ljava/lang/String;
-}
-
 public final class app/revanced/patches/music/utils/fix/streamingdata/SpoofStreamingDataPatchKt {
 	public static final fun getSpoofStreamingDataPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -355,6 +351,10 @@ public final class app/revanced/patches/music/utils/sponsorblock/SponsorBlockPat
 
 public final class app/revanced/patches/music/utils/videotype/VideoTypeHookPatchKt {
 	public static final fun getVideoTypeHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/utils/webview/WebViewPatchKt {
+	public static final fun getWebViewPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/video/information/VideoInformationPatchKt {
@@ -759,6 +759,11 @@ public final class app/revanced/patches/shared/translations/BaseTranslationsPatc
 
 public final class app/revanced/patches/shared/viewgroup/ViewGroupMarginLayoutParamsHookPatchKt {
 	public static final fun getViewGroupMarginLayoutParamsHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/shared/webview/WebViewPatchKt {
+	public static final fun webViewPatch (Lkotlin/jvm/functions/Function1;Lkotlin/Pair;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun webViewPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/Pair;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/extended/LyricsSearchPatchKt {

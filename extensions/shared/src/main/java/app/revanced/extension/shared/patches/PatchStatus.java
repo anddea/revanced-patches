@@ -30,4 +30,9 @@ public class PatchStatus {
     public static long PatchedTime() {
         return 0L;
     }
+
+    // Modified by a patch. Do not touch.
+    public static String WebViewActivityClass() {
+        return "";
+    }
 }

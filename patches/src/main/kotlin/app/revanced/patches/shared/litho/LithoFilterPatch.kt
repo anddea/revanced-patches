@@ -279,10 +279,15 @@ val lithoFilterPatch = bytecodePatch(
             return-object v0
             """
 
-            val isLegacyMethod = MethodUtil.methodSignaturesMatch(
-                componentContextParserLegacyFingerprint.methodOrThrow(),
-                componentContextParserFingerprint2.methodOrThrow()
-            )
+            var isLegacyMethod = false
+
+            try {
+                isLegacyMethod = MethodUtil.methodSignaturesMatch(
+                    componentContextParserLegacyFingerprint.methodOrThrow(),
+                    componentContextSubParserFingerprint2.methodOrThrow()
+                )
+            } catch (_: Exception) {
+            }
 
             componentCreateFingerprint.methodOrThrow().apply {
                 val insertIndex = if (isLegacyMethod) {

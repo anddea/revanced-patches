@@ -77,8 +77,12 @@ public class PackageUtils extends Utils {
 
     @Nullable
     private static PackageInfo getPackageInfo() {
+        return getPackageInfo(getContext().getPackageName());
+    }
+
+    @Nullable
+    public static PackageInfo getPackageInfo(String packageName) {
         final PackageManager packageManager = getPackageManager();
-        final String packageName = getContext().getPackageName();
         try {
             return isSDKAbove(33)
                     ? packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(0))

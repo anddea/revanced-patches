@@ -30,6 +30,36 @@ internal val autoMotiveFingerprint = legacyFingerprint(
     }
 )
 
+internal val buildRequestParentFingerprint = legacyFingerprint(
+    name = "buildRequestParentFingerprint",
+    returnType = "Ljava/util/Map;",
+    strings = listOf("If-Modified-Since"),
+)
+
+internal val buildRequestFingerprint = legacyFingerprint(
+    name = "buildRequestFingerprint",
+    customFingerprint = { method, _ ->
+        method.implementation != null &&
+                indexOfNewUrlRequestBuilderInstruction(method) >= 0 &&
+                // Earlier targets
+                (indexOfEntrySetInstruction(method) >= 0 ||
+                        // Later targets
+                        method.parameters[1].type == "Ljava/util/Map;")
+    }
+)
+
+internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>().toString() == "Lorg/chromium/net/CronetEngine;->newUrlRequestBuilder(Ljava/lang/String;Lorg/chromium/net/UrlRequest${'$'}Callback;Ljava/util/concurrent/Executor;)Lorg/chromium/net/UrlRequest${'$'}Builder;"
+    }
+
+internal fun indexOfEntrySetInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_INTERFACE &&
+                getReference<MethodReference>().toString() == "Ljava/util/Map;->entrySet()Ljava/util/Set;"
+    }
+
 internal val clientTypeFingerprint = legacyFingerprint(
     name = "clientTypeFingerprint",
     opcodes = listOf(

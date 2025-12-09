@@ -2,8 +2,6 @@ package com.liskovsoft.sharedutils.rx;
 
 import androidx.annotation.Nullable;
 
-import com.liskovsoft.sharedutils.helpers.Helpers;
-
 import app.revanced.extension.shared.utils.Logger;
 import io.reactivex.Completable;
 import io.reactivex.Observable;
@@ -13,14 +11,8 @@ import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.OnErrorNotImplementedException;
-import io.reactivex.exceptions.UndeliverableException;
-import io.reactivex.plugins.RxJavaPlugins;
 import io.reactivex.schedulers.Schedulers;
 
-import java.io.IOException;
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
@@ -191,61 +183,6 @@ public class RxHelper {
 
     public static <T> void runBlocking(Observable<T> observable) {
         observable.blockingSubscribe();
-    }
-
-    /**
-     * <a href="https://stackoverflow.com/questions/43525052/rxjava2-observable-take-throws-undeliverableexception">More info 1</a>
-     * <a href="https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0#error-handling">More info 2</a>
-     */
-    public static void setupGlobalErrorHandler() {
-        RxJavaPlugins.setErrorHandler(e -> {
-            if (e instanceof UndeliverableException) {
-                Logger.printException(() -> "Undeliverable exception received, not sure what to do", e);
-                return;
-            }
-            if ((e instanceof IllegalStateException) &&
-                    ((e.getCause() instanceof SocketException) ||
-                     (e.getCause() instanceof SocketTimeoutException) ||
-                     (e.getCause() instanceof UnknownHostException))) {
-                // network problems (no internet, failed to connect etc)
-                Logger.printException(() -> "Network error", e);
-                return;
-            }
-            if ((e instanceof IllegalStateException) && (e.getCause() == null)) {
-                Logger.printException(() -> "Seems that the user forgot to implement error handler", e);
-                return;
-            }
-            if (e instanceof IOException) {
-                // fine, irrelevant network problem or API that throws on cancellation
-                return;
-            }
-            if ((e instanceof IllegalStateException) &&
-                    (e.getCause() instanceof IOException)) {
-                // fine, irrelevant network problem or API that throws on cancellation
-                return;
-            }
-            if (e instanceof InterruptedException) {
-                // fine, some blocking code was interrupted by a dispose call
-                return;
-            }
-            if (e instanceof NullPointerException && Helpers.equals(e.getStackTrace()[0].getClassName(), "java.net.SocksSocketImpl")) {
-                // Proxy connection error?
-                // java.net.SocksSocketImpl.privilegedConnect (SocksSocketImpl.java:94)
-                return;
-            }
-            if ((e instanceof NullPointerException) || (e instanceof IllegalArgumentException)) {
-                // that's likely a bug in the application
-                Thread.currentThread().getUncaughtExceptionHandler()
-                        .uncaughtException(Thread.currentThread(), e);
-                return;
-            }
-            if (e instanceof IllegalStateException) {
-                // that's a bug in RxJava or in a custom operator
-                Thread.currentThread().getUncaughtExceptionHandler()
-                        .uncaughtException(Thread.currentThread(), e);
-                return;
-            }
-        });
     }
 
     public static <T> Observable<T> create(ObservableOnSubscribe<T> source) {

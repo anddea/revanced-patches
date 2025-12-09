@@ -429,6 +429,12 @@ Sınırlamalar:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Gezinme çubuğu opaktır.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Gezinme çubuğu yarı saydam.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Yarı saydam gezinme çubuğunu etkinleştir</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_off">Sıradaki içerik işleme gecikmesi devre dışı.</string>
+    <string name="revanced_enable_watch_next_processing_delay_summary_on">Sıradaki içerik işleme gecikmesi etkin.</string>
+    <string name="revanced_enable_watch_next_processing_delay_title">Sonraki izleme işleme gecikmesini etkinleştir</string>
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">“Bu ayar, oynatıcı arayüzü yüklenmeden önce bir gecikme uygulanmasını zorlar.
+
+Bu, MainThread üzerinde bir şeyleri test ederken kullanılabilir.”</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Bu ayarın etkinleştirilmesi, Siz sekmesindeki Ayarlar butonunu kaldıracaktır.
 
 Bu durumda lütfen şu yolu kullanın:
@@ -504,6 +510,18 @@ Eğer bu seçeneği kapatırsanız, Hype simgesi video eylem çubuğu ve video a
     <string name="revanced_fix_spoof_app_version_side_effect_summary_off">"'Otomatik oynatma' ayarı yerine 'Oynatma' ayarı kullanılır."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"'Oynatma' ayarı yerine 'Otomatik oynatma' ayarı kullanılır."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_title">Sahte uygulama sürümü yan etkisi düzelt.</string>
+    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">“Uygulama sürümü bir kez bile 19.30 veya daha eski bir sürüm olarak taklit edilmişse, ‘Oynatma’ ayarı bozulabilir.
+
+Bu durum, uygulamanın sunucudan aldığı yanıta bağlıdır.
+
+Eğer ‘Oynatma’ ayarı bozuksa, bu ayarı açmak sorunu çözebilir.
+
+Bu ayarı açıp kapattıktan sonra bile ‘Oynatma’ ayarı hala bozuksa, uygulama verilerini temizlemeniz gerekir.”</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">Kullanıcı dokunup basılı tutmasa bile, dokun ve basılı tutma hızı bazen etkinleşebilir.</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">“Basılı tutma hızı, yalnızca kullanıcı dokunup basılı tuttuğunda etkinleşir.
+
+Bilinen sorun: Bazen kaydırma kaplaması, tam ekran moduna geçmeden önce görünebiliyor.”</string>
+    <string name="revanced_fix_swipe_tap_and_hold_speed_title">Kaydırma kontrollerinin dokunma ve basılı tutma hızını düzelt.</string>
     <string name="revanced_fullscreen_ads_closed_toast">Tam ekran reklamlar kapatıldı.</string>
     <string name="revanced_gemini_cancelled">İptal edildi</string>
     <string name="revanced_gemini_copy_success">Özet panoya kopyalandı.</string>
@@ -511,6 +529,10 @@ Eğer bu seçeneği kapatırsanız, Hype simgesi video eylem çubuğu ve video a
     <string name="revanced_gemini_error_already_running_transcribe">Yazıya dökme işlemi şu anda devam ediyor.</string>
     <string name="revanced_gemini_error_already_running_yandex_transcribe">Yandex yazıya dökme işlemi şu anda devam ediyor.</string>
     <string name="revanced_gemini_error_api_failed">Gemini API isteği başarısız: %s</string>
+    <string name="revanced_gemini_error_dialog_show">İletişim kutusu gösterilirken hata oluştu.</string>
+    <string name="revanced_gemini_error_no_api_key">ReVanced Extended ayarlarında Gemini API Anahtarı ayarlanmamış.</string>
+    <string name="revanced_gemini_error_no_video">Video URL’si alınamadı.</string>
+    <string name="revanced_gemini_error_overlay_display">Altyazı katmanı görüntülenemedi</string>
     <string name="revanced_gemini_error_transcription_no_raw_data">İşlenecek ham yazıya dökme verisi bulunamadı.</string>
     <string name="revanced_gemini_error_transcription_parse">İşlenecek ham yazıya dökme verisi işlenemedi.</string>
     <string name="revanced_gemini_error_translation_failed">Gemini çeviri başarısız oldu</string>
@@ -520,7 +542,10 @@ Eğer bu seçeneği kapatırsanız, Hype simgesi video eylem çubuğu ve video a
     <string name="revanced_gemini_loading_summarize">Video özetleniyor...</string>
     <string name="revanced_gemini_loading_transcribe">Video yazıya dökülüyor...</string>
     <string name="revanced_gemini_loading_yandex_transcribe">Yandex: Altyazı alınıyor...</string>
+    <string name="revanced_gemini_status_translating">Gemini ile çeviri yapılıyor...\n\n⚠️ Gemini talimatları görmezden gelirse veya sınıra ulaşırsa bu adım başarısız olabilir.</string>
     <string name="revanced_gemini_summary_title">İkizler Video Özeti</string>
+    <string name="revanced_gemini_time_taken">(%d saniye sürdü)</string>
+    <string name="revanced_gemini_transcribe_bad_token_exception">Altyazı olarak gösterebilmek için ‘Diğer uygulamaların üzerinde göster’ özelliğini etkinleştirin</string>
     <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Yazıya dökülmüş video altyazılarının yazı tipi boyutu. Altyazı kutusunu gizlemek için dokunun veya farklı bir konuma sürüklemek için uzun basın.</string>
     <string name="revanced_gemini_transcribe_subtitles_font_size_title">Altyazı yazı tipi boyutu</string>
     <string name="revanced_gemini_transcription_parse_button">Altyazılar</string>
@@ -548,6 +573,12 @@ Bilgi:
 • Yanlış eylem düğmeleri gizlenebilir veya eylem düğmeleri gizlenmeyebilir.
 • Eylem düğmelerini gizlemek boş alan bırakmaz."</string>
     <string name="revanced_hide_action_button_index_title">Eylem düğmesini dizine göre gizle</string>
+    <string name="revanced_hide_ai_chat_summary_summary_off">Yapay zeka sohbet özeti gösteriliyor.</string>
+    <string name="revanced_hide_ai_chat_summary_summary_on">Yapay zeka sohbet özeti gizlendi.</string>
+    <string name="revanced_hide_ai_chat_summary_title">Yapay zeka sohbet özetini gizle.</string>
+    <string name="revanced_hide_ai_comments_summary_summary_off">Yapay zeka yorum özeti gösteriliyor.</string>
+    <string name="revanced_hide_ai_comments_summary_summary_on">Yapay zeka yorum özeti gizlendi.</string>
+    <string name="revanced_hide_ai_comments_summary_title">Yapay zeka yorum özetini gizle.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Yapay zeka tarafından oluşturulan video özet kısmı görünür</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Yapay zeka tarafından oluşturulan video özet kısmı gizli</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">\'Yapay zeka tarafından oluşturulan video özeti\'ni gizle</string>
@@ -566,11 +597,16 @@ Bilgi:
     <string name="revanced_hide_autoplay_preview_summary_off">Video sonunda sol üstteki \"Sıradaki\" video gösteriliyor</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Video sonunda sol üstteki \"Sıradaki\" video gizleniyor</string>
     <string name="revanced_hide_autoplay_preview_title">Video sonunda sol üstteki \"Sıradaki\"ni gizle</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">Döner raf örnekleri::&lt;br&gt;&lt;br&gt;&lt;b&gt;Son dakika haber&lt;/b&gt;, &lt;b&gt;İzlemeye devam et&lt;/b&gt;, &lt;b&gt;Daha fazla kanal keşfet&lt;/b&gt;, &lt;b&gt;Senin için&lt;/b&gt;, &lt;b&gt;Tekrar dinle&lt;/b&gt;, &lt;b&gt;En alakalı&lt;/b&gt;, &lt;b&gt;Alışveriş&lt;/b&gt;, &lt;b&gt;Tekrar izle&lt;/b&gt;</string>
     <string name="revanced_hide_carousel_shelf_about_title">Carousel rafı hakkında</string>
     <string name="revanced_hide_carousel_shelf_home_summary_off">Ana sayfa akışında ve ilgili videolarda gösterilir.</string>
     <string name="revanced_hide_carousel_shelf_home_summary_on">Ana sayfa akışında ve ilgili videolarda gizli.</string>
     <string name="revanced_hide_carousel_shelf_home_title">Ana sayfa akışında ve ilgili videolarda gizle</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_off">Arama sonuçlarında gösteriliyor.</string>
+    <string name="revanced_hide_carousel_shelf_search_summary_on">Arama sonuçlarında gizlendi.</string>
+    <string name="revanced_hide_carousel_shelf_search_title">Arama sonuçlarında gizle.</string>
     <string name="revanced_hide_carousel_shelf_subscriptions_summary_off">Abonelikler akışında gösterilir.</string>
+    <string name="revanced_hide_carousel_shelf_subscriptions_summary_on">Abonelik akışında gizlendi.</string>
     <string name="revanced_hide_carousel_shelf_subscriptions_title">Abonelikler akışında gizle</string>
     <string name="revanced_hide_carousel_shelf_summary">"Döner rafı ana sayfa ve keşfet sekmesinden gizler."</string>
     <string name="revanced_hide_carousel_shelf_summary_off">Karosel rafları gösteriliyor.</string>
@@ -636,6 +672,9 @@ Mağaza"</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emoji ve Zaman damgası düğmeleri gizli</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Emoji ve Zaman damgası düğmelerini gizle</string>
     <string name="revanced_hide_comments_highlighted_search_links_summary_off">Vurgulanan arama bağlantıları gösterilir.</string>
+    <string name="revanced_hide_comments_highlighted_search_links_summary_on">“Vurgulanan arama bağlantıları gizlendi.
+
+Sınırlama: Varsayılan metin stiline sahip olmayan bazı vurgulanan arama bağlantıları gizlenemeyebilir.”</string>
     <string name="revanced_hide_comments_highlighted_search_links_title">Vurgulanan arama bağlantılarını gizle</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_off">Akışta yorumlar kısmı gösteriliyor.</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_on">Akışta yorumlar kısmı gizleniyor.</string>
@@ -674,6 +713,10 @@ Mağaza"</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">Mağaza afişi gizli.</string>
     <string name="revanced_hide_end_screen_store_banner_title">Bitiş ekranındaki mağaza afişini gizle</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_off">Bitiş ekranında önerilen video görünür.</string>
+    <string name="revanced_hide_end_screen_suggested_video_summary_on">“Otomatik oynatma kapalıyken, bitiş ekranındaki önerilen video gizlenir.
+
+Otomatik oynatma YouTube ayarlarından değiştirilebilir:
+Ayarlar → Otomatik Oynatma / Oynatma → Sonraki videoyu otomatik oynat”</string>
     <string name="revanced_hide_end_screen_suggested_video_title">Bitiş ekranında önerilen videoyu gizle.</string>
     <string name="revanced_hide_expandable_card_summary_off">Videoların altında yer alan genişletilebilir kart gizli.</string>
     <string name="revanced_hide_expandable_card_summary_on">Videoların altında yer alan genişletilebilir kart gizli.</string>
@@ -681,9 +724,6 @@ Mağaza"</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Ürün rafları gösteriliyor.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Genişletilebilir raflar gösterilmiyor.</string>
     <string name="revanced_hide_expandable_shelf_title">Ürün raflarını gizle</string>
-    <string name="revanced_hide_featured_section_summary_off">Öne çıkan içerik kısmı görünür</string>
-    <string name="revanced_hide_featured_section_summary_on">Öne çıkan içerik kısmı gizli</string>
-    <string name="revanced_hide_featured_section_title">Öne çıkan içeriği gizle</string>
     <string name="revanced_hide_feed_captions_button_off">Altyazılar butonu gizlenmiyor.</string>
     <string name="revanced_hide_feed_captions_button_on">Altyazılar butonu gizleniyor.</string>
     <string name="revanced_hide_feed_captions_button_title">Akış altyazı butonunu gizle</string>

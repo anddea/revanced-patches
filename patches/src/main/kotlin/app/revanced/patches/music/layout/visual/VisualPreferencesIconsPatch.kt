@@ -338,6 +338,7 @@ private val emptyTitles = setOf(
     "revanced_replace_flyout_menu_report_only_player",
     "revanced_spoof_client_type",
     "revanced_spoof_streaming_data_default_client",
+    "revanced_spoof_streaming_data_no_sdk_auth_token_about",
     "revanced_spoof_streaming_data_vr_auth_token_about",
     "revanced_spoof_video_streams_default_client",
     // "revanced_gms_show_dialog",

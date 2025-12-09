@@ -47,8 +47,8 @@ public final class AdsFilter extends Filter {
                 // "inline_injection_entrypoint_layout."
                 "inline_injection_entrypoint_layout",
 
+                // https://github.com/inotia00/ReVanced_Extended/issues/3298
                 // "statement_banner."
-                "statement_banner",
 
                 // "video_display_button_group_layout"
                 // "video_display_carousel_button_group_layout"

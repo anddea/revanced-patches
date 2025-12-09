@@ -1,6 +1,5 @@
 package app.revanced.extension.shared.innertube.client
 
-import android.annotation.SuppressLint
 import android.os.Build
 import app.revanced.extension.shared.innertube.utils.J2V8Support.supportJ2V8
 import app.revanced.extension.shared.settings.BaseSettings
@@ -25,72 +24,6 @@ object YouTubeClient {
     private const val CLIENT_REFERER_FORMAT_WEB = "https://www.youtube.com/watch?v=%s"
     private const val CLIENT_REFERER_FORMAT_MWEB = "https://m.youtube.com/watch?v=%s"
 
-    // IOS_DEPRECATED
-    private const val PACKAGE_NAME_IOS_DEPRECATED = "com.google.ios.youtube"
-    private val CLIENT_VERSION_IOS_DEPRECATED = if (forceAVC())
-        "17.40.5"
-    else
-        "20.20.7"
-
-    private val DEVICE_MODEL_IOS_DEPRECATED = if (forceAVC())
-        "iPhone12,5" // 11 Pro Max. (last device with iOS 13)
-    else
-        "iPhone17,2" // 16 Pro Max.
-    private val OS_VERSION_IOS_DEPRECATED = if (forceAVC())
-        "13.7.17H35" // Last release of iOS 13.
-    else
-        "18.5.22F76"
-    private val USER_AGENT_VERSION_IOS_DEPRECATED = if (forceAVC())
-        "13_7"
-    else
-        "18_5"
-    @SuppressLint("ConstantLocale")
-    private val USER_AGENT_IOS_DEPRECATED =
-        "$PACKAGE_NAME_IOS_DEPRECATED/$CLIENT_VERSION_IOS_DEPRECATED ($DEVICE_MODEL_IOS_DEPRECATED; U; CPU iOS $USER_AGENT_VERSION_IOS_DEPRECATED like Mac OS X; ${Locale.getDefault()})"
-
-    // IOS UNPLUGGED
-    /**
-     * Video not playable: Paid / Movie / Playlists / Music.
-     * Note: Audio track available.
-     */
-    private const val PACKAGE_NAME_IOS_UNPLUGGED = "com.google.ios.youtubeunplugged"
-
-    /**
-     * The hardcoded client version of the iOS app used for InnerTube requests with this client.
-     *
-     * It can be extracted by getting the latest release version of the app on
-     * [the App Store page of the YouTube TV app](https://apps.apple.com/us/app/youtube-tv/id1193350206/),
-     * in the `What’s New` section.
-     */
-    private val CLIENT_VERSION_IOS_UNPLUGGED = if (forceAVC())
-        "6.45"
-    else
-        "9.33"
-    private const val DEVICE_MAKE_IOS_UNPLUGGED = "Apple"
-    private const val OS_NAME_IOS_UNPLUGGED = "iOS"
-
-    /**
-     * The device machine id for the iPhone 16 Pro Max (iPhone17,2),
-     * used to get HDR with AV1 hardware decoding.
-     * See [this GitHub Gist](https://gist.github.com/adamawolf/3048717) for more information.
-     */
-    private val DEVICE_MODEL_IOS_UNPLUGGED = if (forceAVC())
-        "iPhone12,5" // 11 Pro Max. (last device with iOS 13)
-    else
-        "iPhone17,2" // 16 Pro Max.
-    private val OS_VERSION_IOS_UNPLUGGED = if (forceAVC())
-        "13.7.17H35" // Last release of iOS 13.
-    else
-        "18.6.2.22G100"
-    private val USER_AGENT_VERSION_IOS_UNPLUGGED = if (forceAVC())
-        "13_7"
-    else
-        "18_6_2"
-
-    @SuppressLint("ConstantLocale")
-    private val USER_AGENT_IOS_UNPLUGGED =
-        "$PACKAGE_NAME_IOS_UNPLUGGED/$CLIENT_VERSION_IOS_UNPLUGGED ($DEVICE_MODEL_IOS_UNPLUGGED; U; CPU iOS $USER_AGENT_VERSION_IOS_UNPLUGGED like Mac OS X; ${Locale.getDefault()})"
-
     private const val DEVICE_MAKE_APPLE = "Apple"
 
 
@@ -108,8 +41,8 @@ object YouTubeClient {
 
     // ANDROID (NO SDK)
     /**
-     * Video not playable: Paid / Movie / Private / Age-restricted.
-     * Note: The 'Authorization' key must be excluded from the header.
+     * Video not playable: None.
+     * Note: Clients other than Android YouTube (com.google.android.youtube) require an OAuth2 token.
      *
      * According to TeamNewPipe in 2022, if the 'androidSdkVersion' field is missing, the GVS did not return a valid response:
      * [NewPipe#8713 (comment)](https://github.com/TeamNewPipe/NewPipe/issues/8713#issuecomment-1207443550).
@@ -377,10 +310,6 @@ object YouTubeClient {
         return BaseSettings.SPOOF_STREAMING_DATA_VR_ENABLE_AV1.get()
     }
 
-    private fun forceAVC(): Boolean {
-        return BaseSettings.SPOOF_STREAMING_DATA_IOS_FORCE_AVC.get()
-    }
-
     private fun useJS(): Boolean {
         return supportJ2V8() && BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get()
     }
@@ -388,13 +317,7 @@ object YouTubeClient {
     @JvmStatic
     fun availableClientTypes(preferredClient: ClientType): Array<ClientType> {
         val availableClientTypes: Array<ClientType> = if (useJS()) {
-            if (preferredClient == ClientType.MWEB) {
-                // If playback fails with MWEB, it will fall back to TV.
-                ClientType.CLIENT_ORDER_TO_USE_JS_PREFER_TV
-            } else {
-                // Default order of JS clients.
-                ClientType.CLIENT_ORDER_TO_USE_JS
-            }
+            ClientType.CLIENT_ORDER_TO_USE_JS
         } else {
             ClientType.CLIENT_ORDER_TO_USE
         }
@@ -510,7 +433,6 @@ object YouTubeClient {
             userAgent = USER_AGENT_ANDROID_NO_SDK,
             androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_NO_SDK,
             clientVersion = CLIENT_VERSION_ANDROID_NO_SDK,
-            supportsCookies = false,
             supportsMultiAudioTracks = true,
             clientName = "ANDROID",
             friendlyName = "Android No SDK"
@@ -557,38 +479,7 @@ object YouTubeClient {
             clientName = "ANDROID_CREATOR",
             friendlyName = "Android Studio"
         ),
-        IOS_DEPRECATED(
-            id = 5,
-            deviceMake = DEVICE_MAKE_IOS_UNPLUGGED,
-            deviceModel = DEVICE_MODEL_IOS_DEPRECATED,
-            osName = OS_NAME_IOS_UNPLUGGED,
-            osVersion = OS_VERSION_IOS_DEPRECATED,
-            userAgent = USER_AGENT_IOS_DEPRECATED,
-            clientVersion = CLIENT_VERSION_IOS_DEPRECATED,
-            supportsCookies = false,
-            clientName = "IOS",
-            friendlyName = if (forceAVC())
-                "iOS Force AVC"
-            else
-                "iOS"
-        ),
-        IOS_UNPLUGGED(
-            id = 33,
-            deviceMake = DEVICE_MAKE_IOS_UNPLUGGED,
-            deviceModel = DEVICE_MODEL_IOS_UNPLUGGED,
-            osName = OS_NAME_IOS_UNPLUGGED,
-            osVersion = OS_VERSION_IOS_UNPLUGGED,
-            userAgent = USER_AGENT_IOS_UNPLUGGED,
-            clientVersion = CLIENT_VERSION_IOS_UNPLUGGED,
-            requireAuth = true,
-            clientName = "IOS_UNPLUGGED",
-            friendlyName = if (forceAVC())
-                "iOS TV Force AVC"
-            else
-                "iOS TV"
-        ),
 
-        // Fallback client, not yet released.
         // PoToken required?
         IPADOS(
             id = 5,
@@ -708,37 +599,23 @@ object YouTubeClient {
 
         companion object {
             val CLIENT_ORDER_TO_USE: Array<ClientType> = arrayOf(
+                ANDROID_NO_SDK,
                 ANDROID_VR,
                 VISIONOS,
                 ANDROID_CREATOR,
-                ANDROID_NO_SDK,
                 IPADOS,
                 ANDROID_VR_AUTH,
-                IOS_DEPRECATED,
             )
             val CLIENT_ORDER_TO_USE_JS: Array<ClientType> = arrayOf(
+                ANDROID_NO_SDK,
                 ANDROID_VR,
                 VISIONOS,
                 ANDROID_CREATOR,
-                ANDROID_NO_SDK,
                 IPADOS,
                 TV,
                 TV_SIMPLY_NO_POTOKEN,
                 TV_LEGACY,
                 ANDROID_VR_AUTH,
-                IOS_DEPRECATED,
-            )
-            val CLIENT_ORDER_TO_USE_JS_PREFER_TV: Array<ClientType> = arrayOf(
-                TV,
-                ANDROID_VR,
-                VISIONOS,
-                ANDROID_CREATOR,
-                ANDROID_NO_SDK,
-                IPADOS,
-                TV_SIMPLY_NO_POTOKEN,
-                TV_LEGACY,
-                ANDROID_VR_AUTH,
-                IOS_DEPRECATED,
             )
         }
     }

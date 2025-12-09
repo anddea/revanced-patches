@@ -27,7 +27,9 @@ import app.revanced.patches.shared.mainactivity.injectConstructorMethodCall
 import app.revanced.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.revanced.patches.shared.settings.baseSettingsPatch
 import app.revanced.patches.shared.sharedSettingFingerprint
+import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.printInfo
+import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.matchOrThrow
@@ -227,6 +229,15 @@ val settingsPatch = resourcePatch(
             "strings.xml"
         ).forEach { xmlFile ->
             copyXmlNode("music/settings/host", "values/$xmlFile", "resources")
+        }
+
+        arrayOf(
+            ResourceGroup(
+                "drawable",
+                "revanced_settings_toolbar_arrow_left.xml",
+            ),
+        ).forEach { resourceGroup ->
+            copyResources("music/settings", resourceGroup)
         }
 
         /**

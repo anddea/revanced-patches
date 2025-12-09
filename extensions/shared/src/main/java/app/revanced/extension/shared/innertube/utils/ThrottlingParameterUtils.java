@@ -9,7 +9,6 @@ import com.liskovsoft.sharedutils.helpers.Helpers;
 import com.liskovsoft.youtubeapi.app.playerdata.PlayerDataExtractor;
 
 import org.apache.commons.lang3.StringUtils;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -62,40 +61,25 @@ public class ThrottlingParameterUtils {
     private static final String BASE_YOUTUBE_URL =
             "https://www.youtube.com";
     /**
-     * Client Config url (TV).
+     * Client Config url.
      */
     private static final String CLIENT_CONFIG_URL =
             BASE_YOUTUBE_URL + "/tv_config?action_get_config=true";
     /**
-     * Service worker url (Mobile Web).
+     * User-agent.
      */
-    private static final String SERVICE_WORKER_URL =
-            "https://m.youtube.com/sw.js_data";
-    /**
-     * User-agent (Mobile Web).
-     */
-    private static final String USER_AGENT_MOBILE_WEB =
-            "Mozilla/5.0 (Android 16; Mobile; rv:140.0) Gecko/140.0 Firefox/140.0";
-    /**
-     * User-agent (TV).
-     */
-    private static final String USER_AGENT_TV =
+    private static final String USER_AGENT =
             "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)";
     /**
-     * Client config Json Object (TV).
+     * Client config Json Object.
      */
     @Nullable
     private volatile static JSONObject clientConfigJsonObject = null;
     /**
-     * Client version from service worker (Mobile Web).
+     * Client version from client config.
      */
     @Nullable
-    private volatile static String clientVersionMobileWeb = null;
-    /**
-     * Client version from client config (TV).
-     */
-    @Nullable
-    private volatile static String clientVersionTV = null;
+    private volatile static String clientVersion = null;
     /**
      * Class used to deobfuscate, powered by SmartTube.
      */
@@ -117,20 +101,10 @@ public class ThrottlingParameterUtils {
     @Nullable
     private volatile static String playerJsUrl = null;
     /**
-     * Service worker Json Array (Mobile Web).
-     */
-    @Nullable
-    private volatile static JSONArray serviceWorkerJsonArray = null;
-    /**
      * Field value included when sending a request.
      */
     @Nullable
     private volatile static Integer signatureTimestamp = null;
-    /**
-     * Visitor data from service worker (Mobile Web).
-     */
-    @Nullable
-    private volatile static String visitorId = null;
 
     private volatile static boolean isInitialized = false;
 
@@ -149,7 +123,7 @@ public class ThrottlingParameterUtils {
         }
     };
 
-    public static void initializeJavascript(boolean useMobileWeb) {
+    public static void initializeJavascript() {
         if (isInitialized) {
             return;
         }
@@ -163,31 +137,22 @@ public class ThrottlingParameterUtils {
         playerJsUrl = getPlayerJsUrl();
         signatureTimestamp = getSignatureTimestamp();
 
-        clientVersionTV = getClientVersion(true);
+        clientVersion = getClientVersion();
         clientConfigJsonObject = getClientConfigJsonObject();
-
-        if (useMobileWeb) {
-            visitorId = getVisitorId();
-            serviceWorkerJsonArray = getServiceWorkerJsonArray();
-            clientVersionMobileWeb = getClientVersion(false);
-        }
     }
 
     private static void resetAll() {
         isInitialized = false;
 
-        clientVersionMobileWeb = null;
-        clientVersionTV = null;
+        clientVersion = null;
         extractor = null;
         playerJs = null;
         playerJsUrl = null;
-        serviceWorkerJsonArray = null;
         signatureTimestamp = null;
-        visitorId = null;
     }
 
     private static JSONObject setClientConfigJsonObject() {
-        String jsonString = fetch(CLIENT_CONFIG_URL, true);
+        String jsonString = fetch(CLIENT_CONFIG_URL);
         if (jsonString != null) {
             if (jsonString.startsWith(")]}'"))
                 jsonString = jsonString.substring(4);
@@ -241,81 +206,31 @@ public class ThrottlingParameterUtils {
         return signatureTimestamp;
     }
 
-    private static JSONArray setServiceWorkerJsonArray() {
-        String jsonString = fetch(SERVICE_WORKER_URL, false);
-        if (jsonString != null) {
-            if (jsonString.startsWith(")]}'"))
-                jsonString = jsonString.substring(4);
-
-            try {
-                JSONArray jsonArray = new JSONArray(jsonString);
-
-                //jsonArray[0][2][0][0]
-                return jsonArray
-                        .getJSONArray(0)
-                        .getJSONArray(2)
-                        .getJSONArray(0)
-                        .getJSONArray(0);
-            } catch (Exception ex) {
-                Logger.printException(() -> "setServiceWorkerJsonArray failed", ex);
-            }
-        }
-        return null;
-    }
-
-    private static JSONArray getServiceWorkerJsonArray() {
-        if (serviceWorkerJsonArray == null) {
-            serviceWorkerJsonArray = setServiceWorkerJsonArray();
-        }
-        return serviceWorkerJsonArray;
-    }
-
-    private static String setClientVersion(boolean isTV) {
+    private static String setClientVersion() {
         String clientVersion = null;
-        if (isTV) {
-            JSONObject clientConfigJsonObject = getClientConfigJsonObject();
+        JSONObject clientConfigJsonObject = getClientConfigJsonObject();
 
-            if (clientConfigJsonObject != null) {
-                try {
-                    clientVersion = clientConfigJsonObject
-                            .getString("innertubeContextClientVersion");
-                } catch (Exception ex) {
-                    Logger.printException(() -> "setClientVersion failed", ex);
-                }
-            }
-        } else {
-            JSONArray serviceWorkerJsonArray = getServiceWorkerJsonArray();
-
-            if (serviceWorkerJsonArray != null) {
-                try {
-                    clientVersion = serviceWorkerJsonArray
-                            .getString(16);
-                } catch (Exception ex) {
-                    Logger.printException(() -> "setClientVersion failed", ex);
-                }
+        if (clientConfigJsonObject != null) {
+            try {
+                clientVersion = clientConfigJsonObject
+                        .getString("innertubeContextClientVersion");
+            } catch (Exception ex) {
+                Logger.printException(() -> "setClientVersion failed", ex);
             }
         }
 
         if (StringUtils.isNotEmpty(clientVersion)) {
             String finalClientVersion = clientVersion;
-            Logger.printDebug(() -> "clientVersion: " + finalClientVersion + ", isTV: " + false);
+            Logger.printDebug(() -> "clientVersion: " + finalClientVersion);
             return clientVersion;
         }
 
         return null;
     }
 
-    public static String getClientVersion(boolean isTV) {
-        String clientVersion = isTV
-                ? clientVersionTV
-                : clientVersionMobileWeb;
+    public static String getClientVersion() {
         if (clientVersion == null) {
-            clientVersion = setClientVersion(isTV);
-            if (isTV) {
-                clientVersionTV = clientVersion;
-            } else {
-                clientVersionMobileWeb = clientVersion;
-            }
+            clientVersion = setClientVersion();
         }
 
         return clientVersion;
@@ -323,9 +238,7 @@ public class ThrottlingParameterUtils {
 
     public static String getClientVersion(YouTubeClient.ClientType clientType) {
         String hardCodedClientVersion = clientType.getClientVersion();
-        if (clientType == YouTubeClient.ClientType.TV || clientType == YouTubeClient.ClientType.MWEB) {
-            boolean isTV = clientType == YouTubeClient.ClientType.TV;
-            String clientVersion = getClientVersion(isTV);
+        if (clientType == YouTubeClient.ClientType.TV) {
             if (clientVersion != null) {
                 return clientVersion;
             }
@@ -333,34 +246,6 @@ public class ThrottlingParameterUtils {
 
         return hardCodedClientVersion;
     }
-
-    private static String setVisitorId() {
-        JSONArray serviceWorkerJsonArray = getServiceWorkerJsonArray();
-
-        if (serviceWorkerJsonArray != null) {
-            try {
-                String visitorId = serviceWorkerJsonArray
-                        .getString(13);
-                if (StringUtils.isNotEmpty(visitorId)) {
-                    Logger.printDebug(() -> "visitorId: " + visitorId);
-                }
-                return visitorId;
-            } catch (Exception ex) {
-                Logger.printException(() -> "setVisitorId failed", ex);
-            }
-        }
-
-        return null;
-    }
-
-    public static String getVisitorId() {
-        if (visitorId == null) {
-            visitorId = setVisitorId();
-        }
-
-        return visitorId;
-    }
-
 
     @Nullable
     private static String setPlayerJsUrl() {
@@ -399,7 +284,7 @@ public class ThrottlingParameterUtils {
     private static String setPlayerJs() {
         String playerJsUrl = getPlayerJsUrl();
         if (playerJsUrl != null) {
-            return fetch(playerJsUrl, true);
+            return fetch(playerJsUrl);
         }
         return null;
     }
@@ -434,9 +319,9 @@ public class ThrottlingParameterUtils {
     }
 
     @Nullable
-    public static String fetch(@NonNull String url, boolean isTV) {
+    public static String fetch(@NonNull String url) {
         try {
-            return Utils.submitOnBackgroundThread(() -> fetchUrl(url, isTV)).get();
+            return Utils.submitOnBackgroundThread(() -> fetchUrl(url)).get();
         } catch (ExecutionException | InterruptedException ex) {
             Logger.printDebug(() -> "Could not fetch url: " + url, ex);
         }
@@ -445,7 +330,7 @@ public class ThrottlingParameterUtils {
     }
 
     @Nullable
-    private static String fetchUrl(@NonNull String uri, boolean isTV) {
+    private static String fetchUrl(@NonNull String uri) {
         Utils.verifyOffMainThread();
 
         final long startTime = System.currentTimeMillis();
@@ -456,7 +341,7 @@ public class ThrottlingParameterUtils {
             Request request = new Request.Builder()
                     .url(uri)
                     .header("Accept-Language", "en-US,en")
-                    .header("User-Agent", isTV ? USER_AGENT_TV : USER_AGENT_MOBILE_WEB)
+                    .header("User-Agent", USER_AGENT)
                     .build();
 
             try (Response response = client.newCall(request).execute()) {
@@ -486,10 +371,8 @@ public class ThrottlingParameterUtils {
     @Nullable
     public static String deobfuscateStreamingUrl(
             @NonNull String videoId,
-            @NonNull String cpn,
             @Nullable String url,
-            @Nullable String signatureCipher,
-            @Nullable String poToken) {
+            @Nullable String signatureCipher) {
         String streamUrl = null;
         if (StringUtils.isNotEmpty(url)) {
             streamUrl = url;
@@ -500,17 +383,10 @@ public class ThrottlingParameterUtils {
             );
         }
         if (StringUtils.isNotEmpty(streamUrl)) {
-            String deobfuscatedUrl = getUrlWithThrottlingParameterDeobfuscated(
+            return getUrlWithThrottlingParameterDeobfuscated(
                     videoId,
                     streamUrl
             );
-            if (StringUtils.isNotEmpty(cpn)) {
-                deobfuscatedUrl += "&cpn=" + cpn;
-            }
-            if (StringUtils.isNotEmpty(poToken)) {
-                deobfuscatedUrl += "&pot=" + poToken;
-            }
-            return deobfuscatedUrl;
         }
         return null;
     }

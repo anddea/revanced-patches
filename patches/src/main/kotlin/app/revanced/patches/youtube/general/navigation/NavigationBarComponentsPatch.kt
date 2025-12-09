@@ -109,6 +109,9 @@ private val navigationBarComponentsResourcePatch = resourcePatch(
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/NavigationButtonsPatch;"
 
+private const val EXTENSION_ICON_CLASS_DESCRIPTOR =
+    "$GENERAL_PATH/YouTubeIcon;"
+
 @Suppress("unused")
 val navigationBarComponentsPatch = bytecodePatch(
     NAVIGATION_BAR_COMPONENTS.title,
@@ -295,7 +298,7 @@ val navigationBarComponentsPatch = bytecodePatch(
 
                     addInstruction(
                         insertIndex + 1,
-                        "sput-object v$insertRegister, $EXTENSION_CLASS_DESCRIPTOR->$fieldName:Ljava/lang/Enum;"
+                        "sput-object v$insertRegister, $EXTENSION_ICON_CLASS_DESCRIPTOR->$fieldName:Ljava/lang/Enum;"
                     )
                 }
             }

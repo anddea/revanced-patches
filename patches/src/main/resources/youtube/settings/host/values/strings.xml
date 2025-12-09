@@ -715,9 +715,6 @@ Limitation: Some highlighted search links that do not have a default text style 
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Shown in Subscriptions feed.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Hidden in Subscriptions feed.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Hide in Subscriptions feed</string>
-    <string name="revanced_hide_creator_section_summary_off">Creator section is shown.</string>
-    <string name="revanced_hide_creator_section_summary_on">Creator section is hidden.</string>
-    <string name="revanced_hide_creator_section_title">Hide Creator section</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Creator store shelf under videos is shown.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Creator store shelf under videos is hidden.</string>
     <string name="revanced_hide_creator_store_shelf_title">Hide creator store shelf</string>
@@ -751,9 +748,12 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">Explore the podcast section is shown.</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">Explore the podcast section is hidden.</string>
     <string name="revanced_hide_explore_podcast_section_title">Hide Explore the podcast section</string>
-    <string name="revanced_hide_featured_section_summary_off">Featured content section in Creator section is shown.</string>
-    <string name="revanced_hide_featured_section_summary_on">Featured content section in Creator section is hidden.</string>
-    <string name="revanced_hide_featured_section_title">Hide Featured content section</string>
+    <string name="revanced_hide_featured_links_section_summary_off">Featured links section is shown.</string>
+    <string name="revanced_hide_featured_links_section_summary_on">Featured links section is hidden.</string>
+    <string name="revanced_hide_featured_links_section_title">Hide Featured links section</string>
+    <string name="revanced_hide_featured_videos_section_summary_off">Featured videos section is shown.</string>
+    <string name="revanced_hide_featured_videos_section_summary_on">Featured videos section is hidden.</string>
+    <string name="revanced_hide_featured_videos_section_title">Hide Featured videos section</string>
     <string name="revanced_hide_feed_captions_button_off">Captions button is shown.</string>
     <string name="revanced_hide_feed_captions_button_on">Captions button is hidden.</string>
     <string name="revanced_hide_feed_captions_button_title">Hide Captions button</string>
@@ -1340,8 +1340,8 @@ Side effect: Official headers in search results will be hidden."</string>
     <string name="revanced_hide_stop_ads_button_summary_off">Stop ads button is shown.</string>
     <string name="revanced_hide_stop_ads_button_summary_on">Stop ads button is hidden.</string>
     <string name="revanced_hide_stop_ads_button_title">Hide Stop ads</string>
-    <string name="revanced_hide_subscribe_button_summary_off">Subscribe button in Creator section is shown.</string>
-    <string name="revanced_hide_subscribe_button_summary_on">Subscribe button in Creator section is hidden.</string>
+    <string name="revanced_hide_subscribe_button_summary_off">Subscribe button is shown.</string>
+    <string name="revanced_hide_subscribe_button_summary_on">Subscribe button is hidden.</string>
     <string name="revanced_hide_subscribe_button_title">Hide Subscribe button</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">Subscribed channels bar is shown.</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">Subscribed channels bar is hidden.</string>
@@ -1459,6 +1459,7 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_xisr_special">Xisr Special</string>
+    <string name="revanced_icon_xisr_winter">Xisr Winter</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">啟用影片播放器的無障礙控制功能嗎？</string>
+    <string name="accessibility_settings_edu_opt_in_text">要啟用影片播放器的無障礙控制功能嗎？</string>
     <string name="accessibility_settings_edu_opt_out_text">由於已啟用無障礙服務，你的控制選項已被修改。</string>
     <string name="gms_core_dialog_continue_text">繼續</string>
     <string name="gms_core_dialog_dismiss_text">不再顯示</string>
@@ -175,7 +175,7 @@
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">自訂(舊版)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">自訂(現代)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">自訂(無主題)</string>
-    <string name="revanced_custom_playback_speed_menu_type_entry_youtube_legacy">YouTube 的遺產</string>
+    <string name="revanced_custom_playback_speed_menu_type_entry_youtube_legacy">YouTube 舊版</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_off">已使用現代底部功能表。</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_on">使用自定義對話框。</string>
     <string name="revanced_custom_playback_speed_menu_type_title">自定義播放速度選單類型</string>
@@ -716,9 +716,6 @@
     <string name="revanced_hide_community_posts_subscriptions_summary_off">訂閱內容中的社群貼文已顯示。</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">訂閱內容中的社群貼文已隱藏。</string>
     <string name="revanced_hide_community_posts_subscriptions_title">隱藏訂閱內容中的社群貼文</string>
-    <string name="revanced_hide_creator_section_summary_off">創作者區已顯示。</string>
-    <string name="revanced_hide_creator_section_summary_on">創作者區已隱藏。</string>
-    <string name="revanced_hide_creator_section_title">隱藏創作者區</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">影片下方顯示創作者商店貨架。</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">影片下的創作者商店被隱藏。</string>
     <string name="revanced_hide_creator_store_shelf_title">隱藏創作者商店</string>
@@ -752,9 +749,6 @@
     <string name="revanced_hide_explore_podcast_section_summary_off">播客探索區已顯示。</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">播客探索區已隱藏。</string>
     <string name="revanced_hide_explore_podcast_section_title">隱藏探索播客區</string>
-    <string name="revanced_hide_featured_section_summary_off">創作者專區中的推薦內容區已顯示。</string>
-    <string name="revanced_hide_featured_section_summary_on">創作者專區中的推薦內容區已隱藏。</string>
-    <string name="revanced_hide_featured_section_title">隱藏精推薦內容區</string>
     <string name="revanced_hide_feed_captions_button_off">字幕按鈕已顯示。</string>
     <string name="revanced_hide_feed_captions_button_on">字幕按鈕已隱藏。</string>
     <string name="revanced_hide_feed_captions_button_title">隱藏動態字幕按鈕</string>
@@ -1372,6 +1366,11 @@
     <string name="revanced_hide_toolbar_notification_button_summary_off">通知按鈕已顯示。</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">通知按鈕已隱藏。</string>
     <string name="revanced_hide_toolbar_notification_button_title">隱藏通知按鈕</string>
+    <string name="revanced_hide_toolbar_search_button_summary_off">顯示搜尋按鈕。</string>
+    <string name="revanced_hide_toolbar_search_button_summary_on">"搜尋按鈕已隱藏。
+
+如果啟用了寬搜尋欄，此設定可能無效。"</string>
+    <string name="revanced_hide_toolbar_search_button_title">隱藏搜尋按鈕</string>
     <string name="revanced_hide_transcript_section_summary_off">轉寫文稿部分已顯示。</string>
     <string name="revanced_hide_transcript_section_summary_on">轉寫文稿部分已隱藏。</string>
     <string name="revanced_hide_transcript_section_title">隱藏轉寫文稿部分</string>
@@ -1920,6 +1919,13 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_replace_channel_handle_summary_off">頻道代號已使用。</string>
     <string name="revanced_replace_channel_handle_summary_on">頻道名稱已使用。</string>
     <string name="revanced_replace_channel_handle_title">更換頻道代號</string>
+    <string name="revanced_replace_navigation_button_summary">將導航按鈕替換為搜尋按鈕。</string>
+    <string name="revanced_replace_navigation_button_target_entry_home">首頁</string>
+    <string name="revanced_replace_navigation_button_target_entry_notifications">通知</string>
+    <string name="revanced_replace_navigation_button_target_entry_shorts">短影音</string>
+    <string name="revanced_replace_navigation_button_target_entry_subscriptions">訂閱</string>
+    <string name="revanced_replace_navigation_button_target_title">替換導航按鈕</string>
+    <string name="revanced_replace_navigation_button_title">替換導航按鈕</string>
     <string name="revanced_replace_time_stamp_action_summary_off">點擊顯示剩餘時間。</string>
     <string name="revanced_replace_time_stamp_action_summary_on">點擊開啟播放速度或影片畫質彈出選單。</string>
     <string name="revanced_replace_time_stamp_action_title">替換時間戳操作</string>
@@ -2370,6 +2376,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - 恢復舊版的播放清單標題</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - 恢復舊的播放速度彈出面板</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - 恢復逐字稿功能</string>
+    <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - 恢復未折疊的影片操作欄</string>
     <string name="revanced_spoof_app_version_target_entry_title">偽裝應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">無效的偽裝應用程式版本: %s。</string>
     <string name="revanced_spoof_app_version_target_summary">輸入偽裝的應用程式版本目標。</string>
@@ -2417,7 +2424,7 @@ AI 生成的回應可能包含不準確的資訊。
 <small>(開發中)</small>
     </string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"電視
-<small>(傳統)</small>"</string>
+<small>(舊版)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
 <small>(無 PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
@@ -2666,7 +2673,7 @@ yt-dlp 的外部 JavaScript (yt-dlp-ejs) 用於在最新播放器 JavaScript 中
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">可滑動區域大小不能超過50。重設為預設值。</string>
     <string name="revanced_swipe_overlay_rect_size_summary">可滑動螢幕區域的百分比。\n\n注意：這也會改變雙擊搜尋手勢的螢幕區域大小。</string>
     <string name="revanced_swipe_overlay_rect_size_title">滑動疊加螢幕尺寸</string>
-    <string name="revanced_swipe_overlay_style_entry_0">傳承疊加</string>
+    <string name="revanced_swipe_overlay_style_entry_0">舊版疊加</string>
     <string name="revanced_swipe_overlay_style_entry_1">水平疊加</string>
     <string name="revanced_swipe_overlay_style_entry_2">水平疊加 (最小 - 頂部)</string>
     <string name="revanced_swipe_overlay_style_entry_3">水平疊加 (最小 - 中心)</string>
@@ -2723,13 +2730,9 @@ yt-dlp 的外部 JavaScript (yt-dlp-ejs) 用於在最新播放器 JavaScript 中
 • 停用這項設定會從伺服器端載入更多廣告
 • 你應該停用這項設定以顯示影片廣告"</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">「建立」按鈕未與「通知」按鈕交換。</string>
-    <string name="revanced_switch_create_with_notifications_button_summary_on">"「建立」按鈕與「通知」按鈕對調
-
-注意：啟用此功能也會強制隱藏影片廣告"</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">創建按鈕與通知按鈕互換。</string>
     <string name="revanced_switch_create_with_notifications_button_title">交換創作和通知按鈕</string>
-    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"停用此設定也會停用 Shorts 的廣告攔截功能。
-
-如果變更此設定沒有生效，請試試看切換到無痕模式。"</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">如果此設定未生效，請嘗試切換到無痕模式。</string>
     <string name="revanced_theme_default">預設</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX 音樂</string>
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">警告</string>
