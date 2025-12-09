@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patches.youtube.player.overlaybuttons.overlayButtonsPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
@@ -230,49 +229,24 @@ val sponsorBlockPatch = resourcePatch(
             copyResources("youtube/sponsorblock/shared", resourceGroup)
         }
 
-        val iconType = overlayButtonsPatch
-            .getStringOptionValue("iconType")
-            .lowerCaseOrThrow()
-        val outlineIcon = iconType == "thin"
-
-        if (outlineIcon) {
-            arrayOf(
-                ResourceGroup(
-                    "layout",
-                    "revanced_sb_new_segment.xml"
-                ),
-                ResourceGroup(
-                    "drawable",
-                    "revanced_sb_adjust.xml",
-                    "revanced_sb_backward.xml",
-                    "revanced_sb_compare.xml",
-                    "revanced_sb_edit.xml",
-                    "revanced_sb_forward.xml",
-                    "revanced_sb_logo.xml",
-                    "revanced_sb_publish.xml",
-                    "revanced_sb_voting.xml"
-                )
-            ).forEach { resourceGroup ->
-                copyResources("youtube/sponsorblock/outline", resourceGroup)
-            }
-        } else {
-            arrayOf(
-                ResourceGroup(
-                    "layout",
-                    "revanced_sb_new_segment.xml"
-                ),
-                ResourceGroup(
-                    "drawable",
-                    "revanced_sb_adjust.xml",
-                    "revanced_sb_compare.xml",
-                    "revanced_sb_edit.xml",
-                    "revanced_sb_logo.xml",
-                    "revanced_sb_publish.xml",
-                    "revanced_sb_voting.xml"
-                )
-            ).forEach { resourceGroup ->
-                copyResources("youtube/sponsorblock/default", resourceGroup)
-            }
+        arrayOf(
+            ResourceGroup(
+                "layout",
+                "revanced_sb_new_segment.xml"
+            ),
+            ResourceGroup(
+                "drawable",
+                "revanced_sb_adjust.xml",
+                "revanced_sb_backward.xml",
+                "revanced_sb_compare.xml",
+                "revanced_sb_edit.xml",
+                "revanced_sb_forward.xml",
+                "revanced_sb_logo.xml",
+                "revanced_sb_publish.xml",
+                "revanced_sb_voting.xml"
+            )
+        ).forEach { resourceGroup ->
+            copyResources("youtube/sponsorblock/outline", resourceGroup)
         }
 
         if (newSegmentAlignment == "left") {

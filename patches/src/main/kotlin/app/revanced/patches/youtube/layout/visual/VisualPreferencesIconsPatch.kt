@@ -524,7 +524,7 @@ private val emptyTitles = setOf(
     "revanced_swipe_overlay_progress_speed_color",
     "revanced_swipe_overlay_progress_volume_color",
     "revanced_swipe_seek_distance",
-    "revanced_swipe_speed_and_seek_delay",
+    "revanced_swipe_delay",
     "revanced_swipe_speed_distance",
     "revanced_swipe_switch_speed_and_seek",
     "revanced_swipe_volume_distance",
