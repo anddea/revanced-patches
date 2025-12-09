@@ -1,3 +1,10 @@
+# [3.15.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.15.0-dev.4...v3.15.0-dev.5) (2025-12-09)
+
+
+### Features
+
+* **YouTube - Swipe controls:** Add `Swipe gestures delay` instead of `Speed and seek gestures delay` ([90dcc64](https://github.com/anddea/revanced-patches/commit/90dcc64ac5b4d5cceef6caa475e4d5c4aca0578e))
+
 # [3.15.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.15.0-dev.3...v3.15.0-dev.4) (2025-12-09)
 
 
