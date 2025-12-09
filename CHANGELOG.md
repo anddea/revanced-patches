@@ -1,3 +1,11 @@
+# [3.15.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.15.0-dev.3...v3.15.0-dev.4) (2025-12-09)
+
+
+### Features
+
+* Align with RVX [[v5.14.1-dev.2](https://github.com/inotia00/revanced-patches/releases/tag/v5.14.1-dev.2)] ([2790767](https://github.com/anddea/revanced-patches/commit/2790767543711a8e2f16c76ab5b28a874fdd1d14))
+* **YouTube - Custom branding icon:** Add `Xisr Winter` icon ([#1300](https://github.com/anddea/revanced-patches/issues/1300)) ([2fb13f0](https://github.com/anddea/revanced-patches/commit/2fb13f06e8a2227025edcc5e58da9165722ecd20))
+
 # [3.15.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.15.0-dev.2...v3.15.0-dev.3) (2025-11-20)
 
 
