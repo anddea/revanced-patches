@@ -2642,6 +2642,8 @@ Playback may stutter or drop frames."</string>
 
 Adjust brightness by swiping vertically on the left side of the screen."</string>
     <string name="revanced_swipe_brightness_title">Enable brightness gesture</string>
+    <string name="revanced_swipe_delay_summary">The delay, in milliseconds, before a swipe is recognized. Increase this value if it interferes with the pinch-to-zoom gesture.</string>
+    <string name="revanced_swipe_delay_title">Swipe gestures delay</string>
     <string name="revanced_swipe_distance_invalid">Invalid swipe distance, must be between 1 and 1000.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Swipe gestures are disabled in Lock screen mode.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Swipe gestures are enabled in Lock screen mode.</string>
@@ -2691,8 +2693,6 @@ Adjust brightness by swiping vertically on the left side of the screen."</string
 
 Seek the video by swiping horizontally on the top half of the screen."</string>
     <string name="revanced_swipe_seek_title">Enable seek gesture</string>
-    <string name="revanced_swipe_speed_and_seek_delay_summary">The delay in milliseconds before a horizontal swipe is recognized. Increase this value if it interferes with the pinch-to-zoom gesture.</string>
-    <string name="revanced_swipe_speed_and_seek_delay_title">Speed and seek gestures delay</string>
     <string name="revanced_swipe_speed_distance_summary">The amount of pixels to swipe to change the video speed. Lower values make the speed change faster, higher values make it slower (1-1000).</string>
     <string name="revanced_swipe_speed_distance_title">Speed distance</string>
     <string name="revanced_swipe_speed_summary_off">Fullscreen speed swipe is disabled.</string>

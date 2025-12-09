@@ -592,7 +592,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SWIPE_SPEED = new BooleanSetting("revanced_swipe_speed", TRUE, true);
     public static final BooleanSetting SWIPE_SEEK = new BooleanSetting("revanced_swipe_seek", TRUE, true);
     public static final BooleanSetting SWIPE_SWITCH_SPEED_AND_SEEK = new BooleanSetting("revanced_swipe_switch_speed_and_seek", FALSE, true, parentsAny(SWIPE_SPEED, SWIPE_SEEK));
-    public static final LongSetting SWIPE_SPEED_AND_SEEK_DELAY = new LongSetting("revanced_swipe_speed_and_seek_delay", 50L, true, parentsAny(SWIPE_SPEED, SWIPE_SEEK));
+    public static final LongSetting SWIPE_DELAY = new LongSetting("revanced_swipe_delay", 50L, true, parentsAny(SWIPE_SPEED, SWIPE_SEEK));
 
     public static final BooleanSetting SWIPE_LOWEST_VALUE_ENABLE_AUTO_BRIGHTNESS = new BooleanSetting("revanced_swipe_lowest_value_enable_auto_brightness", TRUE, true,
             parent(SWIPE_BRIGHTNESS));

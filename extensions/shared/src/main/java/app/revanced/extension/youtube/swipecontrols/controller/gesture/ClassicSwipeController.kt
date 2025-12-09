@@ -31,9 +31,9 @@ class ClassicSwipeController(
     private var lastOnDownEvent: MotionEvent? = null
 
     private val handler = Handler(Looper.getMainLooper())
-    private var horizontalSwipeRunnable: Runnable? = null
-    private var isHorizontalSwipeConfirmed = false
-    private val horizontalSwipeDelayMs = Settings.SWIPE_SPEED_AND_SEEK_DELAY.get()
+    private var delayedSwipeRunnable: Runnable? = null
+    private var isSwipeConfirmed = false
+    private val swipeDelayMs = Settings.SWIPE_DELAY.get()
 
     override val shouldForceInterceptEvents: Boolean
         get() = currentSwipe == SwipeDetector.SwipeDirection.VERTICAL
@@ -66,8 +66,8 @@ class ClassicSwipeController(
         // when such a gesture is detected, dispatch the first event of the gesture to downstream
         if (motionEvent.pointerCount > 1) {
             // This is a multitouch gesture (like pinch-to-zoom), so cancel any pending swipe action.
-            cancelHorizontalSwipeRunnable()
-            isHorizontalSwipeConfirmed = false
+            cancelDelayedSwipe()
+            isSwipeConfirmed = false
 
             lastOnDownEvent?.let {
                 controller.dispatchDownstreamTouchEvent(it)
@@ -82,8 +82,8 @@ class ClassicSwipeController(
     }
 
     override fun onDown(motionEvent: MotionEvent): Boolean {
-        cancelHorizontalSwipeRunnable()
-        isHorizontalSwipeConfirmed = false
+        cancelDelayedSwipe()
+        isSwipeConfirmed = false
 
         // save the event for later
         lastOnDownEvent?.recycle()
@@ -95,8 +95,8 @@ class ClassicSwipeController(
 
     override fun onUp(motionEvent: MotionEvent) {
         super.onUp(motionEvent)
-        cancelHorizontalSwipeRunnable()
-        isHorizontalSwipeConfirmed = false
+        cancelDelayedSwipe()
+        isSwipeConfirmed = false
     }
 
     override fun onSingleTapUp(motionEvent: MotionEvent): Boolean {
@@ -135,41 +135,50 @@ class ClassicSwipeController(
     ): Boolean {
         // cancel if locked
         if (!config.enableSwipeControlsLockMode && config.isScreenLocked) return false
-        if (currentSwipe == SwipeDetector.SwipeDirection.VERTICAL) {
-            cancelHorizontalSwipeRunnable()
-            isHorizontalSwipeConfirmed = false
 
-            return when (from.toPoint()) {
-                in controller.zones.volume -> {
-                    scrollVolume(distanceY)
-                    true
-                }
-
-                in controller.zones.brightness -> {
-                    scrollBrightness(distanceY)
-                    true
-                }
-                else -> false
+        // If the swipe is already confirmed, process immediately
+        if (isSwipeConfirmed) {
+            return if (currentSwipe == SwipeDetector.SwipeDirection.VERTICAL) {
+                processVerticalSwipe(from, distanceY)
+            } else {
+                processHorizontalSwipe(from, distanceX)
             }
         }
-        else if (currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL) {
-            if (isHorizontalSwipeConfirmed) {
-                return processHorizontalSwipe(from, distanceX)
-            }
 
-            if (horizontalSwipeRunnable == null) {
-                horizontalSwipeRunnable = Runnable {
-                    isHorizontalSwipeConfirmed = true
+        // If not confirmed, queue the runnable (if not already queued)
+        if (delayedSwipeRunnable == null) {
+            delayedSwipeRunnable = Runnable {
+                isSwipeConfirmed = true
+                // Execute the action that was pending
+                if (currentSwipe == SwipeDetector.SwipeDirection.VERTICAL) {
+                    processVerticalSwipe(from, distanceY)
+                } else if (currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL) {
                     processHorizontalSwipe(from, distanceX)
                 }
-                handler.postDelayed(horizontalSwipeRunnable!!, horizontalSwipeDelayMs)
             }
-            return true
+            handler.postDelayed(delayedSwipeRunnable!!, swipeDelayMs)
         }
 
-        return false
+        // Return true to indicate we are handling (or waiting to handle) the gesture
+        return true
     }
 
+    // Logic for vertical swipes (Volume/Brightness)
+    private fun processVerticalSwipe(from: MotionEvent, distanceY: Double): Boolean {
+        return when (from.toPoint()) {
+            in controller.zones.volume -> {
+                scrollVolume(distanceY)
+                true
+            }
+            in controller.zones.brightness -> {
+                scrollBrightness(distanceY)
+                true
+            }
+            else -> false
+        }
+    }
+
+    // Logic for horizontal swipes (Seek/Speed)
     private fun processHorizontalSwipe(from: MotionEvent, distanceX: Double): Boolean {
         return when (from.toPoint()) {
             in controller.zones.speed -> {
@@ -188,10 +197,10 @@ class ClassicSwipeController(
         }
     }
 
-    private fun cancelHorizontalSwipeRunnable() {
-        horizontalSwipeRunnable?.let {
+    private fun cancelDelayedSwipe() {
+        delayedSwipeRunnable?.let {
             handler.removeCallbacks(it)
         }
-        horizontalSwipeRunnable = null
+        delayedSwipeRunnable = null
     }
 }
