@@ -748,6 +748,12 @@ Ustawienia → Autoodtwarzanie/Odtwarzanie → Autoodtwarzanie następnego filmu
     <string name="revanced_hide_explore_podcast_section_summary_off">Widoczna</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">Ukryta</string>
     <string name="revanced_hide_explore_podcast_section_title">Sekcja eksplorowania podcastu</string>
+    <string name="revanced_hide_featured_links_section_summary_off">Widoczna</string>
+    <string name="revanced_hide_featured_links_section_summary_on">Ukryta</string>
+    <string name="revanced_hide_featured_links_section_title">Sekcja wyróżnionych linków</string>
+    <string name="revanced_hide_featured_videos_section_summary_off">Widoczna</string>
+    <string name="revanced_hide_featured_videos_section_summary_on">Ukryta</string>
+    <string name="revanced_hide_featured_videos_section_title">Sekcja wyróżnionych filmów</string>
     <string name="revanced_hide_feed_captions_button_off">Widoczny</string>
     <string name="revanced_hide_feed_captions_button_on">Ukryty</string>
     <string name="revanced_hide_feed_captions_button_title">Przycisk od napisów na stronie głównej</string>
@@ -1333,7 +1339,7 @@ Efekt uboczny: półka z historią oglądania w zakładce Ty może być ukryta."
     <string name="revanced_hide_stop_ads_button_summary_off">Widoczny</string>
     <string name="revanced_hide_stop_ads_button_summary_on">Ukryty</string>
     <string name="revanced_hide_stop_ads_button_title">Przycisk od wstrzymania reklam</string>
-    <string name="revanced_hide_subscribe_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_subscribe_button_summary_off">Widoczny </string>
     <string name="revanced_hide_subscribe_button_summary_on">Ukryty</string>
     <string name="revanced_hide_subscribe_button_title">Przycisk od subskrybowania w sekcji twórcy</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">Widoczny</string>
@@ -1452,6 +1458,7 @@ Jeśli YouTube Doodles pojawiają się obecnie w Twoim regionie, a opcja ukrywan
     <string name="revanced_icon_vanced_black">Czarna Vanced</string>
     <string name="revanced_icon_vanced_light">Jasna Vanced</string>
     <string name="revanced_icon_xisr_special">Specjalna Xisr</string>
+    <string name="revanced_icon_xisr_winter">Xisr Winter</string>
     <string name="revanced_icon_xisr_yellow">Żółta Xisr</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">Czarna YouTube</string>
@@ -2641,8 +2648,8 @@ Podczas odtwarzania film może się zacinać lub pomijać klatki."</string>
 
 Dostosuj jasność, przesuwając pionowo po lewej stronie ekranu."</string>
     <string name="revanced_swipe_brightness_title">Zmienianie jasności przesuwaniem</string>
-    <string name="revanced_swipe_delay_summary">Opóźnienie w milisekundach przed rozpoznaniem przesunięcia poziomego. Zwiększ tę wartość, jeśli koliduje z gestem szczypania w celu powiększenia.</string>
-    <string name="revanced_swipe_delay_title">Opóźnienie gestów prędkości i szukania</string>
+    <string name="revanced_swipe_delay_summary">Opóźnienie w milisekundach przed wykryciem przeciągnięcia. Zwiększ tę wartość, jeśli koliduje ona z gestem przybliżania (uszczypnięciem).</string>
+    <string name="revanced_swipe_delay_title">Opóźnienie gestu przeciągnięcia</string>
     <string name="revanced_swipe_distance_invalid">Nieprawidłowa odleglość jasności, muso być między, a 1000.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Wyłączone</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Włączone</string>

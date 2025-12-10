@@ -71,6 +71,21 @@ public class StringRef extends Utils {
         return String.format(str(id), args);
     }
 
+    // Dynamic string
+    public static int dstr(@NonNull String resName) {
+        try {
+            Activity mActivity = getActivity();
+            Context context = mActivity != null ? mActivity : getContext();
+
+            if (context != null) {
+                return context.getResources().getIdentifier(resName, "string", context.getPackageName());
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "Error getting resource ID for: " + resName, ex);
+        }
+        return 0;
+    }
+
     /**
      * Creates a StringRef object that'll not change it's value
      *
