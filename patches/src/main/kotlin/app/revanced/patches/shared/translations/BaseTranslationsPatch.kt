@@ -96,24 +96,26 @@ fun ResourcePatchContext.baseTranslationsPatch(
         }.toHashSet().toTypedArray()
 
     // Remove unselected app languages from UI
-    document("res/xml/locales_config.xml").use { document ->
-        val nodesToRemove = mutableListOf<Node>()
+    try {
+        document("res/xml/locales_config.xml").use { document ->
+            val nodesToRemove = mutableListOf<Node>()
 
-        document.doRecursively { node ->
-            if (node is Element && node.tagName == "locale") {
-                node.getAttributeNode("android:name")?.let { attribute ->
-                    if (attribute.textContent !in filteredAppLanguages) {
-                        nodesToRemove.add(node)
+            document.doRecursively { node ->
+                if (node is Element && node.tagName == "locale") {
+                    node.getAttributeNode("android:name")?.let { attribute ->
+                        if (attribute.textContent !in filteredAppLanguages) {
+                            nodesToRemove.add(node)
+                        }
                     }
                 }
             }
-        }
 
-        // Remove the collected nodes (avoids NullPointerException)
-        for (node in nodesToRemove) {
-            node.parentNode?.removeChild(node)
+            // Remove the collected nodes (avoids NullPointerException)
+            for (node in nodesToRemove) {
+                node.parentNode?.removeChild(node)
+            }
         }
-    }
+    } catch (_: Exception) {}
 
     if (!isYouTube) return
 

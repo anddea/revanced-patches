@@ -15,6 +15,7 @@ import app.revanced.patches.reddit.utils.patch.PatchList
 import app.revanced.patches.reddit.utils.patch.PatchList.SETTINGS_FOR_REDDIT
 import app.revanced.patches.shared.extension.Constants.EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.sharedSettingFingerprint
+import app.revanced.util.copyXmlNode
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
@@ -204,6 +205,8 @@ val settingsPatch = resourcePatch(
                 )
             }
         }
+
+        copyXmlNode("reddit/settings/host", "values/strings.xml", "resources")
 
         updateSettingsLabel(settingsLabel)
         updatePatchStatus(SETTINGS_FOR_REDDIT)

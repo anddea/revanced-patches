@@ -453,6 +453,10 @@ public final class app/revanced/patches/reddit/layout/toolbar/ToolBarButtonPatch
 	public static final fun getToolBarButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/reddit/layout/translations/TranslationsPatchKt {
+	public static final fun getTranslationsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public final class app/revanced/patches/reddit/layout/trendingtoday/TrendingTodayShelfPatchKt {
 	public static final fun getTrendingTodayShelfPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
