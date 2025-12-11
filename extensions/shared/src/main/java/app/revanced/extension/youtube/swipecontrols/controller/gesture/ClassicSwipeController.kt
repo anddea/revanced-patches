@@ -136,6 +136,16 @@ class ClassicSwipeController(
         // cancel if locked
         if (!config.enableSwipeControlsLockMode && config.isScreenLocked) return false
 
+        // Ensure the gesture starts in the valid zone.
+        // If we swipe Vertically, but we are not in the Volume/Brightness zone (e.g. we are on the Description Panel,
+        // Comments), we must return false immediately to allow the view hierarchy (ScrollView) to handle the touch.
+        val validVertical = currentSwipe == SwipeDetector.SwipeDirection.VERTICAL && isInSwipeZone(from)
+        val validHorizontal = currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL && isInHorizontalSwipeZone(from)
+
+        if (!validVertical && !validHorizontal) {
+            return false
+        }
+
         // If the swipe is already confirmed, process immediately
         if (isSwipeConfirmed) {
             return if (currentSwipe == SwipeDetector.SwipeDirection.VERTICAL) {
