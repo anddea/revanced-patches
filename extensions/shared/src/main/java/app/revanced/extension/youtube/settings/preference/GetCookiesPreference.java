@@ -78,8 +78,6 @@ public class GetCookiesPreference extends Preference implements Preference.OnPre
                         true,
                         true,
                         true,
-                        true,
-                        true,
                         YOUTUBE_EMBEDDED_PLAYER_URL
                 ),
                 // Dismiss dialog when onNeutralClick.

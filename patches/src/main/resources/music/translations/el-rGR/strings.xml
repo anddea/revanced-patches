@@ -546,7 +546,7 @@
 • Μερικές φορές οι υπότιτλοι βρίσκονται στην κορυφή της οθόνης αναπαραγωγής αντί του κάτω μέρους."</string>
     <string name="revanced_spoof_player_parameter_title">Παραποίηση παραμέτρου προγράμματος αναπαραγωγής</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android (χωρίς SDK)</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android (No SDK)</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR (με σύνδεση χρήστη, απαιτείται ενέργεια)</string>
     <string name="revanced_spoof_streaming_data_client_entry_mweb">Web Κινητού</string>
@@ -557,6 +557,19 @@
     <string name="revanced_spoof_streaming_data_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Αδυναμία λήψης ροής του προγράμματος πελάτη.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Δοκιμάστε να αλλάξετε το προεπιλεγμένο πρόγραμμα πελάτη παραποίησης δεδομένων ροής σε TV.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Πατήστε για να δείτε πώς να αποκτήσετε ένα διακριτικό εξουσιοδότησης.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Σχετικά με την εξουσιοδότηση Android No SDK </string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_get_authorization_token_text">Λήψη διακριτικού εξουσιοδότησης</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_message">"Για να αποκτήσετε ένα διακριτικό εξουσιοδότησης για χρήση του πελάτη Android No SDK, θα πρέπει να συνδεθείτε στον λογαριασμό σας Google, ακριβώς όπως συνδεθήκατε στο MicroG GmsCore:
+
+1. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να ανοίξετε το WebView.
+2. Συνδεθείτε στον λογαριασμό σας Google.
+
+※ Πατήστε «Επαναφορά» για να καταργήσετε το διακριτικό εξουσιοδότησης."</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_reset_text">Επαναφορά</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_title">Λήψη Διακριτικού Εξουσιοδότησης</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset">Το διακριτικό εξουσιοδότησης επαναφέρθηκε.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_success">Το διακριτικό εξουσιοδότησης αποθηκεύτηκε.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Εμφάνιση του προγράμματος πελάτη που χρησιμοποιείται για τη λήψη δεδομένων ροής στο μενού «Στατιστικά για σπασίκλες».</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Εμφάνιση στο «Στατιστικά για σπασίκλες»</string>
     <string name="revanced_spoof_streaming_data_summary">"Τα δεδομένα ροής παραποιούνται.
@@ -617,4 +630,16 @@
 • Αντικατάσταση του domain: Ακολουθεί τις ρυθμίσεις ιστορικού παρακολούθησης του λογαριασμού Google σας.
 • Αποκλεισμός ιστορικού παρακολούθησης: Το ιστορικό παρακολούθησης είναι αποκλεισμένο."</string>
     <string name="revanced_watch_history_type_title">Τύπος ιστορικού παρακολούθησης</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Λήψη των Cookies</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Λήψη του Data Sync ID</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Λήψη των Visitor Data</string>
+    <string name="revanced_webview_contextual_menu_refresh">Ανανέωση</string>
+    <string name="revanced_webview_cookies">Cookies</string>
+    <string name="revanced_webview_copy">Αντιγραφή</string>
+    <string name="revanced_webview_data_sync_id">Data Sync ID</string>
+    <string name="revanced_webview_toast_copy_success">Το %s αντιγράφηκε στο πρόχειρο.</string>
+    <string name="revanced_webview_toast_empty">Το %s είναι κενό.</string>
+    <string name="revanced_webview_toast_no_network">Παρακαλούμε ελέγξτε τη σύνδεσή σας.</string>
+    <string name="revanced_webview_toast_unavailable">Το WebView δεν είναι διαθέσιμο.</string>
+    <string name="revanced_webview_visitor_data">Visitor Data</string>
 </resources>

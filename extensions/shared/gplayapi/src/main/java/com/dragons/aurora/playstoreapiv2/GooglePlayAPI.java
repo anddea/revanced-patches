@@ -1,5 +1,7 @@
 package com.dragons.aurora.playstoreapiv2;
 
+import static com.dragons.aurora.playstoreapiv2.PackageNameUtil.getGmsCorePackageName;
+
 import java.io.IOException;
 import java.util.*;
 
@@ -101,7 +103,7 @@ public class GooglePlayAPI {
         params.put("check_email", "1");
         params.put("Token", aasToken);
         params.put("client_sig", signature);
-        params.put("callerPkg", "com.google.android.gms");
+        params.put("callerPkg", getGmsCorePackageName());
         params.put("system_partition", "1");
         params.put("_opt_is_called_from_account_manager", "1");
         params.put("is_called_from_account_manager", "1");
@@ -122,11 +124,11 @@ public class GooglePlayAPI {
         params.put("add_account", "1");
         params.put("get_accountid", "1");
         params.put("ACCESS_TOKEN", "1");
-        params.put("callerPkg", "com.google.android.gms");
+        params.put("callerPkg", getGmsCorePackageName());
         params.put("Token", oauthToken);
         //params.put("droidguard_results", "...");
         Map<String, String> headers = getAuthHeaders();
-        headers.put("app", "com.google.android.gms");
+        headers.put("app", getGmsCorePackageName());
         byte[] responseBytes = client.post(URL, params, headers);
         Map<String, String> response = parseResponse(new String(responseBytes));
         if (response.containsKey("Token")) {

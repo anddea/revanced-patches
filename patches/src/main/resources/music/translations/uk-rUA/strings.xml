@@ -552,6 +552,19 @@
     <string name="revanced_spoof_streaming_data_default_client_title">Клієнт за замовчуванням</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Не вдалося отримати клієнтські відеопотоки.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Спробуйте змінити клієнт за замовчуванням на ТБ.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Натисніть, щоб переглянути, як отримати токен авторизації.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Про авторизацію Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_get_authorization_token_text">Отримати токен авторизації</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_message">"Для отримання токена авторизації для Android No SDK, необхідно увійти до свого облікового запису Google, як при використанні GmsCore:
+
+1. Натисніть 'Отримати токен авторизації', щоб відкрити сторінку входу до WebView.
+2. Увійдіть до свого облікового запису Google.
+
+※ Натисніть 'Скинути', щоб видалити токен авторизації."</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_reset_text">Скинути</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_title">Отримати токен авторизації</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset">Токен автентифікації скинутий.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_success">Токен автентифікації збережено.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показує клієнт, який використовується для отримання потокових даних у \"Статистиці для сисадмінів\".</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
     <string name="revanced_spoof_streaming_data_summary">"Підміняє клієнтські відеопотоки, щоб запобігти відтворенню проблем.
@@ -610,4 +623,16 @@
 • Замінити домен: Дотримується налаштувань історії переглядів облікового запису Google.
 • Блокувати історію переглядів: Історію переглядів заблоковано."</string>
     <string name="revanced_watch_history_type_title">Тип історії перегляду</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Отримати куки</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Отримати ID синхр. даних</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Отримати дані відвідуваності</string>
+    <string name="revanced_webview_contextual_menu_refresh">Оновити</string>
+    <string name="revanced_webview_cookies">Куки</string>
+    <string name="revanced_webview_copy">Копія</string>
+    <string name="revanced_webview_data_sync_id">ID синхр. даних</string>
+    <string name="revanced_webview_toast_copy_success">%s у буфер обміну.</string>
+    <string name="revanced_webview_toast_empty">%s порожній.</string>
+    <string name="revanced_webview_toast_no_network">Перевірте підключення до Інтернету.</string>
+    <string name="revanced_webview_toast_unavailable">WebView недоступний.</string>
+    <string name="revanced_webview_visitor_data">Дані відвідуваності</string>
 </resources>

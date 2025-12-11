@@ -550,6 +550,20 @@ Effet secondaire :
     <string name="revanced_spoof_streaming_data_default_client_title">Client par défaut</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Impossible de récupérer les flux clients.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Essayez de changer le client par défaut en TV.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Cliquez ici pour savoir comment obtenir un gage d\'authentification.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">À propos d\'Android sans authentification SDK</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_get_authorization_token_text">Obtenir un gage d\'autorisation</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_message">"Pour obtenir un gage d'autorisation pour Android sans SDK, vous devez vous connecter à votre compte Google, comme pour GmsCore :
+
+1. Cliquez sur « Obtenir un gage d'autorisation » pour ouvrir la page de connexion dans WebView.
+
+2. Connectez-vous à votre compte Google.
+
+※ Cliquez sur « Réinitialiser » pour supprimer un gage d'authentification."</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_reset_text">Réinitialiser</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_title">Obtenir un gage d\'autorisation</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset">Réinitialisation du gage d\'authentification.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_success">Gage d\'authentification enregistré.</string>
     <string name="revanced_spoof_streaming_data_summary">"Modifiez le flux vidéo du client pour éviter les problèmes de lecture.
 
 Si vous êtes abonné à YouTube Premium, ce paramètre peut ne pas être nécessaire."</string>
@@ -595,4 +609,16 @@ Si vous êtes abonné à YouTube Premium, ce paramètre peut ne pas être néces
 • Remplacer le domaine : Respecte les paramètres d'historique des vidéos regardées du compte Google.
 • Bloquer l'historique des vidéos regardées : L'historique des vidéos regardées est bloqué."</string>
     <string name="revanced_watch_history_type_title">Type d\'historique des vidéos regardées</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Obtenir les cookies</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Obtenir l\'identifiant de synchronisation des données</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Obtenir les données des visiteurs</string>
+    <string name="revanced_webview_contextual_menu_refresh">Rafraîchir</string>
+    <string name="revanced_webview_cookies">Cookies</string>
+    <string name="revanced_webview_copy">Copie</string>
+    <string name="revanced_webview_data_sync_id">Identifiant de synchronisation des données</string>
+    <string name="revanced_webview_toast_copy_success">%s copié dans le presse-papiers.</string>
+    <string name="revanced_webview_toast_empty">%s est vide.</string>
+    <string name="revanced_webview_toast_no_network">Veuillez vérifier votre connexion réseau.</string>
+    <string name="revanced_webview_toast_unavailable">WebView n\'est pas disponible.</string>
+    <string name="revanced_webview_visitor_data">Données des visiteurs</string>
 </resources>

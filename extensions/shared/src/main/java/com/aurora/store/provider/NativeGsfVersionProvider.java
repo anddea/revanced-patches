@@ -23,20 +23,20 @@
 
 package com.aurora.store.provider;
 
+import static com.dragons.aurora.playstoreapiv2.PackageNameUtil.getGmsCorePackageName;
+
 import android.content.pm.PackageInfo;
 
 import app.revanced.extension.shared.utils.PackageUtils;
 
 public class NativeGsfVersionProvider {
 
-    static private final String GOOGLE_SERVICES_PACKAGE_ID = "com.google.android.gms";
-
     static private final int GOOGLE_SERVICES_VERSION_CODE = 250434004;
 
     private int gsfVersionCode = 0;
 
     public NativeGsfVersionProvider() {
-        PackageInfo packageInfo = PackageUtils.getPackageInfo(GOOGLE_SERVICES_PACKAGE_ID);
+        PackageInfo packageInfo = PackageUtils.getPackageInfo(getGmsCorePackageName());
         if (packageInfo != null) {
             gsfVersionCode = packageInfo.versionCode;
         }
