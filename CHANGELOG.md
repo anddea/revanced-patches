@@ -1,3 +1,17 @@
+# [3.15.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.15.0-dev.5...v3.15.0-dev.6) (2025-12-11)
+
+
+### Bug Fixes
+
+* **YouTube - Swipe controls:** Validate swipe zones before intercepting for delay ([46480ca](https://github.com/anddea/revanced-patches/commit/46480cac2b119aa07108806c3ccf3bf4da7329db))
+* **YouTube:** External downloader was not selectable ([6752d2a](https://github.com/anddea/revanced-patches/commit/6752d2a8138a0499f5f236bccf3088314347547e))
+
+
+### Features
+
+* Align with RVX [[v5.14.1-dev.3](https://github.com/inotia00/revanced-patches/releases/tag/v5.14.1-dev.3)] ([d1f40ad](https://github.com/anddea/revanced-patches/commit/d1f40ad31aedc895cb6cc316a40fdd90f66f4700))
+* **Reddit:** Add `Translations` patch ([d0ab25e](https://github.com/anddea/revanced-patches/commit/d0ab25e06d917464807fc3739cdc264a2c9e67d7))
+
 # [3.15.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.15.0-dev.4...v3.15.0-dev.5) (2025-12-09)
 
 
