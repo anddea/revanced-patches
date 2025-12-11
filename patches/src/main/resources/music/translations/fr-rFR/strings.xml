@@ -15,10 +15,10 @@ Cliquez sur le bouton Continuer et désactivez les optimisations de la batterie.
     <string name="gms_core_settings_summary">Activez la messagerie cloud pour recevoir les notifications.</string>
     <string name="gms_core_settings_title">Ouvrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore n\'est pas installé. Veuillez l\'installer.</string>
-    <string name="revanced_add_miniplayer_next_button_summary">Ajoute un bouton de piste suivante au mini-lecteur.</string>
-    <string name="revanced_add_miniplayer_next_button_title">Ajouter un bouton suivant au mini-lecteur</string>
-    <string name="revanced_add_miniplayer_previous_button_summary">Ajoute un bouton de piste précédente au mini-lecteur.</string>
-    <string name="revanced_add_miniplayer_previous_button_title">Ajouter un bouton précédent au mini-lecteur</string>
+    <string name="revanced_add_miniplayer_next_button_summary">Ajoute le bouton \'Suivant\' sur le minilecteur.</string>
+    <string name="revanced_add_miniplayer_next_button_title">Ajouter un bouton \'Suivant\' sur le minilecteur</string>
+    <string name="revanced_add_miniplayer_previous_button_summary">Ajoute le bouton \'Précédent\' sur le minilecteur.</string>
+    <string name="revanced_add_miniplayer_previous_button_title">Ajouter un bouton \'Précédent\' sur le minilecteur</string>
     <string name="revanced_app_info_dialog_message">&lt;b&gt;Nom de l\'application&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Version de l\'application&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Correctifs ReVanced&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Date du correctif&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
     <string name="revanced_app_info_dialog_title">Informations sur l\'application</string>
     <string name="revanced_app_info_summary">Cliquez pour consulter le nom de l\'application, sa version, la version du correctif et la date de mise à jour.</string>
@@ -31,8 +31,8 @@ Cliquez sur le bouton Continuer et désactivez les optimisations de la batterie.
     <string name="revanced_change_miniplayer_color_title">Changer la couleur du mini-lecteur</string>
     <string name="revanced_change_player_background_color_summary">Modifie la couleur d\'arrière-plan du lecteur en une couleur personnalisée.</string>
     <string name="revanced_change_player_background_color_title">Modifier la couleur d\'arrière-plan du lecteur</string>
-    <string name="revanced_change_seekbar_position_summary">Déplace la barre de recherche sous le bouton de lecture.</string>
-    <string name="revanced_change_seekbar_position_title">Changer la position de la barre de recherche</string>
+    <string name="revanced_change_seekbar_position_summary">Déplace la barre de progression sous le bouton de lecture.</string>
+    <string name="revanced_change_seekbar_position_title">Changer la position de la barre de progression</string>
     <string name="revanced_change_share_sheet_summary">Remplace la fiche de partage de l\'appli par celui du système.</string>
     <string name="revanced_change_share_sheet_title">Modifier la fiche de partage</string>
     <string name="revanced_change_start_page_entry_chart">Charts</string>
@@ -42,9 +42,9 @@ Cliquez sur le bouton Continuer et désactivez les optimisations de la batterie.
     <string name="revanced_change_start_page_entry_explore">Explorer</string>
     <string name="revanced_change_start_page_entry_history">Historique</string>
     <string name="revanced_change_start_page_entry_library">Bibliothèque</string>
-    <string name="revanced_change_start_page_entry_liked_music">Musique Aimée</string>
+    <string name="revanced_change_start_page_entry_liked_music">Musique \"J\'aime\"</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
-    <string name="revanced_change_start_page_entry_samples">Échantillons</string>
+    <string name="revanced_change_start_page_entry_samples">Samples</string>
     <string name="revanced_change_start_page_entry_search">Recherche</string>
     <string name="revanced_change_start_page_entry_subscription">Abonnements</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
@@ -56,17 +56,17 @@ Cliquez sur le bouton Continuer et désactivez les optimisations de la batterie.
     <string name="revanced_custom_filter_title">Activer le filtre personnalisé</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Filtre personnalisé invalide : %s.</string>
     <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Valeur de couleur de la barre de navigation non valide.</string>
-    <string name="revanced_custom_navigation_bar_color_value_summary">Tapez le code hexadécimal de la couleur de la barre de navigation.</string>
+    <string name="revanced_custom_navigation_bar_color_value_summary">Tapez le code hex de la couleur de la barre de navigation.</string>
     <string name="revanced_custom_navigation_bar_color_value_title">Valeur de couleur de la barre de navigation personnalisée</string>
     <string name="revanced_custom_playback_speeds_invalid">Les vitesses personnalisées doivent être inférieures à %sx.</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Vitesses de lecture invalides.</string>
     <string name="revanced_custom_playback_speeds_summary">Ajoute ou modifie les vitesses de lecture disponibles.</string>
     <string name="revanced_custom_playback_speeds_title">Éditez les vitesses de lecture personnalisées</string>
-    <string name="revanced_custom_player_background_color_primary_summary">"Saisissez le code hexadécimal de la couleur principale d'arrière-plan du lecteur.
+    <string name="revanced_custom_player_background_color_primary_summary">"Saisissez le code hex de la couleur principale d'arrière-plan du lecteur.
 
 Utilisez des couleurs sombres si possible, car l'application ne prend pas en charge les thèmes clairs."</string>
     <string name="revanced_custom_player_background_color_primary_title">Couleur primaire de l\'arrière-plan du lecteur</string>
-    <string name="revanced_custom_player_background_color_secondary_summary">"Saisissez le code hexadécimal de la couleur secondaire d'arrière-plan du lecteur.
+    <string name="revanced_custom_player_background_color_secondary_summary">"Saisissez le code hex de la couleur secondaire d'arrière-plan du lecteur.
 
 Utilisez des couleurs sombres si possible, car l'application ne prend pas en charge les thèmes clairs."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Couleur secondaire de l\'arrière-plan du lecteur</string>
@@ -79,9 +79,9 @@ Utilisez des couleurs sombres si possible, car l'application ne prend pas en cha
     <string name="revanced_debug_title">Activer la journalisation de débogage</string>
     <string name="revanced_default_app_settings_summary">Pour ouvrir les liens YouTube Music dans RVX Music, activez \'Ouvrir les liens compatibles\' et activez les adresses web prises en charge.</string>
     <string name="revanced_default_app_settings_title">Ouvrir les paramètres par défaut de l\'application</string>
-    <string name="revanced_disable_auto_audio_tracks_summary">"Désactiver la lecture automatique forcée des pistes audio pour les podcasts.
+    <string name="revanced_disable_auto_audio_tracks_summary">"Désactive les pistes audio forcées pour les podcasts.
 
-Limitation : Si l’option « Fausser les données de diffusion » est activée et que le client par défaut est « Authentification VR Android », cette fonctionnalité risque de ne pas fonctionner."</string>
+Limitation : Si l’option 'Données de streaming falsifiées' est activée et que le client par défaut est 'Authentification VR Android', cette fonctionnalité risque de ne pas fonctionner."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Désactiver les pistes audio automatiques forcées</string>
     <string name="revanced_disable_auto_captions_summary">Désactive les sous-titres automatiquement activés.</string>
     <string name="revanced_disable_auto_captions_title">Désactiver les sous-titres forcés</string>
@@ -91,7 +91,7 @@ Limitation : Si l’option « Fausser les données de diffusion » est activ�
     <string name="revanced_disable_dislike_redirection_title">Désactiver la redirection du bouton \"Je n\'aime pas\"</string>
     <string name="revanced_disable_drc_audio_summary">Désactive la DRC (compression de plage dynamique) appliquée à l\'audio.</string>
     <string name="revanced_disable_drc_audio_title">Désactiver l\'audio DRC</string>
-    <string name="revanced_disable_miniplayer_gesture_summary">Désactiver le balayage pour changer de piste dans le mini-lecteur.</string>
+    <string name="revanced_disable_miniplayer_gesture_summary">Désactive les gestes pour changer de musique dans le mini-lecteur.</string>
     <string name="revanced_disable_miniplayer_gesture_title">Désactiver le geste du mini-lecteur</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Appuyez sur le bouton bascule Chanson / Vidéo</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Appuyez et maintenez enfoncé le bouton bascule Chanson / Vidéo</string>
@@ -113,7 +113,7 @@ Restrictions : les vidéos pour enfants peuvent ne pas être redirigées."</str
 Informations :
 • Cette fonctionnalité est destinée aux podcasts.
 • Cette fonctionnalité est encore en développement et peut donc présenter des instabilités."</string>
-    <string name="revanced_disable_trim_silence_title">Désactiver le commutateur de silencieux Trim</string>
+    <string name="revanced_disable_trim_silence_title">Désactiver le bouton \'Supprimer les silences\'</string>
     <string name="revanced_enable_comments_scroll_top_summary">"Cliquer sur le titre du panneau de commentaires (« Commentaires ») permet de remonter en haut de la page.
 
 Limitations : Ne s’applique pas aux réponses aux commentaires."</string>
@@ -126,7 +126,7 @@ Limitations :
     <string name="revanced_enable_compact_dialog_title">Activer la boîte de dialogue compacte</string>
     <string name="revanced_enable_custom_navigation_bar_color_summary">Définit la couleur de la barre de navigation.</string>
     <string name="revanced_enable_custom_navigation_bar_color_title">Activer la couleur personnalisée de la barre de navigation</string>
-    <string name="revanced_enable_forced_miniplayer_summary">Active le mini-lecteur forcé lors du passage à une nouvelle piste.</string>
+    <string name="revanced_enable_forced_miniplayer_summary">Active le mini-lecteur forcé lors du passage à une nouvelle musique.</string>
     <string name="revanced_enable_forced_miniplayer_title">Activer le mini-lecteur forcé</string>
     <string name="revanced_enable_landscape_mode_summary">Active le mode paysage lors de la rotation du téléphone.</string>
     <string name="revanced_enable_landscape_mode_title">Activer le mode paysage</string>
@@ -156,11 +156,6 @@ Limitations : Les segments SponsorBlock ne sont pas affichés dans la barre de 
     <string name="revanced_enable_zen_mode_podcast_title">Activer le mode \"Zen\" sur les Podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Change la couleur du lecteur par un voile gris pour réduire la fatigue oculaire.</string>
     <string name="revanced_enable_zen_mode_title">Activer le mode zen</string>
-    <string name="revanced_extended_settings_export_failed">Échec de l\'exportation des paramètres.</string>
-    <string name="revanced_extended_settings_export_success">Les paramètres ont été exportés avec succès.</string>
-    <string name="revanced_extended_settings_import">Importer</string>
-    <string name="revanced_extended_settings_import_reset">Les paramètres ont étés réinitialisés.</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Le bouton \"Télécharger\" ouvre votre téléchargeur externe.
 
 • Remplace uniquement l’action du bouton \"Télécharger\" du lecteur.
@@ -186,7 +181,7 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">Masquer le bouton \"Enregistrer\"</string>
     <string name="revanced_hide_action_button_comment_summary">Masque le bouton \"Commentaires\".</string>
     <string name="revanced_hide_action_button_comment_title">Masquer le bouton \"Commentaires\"</string>
-    <string name="revanced_hide_action_button_disabled_summary">Masque les boutons désactivés, comme le bouton Commentaires désactivé.</string>
+    <string name="revanced_hide_action_button_disabled_summary">Masque les boutons désactivés, comme le bouton \"Les commentaires sont désactivé\".</string>
     <string name="revanced_hide_action_button_disabled_title">Masquer le bouton désactivé</string>
     <string name="revanced_hide_action_button_download_summary">Masque le bouton \"Télécharger\".</string>
     <string name="revanced_hide_action_button_download_title">Masquer le bouton \"Télécharger\"</string>
@@ -198,8 +193,9 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_hide_action_button_radio_title">Masquer le bouton \"Radio\"</string>
     <string name="revanced_hide_action_button_share_summary">Masque le bouton \"Partager\".</string>
     <string name="revanced_hide_action_button_share_title">Masquer le bouton \"Partager\"</string>
-    <string name="revanced_hide_action_button_song_video_summary">"Masque le bouton \"Chanson / Vidéo\". (Ce bouton n'est accessible qu'à certains utilisateurs.)"</string>
-    <string name="revanced_hide_action_button_song_video_title">Masquer le bouton \"Chanson / Vidéo\"</string>
+    <string name="revanced_hide_action_button_song_video_summary">"Masque le bouton \"Titre / Vidéo\".
+(Ce bouton n'est accessible qu'à certains utilisateurs.)"</string>
+    <string name="revanced_hide_action_button_song_video_title">Masquer le bouton \"Titre / Vidéo\"</string>
     <string name="revanced_hide_audio_video_switch_toggle_summary">Masque le sélecteur Audio/Vidéo en haut du lecteur.</string>
     <string name="revanced_hide_audio_video_switch_toggle_title">Masquer le sélecteur Audio/Vidéo</string>
     <string name="revanced_hide_button_shelf_summary">Masque les étagères à boutons dans les flux.</string>
@@ -214,6 +210,8 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Masquer les règles de la chaîne</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Masque les boutons \"émoji\" et \"horodatage\" lors de la rédaction d\'un commentaire.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Masquer les boutons émoji et horodatage</string>
+    <string name="revanced_hide_comments_information_button_summary">Masque le bouton « Informations » dans le panneau des commentaires.</string>
+    <string name="revanced_hide_comments_information_button_title">Masquer le bouton d\'information</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Masque le voile sombre qui apparaît lors du double appui pour avancer.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Masquer le voile sombre lors du double appuie</string>
     <string name="revanced_hide_floating_button_summary">Masque les boutons flottants dans la bibliothèque.</string>
@@ -231,13 +229,14 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Masquer le menu \"Accéder au podcast\"</string>
     <string name="revanced_hide_flyout_menu_help_title">Masquer le menu \"Aide et commentaires\"</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Masquer les boutons \"J\'aime\" et \"Je n\'aime pas\"</string>
-    <string name="revanced_hide_flyout_menu_not_interested_title">Masquer le menu \"Pas intéressé\"</string>
-    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Masquer l\'option épingler du menu de numérotation rapide</string>
+    <string name="revanced_hide_flyout_menu_not_interested_title">Masquer le menu \'Pas intéressé\'</string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Masquer le menu \'Épingler dans \"accès rapide\"\'</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Masquer le menu \"Lire ensuite\"</string>
     <string name="revanced_hide_flyout_menu_quality_title">Masquer le menu \"Qualité\"</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Masquer le menu \"Retirer de la Bibliothèque\"</string>
     <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Masquer le menu \"Supprimer la playlist\"</string>
     <string name="revanced_hide_flyout_menu_report_title">Masquer le menu \"Signaler\"</string>
+    <string name="revanced_hide_flyout_menu_save_episode_for_later_save_to_library_title">Masquer les menus « Enregistrer l\'épisode pour plus tard » et « Enregistrer dans la bibliothèque »</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Masquer le menu \"Enregistrer l\'épisode pour plus tard\"</string>
     <string name="revanced_hide_flyout_menu_save_to_library_title">Masquer le menu \"Enregistrer dans la bibliothèque\"</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">Masquer le menu \"Enregistrer dans une playlist\"</string>
@@ -247,7 +246,7 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_hide_flyout_menu_start_radio_title">Masquer le menu \"Lancer la radio\"</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Masquer le menu \"Statistiques avancées\"</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Masquer le menu \"S\'abonner\" / \"Se désabonner\"</string>
-    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Masquer l\'option détacher du menu de numérotation rapide</string>
+    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Masquer le menu \'Retirer de \"accès rapide\"\'</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Masquer le menu \"Afficher les crédits du titre\"</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Masque les publicités en plein écran.
 
@@ -286,8 +285,8 @@ Limitations :
     <string name="revanced_hide_paid_promotion_label_title">Masquer la bannière \"Communication commerciale\"</string>
     <string name="revanced_hide_playlist_card_shelf_summary">Masque les étagères de cartes \"Playlists\" dans les flux.</string>
     <string name="revanced_hide_playlist_card_shelf_title">Masquer les étagères de cartes \"Playlists\"</string>
-    <string name="revanced_hide_premium_promotion_closed_toast">Les popups de promotion Premium sont fermés.</string>
-    <string name="revanced_hide_premium_promotion_summary">Masque les publicités pour YouTube Premium.</string>
+    <string name="revanced_hide_premium_promotion_closed_toast">Les popups de promotion pour YT Music Premium sont fermés.</string>
+    <string name="revanced_hide_premium_promotion_summary">Masquer les publicités pour YouTube Premium.</string>
     <string name="revanced_hide_premium_promotion_title">Masquer les publicités pour YouTube Premium</string>
     <string name="revanced_hide_premium_renewal_summary">Masque la bannière \"Renouveler votre abonnement Premium\".</string>
     <string name="revanced_hide_premium_renewal_title">Masquer la bannière \"Renouveler votre abonnement Premium\"</string>
@@ -295,8 +294,8 @@ Limitations :
     <string name="revanced_hide_promotion_alert_banner_title">Masquer la bannière d\'alerte de promotion</string>
     <string name="revanced_hide_samples_shelf_summary">Masque l’étagère \"Samples\" dans les flux.</string>
     <string name="revanced_hide_samples_shelf_title">Masquer l’étagère \"Samples\"</string>
-    <string name="revanced_hide_search_button_summary">Masque le bouton de recherche dans la barre d\'outils.</string>
-    <string name="revanced_hide_search_button_title">Masquer le bouton de recherche</string>
+    <string name="revanced_hide_search_button_summary">Masque le bouton \'Rechercher\' de la barre d\'outils.</string>
+    <string name="revanced_hide_search_button_title">Masquer le bouton \'Rechercher\'</string>
     <string name="revanced_hide_settings_menu_about_title">Masquer le menu \'À propos\'</string>
     <string name="revanced_hide_settings_menu_data_saving_title">Masquer le menu \'Économie de données\'</string>
     <string name="revanced_hide_settings_menu_downloads_and_storage_title">Masquer le menu \'Téléchargements et stockage\'</string>
@@ -368,14 +367,14 @@ Cela ne contourne pas la restriction d'âge, mais le confirme automatiquement."<
 Ce correctif présente des limitations structurelles, car les activités telles que la recherche et les paramètres dans YouTube Music ne sont pas publiques.
 
 Problèmes connus :
-• Lorsqu'une activité remplacée, telle que la recherche et les paramètres, est fermée, la page d'accueil s'ouvre.
+• Lorsqu'une activité remplacée, telle que la recherche et les paramètres est fermée, la page d'accueil s'ouvre.
 
-Cliquez pour ouvrir les paramètres « Modifier la page d'accueil »."</string>
+Cliquez pour ouvrir les paramètres 'Modifier la page de démarrage'."</string>
     <string name="revanced_replace_navigation_button_about_title">À propos du bouton de remplacement</string>
-    <string name="revanced_replace_navigation_samples_button_summary">Remplace le bouton \"Échantillons\" par le bouton \"Rechercher\".</string>
-    <string name="revanced_replace_navigation_samples_button_title">Remplacer le bouton \"Échantillons\"</string>
-    <string name="revanced_replace_navigation_upgrade_button_summary">Remplace le bouton \"Mettre à niveau\" par le bouton \"Paramètres\".</string>
-    <string name="revanced_replace_navigation_upgrade_button_title">Remplacer le bouton \"Mise à niveau\"</string>
+    <string name="revanced_replace_navigation_samples_button_summary">Remplace le bouton \'Samples\' par le bouton \'Rechercher\'.</string>
+    <string name="revanced_replace_navigation_samples_button_title">Remplacer le bouton \'Samples\'</string>
+    <string name="revanced_replace_navigation_upgrade_button_summary">Remplace le bouton \'S\'abonner\' par le bouton \'Paramètres\'.</string>
+    <string name="revanced_replace_navigation_upgrade_button_title">Masquer le bouton \'S\'abonner\'</string>
     <string name="revanced_reset_to_default_toast">Réinitialiser les valeurs par défaut.</string>
     <string name="revanced_restart_first_run">Redémarrez pour charger la mise en page normalement</string>
     <string name="revanced_restart_message">Actualiser et redémarrer</string>
@@ -386,8 +385,8 @@ Cliquez pour ouvrir les paramètres « Modifier la page d'accueil »."</string
     <string name="revanced_restore_old_player_layout_summary">"Restaure l'ancien style de la mise en page du lecteur.
 Certaines fonctions peuvent ne pas fonctionner sur l'ancienne mise en page."</string>
     <string name="revanced_restore_old_player_layout_title">Restaurer l\'ancienne mise en page du lecteur</string>
-    <string name="revanced_restore_old_style_library_shelf_summary">Restaure l\'ancien style de l’étagère \"Bibliothèque\". (Expérimental)</string>
-    <string name="revanced_restore_old_style_library_shelf_title">Restaurer l\'ancien style de l’étagère \"Bibliothèque\"</string>
+    <string name="revanced_restore_old_style_library_shelf_summary">Restaure l\'ancien style de l’étagère \'Bibliothèque\'. (Expérimental)</string>
+    <string name="revanced_restore_old_style_library_shelf_title">Restaurer l\'ancien style de l’étagère \'Bibliothèque\'</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@identifiant (Nom d\'utilisateur)</string>
     <string name="revanced_return_youtube_username_display_format_summary">Sélectionnez le format d\'affichage des noms d\'utilisateurs.</string>
     <string name="revanced_return_youtube_username_display_format_title">Format d\'affichage</string>
@@ -506,26 +505,27 @@ Cliquez ici pour découvrir comment créer une clé API."</string>
     <string name="revanced_settings_search_no_results_title">Aucun résultat trouvé pour \'%s\'.</string>
     <string name="revanced_settings_search_recent_searches">Recherches récentes</string>
     <string name="revanced_settings_search_remove_message">Supprimer de l\'historique de recherche ?</string>
-    <string name="revanced_settings_search_tips_summary">"• Touchez un chemin pour y accéder.
-• Appuyez longuement sur un paramètre pour y accéder.
-• Appuyez sur Entrée pour enregistrer une requête de recherche dans l'historique.
-• La recherche ne tient pas compte de la casse ni de la ponctuation.
-• Les paramètres parents apparaissent au-dessus des paramètres enfants désactivés."</string>
+    <string name="revanced_settings_search_tips_summary">"• Appuyez sur un chemin pour y naviguer.
+• Maintenez un paramètre enfoncé pour l'ouvrir.
+• Appuyez sur Entrée pour enregistrer une recherche dans l'historique.
+• La recherche ignore la distinction entre majuscules et minuscules ainsi que la ponctuation.
+• Les paramètres principaux s'affichent au-dessus des sous-paramètres désactivés."</string>
     <string name="revanced_settings_search_tips_title">Conseils de recherche</string>
     <string name="revanced_settings_search_title">Rechercher %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Paramètres copiés dans le presse-papier.</string>
     <string name="revanced_spoof_app_version_summary">"Falsifie la version du client par une ancienne version.
 
-• Cela change l'apparence de l'application, mais des effets secondaires inconnus peuvent se produire.
-• Si désactivée ultérieurement, l'ancienne interface peut subsister jusqu'à la suppression des données de l'application."</string>
+• Cela modifiera l'apparence de l'application, mais des effets secondaires inconnus peuvent se produire.
+• Si cette option est activée mais ne fonctionne pas, essayez sur un autre compte.
+• Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut rester jusqu'à ce que les données de l'application soient effacées."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Désactive le mode radio dans les régions canadiennes</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Désactive les paroles en temps réel</string>
-    <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Restauration de l\'ancien panneau coulissant</string>
+    <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Restauration de l\'ancien menu déroulant</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Désactiver les paroles en temps réel</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restaurer l\'ancienne barre d\'action</string>
-    <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - La section commentaires n\'apparaît pas dans le fil d\'actualité</string>
-    <string name="revanced_spoof_app_version_target_invalid_toast">Version d\'application usurpée non valide : %s.</string>
+    <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - La section commentaires n\'apparaît pas dans la page d\'accueil</string>
+    <string name="revanced_spoof_app_version_target_invalid_toast">Version de falsification de l\'app invalide : %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Sélectionner la version de l\'application à falsifier.</string>
     <string name="revanced_spoof_app_version_target_title">Choisir la version à falsifier</string>
     <string name="revanced_spoof_app_version_title">Falsifier la version de l\'app</string>
@@ -533,18 +533,13 @@ Cliquez ici pour découvrir comment créer une clé API."</string>
     <string name="revanced_spoof_client_title">Usurpation de client</string>
     <string name="revanced_spoof_client_type_summary">"Définit un client par défaut pour l'usurpation d'identité."</string>
     <string name="revanced_spoof_client_type_title">Client par défaut</string>
-    <string name="revanced_spoof_player_parameter_summary">"Modifiez les paramètres du lecteur pour éviter les problèmes de lecture.
-
-Effet secondaire :
-• Parfois les sous-titres sont situés en haut du lecteur plutôt qu'en bas."</string>
-    <string name="revanced_spoof_player_parameter_title">Paramètre du lecteur falsifié</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music sans SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android sans SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Authentification Android VR (Action requise)</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">Site Web mobile</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">Télévision</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">Héritage télévisuel</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simplement</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Définit un client par défaut pour l\'usurpation d\'identité.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Client par défaut</string>
@@ -552,56 +547,69 @@ Effet secondaire :
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Essayez de changer le client par défaut en TV.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Cliquez ici pour savoir comment obtenir un gage d\'authentification.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">À propos d\'Android sans authentification SDK</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_get_authorization_token_text">Obtenir un gage d\'autorisation</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_message">"Pour obtenir un gage d'autorisation pour Android sans SDK, vous devez vous connecter à votre compte Google, comme pour GmsCore :
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Cliquez ici pour savoir comment vous connecter à Android sans SDK.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Se connecter à Android sans SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">Obtenir le jeton d\'autorisation</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message">"La connexion à Android No SDK (YouTube) suit les instructions de Google : « Autorisation du compte Google - OAuth 2.0 pour les applications Android » :
 
-1. Cliquez sur « Obtenir un gage d'autorisation » pour ouvrir la page de connexion dans WebView.
-
+1. Cliquez sur « Obtenir un jeton d'autorisation » pour ouvrir la page de connexion dans WebView.
 2. Connectez-vous à votre compte Google.
+3. La confirmation de connexion s'affichera sous 5 secondes.
 
-※ Cliquez sur « Réinitialiser » pour supprimer un gage d'authentification."</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_reset_text">Réinitialiser</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_title">Obtenir un gage d\'autorisation</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset">Réinitialisation du gage d\'authentification.</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_success">Gage d\'authentification enregistré.</string>
+※ Cliquez sur « Réinitialiser » pour supprimer un jeton d'authentification."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Réinitialiser</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Se connecter à Android sans SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Jeton d'authentification enregistré.
+
+- Le jeton d'authentification généré par cette procédure est utilisable uniquement sur YouTube (dans RVX, il sert à récupérer les données de streaming).
+- Les jetons d'authentification inutilisés pendant plus de 6 mois seront révoqués par les serveurs de Google.
+- Si vous modifiez votre mot de passe, désenregistrez un appareil dans les paramètres de votre compte ou désinstallez l'application, vous devrez générer un nouveau jeton d'authentification."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Connecté</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Réinitialisation du jeton d\'authentification.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Cliquez ici pour savoir comment vous connecter à Android VR.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Connectez-vous à Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Code d'activation : 
+%s
+
+1. Cliquez sur « Ouvrir le site web » pour accéder à « https://yt.be/activate ».
+2. Saisissez le code d'activation.
+3. Connectez-vous lorsque vous y êtes invité. Si vous possédez plusieurs comptes Google, sélectionnez celui que vous utilisez avec YouTube. Si vous êtes déjà connecté, passez à l'étape suivante.
+4. Une fois connecté, retournez dans RVX et cliquez à nouveau sur « À propos de l'authentification Android VR ».
+5. Cliquez sur « Obtenir un jeton d'autorisation » pour obtenir un jeton d'autorisation."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Ouvrir le site web</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Code d\'activation</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Code d\'activation copié dans le presse-papiers : %s.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Obtenir le code d\'activation</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Obtenir le jeton d\'autorisation</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"La connexion à Android VR (YouTube VR) suit les instructions de Google : « Autorisation du compte Google - OAuth 2.0 pour les applications TV et appareils à entrées limitées » :
+
+1. Cliquez sur « Obtenir un code d'activation » pour générer un code d'activation.
+2. Cliquez sur « Ouvrir le site web » pour accéder à « https://yt.be/activate ».
+3. Saisissez le code d'activation.
+4. Connectez-vous lorsque vous y êtes invité. Si vous possédez plusieurs comptes Google, sélectionnez celui que vous utilisez avec YouTube. Si vous êtes déjà connecté, passez à l'étape suivante.
+5. Une fois connecté, retournez dans RVX et cliquez à nouveau sur « Se connecter à Android VR ».
+6. Cliquez sur « Obtenir un jeton d'autorisation » pour obtenir un jeton d'autorisation.
+
+※ Cliquez sur « Réinitialiser » pour supprimer un jeton d'authentification ou un code d'activation."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Réinitialiser</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Connectez-vous à Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Jeton d'authentification enregistré.
+
+- Le jeton d'authentification généré par cette procédure ne peut être utilisé que sur YouTube VR (dans RVX, il sert à récupérer les données de streaming de YouTube VR).
+- Les jetons d'authentification inutilisés pendant plus de 6 mois seront révoqués par les serveurs de Google.
+- Si vous modifiez votre mot de passe, désenregistrez un appareil dans les paramètres de votre compte ou désinstallez l'application, vous devrez générer un nouveau jeton d'authentification."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Connecté</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Impossible d\'émettre un jeton d\'authentification.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Cliquez sur Réinitialiser et réessayez.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Réinitialisation du jeton d\'authentification et du code d\'activation.</string>
     <string name="revanced_spoof_streaming_data_summary">"Modifiez le flux vidéo du client pour éviter les problèmes de lecture.
 
 Si vous êtes abonné à YouTube Premium, ce paramètre peut ne pas être nécessaire."</string>
     <string name="revanced_spoof_streaming_data_title">Données de streaming falsifiées</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Code d'activation :
-
-%s
-
-1. Cliquez sur « Ouvrir le site web » pour accéder à « https://yt.be/activate ».
-
-2. Saisissez le code d'activation.
-
-3. Connectez-vous lorsque vous y êtes invité. Si vous possédez plusieurs comptes Google, sélectionnez celui que vous utilisez avec YouTube. Si vous êtes déjà connecté, passez à l'étape suivante.
-
-4. Une fois connecté, retournez dans RVX et cliquez à nouveau sur « À propos de l'authentification Android VR ».
-
-5. Cliquez sur « Obtenir un gage d'autorisation » pour obtenir un gage d'autorisation."</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Ouvrir le site web</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Code d\'activation</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Code d\'activation copié dans le presse-papiers : %s.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Cliquez ici pour savoir comment obtenir un gage d\'authentification.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">À propos de l\'authentification VR Android</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Obtenir le code d\'activation</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Obtenir un gage d\'autorisation</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Pour obtenir un gage d'autorisation pour Android VR, connectez-vous à YouTube VR à l'aide d'un code d'activation : 
-
-1. Cliquez sur « Obtenir un code d'activation » pour générer un code. 
-2. Cliquez sur « Ouvrir le site web » pour accéder à « https://yt.be/activate ». 
-3. Saisissez le code d'activation. 
-4. Connectez-vous lorsque vous y êtes invité. Si vous possédez plusieurs comptes Google, sélectionnez celui que vous utilisez avec YouTube. Si vous êtes déjà connecté, passez à l'étape suivante. 
-5. Une fois connecté, retournez dans RVX et cliquez à nouveau sur « À propos de l'authentification Android VR ». 
-6. Cliquez sur « Obtenir un gage d'autorisation » pour obtenir un gage d'autorisation. 
-
-※ Cliquez sur « Réinitialiser » pour supprimer un gage d'authentification ou un code d'activation."</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Réinitialiser</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Obtenir un gage d\'autorisation</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Réinitialisation du gage d\'authentification et du code d\'activation.</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Gage d\'authentification enregistré.</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Client par défaut</string>
+    <string name="revanced_spoof_video_streams_summary">Modifiez le flux vidéo du client pour éviter les problèmes de lecture.</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
     <string name="revanced_watch_history_type_entry_2">Remplacer le domaine</string>
     <string name="revanced_watch_history_type_entry_3">Bloquer l\'historique des vidéos regardées</string>
@@ -614,7 +622,7 @@ Si vous êtes abonné à YouTube Premium, ce paramètre peut ne pas être néces
     <string name="revanced_webview_contextual_menu_get_visitor_data">Obtenir les données des visiteurs</string>
     <string name="revanced_webview_contextual_menu_refresh">Rafraîchir</string>
     <string name="revanced_webview_cookies">Cookies</string>
-    <string name="revanced_webview_copy">Copie</string>
+    <string name="revanced_webview_copy">Copier</string>
     <string name="revanced_webview_data_sync_id">Identifiant de synchronisation des données</string>
     <string name="revanced_webview_toast_copy_success">%s copié dans le presse-papiers.</string>
     <string name="revanced_webview_toast_empty">%s est vide.</string>

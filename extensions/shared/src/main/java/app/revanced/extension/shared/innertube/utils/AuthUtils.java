@@ -39,12 +39,12 @@ public class AuthUtils {
 
             if (StringUtils.isNotEmpty(newlyLoadedAuthorization) &&
                     StringUtils.isNotEmpty(newlyLoadedVisitorId)) {
-                if (!authorization.equals(newlyLoadedAuthorization)) {
-                    Logger.printDebug(() -> "new Authorization loaded: " + newlyLoadedAuthorization);
-                }
-                if (!visitorId.equals(newlyLoadedVisitorId)) {
-                    Logger.printDebug(() -> "new VisitorId loaded: " + newlyLoadedVisitorId);
-                }
+                // if (!authorization.equals(newlyLoadedAuthorization)) {
+                //     Logger.printDebug(() -> "new Authorization loaded: " + newlyLoadedAuthorization);
+                // }
+                // if (!visitorId.equals(newlyLoadedVisitorId)) {
+                //     Logger.printDebug(() -> "new VisitorId loaded: " + newlyLoadedVisitorId);
+                // }
                 authorization = newlyLoadedAuthorization;
                 visitorId = newlyLoadedVisitorId;
             }

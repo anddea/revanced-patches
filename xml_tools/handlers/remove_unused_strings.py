@@ -36,11 +36,18 @@ PREFIX_TO_IGNORE: tuple[str, ...] = (
     "revanced_gemini_loading_",
     "revanced_icon_",
     "revanced_remember_video_quality_",
-    "revanced_sb_square_layout_",
-    "revanced_sb_toast_on_connection_error_",
+    "revanced_sb_",
     "revanced_shorts_custom_actions_",
     "revanced_spoof_app_version_target_entry_",
     "revanced_spoof_streaming_data_side_effects_",
+)
+
+# Files to clean up if an unused string is found
+TARGET_XML_FILES: tuple[str, ...] = (
+    "forced_strings.xml",
+    "missing_strings.xml",
+    "strings.xml",
+    "updated_strings.xml",
 )
 
 settings_instance = Settings()
@@ -87,7 +94,7 @@ def search_in_files(directories: list[str], name_values: set[str]) -> dict[str, 
 
     Notes:
         - Skips hidden directories and 'build' directories
-        - Ignores 'strings.xml' and 'missing_strings.xml' files
+        - Ignores files defined in TARGET_XML_FILES to prevent false positives
         - Only searches files with extensions defined in ALLOWED_EXTENSIONS
         - Searches for both original names and their base forms (without suffixes)
 
@@ -103,7 +110,8 @@ def search_in_files(directories: list[str], name_values: set[str]) -> dict[str, 
             dirs[:] = [d for d in dirs if not d.startswith(".") and d != "build"]
 
             for file in files:
-                if file in ("strings.xml", "missing_strings.xml") or not file.endswith(ALLOWED_EXTENSIONS):
+                # Skip the target definition files so we don't count definitions as usage
+                if file in TARGET_XML_FILES or not file.endswith(ALLOWED_EXTENSIONS):
                     continue
 
                 file_path = Path(root) / file
@@ -298,38 +306,53 @@ def process(app: str) -> None:
         app (str): The application identifier to process.
 
     Notes:
-        - Processes both the source strings file and all translation files
-        - Uses settings from the Settings class to determine file locations
-        - Maintains a log of all operations
-        - Skips writing files if no changes are needed
+        - Reads the main 'host/values/strings.xml' to identify all valid string keys.
+        - Checks if these strings are used in the codebase.
+        - If a string is unused:
+            1. Removes it from the main 'host/values/strings.xml'.
+            2. Iterates through all translation folders and removes it from
+               any of the TARGET_XML_FILES found there.
 
     """
     settings = Settings()
     base_path = settings.get_resource_path(app, "settings")
-    source_path = base_path / "host/values/strings.xml"
-    translations = settings.get_resource_path(app, "translations")
 
-    # find_string_usage("")  # noqa: ERA001
-    # validate_translation_strings(app)  # noqa: ERA001
+    main_strings_path = base_path / "host/values/strings.xml"
+    translations_dir = settings.get_resource_path(app, "translations")
 
     try:
-        # Get source strings
-        _, _, source_strings = XMLProcessor.parse_file(source_path)
+        if not main_strings_path.exists():
+            logger.warning("Main strings.xml not found at %s", main_strings_path)
+            return
 
-        # Find unused strings using direct file search
-        search_results = search_in_files(SEARCH_DIRECTORIES, set(source_strings.keys()))
+        # Get candidates from main strings.xml
+        _, _, source_strings = XMLProcessor.parse_file(main_strings_path)
+        candidate_keys = set(source_strings.keys())
+
+        if not candidate_keys:
+            logger.info("No strings found in main strings.xml")
+            return
+
+        # Check usage of these candidates
+        search_results = search_in_files(SEARCH_DIRECTORIES, candidate_keys)
         unused_names = {name for name, files in search_results.items() if not files}
 
-        # Process source file
         if unused_names:
-            process_xml_file(source_path, unused_names)
+            logger.info(
+                "Found %d unused strings. Processing removal...",
+                len(unused_names),
+            )
 
-        # Process translation files
-        for lang_dir in translations.iterdir():
-            if lang_dir.is_dir():
-                dest_path = lang_dir / "strings.xml"
-                if dest_path.exists():
-                    process_xml_file(dest_path, unused_names)
+            # Remove unused strings from the main host file
+            process_xml_file(main_strings_path, unused_names)
+
+            # Remove unused strings from all target files in all translation directories
+            for lang_dir in translations_dir.iterdir():
+                if lang_dir.is_dir():
+                    for target_filename in TARGET_XML_FILES:
+                        target_file = lang_dir / target_filename
+                        if target_file.exists():
+                            process_xml_file(target_file, unused_names)
 
         remove_extra_translation_strings(app)
 

@@ -44,10 +44,10 @@ import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.music.utils.videotype.videoTypeHookPatch
+import app.revanced.patches.shared.comments.commentsPanelPatch
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.shared.mainactivity.getMainActivityMethod
-import app.revanced.patches.shared.scrolltop.commentsScrollTopPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.addStaticFieldToExtension
 import app.revanced.util.adoptChild
@@ -202,7 +202,7 @@ val playerComponentsPatch = bytecodePatch(
         lithoFilterPatch,
         mainActivityResolvePatch,
         videoTypeHookPatch,
-        commentsScrollTopPatch,
+        commentsPanelPatch,
     )
 
     execute {
@@ -889,6 +889,16 @@ val playerComponentsPatch = bytecodePatch(
             "revanced_hide_comment_timestamp_and_emoji_buttons",
             "false"
         )
+
+        // region patch for hide information button
+
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_hide_comments_information_button",
+            "false"
+        )
+
+        // endregion
 
         // region patch for hide lyrics share button
 

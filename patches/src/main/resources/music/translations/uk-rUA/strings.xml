@@ -155,11 +155,6 @@
     <string name="revanced_enable_zen_mode_podcast_title">Увімкнути режим \"Дзен\" у подкастах</string>
     <string name="revanced_enable_zen_mode_summary">Вмикає світло-сірий колір фону плеєра, щоб зменшити навантаження на очі.</string>
     <string name="revanced_enable_zen_mode_title">Увімкнути режим \"Дзен\"</string>
-    <string name="revanced_extended_settings_export_failed">Не вдалося експортувати налаштування.</string>
-    <string name="revanced_extended_settings_export_success">Налаштування було вдало експортовано.</string>
-    <string name="revanced_extended_settings_import">Імпортувати</string>
-    <string name="revanced_extended_settings_import_reset">Налаштування скинуто до стандартних.</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Кнопка \"Завантажити\" відкриває ваш зовнішній завантажувач.
 
 • Підміняє лише кнопку \"Завантажити\" на панелі дій в плеєрі.
@@ -535,16 +530,9 @@
     <string name="revanced_spoof_client_title">Підмінити клієнт</string>
     <string name="revanced_spoof_client_type_summary">"Визначає клієнт за замовчуванням для підробки."</string>
     <string name="revanced_spoof_client_type_title">Клієнт за замовчуванням</string>
-    <string name="revanced_spoof_player_parameter_summary">"Підмінює параметр плеєра, щоб запобігти проблемам із відтворенням.
-
-Побічний ефект:
-• Іноді субтитри розташовані у верхній частині плеєра, а не внизу."</string>
-    <string name="revanced_spoof_player_parameter_title">Підмінити параметр плеєра</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android без SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR автентифікації (потрібна дія)</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">Мобільний веб</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">ТБ</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">Попереднє ТБ</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
@@ -554,17 +542,6 @@
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Спробуйте змінити клієнт за замовчуванням на ТБ.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Натисніть, щоб переглянути, як отримати токен авторизації.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Про авторизацію Android No SDK</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_get_authorization_token_text">Отримати токен авторизації</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_message">"Для отримання токена авторизації для Android No SDK, необхідно увійти до свого облікового запису Google, як при використанні GmsCore:
-
-1. Натисніть 'Отримати токен авторизації', щоб відкрити сторінку входу до WebView.
-2. Увійдіть до свого облікового запису Google.
-
-※ Натисніть 'Скинути', щоб видалити токен авторизації."</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_reset_text">Скинути</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_title">Отримати токен авторизації</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset">Токен автентифікації скинутий.</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_success">Токен автентифікації збережено.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показує клієнт, який використовується для отримання потокових даних у \"Статистиці для сисадмінів\".</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
     <string name="revanced_spoof_streaming_data_summary">"Підміняє клієнтські відеопотоки, щоб запобігти відтворенню проблем.
@@ -576,38 +553,8 @@
 • JavaScript-код плеєра для деобфускації постійно оновлюється.
 • Запуск відео може тривати від 5 до 15 секунд."</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Використовувати ejs yt-dlp (Ще в розробці)</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Код активації:
-%s
-
-1. Натисніть 'Відкрити сайт', щоб перейти до 'https://yt.be/activate'.
-2. Введіть код активації.
-3. Увійдіть, коли з'явиться запит. Якщо у вас кілька облікових записів Google, виберіть обліковий запис, який використовуєте для YouTube. Якщо вже увійшли, перейдіть до наступного кроку.
-4. Після входу поверніться до RVX і знову натисніть 'Про авторизацію Android VR'.
-5. Натисніть 'Отримати токен авторизації', щоб отримати токен авторизації."</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Відкрити сайт</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Код активації</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Код активації скопійовано в буфер обміну: %s.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Натисніть, щоб побачити, як отримати токен автентифікації.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Про авторизацію Android VR</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Отримати код активації</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Отримати токен авторизації</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Щоб отримати токен авторизації для Android VR, необхідно увійти в YouTube VR за допомогою коду активації:
-
-1. Натисніть 'Отримати код активації', щоб згенерувати код активації.
-2. Натисніть 'Відкрити сайт', щоб перейти до 'https://yt.be/activate'.
-3. Введіть код активації.
-4. Увійдіть, коли з'явиться запит. Якщо у вас кілька облікових записів Google, виберіть обліковий запис, який використовуєте для YouTube. Якщо вже увійшли, перейдіть до наступного кроку.
-5. Після входу поверніться до RVX і знову натисніть 'Про авторизацію Android VR'.
-6. Натисніть 'Отримати токен авторизації', щоб отримати токен авторизації.
-
-※ Натисніть 'Скинути', щоб вилучити токен автентифікації або код активації."</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Скинути</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Отримати Токен авторизації</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Токен автентифікації та код активації скинуто.</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Токен автентифікації збережено.</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Визначає клієнт за замовчуванням для підробки."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Клієнт за замовчуванням</string>
     <string name="revanced_spoof_video_streams_summary">Підробка клієнтськіх відеопотоків, щоб запобігти проблем з відтворенням.

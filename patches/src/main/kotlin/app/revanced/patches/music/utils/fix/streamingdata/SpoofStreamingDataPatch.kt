@@ -82,12 +82,12 @@ val spoofStreamingDataPatch = spoofStreamingDataPatch(
         )
         addPreferenceWithIntent(
             CategoryType.MISC,
-            "revanced_spoof_streaming_data_no_sdk_auth_token_about",
+            "revanced_spoof_streaming_data_sign_in_android_no_sdk_about",
             "revanced_spoof_streaming_data"
         )
         addPreferenceWithIntent(
             CategoryType.MISC,
-            "revanced_spoof_streaming_data_vr_auth_token_about",
+            "revanced_spoof_streaming_data_sign_in_android_vr_about",
             "revanced_spoof_streaming_data"
         )
     },

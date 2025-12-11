@@ -154,11 +154,6 @@
     <string name="revanced_enable_zen_mode_podcast_title">Включить режим \"Дзен\" в подкастах</string>
     <string name="revanced_enable_zen_mode_summary">Меняет оттенок фона проигрывателя видео на светло-серый, чтобы уменьшить нагрузку на глаза.</string>
     <string name="revanced_enable_zen_mode_title">Режим \"Дзен\"</string>
-    <string name="revanced_extended_settings_export_failed">Не удалось извлечь настройки.</string>
-    <string name="revanced_extended_settings_export_success">Настройки успешно извлечены.</string>
-    <string name="revanced_extended_settings_import">Восстановить</string>
-    <string name="revanced_extended_settings_import_reset">Настройки сброшены до начальных.</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Кнопка \"Скачать\" открывает внешний загрузчик.
 
 • Переопределяет только кнопку загрузки в плеере.
@@ -533,17 +528,10 @@
     <string name="revanced_spoof_client_title">Подмена клиента</string>
     <string name="revanced_spoof_client_type_summary">"Определяет клиент по умолчанию для подмены."</string>
     <string name="revanced_spoof_client_type_title">Клиент по умолчанию</string>
-    <string name="revanced_spoof_player_parameter_summary">"Измените параметр проигрывателя, чтобы предотвратить проблемы с воспроизведением.
-
-Побочный эффект:
-• Иногда субтитры располагаются в верхней части проигрывателя, а не в нижней.
-• У некоторых пользователей это может не работать."</string>
-    <string name="revanced_spoof_player_parameter_title">Подменить параметр плеера</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music без SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android без SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR авторизация (требуется действие)</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">Мобильный веб</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">ТВ</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">Предыдущий ТВ</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
@@ -551,20 +539,11 @@
     <string name="revanced_spoof_streaming_data_default_client_title">Клиент по умолчанию</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Не получены клиентские потоки.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Попробуйте изменить клиент по умолчанию на TV.</string>
-    <string name="revanced_spoof_streaming_data_message">Если у вас возникли какие-либо проблемы с воспроизведением, включите функцию \"Подмена потоковых данных\" в &lt;i&gt;&lt;u&gt;Настройки &gt; %s &gt; Разное &lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Нажмите, чтобы посмотреть, как получить токен авторизации.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">О Android No SDK авторизации</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_get_authorization_token_text">Получить токен авторизации</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_message">"Для получения токена авторизации для Android No SDK, необходимо войти в свою учётную запись Google, как при использовании GmsCore:
-
-1. Нажмите 'Получить токен авторизации', чтобы открыть страницу входа в WebView.
-2. Войдите в свою учётную запись Google.
-
-※ Нажмите 'Сброс', чтобы удалить токен авторизации."</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_reset_text">Сброс</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_title">Получить токен авторизации</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset">Токен аутентификации сброшен.</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_success">Токен аутентификации сохранен.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Войти в Android без SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Сброс</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Войти в Android без SDK</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показывает клиент, используемый для получения потоковых данных в Статистике для сисадминов.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показывать в \"Статистике для сисадминов\"</string>
     <string name="revanced_spoof_streaming_data_summary">"Подменяет клиентские видеопотоки для предотвращения проблем с воспроизведением.
@@ -580,38 +559,8 @@
 • JavaScript-код проигрывателя для деобфускации постоянно обновляется.
 • Запуск видео может занять от 5 до 15 секунд."</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Использовать yt-dlp ejs (В разработке)</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Код активации:
-%s
-
-1. Нажмите 'Открыть веб-сайт', чтобы перейти к 'https://yt.be/activate'.
-2. Введите код активации.
-3. Когда появится запрос войдите в аккаунт Google, который используете для YouTube. Если вход уже выполнен, перейдите к следующему шагу.
-4. После входа вернитесь к RVX и нажмите 'О Android VR авторизации' снова.
-5. Нажмите 'Получить токен авторизации', чтобы получить токен авторизации."</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Открыть сайт</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Код активации</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Код активации скопирован в буфер обмена: %s.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Нажмите, чтобы узнать, как получить токен аутентификации.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">О Android VR авторизации</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Получить код активации</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Получить токен авторизации</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Для получения токена авторизации Android VR, войдите в YouTube VR, используя код активации:
-
-1. Нажмите \"Получить код активации\" для генерации кода активации.
-2. Нажмите 'Открыть веб-сайт', чтобы перейти на 'https://yt.be/activate' и введите код активации.
-3. Введите код активации.
-4. Когда появится запрос войдите в аккаунт Google, который используете для YouTube. Если вход уже выполнен, перейдите к следующему шагу.
-5. После входа вернитесь к RVX и снова нажмите \"О Android VR авторизации\".
-6. Нажмите 'Получить токен авторизации', для получения токена авторизации.
-
-※ нажмите 'Сброс', чтобы удалить токен аутентификации или код активации."</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Сбросить</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Получить Токен Авторизации</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Токен аутентификации и код активации сброшены.</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Токен аутентификации сохранен.</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">Музыка для iOS 6.21</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">Музыка для iOS 7.04</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">Музыка для iOS 8.12</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Определяет клиент по умолчанию для подмены."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Клиент по умолчанию</string>
     <string name="revanced_spoof_video_streams_summary">Подменять клиентские видеопотоки для предотвращения проблем с воспроизведением.

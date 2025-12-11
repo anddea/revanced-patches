@@ -5,12 +5,15 @@ import static app.revanced.extension.shared.patches.auth.requests.AuthRoutes.Req
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.getDialogBuilder;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Pair;
 import android.widget.LinearLayout;
+
+import androidx.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +37,7 @@ public class YouTubeVRAuthPatch {
 
     public static void checkAccessToken() {
         if (isRefreshTokenAvailable()) {
-            setAccessToken(false);
+            setAccessToken();
         }
     }
 
@@ -45,7 +48,7 @@ public class YouTubeVRAuthPatch {
         accessTokenExpiration = 3600 * 1000L;
         authorization = "";
 
-        Utils.showToastShort(str("revanced_spoof_streaming_data_vr_auth_token_toast_reset"));
+        Utils.showToastShort(str("revanced_spoof_streaming_data_sign_in_android_vr_toast_reset"));
     }
 
     public static void setActivationCode(Context context) {
@@ -59,13 +62,13 @@ public class YouTubeVRAuthPatch {
 
                 saveDeviceCode(deviceCode);
 
-                String dialogTitle = str("revanced_spoof_streaming_data_vr_activation_code_dialog_title");
-                String dialogMessage = str("revanced_spoof_streaming_data_vr_activation_code_dialog_message", activationCode);
-                String okButtonText = str("revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text");
+                String dialogTitle = str("revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title");
+                String dialogMessage = str("revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message", activationCode);
+                String okButtonText = str("revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text");
                 Runnable onOkClick = () -> {
                     Utils.setClipboard(
                             activationCode,
-                            str("revanced_spoof_streaming_data_vr_activation_code_toast_copy", activationCode)
+                            str("revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy", activationCode)
                     );
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse("https://yt.be/activate"));
@@ -123,7 +126,11 @@ public class YouTubeVRAuthPatch {
         }
     }
 
-    public static void setAccessToken(boolean showToast) {
+    public static void setAccessToken() {
+        setAccessToken(null);
+    }
+
+    public static void setAccessToken(@Nullable Context mContext) {
         final long now = System.currentTimeMillis();
         if (lastTimeAccessTokenUpdated > 0L &&
                 now - lastTimeAccessTokenUpdated < accessTokenExpiration) {
@@ -140,12 +147,52 @@ public class YouTubeVRAuthPatch {
                 accessTokenExpiration = jsonObject.getInt("expires_in") * 1000L;
                 authorization = "Bearer " + accessToken;
 
-                if (showToast) {
-                    Utils.showToastShort(str("revanced_spoof_streaming_data_vr_auth_token_toast_success"));
+                if (mContext != null) {
+                    Utils.runOnMainThread(() -> {
+                        String dialogTitle =
+                                str("revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title");
+                        String dialogMessage =
+                                str("revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message");
+
+                        if (BaseThemeUtils.isSupportModernDialog) {
+                            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
+                                    mContext,
+                                    // Title.
+                                    dialogTitle,
+                                    // Message.
+                                    dialogMessage,
+                                    // No EditText.
+                                    null,
+                                    // OK button text.
+                                    null,
+                                    // OK button action.
+                                    () -> {
+                                    },
+                                    // Cancel button action.
+                                    null,
+                                    // Neutral button text.
+                                    null,
+                                    // Neutral button action.
+                                    YouTubeVRAuthPatch::clearAll,
+                                    // Dismiss dialog when onNeutralClick.
+                                    true
+                            );
+                            dialogPair.first.show();
+                        } else {
+                            AlertDialog.Builder builder = Utils.getDialogBuilder(mContext);
+                            builder.setTitle(dialogTitle);
+                            builder.setMessage(dialogMessage);
+                            builder.setPositiveButton(android.R.string.ok, (dialog, id) -> dialog.dismiss());
+                            builder.show();
+                        }
+                    });
                 }
             } catch (JSONException ex) {
                 Logger.printException(() -> "setAccessToken failed", ex);
             }
+        } else if (mContext != null) {
+            Utils.showToastShort(str("revanced_spoof_streaming_data_sign_in_android_vr_toast_failed"));
+            Utils.showToastShort(str("revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion"));
         }
     }
 

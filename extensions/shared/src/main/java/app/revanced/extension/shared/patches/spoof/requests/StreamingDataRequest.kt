@@ -119,6 +119,7 @@ class StreamingDataRequest private constructor(
                 "yt_live_broadcast",
                 "yt_premiere_broadcast"
             )
+        private var appendSignIn: Boolean = false
         private var lastSpoofedClient: ClientType? = null
 
         @GuardedBy("itself")
@@ -133,7 +134,9 @@ class StreamingDataRequest private constructor(
 
         @JvmStatic
         val lastSpoofedClientName: String
-            get() = lastSpoofedClient?.friendlyName ?: "Unknown"
+            get() = lastSpoofedClient?.friendlyName?.let {
+                if (appendSignIn) "$it Signed in" else it
+            } ?: "Unknown"
 
         @JvmStatic
         fun fetchRequest(
@@ -170,15 +173,19 @@ class StreamingDataRequest private constructor(
             clientType: ClientType,
             requestHeader: Map<String, String>,
         ): Map<String, String> {
-            if (clientType == ClientType.ANDROID_VR_AUTH &&
-                YouTubeVRAuthPatch.isAuthorizationAvailable()) {
+            appendSignIn = false
+
+            if (clientType == ClientType.ANDROID_VR) {
                 val finalRequestHeader: MutableMap<String, String> =
                     LinkedHashMap(requestHeader.size)
                 for (key in requestHeader.keys) {
                     val value = requestHeader[key]
                     if (value != null) {
                         if (key == AUTHORIZATION_HEADER) {
-                            finalRequestHeader[AUTHORIZATION_HEADER] = YouTubeVRAuthPatch.getAuthorization()
+                            if (YouTubeVRAuthPatch.isAuthorizationAvailable()) {
+                                finalRequestHeader[AUTHORIZATION_HEADER] = YouTubeVRAuthPatch.getAuthorization()
+                                appendSignIn = true
+                            }
                             continue
                         }
                         finalRequestHeader[key] = value
@@ -195,6 +202,7 @@ class StreamingDataRequest private constructor(
                         if (key == AUTHORIZATION_HEADER) {
                             if (YouTubeAuthPatch.isAuthorizationAvailable()) {
                                 finalRequestHeader[AUTHORIZATION_HEADER] = YouTubeAuthPatch.getAuthorization()
+                                appendSignIn = true
                             }
                             continue
                         }

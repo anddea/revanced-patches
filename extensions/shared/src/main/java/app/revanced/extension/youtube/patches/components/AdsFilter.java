@@ -87,13 +87,6 @@ public final class AdsFilter extends Filter {
                 "shopping_carousel"
         );
 
-        final StringFilterGroup paidContent = new StringFilterGroup(
-                Settings.HIDE_PAID_PROMOTION_LABEL,
-                "paid_content_overlay",
-                "reel_player_disclosure.",
-                "shorts_disclosures."
-        );
-
         final StringFilterGroup selfSponsor = new StringFilterGroup(
                 Settings.HIDE_SELF_SPONSOR_CARDS,
                 "cta_shelf_card"
@@ -126,7 +119,6 @@ public final class AdsFilter extends Filter {
                 alertBannerPromo,
                 generalAdsIdentifier,
                 merchandise,
-                paidContent,
                 selfSponsor,
                 shoppingLinks,
                 statementBanner,
@@ -160,9 +152,17 @@ public final class AdsFilter extends Filter {
                 "shopping_item_card_list."
         );
 
+        final StringFilterGroup paidContent = new StringFilterGroup(
+                Settings.HIDE_PAID_PROMOTION_LABEL,
+                "paid_content_overlay",
+                "reel_player_disclosure",
+                "shorts_disclosure"
+        );
+
         addPathCallbacks(
                 creatorStoreShelf,
                 generalAdsPath,
+                paidContent,
                 viewProducts
         );
     }

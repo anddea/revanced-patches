@@ -39,7 +39,6 @@ BLACKLIST: set[str] = {
     "revanced_settings_search_highlight_color",
     "revanced_settings_search_history",
     "revanced_shorts_custom_actions_gemini",
-    "revanced_spoof_streaming_data_ios_force_avc",
     "revanced_swipe_brightness_distance",
     "revanced_swipe_overlay_minimal_style",
     "revanced_swipe_overlay_progress_seek_color",

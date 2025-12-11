@@ -227,7 +227,6 @@
     <string name="revanced_disable_ambient_mode_summary_off">氛围模式已启用</string>
     <string name="revanced_disable_ambient_mode_summary_on">氛围模式已禁用</string>
     <string name="revanced_disable_ambient_mode_title">禁用氛围模式</string>
-    <string name="revanced_disable_auto_audio_tracks_not_available">要使用此功能，请将\"默认客户端（伪装流媒体数据）\"更改为 TV、TV Simply 或 iOS TV。</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">"强制自动音轨已启用"</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">强制自动音轨已禁用</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"强制自动音轨功能已禁用。
@@ -474,15 +473,6 @@
     <string name="revanced_expand_video_description_title">自动展开视频描述</string>
     <string name="revanced_extended_audio_tracks_unavailable">"此设置目前不可用。
 要使用此功能，请将"默认客户端（伪装流媒体数据）"更改为 TV、TV Simply 或 iOS TV。"</string>
-    <string name="revanced_extended_settings_export_failed">导出配置失败</string>
-    <string name="revanced_extended_settings_export_success">导出配置成功</string>
-    <string name="revanced_extended_settings_export_summary">导出配置到文件</string>
-    <string name="revanced_extended_settings_export_title">导出配置</string>
-    <string name="revanced_extended_settings_import">导入</string>
-    <string name="revanced_extended_settings_import_reset">配置已被重置为默认值</string>
-    <string name="revanced_extended_settings_import_summary">从文件导入配置</string>
-    <string name="revanced_extended_settings_import_title">导入配置</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">外部下载器</string>
     <string name="revanced_external_downloader_empty_warning">包名不能为空</string>
     <string name="revanced_external_downloader_not_found_title">应用未安装。</string>
@@ -1000,9 +990,6 @@
     <string name="revanced_hide_playlist_button_summary_off">保存到播放列表按钮已显示</string>
     <string name="revanced_hide_playlist_button_summary_on">保存到播放列表按钮已隐藏</string>
     <string name="revanced_hide_playlist_button_title">隐藏保存到播放列表按钮</string>
-    <string name="revanced_hide_podcast_section_summary_off">“浏览播客”部分已显示</string>
-    <string name="revanced_hide_podcast_section_summary_on">“浏览播客”部分已隐藏</string>
-    <string name="revanced_hide_podcast_section_title">隐藏“浏览播客”</string>
     <string name="revanced_hide_preview_comment_off">预览评论已显示</string>
     <string name="revanced_hide_preview_comment_on">预览评论已隐藏</string>
     <string name="revanced_hide_preview_comment_title">隐藏预览评论</string>
@@ -1223,9 +1210,6 @@
     <string name="revanced_hide_shorts_new_posts_button_summary_off">显示“新帖”按钮</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_on">隐藏“新帖”按钮</string>
     <string name="revanced_hide_shorts_new_posts_button_title">隐藏“新帖子”按钮</string>
-    <string name="revanced_hide_shorts_paid_promotion_label_summary_off">付费推广横幅标签已显示</string>
-    <string name="revanced_hide_shorts_paid_promotion_label_summary_on">付费推广横幅已隐藏</string>
-    <string name="revanced_hide_shorts_paid_promotion_label_title">隐藏付费推广横幅</string>
     <string name="revanced_hide_shorts_paused_header_summary_off">已暂停的标题已显示</string>
     <string name="revanced_hide_shorts_paused_header_summary_on">已暂停的标题已隐藏</string>
     <string name="revanced_hide_shorts_paused_header_title">隐藏已暂停的标题</string>
@@ -1401,15 +1385,9 @@
     <string name="revanced_hide_view_products_summary_off">已显示视频叠加层中的查看商品横幅。</string>
     <string name="revanced_hide_view_products_summary_on">已隐藏视频叠加层中的查看商品横幅。</string>
     <string name="revanced_hide_view_products_title">隐藏查看商品横幅</string>
-    <string name="revanced_hide_visit_community_button_summary_off">已显示访问社区按钮。</string>
-    <string name="revanced_hide_visit_community_button_summary_on">已隐藏访问社区按钮。</string>
-    <string name="revanced_hide_visit_community_button_title">隐藏访问社区按钮</string>
     <string name="revanced_hide_visual_spacer_summary_off">视觉分隔符已显示</string>
     <string name="revanced_hide_visual_spacer_summary_on">视觉分隔符已隐藏</string>
     <string name="revanced_hide_visual_spacer_title">隐藏视觉分隔符</string>
-    <string name="revanced_hide_visual_spacers_summary_off">已显示视觉间隔。</string>
-    <string name="revanced_hide_visual_spacers_summary_on">已隐藏视觉间隔。</string>
-    <string name="revanced_hide_visual_spacers_title">隐藏视觉间隔</string>
     <string name="revanced_hide_voice_search_button_summary_off">语音搜索按钮已显示</string>
     <string name="revanced_hide_voice_search_button_summary_on">语音搜索按钮已隐藏</string>
     <string name="revanced_hide_voice_search_button_title">隐藏语音搜索按钮</string>
@@ -1725,10 +1703,8 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_preference_category_image_region_restrictions">图像区域限制</string>
     <string name="revanced_preference_category_import_export_as_file">导入 / 导出为文件</string>
     <string name="revanced_preference_category_import_export_as_text">导入 / 导出为文本</string>
-    <string name="revanced_preference_category_ios">iOS</string>
     <string name="revanced_preference_category_js">JavaScript</string>
     <string name="revanced_preference_category_keyword_filter">关键字过滤器</string>
-    <string name="revanced_preference_category_no_auth">无需身份验证</string>
     <string name="revanced_preference_category_others">其他</string>
     <string name="revanced_preference_category_overlay_buttons">叠加按钮</string>
     <string name="revanced_preference_category_patch_information">补丁信息</string>
@@ -2121,6 +2097,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_settings_import_successful">配置文件成功导入</string>
     <string name="revanced_sb_settings_revanced_export_user_id_warning">你的设置包含一个 SponsorBlock 用户 Id\n\n你的用户 Id 应该像密码一样不要分享给他人\n</string>
     <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">不再显示</string>
+    <string name="revanced_sb_share_copy_settings_success">设置已复制到剪贴板</string>
     <string name="revanced_sb_skip_automatically">自动跳过</string>
     <string name="revanced_sb_skip_automatically_once">自动跳过一次</string>
     <string name="revanced_sb_skip_button_compact">跳过</string>
@@ -2209,13 +2186,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_vote_no_segments">没有可供投票的片段</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s 至 %2$s</string>
     <string name="revanced_sb_vote_upvote">赞成</string>
-    <string name="revanced_search_clear_confirm_message">您确定要清除整个搜索历史记录吗？</string>
-    <string name="revanced_search_clear_confirm_title">清除搜索历史</string>
-    <string name="revanced_search_delete_confirm_message">您确定要从搜索历史中删除"%1$s"吗？</string>
-    <string name="revanced_search_delete_confirm_title">删除搜索条目</string>
     <string name="revanced_search_settings_category_title">搜索设置</string>
-    <string name="revanced_search_settings_no_results_summary">尝试不同的搜索词。</string>
-    <string name="revanced_search_settings_no_results_title">未找到"%1$s"的结果</string>
     <string name="revanced_search_title">搜索</string>
     <string name="revanced_set_transcript_cookies_all_summary_off">仅为自动翻译字幕请求设置了 Cookie。</string>
     <string name="revanced_set_transcript_cookies_all_summary_on">所有的转写文稿 API 请求均设置了 Cookie。</string>
@@ -2384,46 +2355,16 @@ AI生成的回复可能包含不准确的信息。
 • 可能会在某些需要高设备尺寸的视频上解锁高清视频，但并非所有视频。
 • 如果启用了“模拟流数据”，则此设置不可用。"</string>
     <string name="revanced_spoof_device_dimensions_title">伪装设备尺寸</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_summary_off">不显示音轨按钮。</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"当用于获取流数据的客户端为“Android VR”、“移动网页”或“visionOS”时，显示音轨按钮。"</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_title">显示音轨按钮</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"前提条件：
-• 用于获取流数据的客户端为“Android VR”、“移动网页”或“visionOS”。
-• 正在播放具有多个音轨的视频。
-
-已知问题：
-• 如果在YouTube设置中更改应用语言且未重启应用，音轨对话框中的语言可能不会更改。
-• 有时音轨对话框中选择了错误的语言。
-• 某些音轨（如“英语描述”）不受支持。
-
-此功能仍在开发中，可能会因服务器端更改随时失效。"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(需要登录)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(无需身份验证)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
-<small>（需要认证、操作）</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
-<small>(已弃用)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
-<small>(过时，无需身份验证)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">"移动网页
-<small>(开发中，无需身份验证)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
-<small>(无PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(未发布，无需身份验证)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">默认客户端</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">无法获取任何客户端流。</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">请尝试将默认客户端更改为TV。</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">视频编解码器自动确定。</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">视频编解码器强制为 AVC (H.264)。</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_title">强制 iOS AVC (H.264)</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"启用此功能可能会提高电池续航并修复播放卡顿。
-
-AVC 最大分辨率为 1080p，Opus 音频编解码器不可用，并且视频播放将比 VP9 或 AV1 使用更多的互联网数据。"</string>
-    <string name="revanced_spoof_streaming_data_message">如果您遇到任何播放问题，请在 &lt;i&gt;&lt;u&gt; 设置 &gt; %s &gt; 其他 &gt; 欺骗流数据 &lt;/u&gt;&lt;/i&gt; 中启用\"欺骗流媒体数据\"。</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">视频编解码器被优先考虑。</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">视频画质被优先考虑。</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">优先考虑视频画质</string>
@@ -2556,13 +2497,6 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
 （前提条件：已启用“显示重新加载视频按钮”和“始终显示重新加载视频按钮”）
 
 在 JavaScript 客户端中，推荐使用 TV 客户端。"</string>
-    <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"用于反混淆的 JavaScript 未保持最新状态。
-
-• 使用了成功反混淆的JavaScript，但它仍然在某种程度上依赖于服务器。"</string>
-    <string name="revanced_spoof_streaming_data_use_latest_js_summary_on">"用于反混淆的 JavaScript 已保持最新状态。
-
-• 它高度依赖于服务器，反混淆的成败取决于服务器上当前使用的 JavaScript。"</string>
-    <string name="revanced_spoof_streaming_data_use_latest_js_title">使用最新的 JavaScript</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"用于反混淆的播放器 JavaScript 未保持最新状态。
 
 • 使用了成功的去混淆播放器 JavaScript，但它仍然在某种程度上依赖于服务器。"</string>
@@ -2580,49 +2514,9 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
 • 用于去混淆的播放器 JavaScript 保持最新。
 • 视频启动可能需要 5 到 15 秒。"</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">使用 yt-dlp ejs（开发中）</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"由于YouTube的新措施，无法再通过常规方法在最新播放器JavaScript中解密流URL。
-
-yt-dlp的外部JavaScript（yt-dlp-ejs）用于解密最新播放器JavaScript中的流URL。
-
-目前仍在开发中，将使用更多硬件资源。"</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">关闭此选项可能会导致视频不能正常播放</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"激活码：
-%s
-
-1. 点击“打开网站”转到“https://yt.be/activate”。
-2. 输入激活码。
-3. 在出现提示时登录。若有多个 Google 账号，请选择你在 YouTube 上使用的账号。若已登录，请跳至下一步。
-4. 登录后，返回 RVX 并再次点击“关于 Android VR 认证”。
-5. 点击“获取认证令牌”以获取认证令牌。"</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">打开网站</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">激活码</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">激活码已复制到剪贴板：%s。</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">点击查看如何获取认证令牌。</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">关于 Android VR 认证</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">获取激活码</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">获取认证令牌</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"要获取 Android VR 的认证令牌，你应使用激活码登录 YouTube VR：
-
-1. 点击“获取激活码”生成激活码。
-2. 点击“打开网站”转到“https://yt.be/activate”。
-3. 输入激活码。
-4. 在出现提示时登录。若有多个 Google 账号，请选择你在 YouTube 上使用的账号。若已登录，请跳至下一步。
-5. 登录后，返回 RVX 并再次点击“关于 Android VR 认证”。
-6. 点击“获取认证令牌”以获取认证令牌。
-
-※ 点击“重置”可移除认证令牌或激活码。"</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">重置</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">获取认证令牌</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">认证令牌和激活码已重置。</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">认证令牌已保存。</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_off">视频编解码器为 AVC (H.264) 或 VP9。</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"视频编解码器为 AVC (H.264)、VP9 或 AV1。
-
-播放可能会出现卡顿或丢帧。"</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_title">启用 VR AV1</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"启用此设置可能会使用软件 AV1 解码。
-
-播放可能会出现卡顿或丢帧。"</string>
     <string name="revanced_swipe_brightness_distance_summary">滑动以更改亮度的像素数量。值越低，亮度变化越快，值越高，变化越慢 (1-1000)。</string>
     <string name="revanced_swipe_brightness_distance_title">亮度距离</string>
     <string name="revanced_swipe_brightness_summary_off">全屏亮度滑动已禁用</string>

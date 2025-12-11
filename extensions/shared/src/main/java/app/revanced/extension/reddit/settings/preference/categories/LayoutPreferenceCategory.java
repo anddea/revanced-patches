@@ -7,13 +7,14 @@ import app.revanced.extension.reddit.settings.Settings;
 import app.revanced.extension.reddit.settings.SettingsStatus;
 import app.revanced.extension.reddit.settings.preference.TogglePreference;
 
+import static app.revanced.extension.shared.utils.StringRef.dstr;
 import static app.revanced.extension.shared.utils.StringRef.str;
 
 @SuppressWarnings("deprecation")
 public class LayoutPreferenceCategory extends ConditionalPreferenceCategory {
     public LayoutPreferenceCategory(Context context, PreferenceScreen screen) {
         super(context, screen);
-        setTitle("Layout");
+        setTitle(dstr("revanced_layout_category"));
     }
 
     @Override

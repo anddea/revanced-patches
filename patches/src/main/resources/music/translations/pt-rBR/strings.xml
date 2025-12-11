@@ -157,11 +157,6 @@ Limitações: segmentos de patrocinadores não são exibidos na barra de busca."
     <string name="revanced_enable_zen_mode_podcast_title">Ativar o modo Calmo em podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Ativa uma cor cinza claro para o fundo do reprodutor para reduzir o cansaço visual.</string>
     <string name="revanced_enable_zen_mode_title">Ativar modo Calmo</string>
-    <string name="revanced_extended_settings_export_failed">Falha ao exportar configurações.</string>
-    <string name="revanced_extended_settings_export_success">As configurações foram exportadas com sucesso.</string>
-    <string name="revanced_extended_settings_import">Importar</string>
-    <string name="revanced_extended_settings_import_reset">Configurações redefinidas para o padrão</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"O botão de Download abre seu aplicativo de download externo.
 
 • Substitui apenas a ação do botão de download no reprodutor.
@@ -530,25 +525,13 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_app_version_target_summary">Selecione a versão do app para falsificação.</string>
     <string name="revanced_spoof_app_version_target_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_title">Falsificar a versão do aplicativo</string>
-    <string name="revanced_spoof_client_summary">"Falsificar o cliente para evitar problemas de reprodução.
-
-Se isto for ativado, o \"Spoofar parâmetro do reprodutor\" poderá ser desativado.
-
-Efeito colateral:
-- O menu suspenso do reprodutor pode não ser exibido corretamente."</string>
+    <string name="revanced_spoof_client_summary">Falsificar o cliente para evitar problemas de reprodução.</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
     <string name="revanced_spoof_client_type_summary">"Define um cliente padrão para falsificar."</string>
     <string name="revanced_spoof_client_type_title">Cliente padrão</string>
-    <string name="revanced_spoof_player_parameter_summary">"Falsificar o parâmetro de reprodutor para evitar problemas de reprodução.
-
-Efeito lateral:
-• Às vezes as legendas estão localizadas na parte superior do reprodutor ao invés da parte inferior."</string>
-    <string name="revanced_spoof_player_parameter_title">Falsificação de parâmetro do reprodutor</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android Não SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR Autenticação(Ação necessária)</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Legado</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
@@ -558,15 +541,6 @@ Efeito lateral:
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Tente alterar o cliente padrão para TV.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Clique para ver como obter um token de autenticação.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Sobre o Android: Sem autenticação do SDK</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_get_authorization_token_text">Obter token de autorização</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_message">"Para obter um token de autorização para o Android No SDK, você precisa fazer login na sua conta do Google, assim como ao usar o GmsCore:
-
-1. Clique em \"Obter token de autorização\" para abrir a página de login no WebView.
-2."</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_reset_text">Reiniciar</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_title">Obter token de autorização</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset">Redefinição do token de autenticação.</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_success">Token de autenticação salvo.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Exibir o cliente usado para buscar dados de streaming em estatísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Exibir em Estatísticas para nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Falsificar o cliente de reprodução de vídeo para prevenir problemas de reprodução. 
@@ -582,35 +556,10 @@ Se você estiver tendo problemas com seu cliente JavaScript, tente desativar ist
 • O JavaScript do reprodutor para desofuscação é mantido atualizado.
 • O vídeo pode levar de 5 a 15 segundos para iniciar."</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Usar yt-dlp ejs (WIP)</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Código de ativação:
-%s
-
-1. Clique em 'Abrir site' para ir em 'https://yt.be/activate'.
-2. Digite o código de ativação.
-3. Faça o login quando solicitado. Se você tiver várias contas do Google, selecione a conta que você usa com o YouTube. Se você já está logado, pule para o próximo passo.
-4. Uma vez logado, retorne ao RVX e clique em 'Sobre o Android VR Autenticação' novamente.
-5. Clique em 'Obter token de autorização' para obter um token de autorização."</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Abrir site</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Código de ativação</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Código de ativação copiado para a área de transferência: %s.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Clique para ver como obter um token de autenticação.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Sobre o Android VR Autenticação</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Obter código de ativação</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Obter token de autorização</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Para obter um token de autorização para Android VR, você deve entrar no YouTube VR usando um código de ativação:
-
-1. Clique em 'Obter código de ativação' para gerar um código de ativação.
-2. Clique em 'Abrir site' para ir para 'https://yt.be/activate'.
-3. Insira o código de ativação.
-4. Faça o login quando solicitado. Se você tem várias Contas do Google, selecione a conta que você usa com o YouTube. Se você já está logado, pule para o próximo passo.
-5. Depois de entrar, volte ao RVX e clique 'Sobre o Android VR Autenticação' novamente.
-6. Clique em 'Obter token de autorização' para obter um token de autorização.
-
-※ Clique em 'Redefinir' para remover um token de autenticação ou código de ativação."</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Redefinir</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Obter Token de autorização</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Token de autenticação e código de ativação redefinido.</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Token de autenticação salvo.</string>
+    <string name="revanced_spoof_video_streams_default_client_title">Cliente padrão</string>
+    <string name="revanced_spoof_video_streams_summary">Falsificar o cliente de reprodução de vídeo para prevenir problemas de reprodução. </string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
     <string name="revanced_watch_history_type_entry_2">Substituir domínio</string>
     <string name="revanced_watch_history_type_entry_3">Bloquear histórico de exibição</string>

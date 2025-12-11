@@ -4,6 +4,8 @@ import static app.revanced.extension.shared.patches.AppCheckPatch.IS_YOUTUBE;
 import static app.revanced.extension.shared.patches.auth.requests.AuthRequest.fetch;
 import static app.revanced.extension.shared.utils.StringRef.str;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.util.Pair;
 
 import org.apache.commons.lang3.StringUtils;
@@ -35,7 +37,7 @@ public class YouTubeAuthPatch {
         accessTokenExpiration = 3540 * 1000L;
         authorization = "";
 
-        Utils.showToastShort(str("revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset"));
+        Utils.showToastShort(str("revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset"));
     }
 
     public static void setAccessToken() {
@@ -54,7 +56,7 @@ public class YouTubeAuthPatch {
         }
     }
 
-    public static void setAccessToken(String email, String oauthToken) {
+    public static void setAccessToken(Activity mActivity, String email, String oauthToken) {
         Pair<String, String> result = fetch(email, oauthToken, false);
         if (result != null) {
             String refreshToken = result.first;
@@ -64,9 +66,23 @@ public class YouTubeAuthPatch {
                 saveRefreshToken(refreshToken);
                 authorization = "Bearer " + accessToken;
                 lastTimeAccessTokenUpdated = System.currentTimeMillis();
-                Utils.showToastShort(str("revanced_spoof_streaming_data_no_sdk_auth_token_toast_success"));
+
+                AlertDialog.Builder builder = Utils.getDialogBuilder(mActivity);
+
+                String dialogTitle =
+                        str("revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title");
+                String dialogMessage =
+                        str("revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message");
+
+                builder.setTitle(dialogTitle);
+                builder.setMessage(dialogMessage);
+                builder.setPositiveButton(android.R.string.ok, (dialog, id) -> dialog.dismiss());
+                builder.setOnDismissListener(dialog -> mActivity.finish());
+                builder.show();
+                return;
             }
         }
+        mActivity.finish();
     }
 
     /**

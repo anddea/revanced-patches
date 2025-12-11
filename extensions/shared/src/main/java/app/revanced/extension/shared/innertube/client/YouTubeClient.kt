@@ -2,6 +2,7 @@ package app.revanced.extension.shared.innertube.client
 
 import android.os.Build
 import app.revanced.extension.shared.innertube.utils.J2V8Support.supportJ2V8
+import app.revanced.extension.shared.patches.AppCheckPatch.IS_YOUTUBE
 import app.revanced.extension.shared.settings.BaseSettings
 import app.revanced.extension.shared.utils.PackageUtils
 import org.apache.commons.lang3.ArrayUtils
@@ -59,6 +60,27 @@ object YouTubeClient {
     private val ANDROID_SDK_VERSION_ANDROID_NO_SDK: String? = null
     private val USER_AGENT_ANDROID_NO_SDK =
         "$PACKAGE_NAME_ANDROID/$CLIENT_VERSION_ANDROID_NO_SDK (Linux; U; Android $OS_VERSION_ANDROID_NO_SDK) gzip"
+
+
+    // ANDROID_MUSIC (NO SDK)
+    /**
+     * Video not playable: All videos other than music.
+     *
+     * According to TeamNewPipe in 2022, if the 'androidSdkVersion' field is missing, the GVS did not return a valid response:
+     * [NewPipe#8713 (comment)](https://github.com/TeamNewPipe/NewPipe/issues/8713#issuecomment-1207443550).
+     * According to the latest commit in yt-dlp, the GVS returns a valid response even if the 'androidSdkVersion' field is missing:
+     * [yt-dlp#14693](https://github.com/yt-dlp/yt-dlp/pull/14693).
+     *
+     * For some reason, PoToken is not required.
+     */
+    private const val PACKAGE_NAME_ANDROID_MUSIC = "com.google.android.apps.youtube.music"
+    private const val CLIENT_VERSION_ANDROID_MUSIC_NO_SDK = "6.20.51"
+    private const val DEVICE_MODEL_ANDROID_MUSIC_NO_SDK = ""
+    private const val DEVICE_MAKE_ANDROID_MUSIC_NO_SDK = ""
+    private val OS_VERSION_ANDROID_MUSIC_NO_SDK = Build.VERSION.RELEASE
+    private val ANDROID_SDK_VERSION_ANDROID_MUSIC_NO_SDK: String? = null
+    private val USER_AGENT_ANDROID_MUSIC_NO_SDK =
+        "$PACKAGE_NAME_ANDROID_MUSIC/$CLIENT_VERSION_ANDROID_MUSIC_NO_SDK (Linux; U; Android $OS_VERSION_ANDROID_MUSIC_NO_SDK) gzip"
 
 
     // ANDROID VR
@@ -151,58 +173,6 @@ object YouTubeClient {
     )
 
 
-    // IPAD OS
-    /**
-     * Video not playable: Paid / Movie / Private / Age-restricted.
-     * Note: Audio track available, AV1 hardware decoding is not supported.
-     *
-     * It appears that iOSGuard PoToken has been rolled out to YouTube 20+.
-     * See: [uYouEnhanced#908](https://github.com/arichornlover/uYouEnhanced/issues/908) and
-     * [yt-dlp#14133 (comment)](https://github.com/yt-dlp/yt-dlp/issues/14133#issuecomment-3217679575).
-     *
-     * Nevertheless, this client was added based on two reports:
-     * 1. According to a uYouEnhanced user, spoofing the app version to 19.01.1 is a temporary workaround.
-     * 2. Over the past few months, BotGuard PoToken has not been used on WEB_SAFARI (iPadOS).
-     *
-     * It may still not work for some users.
-     *
-     * Update:
-     * Playback issue occurs when the value of 'iosPlayerConfig.requestIosguardDataAfterPlaybackStarts' in the player response is 'true'.
-     * It appears that blocking the '/att/get' endpoint can prevent this, but I'm not sure.
-     * (More samples are needed)
-     */
-    private const val PACKAGE_NAME_IPADOS = "com.google.ios.youtube"
-
-    /**
-     * YouTube 19.22.3 is the minimum version that supports the OPUS codec.
-     */
-    private const val CLIENT_VERSION_IPADOS = "19.22.3"
-    private const val DEVICE_MAKE_IPADOS = DEVICE_MAKE_APPLE
-
-    /**
-     * The device machine id for the iPad 6th Gen (iPad7,6).
-     * See [this GitHub Gist](https://gist.github.com/adamawolf/3048717) for more information.
-     *
-     * Based on Google's actions to date, PoToken may not be required on devices with very low specs.
-     * For example, suppose the User-Agent for a PlayStation 3 (with 256MB of RAM) is used.
-     * Accessing 'Web' (https://www.youtube.com) will redirect to 'TV' (https://www.youtube.com/tv).
-     * 'TV' target devices with very low specs, such as embedded devices, game consoles, and blu-ray players, so PoToken is not required.
-     *
-     * For this reason, the device machine id for the iPad 6th Gen (with 2GB of RAM),
-     * the lowest spec device capable of running iPadOS 17, was used.
-     */
-    private const val DEVICE_MODEL_IPADOS = "iPad7,6"
-    private const val OS_NAME_IPADOS = "iPadOS"
-
-    /**
-     * iPadOS 17 is the minimum version that supports the OPUS codec.
-     */
-    private const val OS_VERSION_IPADOS = "17.7.10.21H450"
-    private const val USER_AGENT_VERSION_IPADOS = "17_7_10"
-    private val USER_AGENT_IPADOS =
-        "$PACKAGE_NAME_IPADOS/$CLIENT_VERSION_IPADOS ($DEVICE_MODEL_IPADOS; U; CPU iPadOS $USER_AGENT_VERSION_IPADOS like Mac OS X; ${Locale.getDefault()})"
-
-
     // VISION OS
     private const val CLIENT_VERSION_VISIONOS = "0.1"
     private const val DEVICE_MAKE_VISIONOS = DEVICE_MAKE_APPLE
@@ -218,7 +188,7 @@ object YouTubeClient {
      * Video not playable: None.
      * Note: Both 'Authorization' and 'Set-Cookie' are supported.
      */
-    private const val CLIENT_VERSION_TVHTML5 = "7.20251105.10.00"
+    private const val CLIENT_VERSION_TVHTML5 = "7.20251209.09.00"
     /**
      * authenticatedConfig.flags.attest_botguard_on_tvhtml5: false.
      */
@@ -248,7 +218,7 @@ object YouTubeClient {
     // TVHTML5 SIMPLY
     /**
      * Video not playable: None.
-     * Note: Only 'Authorization' is supported, PoToken required?
+     * Note: Only 'Authorization' is supported.
      */
     private const val CLIENT_VERSION_TVHTML5_SIMPLY = "1.1"
     /**
@@ -307,7 +277,7 @@ object YouTubeClient {
         "$packageName/$clientVersion(Linux; U; Android $osVersion; ${Locale.getDefault()}; $deviceModel Build/$buildId) gzip"
 
     private fun useAV1(): Boolean {
-        return BaseSettings.SPOOF_STREAMING_DATA_VR_ENABLE_AV1.get()
+        return BaseSettings.SPOOF_STREAMING_DATA_ANDROID_VR_ENABLE_AV1_CODEC.get()
     }
 
     private fun useJS(): Boolean {
@@ -317,9 +287,17 @@ object YouTubeClient {
     @JvmStatic
     fun availableClientTypes(preferredClient: ClientType): Array<ClientType> {
         val availableClientTypes: Array<ClientType> = if (useJS()) {
-            ClientType.CLIENT_ORDER_TO_USE_JS
+            if (IS_YOUTUBE) {
+                ClientType.CLIENT_ORDER_TO_USE_JS_YOUTUBE
+            } else {
+                ClientType.CLIENT_ORDER_TO_USE_JS_YOUTUBE_MUSIC
+            }
         } else {
-            ClientType.CLIENT_ORDER_TO_USE
+            if (IS_YOUTUBE) {
+                ClientType.CLIENT_ORDER_TO_USE_YOUTUBE
+            } else {
+                ClientType.CLIENT_ORDER_TO_USE_YOUTUBE_MUSIC
+            }
         }
 
         if (ArrayUtils.contains(availableClientTypes, preferredClient)) {
@@ -437,7 +415,33 @@ object YouTubeClient {
             clientName = "ANDROID",
             friendlyName = "Android No SDK"
         ),
+        ANDROID_MUSIC_NO_SDK(
+            id = 21,
+            deviceMake = DEVICE_MAKE_ANDROID_MUSIC_NO_SDK,
+            deviceModel = DEVICE_MODEL_ANDROID_MUSIC_NO_SDK,
+            osVersion = OS_VERSION_ANDROID_MUSIC_NO_SDK,
+            userAgent = USER_AGENT_ANDROID_MUSIC_NO_SDK,
+            androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_MUSIC_NO_SDK,
+            clientVersion = CLIENT_VERSION_ANDROID_MUSIC_NO_SDK,
+            requireAuth = true,
+            clientName = "ANDROID_MUSIC",
+            friendlyName = "Android Music No SDK"
+        ),
         ANDROID_VR(
+            id = 28,
+            deviceMake = DEVICE_MAKE_ANDROID_VR,
+            deviceModel = DEVICE_MODEL_ANDROID_VR,
+            osVersion = OS_VERSION_ANDROID_VR,
+            userAgent = USER_AGENT_ANDROID_VR,
+            androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_VR,
+            clientVersion = CLIENT_VERSION_ANDROID_VR,
+            clientName = "ANDROID_VR",
+            friendlyName = if (useAV1())
+                "Android VR AV1"
+            else
+                "Android VR"
+        ),
+        ANDROID_VR_NO_AUTH(
             id = 28,
             deviceMake = DEVICE_MAKE_ANDROID_VR,
             deviceModel = DEVICE_MODEL_ANDROID_VR,
@@ -452,21 +456,6 @@ object YouTubeClient {
             else
                 "Android VR"
         ),
-        ANDROID_VR_AUTH(
-            id = 28,
-            deviceMake = DEVICE_MAKE_ANDROID_VR,
-            deviceModel = DEVICE_MODEL_ANDROID_VR,
-            osVersion = OS_VERSION_ANDROID_VR,
-            userAgent = USER_AGENT_ANDROID_VR,
-            androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_VR,
-            clientVersion = CLIENT_VERSION_ANDROID_VR,
-            requireAuth = true,
-            clientName = "ANDROID_VR",
-            friendlyName = if (useAV1())
-                "Android VR Auth AV1"
-            else
-                "Android VR Auth"
-        ),
         ANDROID_CREATOR(
             id = 14,
             deviceMake = DEVICE_MAKE_ANDROID_CREATOR,
@@ -478,22 +467,6 @@ object YouTubeClient {
             requireAuth = true,
             clientName = "ANDROID_CREATOR",
             friendlyName = "Android Studio"
-        ),
-
-        // PoToken required?
-        IPADOS(
-            id = 5,
-            deviceMake = DEVICE_MAKE_IPADOS,
-            deviceModel = DEVICE_MODEL_IPADOS,
-            osName = OS_NAME_IPADOS,
-            osVersion = OS_VERSION_IPADOS,
-            userAgent = USER_AGENT_IPADOS,
-            clientVersion = CLIENT_VERSION_IPADOS,
-            clientPlatform = CLIENT_PLATFORM_TABLET,
-            supportsCookies = false,
-            supportsMultiAudioTracks = true,
-            clientName = "IOS",
-            friendlyName = "iPadOS"
         ),
 
         // Unreleased.
@@ -532,7 +505,7 @@ object YouTubeClient {
             clientName = "TVHTML5",
             friendlyName = "TV Legacy"
         ),
-        TV_SIMPLY_NO_POTOKEN(
+        TV_SIMPLY(
             id = 75,
             clientVersion = CLIENT_VERSION_TVHTML5_SIMPLY,
             clientPlatform = CLIENT_PLATFORM_GAME_CONSOLE,
@@ -598,24 +571,35 @@ object YouTubeClient {
         );
 
         companion object {
-            val CLIENT_ORDER_TO_USE: Array<ClientType> = arrayOf(
+            val CLIENT_ORDER_TO_USE_YOUTUBE: Array<ClientType> = arrayOf(
                 ANDROID_NO_SDK,
-                ANDROID_VR,
                 VISIONOS,
+                ANDROID_VR,
                 ANDROID_CREATOR,
-                IPADOS,
-                ANDROID_VR_AUTH,
             )
-            val CLIENT_ORDER_TO_USE_JS: Array<ClientType> = arrayOf(
+            val CLIENT_ORDER_TO_USE_JS_YOUTUBE: Array<ClientType> = arrayOf(
                 ANDROID_NO_SDK,
-                ANDROID_VR,
                 VISIONOS,
+                ANDROID_VR,
                 ANDROID_CREATOR,
-                IPADOS,
                 TV,
-                TV_SIMPLY_NO_POTOKEN,
+                TV_SIMPLY,
                 TV_LEGACY,
-                ANDROID_VR_AUTH,
+            )
+            val CLIENT_ORDER_TO_USE_YOUTUBE_MUSIC: Array<ClientType> = arrayOf(
+                ANDROID_MUSIC_NO_SDK,
+                ANDROID_NO_SDK,
+                VISIONOS,
+                ANDROID_VR,
+            )
+            val CLIENT_ORDER_TO_USE_JS_YOUTUBE_MUSIC: Array<ClientType> = arrayOf(
+                ANDROID_MUSIC_NO_SDK,
+                ANDROID_NO_SDK,
+                VISIONOS,
+                ANDROID_VR,
+                TV,
+                TV_SIMPLY,
+                TV_LEGACY,
             )
         }
     }

@@ -235,7 +235,7 @@ class MusicRequest private constructor(
                             .getJSONObject("coWatchWatchEndpointWrapperCommand")
                             .getJSONObject("watchEndpoint")
                             .getJSONObject("watchEndpoint")
-                    } else if (clientType == ClientType.ANDROID_VR
+                    } else if (clientType == ClientType.ANDROID_VR_NO_AUTH
                         && navigationEndpointJsonObject.has("watchEndpoint")
                     ) { // Android VR
                         navigationEndpointJsonObject
@@ -289,7 +289,7 @@ class MusicRequest private constructor(
                     return parseWebResponse(microFormatJson)
                 }
             } else {
-                for (clientType in arrayOf(ClientType.ANDROID_VR, ClientType.ANDROID)) {
+                for (clientType in arrayOf(ClientType.ANDROID_VR_NO_AUTH, ClientType.ANDROID)) {
                     val playlistJson = sendApplicationRequest(
                         clientType,
                         videoId,

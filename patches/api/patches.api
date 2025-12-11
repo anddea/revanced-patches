@@ -190,10 +190,6 @@ public final class app/revanced/patches/music/player/components/PlayerComponents
 	public static final fun getPlayerComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/utils/audiotracks/AudioTracksHookPatchKt {
-	public static final fun getAudioTracksHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/music/utils/dismiss/DismissQueueHookPatchKt {
 	public static final fun getDismissQueueHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -527,6 +523,13 @@ public final class app/revanced/patches/shared/captions/BaseAutoCaptionsPatchKt 
 	public static final fun getBaseAutoCaptionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/shared/comments/CommentsPanelPatchKt {
+	public static final fun getCommentsPanelPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getInformationButton ()J
+	public static final fun getModernTitle ()J
+	public static final fun getTitle ()J
+}
+
 public final class app/revanced/patches/shared/customspeed/CustomPlaybackSpeedPatchKt {
 	public static final fun customPlaybackSpeedPatch (Ljava/lang/String;F)Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -687,12 +690,6 @@ public final class app/revanced/patches/shared/quic/BaseQuicProtocolPatchKt {
 
 public final class app/revanced/patches/shared/returnyoutubeusername/BaseReturnYouTubeUsernamePatchKt {
 	public static final fun getBaseReturnYouTubeUsernamePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/shared/scrolltop/CommentsScrollTopPatchKt {
-	public static final fun getCommentsScrollTopPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getModernTitle ()J
-	public static final fun getTitle ()J
 }
 
 public final class app/revanced/patches/shared/settingmenu/SettingsMenuPatchKt {
@@ -1089,10 +1086,6 @@ public final class app/revanced/patches/youtube/swipe/controls/SwipeControlsPatc
 public final class app/revanced/patches/youtube/utils/FingerprintsKt {
 	public static final field PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun indexOfSpannedCharSequenceInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
-}
-
-public final class app/revanced/patches/youtube/utils/audiotracks/AudioTracksHookPatchKt {
-	public static final fun getAudioTracksHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/utils/auth/AuthHookPatchKt {
