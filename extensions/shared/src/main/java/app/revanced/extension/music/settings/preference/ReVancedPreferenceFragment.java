@@ -19,8 +19,8 @@ import static app.revanced.extension.music.settings.Settings.SB_API_URL;
 import static app.revanced.extension.music.settings.Settings.SETTINGS_IMPORT_EXPORT;
 import static app.revanced.extension.music.settings.Settings.SPOOF_APP_VERSION_TARGET;
 import static app.revanced.extension.music.settings.Settings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT;
-import static app.revanced.extension.music.settings.Settings.SPOOF_STREAMING_DATA_NO_SDK_AUTH_TOKEN_ABOUT;
-import static app.revanced.extension.music.settings.Settings.SPOOF_STREAMING_DATA_VR_AUTH_TOKEN_ABOUT;
+import static app.revanced.extension.music.settings.Settings.SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_NO_SDK_ABOUT;
+import static app.revanced.extension.music.settings.Settings.SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_VR_ABOUT;
 import static app.revanced.extension.music.settings.Settings.WATCH_HISTORY_TYPE;
 import static app.revanced.extension.music.utils.ExtendedUtils.getDialogBuilder;
 import static app.revanced.extension.music.utils.ExtendedUtils.getLayoutParams;
@@ -170,10 +170,10 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     YouTubeDataAPIDialogBuilder.showDialog(mActivity);
                 } else if (settings.equals(REPLACE_NAVIGATION_BUTTON_ABOUT)) {
                     ResettableListPreference.showDialog(mActivity, CHANGE_START_PAGE, 0);
-                } else if (settings.equals(SPOOF_STREAMING_DATA_NO_SDK_AUTH_TOKEN_ABOUT)) {
-                    SpoofStreamingDataAuthTokenDialogBuilder.showNoSDKDialog(mActivity);
-                } else if (settings.equals(SPOOF_STREAMING_DATA_VR_AUTH_TOKEN_ABOUT)) {
-                    SpoofStreamingDataAuthTokenDialogBuilder.showVRDialog(mActivity);
+                } else if (settings.equals(SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_NO_SDK_ABOUT)) {
+                    SpoofStreamingDataSignInDialogBuilder.showNoSDKDialog(mActivity);
+                } else if (settings.equals(SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_VR_ABOUT)) {
+                    SpoofStreamingDataSignInDialogBuilder.showVRDialog(mActivity);
                 } else {
                     Logger.printDebug(() -> "Failed to find the right value: " + dataString);
                 }
@@ -181,11 +181,10 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 if (settings.equals(CHANGE_START_PAGE)
                         || settings.equals(DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE)
                         || settings.equals(RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT)
+                        || settings.equals(SPOOF_STREAMING_DATA_DEFAULT_CLIENT)
                         || settings.equals(WATCH_HISTORY_TYPE)
                 ) {
                     ResettableListPreference.showDialog(mActivity, enumSetting, 0);
-                } else if (settings.equals(SPOOF_STREAMING_DATA_DEFAULT_CLIENT)) {
-                    ResettableListPreference.showDialog(mActivity, enumSetting, 1);
                 }
             }
         } catch (Exception ex) {

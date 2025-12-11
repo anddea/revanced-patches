@@ -439,9 +439,8 @@ public class WebViewHostActivity extends Activity {
                                     JS_SCRIPT,
                                     email -> {
                                         email = email.replaceAll("\"", "");
-                                        YouTubeAuthPatch.setAccessToken(email, oauth_token);
+                                        YouTubeAuthPatch.setAccessToken(WebViewHostActivity.this, email, oauth_token);
                                     });
-                            Utils.runOnMainThreadDelayed(WebViewHostActivity.this::finish, 5000L);
                         }
                     } else if (containsVisitorCookieIndicator(localCookies)) {
                         webView.loadUrl("javascript:Android.onRetrieveVisitorData(window.yt.config_.VISITOR_DATA)");

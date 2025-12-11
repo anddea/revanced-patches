@@ -80,8 +80,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_FLYOUT_MENU_REMOVE_FROM_LIBRARY = new BooleanSetting("revanced_hide_flyout_menu_remove_from_library", FALSE);
     public static final BooleanSetting HIDE_FLYOUT_MENU_REMOVE_FROM_PLAYLIST = new BooleanSetting("revanced_hide_flyout_menu_remove_from_playlist", FALSE);
     public static final BooleanSetting HIDE_FLYOUT_MENU_REPORT = new BooleanSetting("revanced_hide_flyout_menu_report", FALSE);
-    public static final BooleanSetting HIDE_FLYOUT_MENU_SAVE_EPISODE_FOR_LATER = new BooleanSetting("revanced_hide_flyout_menu_save_episode_for_later", FALSE);
-    public static final BooleanSetting HIDE_FLYOUT_MENU_SAVE_TO_LIBRARY = new BooleanSetting("revanced_hide_flyout_menu_save_to_library", FALSE);
+    public static final BooleanSetting HIDE_FLYOUT_MENU_SAVE_EPISODE_FOR_LATER_SAVE_TO_LIBRARY = new BooleanSetting("revanced_hide_flyout_menu_save_episode_for_later_save_to_library", FALSE);
     public static final BooleanSetting HIDE_FLYOUT_MENU_SAVE_TO_PLAYLIST = new BooleanSetting("revanced_hide_flyout_menu_save_to_playlist", FALSE);
     public static final BooleanSetting HIDE_FLYOUT_MENU_SHARE = new BooleanSetting("revanced_hide_flyout_menu_share", FALSE);
     public static final BooleanSetting HIDE_FLYOUT_MENU_SHUFFLE_PLAY = new BooleanSetting("revanced_hide_flyout_menu_shuffle_play", FALSE);
@@ -198,8 +197,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting DISABLE_MUSIC_VIDEO_IN_ALBUM = new BooleanSetting("revanced_disable_music_video_in_album", FALSE, true);
     public static final EnumSetting<RedirectType> DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE = new EnumSetting<>("revanced_disable_music_video_in_album_redirect_type", RedirectType.REDIRECT, true);
     public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_settings_import_export", FALSE, false);
-    public static final BooleanSetting SPOOF_STREAMING_DATA_NO_SDK_AUTH_TOKEN_ABOUT = new BooleanSetting("revanced_spoof_streaming_data_no_sdk_auth_token_about", FALSE, false);
-    public static final BooleanSetting SPOOF_STREAMING_DATA_VR_AUTH_TOKEN_ABOUT = new BooleanSetting("revanced_spoof_streaming_data_vr_auth_token_about", FALSE, false);
+    public static final BooleanSetting SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_NO_SDK_ABOUT = new BooleanSetting("revanced_spoof_streaming_data_sign_in_android_no_sdk_about", FALSE, false);
+    public static final BooleanSetting SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_VR_ABOUT = new BooleanSetting("revanced_spoof_streaming_data_sign_in_android_vr_about", FALSE, false);
     public static final BooleanSetting APP_INFO = new BooleanSetting("revanced_app_info", FALSE, false);
 
     // PreferenceScreen: Return YouTube Dislike
@@ -297,8 +296,8 @@ public class Settings extends BaseSettings {
             SETTINGS_IMPORT_EXPORT.key,
             SPOOF_APP_VERSION_TARGET.key,
             SPOOF_STREAMING_DATA_DEFAULT_CLIENT.key,
-            SPOOF_STREAMING_DATA_NO_SDK_AUTH_TOKEN_ABOUT.key,
-            SPOOF_STREAMING_DATA_VR_AUTH_TOKEN_ABOUT.key,
+            SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_NO_SDK_ABOUT.key,
+            SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_VR_ABOUT.key,
             WATCH_HISTORY_TYPE.key,
     };
 

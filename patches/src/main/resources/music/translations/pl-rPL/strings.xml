@@ -90,7 +90,7 @@ Ograniczenie: jeśli oszukiwanie strumienia danych jest włączone i domyślnym 
     <string name="revanced_disable_cairo_splash_animation_summary">Wyłącza animację ładowania aplikacji związaną z motywem Cairo podczas otwierania aplikacji.</string>
     <string name="revanced_disable_cairo_splash_animation_title">Wyłącz animację uruchamiania aplikacji</string>
     <string name="revanced_disable_dislike_redirection_summary">Wyłącza przenoszenie do następnego utworu po kliknięciu łapki w dół.</string>
-    <string name="revanced_disable_dislike_redirection_title">Wyłącz pomijanie nielubianych piosenek</string>
+    <string name="revanced_disable_dislike_redirection_title">Wyłącz pomijanie nielubianych utworów</string>
     <string name="revanced_disable_drc_audio_summary">Wyłącza DRC (Dynamic Range Compression) stosowane w utworach.</string>
     <string name="revanced_disable_drc_audio_title">Wyłącz audio DRC</string>
     <string name="revanced_disable_miniplayer_gesture_summary">Wyłącza gest przesunięcia, aby zmienić utwór.</string>
@@ -110,7 +110,7 @@ Ograniczenie: utwory sklasyfikowane dla dzieci mogą nie być przekierowywane."<
     <string name="revanced_disable_player_gesture_title">Wyłącz gest w odtwarzaczu</string>
     <string name="revanced_disable_quic_protocol_summary">"Wyłącza protokół QUIC od CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
-    <string name="revanced_disable_trim_silence_summary">"Wyłącza przycisk od pomijania ciszy do menu od prędkości odtwarzania.
+    <string name="revanced_disable_trim_silence_summary">"Wyłącza przycisk pomijania ciszy z menu prędkości odtwarzania.
 
 Informacje:
 • funkcja jest dostępna tylko dla podcastów.
@@ -132,10 +132,10 @@ Ograniczenia:
     <string name="revanced_enable_forced_miniplayer_title">Włącz wymuszenie miniodtwarzacza</string>
     <string name="revanced_enable_landscape_mode_summary">Pozwala wejść w tryb pełnoekranowy poprzez obrót ekranu telefonu.</string>
     <string name="revanced_enable_landscape_mode_title">Włącz tryb pełnoekranowy</string>
-    <string name="revanced_enable_mini_player_next_button_summary">Dodaje przycisk do następnej piosenki w miniodtwarzaczu.</string>
-    <string name="revanced_enable_mini_player_next_button_title">Dodaj przycisk do następnej piosenki w miniodtwarzaczu</string>
-    <string name="revanced_enable_mini_player_previous_button_summary">Dodaje przycisk do poprzedniej piosenki w miniodtwarzaczu.</string>
-    <string name="revanced_enable_mini_player_previous_button_title">Dodaj przycisk do poprzedniej piosenki w miniodtwarzaczu</string>
+    <string name="revanced_enable_mini_player_next_button_summary">Dodaje przycisk do następnego utworu w miniodtwarzaczu.</string>
+    <string name="revanced_enable_mini_player_next_button_title">Dodaj przycisk do następnego utworu w miniodtwarzaczu</string>
+    <string name="revanced_enable_mini_player_previous_button_summary">Dodaje przycisk do poprzedniego utworu w miniodtwarzaczu.</string>
+    <string name="revanced_enable_mini_player_previous_button_title">Dodaj przycisk do poprzedniego utworu w miniodtwarzaczu</string>
     <string name="revanced_enable_opus_codec_summary">"Włącza kodek OPUS, jeśli odpowiedź odtwarzacza zawiera ten kodek.
 
 Informacje:
@@ -158,11 +158,6 @@ Ograniczenie: segmenty SponsorBlocka nie są pokazywane na pasku."</string>
     <string name="revanced_enable_zen_mode_podcast_title">Włącz tryb zen w podcastach</string>
     <string name="revanced_enable_zen_mode_summary">Włącza jasnoszary kolor tła odtwarzacza, aby zmniejszyć zmęczenie oczu.</string>
     <string name="revanced_enable_zen_mode_title">Włącz tryb zen</string>
-    <string name="revanced_extended_settings_export_failed">Nie udało się wyeksportować ustawień.</string>
-    <string name="revanced_extended_settings_export_success">Ustawienia zostały pomyślnie wyeksportowane.</string>
-    <string name="revanced_extended_settings_import">Import</string>
-    <string name="revanced_extended_settings_import_reset">Ustawienia zostały zresetowane do domyślnych.</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Przycisk od pobierania otwiera zewnętrzną aplikację do pobierania.
 
 • Jedynie zmienia działanie przycisku w odtwarzaczu.
@@ -194,7 +189,7 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_action_button_download_title">Ukryj przycisk pobierania</string>
     <string name="revanced_hide_action_button_label_summary">Ukrywa nazwy przycisków akcji.</string>
     <string name="revanced_hide_action_button_label_title">Ukryj nazwy przycisków akcji</string>
-    <string name="revanced_hide_action_button_like_dislike_summary">Ukrywa przyciski łapki w górę i dół. Nie będzie działać na starym układzie odtwarzacza.</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">Ukrywa przyciski łapki w górę i w dół. Nie będzie działać na starym układzie odtwarzacza.</string>
     <string name="revanced_hide_action_button_like_dislike_title">Ukryj przyciski łapki w górę i dół</string>
     <string name="revanced_hide_action_button_radio_summary">Ukrywa przycisk radia.</string>
     <string name="revanced_hide_action_button_radio_title">Ukryj przycisk radia</string>
@@ -228,12 +223,12 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_flyout_menu_dismiss_queue_title">Ukryj menu od odrzucania kolejki</string>
     <string name="revanced_hide_flyout_menu_download_title">Ukryj menu od pobierania</string>
     <string name="revanced_hide_flyout_menu_edit_playlist_title">Ukryj menu od edytowania playlisty</string>
-    <string name="revanced_hide_flyout_menu_go_to_album_title">Ukryj menu od pokazywania albumu</string>
-    <string name="revanced_hide_flyout_menu_go_to_artist_title">Ukryj menu od pokazywania wykonawcy</string>
+    <string name="revanced_hide_flyout_menu_go_to_album_title">Ukryj menu od przechodzenia do albumu</string>
+    <string name="revanced_hide_flyout_menu_go_to_artist_title">Ukryj menu od przechodzenia do wykonawcy</string>
     <string name="revanced_hide_flyout_menu_go_to_episode_title">Ukryj menu od przechodzenia do odcinka</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Ukryj menu od przechodzenia do podcastu</string>
     <string name="revanced_hide_flyout_menu_help_title">Ukryj menu do pomocy i opinii</string>
-    <string name="revanced_hide_flyout_menu_like_dislike_title">Ukryj przyciski łapki w górę i dół</string>
+    <string name="revanced_hide_flyout_menu_like_dislike_title">Ukryj przyciski łapki w górę i w dół</string>
     <string name="revanced_hide_flyout_menu_not_interested_title">Ukryj menu od niezainteresowania</string>
     <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Ukryj przypinanie do menu szybkiego wybierania</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Ukryj menu od odtwarzania jako następny</string>
@@ -247,11 +242,11 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_flyout_menu_share_title">Ukryj menu od udostępniania</string>
     <string name="revanced_hide_flyout_menu_shuffle_play_title">Ukryj menu od odtwarzania losowo</string>
     <string name="revanced_hide_flyout_menu_sleep_timer_title">Ukryj menu od wyłącznika czasowego</string>
-    <string name="revanced_hide_flyout_menu_start_radio_title">Ukryj menu do radia</string>
+    <string name="revanced_hide_flyout_menu_start_radio_title">Ukryj menu radia</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Ukryj menu od statystyk dla nerdów</string>
-    <string name="revanced_hide_flyout_menu_subscribe_title">Ukryj menu od subskrybowania / odsubskrybowywania</string>
+    <string name="revanced_hide_flyout_menu_subscribe_title">Ukryj menu od subskrybowania / anulowania subskrypcji</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Ukryj odpinanie z menu szybkiego wybierania</string>
-    <string name="revanced_hide_flyout_menu_view_song_credit_title">Ukryj menu do autorów utworu</string>
+    <string name="revanced_hide_flyout_menu_view_song_credit_title">Ukryj menu twórców utworu</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Ukrywa reklamy pełnoekranowe.
 
 Ograniczenie:
@@ -296,7 +291,7 @@ Ograniczenie:
     <string name="revanced_hide_premium_renewal_title">Ukryj baner odnawiania Premium</string>
     <string name="revanced_hide_promotion_alert_banner_summary">Ukrywa banery z alertami promocyjnymi.</string>
     <string name="revanced_hide_promotion_alert_banner_title">Ukryj banery z alertami promocyjnymi</string>
-    <string name="revanced_hide_samples_shelf_summary">Ukrywa półke z samplami na stronie głównej.</string>
+    <string name="revanced_hide_samples_shelf_summary">Ukrywa półkę z samplami na stronie głównej.</string>
     <string name="revanced_hide_samples_shelf_title">Ukryj półkę z samplami</string>
     <string name="revanced_hide_search_button_summary">Ukrywa przycisk wyszukiwania z paska narzędzi.</string>
     <string name="revanced_hide_search_button_title">Ukryj przycisk wyszukiwania</string>
@@ -305,7 +300,7 @@ Ograniczenie:
     <string name="revanced_hide_settings_menu_downloads_and_storage_title">Ukryj menu pobranych i miejsca na dane</string>
     <string name="revanced_hide_settings_menu_general_title">Ukryj menu ustawień ogólnych</string>
     <string name="revanced_hide_settings_menu_notification_title">Ukryj menu powiadomień</string>
-    <string name="revanced_hide_settings_menu_paid_memberships_title">Ukryj menu zasubskrybowania Music Premium</string>
+    <string name="revanced_hide_settings_menu_paid_memberships_title">Ukryj menu płatnych subskrypcji</string>
     <string name="revanced_hide_settings_menu_parent_tools_title">Ukryj menu centrum rodziny</string>
     <string name="revanced_hide_settings_menu_playback_title">Ukryj menu odtwarzania</string>
     <string name="revanced_hide_settings_menu_privacy_and_location_title">Ukryj menu prywatności i danych</string>
@@ -315,8 +310,8 @@ Działa nie tylko na elementy menu ustawień YT Music, lecz także ReVanced Exte
     <string name="revanced_hide_settings_menu_title">Ukryj menu ustawień</string>
     <string name="revanced_hide_song_video_toggle_summary">Ukrywa przełącznik utwór/teledysk w odtwarzaczu.</string>
     <string name="revanced_hide_song_video_toggle_title">Ukryj przełącznik utwór/teledysk</string>
-    <string name="revanced_hide_sound_search_button_summary">Ukrywa przycisk od rozpoznawania piosenek z paska wyszukiwania.</string>
-    <string name="revanced_hide_sound_search_button_title">Ukryj przycisk od rozpoznawania piosenek</string>
+    <string name="revanced_hide_sound_search_button_summary">Ukrywa przycisk od rozpoznawania utworów z paska wyszukiwania.</string>
+    <string name="revanced_hide_sound_search_button_title">Ukryj przycisk od rozpoznawania utworów</string>
     <string name="revanced_hide_tap_to_update_button_summary">Ukrywa przycisk \'Stuknij, aby zaktualizować\'.</string>
     <string name="revanced_hide_tap_to_update_button_title">Ukryj przycisk \'Stuknij, aby zaktualizować\'</string>
     <string name="revanced_hide_terms_container_summary">Ukrywa kontener warunków usług z menu konta.</string>
@@ -362,10 +357,10 @@ Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Zamienia menu od czyszczenia kolejek z menu od oglądania na YouTube.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">Zmodyfikuj czyszczenie kolejek</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label">Oglądaj na YouTube</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Niepoprawne URL filmu.</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Niepoprawny URL filmu.</string>
     <string name="revanced_replace_flyout_menu_report_only_player_summary">Zachowuje menu zgłaszania w sekcji komentarzy.</string>
     <string name="revanced_replace_flyout_menu_report_only_player_title">Zachowaj zgłaszanie w komentarzach</string>
-    <string name="revanced_replace_flyout_menu_report_summary">Zamienia przycisk od zgłaszania z przyciskiem od prędkości odtwarzania.</string>
+    <string name="revanced_replace_flyout_menu_report_summary">Zastępuje przycisk zgłaszania przyciskiem prędkości odtwarzania.</string>
     <string name="revanced_replace_flyout_menu_report_title">Zamień przycisk od zgłaszania</string>
     <string name="revanced_replace_navigation_button_about_summary">"Ta funkcja jest eksperymentalna.
 Istnieją strukturalne ograniczenia łatki, ponieważ działania takie jak wyszukiwanie i ustawienia w YouTube Music nie są publiczne.
@@ -390,7 +385,7 @@ Kliknij, by otworzyć ustawienia 'Zmień stronę startową'."</string>
 Niektóre ustawienia mogą nie działać poprawnie ze starym układem odtwarzacza."</string>
     <string name="revanced_restore_old_player_layout_title">Przywróć stary układ odtwarzacza</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Przywraca zakładkę biblioteki do starego stylu. (Eksperymentalne)</string>
-    <string name="revanced_restore_old_style_library_shelf_title">Włącz stary styl półek biblioteki</string>
+    <string name="revanced_restore_old_style_library_shelf_title">Przywróć stary styl półek biblioteki</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@nick (Nazwa użytkownika)</string>
     <string name="revanced_return_youtube_username_display_format_summary">Wybierz format wyświetlania nazwy użytkownika.</string>
     <string name="revanced_return_youtube_username_display_format_title">Format wyświetlania</string>
@@ -449,7 +444,7 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_sb_segments_hook">Haczyki / Pozdrowienia</string>
     <string name="revanced_sb_segments_hook_sum">Narracyjne zwiastuny nadchodzącego filmu, pozdrowienia i pożegnania. Nie obejmuje sekcji zawierających dodatkową treść.</string>
     <string name="revanced_sb_segments_interaction">Przypomnienie O Interakcji (Zasubskrybuj)</string>
-    <string name="revanced_sb_segments_interaction_sum">Krótkie przypomnienie o łapce w górę, subskrypcji lub obserwowaniu w środku kontentu. Jeśli trwa długo lub dotyczy czegoś konkretnego, powinno być oznaczone jako autopromocja.</string>
+    <string name="revanced_sb_segments_interaction_sum">Krótkie przypomnienie o łapce w górę, subskrypcji lub obserwowaniu w środku treści. Jeśli trwa długo lub dotyczy czegoś konkretnego, powinno być oznaczone jako autopromocja.</string>
     <string name="revanced_sb_segments_intro">Przerywnik / Animowane Intro</string>
     <string name="revanced_sb_segments_intro_sum">Fragment bez faktycznej treści. Może to być pauza, statyczna klatka lub powtarzająca się animacja. Nie dotyczy przejść zawierających informacje.</string>
     <string name="revanced_sb_segments_nomusic">Muzyka: Sekcja Bez Muzyki</string>
@@ -457,7 +452,7 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_sb_segments_outro">Karty / Napisy Końcowe</string>
     <string name="revanced_sb_segments_outro_sum">Napisy końcowe lub gdy pojawia się ekran końcowy. Nie dotyczy zakończeń zawierających informacje.</string>
     <string name="revanced_sb_segments_preview">Zapowiedź / Podsumowanie</string>
-    <string name="revanced_sb_segments_preview_sum">Zbiór klipów pokazujących to, co pojawi się lub co pojawiło się w tym filmie, oraz innych fiilmach z tej serii, w którym wszystkie informacje są gdzieś powtarzane.</string>
+    <string name="revanced_sb_segments_preview_sum">Zbiór klipów pokazujących to, co pojawi się lub co pojawiło się w tym filmie, oraz innych filmach z tej serii, w którym wszystkie informacje są gdzieś powtarzane.</string>
     <string name="revanced_sb_segments_selfpromo">Nieopłacona / Auto Reklama</string>
     <string name="revanced_sb_segments_selfpromo_sum">Podobne do treści sponsorowanych, z wyjątkiem nieopłaconych lub autoreklam. Obejmuje to sekcje o własnych towarach, darowiznach czy informacjach o tym, z kim współpracowali.</string>
     <string name="revanced_sb_segments_sponsor">Treści Sponsorowane</string>
@@ -521,9 +516,9 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_spoof_app_version_summary">"Oszukuje wersję klienta do starszej wersji.
 
 • zmieni to wygląd aplikacji, lecz mogą pojawić się nieznane efekty uboczne.
-• jeśli opcja jest włączona, lecz nie działa, spróbuj przełączyć się na inne konto
+• jeśli opcja jest włączona, lecz nie działa, spróbuj przełączyć się na inne konto.
 • jeśli potem opcja zostanie wyłączona, stary interfejs użytkownika może pozostać do momentu wyczyszczenia danych aplikacji."</string>
-    <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Wyłącza tryb radia w rejonach kanadyjskich</string>
+    <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Wyłącza tryb radia w regionach Kanady</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Wyłącza teksty w czasie rzeczywistym</string>
     <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - przywraca stare menu ustawień odtwarzacza</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Wyłącza teksty w czasie rzeczywistym</string>
@@ -542,16 +537,9 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
 Efekt uboczny (blokada żądania):
 • aplikacja może wymusić zamknięcie się podczas korzystania z VPN lub DNS"</string>
     <string name="revanced_spoof_client_type_title">Domyślny klient</string>
-    <string name="revanced_spoof_player_parameter_summary">"Oszukuje parametry odtwarzacza, by zapobiec problemom z odtwarzaniem.
-
-Efekt uboczny:
-• Czasem napisy są u góry odtwarzacza, zamiast na dole"</string>
-    <string name="revanced_spoof_player_parameter_title">Oszukuj parametry odtwarzacza</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android (bez SDK)</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR z autoryzacją (wymaga akcji)</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobilny przeglądarkowy</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV (Stare)</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
@@ -559,20 +547,8 @@ Efekt uboczny:
     <string name="revanced_spoof_streaming_data_default_client_title">Domyślny klient</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Nie można przechwycić żadnego ze strumieni klienta.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Spróbuj zmienić domyślnego klienta na TV, lub Uproszczony TV.</string>
-    <string name="revanced_spoof_streaming_data_message">Jeśli występują jakiekolwiek problemy z odtwarzaniem, włącz jedną z poniższych opcji w zależności od tego, która najlepiej ci odpowiada: \"Oszukaj strumień danych\" lub \"Domyślny klient\" w &lt;i&gt;&lt;u&gt;Ustawienia&gt; %s &gt; Pozostałe&lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Kliknij, by zobaczyć jak uzyskać token uwierzytelniający.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">O Androidzie bez autoryzacji SDK</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_get_authorization_token_text">Uzyskaj token uwierzytelniający</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_message">"By uzyskać token uwierzytelniający dla Android VR, należy zalogować się na swoje konto Google, tak jak do GmsCore:
-
-1. Kliknij 'Uzyskaj token uwierzytelniający', by zalogować się w trybie WebView
-2. Zaloguj się na swoje konto Google
-
-※ Kliknij 'Zresetuj', by usunąć token uwierzytelniający."</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_reset_text">Zresetuj</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_title">Uzyskaj token uwierzytelniający</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset">Zresetowano token uwierzytelniający.</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_success">Zapisano token uwierzytelniający.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Pokazuje używanego klienta do przechwytywania strumienia danych w statystykach dla nerdów.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Informacja w statystykach dla nerdów</string>
     <string name="revanced_spoof_streaming_data_summary">"Oszukuje strumień filmu klienta, by zapobiec problemom z odtwarzaniem.
@@ -583,43 +559,13 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie te nie jest koniecz
 
 Jeśli masz problemy z klientem JavaScript w pierwszej kolejności spróbuj to wyłączyć."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Użyj najnowszego JavaScript odtwarzacza</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"Gdy opcja jest włączona, \"Zewnętrzny JavaScript dla yt-dlp (yt-dlp-ejs)' będzie używany do odszyfrowywania URL strumieni na klientach TV i 'Mobilny przeglądarkowy'
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"Gdy opcja jest włączona, \"Zewnętrzny JavaScript dla yt-dlp (yt-dlp-ejs)\" będzie używany do odszyfrowywania URL strumieni na klientach TV i 'Mobilny przeglądarkowy'
 
 • JavaScript odtwarzacza do odszyfrowywania jest aktualizowany na bieżąco
 • film może się wczytywać od 5 do 15 sekund"</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Użyj yt-dlp ejs (W fazie rozwoju)</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Kod aktywacyjny:
-%s
-
-1. Kliknij 'Otwórz stronę', aby przejść do 'https://yt.be/activate'
-2. Wprowadź kod aktywacyjny
-3. Zaloguj się, gdy pojawi się monit. Jeśli masz wiele kont Google, użyj tego, którego używasz w YouTube. Jeśli jesteś już zalogowany, przejdź do następnego kroku
-4. Po zalogowaniu się, wróć do RVX i kliknij ponownie 'O Android VR z autoryzacją'
-5. Kliknij 'Uzyskaj token uwierzytelniający', by go zdobyć"</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Otwórz stronę</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Kod aktywacyjny</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Skopiowano kod aktywacyjny do schowka: %s.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kliknij, by zobaczyć jak uzyskać token uwierzytelniający.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">O Android VR z autoryzacją</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Uzyskaj kod aktywacyjny</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Uzyskaj token uwierzytelniający</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"By uzyskać token uwierzytelniający dla Android VR, należy zalogować się do YouTube VR za pomocą kodu aktywacyjnego:
-
-1. Kliknij 'Uzyskaj token uwierzytelniający', by wygenerować kod aktywacyjny
-2. Kliknij 'Otwórz stronę', aby przejść do 'https://yt.be/activate'
-3. Wprowadź kod aktywacyjny
-4. Zaloguj się, gdy pojawi się monit. Jeśli masz wiele kont Google, użyj tego, którego używasz w YouTube. Jeśli jesteś już zalogowany, przejdź do następnego kroku
-5. Po zalogowaniu się, wróć do RVX i kliknij ponownie 'O Android VR z autoryzacją'
-6. Kliknij 'Uzyskaj token uwierzytelniający', by go zdobyć
-
-※ Kliknij 'Zresetuj', by usunąć token uwierzytelniający lub kod aktywacyjny."</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Zresetuj</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Uzyskaj token uwierzytelniający</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Zresetowano token uwierzytelniający i kod aktywacyjny.</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Zapisano token uwierzytelniający.</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Efekty uboczne:
 • aplikacja może wymusić zamknięcie się podczas korzystania z VPN lub DNS
 • dźwięk może sporadycznie się zacinać podczas odtwarzania na strumieniach klienta z adaptacyjną przepływnością (każdy z wyjątkiem Android VR 1.43.32)"</string>

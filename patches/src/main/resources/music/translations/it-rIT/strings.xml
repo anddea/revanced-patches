@@ -81,6 +81,10 @@ Se possibile usa colori scuri, poiché l'app non supporta temi chiari."</string>
     <string name="revanced_debug_title">Abilita registrazione debug</string>
     <string name="revanced_default_app_settings_summary">Per aprire i link di YouTube Music in RVX Music, abilita Apri link supportati e abilita tutti gli indirizzi web supportati.</string>
     <string name="revanced_default_app_settings_title">Apri le impostazioni predefinite dell\'app</string>
+    <string name="revanced_disable_auto_audio_tracks_summary">"Disabilita le tracce audio automatiche forzate per i podcast.
+
+Limitazione: se 'Falsifica dati di streaming' è abilitato e il client predefinito è 'Android VR Auth', questa opzione potrebbe non funzionare."</string>
+    <string name="revanced_disable_auto_audio_tracks_title">Disattiva le tracce audio automatiche forzate</string>
     <string name="revanced_disable_auto_captions_summary">Sottotitoli automatici forzati disabilitati.</string>
     <string name="revanced_disable_auto_captions_title">Disabilita i sottotitoli automatici forzati</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Disabilita l\'animazione di avvio Cairo all\'avvio dell\'applicazione.</string>
@@ -154,11 +158,6 @@ Limitazioni: i segmenti SponsorBlock non vengono mostrati nella barra di ricerca
     <string name="revanced_enable_zen_mode_podcast_title">Abilita la modalità Zen nei podcast</string>
     <string name="revanced_enable_zen_mode_summary">Aggiunge una sfumatura grigia al riproduttore video per ridurre l\'affaticamento degli occhi.</string>
     <string name="revanced_enable_zen_mode_title">Abilita la modalità zen</string>
-    <string name="revanced_extended_settings_export_failed">Esportazione impostazioni fallita.</string>
-    <string name="revanced_extended_settings_export_success">Impostazioni esportate con successo.</string>
-    <string name="revanced_extended_settings_import">Importa</string>
-    <string name="revanced_extended_settings_import_reset">Ripristino impostazioni ai valori predefiniti</string>
-    <string name="revanced_extended_settings_title">Impostazioni RVX</string>
     <string name="revanced_external_downloader_action_summary">"Il pulsante Download apre il downloader esterno.
 
 • Sovrascrive solo il pulsante Download nel player.
@@ -531,34 +530,30 @@ Fai clic per vedere come emettere una chiave API."</string>
     <string name="revanced_spoof_client_title">Falsifica client</string>
     <string name="revanced_spoof_client_type_summary">"Definisce un client predefinito per la falsificazione."</string>
     <string name="revanced_spoof_client_type_title">Client predefinito</string>
-    <string name="revanced_spoof_player_parameter_summary">"Falsifica il parametro del lettore per evitare problemi di riproduzione.
-
-Effetto collaterale:
-• A volte i sottotitoli si trovano nella parte superiore del lettore anziché in quella inferiore."</string>
-    <string name="revanced_spoof_player_parameter_title">Falsifica i parametri del lettore</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android No SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Legacy</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Definisce un client predefinito per la falsificazione.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Client predefinito</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Non è stato possibile recuperare alcun flusso client.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Prova a cambiare il client predefinito in TV o TV Simply.</string>
-    <string name="revanced_spoof_streaming_data_message">Se riscontri problemi di riproduzione, attiva una delle seguenti opzioni, a seconda di quella più adatta alle tue esigenze:: \"Falsifica lo streaming dei video\" o \"Falsifica client\" in &lt;i&gt;&lt;u&gt; Impostazioni &gt; %s &gt; Varie&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Clicca per vedere come ottenere un token di autenticazione.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Informazioni su Android No Sdk Auth</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Mostra il client utilizzato per recuperare i dati in streaming in statistiche per nerd.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra in statistiche per nerd</string>
     <string name="revanced_spoof_streaming_data_summary">"Falsifica i flussi video del client per evitare problemi di riproduzione.
 
 Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necessaria."</string>
-    <string name="revanced_spoof_streaming_data_title">Falsifica streaming dei dati</string>
+    <string name="revanced_spoof_streaming_data_title">Falsifica dati di streaming</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"Se abilitato, la versione JavaScript più recente verrà utilizzata per deoffuscare URL di streaming su 'TV', 'TV Simply' e 'Mobile Web'.
 
 Se hai problemi con il tuo client JavaScript, prova prima a disabilitarlo."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Usa l\'ultima versione di JavaScript</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Clicca per vedere come ottenere un token di autenticazione.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Informazioni Su Android VR Auth</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Effetto collaterale:
 ​• L'app potrebbe chiudersi inaspettatamente quando si usa una VPN o un DNS.
 • ​L'audio potrebbe andare a scatti in modo intermittente durante la riproduzione su client di streaming a bitrate adattivo (tutti i client tranne Android VR 1.43.32)."</string>
@@ -572,4 +567,16 @@ Se hai problemi con il tuo client JavaScript, prova prima a disabilitarlo."</str
 • Sostituisci dominio: segue le impostazioni della cronologia delle visualizzazioni dell'account Google.
 • Blocca cronologia delle visualizzazioni: la cronologia delle visualizzazioni è bloccata."</string>
     <string name="revanced_watch_history_type_title">Guarda il tipo di cronologia</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Ottieni i cookie</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Ottieni ID di sincronizzazione dati</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Ottieni dati dei visitatori</string>
+    <string name="revanced_webview_contextual_menu_refresh">Aggiorna</string>
+    <string name="revanced_webview_cookies">Cookie</string>
+    <string name="revanced_webview_copy">Copia</string>
+    <string name="revanced_webview_data_sync_id">ID di sincronizzazione dati</string>
+    <string name="revanced_webview_toast_copy_success">%s copiato negli appunti.</string>
+    <string name="revanced_webview_toast_empty">%s è vuota.</string>
+    <string name="revanced_webview_toast_no_network">Controlla la tua connessione di rete.</string>
+    <string name="revanced_webview_toast_unavailable">WebView non è disponibile.</string>
+    <string name="revanced_webview_visitor_data">Dati dei visitatori</string>
 </resources>

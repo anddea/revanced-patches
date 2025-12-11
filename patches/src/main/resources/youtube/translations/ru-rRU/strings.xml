@@ -231,7 +231,6 @@
     <string name="revanced_disable_ambient_mode_summary_off">Окружающая подсветка включена.</string>
     <string name="revanced_disable_ambient_mode_summary_on">Окружающая подсветка отключена.</string>
     <string name="revanced_disable_ambient_mode_title">Отключить окружающую подсветку</string>
-    <string name="revanced_disable_auto_audio_tracks_not_available">Чтобы использовать эту функцию, измените  \'Клиент по умолчанию (Подмена потоковых данных)\' на TV, TV Simply или iOS TV.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">"Принудительные автоматические звуковые дорожки включены."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Принудительные автоматические звуковые дорожки отключены.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Принудительное автоматическое воспроизведение звуковых дорожек отключено.
@@ -479,15 +478,6 @@
 Примечание:
 • iOS TV не поддерживает некоторые видео, например музыкальных клипов.
 • Если по умолчанию выбран iOS TV, эта настройка игнорируется в некоторых видео."</string>
-    <string name="revanced_extended_settings_export_failed">Не удалось экспортировать настройки.</string>
-    <string name="revanced_extended_settings_export_success">Настройки успешно экспортированы.</string>
-    <string name="revanced_extended_settings_export_summary">Экспорт настроек в файл.</string>
-    <string name="revanced_extended_settings_export_title">Экспорт настроек</string>
-    <string name="revanced_extended_settings_import">Импорт</string>
-    <string name="revanced_extended_settings_import_reset">Настройки сброшены к значениям по умолчанию.</string>
-    <string name="revanced_extended_settings_import_summary">Импорт настроек из файла.</string>
-    <string name="revanced_extended_settings_import_title">Импорт настроек</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Внешний загрузчик</string>
     <string name="revanced_external_downloader_empty_warning">Имя пакета не может быть пустым</string>
     <string name="revanced_external_downloader_not_found_title">Приложение не установлено.</string>
@@ -689,9 +679,9 @@ Shorts
     <string name="revanced_hide_comments_thanks_button_summary_off">Кнопка \"Спасибо\" отображена.</string>
     <string name="revanced_hide_comments_thanks_button_summary_on">Кнопка \"Спасибо\" скрыта.</string>
     <string name="revanced_hide_comments_thanks_button_title">Кнопка \"Спасибо\"</string>
-    <string name="revanced_hide_community_button_summary_off">Кнопка \"Сообщество\" показана</string>
-    <string name="revanced_hide_community_button_summary_on">Кнопка \"Сообщество\" скрыта</string>
-    <string name="revanced_hide_community_button_title">Скрыть кнопку \"Сообщество\"</string>
+    <string name="revanced_hide_community_button_summary_off">Отображена.</string>
+    <string name="revanced_hide_community_button_summary_on">Скрыта.</string>
+    <string name="revanced_hide_community_button_title">Кнопка \"Сообщество\"</string>
     <string name="revanced_hide_community_posts_channel_summary_off">В канале отображены.</string>
     <string name="revanced_hide_community_posts_channel_summary_on">В канале скрыты.</string>
     <string name="revanced_hide_community_posts_channel_title">Посты сообщества в канале</string>
@@ -802,6 +792,9 @@ Shorts
     <string name="revanced_hide_info_panel_summary_off">Информационные панели отображены.</string>
     <string name="revanced_hide_info_panel_summary_on">Информационные панели скрыты.</string>
     <string name="revanced_hide_info_panel_title">Информационные панели</string>
+    <string name="revanced_hide_join_button_in_channel_page_summary_off">Отображена.</string>
+    <string name="revanced_hide_join_button_in_channel_page_summary_on">Скрыта.</string>
+    <string name="revanced_hide_join_button_in_channel_page_title">Кнопка \"Присоединиться\"</string>
     <string name="revanced_hide_join_button_summary_off">Кнопка \"Стать спонсором\" отображена.</string>
     <string name="revanced_hide_join_button_summary_on">Кнопка \"Стать спонсором\" скрыта.</string>
     <string name="revanced_hide_join_button_title">Кнопка \"Стать спонсором\"</string>
@@ -999,9 +992,6 @@ Shorts
     <string name="revanced_hide_playlist_button_summary_off">Кнопка \"Сохранить в плейлист\" отображена.</string>
     <string name="revanced_hide_playlist_button_summary_on">Кнопка \"Сохранить в плейлист\" скрыта.</string>
     <string name="revanced_hide_playlist_button_title">Кнопка \"Сохранить в плейлист\"</string>
-    <string name="revanced_hide_podcast_section_summary_off">Раздел \"Другие выпуски подкаста\" в описании видео показан</string>
-    <string name="revanced_hide_podcast_section_summary_on">Раздел \"Другие выпуски подкаста\" в описании видео скрыт</string>
-    <string name="revanced_hide_podcast_section_title">Скрыть раздел \"Другие выпуски подкаста\"</string>
     <string name="revanced_hide_preview_comment_off">Предпросмотр комментария отображен.</string>
     <string name="revanced_hide_preview_comment_on">Предпросмотр комментария скрыт.</string>
     <string name="revanced_hide_preview_comment_title">Предпросмотр комментария</string>
@@ -1160,9 +1150,9 @@ Shorts
     <string name="revanced_hide_shopping_links_summary_off">Ссылки на покупки отображены.</string>
     <string name="revanced_hide_shopping_links_summary_on">Ссылки на покупки скрыты.</string>
     <string name="revanced_hide_shopping_links_title">Ссылки покупок</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Метка \"Автодубляж\" показана</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Метка \"Автодубляж\" скрыта</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_title">Скрыть метку \"Автодубляж\"</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Отображена.</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Скрыта.</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_title">Авто-дублированная метка</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_off">Кнопка \"Особая благодарность\" отображена.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_on">Кнопка \"Особая благодарность\" скрыта.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_title">Кнопка \"Особая благодарность\"</string>
@@ -1206,9 +1196,11 @@ Shorts
 
 Кнопка возврата в заголовке не будет скрыта.</string>
     <string name="revanced_hide_shorts_live_header_title">Заголовок чата трансляции</string>
-    <string name="revanced_hide_shorts_live_preview_summary_off">Предварительный просмотр трансляции показан</string>
-    <string name="revanced_hide_shorts_live_preview_summary_on">Предварительный просмотр трансляции скрыт</string>
-    <string name="revanced_hide_shorts_live_preview_title">Скрыть предпросмотр трансляции</string>
+    <string name="revanced_hide_shorts_live_preview_summary_off">Отображен.</string>
+    <string name="revanced_hide_shorts_live_preview_summary_on">Предпросмотр скрыт.
+
+Даже если функция включена, прямые трансляции Shorts не удаляются полностью из последовательности роликов.</string>
+    <string name="revanced_hide_shorts_live_preview_title">Просмотр в реальном времени</string>
     <string name="revanced_hide_shorts_location_button_summary_off">Кнопка \"Местоположение\" отображена.</string>
     <string name="revanced_hide_shorts_location_button_summary_on">Кнопка \"Местоположение\" скрыта.</string>
     <string name="revanced_hide_shorts_location_button_title">Кнопка \"Местоположение\"</string>
@@ -1218,9 +1210,6 @@ Shorts
     <string name="revanced_hide_shorts_new_posts_button_summary_off">Кнопка \"Новые публикации\" в плеере Shorts показана</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_on">Кнопка \"Новые публикации\" в плеере Shorts скрыта</string>
     <string name="revanced_hide_shorts_new_posts_button_title">Скрыть кнопку \"Новые публикации\"</string>
-    <string name="revanced_hide_shorts_paid_promotion_label_summary_off">Метка \"Содержит прямую рекламу\" отображена.</string>
-    <string name="revanced_hide_shorts_paid_promotion_label_summary_on">Метка \"Содержит прямую рекламу\" скрыта.</string>
-    <string name="revanced_hide_shorts_paid_promotion_label_title">Метка \"Содержит прямую рекламу\"</string>
     <string name="revanced_hide_shorts_paused_header_summary_off">Надпись паузы отображена.</string>
     <string name="revanced_hide_shorts_paused_header_summary_on">Надпись паузы скрыта.</string>
     <string name="revanced_hide_shorts_paused_header_title">Надпись паузы</string>
@@ -1230,9 +1219,9 @@ Shorts
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">Фон отображен.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">Фон скрыт.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">Фон кнопки \"Просмотр\" - \"Пауза\"</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_off">Превью комментариев под плеером показано</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_on">Превью комментариев под плеером скрыто</string>
-    <string name="revanced_hide_shorts_preview_comment_title">Скрыть превью комментариев</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_off">Отображен.</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_on">Скрыт.</string>
+    <string name="revanced_hide_shorts_preview_comment_title">Предпросмотр комментария</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">Кнопка \"Ремикс\" отображена.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">Кнопка \"Ремикс\" скрыта.</string>
     <string name="revanced_hide_shorts_remix_button_title">Кнопка \"Ремикс\"</string>
@@ -1322,12 +1311,12 @@ Shorts
     <string name="revanced_hide_stop_ads_button_summary_off">Кнопка \"Убрать рекламу\" отображена.</string>
     <string name="revanced_hide_stop_ads_button_summary_on">Кнопка \"Убрать рекламу\" скрыта.</string>
     <string name="revanced_hide_stop_ads_button_title">Скрыть \"Убрать рекламу\"</string>
-    <string name="revanced_hide_store_button_summary_off">Кнопка \"Магазин\" показана</string>
-    <string name="revanced_hide_store_button_summary_on">Кнопка \"Магазин\" скрыта</string>
-    <string name="revanced_hide_store_button_title">Скрыть кнопку \"Магазин\"</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Кнопка \"Подписаться\" показана</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Кнопка \"Подписаться\" скрыта</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_title">Скрыть кнопку \"Подписаться\"</string>
+    <string name="revanced_hide_store_button_summary_off">Отображена.</string>
+    <string name="revanced_hide_store_button_summary_on">Скрыта.</string>
+    <string name="revanced_hide_store_button_title">Кнопка \"Магазин\"</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Отображена.</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Скрыта.</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_title">Кнопка \"Подписаться\"</string>
     <string name="revanced_hide_subscribe_button_summary_off">Кнопка "Подписаться" отображается.</string>
     <string name="revanced_hide_subscribe_button_summary_on">Кнопка "Подписаться" скрыта.</string>
     <string name="revanced_hide_subscribe_button_title">Кнопка \"Подписаться\"</string>
@@ -1411,15 +1400,9 @@ Shorts
     <string name="revanced_hide_view_products_summary_off">Баннер просмотра товаров отображен.</string>
     <string name="revanced_hide_view_products_summary_on">Баннер просмотра товаров скрыт.</string>
     <string name="revanced_hide_view_products_title">Баннер просмотра товаров</string>
-    <string name="revanced_hide_visit_community_button_summary_off">Кнопка \"Сообщество\" отображена.</string>
-    <string name="revanced_hide_visit_community_button_summary_on">Кнопка \"Сообщество\" скрыта.</string>
-    <string name="revanced_hide_visit_community_button_title">Кнопка \"Сообщество\"</string>
-    <string name="revanced_hide_visual_spacer_summary_off">Визуальный разделитель показан</string>
-    <string name="revanced_hide_visual_spacer_summary_on">Визуальный разделитель скрыт</string>
-    <string name="revanced_hide_visual_spacer_title">Скрыть визуальный разделитель</string>
-    <string name="revanced_hide_visual_spacers_summary_off">Визуальные пробелы отображены.</string>
-    <string name="revanced_hide_visual_spacers_summary_on">Визуальные пробелы скрыты.</string>
-    <string name="revanced_hide_visual_spacers_title">Визуальные пробелы</string>
+    <string name="revanced_hide_visual_spacer_summary_off">Отображен.</string>
+    <string name="revanced_hide_visual_spacer_summary_on">Скрыт.</string>
+    <string name="revanced_hide_visual_spacer_title">Визуальный разделитель</string>
     <string name="revanced_hide_voice_search_button_summary_off">Кнопка \"Голосовой поиск\" отображена.</string>
     <string name="revanced_hide_voice_search_button_summary_on">Кнопка \"Голосовой поиск\" скрыта.</string>
     <string name="revanced_hide_voice_search_button_title">Кнопка \"Голосовой поиск\"</string>
@@ -1456,6 +1439,7 @@ Shorts
     <string name="revanced_icon_vanced_black">Vanced (темная)</string>
     <string name="revanced_icon_vanced_light">Vanced (светлая)</string>
     <string name="revanced_icon_xisr_special">Xisr (специальная)</string>
+    <string name="revanced_icon_xisr_winter">Xisr (Зима)</string>
     <string name="revanced_icon_xisr_yellow">Xisr (желтая)</string>
     <string name="revanced_icon_youtube">Иконка YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube (черная)</string>
@@ -1728,10 +1712,8 @@ Shorts
     <string name="revanced_preference_category_image_region_restrictions">Ограничения изображений по региону</string>
     <string name="revanced_preference_category_import_export_as_file">Импорт/экспорт в виде файла</string>
     <string name="revanced_preference_category_import_export_as_text">Импорт/экспорт настроек в виде текста</string>
-    <string name="revanced_preference_category_ios">iOS</string>
     <string name="revanced_preference_category_js">JavaScript </string>
     <string name="revanced_preference_category_keyword_filter">Фильтр ключевых слов</string>
-    <string name="revanced_preference_category_no_auth">Не авторизован</string>
     <string name="revanced_preference_category_others">Другие</string>
     <string name="revanced_preference_category_overlay_buttons">Наложение кнопок</string>
     <string name="revanced_preference_category_patch_information">Информация о патчах</string>
@@ -2131,6 +2113,7 @@ Shorts
     <string name="revanced_sb_settings_import_successful">Настройки успешно импортированы.</string>
     <string name="revanced_sb_settings_revanced_export_user_id_warning">Ваши настройки SponsorBlock содержат приватный ID.\n\nВаш ID как пароль, им не стоит ни с кем делиться.</string>
     <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Не показывать снова</string>
+    <string name="revanced_sb_share_copy_settings_success">Настройки скопированы в буфер обмена.</string>
     <string name="revanced_sb_skip_automatically">Автоматически пропускать</string>
     <string name="revanced_sb_skip_automatically_once">Автоматически пропустить единожды</string>
     <string name="revanced_sb_skip_button_compact">Пропустить</string>
@@ -2219,13 +2202,7 @@ Shorts
     <string name="revanced_sb_vote_no_segments">Нет сегментов для голосования.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s до %2$s</string>
     <string name="revanced_sb_vote_upvote">Голосовать за</string>
-    <string name="revanced_search_clear_confirm_message">Вы уверены, что хотите очистить всю историю поиска?</string>
-    <string name="revanced_search_clear_confirm_title">Очистить историю поиска</string>
-    <string name="revanced_search_delete_confirm_message">Вы уверены, что хотите удалить \"%1$s\" из истории поиска?</string>
-    <string name="revanced_search_delete_confirm_title">Удалить запись поиска</string>
     <string name="revanced_search_settings_category_title">Настройки поиска</string>
-    <string name="revanced_search_settings_no_results_summary">Попробуйте ввести другой поисковый запрос.</string>
-    <string name="revanced_search_settings_no_results_title">Результаты поиска \"%1$s\" не найдены</string>
     <string name="revanced_search_title">Поиск</string>
     <string name="revanced_set_transcript_cookies_all_summary_off">Куки установлены только для авто-перевода запросов субтитров.</string>
     <string name="revanced_set_transcript_cookies_all_summary_on">Куки установлены, для всех расшифровок, запросов API.</string>
@@ -2384,53 +2361,21 @@ Shorts
 • Высокое качество может быть разблокировано на некоторых видео, которые это требуют, не все видео.
 • Недоступно, если включена опция 'Подмена потоковых данных'."</string>
     <string name="revanced_spoof_device_dimensions_title">Подмена размеров устройства</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_summary_off">Кнопка звуковой дорожки скрыта.</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"Отображена, при использовании подмены потоковых данных, как 'Android VR', 'Mobile Web' или 'visionOS'."</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_title">Кнопка звуковой дорожки</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Предварительные условия:
-• Клиент, используемый для получения потоковых данных - Android VR', 'Mobile Web', or 'visionOS'.
-• Начинают проигрываться видео с несколькими звуковыми дорожками.
-
-Известные проблемы:
-• Если язык изменен в настройках YouTube и приложение не перезапущено, язык может не измениться.
-• Иногда звуковая дорожка выбирается неправильно.
-• Некоторые звуковые дорожки, такие как \"Английский описательный\", не поддерживаются.
-
-Функция находится в разработке, и может перестать работать из-за изменений на стороне сервера."</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Требуется вход)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
 <small>(без SDK)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
-<small>(Необходима авторизация)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">iOS.\n<small>(устаревшее)</small>
-    </string>
-    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
-<small>(Устаревший)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web
-<small>(В разработке)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">ТВ
 <small>(В разработке)</small>
     </string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
 <small>(Старый)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"ТВ Простой
-<small>(Без PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Не выпускавшийся)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Клиент по умолчанию</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Не получены клиентские потоки.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Возможно, Вы не вошли в систему.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Принудительно AVC (H.264) отключено.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Принудительно AVC (H.264) включен.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Принудительно iOS, AVC (H.264)</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Включение может:
-- улучшить время автономной работы
-- устранить прерывания при воспроизведении.
-
-Максимальное разрешение AVC - 1080p. Кодек Opus недоступен. Потребление трафика больше, чем при VP9 или AV1."</string>
-    <string name="revanced_spoof_streaming_data_message">Если у вас возникли проблемы с воспроизведением, включите параметр \"Замена потоковых данных\" в Настройках/Разное/Замена потоковых данных.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Приоритет качества видео отключен.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Приоритет качества видео включен.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Приоритет качества видео</string>
@@ -2560,13 +2505,6 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
 (Предварительные условия: включены как 'Показывать кнопку перезагрузки видео', так и 'Всегда показывать кнопку перезагрузки видео')
 
 Среди клиентов JavaScript рекомендуемым клиентом является TV."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"JavaScript для разобфускации не сохранен в актуальном состоянии.
-
-• Используется JavaScript, но все еще зависит от сервера."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_js_summary_on">"JavaScript для разобфускации сохраняется в актуальном состоянии.
-
-• Очень зависит от сервера, а успех или сбой разобфускации зависит от используемого на сервере JavaScript."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_js_title">Использовать актуальный JavaScript</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"JavaScript для деобфускации не хранится в актуальном состоянии.
 
 • Используется JavaScript, но все еще зависит от сервера."</string>
@@ -2584,48 +2522,9 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
 • JavaScript для деобфускации сохраняется в актуальном состоянии.
 • Для запуска видео может потребоваться от 5 до 15 секунд."</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Использовать yt-dlp ejs (В разработке)</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"Новые меры YouTube не позволяют расшифровать URL-адреса потокового воспроизведения, общими методами в JavaScript.
-
-Внешний JavaScript для yt-dlp (yt-dlp-ejs) используется для расшифровки URL-адресов трансляций в последних JavaScript.
-
-Компонент в разработке и будет использовать больше ресурсов оборудования."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Отключение этой настройки вызовет проблемы с просмотром.</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Код активации:
-%s
-
-1. Нажмите 'Открыть веб-сайт', чтобы перейти к 'https://yt.be/activate'.
-2. Введите код активации.
-3. Когда появится запрос войдите в аккаунт Google, который используете для YouTube. Если вход уже выполнен, перейдите к следующему шагу.
-4. После входа вернитесь к RVX и нажмите 'О Android VR авторизации' снова.
-5. Нажмите 'Получить токен авторизации', чтобы получить токен авторизации."</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Открыть сайт</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Код активации</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Код активации скопирован в буфер обмена: %s.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Нажмите, чтобы посмотреть, как получить токен авторизации.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">О Android VR авторизации</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Получить код активации</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Получить токен авторизации</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Для получения токена авторизации Android VR, войдите в YouTube VR, используя код активации:
-
-1. Нажмите \"Получить код активации\" для генерации кода активации.
-2. Нажмите 'Открыть веб-сайт', чтобы перейти на 'https://yt.be/activate' и введите код активации.
-3. Когда появится запрос войдите в аккаунт Google, который используете для YouTube. Если вход уже выполнен, перейдите к следующему шагу.
-4. После входа вернитесь к RVX и снова нажмите \"О Android VR авторизации\".
-5. Нажмите 'Получить токен авторизации'.
-
-※ нажмите 'Сброс', чтобы удалить токен аутентификации или код активации."</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Сброс</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Получить токен авторизации</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Токен аутентификации и код активации сброшены.</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Токен авторизации сохранен.</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_off">Видео кодек AVC (H.264) или VP9.</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"Видео кодек AVC (H.264), VP9 или AV1.
-
-Проигрывание может запинаться или будут потери кадров."</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_title">Включить VR AV1</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"При включении используется программный кодек AV1.
-
-Проигрывание может запинаться или будут потери кадров."</string>
     <string name="revanced_swipe_brightness_distance_summary">Количество пикселей, которое необходимо сдвинуть для изменения яркости. Чем меньше значение, тем быстрее меняется яркость, чем больше — тем медленнее (1 - 1000).</string>
     <string name="revanced_swipe_brightness_distance_title">Чувствительность жеста яркости</string>
     <string name="revanced_swipe_brightness_summary_off">Регулировка яркости жестом отключена</string>

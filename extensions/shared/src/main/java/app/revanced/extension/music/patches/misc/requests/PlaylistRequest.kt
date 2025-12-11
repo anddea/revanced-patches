@@ -131,7 +131,7 @@ class PlaylistRequest private constructor(
             Objects.requireNonNull(videoId)
 
             val startTime = System.currentTimeMillis()
-            val clientType = YouTubeClient.ClientType.ANDROID_VR
+            val clientType = YouTubeClient.ClientType.ANDROID_VR_NO_AUTH
             val clientTypeName = clientType.name
             Logger.printDebug { "Fetching playlist request for: $videoId, using client: $clientTypeName" }
 

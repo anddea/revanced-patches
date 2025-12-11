@@ -159,11 +159,6 @@
     <string name="revanced_enable_zen_mode_podcast_title">팟캐스트에서 집중 모드 활성화</string>
     <string name="revanced_enable_zen_mode_summary">동영상 플레이어의 색상을 회색조로 설정해 눈의 피로를 줄입니다.</string>
     <string name="revanced_enable_zen_mode_title">집중 모드 활성화</string>
-    <string name="revanced_extended_settings_export_failed">설정을 내보내는 데 실패하였습니다.</string>
-    <string name="revanced_extended_settings_export_success">설정을 성공적으로 내보냈습니다.</string>
-    <string name="revanced_extended_settings_import">가져오기</string>
-    <string name="revanced_extended_settings_import_reset">설정을 기본값으로 초기화합니다.</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"오프라인 저장 버튼으로 외부 다운로더 앱을 실행할 수 있습니다.
 
 • 플레이어 하단에 있는 오프라인 저장 버튼만 재정의할 수 있습니다.
@@ -218,6 +213,8 @@
     <string name="revanced_hide_comment_channel_guidelines_title">커뮤니티 가이드라인 제거</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">댓글을 입력할 때, 타임스탬프 및 이모지 버튼을 숨깁니다.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">타임스탬프 &amp; 이모지 버튼 제거</string>
+    <string name="revanced_hide_comments_information_button_summary">댓글 패널에서 정보 버튼을 숨깁니다.</string>
+    <string name="revanced_hide_comments_information_button_title">정보 버튼 제거</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">두 번 탭하여 탐색할 때 표시되는 어두운 오버레이를 숨깁니다.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">두 번 탭하기 오버레이 필터</string>
     <string name="revanced_hide_floating_button_summary">보관함에서 플로팅 버튼을 숨깁니다.</string>
@@ -242,6 +239,7 @@
     <string name="revanced_hide_flyout_menu_remove_from_library_title">보관함에서 삭제 메뉴 제거</string>
     <string name="revanced_hide_flyout_menu_remove_from_playlist_title">재생목록에서 삭제 메뉴 제거</string>
     <string name="revanced_hide_flyout_menu_report_title">신고 메뉴 제거</string>
+    <string name="revanced_hide_flyout_menu_save_episode_for_later_save_to_library_title">나중에 볼 에피소드 저장 및 보관함에 저장 메뉴 제거</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">나중에 볼 에피소드 저장 메뉴 제거</string>
     <string name="revanced_hide_flyout_menu_save_to_library_title">보관함에 저장 메뉴 제거</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">재생목록에 저장 메뉴 제거</string>
@@ -542,38 +540,75 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
 부작용 (요청 차단):
 • VPN 또는 DNS를 사용할 경우에 앱이 강제로 종료될 수 있습니다."</string>
     <string name="revanced_spoof_client_type_title">기본 클라이언트</string>
-    <string name="revanced_spoof_player_parameter_summary">"플레이어 매개변수를 변경하여 재생 문제를 방지할 수 있습니다.
-
-부작용:
-• 자막이 플레이어 하단이 아닌 상단에 위치하는 경우가 있습니다."</string>
-    <string name="revanced_spoof_player_parameter_title">플레이어 매개변수 변경하기</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music SDK 없음</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android SDK 없음</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR 인증 있음 \n(작업이 필요함)</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV 기존</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">클라이언트를 변경하기 위한 기본 클라이언트를 정의할 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">기본 클라이언트</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">클라이언트 스트림을 가져올 수 없습니다.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">VPN을 사용 중이라면 다른 국가로 변경하거나 기본 클라이언트를 TV로 변경해 보세요.</string>
-    <string name="revanced_spoof_streaming_data_message">재생 문제가 발생하는 경우에는 &lt;i&gt;&lt;u&gt;설정 &gt; %s &gt; 기타 &gt; 스트리밍 데이터 변경하기&lt;/u&gt;&lt;/i&gt; 에서 \'스트리밍 데이터 변경하기\' 를 활성화하세요.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">인증 토큰을 받는 방법을 보려면 여기를 탭하세요.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Android SDK 없음 인증 있음에 대한 정보</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_get_authorization_token_text">승인 토큰 받기</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_message">"Android SDK 없음용 승인 토큰을 받으려면 GmsCore를 사용할 때와 마찬가지로 Google 계정에 로그인해야 합니다.
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Android SDK 없음에 로그인하는 방법을 보려면 여기를 탭하세요.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Android SDK 없음에 로그인하기</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">승인 토큰 받기</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message">"Android SDK 없음 (YouTube)에 로그인하기는 Google에서 제공하는 가이드라인 (Google 계정 승인 - Android 애플리케이션을 위한 OAuth 2.0)을 따릅니다.
 
-1. '승인 토큰 받기'를 클릭하여 WebView에서 로그인 페이지를 엽니다.
-
+1. '승인 토큰 가져오기'를 탭하여 WebView에서 로그인 페이지를 엽니다.
 2. Google 계정에 로그인합니다.
+3. 로그인 결과가 5초 이내에 표시됩니다.
 
-* 인증 토큰을 제거하려면 '초기화'을 탭하세요."</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_reset_text">초기화</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_title">승인 토큰 받기</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset">인증 토큰을 초기화하였습니다.</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_success">인증 토큰을 저장하였습니다.</string>
+* 인증 토큰을 삭제하려면 '초기화'를 탭하세요."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">초기화</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Android SDK 없음에 로그인하기</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"인증 토큰을 저장하였습니다.
+
+• 이 과정을 통해 발급된 인증 토큰은 YouTube에서만 사용할 수 있습니다 (RVX에서는 YouTube에서 스트리밍 데이터를 가져오는 데 사용됩니다).
+• 6개월이상 사용되지 않은 인증 토큰은 Google 서버에서 취소됩니다.
+• 비밀번호를 변경하거나 계정 설정에서 기기 등록을 해제하거나 앱을 삭제하면 인증 토큰을 다시 발급받아야 합니다."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">로그인하였습니다</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">인증 토큰을 초기화하였습니다.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Android VR에 로그인하는 방법을 보려면 여기를 탭하세요.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Android VR에 로그인하기</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"활성화 코드:
+%s
+
+1. '웹사이트 열기'를 탭하여 'https://yt.be/activate'로 이동합니다.
+2. 활성화 코드를 입력합니다.
+3. 로그인이 요청되면 로그인합니다. 여러 Google 계정이 있는 경우에는 YouTube에서 사용하는 계정을 선택합니다. 이미 로그인된 상태라면 다음 단계로 건너뜁니다.
+4. 로그인 후에 RVX로 돌아가서 'Android VR에 로그인하기'를 다시 탭합니다.
+5. '승인 토큰 받기'를 탭하여 승인 토큰을 받습니다."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">웹사이트 열기</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">활성화 코드</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">활성화 코드를 클립보드에 복사하였습니다: %s.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">활성화 코드 받기</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">승인 토큰 받기</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Android VR (YouTube VR)에 로그인하기는 Google에서 제공하는 가이드라인 (Google 계정 승인 - TV 및 입력 제한 기기 애플리케이션을 위한 OAuth 2.0)을 따릅니다:
+
+1. '활성화 코드 받기'를 탭하여 활성화 코드를 생성합니다.
+2. '웹사이트 열기'를 탭하여 'https://yt.be/activate'로 이동합니다.
+3. 활성화 코드를 입력합니다.
+4. 로그인이 요청되면 로그인합니다. 여러 Google 계정이 있는 경우에는 YouTube에 사용하는 계정을 선택합니다. 이미 로그인된 상태라면 다음 단계로 건너뜁니다.
+5. 로그인 후에 RVX로 돌아가서 'Android VR에 로그인하기'를 다시 탭합니다.
+6. '승인 토큰 받기'를 탭하여 승인 토큰을 받습니다.
+
+※ 인증 토큰 또는 활성화 코드를 삭제하려면 '초기화'를 탭하세요."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">초기화</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Android VR에 로그인하기</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"인증 토큰을 저장하였습니다.
+
+• 이 과정을 통해 발급된 인증 토큰은 YouTube VR에서만 사용할 수 있습니다 (RVX에서는 YouTube VR에서 스트리밍 데이터를 가져오는 데 사용됩니다).
+• 6개월 이상 사용되지 않은 인증 토큰은 Google 서버에서 취소됩니다.
+• 비밀번호를 변경하거나 계정 설정에서 기기 등록을 해제하거나 앱을 삭제하면 인증 토큰을 다시 발급받아야 합니다."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">로그인을 하였습니다</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">인증 토큰을 발급할 수 없습니다.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">초기화를 탭하여 다시 시도하세요.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">인증 토큰과 활성화 코드를 초기화하였습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 동영상 통계에서 표시됩니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">동영상 통계에서 표시</string>
     <string name="revanced_spoof_streaming_data_summary">"클라이언트 동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다.
@@ -589,38 +624,8 @@ JavaScript 클라이언트에 문제가 발생할 경우에 먼저 이 기능을
 • 복호화를 위한 플레이어 JavaScript는 최신 상태로 유지됩니다.
 • 동영상 재생 시작까지 5~15초가 소요될 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">yt-dlp ejs 사용 (개발 중)</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"활성화 코드:
-%s
-
-1. '웹사이트 열기'를 탭하여 'https://yt.be/activate'로 이동합니다.
-2. 활성화 코드를 입력합니다.
-3. 로그인을 요청하면 로그인합니다. 여러 Google 계정이 있는 경우에는 YouTube에서 사용하는 계정을 선택합니다. 이미 로그인된 상태라면 다음 단계로 건너뜁니다.
-4. 로그인 후에 RVX로 돌아가서 'Android VR 인증 있음에 대한 정보'를 다시 탭합니다.
-5. '인증 토큰 받기'를 탭하여 인증 토큰을 받습니다."</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">웹사이트 열기</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">활성화 코드</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">활성화 코드를 클립보드에 복사하였습니다: %s.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">인증 토큰을 받는 방법을 보려면 여기를 탭하세요.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR 인증 있음에 대한 정보</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">활성화 코드 받기</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">인증 토큰 받기</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Android VR을 위한 인증 토큰을 받으려면 활성화 코드를 사용하여 YouTube VR에 로그인해야 합니다:
-
-1. '활성화 코드 받기'를 탭하여 활성화 코드를 생성합니다.
-2. '웹사이트 열기'를 탭하여 'https://yt.be/activate'로 이동합니다.
-3. 활성화 코드를 입력합니다.
-4. 로그인을 요청하면 로그인합니다. 여러 Google 계정이 있는 경우에는 YouTube에서 사용하는 계정을 선택합니다. 이미 로그인된 상태라면 다음 단계로 건너뜁니다.
-5. 로그인 후에 RVX로 돌아가서 'Android VR 인증 있음에 대한 정보'를 다시 탭합니다.
-6. '인증 토큰 받기'를 탭하여 인증 토큰을 받습니다.
-
-※ 인증 토큰 또는 활성화 코드를 삭제하려면 '초기화'를 탭하세요."</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">초기화</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">인증 토큰 받기</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">인증 토큰과 활성화 코드를 초기화하였습니다.</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">인증 토큰을 저장하였습니다.</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"부작용:
 • VPN 또는 DNS를 사용할 경우에 앱이 강제로 종료될 수 있습니다.
 • 적응형 비트레이트 스트리밍 클라이언트 (Android VR 1.43.32 이외의 모든 클라이언트)를 사용하는 경우에 오디오 재생이 간헐적으로 끊길 수 있습니다."</string>

@@ -156,11 +156,6 @@ Sınırlamalar: SponsorBlock segmentleri arama çubuğunda gösterilmiyor."</str
     <string name="revanced_enable_zen_mode_podcast_title">Podcastlerde zen modunu aç/kapa</string>
     <string name="revanced_enable_zen_mode_summary">Video oynatıcıya açık gri bir ton ekleyerek göz yorgunluğunu azaltır.</string>
     <string name="revanced_enable_zen_mode_title">Zen modunu aç/kapa</string>
-    <string name="revanced_extended_settings_export_failed">Ayarlar dışa aktarılamadı.</string>
-    <string name="revanced_extended_settings_export_success">Ayarlar başarıyla dışa aktarıldı.</string>
-    <string name="revanced_extended_settings_import">İçe aktar</string>
-    <string name="revanced_extended_settings_import_reset">Ayarlar varsayılana sıfırlandı.</string>
-    <string name="revanced_extended_settings_title">RVX Ayarları</string>
     <string name="revanced_external_downloader_action_summary">"İndir düğmesi harici indiricinizi açar.
 
 • Yalnızca oynatıcıdaki indirme işlemi düğmesini geçersiz kılar.
@@ -540,17 +535,9 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_spoof_client_title">Sahte istemci</string>
     <string name="revanced_spoof_client_type_summary">"Taklit etmek için varsayılan bir istemci tanımlar."</string>
     <string name="revanced_spoof_client_type_title">Varsayılan istemci</string>
-    <string name="revanced_spoof_player_parameter_summary">"Oynatma sorunlarını önlemek için oynatıcı parametresini taklit edin.
-
-Yan etki:
-• Bazen altyazılar oynatıcının alt kısmında değil üst kısmında görüntülenir.
-• Bu, bazı kullanıcılar için işe yaramayabilir."</string>
-    <string name="revanced_spoof_player_parameter_title">Oynatıcı parametresini taklit et</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Oluşturucu</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android SDK Yok</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR Kimlik Doğrulama (Eylem gerekli)</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobil İnternet</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Eski</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">vizyon işletim sistemi</string>
@@ -561,7 +548,6 @@ Bilinen Sorunlar:
     <string name="revanced_spoof_streaming_data_default_client_title">Varsayılan istemci</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Hiçbir istemci akışı alınamadı.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Varsayılan istemciyi TV olarak değiştirmeyi deneyin.</string>
-    <string name="revanced_spoof_streaming_data_message">Eğer oynatma sorunu yaşıyorsanız, \"Akış verilerini taklit et\" etkinleştir; &lt;i&gt;&lt;u&gt;Ayarlar &gt; %s &gt; Çeşitler&lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Stats for nerds\'te akış verilerini almak için kullanılan istemciyi gösterir.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">İstatistikleri inekler için göster</string>
     <string name="revanced_spoof_streaming_data_summary">"Oynatma sorunlarını önlemek için istemci video akışlarını taklit edin.
@@ -577,38 +563,8 @@ JavaScript istemcinizde sorun yaşıyorsanız, önce bunu devre dışı bırakma
 • Gizlemeyi kaldırmak için kullanılan oynatıcı JavaScript'i güncel tutulur.
 • Videonun başlaması 5 ila 15 saniye sürebilir."</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Kullan yt-dlp ejs (Yapım aşamasında)</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Etkinleştirme kodu:
-%s
-
-1. “Web sitesini aç” seçeneğine tıklayarak “https://yt.be/activate” adresine gidin.
-2. Etkinleştirme kodunu girin.
-3. İstendiğinde oturum açın. Birden fazla Google Hesabınız varsa, YouTube ile kullandığınız hesabı seçin. Zaten oturum açtıysanız, bir sonraki adıma geçin.
-4. Oturum açtıktan sonra RVX'e geri dönün ve “Android VR Auth Hakkında” seçeneğine tekrar tıklayın.
-5. Yetkilendirme belirtecini almak için “Yetkilendirme belirtecini al” seçeneğine tıklayın."</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Web sitesini aç</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Aktivasyon kodu</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Etkinleştirme kodu panoya kopyalandı: %s.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kimlik doğrulama jetonunu nasıl alacağınızı görmek için tıklayın.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR Auth hakkında</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Aktivasyon kodunu al</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Yetki jetonunu al</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Android VR için yetkilendirme jetonu almak için, bir aktivasyon kodu kullanarak YouTube VR'da oturum açmalısınız:
-
-1. Aktivasyon kodu oluşturmak için “Aktivasyon kodunu al”ı tıklayın.
-2. “Web sitesini aç”ı tıklayarak “https://yt.be/activate” adresine gidin.
-3. Aktivasyon kodunu girin.
-4. İstendiğinde oturum açın. Birden fazla Google Hesabınız varsa, YouTube ile kullandığınız hesabı seçin. Zaten oturum açtıysanız, bir sonraki adıma geçin.
-5. Oturum açtıktan sonra RVX'e geri dönün ve “Android VR Kimlik Doğrulama Hakkında” seçeneğine tekrar tıklayın.
-6. Yetki belirteci almak için “Yetki belirteci al” seçeneğine tıklayın.
-
-※ Kimlik doğrulama belirtecini veya aktivasyon kodunu kaldırmak için “Sıfırla” seçeneğine tıklayın."</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Sıfırla</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Yetki jetonunu al</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Kimlik doğrulama jetonu ve etkinleştirme kodu sıfırla.</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Kimlik doğrulama jetonu kaydedildi.</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Müzik 6.21</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Müzik 7.04</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Müzik 8.12</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Yan etki:
 • VPN veya DNS kullanırken uygulama zorla kapatılabilir.
 • Uyarlanabilir bit hızı akış istemcilerinde (Android VR 1.43.32 dışındaki tüm istemciler) oynatma sırasında ses aralıklı olarak kesilebilir."</string>

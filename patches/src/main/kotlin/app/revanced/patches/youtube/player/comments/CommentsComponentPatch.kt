@@ -4,9 +4,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.shared.comments.commentsPanelPatch
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
-import app.revanced.patches.shared.scrolltop.commentsScrollTopPatch
 import app.revanced.patches.shared.spans.addSpanFilter
 import app.revanced.patches.shared.spans.inclusiveSpanPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
@@ -48,7 +48,7 @@ val commentsComponentPatch = bytecodePatch(
         lazilyConvertedElementHookPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
-        commentsScrollTopPatch,
+        commentsPanelPatch,
     )
 
     execute {

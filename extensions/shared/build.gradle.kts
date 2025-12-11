@@ -45,8 +45,8 @@ dependencies {
 
     implementation(libs.rxjava2)
     implementation(libs.rxjava2.android)
-    implementation(project(":extensions:shared:j2v8"))
-    implementation(project(":extensions:shared:gplayapi"))
+    //noinspection UseTomlInstead
+    implementation("com.eclipsesource.j2v8:j2v8:6.3.4@aar")
 
     implementation(libs.nanohttpd)
     implementation(libs.protobuf.javalite)

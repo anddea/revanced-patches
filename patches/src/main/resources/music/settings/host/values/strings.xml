@@ -158,11 +158,6 @@ Limitations: SponsorBlock segments are not shown in the seekbar."</string>
     <string name="revanced_enable_zen_mode_podcast_title">Enable Zen mode in podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Enables a light grey color for the player background to reduce eye strain.</string>
     <string name="revanced_enable_zen_mode_title">Enable Zen mode</string>
-    <string name="revanced_extended_settings_export_failed">Failed to export settings.</string>
-    <string name="revanced_extended_settings_export_success">Settings were successfully exported.</string>
-    <string name="revanced_extended_settings_import">Import</string>
-    <string name="revanced_extended_settings_import_reset">Settings reset to default.</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Download button opens your external downloader.
 
 • Only overrides the Download action button in the player.
@@ -217,6 +212,8 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Hide channel guidelines</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Hides the emoji and timestamp buttons when typing comments.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Hide emoji and timestamp buttons</string>
+    <string name="revanced_hide_comments_information_button_summary">Hides the Information button in the comments panel.</string>
+    <string name="revanced_hide_comments_information_button_title">Hide Information button</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Hides dark overlay that appears when double-tapping to seek.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Hide double-tap overlay filter</string>
     <string name="revanced_hide_floating_button_summary">Hides the floating button in the Library tab.</string>
@@ -241,6 +238,7 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Hide Remove from library menu</string>
     <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Hide Remove from playlist menu</string>
     <string name="revanced_hide_flyout_menu_report_title">Hide Report menu</string>
+    <string name="revanced_hide_flyout_menu_save_episode_for_later_save_to_library_title">Hide Save episode for later and Save to library menus</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Hide Save episode for later menu</string>
     <string name="revanced_hide_flyout_menu_save_to_library_title">Hide Save to library menu</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">Hide Save to playlist menu</string>
@@ -542,38 +540,75 @@ Click to see how to issue an API key."</string>
 Side effect (Block request):
 • App may be forced to close when using a VPN or DNS."</string>
     <string name="revanced_spoof_client_type_title">Default client</string>
-    <string name="revanced_spoof_player_parameter_summary">"Spoof the player parameter to prevent playback issues.
-
-Side effect:
-• Sometimes the subtitles are located at the top of the player instead of the bottom.
-• This may not work for some users."</string>
-    <string name="revanced_spoof_player_parameter_title">Spoof player parameter</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music No SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android No SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR Auth (Action needed)</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Legacy</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Defines a default client for spoofing.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Try changing the default client to TV.</string>
-    <string name="revanced_spoof_streaming_data_message">If you experience any playback issues, enable \"Spoof streaming data\" in &lt;i&gt;&lt;u&gt;Settings &gt; %s &gt; Miscellaneous&lt;/u&gt;&lt;/i&gt;.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Click to see how to get an authentication token.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">About Android No SDK Auth</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_get_authorization_token_text">Get authorization token</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_message">"To get an authorization token for Android No SDK, you need to sign in to your Google account, just like when using GmsCore:
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Click here to see how to sign in to Android No SDK.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Sign in to Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">Get authorization token</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message">"Signing into Android No SDK (YouTube) follows the guidelines provided by Google (Google account authorization - OAuth 2.0 for Android Apps):
 
 1. Click 'Get authorization token' to open the sign in page in WebView.
 2. Sign in to your Google Account.
+3. Login results will be shown within 5 seconds.
 
 ※ Click 'Reset' to remove an authentication token."</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_reset_text">Reset</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_title">Get Authorization Token</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset">Authentication token reset.</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_success">Authentication token saved.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Reset</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Sign in to Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Authentication token saved.
+
+- Authentication token issued through this process can only be used in YouTube (In RVX, it is used to fetch streaming data from YouTube).
+- Authentication token unused for more than 6 months will be revoked by Google servers.
+- If you change your password, or deregister a device in your account settings, or uninstall the app, you will need to reissue the authentication token."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Signed in</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Authentication token reset.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Click here to see how to sign in to Android VR.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Sign in to Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Activation code:
+%s
+
+1. Click 'Open website' to go to 'https://yt.be/activate'.
+2. Enter the activation code.
+3. Sign in when prompted. If you have multiple Google Accounts, select the account you use with YouTube. If you're already signed in, skip to the next step.
+4. Once signed in, return to RVX and click 'Sign in to Android VR' again.
+5. Click 'Get authorization token' to get an authorization token."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Open website</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Activation code</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Activation code copied to clipboard: %s.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Get activation code</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Get authorization token</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Signing into Android VR (YouTube VR) follows the guidelines provided by Google (Google account authorization - OAuth 2.0 for TV and Limited-Input Device Applications):
+
+1. Click 'Get activation code' to generate an activation code.
+2. Click 'Open website' to go to 'https://yt.be/activate'.
+3. Enter the activation code.
+4. Sign in when prompted. If you have multiple Google Accounts, select the account you use with YouTube. If you're already signed in, skip to the next step.
+5. Once signed in, return to RVX and click 'Sign in to Android VR' again.
+6. Click 'Get authorization token' to get an authorization token.
+
+※ Click 'Reset' to remove an authentication token or activation code."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Reset</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Sign in to Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Authentication token saved.
+
+- Authentication token issued through this process can only be used in YouTube VR (In RVX, it is used to fetch streaming data from YouTube VR).
+- Authentication token unused for more than 6 months will be revoked by Google servers.
+- If you change your password, or deregister a device in your account settings, or uninstall the app, you will need to reissue the authentication token."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Signed in</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Failed to issue an authentication token.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Click Reset and try again.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Authentication token and activation code reset.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Spoof the client video streams to prevent playback issues.
@@ -589,38 +624,8 @@ If you're having issues with your JavaScript client, try disabling this first."<
 • Player JavaScript for deobfuscation is kept up to date.
 • It may take 5 to 15 seconds for the video to start."</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Use yt-dlp ejs (WIP)</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Activation code:
-%s
-
-1. Click 'Open website' to go to 'https://yt.be/activate'.
-2. Enter the activation code.
-3. Sign in when prompted. If you have multiple Google Accounts, select the account you use with YouTube. If you're already signed in, skip to the next step.
-4. Once signed in, return to RVX and click 'About Android VR Auth' again.
-5. Click 'Get authorization token' to get an authorization token."</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Open website</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Activation code</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Activation code copied to clipboard: %s.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Click to see how to get an authentication token.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">About Android VR Auth</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Get activation code</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Get authorization token</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"To get an authorization token for Android VR, you should log in to YouTube VR using an activation code:
-
-1. Click 'Get activation code' to generate an activation code.
-2. Click 'Open website' to go to 'https://yt.be/activate'.
-3. Enter the activation code.
-4. Sign in when prompted. If you have multiple Google Accounts, select the account you use with YouTube. If you're already signed in, skip to the next step.
-5. Once signed in, return to RVX and click 'About Android VR Auth' again.
-6. Click 'Get authorization token' to get an authorization token.
-
-※ Click 'Reset' to remove an authentication token or activation code."</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Reset</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Get Authorization Token</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Authentication token and activation code reset.</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Authentication token saved.</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Side effect:
 • App may be forced to close when using a VPN or DNS.
 • Audio may intermittently stutter during playback on adaptive bitrate streaming clients (All clients other than Android VR 1.43.32)."</string>

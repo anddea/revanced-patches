@@ -3,6 +3,7 @@
     <string name="accessibility_settings_edu_opt_in_text">Ενεργοποίηση των στοιχείων ελέγχου προσβασιμότητας για το πρόγραμμα αναπαραγωγής βίντεο;</string>
     <string name="accessibility_settings_edu_opt_out_text">Τα στοιχεία ελέγχου έχουν τροποποιηθεί επειδή είναι ενεργή μια υπηρεσία προσβασιμότητας.</string>
     <string name="gms_core_dialog_continue_text">Συνέχεια</string>
+    <string name="gms_core_dialog_dismiss_text">Να μην εμφανιστεί ξανά</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Το MicroG GmsCore δεν έχει άδεια να εκτελείται στο παρασκήνιο.
 
 Ακολουθήστε τον οδηγό \"Don't kill my app\" για το τηλέφωνό σας και εφαρμόστε τις οδηγίες στο MicroG.
@@ -160,6 +161,7 @@
     <string name="revanced_change_youtube_header_summary_on">Η επικεφαλίδα Premium είναι ενεργοποιημένη.</string>
     <string name="revanced_change_youtube_header_title">Επικεφαλίδα Premium</string>
     <string name="revanced_confirm_user_dialog_title">Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</string>
+    <string name="revanced_copy">Αντιγραφή</string>
     <string name="revanced_custom_filter_strings_summary">Λίστα από συμβολοσειρές στοιχείων που θα φιλτραριστούν, διαχωρισμένες με νέες γραμμές.</string>
     <string name="revanced_custom_filter_strings_title">Επεξεργασία προσαρμοσμένου φίλτρου</string>
     <string name="revanced_custom_filter_summary_off">Το προσαρμοσμένο φίλτρο χρήστη είναι απενεργοποιημένο.</string>
@@ -226,7 +228,6 @@
     <string name="revanced_disable_ambient_mode_summary_off">Η λειτουργία περιβάλλοντος είναι ενεργοποιημένη.</string>
     <string name="revanced_disable_ambient_mode_summary_on">Η λειτουργία περιβάλλοντος είναι απενεργοποιημένη.</string>
     <string name="revanced_disable_ambient_mode_title">Απενεργοποίηση λειτουργίας περιβάλλοντος</string>
-    <string name="revanced_disable_auto_audio_tracks_not_available">Για να χρησιμοποιήσετε αυτή τη λειτουργία, πρέπει να γίνει αλλαγή του προεπιλεγμένου προγράμματος πελάτη σε TV, TV Simply ή iOS TV στις ρυθμίσεις «Παραποίηση δεδομένων ροής».</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">"Τα υποχρεωτικά κομμάτια ήχου είναι ενεργοποιημένα."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Τα υποχρεωτικά κομμάτια ήχου είναι απενεργοποιημένα.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Τα υποχρεωτικά κομμάτια ήχου είναι απενεργοποιημένα.
@@ -475,15 +476,6 @@
 Για να χρησιμοποιήσετε αυτή τη λειτουργία, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» στις ρυθμίσεις «Παραποίηση δεδομένων ροής» σε iOS TV, TV ή TV Simply.
 
 Σημείωση: Το πρόγραμμα πελάτη iOS TV δεν είναι διαθέσιμο σε ορισμένες περιοχές, οπότε αυτή η ρύθμιση μπορεί να μη λειτουργεί."</string>
-    <string name="revanced_extended_settings_export_failed">Αποτυχία εξαγωγής ρυθμίσεων.</string>
-    <string name="revanced_extended_settings_export_success">Οι ρυθμίσεις εξήχθησαν με επιτυχία.</string>
-    <string name="revanced_extended_settings_export_summary">Εξαγωγή ρυθμίσεων σε αρχείο.</string>
-    <string name="revanced_extended_settings_export_title">Εξαγωγή ρυθμίσεων</string>
-    <string name="revanced_extended_settings_import">Εισαγωγή</string>
-    <string name="revanced_extended_settings_import_reset">Οι ρυθμίσεις επαναφέρθηκαν στις προεπιλογές.</string>
-    <string name="revanced_extended_settings_import_summary">Εισαγωγή ρυθμίσεων από αποθηκευμένο αρχείο.</string>
-    <string name="revanced_extended_settings_import_title">Εισαγωγή ρυθμίσεων</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Εξωτερική εφαρμογή λήψης</string>
     <string name="revanced_external_downloader_empty_warning">Το όνομα πακέτου δεν μπορεί να είναι κενό</string>
     <string name="revanced_external_downloader_not_found_title">Η εφαρμογή δεν έχει εγκατασταθεί.</string>
@@ -980,9 +972,6 @@ Playlists
     <string name="revanced_hide_playlist_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_playlist_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_playlist_button_title">Κουμπί «Αποθήκευση»</string>
-    <string name="revanced_hide_podcast_section_summary_off">Εμφανίζεται</string>
-    <string name="revanced_hide_podcast_section_summary_on">Κρυμμένη</string>
-    <string name="revanced_hide_podcast_section_title">Ενότητα «Εξερευνήστε το podcast»</string>
     <string name="revanced_hide_preview_comment_off">Εμφανίζεται.</string>
     <string name="revanced_hide_preview_comment_on">Κρυμμένη.</string>
     <string name="revanced_hide_preview_comment_title">Προεπισκόπηση σχολίου</string>
@@ -1152,9 +1141,9 @@ Playlists
     <string name="revanced_hide_shopping_links_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_shopping_links_summary_on">Κρυμμένοι.</string>
     <string name="revanced_hide_shopping_links_title">Σύνδεσμοι αγορών στην περιγραφή βίντεο</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Εμφανίζεται</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Κρυμμένη</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_title">Ετικέτα αυτόματης μεταγλώττισης</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Εμφανίζεται.</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Κρυμμένη.</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_title">Ετικέτα «Αυτόματη μεταγλώττιση»</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_title">Κουμπί «Αγορά Super Thanks»</string>
@@ -1211,9 +1200,6 @@ Playlists
     <string name="revanced_hide_shorts_new_posts_button_summary_off">Εμφανίζεται</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_on">Κρυμμένο</string>
     <string name="revanced_hide_shorts_new_posts_button_title">Κουμπί «Νέες αναρτήσεις»</string>
-    <string name="revanced_hide_shorts_paid_promotion_label_summary_off">Εμφανίζονται.</string>
-    <string name="revanced_hide_shorts_paid_promotion_label_summary_on">Κρυμμένες.</string>
-    <string name="revanced_hide_shorts_paid_promotion_label_title">Ετικέτες προώθησης επί πληρωμή</string>
     <string name="revanced_hide_shorts_paused_header_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_shorts_paused_header_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_shorts_paused_header_title">Λογότυπο Shorts κατά την παύση</string>
@@ -1395,15 +1381,9 @@ Playlists
     <string name="revanced_hide_view_products_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_view_products_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_view_products_title">Ετικέτες για προβολή προϊόντων</string>
-    <string name="revanced_hide_visit_community_button_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_visit_community_button_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_visit_community_button_title">Κουμπί «Επισκεφτείτε την κοινότητα»</string>
     <string name="revanced_hide_visual_spacer_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_visual_spacer_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_visual_spacer_title">Οπτικό διαχωριστικό</string>
-    <string name="revanced_hide_visual_spacers_summary_off">Εμφανίζονται.</string>
-    <string name="revanced_hide_visual_spacers_summary_on">Κρυμμένα.</string>
-    <string name="revanced_hide_visual_spacers_title">Οπτικά διαχωριστικά</string>
     <string name="revanced_hide_voice_search_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_voice_search_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_voice_search_button_title">Κουμπί φωνητικής αναζήτησης</string>
@@ -1691,10 +1671,8 @@ Playlists
     <string name="revanced_preference_category_image_region_restrictions">Περιορισμοί περιοχής εικόνων</string>
     <string name="revanced_preference_category_import_export_as_file">Εισαγωγή / Εξαγωγή ως αρχείο</string>
     <string name="revanced_preference_category_import_export_as_text">Εισαγωγή / Εξαγωγή ως κείμενο</string>
-    <string name="revanced_preference_category_ios">iOS</string>
     <string name="revanced_preference_category_js">JavaScript</string>
     <string name="revanced_preference_category_keyword_filter">Φίλτρο λέξεων-κλειδιών</string>
-    <string name="revanced_preference_category_no_auth">Χωρίς σύνδεση χρήστη</string>
     <string name="revanced_preference_category_others">Άλλα</string>
     <string name="revanced_preference_category_overlay_buttons">Προσθήκη κουμπιών στην οθόνη αναπαραγωγής</string>
     <string name="revanced_preference_category_patch_information">Πληροφορίες τροποποίησης</string>
@@ -2086,6 +2064,7 @@ Playlists
     <string name="revanced_sb_settings_import_successful">Οι ρυθμίσεις εισήχθησαν επιτυχώς.</string>
     <string name="revanced_sb_settings_revanced_export_user_id_warning">Οι ρυθμίσεις σας περιέχουν ένα ιδιωτικό αναγνωριστικό χρήστη SponsorBlock.\n\nΑυτό είναι σαν έναν κωδικό πρόσβασης και δεν πρέπει ποτέ να το μοιραστείτε.\n</string>
     <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Να μην εμφανιστεί ξανά</string>
+    <string name="revanced_sb_share_copy_settings_success">Οι ρυθμίσεις αντιγράφηκαν στο πρόχειρο.</string>
     <string name="revanced_sb_skip_automatically">Αυτόματη παράλειψη</string>
     <string name="revanced_sb_skip_automatically_once">Αυτόματη παράλειψη μία φορά</string>
     <string name="revanced_sb_skip_button_compact">Παράλειψη</string>
@@ -2174,6 +2153,8 @@ Playlists
     <string name="revanced_sb_vote_no_segments">Δεν υπάρχουν τμήματα προς ψήφιση.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s έως %2$s</string>
     <string name="revanced_sb_vote_upvote">Θετική ψήφος</string>
+    <string name="revanced_search_settings_category_title">Αναζήτηση ρυθμίσεων</string>
+    <string name="revanced_search_title">Αναζήτηση</string>
     <string name="revanced_set_transcript_cookies_all_summary_off">Τα Cookies έχουν οριστεί μόνο για τα αιτήματα αυτόματης μετάφρασης υποτίτλων.</string>
     <string name="revanced_set_transcript_cookies_all_summary_on">Τα cookies έχουν οριστεί για όλα τα αιτήματα Transcript API.</string>
     <string name="revanced_set_transcript_cookies_all_title">Ορισμός των Cookies για όλα τα αιτήματα Transcript API</string>
@@ -2268,6 +2249,7 @@ Playlists
     <string name="revanced_shorts_custom_actions_speed_dialog_title">Εμφάνιση μενού αλλαγής ταχύτητας</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_type_title">Τύπος μενού αλλαγής ταχύτητας αναπαραγωγής</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message">Το μενού αλλαγής ταχύτητας μοντέρνου στυλ ενδέχεται να μη λειτουργεί στις εκδόσεις YouTube 19.01-19.34.</string>
+    <string name="revanced_shorts_custom_actions_speed_label">Ταχύτητα αναπαραγωγής</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Προσαρμοσμένες ενέργειες</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Προεπιλογή</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Αντίχειρας προς τα πάνω</string>
@@ -2326,49 +2308,20 @@ Playlists
 • Ενδέχεται να ξεκλειδωθούν υψηλότερες ποιότητες βίντεο σε ορισμένα βίντεο που απαιτούν μεγάλες διαστάσεις συσκευής, αλλά όχι σε όλα.
 • Αυτή η λειτουργία δεν είναι διαθέσιμη αν η λειτουργία «Παραποίηση ροών βίντεο» είναι ενεργοποιημένη."</string>
     <string name="revanced_spoof_device_dimensions_title">Παραποίηση διαστάσεων συσκευής</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_summary_off">Το κουμπί κομματιού ήχου δεν εμφανίζεται.</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_summary_on">"Το κουμπί αλλαγής κομματιού ήχου εμφανίζεται όταν το πρόγραμμα πελάτη που χρησιμοποιείται για την παραποίηση δεδομένων ροής είναι το «Android VR», το «Web Κινητού», ή το «visionOS»."</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_title">Εμφάνιση κουμπιού κομματιού ήχου</string>
-    <string name="revanced_spoof_streaming_data_audio_track_button_user_dialog_message">"Προαπαιτούμενο:
-• Το πρόγραμμα πελάτη για την παραποίηση των δεδομένων ροής είναι το «Android VR», το «Web Κινητού», ή το «visionOS».
-• Αναπαράγεται ένα βίντεο με πολλά διαθέσιμα κομμάτια ήχου.
-
-Γνωστά θέματα:
-• Αν αλλάξει η γλώσσα εφαρμογής από τις ρυθμίσεις του YouTube χωρίς επανεκκίνηση, η γλώσσα στο παράθυρο επιλογής κομματιού ήχου ενδέχεται να μην ενημερωθεί.
-• Κάποιες φορές μπορεί να επιλεχτεί λάθος κομμάτι ήχου.
-• Ορισμένα κομμάτια ήχου, όπως τα «Αγγλικά με περιγραφή», δεν υποστηρίζονται.
-
-Η λειτουργία αυτή είναι ακόμη υπό ανάπτυξη, και μπορεί να πάψει να λειτουργεί ανά πάσα στιγμή λόγω αλλαγών από πλευράς διακομιστή."</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Απαιτείται σύνδεση)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
 <small>(No SDK)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
 <small>(χωρίς σύνδεση χρήστη)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">"Android VR
-<small>(με σύνδεση χρήστη, απαιτείται ενέργεια)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_ios_deprecated">"iOS
-<small>(Ξεπερασμένο)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_ipados">"iPadOS
-<small>(Ξεπερασμένο)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">"Web Κινητού
-<small>(λειτουργία σε εξέλιξη)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
 <small>(Παλιό)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken">"TV Simply
-<small>(Χωρίς PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Ακυκλοφόρητο)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Αδυναμία λήψης ροής του προγράμματος πελάτη.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Δοκιμάστε να αλλάξετε το προεπιλεγμένο πρόγραμμα πελάτη παραποίησης δεδομένων ροής σε TV.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο ορίζεται αυτόματα.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο έχει οριστεί υποχρεωτικά σε AVC (H.264).</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Εξαναγκασμός iOS AVC (H.264)</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Η ενεργοποίηση αυτής της λειτουργίας ενδέχεται να βελτιώσει τη διάρκεια ζωής της μπαταρίας και να διορθώσει κολλήματα αναπαραγωγής.
-
-Ο AVC έχει μέγιστη ανάλυση 1080p, ο κωδικοποιητής ήχου Opus δεν είναι διαθέσιμος και η αναπαραγωγή βίντεο θα χρησιμοποιεί περισσότερα δεδομένα ίντερνετ από τον VP9 ή τον AV1."</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Προτεραιοποιούνται οι κωδικοποιητές βίντεο.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Προτεραιοποιείται η ποιότητα βίντεο.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Προτεραιοποίηση ποιότητας βίντεο</string>
@@ -2502,13 +2455,6 @@ Playlists
 (Προαπαιτούμενα: Οι ρυθμίσεις «Εμφάνιση κουμπιού επαναφόρτωσης βίντεο» και «Να εμφανίζεται πάντα το κουμπί επαναφόρτωσης βίντεο» πρέπει να είναι ενεργοποιημένες»)
 
 Μεταξύ των προγραμμάτων πελάτη JavaScript, το προτεινόμενο είναι το TV."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_js_summary_off">"Η JavaScript που χρησιμοποιείται για την αποσυσκότιση δεν διατηρείται ενημερωμένη.
-
-• Χρησιμοποιείται η έκδοση που πετυχαίνει στην αποσυσκότιση, αλλά παραμένει σε κάποιο βαθμό εξαρτημένη από τον διακομιστή."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_js_summary_on">"Η JavaScript που χρησιμοποιείται για την αποσυσκότιση διατηρείται ενημερωμένη.
-
-• Εξαρτάται σε μεγάλο βαθμό από τον διακομιστή, και η επιτυχία ή η αποτυχία της αποσυσκότισης βασίζεται στην έκδοση που χρησιμοποιείται εκείνη τη στιγμή στον διακομιστή."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_js_title">Χρήση τελευταίας εκδόσεως JavaScript</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"Η Player JavaScript για αποσυσκότιση δεν τηρείται ενημερωμένη.
 
 • Χρησιμοποιείται η έκδοση Player JavaScript που πετυχαίνει στην αποσυσκότιση, αλλά παραμένει σε κάποιο βαθμό εξαρτημένη από τον διακομιστή."</string>
@@ -2526,49 +2472,9 @@ Playlists
 • Η Player JavaScript για την αποσυσκότιση διατηρείται ενημερωμένη.
 • Μπορεί να χρειαστούν από 5 έως 15 δευτερόλεπτα για να ξεκινήσει η αναπαραγωγή του βίντεο."</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Χρήση του yt-dlp ejs (λειτουργία σε εξέλιξη)</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_user_dialog_message">"Λόγω των νέων μέτρων του YouTube, δεν είναι πλέον δυνατή η αποκρυπτογράφηση των urls ροής χρησιμοποιώντας γενικές μεθόδους στην τελευταία Player JavaScript.
-
-Χρησιμοποιείται η εξωτερική JavaScript για το yt-dlp (yt-dlp-ejs) για την αποκρυπτογράφηση των urls ροής στην τελευταία Player JavaScript.
-
-Είναι ακόμη υπό ανάπτυξη και θα χρησιμοποιήσει περισσότερους πόρους συστήματος."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Κωδικός ενεργοποίησης:
-%s
-
-1. Πατήστε «Άνοιγμα ιστοσελίδας» για να μεταβείτε στο 'https://yt.be/activate'.
-2. Εισάγετε τον κωδικό ενεργοποίησης.
-3. Συνδεθείτε όταν σας ζητηθεί. Αν έχετε πολλαπλούς λογαριασμούς Google, επιλέξτε τον λογαριασμό που χρησιμοποιείτε με το YouTube. Αν έχετε συνδεθεί ήδη, συνεχίστε στο επόμενο βήμα.
-4. Μόλις συνδεθείτε, επιστρέψτε στο RVX και πατήστε το «Σχετικά με το Android VR (με σύνδεση χρήστη)» ξανά.
-5. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να λάβετε διακριτικό εξουσιοδότησης."</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Κωδικός ενεργοποίησης</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Ο κωδικός αντιγράφηκε στο πρόχειρο: %s.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Πατήστε για να δείτε πώς να αποκτήσετε ένα διακριτικό εξουσιοδότησης.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Σχετικά με το Android VR (με σύνδεση χρήστη)</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Λήψη κωδικού ενεργοποίησης</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Λήψη διακριτικού εξουσιοδότησης</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Για να αποκτήσετε ένα διακριτικό εξουσιοδότησης για χρήση του πελάτη Android VR, θα πρέπει να συνδεθείτε στο YouTube VR χρησιμοποιώντας έναν κωδικό ενεργοποίησης:
-
-1. Πατήστε «Λήψη κωδικού ενεργοποίησης» για να δημιουργήσετε έναν κωδικό ενεργοποίησης.
-2. Πατήστε «Άνοιγμα ιστοσελίδας» για να μεταβείτε στο 'https://yt.be/activate'.
-3. Εισάγετε τον κωδικό ενεργοποίησης.
-4. Συνδεθείτε όταν σας ζητηθεί. Αν έχετε πολλαπλούς λογαριασμούς Google, επιλέξτε τον λογαριασμό που χρησιμοποιείτε με το YouTube. Αν έχετε συνδεθεί ήδη, συνεχίστε στο επόμενο βήμα.
-5. Μόλις συνδεθείτε, επιστρέψτε στο RVX και πατήστε το «Σχετικά με το Android VR (με σύνδεση χρήστη)» ξανά.
-6. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να λάβετε διακριτικό εξουσιοδότησης.
-
-※ Πατήστε «Επαναφορά» για να καταργήσετε το διακριτικό εξουσιοδότησης ή τον κωδικό ενεργοποίησης."</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Επαναφορά</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Λήψη Διακριτικού Εξουσιοδότησης</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Το διακριτικό και ο κωδικός επαναφέρθηκαν.</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Το διακριτικό εξουσιοδότησης αποθηκεύτηκε.</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_off">Ο κωδικοποιητής βίντεο είναι ο AVC (H.264) ή ο VP9.</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_summary_on">"Ο κωδικοποιητής βίντεο είναι ο AVC (H.264), ο VP9 ή ο AV1.
-
-Η αναπαραγωγή μπορεί να κομπιάζει ή να χάνει καρέ."</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_title">Ενεργοποίηση VR AV1</string>
-    <string name="revanced_spoof_streaming_data_vr_enable_av1_user_dialog_message">"Η ενεργοποίηση αυτής της ρύθμισης ενδέχεται να έχει ως αποτέλεσμα τη χρήση αποκωδικοποίησης AV1.
-
-Η αναπαραγωγή μπορεί να κομπιάζει ή να χάνει καρέ."</string>
     <string name="revanced_swipe_brightness_summary_off">Η χειρονομία σάρωσης για αλλαγή φωτεινότητας στην πλήρη οθόνη είναι απενεργοποιημένη.</string>
     <string name="revanced_swipe_brightness_summary_on">"Η χειρονομία σάρωσης για αλλαγή φωτεινότητας στην πλήρη οθόνη είναι ενεργοποιημένη.
 

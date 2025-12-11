@@ -626,19 +626,9 @@ fun spoofStreamingDataPatch(
 
         // endregion
 
-        var patchStatusArray = arrayOf(
-            "SpoofStreamingData"
-        )
-
-        if (isYouTube()) {
-            patchStatusArray += "SpoofStreamingDataYouTube"
-        }
-
-        patchStatusArray.forEach { methodName ->
-            findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
-                name == methodName
-            }.returnEarly(true)
-        }
+        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
+            name == "SpoofStreamingData"
+        }.returnEarly(true)
 
         executeBlock()
     }
