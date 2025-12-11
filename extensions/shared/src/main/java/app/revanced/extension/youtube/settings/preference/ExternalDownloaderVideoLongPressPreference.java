@@ -34,10 +34,10 @@ import java.util.Objects;
 import java.util.function.Function;
 
 import app.revanced.extension.shared.settings.StringSetting;
-import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.utils.ThemeUtils;
 
@@ -46,7 +46,7 @@ import app.revanced.extension.youtube.utils.ThemeUtils;
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class ExternalDownloaderVideoLongPressPreference extends CustomDialogListPreference {
-    private static final StringSetting settings = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME_PLAYLIST;
+    private static final StringSetting settings = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME_VIDEO_LONG_PRESS;
 
     /**
      * Enum representing supported external downloaders with their display names, package names, and download URLs.
@@ -54,7 +54,8 @@ public class ExternalDownloaderVideoLongPressPreference extends CustomDialogList
     private enum Downloader {
         YTDLNIS("YTDLnis",
                 "com.deniscerri.ytdl",
-                "https://ytdlnis.org"),
+                "https://ytdlnis.org",
+                true),
         SEAL("Seal",
                 "com.junkfood.seal",
                 "https://github.com/JunkFood02/Seal/releases/latest",
@@ -92,6 +93,7 @@ public class ExternalDownloaderVideoLongPressPreference extends CustomDialogList
 
         /**
          * Finds a Downloader by its package name. This method can never return {@link #OTHER}.
+         *
          * @return The Downloader enum or null if not found.
          */
         @Nullable
@@ -283,10 +285,12 @@ public class ExternalDownloaderVideoLongPressPreference extends CustomDialogList
         editText.setEnabled(usingCustomDownloader);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable edit) {
@@ -321,7 +325,8 @@ public class ExternalDownloaderVideoLongPressPreference extends CustomDialogList
                                 str("revanced_external_downloader_empty_warning"),
                                 null,
                                 null,
-                                () -> {}, // OK button does nothing (dismiss only).
+                                () -> {
+                                }, // OK button does nothing (dismiss only).
                                 null,
                                 null,
                                 null,
@@ -339,7 +344,8 @@ public class ExternalDownloaderVideoLongPressPreference extends CustomDialogList
                         setValue(newValue);
                     }
                 },
-                () -> {}, // Cancel button action (dismiss only).
+                () -> {
+                }, // Cancel button action (dismiss only).
                 str("revanced_settings_reset"),
                 () -> { // Reset action.
                     String defaultValue = settings.defaultValue;
@@ -436,7 +442,8 @@ public class ExternalDownloaderVideoLongPressPreference extends CustomDialogList
                         Logger.printException(() -> "Failed to open downloader URL: " + downloader, ex);
                     }
                 },
-                () -> {}, // Cancel button action (dismiss only).
+                () -> {
+                }, // Cancel button action (dismiss only).
                 null,
                 null,
                 false
