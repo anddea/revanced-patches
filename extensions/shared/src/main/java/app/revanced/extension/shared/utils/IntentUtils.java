@@ -49,33 +49,13 @@ public class IntentUtils extends Utils {
                                              boolean clearCookiesOnShutDown,
                                              boolean useDesktopUserAgent,
                                              String url) {
-        launchWebViewActivity(
-                mContext,
-                clearCookiesOnStartUp,
-                clearCookiesOnShutDown,
-                true,
-                useDesktopUserAgent,
-                false,
-                url
-        );
-    }
-
-    public static void launchWebViewActivity(Context mContext,
-                                             boolean clearCookiesOnStartUp,
-                                             boolean clearCookiesOnShutDown,
-                                             boolean showToolbar,
-                                             boolean useDesktopUserAgent,
-                                             boolean useReferer,
-                                             String url) {
         try {
             Intent intent = new Intent();
             intent.setPackage(mContext.getPackageName());
             intent.setData(Uri.parse("revanced_webview"));
             intent.putExtra("clearCookiesOnStartUp", clearCookiesOnStartUp);
             intent.putExtra("clearCookiesOnShutDown", clearCookiesOnShutDown);
-            intent.putExtra("showToolbar", showToolbar);
             intent.putExtra("useDesktopUserAgent", useDesktopUserAgent);
-            intent.putExtra("useReferer", useReferer);
             intent.putExtra("url", url);
             intent.setClassName(mContext, PatchStatus.WebViewActivityClass());
             mContext.startActivity(intent);

@@ -32,8 +32,6 @@ public class SpoofStreamingDataAuthTokenDialogBuilder {
                 true,
                 true,
                 false,
-                false,
-                true,
                 "https://accounts.google.com/EmbeddedSetup"
         ));
         builder.show();

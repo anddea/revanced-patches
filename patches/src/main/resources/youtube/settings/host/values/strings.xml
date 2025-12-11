@@ -706,6 +706,9 @@ Limitation: Some highlighted search links that do not have a default text style 
     <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is shown.</string>
     <string name="revanced_hide_comments_thanks_button_summary_on">Thanks button is hidden.</string>
     <string name="revanced_hide_comments_thanks_button_title">Hide Thanks button</string>
+    <string name="revanced_hide_community_button_summary_off">Community button is shown.</string>
+    <string name="revanced_hide_community_button_summary_on">Community button is hidden.</string>
+    <string name="revanced_hide_community_button_title">Hide Community button</string>
     <string name="revanced_hide_community_posts_channel_summary_off">Shown in channel page.</string>
     <string name="revanced_hide_community_posts_channel_summary_on">Hidden in channel page.</string>
     <string name="revanced_hide_community_posts_channel_title">Hide in channel page</string>
@@ -816,6 +819,9 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_hide_info_panel_summary_off">Info panels are shown.</string>
     <string name="revanced_hide_info_panel_summary_on">Info panels are hidden.</string>
     <string name="revanced_hide_info_panel_title">Hide info panels</string>
+    <string name="revanced_hide_join_button_in_channel_page_summary_off">Join button is shown.</string>
+    <string name="revanced_hide_join_button_in_channel_page_summary_on">Join button is hidden.</string>
+    <string name="revanced_hide_join_button_in_channel_page_title">Hide Join button</string>
     <string name="revanced_hide_join_button_summary_off">Join button is shown.</string>
     <string name="revanced_hide_join_button_summary_on">Join button is hidden.</string>
     <string name="revanced_hide_join_button_title">Hide Join button</string>
@@ -1188,6 +1194,9 @@ Info:
     <string name="revanced_hide_shopping_links_summary_off">Shopping links in video description are shown.</string>
     <string name="revanced_hide_shopping_links_summary_on">Shopping links in video description are hidden.</string>
     <string name="revanced_hide_shopping_links_title">Hide shopping links</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Auto-dubbed label is shown.</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Auto-dubbed label is hidden.</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_title">Hide Auto-dubbed label</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_off">Buy Super Thanks button is shown.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_on">Buy Super Thanks button is hidden.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_title">Hide Buy Super Thanks button</string>
@@ -1227,6 +1236,9 @@ Info:
     <string name="revanced_hide_shorts_live_header_summary_off">Live chat header is shown.</string>
     <string name="revanced_hide_shorts_live_header_summary_on">Live chat header is hidden.\n\nBack button in header will not be hidden.</string>
     <string name="revanced_hide_shorts_live_header_title">Hide live chat header</string>
+    <string name="revanced_hide_shorts_live_preview_summary_off">Live preview is shown.</string>
+    <string name="revanced_hide_shorts_live_preview_summary_on">Live preview is hidden.\n\nEven if this is enabled, Shorts live streams are not completely removed from the Shorts sequence.</string>
+    <string name="revanced_hide_shorts_live_preview_title">Hide live preview</string>
     <string name="revanced_hide_shorts_location_button_summary_off">Location button is shown.</string>
     <string name="revanced_hide_shorts_location_button_summary_on">Location button is hidden.</string>
     <string name="revanced_hide_shorts_location_button_title">Hide location button</string>
@@ -1248,8 +1260,8 @@ Info:
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">Play &amp; Pause button background is shown.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">Play &amp; Pause button background is hidden.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">Hide Play &amp; Pause button background</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_off">Preview comment is shown</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_on">Preview comment is hidden</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_off">Preview comment is shown.</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_on">Preview comment is hidden.</string>
     <string name="revanced_hide_shorts_preview_comment_title">Hide preview comment</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">Remix button is shown.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">Remix button is hidden.</string>
@@ -1340,6 +1352,12 @@ Side effect: Official headers in search results will be hidden."</string>
     <string name="revanced_hide_stop_ads_button_summary_off">Stop ads button is shown.</string>
     <string name="revanced_hide_stop_ads_button_summary_on">Stop ads button is hidden.</string>
     <string name="revanced_hide_stop_ads_button_title">Hide Stop ads</string>
+    <string name="revanced_hide_store_button_summary_off">Store button is shown.</string>
+    <string name="revanced_hide_store_button_summary_on">Store button is hidden.</string>
+    <string name="revanced_hide_store_button_title">Hide Store button</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Subscribe button is shown.</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Subscribe button is hidden.</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_title">Hide Subscribe button</string>
     <string name="revanced_hide_subscribe_button_summary_off">Subscribe button is shown.</string>
     <string name="revanced_hide_subscribe_button_summary_on">Subscribe button is hidden.</string>
     <string name="revanced_hide_subscribe_button_title">Hide Subscribe button</string>
@@ -1417,9 +1435,9 @@ Limitations:
     <string name="revanced_hide_visit_community_button_summary_off">Visit Community button is shown.</string>
     <string name="revanced_hide_visit_community_button_summary_on">Visit Community button is hidden.</string>
     <string name="revanced_hide_visit_community_button_title">Hide Visit Community button</string>
-    <string name="revanced_hide_visit_store_button_summary_off">Visit store button is shown.</string>
-    <string name="revanced_hide_visit_store_button_summary_on">Visit store button is hidden.</string>
-    <string name="revanced_hide_visit_store_button_title">Hide Visit store button</string>
+    <string name="revanced_hide_visual_spacer_summary_off">Visual spacer is shown.</string>
+    <string name="revanced_hide_visual_spacer_summary_on">Visual spacer is hidden.</string>
+    <string name="revanced_hide_visual_spacer_title">Hide visual spacer</string>
     <string name="revanced_hide_visual_spacers_summary_off">Visual spacers are shown.</string>
     <string name="revanced_hide_visual_spacers_summary_on">Visual spacers are hidden.</string>
     <string name="revanced_hide_visual_spacers_title">Hide visual spacers</string>

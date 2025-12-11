@@ -1,5 +1,7 @@
 <div align="center"> 
+<img src="assets/rvx-logo.png" alt="RVX logo" width="128">
 
+    
 ## 🧩 ReVanced Extended Patches
 [![Static Badge](https://img.shields.io/badge/RVX_Wiki-gray?logo=github)](https://github.com/anddea/revanced-patches/wiki)   [![Static Badge](https://img.shields.io/badge/Translations-gray?logo=crowdin)](https://rvxtranslate.netlify.app/)
 <br>

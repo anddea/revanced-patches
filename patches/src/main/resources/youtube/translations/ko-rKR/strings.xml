@@ -201,7 +201,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
     <string name="revanced_debug_logs_clear_buffer_title">디버그 로그 지우기</string>
     <string name="revanced_debug_logs_clear_toast">로그를 지웠습니다.</string>
     <string name="revanced_debug_logs_copied_to_clipboard">로그를 복사하였습니다.</string>
-    <string name="revanced_debug_logs_disabled">디버그 로깅이 비활성화되어 있습니다.</string>
+    <string name="revanced_debug_logs_disabled">디버그 로그가 비활성화되어 있습니다.</string>
     <string name="revanced_debug_logs_export_success">로그를 성공적으로 내보냈습니다.</string>
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">로그가 너무 커서 복사할 수 없습니다.</string>
     <string name="revanced_debug_logs_failed_to_export">로그를 내보낼 수 없습니다: $s.</string>
@@ -212,9 +212,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
     <string name="revanced_debug_spannable_summary_off">디버그 로그에 스패너블을 포함하지 않습니다.</string>
     <string name="revanced_debug_spannable_summary_on">디버그 로그에 스패너블을 포함합니다.</string>
     <string name="revanced_debug_spannable_title">로그 스패너블</string>
-    <string name="revanced_debug_summary_off">디버그 로깅을 비활성화합니다.</string>
-    <string name="revanced_debug_summary_on">디버그 로깅을 활성화합니다.</string>
-    <string name="revanced_debug_title">디버그 로깅 활성화하기</string>
+    <string name="revanced_debug_summary_off">디버그 로그를 비활성화합니다.</string>
+    <string name="revanced_debug_summary_on">디버그 로그를 활성화합니다.</string>
+    <string name="revanced_debug_title">디버그 로그 활성화하기</string>
     <string name="revanced_debug_toast_on_error_summary_off">오류가 발생했을 경우에 팝업 메시지를 표시하지 않습니다.</string>
     <string name="revanced_debug_toast_on_error_summary_on">오류가 발생했을 경우에 팝업 메시지를 표시합니다.</string>
     <string name="revanced_debug_toast_on_error_title">RVX 오류 메시지 표시하기</string>
@@ -718,6 +718,9 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_comments_thanks_button_summary_off">Thanks 버튼이 표시됩니다.</string>
     <string name="revanced_hide_comments_thanks_button_summary_on">Thanks 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_comments_thanks_button_title">Thanks 버튼 숨기기</string>
+    <string name="revanced_hide_community_button_summary_off">커뮤니티 버튼이 표시됩니다.</string>
+    <string name="revanced_hide_community_button_summary_on">커뮤니티 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_community_button_title">커뮤니티 버튼 숨기기</string>
     <string name="revanced_hide_community_posts_channel_summary_off">채널 페이지에서 표시됩니다.</string>
     <string name="revanced_hide_community_posts_channel_summary_on">채널 페이지에서 숨겨집니다.</string>
     <string name="revanced_hide_community_posts_channel_title">채널 페이지에서 숨기기</string>
@@ -828,6 +831,9 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_info_panel_summary_off">정보 패널이 표시됩니다.</string>
     <string name="revanced_hide_info_panel_summary_on">정보 패널이 숨겨집니다.</string>
     <string name="revanced_hide_info_panel_title">정보 패널 숨기기</string>
+    <string name="revanced_hide_join_button_in_channel_page_summary_off">가입 버튼이 표시됩니다.</string>
+    <string name="revanced_hide_join_button_in_channel_page_summary_on">가입 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_join_button_in_channel_page_title">가입 버튼 숨기기</string>
     <string name="revanced_hide_join_button_summary_off">가입 버튼이 표시됩니다.</string>
     <string name="revanced_hide_join_button_summary_on">가입 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_join_button_title">가입 버튼 숨기기</string>
@@ -1200,6 +1206,9 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_shopping_links_summary_off">동영상 설명에서 쇼핑 링크가 표시됩니다.</string>
     <string name="revanced_hide_shopping_links_summary_on">동영상 설명에서 쇼핑 링크가 숨겨집니다.</string>
     <string name="revanced_hide_shopping_links_title">쇼핑 링크 숨기기</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">자동 더빙 라벨이 표시됩니다</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">자동 더빙 라벨이 숨겨집니다</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_title">자동 더빙 라벨 숨기기</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_off">Super Thanks 구매 버튼이 표시됩니다.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_on">Super Thanks 구매 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_title">Super Thanks 구매 버튼 숨기기</string>
@@ -1239,6 +1248,9 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_shorts_live_header_summary_off">실시간 채팅 헤더(상단 채널바)가 표시됩니다.</string>
     <string name="revanced_hide_shorts_live_header_summary_on">실시간 채팅 헤더(상단 채널바)가 숨겨집니다.\n\n헤더에서 뒤로 가기 버튼은 숨길 수 없습니다.</string>
     <string name="revanced_hide_shorts_live_header_title">실시간 채팅 헤더 숨기기</string>
+    <string name="revanced_hide_shorts_live_preview_summary_off">라이브 미리보기가 표시됩니다.</string>
+    <string name="revanced_hide_shorts_live_preview_summary_on">라이브 미리보기가 숨겨집니다.\n\n이 기능이 활성화되어 있더라도 Shorts 라이브 스트림은 Shorts 시퀀스에서 완전히 제거되지 않습니다.</string>
+    <string name="revanced_hide_shorts_live_preview_title">라이브 미리보기 숨기기</string>
     <string name="revanced_hide_shorts_location_button_summary_off">위치 버튼이 표시됩니다.</string>
     <string name="revanced_hide_shorts_location_button_summary_on">위치 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_location_button_title">위치 버튼 숨기기</string>
@@ -1260,8 +1272,8 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">재생 &amp; 일시 정지 버튼 배경이 표시됩니다.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">재생 &amp; 일시 정지 버튼 배경이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">재생 &amp; 일시 정지 버튼 배경 숨기기</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_off">댓글 미리보기가 표시됩니다</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_on">댓글 미리보기가 숨겨집니다</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_off">댓글 미리보기가 표시됩니다.</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_on">댓글 미리보기가 숨겨집니다.</string>
     <string name="revanced_hide_shorts_preview_comment_title">댓글 미리보기 숨기기</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">리믹스 버튼이 표시됩니다.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">리믹스 버튼이 숨겨집니다.</string>
@@ -1354,6 +1366,12 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_stop_ads_button_summary_off">광고 중지 버튼이 표시됩니다.</string>
     <string name="revanced_hide_stop_ads_button_summary_on">광고 중지 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_stop_ads_button_title">광고 중지 버튼 숨기기</string>
+    <string name="revanced_hide_store_button_summary_off">스토어 버튼이 표시됩니다.</string>
+    <string name="revanced_hide_store_button_summary_on">스토어 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_store_button_title">스토어 버튼 숨기기</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">구독 버튼이 표시됩니다.</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">구독 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_title">구독 버튼 숨기기</string>
     <string name="revanced_hide_subscribe_button_summary_off">구독 버튼이 표시됩니다.</string>
     <string name="revanced_hide_subscribe_button_summary_on">구독 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_subscribe_button_title">구독 버튼 숨기기</string>
@@ -1431,9 +1449,9 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_visit_community_button_summary_off">커뮤니티 방문 버튼이 표시됩니다.</string>
     <string name="revanced_hide_visit_community_button_summary_on">커뮤니티 방문 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_visit_community_button_title">커뮤니티 방문 버튼 숨기기</string>
-    <string name="revanced_hide_visit_store_button_summary_off">스토어 방문 버튼이 표시됩니다.</string>
-    <string name="revanced_hide_visit_store_button_summary_on">스토어 방문 버튼이 숨겨집니다.</string>
-    <string name="revanced_hide_visit_store_button_title">스토어 방문 버튼 숨기기</string>
+    <string name="revanced_hide_visual_spacer_summary_off">시각적 공백이 표시됩니다.</string>
+    <string name="revanced_hide_visual_spacer_summary_on">시각적 공백이 숨겨집니다.</string>
+    <string name="revanced_hide_visual_spacer_title">시각적 공백 숨기기</string>
     <string name="revanced_hide_visual_spacers_summary_off">동영상들 사이에서 회색 구분선이 표시됩니다.</string>
     <string name="revanced_hide_visual_spacers_summary_on">동영상들 사이에서 회색 구분선이 숨겨집니다.</string>
     <string name="revanced_hide_visual_spacers_title">시각적 공백 숨기기</string>
@@ -1664,7 +1682,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
 길게 탭하면 타임스탬프가 표기된 동영상 URL이 복사됩니다."</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"버튼을 탭하여 타임스탬프가 표기된 동영상 URL을 복사할 수 있습니다.
 길게 탭하면 타임스탬프가 복사됩니다."</string>
-    <string name="revanced_overlay_button_copy_video_url_timestamp_title">타임스탬프가 표기된 URL 복사 버튼 표시하기</string>
+    <string name="revanced_overlay_button_copy_video_url_timestamp_title">타임스탬프 URL 복사 버튼 표시하기</string>
     <string name="revanced_overlay_button_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_summary">외부 다운로더가 아닌 현재 재생목록 관리자를 실행할 수 있습니다.</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">현재 재생목록 관리자</string>
@@ -1788,8 +1806,8 @@ Gemini API Key를 발급받으려면 여기를 누르세요."</string>
     <string name="revanced_preference_screen_community_posts_title">커뮤니티 게시물</string>
     <string name="revanced_preference_screen_custom_filter_summary">사용자 정의 필터를 사용하여 구성요소를 숨길 수 있습니다.</string>
     <string name="revanced_preference_screen_custom_filter_title">사용자 정의 필터</string>
-    <string name="revanced_preference_screen_debugging_summary">디버깅 옵션을 활성화하거나 비활성화할 수 있습니다.</string>
-    <string name="revanced_preference_screen_debugging_title">디버깅</string>
+    <string name="revanced_preference_screen_debugging_summary">디버그 옵션을 활성화하거나 비활성화할 수 있습니다.</string>
+    <string name="revanced_preference_screen_debugging_title">디버그</string>
     <string name="revanced_preference_screen_feed_flyout_menu_summary">피드에서 메뉴 구성요소를 숨기거나 표시할 수 있습니다.</string>
     <string name="revanced_preference_screen_feed_flyout_menu_title">메뉴 구성요소</string>
     <string name="revanced_preference_screen_feed_title">피드</string>
@@ -1873,7 +1891,7 @@ Gemini API Key를 발급받으려면 여기를 누르세요."</string>
 
 이 기능은 아직 개발 중이므로 대부분의 기능이 작동하지 않을 수 있습니다.
 
-디버깅 목적으로만 사용하세요."</string>
+디버그 목적으로만 사용하세요."</string>
     <string name="revanced_queue_manager_video_information">동영상 정보</string>
     <string name="revanced_queue_manager_video_information_copy">복사</string>
     <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"채널
@@ -2770,7 +2788,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV입니다
 고지 사항: 로그인하지 않고 발급된 Cookies는 유효하지 않거나 스크립트 API에서 사용할 수 있게 되는 데 시간이 걸릴 수 있습니다."</string>
     <string name="revanced_transcript_cookies_dialog_no_auth_text">인증 없음</string>
     <string name="revanced_transcript_cookies_dialog_title">스크립트 Cookies 내보내기</string>
-    <string name="revanced_transcript_cookies_summary">스크립트 API 요청에 사용될 Cookes를 설정할 수 있습니다.</string>
+    <string name="revanced_transcript_cookies_summary">스크립트 API 요청에 사용될 Cookies를 설정할 수 있습니다.</string>
     <string name="revanced_transcript_cookies_title">스크립트 Cookies</string>
     <string name="revanced_watch_history_about_status_blocked">• 시청 기록이 차단됩니다.</string>
     <string name="revanced_watch_history_about_status_original">"• Google 계정의 시청 기록 설정을 따릅니다.

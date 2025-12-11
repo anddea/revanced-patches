@@ -412,7 +412,7 @@
     <string name="revanced_ryd_dislike_percentage_summary">Вместо числа отметок \"Не нравится\", они отображаются как процент.</string>
     <string name="revanced_ryd_dislike_percentage_title">Кол-во отметок \"Не нравится\" в процентах</string>
     <string name="revanced_ryd_enabled_summary">Отображает количество отметок \"Не нравится\" в видео.</string>
-    <string name="revanced_ryd_enabled_title">Включить Return YouTube Dislike</string>
+    <string name="revanced_ryd_enabled_title">Включить Вернуть YouTube Dislike</string>
     <string name="revanced_ryd_estimated_like_summary">Показывает примерное количество лайков видео.</string>
     <string name="revanced_ryd_estimated_like_title">Показать приблизительное количество лайков</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Отметки \"Не нравится\" недоступны (достигнут лимит клиентов сервера API).</string>
@@ -552,6 +552,19 @@
     <string name="revanced_spoof_streaming_data_failed_forbidden">Не получены клиентские потоки.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Попробуйте изменить клиент по умолчанию на TV.</string>
     <string name="revanced_spoof_streaming_data_message">Если у вас возникли какие-либо проблемы с воспроизведением, включите функцию \"Подмена потоковых данных\" в &lt;i&gt;&lt;u&gt;Настройки &gt; %s &gt; Разное &lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Нажмите, чтобы посмотреть, как получить токен авторизации.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">О Android No SDK авторизации</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_get_authorization_token_text">Получить токен авторизации</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_message">"Для получения токена авторизации для Android No SDK, необходимо войти в свою учётную запись Google, как при использовании GmsCore:
+
+1. Нажмите 'Получить токен авторизации', чтобы открыть страницу входа в WebView.
+2. Войдите в свою учётную запись Google.
+
+※ Нажмите 'Сброс', чтобы удалить токен авторизации."</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_reset_text">Сброс</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_dialog_title">Получить токен авторизации</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_reset">Токен аутентификации сброшен.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_toast_success">Токен аутентификации сохранен.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показывает клиент, используемый для получения потоковых данных в Статистике для сисадминов.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показывать в \"Статистике для сисадминов\"</string>
     <string name="revanced_spoof_streaming_data_summary">"Подменяет клиентские видеопотоки для предотвращения проблем с воспроизведением.
@@ -614,4 +627,16 @@
 • Заменить домен: Настройка истории просмотров аккаунта Google.
 • Блокировка истории просмотров: История просмотров заблокирована."</string>
     <string name="revanced_watch_history_type_title">Тип истории просмотра</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Получить куки</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Получить ID синхр. данных</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Получить данные посещаемости</string>
+    <string name="revanced_webview_contextual_menu_refresh">Обновить</string>
+    <string name="revanced_webview_cookies">Куки</string>
+    <string name="revanced_webview_copy">Копия</string>
+    <string name="revanced_webview_data_sync_id">ID синхр. данных</string>
+    <string name="revanced_webview_toast_copy_success">%s в буфер обмена.</string>
+    <string name="revanced_webview_toast_empty">%s пуст.</string>
+    <string name="revanced_webview_toast_no_network">Проверьте подключение к Интернету.</string>
+    <string name="revanced_webview_toast_unavailable">WebView недоступен.</string>
+    <string name="revanced_webview_visitor_data">Данные посещаемости</string>
 </resources>

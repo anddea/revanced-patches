@@ -21,10 +21,18 @@ import app.revanced.extension.youtube.settings.Settings;
 @SuppressWarnings("unused")
 public final class AdsFilter extends Filter {
 
-    private final StringFilterGroup creatorStoreShelf;
     private final ByteArrayFilterGroup creatorStoreShelfBuffer;
+    private final ByteArrayFilterGroup statementBannerException;
+    private final StringFilterGroup creatorStoreShelf;
+    private final StringFilterGroup statementBanner;
 
     public AdsFilter() {
+        // YouTube Doodle includes this buffer (Not tested).
+        // https://github.com/inotia00/ReVanced_Extended/issues/3298
+        statementBannerException = new ByteArrayFilterGroup(
+                null,
+                "gstatic.com"
+        );
 
         // Identifiers.
 
@@ -46,9 +54,6 @@ public final class AdsFilter extends Filter {
 
                 // "inline_injection_entrypoint_layout."
                 "inline_injection_entrypoint_layout",
-
-                // https://github.com/inotia00/ReVanced_Extended/issues/3298
-                // "statement_banner."
 
                 // "video_display_button_group_layout"
                 // "video_display_carousel_button_group_layout"
@@ -84,7 +89,9 @@ public final class AdsFilter extends Filter {
 
         final StringFilterGroup paidContent = new StringFilterGroup(
                 Settings.HIDE_PAID_PROMOTION_LABEL,
-                "paid_content_overlay"
+                "paid_content_overlay",
+                "reel_player_disclosure.",
+                "shorts_disclosures."
         );
 
         final StringFilterGroup selfSponsor = new StringFilterGroup(
@@ -95,6 +102,11 @@ public final class AdsFilter extends Filter {
         final StringFilterGroup shoppingLinks = new StringFilterGroup(
                 Settings.HIDE_SHOPPING_LINKS,
                 "shopping_description_shelf"
+        );
+
+        statementBanner = new StringFilterGroup(
+                Settings.HIDE_GENERAL_ADS,
+                "statement_banner"
         );
 
         final StringFilterGroup viewProducts = new StringFilterGroup(
@@ -117,6 +129,7 @@ public final class AdsFilter extends Filter {
                 paidContent,
                 selfSponsor,
                 shoppingLinks,
+                statementBanner,
                 viewProducts,
                 webSearchPanel
         );
@@ -159,6 +172,8 @@ public final class AdsFilter extends Filter {
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == creatorStoreShelf) {
             return contentIndex == 0 && creatorStoreShelfBuffer.check(buffer).isFiltered();
+        } else if (matchedGroup == statementBanner) {
+            return !statementBannerException.check(buffer).isFiltered();
         }
         return true;
     }

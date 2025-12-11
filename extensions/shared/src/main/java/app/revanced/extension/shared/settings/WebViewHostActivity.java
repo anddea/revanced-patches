@@ -82,11 +82,7 @@ public class WebViewHostActivity extends Activity {
 
     protected boolean clearCookiesOnShutDown;
 
-    protected boolean showToolBar;
-
     protected boolean useDesktopUserAgent;
-
-    protected boolean useReferer;
 
     @NonNull
     protected String url = "https://www.youtube.com/signin";
@@ -123,12 +119,8 @@ public class WebViewHostActivity extends Activity {
                     intent.getBooleanExtra("clearCookiesOnStartUp", false);
             clearCookiesOnShutDown =
                     intent.getBooleanExtra("clearCookiesOnShutDown", false);
-            showToolBar =
-                    intent.getBooleanExtra("showToolBar", false);
             useDesktopUserAgent =
                     intent.getBooleanExtra("useDesktopUserAgent", false);
-            useReferer =
-                    intent.getBooleanExtra("useReferer", false);
             userAgent = String.format(
                     useDesktopUserAgent
                             ? USER_AGENT_CHROME_FORMAT
@@ -182,9 +174,7 @@ public class WebViewHostActivity extends Activity {
 
             Logger.printDebug(() -> "onCreate{clearCookiesOnStartUp: " + clearCookiesOnStartUp +
                     ", clearCookiesOnShutDown: " + clearCookiesOnShutDown +
-                    ", showToolBar: " + showToolBar +
                     ", useDesktopUserAgent: " + useDesktopUserAgent +
-                    ", useReferer: " + useReferer +
                     ", userAgent: " + userAgent +
                     ", url: " + url +
                     "}"
@@ -245,7 +235,7 @@ public class WebViewHostActivity extends Activity {
         if (textView != null) {
             textView.setTextColor(Color.BLACK);
         }
-        if (showToolBar) {
+        if (BaseThemeUtils.isSupportModernDialog) {
             toolbar.inflateMenu(getMenuIdentifier("revanced_webview_menu"));
             LinearLayout menuParent = Utils.getChildView(toolbar, view -> view instanceof LinearLayout);
             if (menuParent != null) {
@@ -400,13 +390,9 @@ public class WebViewHostActivity extends Activity {
             cookieManager.acceptThirdPartyCookies(webView);
             cookieManager.setAcceptThirdPartyCookies(webView, true);
 
-            if (useReferer) {
-                Map<String, String> extraHeaders = new HashMap<>();
-                extraHeaders.put("Referer", "https://www.google.com/");
-                webView.loadUrl(url, extraHeaders);
-            } else {
-                webView.loadUrl(url);
-            }
+            Map<String, String> extraHeaders = new HashMap<>();
+            extraHeaders.put("Referer", "https://www.google.com/");
+            webView.loadUrl(url, extraHeaders);
         } catch (Exception ex) {
             Logger.printException(() -> "loadWebView failed", ex);
         }
