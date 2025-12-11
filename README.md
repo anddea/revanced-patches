@@ -156,6 +156,7 @@ Report issues [here](https://github.com/inotia00/ReVanced_Extended).
 | `Remove subreddit dialog` | Adds options to remove the NSFW community warning and notifications suggestion dialogs by dismissing them automatically. | 2024.17.0 ~ 2025.12.1 |
 | `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 2024.17.0 ~ 2025.12.1 |
 | `Settings for Reddit` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 2024.17.0 ~ 2025.12.1 |
+| `Translations for Reddit` | Add translations for RVX settings. | 2024.17.0 ~ 2025.12.1 |
 </details>
 
 ### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
