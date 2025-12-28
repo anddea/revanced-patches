@@ -446,7 +446,10 @@
           "Squid Game": "squid_game",
           "Vanced Black": "vanced_black",
           "Vanced Light": "vanced_light",
+          "Xisr Aurora": "xisr_aurora",
+          "Xisr Evergreen": "xisr_evergreen",
           "Xisr Special": "xisr_special",
+          "Xisr White": "xisr_white",
           "Xisr Winter": "xisr_winter",
           "Xisr Yellow": "xisr_yellow",
           "YouTube": "youtube",
@@ -1865,17 +1868,7 @@
         "8.30.54"
       ]
     },
-    "options": [
-      {
-        "key": "hideFullscreenAds",
-        "title": "Hide fullscreen ads",
-        "description": "Add an option to hide fullscreen ads.\n\nThis setting may not completely hide fullscreen ads due to server-side changes, and support for this is not provided.\n\nThis setting may cause the app to become unusable, and users may need to clear app data.",
-        "required": true,
-        "type": "kotlin.Boolean",
-        "default": false,
-        "values": null
-      }
-    ]
+    "options": []
   },
   {
     "name": "Hide ads",
@@ -2533,7 +2526,17 @@
         "8.30.54"
       ]
     },
-    "options": []
+    "options": [
+      {
+        "key": "swipeToDismissMiniPlayer",
+        "title": "Swipe to dismiss miniplayer",
+        "description": "Adds an option to enable swipe to dismiss the miniplayer.\n\nIf this patch option is enabled, the empty miniplayer may not show when the miniplayer is dismissed.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": true,
+        "values": null
+      }
+    ]
   },
   {
     "name": "Premium icon",
@@ -3249,18 +3252,16 @@
     "options": []
   },
   {
-    "name": "Spoof app version",
-    "description": "Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features.",
+    "name": "Spoof app version for lyrics",
+    "description": "Adds options to spoof the YouTube Music client version. This can be used to restore old lyrics UI.",
     "use": true,
     "dependencies": [
-      "BytecodePatch",
       "BytecodePatch",
       "Settings for YouTube Music",
       "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
-        "6.42.55",
         "6.51.53",
         "7.16.53",
         "7.25.53",
