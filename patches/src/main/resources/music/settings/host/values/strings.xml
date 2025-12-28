@@ -142,9 +142,7 @@ Info:
 • Latest YouTube Music clients use the OPUS audio codec by default.
 • This may be necessary if the client or video stream is spoofed."</string>
     <string name="revanced_enable_opus_codec_title">Enable OPUS codec</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">"Enables smooth animation when miniplayer is maximized from minimized state.
-
-Limitations: Real-time lyrics UI may be broken for some users."</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">Enables smooth animation when miniplayer is maximized from minimized state.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Enable smooth transition animation</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Enables swipe down to dismiss miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Enable swipe to dismiss miniplayer</string>
@@ -240,7 +238,6 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_flyout_menu_report_title">Hide Report menu</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_save_to_library_title">Hide Save episode for later and Save to library menus</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Hide Save episode for later menu</string>
-    <string name="revanced_hide_flyout_menu_save_to_library_title">Hide Save to library menu</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">Hide Save to playlist menu</string>
     <string name="revanced_hide_flyout_menu_share_title">Hide Share menu</string>
     <string name="revanced_hide_flyout_menu_shuffle_play_title">Hide Shuffle play menu</string>
@@ -248,12 +245,10 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_flyout_menu_start_radio_title">Hide Start radio menu</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Hide Stats for nerds menu</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Hide Subscribe / Unsubscribe menu</string>
+    <string name="revanced_hide_flyout_menu_taste_match_title">Hide Taste match menu</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Hide Unpin from Speed dial menu</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Hide View song credits menu</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"Hides fullscreen ads.
-
-Limitations:
-• Sometimes you may see a blank black screen instead of the home feed."</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Hides fullscreen ads."</string>
     <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Hides the Share button in the fullscreen player.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Hide fullscreen Share button</string>
@@ -355,6 +350,15 @@ This hides not only the YT Music settings menu, but also the ReVanced Extended s
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Removes the viewer discretion dialog.
 This does not bypass the age restriction. It just accepts it automatically."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Remove viewer discretion dialog</string>
+    <string name="revanced_replace_action_button_like_summary">"Use a different icon and animation for the Like button.
+
+• This setting may no longer be needed once the issue is fixed on the server side."</string>
+    <string name="revanced_replace_action_button_like_title">Replace like button</string>
+    <string name="revanced_replace_action_button_like_type_summary">"Use a smaller like button.
+
+• Some users have a lower action bar (A/B testing).
+• This setting is for these users, but has not been tested."</string>
+    <string name="revanced_replace_action_button_like_type_title">Use smaller icon</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Continues the video from the current time when switching to YouTube.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Continue watching</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Replaces the Dismiss queue menu with the Watch on YouTube menu.</string>
@@ -516,6 +520,14 @@ Click to see how to issue an API key."</string>
     <string name="revanced_settings_search_title">Search %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Settings copied to clipboard.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_summary">Spoofs the client version used in the lyrics to an older version.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - No real-time lyrics</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_7_12_52">7.12.52 - Real-time lyrics</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_06_52">8.06.52 - Real-time lyrics + Share button</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - Real-time lyrics + Share button + Translate button (Premium users only)</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_summary">Select the spoof app version target for lyrics.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_title">Spoof app version target for lyrics</string>
+    <string name="revanced_spoof_app_version_for_lyrics_title">Spoof app version for lyrics</string>
     <string name="revanced_spoof_app_version_summary">"Spoofs the client version to an older version.
 
 • This will change the appearance of the app, but unknown side effects may occur.
@@ -557,7 +569,7 @@ Side effect (Block request):
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Click here to see how to sign in to Android No SDK.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Sign in to Android No SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">Get authorization token</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message">"Signing into Android No SDK (YouTube) follows the guidelines provided by Google (Google account authorization - OAuth 2.0 for Android Apps):
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message">"Signing in to Android No SDK (YouTube) follows the guidelines provided by Google (Google account authorization - OAuth 2.0 for Android Apps):
 
 1. Click 'Get authorization token' to open the sign in page in WebView.
 2. Sign in to your Google Account.
@@ -588,7 +600,7 @@ Side effect (Block request):
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Activation code copied to clipboard: %s.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Get activation code</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Get authorization token</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Signing into Android VR (YouTube VR) follows the guidelines provided by Google (Google account authorization - OAuth 2.0 for TV and Limited-Input Device Applications):
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Signing in to Android VR (YouTube VR) follows the guidelines provided by Google (Google account authorization - OAuth 2.0 for TV and Limited-Input Device Applications):
 
 1. Click 'Get activation code' to generate an activation code.
 2. Click 'Open website' to go to 'https://yt.be/activate'.
@@ -632,6 +644,7 @@ If you're having issues with your JavaScript client, try disabling this first."<
     <string name="revanced_spoof_video_streams_default_client_title">Default client</string>
     <string name="revanced_spoof_video_streams_summary">Spoof the client video streams to prevent playback issues.</string>
     <string name="revanced_spoof_video_streams_title">Spoof video streams</string>
+    <string name="revanced_translations_title">Translations</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
     <string name="revanced_watch_history_type_entry_2">Replace domain</string>
     <string name="revanced_watch_history_type_entry_3">Block watch history</string>

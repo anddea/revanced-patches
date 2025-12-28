@@ -232,8 +232,8 @@ Einschränkung: Zurück-Taste in der Symbolleiste funktioniert möglicherweise n
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Erzwungene automatische Audiospuren sind deaktiviert.
 
 Bei einigen Benutzern funktioniert dies möglicherweise nicht. Wenn es bei Ihnen nicht funktioniert:
-1. Gehen Sie zu Einstellungen – RVX – Sonstiges – Streaming-Daten fälschen und aktivieren Sie „JavaScript-Client verwenden”.
-2. Gehen Sie zu Einstellungen – RVX – Sonstiges – Streaming-Daten fälschen und ändern Sie „Standard-Client” zu „TV”."</string>
+1. Gehen Sie zu 'Einstellungen' – 'RVX' – 'Verschiedenes' – 'Spoof Streamingdaten' und aktivieren Sie 'JavaScript-Client verwenden'.
+2. Gehen Sie zu 'Einstellungen' – 'RVX' – 'Verschiedenes' – 'Spoof Streamingdaten' und ändern Sie 'Standard-Client' in 'TV'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Erzwungene automatische Audiotracks deaktivieren</string>
     <string name="revanced_disable_auto_captions_summary_off">Erzwungene automatische Untertitel sind aktiviert.</string>
     <string name="revanced_disable_auto_captions_summary_on">Erzwungene automatische Untertitel sind deaktiviert.</string>
@@ -284,8 +284,8 @@ Einstellungen → Autoplay / Wiedergabe → Nächstes Video Autoplay"</string>
     <string name="revanced_disable_hdr_video_summary_off">HDR-Video ist aktiviert</string>
     <string name="revanced_disable_hdr_video_summary_on">HDR-Video ist deaktiviert</string>
     <string name="revanced_disable_hdr_video_title">HDR-Video deaktivieren</string>
-    <string name="revanced_disable_landscape_mode_summary_off">Querformat im Fullscreen Modus aktiviert</string>
-    <string name="revanced_disable_landscape_mode_summary_on">Querformat im Fullscreen Modus deaktiviert</string>
+    <string name="revanced_disable_landscape_mode_summary_off">Querformat im Vollbild Modus aktiviert.</string>
+    <string name="revanced_disable_landscape_mode_summary_on">Querformat im Vollbild Modus deaktiviert.</string>
     <string name="revanced_disable_landscape_mode_title">Querformat deaktivieren</string>
     <string name="revanced_disable_layout_updates_summary_off">Layout wird vom Server aktualisiert.</string>
     <string name="revanced_disable_layout_updates_summary_on">Layout wird vom Server nicht aktualisiert.</string>
@@ -347,7 +347,6 @@ Information:
     <string name="revanced_disable_translucent_status_bar_summary_off">Die Statusleiste ist undurchsichtig oder durchscheinend.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Statusleiste ist undurchsichtig.</string>
     <string name="revanced_disable_translucent_status_bar_title">Transparente Statusleiste deaktivieren</string>
-    <string name="revanced_disable_translucent_status_bar_user_dialog_message">Bei einigen HerstellerROMs mit Android 12+ kann das Aktivieren dieser Funktion die Navigationsleiste des Systems transparent machen.</string>
     <string name="revanced_disable_video_description_interaction_summary">"Deaktiviert die folgenden Interaktionen, wenn die Videobeschreibung erweitert wird:
 
 • Zum Scrollen tippen.
@@ -373,9 +372,9 @@ Einschränkungen:
 • Gilt nicht für Kommentarantworten.
 • Im 'Timed' scrollt der Klick auf den Titel des Kommentarfensters ('Kommentar') nach unten."</string>
     <string name="revanced_enable_comments_scroll_top_title">Scrollen zum Anfang in Kommentaren aktivieren</string>
-    <string name="revanced_enable_compact_controls_overlay_summary_off">Kompaktsteuerungs-Overlay ist deaktiviert</string>
-    <string name="revanced_enable_compact_controls_overlay_summary_on">Kompaktsteuerungs-Overlay ist aktiviert</string>
-    <string name="revanced_enable_compact_controls_overlay_title">Kompaktsteuerungs-Overlay aktivieren</string>
+    <string name="revanced_enable_compact_controls_overlay_summary_off">Kompaktes Steuerungs-Overlay ist deaktiviert.</string>
+    <string name="revanced_enable_compact_controls_overlay_summary_on">Kompaktes Steuerungs-Overlay ist aktiviert.</string>
+    <string name="revanced_enable_compact_controls_overlay_title">Kompaktes Steuerungs-Overlay aktivieren</string>
     <string name="revanced_enable_custom_playback_speed_summary_off">Benutzerdefinierte Wiedergabegeschwindigkeit ist deaktiviert</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">Benutzerdefinierte Wiedergabegeschwindigkeit ist aktiviert</string>
     <string name="revanced_enable_custom_playback_speed_title">Benutzerdefinierte Wiedergabegeschwindigkeit aktivieren</string>
@@ -428,7 +427,7 @@ Limitations:
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Swiping up / down in fullscreen mode will change to the next / previous video.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Enable swipe to change video</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Navigationsleiste ist nicht transparent.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">Navigationsleiste ist transparent.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">"Navigationsleiste ist transparent."</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Transparente Navigationsleiste aktivieren</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">Watch next processing delay is disabled.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">Watch next processing delay is enabled.</string>
@@ -760,9 +759,6 @@ Einstellungen → Wiedergabe → Nächstes Video automatisch abspielen"</string>
     <string name="revanced_hide_general_ads_summary_off">Allgemeine Werbung wird angezeigt.</string>
     <string name="revanced_hide_general_ads_summary_on">Allgemeine Werbung ist ausgeblendet.</string>
     <string name="revanced_hide_general_ads_title">Allgemeine Werbung ausblenden</string>
-    <string name="revanced_hide_get_premium_summary_off">YouTube Premium Werbung wird angezeigt.</string>
-    <string name="revanced_hide_get_premium_summary_on">YouTube Premium Werbung wird versteckt.</string>
-    <string name="revanced_hide_get_premium_title">YouTube Premium Werbung ausblenden</string>
     <string name="revanced_hide_handle_summary_off">Handle wird angezeigt.</string>
     <string name="revanced_hide_handle_summary_on">Handle ist ausgeblendet.</string>
     <string name="revanced_hide_handle_title">Verstecke Handle</string>
@@ -918,8 +914,8 @@ Wörter mit Großbuchstaben in der Mitte müssen im Gehäuse eingegeben werden (
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Audiospur-Menü wird ausgeblendet.
 
 So blenden Sie das Audiospur-Menü ein:
-1. Gehen Sie zu 'Einstellungen' – 'RVX' – 'Verschiedenes' – 'Spoof Streaming-Daten' und aktivieren Sie 'JavaScript-Client verwenden'.
-2. Gehen Sie zu 'Einstellungen' – 'RVX' – 'Verschiedenes' – 'Spoof Streaming-Daten' und ändern Sie 'Standard-Client' in 'TV'."</string>
+1. Gehen Sie zu 'Einstellungen' – 'RVX' – 'Verschiedenes' – 'Spoof Streamingdaten' und aktivieren Sie 'JavaScript-Client verwenden'.
+2. Gehen Sie zu 'Einstellungen' – 'RVX' – 'Verschiedenes' – 'Spoof Streamingdaten' und ändern Sie 'Standard-Client' in 'TV'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Audiospur-Menü wird angezeigt.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Audiospur-Menü wird ausgeblendet.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Audiospur-Menü ausblenden</string>
@@ -1012,13 +1008,13 @@ So blenden Sie das Audiospur-Menü ein:
     <string name="revanced_hide_quick_actions_like_button_title">\'Gefällt mir\' Button ausblenden</string>
     <string name="revanced_hide_quick_actions_live_chat_button_summary_off">Live-Chat-Schaltfläche wird angezeigt.</string>
     <string name="revanced_hide_quick_actions_live_chat_button_summary_on">Live-Chat-Schaltfläche ist versteckt.</string>
-    <string name="revanced_hide_quick_actions_live_chat_button_title">Verstecke Live-Chat-Schaltfläche</string>
-    <string name="revanced_hide_quick_actions_more_button_summary_off">Die Schaltfläche „Mehr“ wird angezeigt.</string>
-    <string name="revanced_hide_quick_actions_more_button_summary_on">\"Mehr\" Button wird versteckt.</string>
+    <string name="revanced_hide_quick_actions_live_chat_button_title">Hide live chat button</string>
+    <string name="revanced_hide_quick_actions_more_button_summary_off">\"Mehr\" Schaltfläche wird angezeigt.</string>
+    <string name="revanced_hide_quick_actions_more_button_summary_on">\"Mehr\" Schaltfläche wird ausgeblendet.</string>
     <string name="revanced_hide_quick_actions_more_button_title">Verstecke \"Mehr\" Button</string>
     <string name="revanced_hide_quick_actions_open_mix_playlist_button_summary_off">Die Schaltfläche „Mix-Wiedergabeliste öffnen“ wird angezeigt.</string>
     <string name="revanced_hide_quick_actions_open_mix_playlist_button_summary_on">Mix-Playlist-Button ist ausgeblendet.</string>
-    <string name="revanced_hide_quick_actions_open_mix_playlist_button_title">Schaltfläche „Mix-Wiedergabeliste öffnen“ ausblenden</string>
+    <string name="revanced_hide_quick_actions_open_mix_playlist_button_title">Schaltfläche „Mix-Wiedergabeliste öffnen“ ausblenden.</string>
     <string name="revanced_hide_quick_actions_open_playlist_button_summary_off">Wiedergabeliste öffnen wird angezeigt.</string>
     <string name="revanced_hide_quick_actions_open_playlist_button_summary_on">Wiedergabelisten-Button ist ausgeblendet.</string>
     <string name="revanced_hide_quick_actions_open_playlist_button_title">Verstecke Playlist Schaltfläche</string>
@@ -1290,7 +1286,7 @@ Nebeneffekt: Offizielle Kopfzeilen in Suchergebnissen werden ausgeblendet.</stri
     <string name="revanced_hide_shorts_video_title_summary_on">Titel ist ausgeblendet.</string>
     <string name="revanced_hide_shorts_video_title_title">Videotitel ausblenden</string>
     <string name="revanced_hide_show_more_button_summary_off">Die Schaltfläche „Mehr anzeigen“ wird angezeigt.</string>
-    <string name="revanced_hide_show_more_button_summary_on">Die Schaltfläche \"Mehr anzeigen“ ist ausgeblendet.</string>
+    <string name="revanced_hide_show_more_button_summary_on">Die Schaltfläche \"Mehr anzeigen\" ist ausgeblendet.</string>
     <string name="revanced_hide_show_more_button_title">Schaltfläche \"Mehr anzeigen“ ausblenden</string>
     <string name="revanced_hide_snack_bar_summary_off">Snackbar wird angezeigt.</string>
     <string name="revanced_hide_snack_bar_summary_on">Snackbar ist ausgeblendet.</string>
@@ -1410,8 +1406,8 @@ Wenn ein YouTube Doodle gerade in deiner Region angezeigt wird und diese Einstel
     <string name="revanced_invert_snack_bar_theme_summary_on">Das Thema der Snackbar ist umgekehrt.</string>
     <string name="revanced_invert_snack_bar_theme_title">Snackbar Thema umkehren</string>
     <string name="revanced_keep_landscape_mode_summary">Bewahrt den Querformat beim Ausschalten des Bildschirms im Vollbild.</string>
-    <string name="revanced_keep_landscape_mode_summary_off">Videos werden im Hochformat abgespielt, nachdem der Bildschirm deaktiviert und eingeschaltet wurde.</string>
-    <string name="revanced_keep_landscape_mode_summary_on">Videos werden nach dem Ausschalten des Bildschirms und dem Ein- und Ausschalten im Querformat weiterhin abgespielt.</string>
+    <string name="revanced_keep_landscape_mode_summary_off">Videos werden nach dem Aus- und Einschalten des Bildschirms weiterhin im Hochformat abgespielt.</string>
+    <string name="revanced_keep_landscape_mode_summary_on">Videos werden nach dem Aus- und Einschalten des Bildschirms weiterhin im Querformat abgespielt.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Die Anzahl der Millisekunden nach dem Einschalten des Bildschirms, nachdem Querformat erzwungen wird.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Timeout für den Wechsel zum Querformat</string>
     <string name="revanced_keep_landscape_mode_title">Querformat behalten</string>
@@ -1529,12 +1525,12 @@ Wenn ein YouTube Doodle gerade in deiner Region angezeigt wird und diese Einstel
     <string name="revanced_language_ZH">"Chinesisch
 <small>中文</small>"</string>
     <string name="revanced_language_title">RVX Sprache</string>
-    <string name="revanced_miniplayer_double_tap_action_summary_off">Doppel-Tipp-Aktion und Pinch um die Größe zu verändern, ist deaktiviert.</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_off">Doppel-Tipp-Aktion und mit zwei Fingern vergrößern/verkleinern um die Größe zu verändern, ist deaktiviert.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Doppeltippen und mit zwei Fingern vergrößern/verkleinern ist aktiviert
 
 • Doppeltippen, um die Größe des Mini-Players zu vergrößern
 • Nochmals doppeltippen, um die ursprüngliche Größe wiederherzustellen."</string>
-    <string name="revanced_miniplayer_double_tap_action_title">Aktiviere doppeltes Tippen und Pinchen um die Größe zu ändern</string>
+    <string name="revanced_miniplayer_double_tap_action_title">Aktiviere doppeltes Tippen und zusammenziehen um die Größe zu ändern</string>
     <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and Drop ist deaktiviert.</string>
     <string name="revanced_miniplayer_drag_and_drop_summary_on">"Drag-and-Drop ist aktiviert
 
@@ -1808,7 +1804,7 @@ Beschreibung
 ══════════════
 %3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Der obere Rand der Schnellaktionen muss zwischen 0-32 liegen. Zurückgesetzt auf Standardwerte.</string>
-    <string name="revanced_quick_actions_top_margin_summary">Konfigurieren Sie den Abstand von der Suchleiste auf die Meta-Leiste zwischen 0-32.</string>
+    <string name="revanced_quick_actions_top_margin_summary">Konfigurieren Sie den Abstand zwischen der Suchleiste und der Schnellaktionen, zwischen 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Schnelle Aktionen oberer Rand</string>
     <string name="revanced_related_videos_offset_title">Offset</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Playback speed changes only apply to the current video.</string>
@@ -1991,7 +1987,7 @@ Einschränkung: Dislikes werden im Inkognito Modus nicht angezeigt."</string>
     <string name="revanced_sb_general_uuid_invalid">Benutzer-ID darf nicht leer sein</string>
     <string name="revanced_sb_general_uuid_sum">Dies sollte privat gehalten werden. Es ist wie ein Passwort und sollte nicht an andere weitergegeben werden. Wenn jemand es hat, kann er sich für Sie ausgeben</string>
     <string name="revanced_sb_guidelines_popup_already_read">Bereits gelesen</string>
-    <string name="revanced_sb_guidelines_popup_content">Es wird empfohlen, die SponsorBlock Richtlinien zu lesen, bevor ein Segment gesendet wird</string>
+    <string name="revanced_sb_guidelines_popup_content">Es wird empfohlen, die SponsorBlock Richtlinien zu lesen, bevor ein Segment gesendet wird.</string>
     <string name="revanced_sb_guidelines_popup_open">Zeig es mir</string>
     <string name="revanced_sb_guidelines_popup_title">Befolgen Sie die Richtlinien</string>
     <string name="revanced_sb_guidelines_preference_sum">Richtlinien enthalten Tipps und Regeln zum Einreichen von Segmenten</string>

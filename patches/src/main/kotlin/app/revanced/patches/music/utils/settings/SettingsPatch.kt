@@ -281,6 +281,15 @@ val settingsPatch = resourcePatch(
         ResourceUtils.updatePatchStatus(SETTINGS_FOR_YOUTUBE_MUSIC)
 
         /**
+         * add translations app
+         */
+        addLinkPreference(
+            CategoryType.MISC,
+            "revanced_translations",
+            "https://rvxtranslate.netlify.app/"
+        )
+
+        /**
          * add import export settings
          */
         addPreferenceWithIntent(
@@ -396,4 +405,14 @@ internal fun addPreferenceWithIntent(
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)
     ResourceUtils.addPreferenceWithIntent(categoryValue, key, dependencyKey)
+}
+
+internal fun addLinkPreference(
+    category: CategoryType,
+    key: String,
+    url: String
+) {
+    val categoryValue = category.value
+    ResourceUtils.addPreferenceCategory(categoryValue)
+    ResourceUtils.addLinkPreference(categoryValue, key, url)
 }

@@ -349,7 +349,6 @@
     <string name="revanced_disable_translucent_status_bar_summary_off">状态栏为不透明或半透明。</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">状态栏为不透明。</string>
     <string name="revanced_disable_translucent_status_bar_title">禁用半透明状态栏</string>
-    <string name="revanced_disable_translucent_status_bar_user_dialog_message">对于某些运行 Android 12 以上的制造商 ROM，启用此功能可能会使系统导航栏变透明。</string>
     <string name="revanced_disable_video_description_interaction_summary">"展开视频描述时禁用以下交互：
 
 • 点击滚动
@@ -430,7 +429,7 @@
     <string name="revanced_enable_swipe_to_switch_video_summary_on">在全屏模式下向上/下滑动将切换到下一个/上一个视频。</string>
     <string name="revanced_enable_swipe_to_switch_video_title">启用滑动切换视频</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">导航栏为不透明。</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">导航栏为半透明。</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">"导航栏为半透明。"</string>
     <string name="revanced_enable_translucent_navigation_bar_title">启用半透明导航栏</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">已禁用观看下一个处理延迟。</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">已启用观看下一个处理延迟。</string>
@@ -729,6 +728,9 @@
     <string name="revanced_hide_expandable_shelf_summary_off">扩展边框已显示</string>
     <string name="revanced_hide_expandable_shelf_summary_on">扩展边框已隐藏</string>
     <string name="revanced_hide_expandable_shelf_title">隐藏扩展边框</string>
+    <string name="revanced_hide_explore_podcast_section_summary_off">“浏览播客”部分已显示。</string>
+    <string name="revanced_hide_explore_podcast_section_summary_on">“浏览播客”部分已隐藏。</string>
+    <string name="revanced_hide_explore_podcast_section_title">隐藏「探索该博客」部分</string>
     <string name="revanced_hide_featured_links_section_summary_off">特色链接部分已显示</string>
     <string name="revanced_hide_featured_links_section_summary_on">特色链接部分已隐藏</string>
     <string name="revanced_hide_featured_links_section_title">隐藏精选链接</string>
@@ -764,9 +766,6 @@
     <string name="revanced_hide_general_ads_summary_off">已显示常规广告。</string>
     <string name="revanced_hide_general_ads_summary_on">已隐藏常规广告。</string>
     <string name="revanced_hide_general_ads_title">隐藏常规广告</string>
-    <string name="revanced_hide_get_premium_summary_off">已显示 YouTube Premium 推广。</string>
-    <string name="revanced_hide_get_premium_summary_on">已隐藏 YouTube Premium 推广。</string>
-    <string name="revanced_hide_get_premium_title">隐藏 YouTube Premium 推广</string>
     <string name="revanced_hide_handle_summary_off">控制列已显示</string>
     <string name="revanced_hide_handle_summary_on">控制列已隐藏</string>
     <string name="revanced_hide_handle_title">隐藏控制列</string>
@@ -794,6 +793,9 @@
     <string name="revanced_hide_info_panel_summary_off">信息面板已显示</string>
     <string name="revanced_hide_info_panel_summary_on">信息面板已隐藏</string>
     <string name="revanced_hide_info_panel_title">隐藏信息面板</string>
+    <string name="revanced_hide_join_button_in_channel_page_summary_off">加入按钮已显示</string>
+    <string name="revanced_hide_join_button_in_channel_page_summary_on">加入按钮已隐藏</string>
+    <string name="revanced_hide_join_button_in_channel_page_title">隐藏「加入」按钮</string>
     <string name="revanced_hide_join_button_summary_off">加入按钮已显示</string>
     <string name="revanced_hide_join_button_summary_on">加入按钮已隐藏</string>
     <string name="revanced_hide_join_button_title">隐藏加入按钮</string>
@@ -1424,6 +1426,7 @@
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_xisr_special">Xisr 特别版</string>
+    <string name="revanced_icon_xisr_winter">Xisr 冬天</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube 黑色</string>
@@ -2357,8 +2360,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_spoof_device_dimensions_title">伪装设备尺寸</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(需要登录)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
-<small>(无需身份验证)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(未发布，无需身份验证)</small>"</string>
@@ -2416,6 +2418,7 @@ AI生成的回复可能包含不准确的信息。
 • 不支持 1080p+、AV1 和 HDR。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 音轨菜单缺失"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 缺少音轨菜单。
+• 无法禁用强制自动音轨。
 • 稳定音量不可用。
 • 登出或无痕模式下可能无法播放儿童视频。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• 缺少音轨菜单。
@@ -2524,6 +2527,8 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
 
 通过在屏幕左侧上下滑动来调整亮度。"</string>
     <string name="revanced_swipe_brightness_title">启用亮度手势</string>
+    <string name="revanced_swipe_delay_summary">识别滑动操作前的延迟时间（毫秒）。如果此设置干扰了双指缩放手势，请增加该数值。</string>
+    <string name="revanced_swipe_delay_title">滑动识别延迟</string>
     <string name="revanced_swipe_distance_invalid">滑动距离无效，必须介于 1 到 1000 之间。</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">在“锁定屏幕”模式下禁用滑动手势</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">在“锁定屏幕”模式下启用滑动手势</string>

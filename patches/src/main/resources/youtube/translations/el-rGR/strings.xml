@@ -83,6 +83,7 @@
     <string name="revanced_bypass_url_redirects_summary_off">Οι ανακατευθύνσεις URL δεν παρακάμπτονται.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Οι ανακατευθύνσεις URL παρακάμπτονται.</string>
     <string name="revanced_bypass_url_redirects_title">Παράκαμψη ανακατευθύνσεων συνδέσμων</string>
+    <string name="revanced_cancel">Ακύρωση</string>
     <string name="revanced_change_form_factor_entry_1">Προεπιλογή</string>
     <string name="revanced_change_form_factor_entry_2">Τηλέφωνο</string>
     <string name="revanced_change_form_factor_entry_3">Τηλέφωνο (Μέγιστο dp 480)</string>
@@ -162,6 +163,7 @@
     <string name="revanced_change_youtube_header_title">Επικεφαλίδα Premium</string>
     <string name="revanced_confirm_user_dialog_title">Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</string>
     <string name="revanced_copy">Αντιγραφή</string>
+    <string name="revanced_copy_error">Αποτυχία αντιγραφής κειμένου</string>
     <string name="revanced_custom_filter_strings_summary">Λίστα από συμβολοσειρές στοιχείων που θα φιλτραριστούν, διαχωρισμένες με νέες γραμμές.</string>
     <string name="revanced_custom_filter_strings_title">Επεξεργασία προσαρμοσμένου φίλτρου</string>
     <string name="revanced_custom_filter_summary_off">Το προσαρμοσμένο φίλτρο χρήστη είναι απενεργοποιημένο.</string>
@@ -350,7 +352,6 @@
     <string name="revanced_disable_translucent_status_bar_summary_off">Η διαφάνεια της γραμμής κατάστασης ορίζεται αυτόματα.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Η γραμμή κατάστασης δεν είναι διαφανής.</string>
     <string name="revanced_disable_translucent_status_bar_title">Απενεργοποίηση διαφανούς γραμμής κατάστασης</string>
-    <string name="revanced_disable_translucent_status_bar_user_dialog_message">Σε ορισμένες εργοστασιακές ROM που τρέχουν Android 12+, η ενεργοποίηση αυτής της λειτουργίας μπορεί να κάνει τη γραμμή πλοήγησης του συστήματος διαφανή.</string>
     <string name="revanced_disable_video_description_interaction_summary">"Απενεργοποίηση των ακόλουθων αλληλεπιδράσεων όταν ανοίγεται η περιγραφή του βίντεο:
 
 • Πάτημα για κύλιση.
@@ -431,7 +432,7 @@
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Η σάρωση προς τα πάνω / κάτω στη λειτουργία πλήρους οθόνης αλλάζει στο επόμενο / προηγούμενο βίντεο.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Χειρονομία σάρωσης για αλλαγή βίντεο</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Η γραμμή πλοήγησης δεν είναι διαφανής.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">Η γραμμή πλοήγησης είναι διαφανής.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">"Η γραμμή πλοήγησης είναι διαφανής."</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Διαφανή γραμμή πλοήγησης</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">Η καθυστέρηση επεξεργασίας επόμενης παρακολούθησης είναι απενεργοποιημένη.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">Η καθυστέρηση επεξεργασίας επόμενης παρακολούθησης είναι ενεργοποιημένη.</string>
@@ -488,6 +489,8 @@
     <string name="revanced_external_downloader_other_item_hint">Εισάγετε το όνομα πακέτου</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Όνομα πακέτου εφαρμογής λήψης λίστας αναπαραγωγής</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_summary">Όνομα πακέτου της εγκατεστημένης εφαρμογής εξωτερικής λήψης, όπως NewPipe ή YTDLnis, κατά το παρατεταμένο πάτημα.</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_title">Όνομα πακέτου λήψης βίντεο με παρατεταμένο πάτημα</string>
     <string name="revanced_external_downloader_package_name_video_summary">Όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης.</string>
     <string name="revanced_external_downloader_package_name_video_title">Όνομα πακέτου εφαρμογής λήψης βίντεο</string>
     <string name="revanced_external_downloader_package_not_found_warning">"Δεν ήταν δυνατή η εύρεση εγκατεστημένης εφαρμογής με όνομα πακέτου: %s.
@@ -519,6 +522,38 @@
 Γνωστό θέμα: Μερικές φορές εμφανίζεται η διάταξη ελέγχων σάρωσης πριν γίνει μετάβαση σε λειτουργία πλήρους οθόνης."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">Διόρθωση ελέγχων σάρωσης και διεπαφής ταχύτητας</string>
     <string name="revanced_fullscreen_ads_closed_toast">Οι διαφημίσεις πλήρους οθόνης έκλεισαν.</string>
+    <string name="revanced_gemini_cancelled">Ακυρώθηκε</string>
+    <string name="revanced_gemini_copy_success">Η σύνοψη αντιγράφηκε στο πρόχειρο.</string>
+    <string name="revanced_gemini_error_already_running_summarize">Η σύνοψη βρίσκεται ήδη σε εξέλιξη.</string>
+    <string name="revanced_gemini_error_already_running_transcribe">Η μεταγραφή βρίσκεται ήδη σε εξέλιξη.</string>
+    <string name="revanced_gemini_error_already_running_yandex_transcribe">Η μεταγραφή Yandex εκτελείται ήδη.</string>
+    <string name="revanced_gemini_error_api_failed">Το αίτημα Gemini API απέτυχε: %s</string>
+    <string name="revanced_gemini_error_dialog_show">Σφάλμα εμφάνισης παραθύρου διαλόγου</string>
+    <string name="revanced_gemini_error_no_api_key">Το κλειδί Gemini API δεν έχει οριστεί στις ρυθμίσεις του ReVanced Extended.</string>
+    <string name="revanced_gemini_error_no_video">Αδυναμία λήψης URL βίντεο.</string>
+    <string name="revanced_gemini_error_overlay_display">Αποτυχία εμφάνισης επικάλυψης υπότιτλων</string>
+    <string name="revanced_gemini_error_transcription_no_raw_data">Δεν υπάρχουν ανεπεξέργαστα δεδομένα μεταγραφής για ανάλυση</string>
+    <string name="revanced_gemini_error_transcription_parse">Αποτυχία ανάλυσης δεδομένων μεταγραφής.</string>
+    <string name="revanced_gemini_error_translation_failed">Η μετάφραση Gemini απέτυχε</string>
+    <string name="revanced_gemini_error_translation_parse_failed">Η ανάλυση μετάφρασης Gemini απέτυχε</string>
+    <string name="revanced_gemini_error_unknown">Παρουσιάστηκε άγνωστο σφάλμα.</string>
+    <string name="revanced_gemini_loading_default">Φόρτωση...</string>
+    <string name="revanced_gemini_loading_summarize">Γίνεται σύνοψη του βίντεο...</string>
+    <string name="revanced_gemini_loading_transcribe">Γίνεται μεταγραφή του βίντεο...</string>
+    <string name="revanced_gemini_loading_yandex_transcribe">Yandex: Λήψη υπότιτλων...</string>
+    <string name="revanced_gemini_status_translating">Μετάφραση με Gemini...\n\n⚠️ Αυτό το βήμα ενδέχεται να αποτύχει εάν το Gemini αγνοήσει τις οδηγίες ή φτάσει στο όριο.</string>
+    <string name="revanced_gemini_summary_title">Σύνοψη βίντεο Gemini</string>
+    <string name="revanced_gemini_time_taken">(Διήρκεσε %d δευτερόλεπτα)</string>
+    <string name="revanced_gemini_transcribe_bad_token_exception">Ενεργοποιήστε την \"Εμφάνιση πάνω από άλλες εφαρμογές\" για εμφάνιση ως υπότιτλοι</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Το μέγεθος γραμματοσειράς των υπότιτλων του μεταγραμμένου βίντεο. Πατήστε το πλαίσιο υπότιτλων για απόκρυψη ή πατήστε παρατεταμένα για μεταφορά σε άλλη θέση.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_title">Μέγεθος γραμματοσειράς υπότιτλων</string>
+    <string name="revanced_gemini_transcription_parse_button">Υπότιτλοι</string>
+    <string name="revanced_gemini_transcription_parse_success">Επιτυχής ανάλυση υπότιτλων</string>
+    <string name="revanced_gemini_transcription_result_title">Μεταγραφή βίντεο Gemini</string>
+    <string name="revanced_gms_show_dialog_summary">Εμφανίζει το παράθυρο διαλόγου βελτιστοποίησης για το GMSCore σε κάθε εκκίνηση της εφαρμογής.</string>
+    <string name="revanced_gms_show_dialog_title">Εμφάνιση διαλόγου βελτιστοποίησης για GMSCore</string>
+    <string name="revanced_gradient_seekbar_positions_summary">Θέσεις έναρξης και λήξης διαβάθμισης από 0 έως 1, διαχωρισμένες με κόμμα.</string>
+    <string name="revanced_gradient_seekbar_positions_title">Όρια διαβάθμισης μπάρας αναζήτησης</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Λίστα ονομάτων των επιλογών του μενού λογαριασμού για φιλτράρισμα, διαχωρισμένα με νέες γραμμές.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Επεξεργασία φίλτρου μενού λογαριασμού</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">Φιλτράρισμα αν το μενού ταιριάζει με τις εισαγόμενες λέξεις-κλειδιά. &lt;br&gt;&lt;br&gt;Παράδειγμα: Για απόκρυψη του μενού &lt;br&gt;«Αποκτήστε το YouTube Premium»&lt;br&gt;, πρέπει να εισαχθεί το &lt;b&gt;«Αποκτήστε το YouTube Premium»&lt;/b&gt; ως λέξεις-κλειδιά.</string>
@@ -648,6 +683,9 @@ Playlists
 
 Περιορισμός: Ορισμένοι επισημασμένοι σύνδεσμοι αναζήτησης που δεν έχουν προεπιλεγμένο στυλ κειμένου μπορεί να εξακολουθούν να εμφανίζονται."</string>
     <string name="revanced_hide_comments_highlighted_search_links_title">Επισημασμένοι συνδέσμοι αναζήτησης</string>
+    <string name="revanced_hide_comments_information_button_summary_off">Εμφανίζεται.</string>
+    <string name="revanced_hide_comments_information_button_summary_on">Κρυμμένο.</string>
+    <string name="revanced_hide_comments_information_button_title">Κουμπί πληροφοριών</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_on">Κρυμμένη.</string>
     <string name="revanced_hide_comments_section_in_home_feed_title">Ενότητα σχολίων στην αρχική ροή</string>
@@ -737,9 +775,6 @@ Playlists
     <string name="revanced_hide_general_ads_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_general_ads_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_general_ads_title">Γενικές διαφημίσεις</string>
-    <string name="revanced_hide_get_premium_summary_off">Εμφανίζονται.</string>
-    <string name="revanced_hide_get_premium_summary_on">Κρυμμένες.</string>
-    <string name="revanced_hide_get_premium_title">Προωθήσεις YouTube Premium</string>
     <string name="revanced_hide_handle_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_handle_summary_on">Κρυμμένα.</string>
     <string name="revanced_hide_handle_title">Ψευδώνυμο &amp; διεύθυνση e-mail</string>
@@ -1041,6 +1076,9 @@ Playlists
     <string name="revanced_hide_search_term_thumbnail_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Μικρογραφίες όρων αναζήτησης</string>
+    <string name="revanced_hide_section_header_in_feed_summary_off">Η κεφαλίδα της ενότητας Συνδρομές εμφανίζεται.\n\nΗ κεφαλίδα της ενότητας Συνδρομές περιλαμβάνει τα κουμπιά \'Επίσκεψη στην κοινότητα\' και \'Επίσκεψη στο κανάλι\' όταν πατάτε στο εικονίδιο ενός εγγεγραμμένου καναλιού στην ενότητα Συνδρομές.</string>
+    <string name="revanced_hide_section_header_in_feed_summary_on">Η κεφαλίδα της ενότητας Συνδρομές αποκρύπτεται.\n\nΗ κεφαλίδα της ενότητας Συνδρομές περιλαμβάνει τα κουμπιά \'Επίσκεψη στην κοινότητα\' και \'Επίσκεψη στο κανάλι\' όταν πατάτε στο εικονίδιο ενός εγγεγραμμένου καναλιού στην ενότητα Συνδρομές.</string>
+    <string name="revanced_hide_section_header_in_feed_title">Απόκρυψη κεφαλίδας ενότητας συνδρομών</string>
     <string name="revanced_hide_seek_message_summary_off">"Εμφανίζεται.
 
 Πληροφορίες:
@@ -1160,6 +1198,9 @@ Playlists
 
 Αφορά το κουμπί σχολίων όταν αυτά είναι απενεργοποιημένα ή δεν υπάρχουν καθόλου σχόλια για το τρέχον βίντεο (0).</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Κουμπί απενεργοποιημένων σχολίων</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_off">Εμφανίζεται.</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_on">Κρυμμένο.</string>
+    <string name="revanced_hide_shorts_comments_panel_title">Απόκρυψη πίνακα σχολίων</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Κουμπί «Δεν μου αρέσει»</string>
@@ -1399,6 +1440,11 @@ Playlists
     <string name="revanced_hide_youtube_doodles_user_dialog_message">"Τα YouTube Doodles εμφανίζονται για μερικές μέρες κάθε χρόνο.
 
 Αν ένα YouTube Doodle εμφανίζεται αυτή τη στιγμή στην περιοχή σας και αυτή η ρύθμιση απόκρυψης του είναι ενεργοποιημένη, τότε η γραμμή κατηγοριών κάτω από τη γραμμή αναζήτησης θα είναι κρυμμένη επίσης."</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_off">Εμφανίζονται.</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_on">"Κρυμμένες.
+
+Γνωστό θέμα: Όταν αυτή η ρύθμιση είναι ενεργοποιημένη, τα YouTube Doodles δε γίνεται να πατηθούν."</string>
+    <string name="revanced_hide_youtube_premium_promotion_title">Προωθήσεις YouTube Premium</string>
     <string name="revanced_hide_zoom_overlay_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_zoom_overlay_title">Μηνύματα αλληλεπίδρασης διεπαφής ζουμ</string>
@@ -1407,9 +1453,23 @@ Playlists
     <string name="revanced_icon_custom">Προσαρμοσμένο</string>
     <string name="revanced_icon_default">Προεπιλογή</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_mmt_blue">MMT Μπλε</string>
+    <string name="revanced_icon_mmt_green">MMT Πράσινο</string>
+    <string name="revanced_icon_mmt_orange">MMT Πορτοκαλί</string>
+    <string name="revanced_icon_mmt_pink">MMT Ροζ</string>
+    <string name="revanced_icon_mmt_turquoise">MMT Τυρκουάζ</string>
+    <string name="revanced_icon_mmt_yellow">MMT Κίτρινο</string>
     <string name="revanced_icon_revancify_blue">Revancify Blue</string>
     <string name="revanced_icon_revancify_red">Revancify Red</string>
+    <string name="revanced_icon_revancify_yellow">Revancify Κίτρινο</string>
+    <string name="revanced_icon_squid_game">Squid Game</string>
+    <string name="revanced_icon_vanced_black">Vanced Μαύρο</string>
+    <string name="revanced_icon_vanced_light">Vanced Λευκό</string>
+    <string name="revanced_icon_xisr_special">Xisr Ειδικό</string>
+    <string name="revanced_icon_xisr_winter">Xisr Χειμερινό</string>
+    <string name="revanced_icon_xisr_yellow">Xisr Κίτρινο</string>
     <string name="revanced_icon_youtube">YouTube</string>
+    <string name="revanced_icon_youtube_black">YouTube Μαύρο</string>
     <string name="revanced_invert_snack_bar_theme_summary_off">Το θέμα της γραμμής μηνυμάτων αλληλεπίδρασης δεν είναι ανεστραμμένο.</string>
     <string name="revanced_invert_snack_bar_theme_summary_on">Το θέμα της γραμμής μηνυμάτων αλληλεπίδρασης είναι ανεστραμμένο.</string>
     <string name="revanced_invert_snack_bar_theme_title">Αντιστροφή θέματος γραμμής μηνυμάτων αλληλεπίδρασης</string>
@@ -1522,6 +1582,8 @@ Playlists
 <small>తెలుగు</small>"</string>
     <string name="revanced_language_TH">"Ταϊλανδέζικα
 <small>ไทย</small>"</string>
+    <string name="revanced_language_TL">"Φιλιππινέζικα
+<small>Φιλιππινέζικα</small>"</string>
     <string name="revanced_language_TR">"Τουρκικά
 <small>Türkçe</small>"</string>
     <string name="revanced_language_UK">"Ουκρανικά
@@ -1533,6 +1595,7 @@ Playlists
     <string name="revanced_language_ZH">"Κινέζικα
 <small>中文</small>"</string>
     <string name="revanced_language_title">Γλώσσα ρυθμίσεων RVX</string>
+    <string name="revanced_minimize">Ελαχιστοποίηση</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Η λειτουργία διπλού πατήματος και τσιμπήματος για αλλαγή μεγέθους είναι απενεργοποιημένη.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Η λειτουργία διπλού πατήματος και τσιμπήματος για αλλαγή μεγέθους είναι ενεργοποιημένη.
 
@@ -1601,6 +1664,19 @@ Playlists
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">Διαχειριστής ουράς</string>
     <string name="revanced_overlay_button_external_downloader_summary">Πατήστε για εκκίνηση της προεπιλεγμένης σας εξωτερικής εφαρμογής λήψης.</string>
     <string name="revanced_overlay_button_external_downloader_title">Εμφάνιση κουμπιού εξωτερικής λήψης του βίντεο</string>
+    <string name="revanced_overlay_button_gemini_about_summary">"Η ανάλυση του βίντεο ενδέχεται να διαρκέσει λίγο, ανάλογα με τη διάρκειά του. Η μεταγραφή μεγάλων βίντεο ενδέχεται να υπερβεί τα όρια του Gemini.
+
+Οι απαντήσεις που παράγονται από AI ενδέχεται να περιέχουν ανακριβείς πληροφορίες.
+
+Πατήστε εδώ για να λάβετε ένα κλειδί API."</string>
+    <string name="revanced_overlay_button_gemini_about_title">Σχετικά με το Gemini</string>
+    <string name="revanced_overlay_button_gemini_summarize">Σύνοψη</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Λάβετε κλειδί API στο https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Κλειδί API Gemini</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Πατήστε για σύνοψη του βίντεο. Πατήστε παρατεταμένα για μεταγραφή.
+
+Τα αποτελέσματα σύνοψης και μεταγραφής αποθηκεύονται εκτός αν κλείσετε την εφαρμογή ή χρησιμοποιήσετε το Gemini σε άλλο βίντεο. Πατήστε ξανά το κουμπί για προβολή των αποτελεσμάτων."</string>
+    <string name="revanced_overlay_button_gemini_summarize_title">Εμφάνιση κουμπιού Gemini</string>
     <string name="revanced_overlay_button_mute_volume_summary">Πατήστε για σίγαση έντασης του τρέχοντος βίντεο.
 Πατήστε ξανά για κατάργηση της σίγασης.</string>
     <string name="revanced_overlay_button_mute_volume_title">Εμφάνιση κουμπιού σίγασης βίντεο</string>
@@ -2007,7 +2083,9 @@ Playlists
     <string name="revanced_sb_guidelines_popup_title">Ακολουθήστε τις οδηγίες</string>
     <string name="revanced_sb_guidelines_preference_sum">Οι οδηγίες περιέχουν κανόνες και συμβουλές σχετικά με την υποβολή τμημάτων.</string>
     <string name="revanced_sb_guidelines_preference_title">Προβολή οδηγιών</string>
+    <string name="revanced_sb_new_segment_adjust">Προσαρμογή: Σήμανση ώρας έναρξης και λήξης για το τμήμα</string>
     <string name="revanced_sb_new_segment_choose_category">Επιλέξτε την κατηγορία τμήματος</string>
+    <string name="revanced_sb_new_segment_compare">Επαλήθευση τμήματος</string>
     <string name="revanced_sb_new_segment_confirm_content">"Το τμήμα είναι από το
 
 %1$s
@@ -2020,15 +2098,19 @@ Playlists
     <string name="revanced_sb_new_segment_confirm_contents">Το τμήμα είναι από το\n\n%1$s\nέως το\n%2$s\n\n(%3$s)\n\nΈτοιμο για υποβολή;</string>
     <string name="revanced_sb_new_segment_confirm_title">Είναι σωστοί οι χρόνοι;</string>
     <string name="revanced_sb_new_segment_disabled_category">Η κατηγορία είναι απενεργοποιημένη στις ρυθμίσεις. Ενεργοποιήστε την κατηγορία για υποβολή.</string>
+    <string name="revanced_sb_new_segment_edit">Επεξεργασία τμήματος</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">Θέλετε να επεξεργαστείτε τον χρονισμό του τμήματος από την αρχή ή από το τέλος του τμήματος;</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Δόθηκε μη έγκυρος χρόνος.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Επεξεργασία χρονισμού του τμήματος χειροκίνητα</string>
+    <string name="revanced_sb_new_segment_forward">Προώθηση κατά καθορισμένο χρόνο (Προεπιλογή: 150ms)</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">Ορισμός %s ως αρχή ή τέλος ενός νέου τμήματος;</string>
     <string name="revanced_sb_new_segment_mark_end">Τέλος</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Σημειώστε δύο σημεία στην γραμμή προόδου πρώτα.</string>
     <string name="revanced_sb_new_segment_mark_start">Αρχή</string>
     <string name="revanced_sb_new_segment_now">Τώρα</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Κάντε προεπισκόπηση του τμήματος, και σιγουρευτείτε ότι παραλείπεται σωστά.</string>
+    <string name="revanced_sb_new_segment_publish">Δημοσίευση δημιουργημένου τμήματος</string>
+    <string name="revanced_sb_new_segment_rewind">Μετακίνηση πίσω κατά καθορισμένο χρόνο (Προεπιλογή: 150ms)</string>
     <string name="revanced_sb_new_segment_start_is_before_end">Η αρχή πρέπει να είναι πριν το τέλος.</string>
     <string name="revanced_sb_new_segment_time_end">Χρόνος λήξης του τμήματος</string>
     <string name="revanced_sb_new_segment_time_start">Χρόνος έναρξης του τμήματος</string>
@@ -2196,6 +2278,7 @@ Playlists
     <string name="revanced_settings_search_clear_history_message">Είστε βέβαιοι ότι θέλετε να εκκαθαρίσετε όλο το ιστορικό αναζήτησης;</string>
     <string name="revanced_settings_search_empty_history_summary">Για να αποθηκεύσετε το ιστορικό αναζήτησης, πληκτρολογήστε ένα ερώτημα αναζήτησης και πατήστε Enter.</string>
     <string name="revanced_settings_search_empty_history_title">Το ιστορικό αναζήτησης είναι κενό</string>
+    <string name="revanced_settings_search_history_summary">Αποθήκευση πρόσφατων ερωτημάτων αναζήτησης για εμφάνιση όταν η μπάρα αναζήτησης είναι κενή.</string>
     <string name="revanced_settings_search_history_summary_off">Το ιστορικό αναζήτησης ρυθμίσεων δεν εμφανίζεται.</string>
     <string name="revanced_settings_search_history_summary_on">Το ιστορικό αναζήτησης ρυθμίσεων εμφανίζεται.</string>
     <string name="revanced_settings_search_history_title">Εμφάνιση ιστορικού αναζήτησης ρυθμίσεων</string>
@@ -2235,6 +2318,10 @@ Playlists
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">Το μενού εξωτερικής εφαρμογής λήψης δεν εμφανίζεται.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">Το μενού εξωτερικής εφαρμογής λήψης εμφανίζεται.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Εμφάνιση μενού εξωτερικής εφαρμογής λήψης</string>
+    <string name="revanced_shorts_custom_actions_gemini_label">Σύνοψη Gemini</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">Κρυμμένο.</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">Εμφανίζεται.</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Εμφάνιση μενού σύνοψης Gemini</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Άνοιγμα βίντεο</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">Το μενού ανοίγματος του βίντεο δεν εμφανίζεται.</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">Το μενού ανοίγματος του βίντεο εμφανίζεται.</string>
@@ -2250,6 +2337,9 @@ Playlists
     <string name="revanced_shorts_custom_actions_speed_dialog_type_title">Τύπος μενού αλλαγής ταχύτητας αναπαραγωγής</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message">Το μενού αλλαγής ταχύτητας μοντέρνου στυλ ενδέχεται να μη λειτουργεί στις εκδόσεις YouTube 19.01-19.34.</string>
     <string name="revanced_shorts_custom_actions_speed_label">Ταχύτητα αναπαραγωγής</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_off">Το μενού ταχύτητας αναπαραγωγής αποκρύπτεται.\n\nΠληροφορίες:\n• Η προεπιλεγμένη ταχύτητα αναπαραγωγής Shorts πρέπει να είναι ενεργοποιημένη.\n• Η επιλεγμένη ταχύτητα θα εφαρμοστεί στο επόμενο βίντεο.</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_on">Το μενού ταχύτητας αναπαραγωγής εμφανίζεται.\n\nΠληροφορίες:\n• Η προεπιλεγμένη ταχύτητα αναπαραγωγής Shorts πρέπει να είναι ενεργοποιημένη.\n• Η επιλεγμένη ταχύτητα θα εφαρμοστεί στο επόμενο βίντεο.</string>
+    <string name="revanced_shorts_custom_actions_speed_title">Εμφάνιση μενού ταχύτητας αναπαραγωγής</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Προσαρμοσμένες ενέργειες</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Προεπιλογή</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Αντίχειρας προς τα πάνω</string>
@@ -2308,15 +2398,23 @@ Playlists
 • Ενδέχεται να ξεκλειδωθούν υψηλότερες ποιότητες βίντεο σε ορισμένα βίντεο που απαιτούν μεγάλες διαστάσεις συσκευής, αλλά όχι σε όλα.
 • Αυτή η λειτουργία δεν είναι διαθέσιμη αν η λειτουργία «Παραποίηση ροών βίντεο» είναι ενεργοποιημένη."</string>
     <string name="revanced_spoof_device_dimensions_title">Παραποίηση διαστάσεων συσκευής</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">Ο κωδικοποιητής βίντεο είναι ο AVC (H.264) ή ο VP9.</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"Ο κωδικοποιητής βίντεο είναι ο AVC (H.264), ο VP9 ή ο AV1.
+
+Η αναπαραγωγή μπορεί να κομπιάζει ή να χάνει καρέ."</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_title">Ενεργοποίηση κωδικοποιητή AV1</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Η ενεργοποίηση αυτής της ρύθμισης ενδέχεται να έχει ως αποτέλεσμα τη χρήση αποκωδικοποίησης AV1.
+
+Η αναπαραγωγή μπορεί να κομπιάζει ή να χάνει καρέ."</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Απαιτείται σύνδεση)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
 <small>(No SDK)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
-<small>(χωρίς σύνδεση χρήστη)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
 <small>(Παλιό)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Ακυκλοφόρητο)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
@@ -2369,11 +2467,13 @@ Playlists
 • O εξαναγκασμός αρχικής γλώσσας ήχου δεν είναι διαθέσιμoς.
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη.
 • Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεμένοι ή σε λειτουργία ανώνυμης περιήγησης.
-• Η ποιότητα 1080p+, HDR, και ο κωδικοποιητής AV1 δεν υποστηρίζονται."</string>
+• Η ποιότητα 1080p+, HDR, και ο κωδικοποιητής AV1 δεν υποστηρίζονται.
+• Η λειτουργία 360° VR δεν είναι διαθέσιμη."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_no_sdk">• Το βίντεο μπορεί να σταματάει στο 1:00, ή να μην είναι διαθέσιμο σε ορισμένες περιοχές.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Το μενού «Κομμάτι ήχου» λείπει.
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Το μενού «Κομμάτι ήχου» λείπει.
+• Η ρύθμιση «Απενεργοποίηση υποχρεωτικών κομματιών ήχου» δεν είναι διαθέσιμη.
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη.
 • Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεμένοι ή σε λειτουργία ανώνυμης περιήγησης."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• Το μενού «Κομμάτι ήχου» λείπει.
@@ -2398,8 +2498,13 @@ Playlists
 • Η αναπαραγωγή μπορεί να ξεκινήσει με καθυστέρηση."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Παρενέργειες παραποίησης</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• Αν η αποσυσκότιση αποτύχει, θα αποτύχει και η αναπαραγωγή.
+• Αν το βίντεο δεν ξεκινήσει εντός 10 δευτερολέπτων, πατήστε το κουμπί επαναφόρτωσης βίντεο.
 • Η αναπαραγωγή ενδέχεται να ξεκινάει με καθυστέρηση.
-• Αν το βίντεο δεν ξεκινήσει εντός 10 δευτερολέπτων, πατήστε το κουμπί επαναφόρτωσης βίντεο."</string>
+• Η λειτουργία 360° VR δεν είναι διαθέσιμη."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply">"• Αν η αποσυσκότιση αποτύχει, θα αποτύχει και η αναπαραγωγή.
+• Για κάποιους λογαριασμούς μπορεί να απαιτείται αναγνωριστικό PoToken, οπότε σε αυτή την περίπτωση η αναπαραγωγή θα αποτύχει.
+• Αν το βίντεο δεν ξεκινήσει εντός 10 δευτερολέπτων, πατήστε το κουμπί επαναφόρτωσης βίντεο.
+• Η αναπαραγωγή ενδέχεται να ξεκινάει με καθυστέρηση."</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• Αν η αποσυσκότιση αποτύχει, θα αποτύχει και η αναπαραγωγή.
 • Για κάποιους λογαριασμούς απαιτείται PoToken, οπότε σε αυτή την περίπτωση η αναπαραγωγή θα αποτύχει.
 • Αν το βίντεο δεν ξεκινήσει εντός 10 δευτερολέπτων, πατήστε το κουμπί επαναφόρτωσης βίντεο.
@@ -2407,7 +2512,44 @@ Playlists
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Άγνωστες</string>
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Το μενού «Κομμάτι ήχου» λείπει.
 • Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεμένοι ή σε λειτουργία ανώνυμης περιήγησης.
+• Η λειτουργία 360° VR δεν είναι διαθέσιμη.
 • Πρόκεται για ένα ακυκλοφόρητο πρόγραμμα πελάτη, οπότε μπορεί να σταματήσει να λειτουργεί ανά πάσα στιγμή."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Πατήστε για να δείτε πως να συνδεθείτε στο Android VR.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Σύνδεση στο Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Κωδικός ενεργοποίησης:
+%s
+
+1. Πατήστε «Άνοιγμα ιστοσελίδας» για να μεταβείτε στο 'https://yt.be/activate'.
+2. Εισάγετε τον κωδικό ενεργοποίησης.
+3. Συνδεθείτε όταν σας ζητηθεί. Αν έχετε πολλαπλούς λογαριασμούς Google, επιλέξτε τον λογαριασμό που χρησιμοποιείτε με το YouTube. Αν έχετε συνδεθεί ήδη, συνεχίστε στο επόμενο βήμα.
+4. Μόλις συνδεθείτε, επιστρέψτε στο RVX και πατήστε το «Σύνδεση στο Android VR» ξανά.
+5. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να λάβετε διακριτικό εξουσιοδότησης."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Κωδικός ενεργοποίησης</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Ο κωδικός αντιγράφηκε στο πρόχειρο: %s.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Λήψη κωδικού ενεργοποίησης</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Λήψη διακριτικού εξουσιοδότησης</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Η σύνδεση στο Android VR (YouTube VR) γίνεται σύμφωνα με τις οδηγίες της Google (Google account authorization - OAuth 2.0 for TV and Limited-Input Device Applications):
+
+1. Πατήστε «Λήψη κωδικού ενεργοποίησης» για να δημιουργήσετε έναν κωδικό ενεργοποίησης.
+2. Πατήστε «Άνοιγμα ιστοσελίδας» για να μεταβείτε στο 'https://yt.be/activate'.
+3. Εισάγετε τον κωδικό ενεργοποίησης.
+4. Συνδεθείτε όταν σας ζητηθεί. Αν έχετε πολλαπλούς λογαριασμούς Google, επιλέξτε τον λογαριασμό που χρησιμοποιείτε με το YouTube. Αν έχετε συνδεθεί ήδη, συνεχίστε στο επόμενο βήμα.
+5. Μόλις συνδεθείτε, επιστρέψτε στο RVX και πατήστε το «Σχετικά με το Android VR (με σύνδεση χρήστη)» ξανά.
+6. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να λάβετε διακριτικό εξουσιοδότησης.
+
+※ Πατήστε «Επαναφορά» για να καταργήσετε το διακριτικό εξουσιοδότησης ή τον κωδικό ενεργοποίησης."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Επαναφορά</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Σύνδεση στο Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Το διακριτικό εξουσιοδότησης αποθηκεύτηκε.
+
+- Το διακριτικό εξουσιοδότησης που εκδίδεται μέσω αυτής της διαδικασίας μπορεί να χρησιμοποιηθεί μόνο στο YouTube VR (Στο RVX, χρησιμοποιείται για τη λήψη δεδομένων ροής από το YouTube VR).
+- Τα διακριτικά εξουσιοδότησης που δεν χρησιμοποιούνται για περισσότερο από 6 μήνες θα ανακληθούν από τους διακομιστές της Google.
+- Εάν αλλάξετε τον κωδικό πρόσβασής σας, ή καταργήσετε την εγγραφή μιας συσκευής στις ρυθμίσεις του λογαριασμού σας, ή απεγκαταστήστε την εφαρμογή, θα πρέπει να επανεκδώσετε το διακριτικό εξουσιοδότησης."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Συνδεθήκατε!</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Αποτυχία έκδοσης διακριτικού εξουσιοδότησης.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Πατήστε «Επαναφορά» και προσπαθήστε ξανά.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Το διακριτικό και ο κωδικός επαναφέρθηκαν.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Το πρόγραμμα πελάτη που χρησιμοποιείται για τη λήψη δεδομένων ροής δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες».</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Το πρόγραμμα πελάτη που χρησιμοποιείται για τη λήψη δεδομένων ροής εμφανίζεται στο μενού «Στατιστικά για σπασίκλες».</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Εμφάνιση στο «Στατιστικά για σπασίκλες»</string>
@@ -2475,11 +2617,16 @@ Playlists
     <string name="revanced_spoof_streaming_data_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Πατήστε για να δείτε πώς να αποκτήσετε ένα διακριτικό εξουσιοδότησης.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Σχετικά με το Android VR (με σύνδεση χρήστη)</string>
+    <string name="revanced_swipe_brightness_distance_summary">Ο αριθμός των pixel για σάρωση για αλλαγή της φωτεινότητας. Οι χαμηλότερες τιμές κάνουν την αλλαγή φωτεινότητας ταχύτερη, οι υψηλότερες την κάνουν πιο αργή (1-1000).</string>
+    <string name="revanced_swipe_brightness_distance_title">Απόσταση φωτεινότητας</string>
     <string name="revanced_swipe_brightness_summary_off">Η χειρονομία σάρωσης για αλλαγή φωτεινότητας στην πλήρη οθόνη είναι απενεργοποιημένη.</string>
     <string name="revanced_swipe_brightness_summary_on">"Η χειρονομία σάρωσης για αλλαγή φωτεινότητας στην πλήρη οθόνη είναι ενεργοποιημένη.
 
 Προσαρμόστε τη φωτεινότητα σαρώνοντας κάθετα στην αριστερή πλευρά της οθόνης."</string>
     <string name="revanced_swipe_brightness_title">Σάρωση οθόνης για φωτεινότητα</string>
+    <string name="revanced_swipe_delay_summary">Η καθυστέρηση, σε χιλιοστά του δευτερολέπτου, πριν αναγνωριστεί μια σάρωση. Αυξήστε αυτήν την τιμή εάν παρεμβαίνει στη χειρονομία τσιμπήματος για ζουμ (pinch-to-zoom).</string>
+    <string name="revanced_swipe_delay_title">Καθυστέρηση χειρονομιών σάρωσης</string>
+    <string name="revanced_swipe_distance_invalid">Μη έγκυρη απόσταση σάρωσης, πρέπει να είναι μεταξύ 1 και 1000.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Οι χειρονομίες σάρωσης είναι απενεργοποιημένες στη λειτουργία «Οθόνη κλειδώματος».</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Οι χειρονομίες σάρωσης είναι ενεργοποιημένες στη λειτουργία «Οθόνη κλειδώματος».</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Χρήση στη λειτουργία «Οθόνη κλειδώματος»</string>
@@ -2495,6 +2642,10 @@ Playlists
     <string name="revanced_swipe_overlay_background_opacity_title">Αδιαφάνεια φόντου σάρωσης</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Το χρώμα της γραμμής προόδου για τον έλεγχο της φωτεινότητας.</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Χρώμα γραμμής σάρωσης για φωτεινότητα</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_summary">Το χρώμα της μπάρας προόδου για τα χειριστήρια αναζήτησης</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_title">Χρώμα αναζήτησης επικάλυψης σάρωσης</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">Το χρώμα της μπάρας προόδου για τα χειριστήρια ταχύτητας</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">Χρώμα ταχύτητας επικάλυψης σάρωσης</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">Το χρώμα της γραμμής προόδου για τον έλεγχο της έντασης ήχου.</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Χρώμα γραμμής σάρωσης για ένταση ήχου</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Το μέγεθος οθόνης πρέπει να ναι μικρότερο από 50.</string>
@@ -2517,11 +2668,30 @@ Playlists
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Η φωτεινότητα δεν αποθηκεύεται ούτε επαναφέρεται κατά την έξοδο ή την είσοδο σε πλήρη οθόνη.</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Η φωτεινότητα αποθηκεύεται και επαναφέρεται κατά την έξοδο ή την είσοδο σε πλήρη οθόνη.</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Αποθήκευση και επαναφορά φωτεινότητας</string>
+    <string name="revanced_swipe_seek_distance_summary">Ο αριθμός των pixel για σάρωση για παράλειψη περιεχομένου βίντεο. Οι χαμηλότερες τιμές κάνουν την αναζήτηση ταχύτερη, οι υψηλότερες την κάνουν πιο αργή (1-1000).</string>
+    <string name="revanced_swipe_seek_distance_title">Απόσταση αναζήτησης</string>
+    <string name="revanced_swipe_seek_summary_off">Η σάρωση αναζήτησης σε πλήρη οθόνη είναι απενεργοποιημένη.</string>
+    <string name="revanced_swipe_seek_summary_on">"Η σάρωση αναζήτησης σε πλήρη οθόνη είναι ενεργοποιημένη.
+
+Αναζητήστε στο βίντεο σαρώνοντας οριζόντια στο πάνω μισό της οθόνης."</string>
+    <string name="revanced_swipe_seek_title">Ενεργοποίηση χειρονομίας αναζήτησης</string>
+    <string name="revanced_swipe_speed_distance_summary">Ο αριθμός των pixel για σάρωση για αλλαγή της ταχύτητας βίντεο. Οι χαμηλότερες τιμές κάνουν την αλλαγή ταχύτητας ταχύτερη, οι υψηλότερες την κάνουν πιο αργή (1-1000).</string>
+    <string name="revanced_swipe_speed_distance_title">Απόσταση ταχύτητας</string>
+    <string name="revanced_swipe_speed_summary_off">Η σάρωση ταχύτητας σε πλήρη οθόνη είναι απενεργοποιημένη.</string>
+    <string name="revanced_swipe_speed_summary_on">"Η σάρωση ταχύτητας σε πλήρη οθόνη είναι ενεργοποιημένη.
+
+Ρυθμίστε την ταχύτητα σαρώνοντας οριζόντια στο κάτω μισό της οθόνης."</string>
+    <string name="revanced_swipe_speed_title">Ενεργοποίηση χειρονομίας ταχύτητας</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_off">Η ζώνη χειρονομίας αναζήτησης βρίσκεται στο επάνω μέρος, η ζώνη ταχύτητας στο κάτω μέρος.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_on">Η ζώνη χειρονομίας ταχύτητας βρίσκεται στο επάνω μέρος, η ζώνη αναζήτησης στο κάτω μέρος.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_title">Εναλλαγή χειρονομιών ταχύτητας και αναζήτησης</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">Το μέγεθος κειμένου πρέπει να είναι μεταξύ 1-30.</string>
     <string name="revanced_swipe_text_overlay_size_summary">Το μέγεθος κειμένου στο φόντο της σάρωσης μεταξύ 1-30.</string>
     <string name="revanced_swipe_text_overlay_size_title">Μέγεθος κειμένου φόντου σάρωσης</string>
     <string name="revanced_swipe_threshold_summary">Η ελάχιστη απόσταση που πρέπει να διανυστεί με το δάκτυλο για να είναι αναγνωρίσιμη η χειρονομία σάρωσης.</string>
     <string name="revanced_swipe_threshold_title">Κατώτατο όριο μεγέθους σάρωσης</string>
+    <string name="revanced_swipe_volume_distance_summary">Ο αριθμός των pixel για σάρωση για ρύθμιση της έντασης. Οι χαμηλότερες τιμές κάνουν την αλλαγή έντασης ταχύτερη, οι υψηλότερες την κάνουν πιο αργή (1-1000).</string>
+    <string name="revanced_swipe_volume_distance_title">Απόσταση έντασης</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Η ευαισθησία σάρωσης πρέπει να ναι μεταξύ 1-1000.</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Πόσο αλλάζει η ένταση ήχου ανά σάρωση.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Ευαισθησία σάρωσης έντασης ήχου</string>
@@ -2616,4 +2786,31 @@ Playlists
     <string name="revanced_whitelist_settings_summary">Ελέγξτε ή καταργήστε την λίστα των καναλιών που έχουν προστεθεί στη λίστα επιτρεπόμενων.</string>
     <string name="revanced_whitelist_settings_title">Λίστα επιτρεπόμενων καναλιών</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_yandex_error_download_subs_failed">Αποτυχία λήψης αρχείου υπότιτλων (Κωδικός: %1$d)</string>
+    <string name="revanced_yandex_error_internal_no_chosen_url">Εσωτερικό σφάλμα: Το επιλεγμένο κομμάτι δεν έχει URL</string>
+    <string name="revanced_yandex_error_internal_null_subs_response">Εσωτερικό σφάλμα: Αποτυχία λήψης τελικών υπότιτλων</string>
+    <string name="revanced_yandex_error_network_generic">Σφάλμα δικτύου</string>
+    <string name="revanced_yandex_error_network_subs_fetch">Σφάλμα δικτύου κατά τη λήψη αρχείου υπότιτλων</string>
+    <string name="revanced_yandex_error_no_language_selected">Δεν επιλέχθηκε γλώσσα</string>
+    <string name="revanced_yandex_error_no_subs_for_language">Υπότιτλοι μη διαθέσιμοι σε %s</string>
+    <string name="revanced_yandex_error_no_subs_returned">Δεν υπάρχουν διαθέσιμα κομμάτια υπότιτλων</string>
+    <string name="revanced_yandex_error_server_try_again">Παρουσιάστηκε σφάλμα κατά τη μεταγραφή, δοκιμάστε ξανά αργότερα.</string>
+    <string name="revanced_yandex_error_subs_parsing_failed">Αποτυχία ανάλυσης περιεχομένου JSON υπότιτλων</string>
+    <string name="revanced_yandex_error_subs_processing_failed">Σφάλμα επεξεργασίας περιεχομένου υπότιτλων</string>
+    <string name="revanced_yandex_error_subs_stuck_processing">Εσωτερικό σφάλμα: Η επεξεργασία υπότιτλων κόλλησε</string>
+    <string name="revanced_yandex_error_translation_failed">Η μετάφραση απέτυχε</string>
+    <string name="revanced_yandex_error_unknown">Άγνωστο σφάλμα</string>
+    <string name="revanced_yandex_status_processing_hour">Απομένει περισσότερο από μία ώρα...</string>
+    <string name="revanced_yandex_status_processing_minute">Απομένει περίπου ένα λεπτό...</string>
+    <string name="revanced_yandex_status_processing_minutes_plural">Απομένουν %d λεπτά...</string>
+    <string name="revanced_yandex_status_processing_short">Επεξεργασία...</string>
+    <string name="revanced_yandex_status_requesting_translation">Αίτημα μετάφρασης</string>
+    <string name="revanced_yandex_status_session_ok">Συνεδρία ΟΚ</string>
+    <string name="revanced_yandex_status_subs_found">Βρέθηκαν υπότιτλοι, γίνεται λήψη...</string>
+    <string name="revanced_yandex_status_transcription_delayed">Η μεταγραφή έχει καθυστερήσει ελαφρώς</string>
+    <string name="revanced_yandex_status_youtube_specific">Χειρισμός αιτήματος ήχου YouTube...</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Το Yandex μπορεί να μεταγράψει βίντεο από οποιαδήποτε γλώσσα, αλλά η έξοδος είναι διαθέσιμη μόνο στα Αγγλικά (en), Ρωσικά (ru) και Καζακικά (kk). Εάν εισαγάγετε οποιονδήποτε άλλο κωδικό γλώσσας ή χρησιμοποιήσετε το 'app' (που σημαίνει την προεπιλεγμένη γλώσσα της εφαρμογής), θα ζητηθεί από το Gemini να μεταφράσει (απαιτείται κλειδί API)."</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_title">Γλώσσα Yandex</string>
+    <string name="revanced_yandex_transcribe_subtitles_summary">Χρησιμοποιήστε μεταγραφή Yandex αντί για Gemini. Το Yandex είναι ταχύτερο και πιο αξιόπιστο. Δεν απαιτείται κλειδί API.</string>
+    <string name="revanced_yandex_transcribe_subtitles_title">Μεταγραφή Yandex</string>
 </resources>

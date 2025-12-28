@@ -356,7 +356,6 @@ Note:
     <string name="revanced_disable_translucent_status_bar_summary_off">Status bar is opaque or translucent.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Status bar is opaque.</string>
     <string name="revanced_disable_translucent_status_bar_title">Disable translucent status bar</string>
-    <string name="revanced_disable_translucent_status_bar_user_dialog_message">For some manufacturer ROMs running Android 12+, enabling this feature may make the system navigation bar transparent.</string>
     <string name="revanced_disable_video_description_interaction_summary">"Disables the following interactions when the video description is expanded:
 
 • Tap to scroll.
@@ -438,7 +437,9 @@ Limitations:
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Swiping up / down in fullscreen mode will change to the next / previous video.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Enable swipe to change video</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Navigation bar is opaque.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">Navigation bar is translucent.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">"Navigation bar is translucent.
+
+Known issue: System navigation bar may be translucent."</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Enable translucent navigation bar</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">Watch next processing delay is disabled.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">Watch next processing delay is enabled.</string>
@@ -779,9 +780,6 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_hide_general_ads_summary_off">General ads are shown.</string>
     <string name="revanced_hide_general_ads_summary_on">General ads are hidden.</string>
     <string name="revanced_hide_general_ads_title">Hide general ads</string>
-    <string name="revanced_hide_get_premium_summary_off">YouTube Premium promotion is shown.</string>
-    <string name="revanced_hide_get_premium_summary_on">YouTube Premium promotion is hidden.</string>
-    <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotion</string>
     <string name="revanced_hide_handle_summary_off">Handle is shown.</string>
     <string name="revanced_hide_handle_summary_on">Handle is hidden.</string>
     <string name="revanced_hide_handle_title">Hide handle</string>
@@ -1437,6 +1435,11 @@ Limitations:
     <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles show up a few days each year.
 
 If a YouTube Doodle is currently showing in your region and this setting is on, the filter bar below the search bar will also be hidden."</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_off">YouTube Premium promotion is shown.</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_on">"YouTube Premium promotion is hidden.
+
+Known issue: When this setting is enabled, YouTube Doodles are not clickable."</string>
+    <string name="revanced_hide_youtube_premium_promotion_title">Hide YouTube Premium promotion</string>
     <string name="revanced_hide_zoom_overlay_summary_off">Zoom overlay is shown.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">Zoom overlay is hidden.</string>
     <string name="revanced_hide_zoom_overlay_title">Hide zoom overlay</string>
@@ -1457,7 +1460,10 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_icon_squid_game">Squid Game</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
+    <string name="revanced_icon_xisr_aurora">Xisr Aurora</string>
+    <string name="revanced_icon_xisr_evergreen">Xisr Evergreen</string>
     <string name="revanced_icon_xisr_special">Xisr Special</string>
+    <string name="revanced_icon_xisr_white">Xisr White</string>
     <string name="revanced_icon_xisr_winter">Xisr Winter</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube">YouTube</string>
@@ -2452,7 +2458,8 @@ Example 2:
 • Disable forced auto audio tracks may not be available.
 • Stable volume is not available.
 • Kids videos may not play when logged out or in incognito mode.
-• 1080p+, AV1, and HDR are not supported."</string>
+• 1080p+, AV1, and HDR are not supported.
+• 360° VR immersive mode is not available."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_no_sdk">• Video may stop at 1:00, or may not be available in some regions.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Audio track menu is missing.
 • Stable volume is not available."</string>
@@ -2483,7 +2490,8 @@ Example 2:
     <string name="revanced_spoof_streaming_data_side_effects_title">Spoofing side effects</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• If deobfuscation fails, playback may fail.
 • Sometimes the video will not play even after 10 seconds, in which case you'll need to click the reload video button.
-• Video may start late."</string>
+• Video may start late.
+• 360° VR immersive mode is not available."</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv_simply">"• If deobfuscation fails, playback may fail.
 • Some accounts may require a PoToken, in which case the playback will fail.
 • Sometimes the video will not play even after 10 seconds, in which case you'll need to click the reload video button.
@@ -2495,6 +2503,7 @@ Example 2:
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Unknown</string>
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Audio track menu is missing.
 • Kids videos may not play when logged out or in incognito mode.
+• 360° VR immersive mode is not available.
 • Since this is an unreleased client, it may stop working at any time."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Click here to see how to sign in to Android VR.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Sign in to Android VR</string>
@@ -2511,7 +2520,7 @@ Example 2:
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Activation code copied to clipboard: %s.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Get activation code</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Get authorization token</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Signing into Android VR (YouTube VR) follows the guidelines provided by Google (Google account authorization - OAuth 2.0 for TV and Limited-Input Device Applications):
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Signing in to Android VR (YouTube VR) follows the guidelines provided by Google (Google account authorization - OAuth 2.0 for TV and Limited-Input Device Applications):
 
 1. Click 'Get activation code' to generate an activation code.
 2. Click 'Open website' to go to 'https://yt.be/activate'.
@@ -2726,6 +2735,7 @@ Disclaimer: Cookies issued without signing in may be invalid or may take time to
     <string name="revanced_transcript_cookies_dialog_title">Export Transcript Cookies</string>
     <string name="revanced_transcript_cookies_summary">Cookies to use in Transcript API requests.</string>
     <string name="revanced_transcript_cookies_title">Transcript Cookies</string>
+    <string name="revanced_translations_title">Translations</string>
     <string name="revanced_watch_history_about_status_blocked">• Watch history is blocked.</string>
     <string name="revanced_watch_history_about_status_original">"• Follows the watch history settings of Google account.
 • Watch history may not work due to DNS or VPN."</string>

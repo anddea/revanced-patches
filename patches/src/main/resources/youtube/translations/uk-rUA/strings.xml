@@ -350,7 +350,6 @@
     <string name="revanced_disable_translucent_status_bar_summary_off">Рядок стану непрозорий чи напівпрозорий.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Рядок стану непрозорий.</string>
     <string name="revanced_disable_translucent_status_bar_title">Вимкнути напівпрозорість рядка стану</string>
-    <string name="revanced_disable_translucent_status_bar_user_dialog_message">Для прошивок деяких розробників Android 12+, увімкнення цієї функції може зробити панель навігації системи прозорою.</string>
     <string name="revanced_disable_video_description_interaction_summary">"Вимикається такі взаємодії під час розгортання опису відео:
 
 • Натисніть, щоб прокрутити.
@@ -432,7 +431,9 @@
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Проведення вгору / вниз у повноекранному режимі змінюватиме на наступне / попереднє відео.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Увімкнути зміну відео проведенням</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Панель навігації непрозора.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">Панель навігації напівпрозора.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">"Панель навігації напівпрозора.
+
+Відома проблема: Система панель навігації може бути напівпрозорою."</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Увімкнути напівпрозорість панелі навігації</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">Затримку при обробці перегляду наступного вимкнено.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">Затримку при обробці перегляду наступного увімкнено.</string>
@@ -683,6 +684,9 @@
 
 Застереження: Деякі виділені пошукові посилання, які не мають стандартного стилю тексту, не можуть бути приховані."</string>
     <string name="revanced_hide_comments_highlighted_search_links_title">Приховати виділені пошукові посилання</string>
+    <string name="revanced_hide_comments_information_button_summary_off">Кнопку інформації показується.</string>
+    <string name="revanced_hide_comments_information_button_summary_on">Кнопку інформації приховано.</string>
+    <string name="revanced_hide_comments_information_button_title">Приховати кнопку інформації</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_off">Секцію коментарів показується у головній стрічці.</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_on">Секцію коментарів приховано у головній стрічці.</string>
     <string name="revanced_hide_comments_section_in_home_feed_title">Приховати секцію Коментарі у головній стрічці</string>
@@ -772,9 +776,6 @@
     <string name="revanced_hide_general_ads_summary_off">Загальну рекламу показується.</string>
     <string name="revanced_hide_general_ads_summary_on">Загальну рекламу приховано.</string>
     <string name="revanced_hide_general_ads_title">Приховати загальну рекламу</string>
-    <string name="revanced_hide_get_premium_summary_off">Рекламу YouTube Premium під відеоплеєром показується.</string>
-    <string name="revanced_hide_get_premium_summary_on">Рекламу YouTube Premium під відеоплеєром приховано.</string>
-    <string name="revanced_hide_get_premium_title">Приховати рекламу YouTube Premium</string>
     <string name="revanced_hide_handle_summary_off">Ідентифікатор показується.</string>
     <string name="revanced_hide_handle_summary_on">Ідентифікатор приховано.</string>
     <string name="revanced_hide_handle_title">Приховати ідентифікатор</string>
@@ -1074,6 +1075,9 @@
     <string name="revanced_hide_search_term_thumbnail_summary_off">Мініатюри в історії пошукового запиту показується.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Мініатюри в історії пошукового запиту приховано.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Приховати мініатюру пошукового запиту</string>
+    <string name="revanced_hide_section_header_in_feed_summary_off">Заголовок розділу «Підписки» відображається.\n\nЦей заголовок містить кнопки «Перейти до спільноти» та «Перейти на канал», які з’являються при натисканні на значок підписаного каналу в розділі «Підписки».</string>
+    <string name="revanced_hide_section_header_in_feed_summary_on">Заголовок розділу «Підписки» приховано.\n\nЦей заголовок містить кнопки «Перейти до спільноти» та «Перейти на канал», які з’являються при натисканні на значок підписаного каналу в розділі «Підписки».</string>
+    <string name="revanced_hide_section_header_in_feed_title">Приховати заголовок розділу «Підписки»</string>
     <string name="revanced_hide_seek_message_summary_off">"Сповіщення перемотки показується.
 
 Інформація:
@@ -1428,6 +1432,11 @@
     <string name="revanced_hide_youtube_doodles_user_dialog_message">"Yoodles з'являються на декілька днів щороку.
 
 Якщо Yoodles наразі зображаються у вашому регіоні й це налаштування приховування увімкнено, то панель фільтрів під рядком пошуку також приховуватиметься."</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_off">Рекламу YouTube Premium показується.</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_on">"Рекламу YouTube Premium приховано.
+
+Відома проблема: Коли це налаштування увімкнене, Yoodles не натискаються."</string>
+    <string name="revanced_hide_youtube_premium_promotion_title">Приховати рекламу YouTube Premium</string>
     <string name="revanced_hide_zoom_overlay_summary_off">Накладання при масштабуванні показується.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">Накладання при масштабуванні приховано.</string>
     <string name="revanced_hide_zoom_overlay_title">Приховати накладання при масштабуванні</string>
@@ -1449,6 +1458,7 @@
     <string name="revanced_icon_vanced_black">Vanced чорна</string>
     <string name="revanced_icon_vanced_light">Vanced світла</string>
     <string name="revanced_icon_xisr_special">Xisr спеціальна</string>
+    <string name="revanced_icon_xisr_winter">Xisr Зима</string>
     <string name="revanced_icon_xisr_yellow">Xisr жовта</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube чорна</string>
@@ -1564,6 +1574,8 @@
 <small>తెలుగు</small>"</string>
     <string name="revanced_language_TH">"Тайська
 <small>ไทย</small>"</string>
+    <string name="revanced_language_TL">"Філіппінська
+<small>Filipino</small>"</string>
     <string name="revanced_language_TR">"Турецька
 <small>Türkçe</small>"</string>
     <string name="revanced_language_UK">"Українська
@@ -2378,15 +2390,23 @@
 • Високі якості можуть розблокуватися на деяких відео, які потребують великих розмірів пристрою, але не на всіх відео.
 • Це налаштування недоступне якщо увімкнене 'Підробити дані трансляції'."</string>
     <string name="revanced_spoof_device_dimensions_title">Підробити розміри пристрою</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">Відеокодек AVC (H.264) або VP9.</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"Відеокодек AVC (H.264), VP9 або AV1.
+
+Відтворення може затинатися або втрачати кадри."</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_title">Увімкнути кодек AV1</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Якщо увімкнути це налаштування, може використовуватися програмне декодування AV1.
+
+Відтворення може затинатися або втрачати кадри."</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Потрібна авторизація)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
 <small>(Без SDK)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
-<small>(Без авторизації)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
 <small>(Застарілий)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Простий TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Невипущений)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Основний клієнт</string>
@@ -2440,11 +2460,13 @@
 • Вимкнення примусових авто звукових доріжок може бути недоступне.
 • Стабілізація гучності недоступна.
 • Відео для дітей можуть не відтворюватися коли вийшли з облікового запису або в анонімному режимі.
-• 1080p+, AV1 та HDR не підтримуються."</string>
+• 1080p+, AV1 та HDR не підтримуються.
+• Режим 360° VR з ефектом занурення недоступний."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_no_sdk">• Відео може зупинитися на 1:00 або бути недоступним у деяких регіонах.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Меню звукової доріжки відсутнє.
 • Стабілізація гучності недоступна."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Меню звукової доріжки відсутнє.
+• Вимкнення примусових авто звукових доріжок може бути недоступне.
 • Стабілізація гучності недоступна.
 • Відео для дітей можуть не відтворюватися коли вийшли з облікового запису або в анонімному режимі."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr_auth">"• Меню звукової доріжки відсутнє.
@@ -2470,6 +2492,11 @@
     <string name="revanced_spoof_streaming_data_side_effects_title">Побічні ефекти імітування</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• Якщо деобфускація не вдасться, відтворення може завершитися зі збоями.
 • Іноді відео не відтворюється навіть через 10 секунд, і тоді потрібно натиснути кнопку перезавантаження відео.
+• Відео може розпочинається із запізненням.
+• Режим 360° VR з ефектом занурення недоступний."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply">"• Якщо деобфускація не вдасться, відтворення може завершитися зі збоями.
+• Для деяких акаунтів може знадобитися PoToken, і в цьому випадку відтворення завершиться зі збоями.
+• Іноді відео не відтворюється навіть через 10 секунд, і тоді потрібно натиснути кнопку перезавантаження відео.
 • Відео може розпочинається із запізненням."</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• Якщо деобфускація не вдасться, відтворення може завершитися зі збоями.
 • Для деяких акаунтів може знадобитися PoToken, і в цьому випадку відтворення завершиться зі збоями.
@@ -2478,7 +2505,44 @@
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Невідомі</string>
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Меню звукової доріжки відсутнє.
 • Відео для дітей можуть не відтворюватися коли вийшли з облікового запису або в анонімному режимі.
+• Режим 360° VR з ефектом занурення недоступний.
 • Оскільки це невипущений клієнт, може перестати працювати в будь-який момент."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Натисніть тут, щоб побачити як увійти в Android VR.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Авторизуватися в Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Код активації:
+%s
+
+1. Натисніть 'Відкрити сайт', щоб перейти до 'https://yt.be/activate'.
+2. Введіть код активації.
+3. Увійдіть, коли з'явиться запит. Якщо у вас кілька облікових записів Google, виберіть обліковий запис, який використовуєте для YouTube. Якщо вже увійшли, перейдіть до наступного кроку.
+4. Після входу поверніться до RVX і знову натисніть 'Авторизуватися в Android VR'.
+5. Натисніть 'Отримати токен авторизації', щоб отримати токен авторизації."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Відкрити сайт</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Код активації</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Код активації скопійовано в буфер обміну: %s.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Отримати код активації</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Отримати токен авторизації</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Вхід в Android VR (YouTube VR) здійснюється відповідно до інструкцій, наданих Google (авторизація облікового запису Google — OAuth 2.0 для TV та додатків з обмеженим введенням даних):
+
+1. Натисніть 'Отримати код активації', щоб згенерувати код активації.
+2. Натисніть 'Відкрити сайт', щоб перейти до 'https://yt.be/activate'.
+3. Введіть код активації.
+4. Увійдіть, коли з'явиться запит. Якщо у вас кілька облікових записів Google, виберіть обліковий запис, який використовуєте для YouTube. Якщо вже увійшли, перейдіть до наступного кроку.
+5. Після входу поверніться до RVX і знову натисніть 'Авторизуватися в Android VR'.
+6. Натисніть 'Отримати токен авторизації', щоб отримати токен авторизації.
+
+※ Натисніть 'Скинути', щоб вилучити токен автентифікації або код активації."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Скинути</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Авторизація в Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Токен автентифікації збережено.
+
+- Токен автентифікації, виданий за допомогою цього процесу, можна використовувати тільки в YouTube VR (У RVX він використовується для отримання даних трансляції із YouTube VR).
+- Токен автентифікації, який не використовувався протягом більше ніж 6 місяців, буде анульований серверами Google.
+- Якщо ви зміните пароль, скасуєте реєстрацію пристрою в налаштуваннях облікового запису чи видалите додаток, потрібно буде перевидати токен автентифікації."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Авторизовано</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Не вдалося видати токен автентифікації.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Натисніть Скинути та спробуйте ще раз.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Токен автентифікації та код активації скинуто.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клієнт, що використовується для отримання даних трансляції приховано у Статистика для сисадмінів.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Клієнт, що використовується для отримання даних трансляції показується у Статистика для сисадмінів.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати в Статистика для сисадмінів</string>
@@ -2553,6 +2617,8 @@ uBlock Origin знайшов обхідний шлях для вирішення
 
 Регулюйте яскравість вертикальним проведенням по лівій стороні екрана."</string>
     <string name="revanced_swipe_brightness_title">Увімкнути зміну яскравості жестом</string>
+    <string name="revanced_swipe_delay_summary">Затримка в мілісекундах перед розпізнаванням гортання. Збільште це значення, якщо воно конфліктує з жестом масштабування (щипком).</string>
+    <string name="revanced_swipe_delay_title">Затримка жестів гортання</string>
     <string name="revanced_swipe_distance_invalid">Недійсна відстань для проведення, повинно бути між 1 і 1000.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Жести переміщення вимкнено в режимі \'Блокування екрана\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Жести переміщення увімкнено в режимі \'Блокування екрана\'.</string>

@@ -5,10 +5,10 @@ import android.preference.PreferenceScreen;
 
 import app.revanced.extension.reddit.settings.Settings;
 import app.revanced.extension.reddit.settings.SettingsStatus;
+import app.revanced.extension.reddit.settings.preference.LinkPreference;
 import app.revanced.extension.reddit.settings.preference.TogglePreference;
 
 import static app.revanced.extension.shared.utils.StringRef.dstr;
-import static app.revanced.extension.shared.utils.StringRef.str;
 
 @SuppressWarnings("deprecation")
 public class MiscellaneousPreferenceCategory extends ConditionalPreferenceCategory {
@@ -42,5 +42,10 @@ public class MiscellaneousPreferenceCategory extends ConditionalPreferenceCatego
                     Settings.SANITIZE_URL_QUERY
             ));
         }
+        addPreference(new LinkPreference(
+                context,
+                "revanced_translations_title",
+                "https://rvxtranslate.netlify.app/"
+        ));
     }
 }

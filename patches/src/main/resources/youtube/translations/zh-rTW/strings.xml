@@ -354,7 +354,6 @@
     <string name="revanced_disable_translucent_status_bar_summary_off">狀態列是不透明或半透明的。</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">狀態列不透明。</string>
     <string name="revanced_disable_translucent_status_bar_title">停用半透明狀態列</string>
-    <string name="revanced_disable_translucent_status_bar_user_dialog_message">對於一些運行 Android 12 以上版本的製造商 ROM，啟用此功能可能會使系統導覽列變得透明。</string>
     <string name="revanced_disable_video_description_interaction_summary">"當影片描述展開時，停用以下互動：
 
 ・點擊捲動。
@@ -434,7 +433,7 @@
     <string name="revanced_enable_swipe_to_switch_video_summary_on">在全螢幕模式下向上 / 向下滑動將切換到下一個 / 上一個影片。</string>
     <string name="revanced_enable_swipe_to_switch_video_title">啟用滑動切換影片</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">導覽列不透明。</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">導覽列是半透明的。</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">"導覽列是半透明的。"</string>
     <string name="revanced_enable_translucent_navigation_bar_title">啟用半透明導覽列</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">觀看下一部影片處理延遲已禁用。</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">觀看下一部影片處理延遲已啟用。</string>
@@ -688,6 +687,9 @@
 
 限制：某些沒有預設文字樣式的高亮搜尋連結可能無法隱藏。"</string>
     <string name="revanced_hide_comments_highlighted_search_links_title">隱藏高亮顯示的搜尋連結</string>
+    <string name="revanced_hide_comments_information_button_summary_off">訊息按鈕已顯示。</string>
+    <string name="revanced_hide_comments_information_button_summary_on">訊息按鈕已隱藏。</string>
+    <string name="revanced_hide_comments_information_button_title">隱藏訊息按鈕</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_off">首頁動態中評論部分已顯示。</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_on">首頁動態中評論部分已隱藏。</string>
     <string name="revanced_hide_comments_section_in_home_feed_title">隱藏首頁動態中的評論部分</string>
@@ -777,9 +779,6 @@
     <string name="revanced_hide_general_ads_summary_off">一般廣告已顯示。</string>
     <string name="revanced_hide_general_ads_summary_on">一般廣告已隱藏。</string>
     <string name="revanced_hide_general_ads_title">隱藏一般廣告</string>
-    <string name="revanced_hide_get_premium_summary_off">YouTube Premium 推廣已顯示。</string>
-    <string name="revanced_hide_get_premium_summary_on">YouTube Premium 推廣已隱藏。</string>
-    <string name="revanced_hide_get_premium_title">隱藏 YouTube Premium 推廣</string>
     <string name="revanced_hide_handle_summary_off">控制列已顯示。</string>
     <string name="revanced_hide_handle_summary_on">控制列已隱藏。</string>
     <string name="revanced_hide_handle_title">隱藏控制列</string>
@@ -981,7 +980,7 @@
     <string name="revanced_hide_player_flyout_menu_premium_controls_title">隱藏高級控件選單</string>
     <string name="revanced_hide_player_flyout_menu_quality_footer_summary_off">顯示畫質選單頁腳。</string>
     <string name="revanced_hide_player_flyout_menu_quality_footer_summary_on">畫質選單頁腳已隱藏。</string>
-    <string name="revanced_hide_player_flyout_menu_quality_footer_title">隱藏畫質選單頁腳</string>
+    <string name="revanced_hide_player_flyout_menu_quality_footer_title">隱藏畫質選單標題</string>
     <string name="revanced_hide_player_flyout_menu_quality_header_summary_off">顯示畫質選單標題。</string>
     <string name="revanced_hide_player_flyout_menu_quality_header_summary_on">畫質選單標題已隱藏。</string>
     <string name="revanced_hide_player_flyout_menu_quality_header_title">隱藏畫質選單標題</string>
@@ -1433,6 +1432,11 @@
     <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube 塗鴉每年都會出現幾天。
 
 如果您所在的地區目前正在顯示 YouTube 塗鴉，且此隱藏設定處於啟用狀態，則搜尋列下方的篩選列也會被隱藏。"</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_off">YouTube Premium 推廣已顯示。</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_on">"YouTube Premium推廣活動已隱藏。
+
+已知問題：啟用此設定後，YouTube塗鴉將無法點擊。"</string>
+    <string name="revanced_hide_youtube_premium_promotion_title">隱藏 YouTube Premium 推廣</string>
     <string name="revanced_hide_zoom_overlay_summary_off">顯示縮放疊加。</string>
     <string name="revanced_hide_zoom_overlay_summary_on">縮放疊加被隱藏。</string>
     <string name="revanced_hide_zoom_overlay_title">隱藏縮放疊加</string>
@@ -2389,17 +2393,25 @@ AI 生成的回應可能包含不準確的資訊。
 • 某些需要較高裝置尺寸的影片可能會解鎖高畫質，但並非所有影片都適用。
 • 如果開啟“偽裝串流數據”，則此設定無法使用。"</string>
     <string name="revanced_spoof_device_dimensions_title">偽裝裝置尺寸</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">影片編解碼器為 AVC (H.264) 或 VP9。</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"影片編碼格式為​​ AVC (H.264)、VP9 或 AV1。
+
+播放時可能會出現卡頓或丟幀現象。"</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_title">啟用 AV1 編解碼器</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"啟用此設定可能會使用軟體 AV1 解碼。
+
+播放可能會出現卡頓或丟幀現象。"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(需要登入)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
 <small>(無 SDK)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR"
-<small>(無需驗證)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">電視
 <small>(開發中)</small>
     </string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"電視
 <small>(舊版)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(未發布)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">預設用戶端</string>
@@ -2485,14 +2497,53 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• 如果解碼去混淆失敗，播放可能會失敗。
 • 有時影片即使播放 10 秒後也無法播放，在這種情況下，您需要點擊「重新載入影片」按鈕。
 • 影片可能會延遲播放。"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply">"• 如果反混淆失敗，播放可能會失敗。
+• 部分帳戶可能需要 PoToken，在這種情況下，播放將會失敗。
+• 有時影片即使等待 10 秒也無法播放，此時您需要點擊重新載入影片按鈕。
+• 影片可能會延遲播放。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• 如果解碼去混淆失敗，播放可能會失敗。
 • 某些帳號可能需要 PoToken，在這種情況下播放將會失敗。
 • 有時影片即使播放 10 秒後也無法播放，在這種情況下，您需要點擊重新載入影片按鈕。
 • 影片可能會延遲開始。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 未知</string>
-    <string name="revanced_spoof_streaming_data_side_effects_visionos">"• 缺少音軌選單。
-• 兒童影片在登出或隱身模式下可能無法播放。
-• 由於這是一個未發布的客戶端，因此它可能隨時停止工作。"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_visionos">"• 音軌選單已消失。
+• 在登出或隱身模式下，兒童影片可能無法播放。
+• 由於這是尚未發布的客戶端, 它可能隨時停止運作。"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">點這裡查看如何登入 Android VR。</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">登入 Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"啟動碼：
+%s
+
+1. 點選「開啟網站」前往「https://yt.be/activate」。
+2. 輸入啟動碼。
+3. 出現提示時登入。如果您有多個 Google 帳戶，請選擇您用於 YouTube 的帳戶。如果您已登錄，請跳至下一步。
+4. 登入後，返回 RVX 並再次點擊「關於 Android VR 驗證」。
+5. 點選「取得授權令牌」以取得授權令牌。"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">打開網站</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">啟動碼</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">啟動碼已複製到剪貼簿: %s。</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">取得啟動碼</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">取得授權令牌</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"登入 Android VR（YouTube VR）需遵循 Google 提供的指南（Google 帳戶授權 - 適用於電視和輸入限制裝置應用程式的 OAuth 2.0）：
+
+1. 點選「取得啟動碼」產生啟動碼。
+2. 點選「開啟網站」前往「https://yt.be/activate」。
+3. 輸入啟動碼。
+4. 出現提示時登入。如果您有多個 Google 帳戶，請選擇您用於 YouTube 的帳戶。如果您已登錄，請跳至下一步。
+5. 登入後，返回 RVX 並再次點選「登入 Android VR」。
+6. 點選「取得授權令牌」以取得授權令牌。
+※ 點選「重置」可移除授權令牌或啟動碼。"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">重置</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">登入 Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"身份驗證令牌已儲存。
+
+- 透過此流程頒發的身份驗證令牌只能在 YouTube VR 中使用（在 RVX 中，它用於從 YouTube VR 獲取串流資料）。
+- 超過 6 個月未使用的驗證令牌將被 Google 伺服器撤銷。
+- 如果您變更密碼、在帳戶設定中登出裝置或卸載應用，則需要重新頒發身分驗證令牌。"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">已登入</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">頒發身份驗證令牌失敗。</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">點選重置按鈕然後重試。</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">身份驗證令牌和啟動碼重置。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">用於獲取串流資料的用戶端隱藏在統計資料中。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">用於取得串流資料的用戶端顯示在統計資料中。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">顯示統計資料</string>

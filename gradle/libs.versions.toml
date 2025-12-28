@@ -14,8 +14,6 @@ okhttp3 = "4.12.0"
 protobuf = "0.9.5"
 protoc = "3.25.2"
 preference = "1.2.1"
-rxjava2 = "2.2.21"
-rxjava2-android = "2.1.1"
 
 [libraries]
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
@@ -28,8 +26,6 @@ nanohttpd = { module = "org.nanohttpd:nanohttpd", version.ref = "nanohttpd" }
 preference = { module = "androidx.preference:preference", version.ref = "preference" }
 protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protoc" }
 protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
-rxjava2 = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava2" }
-rxjava2-android = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "rxjava2-android" }
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "agp" }
