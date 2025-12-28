@@ -2,6 +2,7 @@ package app.revanced.extension.shared.patches.spoof;
 
 import static app.revanced.extension.shared.innertube.utils.J2V8Support.supportJ2V8;
 import static app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.prioritizeResolution;
+import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 
 import android.net.Uri;
 import android.text.TextUtils;
@@ -354,10 +355,11 @@ public class SpoofStreamingDataPatch {
     public static void initializeJavascript() {
         if (SPOOF_STREAMING_DATA_USE_JS) {
             // Download JavaScript and initialize the Cipher class
-            CompletableFuture.runAsync(() -> ThrottlingParameterUtils.initializeJavascript(
-                    SPOOF_STREAMING_DATA_USE_YT_DLP_EJS,
-                    BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getRequirePoToken()
-            ));
+            if (isSDKAbove(24)) {
+                CompletableFuture.runAsync(ThrottlingParameterUtils::initializeJavascript);
+            } else {
+                Utils.runOnBackgroundThread(ThrottlingParameterUtils::initializeJavascript);
+            }
         }
     }
 
