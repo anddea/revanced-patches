@@ -35,7 +35,7 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="revanced_change_player_background_color_title">Thay đổi màu nền của trình phát</string>
     <string name="revanced_change_seekbar_position_summary">Di chuyển thanh tiến trình xuống bên dưới nút Phát.</string>
     <string name="revanced_change_seekbar_position_title">Thay đổi vị trí thanh tiến trình</string>
-    <string name="revanced_change_share_sheet_summary">Chuyển bảng chia sẻ trong ứng dụng Youtube sang của hệ thống Android.</string>
+    <string name="revanced_change_share_sheet_summary">Chuyển bảng chia sẻ trong ứng dụng YouTube sang của hệ thống Android.</string>
     <string name="revanced_change_share_sheet_title">Thay đổi bảng chia sẻ</string>
     <string name="revanced_change_start_page_entry_chart">Bảng xếp hạng</string>
     <string name="revanced_change_start_page_entry_charts">Bảng xếp hạng</string>
@@ -142,7 +142,7 @@ Chi tiết:
 • Các phiên bản YouTube Music mới nhất sử dụng codec OPUS như mặc định.
 • Có thể cần thiết nếu giả mạo client hoặc luồng video."</string>
     <string name="revanced_enable_opus_codec_title">Codec OPUS</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">"Làm cho hiệu ứng mượt hơn khi phóng to trình phát thu nhỏ."</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">Làm cho hiệu ứng mượt hơn khi phóng to trình phát thu nhỏ.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Hiệu ứng chuyển tiếp</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Vuốt xuống để đóng trình phát thu nhỏ.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Vuốt để đóng trình phát thu nhỏ</string>
@@ -210,6 +210,8 @@ Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên 
     <string name="revanced_hide_comment_channel_guidelines_title">Ẩn các nhãn nguyên tắc</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Ẩn biểu tượng cảm xúc và nút dấu thời gian khi đang nhập bình luận.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Ẩn biểu tượng cảm xúc và nút dấu thời gian</string>
+    <string name="revanced_hide_comments_information_button_summary">Ẩn nút thông tin trong bảng bình luận.</string>
+    <string name="revanced_hide_comments_information_button_title">Ẩn nút thông tin</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Ẩn lớp phủ tối xuất hiện khi nhấn đúp để tua.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Ẩn lớp phủ khi nhấn đúp để tua</string>
     <string name="revanced_hide_floating_button_summary">Ẩn nút nổi trong thẻ Thư viện.</string>
@@ -234,8 +236,8 @@ Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên 
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Ẩn mục Xoá khỏi thư viện</string>
     <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Ẩn mục Xóa khỏi danh sách phát</string>
     <string name="revanced_hide_flyout_menu_report_title">Ẩn mục Báo vi phạm</string>
+    <string name="revanced_hide_flyout_menu_save_episode_for_later_save_to_library_title">Ẩn mục Lưu tập này để thưởng thức sau và Lưu vào thư viện</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Ẩn mục Lưu tập này để thưởng thức sau</string>
-    <string name="revanced_hide_flyout_menu_save_to_library_title">Ẩn mục Lưu vào thư viện</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">Ẩn mục Lưu vào danh sách phát</string>
     <string name="revanced_hide_flyout_menu_share_title">Ẩn mục Chia sẻ</string>
     <string name="revanced_hide_flyout_menu_shuffle_play_title">Ẩn mục Phát ngẫu nhiên</string>
@@ -243,6 +245,7 @@ Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên 
     <string name="revanced_hide_flyout_menu_start_radio_title">Ẩn mục Bắt đầu đài phát</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Ẩn mục Thống kê chi tiết</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Ẩn mục Đăng ký/Huỷ đăng ký</string>
+    <string name="revanced_hide_flyout_menu_taste_match_title">Ẩn trình đơn Hòa trộn gu âm nhạc</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Ẩn mục Bỏ ghim khỏi kệ Phát nhanh</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ẩn mục Xem thông tin ghi công của bài hát</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Ẩn quảng cáo toàn màn hình.
@@ -292,7 +295,7 @@ Hạn chế: Đôi khi mở thẻ Trang chủ, bạn chỉ thấy một màn hì
     <string name="revanced_hide_samples_shelf_title">Ẩn thẻ Đoạn nhạc</string>
     <string name="revanced_hide_search_button_summary">Ẩn nút Tìm kiếm khỏi thanh công cụ.</string>
     <string name="revanced_hide_search_button_title">Ẩn nút Tìm kiếm</string>
-    <string name="revanced_hide_settings_menu_about_title">Ẩn mục Giới thiệu về Youtube Music</string>
+    <string name="revanced_hide_settings_menu_about_title">Ẩn mục Giới thiệu về YouTube Music</string>
     <string name="revanced_hide_settings_menu_data_saving_title">Ẩn mục Chế độ tiết kiệm dữ liệu</string>
     <string name="revanced_hide_settings_menu_downloads_and_storage_title">Ẩn mục Nhạc tải xuống &amp; bộ nhớ</string>
     <string name="revanced_hide_settings_menu_general_title">Ẩn mục Chung</string>
@@ -349,6 +352,17 @@ Khi bật không những ẩn mục Cài đặt YT Music, mà còn ẩn mục C�
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Xoá hộp thoại cảnh báo nội dung cần cân nhắc trước khi xem.
 \nLưu ý: Tuỳ chọn này chỉ tự động chấp nhận hộp thoại cảnh báo, không thể bỏ qua giới hạn về độ tuổi."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Xoá hộp thoại cảnh báo trước khi xem</string>
+    <string name="revanced_replace_action_button_like_summary">"Dùng biểu tượng và hiệu ứng khác cho nút Thích.
+
+Chi tiết:
+• Có thể bỏ qua cài đặt này khi lỗi phía máy chủ đã được sửa."</string>
+    <string name="revanced_replace_action_button_like_title">Thay thế nút Thích</string>
+    <string name="revanced_replace_action_button_like_type_summary">"Dùng nút Thích nhỏ hơn.
+
+Chi tiết:
+• Một số người dùng có thanh thao tác thấp hơn (thử nghiệm A/B).
+• Cài đặt này dành cho nhóm người dùng đó, nhưng chưa được thử nghiệm."</string>
+    <string name="revanced_replace_action_button_like_type_title">Biểu tượng nhỏ</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Tiếp tục phát video từ thời điểm đã dừng lại khi chuyển sang YouTube.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Tiếp tục phát</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Thay thế mục \"Loại bỏ danh sách chờ\" bằng mục \"Xem trên YouTube\".</string>
@@ -390,14 +404,14 @@ Một số tính năng có thể không hoạt động bình thường trong b�
     <string name="revanced_return_youtube_username_display_format_username_only">Tên người dùng</string>
     <string name="revanced_return_youtube_username_enabled_summary">Hiển thị tên người dùng thay vì tên hiển thị trong phần bình luận.</string>
     <string name="revanced_return_youtube_username_enabled_title">Kích hoạt Return YouTube Username</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Khoá nhà phát triển YouTube Data API v3 là một mã khoá cho phép các nhà phát triển truy cập lấy dữ liệu từ Youtube, và chúng cũng cần thiết để thay thế @tên hiển thị thành tên người dùng.
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Khoá nhà phát triển YouTube Data API v3 là một mã khoá cho phép các nhà phát triển truy cập lấy dữ liệu từ YouTube, và chúng cũng cần thiết để thay thế @tên hiển thị thành tên người dùng.
 
 Giới hạn truy cập hàng ngày cho các khoá API trên gói miễn phí là 10000 lượt, với mỗi lượt truy cập chỉ áp dụng cho 1 bình luận.
 
 Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">Giới thiệu về khoá YouTube Data API</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">Khoá nhà phát triển để sử dụng YouTube Data API v3.</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Khoá Youtube Data API</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Khoá YouTube Data API</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;Tạo dự án mới&lt;/a&gt;.&lt;br&gt;2. Ấn vào &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Đi tới &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Ấn vào &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Ấn vào &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Chọn &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Ấn vào &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Sao chép mã khoá API.&lt;br&gt;&lt;br&gt;※ Không nên chia sẻ mã khoá API với người khác, vì vậy chúng cũng không có mặt trong mục Nhập/Xuất cài đặt.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Phát hành mã khoá</string>
     <string name="revanced_ryd_about">Giới thiệu</string>
@@ -447,7 +461,7 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_sb_segments_nomusic">Âm nhạc: Phần không phải nhạc</string>
     <string name="revanced_sb_segments_nomusic_sum">Phần của video âm nhạc nhưng không có âm nhạc, cũng không thuộc danh mục nào.</string>
     <string name="revanced_sb_segments_outro">Đoạn kết thúc/Phần Credit</string>
-    <string name="revanced_sb_segments_outro_sum">Phần danh đề hoặc đoạn Youtube chèn các thẻ liên kết video khác ở cuối video. Không chứa thông tin quan trọng.</string>
+    <string name="revanced_sb_segments_outro_sum">Phần danh đề hoặc đoạn YouTube chèn các thẻ liên kết video khác ở cuối video. Không chứa thông tin quan trọng.</string>
     <string name="revanced_sb_segments_preview">Đoạn xem trước/Phần tóm tắt</string>
     <string name="revanced_sb_segments_preview_sum">Đoạn cắt thể hiện những gì đã xảy ra hoặc sắp xảy ra trong video này hoặc trong loạt video khác cùng bộ.</string>
     <string name="revanced_sb_segments_selfpromo">Không được trả tiền/Tự quảng cáo</string>
@@ -510,6 +524,14 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_settings_search_title">Tìm kiếm trong %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Đã sao chép cài đặt sang bảng nhớ tạm.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_summary">Giả mạo phiên bản client dùng cho lời bài hát về phiên bản cũ hơn.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Không có lời bài hát theo thời gian thực</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_7_12_52">7.12.52 - Có lời bài hát theo thời gian thực</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_06_52">8.06.52 - Có lời bài hát theo thời gian thực + nút Chia sẻ</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.06.52 - Có lời bài hát theo thời gian thực + nút Chia sẻ + nút Dịch (chỉ dành cho người dùng Premium)</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_summary">Chọn phiên bản ứng dụng mục tiêu để giả mạo cho lời bài hát.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_title">Mục tiêu phiên bản ứng dụng giả mạo cho lời bài hát</string>
+    <string name="revanced_spoof_app_version_for_lyrics_title">Giả mạo phiên bản ứng dụng cho lời bài hát</string>
     <string name="revanced_spoof_app_version_summary">"Giả mạo phiên bản YouTube Music thành phiên bản cũ.
 
 • Tuỳ chọn này sẽ làm thay đổi giao diện của ứng dụng, nhưng cũng có thể phát sinh sự cố chưa xác định khác.
@@ -534,15 +556,78 @@ Hạn chế (Chặn truy vấn):
 • Ứng dụng có thể bị buộc đóng khi đang dùng VPN hoặc DNS."</string>
     <string name="revanced_spoof_client_type_title">Loại client mặc định</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android Không SDK</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music No SDK</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android No SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Legacy</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Chọn client mặc định để giả mạo.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Client mặc định</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Không truy xuất được luồng phát từ bất kỳ client nào.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Hãy thử chuyển client mặc định sang TV.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Nhấn để xem cách lấy token xác thực.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Về xác thực Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Nhấn vào đây để xem hướng dẫn đăng nhập vào Android No SDK.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Đăng nhập vào Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">Lấy mã xác thực</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message">"Đăng nhập vào Android No SDK (YouTube) tuân theo hướng dẫn chính thức của Google
+(Xác thực tài khoản Google – OAuth 2.0 cho ứng dụng Android):
+
+1. Nhấn \"Lấy mã kích hoạt\" để mở trang đăng nhập trong WebView.
+2. Đăng nhập.
+3. Kết quả đăng nhập sẽ hiện sau 5 giây.
+
+※ Nhấn \"Đặt lại\" để xoá mã xác thực."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Đặt lại</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Đăng nhập vào Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Đã lưu mã xác thực.
+
+Chi tiết:
+- Mã này chỉ dùng cho YouTube (RVX dùng nó để truy xuất dữ liệu phát video từ YouTube).
+- Máy chủ Google sẽ thu hồi mã nếu không dùng quá 6 tháng.
+- Nếu bạn đổi mật khẩu, xóa thiết bị trong cài đặt, hoặc gỡ ứng dụng, bạn sẽ phải tạo lại mã."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Đã đăng nhập xong</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Đã đặt lại mã xác thực.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Nhấn vào đây để xem hướng dẫn đăng nhập vào Android VR.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Đăng nhập vào Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Mã kích hoạt:
+%s
+
+1. Nhấn \"Mở trang web\" để đi tới https://yt.be/activate.
+2. Nhập mã kích hoạt.
+3. Đăng nhập khi được yêu cầu. Nếu bạn có nhiều tài khoản Google, hãy chọn tài khoản mà bạn sử dụng để xem YouTube. Còn nếu bạn đã đăng nhập thì hãy bỏ qua bước này.
+4. Sau khi đã đăng nhập, quay lại RVX và nhấn \"Đăng nhập vào Android VR\" lần nữa.
+5. Nhấn \"Lấy mã xác thực\" để lấy mã."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Mở trang web</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Mã kích hoạt</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Đã sao chép mã kích hoạt vào bảng nhớ tạm: %s.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Lấy mã kích hoạt</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Lấy mã xác thực</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Đăng nhập vào Android VR (YouTube VR) tuân theo hướng dẫn chính thức của Google
+(Xác thực tài khoản Google – OAuth 2.0 cho TV và thiết bị có khả năng nhập liệu hạn chế):
+
+1. Nhấn \"Lấy mã kích hoạt\" để tạo mã.
+2. Nhấn \"Mở trang web\" để đi tới https://yt.be/activate.
+3. Nhập mã kích hoạt.
+4. Đăng nhập khi được yêu cầu. Nếu bạn có nhiều tài khoản Google, hãy chọn tài khoản mà bạn sử dụng để xem YouTube. Còn nếu bạn đã đăng nhập thì hãy bỏ qua bước này.
+5. Sau khi đã đăng nhập, quay lại RVX và nhấn \"Đăng nhập vào Android VR\" lần nữa.
+6. Nhấn \"Lấy mã xác thực\" để lấy mã.
+
+※ Nhấn \"Đặt lại\" để xoá mã xác thực hoặc mã kích hoạt."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Đặt lại</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Đăng nhập vào Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Đã lưu mã xác thực.
+
+Chi tiết:
+- Mã này chỉ dùng cho YouTube (RVX dùng nó để truy xuất dữ liệu phát video từ Youtube).
+- Máy chủ Google sẽ thu hồi mã nếu không dùng quá 6 tháng.
+- Nếu bạn đổi mật khẩu, xóa thiết bị trong cài đặt, hoặc gỡ ứng dụng, bạn sẽ phải tạo lại mã."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Đã đăng nhập xong</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Không thể tạo mã xác thực.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Nhấn Đặt lại và thử lại.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Đặt lại mã xác thực và mã kích hoạt.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Hiển thị ứng dụng khách được sử dụng để nạp luồng dữ liệu trực tuyến trong Thống kê chi tiết.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Thống kê chi tiết</string>
     <string name="revanced_spoof_streaming_data_summary">"Giả mạo client phát video để tránh lỗi khi phát.
@@ -574,4 +659,16 @@ Chi tiết:
 • Thay thế miền: Vẫn tuân theo cài đặt nhật ký xem của tài khoản Google.
 • Chặn nhật ký: Nhật ký xem bị chặn hoàn toàn."</string>
     <string name="revanced_watch_history_type_title">Kiểu nhật ký</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Lấy Cookie</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Lấy ID đồng bộ dữ liệu</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Lấy dữ liệu khách</string>
+    <string name="revanced_webview_contextual_menu_refresh">Làm mới</string>
+    <string name="revanced_webview_cookies">Cookie</string>
+    <string name="revanced_webview_copy">Sao chép</string>
+    <string name="revanced_webview_data_sync_id">ID đồng bộ dữ liệu</string>
+    <string name="revanced_webview_toast_copy_success">Đã sao chép %s vào bảng nhớ tạm.</string>
+    <string name="revanced_webview_toast_empty">%s trống.</string>
+    <string name="revanced_webview_toast_no_network">Vui lòng kiểm tra kết nối mạng của bạn.</string>
+    <string name="revanced_webview_toast_unavailable">WebView không khả dụng.</string>
+    <string name="revanced_webview_visitor_data">Dữ liệu khách</string>
 </resources>

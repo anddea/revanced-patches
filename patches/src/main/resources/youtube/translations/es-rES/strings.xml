@@ -3,7 +3,7 @@
     <string name="accessibility_settings_edu_opt_in_text">¿Activar controles de accesibilidad para el reproductor de vídeo?</string>
     <string name="accessibility_settings_edu_opt_out_text">Tus controles se modifican porque un servicio de accesibilidad está activado.</string>
     <string name="gms_core_dialog_continue_text">Continuar</string>
-    <string name="gms_core_dialog_dismiss_text">No volve a mostrar</string>
+    <string name="gms_core_dialog_dismiss_text">No volver a mostrar</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore no tiene permiso para ejecutarse en segundo plano.
 
 Sigue la guía \"No cerrar mi aplicación\" para tu teléfono y aplica las instrucciones a tu instalación de MicroG.
@@ -345,7 +345,6 @@ Nota:
     <string name="revanced_disable_translucent_status_bar_summary_off">La barra de estado es opaca o translúcida.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">La barra de estado es opaca.</string>
     <string name="revanced_disable_translucent_status_bar_title">Desactivar barra de estado translúcida</string>
-    <string name="revanced_disable_translucent_status_bar_user_dialog_message">Para algunas ROM de fabricantes que ejecutan Android 12+, activar esta función puede hacer que la barra de navegación del sistema sea transparente.</string>
     <string name="revanced_disable_video_description_interaction_summary">"Desactiva las siguientes interacciones cuando se expande la descripción del vídeo:
 
 • Pulsar para desplazarse.
@@ -427,7 +426,7 @@ Limitaciones:
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Deslizar hacia arriba/abajo en modo de pantalla completa cambiará al vídeo siguiente/anterior.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Activar deslizamiento para cambiar de vídeo</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">La barra de navegación es opaca.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">La barra de navegación es translúcida.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">"La barra de navegación es translúcida."</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Activar barra de navegación translúcida</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">La demora de procesamiento de \"ver siguiente\" está desactivada.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">La demora de procesamiento de \"ver siguiente\" está activada.</string>
@@ -468,11 +467,8 @@ Limitación: No funciona si el reproductor está minimizado, en modo PiP o en se
     <string name="revanced_expand_video_description_summary_off">La descripción del vídeo se expande manualmente.</string>
     <string name="revanced_expand_video_description_summary_on">La descripción del vídeo se expande automáticamente.</string>
     <string name="revanced_expand_video_description_title">Expandir descripción de vídeo</string>
-    <string name="revanced_extended_audio_tracks_unavailable">"Para utilizar esta función, cambie «Cliente predeterminado (falsificación de datos de transmisión)» a iOS TV, TV o TV simple.
-
-Nota:
-• iOS TV no admite la reproducción de algunos vídeos, como vídeos musicales.
-• Por lo tanto, si el cliente predeterminado está configurado en iOS TV, este ajuste puede no funcionar para algunos vídeos."</string>
+    <string name="revanced_extended_audio_tracks_unavailable">"Esta configuración no está disponible actualmente.
+Para usar esta función, cambia \'Cliente predeterminado (Falsear datos de transmisión)\' a TV o TV Simply."</string>
     <string name="revanced_external_downloader_dialog_title">Descargador externo</string>
     <string name="revanced_external_downloader_empty_warning">El nombre del paquete no puede estar vacío</string>
     <string name="revanced_external_downloader_not_found_title">App no instalada.</string>
@@ -546,6 +542,10 @@ Problema conocido: a veces, la superposición de deslizamiento aparece antes de 
     <string name="revanced_gemini_transcription_parse_button">Subtítulos</string>
     <string name="revanced_gemini_transcription_parse_success">Subtítulos analizados correctamente</string>
     <string name="revanced_gemini_transcription_result_title">Transcripción del video de Gemini</string>
+    <string name="revanced_gms_show_dialog_summary">Muestra el diálogo de optimización para GMSCore en cada inicio de la aplicación.</string>
+    <string name="revanced_gms_show_dialog_title">Mostrar diálogo de optimización para GMSCore</string>
+    <string name="revanced_gradient_seekbar_positions_summary">Posiciones de inicio y fin del degradado de 0 a 1 separadas por coma.</string>
+    <string name="revanced_gradient_seekbar_positions_title">Límites del degradado de la barra de búsqueda</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista de nombres del menú de la cuenta a filtrar separados por una nueva línea.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtro de menú de cuenta</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">Filtrar si coincide.&lt;br&gt;&lt;br&gt;Para ocultar el menú &lt;b&gt;\'Obtener YouTube Premium\'&lt;/b&gt;, solo puedes utilizar &lt;b&gt;\'Obtener YouTube Premium\'&lt;/b&gt; como palabras claves.</string>
@@ -672,6 +672,9 @@ Tienda"</string>
     <string name="revanced_hide_comments_highlighted_search_links_summary_off">Los enlaces de búsqueda destacados están visibles.</string>
     <string name="revanced_hide_comments_highlighted_search_links_summary_on">"Los enlaces de búsqueda destacados están ocultos."</string>
     <string name="revanced_hide_comments_highlighted_search_links_title">Ocultar enlaces de búsqueda destacados</string>
+    <string name="revanced_hide_comments_information_button_summary_off">El botón de información está visible.</string>
+    <string name="revanced_hide_comments_information_button_summary_on">El botón de información está oculto.</string>
+    <string name="revanced_hide_comments_information_button_title">Ocultar botón de información</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_off">La sección de comentarios está visible en el feed de inicio.</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_on">La sección de comentarios está oculta en el feed de inicio.</string>
     <string name="revanced_hide_comments_section_in_home_feed_title">Ocultar sección de comentarios en feed de inicio</string>
@@ -761,9 +764,6 @@ Configuración → Reproducción → Reproducción automática del siguiente ví
     <string name="revanced_hide_general_ads_summary_off">Los anuncios generales están visibles.</string>
     <string name="revanced_hide_general_ads_summary_on">Los anuncios generales están ocultos.</string>
     <string name="revanced_hide_general_ads_title">Ocultar anuncios generales</string>
-    <string name="revanced_hide_get_premium_summary_off">La promoción de YouTube Premium está visible.</string>
-    <string name="revanced_hide_get_premium_summary_on">La promoción de YouTube Premium está oculta.</string>
-    <string name="revanced_hide_get_premium_title">Ocultar promoción de YouTube Premium</string>
     <string name="revanced_hide_handle_summary_off">El nombre de usuario está visible.</string>
     <string name="revanced_hide_handle_summary_on">El nombre de usuario está oculto.</string>
     <string name="revanced_hide_handle_title">Ocultar nombre de usuario</string>
@@ -1056,9 +1056,12 @@ Si el diseño de la pantalla del reproductor cambia debido a cambios en el servi
     <string name="revanced_hide_search_term_thumbnail_summary_off">Las miniaturas en el historial de términos de búsqueda están visibles.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Las miniaturas en el historial de términos de búsqueda están ocultas.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Ocultar miniaturas en términos de búsqueda</string>
+    <string name="revanced_hide_section_header_in_feed_summary_off">Se muestra el encabezado de la sección de Suscripciones.\n\nEl encabezado de la sección de Suscripciones incluye los botones \'Visitar comunidad\' y \'Visitar canal\' al hacer clic en el icono de un canal suscrito en la sección de Suscripciones.</string>
+    <string name="revanced_hide_section_header_in_feed_summary_on">El encabezado de la sección de Suscripciones está oculto.\n\nEl encabezado de la sección de Suscripciones incluye los botones \'Visitar comunidad\' y \'Visitar canal\' al hacer clic en el icono de un canal suscrito en la sección de Suscripciones.</string>
+    <string name="revanced_hide_section_header_in_feed_title">Ocultar encabezado de la sección de suscripciones</string>
     <string name="revanced_hide_seek_message_summary_off">"El mensaje al desplazarse está visible."</string>
     <string name="revanced_hide_seek_message_summary_on">"El mensaje al desplazarse está oculto."</string>
-    <string name="revanced_hide_seek_message_title">Ocultar mensaje al desplazarse</string>
+    <string name="revanced_hide_seek_message_title">Ocultar mensaje de búsqueda (Obsoleto)</string>
     <string name="revanced_hide_seek_undo_message_summary_off">El mensaje al deshacer desplazamiento está visible.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">El mensaje al deshacer desplazamiento está oculto.</string>
     <string name="revanced_hide_seek_undo_message_title">Ocultar mensaje al deshacer desplazamiento</string>
@@ -1160,6 +1163,12 @@ Si el diseño de la pantalla del reproductor cambia debido a cambios en el servi
     <string name="revanced_hide_shorts_comments_button_summary_off">El botón de comentarios está visible.</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">El botón de comentarios está oculto.</string>
     <string name="revanced_hide_shorts_comments_button_title">Ocultar botón de comentarios</string>
+    <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Se muestra el botón de comentarios deshabilitados o con la etiqueta \"0\".</string>
+    <string name="revanced_hide_shorts_comments_disabled_button_summary_on">El botón de comentarios deshabilitados o con la etiqueta \"0\" está oculto.</string>
+    <string name="revanced_hide_shorts_comments_disabled_button_title">Ocultar botón de comentarios deshabilitados</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_off">Se muestra el panel de comentarios.</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_on">El panel de comentarios está oculto.</string>
+    <string name="revanced_hide_shorts_comments_panel_title">Ocultar panel de comentarios</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">El botón de no me gusta está visible.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">El botón de no me gusta está oculto.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Ocultar botón de no me gusta</string>
@@ -1394,6 +1403,11 @@ Limitaciones:
     <string name="revanced_hide_youtube_doodles_user_dialog_message">"Los Doodles de YouTube aparecen unos pocos días al año.
 
 Si un Doodle de YouTube está actualmente mostrándose en tu región y este ajuste de ocultar está activado, entonces la barra de filtros debajo de la barra de búsqueda también estará oculta."</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_off">La promoción de YouTube Premium está visible.</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_on">"La promoción de YouTube Premium está oculta.
+
+Problema conocido: Cuando este ajuste está activado, no se puede pulsar en los Doodles de YouTube."</string>
+    <string name="revanced_hide_youtube_premium_promotion_title">Ocultar promoción de YouTube Premium</string>
     <string name="revanced_hide_zoom_overlay_summary_off">La superposición del zoom está visible.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">La superposición del zoom está oculta.</string>
     <string name="revanced_hide_zoom_overlay_title">Ocultar superposición del zoom</string>
@@ -1402,9 +1416,23 @@ Si un Doodle de YouTube está actualmente mostrándose en tu región y este ajus
     <string name="revanced_icon_custom">Personalizado</string>
     <string name="revanced_icon_default">Predeterminado</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_mmt_blue">MMT Azul</string>
+    <string name="revanced_icon_mmt_green">MMT Verde</string>
+    <string name="revanced_icon_mmt_orange">MMT Naranja</string>
+    <string name="revanced_icon_mmt_pink">MMT Rosa</string>
+    <string name="revanced_icon_mmt_turquoise">MMT Turquesa</string>
+    <string name="revanced_icon_mmt_yellow">MMT Amarillo</string>
     <string name="revanced_icon_revancify_blue">Revancify Blue</string>
     <string name="revanced_icon_revancify_red">Revancify Red</string>
+    <string name="revanced_icon_revancify_yellow">Revancify Amarillo</string>
+    <string name="revanced_icon_squid_game">Squid Game</string>
+    <string name="revanced_icon_vanced_black">Vanced Negro</string>
+    <string name="revanced_icon_vanced_light">Vanced Claro</string>
+    <string name="revanced_icon_xisr_special">Xisr Especial</string>
+    <string name="revanced_icon_xisr_winter">Xisr Invierno</string>
+    <string name="revanced_icon_xisr_yellow">Xisr Amarillo</string>
     <string name="revanced_icon_youtube">YouTube</string>
+    <string name="revanced_icon_youtube_black">YouTube Negro</string>
     <string name="revanced_invert_snack_bar_theme_summary_off">El tema de la barra de notificaciones no está invertido.</string>
     <string name="revanced_invert_snack_bar_theme_summary_on">El tema de la barra de notificaciones está invertido.</string>
     <string name="revanced_invert_snack_bar_theme_title">Invertir tema de barra de notificaciones</string>
@@ -1517,6 +1545,8 @@ Si un Doodle de YouTube está actualmente mostrándose en tu región y este ajus
 <small>తెలుగు</small>"</string>
     <string name="revanced_language_TH">"Tailandés
 <small>ไทย</small>"</string>
+    <string name="revanced_language_TL">"Filipino
+<small>Filipino</small>"</string>
     <string name="revanced_language_TR">"Turco
 <small>Türkçe</small>"</string>
     <string name="revanced_language_UK">"Ucraniano
@@ -1528,6 +1558,7 @@ Si un Doodle de YouTube está actualmente mostrándose en tu región y este ajus
     <string name="revanced_language_ZH">"Chino
 <small>中文</small>"</string>
     <string name="revanced_language_title">Idioma de RVX</string>
+    <string name="revanced_minimize">Minimizar</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Acción de doble toque y pellizco para redimensionar está desactivado.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Acción de doble toque y pulsar para cambiar el tamaño está habilitado.
 
@@ -1596,6 +1627,19 @@ Mantén pulsado para copiar la marca de tiempo del vídeo."</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">Gestor de colas</string>
     <string name="revanced_overlay_button_external_downloader_summary">Pulsa para iniciar el descargador externo.</string>
     <string name="revanced_overlay_button_external_downloader_title">Mostrar botón de descarga externa</string>
+    <string name="revanced_overlay_button_gemini_about_summary">"Analizar el video puede tomar un tiempo dependiendo de su duración. La transcripción de videos largos puede exceder los límites de Gemini.
+
+Las respuestas generadas por IA pueden contener información inexacta.
+
+Toca aquí para obtener una clave de API."</string>
+    <string name="revanced_overlay_button_gemini_about_title">Acerca de Gemini</string>
+    <string name="revanced_overlay_button_gemini_summarize">Resumir</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Obtén la clave de API en https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Clave de API de Gemini</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Toca para resumir el video. Mantén presionado para transcribir.
+
+Los resultados resumidos y transcritos se guardan a menos que cierres la aplicación o uses Gemini en otro video. Toca el botón nuevamente para ver los resultados."</string>
+    <string name="revanced_overlay_button_gemini_summarize_title">Mostrar botón de Gemini</string>
     <string name="revanced_overlay_button_mute_volume_summary">Pulsa para silenciar el volumen del vídeo actual. Pulsa de nuevo para reactivar el sonido.</string>
     <string name="revanced_overlay_button_mute_volume_title">Mostrar botón de silenciar volumen</string>
     <string name="revanced_overlay_button_not_allowed_warning">Mantén pulsado para cambiar el estado del botón.</string>
@@ -2002,20 +2046,26 @@ Limitación: es posible que los \"no me gusta\" no aparezcan en modo incógnito.
     <string name="revanced_sb_guidelines_popup_title">Sigue las directrices</string>
     <string name="revanced_sb_guidelines_preference_sum">Las directrices contienen reglas y consejos para la creación de nuevos segmentos.</string>
     <string name="revanced_sb_guidelines_preference_title">Ver directrices</string>
+    <string name="revanced_sb_new_segment_adjust">Ajustar: Marcar tiempo de inicio y fin del segmento</string>
     <string name="revanced_sb_new_segment_choose_category">Selecciona la categoría del segmento</string>
+    <string name="revanced_sb_new_segment_compare">Verificar el segmento</string>
     <string name="revanced_sb_new_segment_confirm_content">"El segmento es de %1$s a %2$s (%3$s) ¿Listo para enviar?"</string>
     <string name="revanced_sb_new_segment_confirm_contents">El segmento es desde\n\n%1$s\nhasta\n%2$s\n\n(%3$s)\n\n¿Está listo para ser enviado?</string>
     <string name="revanced_sb_new_segment_confirm_title">¿Son correctos los tiempos?</string>
     <string name="revanced_sb_new_segment_disabled_category">La categoría está desactivada en los ajustes. Activa la categoría para enviar.</string>
+    <string name="revanced_sb_new_segment_edit">Editar el segmento</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">¿Quieres editar el tiempo para el inicio o el final del segmento?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Tiempo no válido.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Editar tiempo del segmento manualmente</string>
+    <string name="revanced_sb_new_segment_forward">Adelantar el tiempo especificado (Predeterminado: 150ms)</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">¿Establecer %s como el inicio o el final de un nuevo segmento?</string>
     <string name="revanced_sb_new_segment_mark_end">final</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Primero marca dos ubicaciones en la barra de tiempo.</string>
     <string name="revanced_sb_new_segment_mark_start">inicio</string>
     <string name="revanced_sb_new_segment_now">ahora</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Previsualiza el segmento y asegúrate de que se omite sin problemas.</string>
+    <string name="revanced_sb_new_segment_publish">Publicar segmento creado</string>
+    <string name="revanced_sb_new_segment_rewind">Rebobinar el tiempo especificado (Predeterminado: 150ms)</string>
     <string name="revanced_sb_new_segment_start_is_before_end">El inicio debe ser antes del final.</string>
     <string name="revanced_sb_new_segment_time_end">Tiempo en que finaliza el segmento</string>
     <string name="revanced_sb_new_segment_time_start">Tiempo en que inicia el segmento</string>
@@ -2179,10 +2229,11 @@ Puede que no funcione si:
     <string name="revanced_settings_import_title">Importar ajustes</string>
     <string name="revanced_settings_reset">Restablecer</string>
     <string name="revanced_settings_reset_color">Restablecer color</string>
-    <string name="revanced_settings_search_clear_history">Borrar historial de busqueda</string>
+    <string name="revanced_settings_search_clear_history">Borrar historial de búsqueda</string>
     <string name="revanced_settings_search_clear_history_message">¿Realmente quieres borrar todo el historial de búsqueda?</string>
     <string name="revanced_settings_search_empty_history_summary">Para guardar el historial de búsqueda, escriba una consulta de búsqueda y pulse Enter.</string>
     <string name="revanced_settings_search_empty_history_title">El historial de búsqueda está vacío</string>
+    <string name="revanced_settings_search_history_summary">Guardar consultas de búsqueda recientes para mostrarlas cuando la barra de búsqueda esté vacía.</string>
     <string name="revanced_settings_search_history_summary_off">El historial de búsqueda de los ajustes está oculto.</string>
     <string name="revanced_settings_search_history_summary_on">El historial de búsqueda de los ajustes está visible.</string>
     <string name="revanced_settings_search_history_title">Mostrar historial de búsqueda de ajustes</string>
@@ -2222,6 +2273,10 @@ La mayoría de los errores no pueden solucionarse debido a las limitaciones del 
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">El menú del descargador externo está oculto.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">El menú del descargador externo está visible.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Mostrar menú de descargador externo</string>
+    <string name="revanced_shorts_custom_actions_gemini_label">Resumen de Gemini</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">El menú de resumen de Gemini está oculto.</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">El menú de resumen de Gemini se muestra.</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Mostrar menú de resumen de Gemini</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Abrir vídeo</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">El menú de abrir vídeo está oculto.</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">El menú de abrir vídeo está visible.</string>
@@ -2237,6 +2292,8 @@ La mayoría de los errores no pueden solucionarse debido a las limitaciones del 
     <string name="revanced_shorts_custom_actions_speed_dialog_type_title">Tipo de diálogo de velocidad</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message">El diálogo de velocidad moderno puede no funcionar en YouTube 19.01-19.34.</string>
     <string name="revanced_shorts_custom_actions_speed_label">Velocidad de reproducción</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_off">El menú de velocidad de reproducción está oculto.\n\nInfo:\n• La velocidad de reproducción predeterminada de Shorts debe estar habilitada.\n• La velocidad seleccionada se aplicará al siguiente video.</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_on">El menú de velocidad de reproducción se muestra.\n\nInfo:\n• La velocidad de reproducción predeterminada de Shorts debe estar habilitada.\n• La velocidad seleccionada se aplicará al siguiente video.</string>
     <string name="revanced_shorts_custom_actions_speed_title">Mostrar menú de velocidad de reproducción</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Acciones personalizadas</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Original</string>
@@ -2380,18 +2437,21 @@ Se utiliza→ 1080p VP9."</string>
 • El volumen estable no está disponible.
 • Es posible que los vídeos para niños no se reproduzcan con la sesión cerrada o en modo incógnito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Puede haber problemas de reproducción (PoToken requerido).</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Los videos pueden terminar 1 segundo antes.
+• Es posible que el códec de audio OPUS no sea compatible."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• El servidor puede bloquear ASN/rangos de IP completos.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Los vídeos pueden terminar 1 segundo antes.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• El volumen estable no está disponible.
-• Es posible que no se reproduzcan películas o vídeos de pago.
-• Es posible que los vídeos para niños no se reproduzcan cuando se cierra la sesión o en modo incógnito."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• El menú de pistas de audio puede no estar disponible.
+• La opción de desactivar pistas de audio automáticas forzadas puede no estar disponible.
+• El volumen estable no está disponible.
+• Es posible que las películas o videos de pago no se reproduzcan.
+• Es posible que los videos para niños no se reproduzcan al no haber iniciado sesión o en modo incógnito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ipados">"• AV1 no es compatible.
 • El vídeo puede detenerse en 1:00 o no estar disponible en algunas regiones."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_mweb">"• Falta el menú de la pista de audio.
-• La opción de desactivar las pistas de audio automáticas forzadas no está disponible.
+    <string name="revanced_spoof_streaming_data_side_effects_mweb">"• El menú de pistas de audio no está disponible.
 • Si la desofuscación falla, la reproducción puede fallar.
-• A veces, el vídeo no se reproducirá incluso después de 10 segundos, en cuyo caso deberás pulsar en el botón de recargar vídeo.
-• El vídeo puede comenzar tarde."</string>
+• A veces el video no se reproducirá incluso después de 10 segundos, en cuyo caso deberás hacer clic en el botón de recargar video.
+• El video puede comenzar con retraso."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efectos secundarios de falsificación</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• El códec AVC (H.264) puede no estar disponible.
 • Si la desofuscación falla, la reproducción puede fallar.
@@ -2442,6 +2502,8 @@ Se utiliza→ 1080p VP9."</string>
 - Los servidores de Google revocarán el token de autenticación que no se haya utilizado durante más de 6 meses.
 - Si cambias tu contraseña, o cancelas el registro de un dispositivo en la configuración de tu cuenta, o desinstalas la aplicación, tendrás que volver a emitir el token de autenticación."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Sesión iniciada</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Error al emitir un token de autenticación.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Pulsa en \"Restablecer\" e inténtalo de nuevo.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Token de autenticación y código de activación restablecidos.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El cliente utilizado para obtener datos de transmisión no se muestra en estadísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">El cliente utilizado para obtener datos de transmisión se muestra en estadísticas para nerds.</string>
@@ -2504,11 +2566,16 @@ Esta función todavía está en desarrollo, así que úsala solo para fines de d
     <string name="revanced_spoof_streaming_data_user_dialog_message">Desactivar este ajuste puede causar problemas de reproducción de vídeo.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Pulsa para ver cómo obtener un token de autenticación.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Acerca de la autenticación de Android VR</string>
+    <string name="revanced_swipe_brightness_distance_summary">La cantidad de píxeles a deslizar para cambiar el brillo. Valores más bajos hacen que el brillo cambie más rápido, valores más altos lo hacen más lento (1-1000).</string>
+    <string name="revanced_swipe_brightness_distance_title">Distancia de brillo</string>
     <string name="revanced_swipe_brightness_summary_off">El deslizamiento de brillo en pantalla completa está desactivado</string>
     <string name="revanced_swipe_brightness_summary_on">"El deslizamiento de brillo en pantalla completa está activado.
 
 Ajusta el brillo deslizando verticalmente en el lado izquierdo de la pantalla."</string>
     <string name="revanced_swipe_brightness_title">Activar gesto de brillo</string>
+    <string name="revanced_swipe_delay_summary">El retraso, en milisegundos, antes de que se reconozca un deslizamiento. Aumenta este valor si interfiere con el gesto de pellizcar para hacer zoom.</string>
+    <string name="revanced_swipe_delay_title">Retraso de gestos de deslizamiento</string>
+    <string name="revanced_swipe_distance_invalid">Distancia de deslizamiento inválida, debe estar entre 1 y 1000.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Los gestos deslizantes están desactivados en el modo \"Bloquear pantalla\".</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Los gestos deslizantes están activados en el modo \"Bloquear pantalla\".</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Gestos deslizantes en modo \"Bloquear pantalla\"</string>
@@ -2524,6 +2591,10 @@ Ajusta el brillo deslizando verticalmente en el lado izquierdo de la pantalla."<
     <string name="revanced_swipe_overlay_background_opacity_title">Opacidad de fondo de superposición deslizante</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">El color de la barra de progreso para los controles de brillo.</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Color de superposición deslizante de brillo</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_summary">El color de la barra de progreso para los controles de búsqueda</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_title">Color de búsqueda en superposición</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">El color de la barra de progreso para los controles de velocidad</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">Color de velocidad en superposición</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">El color de la barra de progreso para los controles de volumen.</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Color de superposición deslizante de volumen</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">El tamaño del área deslizable no puede ser superior a 50. Restablezca al valor predeterminado.</string>
@@ -2546,11 +2617,30 @@ Ajusta el brillo deslizando verticalmente en el lado izquierdo de la pantalla."<
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">No se guarda ni restaura el brillo al salir o entrar en pantalla completa.</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Guarda y restaura el brillo al salir o entrar en pantalla completa.</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Guardar y restaurar brillo</string>
+    <string name="revanced_swipe_seek_distance_summary">La cantidad de píxeles a deslizar para saltar a través del contenido del video. Valores más bajos hacen la búsqueda más rápida, valores más altos la hacen más lenta (1-1000).</string>
+    <string name="revanced_swipe_seek_distance_title">Distancia de búsqueda</string>
+    <string name="revanced_swipe_seek_summary_off">La búsqueda en pantalla completa por deslizamiento está deshabilitada.</string>
+    <string name="revanced_swipe_seek_summary_on">"La búsqueda en pantalla completa por deslizamiento está habilitada.
+
+Busca en el video deslizando horizontalmente en la mitad superior de la pantalla."</string>
+    <string name="revanced_swipe_seek_title">Habilitar gesto de búsqueda</string>
+    <string name="revanced_swipe_speed_distance_summary">La cantidad de píxeles a deslizar para cambiar la velocidad del video. Valores más bajos hacen que la velocidad cambie más rápido, valores más altos la hacen más lenta (1-1000).</string>
+    <string name="revanced_swipe_speed_distance_title">Distancia de velocidad</string>
+    <string name="revanced_swipe_speed_summary_off">El cambio de velocidad en pantalla completa por deslizamiento está deshabilitado.</string>
+    <string name="revanced_swipe_speed_summary_on">"El cambio de velocidad en pantalla completa por deslizamiento está habilitado.
+
+Ajusta la velocidad deslizando horizontalmente en la mitad inferior de la pantalla."</string>
+    <string name="revanced_swipe_speed_title">Habilitar gesto de velocidad</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_off">La zona del gesto de búsqueda está en la parte superior, la zona de velocidad está en la parte inferior.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_on">La zona del gesto de velocidad está en la parte superior, la zona de búsqueda está en la parte inferior.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_title">Intercambiar gestos de velocidad y búsqueda</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">El tamaño del texto debe estar entre 1 y 30.</string>
     <string name="revanced_swipe_text_overlay_size_summary">El tamaño del texto para la superposición deslizante entre 1 y 30.</string>
     <string name="revanced_swipe_text_overlay_size_title">Tamaño del texto de superposición deslizante</string>
     <string name="revanced_swipe_threshold_summary">La cantidad de umbral para que ocurra el deslizamiento.</string>
     <string name="revanced_swipe_threshold_title">Umbral de magnitud de deslizamiento</string>
+    <string name="revanced_swipe_volume_distance_summary">La cantidad de píxeles a deslizar para ajustar el volumen. Valores más bajos hacen que el volumen cambie más rápido, valores más altos lo hacen más lento (1-1000).</string>
+    <string name="revanced_swipe_volume_distance_title">Distancia de volumen</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">La sensibilidad de deslizamiento del volumen debe estar entre 1 y 1000.</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Cuánto cambia el volumen por deslizamiento.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Sensibilidad de deslizamiento de volumen</string>
@@ -2647,4 +2737,31 @@ Descargo de responsabilidad: las cookies emitidas sin iniciar sesión pueden no 
     <string name="revanced_whitelist_settings_summary">Verifique o elimine la lista de canales agregados a la lista blanca.</string>
     <string name="revanced_whitelist_settings_title">Lista blanca de canales</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_yandex_error_download_subs_failed">Error al descargar el archivo de subtítulos (Código: %1$d)</string>
+    <string name="revanced_yandex_error_internal_no_chosen_url">Error interno: La pista elegida no tiene URL</string>
+    <string name="revanced_yandex_error_internal_null_subs_response">Error interno: Error al obtener los subtítulos finales</string>
+    <string name="revanced_yandex_error_network_generic">Error de red</string>
+    <string name="revanced_yandex_error_network_subs_fetch">Error de red al obtener el archivo de subtítulos</string>
+    <string name="revanced_yandex_error_no_language_selected">Ningún idioma seleccionado</string>
+    <string name="revanced_yandex_error_no_subs_for_language">Subtítulos no disponibles en %s</string>
+    <string name="revanced_yandex_error_no_subs_returned">No hay pistas de subtítulos disponibles</string>
+    <string name="revanced_yandex_error_server_try_again">Ocurrió un error durante la transcripción, por favor intenta de nuevo más tarde.</string>
+    <string name="revanced_yandex_error_subs_parsing_failed">Error al analizar el contenido JSON de los subtítulos</string>
+    <string name="revanced_yandex_error_subs_processing_failed">Error al procesar el contenido de los subtítulos</string>
+    <string name="revanced_yandex_error_subs_stuck_processing">Error interno: El procesamiento de subtítulos se ha atascado</string>
+    <string name="revanced_yandex_error_translation_failed">La traducción falló</string>
+    <string name="revanced_yandex_error_unknown">Error desconocido</string>
+    <string name="revanced_yandex_status_processing_hour">Queda más de una hora...</string>
+    <string name="revanced_yandex_status_processing_minute">Queda aproximadamente un minuto...</string>
+    <string name="revanced_yandex_status_processing_minutes_plural">Quedan %d minutos...</string>
+    <string name="revanced_yandex_status_processing_short">Procesando...</string>
+    <string name="revanced_yandex_status_requesting_translation">Solicitando traducción</string>
+    <string name="revanced_yandex_status_session_ok">Sesión OK</string>
+    <string name="revanced_yandex_status_subs_found">Subtítulos encontrados, obteniendo...</string>
+    <string name="revanced_yandex_status_transcription_delayed">La transcripción está ligeramente retrasada</string>
+    <string name="revanced_yandex_status_youtube_specific">Gestionando solicitud de audio de YouTube...</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Yandex puede transcribir videos de cualquier idioma, pero la salida solo está disponible en inglés (en), ruso (ru) y kazajo (kk). Si introduces cualquier otro código de idioma o usas 'app' (que significa el idioma predeterminado de la aplicación), se le pedirá a Gemini que traduzca (se requiere clave de API)."</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_title">Idioma de Yandex</string>
+    <string name="revanced_yandex_transcribe_subtitles_summary">Usar transcripción de Yandex en lugar de Gemini. Yandex es más rápido y confiable. No se requiere clave de API.</string>
+    <string name="revanced_yandex_transcribe_subtitles_title">Transcripción de Yandex</string>
 </resources>

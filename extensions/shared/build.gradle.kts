@@ -43,8 +43,6 @@ dependencies {
     implementation(libs.okhttp3)
     implementation(libs.protobuf.javalite)
 
-    implementation(libs.rxjava2)
-    implementation(libs.rxjava2.android)
     //noinspection UseTomlInstead
     implementation("com.eclipsesource.j2v8:j2v8:6.3.4@aar")
 

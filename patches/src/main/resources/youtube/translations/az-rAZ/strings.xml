@@ -150,7 +150,6 @@ Avtomobil tərtibatı
     <string name="revanced_disable_translucent_status_bar_summary_off">Mövqe cizgisi qeyri-şəffaf və ya şəffafdır</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Mövqe cizgisi qeyri-şəffafdır</string>
     <string name="revanced_disable_translucent_status_bar_title">Yarımşəffaf mövqe cizgisin qapat</string>
-    <string name="revanced_disable_translucent_status_bar_user_dialog_message">Bəzi cihazlarda bu xüsusiyyət aktivləşməsi sistem fəaliyyət cərgəsini şəffaf-a dəyişə bilər.</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">Qradiyent yüklənmə ekranı aktivdir</string>
     <string name="revanced_enable_gradient_loading_screen_title">Qradiyent yüklənmə ekranını aktivləşdir</string>
     <string name="revanced_exit_fullscreen_entry_1">Qapalı</string>
@@ -159,13 +158,14 @@ Avtomobil tərtibatı
     <string name="revanced_exit_fullscreen_entry_4">Şaquli və üfüqi</string>
     <string name="revanced_exit_fullscreen_title">Video sonunda tam ekran rejimindən çıx</string>
     <string name="revanced_external_downloader_empty_warning">Paket adı boş ola bilməz</string>
-    <string name="revanced_external_downloader_not_found_title">Tətbiq quraşdırılmayıb</string>
+    <string name="revanced_external_downloader_not_found_title">Tətbiq quraşdırılmadı.</string>
     <string name="revanced_external_downloader_not_installed_warning">%s quraşdırılmayıb. Lütfən, bunu quraşdır.</string>
     <string name="revanced_external_downloader_other_item">Digər</string>
     <string name="revanced_external_downloader_other_item_hint">Paket adını yerləşdir</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"Paket adı ilə quraşdırılan tətbiq tapılmadı: %s
+    <string name="revanced_external_downloader_package_not_found_warning">"Paket adı ilə quraşdırılan tətbiqi tapmaq olmadı: %s.
 
-Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
+Paket adının düzgünlüyün və tətbiqin quraşdırıldığını yoxlayın."</string>
+    <string name="revanced_fullscreen_ads_closed_toast">Tam ekran reklamları bağlandı.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sİ ilə yaradılan video xülasə bölməsi görünür</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sİ ilə yaradılan video xülasə bölməsi gizlədilib</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">\"AI ilə yaradılan video xülasəsini\" gizlət</string>
@@ -206,8 +206,8 @@ Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
     <string name="revanced_hide_community_button_summary_off">İcmaya düyməsi görünür</string>
     <string name="revanced_hide_community_button_summary_on">İcmaya düyməsi gizlidir</string>
     <string name="revanced_hide_community_button_title">İcma düyməsini gizlət</string>
-    <string name="revanced_hide_creator_store_shelf_summary_off">Yaradıcı alış-veriş cərgəsi video oynadıcı altında görünür</string>
-    <string name="revanced_hide_creator_store_shelf_summary_on">Yaradıcı alış-veriş cərgəsi video oynadıcı altında gizlidir</string>
+    <string name="revanced_hide_creator_store_shelf_summary_off">Videolar altında yaradıcı mağaza cərgəsi görünür.</string>
+    <string name="revanced_hide_creator_store_shelf_summary_on">Videolar altında yaradıcı mağaza cərgəsi gizlidir.</string>
     <string name="revanced_hide_creator_store_shelf_title">Yaradıcı mağaza bölümün gizlət</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">İanə qutusu göstərilir</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">İanə qutusu gizlidir</string>
@@ -215,8 +215,8 @@ Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
     <string name="revanced_hide_download_button_summary_off">Yükləmə düyməsi göstərilir</string>
     <string name="revanced_hide_download_button_summary_on">Yükləmə düyməsi gizlidir</string>
     <string name="revanced_hide_download_button_title">\"Endirin\"i gizlət</string>
-    <string name="revanced_hide_end_screen_store_banner_summary_off">Son ekran mağaza afişası görünür</string>
-    <string name="revanced_hide_end_screen_store_banner_summary_on">Son ekran mağaza afişası gizlidir</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">Son ekran mağaza afişası görünür.</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">Son ekran mağaza afişası gizlidir.</string>
     <string name="revanced_hide_end_screen_store_banner_title">Son ekran mağaza afişasın gizlət</string>
     <string name="revanced_hide_expandable_card_summary_off">Videoların altında genişlənən kart görünür</string>
     <string name="revanced_hide_expandable_card_summary_on">Videoların aşağısında genişlənən kart gizlidir</string>
@@ -227,17 +227,12 @@ Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
     <string name="revanced_hide_featured_videos_section_summary_off">Seçilən videolar bölməsi göstərilir</string>
     <string name="revanced_hide_featured_videos_section_summary_on">Seçilən videolar bölməsi gizlidir</string>
     <string name="revanced_hide_featured_videos_section_title">Seçilən videoları gizlət</string>
-    <string name="revanced_hide_fullscreen_ads_summary_off">Tam ekran reklamları göstərilir</string>
-    <string name="revanced_hide_fullscreen_ads_summary_on">"Tam ekran reklamları gizlidir
-
-Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
+    <string name="revanced_hide_fullscreen_ads_summary_off">Tam ekran reklamları görünür.</string>
+    <string name="revanced_hide_fullscreen_ads_summary_on">Tam ekran reklamları gizlidir.</string>
     <string name="revanced_hide_fullscreen_ads_title">Tam ekran reklamlarını gizlət</string>
-    <string name="revanced_hide_general_ads_summary_off">Ümumi reklamlar göstərilir</string>
-    <string name="revanced_hide_general_ads_summary_on">Ümumi reklamlar gizlidir</string>
+    <string name="revanced_hide_general_ads_summary_off">Ümumi reklamlar görünür.</string>
+    <string name="revanced_hide_general_ads_summary_on">Ümumi reklamlar gizlidir.</string>
     <string name="revanced_hide_general_ads_title">Ümumi reklamları gizlət</string>
-    <string name="revanced_hide_get_premium_summary_off">Video oynadıcı altındakı YouTube Premium elanları göstərilir</string>
-    <string name="revanced_hide_get_premium_summary_on">Video oynadıcı altında YouTube Premium elanları gizlidir</string>
-    <string name="revanced_hide_get_premium_title">YouTube Premium reklamlarını gizlət</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Bu məzmunun necə hazırlandığı bölməsi görünür</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Bu məzmunun necə hazırlandığı bölməsi gizlidir</string>
     <string name="revanced_hide_how_this_was_made_section_title">\'Bu kontent necə hazırlanıb\'ı Gizlət</string>
@@ -303,15 +298,18 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_members_shelf_summary_off">Üzvlər cərgəsi görünür</string>
     <string name="revanced_hide_members_shelf_summary_on">Üzvlər cərgəsi gizlidir</string>
     <string name="revanced_hide_members_shelf_title">Üzvlər cərgəsini gizlət</string>
+    <string name="revanced_hide_merchandise_shelf_summary_off">Məhsul bölmələri görünür.</string>
+    <string name="revanced_hide_merchandise_shelf_summary_on">Məhsul bölmələri gizlidir.</string>
+    <string name="revanced_hide_merchandise_shelf_title">Məhsul bölmələrin gizlət</string>
     <string name="revanced_hide_mix_playlists_summary_off">Qarışıq oynatma siyahıları göstərilir</string>
     <string name="revanced_hide_mix_playlists_summary_on">Qarışıq oynatma siyahıları gizlədilir</string>
     <string name="revanced_hide_mix_playlists_title">Qarışıq pleylistləri gizlət</string>
     <string name="revanced_hide_notify_me_button_summary_off">Mənə bildir düyməsi görünür</string>
     <string name="revanced_hide_notify_me_button_summary_on">Mənə bildir düyməsi gizlidir</string>
     <string name="revanced_hide_notify_me_button_title">\"Mənə bildir\" düyməsini gizlət</string>
-    <string name="revanced_hide_paid_promotion_label_summary_off">Ödənişli reklam etiketi göstərilir</string>
-    <string name="revanced_hide_paid_promotion_label_summary_on">Ödənişli reklam etiketi gizlədilib</string>
-    <string name="revanced_hide_paid_promotion_label_title">Ödənişli tanıtım etiketini gizlət</string>
+    <string name="revanced_hide_paid_promotion_label_summary_off">Ödənişli reklam etiketi görünür.</string>
+    <string name="revanced_hide_paid_promotion_label_summary_on">Ödənişli reklam etiketi gizlədilib.</string>
+    <string name="revanced_hide_paid_promotion_label_title">Ödənişli reklam etiketini gizlət</string>
     <string name="revanced_hide_playables_summary_off">Oynadılanlar göstərilir</string>
     <string name="revanced_hide_playables_summary_on">Oynadılanlar gizlidir</string>
     <string name="revanced_hide_playables_title">Oynadılan elementləri gizlət</string>
@@ -321,6 +319,9 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_promote_button_summary_off"> Sponsor düyməsi görünür</string>
     <string name="revanced_hide_promote_button_summary_on">Sponsor düyməsi gizlidir</string>
     <string name="revanced_hide_promote_button_title">Sponsor-u Gizlət</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">Reklam bildirişi afişası görünür.</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">Reklam bildirişi afişası gizlədilib.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Reklam bildirişi afişasın gizlət</string>
     <string name="revanced_hide_quick_actions_summary_off">Tam ekranda cəld fəaliyyətlər görünür</string>
     <string name="revanced_hide_quick_actions_summary_on">Tam ekranda cəld fəaliyyətlər gizlədilib</string>
     <string name="revanced_hide_quick_actions_title">Cəld fəaliyyətləri gizlət</string>
@@ -342,15 +343,18 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_seekbar_thumbnail_summary_on">Video miniatür irəliləyiş cizgisi gizlidir</string>
     <string name="revanced_hide_seekbar_thumbnail_title">Video miniatür irəliləyiş cizgisin gizlət</string>
     <string name="revanced_hide_seekbar_title">Video oynadıcı irəliləyiş cizgisin gizlət</string>
+    <string name="revanced_hide_self_sponsor_cards_summary_off">Özünə sponsorluq edən kartlar görünür.</string>
+    <string name="revanced_hide_self_sponsor_cards_summary_on">Özünə sponsorluq edən kartlar gizlidir.</string>
+    <string name="revanced_hide_self_sponsor_cards_title">Özünə sponsorluq edən kartları gizlət</string>
     <string name="revanced_hide_share_button_summary_off">Paylaş düyməsi göstərilir</string>
     <string name="revanced_hide_share_button_summary_on">Paylaş düyməsi gizlidir</string>
     <string name="revanced_hide_share_button_title">\"Paylaş\"ı gizlət</string>
     <string name="revanced_hide_shop_button_summary_off">Mağaza düyməsi görünür</string>
     <string name="revanced_hide_shop_button_summary_on">Mağaza düyməsi gizlidir</string>
     <string name="revanced_hide_shop_button_title">Mağazanı Gizlət</string>
-    <string name="revanced_hide_shopping_links_summary_off">Alış-veriş linkləri video təsvirdə görünür</string>
-    <string name="revanced_hide_shopping_links_summary_on">Alış-veriş linkləri video təsvirdə gizlidir</string>
-    <string name="revanced_hide_shopping_links_title">Alış-veriş linklərini gizlət</string>
+    <string name="revanced_hide_shopping_links_summary_off">Video təsvirində alış-veriş linkləri görünür.</string>
+    <string name="revanced_hide_shopping_links_summary_on">Video təsvirində alış-veriş linkləri gizlədilib.</string>
+    <string name="revanced_hide_shopping_links_title">Alış-veriş linklərin gizlət</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Avto-dublyaj etiketi göstərilir</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Avto-dublyaj etiketi gizlidir</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_title">\'Avtomatik dublyaj olunmuş\' etiketini gizlət</string>
@@ -450,12 +454,13 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_transcript_section_summary_off">Transkripsiya bölməsi göstərilir</string>
     <string name="revanced_hide_transcript_section_summary_on">Transkripsiya bölməsi gizlidir</string>
     <string name="revanced_hide_transcript_section_title">Transkript-i Gizlət</string>
-    <string name="revanced_hide_video_ads_summary_off">Video reklamlar göstərilir</string>
-    <string name="revanced_hide_video_ads_summary_on">Video reklamlar gizlədilir</string>
+    <string name="revanced_hide_video_ads_summary_off">Video reklamlar görünür.</string>
+    <string name="revanced_hide_video_ads_summary_on">Video reklamlar gizlidir.</string>
     <string name="revanced_hide_video_ads_title">Video reklamlarını gizlət</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">\'İnsanlar həmçinin izləyiblər\' və \'Bunu da bəyənə bilərsiniz\' etiketləri axtarış nəticələrində görünür</string>
     <string name="revanced_hide_video_recommendation_labels_summary_on">\'İnsanlar həmçinin izləyiblər\' və \'Bunu da bəyənə bilərsiniz\' etiketləri axtarış nəticələrində gizlədilib</string>
     <string name="revanced_hide_video_recommendation_labels_title">Video tövsiyə etiketlərini gizlət</string>
+    <string name="revanced_hide_view_products_title">Məhsullara baxış afişasın gizlət</string>
     <string name="revanced_hide_visual_spacer_summary_off">Vizual ayırıcı göstərilib</string>
     <string name="revanced_hide_visual_spacer_summary_on">Vizual ayırıcı gizlənib</string>
     <string name="revanced_hide_visual_spacer_title">Vizual ayırıcı gizlət</string>

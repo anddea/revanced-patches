@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Продовжити</string>
+    <string name="gms_core_dialog_dismiss_text">Більше не показувати</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore не дозволено працювати у фоні.
 
 Дотримуйтесь посібника \"Don't kill my app\" для вашого пристрою і застосуйте інструкції для встановлення GmsCore.
@@ -141,7 +142,7 @@
 • Останні YouTube Music клієнти за умовчанням використовують аудіокодек OPUS.
 • Це буде корисно лише для користувачів, які користуються дуже старими клієнтами."</string>
     <string name="revanced_enable_opus_codec_title">Увімкнути кодек OPUS</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">"Вмикає плавну анімацію при розгортанні мініплеєра зі згорнутого стану."</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">Вмикає плавну анімацію при розгортанні мініплеєра зі згорнутого стану.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Включити плавну анімацію переходу</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Вмикає жест вниз для закриття мініплеєру.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Увімкнути жест закриття мініплеєру</string>
@@ -168,6 +169,8 @@
     <string name="revanced_external_downloader_package_name_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад NewPipe або YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Ім\'я пакета зовнішнього завантажувача</string>
     <string name="revanced_fullscreen_ads_closed_toast">Повноекранну рекламу закрито.</string>
+    <string name="revanced_gms_show_dialog_summary">Відображає діалогове вікно оптимізації GMSCore при кожному запуску додатка.</string>
+    <string name="revanced_gms_show_dialog_title">Показувати діалог оптимізації GMSCore</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Приховує порожній простір у меню облікового запису</string>
     <string name="revanced_hide_account_menu_empty_component_title">Приховати порожні компоненти</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Список назв меню облікового запису для фільтрування, розділених новими рядками.</string>
@@ -207,6 +210,8 @@
     <string name="revanced_hide_comment_channel_guidelines_title">Приховати правила каналу</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Приховує кнопки емодзі та мітки часу під час введення коментарів.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Приховати емодзі та кнопку мітки часу</string>
+    <string name="revanced_hide_comments_information_button_summary">Приховати кнопку інформації на панелі коментарів.</string>
+    <string name="revanced_hide_comments_information_button_title">Приховати кнопку інформації</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Приховує затемнення, яке з’являється під час подвійного натискання для перемотування.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Приховати фільтр подвійного натискання</string>
     <string name="revanced_hide_floating_button_summary">Приховує плаваючу кнопку у вкладці \"Бібліотека\".</string>
@@ -231,8 +236,8 @@
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Приховати \"Вилучити з бібліотеки\"</string>
     <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Приховати \"Вилучити зі списку\"</string>
     <string name="revanced_hide_flyout_menu_report_title">Приховати \"Поскаржитись\"</string>
+    <string name="revanced_hide_flyout_menu_save_episode_for_later_save_to_library_title">Сховати меню \"Зберегти епізод на потім\" та \"Зберегти до бібліотеки\"</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Приховати \"Слухати згодом\"</string>
-    <string name="revanced_hide_flyout_menu_save_to_library_title">Приховати \"Зберегти в бібліотеці\"</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">Приховати \"Зберегти в списку відтворення\"</string>
     <string name="revanced_hide_flyout_menu_share_title">Приховати \"Поділитися\"</string>
     <string name="revanced_hide_flyout_menu_shuffle_play_title">Приховати \"Перемішати\"</string>
@@ -531,10 +536,12 @@
     <string name="revanced_spoof_client_type_summary">"Визначає клієнт за замовчуванням для підробки."</string>
     <string name="revanced_spoof_client_type_title">Клієнт за замовчуванням</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music без SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android без SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">ТБ</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">Попереднє ТБ</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Просте ТБ</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Визначає клієнт за замовчуванням для підробки.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Клієнт за замовчуванням</string>
@@ -542,12 +549,71 @@
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Спробуйте змінити клієнт за замовчуванням на ТБ.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Натисніть, щоб переглянути, як отримати токен авторизації.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Про авторизацію Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Натисніть тут, щоб побачити як увійти в Android VR.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Авторизація в Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">Отримати токен авторизації</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message">"Вхід до Android No SDK (YouTube) здійснюється відповідно до рекомендацій Google (авторизація облікового запису Google - OAuth 2.0 для додатків Android):
+
+1. Натисніть 'Отримати токен авторизації', щоб відкрити сторінку входу до WebView.
+2. Увійдіть до свого облікового запису Google.
+3. Результати входу відображатимуться протягом 5 секунд.
+
+※ Натисніть 'Скинути', щоб видалити токен автентифікації."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Скинути</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Авторизація в Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Токен автентифікації збережено.
+
+- Токен автентифікації, виданий за допомогою цього процесу, можна використовувати тільки в YouTube (У RVX він використовується для отримання даних трансляції із YouTube).
+- Токен автентифікації, який не використовувався протягом більше ніж 6 місяців, буде анульований серверами Google.
+- Якщо ви зміните пароль, скасуєте реєстрацію пристрою в налаштуваннях облікового запису чи видалите додаток, потрібно буде перевидати токен автентифікації."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Авторизовано</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Токен автентифікації скинутий.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Натисніть тут, щоб побачити як увійти в Android VR.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Авторизація в Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Код активації:
+%s
+
+1. Натисніть 'Відкрити сайт', щоб перейти до 'https://yt.be/activate'.
+2. Введіть код активації.
+3. Увійдіть, коли з'явиться запит. Якщо у вас кілька облікових записів Google, виберіть обліковий запис, який використовуєте для YouTube. Якщо вже увійшли, перейдіть до наступного кроку.
+4. Після входу поверніться до RVX і знову натисніть 'Авторизація в Android VR'.
+5. Натисніть 'Отримати токен авторизації', щоб отримати токен авторизації."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Відкрити сайт</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Код активації</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Код активації скопійовано в буфер обміну: %s.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Отримати код активації</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Отримати токен авторизації</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Вхід до Android VR (YouTube VR) здійснюється відповідно до рекомендацій Google (авторизація облікового запису Google - OAuth 2. для додатків пристроїв TV та обмеженого введення):
+
+1. Натисніть 'Отримати код активації', щоб генерувати код активації.
+2. Натисніть 'Відкрити веб-сайт', щоб перейти до 'https://yt. e/activate'.
+3. Введіть код активації.
+4. Увійдіть за запитом. Якщо у вас є кілька облікових записів Google, виберіть обліковий запис, який ви використовуєте з YouTube. Якщо ви вже увійшли до системи, перейдіть до наступного кроку.
+5. Після входу поверніться до RVX і натисніть 'Увійти до Android VR'
+6. Натисніть 'Отримати токен авторизації', щоб отримати токен авторизації.
+
+※ натисніть 'Скинути', щоб видалити токен автентифікації або код активації."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Скинути</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Авторизація в Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Токен автентифікації збережено.
+
+- Токен автентифікації, виданий за допомогою цього процесу, можна використовувати тільки в YouTube VR (У RVX він використовується для отримання даних трансляції із YouTube VR).
+- Токен автентифікації, який не використовувався протягом більше ніж 6 місяців, буде анульований серверами Google.
+- Якщо ви зміните пароль, скасуєте реєстрацію пристрою в налаштуваннях облікового запису чи видалите додаток, потрібно буде перевидати токен автентифікації."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Авторизовано</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Не вдалося видати токен автентифікації.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Натисніть Скинути та спробуйте ще раз.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Токен автентифікації та код активації скинуто.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показує клієнт, який використовується для отримання потокових даних у \"Статистиці для сисадмінів\".</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
     <string name="revanced_spoof_streaming_data_summary">"Підміняє клієнтські відеопотоки, щоб запобігти відтворенню проблем.
 
 Якщо ви користувач YouTube Premium, цей параметр може бути не потрібен."</string>
     <string name="revanced_spoof_streaming_data_title">Підробка потокових даних</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"Якщо увімкнено, для деобфускації URL-адреси потоку на клієнтах 'TV' та 'Mobile Web' буде використовуватися найновіший JavaScript плеєра.
+
+Якщо у вас виникають проблеми з клієнтом JavaScript, спробуйте спочатку вимкнути цю опцію."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Використовувати найновіший JavaScript плеєра</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"При включенні 'Зовнішній JavaScript для yt-dlp (yt-dlp-ejs)' буде використовуватися для деобфускації URL-адреси потокової передачі на 'ТБ та 'Мобільному перегляді'.
 
 • JavaScript-код плеєра для деобфускації постійно оновлюється.

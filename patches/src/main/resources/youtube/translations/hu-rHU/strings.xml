@@ -85,6 +85,7 @@ Koppints ide, ha többet szeretnél megtudni a DeArrow-ról."</string>
     <string name="revanced_bypass_url_redirects_summary_off">Az URL átirányítások nincsenek kikerülve.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Az URL átirányítások kikerülve.</string>
     <string name="revanced_bypass_url_redirects_title">URL átirányítások kikerülése</string>
+    <string name="revanced_cancel">Mégse</string>
     <string name="revanced_change_form_factor_entry_1">Alapértelmezett</string>
     <string name="revanced_change_form_factor_entry_2">Telefon</string>
     <string name="revanced_change_form_factor_entry_3">Telefon (max 480 dpi)</string>
@@ -162,6 +163,7 @@ Korlátozás: Előfordulhat, hogy az eszköztár Vissza gombja nem működik."</
     <string name="revanced_change_youtube_header_title">YouTube fejléc módosítása</string>
     <string name="revanced_confirm_user_dialog_title">Biztos benne, hogy folytatni szeretné?</string>
     <string name="revanced_copy">Másol</string>
+    <string name="revanced_copy_error">Nem sikerült a szöveg másolása</string>
     <string name="revanced_custom_filter_strings_summary">A szűrendő összetevők listája új sorokkal elválasztva.</string>
     <string name="revanced_custom_filter_strings_title">Egyéni szűrő</string>
     <string name="revanced_custom_filter_summary_off">Az egyéni szűrő le van tiltva.</string>
@@ -350,7 +352,6 @@ Megjegyzés:
     <string name="revanced_disable_translucent_status_bar_summary_off">Az állapotsor nem átlátszó vagy átlátszó.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Az állapotsor nem átlátszó.</string>
     <string name="revanced_disable_translucent_status_bar_title">Átlátszó állapotsor letiltása</string>
-    <string name="revanced_disable_translucent_status_bar_user_dialog_message">Egyes, Android 12 vagy újabb rendszert futtató gyártói ROM-ok esetében ennek a funkciónak az engedélyezése átlátszóvá teheti a rendszer navigációs sávját.</string>
     <string name="revanced_disable_video_description_interaction_summary">"Letiltja a következő interakciókat, ha a videoleírás ki lett bővítve:
 
 • Koppintás a görgetéshez.
@@ -431,7 +432,7 @@ Korlátozások:
     <string name="revanced_enable_swipe_to_switch_video_summary_on">A felfelé / lefelé lapozás teljes képernyőn lejátssza a következő / előző videót.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Videóváltás lapozással engedélyezése</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">A navigációs sáv nem átlátszó.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">A navigációs sáv átlátszó.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">"A navigációs sáv átlátszó."</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Átlátszó navigációs sáv engedélyezése</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">A Következő a lejátszási sorban feldolgozási késleltetése tiltott.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">A Következő a lejátszási sorban feldolgozási késleltetése engedélyezett.</string>
@@ -491,6 +492,8 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_external_downloader_other_item_hint">Írja be a csomag nevét</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">A telepített külső letöltő alkalmazás csomagneve.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Lejátszási lista letöltő csomag neve</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_summary">A telepített külső letöltőalkalmazás (pl. NewPipe vagy YTDLnis) csomagneve hosszú lenyomás esetén.</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_title">Hosszú lenyomásos videóletöltő csomagneve</string>
     <string name="revanced_external_downloader_package_name_video_summary">A telepített külső letöltő alkalmazás csomagneve.</string>
     <string name="revanced_external_downloader_package_name_video_title">Videó letöltő csomag neve</string>
     <string name="revanced_external_downloader_package_not_found_warning">"Nem található telepített alkalmazás a következő csomagnévvel: %s.
@@ -522,6 +525,38 @@ Ha a 'Lejátszás' beállítás a beállítás engedélyezése vagy letiltása u
 Ismert probléma: Előfordul, hogy a húzás átfedése megjelenik a teljes képernyős módra váltás előtt."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">A húzással vezérlés működésének javítása</string>
     <string name="revanced_fullscreen_ads_closed_toast">A teljes képernyős hirdetések bezárva.</string>
+    <string name="revanced_gemini_cancelled">Megszakítva</string>
+    <string name="revanced_gemini_copy_success">Összefoglaló a vágólapra másolva.</string>
+    <string name="revanced_gemini_error_already_running_summarize">Az összegzés már folyamatban van.</string>
+    <string name="revanced_gemini_error_already_running_transcribe">Az átirat készítése már folyamatban van.</string>
+    <string name="revanced_gemini_error_already_running_yandex_transcribe">A Yandex átirat készítése már fut.</string>
+    <string name="revanced_gemini_error_api_failed">A Gemini API kérés sikertelen: %s</string>
+    <string name="revanced_gemini_error_dialog_show">Hiba a párbeszédablak megjelenítésekor</string>
+    <string name="revanced_gemini_error_no_api_key">A Gemini API kulcs nincs beállítva a ReVanced Extended beállításaiban.</string>
+    <string name="revanced_gemini_error_no_video">Nem sikerült lekérni a videó URL-jét.</string>
+    <string name="revanced_gemini_error_overlay_display">Nem sikerült megjeleníteni a felirat réteget</string>
+    <string name="revanced_gemini_error_transcription_no_raw_data">Nincs feldolgozható nyers átirat adat</string>
+    <string name="revanced_gemini_error_transcription_parse">Nem sikerült feldolgozni az átirat adatait.</string>
+    <string name="revanced_gemini_error_translation_failed">A Gemini fordítás sikertelen</string>
+    <string name="revanced_gemini_error_translation_parse_failed">A Gemini fordítás elemzése sikertelen</string>
+    <string name="revanced_gemini_error_unknown">Ismeretlen hiba történt.</string>
+    <string name="revanced_gemini_loading_default">Betöltés...</string>
+    <string name="revanced_gemini_loading_summarize">Videó összegzése...</string>
+    <string name="revanced_gemini_loading_transcribe">Videó átiratozása...</string>
+    <string name="revanced_gemini_loading_yandex_transcribe">Yandex: Feliratok lekérése...</string>
+    <string name="revanced_gemini_status_translating">Fordítás a Gemini...\n\n⚠️ Ez a lépés sikertelen lehet, ha a Gemini figyelmen kívül hagyja az utasításokat vagy eléri a korlátot.</string>
+    <string name="revanced_gemini_summary_title">Gemini videó összefoglaló</string>
+    <string name="revanced_gemini_time_taken">(%d másodpercet vett igénybe)</string>
+    <string name="revanced_gemini_transcribe_bad_token_exception">Engedélyezze a \"Megjelenítés más alkalmazások felett\" lehetőséget a feliratok megjelenítéséhez</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Az átírt videó feliratainak betűmérete. Koppintson a felirat dobozra az elrejtéséhez, vagy nyomja hosszan az áthelyezéshez.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_title">Felirat betűmérete</string>
+    <string name="revanced_gemini_transcription_parse_button">Feliratok</string>
+    <string name="revanced_gemini_transcription_parse_success">Felirat sikeresen feldolgozva</string>
+    <string name="revanced_gemini_transcription_result_title">Gemini videó átirat</string>
+    <string name="revanced_gms_show_dialog_summary">Megjeleníti a GMSCore optimalizálási párbeszédablakát minden alkalmazásindításkor.</string>
+    <string name="revanced_gms_show_dialog_title">Optimalizálási párbeszédablak megjelenítése a GMSCore-hoz</string>
+    <string name="revanced_gradient_seekbar_positions_summary">Gradiens kezdő és végpozíciók 0 és 1 között, vesszővel elválasztva.</string>
+    <string name="revanced_gradient_seekbar_positions_title">Gradiens keresősáv határai</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">A fiók menüben szűrendő menüpontok listája, új sorokkal elválasztva.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Fiók menü szűrő</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">Szűrje, ha egyezik.&lt;br&gt;&lt;br&gt;A &lt;br&gt;YouTube Prémium beszerzése&lt;br&gt; menü elrejtéséhez csak a &lt;b&gt;YouTube Prémium beszerzése&lt;/b&gt; lehetőséget használhatja kulcsszóként.</string>
@@ -648,6 +683,9 @@ Lejátszási listák
     <string name="revanced_hide_comments_highlighted_search_links_summary_off">A kiemelt keresési hivatkozások láthatóak.</string>
     <string name="revanced_hide_comments_highlighted_search_links_summary_on">"A kiemelt keresési hivatkozások rejtettek."</string>
     <string name="revanced_hide_comments_highlighted_search_links_title">Kiemelt keresési hivatkozások elrejtése</string>
+    <string name="revanced_hide_comments_information_button_summary_off">Az információ gomb látható.</string>
+    <string name="revanced_hide_comments_information_button_summary_on">Az információ gomb rejtett.</string>
+    <string name="revanced_hide_comments_information_button_title">Információ gomb elrejtése</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_off">A hozzászólások láthatóak a kezdőlapon.</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_on">A hozzászólások el van rejtve a kezdőlapon.</string>
     <string name="revanced_hide_comments_section_in_home_feed_title">Hozzászólások elrejtése a kezdőlapon</string>
@@ -737,9 +775,6 @@ Beállítások → Automatikus lejátszás / Lejátszás → Következő videó 
     <string name="revanced_hide_general_ads_summary_off">Az általános hirdetések láthatóak.</string>
     <string name="revanced_hide_general_ads_summary_on">Az általános hirdetések el vannak rejtve.</string>
     <string name="revanced_hide_general_ads_title">Általános hirdetések elrejtése</string>
-    <string name="revanced_hide_get_premium_summary_off">A YouTube Prémium promóció látható.</string>
-    <string name="revanced_hide_get_premium_summary_on">A YouTube Prémium promóció el van rejtve.</string>
-    <string name="revanced_hide_get_premium_title">YouTube Prémium promóció elrejtése</string>
     <string name="revanced_hide_handle_summary_off">A kezelő látható.</string>
     <string name="revanced_hide_handle_summary_on">A kezelő el van rejtve.</string>
     <string name="revanced_hide_handle_title">Kezelő elrejtése</string>
@@ -786,7 +821,7 @@ Korlátozások:
 • Előfordulhat, hogy egyes felhasználói felület-összetevők nincsenek elrejtve.
 • Előfordulhat, hogy a kulcsszó keresése nem ad eredményt."</string>
     <string name="revanced_hide_keyword_content_about_title">A kulcsszó alapú szűrésről</string>
-    <string name="revanced_hide_keyword_content_about_whole_words_summary">Ha egy kulcsszót/kifejezést dupla idézőjelekkel vesz körül, akkor elkerülhető a videócímek és a csatornanevek részleges egyezése&lt;br&gt;&lt;br&gt;Például:&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; elrejti a videót: &lt;b&gt;Hogyan működik az AI?&lt;/b&gt;&lt;br&gt;de nem rejti el: &lt;b&gt;Mit jelent a fair use?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Ha egy kulcsszót/kifejezést dupla idézőjelekkel vesz körül, akkor elkerülhető a videócímek és a csatornanevek részleges egyezése&lt;br&gt;&lt;br&gt;Például:&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; elrejti a videót: &lt;b&gt;Hogyan működik az AI?&lt;/b&gt;&lt;br&gt;de nem rejti el: &lt;b&gt;Mit jelent a fair use?&lt;/b&gt; </string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Teljes szóegyezések</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">A kommentek nincsenek szűrve.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">A kommentek szűrve vannak.</string>
@@ -1037,6 +1072,9 @@ Ha a lejátszó képernyőjének elrendezése a szerveroldali változtatások mi
     <string name="revanced_hide_search_term_thumbnail_summary_off">A bélyegképek a keresési kifejezések előzményeiben láthatóak.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">A bélyegképek a keresési kifejezések előzményeiben el vannak rejtve.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Keresési kifejezések bélyegképeinek elrejtése</string>
+    <string name="revanced_hide_section_header_in_feed_summary_off">A Feliratkozások szakasz fejléce látható.\n\nA Feliratkozások szakasz fejléce tartalmazza a \"Közösség felkeresése\" és \"Csatorna felkeresése\" gombokat, ha a Feliratkozások szakaszban egy feliratkozott csatorna ikonjára kattint.</string>
+    <string name="revanced_hide_section_header_in_feed_summary_on">A Feliratkozások szakasz fejléce rejtett.\n\nA Feliratkozások szakasz fejléce tartalmazza a \"Közösség felkeresése\" és \"Csatorna felkeresése\" gombokat, ha a Feliratkozások szakaszban egy feliratkozott csatorna ikonjára kattint.</string>
+    <string name="revanced_hide_section_header_in_feed_title">Feliratkozások szakasz fejlécének elrejtése</string>
     <string name="revanced_hide_seek_message_summary_off">"A keresési üzenet látható.
 
 Információ:
@@ -1152,6 +1190,9 @@ Információ:
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">A letiltott megjegyzések gomb vagy \'null\' címkével látható.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">A letiltott megjegyzések gomb vagy \'null\' címkével el van rejtve.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Rejtsd el a letiltott megjegyzések gombot</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_off">A megjegyzések panel látható.</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_on">A megjegyzések panel rejtett.</string>
+    <string name="revanced_hide_shorts_comments_panel_title">Megjegyzések panel elrejtése</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">A nem tetszik gomb látható.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">A nem tetszik gomb el van rejtve.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Nem tetszik gomb elrejtése</string>
@@ -1385,6 +1426,11 @@ Korlátozások:
     <string name="revanced_hide_youtube_doodles_summary_on">A YouTube Doodles el van rejtve.</string>
     <string name="revanced_hide_youtube_doodles_title">YouTube Doodles elrejtése</string>
     <string name="revanced_hide_youtube_doodles_user_dialog_message">"A YouTube emblémák minden évben néhány napra megjelennek.\n\nHa jelenleg egy YouTube embléma látható a régiódban, és az elrejtése be van kapcsolva, akkor a keresősáv alatti szűrősáv is el lesz rejtve."</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_off">A YouTube Prémium promóció látható.</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_on">"A YouTube Premium promóció rejtett.
+
+Ismert probléma: Ha ez a beállítás engedélyezve van, a YouTube Doodle-ok nem kattinthatók."</string>
+    <string name="revanced_hide_youtube_premium_promotion_title">YouTube Prémium promóció elrejtése</string>
     <string name="revanced_hide_zoom_overlay_summary_off">A nagyítás fedés látható.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">A nagyítás fedés elrejtve.</string>
     <string name="revanced_hide_zoom_overlay_title">Nagyítás fedés elrejtése</string>
@@ -1393,9 +1439,23 @@ Korlátozások:
     <string name="revanced_icon_custom">Egyéni</string>
     <string name="revanced_icon_default">Alap</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_mmt_blue">MMT Kék</string>
+    <string name="revanced_icon_mmt_green">MMT Zöld</string>
+    <string name="revanced_icon_mmt_orange">MMT Narancs</string>
+    <string name="revanced_icon_mmt_pink">MMT Rózsaszín</string>
+    <string name="revanced_icon_mmt_turquoise">MMT Türkiz</string>
+    <string name="revanced_icon_mmt_yellow">MMT Sárga</string>
     <string name="revanced_icon_revancify_blue">Revancify Kék</string>
     <string name="revanced_icon_revancify_red">Revancify Piros</string>
+    <string name="revanced_icon_revancify_yellow">Revancify Sárga</string>
+    <string name="revanced_icon_squid_game">Squid Game</string>
+    <string name="revanced_icon_vanced_black">Vanced Fekete</string>
+    <string name="revanced_icon_vanced_light">Vanced Világos</string>
+    <string name="revanced_icon_xisr_special">Xisr Speciális</string>
+    <string name="revanced_icon_xisr_winter">Xisr Tél</string>
+    <string name="revanced_icon_xisr_yellow">Xisr Sárga</string>
     <string name="revanced_icon_youtube">YouTube</string>
+    <string name="revanced_icon_youtube_black">YouTube Fekete</string>
     <string name="revanced_invert_snack_bar_theme_summary_off">Az üzenet sáv színei nem inverzek.</string>
     <string name="revanced_invert_snack_bar_theme_summary_on">Az üzenet sáv színei inverzek.</string>
     <string name="revanced_invert_snack_bar_theme_title">Üzenet sáv színek inverzálása</string>
@@ -1508,6 +1568,8 @@ Korlátozások:
 <small>తెలుగు</small>"</string>
     <string name="revanced_language_TH">"Thai
 <small>ไทย</small>"</string>
+    <string name="revanced_language_TL">"Filippínó
+<small>Filippínó</small>"</string>
     <string name="revanced_language_TR">"Török
 <small>Türkçe</small>"</string>
     <string name="revanced_language_UK">"Ukrán
@@ -1519,6 +1581,7 @@ Korlátozások:
     <string name="revanced_language_ZH">"Kínai
 <small>中文</small>"</string>
     <string name="revanced_language_title">RVX nyelve</string>
+    <string name="revanced_minimize">Minimalizálás</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">A dupla koppintás és összehúzás átméretezéshez le van tiltva.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"A dupla koppintás és összehúzás átméretezéshez engedélyezett.
 
@@ -1587,6 +1650,19 @@ Tartsa nyomva a videó időbélyegének másolásához."</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">Várólista-kezelő</string>
     <string name="revanced_overlay_button_external_downloader_summary">Érintse meg a külső videóletöltő indításához.</string>
     <string name="revanced_overlay_button_external_downloader_title">Külső letöltés gomb megjelenítése</string>
+    <string name="revanced_overlay_button_gemini_about_summary">"A videó elemzése a hosszától függően eltarthat egy ideig. A hosszú videók átírása túllépheti a Gemini korlátait.
+
+A mesterséges intelligencia által generált válaszok pontatlan információkat tartalmazhatnak.
+
+Koppints ide API kulcs beszerzéséhez."</string>
+    <string name="revanced_overlay_button_gemini_about_title">A Geminiről</string>
+    <string name="revanced_overlay_button_gemini_summarize">Összegzés</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Szerezz API kulcsot itt: https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API kulcs</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Koppints a videó összegzéséhez. Nyomd hosszan az átíráshoz.
+
+Az összegzett és átírt eredmények mentésre kerülnek, kivéve, ha bezárod az alkalmazást, vagy más videónál használod a Geminit. Koppints újra a gombra az eredmények megtekintéséhez."</string>
+    <string name="revanced_overlay_button_gemini_summarize_title">Gemini gomb megjelenítése</string>
     <string name="revanced_overlay_button_mute_volume_summary">Érintse meg az aktuális videó hangerejének elnémításához. Érintsen újra a némítás feloldásához.</string>
     <string name="revanced_overlay_button_mute_volume_title">Hangerő némítás gomb megjelenítése</string>
     <string name="revanced_overlay_button_not_allowed_warning">Érintse meg és tartsa lenyomva a gomb állapotának megváltoztatásához.</string>
@@ -1992,7 +2068,9 @@ Korlátozás: A nem tetszések lehet nem jelennek meg kijelentkezett felhasznál
     <string name="revanced_sb_guidelines_popup_title">Kövesd az irányelveket</string>
     <string name="revanced_sb_guidelines_preference_sum">Az irányelvek szabályokat és ötleteket tartalmaznak a szakaszok beküldésével kapcsolatban.</string>
     <string name="revanced_sb_guidelines_preference_title">Irányelvek megtekintése</string>
+    <string name="revanced_sb_new_segment_adjust">Igazítás: Szegmens kezdő- és végidejének megjelölése</string>
     <string name="revanced_sb_new_segment_choose_category">Válassza ki a szakasz kategóriáját</string>
+    <string name="revanced_sb_new_segment_compare">Szegmens ellenőrzése</string>
     <string name="revanced_sb_new_segment_confirm_content">"A szegmens a
 
 %1$s -tól a
@@ -2004,15 +2082,19 @@ Készen állsz a beküldésre?"</string>
     <string name="revanced_sb_new_segment_confirm_contents">A szakasz:\n\n%1$s-tól\n\n%2$s-ig\n\n(%3$s)\n\nKészen állsz a beküldésre?</string>
     <string name="revanced_sb_new_segment_confirm_title">Helyesek az időpontok?</string>
     <string name="revanced_sb_new_segment_disabled_category">A kategória letiltva a beállításokban. Engedélyezze a beküldéshez.</string>
+    <string name="revanced_sb_new_segment_edit">Szegmens szerkesztése</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">Szerkeszteni szeretné a rész kezdetének vagy végének időzítését?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Érvénytelen a megadott idő.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Szakasz időzítésének kézi beállítása</string>
+    <string name="revanced_sb_new_segment_forward">Előretekerés a megadott idővel (Alapértelmezett: 150ms)</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">Beállítja a(z) %s-t az új szakasz kezdetének vagy végének?</string>
     <string name="revanced_sb_new_segment_mark_end">végpont</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Előbb jelöljön meg két pontot az idősávon.</string>
     <string name="revanced_sb_new_segment_mark_start">kezdőpont</string>
     <string name="revanced_sb_new_segment_now">most</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Szakasz előnézete a zökkenőmentes kihagyás érdekében.</string>
+    <string name="revanced_sb_new_segment_publish">Létrehozott szegmens közzététele</string>
+    <string name="revanced_sb_new_segment_rewind">Visszatekerés a megadott idővel (Alapértelmezett: 150ms)</string>
     <string name="revanced_sb_new_segment_start_is_before_end">A kezdetnek a vége előtt kell lennie.</string>
     <string name="revanced_sb_new_segment_time_end">A szakasz végének időpontja</string>
     <string name="revanced_sb_new_segment_time_start">A szakasz kezdetének időpontja</string>
@@ -2053,7 +2135,7 @@ Készen állsz a beküldésre?"</string>
     <string name="revanced_sb_skip_automatically_once">Automatikus kihagyás egyszer</string>
     <string name="revanced_sb_skip_button_compact">Kihagyás</string>
     <string name="revanced_sb_skip_button_compact_highlight">Kiemelt rész</string>
-    <string name="revanced_sb_skip_button_filler">Töltelékrész kihagyása</string>
+    <string name="revanced_sb_skip_button_filler">Töltelékrész kihagyása </string>
     <string name="revanced_sb_skip_button_highlight">Kiemelt rész kihagyása</string>
     <string name="revanced_sb_skip_button_hook">Felvezetés átugrása</string>
     <string name="revanced_sb_skip_button_interaction">Interakció kihagyása</string>
@@ -2180,6 +2262,7 @@ A következő esetekben esetleg nem működik:
     <string name="revanced_settings_search_clear_history_message">Biztosan ki akarja törölni a korábbi keresési előzményeket?</string>
     <string name="revanced_settings_search_empty_history_summary">A keresési előzmények mentéséhez írjon be egy keresési lekérdezést, és nyomja meg az Enter billentyűt.</string>
     <string name="revanced_settings_search_empty_history_title">A keresési előzmények üresek</string>
+    <string name="revanced_settings_search_history_summary">Legutóbbi keresések mentése, hogy megjelenjenek, ha a keresősáv üres.</string>
     <string name="revanced_settings_search_history_summary_off">A beállítások keresési előzménye nem látható.</string>
     <string name="revanced_settings_search_history_summary_on">A beállítások keresési előzménye látható.</string>
     <string name="revanced_settings_search_history_title">Beállítások keresési előzményének megjelenítése</string>
@@ -2219,6 +2302,10 @@ A legtöbb hiba nem javítható az ügyféloldali korlátozások miatt, ezért c
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">A külső letöltéskezelő menü el van rejtve.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">A külső letöltéskezelő menü látható.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Külső letöltéskezelő menü mutatása</string>
+    <string name="revanced_shorts_custom_actions_gemini_label">Gemini összegzés</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">A Gemini összegzés menü rejtett.</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">A Gemini összegzés menü látható.</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Gemini összegzés menü megjelenítése</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Videó megnyitása</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">A videó megnyitás menü el van rejtve.</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">A videó megnyitás menü látható.</string>
@@ -2234,6 +2321,9 @@ A legtöbb hiba nem javítható az ügyféloldali korlátozások miatt, ezért c
     <string name="revanced_shorts_custom_actions_speed_dialog_type_title">Sebesség menü típusa</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message">A modern sebesség menü esetleg nem működik a YouTube 19.01-19.34-es verzióiban.</string>
     <string name="revanced_shorts_custom_actions_speed_label">Lejátszási sebesség</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_off">A lejátszási sebesség menü rejtett.\n\nInfó:\n• A Shorts alapértelmezett lejátszási sebességét engedélyezni kell.\n• A kiválasztott sebesség a következő videóra lesz alkalmazva.</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_on">A lejátszási sebesség menü látható.\n\nInfó:\n• A Shorts alapértelmezett lejátszási sebességét engedélyezni kell.\n• A kiválasztott sebesség a következő videóra lesz alkalmazva.</string>
+    <string name="revanced_shorts_custom_actions_speed_title">Lejátszási sebesség menü megjelenítése</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Egyéni műveletek</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Eredeti</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Felfelé menő hüvelykujj</string>
@@ -2293,15 +2383,23 @@ Infó:
 • Előfordulhat, hogy a jó minőség feloldódik bizonyos videóknál, amelyek nagy eszközméretet igényelnek, de nem mindnél.
 • Ez a beállítás nem érhető el, ha az 'Adatfolyam meghamisítása' be van kapcsolva."</string>
     <string name="revanced_spoof_device_dimensions_title">Eszközméret hamisítása</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">A videó kodek AVC (H.264) vagy VP9.</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"A videó kodek AVC (H.264), VP9 vagy AV1.
+
+A lejátszás akadozhat vagy kimaradhatnak képkockák."</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_title">AV1 kodek engedélyezése</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Ennek a beállításnak az engedélyezése szoftveres AV1 dekódolást eredményezhet.
+
+A lejátszás akadozhat vagy kimaradhatnak képkockák."</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
 <small>(Belépés szükséges)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
 <small>(Nincs SDK)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
-<small>(Nincs hitelesítés)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
 <small>(Örökölt)</small>"</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV egyszerű</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
 <small>(Kiadatlan)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Alapértelmezett kliens</string>
@@ -2366,7 +2464,10 @@ Ha ez a beállítás engedélyezve van, a szerver válaszából származó legma
 • A stabil hangerő nem érhető el.
 • Előfordulhat, hogy a gyerekeknek szóló videók nem játszhatók le kijelentkezéskor vagy inkognitómódban."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Lejátszási problémák lehetnek (PoToken szükséges).</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• A videók 1 másodperccel hamarabb véget érhetnek.
+• Az OPUS audiokodek lehet, hogy nem támogatott."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• A kiszolgáló teljes ASN/IP-tartományt blokkolhat.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• A videók 1 másodperccel hamarabb véget érhetnek.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• A hangsáv menü hiányzik.
 • A kényszerített automatikus hangsávok letiltása nem elérhető.
 • A stabil hangerő nem áll rendelkezésre.
@@ -2382,6 +2483,10 @@ Ha ez a beállítás engedélyezve van, a szerver válaszából származó legma
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• Ha az élesítés sikertelen, a lejátszás sikertelen lehet.
 • Előfordulhat, hogy a videó 10 másodperc után sem indul el, ilyenkor a videó újratöltése gombra kell kattintani.
 • Előfordulhat, hogy a videó késik."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply">"• Ha a deobfuszkáció sikertelen, a lejátszás sikertelen lehet.
+• Egyes fiókokhoz PoToken szükséges, ebben az esetben a lejátszás sikertelen lesz.
+• Előfordulhat, hogy a videó 10 másodperc után sem indul el, ilyenkor a videó újratöltése gombra kell kattintani.
+• Előfordulhat, hogy a videó késve indul el."</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• Ha a deobfuszkáció sikertelen, a lejátszás sikertelen lehet.
 • Egyes fiókokhoz PoToken szükséges, ebben az esetben a lejátszás sikertelen lesz.
 • Előfordulhat, hogy a videó 10 másodperc után sem indul el, ilyenkor a videó újratöltése gombra kell kattintani.
@@ -2390,6 +2495,32 @@ Ha ez a beállítás engedélyezve van, a szerver válaszából származó legma
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Hiányzik a hangsáv menüje.
 • Előfordulhat, hogy a gyerekeknek szóló videók nem játszhatók le kijelentkezéskor vagy inkognitómódban.
 • Mivel ez egy kiadatlan kliens, bármikor leállhat a működése."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Kattintson ide az Android VR-ba való bejelentkezéshez.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Be kell jelentkezni az Android VR-hoz</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Aktivációs kód</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Aktiváló kód beszerzése</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Hitelesítési token beszerzése</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Az Android VR (YouTube VR) szolgáltatásba való bejelentkezés a Google által megadott irányelveket követi (Google-fiók hitelesítése - OAuth 2.0 TV-hez és korlátozott beviteli eszközalkalmazásokhoz):
+
+1. Kattintson az 'Aktiválási kód beszerzése' gombra az aktiválási kód létrehozásához.
+2. Kattintson a 'Webhely megnyitása' gombra a 'https://yt.be/activate' oldal eléréséhez.
+3. Adja meg az aktiválási kódot.
+4. Jelentkezzen be, amikor a rendszer kéri. Ha több Google-fiókja van, válassza ki a YouTube-bal használt fiókot. Ha már be van jelentkezve, ugorjon a következő lépésre.
+5. Miután bejelentkezett, térjen vissza az RVX-be, és kattintson ismét a 'Android VR bejelentkezés' gombra.
+6. Kattintson az 'Aktiváló kód beszerzése' gombra az engedélyezési token beszerzéséhez.
+
+※ Kattintson a 'Visszaállítás' gombra a hitelesítési token vagy aktiválási kód eltávolításához."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Visszaállítás</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Android VR bejelentkezés</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Hitelesítési token mentése.
+
+- Az ezen a folyamaton keresztül kiállított hitelesítési token csak a YouTube VR-ben használható (RVX-ben a YouTube VR-ből származó streamelési adatok lekérésére szolgál).
+- A 6 hónapnál hosszabb ideig fel nem használt hitelesítési tokent a Google szerverei visszavonják.
+- Ha megváltoztatod a jelszavadat, vagy törlöd az eszköz regisztrációját a fiókbeállításaidban, vagy eltávolítod az alkalmazást, akkor újra ki kell állítanod a hitelesítési tokent."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Bejelentkezve</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Nem sikerült hitelesítési tokent kiállítani.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Kattintson a Visszaállítás gombra, és próbálja újra.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Hitelesítési token és aktiválási kód visszaállítása.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Az adatfolyam lekérésére használt kliens a statisztikában kockáknak nem látható.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Az adatfolyam lekérésére használt kliens a statisztikában kockáknak látható.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Megjelenítés a statisztikában kockáknak</string>
@@ -2398,6 +2529,7 @@ Ha ez a beállítás engedélyezve van, a szerver válaszából származó legma
 
 Ha YouTube Premium felhasználó vagy, akkor ez a beállítás nem feltétlenül szükséges."</string>
     <string name="revanced_spoof_streaming_data_title">Adatfolyam meghamisítása</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
     <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"A JavaScript kliens nem használható bizonyos, gyors lejátszást igénylő videóknál:
 
 • Automatikus lejátszás a hírfolyamban
@@ -2456,11 +2588,16 @@ A JavaScript kliensek közül az ajánlott kliens a TV."</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">A beállítás kikapcsolása videólejátszási problémákat okozhat.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kattintson ide, ha szeretné megtudni, hogyan szerezhet be hitelesítési tokent.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR hitelesítésről</string>
+    <string name="revanced_swipe_brightness_distance_summary">A fényerő módosításához szükséges csúsztatás hossza pixelben. Az alacsonyabb értékek gyorsabbá, a magasabbak lassabbá teszik a fényerő változását (1-1000).</string>
+    <string name="revanced_swipe_brightness_distance_title">Fényerő távolsága</string>
     <string name="revanced_swipe_brightness_summary_off">A teljes képernyős fényerő húzás nem engedélyezett.</string>
     <string name="revanced_swipe_brightness_summary_on">"A teljes képernyős fényerő húzás engedélyezett.
 
 A fényerő beállításához simítson függőlegesen a képernyő bal oldalán."</string>
     <string name="revanced_swipe_brightness_title">Fényerő gesztus vezérlés engedélyezése</string>
+    <string name="revanced_swipe_delay_summary">A késleltetés ezredmásodpercben, mielőtt a rendszer érzékeli a csúsztatást. Növeld ezt az értéket, ha zavarja a csippentéses nagyítást (pinch-to-zoom).</string>
+    <string name="revanced_swipe_delay_title">Csúsztatási gesztusok késleltetése</string>
+    <string name="revanced_swipe_distance_invalid">Érvénytelen csúsztatási távolság, az értéknek 1 és 1000 között kell lennie.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">A gesztus vezérlések le vannak tiltva a képernyő lezárása módban.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">A gesztus vezérlések engedélyezettek a képernyő lezárása módban.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Gesztus vezérlések a képernyő lezárása módban</string>
@@ -2476,6 +2613,10 @@ A fényerő beállításához simítson függőlegesen a képernyő bal oldalán
     <string name="revanced_swipe_overlay_background_opacity_title">Csúsztatásos vezérlő sáv átlátszósága</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">A fényerő gesztus vezérlés folyamatjelző sáv szine.</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Fényerő gesztus vezérlés szine</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_summary">A folyamatjelző sáv színe a keresés vezérléséhez</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_title">Csúsztatási réteg keresőjének színe</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">A folyamatjelző sáv színe a sebesség vezérléséhez</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">Csúsztatási réteg sebességjelzőjének színe</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">A hangerő gesztus vezérlés folyamatjelző sáv szine.</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Hangerő gesztus vezérlés szine</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">A csúsztatható terület mérete nem lehet nagyobb 50-nél. Visszaállítás az alapértelmezettre.</string>
@@ -2499,11 +2640,30 @@ Megjegyzés: Ezzel a képernyőterület méretét is megváltoztatja, ahol érz�
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Ne mentse és állítsa vissza a fényerőt, amikor kilép vagy belép a teljes képernyőbe.</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">A fényerő mentése és visszaállítása teljes képernyőből való kilépéskor vagy belépéskor.</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Fényerő mentése és visszaállítása</string>
+    <string name="revanced_swipe_seek_distance_summary">A videótartalomban való kereséshez szükséges csúsztatás hossza pixelben. Az alacsonyabb értékek gyorsabbá, a magasabbak lassabbá teszik a keresést (1-1000).</string>
+    <string name="revanced_swipe_seek_distance_title">Keresési távolság</string>
+    <string name="revanced_swipe_seek_summary_off">A teljes képernyős csúsztatással való keresés ki van kapcsolva.</string>
+    <string name="revanced_swipe_seek_summary_on">"A teljes képernyős csúsztatással való keresés be van kapcsolva.
+
+Keress a videóban a képernyő felső felén történő vízszintes csúsztatással."</string>
+    <string name="revanced_swipe_seek_title">Keresés gesztus engedélyezése</string>
+    <string name="revanced_swipe_speed_distance_summary">A videósebesség módosításához szükséges csúsztatás hossza pixelben. Az alacsonyabb értékek gyorsabbá, a magasabbak lassabbá teszik a sebesség változását (1-1000).</string>
+    <string name="revanced_swipe_speed_distance_title">Sebesség távolsága</string>
+    <string name="revanced_swipe_speed_summary_off">A teljes képernyős csúsztatással való sebességváltás ki van kapcsolva.</string>
+    <string name="revanced_swipe_speed_summary_on">"A teljes képernyős csúsztatással való sebességváltás be van kapcsolva.
+
+Állítsd a sebességet a képernyő alsó felén történő vízszintes csúsztatással."</string>
+    <string name="revanced_swipe_speed_title">Sebesség gesztus engedélyezése</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_off">A keresési gesztus zónája felül, a sebesség zónája alul található.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_on">A sebesség gesztus zónája felül, a keresési zóna alul található.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_title">Sebesség és keresés gesztusok felcserélése</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">A szövegméretnek 1-30 között kell lennie.</string>
     <string name="revanced_swipe_text_overlay_size_summary">Az gesztus vezérlés szövegmérete 1-30 között.</string>
     <string name="revanced_swipe_text_overlay_size_title">Gesztus vezérlés szövegmérete</string>
     <string name="revanced_swipe_threshold_summary">A gesztus vezérléshez szükséges küszöbérték.</string>
     <string name="revanced_swipe_threshold_title">Gesztus vezérlés küszöbértéke</string>
+    <string name="revanced_swipe_volume_distance_summary">A hangerő módosításához szükséges csúsztatás hossza pixelben. Az alacsonyabb értékek gyorsabbá, a magasabbak lassabbá teszik a hangerő változását (1-1000).</string>
+    <string name="revanced_swipe_volume_distance_title">Hangerő távolsága</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">A hangerő csúsztatás érzékenységének 1 és 1000 között kell lennie.</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Mennyit változzon a hangerő húzásonként.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Hangerő csúsztatás érzékenység</string>
@@ -2607,4 +2767,31 @@ Jogi nyilatkozat: A bejelentkezés nélkül kibocsátott sütik érvénytelenek 
     <string name="revanced_whitelist_settings_summary">Ellenőrizze vagy távolítsa el a kivétellistához hozzáadott csatornákat.</string>
     <string name="revanced_whitelist_settings_title">Csatorna kivétellista</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_yandex_error_download_subs_failed">Nem sikerült letölteni a feliratfájlt (Kód: %1$d)</string>
+    <string name="revanced_yandex_error_internal_no_chosen_url">Belső hiba: A kiválasztott sávhoz nincs URL</string>
+    <string name="revanced_yandex_error_internal_null_subs_response">Belső hiba: Nem sikerült lekérni a végleges feliratokat</string>
+    <string name="revanced_yandex_error_network_generic">Hálózati hiba</string>
+    <string name="revanced_yandex_error_network_subs_fetch">Hálózati hiba a feliratfájl lekérésekor</string>
+    <string name="revanced_yandex_error_no_language_selected">Nincs nyelv kiválasztva</string>
+    <string name="revanced_yandex_error_no_subs_for_language">A feliratok nem érhetők el ezen a nyelven: %s</string>
+    <string name="revanced_yandex_error_no_subs_returned">Nincsenek elérhető feliratsávok</string>
+    <string name="revanced_yandex_error_server_try_again">Hiba történt az átírás során, kérjük, próbáld újra később.</string>
+    <string name="revanced_yandex_error_subs_parsing_failed">Nem sikerült feldolgozni a felirat JSON tartalmát</string>
+    <string name="revanced_yandex_error_subs_processing_failed">Hiba a felirat tartalmának feldolgozásakor</string>
+    <string name="revanced_yandex_error_subs_stuck_processing">Belső hiba: A feliratok feldolgozása elakadt</string>
+    <string name="revanced_yandex_error_translation_failed">A fordítás sikertelen</string>
+    <string name="revanced_yandex_error_unknown">Ismeretlen hiba</string>
+    <string name="revanced_yandex_status_processing_hour">Több mint egy óra van hátra...</string>
+    <string name="revanced_yandex_status_processing_minute">Körülbelül egy perc van hátra...</string>
+    <string name="revanced_yandex_status_processing_minutes_plural">%d perc van hátra...</string>
+    <string name="revanced_yandex_status_processing_short">Feldolgozás...</string>
+    <string name="revanced_yandex_status_requesting_translation">Fordítás kérése</string>
+    <string name="revanced_yandex_status_session_ok">Munkamenet OK</string>
+    <string name="revanced_yandex_status_subs_found">Feliratok találhatók, lekérés...</string>
+    <string name="revanced_yandex_status_transcription_delayed">Az átírás kissé késik</string>
+    <string name="revanced_yandex_status_youtube_specific">YouTube audiokérés kezelése...</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"A Yandex bármilyen nyelvről képes videókat átírni, de a kimenet csak angol (en), orosz (ru) és kazah (kk) nyelven érhető el. Ha más nyelvkódot adsz meg, vagy az 'app' (az alkalmazás alapértelmezett nyelve) opciót használod, a rendszer a Geminit kéri fel a fordításra (API kulcs szükséges)."</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex nyelv</string>
+    <string name="revanced_yandex_transcribe_subtitles_summary">Használd a Yandex átírást a Gemini helyett. A Yandex gyorsabb és megbízhatóbb. Nincs szükség API kulcsra.</string>
+    <string name="revanced_yandex_transcribe_subtitles_title">Yandex átírás</string>
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Continuar</string>
+    <string name="gms_core_dialog_dismiss_text">Não mostrar novamente</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"O GmsCore não tem permissão para executar em segundo plano.
 
 Siga o guia Não mate o meu aplicativo para o seu telefone e aplique as instruções para a sua instalação do MicroG.
@@ -141,9 +142,9 @@ Informações:
 • Os clientes mais recentes do YouTube Music usam o codec de áudio OPUS por padrão.
 • Isto pode ser necessário se o cliente ou reprodução de vídeo é falsificado."</string>
     <string name="revanced_enable_opus_codec_title">Ativar codec OPUS</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">"Permite animação suave quando o mini reprodutor é maximizado do estado minimizado.
+    <string name="revanced_enable_smooth_transition_animation_summary">Permite animação suave quando o mini reprodutor é maximizado do estado minimizado.
 
-Limitações: A interface das letras em tempo real pode ser quebrada para alguns usuários."</string>
+Limitações: A interface das letras em tempo real pode ser quebrada para alguns usuários.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Ativar animação de transição suave</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Permite deslizar para baixo para dispensar o mini reprodutor.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Ativar deslizar para dispensar o mini reprodutor</string>
@@ -170,6 +171,8 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_external_downloader_package_name_summary">Nome do pacote do seu aplicativo de download externo instalado, como NewPipe ou YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Nome do pacote do aplicativo de download externo</string>
     <string name="revanced_fullscreen_ads_closed_toast">Os anúncios em tela cheia são fechados.</string>
+    <string name="revanced_gms_show_dialog_summary">Exibe a caixa de diálogo de otimização do GmsCore a cada inicialização do aplicativo.</string>
+    <string name="revanced_gms_show_dialog_title">Exibir diálogo de otimização do GmsCore</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Oculta componentes vazios no menu de contas</string>
     <string name="revanced_hide_account_menu_empty_component_title">Ocultar componentes vazios</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista de nomes do menu de contas a serem filtrados, separados por novas linhas.</string>
@@ -209,6 +212,8 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Ocultar diretrizes do canal</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Oculta os botões de emoji e marcação de tempo ao escrever comentários.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Ocultar botões de emoji e marcação de tempo</string>
+    <string name="revanced_hide_comments_information_button_summary">Oculta o botão Informações no painel de comentários.</string>
+    <string name="revanced_hide_comments_information_button_title">Botão Ocultar Informações</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Oculta a sobreposição escura que aparece quando um duplo toque para procurar.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Ocultar filtro de sobreposição de toque duplo</string>
     <string name="revanced_hide_floating_button_summary">Oculta o botão flutuante na aba Biblioteca.</string>
@@ -233,8 +238,8 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Ocultar menu Remover da biblioteca</string>
     <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Ocultar menu Remover da playlist</string>
     <string name="revanced_hide_flyout_menu_report_title">Ocultar menu Denunciar</string>
+    <string name="revanced_hide_flyout_menu_save_episode_for_later_save_to_library_title">Ocultar menus Salvar episódio para mais tarde e Salvar na biblioteca</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Ocultar menu Salvar episódio para mais tarde</string>
-    <string name="revanced_hide_flyout_menu_save_to_library_title">Ocultar menu Salvar na biblioteca</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">Ocultar menu Salvar na playlist</string>
     <string name="revanced_hide_flyout_menu_share_title">Ocultar menu Compartilhar</string>
     <string name="revanced_hide_flyout_menu_shuffle_play_title">Ocultar menu Reprodução aleatória</string>
@@ -530,10 +535,12 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_client_type_summary">"Define um cliente padrão para falsificar."</string>
     <string name="revanced_spoof_client_type_title">Cliente padrão</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Música no Android sem SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android Não SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Legado</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simples</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Define um cliente padrão para falsificar.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Cliente padrão</string>
@@ -541,6 +548,60 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Tente alterar o cliente padrão para TV.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Clique para ver como obter um token de autenticação.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Sobre o Android: Sem autenticação do SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Clique aqui para ver como iniciar sessão no Android sem SDK.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Faça login no Android sem SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">Obter token de autorização</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message">"Fazer login no Android sem SDK (YouTube) segue as diretrizes fornecidas pelo Google (autorização da conta do Google - OAuth 2.0 para aplicativos Android):
+
+1. Clique em 'Obter token de autorização' para abrir a página de login no WebView.
+2. Faça login na sua Conta do Google.
+3. Os resultados do login serão exibidos em até 5 segundos.
+ ※ Clique em 'Redefinir' para remover um token de autenticação."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Redefinir</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Faça login no Android sem SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Token de autenticação salvo.
+
+· O token de autenticação emitido por este processo só pode ser usado no YouTube (no RVX, é usado para buscar dados de streaming do YouTube).
+· Tokens de autenticação não utilizados por mais de 6 meses serão revogados pelos servidores do Google.
+· Se você alterar sua senha, remover um dispositivo nas configurações da conta ou desinstalar o aplicativo, será necessário emitir um novo token de autenticação."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Logado</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Redefinição do token de autenticação.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Clique aqui para ver como iniciar sessão no Android VR.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Faça login no Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Código de ativação:
+%s
+
+1. Clique em 'Abrir site' para acessar 'https://yt.be/activate'.
+2. Insira o código de ativação.
+3. Faça login quando solicitado. Se você tiver várias Contas do Google, selecione a conta que usa com o YouTube. Se já estiver logado, pule para a próxima etapa.
+4. Após fazer login, retorne ao RVX e clique novamente em 'Fazer login no Android VR'.
+5. Clique em 'Obter token de autorização' para receber um token de autorização."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Abra o site</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Código de ativação</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Código de ativação copiado para a área de transferência: %s.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Obtenha o código de ativação</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Obter token de autorização</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"O login no Android VR (YouTube VR) segue as diretrizes fornecidas pelo Google (autorização da conta do Google - OAuth 2.0 para aplicativos de TV e dispositivos com entrada limitada):
+
+1. Clique em 'Obter código de ativação' para gerar um código de ativação.
+2. Clique em 'Abrir site' para acessar 'https://yt.be/activate'.
+3. Insira o código de ativação.
+4. Faça login quando solicitado. Se você tiver várias Contas do Google, selecione a conta que usa com o YouTube. Se já estiver logado, pule para a próxima etapa.
+5. Após fazer login, retorne ao RVX e clique novamente em 'Fazer login no Android VR'.
+6. Clique em 'Obter token de autorização' para receber um token de autorização.
+
+※ Clique em 'Redefinir' para remover um token de autenticação ou código de ativação."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Redefinir</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Faça login no Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Token de autenticação salvo.
+
+· O token de autenticação emitido por este processo só pode ser usado no YouTube VR (no RVX, é usado para buscar dados de streaming do YouTube VR).
+· Tokens de autenticação não utilizados por mais de 6 meses serão revogados pelos servidores do Google.
+· Se você alterar sua senha, remover um dispositivo nas configurações da conta ou desinstalar o aplicativo, será necessário emitir um novo token de autenticação."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Logado</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Falha ao emitir um token de autenticação.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Clique em Reiniciar e tente novamente.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Redefinição do token de autenticação e do código de ativação.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Exibir o cliente usado para buscar dados de streaming em estatísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Exibir em Estatísticas para nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Falsificar o cliente de reprodução de vídeo para prevenir problemas de reprodução. 
@@ -558,8 +619,12 @@ Se você estiver tendo problemas com seu cliente JavaScript, tente desativar ist
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Usar yt-dlp ejs (WIP)</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Clique para ver como obter um token de autenticação.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Sobre o Android VR Autenticação</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">"Efeito colateral:
+• O app pode ser encerrado forçadamente ao usar VPN ou DNS.
+• O áudio pode picotar intermitentemente durante a reprodução em clientes de streaming com taxa de bits adaptável (Todos os clientes, exceto Android VR 1.43.32)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Cliente padrão</string>
     <string name="revanced_spoof_video_streams_summary">Falsificar o cliente de reprodução de vídeo para prevenir problemas de reprodução. </string>
+    <string name="revanced_spoof_video_streams_title">Falsear streams de vídeo</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
     <string name="revanced_watch_history_type_entry_2">Substituir domínio</string>
     <string name="revanced_watch_history_type_entry_3">Bloquear histórico de exibição</string>
@@ -567,6 +632,7 @@ Se você estiver tendo problemas com seu cliente JavaScript, tente desativar ist
 • Substituir domínio: segue as configurações do histórico de exibição da conta do Google.
 • Bloquear histórico de exibição: o histórico de exibição é bloqueado."</string>
     <string name="revanced_watch_history_type_title">Tipo de histórico de exibição</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Obter Cookies</string>
     <string name="revanced_webview_contextual_menu_get_data_sync_id">Obter Id de sincronização de dados</string>
     <string name="revanced_webview_contextual_menu_get_visitor_data">Obter Dados do visitante</string>
     <string name="revanced_webview_contextual_menu_refresh">Atualizar</string>

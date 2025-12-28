@@ -354,7 +354,6 @@
     <string name="revanced_disable_translucent_status_bar_summary_off">شريط الحالة معتم أو شفاف.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">شريط الحالة غير شفاف.</string>
     <string name="revanced_disable_translucent_status_bar_title">تعطيل شريط الحالة الشفاف</string>
-    <string name="revanced_disable_translucent_status_bar_user_dialog_message">بالنسبة لبعض الـ ROM الخاصة بالشركة المصنعة التي تعمل بنظام Android 12 أو أحدث، قد يؤدي تمكين هذه الميزة إلى جعل شريط التنقل في النظام شفافًا.</string>
     <string name="revanced_disable_video_description_interaction_summary">"تعطيل التفاعلات التالية عند توسيع وصف الفيديو:
 
 • انقر للتمرير.
@@ -436,7 +435,7 @@
     <string name="revanced_enable_swipe_to_switch_video_summary_on">سيؤدي التمرير لأعلى/لأسفل في وضع ملء الشاشة إلى الانتقال إلى الفيديو التالي/السابق.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">تمكين إيماءة التمرير لتغيير الفيديو</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">شريط التنقل غير شفاف.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">شريط التنقل شفاف.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">"شريط التنقل شفاف."</string>
     <string name="revanced_enable_translucent_navigation_bar_title">تمكين شريط التنقل الشفاف</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">تم تعطيل تأخير معالجة Watch Next.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">تم تمكين تأخير معالجة Watch Next.</string>
@@ -549,6 +548,16 @@
     <string name="revanced_gemini_status_translating">جار الترجمة باستخدام Gemini...\n\n⚠️ قد تفشل هذه الخطوة إذا تجاهل Gemini التعليمات أو تم تجاوز الحد المسموح</string>
     <string name="revanced_gemini_summary_title">ملخص Gemini للفيديو</string>
     <string name="revanced_gemini_time_taken">(استغرق %d ثوانٍ)</string>
+    <string name="revanced_gemini_transcribe_bad_token_exception">قم بتمكين \"الظهور فوق التطبيقات الأخرى\" لعرضها كترجمة مصاحبة</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">حجم خط ترجمة الفيديو المفرغة. اضغط على مربع الترجمة لإخفائه، أو اضغط مطولاً لسحبه إلى موضع آخر.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_title">حجم خط الترجمة</string>
+    <string name="revanced_gemini_transcription_parse_button">الترجمة المصاحبة</string>
+    <string name="revanced_gemini_transcription_parse_success">تم تحليل الترجمة بنجاح</string>
+    <string name="revanced_gemini_transcription_result_title">Gemini تفريغ فيديو</string>
+    <string name="revanced_gms_show_dialog_summary">يعرض مربع حوار تحسين GMSCore عند كل بدء تشغيل للتطبيق.</string>
+    <string name="revanced_gms_show_dialog_title">إظهار مربع حوار تحسين GMSCore</string>
+    <string name="revanced_gradient_seekbar_positions_summary">مواضع بداية ونهاية التدرج من 0 إلى 1 مفصولة بفاصلة.</string>
+    <string name="revanced_gradient_seekbar_positions_title">حدود شريط التمرير المتدرج</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">قائمة بأسماء قائمة الحسابات المراد تصفيتها، مفصولة بسطور جديدة.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">تعديل فلتر قائمة الحساب</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">قم بالتصفية إذا تطابقت النتائج.&lt;br&gt;&lt;br&gt;لإخفاء قائمة &lt;b&gt;\'الحصول على YouTube Premium\'&lt;/b&gt;، يمكنك فقط استخدام &lt;b&gt;\'الحصول على YouTube Premium\'&lt;/b&gt; ككلمات مفتاحية.</string>
@@ -770,9 +779,6 @@
     <string name="revanced_hide_general_ads_summary_off">يتم عرض الإعلانات العامة.</string>
     <string name="revanced_hide_general_ads_summary_on">تم إخفاء الإعلانات العامة.</string>
     <string name="revanced_hide_general_ads_title">إخفاء الإعلانات العامة</string>
-    <string name="revanced_hide_get_premium_summary_off">يتم عرض الترقية لـ YouTube Premium.</string>
-    <string name="revanced_hide_get_premium_summary_on">تم إخفاء الترقية لـ YouTube Premium.</string>
-    <string name="revanced_hide_get_premium_title">إخفاء الترقية إلى YouTube Premium</string>
     <string name="revanced_hide_handle_summary_off">يتم عرض الاسم المعرِّف.</string>
     <string name="revanced_hide_handle_summary_on">تم إخفاء الاسم المعرِّف.</string>
     <string name="revanced_hide_handle_title">إخفاء الاسم المعرِّف</string>
@@ -1072,6 +1078,9 @@
     <string name="revanced_hide_search_term_thumbnail_summary_off">يتم عرض المصغرات في سجل مصطلحات البحث.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">تم إخفاء المصغرات في سجل مصطلحات البحث.</string>
     <string name="revanced_hide_search_term_thumbnail_title">إخفاء مصغرات مصطلحات البحث</string>
+    <string name="revanced_hide_section_header_in_feed_summary_off">ترويسة قسم الاشتراكات ظاهرة.\n\nتتضمن ترويسة قسم الاشتراكات زري \'زيارة المنتدى\' و\'زيارة القناة\' عند النقر على أيقونة قناة مشترك بها في قسم الاشتراكات.</string>
+    <string name="revanced_hide_section_header_in_feed_summary_on">ترويسة قسم الاشتراكات مخفية.\n\nتتضمن ترويسة قسم الاشتراكات زري \'زيارة المنتدى\' و\'زيارة القناة\' عند النقر على أيقونة قناة مشترك بها في قسم الاشتراكات.</string>
+    <string name="revanced_hide_section_header_in_feed_title">إخفاء ترويسة قسم الاشتراكات</string>
     <string name="revanced_hide_seek_message_summary_off">"يتم عرض رسالة التمرير.
 
 معلومات:
@@ -1187,6 +1196,9 @@
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">يتم عرض زر التعليقات المعطلة أو الذي يحمل العلامة \"0\".</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">تم إخفاء زر التعليقات المعطلة أو الذي يحمل العلامة \"0\".</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">إخفاء زر التعليقات المعطلة</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_off">لوحة التعليقات ظاهرة.</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_on">لوحة التعليقات مخفية.</string>
+    <string name="revanced_hide_shorts_comments_panel_title">إخفاء لوحة التعليقات</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">يتم عرض زر لم يعجبني.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">تم إخفاء زر لم يعجبني.</string>
     <string name="revanced_hide_shorts_dislike_button_title">إخفاء زر لم يعجبني</string>
@@ -1422,6 +1434,11 @@
     <string name="revanced_hide_youtube_doodles_user_dialog_message">"تظهر رسومات YouTube Doodles لعدة أيام كل عام.
 
 إذا كانت رسومات YouTube Doodles تظهر حاليًا في منطقتك وكان إعداد الإخفاء هذا قيد التشغيل، فسيتم أيضًا إخفاء فلتر الشريط الموجود أسفل شريط البحث."</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_off">يتم عرض الترقية لـ YouTube Premium.</string>
+    <string name="revanced_hide_youtube_premium_promotion_summary_on">"تم إخفاء الترقية لـ YouTube Premium.
+
+مشكلة معروفة: عند تمكين هذا الإعداد، لا يمكن النقر على رسومات YouTube."</string>
+    <string name="revanced_hide_youtube_premium_promotion_title">إخفاء الترقية إلى YouTube Premium</string>
     <string name="revanced_hide_zoom_overlay_summary_off">تم إخفاء نمط التكبير.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">يتم عرض نمط التكبير.</string>
     <string name="revanced_hide_zoom_overlay_title">إخفاء نمط التكبير</string>
@@ -1430,9 +1447,23 @@
     <string name="revanced_icon_custom">مخصص</string>
     <string name="revanced_icon_default">الإفتراضي</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_mmt_blue">MMT أزرق</string>
+    <string name="revanced_icon_mmt_green">MMT أخضر</string>
+    <string name="revanced_icon_mmt_orange">MMT برتقالي</string>
+    <string name="revanced_icon_mmt_pink">MMT وردي</string>
+    <string name="revanced_icon_mmt_turquoise">MMT فيروزي</string>
+    <string name="revanced_icon_mmt_yellow">MMT أصفر</string>
     <string name="revanced_icon_revancify_blue">Revancify Blue</string>
     <string name="revanced_icon_revancify_red">Revancify Red</string>
+    <string name="revanced_icon_revancify_yellow">Revancify أصفر</string>
+    <string name="revanced_icon_squid_game">لعبة الحبار</string>
+    <string name="revanced_icon_vanced_black">Vanced أسود</string>
+    <string name="revanced_icon_vanced_light">Vanced فاتح</string>
+    <string name="revanced_icon_xisr_special">Xisr خاص</string>
+    <string name="revanced_icon_xisr_winter">Xisr شتوي</string>
+    <string name="revanced_icon_xisr_yellow">Xisr أصفر</string>
     <string name="revanced_icon_youtube">YouTube</string>
+    <string name="revanced_icon_youtube_black">YouTube أسود</string>
     <string name="revanced_invert_snack_bar_theme_summary_off">لا يتم عكس سمة شريط Snack Bar.</string>
     <string name="revanced_invert_snack_bar_theme_summary_on">يتم عكس سمة شريط Snack Bar.</string>
     <string name="revanced_invert_snack_bar_theme_title">عكس سمة شريط Snack Bar</string>
@@ -1545,6 +1576,8 @@
 <small>తెలుగు</small>"</string>
     <string name="revanced_language_TH">"التايلاندية
 <small>ไทย</small>"</string>
+    <string name="revanced_language_TL">"الفلبينية
+<small>Filipino</small>"</string>
     <string name="revanced_language_TR">"التركية
 <small>Türkçe</small>"</string>
     <string name="revanced_language_UK">"الأوكرانية
@@ -1556,6 +1589,7 @@
     <string name="revanced_language_ZH">"الصينية
 <small>中文</small>"</string>
     <string name="revanced_language_title">لغة RVX</string>
+    <string name="revanced_minimize">تصغير</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">تم تعطيل خاصية النقر المزدوج والضغط لتغيير الحجم.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"تم تمكين خاصية النقر المزدوج والضغط لتغيير الحجم.
 
@@ -1624,6 +1658,19 @@
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">مدير قائمة الانتظار</string>
     <string name="revanced_overlay_button_external_downloader_summary">انقر لتشغيل برنامَج التنزيل الخارجي.</string>
     <string name="revanced_overlay_button_external_downloader_title">عرض زر التنزيل الخارجي</string>
+    <string name="revanced_overlay_button_gemini_about_summary">"قد يستغرق تحليل الفيديو بعض الوقت اعتماداً على طوله. وقد يتجاوز تفريغ مقاطع الفيديو الطويلة حدود Gemini.
+
+قد تحتوي الردود المولدة بالذكاء الاصطناعي على معلومات غير دقيقة.
+
+اضغط هنا للحصول على مفتاح API."</string>
+    <string name="revanced_overlay_button_gemini_about_title">عن Gemini</string>
+    <string name="revanced_overlay_button_gemini_summarize">تلخيص</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"احصل على مفتاح API من الرابط https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">مفتاح Gemini API</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"اضغط لتلخيص الفيديو. اضغط مطولاً لتفريغ النص.
+
+يتم حفظ نتائج التلخيص والتفريغ ما لم تقم بإغلاق التطبيق أو استخدام Gemini على فيديو آخر. اضغط على الزر مرة أخرى لعرض النتائج."</string>
+    <string name="revanced_overlay_button_gemini_summarize_title">إظهار زر Gemini</string>
     <string name="revanced_overlay_button_mute_volume_summary">انقر لكتم صوت الفيديو الحالي. انقر مرة أخرى لإلغاء الكتم.</string>
     <string name="revanced_overlay_button_mute_volume_title">عرض زر كتم الصوت</string>
     <string name="revanced_overlay_button_not_allowed_warning">انقر مع الاستمرار لتغيير حالة الزر.</string>
@@ -2012,7 +2059,9 @@
     <string name="revanced_sb_guidelines_popup_title">توجد إرشادات</string>
     <string name="revanced_sb_guidelines_preference_sum">الإرشادات تحتوي على نصائح حول تقديم المقاطع.</string>
     <string name="revanced_sb_guidelines_preference_title">عرض الإرشادات</string>
+    <string name="revanced_sb_new_segment_adjust">ضبط: تحديد وقت البداية والنهاية للمقطع</string>
     <string name="revanced_sb_new_segment_choose_category">اختر فئة المقطع</string>
+    <string name="revanced_sb_new_segment_compare">التحقق من المقطع</string>
     <string name="revanced_sb_new_segment_confirm_content">"المقطع من
 
 %1$s
@@ -2025,15 +2074,19 @@
     <string name="revanced_sb_new_segment_confirm_contents">المقطع من\n\n%1$s\nإلى\n%2$s\n\n(%3$s)\n\nجاهز للإرسال؟</string>
     <string name="revanced_sb_new_segment_confirm_title">هل الأوقات صحيحة؟</string>
     <string name="revanced_sb_new_segment_disabled_category">الفئة معطلة في الإعدادات. تمكين الفئة للإرسال.</string>
+    <string name="revanced_sb_new_segment_edit">تعديل المقطع</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">هل تود تعديل التوقيت لبداية أو نهاية المقطع؟</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">الوقت المحدد غير صحيح.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">تعديل توقيت المقطع يدويًا</string>
+    <string name="revanced_sb_new_segment_forward">تقديم بمقدار الوقت المحدد (الافتراضي: 150ms)</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">تعيين %s كبداية أو نهاية لمقطع جديد؟</string>
     <string name="revanced_sb_new_segment_mark_end">النهاية</string>
     <string name="revanced_sb_new_segment_mark_locations_first">ضع علامة على موقعين في شريط الوقت أولًا.</string>
     <string name="revanced_sb_new_segment_mark_start">البداية</string>
     <string name="revanced_sb_new_segment_now">الآن</string>
     <string name="revanced_sb_new_segment_preview_segment_first">معاينة المقطع، والتأكد من تخطيه بسلاسة.</string>
+    <string name="revanced_sb_new_segment_publish">نشر المقطع الذي تم إنشاؤه</string>
+    <string name="revanced_sb_new_segment_rewind">إرجاع بمقدار الوقت المحدد (الافتراضي: 150ms)</string>
     <string name="revanced_sb_new_segment_start_is_before_end">يجب أن تكون البداية قبل النهاية.</string>
     <string name="revanced_sb_new_segment_time_end">الوقت الذي ينتهي عنده المقطع</string>
     <string name="revanced_sb_new_segment_time_start">الوقت الذي يبدأ عنده المقطع</string>
@@ -2201,6 +2254,7 @@
     <string name="revanced_settings_search_clear_history_message">هل أنت متأكد من أنك تريد مسح سجل البحث بالكامل؟</string>
     <string name="revanced_settings_search_empty_history_summary">لحفظ سجل البحث، اكتب استعلام بحث واضغط على Enter.</string>
     <string name="revanced_settings_search_empty_history_title">سجل البحث فارغ</string>
+    <string name="revanced_settings_search_history_summary">حفظ عمليات البحث الأخيرة لعرضها عندما يكون شريط البحث فارغاً.</string>
     <string name="revanced_settings_search_history_summary_off">لا يتم عرض سجل البحث في الإعدادات.</string>
     <string name="revanced_settings_search_history_summary_on">يتم عرض سجل البحث في الإعدادات.</string>
     <string name="revanced_settings_search_history_title">عرض سجل بحث الإعدادات</string>
@@ -2240,6 +2294,10 @@
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">تم إخفاء قائمة التنزيل الخارجي.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">يتم عرض قائمة التنزيل الخارجي.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">عرض قائمة التنزيل الخارجي</string>
+    <string name="revanced_shorts_custom_actions_gemini_label">تلخيص Gemini</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">قائمة تلخيص Gemini مخفية.</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">قائمة تلخيص Gemini ظاهرة.</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">إظهار قائمة تلخيص Gemini</string>
     <string name="revanced_shorts_custom_actions_open_video_label">فتح الفيديو</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">تم إخفاء قائمة فتح الفيديو.</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">يتم عرض قائمة فتح الفيديو.</string>
@@ -2255,6 +2313,9 @@
     <string name="revanced_shorts_custom_actions_speed_dialog_type_title">نوع مربع حوار السرعة</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message">قد لا يعمل مربع حوار السرعة الحديث على YouTube 19.01-19.34.</string>
     <string name="revanced_shorts_custom_actions_speed_label">سرعة التشغيل</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_off">قائمة سرعة التشغيل مخفية.\n\nمعلومات:\n• يجب تمكين سرعة التشغيل الافتراضية لفيديوهات Shorts.\n• سيتم تطبيق السرعة المحددة على الفيديو التالي.</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_on">قائمة سرعة التشغيل ظاهرة.\n\nمعلومات:\n• يجب تمكين سرعة التشغيل الافتراضية لفيديوهات Shorts.\n• سيتم تطبيق السرعة المحددة على الفيديو التالي.</string>
+    <string name="revanced_shorts_custom_actions_speed_title">إظهار قائمة سرعة التشغيل</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">الإجراءات المخصصة</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">الأصلي</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">أعجبني</string>
@@ -2383,7 +2444,8 @@
 • قد لا يتوفر تعطيل المقطع الصوتي التلقائي المفروض.
 • مستوى الصوت الثابت غير متاح.
 • قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو في وضع التصفح المتخفي.
-• 1080p+, AV1, و HDR غير مدعومة."</string>
+• 1080p+, AV1, و HDR غير مدعومة.
+• وضع الواقع الافتراضي الغامر 360° غير متوفر."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_no_sdk">• قد يتوقف الفيديو عند الدقيقة 1:00، أو قد لا يكون متاحًا في بعض المناطق.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• قائمة المقطع الصوتي مفقودة.
 • مستوى الصوت الثابت غير متوفر."</string>
@@ -2396,6 +2458,8 @@
 • مستوى الصوت الثابت غير متاح.
 • قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو في وضع التصفح المتخفي."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• قد تكون هناك مشكلات في التشغيل (يتطلب PoToken).</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• قد تنتهي الفيديوهات قبل موعدها بثانية واحدة. 
+• قد لا يكون ترميز الصوت OPUS مدعوماً."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• قد يتم حظر نطاقات ASNs/IP بالكامل بواسطة الخادم.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• قد لا تكون قائمة المقطع الصوتي متاحة.
@@ -2412,7 +2476,8 @@
     <string name="revanced_spoof_streaming_data_side_effects_title">التأثيرات الجانبية للتزييف</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• في حال فشل إزالة التشويش، قد يفشل التشغيل.
 • في بعض الأحيان، قد لا يعمل الفيديو حتى بعد 10 ثوانٍ، وفي هذه الحالة، ستحتاج إلى الضغط على زر إعادة تحميل الفيديو.
-• قد يبدأ الفيديو متأخرًا."</string>
+• قد يبدأ الفيديو متأخرًا.
+• وضع الواقع الافتراضي الغامر 360° غير متوفر."</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv_simply">"• في حال فشل إزالة التشويش، قد يفشل التشغيل.
 • قد تتطلب بعض الحسابات رمز PoToken، وفي هذه الحالة سوف تفشل عملية التشغيل.
 • في بعض الأحيان، قد لا يعمل الفيديو حتى بعد 10 ثوانٍ، وفي هذه الحالة، ستحتاج إلى الضغط على زر إعادة تحميل الفيديو.
@@ -2424,6 +2489,7 @@
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• غير معروف</string>
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• قائمة المقطع الصوتي مفقودة.
 • قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو في وضع التصفح المتخفي.
+• وضع الواقع الافتراضي الغامر 360° غير متوفر.
 • بما أن هذا عميل غير مُصدر بعد، فمن الممكن أن يتوقف عن العمل في أي وقت."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">انقر هنا لمعرفة كيفية تسجيل الدخول إلى Android VR.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">تسجيل الدخول إلى Android VR</string>
@@ -2529,11 +2595,16 @@
     <string name="revanced_spoof_streaming_data_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">انقر لمعرفة كيفية الحصول على رمز المصادقة.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">لمحة عن مصادقة Android VR</string>
+    <string name="revanced_swipe_brightness_distance_summary">عدد البكسلات اللازمة للسحب لتغيير السطوع. القيم الأقل تجعل تغيير السطوع أسرع، والقيم الأعلى تجعله أبطأ (1-1000).</string>
+    <string name="revanced_swipe_brightness_distance_title">مسافة السحب للسطوع</string>
     <string name="revanced_swipe_brightness_summary_off">تم تعطيل إيماءة مستوى السطوع بوضع ملء الشاشة.</string>
     <string name="revanced_swipe_brightness_summary_on">"تم تمكين ميزة إيماءة مستوى السطوع بوضع ملء الشاشة.
 
 اضبط مستوى السطوع بالتمرير عموديًا على يسار الشاشة."</string>
     <string name="revanced_swipe_brightness_title">تمكين إيماءة السطوع</string>
+    <string name="revanced_swipe_delay_summary">المهلة الزمنية (بالمللي ثانية) قبل التعرف على السحب. قم بزيادة هذه القيمة إذا كانت تتعارض مع إيماءة التكبير/التصغير (Pinch-to-zoom).</string>
+    <string name="revanced_swipe_delay_title">مهلة إيماءات السحب</string>
+    <string name="revanced_swipe_distance_invalid">مسافة السحب غير صالحة، يجب أن تكون بين 1 و 1000.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">تم تعطيل إيماءات التمرير في وضع شاشة القفل.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">تم تمكين إيماءات التمرير في وضع شاشة القفل.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">إيماءات التمرير في وضع قفل الشاشة</string>
@@ -2549,6 +2620,10 @@
     <string name="revanced_swipe_overlay_background_opacity_title">تعتيم خلفية واجهة التمرير</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">لون شريط عناصر التحكم في مستوى السطوع.</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">لون نمط إيماءة السطوع</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_summary">لون شريط التقدم لعناصر تحكم التمرير (Seek)</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_title">لون تراكب السحب للتمرير</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">لون شريط التقدم لعناصر تحكم السرعة</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">لون تراكب السحب للسرعة</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">لون شريط عناصر التحكم في مستوى الصوت.</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">لون نمط إيماءة الصوت</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">لا يمكن أن يزيد حجم المنطقة القابلة للتمرير عن 50.</string>
@@ -2571,11 +2646,30 @@
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">لا تقم بحفظ واستعادة مستوى السطوع عند الخروج أو الدخول إلى وضع ملء الشاشة.</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">حفظ واستعادة مستوى السطوع عند الخروج أو الدخول إلى وضع ملء الشاشة.</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">حفظ واستعادة السطوع</string>
+    <string name="revanced_swipe_seek_distance_summary">عدد البكسلات اللازمة للسحب للتنقل عبر الفيديو. القيم الأقل تجعل التمرير أسرع، والقيم الأعلى تجعله أبطأ (1-1000).</string>
+    <string name="revanced_swipe_seek_distance_title">مسافة التمرير</string>
+    <string name="revanced_swipe_seek_summary_off">سحب التمرير في وضع ملء الشاشة معطل.</string>
+    <string name="revanced_swipe_seek_summary_on">"سحب التمرير في وضع ملء الشاشة مفعل.
+
+تنقل عبر الفيديو بالسحب أفقياً في النصف العلوي من الشاشة."</string>
+    <string name="revanced_swipe_seek_title">تفعيل إيماءة التمرير</string>
+    <string name="revanced_swipe_speed_distance_summary">عدد البكسلات اللازمة للسحب لتغيير سرعة الفيديو. القيم الأقل تجعل تغيير السرعة أسرع، والقيم الأعلى تجعله أبطأ (1-1000).</string>
+    <string name="revanced_swipe_speed_distance_title">مسافة تغيير السرعة</string>
+    <string name="revanced_swipe_speed_summary_off">سحب تغيير السرعة في وضع ملء الشاشة معطل.</string>
+    <string name="revanced_swipe_speed_summary_on">"سحب تغيير السرعة في وضع ملء الشاشة مفعل.
+
+اضبط السرعة بالسحب أفقياً في النصف السفلي من الشاشة."</string>
+    <string name="revanced_swipe_speed_title">تفعيل إيماءة السرعة</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_off">منطقة إيماءة سحب التمرير في الأعلى، ومنطقة السرعة في الأسفل.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_on">منطقة إيماءة سحب السرعة في الأعلى، ومنطقة التمرير في الأسفل.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_title">تبديل أماكن إيماءات السرعة والتمرير</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">يجب أن يكون حجم النص بين 1-30.</string>
     <string name="revanced_swipe_text_overlay_size_summary">حجم النص لنمط التمرير بين 1-30.</string>
     <string name="revanced_swipe_text_overlay_size_title">حجم نص نمط إيماءة التمرير</string>
     <string name="revanced_swipe_threshold_summary">مقدار الحد الأقصى لحدوث التمرير.</string>
     <string name="revanced_swipe_threshold_title">مقدار حد التمرير</string>
+    <string name="revanced_swipe_volume_distance_summary">عدد البكسلات اللازمة للسحب لضبط مستوى الصوت. القيم الأقل تجعل تغيير الصوت أسرع، والقيم الأعلى تجعله أبطأ (1-1000).</string>
+    <string name="revanced_swipe_volume_distance_title">مسافة السحب للصوت</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">يجب أن تكون حساسية إيماءة الصوت بين 1-1000.</string>
     <string name="revanced_swipe_volume_sensitivity_summary">مقدار تغير مستوى الصوت لكل تمريرة.</string>
     <string name="revanced_swipe_volume_sensitivity_title">حساسية تمرير مستوى الصوت</string>
@@ -2671,4 +2765,31 @@
     <string name="revanced_whitelist_settings_summary">التحقق من قائمة القنوات المضافة إلى القائمة البيضاء أو إزالتها.</string>
     <string name="revanced_whitelist_settings_title">قائمة القناة البيضاء</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_yandex_error_download_subs_failed">فشل تنزيل ملف الترجمة (الرمز: %1$d)</string>
+    <string name="revanced_yandex_error_internal_no_chosen_url">خطأ داخلي: المسار المختار لا يحتوي على رابط URL</string>
+    <string name="revanced_yandex_error_internal_null_subs_response">خطأ داخلي: فشل الحصول على الترجمة النهائية</string>
+    <string name="revanced_yandex_error_network_generic">خطأ في الشبكة</string>
+    <string name="revanced_yandex_error_network_subs_fetch">خطأ في الشبكة أثناء جلب ملف الترجمة</string>
+    <string name="revanced_yandex_error_no_language_selected">لم يتم تحديد لغة</string>
+    <string name="revanced_yandex_error_no_subs_for_language">الترجمة غير متوفرة باللغة %s</string>
+    <string name="revanced_yandex_error_no_subs_returned">لا توجد مسارات ترجمة متاحة</string>
+    <string name="revanced_yandex_error_server_try_again">حدث خطأ أثناء التفريغ النصي، يرجى المحاولة مرة أخرى لاحقاً.</string>
+    <string name="revanced_yandex_error_subs_parsing_failed">فشل تحليل محتوى JSON للترجمة</string>
+    <string name="revanced_yandex_error_subs_processing_failed">خطأ في معالجة محتوى الترجمة</string>
+    <string name="revanced_yandex_error_subs_stuck_processing">خطأ داخلي: توقفت معالجة الترجمة</string>
+    <string name="revanced_yandex_error_translation_failed">فشلت الترجمة</string>
+    <string name="revanced_yandex_error_unknown">خطأ غير معروف</string>
+    <string name="revanced_yandex_status_processing_hour">متبقي أكثر من ساعة...</string>
+    <string name="revanced_yandex_status_processing_minute">متبقي حوالي دقيقة...</string>
+    <string name="revanced_yandex_status_processing_minutes_plural">متبقي %d دقائق...</string>
+    <string name="revanced_yandex_status_processing_short">جارِ المعالجة...</string>
+    <string name="revanced_yandex_status_requesting_translation">جارِ طلب الترجمة</string>
+    <string name="revanced_yandex_status_session_ok">الجلسة سليمة (OK)</string>
+    <string name="revanced_yandex_status_subs_found">تم العثور على ترجمة، جارِ الجلب...</string>
+    <string name="revanced_yandex_status_transcription_delayed">التفريغ النصي متأخر قليلاً</string>
+    <string name="revanced_yandex_status_youtube_specific">جارِ التعامل مع طلب صوت YouTube...</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"يمكن لـ Yandex تفريغ الفيديوهات من أي لغة، ولكن النتيجة تتوفر فقط باللغة الإنجليزية (en) والروسية (ru) والكازاخية (kk). إذا أدخلت رمز لغة آخر أو استخدمت 'app' (الذي يرمز للغة التطبيق الافتراضية)، فسيتم الاستعانة بـ Gemini للترجمة (يتطلب مفتاح API)."</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_title">لغة Yandex</string>
+    <string name="revanced_yandex_transcribe_subtitles_summary">استخدم تفريغ Yandex بدلاً من Gemini. خدمة Yandex أسرع وأكثر موثوقية. لا تتطلب مفتاح API.</string>
+    <string name="revanced_yandex_transcribe_subtitles_title">تفريغ Yandex</string>
 </resources>

@@ -123,6 +123,7 @@
     <string name="revanced_change_youtube_header_summary_off">Включен стандартен логотип.</string>
     <string name="revanced_change_youtube_header_summary_on">Включен логотип Premium.</string>
     <string name="revanced_change_youtube_header_title">Промяна на логото на YouTube</string>
+    <string name="revanced_copy">Копирай</string>
     <string name="revanced_custom_filter_strings_summary">Списък с низове за изграждане на пътя на компонента, които да се филтрират, разделени с нов ред.</string>
     <string name="revanced_custom_filter_strings_title">Потребителски филтър</string>
     <string name="revanced_custom_filter_summary_off">Потребителският филтър е деактивиран.</string>
@@ -265,7 +266,6 @@
     <string name="revanced_disable_translucent_status_bar_summary_off">Лентата на прогреса е непрозрачна или полупрозрачна.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Лентата на прогреса е непрозрачна.</string>
     <string name="revanced_disable_translucent_status_bar_title">Деактивирайте полупрозрачната лента на прогреса</string>
-    <string name="revanced_disable_translucent_status_bar_user_dialog_message">На някои устройства активирането на тази функция може да промени навигационната лента на системата на прозрачна.</string>
     <string name="revanced_disable_video_description_interaction_summary">"Деактивирайте следните взаимодействия, когато се отвори описанието на видеоклипа:
 
 • Докоснете за превъртане.
@@ -328,7 +328,7 @@
 • Тъй като това е функция на Google, която все още се разработва, оформлението може да се развали."</string>
     <string name="revanced_enable_shorts_time_stamp_title">Активиране на дата и час</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Навигационната лента е непрозрачна.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">Навигационната лента е полупрозрачна.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">"Навигационната лента е полупрозрачна."</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Полупрозрачна лента за навигация</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Тази опция ще деактивира бутона \"Настройки\" в раздела \"Вие\"
 Използвайте следната последователност:
@@ -542,9 +542,6 @@
     <string name="revanced_hide_general_ads_summary_off">Общите реклами се показват.</string>
     <string name="revanced_hide_general_ads_summary_on">Общите реклами са скрити.</string>
     <string name="revanced_hide_general_ads_title">Скриване на общите реклами</string>
-    <string name="revanced_hide_get_premium_summary_off">YouTube Premium промоциите се показват.</string>
-    <string name="revanced_hide_get_premium_summary_on">YouTube Premium промоциите са скрити.</string>
-    <string name="revanced_hide_get_premium_title">Скриване на YouTube Premium промоциите</string>
     <string name="revanced_hide_handle_summary_off">Идентификаторът се показва.</string>
     <string name="revanced_hide_handle_summary_on">Идентификаторът е скрит.</string>
     <string name="revanced_hide_handle_title">Скриване на връзки</string>
@@ -1422,6 +1419,7 @@
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Докоснете, за да отворите настройките на RVX.
 Докоснете и задръжте, за да отворите настройките на YouTube."</string>
     <string name="revanced_replace_toolbar_create_button_type_title">Тип действие за назначаване на бутона</string>
+    <string name="revanced_restart_dialog_message">Рестартирайте приложението, за да влязат в сила тези промени.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Миниатюрите се показват в режим на цял екран.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Над лентата за възпроизвеждане се появяват миниатюри.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Стари миниатюри на времевата линия</string>
@@ -1693,7 +1691,8 @@
     <string name="revanced_sb_vote_no_segments">Няма сегменти, за които да гласувате.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s до %2$s</string>
     <string name="revanced_sb_vote_upvote">Положителен вот</string>
-    <string name="revanced_settings_color_invalid">Невалиден цвят</string>
+    <string name="revanced_search_settings_category_title">Настройки на търсенето</string>
+    <string name="revanced_settings_color_invalid">Невалиден цвят.</string>
     <string name="revanced_settings_import">Импортиране</string>
     <string name="revanced_settings_import_copy">Копирай</string>
     <string name="revanced_settings_import_reset">Настройките на ReVanced бяха нулирани</string>
@@ -1704,11 +1703,11 @@
     <string name="revanced_settings_search_clear_history_message">Сигурни ли сте, че искате да изчистите цялата история на търсенията?</string>
     <string name="revanced_settings_search_empty_history_summary">За да запазите историята на търсене, въведете заявка за търсене и натиснете Enter</string>
     <string name="revanced_settings_search_empty_history_title">Историята на търсене е празна</string>
-    <string name="revanced_settings_search_history_summary_off">Историята на търсенията в настройките не се показва</string>
-    <string name="revanced_settings_search_history_summary_on">Историята на търсенията в настройките е показана</string>
+    <string name="revanced_settings_search_history_summary_off">Историята на търсенията в настройките не е показана.</string>
+    <string name="revanced_settings_search_history_summary_on">Историята на търсенията в настройките е показана.</string>
     <string name="revanced_settings_search_history_title">Показване на историята на търсенията в настройките</string>
-    <string name="revanced_settings_search_no_results_summary">Опитайте друга ключова дума</string>
-    <string name="revanced_settings_search_no_results_title">Няма намерени резултати за \",%s\"</string>
+    <string name="revanced_settings_search_no_results_summary">Опитайте друга ключова дума.</string>
+    <string name="revanced_settings_search_no_results_title">Няма намерени резултати за \",%s\".</string>
     <string name="revanced_settings_search_recent_searches">Скорошни търсения</string>
     <string name="revanced_settings_search_remove_message">Премахване от историята на търсенията?</string>
     <string name="revanced_settings_search_tips_summary">"• Докоснете път, за да отидете до него
@@ -1891,6 +1890,7 @@
     <string name="revanced_watch_history_type_entry_2">Замени домейна</string>
     <string name="revanced_watch_history_type_entry_3">Блокиране на хронологията на гледане</string>
     <string name="revanced_watch_history_type_title">Тип хронология на гледане</string>
+    <string name="revanced_webview_copy">Копирай</string>
     <string name="revanced_webview_toast_empty">%s е празно.</string>
     <string name="revanced_whitelist_add_failed">Неуспешно добавяне на \"%1$s\" канала към %2$s белия списък.</string>
     <string name="revanced_whitelist_added">Каналът %1$s е добавен в %2$s белия списък.</string>

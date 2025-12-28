@@ -38,6 +38,7 @@ PREFIX_TO_IGNORE: tuple[str, ...] = (
     "revanced_remember_video_quality_",
     "revanced_sb_",
     "revanced_shorts_custom_actions_",
+    "revanced_spoof_app_version_for_lyrics_target_entry_",
     "revanced_spoof_app_version_target_entry_",
     "revanced_spoof_streaming_data_side_effects_",
 )
