@@ -1,3 +1,16 @@
+# [3.15.0-dev.8](https://github.com/anddea/revanced-patches/compare/v3.15.0-dev.7...v3.15.0-dev.8) (2025-12-28)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Fix crashes on Android 5-6 ([#1321](https://github.com/anddea/revanced-patches/issues/1321)) ([d13adb5](https://github.com/anddea/revanced-patches/commit/d13adb5401536d7d10a9d223b4d2232f37cd79d7))
+
+
+### Features
+
+* Align with RVX [[v5.14.1-dev.8](https://github.com/inotia00/revanced-patches/releases/tag/v5.14.1-dev.8)] ([e97a77d](https://github.com/anddea/revanced-patches/commit/e97a77dc3bb324d08dc83d4235b44228552378cd))
+* **YouTube - Custom branding icon:** Add `Xisr Aurora`, `Xisr Evergreen` & `Xisr White` icons ([#1320](https://github.com/anddea/revanced-patches/issues/1320)) ([f945cb7](https://github.com/anddea/revanced-patches/commit/f945cb7669ab466c7194c877d5a0fe20701dfe15))
+
 # [3.15.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.15.0-dev.6...v3.15.0-dev.7) (2025-12-14)
 
 
