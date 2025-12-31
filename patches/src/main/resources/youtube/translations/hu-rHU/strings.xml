@@ -1187,9 +1187,6 @@ Információ:
     <string name="revanced_hide_shorts_comments_button_summary_off">A megjegyzések gomb látható.</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">A megjegyzések gomb el van rejtve.</string>
     <string name="revanced_hide_shorts_comments_button_title">Megjegyzések gomb elrejtése</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_off">A letiltott megjegyzések gomb vagy \'null\' címkével látható.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_on">A letiltott megjegyzések gomb vagy \'null\' címkével el van rejtve.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_title">Rejtsd el a letiltott megjegyzések gombot</string>
     <string name="revanced_hide_shorts_comments_panel_summary_off">A megjegyzések panel látható.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">A megjegyzések panel rejtett.</string>
     <string name="revanced_hide_shorts_comments_panel_title">Megjegyzések panel elrejtése</string>
@@ -1451,7 +1448,10 @@ Ismert probléma: Ha ez a beállítás engedélyezve van, a YouTube Doodle-ok ne
     <string name="revanced_icon_squid_game">Squid Game</string>
     <string name="revanced_icon_vanced_black">Vanced Fekete</string>
     <string name="revanced_icon_vanced_light">Vanced Világos</string>
+    <string name="revanced_icon_xisr_aurora">Xisr Aurora</string>
+    <string name="revanced_icon_xisr_evergreen">Xisr Örökzöld</string>
     <string name="revanced_icon_xisr_special">Xisr Speciális</string>
+    <string name="revanced_icon_xisr_white">Xisr Fehér</string>
     <string name="revanced_icon_xisr_winter">Xisr Tél</string>
     <string name="revanced_icon_xisr_yellow">Xisr Sárga</string>
     <string name="revanced_icon_youtube">YouTube</string>
@@ -2449,11 +2449,12 @@ Ha ez a beállítás engedélyezve van, a szerver válaszából származó legma
 • A kényszerített automatikus hangsávok letiltása nem elérhető.
 • A stabil hangerő nem áll rendelkezésre.
 • Előfordulhat, hogy a gyerekeknek szánt tartalmat nem lehet lejátszani, ha ki van jelentkezve vagy inkognitó módban van."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• Hiányzik a hangsáv menü.
-• A kényszerített automatikus hangsávok letiltása nem mindig érhető el.
-• A stabil hangerő nem érhető el.
-• Előfordulhat, hogy a gyermekvideók nem játszhatók le kijelentkezéskor vagy inkognitómódban.
-• Az 1080p+, AV1 és HDR felbontás nem támogatott."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_creator">"• A hangsáv menü hiányzik.
+• A kényszerített automatikus hangsávok letiltása nem biztos, hogy elérhető.
+• A stabil hangerő nem elérhető.
+• A gyerekeknek szóló videók nem biztos, hogy elindulnak kijelentkezve vagy inkognitó módban.
+• Az 1080p+, az AV1 és a HDR nem támogatott.
+• A 360°-os VR immerzív mód nem elérhető."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_no_sdk">• A videó 1:00-nál megállhat, vagy bizonyos régiókban nem érhető el.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Az audiosáv menü hiányzik."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Hiányzik a hangsáv menüje.
@@ -2480,9 +2481,10 @@ Ha ez a beállítás engedélyezve van, a szerver válaszából származó legma
 • Előfordulhat, hogy a videó 10 másodperc után sem indul el, ilyenkor a videó újratöltése gombra kell kattintani.
 • Előfordulhat, hogy a videó késik."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Hamisítás mellékhatásai</string>
-    <string name="revanced_spoof_streaming_data_side_effects_tv">"• Ha az élesítés sikertelen, a lejátszás sikertelen lehet.
-• Előfordulhat, hogy a videó 10 másodperc után sem indul el, ilyenkor a videó újratöltése gombra kell kattintani.
-• Előfordulhat, hogy a videó késik."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv">"• Ha a visszafejtés sikertelen, a lejátszás meghiúsulhat.
+• Néha a videó még 10 másodperc után sem indul el; ilyenkor a videó újratöltése gombra kell nyomnod.
+• A videó késve indulhat.
+• A 360°-os VR immerzív mód nem elérhető."</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv_simply">"• Ha a deobfuszkáció sikertelen, a lejátszás sikertelen lehet.
 • Egyes fiókokhoz PoToken szükséges, ebben az esetben a lejátszás sikertelen lesz.
 • Előfordulhat, hogy a videó 10 másodperc után sem indul el, ilyenkor a videó újratöltése gombra kell kattintani.
@@ -2492,12 +2494,23 @@ Ha ez a beállítás engedélyezve van, a szerver válaszából származó legma
 • Előfordulhat, hogy a videó 10 másodperc után sem indul el, ilyenkor a videó újratöltése gombra kell kattintani.
 • Előfordulhat, hogy a videó késve indul el."</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Ismeretlen</string>
-    <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Hiányzik a hangsáv menüje.
-• Előfordulhat, hogy a gyerekeknek szóló videók nem játszhatók le kijelentkezéskor vagy inkognitómódban.
-• Mivel ez egy kiadatlan kliens, bármikor leállhat a működése."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_visionos">"• A hangsáv menü hiányzik.
+• A gyerekeknek szóló videók nem biztos, hogy elindulnak kijelentkezve vagy inkognitó módban.
+• A 360°-os VR immerzív mód nem elérhető.
+• Mivel ez egy kiadatlan kliens, a működése bármikor leállhat."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Kattintson ide az Android VR-ba való bejelentkezéshez.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Be kell jelentkezni az Android VR-hoz</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Aktiváló kód:
+%s
+
+1. Kattints a 'Webhely megnyitása' gombra a 'https://yt.be/activate' oldal eléréséhez.
+2. Írd be az aktiváló kódot.
+3. Jelentkezz be, amikor a rendszer kéri. Ha több Google-fiókod van, válaszd ki azt, amelyet a YouTube-hoz használsz. Ha már be vagy jelentkezve, ugorj a következő lépésre.
+4. Miután bejelentkeztél, térj vissza az RVX-be, és kattints újra a 'Bejelentkezés az Android VR-ba' lehetőségre.
+5. Kattints az 'Hitelesítési token beszerzése' gombra a token megszerzéséhez."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Webhely megnyitása</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Aktivációs kód</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Aktiváló kód a vágólapra másolva: %s.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Aktiváló kód beszerzése</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Hitelesítési token beszerzése</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Az Android VR (YouTube VR) szolgáltatásba való bejelentkezés a Google által megadott irányelveket követi (Google-fiók hitelesítése - OAuth 2.0 TV-hez és korlátozott beviteli eszközalkalmazásokhoz):
@@ -2723,6 +2736,7 @@ Jogi nyilatkozat: A bejelentkezés nélkül kibocsátott sütik érvénytelenek 
     <string name="revanced_transcript_cookies_dialog_title">Átirati sütik eportálása</string>
     <string name="revanced_transcript_cookies_summary">Az Átirat API kérésekben használandó sütik.</string>
     <string name="revanced_transcript_cookies_title">Átirati sütik</string>
+    <string name="revanced_translations_title">Fordítások</string>
     <string name="revanced_watch_history_about_status_blocked">• A megtekintési előzmények le vannak tiltva.</string>
     <string name="revanced_watch_history_about_status_original">"• Követi a Google-fiók megtekintési előzményeinek beállításait.
 • Előfordulhat, hogy a megtekintési előzmények nem működik a DNS vagy a VPN miatt."</string>

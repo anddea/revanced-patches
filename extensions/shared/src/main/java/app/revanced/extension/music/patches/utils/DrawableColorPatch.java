@@ -1,5 +1,7 @@
 package app.revanced.extension.music.patches.utils;
 
+import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
+
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -10,8 +12,6 @@ import android.widget.ImageView;
 import org.apache.commons.lang3.ArrayUtils;
 
 import app.revanced.extension.shared.utils.ResourceUtils;
-
-import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 
 @SuppressWarnings("unused")
 public class DrawableColorPatch {

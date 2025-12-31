@@ -237,7 +237,7 @@ DeArrow について詳しく知るには、ここをタップしてください
 
 一部の環境下では機能しない可能性があります。機能しない場合は、以下の手順に従ってください:
 1. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[JavaScript クライアントを使用] をオンにします。
-2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV」を選択します。"</string>
+2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV Simply」を選択します。"</string>
     <string name="revanced_disable_auto_audio_tracks_title">音声トラックの強制を無効化</string>
     <string name="revanced_disable_auto_captions_summary_off">投稿者が設定している字幕の強制を無効にします。</string>
     <string name="revanced_disable_auto_captions_summary_on">投稿者が設定している字幕の強制を無効にします。</string>
@@ -432,8 +432,10 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_enable_swipe_to_switch_video_summary_off">全画面表示時に、上/下にスワイプして次の動画/前の動画に切り替えられるようにします。</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_on">全画面表示時に、上/下にスワイプして次の動画/前の動画に切り替えられるようにします。</string>
     <string name="revanced_enable_swipe_to_switch_video_title">スワイプでの動画の切り替えを有効化</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">ナビゲーションバー ([ホーム]、[登録チャンネル] などのボタン) を半透明にします。</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">"ナビゲーションバー ([ホーム]、[登録チャンネル] などのボタン) を半透明にします。"</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">ナビゲーションバー ([ホーム]、[登録チャンネル] などのボタン) を半透明にします。\n\n既知の問題: システムナビゲーションバーが半透明になる可能性があります。</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">"ナビゲーションバー ([ホーム]、[登録チャンネル] などのボタン) を半透明にします。
+
+既知の問題: システムナビゲーションバーが半透明になる可能性があります。"</string>
     <string name="revanced_enable_translucent_navigation_bar_title">半透明のナビゲーションバーを有効化</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">自動再生する際の事前読み込み処理に遅延を追加します。</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">自動再生する際の事前読み込み処理に遅延を追加します。</string>
@@ -941,7 +943,7 @@ DeArrow について詳しく知るには、ここをタップしてください
 
 [音声トラック] メニューを表示するには:
 1. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[JavaScript クライアントを使用] をオンにします。
-2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV」を選択します。"</string>
+2. [設定] → [RVX] → [その他] → [ストリーミングデータを偽装] に移動し、[偽装するクライアントを選択] で「TV Simply」を選択します。"</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">[音声トラック] メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">[音声トラック] メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">[音声トラック] メニューを非表示</string>
@@ -1193,9 +1195,6 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_shorts_comments_button_summary_off">[コメント] ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">[コメント] ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_comments_button_title">コメントボタンを非表示</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_off">コメント数が「0」または「無効」になっているコメントボタンを非表示にします。</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_on">コメント数が「0」または「無効」になっているコメントボタンを非表示にします。</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_title">無効なコメントボタンを非表示</string>
     <string name="revanced_hide_shorts_comments_panel_summary_off">コメント パネルが表示されます。</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">コメント パネルは非表示になっています。</string>
     <string name="revanced_hide_shorts_comments_panel_title">コメントパネルを非表示</string>
@@ -1457,7 +1456,10 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_icon_squid_game">Squid Game</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
+    <string name="revanced_icon_xisr_aurora">Xisr オーロラ</string>
+    <string name="revanced_icon_xisr_evergreen">Xisr エバーグリーン</string>
     <string name="revanced_icon_xisr_special">Xisr Special</string>
+    <string name="revanced_icon_xisr_white">Xisr 白</string>
     <string name="revanced_icon_xisr_winter">Xisr 冬</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube">YouTube</string>
@@ -2413,7 +2415,7 @@ Cookie の使用は万能薬ではありません。
 <small>(未リリース)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">偽装するクライアントを選択</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">クライアントストリームを取得できませんでした。</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">偽装するクライアントを「TV」に変更してみてください。</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">偽装するクライアントを「TV Simply」に変更してみてください。</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">コーデックよりも画質を優先します。</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">コーデックよりも画質を優先します。</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">動画の画質を優先</string>
@@ -2583,7 +2585,7 @@ uBlock Origin はこの問題の回避策を発見しました。これは、[�
 
 この問題は、プレーヤーの「リロードボタン」をタップして動画を再読み込みすることで簡単に解決できます (前提条件:「リロードボタンを表示」と「リロードボタンを常に表示」の両方が有効になっていること)。
 
-JavaScript クライアントの中では、「TV」が推奨されます。"</string>
+JavaScript クライアントの中では、「TV Simply」が推奨されます。"</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"難読化解除用のプレーヤー JavaScript を最新の状態に保ちます。
 
 ・サーバーに大きく依存しており、難読化解除の成功または失敗は、サーバー上で現在使用されているプレーヤー JavaScript によって決まります。
@@ -2738,6 +2740,7 @@ JavaScript クライアントの中では、「TV」が推奨されます。"</s
     <string name="revanced_transcript_cookies_dialog_title">Transcript Cookie をエクスポート</string>
     <string name="revanced_transcript_cookies_summary">Transcript API リクエストで使用する Cookie です。</string>
     <string name="revanced_transcript_cookies_title">Transcript Cookie</string>
+    <string name="revanced_translations_title">翻訳</string>
     <string name="revanced_watch_history_about_status_blocked">・再生履歴をブロックします。</string>
     <string name="revanced_watch_history_about_status_original">"・Google アカウントの再生履歴の設定に従います。
 ・DNS や VPN が原因で再生履歴が動作しない可能性があります。"</string>

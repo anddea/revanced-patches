@@ -233,11 +233,11 @@
     <string name="revanced_disable_ambient_mode_title">Отключить окружающую подсветку</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">"Принудительные автоматические звуковые дорожки включены."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Принудительные автоматические звуковые дорожки отключены.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Принудительное автоматическое воспроизведение звуковых дорожек отключено.
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Принудительные аудио авто дорожки отключены.
 
-Это может не работать для некоторых пользователей, если у вас это не работает:
-1. Перейдите в - RVX - Разное - Подмена потоковых данных и включите 'Использовать JavaScript-клиент'.
-2. Перейдите в - RVX - Разное - Подмена потоковых данных и измените 'Клиент по умолчанию' на 'TV'."</string>
+Вероятность исправить проблему:
+1. Включить в \"Настройки\" → RVX → Разное → Подмена потоковых данных → \"Использовать клиент JavaScript\".
+2. Изменить в \"Настройки\" → RVX → Разное → Подмена потоковых данных → \"Клиент по умолчанию\" на \"TV\" или \"TV простой\"."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Принудительные автоматические звуковые дорожки</string>
     <string name="revanced_disable_auto_captions_summary_off">Принудительные автоматические субтитры включены.</string>
     <string name="revanced_disable_auto_captions_summary_on">Принудительные автоматические субтитры отключены.</string>
@@ -917,11 +917,11 @@ Shorts
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Меню отображено.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Меню скрыто.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Меню режима окружающей подсветки</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Меню звуковых дорожек скрыто.
+    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Меню аудио скрыто.
 
-Чтобы отобразить меню звуковых дорожек:
-1. Перейдите в Настройки - RVX - Разное - Подмена потоковых данных и включите 'Использовать JavaScript-клиент'.
-2. Перейдите в Настройки - RVX - Разное - Подмена потоковых данных и измените 'Клиент по умолчанию' на 'TV'."</string>
+Для отображения аудио меню нужно:
+1. Включить в \"Настройки\" → RVX → Разное → Подмена потоковых данных → \"Использовать клиент JavaScript\".
+2. Изменить в \"Настройки\" → RVX → Разное → Подмена потоковых данных → \"Клиент по умолчанию\" на \"TV\" или \"TV простой\"."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Меню \"Звуковая дорожка\" отображено.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Меню \"Звуковая дорожка\" скрыто.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Меню \"Звуковая дорожка\"</string>
@@ -1161,9 +1161,6 @@ Shorts
     <string name="revanced_hide_shorts_comments_button_summary_off">Кнопка \"Комментарии\" отображена.</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">Кнопка \"Комментарии\" скрыта.</string>
     <string name="revanced_hide_shorts_comments_button_title">Кнопка \"Комментарии\"</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Кнопка \"Комментарии\" если не активна или с меткой \"0\" отображена.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Кнопка \"Комментарии\" если не активна или с меткой \"0\" скрыта.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_title">Скрыть кнопку \"Комментарии\" если не активна</string>
     <string name="revanced_hide_shorts_comments_panel_summary_off">Панель комментариев отображена.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Панель комментариев скрыта.</string>
     <string name="revanced_hide_shorts_comments_panel_title">Скрыть панель комментариев</string>
@@ -1443,7 +1440,10 @@ Shorts
     <string name="revanced_icon_squid_game">\"Игра в кальмара\"</string>
     <string name="revanced_icon_vanced_black">Vanced (темная)</string>
     <string name="revanced_icon_vanced_light">Vanced (светлая)</string>
+    <string name="revanced_icon_xisr_aurora">Xisr Аврора</string>
+    <string name="revanced_icon_xisr_evergreen">Xisr Вечнозелёный</string>
     <string name="revanced_icon_xisr_special">Xisr (специальная)</string>
+    <string name="revanced_icon_xisr_white">Xisr Белый</string>
     <string name="revanced_icon_xisr_winter">Xisr (Зима)</string>
     <string name="revanced_icon_xisr_yellow">Xisr (желтая)</string>
     <string name="revanced_icon_youtube">Иконка YouTube</string>
@@ -2549,15 +2549,11 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_spoof_streaming_data_use_js_summary_off">Клиент JavaScript не доступен.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">Клиент JavaScript используется.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Использовать клиент JavaScript</string>
-    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"Клиенты JavaScript могут испытывать небольшую задержку при запуске видео из-за необходимости декодирования шаблона n-sig.
+    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"Используется больше ресурсов для обработки шаблона n-sig, видео запускается медленнее.
 
-Иногда не удается декодировать шаблон n-sig, что приводит к задержке запуска видео или сбоям в видеопотоке.
+Шаблон n-sig часто меняется на серверах YouTube, и просмотр может быть прерван, если регулярное выражение не найдет шаблон n-sig.
 
-Это можно легко решить, нажав кнопку 'Перезагрузить видео' в проигрывателе, чтобы перезагрузить видео.
-
-(Предварительные условия: включены как 'Показывать кнопку перезагрузки видео', так и 'Всегда показывать кнопку перезагрузки видео')
-
-Среди клиентов JavaScript рекомендуемым клиентом является TV."</string>
+Функция в разработке, используйте только для отладки."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"JavaScript для деобфускации не хранится в актуальном состоянии.
 
 • Используется JavaScript, но все еще зависит от сервера."</string>
@@ -2697,6 +2693,7 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_transcript_cookies_dialog_title">Экспорт расшифровок куки</string>
     <string name="revanced_transcript_cookies_summary">Куки для запросов расшифровок API.</string>
     <string name="revanced_transcript_cookies_title">Расшифровки куки</string>
+    <string name="revanced_translations_title">Переводы</string>
     <string name="revanced_watch_history_about_status_blocked">• История просмотра не работает.</string>
     <string name="revanced_watch_history_about_status_original">"• Статус истории просмотров обычный.
 • История просмотров может не работать с DNS или VPN."</string>

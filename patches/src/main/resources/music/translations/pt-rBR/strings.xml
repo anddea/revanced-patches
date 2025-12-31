@@ -142,9 +142,7 @@ Informações:
 • Os clientes mais recentes do YouTube Music usam o codec de áudio OPUS por padrão.
 • Isto pode ser necessário se o cliente ou reprodução de vídeo é falsificado."</string>
     <string name="revanced_enable_opus_codec_title">Ativar codec OPUS</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">Permite animação suave quando o mini reprodutor é maximizado do estado minimizado.
-
-Limitações: A interface das letras em tempo real pode ser quebrada para alguns usuários.</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">Permite animação suave quando o mini reprodutor é maximizado do estado minimizado.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Ativar animação de transição suave</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Permite deslizar para baixo para dispensar o mini reprodutor.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Ativar deslizar para dispensar o mini reprodutor</string>
@@ -213,7 +211,7 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Oculta os botões de emoji e marcação de tempo ao escrever comentários.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Ocultar botões de emoji e marcação de tempo</string>
     <string name="revanced_hide_comments_information_button_summary">Oculta o botão Informações no painel de comentários.</string>
-    <string name="revanced_hide_comments_information_button_title">Botão Ocultar Informações</string>
+    <string name="revanced_hide_comments_information_button_title">Ocultar botão Informações</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Oculta a sobreposição escura que aparece quando um duplo toque para procurar.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Ocultar filtro de sobreposição de toque duplo</string>
     <string name="revanced_hide_floating_button_summary">Oculta o botão flutuante na aba Biblioteca.</string>
@@ -249,10 +247,7 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Ocultar menu de Inscrição / Cancelar inscrição</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Ocultar Desafixar do menu de discagem rápida</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ocultar menu Mostrar créditos da música</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"Oculta anúncios de tela cheia.
-
-Limitações:
-• Às vezes você pode ver uma tela preta em branco ao invés do feed inicial."</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Oculta anúncios de tela cheia."</string>
     <string name="revanced_hide_fullscreen_ads_title">Ocultar anúncios em tela cheia</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Oculta o botão Compartilhar no reprodutor de tela cheia.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Ocultar botão Compartilhar em tela cheia</string>
@@ -354,6 +349,15 @@ Isso oculta não apenas o menu de configurações do YT Music, mas também o men
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Remover o diálogo discricionário de visualização.
 Isso não ignora a restrição de idade, apenas aceita isso automaticamente."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Remover o diálogo discricionário do visualizador</string>
+    <string name="revanced_replace_action_button_like_summary">"Use um ícone e uma animação diferentes para o botão Curtir.
+
+• Esta configuração pode não ser mais necessária quando o problema for corrigido no lado do servidor."</string>
+    <string name="revanced_replace_action_button_like_title">Substituir o botão curtir</string>
+    <string name="revanced_replace_action_button_like_type_summary">"Use um botão de curtir menor.
+
+• Alguns usuários têm uma barra de ação mais baixa (teste A/B).
+• Esta configuração é para esses usuários, mas não foi testada."</string>
+    <string name="revanced_replace_action_button_like_type_title">Usar um ícone menor</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Continua o vídeo a partir do tempo atual ao mudar para o YouTube.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Continuar assistindo</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Substitui o menu \'Remover fila\' pelo menu \'Assistir no YouTube\'.</string>
@@ -515,6 +519,10 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_settings_search_title">Pesquisar %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Configurações copiadas para área de transferência.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Sem letras em tempo real</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_7_12_52">7.12.52 - Letras em tempo real</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_06_52">8.06.52 - Letras em tempo real + Botão Compartilhar</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - Letras em tempo real + Botão Compartilhar + Botão Traduzir (apenas usuários Premium)</string>
     <string name="revanced_spoof_app_version_summary">"Falsifica a versão do cliente para uma versão mais antiga.
 
 • Isto alterará a aparência do aplicativo, mas poderão ocorrer efeitos colaterais desconhecidos.
@@ -556,7 +564,8 @@ Clique para ver como emitir uma chave de API."</string>
 1. Clique em 'Obter token de autorização' para abrir a página de login no WebView.
 2. Faça login na sua Conta do Google.
 3. Os resultados do login serão exibidos em até 5 segundos.
- ※ Clique em 'Redefinir' para remover um token de autenticação."</string>
+
+※ Clique em 'Redefinir' para remover um token de autenticação."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Redefinir</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Faça login no Android sem SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Token de autenticação salvo.
@@ -581,14 +590,14 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Código de ativação copiado para a área de transferência: %s.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Obtenha o código de ativação</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Obter token de autorização</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"O login no Android VR (YouTube VR) segue as diretrizes fornecidas pelo Google (autorização da conta do Google - OAuth 2.0 para aplicativos de TV e dispositivos com entrada limitada):
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Entrar no Android VR (Youtube VR) segue as seguintes diretrizes fornecidas pelo Google (Autorização da Conta do Google - OAuth 2.0 para TV e Aplicativos para Dispositivos de Entrada Limitada):
 
 1. Clique em 'Obter código de ativação' para gerar um código de ativação.
-2. Clique em 'Abrir site' para acessar 'https://yt.be/activate'.
+2. Clique em 'Abrir site' para ir para 'https://yt.be/activate'.
 3. Insira o código de ativação.
-4. Faça login quando solicitado. Se você tiver várias Contas do Google, selecione a conta que usa com o YouTube. Se já estiver logado, pule para a próxima etapa.
-5. Após fazer login, retorne ao RVX e clique novamente em 'Fazer login no Android VR'.
-6. Clique em 'Obter token de autorização' para receber um token de autorização.
+4. Faça o login quando solicitado. Se você tem várias Contas do Google, selecione a conta que você usa com o YouTube. Se você já está logado, pule para o próximo passo.
+5. Depois de entrar, volte ao RVX e clique 'Sobre o Android VR Autenticação' novamente.
+6. Clique em 'Obter token de autorização' para obter um token de autorização.
 
 ※ Clique em 'Redefinir' para remover um token de autenticação ou código de ativação."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Redefinir</string>
@@ -625,6 +634,7 @@ Se você estiver tendo problemas com seu cliente JavaScript, tente desativar ist
     <string name="revanced_spoof_video_streams_default_client_title">Cliente padrão</string>
     <string name="revanced_spoof_video_streams_summary">Falsificar o cliente de reprodução de vídeo para prevenir problemas de reprodução. </string>
     <string name="revanced_spoof_video_streams_title">Falsear streams de vídeo</string>
+    <string name="revanced_translations_title">Traduções</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
     <string name="revanced_watch_history_type_entry_2">Substituir domínio</string>
     <string name="revanced_watch_history_type_entry_3">Bloquear histórico de exibição</string>
@@ -639,9 +649,9 @@ Se você estiver tendo problemas com seu cliente JavaScript, tente desativar ist
     <string name="revanced_webview_cookies">Cookies</string>
     <string name="revanced_webview_copy">Copiar</string>
     <string name="revanced_webview_data_sync_id">Id de sincronização de dados</string>
-    <string name="revanced_webview_toast_copy_success">%s Copiado para a área de transferência.</string>
+    <string name="revanced_webview_toast_copy_success">%s copiado para a área de transferência.</string>
     <string name="revanced_webview_toast_empty">%s está vazio.</string>
-    <string name="revanced_webview_toast_no_network">Por favor, verifique sua conexão de rede.</string>
+    <string name="revanced_webview_toast_no_network">Por favor, verifique sua conexão com a internet.</string>
     <string name="revanced_webview_toast_unavailable">O WebView não está disponível.</string>
     <string name="revanced_webview_visitor_data">Dados do visitante</string>
 </resources>

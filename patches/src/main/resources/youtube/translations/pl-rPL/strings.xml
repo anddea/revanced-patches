@@ -238,7 +238,7 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
 
 Może to nie działać u niektórych użytkowników, więc jeśli nie działa u ciebie, to:
 1. Idź do ustawień - RVX - Pozostałe - Oszukuj strumień danych, i użyj opcji 'Włącz klienta JavaScript'
-2. Idź do ustawień - RVX - Pozostałe - Oszukuj strumień danych, i zmień domyślnego klienta na 'TV'"</string>
+2. Idź do ustawień - RVX - Pozostałe - Oszukuj strumień danych, i zmień domyślnego klienta na 'Uproszczony TV'"</string>
     <string name="revanced_disable_auto_audio_tracks_title">Automatyczne wymuszanie ścieżki dźwiękowej</string>
     <string name="revanced_disable_auto_captions_summary_off">Włączone</string>
     <string name="revanced_disable_auto_captions_summary_on">Wyłączone</string>
@@ -434,7 +434,9 @@ Ograniczenia:
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Włączony</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Gest zmiany filmu przesunięciem w górę lub dół</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Nieprzezroczysty</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">"Półprzezroczysty"</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">"Półprzezroczysty
+
+Znany problem: systemowy pasek nawigacji może być również półprzezroczysty."</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Wygląd paska nawigacji</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">Wyłączone</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">Włączone</string>
@@ -940,7 +942,7 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
 
 By wyświetlić menu od ścieżki dźwiękowej:
 1. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i użyj opcji 'Włącz klienta JavaScript'
-2. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i zmień domyślnego klienta na 'TV'"</string>
+2. Idź do ustawień → RVX → Pozostałe → Oszukuj strumień danych, i zmień domyślnego klienta na 'Uproszczony TV'"</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Menu od ścieżki dźwiękowej</string>
@@ -1192,9 +1194,6 @@ Informacje:
     <string name="revanced_hide_shorts_comments_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_comments_button_title">Przycisk do komentarzy</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Wyłączone komentarze lub te z etykietą \"0\" są widoczne.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Wyłączone komentarze lub te z etykietą \"0\" są ukryte.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_title">Przycisk wyłączonych komentarzy</string>
     <string name="revanced_hide_shorts_comments_panel_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_comments_panel_title">Panel komentarzy</string>
@@ -1440,28 +1439,31 @@ Znany problem: gdy opcja jest włączona, YouTube Doodles stają się nieklikaln
     <string name="revanced_hide_zoom_overlay_summary_off">Widoczna</string>
     <string name="revanced_hide_zoom_overlay_summary_on">Ukryta</string>
     <string name="revanced_hide_zoom_overlay_title">Poświata przy powiększaniu filmu</string>
-    <string name="revanced_icon_afn_blue">Niebieska od Afn</string>
-    <string name="revanced_icon_afn_red">Czerwona od Afn</string>
+    <string name="revanced_icon_afn_blue">Afn Niebieski</string>
+    <string name="revanced_icon_afn_red">Afn Czerwony</string>
     <string name="revanced_icon_custom">Własna</string>
     <string name="revanced_icon_default">Domyślna</string>
     <string name="revanced_icon_mmt">MMT</string>
-    <string name="revanced_icon_mmt_blue">Niebieska MMT</string>
-    <string name="revanced_icon_mmt_green">Zielona MMT</string>
-    <string name="revanced_icon_mmt_orange">Pomarańczowa od MMT</string>
-    <string name="revanced_icon_mmt_pink">Różowa od MMT</string>
-    <string name="revanced_icon_mmt_turquoise">Turkusowa od MMT</string>
-    <string name="revanced_icon_mmt_yellow">Żółta MMT</string>
-    <string name="revanced_icon_revancify_blue">Niebieska od Revancify</string>
-    <string name="revanced_icon_revancify_red">Czerwona od Revancify</string>
-    <string name="revanced_icon_revancify_yellow">Żółta Revancify</string>
+    <string name="revanced_icon_mmt_blue">MMT Niebieski</string>
+    <string name="revanced_icon_mmt_green">MMT Zielony</string>
+    <string name="revanced_icon_mmt_orange">MMT Pomarańczowy</string>
+    <string name="revanced_icon_mmt_pink">MMT Różowy</string>
+    <string name="revanced_icon_mmt_turquoise">MMT Turkusowy</string>
+    <string name="revanced_icon_mmt_yellow">MMT Żółty</string>
+    <string name="revanced_icon_revancify_blue">Revancify Niebieski</string>
+    <string name="revanced_icon_revancify_red">Revancify Czerwony</string>
+    <string name="revanced_icon_revancify_yellow">Revancify Żółty</string>
     <string name="revanced_icon_squid_game">Squid Game</string>
-    <string name="revanced_icon_vanced_black">Czarna Vanced</string>
-    <string name="revanced_icon_vanced_light">Jasna Vanced</string>
-    <string name="revanced_icon_xisr_special">Specjalna Xisr</string>
-    <string name="revanced_icon_xisr_winter">Zimowa Xisr</string>
-    <string name="revanced_icon_xisr_yellow">Żółta Xisr</string>
+    <string name="revanced_icon_vanced_black">Vanced Czerwony</string>
+    <string name="revanced_icon_vanced_light">Vanced Jasny</string>
+    <string name="revanced_icon_xisr_aurora">Xisr Zorza</string>
+    <string name="revanced_icon_xisr_evergreen">Xisr Zimozielony</string>
+    <string name="revanced_icon_xisr_special">Xisr Specjalny</string>
+    <string name="revanced_icon_xisr_white">Xisr Biały</string>
+    <string name="revanced_icon_xisr_winter">Xisr Zimowy</string>
+    <string name="revanced_icon_xisr_yellow">Xisr Żółty</string>
     <string name="revanced_icon_youtube">YouTube</string>
-    <string name="revanced_icon_youtube_black">Czarna YouTube</string>
+    <string name="revanced_icon_youtube_black">YouTube Czarny</string>
     <string name="revanced_invert_snack_bar_theme_summary_off">Nie</string>
     <string name="revanced_invert_snack_bar_theme_summary_on">Tak</string>
     <string name="revanced_invert_snack_bar_theme_title">Odwróć motyw komunikatów</string>
@@ -2411,7 +2413,7 @@ Podczas odtwarzania film może się zacinać lub pomijać klatki."</string>
 <small>(Niewydany)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Domyślny klient</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Nie można przechwycić żadnego ze strumieni klienta.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Spróbuj zmienić domyślnego klienta na TV.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Spróbuj zmienić domyślnego klienta na Uproszczony TV.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Kodeków w filmie</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Jakości filmu</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Priorytet w filmie</string>
@@ -2583,7 +2585,7 @@ Ograniczenie:
     <string name="revanced_spoof_streaming_data_use_js_title">Włącz klienta JavaScript</string>
     <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"Aplikacja używa więcej zasobów systemu, by znaleźć bądź dekodować wzorce n-sig, przez co film zaczyna się o wiele powolniej.
 
-Czasami wzorzec n-sig może nie zostać zdekodowany, co powoduje opóźnienie rozpoczęcia odtwarzania filmu lub przerywanie strumienia filmu.
+Czasami wzorzec n-sig może nie zostać zdekodowany, co powoduje opóźnienie rozpoczęcia odtwarzania filmu, lub przerywanie strumienia filmu.
 
 Może być to łatwo rozwiązane poprzez kliknięcie przycisku od odświeżenia filmu w odtwarzaczu.
 
@@ -2736,6 +2738,7 @@ Zastrzeżenie: Pliki cookie wydane bez logowania mogą być nieprawidłowe lub i
     <string name="revanced_transcript_cookies_dialog_title">Eksportuj transkrypcyjne pliki cookie</string>
     <string name="revanced_transcript_cookies_summary">Pliki cookie używane w żądaniach transkrypcyjnego API.</string>
     <string name="revanced_transcript_cookies_title">Transkrypcyjne pliki cookie</string>
+    <string name="revanced_translations_title">Tłumaczenia</string>
     <string name="revanced_watch_history_about_status_blocked">• Historia oglądania nie działa</string>
     <string name="revanced_watch_history_about_status_original">"• Stosuje się do ustawień historii oglądania konta Google
 • Historia oglądania może nie działać przy używaniu DNS lub VPN"</string>

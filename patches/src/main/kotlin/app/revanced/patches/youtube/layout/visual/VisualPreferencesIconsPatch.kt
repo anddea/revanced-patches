@@ -489,7 +489,6 @@ private val emptyTitles = setOf(
     "revanced_hide_live_chat_replay_button",
     "revanced_hide_player_flyout_menu_captions_footer",
     "revanced_hide_player_flyout_menu_quality_footer",
-    "revanced_hide_shorts_comments_disabled_button",
     "revanced_hide_shorts_paused_overlay_buttons",
     "revanced_hide_shorts_preview_comment",
     "revanced_miniplayer_double_tap_action",

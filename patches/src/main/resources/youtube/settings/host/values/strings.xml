@@ -240,7 +240,7 @@ Info: In some accounts, the original audio track is used."</string>
 
 This may not work for some users, if it doesn't work for you:
 1. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use JavaScript client'.
-2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV'."</string>
+2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV Simply'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disable forced auto audio tracks</string>
     <string name="revanced_disable_auto_captions_summary_off">Forced auto captions are enabled.</string>
     <string name="revanced_disable_auto_captions_summary_on">Forced auto captions are disabled.</string>
@@ -942,7 +942,7 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 
 To show the Audio track menu:
 1. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use JavaScript client'.
-2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV'."</string>
+2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV Simply'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Audio track menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Audio track menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Hide Audio track menu</string>
@@ -1194,9 +1194,6 @@ Info:
     <string name="revanced_hide_shorts_comments_button_summary_off">Comments button is shown.</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">Comments button is hidden.</string>
     <string name="revanced_hide_shorts_comments_button_title">Hide Comments button</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_title">Hide disabled comments button</string>
     <string name="revanced_hide_shorts_comments_panel_summary_off">Comments panel is shown.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Comments panel is hidden.</string>
     <string name="revanced_hide_shorts_comments_panel_title">Hide comments panel</string>
@@ -2409,7 +2406,7 @@ Playback may stutter or drop frames."</string>
 <small>(Unreleased)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Try changing the default client to TV.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Try changing the default client to TV Simply.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Video codecs are prioritized.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Video quality is prioritized.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Prioritize video quality</string>
@@ -2587,7 +2584,7 @@ This can be easily resolved by clicking the 'Reload video button' in the player 
 
 (Prerequisites: Both 'Show reload video button' and 'Always show reload video button' are enabled)
 
-Among JavaScript clients, the recommended client is TV."</string>
+Among JavaScript clients, the recommended client is TV Simply."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"Player JavaScript for deobfuscation is not kept up to date.
 
 • Player JavaScript that succeeds in deobfuscation is used, but it is still somewhat server-dependent."</string>

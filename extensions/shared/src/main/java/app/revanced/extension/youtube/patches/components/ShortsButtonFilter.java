@@ -1,20 +1,15 @@
 package app.revanced.extension.youtube.patches.components;
 
+import org.apache.commons.lang3.StringUtils;
+
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
 import app.revanced.extension.youtube.settings.Settings;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.regex.Pattern;
 
 @SuppressWarnings({"deprecation", "unused"})
 public final class ShortsButtonFilter extends Filter {
-    // Pattern: reel_comment_button … number (of comments) + space? + character / letter (for comments) … 4 (random number),
-    // probably unstable.
-    // If comment button does not have number of comments, then it is disabled or with label "0".
-    private static final Pattern REEL_COMMENTS_DISABLED_PATTERN = Pattern.compile("reel_comment_button.+\\d\\s?\\p{L}.+4");
     private static final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.";
     private static final String REEL_LIVE_HEADER_PATH = "immersive_live_header.";
     /**
@@ -30,8 +25,6 @@ public final class ShortsButtonFilter extends Filter {
     private final StringFilterGroup pausedOverlayButtons;
     private final StringFilterGroup metaPanelButton;
     private final ByteArrayFilterGroupList pausedOverlayButtonsGroupList = new ByteArrayFilterGroupList();
-
-    private final ByteArrayFilterGroup shortsCommentDisabled;
 
     private final StringFilterGroup suggestedAction;
     private final ByteArrayFilterGroupList suggestedActionsGroupList = new ByteArrayFilterGroupList();
@@ -169,12 +162,6 @@ public final class ShortsButtonFilter extends Filter {
         //
         // Action buttons
         //
-        shortsCommentDisabled =
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_SHORTS_COMMENTS_DISABLED_BUTTON,
-                        "reel_comment_button"
-                );
-
         videoActionButtonGroupList.addAll(
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_COMMENTS_BUTTON,
@@ -293,10 +280,6 @@ public final class ShortsButtonFilter extends Filter {
 
         // Video action buttons (like, dislike, comment, share, remix) have the same path.
         if (matchedGroup == actionButton) {
-            String protobufString = new String(buffer);
-            if (shortsCommentDisabled.check(buffer).isFiltered()) {
-                return !REEL_COMMENTS_DISABLED_PATTERN.matcher(protobufString).find();
-            }
             return videoActionButtonGroupList.check(buffer).isFiltered();
         }
 
