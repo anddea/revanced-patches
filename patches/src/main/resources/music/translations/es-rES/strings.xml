@@ -241,10 +241,10 @@ Descarga %2$s desde el sitio web."</string>
     <string name="revanced_hide_flyout_menu_start_radio_title">Ocultar menú de Iniciar radio</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Ocultar menú Estadísticas para Nerds</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Ocultar menú Suscribirse / Desuscribirse</string>
+    <string name="revanced_hide_flyout_menu_taste_match_title">revanced_hide_flyout_menu_taste_match_title</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Ocultar Desfijar del menú de marcación rápida</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ocultar menú de vista de créditos de canción</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"Oculta los anuncios en pantalla completa.
-• Algunas veces puede que se vea una pantalla negra vacía en lugar del inicio."</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Oculta los anuncios en pantalla completa."</string>
     <string name="revanced_hide_fullscreen_ads_title">Ocultar anuncios en pantalla completa</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Oculta el botón Compartir en el reproductor de pantalla completa.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Ocultar el botón Compartir en pantalla completa</string>
@@ -428,7 +428,7 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_sb_enabled">Activar SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock es un sistema colaborativo para omitir partes molestas en vídeos de YouTube.</string>
     <string name="revanced_sb_reset_color">Restablecer color</string>
-    <string name="revanced_sb_segments_filler">Tangente de relleno / Chistes</string>
+    <string name="revanced_sb_segments_filler">Tangente de relleno / Bromas</string>
     <string name="revanced_sb_segments_filler_sum">Escenas tangenciales añadidas solo para relleno o humor que no son necesarias para entender el contenido principal del vídeo. No incluye segmentos que proporcionen contexto o detalles de fondo.</string>
     <string name="revanced_sb_segments_hook">Enganche / Saludos</string>
     <string name="revanced_sb_segments_hook_sum">Tráileres narrados para el vídeo entrante, saludos y despedidas. No incluye secciones que incluyan contenido adicional.</string>
@@ -440,7 +440,7 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_sb_segments_nomusic_sum">Solo para usar en vídeos musicales. Secciones de vídeos musicales sin música, que no estén ya cubiertas por otra categoría.</string>
     <string name="revanced_sb_segments_outro">Tarjetas finales / Créditos</string>
     <string name="revanced_sb_segments_outro_sum">Créditos o cuando aparecen las tarjetas finales de YouTube. No para conclusiones con información.</string>
-    <string name="revanced_sb_segments_preview">Vista previa / Resumen / Gancho</string>
+    <string name="revanced_sb_segments_preview">Adelanto / Resumen / Enganche</string>
     <string name="revanced_sb_segments_preview_sum">Colección de clips que muestran lo que está por venir o lo que sucedió en el vídeo o en otros vídeos de una serie, donde toda la información se repite en otra parte.</string>
     <string name="revanced_sb_segments_selfpromo">Promoción no remunerada/autopromoción</string>
     <string name="revanced_sb_segments_selfpromo_sum">Cuando hay una autopromoción o no remunerada. Esto incluye secciones específicas sobre mercancía, donaciones o información sobre con quién colaboraron.</string>
@@ -516,11 +516,12 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_spoof_app_version_target_summary">Seleccione el objetivo de la versión de la app a modificar.</string>
     <string name="revanced_spoof_app_version_target_title">Objetivo de la versión de la app a modificar</string>
     <string name="revanced_spoof_app_version_title">Modificar versión de aplicación</string>
-    <string name="revanced_spoof_client_summary">"Falsifica el cliente para prevenir problemas en la reproducción."</string>
+    <string name="revanced_spoof_client_summary">Falsifica el cliente para prevenir problemas en la reproducción.</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
     <string name="revanced_spoof_client_type_summary">"Define un cliente de por defecto para el falsificado."</string>
     <string name="revanced_spoof_client_type_title">Cliente por defecto</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Creador de android</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music No SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android sin SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android RV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
@@ -570,12 +571,37 @@ Problemas conocidos:
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Código de activación copiado al portapapeles: %s.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Obtener codigo de Activación</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Obtener token de autorización</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"El inicio de sesión en Android VR (YouTube VR) sigue las directrices proporcionadas por Google: \"Autorización de cuenta de Google - OAuth 2.0 para aplicaciones de TV y dispositivos de entrada limitada\":
+
+1. Pulsa en \"Obtener código de activación\" para generar un código de activación.
+2. Pulsa en \"Abrir sitio web\" para ir a \"https://yt.be/activate\".
+3. Introduce el código de activación.
+4. Inicia sesión cuando se te solicite. Si tienes varias cuentas de Google, selecciona la cuenta que utilizas con YouTube. Si ya has iniciado sesión, ve al siguiente paso.
+5. Una vez que hayas iniciado sesión, vuelve a RVX y pulsa en \"Iniciar sesión en Android VR\" de nuevo.
+6. Pulsa en \"Obtener token de autorización\" para obtener un token de autorización.
+
+※ Pulsa en \"Restablecer\" para eliminar un token de autenticación o un código de activación."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Restablecer</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Iniciar sesión en Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Token de autenticación guardado.
+
+- El token de autenticación emitido a través de este proceso solo se puede utilizar en YouTube VR (en RVX, se utiliza para obtener datos de transmisión de YouTube VR).
+- Los servidores de Google revocarán el token de autenticación que no se haya utilizado durante más de 6 meses.
+- Si cambias tu contraseña, o cancelas el registro de un dispositivo en la configuración de tu cuenta, o desinstalas la aplicación, tendrás que volver a emitir el token de autenticación."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Sesión iniciada</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Error al emitir un token de autenticación.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Pulsa en \"Restablecer\" e inténtalo de nuevo.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Token de autenticación y código de activación restablecidos.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Muestra el cliente utilizado para obtener datos de streaming en Estadísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostrar en estadísticas para nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Falsifica las transmisiones de video para prevenir problemas de reproducción.
 
 Si eres un usuario de YouTube Premium, esta opción puede ser necesaria."</string>
     <string name="revanced_spoof_streaming_data_title">Falsificar datos de transmisión</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"Cuando está activado, se utilizará el JavaScript del reproductor más reciente para desofuscar las URL de streaming en 'TV' y 'Web móvil'.
+
+Si tienes problemas con tu cliente JavaScript, intenta desactivar esto primero."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Usar el JavaScript del reproductor más reciente</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"Cuando esté activado, el Script Externo de JavaScript para yt-dlp (yt-dlp-ejs) será utilizado para deofuscar la URL de streaming en 'TV' y 'Web Móvil'
 
 • El reproductor de JavaScript para deofuscar se mantiene actualizado.
@@ -589,6 +615,7 @@ Si eres un usuario de YouTube Premium, esta opción puede ser necesaria."</strin
     <string name="revanced_spoof_video_streams_default_client_title">Cliente predeterminado</string>
     <string name="revanced_spoof_video_streams_summary">Suplanta las transmisiones de video del cliente para evitar problemas de reproducción.</string>
     <string name="revanced_spoof_video_streams_title">Suplantar transmisiones de video</string>
+    <string name="revanced_translations_title">Traducciones</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
     <string name="revanced_watch_history_type_entry_2">Reemplazar dominio</string>
     <string name="revanced_watch_history_type_entry_3">Bloquear el registro del historial</string>
@@ -596,4 +623,16 @@ Si eres un usuario de YouTube Premium, esta opción puede ser necesaria."</strin
 • Reemplazar dominio: Sigue la configuración del registro del historial de su cuenta de Google.
 • Bloquear el registro del historial: El registro de historial está bloqueado."</string>
     <string name="revanced_watch_history_type_title">Tipo de vista del historial</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Obtener cookies</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Obtener ID de sincronización de datos</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Obtener datos de visitante</string>
+    <string name="revanced_webview_contextual_menu_refresh">Actualizar</string>
+    <string name="revanced_webview_cookies">Cookies</string>
+    <string name="revanced_webview_copy">Copiar</string>
+    <string name="revanced_webview_data_sync_id">ID de sincronización de datos</string>
+    <string name="revanced_webview_toast_copy_success">%s copiado al portapapeles.</string>
+    <string name="revanced_webview_toast_empty">%s está vacío.</string>
+    <string name="revanced_webview_toast_no_network">Comprueba tu conexión a Internet.</string>
+    <string name="revanced_webview_toast_unavailable">WebView no está disponible.</string>
+    <string name="revanced_webview_visitor_data">Datos de visitante</string>
 </resources>

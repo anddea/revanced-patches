@@ -238,7 +238,7 @@
 
 قد لا ينجح هذا الأمر مع بعض المستخدمين، إذا لم ينجح معك:
 1. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم فعّل 'استخدام عميل JavaScript'.
-2. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم غيّر 'العميل الافتراضي' إلى 'TV'."</string>
+2. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم غيّر 'العميل الافتراضي' إلى 'TV Simply'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">تعطيل المقطع الصوتي التلقائي المفروض</string>
     <string name="revanced_disable_auto_captions_summary_off">تم تمكين الترجمة التلقائية المفروضة.</string>
     <string name="revanced_disable_auto_captions_summary_on">تم تعطيل الترجمة التلقائية المفروضة.</string>
@@ -435,7 +435,9 @@
     <string name="revanced_enable_swipe_to_switch_video_summary_on">سيؤدي التمرير لأعلى/لأسفل في وضع ملء الشاشة إلى الانتقال إلى الفيديو التالي/السابق.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">تمكين إيماءة التمرير لتغيير الفيديو</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">شريط التنقل غير شفاف.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">"شريط التنقل شفاف."</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">"شريط التنقل شفاف.
+
+مشكلة معروفة: قد يكون شريط تنقل النظام شفافًا."</string>
     <string name="revanced_enable_translucent_navigation_bar_title">تمكين شريط التنقل الشفاف</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">تم تعطيل تأخير معالجة Watch Next.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">تم تمكين تأخير معالجة Watch Next.</string>
@@ -941,7 +943,7 @@
 
 لعرض قائمة المقطع الصوتي:
 1. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم فعّل 'استخدام عميل JavaScript'.
-2. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم غيّر 'العميل الافتراضي' إلى 'TV'."</string>
+2. انتقل إلى الإعدادات - RVX - خيارات متنوعة - Spoof Streaming Data، ثم غيّر 'العميل الافتراضي' إلى 'TV Simply'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">يتم عرض قائمة المقطع الصوتي.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">تم إخفاء قائمة المقطع الصوتي.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">إخفاء قائمة المقطع الصوتي</string>
@@ -1193,9 +1195,6 @@
     <string name="revanced_hide_shorts_comments_button_summary_off">يتم عرض قسم التعليقات.</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">تم إخفاء زر التعليقات.</string>
     <string name="revanced_hide_shorts_comments_button_title">إخفاء زر التعليقات</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_off">يتم عرض زر التعليقات المعطلة أو الذي يحمل العلامة \"0\".</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_on">تم إخفاء زر التعليقات المعطلة أو الذي يحمل العلامة \"0\".</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_title">إخفاء زر التعليقات المعطلة</string>
     <string name="revanced_hide_shorts_comments_panel_summary_off">لوحة التعليقات ظاهرة.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">لوحة التعليقات مخفية.</string>
     <string name="revanced_hide_shorts_comments_panel_title">إخفاء لوحة التعليقات</string>
@@ -1459,7 +1458,10 @@
     <string name="revanced_icon_squid_game">لعبة الحبار</string>
     <string name="revanced_icon_vanced_black">Vanced أسود</string>
     <string name="revanced_icon_vanced_light">Vanced فاتح</string>
+    <string name="revanced_icon_xisr_aurora">Xisr الشفق</string>
+    <string name="revanced_icon_xisr_evergreen">Xisr دائم الخضرة</string>
     <string name="revanced_icon_xisr_special">Xisr خاص</string>
+    <string name="revanced_icon_xisr_white">Xisr أبيض</string>
     <string name="revanced_icon_xisr_winter">Xisr شتوي</string>
     <string name="revanced_icon_xisr_yellow">Xisr أصفر</string>
     <string name="revanced_icon_youtube">YouTube</string>
@@ -2395,7 +2397,7 @@
 <small>(لم يصدر)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">العميل الافتراضي</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">لم يتمكن من جلب أي تدفقات عميل.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">جرب تغيير العميل الافتراضي إلى TV.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">جرّب تغيير العميل الافتراضي إلى TV Simply.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">يتم إعطاء الأولوية لترميزات الفيديو.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">يتم إعطاء الأولوية لجودة الفيديو.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">إعطاء الأولوية لجودة الفيديو</string>
@@ -2573,7 +2575,7 @@
 
 (المتطلبات الأساسية: تفعيل كلٍّ من 'عرض زر إعادة تحميل الفيديو' و 'عرض زر إعادة تحميل الفيديو دائمًا').
 
-من بين عملاء JavaScript، يُنصح باستخدام TV."</string>
+من بين عملاء JavaScript، يُنصح باستخدام TV Simply."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"لا يتم تحديث مشغل JavaScript لإزالة التشويش.
 
 • يستخدم JavaScript المشغل الذي ينجح في إزالة التشويش، ولكنه لا يزال يعتمد إلى حد ما على الخادم."</string>
@@ -2721,6 +2723,7 @@
     <string name="revanced_transcript_cookies_dialog_title">تصدير ملفات تعريف ارتباط Transcript</string>
     <string name="revanced_transcript_cookies_summary">ملفات تعريف الارتباط التي سيتم استخدامها في طلبات API Transcript.</string>
     <string name="revanced_transcript_cookies_title">ملفات تعريف ارتباط Transcript</string>
+    <string name="revanced_translations_title">الترجمات</string>
     <string name="revanced_watch_history_about_status_blocked">• سجل المشاهدة محظور.</string>
     <string name="revanced_watch_history_about_status_original">"• يتبع إعدادات سجل المشاهدة لحساب Google.
 • قد لا يعمل سجل المشاهدة بسبب DNS أو VPN."</string>

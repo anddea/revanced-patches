@@ -1191,9 +1191,6 @@
     <string name="revanced_hide_shorts_comments_button_summary_off">評論按鈕已顯示。</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">評論按鈕已隱藏。</string>
     <string name="revanced_hide_shorts_comments_button_title">隱藏評論按鈕</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_off">已停用的評論按鈕或標有 \"0\" 的按鈕已顯示。</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_on">已停用的評論按鈕或標有 \"0\" 的按鈕已隱藏。</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_title">隱藏已停用的評論按鈕</string>
     <string name="revanced_hide_shorts_comments_panel_summary_off">顯示評論面板。</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">評論面板已隱藏。</string>
     <string name="revanced_hide_shorts_comments_panel_title">隱藏評論面板</string>
@@ -1457,7 +1454,10 @@
     <string name="revanced_icon_squid_game">魷魚遊戲</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
+    <string name="revanced_icon_xisr_aurora">Xisr 極光</string>
+    <string name="revanced_icon_xisr_evergreen">Xisr 常青</string>
     <string name="revanced_icon_xisr_special">Xisr 特別版</string>
+    <string name="revanced_icon_xisr_white">Xisr 白色</string>
     <string name="revanced_icon_xisr_winter">Xisr 冬季</string>
     <string name="revanced_icon_xisr_yellow">Xisr 黃</string>
     <string name="revanced_icon_youtube">YouTube</string>
@@ -2277,7 +2277,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_settings_search_history_summary_on">顯示設定搜尋記錄。</string>
     <string name="revanced_settings_search_history_title">顯示設定中搜尋記錄</string>
     <string name="revanced_settings_search_no_results_summary">嘗試另一個關鍵字。</string>
-    <string name="revanced_settings_search_no_results_title">"沒有找到 '%s' 的結果"</string>
+    <string name="revanced_settings_search_no_results_title">沒有找到 \'%s\' 的結果。</string>
     <string name="revanced_settings_search_recent_searches">最近的搜尋</string>
     <string name="revanced_settings_search_remove_message">從搜尋紀錄中移除？</string>
     <string name="revanced_settings_search_tips_summary">"• 點選路徑即可導覽至該路徑。
@@ -2406,9 +2406,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
 <small>(無 SDK)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">電視
-<small>(開發中)</small>
-    </string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">電視</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"電視
 <small>(舊版)</small>"</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
@@ -2582,15 +2580,11 @@ uBlock Origin 已找到解決此問題的方案，可透過 '繞過虛假緩衝'
     <string name="revanced_spoof_streaming_data_use_js_summary_off">JavaScript 用戶端未新增至可用用戶端。</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">JavaScript 用戶端已新增至可用用戶端。</string>
     <string name="revanced_spoof_streaming_data_use_js_title">使用 JavaScript 用戶端</string>
-    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"由於需要解碼 N-Sig 模式，JavaScript 用戶端在啟動影片時可能會略有延遲。
+    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"應用程式會佔用更多系統資源來尋找或解碼 n-sig 模式，導致影片啟動速度變慢。
 
-有時，N-Sig 模式解碼失敗，導致影片啟動延遲或影片串流卡頓。
+YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法找到 n-sig 模式，播放可能會失敗。
 
-點擊播放器中的 '重新載入影片按鈕' 即可輕鬆解決此問題。
-
-(前提條件：已啟用'顯示重新載入影片按鈕' 和 '始終顯示重新載入影片按鈕' )
-
-在 JavaScript 用戶端中，建議使用 TV 用戶端。"</string>
+此功能尚在開發中，請僅用於調試目的。"</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"用於去混淆的播放器 JavaScript 不會保持最新狀態。
 
 • 使用的是已成功進行反混淆的播放器 JavaScript，但仍在某種程度上依賴伺服器。"</string>
@@ -2737,6 +2731,7 @@ uBlock Origin 已找到解決此問題的方案，可透過 '繞過虛假緩衝'
     <string name="revanced_transcript_cookies_dialog_title">匯出字幕 Cookies</string>
     <string name="revanced_transcript_cookies_summary">在 Transcript API 請求使用 Cookie。</string>
     <string name="revanced_transcript_cookies_title">字幕 Cookie</string>
+    <string name="revanced_translations_title">翻譯</string>
     <string name="revanced_watch_history_about_status_blocked">• 觀看歷史記錄不起作用。</string>
     <string name="revanced_watch_history_about_status_original">"• 遵循Google 帳戶的觀看記錄設定。
 • 由於 DNS 或 VPN 的原因，觀看記錄可能無法運作。"</string>

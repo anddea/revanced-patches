@@ -231,7 +231,7 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_disable_auto_audio_tracks_summary_on">La traccia audio automatica forzata è disattivata.</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"La traccia audio automatica forzata è disattivata.
 
-Nota: questa impostazione potrebbe non funzionare per alcuni utenti. Se non funziona, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili e cambia il client predefinito in TV."</string>
+Nota: questa impostazione potrebbe non funzionare per alcuni utenti. Se non funziona, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili e cambia il client predefinito in TV Simply."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disattiva la traccia audio automatica forzata</string>
     <string name="revanced_disable_auto_captions_summary_off">I sottotitoli automatici forzati sono attivati.</string>
     <string name="revanced_disable_auto_captions_summary_on">I sottotitoli automatici forzati sono disattivati.</string>
@@ -935,7 +935,7 @@ Le parole con lettere maiuscole all'interno devono essere inserite con il maiusc
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Nascondi il menù Modalità Ambient</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Il menù Traccia Audio è nascosto.
 
-Nota: per mostrare il menù Traccia Audio, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili e cambia il client predefinito in TV."</string>
+Nota: per mostrare il menù Traccia Audio, vai alle impostazioni → RVX → Varie → Camuffa i dati in streaming → Mostra i client JavaScript tra i client disponibili e cambia il client predefinito in TV Simply."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Il menù Traccia Audio è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Il menù Traccia Audio è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Nascondi il menù Traccia Audio</string>
@@ -1181,9 +1181,6 @@ Nota: questa impostazione sembra essere obsoleta sul server. Usa invece \"Nascon
     <string name="revanced_hide_shorts_comments_button_summary_off">Il pulsante Commenti è visibile.</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">Il pulsante Commenti è nascosto.</string>
     <string name="revanced_hide_shorts_comments_button_title">Nascondi il pulsante Commenti</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Il pulsante dei commenti disabilitato o con l\'etichetta \"0\" sono mostrati.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Il pulsante dei commenti disabilitato o con l\'etichetta \"0\" sono nascosti.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_title">Nascondi il pulsante dei commenti disabilitati</string>
     <string name="revanced_hide_shorts_comments_panel_summary_off">Il pannello dei commenti è mostrato.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Il pannello dei commenti è nascosto.</string>
     <string name="revanced_hide_shorts_comments_panel_title">nascondi il pannello dei commenti</string>
@@ -1445,7 +1442,10 @@ Nota: il doodle di YouTube non è toccabile."</string>
     <string name="revanced_icon_squid_game">Squid Game</string>
     <string name="revanced_icon_vanced_black">Vanced Scuro</string>
     <string name="revanced_icon_vanced_light">Vanced Chiaro</string>
+    <string name="revanced_icon_xisr_aurora">Xisr Aurora</string>
+    <string name="revanced_icon_xisr_evergreen">Xisr Sempreverde</string>
     <string name="revanced_icon_xisr_special">Xisr Speciale</string>
+    <string name="revanced_icon_xisr_white">Xisr Bianco</string>
     <string name="revanced_icon_xisr_winter">Xisr Inverno</string>
     <string name="revanced_icon_xisr_yellow">Xisr Giallo</string>
     <string name="revanced_icon_youtube">YouTube</string>
@@ -2394,7 +2394,7 @@ Nota: la riproduzione potrebbe avere rallentamenti o perdite di fotogrammi."</st
 <small>(Non rilasciato)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Client predefinito</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Non è stato possibile recuperare alcun flusso client</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Prova a cambiare il client predefinito in TV</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Prova a cambiare il client predefinito in TV Simply</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Codec</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Qualità</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Cambia cosa dare priorità nei video</string>
@@ -2554,7 +2554,7 @@ Questo problema può essere facilmente risolto toccando il pulsante \"Ricarica V
 
 Prerequisiti: devono essere sono attivati sia \"Mostra il pulsante Ricarica Video\" che \"Mostra sempre il pulsante Ricarica Video\".
 
-Tra i client JavaScript, il client consigliato è TV."</string>
+Tra i client JavaScript, il client consigliato è TV Simply."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"La versione di JavaScript per il deoffuscamento non viene mantenuta aggiornata.
 
 Nota: viene usata la versione di JavaScript che riesce nel deoffuscamento, ma l'operazione è comunque in qualche modo dipendente dal server."</string>
@@ -2704,6 +2704,7 @@ Nota: i cookie generati senza effettuare l'accesso potrebbero non essere validi 
     <string name="revanced_transcript_cookies_dialog_title">Esporta i cookie di trascrizione</string>
     <string name="revanced_transcript_cookies_summary">I cookie da usare per le richieste API di trascrizione.</string>
     <string name="revanced_transcript_cookies_title">Cookie di trascrizione</string>
+    <string name="revanced_translations_title">Traduzioni</string>
     <string name="revanced_watch_history_about_status_blocked">La cronologia è bloccata.</string>
     <string name="revanced_watch_history_about_status_original">"• Segue le impostazioni di cronologia dell'account Google.
 • La cronologia potrebbe non funzionare a causa di DNS o VPN."</string>

@@ -52,7 +52,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">스틸 컷 썸네일은 각 동영상의 시작 / 중간 / 끝 부분에서 캡쳐된 이미지입니다. 이러한 이미지는 YouTube에 내장되어 있으며, 외부 API는 사용되지 않습니다.</string>
     <string name="revanced_alt_thumbnail_stills_about_title">스틸 컷 썸네일에 대한 정보</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">고화질 스틸 컷 썸네일을 표시합니다.</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">일반화질 스틸 컷 썸네일을 표시합니다. 썸네일을 빠르게 불러오지만 실시간 스트림, 비공개, 오래된 동영상에서는 아무것도 표시되지 않은 썸네일이 표시될 수 있습니다.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">일반화질 스틸 컷 썸네일을 표시합니다. 썸네일을 빠르게 로드하지만 실시간 스트림, 비공개, 오래된 동영상에서는 아무것도 표시되지 않은 썸네일이 표시될 수 있습니다.</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">일반화질 스틸 컷 썸네일 표시하기</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">동영상의 시작 부분 이미지</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">동영상의 중간 부분 이미지</string>
@@ -240,7 +240,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요."</string>
 
 일부 사용자에게는 작동하지 않을 수 있습니다. 작동하지 않는 경우에는:
 1. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 'JavaScript 클라이언트 사용하기'를 활성화합니다.
-2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV’로 변경합니다."</string>
+2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV Simply’로 변경합니다."</string>
     <string name="revanced_disable_auto_audio_tracks_title">강제된 자동 오디오 트랙 비활성화하기</string>
     <string name="revanced_disable_auto_captions_summary_off">강제 사용이 설정된 자동 자막을 활성화합니다.</string>
     <string name="revanced_disable_auto_captions_summary_on">강제 사용이 설정된 자동 자막을 비활성화합니다.</string>
@@ -446,7 +446,7 @@ Shorts 플레이어 배경을 탭하는 경우에 UI를 숨길 수 있습니다.
     <string name="revanced_enable_watch_next_processing_delay_summary_off">다음 시청 처리 지연을 비활성화합니다.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">다음 시청 처리 지연을 활성화합니다.</string>
     <string name="revanced_enable_watch_next_processing_delay_title">다음 시청 처리 지연 활성화하기</string>
-    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"이 설정은 플레이어 UI를 불러오기 전에 지연을 강제합니다.
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"이 설정은 플레이어 UI를 로드하기 전에 지연을 강제합니다.
 
 MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"이 설정을 활성화하면 내 페이지에서 설정 버튼이 비활성화됩니다.
@@ -953,7 +953,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
 
 오디오 트랙 메뉴를 표시하려면:
 1. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 'JavaScript 클라이언트 사용하기'를 활성화합니다.
-2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV’로 변경합니다."</string>
+2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV Simply’로 변경합니다."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">오디오 트랙 메뉴가 표시됩니다.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">오디오 트랙 메뉴가 숨겨집니다.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">오디오 트랙 메뉴 숨기기</string>
@@ -1074,7 +1074,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_related_videos_summary_off">관련 동영상이 표시됩니다.</string>
     <string name="revanced_hide_related_videos_summary_on">관련 동영상이 숨겨집니다.</string>
     <string name="revanced_hide_related_videos_title">관련 동영상 숨기기</string>
-    <string name="revanced_hide_related_videos_user_dialog_message">"이 설정은 플레이어 화면에서 불러올 수 있는 최대 레이아웃 수를 제한합니다.
+    <string name="revanced_hide_related_videos_user_dialog_message">"이 설정은 플레이어 화면에서 로드할 수 있는 최대 레이아웃 수를 제한합니다.
 
 일부 관련 동영상이 숨겨지지 않거나 동작 바 또는 댓글 섹션과 같은 의도하지 않은 레이아웃이 숨겨지는 경우에 오프셋을 변경하면 문제가 해결될 수 있습니다.
 
@@ -1206,9 +1206,6 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_shorts_comments_button_summary_off">댓글 버튼이 표시됩니다.</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">댓글 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_comments_button_title">댓글 버튼 숨기기</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_off">\'사용 중지됨\' 또는 \'0\'으로 표시된 댓글 버튼이 표시됩니다.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_on">\'사용 중지됨\' 또는 \'0\'으로 표시된 댓글 버튼이 숨겨집니다.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_title">사용 중지된 댓글 버튼 숨기기</string>
     <string name="revanced_hide_shorts_comments_panel_summary_off">댓글 패널이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">댓글 패널이 표시됩니다.</string>
     <string name="revanced_hide_shorts_comments_panel_title">댓글 패널 숨기기</string>
@@ -1474,7 +1471,10 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_icon_squid_game">Squid Game</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
+    <string name="revanced_icon_xisr_aurora">Xisr Aurora</string>
+    <string name="revanced_icon_xisr_evergreen">Xisr Evergreen</string>
     <string name="revanced_icon_xisr_special">Xisr Special</string>
+    <string name="revanced_icon_xisr_white">Xisr White</string>
     <string name="revanced_icon_xisr_winter">Xisr Winter</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube">YouTube</string>
@@ -1959,7 +1959,7 @@ Gemini API Key를 발급받으려면 여기를 누르세요."</string>
     <string name="revanced_reset_to_default_toast">기본값으로 초기화하였습니다.</string>
     <string name="revanced_restart">다시 시작</string>
     <string name="revanced_restart_dialog_message">이 변경 사항을 적용하려면 앱을 다시 시작해야 합니다.</string>
-    <string name="revanced_restart_first_run">레이아웃을 정상적으로 불러오기 위해 다시 시작합니다.</string>
+    <string name="revanced_restart_first_run">레이아웃을 정상적으로 로드하기 위해 다시 시작합니다.</string>
     <string name="revanced_restart_title">앱을 다시 시작하세요</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">플레이어에서 전체 화면으로 된 썸네일을 표시합니다.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">재생바 상단에서 소형 썸네일을 표시합니다.</string>
@@ -2004,7 +2004,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_ryd_failure_connection_status_code">싫어요 수를 표시할 수 없습니다 (상태 코드: %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">싫어요 수를 일시적으로 표시할 수 없습니다 (응답 시간 초과).</string>
     <string name="revanced_ryd_failure_generic">싫어요 수를 표시할 수 없습니다 (%s).</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Return YouTube Dislike를 사용하여 투표하려면 동영상을 다시 불러오세요.</string>
+    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Return YouTube Dislike를 사용하여 투표하려면 동영상을 다시 로드하세요.</string>
     <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요 수를 표시하지 않습니다.</string>
     <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요 수를 표시합니다.</string>
     <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts에서 싫어요 수를 표시합니다.
@@ -2200,7 +2200,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_sb_square_layout_sum_on">버튼과 컨트롤을 각지게 활성화합니다.</string>
     <string name="revanced_sb_stats">통계</string>
     <string name="revanced_sb_stats_connection_failure">기록을 일시적으로 가져올 수 없습니다 (응답 시간 초과).</string>
-    <string name="revanced_sb_stats_loading">불러오는 중 ...</string>
+    <string name="revanced_sb_stats_loading">로드하는 중 ...</string>
     <string name="revanced_sb_stats_reputation">사용자의 평판: &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="revanced_sb_stats_saved">다른 분들이 &lt;b&gt;%s&lt;/b&gt;개의 구간을 건너뛸 수 있게 해주셨습니다.</string>
     <string name="revanced_sb_stats_saved_hour_format">%1$s 시간 %2$s 분</string>
@@ -2424,7 +2424,7 @@ Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
 <small>(미출시)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">기본 클라이언트</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">클라이언트 스트림을 가져올 수 없습니다.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">기본 클라이언트를 TV로 변경해 보세요.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">기본 클라이언트를 TV Simply로 변경해 보세요.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">동영상 코덱이 우선시됩니다.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">동영상 화질이 우선시됩니다.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">동영상 화질 우선순위 지정하기</string>
@@ -2598,11 +2598,11 @@ uBlock Origin은 이 문제에 대한 해결 방법을 찾아냈으며, ‘페�
 
 때때로 n-sig 패턴 디코딩이 실패하여 동영상 시작이 지연되거나 동영상 스트림이 끊길 수 있습니다.
 
-플레이어의 '동영상 새로고침 버튼'을 탭하여 동영상을 다시 불러오게 되면 이 문제를 쉽게 해결할 수 있습니다.
+플레이어의 '동영상 새로고침 버튼'을 탭하여 동영상을 다시 로드하게 되면 이 문제를 쉽게 해결할 수 있습니다.
 
 (전제 조건: '동영상 새로고침 버튼 표시하기'와 '동영상 새로고침 버튼 항상 표시하기'가 모두 활성화된 상태)
 
-JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV입니다."</string>
+JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply입니다."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"복호화를 위한 플레이어 JavaScript를 최신 상태로 유지하지 않습니다.
 
 • 복호화에 성공한 플레이어 JavaScript가 사용되지만, 여전히 서버에 어느 정도 의존적입니다."</string>
@@ -2742,6 +2742,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV입니다
     <string name="revanced_transcript_cookies_dialog_title">스크립트 Cookies 내보내기</string>
     <string name="revanced_transcript_cookies_summary">스크립트 API 요청에 사용될 Cookies를 설정할 수 있습니다.</string>
     <string name="revanced_transcript_cookies_title">스크립트 Cookies</string>
+    <string name="revanced_translations_title">번역</string>
     <string name="revanced_watch_history_about_status_blocked">• 시청 기록이 차단됩니다.</string>
     <string name="revanced_watch_history_about_status_original">"• Google 계정의 시청 기록 설정을 따릅니다.
 • DNS 또는 VPN으로 인하여 시청 기록이 작동되지 않을 수 있습니다."</string>
@@ -2776,10 +2777,10 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV입니다
     <string name="revanced_whitelist_added">\'%1$s\' 채널을 %2$s 화이트리스트에 추가하였습니다.</string>
     <string name="revanced_whitelist_empty">화이트리스트 채널이 없습니다.</string>
     <string name="revanced_whitelist_excluded">화이트리스트에 추가되어 있지 않습니다.</string>
-    <string name="revanced_whitelist_failure_generic">채널 정보를 불러오지 못하였습니다.</string>
+    <string name="revanced_whitelist_failure_generic">채널 정보를 로드하지 못하였습니다.</string>
     <string name="revanced_whitelist_included">화이트리스트에 추가되어 있습니다.</string>
     <string name="revanced_whitelist_playback_speed">재생 속도</string>
-    <string name="revanced_whitelist_reload_video">지금 동영상을 다시 불러오시겠습니까?</string>
+    <string name="revanced_whitelist_reload_video">지금 동영상을 다시 로드하시겠습니까?</string>
     <string name="revanced_whitelist_remove_dialog_message">\'%1$s\' 채널을 %2$s 화이트리스트에서 제거하시겠습니까?</string>
     <string name="revanced_whitelist_remove_failed">\'%1$s\' 채널을 %2$s 화이트리스트에서 제거할 수 없습니다.</string>
     <string name="revanced_whitelist_removed">\'%1$s\' 채널을 %2$s 화이트리스트에서 제거하였습니다.</string>
