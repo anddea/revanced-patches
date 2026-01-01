@@ -158,7 +158,6 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_change_youtube_header_title">Cambiar cabecera de YouTube</string>
     <string name="revanced_confirm_user_dialog_title">¿Realmente quieres continuar?</string>
     <string name="revanced_copy">Copiar</string>
-    <string name="revanced_copy_error" />
     <string name="revanced_custom_filter_strings_summary">Lista de cadenas del constructor de rutas de componentes a filtrar separadas por una nueva línea.</string>
     <string name="revanced_custom_filter_strings_title">Filtro personalizado</string>
     <string name="revanced_custom_filter_summary_off">El filtro personalizado está desactivado.</string>
@@ -231,7 +230,7 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
 
 Es posible que esto no funcione para algunos usuarios. Si no funciona para ti:
 1. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y activa \"Usar cliente JavaScript\".
-2. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y cambia \"Cliente predeterminado\" a \"TV\" o \"TV simple\"."</string>
+2. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y cambia \"Cliente predeterminado\" a \"TV Simply\"."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Desactivar pistas de audio automáticas forzadas</string>
     <string name="revanced_disable_auto_captions_summary_off">Los subtítulos automáticos forzados están activados.</string>
     <string name="revanced_disable_auto_captions_summary_on">Los subtítulos automáticos forzados están desactivados.</string>
@@ -923,7 +922,7 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
 
 Para mostrar el menú \"Pista de audio\":
 1. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y activa \"Usar cliente JavaScript\".
-2. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y cambia \"Cliente predeterminado\" a \"TV\"."</string>
+2. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y cambia \"Cliente predeterminado\" a \"TV Simply\"."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">El menú \"Pista de audio\" está visible.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">El menú \"Pista de audio\" está oculto.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Ocultar menú \"Pista de audio\"</string>
@@ -2377,7 +2376,7 @@ La reproducción se puede atascar o perder fotogramas."</string>
 <small>(no publicado, sin autenticación)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Cliente predeterminado</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">No se han podido obtener las transmisiones de ningún cliente.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Puede que no hayas iniciado sesión.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Intenta cambiar el cliente predeterminado a TV Simply.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Se priorizan los códecs de vídeo.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Se prioriza la calidad del vídeo.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Priorizar calidad de vídeo</string>
@@ -2541,11 +2540,15 @@ Limitaciones:
     <string name="revanced_spoof_streaming_data_use_js_summary_off">El cliente JavaScript no se ha añadido a los clientes disponibles.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">El cliente JavaScript se ha añadido a los clientes disponibles.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Usar cliente JavaScript</string>
-    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"La aplicación utiliza más recursos del sistema para encontrar o decodificar el patrón n-sig, y el vídeo se inicia más lentamente.
+    <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"Los clientes de JavaScript mogą experimentar un ligero retraso al iniciar el video debido a la necesidad de decodificar el n-sig pattern.
 
-El patrón n-sig cambia con bastante frecuencia en los servidores de YouTube, y la reproducción puede fallar si el regex no encuentra el patrón n-sig.
+Ocasionalmente, el n-sig pattern no se decodifica correctamente, lo que provoca que el video tarde en comenzar o que la reproducción dé tirones.
 
-Esta función todavía está en desarrollo, así que úsala solo para fines de depuración."</string>
+Esto se puede solucionar fácilmente haciendo clic en el 'Botón de recargar video' en el reproductor.
+
+(Requisitos previos: Tanto 'Mostrar botón de recargar video' como 'Mostrar siempre el botón de recargar video' deben estar activados)
+
+Entre los clientes de JavaScript, el cliente recomendado es TV Simply."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"El reproductor JavaScript para la desofuscación no se mantiene actualizado.
 
 • Se utiliza el reproductor JavaScript que logra la desofuscación, pero sigue siendo algo dependiente del servidor."</string>
