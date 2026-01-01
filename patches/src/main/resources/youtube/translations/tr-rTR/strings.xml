@@ -230,7 +230,7 @@ Sınırlama: Araç çubuğundaki Geri butonu çalışmayabilir."</string>
 
 Bu, bazı kullanıcılar için işe yaramayabilir, eğer sizin için işe yaramazsa:
 1. Ayarlar - RVX - Çeşitli - Sahte veri akışı'na gidin ve 'JavaScript istemcisini kullan' seçeneğini açın.
-2. Ayarlar - RVX - Çeşitli - Sahte akış verileri bölümüne gidin ve 'Varsayılan istemci'yi 'TV' veya 'TV Simply' olarak değiştirin."</string>
+2. Ayarlar - RVX - Çeşitli - Sahte akış verileri bölümüne gidin ve 'Varsayılan istemci'yi 'Basit TV' olarak değiştirin."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Otomatik olarak etkinleştirilen zorunlu ses parçalarını devre dışı bırak.</string>
     <string name="revanced_disable_auto_captions_summary_off">Otomatik olarak etkinleştirilen zorunlu altyazılar etkinleştirildi.</string>
     <string name="revanced_disable_auto_captions_summary_on">Otomatik olarak etkinleştirilen zorunlu altyazılar devre dışı.</string>
@@ -466,7 +466,6 @@ Sınırlama: Oynatıcı küçültülmüşse, PiP modundaysa veya arka plandaysa 
     <string name="revanced_expand_video_description_summary_off">Video açıklaması elle genişletilir.</string>
     <string name="revanced_expand_video_description_summary_on">Video açıklaması otomatikman genişletilir.</string>
     <string name="revanced_expand_video_description_title">Açıklamayı genişlet</string>
-    <string name="revanced_extended_audio_tracks_unavailable" />
     <string name="revanced_external_downloader_dialog_title">Harici indirici</string>
     <string name="revanced_external_downloader_empty_warning">Paket adı boş olamaz</string>
     <string name="revanced_external_downloader_not_found_title">Uygulama yüklenmedi.</string>
@@ -821,6 +820,9 @@ Ortasında büyük harf bulunan kelimeler büyük harfle birlikte girilmelidir (
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">Abonelik videoları anahtar kelimeler tarafından filtrelenmiyor.</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">Abonelik videoları anahtar kelimeler tarafından filtreleniyor.</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Abonelik videolarını anahtar kelimelerle gizle</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_off">\'AND\' operatörü (\'&amp;\') devre dışı.&lt;br&gt;&lt;br&gt;Anahtar kelime olarak &lt;strong&gt;\"Mavi\" &amp; \"Kırmızı\"&lt;/strong&gt; kullanıldığında, &lt;strong&gt;\"Mavi\" &amp; \"Kırmızı\"&lt;/strong&gt; ifadesini içeren anahtar kelimeler filtrelenir.</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_summary_on">\'AND\' operatörü (\'&amp;\') etkin.&lt;br&gt;&lt;br&gt;Anahtar kelime olarak &lt;strong&gt;\"Mavi\" &amp; \"Kırmızı\"&lt;/strong&gt; kullanıldığında, &lt;strong&gt;\"Mavi\" &amp; \"Kırmızı\"&lt;/strong&gt; ifadesini içeren anahtar kelimeler filtrelenir.</string>
+    <string name="revanced_hide_keyword_content_use_and_operator_title">\'AND\' operatörünü (\'&amp;\') kullan</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">\'%1$s\' anahtar kelimesi tüm videoları gizleyecek.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Geçersiz anahtar kelime. \'%s\' kullanılamaz</string>
     <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Kullanmak için tırnak içine alın: %s</string>
@@ -914,7 +916,7 @@ Ortasında büyük harf bulunan kelimeler büyük harfle birlikte girilmelidir (
 
 Ses parçası menüsünü göstermek için:
 1. Ayarlar - RVX - Çeşitli - Sahte veri akışı'na gidin ve 'JavaScript istemcisini kullan' seçeneğini açın.
-2. Ayarlar - RVX - Çeşitli - Sahte veri akışı'na gidin ve 'Varsayılan istemci'yi 'TV' olarak değiştirin."</string>
+2. Ayarlar - RVX - Çeşitli - Sahte veri akışı'na gidin ve 'Varsayılan istemci'yi 'Basit TV' olarak değiştirin."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">\"Ses Parçası\" menüsü gösteriliyor.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">\"Ses Parçası\" menüsü gizleniyor.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Ses parçası menüsünü gizle</string>
@@ -2357,7 +2359,7 @@ Oynatma takılabilir veya kare atlayabilir."</string>
 <small>(Yayınlanmadı)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Varsayılan istemci</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Hiçbir istemci akışı alınamadı.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Varsayılan istemciyi TV olarak değiştirmeyi deneyin.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Varsayılan istemciyi Basit TV olarak değiştirmeyi deneyin.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Video kodeklerine öncelik verilir.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Video kalitesine öncelik verilir.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Video kalitesine öncelik ver</string>
@@ -2535,7 +2537,7 @@ Bu durum, videoyu yeniden yüklemek için oynatıcıdaki 'Videoyu yenile düğme
 
 (Ön koşullar: Hem 'Videoyu yenile düğmesini göster' hem de 'Videoyu yenile düğmesini her zaman göster' etkinleştirilmelidir)
 
-JavaScript istemcileri arasında önerilen istemci TV'dir."</string>
+JavaScript istemcileri arasında önerilen istemci Basit TV."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"Çözümleme için oynatıcı JavaScript'i güncel tutulmaz.
 
 • Çözümlemede başarılı olan oynatıcı JavaScript'i kullanılır, ancak yine de kısmen sunucuya bağımlıdır."</string>

@@ -4,14 +4,14 @@
     <string name="accessibility_settings_edu_opt_out_text">由於已啟用無障礙服務，你的控制選項已被修改。</string>
     <string name="gms_core_dialog_continue_text">繼續</string>
     <string name="gms_core_dialog_dismiss_text">不再顯示</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore 沒有後台運行的權限。
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore 沒有背景執行權限。
 
-遵循“不要殺死我的應用程式！”指南，並將說明應用於您的 GmsCore 安裝。
+請照著“不要殺死我的應用程式！”指南，並將說明應用於您的 GmsCore 安裝。
 
-這是應用程序運行所必需的。"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必須停用 GmsCore 電池優化才能避免問題。
+這是應用程式執行所必要的前置應用程式。"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必須停用 GmsCore 電池最佳化才能避免問題。
 
-停用 GmsCore 的電池優化不會對電池使用產生負面影響。
+停用 GmsCore 的電池最佳化不會對電池使用產生負面影響。
 
 點擊繼續按鈕並允許優化更改。"</string>
     <string name="gms_core_dialog_open_website_text">開啟網站</string>
@@ -238,7 +238,7 @@
 
 此功能可能對某些使用者無效，如果您無法使用此功能：
 1. 前往設定  - RVX - 雜項 - 偽裝串流資料，然後開啟 '使用 JavaScript 用戶端'。
-2. 前往設定 - RVX - 雜項 - 偽裝串流資料，並將 '預設客戶端' 變更為 'TV' 或 'TV Simply'。"</string>
+2. 前往設定 - RVX - 雜項 - 偽裝串流資料，並將 '預設客戶端' 變更為 'TV Simply'。"</string>
     <string name="revanced_disable_auto_audio_tracks_title">停用強制自動音軌</string>
     <string name="revanced_disable_auto_captions_summary_off">強制顯示字幕已啟用。</string>
     <string name="revanced_disable_auto_captions_summary_on">強制顯示字幕已停用。</string>
@@ -941,7 +941,7 @@
 
 若要顯示音軌選單：
 1. 前往設定  - RVX - 雜項 - 偽裝串流資料，然後開啟 '使用 JavaScript 用戶端'。
-2. 前往設定 - RVX - 雜項 - 偽裝串流資料，並將 '預設客戶端' 變更為 'TV' 或 'TV Simply'。"</string>
+2. 前往設定 - RVX - 雜項 - 偽裝串流資料，並將 '預設客戶端' 變更為 'TV Simply'。"</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">音軌選單已顯示。</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">音軌選單已隱藏。</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">隱藏音軌選單</string>
@@ -2414,7 +2414,7 @@ AI 生成的回應可能包含不準確的資訊。
 <small>(未發布)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">預設用戶端</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">無法獲取任何客戶端串流。</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">您可能尚未登入。</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">嘗試將預設客戶端變更為 TV Simply。</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">影片編解碼器優先。</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">影片畫質優先。</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">優先考慮影片畫質</string>
