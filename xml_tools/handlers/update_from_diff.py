@@ -300,15 +300,18 @@ def _process_language_dir(
     lang_strings_path = lang_dir / "strings.xml"
     forced_strings_path = lang_dir / "forced_strings.xml"
     updated_strings_path = lang_dir / "updated_strings.xml"
+    missing_strings_path = lang_dir / "missing_strings.xml"
 
+    # Get changes in the specific language file
     lang_changed_strings = processor.get_changed_strings(lang_strings_path)
+
+    # Get keys that are already listed as missing
+    missing_keys = get_keys_from_xml(missing_strings_path)
+
     host_diff_keys = set(host_changed_strings.keys())
     lang_diff_keys = set(lang_changed_strings.keys())
 
-    # Before adding new items to the updated_strings.xml, remove
-    # any items that have just been addressed. If a string key appears in the
-    # language's diff, the translator has updated it, so its corresponding entry
-    # in updated_strings.xml is now obsolete and should be removed.
+    # Clean up updated_strings.xml if the translator has already fixed items in this commit
     if (
         lang_diff_keys
         and updated_strings_path.exists()
@@ -316,14 +319,11 @@ def _process_language_dir(
     ):
         was_modified = True
 
-    # Create updated_strings.xml
-    # This file contains strings that changed in the host but NOT in this translation.
-    # It serves as a "to-do" list for translators.
-    existing_lang_keys = get_keys_from_xml(lang_strings_path)
+    # Populate updated_strings.xml
     strings_for_update_xml = {
         name: xml
         for name, xml in host_changed_strings.items()
-        if name in existing_lang_keys and name not in lang_diff_keys
+        if name not in lang_diff_keys and name not in missing_keys
     }
 
     if strings_for_update_xml:

@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -84,6 +83,7 @@ import app.revanced.util.findMethodOrThrow
 import app.revanced.util.findMutableMethodOf
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.fingerprint.methodCall
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.resolvable
 import app.revanced.util.getReference
@@ -457,18 +457,6 @@ private val shortsRepeatPatch = bytecodePatch(
         )
 
         val endScreenReference = with(reelEnumConstructorFingerprint.methodOrThrow()) {
-            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID)
-
-            addInstructions(
-                insertIndex,
-                """
-                    # Pass the first enum value to extension.
-                    # Any enum value of this type will work.
-                    sget-object v0, $definingClass->a:$definingClass
-                    invoke-static { v0 }, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->setYTShortsRepeatEnum(Ljava/lang/Enum;)V
-                    """,
-            )
-
             val endScreenStringIndex =
                 indexOfFirstStringInstructionOrThrow("REEL_LOOP_BEHAVIOR_END_SCREEN")
             val endScreenReferenceIndex =
@@ -508,7 +496,18 @@ private val shortsRepeatPatch = bytecodePatch(
             }
         }
 
-        val enumMethod = reelEnumStaticFingerprint.methodOrThrow(reelEnumConstructorFingerprint)
+        val enumMethod =
+            reelEnumStaticFingerprint.methodOrThrow(reelEnumConstructorFingerprint)
+
+        findMethodOrThrow(EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR) {
+            name == "getShortsLoopBehaviorEnum"
+        }.addInstructions(
+            0, """
+                invoke-static/range { p0 .. p0 }, $enumMethod
+                move-result-object p0
+                return-object p0
+                """
+        )
 
         insertMethod.apply {
             implementation!!.instructions
@@ -914,43 +913,6 @@ val shortsComponentPatch = bytecodePatch(
         // region patch for hide share button (non-litho)
 
         shortsButtonFingerprint.hideButton(reelDynShare, "hideShortsShareButton", true)
-
-        // endregion
-
-        // region patch for hide paid promotion label (non-litho)
-
-        shortsPaidPromotionFingerprint.methodOrThrow().apply {
-            when (returnType) {
-                "Landroid/widget/TextView;" -> {
-                    val insertIndex = implementation!!.instructions.lastIndex
-                    val insertRegister =
-                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                    addInstructions(
-                        insertIndex + 1, """
-                            invoke-static {v$insertRegister}, $SHORTS_CLASS_DESCRIPTOR->hideShortsPaidPromotionLabel(Landroid/widget/TextView;)V
-                            return-object v$insertRegister
-                            """
-                    )
-                    removeInstruction(insertIndex)
-                }
-
-                "V" -> {
-                    addInstructionsWithLabels(
-                        0, """
-                            invoke-static {}, $SHORTS_CLASS_DESCRIPTOR->hideShortsPaidPromotionLabel()Z
-                            move-result v0
-                            if-eqz v0, :show
-                            return-void
-                            """, ExternalLabel("show", getInstruction(0))
-                    )
-                }
-
-                else -> {
-                    throw PatchException("Unknown returnType: $returnType")
-                }
-            }
-        }
 
         // endregion
 

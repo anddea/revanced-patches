@@ -1,5 +1,6 @@
 package app.revanced.extension.shared.patches;
 
+import static app.revanced.extension.shared.patches.AppCheckPatch.IS_YOUTUBE;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.hideViewBy0dpUnderCondition;
 
@@ -11,17 +12,17 @@ import android.view.WindowManager;
 
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class FullscreenAdsPatch {
-    private static final boolean HIDE_FULLSCREEN_ADS =
-            BaseSettings.HIDE_FULLSCREEN_ADS.get();
-    private static final ByteArrayFilterGroup exception =
+    private static final BooleanSetting HIDE_FULLSCREEN_ADS =
+            BaseSettings.HIDE_FULLSCREEN_ADS;
+    private static final ByteArrayFilterGroup filter =
             new ByteArrayFilterGroup(
-                    null,
-                    "post_image_lightbox." // Community post image in fullscreen
+                    HIDE_FULLSCREEN_ADS,
+                    "_interstitial"
             );
 
     /**
@@ -37,34 +38,25 @@ public class FullscreenAdsPatch {
      * Therefore, make sure that the dialog contains the ads at the beginning of the Method
      *
      * @param bytes proto buffer array
-     * @param type  dialog type (similar to {@link Enum#ordinal()})
      */
-    public static void checkDialog(byte[] bytes, int type) {
-        if (!HIDE_FULLSCREEN_ADS) {
-            return;
-        }
-        final DialogType dialogType = DialogType.getDialogType(type);
-        final String dialogName = dialogType.name();
-
-        // The dialog type of a fullscreen dialog is always {@code DialogType.FULLSCREEN}
-        if (dialogType != DialogType.FULLSCREEN) {
-            Logger.printDebug(() -> "Ignoring dialogType: " + dialogName);
-            isFullscreenAds = false;
-            return;
-        }
-
-        // Whether dialog is community post image (not ads)
-        final boolean isException = bytes != null &&
-                exception.check(bytes).isFiltered();
-
-        if (isException) {
-            Logger.printDebug(() -> "Ignoring exception");
-        }
-        isFullscreenAds = !isException;
+    public static void checkDialog(byte[] bytes) {
+        isFullscreenAds = bytes != null &&
+                filter.check(bytes).isFiltered();
     }
 
     /**
-     * Called after {@link #checkDialog(byte[], int)}
+     * Rest of the implementation added by patch.
+     */
+    private static void closeDialog(Object customDialog) {
+        // Casting customDialog to 'android.app.Dialog' and calling [dialog.onBackPressed()] also works with limitations.
+        // If the targetSDKVersion is 36+ and the device is running Android 16+, this method will most likely not work.
+        //
+        // So the patch call the 'onBackPressed()' method of the custom dialog class.
+        // The 'onBackPressed()' method of the customDialog class handles the OnBackInvokedDispatcher.
+    }
+
+    /**
+     * Called after {@link #checkDialog(byte[])}
      *
      * @param customDialog Custom dialog which bound by litho
      *                     Can be cast as {@link Dialog} or {@link DialogInterface}
@@ -73,6 +65,8 @@ public class FullscreenAdsPatch {
         if (isFullscreenAds && customDialog instanceof Dialog dialog) {
             Window window = dialog.getWindow();
             if (window != null) {
+                // Set the dialog size to 0 before closing.
+                // If the dialog is not resized to 0, it will remain visible for about a second before closing.
                 WindowManager.LayoutParams params = window.getAttributes();
                 params.height = 0;
                 params.width = 0;
@@ -83,19 +77,26 @@ public class FullscreenAdsPatch {
                 // Disable dialog's background dim.
                 window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
 
-                // Hide DecorView.
-                View decorView = window.getDecorView();
-                decorView.setVisibility(View.GONE);
+                // Restore window flags.
+                window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED);
 
+                // Restore decorView visibility.
+                window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+            }
+
+            if (IS_YOUTUBE) {
                 // Dismiss dialog.
                 dialog.dismiss();
-
-                if (BaseSettings.DEBUG_TOAST_ON_ERROR.get()) {
-                    Utils.showToastShort(str("revanced_fullscreen_ads_closed_toast"));
-                }
+            } else {
+                // In YouTube Music, the home feed doesn't load when the dialog is closed with [Dialog.dismiss()].
+                // Use [Dialog.onBackPressed()] to close the dialog, even with a 0.5-second delay.
+                Utils.runOnMainThreadDelayed(() -> closeDialog(customDialog), 100);
             }
-        } else {
-            Logger.printDebug(() -> "customDialog type: " + customDialog.getClass().getName());
+
+            if (BaseSettings.DEBUG_TOAST_ON_ERROR.get()
+                    || (!IS_YOUTUBE && BaseSettings.DEBUG.get())) {
+                Utils.showToastShort(str("revanced_fullscreen_ads_closed_toast"));
+            }
         }
     }
 
@@ -109,30 +110,4 @@ public class FullscreenAdsPatch {
                 view
         );
     }
-
-    /**
-     * YouTube and YouTube Music do not have Enum class for DialogType,
-     * but they have structures similar to Enum
-     * It can also be replaced by {@link Enum#ordinal()}
-     */
-    private enum DialogType {
-        NULL(0),
-        ALERT(1),
-        FULLSCREEN(2),
-        LAYOUT_FULLSCREEN(3);
-
-        private final int type;
-
-        DialogType(int type) {
-            this.type = type;
-        }
-
-        private static DialogType getDialogType(int type) {
-            for (DialogType dialogType : values())
-                if (type == dialogType.type) return dialogType;
-
-            return DialogType.NULL;
-        }
-    }
-
 }

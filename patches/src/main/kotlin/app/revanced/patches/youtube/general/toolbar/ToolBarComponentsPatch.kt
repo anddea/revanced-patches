@@ -256,6 +256,25 @@ val toolBarComponentsPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for hide search button
+
+        hookToolBar("$GENERAL_CLASS_DESCRIPTOR->hideSearchButton")
+
+        toolbarSearchButtonFingerprint
+            .methodOrThrow(toolbarSearchButtonLabelFingerprint)
+            .apply {
+                val index = indexOfShowAsActionInstruction(this)
+                val instruction = getInstruction<FiveRegisterInstruction>(index)
+
+                replaceInstruction(
+                    index,
+                    "invoke-static {v${instruction.registerC}, v${instruction.registerD}}, " +
+                            "$GENERAL_CLASS_DESCRIPTOR->hideSearchButton(Landroid/view/MenuItem;I)V"
+                )
+            }
+
+        // endregion
+
         // region patch for hide search term thumbnail
 
         if (!is_20_15_or_greater) {

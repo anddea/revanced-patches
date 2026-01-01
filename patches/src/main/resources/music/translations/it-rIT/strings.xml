@@ -81,6 +81,10 @@ Se possibile usa colori scuri, poiché l'app non supporta temi chiari."</string>
     <string name="revanced_debug_title">Abilita registrazione debug</string>
     <string name="revanced_default_app_settings_summary">Per aprire i link di YouTube Music in RVX Music, abilita Apri link supportati e abilita tutti gli indirizzi web supportati.</string>
     <string name="revanced_default_app_settings_title">Apri le impostazioni predefinite dell\'app</string>
+    <string name="revanced_disable_auto_audio_tracks_summary">"Disabilita le tracce audio automatiche forzate per i podcast.
+
+Limitazione: se 'Falsifica dati di streaming' è abilitato e il client predefinito è 'Android VR Auth', questa opzione potrebbe non funzionare."</string>
+    <string name="revanced_disable_auto_audio_tracks_title">Disattiva le tracce audio automatiche forzate</string>
     <string name="revanced_disable_auto_captions_summary">Sottotitoli automatici forzati disabilitati.</string>
     <string name="revanced_disable_auto_captions_title">Disabilita i sottotitoli automatici forzati</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Disabilita l\'animazione di avvio Cairo all\'avvio dell\'applicazione.</string>
@@ -138,9 +142,9 @@ Limitazioni:
 • ​I client più recenti di YouTube Music utilizzano il codec audio OPUS di default.
 ​• Ciò potrebbe essere necessario se il client o lo stream video è stato alterato (spoofato)."</string>
     <string name="revanced_enable_opus_codec_title">Abilita il codec opus</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">"Abilita un'animazione fluida quando il miniplayer viene massimizzato dallo stato ridotto a icona.
+    <string name="revanced_enable_smooth_transition_animation_summary">Abilita animazione fluida quando il miniplayer viene massimizzato dallo stato minimizzato.
 
-​Limiti: ​L'interfaccia utente dei testi in tempo reale potrebbe non funzionare correttamente per alcuni utenti."</string>
+Limitazioni: L\'interfaccia utente dei testi in tempo reale potrebbe essere danneggiata per alcuni utenti.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Abilita animazione transizione fluida</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Abilita "scorrere verso il basso" per chiudere il miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Abilita scorri per nascondere il miniplayer</string>
@@ -154,11 +158,6 @@ Limitazioni: i segmenti SponsorBlock non vengono mostrati nella barra di ricerca
     <string name="revanced_enable_zen_mode_podcast_title">Abilita la modalità Zen nei podcast</string>
     <string name="revanced_enable_zen_mode_summary">Aggiunge una sfumatura grigia al riproduttore video per ridurre l\'affaticamento degli occhi.</string>
     <string name="revanced_enable_zen_mode_title">Abilita la modalità zen</string>
-    <string name="revanced_extended_settings_export_failed">Esportazione impostazioni fallita.</string>
-    <string name="revanced_extended_settings_export_success">Impostazioni esportate con successo.</string>
-    <string name="revanced_extended_settings_import">Importa</string>
-    <string name="revanced_extended_settings_import_reset">Ripristino impostazioni ai valori predefiniti</string>
-    <string name="revanced_extended_settings_title">Impostazioni RVX</string>
     <string name="revanced_external_downloader_action_summary">"Il pulsante Download apre il downloader esterno.
 
 • Sovrascrive solo il pulsante Download nel player.
@@ -237,7 +236,6 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Nascondi il menu Rimuovi della playlist</string>
     <string name="revanced_hide_flyout_menu_report_title">Nascondi il menu Segnala</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Nascondi il menu Salva episodio per dopo</string>
-    <string name="revanced_hide_flyout_menu_save_to_library_title">Nascondi il menu Salva nella libreria</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">Nascondi il menu Salva nella playlist</string>
     <string name="revanced_hide_flyout_menu_share_title">Nascondi il menu Condivisione</string>
     <string name="revanced_hide_flyout_menu_shuffle_play_title">Nascondi il menu Riproduzione casuale</string>
@@ -247,10 +245,7 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Nascondi il menu Iscriviti / Annulla Iscrizione</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Nascondi dal menu Sblocca dalla selezione rapida</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Nascondi il menu Visualizza crediti brano</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"Nasconde gli annunci a schermo intero.
-
-Limitazioni:
-• A volte potrebbe apparire una schermata nera invece della Home."</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Nasconde gli annunci a schermo intero."</string>
     <string name="revanced_hide_fullscreen_ads_title">Nascondi gli annunci a schermo intero</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Nasconde il pulsante Condividi nel lettore a schermo intero.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Nascondi il pulsante Condividi a schermo intero</string>
@@ -439,8 +434,8 @@ Fai clic per vedere come emettere una chiave API."</string>
     <string name="revanced_sb_enabled">Abilita SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock è un sistema di crowdsourcing per saltare parti fastidiose dei video di YouTube.</string>
     <string name="revanced_sb_reset_color">Resetta colore</string>
-    <string name="revanced_sb_segments_filler">Riempitivo Tangente / Scherzi</string>
-    <string name="revanced_sb_segments_filler_sum">Scene tangenziali aggiunte solo come riempitivo o umorismo che non sono necessarie per comprendere il contenuto principale del video. Non include segmenti che forniscono contesto o dettagli di background.</string>
+    <string name="revanced_sb_segments_filler">Digressioni o battute</string>
+    <string name="revanced_sb_segments_filler_sum">Scene di digressione o battute non necessarie per comprendere il contenuto principale del video. Non dovrebbe includere sezioni con informazioni.</string>
     <string name="revanced_sb_segments_hook">Collegamento / Saluti</string>
     <string name="revanced_sb_segments_hook_sum">Trailer narrati per il prossimo video, saluti e arrivederci. Non include sezioni che aggiungono contenuti aggiuntivi.</string>
     <string name="revanced_sb_segments_interaction">Promemoria interazione (Iscriviti)</string>
@@ -451,7 +446,7 @@ Fai clic per vedere come emettere una chiave API."</string>
     <string name="revanced_sb_segments_nomusic_sum">Da utilizzare solo nei video musicali. Sezioni di video musicali senza musica, che non siano già coperte da un\'altra categoria.</string>
     <string name="revanced_sb_segments_outro">Schede finali / Crediti</string>
     <string name="revanced_sb_segments_outro_sum">I crediti o quando appaiono le schede finali. Non per conclusioni con informazioni.</string>
-    <string name="revanced_sb_segments_preview">Anteprima / Riepilogo / Gancio</string>
+    <string name="revanced_sb_segments_preview">Anteprima o riepilogo</string>
     <string name="revanced_sb_segments_preview_sum">Raccolta di clip che mostrano cosa sta succedendo o cosa è successo nel video o in altri video di una serie, dove tutte le informazioni vengono ripetute altrove.</string>
     <string name="revanced_sb_segments_selfpromo">Promozione non retribuita / Autopromozione</string>
     <string name="revanced_sb_segments_selfpromo_sum">Simile a Sponsor, eccetto per la promozione non retribuita o autopromozione. Include sezioni su merchandising, donazioni o informazioni su chi ha collaborato con loro.</string>
@@ -459,7 +454,7 @@ Fai clic per vedere come emettere una chiave API."</string>
     <string name="revanced_sb_segments_sponsor_sum">Promozioni a pagamento, referral a pagamento e pubblicità diretta. Non per autopromozione o ringraziamenti gratuiti a cause, creatori, siti web o prodotti di loro gradimento.</string>
     <string name="revanced_sb_skip_automatically">Salta automaticamente</string>
     <string name="revanced_sb_skip_ignore">Disabilita</string>
-    <string name="revanced_sb_skipped_filler">Riempitivo saltato.</string>
+    <string name="revanced_sb_skipped_filler">Digressione saltata</string>
     <string name="revanced_sb_skipped_hook">Collegamento saltato.</string>
     <string name="revanced_sb_skipped_interaction">Promemoria indesiderato saltato.</string>
     <string name="revanced_sb_skipped_intro_beginning">Introduzione saltata.</string>
@@ -531,45 +526,92 @@ Fai clic per vedere come emettere una chiave API."</string>
     <string name="revanced_spoof_client_title">Falsifica client</string>
     <string name="revanced_spoof_client_type_summary">"Definisce un client predefinito per la falsificazione."</string>
     <string name="revanced_spoof_client_type_title">Client predefinito</string>
-    <string name="revanced_spoof_player_parameter_summary">"Falsifica il parametro del lettore per evitare problemi di riproduzione.
-
-Effetto collaterale:
-• A volte i sottotitoli si trovano nella parte superiore del lettore anziché in quella inferiore."</string>
-    <string name="revanced_spoof_player_parameter_title">Falsifica i parametri del lettore</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android No SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Legacy</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Definisce un client predefinito per la falsificazione.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Client predefinito</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Non è stato possibile recuperare alcun flusso client.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Prova a cambiare il client predefinito in TV o TV Simply.</string>
-    <string name="revanced_spoof_streaming_data_message">Se riscontri problemi di riproduzione, attiva una delle seguenti opzioni, a seconda di quella più adatta alle tue esigenze:: \"Falsifica lo streaming dei video\" o \"Falsifica client\" in &lt;i&gt;&lt;u&gt; Impostazioni &gt; %s &gt; Varie&lt;/u&gt;&lt;/i&gt;.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Clicca per vedere come ottenere un token di autenticazione.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Informazioni su Android No Sdk Auth</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Tocca qui per vedere come accedere ad Android VR.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Accedi ad Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Codice di attivazione:
+%s
+
+1. Tocca \"Apri sito\" per andare su \"https://yt.be/activate\".
+2. Inserisci il codice di attivazione.
+3. Accedi quando richiesto. Se hai più account Google, seleziona l'account che usi con YouTube. Se hai già effettuato l'accesso, vai al passaggio successivo.
+4. Una volta effettuato l'accesso, torna su RVX e tocca \"Accedi ad Android VR\".
+5. Tocca \"Ottieni un token di accesso\" per ottenere un token."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Apri sito</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Codice di attivazione</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Codice di attivazione copiato negli appunti (%s)</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Ottieni un codice di attivazione</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Ottieni un token di accesso</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"L'accesso ad Android VR (YouTube VR) segue le linee guida fornite da Google (Autorizzazione dell'Account Google - OAuth 2.0 per applicazioni TV e di dispositivi con input limitato):
+1. Tocca \"Ottieni un codice di attivazione\" per generare un codice.
+2. Tocca \"Apri sito\" per andare su \"https://yt.be/activate\".
+3. Inserisci il codice di attivazione.
+4. Accedi quando richiesto. Se hai più account Google, seleziona l'account che usi con YouTube. Se hai già effettuato l'accesso, vai al passaggio successivo.
+5. Una volta effettuato l'accesso, torna su RVX e tocca nuovamente \"Informazioni su Android VR (Accesso richiesto)\".
+6. Tocca \"Ottieni un token di accesso\" per ottenere un token.
+
+Nota: tocca \"Ripristina\" per rimuovere un token di accesso o un codice di attivazione."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Ripristina</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Accedi ad Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Il token di accesso è stato salvato.
+
+Note:
+• Il token emesso tramite questa procedura può essere usato solo con YouTube VR (in RVX, viene usato per recuperare i dati di streaming da YouTube VR).
+• I token non usati per più di 6 mesi verranno revocati dai server di Google.
+• Se cambi la password, annulli la registrazione di un dispositivo nelle impostazioni del tuo account o disinstalli l'app, dovrai emettere nuovamente il token."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Accesso effettuato</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Emissione di un token di accesso non riuscita</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Tocca \"Ripristina\" e riprova</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Token di accesso e codice di attivazione ripristinati</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Mostra il client utilizzato per recuperare i dati in streaming in statistiche per nerd.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra in statistiche per nerd</string>
     <string name="revanced_spoof_streaming_data_summary">"Falsifica i flussi video del client per evitare problemi di riproduzione.
 
 Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necessaria."</string>
-    <string name="revanced_spoof_streaming_data_title">Falsifica streaming dei dati</string>
+    <string name="revanced_spoof_streaming_data_title">Falsifica dati di streaming</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"Se abilitato, la versione JavaScript più recente verrà utilizzata per deoffuscare URL di streaming su 'TV', 'TV Simply' e 'Mobile Web'.
 
 Se hai problemi con il tuo client JavaScript, prova prima a disabilitarlo."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Usa l\'ultima versione di JavaScript</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Usa yt-dlp ejs (In fase di sviluppo)</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Clicca per vedere come ottenere un token di autenticazione.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Informazioni Su Android VR Auth</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Effetto collaterale:
 ​• L'app potrebbe chiudersi inaspettatamente quando si usa una VPN o un DNS.
 • ​L'audio potrebbe andare a scatti in modo intermittente durante la riproduzione su client di streaming a bitrate adattivo (tutti i client tranne Android VR 1.43.32)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Client predefinito</string>
     <string name="revanced_spoof_video_streams_summary">Simula gli stream video del client per evitare problemi di riproduzione.</string>
     <string name="revanced_spoof_video_streams_title">Falsifica lo streaming dei video</string>
+    <string name="revanced_translations_title">Traduzioni</string>
     <string name="revanced_watch_history_type_entry_1">Originale</string>
     <string name="revanced_watch_history_type_entry_2">Sostituisci dominio</string>
     <string name="revanced_watch_history_type_entry_3">Blocca la cronologia delle visualizzazioni</string>
     <string name="revanced_watch_history_type_summary">"• Originale: segue le impostazioni della cronologia delle visualizzazioni dell'account Google, ma la cronologia delle visualizzazioni potrebbe non funzionare a causa di DNS o VPN.
 • Sostituisci dominio: segue le impostazioni della cronologia delle visualizzazioni dell'account Google.
 • Blocca cronologia delle visualizzazioni: la cronologia delle visualizzazioni è bloccata."</string>
-    <string name="revanced_watch_history_type_title">Guarda il tipo di cronologia</string>
+    <string name="revanced_watch_history_type_title">Cambia il tipo di cronologia</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Ottieni i cookie</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Ottieni ID di sincronizzazione dati</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Ottieni dati dei visitatori</string>
+    <string name="revanced_webview_contextual_menu_refresh">Aggiorna</string>
+    <string name="revanced_webview_cookies">Cookie</string>
+    <string name="revanced_webview_copy">Copia</string>
+    <string name="revanced_webview_data_sync_id">ID di sincronizzazione dati</string>
+    <string name="revanced_webview_toast_copy_success">%s copiato negli appunti.</string>
+    <string name="revanced_webview_toast_empty">%s è vuota.</string>
+    <string name="revanced_webview_toast_no_network">Controlla la tua connessione di rete.</string>
+    <string name="revanced_webview_toast_unavailable">WebView non è disponibile.</string>
+    <string name="revanced_webview_visitor_data">Dati dei visitatori</string>
 </resources>

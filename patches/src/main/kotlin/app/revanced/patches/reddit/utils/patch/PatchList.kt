@@ -64,5 +64,9 @@ internal enum class PatchList(
     SETTINGS_FOR_REDDIT(
         "Settings for Reddit",
         "Applies mandatory patches to implement ReVanced Extended settings into the application."
+    ),
+    TRANSLATIONS_FOR_REDDIT(
+        "Translations for Reddit",
+        "Add translations for RVX settings."
     )
 }

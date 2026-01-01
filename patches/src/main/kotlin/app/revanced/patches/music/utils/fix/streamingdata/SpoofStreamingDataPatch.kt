@@ -11,9 +11,13 @@ import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
+import app.revanced.patches.music.utils.webview.webViewPatch
 import app.revanced.patches.music.video.information.videoInformationPatch
 import app.revanced.patches.music.video.playerresponse.Hook
 import app.revanced.patches.music.video.playerresponse.addPlayerResponseMethodHook
+import app.revanced.patches.shared.buildRequestFingerprint
+import app.revanced.patches.shared.buildRequestParentFingerprint
+import app.revanced.patches.shared.indexOfNewUrlRequestBuilderInstruction
 import app.revanced.patches.shared.spoof.streamingdata.EXTENSION_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.spoof.streamingdata.spoofStreamingDataPatch
 import app.revanced.util.fingerprint.methodOrThrow
@@ -25,6 +29,7 @@ val spoofStreamingDataPatch = spoofStreamingDataPatch(
             settingsPatch,
             versionCheckPatch,
             videoInformationPatch,
+            webViewPatch,
         )
     },
     isYouTube = {
@@ -75,15 +80,14 @@ val spoofStreamingDataPatch = spoofStreamingDataPatch(
             "revanced_spoof_streaming_data_default_client",
             "revanced_spoof_streaming_data",
         )
-        addSwitchPreference(
+        addPreferenceWithIntent(
             CategoryType.MISC,
-            "revanced_spoof_streaming_data_use_yt_dlp_ejs",
-            "false",
+            "revanced_spoof_streaming_data_sign_in_android_no_sdk_about",
             "revanced_spoof_streaming_data"
         )
         addPreferenceWithIntent(
             CategoryType.MISC,
-            "revanced_spoof_streaming_data_vr_auth_token_about",
+            "revanced_spoof_streaming_data_sign_in_android_vr_about",
             "revanced_spoof_streaming_data"
         )
     },

@@ -29,9 +29,7 @@ import app.revanced.util.fingerprint.definingClassOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.fingerprint.matchOrThrow
-import app.revanced.util.fingerprint.methodCall
 import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.getNode
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
@@ -76,10 +74,6 @@ const val EXTENSION_STREAMING_DATA_INTERFACE =
 
 const val EXTENSION_YOUTUBE_SPOOF_PATH =
     app.revanced.patches.youtube.utils.extension.Constants.SPOOF_PATH
-const val EXTENSION_AUTO_TRACK_CLASS_DESCRIPTOR =
-    "$EXTENSION_YOUTUBE_SPOOF_PATH/AudioTrackPatch;"
-const val EXTENSION_AUTO_TRACK_BUTTON_CLASS_DESCRIPTOR =
-    "$EXTENSION_YOUTUBE_SPOOF_PATH/ui/AudioTrackButton;"
 const val EXTENSION_RELOAD_VIDEO_CLASS_DESCRIPTOR =
     "$EXTENSION_YOUTUBE_SPOOF_PATH/ReloadVideoPatch;"
 const val EXTENSION_RELOAD_VIDEO_BUTTON_CLASS_DESCRIPTOR =
@@ -196,14 +190,6 @@ fun spoofStreamingDataPatch(
                         getInstruction(getVideoDetailsFallbackIndex).getReference<FieldReference>()!!
                     val freeRegister = implementation!!.registerCount - parameters.size - 2
 
-                    val audioTrackSmaliInstruction = if (isYouTube()) {
-                        """
-                            invoke-static { v$freeRegister, v$setStreamingDataRegister }, $EXTENSION_AUTO_TRACK_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;${STREAMING_DATA_OUTER_CLASS})V
-                        """
-                    } else {
-                        ""
-                    }
-
                     addInstructionsAtControlFlowLabel(
                         setStreamingDataIndex, """
                             iget-object v$freeRegister, p1, $getVideoDetailsField
@@ -211,7 +197,6 @@ fun spoofStreamingDataPatch(
                             sget-object v$freeRegister, $getVideoDetailsFallbackField
                             :ignore
                             iget-object v$freeRegister, v$freeRegister, ${getVideoDetailsField.type}->c:Ljava/lang/String;
-                            """ + audioTrackSmaliInstruction + """
                             invoke-direct { p0, v$setStreamingDataRegister, v$freeRegister }, $resultMethodType->$setStreamDataMethodName(${STREAMING_DATA_OUTER_CLASS}Ljava/lang/String;)$STREAMING_DATA_OUTER_CLASS
                             move-result-object v$setStreamingDataRegister
                             """
@@ -439,13 +424,6 @@ fun spoofStreamingDataPatch(
             }
         }
 
-        playbackStartParametersFingerprint
-            .methodOrThrow()
-            .addInstruction(
-                1,
-                "invoke-static {p3}, $EXTENSION_CLASS_DESCRIPTOR->newPlayerResponseCpn(Ljava/lang/String;)V"
-            )
-
         // endregion
 
         // region JavaScript client
@@ -468,22 +446,6 @@ fun spoofStreamingDataPatch(
                 "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->initializeJavascript()V"
             )
         }
-
-        val (brotliInputStreamClassName, brotliInputStreamMethodCall) = with(
-            brotliInputStreamFingerprint.methodOrThrow()
-        ) {
-            Pair(definingClass, methodCall())
-        }
-
-        findMethodOrThrow(EXTENSION_UTILS_CLASS_DESCRIPTOR) {
-            name == "getBrotliInputStream"
-        }.addInstructions(
-            0, """
-                new-instance v0, $brotliInputStreamClassName
-                invoke-direct {v0, p0}, $brotliInputStreamMethodCall
-                return-object v0
-                """
-        )
 
         // Copy the j2v8 library.
         with(context) {
@@ -510,10 +472,9 @@ fun spoofStreamingDataPatch(
             arrayOf(
                 ResourceGroup(
                     "raw",
-                    "po_token.html",
                     // External JavaScript for yt-dlp: https://github.com/yt-dlp/ejs
-                    "astring.bundle.min.js",
-                    "meriyah.bundle.min.js",
+                    "astring-1.9.0.min.js",
+                    "meriyah-6.1.4.min.js",
                     "polyfill.js",
                     "yt.solver.core.js",
                 )
@@ -522,12 +483,6 @@ fun spoofStreamingDataPatch(
             }
 
             document("AndroidManifest.xml").use { document ->
-                // WebViewUtils.
-                val feature = document.createElement("uses-feature").apply {
-                    setAttribute("android:name", "android.hardware.usb.host")
-                }
-                document.getNode("manifest").appendChild(feature)
-
                 // Fix compile error in YouTube Music.
                 val applicationNode =
                     document
@@ -550,7 +505,6 @@ fun spoofStreamingDataPatch(
             arrayOf(
                 ResourceGroup(
                     "drawable",
-                    "revanced_audio_track.xml",
                     "revanced_reload_video.xml",
                 )
             ).forEach { resourceGroup ->
@@ -672,19 +626,9 @@ fun spoofStreamingDataPatch(
 
         // endregion
 
-        var patchStatusArray = arrayOf(
-            "SpoofStreamingData"
-        )
-
-        if (isYouTube()) {
-            patchStatusArray += "SpoofStreamingDataYouTube"
-        }
-
-        patchStatusArray.forEach { methodName ->
-            findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
-                name == methodName
-            }.returnEarly(true)
-        }
+        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
+            name == "SpoofStreamingData"
+        }.returnEarly(true)
 
         executeBlock()
     }

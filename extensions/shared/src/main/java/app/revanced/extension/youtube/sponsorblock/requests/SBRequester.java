@@ -288,7 +288,7 @@ public class SBRequester {
             String privateUserID = SponsorBlockSettings.getSBPrivateUserID();
             UserStats fetchedStats = new UserStats(privateUserID,
                     getJSONObject(SBRoutes.GET_USER_STATS, privateUserID));
-            Logger.printDebug(() -> "user stats: " + fetchedStats);
+            // Logger.printDebug(() -> "user stats: " + fetchedStats);
             lastFetchedStats = fetchedStats;
             return fetchedStats;
         } catch (IOException ex) {

@@ -21,11 +21,10 @@ import app.revanced.extension.youtube.settings.Settings;
 @SuppressWarnings("unused")
 public final class AdsFilter extends Filter {
 
-    private final StringFilterGroup creatorStoreShelf;
     private final ByteArrayFilterGroup creatorStoreShelfBuffer;
+    private final StringFilterGroup creatorStoreShelf;
 
     public AdsFilter() {
-
         // Identifiers.
 
         final StringFilterGroup alertBannerPromo = new StringFilterGroup(
@@ -46,9 +45,6 @@ public final class AdsFilter extends Filter {
 
                 // "inline_injection_entrypoint_layout."
                 "inline_injection_entrypoint_layout",
-
-                // "statement_banner."
-                "statement_banner",
 
                 // "video_display_button_group_layout"
                 // "video_display_carousel_button_group_layout"
@@ -82,9 +78,9 @@ public final class AdsFilter extends Filter {
                 "shopping_carousel"
         );
 
-        final StringFilterGroup paidContent = new StringFilterGroup(
-                Settings.HIDE_PAID_PROMOTION_LABEL,
-                "paid_content_overlay"
+        final StringFilterGroup promotionBanner = new StringFilterGroup(
+                Settings.HIDE_YOUTUBE_PREMIUM_PROMOTION,
+                "statement_banner"
         );
 
         final StringFilterGroup selfSponsor = new StringFilterGroup(
@@ -114,7 +110,7 @@ public final class AdsFilter extends Filter {
                 alertBannerPromo,
                 generalAdsIdentifier,
                 merchandise,
-                paidContent,
+                promotionBanner,
                 selfSponsor,
                 shoppingLinks,
                 viewProducts,
@@ -147,9 +143,17 @@ public final class AdsFilter extends Filter {
                 "shopping_item_card_list."
         );
 
+        final StringFilterGroup paidContent = new StringFilterGroup(
+                Settings.HIDE_PAID_PROMOTION_LABEL,
+                "paid_content_overlay",
+                "reel_player_disclosure",
+                "shorts_disclosure"
+        );
+
         addPathCallbacks(
                 creatorStoreShelf,
                 generalAdsPath,
+                paidContent,
                 viewProducts
         );
     }

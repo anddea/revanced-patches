@@ -98,14 +98,14 @@
     </string-array>
     <string-array name="revanced_change_shorts_repeat_state_entries">
         <item>@string/revanced_change_shorts_repeat_state_entry_default</item>
-        <item>@string/revanced_change_shorts_repeat_state_entry_repeat</item>
         <item>@string/revanced_change_shorts_repeat_state_entry_auto_play</item>
+        <item>@string/revanced_change_shorts_repeat_state_entry_repeat</item>
         <item>@string/revanced_change_shorts_repeat_state_entry_pause</item>
     </string-array>
     <string-array name="revanced_change_shorts_repeat_state_entry_values">
         <item>UNKNOWN</item>
-        <item>REPEAT</item>
         <item>SINGLE_PLAY</item>
+        <item>REPEAT</item>
         <item>END_SCREEN</item>
     </string-array>
     <string-array name="revanced_custom_playback_speed_menu_type_entries">
@@ -413,6 +413,18 @@
         <item>MINIMAL</item>
         <item>TABLET</item>
     </string-array>
+    <string-array name="revanced_replace_navigation_button_target_entries">
+        <item>@string/revanced_replace_navigation_button_target_entry_home</item>
+        <item>@string/revanced_replace_navigation_button_target_entry_shorts</item>
+        <item>@string/revanced_replace_navigation_button_target_entry_subscriptions</item>
+        <item>@string/revanced_replace_navigation_button_target_entry_notifications</item>
+    </string-array>
+    <string-array name="revanced_replace_navigation_button_target_entry_values">
+        <item>HOME</item>
+        <item>SHORTS</item>
+        <item>SUBSCRIPTIONS</item>
+        <item>NOTIFICATIONS</item>
+    </string-array>
     <string-array name="revanced_return_youtube_username_display_format_entries">
         <item>@string/revanced_return_youtube_username_display_format_username_only</item>
         <item>@string/revanced_return_youtube_username_display_format_username_handle</item>
@@ -489,41 +501,33 @@
     </string-array>
     <string-array name="revanced_spoof_streaming_data_default_client_entries">
         <item>@string/revanced_spoof_streaming_data_client_entry_android_creator</item>
+        <item>@string/revanced_spoof_streaming_data_client_entry_android_no_sdk</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_android_vr</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_android_vr_auth</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_ipados</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_visionos</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_ios_deprecated</item>
     </string-array>
     <string-array name="revanced_spoof_streaming_data_default_client_entry_values">
         <item>ANDROID_CREATOR</item>
+        <item>ANDROID_NO_SDK</item>
         <item>ANDROID_VR</item>
-        <item>ANDROID_VR_AUTH</item>
-        <item>IPADOS</item>
         <item>VISIONOS</item>
-        <item>IOS_DEPRECATED</item>
     </string-array>
     <string-array name="revanced_spoof_streaming_data_default_client_with_js_entries">
         <item>@string/revanced_spoof_streaming_data_client_entry_android_creator</item>
+        <item>@string/revanced_spoof_streaming_data_client_entry_android_no_sdk</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_android_vr</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_android_vr_auth</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_ipados</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_mweb</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_tv</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_tv_simply_no_potoken</item>
+        <item>@string/revanced_spoof_streaming_data_client_entry_tv_legacy</item>
+        <item>@string/revanced_spoof_streaming_data_client_entry_tv_simply</item>
         <item>@string/revanced_spoof_streaming_data_client_entry_visionos</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_ios_deprecated</item>
     </string-array>
     <string-array name="revanced_spoof_streaming_data_default_client_with_js_entry_values">
         <item>ANDROID_CREATOR</item>
+        <item>ANDROID_NO_SDK</item>
         <item>ANDROID_VR</item>
-        <item>ANDROID_VR_AUTH</item>
-        <item>IPADOS</item>
-        <item>MWEB</item>
         <item>TV</item>
-        <item>TV_SIMPLY_NO_POTOKEN</item>
+        <item>TV_LEGACY</item>
+        <item>TV_SIMPLY</item>
         <item>VISIONOS</item>
-        <item>IOS_DEPRECATED</item>
     </string-array>
     <string-array name="revanced_swipe_overlay_style_entries">
         <item>@string/revanced_swipe_overlay_style_entry_0</item>

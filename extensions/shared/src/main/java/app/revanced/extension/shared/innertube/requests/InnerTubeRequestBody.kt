@@ -7,7 +7,6 @@ import app.revanced.extension.shared.requests.Route.CompiledRoute
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.StringRef.str
 import app.revanced.extension.shared.utils.Utils
-import com.liskovsoft.youtubeapi.app.PoTokenGate
 import org.apache.commons.lang3.StringUtils
 import org.json.JSONArray
 import org.json.JSONException
@@ -37,10 +36,15 @@ object InnerTubeRequestBody {
      */
     private const val CONNECTION_TIMEOUT_MILLISECONDS = 10 * 1000 // 10 Seconds.
 
-    private val LOCALE: Locale = Utils.getContext().resources
-        .configuration.locale
-    private val LOCALE_COUNTRY: String = LOCALE.country
-    private val LOCALE_LANGUAGE: String = LOCALE.language
+    private val LOCALE: Locale by lazy {
+        Utils.getContext().resources.configuration.locale
+    }
+    private val LOCALE_COUNTRY: String by lazy {
+        LOCALE.country
+    }
+    private val LOCALE_LANGUAGE: String by lazy {
+        LOCALE.language
+    }
     private val TIME_ZONE: TimeZone = TimeZone.getDefault()
     private val TIME_ZONE_ID: String = TIME_ZONE.id
     private val UTC_OFFSET_MINUTES: Int = TIME_ZONE.getOffset(Date().time) / 60000
@@ -50,8 +54,7 @@ object InnerTubeRequestBody {
         clientType: YouTubeClient.ClientType,
         videoId: String,
         playlistId: String? = null,
-        setLocale: Boolean = !clientType.supportsCookies,
-        language: String = "",
+        language: String = LOCALE_LANGUAGE,
     ): ByteArray {
         val innerTubeBody = JSONObject()
 
@@ -66,14 +69,7 @@ object InnerTubeRequestBody {
             if (clientType.androidSdkVersion != null) {
                 client.put("androidSdkVersion", clientType.androidSdkVersion)
             }
-            client.put(
-                "hl",
-                if (setLocale && language.isNotEmpty()) {
-                    language
-                } else {
-                    LOCALE_LANGUAGE
-                }
-            )
+            client.put("hl", language)
             client.put("gl", LOCALE_COUNTRY)
             client.put("timeZone", TIME_ZONE_ID)
             client.put("utcOffsetMinutes", "$UTC_OFFSET_MINUTES")
@@ -100,9 +96,6 @@ object InnerTubeRequestBody {
     fun createJSRequestBody(
         clientType: YouTubeClient.ClientType,
         videoId: String,
-        cpn: String = "",
-        setLocale: Boolean = !clientType.supportsCookies,
-        language: String = "",
         isGVS: Boolean = false,
         isInlinePlayback: Boolean = false,
     ): ByteArray {
@@ -114,14 +107,7 @@ object InnerTubeRequestBody {
             client.put("clientVersion", ThrottlingParameterUtils.getClientVersion(clientType))
             client.put("platform", clientType.clientPlatform)
             client.put("clientScreen", clientType.clientScreen)
-            client.put(
-                "hl",
-                if (setLocale && language.isNotEmpty()) {
-                    language
-                } else {
-                    LOCALE_LANGUAGE
-                }
-            )
+            client.put("hl", LOCALE_LANGUAGE)
             client.put("gl", LOCALE_COUNTRY)
             client.put("timeZone", TIME_ZONE_ID)
             client.put("utcOffsetMinutes", UTC_OFFSET_MINUTES.toString())
@@ -139,9 +125,6 @@ object InnerTubeRequestBody {
             innerTubeBody.put("racyCheckOk", true)
             innerTubeBody.put("contentCheckOk", true)
             innerTubeBody.put("videoId", videoId)
-            if (cpn.isNotEmpty()) {
-                innerTubeBody.put("cpn", cpn)
-            }
 
             val user = JSONObject()
             user.put("lockedSafetyMode", false)
@@ -149,7 +132,6 @@ object InnerTubeRequestBody {
 
             if (isGVS) {
                 val contentPlaybackContext = JSONObject()
-                val requirePoToken = clientType.requirePoToken
                 if (clientType.refererFormat != null) {
                     contentPlaybackContext.put(
                         "referer",
@@ -166,18 +148,16 @@ object InnerTubeRequestBody {
                 if (signatureTimestamp != null) {
                     contentPlaybackContext.put("signatureTimestamp", signatureTimestamp)
                 }
+
+                val devicePlaybackCapabilities = JSONObject()
+                devicePlaybackCapabilities.put("supportsVp9Encoding", true)
+                devicePlaybackCapabilities.put("supportXhr", false)
+
                 val playbackContext = JSONObject()
                 playbackContext.put("contentPlaybackContext", contentPlaybackContext)
-                innerTubeBody.put("playbackContext", playbackContext)
+                playbackContext.put("devicePlaybackCapabilities", devicePlaybackCapabilities)
 
-                if (requirePoToken) {
-                    val playerRequestPoToken = PoTokenGate.getContentPoToken(videoId)
-                    if (playerRequestPoToken != null) {
-                        val serviceIntegrityDimensions = JSONObject()
-                        serviceIntegrityDimensions.put("poToken", playerRequestPoToken)
-                        innerTubeBody.put("serviceIntegrityDimensions", serviceIntegrityDimensions)
-                    }
-                }
+                innerTubeBody.put("playbackContext", playbackContext)
             }
         } catch (e: JSONException) {
             Logger.printException({ "Failed to create js innerTubeBody" }, e)

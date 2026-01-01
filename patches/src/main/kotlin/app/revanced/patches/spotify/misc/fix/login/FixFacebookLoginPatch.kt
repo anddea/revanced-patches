@@ -9,7 +9,11 @@ val fixFacebookLoginPatch = bytecodePatch(
     description =
         "Fix logging in with Facebook when the app is patched by always opening the login in a web browser window.",
 ) {
-    compatibleWith("com.spotify.music")
+    compatibleWith(
+        "com.spotify.music"(
+            "9.0.90.1229",
+        ),
+    )
 
     execute {
         // The Facebook SDK tries to handle the login using the Facebook app in case it is installed.

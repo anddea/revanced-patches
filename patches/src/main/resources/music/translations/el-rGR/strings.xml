@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Συνέχεια</string>
+    <string name="gms_core_dialog_dismiss_text">Να μην εμφανιστεί ξανά</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Το MicroG GmsCore δεν έχει άδεια να τρέχει στο παρασκήνιο.
 
 Ακολουθήστε τον οδηγό \"Don't kill my app!\" για το τηλέφωνό σας και εφαρμόστε τις οδηγίες στο MicroG.
@@ -141,9 +142,7 @@
 • Οι πιο πρόσφατες εκδόσεις YouTube Music χρησιμοποιούν τον κωδικοποιητή opus από προεπιλογή.
 • Αυτή η ρύθμιση μπορεί να είναι απαραίτητη αν μία από τις ρυθμίσεις «Παραποίηση προγράμματος πελάτη» ή «Παραποίηση ροών βίντεο» είναι ενεργοποιημένη."</string>
     <string name="revanced_enable_opus_codec_title">Ενεργοποίηση κωδικοποιητή opus</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">"Ενεργοποίηση ομαλού animation μετάβασης όταν η ελαχιστοποιημένη οθόνη αναπαραγωγής μεγιστοποιείται από την ελαχιστοποιημένη κατάσταση.
-
-Περιορισμός: Οι στίχοι σε πραγματικό χρόνο μπορεί να μη λειτουργούν για κάποιους χρήστες."</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">Ενεργοποίηση ομαλού εφέ μετάβασης όταν η ελαχιστοποιημένη οθόνη αναπαραγωγής μεγιστοποιείται από την ελαχιστοποιημένη κατάσταση.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Ομαλή μετάβαση ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Ενεργοποίηση χειρονομίας σάρωσης προς τα κάτω για απόρριψη της ελαχιστοποιημένης οθόνης αναπαραγωγής.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Χειρονομία απόρριψης ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
@@ -157,11 +156,6 @@
     <string name="revanced_enable_zen_mode_podcast_title">Λειτουργία zen σε ηχητικές εκπομπές</string>
     <string name="revanced_enable_zen_mode_summary">Ενεργοποίηση μιας γκρι απόχρωσης στο παρασκήνιο της οθόνης αναπαραγωγής για να μειωθεί η καταπόνηση των ματιών.</string>
     <string name="revanced_enable_zen_mode_title">Ενεργοποίηση λειτουργίας zen</string>
-    <string name="revanced_extended_settings_export_failed">Αποτυχία εξαγωγής ρυθμίσεων.</string>
-    <string name="revanced_extended_settings_export_success">Οι ρυθμίσεις εξήχθησαν με επιτυχία.</string>
-    <string name="revanced_extended_settings_import">Εισαγωγή</string>
-    <string name="revanced_extended_settings_import_reset">Οι ρυθμίσεις επαναφέρθηκαν στις προεπιλογές.</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Το κουμπί «Λήψη» ανοίγει την εξωτερική εφαρμογή λήψης σας.
 
 • Η μετατροπή αφορά μόνο το κουμπί ενέργειας στην οθόνη αναπαραγωγής.
@@ -175,6 +169,8 @@
     <string name="revanced_external_downloader_package_name_summary">Όνομα πακέτου της εγκατεστημένης εξωτερικής εφαρμογής λήψης (π.χ NewPipe, Seal).</string>
     <string name="revanced_external_downloader_package_name_title">Όνομα πακέτου εξωτερικής εφαρμογής λήψης</string>
     <string name="revanced_fullscreen_ads_closed_toast">Οι διαφημίσεις πλήρους οθόνης έκλεισαν.</string>
+    <string name="revanced_gms_show_dialog_summary">Εμφανίζει το παράθυρο διαλόγου βελτιστοποίησης για το GMSCore σε κάθε εκκίνηση της εφαρμογής.</string>
+    <string name="revanced_gms_show_dialog_title">Εμφάνιση διαλόγου βελτιστοποίησης για GMSCore</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Απόκρυψη κενών στοιχείων στο μενού λογαριασμού.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Απόκρυψη κενών στοιχείων</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Λίστα ονομάτων των επιλογών του μενού λογαριασμού για φιλτράρισμα, διαχωρισμένα με νέες γραμμές.</string>
@@ -214,6 +210,8 @@
     <string name="revanced_hide_comment_channel_guidelines_title">Απόκρυψη οδηγιών κοινότητας</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Απόκρυψη των κουμπιών χρονοσήμανσης και επιλογής emoji κατά την πληκτρολόγηση σχολίου.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Απόκρυψη κουμπιών χρονοσήμανσης &amp; emoji</string>
+    <string name="revanced_hide_comments_information_button_summary">Απόκρυψη του κουμπιού πληροφοριών στον πίνακα σχολίων.</string>
+    <string name="revanced_hide_comments_information_button_title">Απόκρυψη κουμπιού πληροφοριών</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Απόκρυψη του σκοτεινού φόντου που εμφανίζεται στην οθόνη αναπαραγωγής όταν γίνεται διπλό πάτημα για αναζήτηση.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Απόκρυψη φόντου διπλού πατήματος της οθόνης αναπαραγωγής</string>
     <string name="revanced_hide_floating_button_summary">Απόκρυψη του αιωρούμενου κουμπιού στην καρτέλα βιβλιοθήκης.</string>
@@ -238,8 +236,8 @@
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Απόκρυψη μενού «Κατάργηση λίστας αναπαραγωγής από τη βιβλιοθήκη»</string>
     <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Απόκρυψη μενού «Κατάργηση από λίστα αναπαραγωγής»</string>
     <string name="revanced_hide_flyout_menu_report_title">Απόκρυψη μενού «Αναφορά»</string>
+    <string name="revanced_hide_flyout_menu_save_episode_for_later_save_to_library_title">Μενού «Αποθήκευση επεισοδίου για αργότερα» και «Αποθήκευση ... στη βιβλιοθήκη»</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Απόκρυψη μενού «Αποθήκευση επεισοδίου για αργότερα»</string>
-    <string name="revanced_hide_flyout_menu_save_to_library_title">Απόκρυψη μενού «Αποθήκευση λίστας αναπαραγωγής στη Βιβλιοθήκη»</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">Απόκρυψη μενού «Αποθήκευση στη λίστα αναπαραγωγής»</string>
     <string name="revanced_hide_flyout_menu_share_title">Απόκρυψη μενού «Κοινοποίηση»</string>
     <string name="revanced_hide_flyout_menu_shuffle_play_title">Απόκρυψη μενού «Τυχαία αναπαραγωγή»</string>
@@ -247,12 +245,10 @@
     <string name="revanced_hide_flyout_menu_start_radio_title">Απόκρυψη μενού «Έναρξη ραδιοφώνου»</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Απόκρυψη μενού «Στατιστικά για σπασίκλες»</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Απόκρυψη των «Εγγραφή» / «Απεγγραφή»</string>
+    <string name="revanced_hide_flyout_menu_taste_match_title">Μενού «Αντιστοίχιση βάσει προτιμήσεων»</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Απόκρυψη μενού «Ξεκαρφίτσωμα από την ταχεία κλήση»</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Απόκρυψη μενού «Προβολή συντελεστών τραγουδιού»</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"Απόκρυψη των διαφημίσεων πλήρους οθόνης.
-
-Περιορισμοί:
-• Ενδέχεται μερικές φορές να φαίνεται μια κενή μαύρη οθόνη αντί για την αρχική ροή."</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Απόκρυψη των διαφημίσεων πλήρους οθόνης."</string>
     <string name="revanced_hide_fullscreen_ads_title">Απόκρυψη διαφημίσεων πλήρους οθόνης</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Απόκρυψη του κουμπιού κοινοποίησης στην οθόνη αναπαραγωγής πλήρους οθόνης.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Απόκρυψη κουμπιού κοινοποίησης στη λειτουργία πλήρους οθόνης</string>
@@ -354,6 +350,15 @@
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Αφαίρεση του παραθύρου προειδοποίησης ηλικιακού περιορισμού.
 Αυτό δεν παρακάμπτει τον ηλικιακό περιορισμό, απλά τον αποδέχεται αυτόματα."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Αφαίρεση παραθύρου ηλικιακού περιορισμού</string>
+    <string name="revanced_replace_action_button_like_summary">"Χρήση ενός διαφορετικού εικονιδίου και εφέ για το κουμπί «Μου αρέσει».
+
+• Αυτή η ρύθμιση ενδέχεται να μην είναι πλέον απαραίτητη όταν το πρόβλημα διορθωθεί στην πλευρά του διακομιστή."</string>
+    <string name="revanced_replace_action_button_like_title">Αντικατάσταση κουμπιού «Μου αρέσει»</string>
+    <string name="revanced_replace_action_button_like_type_summary">"Χρήση κουμπιού «Μου αρέσει» μικρότερου στυλ.
+
+• Η γραμμή ενεργειών μπορεί να είναι πιο χαμηλά για ορισμένους χρήστες (A/B testing).
+• Αυτή η ρύθμιση είναι για εκείνους τους χρήστες, χωρίς ωστόσο να έχει δοκιμαστεί."</string>
+    <string name="revanced_replace_action_button_like_type_title">Χρήση μικρότερου εικονιδίου</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Αν πατήσετε το «Παρακολούθηση στο YouTube», η αναπαραγωγή θα συνεχιστεί από την τρέχουσα ώρα προβολής.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Συνέχιση παρακολούθησης</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Αντικατάσταση του μενού «Παράβλεψη ουράς» με το μενού «Παρακολούθηση στο YouTube».</string>
@@ -515,6 +520,14 @@
     <string name="revanced_settings_search_title">Αναζήτηση %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Οι ρυθμίσεις αντιγράφηκαν στο πρόχειρο.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_summary">Παραποίηση της έκδοσης εφαρμογής σε παλιότερη έκδοση, μόνο για τους στίχους.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Απενεργοποίηση στίχων σε πραγματικό χρόνο</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_7_12_52">7.12.52 - Στίχοι σε πραγματικό χρόνο</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_06_52">8.06.52 - Στίχοι σε πραγματικό χρόνο + Κουμπί κοινοποίησης</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - Στίχοι σε πραγματικό χρόνο + Κουμπί κοινοποίησης + Κουμπί μετάφρασης (Premium χρήστες μόνο)</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_summary">Επιλέξτε την έκδοση εφαρμογής που θα χρησιμοποιηθεί για τους στίχους.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_title">Έκδοση παραποίησης έκδοσης εφαρμογής για τους στίχους</string>
+    <string name="revanced_spoof_app_version_for_lyrics_title">Παραποίηση έκδοσης εφαρμογής για τους στίχους</string>
     <string name="revanced_spoof_app_version_summary">"Παραποίηση έκδοσης εφαρμογής σε παλιότερη έκδοση.
 
 • Αυτό θα αλλάξει την εμφάνιση της εφαρμογής, αλλά πιθανότατα να προκύψουν άγνωστες παρενέργειες.
@@ -540,21 +553,75 @@
 Παρενέργεια αποκλεισμού αιτήματος:
 • Η εφαρμογή μπορεί να κλείνει απότομα όταν χρησιμοποιείτε VPN ή εναλλακτικό DNS."</string>
     <string name="revanced_spoof_client_type_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
-    <string name="revanced_spoof_player_parameter_summary">"Παραποίηση παραμέτρου του προγράμματος αναπαραγωγής για την αποφυγή προβλημάτων αναπαραγωγής.
-
-Περιορισμός:
-• Μερικές φορές οι υπότιτλοι βρίσκονται στην κορυφή της οθόνης αναπαραγωγής αντί του κάτω μέρους."</string>
-    <string name="revanced_spoof_player_parameter_title">Παραποίηση παραμέτρου προγράμματος αναπαραγωγής</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music No SDK</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android (No SDK)</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr_auth">Android VR (με σύνδεση χρήστη, απαιτείται ενέργεια)</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">Web Κινητού</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Παλιό</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">Καθορισμός ενός προεπιλεγμένου πρόγραμμα πελάτη για παραποίηση.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Αδυναμία λήψης ροής του προγράμματος πελάτη.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Δοκιμάστε να αλλάξετε το προεπιλεγμένο πρόγραμμα πελάτη παραποίησης δεδομένων ροής σε TV.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Δοκιμάστε να αλλάξετε το προεπιλεγμένο πρόγραμμα πελάτη παραποίησης δεδομένων ροής σε TV Simply.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Πατήστε για να δείτε πώς να αποκτήσετε ένα διακριτικό εξουσιοδότησης.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Σχετικά με την εξουσιοδότηση Android No SDK </string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Πατήστε για να δείτε πώς να συνδεθείτε στο Android No SDK.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Σύνδεση στο Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">Λήψη διακριτικού εξουσιοδότησης</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message">"Η σύνδεση στο Android No SDK (YouTube) γίνεται σύμφωνα με τις οδηγίες της Google (Google account authorization - OAuth 2.0 for TV and Limited-Input Device Applications):
+
+1. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να ανοίξει η σελίδα σύνδεσης στο WebView.
+2. Συνδεθείτε στον λογαριασμό Google σας.
+3. Τα αποτελέσματα προσπάθειας σύνδεσης θα εμφανιστούν εντός 5 δευτερολέπτων.
+
+※ Πατήστε «Επαναφορά» για να καταργήσετε το διακριτικό εξουσιοδότησης ή τον κωδικό ενεργοποίησης."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Επαναφορά</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Σύνδεση στο Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Το διακριτικό εξουσιοδότησης αποθηκεύτηκε.
+
+- Το διακριτικό εξουσιοδότησης που εκδίδεται μέσω αυτής της διαδικασίας μπορεί να χρησιμοποιηθεί μόνο στο YouTube (Στο RVX, χρησιμοποιείται για τη λήψη δεδομένων ροής από το YouTube).
+- Τα διακριτικά εξουσιοδότησης που δεν χρησιμοποιούνται για περισσότερο από 6 μήνες θα ανακληθούν από τους διακομιστές της Google.
+- Εάν αλλάξετε τον κωδικό πρόσβασής σας, ή καταργήσετε την εγγραφή μιας συσκευής στις ρυθμίσεις του λογαριασμού σας, ή απεγκαταστήστε την εφαρμογή, θα πρέπει να επανεκδώσετε το διακριτικό εξουσιοδότησης."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Συνδεθήκατε!</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Το διακριτικό εξουσιοδότησης επαναφέρθηκε.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Πατήστε για να δείτε πως να συνδεθείτε στο Android VR.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Σύνδεση στο Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Κωδικός ενεργοποίησης:
+%s
+
+1. Πατήστε «Άνοιγμα ιστοσελίδας» για να μεταβείτε στο 'https://yt.be/activate'.
+2. Εισάγετε τον κωδικό ενεργοποίησης.
+3. Συνδεθείτε όταν σας ζητηθεί. Αν έχετε πολλαπλούς λογαριασμούς Google, επιλέξτε τον λογαριασμό που χρησιμοποιείτε με το YouTube. Αν έχετε συνδεθεί ήδη, συνεχίστε στο επόμενο βήμα.
+4. Μόλις συνδεθείτε, επιστρέψτε στο RVX και πατήστε το «Σύνδεση στο Android VR» ξανά.
+5. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να λάβετε διακριτικό εξουσιοδότησης."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Κωδικός ενεργοποίησης</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Ο κωδικός αντιγράφηκε στο πρόχειρο: %s.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Λήψη κωδικού ενεργοποίησης</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Λήψη διακριτικού εξουσιοδότησης</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Η σύνδεση στο Android VR (YouTube VR) γίνεται σύμφωνα με τις οδηγίες της Google (Google account authorization - OAuth 2.0 for TV and Limited-Input Device Applications):
+
+1. Πατήστε «Λήψη κωδικού ενεργοποίησης» για να δημιουργήσετε έναν κωδικό ενεργοποίησης.
+2. Πατήστε «Άνοιγμα ιστοσελίδας» για να μεταβείτε στο 'https://yt.be/activate'.
+3. Εισάγετε τον κωδικό ενεργοποίησης.
+4. Συνδεθείτε όταν σας ζητηθεί. Αν έχετε πολλαπλούς λογαριασμούς Google, επιλέξτε τον λογαριασμό που χρησιμοποιείτε με το YouTube. Αν έχετε συνδεθεί ήδη, συνεχίστε στο επόμενο βήμα.
+5. Μόλις συνδεθείτε, επιστρέψτε στο RVX και πατήστε το «Σχετικά με το Android VR (με σύνδεση χρήστη)» ξανά.
+6. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να λάβετε διακριτικό εξουσιοδότησης.
+
+※ Πατήστε «Επαναφορά» για να καταργήσετε το διακριτικό εξουσιοδότησης ή τον κωδικό ενεργοποίησης."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Επαναφορά</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Σύνδεση στο Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Το διακριτικό εξουσιοδότησης αποθηκεύτηκε.
+
+- Το διακριτικό εξουσιοδότησης που εκδίδεται μέσω αυτής της διαδικασίας μπορεί να χρησιμοποιηθεί μόνο στο YouTube VR (Στο RVX, χρησιμοποιείται για τη λήψη δεδομένων ροής από το YouTube VR).
+- Τα διακριτικά εξουσιοδότησης που δεν χρησιμοποιούνται για περισσότερο από 6 μήνες θα ανακληθούν από τους διακομιστές της Google.
+- Εάν αλλάξετε τον κωδικό πρόσβασής σας, ή καταργήσετε την εγγραφή μιας συσκευής στις ρυθμίσεις του λογαριασμού σας, ή απεγκαταστήστε την εφαρμογή, θα πρέπει να επανεκδώσετε το διακριτικό εξουσιοδότησης."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Συνδεθήκατε!</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Αποτυχία έκδοσης διακριτικού εξουσιοδότησης.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Πατήστε «Επαναφορά» και προσπαθήστε ξανά.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Το διακριτικό και ο κωδικός επαναφέρθηκαν.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Εμφάνιση του προγράμματος πελάτη που χρησιμοποιείται για τη λήψη δεδομένων ροής στο μενού «Στατιστικά για σπασίκλες».</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Εμφάνιση στο «Στατιστικά για σπασίκλες»</string>
     <string name="revanced_spoof_streaming_data_summary">"Τα δεδομένα ροής παραποιούνται.
@@ -570,44 +637,15 @@
 • Η Player JavaScript για την αποσυσκότιση διατηρείται ενημερωμένη.
 • Μπορεί να χρειαστούν από 5 έως 15 δευτερόλεπτα για να ξεκινήσει η αναπαραγωγή του βίντεο."</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Χρήση του yt-dlp ejs (λειτουργία σε εξέλιξη)</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_message">"Κωδικός ενεργοποίησης:
-%s
-
-1. Πατήστε «Άνοιγμα ιστοσελίδας» για να μεταβείτε στο 'https://yt.be/activate'.
-2. Εισάγετε τον κωδικό ενεργοποίησης.
-3. Συνδεθείτε όταν σας ζητηθεί. Αν έχετε πολλαπλούς λογαριασμούς Google, επιλέξτε τον λογαριασμό που χρησιμοποιείτε με το YouTube. Αν έχετε συνδεθεί ήδη, συνεχίστε στο επόμενο βήμα.
-4. Μόλις συνδεθείτε, επιστρέψτε στο RVX και πατήστε το «Σχετικά με το Android VR (με σύνδεση χρήστη)» ξανά.
-5. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να λάβετε διακριτικό εξουσιοδότησης."</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_dialog_title">Κωδικός ενεργοποίησης</string>
-    <string name="revanced_spoof_streaming_data_vr_activation_code_toast_copy">Ο κωδικός αντιγράφηκε στο πρόχειρο: %s.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Πατήστε για να δείτε πώς να αποκτήσετε ένα διακριτικό εξουσιοδότησης.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Σχετικά με το Android VR (με σύνδεση χρήστη)</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_activation_code_text">Λήψη κωδικού ενεργοποίησης</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_get_authorization_token_text">Λήψη διακριτικού εξουσιοδότησης</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_message">"Για να αποκτήσετε ένα διακριτικό εξουσιοδότησης για χρήση του πελάτη Android VR, θα πρέπει να συνδεθείτε στο YouTube VR χρησιμοποιώντας έναν κωδικό ενεργοποίησης:
-
-1. Πατήστε «Λήψη κωδικού ενεργοποίησης» για να δημιουργήσετε έναν κωδικό ενεργοποίησης.
-2. Πατήστε «Άνοιγμα ιστοσελίδας» για να μεταβείτε στο 'https://yt.be/activate'.
-3. Εισάγετε τον κωδικό ενεργοποίησης.
-4. Συνδεθείτε όταν σας ζητηθεί. Αν έχετε πολλαπλούς λογαριασμούς Google, επιλέξτε τον λογαριασμό που χρησιμοποιείτε με το YouTube. Αν έχετε συνδεθεί ήδη, συνεχίστε στο επόμενο βήμα.
-5. Μόλις συνδεθείτε, επιστρέψτε στο RVX και πατήστε το «Σχετικά με το Android VR (με σύνδεση χρήστη)» ξανά.
-6. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να λάβετε διακριτικό εξουσιοδότησης.
-
-※ Πατήστε «Επαναφορά» για να καταργήσετε το διακριτικό εξουσιοδότησης ή τον κωδικό ενεργοποίησης."</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_reset_text">Επαναφορά</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_dialog_title">Λήψη Διακριτικού Εξουσιοδότησης</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_reset">Το διακριτικό και ο κωδικός επαναφέρθηκαν.</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_toast_success">Το διακριτικό εξουσιοδότησης αποθηκεύτηκε.</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Παρενέργειες:
 • Η εφαρμογή μπορεί να κλείνει απότομα όταν χρησιμοποιείτε VPN ή εναλλακτικό DNS.
 • Ο ήχος μπορεί περιοδικά να σπάει κατά την αναπαραγωγή σε προγράμματα πελάτες προσαρμοστικού ρυθμού μετάδοσης (Όλα τα προγράμματα πελάτη εκτός από το Android VR 1.43.32)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
     <string name="revanced_spoof_video_streams_summary">Παραποίηση ροών βίντεο του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής.</string>
     <string name="revanced_spoof_video_streams_title">Παραποίηση ροών βίντεο</string>
+    <string name="revanced_translations_title">Μεταφράσεις</string>
     <string name="revanced_watch_history_type_entry_1">Αρχικός</string>
     <string name="revanced_watch_history_type_entry_2">Αντικατάσταση του domain</string>
     <string name="revanced_watch_history_type_entry_3">Αποκλεισμός ιστορικού παρακολούθησης</string>
@@ -615,4 +653,16 @@
 • Αντικατάσταση του domain: Ακολουθεί τις ρυθμίσεις ιστορικού παρακολούθησης του λογαριασμού Google σας.
 • Αποκλεισμός ιστορικού παρακολούθησης: Το ιστορικό παρακολούθησης είναι αποκλεισμένο."</string>
     <string name="revanced_watch_history_type_title">Τύπος ιστορικού παρακολούθησης</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Λήψη των Cookies</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Λήψη του Data Sync ID</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Λήψη των Visitor Data</string>
+    <string name="revanced_webview_contextual_menu_refresh">Ανανέωση</string>
+    <string name="revanced_webview_cookies">Cookies</string>
+    <string name="revanced_webview_copy">Αντιγραφή</string>
+    <string name="revanced_webview_data_sync_id">Data Sync ID</string>
+    <string name="revanced_webview_toast_copy_success">Το %s αντιγράφηκε στο πρόχειρο.</string>
+    <string name="revanced_webview_toast_empty">Το %s είναι κενό.</string>
+    <string name="revanced_webview_toast_no_network">Παρακαλούμε ελέγξτε τη σύνδεσή σας.</string>
+    <string name="revanced_webview_toast_unavailable">Το WebView δεν είναι διαθέσιμο.</string>
+    <string name="revanced_webview_visitor_data">Visitor Data</string>
 </resources>

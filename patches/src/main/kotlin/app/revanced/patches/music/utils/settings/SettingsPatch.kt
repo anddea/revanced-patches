@@ -27,7 +27,9 @@ import app.revanced.patches.shared.mainactivity.injectConstructorMethodCall
 import app.revanced.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.revanced.patches.shared.settings.baseSettingsPatch
 import app.revanced.patches.shared.sharedSettingFingerprint
+import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.printInfo
+import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.matchOrThrow
@@ -229,6 +231,15 @@ val settingsPatch = resourcePatch(
             copyXmlNode("music/settings/host", "values/$xmlFile", "resources")
         }
 
+        arrayOf(
+            ResourceGroup(
+                "drawable",
+                "revanced_settings_toolbar_arrow_left.xml",
+            ),
+        ).forEach { resourceGroup ->
+            copyResources("music/settings", resourceGroup)
+        }
+
         /**
          * hide divider
          */
@@ -268,6 +279,15 @@ val settingsPatch = resourcePatch(
         ResourceUtils.addRVXSettingsPreference(insertKey)
 
         ResourceUtils.updatePatchStatus(SETTINGS_FOR_YOUTUBE_MUSIC)
+
+        /**
+         * add translations app
+         */
+        addLinkPreference(
+            CategoryType.MISC,
+            "revanced_translations",
+            "https://rvxtranslate.netlify.app/"
+        )
 
         /**
          * add import export settings
@@ -385,4 +405,14 @@ internal fun addPreferenceWithIntent(
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)
     ResourceUtils.addPreferenceWithIntent(categoryValue, key, dependencyKey)
+}
+
+internal fun addLinkPreference(
+    category: CategoryType,
+    key: String,
+    url: String
+) {
+    val categoryValue = category.value
+    ResourceUtils.addPreferenceCategory(categoryValue)
+    ResourceUtils.addLinkPreference(categoryValue, key, url)
 }

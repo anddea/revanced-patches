@@ -39,18 +39,12 @@ dependencies {
 
     implementation(libs.collections4)
     implementation(libs.gson)
-    implementation(libs.kotlinx.coroutines.core)
     implementation(libs.lang3)
-    implementation(libs.nanojson)
     implementation(libs.okhttp3)
     implementation(libs.protobuf.javalite)
 
-    implementation(libs.regex)
-    implementation(libs.retrofit)
     //noinspection UseTomlInstead
-    implementation("com.eclipsesource.j2v8:j2v8:6.2.1@aar")
-
-    implementation(libs.okhttp)
+    implementation("com.eclipsesource.j2v8:j2v8:6.3.4@aar")
 
     implementation(libs.nanohttpd)
     implementation(libs.protobuf.javalite)

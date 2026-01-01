@@ -152,6 +152,7 @@
     "dependencies": [
       "Settings for YouTube",
       "BytecodePatch",
+      "BytecodePatch",
       "BytecodePatch"
     ],
     "compatiblePackages": {
@@ -164,6 +165,16 @@
         "20.05.46"
       ]
     },
+    "options": []
+  },
+  {
+    "name": "Change installer package name",
+    "description": "Spoof the installer package name to make it appear that the app was installed from the Google Play Store.",
+    "use": false,
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "compatiblePackages": null,
     "options": []
   },
   {
@@ -194,7 +205,9 @@
     "use": false,
     "dependencies": [],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": [
       {
@@ -212,7 +225,9 @@
     "name": "Change package name",
     "description": "Changes the package name for Reddit to the name specified in patch options.",
     "use": false,
-    "dependencies": [],
+    "dependencies": [
+      "BytecodePatch"
+    ],
     "compatiblePackages": {
       "com.reddit.frontpage": [
         "2024.17.0",
@@ -427,7 +442,7 @@
         "description": "The icon to apply to the app.\n\nIf a path to a folder is provided, the folder must contain the following folders:\n\n- mipmap-xxxhdpi\n- mipmap-xxhdpi\n- mipmap-xhdpi\n- mipmap-hdpi\n- mipmap-mdpi\n\nEach of these folders must contain the following files:\n\n- adaptiveproduct_youtube_background_color_108.png\n- adaptiveproduct_youtube_foreground_color_108.png\n- ic_launcher.png\n- ic_launcher_round.png",
         "required": true,
         "type": "kotlin.String",
-        "default": "xisr_special",
+        "default": "xisr_winter",
         "values": {
           "AFN Blue": "afn_blue",
           "AFN Red": "afn_red",
@@ -443,7 +458,11 @@
           "Squid Game": "squid_game",
           "Vanced Black": "vanced_black",
           "Vanced Light": "vanced_light",
+          "Xisr Aurora": "xisr_aurora",
+          "Xisr Evergreen": "xisr_evergreen",
           "Xisr Special": "xisr_special",
+          "Xisr White": "xisr_white",
+          "Xisr Winter": "xisr_winter",
           "Xisr Yellow": "xisr_yellow",
           "YouTube": "youtube",
           "YouTube Black": "youtube_black"
@@ -540,7 +559,9 @@
     "name": "Custom branding name for Reddit",
     "description": "Changes the Reddit app name to the name specified in patch options.",
     "use": false,
-    "dependencies": [],
+    "dependencies": [
+      "BytecodePatch"
+    ],
     "compatiblePackages": {
       "com.reddit.frontpage": [
         "2024.17.0",
@@ -774,7 +795,9 @@
       "BytecodePatch"
     ],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": [
       {
@@ -1028,7 +1051,7 @@
     "use": true,
     "dependencies": [
       "Settings for YouTube",
-      "BytecodePatch"
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -1048,7 +1071,7 @@
     "use": true,
     "dependencies": [
       "Settings for YouTube Music",
-      "BytecodePatch"
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
@@ -1358,7 +1381,9 @@
     "use": true,
     "dependencies": [],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": []
   },
@@ -1368,7 +1393,9 @@
     "use": true,
     "dependencies": [],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": []
   },
@@ -1498,7 +1525,8 @@
         "default": "app.revanced",
         "values": {
           "ReVanced MicroG": "app.revanced",
-          "Original MicroG": "com.google"
+          "Original MicroG": "com.google",
+          "Vanced MicroG": "com.mgoogle"
         }
       },
       {
@@ -1585,7 +1613,8 @@
         "default": "app.revanced",
         "values": {
           "ReVanced MicroG": "app.revanced",
-          "Original MicroG": "com.google"
+          "Original MicroG": "com.google",
+          "Vanced MicroG": "com.mgoogle"
         }
       },
       {
@@ -1649,7 +1678,9 @@
       "BytecodePatch"
     ],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": []
   },
@@ -1808,6 +1839,8 @@
       "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch",
+      "BytecodePatch",
+      "ResourcePatch",
       "ResourcePatch"
     ],
     "compatiblePackages": {
@@ -1849,17 +1882,7 @@
         "8.30.54"
       ]
     },
-    "options": [
-      {
-        "key": "hideFullscreenAds",
-        "title": "Hide fullscreen ads",
-        "description": "Add an option to hide fullscreen ads.\n\nThis setting may not completely hide fullscreen ads due to server-side changes, and support for this is not provided.\n\nThis setting may cause the app to become unusable, and users may need to clear app data.",
-        "required": true,
-        "type": "kotlin.Boolean",
-        "default": false,
-        "values": null
-      }
-    ]
+    "options": []
   },
   {
     "name": "Hide ads",
@@ -2229,7 +2252,9 @@
       "BytecodePatch"
     ],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": []
   },
@@ -2282,6 +2307,7 @@
       "ResourcePatch",
       "Settings for YouTube",
       "ResourcePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch"
     ],
@@ -2514,13 +2540,25 @@
         "8.30.54"
       ]
     },
-    "options": []
+    "options": [
+      {
+        "key": "swipeToDismissMiniPlayer",
+        "title": "Swipe to dismiss miniplayer",
+        "description": "Adds an option to enable swipe to dismiss the miniplayer.\n\nIf this patch option is enabled, the empty miniplayer may not show when the miniplayer is dismissed.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": true,
+        "values": null
+      }
+    ]
   },
   {
     "name": "Premium icon",
     "description": "Unlocks premium app icons.",
     "use": true,
-    "dependencies": [],
+    "dependencies": [
+      "BytecodePatch"
+    ],
     "compatiblePackages": {
       "com.reddit.frontpage": [
         "2024.17.0",
@@ -2752,7 +2790,9 @@
     "use": true,
     "dependencies": [],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": []
   },
@@ -2866,6 +2906,7 @@
     "description": "Applies mandatory patches to implement ReVanced Extended settings into the application.",
     "use": true,
     "dependencies": [
+      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch"
     ],
@@ -3228,18 +3269,16 @@
     "options": []
   },
   {
-    "name": "Spoof app version",
-    "description": "Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features.",
+    "name": "Spoof app version for lyrics",
+    "description": "Adds options to spoof the YouTube Music client version. This can be used to restore old lyrics UI.",
     "use": true,
     "dependencies": [
-      "BytecodePatch",
       "BytecodePatch",
       "Settings for YouTube Music",
       "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
-        "6.42.55",
         "6.51.53",
         "7.16.53",
         "7.25.53",
@@ -3249,6 +3288,35 @@
       ]
     },
     "options": []
+  },
+  {
+    "name": "Spoof signature",
+    "description": "Spoofs the signature of the app.",
+    "use": false,
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "compatiblePackages": null,
+    "options": [
+      {
+        "key": "packageName",
+        "title": "Package name",
+        "description": "Package name.",
+        "required": false,
+        "type": "kotlin.String",
+        "default": "",
+        "values": null
+      },
+      {
+        "key": "certificateData",
+        "title": "Certificate data",
+        "description": "Base64-encoded string of the certificate.",
+        "required": false,
+        "type": "kotlin.String",
+        "default": "",
+        "values": null
+      }
+    ]
   },
   {
     "name": "Spoof watch history",
@@ -3379,6 +3447,50 @@
     "options": []
   },
   {
+    "name": "Translations for Reddit",
+    "description": "Add translations for RVX settings.",
+    "use": true,
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "options": [
+      {
+        "key": "customTranslations",
+        "title": "Custom translations",
+        "description": "The path to the \u0027strings.xml\u0027 file.\nPlease note that applying the \u0027strings.xml\u0027 file will overwrite all existing translations.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "",
+        "values": null
+      },
+      {
+        "key": "selectedTranslations",
+        "title": "Translations to add",
+        "description": "A list of translations to be added for the RVX settings, separated by commas.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "ar, az-rAZ, bg-rBG, da-rDK, de-rDE, el-rGR, es-rES, fil-rPH, fr-rFR, hu-rHU, id-rID, in, it-rIT, iw-rIL, ja-rJP, ko-rKR, pl-rPL, pt-rBR, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW",
+        "values": null
+      },
+      {
+        "key": "selectedStringResources",
+        "title": "String resources to keep",
+        "description": "A list of string resources to be kept, separated by commas.\nString resources not in the list will be removed from the app.\n\nDefault string resource, English, is not removed.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fil-rPH, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
+        "values": null
+      }
+    ]
+  },
+  {
     "name": "Translations for YouTube",
     "description": "Add translations or remove string resources.",
     "use": true,
@@ -3483,7 +3595,9 @@
       "BytecodePatch"
     ],
     "compatiblePackages": {
-      "com.spotify.music": null
+      "com.spotify.music": [
+        "9.0.90.1229"
+      ]
     },
     "options": []
   },
@@ -3496,7 +3610,9 @@
       "RawResourcePatch"
     ],
     "compatiblePackages": {
-      "com.ysy.app.firewall": null
+      "com.ysy.app.firewall": [
+        "1.3.4"
+      ]
     },
     "options": []
   },

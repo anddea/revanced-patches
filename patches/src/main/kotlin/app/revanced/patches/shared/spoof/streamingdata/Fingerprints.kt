@@ -15,14 +15,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 const val STREAMING_DATA_OUTER_CLASS =
     "Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass${'$'}StreamingData;"
 
-internal val brotliInputStreamFingerprint = legacyFingerprint(
-    name = "brotliInputStreamFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    returnType = "V",
-    parameters = listOf("Ljava/io/InputStream;"),
-    strings = listOf("Brotli decoder initialization failed")
-)
-
 internal val buildInitPlaybackRequestFingerprint = legacyFingerprint(
     name = "buildInitPlaybackRequestFingerprint",
     returnType = "Lorg/chromium/net/UrlRequest\$Builder;",
@@ -120,17 +112,6 @@ internal val protobufClassParseByteBufferFingerprint = legacyFingerprint(
         Opcode.RETURN_OBJECT,
     ),
     customFingerprint = { method, _ -> method.name == "parseFrom" },
-)
-
-internal val playbackStartParametersFingerprint = legacyFingerprint(
-    name = "playbackStartParametersFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    returnType = "V",
-    strings = listOf("Null playbackStartParameters"),
-    customFingerprint = { method, _ ->
-        method.parameterTypes.size > 3 &&
-                method.parameterTypes[2].toString() == "Ljava/lang/String;"
-    }
 )
 
 internal val nerdsStatsFormatBuilderFingerprint = legacyFingerprint(

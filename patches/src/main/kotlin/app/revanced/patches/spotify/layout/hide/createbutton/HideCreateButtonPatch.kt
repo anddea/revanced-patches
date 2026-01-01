@@ -19,7 +19,11 @@ val hideCreateButtonPatch = bytecodePatch(
     name = "Hide Create button",
     description = "Hides the \"Create\" button in the navigation bar."
 ) {
-    compatibleWith("com.spotify.music")
+    compatibleWith(
+        "com.spotify.music"(
+            "9.0.90.1229",
+        ),
+    )
 
     dependsOn(sharedExtensionPatch)
 

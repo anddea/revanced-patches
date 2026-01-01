@@ -132,7 +132,7 @@
 ・最新のYouTube MusicクライアントはデフォルトでOPUSオーディオコーデックを使用します。
 ・これはクライアントまたはビデオストリームが偽装されている場合に必要な場合があります。"</string>
     <string name="revanced_enable_opus_codec_title">Opus コーデックを有効化</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">"ミニプレイヤーを最大化したときのスムーズなアニメーションを有効にします。"</string>
+    <string name="revanced_enable_smooth_transition_animation_summary">ミニプレイヤーを最大化したときのスムーズなアニメーションを有効にします。</string>
     <string name="revanced_enable_smooth_transition_animation_title">スムーズな遷移アニメーションを有効化</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">下にスワイプしてミニプレーヤーを閉じられるようにします。</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">スワイプしてミニプレーヤーを閉じる</string>
@@ -146,11 +146,6 @@
     <string name="revanced_enable_zen_mode_podcast_title">ポッドキャストでZenモードを有効化</string>
     <string name="revanced_enable_zen_mode_summary">動画プレーヤーに灰色の色合いを追加し、目の疲れを軽減します。</string>
     <string name="revanced_enable_zen_mode_title">Zen モードを有効化</string>
-    <string name="revanced_extended_settings_export_failed">設定のエクスポートに失敗しました。</string>
-    <string name="revanced_extended_settings_export_success">設定は正常にエクスポートされました。</string>
-    <string name="revanced_extended_settings_import">インポート</string>
-    <string name="revanced_extended_settings_import_reset">設定をデフォルトにリセットしました。</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"ダウンロードボタンをでのダウンロードを外部のアプリで行います。
 
 • プレーヤー内のダウンロードボタンのみを置き換えます。
@@ -230,7 +225,6 @@
     <string name="revanced_hide_flyout_menu_remove_from_playlist_title">「プレイリストから削除」を非表示</string>
     <string name="revanced_hide_flyout_menu_report_title">「報告」を非表示</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">「エピソードを保存」を非表示</string>
-    <string name="revanced_hide_flyout_menu_save_to_library_title">「ライブラリに保存」を非表示</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">「再生リストに保存」を非表示</string>
     <string name="revanced_hide_flyout_menu_share_title">「共有」を非表示</string>
     <string name="revanced_hide_flyout_menu_shuffle_play_title">シャッフル再生メニューを非表示</string>
@@ -240,10 +234,7 @@
     <string name="revanced_hide_flyout_menu_subscribe_title">登録/解除メニューを非表示</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">「[クイック アクセス] への固定を解除」を非表示</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">「曲のクレジットを表示」を非表示</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"全画面広告を隠す
-
-注意:
-・ホームフィードの代わりに真っ黒な画面が表示されることがあります。"</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"全画面広告を隠す。"</string>
     <string name="revanced_hide_fullscreen_ads_title">全画面広告を非表示</string>
     <string name="revanced_hide_fullscreen_share_button_summary">全画面表示のプレイヤーの共有ボタンを非表示にします。</string>
     <string name="revanced_hide_fullscreen_share_button_title">全画面共有ボタンを非表示</string>
@@ -367,6 +358,9 @@ YouTube Music の検索や設定などのアクティビティは公開されて
     <string name="revanced_replace_navigation_samples_button_title">サンプルボタンを置換</string>
     <string name="revanced_replace_navigation_upgrade_button_summary">「アップグレード」を「設定」に置き換えます。</string>
     <string name="revanced_replace_navigation_upgrade_button_title">アップグレードボタンを置換</string>
+    <string name="revanced_reset_to_default_toast">デフォルト値にリセットしました。</string>
+    <string name="revanced_restart_first_run">レイアウトを正常に読み込むためにはアプリを再起動する必要があります。\n\n続行しますか？</string>
+    <string name="revanced_restart_message">更新して再起動</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">コメントポップアップパネルを古いスタイルに戻します。</string>
     <string name="revanced_restore_old_comments_popup_panels_title">古いコメントポップアップパネルを有効化</string>
     <string name="revanced_restore_old_player_background_summary">プレイヤーの背景を古いスタイルに戻します。</string>
@@ -430,7 +424,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_enabled_sum">SponsorBlock は、YouTube の動画の迷惑な部分をスキップするためのクラウドソーシングシステムです。</string>
     <string name="revanced_sb_reset_color">色をリセット</string>
     <string name="revanced_sb_segments_filler">繋ぎの話 / 冗談</string>
-    <string name="revanced_sb_segments_filler_sum">動画の本編を理解するのに必要のない繋ぎの話やユーモアなどの逸脱したシーン。コンテクストや背景情報の詳細は含まれません。</string>
+    <string name="revanced_sb_segments_filler_sum">動画の本編を理解する上で必要のない、関係のないシーンや冗談が含まれます。文脈や背景の詳細​​を説明するセクションは含まれません。</string>
     <string name="revanced_sb_segments_hook">フック / 挨拶</string>
     <string name="revanced_sb_segments_hook_sum">今後の動画のナレーション付きの予告編、および開幕と別れの挨拶。重複しない内容や情報を追加する場面は含まれません。</string>
     <string name="revanced_sb_segments_interaction">リマインダー（チャンネル登録などの催促）</string>
@@ -441,7 +435,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_segments_nomusic_sum">ミュージックビデオでのみ使用できます。他のカテゴリーに含まれていない、ミュージックビデオの音楽のない区間。</string>
     <string name="revanced_sb_segments_outro">エンドカード / クレジット</string>
     <string name="revanced_sb_segments_outro_sum">クレジットや動画のエンドカードが表示されている場面。情報を含む結論は含まれません。</string>
-    <string name="revanced_sb_segments_preview">予告 / 要約 / フック</string>
+    <string name="revanced_sb_segments_preview">予告 / 要約</string>
     <string name="revanced_sb_segments_preview_sum">この動画やシリーズの他の動画で起きた、または今後起きる内容などをまとめたクリップのコレクション。すべての情報は、別の場所で繰り返し表示されます。</string>
     <string name="revanced_sb_segments_selfpromo">無報酬 / セルフプロモーション</string>
     <string name="revanced_sb_segments_selfpromo_sum">無報酬のプロモーションあるいはセルフプロモーションであるという点を除いては「スポンサー」と同様です。商品、寄付、コラボ情報に関する内容を含みます。</string>
@@ -470,6 +464,32 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_toast_on_connection_error_sum">SponsorBlock API が利用できない場合、メッセージが表示されます。</string>
     <string name="revanced_sb_toast_on_skip">自動的にスキップする時にトーストを表示する</string>
     <string name="revanced_sb_toast_on_skip_sum">セグメントが自動的にスキップされたときにトーストを表示します。</string>
+    <string name="revanced_settings_export_failed">設定をエクスポートできませんでした。</string>
+    <string name="revanced_settings_export_success">設定をエクスポートしました。</string>
+    <string name="revanced_settings_import">インポート</string>
+    <string name="revanced_settings_import_copy">コピー</string>
+    <string name="revanced_settings_import_export_as_text">設定をテキストとしてインポートまたはエクスポートします。</string>
+    <string name="revanced_settings_import_reset">設定をデフォルトにリセットしました。</string>
+    <string name="revanced_settings_reset">リセット</string>
+    <string name="revanced_settings_search_clear_history">検索履歴を消去</string>
+    <string name="revanced_settings_search_clear_history_message">すべての検索履歴を消去してもよろしいですか？</string>
+    <string name="revanced_settings_search_empty_history_summary">検索履歴を保存するには、検索クエリを入力してエンターキーを押してください。</string>
+    <string name="revanced_settings_search_empty_history_title">検索履歴はありません</string>
+    <string name="revanced_settings_search_history_summary_off">設定の検索履歴を表示します。</string>
+    <string name="revanced_settings_search_history_summary_on">設定の検索履歴を表示します。</string>
+    <string name="revanced_settings_search_history_title">設定の検索履歴を表示</string>
+    <string name="revanced_settings_search_no_results_summary">別のキーワードを試してみてください。</string>
+    <string name="revanced_settings_search_no_results_title">「%s」に該当する結果は見つかりませんでした。</string>
+    <string name="revanced_settings_search_recent_searches">検索履歴</string>
+    <string name="revanced_settings_search_remove_message">検索履歴から削除しますか？</string>
+    <string name="revanced_settings_search_tips_summary">"・カテゴリをタップするとそのカテゴリの設定メニューに移動します。
+・設定を長押しすると、その設定に移動できます。
+・エンターキーを押すと、検索クエリが履歴に保存されます。
+・検索では大文字と小文字および句読点は無視されます。
+・無効化されている下位設定の上には、その設定を無効化している上位設定が表示されます。"</string>
+    <string name="revanced_settings_search_tips_title">検索のヒント</string>
+    <string name="revanced_settings_search_title">設定を検索</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">設定をクリップボードにコピーしました。</string>
     <string name="revanced_spoof_app_version_summary">"YT Music のバージョンを古いバージョンに偽装します。
 
@@ -489,28 +509,58 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_spoof_client_title">クライアントを偽装</string>
     <string name="revanced_spoof_client_type_summary">"偽装するデフォルトのクライアントを定義します。"</string>
     <string name="revanced_spoof_client_type_title">既定のクライアント</string>
-    <string name="revanced_spoof_player_parameter_summary">"再生の問題を防ぐためにプレイヤーパラメーターを偽装します。
-
-副作用:
-• 字幕が下部ではなくプレーヤーの上部に配置されることがあります。"</string>
-    <string name="revanced_spoof_player_parameter_title">プレイヤーパラメータを偽装</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_mweb">Mobile Web</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_summary">偽装するデフォルトのクライアントを定義します。</string>
     <string name="revanced_spoof_streaming_data_default_client_title">デフォルトのクライアント</string>
-    <string name="revanced_spoof_streaming_data_message">再生に問題が発生した場合は以下のいずれかのオプションを有効にしてください。ご自身の環境で最も効果的な方を選択してください: &lt;i&gt;&lt;u&gt; 設定 &gt; %s &gt; その他 &lt;/u&gt;&lt;/i&gt; 内の「動画ストリームを偽装」または「クライアントを偽装」。</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">クライアントストリームを取得できませんでした。</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">偽装するクライアントを「TV」に変更してみてください。</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Android VR にログインする方法については、ここをタップしてください。</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Android VR にログイン</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"アクティベーションコード: %s
+
+1.[ウェブサイトを開く] をタップして、「https://yt.be/activate」に移動します。
+2. アクティベーションコードを入力します。
+3. プロンプトが表示されたらログインします。複数の Google アカウントを持っている場合は、YouTube で使用しているアカウントを選択してください。すでにログインしている場合は、次の手順に進んでください。
+4. ログインしたら RVX に戻り、もう一度 [Android VR にログイン] をタップします。
+5. [認証トークンを取得] をタップして認証トークンを取得します。"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">ウェブサイトを開く</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">アクティベーションコード</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">アクティベーションコードをクリップボードにコピーしました: %s</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">アクティベーションコードを取得</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">認証トークンを取得</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Android VR (YouTube VR) へのログインは、Google が提供するガイドライン (Google アカウント認証 - TV および入力機能が限られたデバイスアプリケーション用の OAuth 2.0) に従います。
+
+1. [アクティベーションコードを取得] をタップしてアクティベーションコードを生成します。
+2. [ウェブサイトを開く] をタップして、「https://yt.be/activate」に移動します。
+3. アクティベーションコードを入力します。
+4. プロンプトが表示されたらログインします。複数の Google アカウントを持っている場合は、YouTube で使用しているアカウントを選択してください。すでにログインしている場合は、次の手順に進んでください。
+5. ログインしたら RVX に戻り、もう一度 [Android VR にログイン] をタップします。
+6. [認証トークンを取得] をタップして認証トークンを取得します。
+
+※認証トークンまたはアクティベーションコードを削除するには、[リセット] をタップします。"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">リセット</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Android VR にログイン</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"認証トークンを保存しました。
+
+- このプロセスを通じて発行された認証トークンは、YouTube VR でのみ使用できます (RVX では、YouTube VR からストリーミングデータを取得するために使用されます)。
+- 6 か月以上使用されていない認証トークンは、Google サーバーによって取り消されます。
+- パスワードを変更した場合やアカウント設定でデバイスの登録を解除した場合、またはアプリをアンインストールした場合は認証トークンの再発行が必要になります。"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">ログインしました</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">認証トークンを発行できませんでした。</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">[リセット] をタップして再試行してください。</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">認証トークンとアクティベーションコードをリセットします。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Stats for nerds でストリーミングデータの取得に使用されるクライアントを定義する。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">マニア向けの統計を表示</string>
     <string name="revanced_spoof_streaming_data_summary">"クライアントの動画ストリームを偽装し再生の問題を防止します。
 
 YouTube Premiumを利用の場合この設定は不要かもしれません。"</string>
     <string name="revanced_spoof_streaming_data_title">ストリーミングデータを偽装</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">認証トークンを取得する方法を確認するにはタップしてください。</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR の認証について</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"偽装するデフォルトのクライアントを定義します。"</string>
     <string name="revanced_spoof_video_streams_default_client_title">デフォルトのクライアント</string>
     <string name="revanced_spoof_video_streams_summary">クライアントのビデオストリームを偽装して再生の問題を防ぎます。
@@ -519,6 +569,7 @@ YouTube Premiumを利用の場合この設定は不要かもしれません。"<
 ・VPNまたは DNSを使用している場合アプリが強制終了する可能性があります。
 ・アダプティブビットレートストリーミングのクライアント（Android VR 1.43.32以外のすべて）では再生中に音声が断続的に途切れることがあります。</string>
     <string name="revanced_spoof_video_streams_title">ビデオストリームを偽装します</string>
+    <string name="revanced_translations_title">翻訳</string>
     <string name="revanced_watch_history_type_entry_1">オリジナル</string>
     <string name="revanced_watch_history_type_entry_2">ドメインを置換</string>
     <string name="revanced_watch_history_type_entry_3">再生履歴をブロック</string>
@@ -526,4 +577,16 @@ YouTube Premiumを利用の場合この設定は不要かもしれません。"<
 ・ドメインを置き換えます：　 Google アカウントの視聴履歴設定に従います。
 ・視聴履歴をブロックします：　 視聴履歴をブロックします。"</string>
     <string name="revanced_watch_history_type_title">再生履歴の種類</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Cookie を取得</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">データ同期 ID を取得</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Visitor Data を取得</string>
+    <string name="revanced_webview_contextual_menu_refresh">更新</string>
+    <string name="revanced_webview_cookies">Cookie</string>
+    <string name="revanced_webview_copy">コピー</string>
+    <string name="revanced_webview_data_sync_id">データ同期 ID</string>
+    <string name="revanced_webview_toast_copy_success">「%s」をクリップボードにコピーしました。</string>
+    <string name="revanced_webview_toast_empty">「%s」は空です。</string>
+    <string name="revanced_webview_toast_no_network">ネットワーク接続を確認してください。</string>
+    <string name="revanced_webview_toast_unavailable">WebView は利用できません。</string>
+    <string name="revanced_webview_visitor_data">Visitor Data</string>
 </resources>

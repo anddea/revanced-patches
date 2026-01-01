@@ -18,16 +18,16 @@ public class PatchStatus {
         return false;
     }
 
-    public static boolean SpoofStreamingDataYouTube() {
-        // Replace this with true If the 'Spoof streaming data' patch succeeds in YouTube.
-        return false;
-    }
-
     public static String PatchVersion() {
         return "Unknown";
     }
 
     public static long PatchedTime() {
         return 0L;
+    }
+
+    // Modified by a patch. Do not touch.
+    public static String WebViewActivityClass() {
+        return "";
     }
 }

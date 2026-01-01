@@ -84,7 +84,11 @@ val customThemePatch = resourcePatch(
     description = "Applies a custom theme (defaults to amoled black)",
     use = false,
 ) {
-    compatibleWith("com.spotify.music")
+    compatibleWith(
+        "com.spotify.music"(
+            "9.0.90.1229",
+        ),
+    )
 
     dependsOn(customThemeBytecodePatch)
 

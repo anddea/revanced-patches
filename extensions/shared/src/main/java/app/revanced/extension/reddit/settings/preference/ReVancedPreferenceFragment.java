@@ -6,6 +6,7 @@ import android.preference.PreferenceScreen;
 
 import androidx.annotation.NonNull;
 
+import app.revanced.extension.shared.utils.Utils;
 import org.jetbrains.annotations.NotNull;
 
 import app.revanced.extension.reddit.settings.preference.categories.AdsPreferenceCategory;
@@ -13,6 +14,8 @@ import app.revanced.extension.reddit.settings.preference.categories.LayoutPrefer
 import app.revanced.extension.reddit.settings.preference.categories.MiscellaneousPreferenceCategory;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
+
+import static app.revanced.extension.shared.utils.StringRef.dstr;
 
 /**
  * Preference fragment for ReVanced settings
@@ -33,9 +36,9 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
         // Currently no resources can be compiled for Reddit (fails with aapt error).
         // So all Reddit Strings are hard coded in integrations.
-        restartDialogTitle = "Restart required";
-        restartDialogMessage = "Restart the app for this change to take effect.";
-        restartDialogButtonText = "Restart";
+        restartDialogTitle = Utils.getContext().getString(dstr("revanced_restart_dialog_title"));
+        restartDialogMessage = Utils.getContext().getString(dstr("revanced_restart_dialog_message"));
+        restartDialogButtonText = Utils.getContext().getString(dstr("revanced_restart_dialog_button"));
 
         PreferenceScreen preferenceScreen = getPreferenceManager().createPreferenceScreen(context);
         setPreferenceScreen(preferenceScreen);
