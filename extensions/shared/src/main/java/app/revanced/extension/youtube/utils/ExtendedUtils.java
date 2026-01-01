@@ -59,6 +59,29 @@ public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_19_29_OR_GREATER = isVersionOrGreater("19.29.00");
     public static final boolean IS_19_34_OR_GREATER = isVersionOrGreater("19.34.00");
     public static final boolean IS_20_09_OR_GREATER = isVersionOrGreater("20.09.00");
+    public static final boolean IS_20_10_OR_GREATER = isVersionOrGreater("20.10.00");
+
+    public static final boolean IS_ARC = hasSystemFeature("org.chromium.arc");
+    public static final boolean IS_AUTOMOTIVE = hasSystemFeature("android.hardware.type.automotive");
+    public static final boolean IS_WATCH = hasSystemFeature("android.hardware.type.watch");
+
+    private static String osName = "";
+
+    public static String getOSName() {
+        if (osName.isEmpty()) {
+            if (IS_WATCH) {
+                osName = "Android Wear";
+            } else if (IS_AUTOMOTIVE) {
+                osName = "Android Automotive";
+            } else if (IS_ARC) {
+                osName = "ChromeOS";
+            } else {
+                osName = "Android";
+            }
+        }
+
+        return osName;
+    }
 
     public static boolean isFullscreenHidden() {
         return Settings.DISABLE_ENGAGEMENT_PANEL.get() || Settings.HIDE_QUICK_ACTIONS.get();
@@ -124,26 +147,6 @@ public class ExtendedUtils extends PackageUtils {
             additionalSettingsEnabled &= s.get();
         }
         return additionalSettingsEnabled;
-    }
-
-    public static void launchWebViewActivity(Context mContext,
-                                             boolean clearCookiesOnStartUp,
-                                             boolean clearCookiesOnShutDown,
-                                             boolean useDesktopUserAgent,
-                                             String url) {
-        try {
-            Intent intent = new Intent();
-            intent.setPackage(mContext.getPackageName());
-            intent.setData(Uri.parse("revanced_webview"));
-            intent.putExtra("clearCookiesOnStartUp", clearCookiesOnStartUp);
-            intent.putExtra("clearCookiesOnShutDown", clearCookiesOnShutDown);
-            intent.putExtra("useDesktopUserAgent", useDesktopUserAgent);
-            intent.putExtra("url", url);
-            intent.setClassName(mContext, "com.google.android.libraries.youtube.player.features.gl.vr.VrWelcomeActivity");
-            mContext.startActivity(intent);
-        } catch (Exception ex) {
-            Logger.printException(() -> "launchWebViewActivity failed", ex);
-        }
     }
 
     public static LinearLayout prepareMainLayout(Context mContext) {

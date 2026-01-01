@@ -338,4 +338,29 @@ internal object ResourceUtils {
             }
         }
     }
+
+    fun addLinkPreference(
+        category: String,
+        key: String,
+        url: String
+    ) {
+        context.document(SETTINGS_HEADER_PATH).use { document ->
+            val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
+            List(tags.length) { tags.item(it) as Element }
+                .filter {
+                    it.getAttribute("android:key").contains("revanced_preference_screen_$category")
+                }
+                .forEach {
+                    it.adoptChild("Preference") {
+                        setAttribute("android:title", "@string/$key" + "_title")
+                        setAttribute("android:key", key)
+
+                        this.adoptChild("intent") {
+                            setAttribute("android:action", "android.intent.action.VIEW")
+                            setAttribute("android:data", url)
+                        }
+                    }
+                }
+        }
+    }
 }

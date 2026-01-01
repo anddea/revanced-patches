@@ -347,6 +347,9 @@ internal val quickSeekOverlayFingerprint = legacyFingerprint(
     literals = listOf(darkBackground, tapBloomView),
 )
 
+/**
+ * YouTube 18.39 - 20.02
+ */
 internal val seekEduContainerFingerprint = legacyFingerprint(
     name = "seekEduContainerFingerprint",
     returnType = "V",

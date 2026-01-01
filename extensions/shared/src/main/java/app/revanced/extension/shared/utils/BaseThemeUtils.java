@@ -278,20 +278,31 @@ public class BaseThemeUtils {
     /**
      * Returns the drawable for the back button.
      */
-    @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
+        return getBackButtonDrawable(isDarkModeEnabled());
+    }
+
+    public static Drawable getBackButtonDrawable(boolean isDarkModeEnabled) {
         Drawable drawable = getDrawable("revanced_settings_toolbar_arrow_left");
-        customizeBackButtonDrawable(drawable);
+        customizeBackButtonDrawable(drawable, isDarkModeEnabled);
         return drawable;
     }
 
     /**
      * Customizes the back button drawable.
      */
-    public static void customizeBackButtonDrawable(Drawable drawable) {
+    private static void customizeBackButtonDrawable(Drawable drawable, boolean isDarkModeEnabled) {
         if (drawable != null) {
-            drawable.setTint(getAppForegroundColor());
+            drawable.setTint(getAppForegroundColor(isDarkModeEnabled));
         }
+    }
+
+    public static Drawable getMenuButtonDrawable(boolean isDarkModeEnabled) {
+        final String drawableName = isDarkModeEnabled
+                ? "yt_outline_overflow_vertical_white_24"
+                : "yt_outline_overflow_vertical_black_24";
+
+        return getDrawable(drawableName);
     }
 
     /**

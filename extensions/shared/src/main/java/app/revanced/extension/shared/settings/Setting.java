@@ -60,6 +60,23 @@ public abstract class Setting<T> {
     }
 
     /**
+     * Availability based on a single parent setting being disabled.
+     */
+    public static Availability parentInverted(BooleanSetting parent) {
+        return new Availability() {
+            @Override
+            public boolean isAvailable() {
+                return !parent.get();
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Collections.singletonList(parent);
+            }
+        };
+    }
+
+    /**
      * Availability based on all parents being enabled.
      */
     public static Availability parentsAll(BooleanSetting... parents) {
@@ -68,6 +85,26 @@ public abstract class Setting<T> {
             public boolean isAvailable() {
                 for (BooleanSetting parent : parents) {
                     if (!parent.get()) return false;
+                }
+                return true;
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Collections.unmodifiableList(Arrays.asList(parents));
+            }
+        };
+    }
+
+    /**
+     * Availability based on any parent being disabled.
+     */
+    public static Availability parentsAnyInverted(BooleanSetting... parents) {
+        return new Availability() {
+            @Override
+            public boolean isAvailable() {
+                for (BooleanSetting parent : parents) {
+                    if (parent.get()) return false;
                 }
                 return true;
             }
@@ -407,10 +444,13 @@ public abstract class Setting<T> {
     /**
      * Get the parent Settings that this setting depends on.
      *
-     * @return List of parent Settings (e.g., BooleanSetting or EnumSetting), or empty list if no dependencies exist.
+     * @return List of parent Settings, or empty list if no dependencies exist.
+     *         Defensive: handles null availability or missing getParentSettings() override.
      */
     public List<Setting<?>> getParentSettings() {
-        return availability == null ? Collections.emptyList() : availability.getParentSettings();
+        return availability == null
+                ? Collections.emptyList()
+                : Objects.requireNonNullElse(availability.getParentSettings(), Collections.emptyList());
     }
 
     /**

@@ -8,42 +8,26 @@ agp = "8.2.2"
 annotation = "1.9.1"
 collections4 = "4.5.0"
 desugar = "2.1.5"
-kotlinx-coroutines-core = "1.9.0"
-lang3 = "3.19.0"
-appcompat = "1.7.0"
-okhttp = "5.0.0-alpha.14"
-nanojson = "1.10"
-okhttp3 = "4.12.0"
-guava = "33.5.0-jre"
-protoc = "4.31.1"
-protobuf = "0.9.5"
-antlr4 = "4.13.2"
 nanohttpd = "2.3.1"
-apksig = "8.10.1"
+hiddenapi = "6.1"
+lang3 = "3.20.0"
+okhttp3 = "4.12.0"
+protobuf = "0.9.5"
+protoc = "3.25.2"
 preference = "1.2.1"
-regex = "1.1.11"
-retrofit = "2.11.0"
 
 [libraries]
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
 collections4 = { module = "org.apache.commons:commons-collections4", version.ref = "collections4" }
 desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines-core" }
+hiddenapi = { module = "org.lsposed.hiddenapibypass:hiddenapibypass", version.ref = "hiddenapi" }
 lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "lang3" }
-nanojson = { module = "com.grack:nanojson", version.ref = "nanojson" }
-antlr4 = { module = "org.antlr:antlr4", version.ref = "antlr4" }
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-nanohttpd = { module = "org.nanohttpd:nanohttpd", version.ref = "nanohttpd" }
-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
-guava = { module = "com.google.guava:guava", version.ref = "guava" }
-apksig = { group = "com.android.tools.build", name = "apksig", version.ref = "apksig" }
 okhttp3 = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp3" }
+nanohttpd = { module = "org.nanohttpd:nanohttpd", version.ref = "nanohttpd" }
 preference = { module = "androidx.preference:preference", version.ref = "preference" }
 protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protoc" }
 protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
-regex = { module = "com.github.florianingerl.util:regex", version.ref = "regex" }
-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "agp" }

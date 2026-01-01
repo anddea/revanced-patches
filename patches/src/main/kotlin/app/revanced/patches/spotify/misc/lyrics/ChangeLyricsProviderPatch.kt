@@ -25,7 +25,11 @@ val changeLyricsProviderPatch = bytecodePatch(
     description = "Changes the lyrics provider to a custom one.",
     use = false,
 ) {
-    compatibleWith("com.spotify.music")
+    compatibleWith(
+        "com.spotify.music"(
+            "9.0.90.1229",
+        ),
+    )
 
     val lyricsProviderHost by stringOption(
         key = "lyricsProviderHost",

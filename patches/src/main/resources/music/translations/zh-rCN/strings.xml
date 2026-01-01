@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">继续</string>
+    <string name="gms_core_dialog_dismiss_text">不再提示</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore 没有后台运行权限。
 
 请按照设备的“不要杀掉我的应用！”指南操作，并将说明应用于您的 GmsCore 安装。
@@ -20,6 +21,8 @@
     <string name="revanced_add_miniplayer_next_button_title">添加迷你播放器下一首按钮</string>
     <string name="revanced_add_miniplayer_previous_button_summary">在迷你播放器中添加上一曲目按钮。</string>
     <string name="revanced_add_miniplayer_previous_button_title">添加迷你播放器上一首按钮</string>
+    <string name="revanced_app_info_dialog_title">应用信息</string>
+    <string name="revanced_app_info_title">应用信息</string>
     <string name="revanced_bypass_image_region_restrictions_summary">绕过部分地区屏蔽的网域，以便可以接收播放列表缩略图、频道头像等。</string>
     <string name="revanced_bypass_image_region_restrictions_title">绕过图像区域限制</string>
     <string name="revanced_change_action_bar_position_summary">将操作栏移至播放按钮下方。</string>
@@ -68,8 +71,12 @@
 尽可能使用深色，因为应用不支持浅色主题。"</string>
     <string name="revanced_custom_player_background_color_secondary_title">播放器背景次颜色</string>
     <string name="revanced_custom_player_background_invalid_toast">播放器背景颜色无效。</string>
+    <string name="revanced_debug_protobuffer_title">记录协议缓冲区</string>
+    <string name="revanced_debug_spannable_title">记录可变文本</string>
+    <string name="revanced_debug_title">启用调试日志</string>
     <string name="revanced_default_app_settings_summary">要在 RVX Music 中打开 YouTube Music 链接，请启用打开支持的链接并启用所有支持的网址。</string>
     <string name="revanced_default_app_settings_title">打开默认应用设置</string>
+    <string name="revanced_disable_auto_audio_tracks_title">禁用强制自动音轨</string>
     <string name="revanced_disable_auto_captions_summary">禁止视频播放器自动启用的强制字幕</string>
     <string name="revanced_disable_auto_captions_title">禁用自动字幕</string>
     <string name="revanced_disable_cairo_splash_animation_summary">应用启动时禁用 Cairo 启动动画。</string>
@@ -88,6 +95,12 @@
     <string name="revanced_disable_music_video_in_album_title">禁用专辑中的音乐视频</string>
     <string name="revanced_disable_player_gesture_summary">禁用滑动切换播放器中的曲目。</string>
     <string name="revanced_disable_player_gesture_title">禁用播放器手势</string>
+    <string name="revanced_disable_quic_protocol_summary">"禁用 Cronet 引擎的 QUIC 协议"</string>
+    <string name="revanced_disable_quic_protocol_title">禁用 QUIC 协议</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"“点击评论面板标题（“评论”）会滚动到顶部。
+
+限制：不适用于评论回复。"</string>
+    <string name="revanced_enable_comments_scroll_top_title">启用评论滚动到顶部</string>
     <string name="revanced_enable_compact_dialog_summary">"在手机上启用紧凑弹出菜单。
 
 限制：
@@ -104,7 +117,7 @@
     <string name="revanced_enable_mini_player_next_button_title">启用迷你播放器的下一首按钮</string>
     <string name="revanced_enable_mini_player_previous_button_summary">启用迷你播放器的上一首按钮</string>
     <string name="revanced_enable_mini_player_previous_button_title">启用迷你播放器的上一首按钮</string>
-    <string name="revanced_enable_opus_codec_summary">"播放音频使用 250/251 opus 编码"</string>
+    <string name="revanced_enable_opus_codec_summary">"如果播放器支持 OPUS 编解码器，则启用 OPUS 编解码器"</string>
     <string name="revanced_enable_opus_codec_title">OPUS 编解码器</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">启用向下滑动以关闭迷你播放器</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">启用滑动以关闭迷你播放器</string>
@@ -116,11 +129,6 @@
     <string name="revanced_enable_zen_mode_podcast_title">在播客中启用 Zen 模式</string>
     <string name="revanced_enable_zen_mode_summary">在视频播放器上添加灰色阴影以减少眼睛疲劳</string>
     <string name="revanced_enable_zen_mode_title">禅定模式</string>
-    <string name="revanced_extended_settings_export_failed">导出配置失败</string>
-    <string name="revanced_extended_settings_export_success">导出配置成功</string>
-    <string name="revanced_extended_settings_import">导入</string>
-    <string name="revanced_extended_settings_import_reset">设置已被重置为默认值。</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"下载按钮打开您的外部下载器。
 
 • 仅覆盖播放器中的下载操作按钮。
@@ -134,6 +142,8 @@
     <string name="revanced_external_downloader_package_name_summary">您安装的外部下载器应用的包名，例如 NewPipe 或 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_title">外部下载器应用包名</string>
     <string name="revanced_fullscreen_ads_closed_toast">全屏广告已关闭。</string>
+    <string name="revanced_gms_show_dialog_summary">每次启动应用时显示 GMSCore 的优化对话框</string>
+    <string name="revanced_gms_show_dialog_title">显示 GMSCore 优化对话框</string>
     <string name="revanced_hide_account_menu_empty_component_summary">隐藏在账户菜单中的空组件。</string>
     <string name="revanced_hide_account_menu_empty_component_title">隐藏空组件</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">要过滤的帐户菜单名称列表，每行一个名称</string>
@@ -171,6 +181,7 @@
     <string name="revanced_hide_comment_channel_guidelines_title">隐藏频道指南</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">输入评论时隐藏时间戳和表情符号按钮</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">隐藏时间戳和表情按钮</string>
+    <string name="revanced_hide_comments_information_button_title">隐藏信息按钮</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">隐藏双击滑动条时出现的深色覆盖。</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">隐藏双击叠加层过滤器</string>
     <string name="revanced_hide_floating_button_summary">隐藏媒体库中的悬浮按钮</string>
@@ -196,7 +207,6 @@
     <string name="revanced_hide_flyout_menu_remove_from_playlist_title">隐藏从播放列表移除菜单</string>
     <string name="revanced_hide_flyout_menu_report_title">隐藏举报菜单</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">隐藏保存剧集到稍后再看菜单</string>
-    <string name="revanced_hide_flyout_menu_save_to_library_title">隐藏保存到库菜单</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">隐藏保存到播放列表</string>
     <string name="revanced_hide_flyout_menu_share_title">隐藏分享菜单</string>
     <string name="revanced_hide_flyout_menu_shuffle_play_title">隐藏随机播放菜单</string>
@@ -206,7 +216,7 @@
     <string name="revanced_hide_flyout_menu_subscribe_title">隐藏订阅 / 退订菜单</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">隐藏从快速播放取消置顶菜单</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">隐藏歌曲详细信息</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"隐藏全屏广告"</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"隐藏全屏广告。"</string>
     <string name="revanced_hide_fullscreen_ads_title">隐藏全屏广告</string>
     <string name="revanced_hide_fullscreen_share_button_summary">隐藏全屏播放器中的分享按钮</string>
     <string name="revanced_hide_fullscreen_share_button_title">隐藏全屏分享按钮</string>
@@ -247,6 +257,7 @@
     <string name="revanced_hide_promotion_alert_banner_title">隐藏推广提醒横幅</string>
     <string name="revanced_hide_samples_shelf_summary">隐藏订阅中的样品栏</string>
     <string name="revanced_hide_samples_shelf_title">隐藏样品栏</string>
+    <string name="revanced_hide_search_button_title">隐藏搜索按钮</string>
     <string name="revanced_hide_settings_menu_about_title">隐藏关于菜单</string>
     <string name="revanced_hide_settings_menu_data_saving_title">隐藏数据保存菜单</string>
     <string name="revanced_hide_settings_menu_downloads_and_storage_title">隐藏下载和存储菜单</string>
@@ -309,6 +320,9 @@
     <string name="revanced_replace_flyout_menu_report_only_player_title">在评论中保留举报</string>
     <string name="revanced_replace_flyout_menu_report_summary">用播放速度菜单替换举报菜单</string>
     <string name="revanced_replace_flyout_menu_report_title">替换举报菜单</string>
+    <string name="revanced_reset_to_default_toast">重置为默认值。</string>
+    <string name="revanced_restart_first_run">重启即可正常加载布局</string>
+    <string name="revanced_restart_message">刷新并重启</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">将评论弹出面板恢复为旧样式。</string>
     <string name="revanced_restore_old_comments_popup_panels_title">恢复旧版评论弹出面板</string>
     <string name="revanced_restore_old_player_background_summary">将播放器背景恢复为旧样式。</string>
@@ -371,8 +385,10 @@
     <string name="revanced_sb_enabled">启用 SponsorBlock（赞助商拦截）</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock 是一个众包系统，用于跳过 YouTube 视频中令人讨厌的部分。</string>
     <string name="revanced_sb_reset_color">重置颜色</string>
-    <string name="revanced_sb_segments_filler">关联话题 / 玩笑</string>
-    <string name="revanced_sb_segments_filler_sum">仅添加用于填充或幽默的离题场景，这些场景对于理解视频的主要内容无关。不包括提供上下文或背景细节的片段。</string>
+    <string name="revanced_sb_segments_filler">灌水内容 / 笑话</string>
+    <string name="revanced_sb_segments_filler_sum">跑题片段，闲聊或笑话，对理解视频主要内容并无帮助。这不会包含叙述环境与背景信息的片段</string>
+    <string name="revanced_sb_segments_hook">钩子/问候</string>
+    <string name="revanced_sb_segments_hook_sum">即将到来视频的叙述预告片、问候和告别。不包括添加额外内容的部分。</string>
     <string name="revanced_sb_segments_interaction">互动提醒（订阅）</string>
     <string name="revanced_sb_segments_interaction_sum">在内容中间简短提醒点赞、订阅或关注他们。如果内容很长或涉及特定内容，则应进行自我推广。</string>
     <string name="revanced_sb_segments_intro">中场/开场动画</string>
@@ -381,7 +397,7 @@
     <string name="revanced_sb_segments_nomusic_sum">仅用于音乐视频。音乐视频中没有音乐的部分，尚未被其他类别涵盖。</string>
     <string name="revanced_sb_segments_outro">片尾/致谢</string>
     <string name="revanced_sb_segments_outro_sum">致谢或 YouTube 片尾出现时。不适用于包含信息的结尾。</string>
-    <string name="revanced_sb_segments_preview">预告 / 回顾 / 叙事挂钩</string>
+    <string name="revanced_sb_segments_preview">预览 / 回顾</string>
     <string name="revanced_sb_segments_preview_sum">剪辑集合，展示即将发生的事或视频中或系列中其他视频中发生的事情，其中​​所有信息都在其他地方重复出现。</string>
     <string name="revanced_sb_segments_selfpromo">无偿/自我推广</string>
     <string name="revanced_sb_segments_selfpromo_sum">与赞助商类似，但不包括免费或自我推广。包括商品、捐赠或合作方信息等部分。</string>
@@ -389,7 +405,8 @@
     <string name="revanced_sb_segments_sponsor_sum">付费推广、付费推荐和直接广告。不用于自我推广或免费宣传他们喜欢的事业/创作者/网站/产品。</string>
     <string name="revanced_sb_skip_automatically">自动跳过</string>
     <string name="revanced_sb_skip_ignore">禁用</string>
-    <string name="revanced_sb_skipped_filler">已跳过灌水。</string>
+    <string name="revanced_sb_skipped_filler">已跳过跑题片段</string>
+    <string name="revanced_sb_skipped_hook">已跳过引子。</string>
     <string name="revanced_sb_skipped_interaction">跳过烦人的提醒。</string>
     <string name="revanced_sb_skipped_intro_beginning">跳过片头。</string>
     <string name="revanced_sb_skipped_intro_end">跳过中场。</string>
@@ -409,6 +426,32 @@
     <string name="revanced_sb_toast_on_connection_error_sum">如果 SponsorBlock API 不可用，则显示 Toast 提示。</string>
     <string name="revanced_sb_toast_on_skip">自动跳过时显示 Toast 提示</string>
     <string name="revanced_sb_toast_on_skip_sum">当自动跳过某个片段时显示 Toast 提示。</string>
+    <string name="revanced_settings_export_failed">导出设置失败。</string>
+    <string name="revanced_settings_export_success">设置已成功导出。</string>
+    <string name="revanced_settings_import">导入</string>
+    <string name="revanced_settings_import_copy">复制</string>
+    <string name="revanced_settings_import_export_as_text">将设置导入/导出为文本。</string>
+    <string name="revanced_settings_import_reset">设置已重置为默认值。</string>
+    <string name="revanced_settings_reset">重置</string>
+    <string name="revanced_settings_search_clear_history">清空搜索历史记录</string>
+    <string name="revanced_settings_search_clear_history_message">你确定要清空所有搜索历史记录吗？</string>
+    <string name="revanced_settings_search_empty_history_summary">要保存搜索历史记录，请键入搜索查询并按 Enter 键。</string>
+    <string name="revanced_settings_search_empty_history_title">搜索历史记录为空</string>
+    <string name="revanced_settings_search_history_summary_off">不显示设置搜索历史记录。</string>
+    <string name="revanced_settings_search_history_summary_on">显示设置搜索历史记录。</string>
+    <string name="revanced_settings_search_history_title">显示设置搜索历史记录</string>
+    <string name="revanced_settings_search_no_results_summary">请尝试其他关键字。</string>
+    <string name="revanced_settings_search_no_results_title">未找到“%s”的结果。</string>
+    <string name="revanced_settings_search_recent_searches">近期搜索</string>
+    <string name="revanced_settings_search_remove_message">从搜索历史记录中移除？</string>
+    <string name="revanced_settings_search_tips_summary">"• 点击路径即可导航至该路径。
+• 长按某设置即可导航至该设置。
+• 按 Enter 键可将搜索查询保存到历史记录。
+• 搜索会忽略大小写和标点符号。
+• 父级设置显示在已禁用的子级设置上方。"</string>
+    <string name="revanced_settings_search_tips_title">搜索提示</string>
+    <string name="revanced_settings_search_title">搜索 %s</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">配置已复制到剪贴板</string>
     <string name="revanced_spoof_app_version_summary">"伪装应用版本为旧版本
 
@@ -421,15 +464,89 @@
     <string name="revanced_spoof_app_version_target_summary">选择伪装的应用版本</string>
     <string name="revanced_spoof_app_version_target_title">伪装应用版本</string>
     <string name="revanced_spoof_app_version_title">伪装应用版本</string>
-    <string name="revanced_spoof_client_summary">"伪装客户端以防止播放问题。"</string>
+    <string name="revanced_spoof_client_summary">伪装客户端以防止播放问题。</string>
     <string name="revanced_spoof_client_title">伪装客户端</string>
     <string name="revanced_spoof_client_type_summary">"定义用于伪装的默认客户端。"</string>
     <string name="revanced_spoof_client_type_title">默认客户端</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Legacy</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
+    <string name="revanced_spoof_streaming_data_default_client_title">默认客户端</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">无法获取任何客户端流。</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">请尝试将默认客户端更改为TV。</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">点击查看如何获取认证令牌。</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">获取授权令牌</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">重置</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"身份验证令牌已保存。
+
+- 通过此过程颁发的身份验证令牌只能在 YouTube 中使用 (在 RVX 中，它用于从 YouTube 获取流媒体数据)。
+- 超过 6 个月未使用的身份验证令牌将被 Google 服务器吊销。
+- 如果你更改密码，或在账号设置中取消注册设备，或卸载应用程序，你需要重新颁发身份验证令牌。"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">已登录</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">点击此处查看如何登录 Android VR。</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">登录 Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"激活码：
+%s
+
+1. 点击“打开网站”前往“https://yt.be/activate”。
+2. 输入激活码。
+3. 根据提示登录。如果你有多个 Google 账号，请选择你用于 YouTube 的账号。如果你已登录，请跳至下一步。
+4. 登录后，返回 RVX 并再次点击“登录 Android VR”。
+5. 点击“获取授权令牌”以获取授权令牌。"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">打开网站</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">激活码</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">激活码已复制到剪贴板：%s。</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">获取激活码</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">获取授权令牌</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"登录 Android VR (YouTube VR) 遵循 Google 提供的指南 (Google 账号授权 - 适用于电视和受限输入设备应用程序的 OAuth 2.0)：
+
+1. 点击“获取激活码”生成激活码。
+2. 点击“打开网站”前往“https://yt.be/activate”。
+3. 输入激活码。
+4. 根据提示登录。如果你有多个 Google 账号，请选择你用于 YouTube 的账号。如果你已登录，请跳至下一步。
+5. 登录后，返回 RVX 并再次点击“登录 Android VR”。
+6. 点击“获取授权令牌”以获取授权令牌。
+
+※ 点击“重置”以移除身份验证令牌或激活码。"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">重置</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">登录 Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"身份验证令牌已保存。
+
+- 通过此过程颁发的身份验证令牌只能在 YouTube VR 中使用 (在 RVX 中，它用于从 YouTube VR 获取流媒体数据)。
+- 超过 6 个月未使用的身份验证令牌将被 Google 服务器吊销。
+- 如果你更改密码，或在账号设置中取消注册设备，或卸载应用程序，你需要重新颁发身份验证令牌。"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">已登录</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">无法颁发身份验证令牌。</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">点击重置并重试。</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">身份验证令牌和激活码已重置。</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">显示统计信息</string>
+    <string name="revanced_spoof_streaming_data_title">伪装流媒体数据</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">使用最新的播放器 JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">使用 yt-dlp ejs（开发中）</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">点击查看如何获取认证令牌。</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">关于 Android VR 认证</string>
+    <string name="revanced_spoof_video_streams_default_client_title">默认客户端</string>
+    <string name="revanced_translations_title">翻译</string>
     <string name="revanced_watch_history_type_entry_1">原始</string>
     <string name="revanced_watch_history_type_entry_2">替换网域</string>
     <string name="revanced_watch_history_type_entry_3">屏蔽观看历史记录</string>
     <string name="revanced_watch_history_type_summary">"• 原始：遵循 Google 账号的观看历史记录设置，但观看历史记录可能因 DNS 或 VPN 而无法使用。
 • 替换网域：遵循 Google 账号的观看历史记录设置。
 • 屏蔽观看历史记录：观看历史记录被屏蔽。"</string>
-    <string name="revanced_watch_history_type_title">观看历史记录类型</string>
+    <string name="revanced_watch_history_type_title">历史记录类型</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">获取 Cookie</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">获取数据同步 ID</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">获取访客数据</string>
+    <string name="revanced_webview_contextual_menu_refresh">刷新</string>
+    <string name="revanced_webview_cookies">Cookie</string>
+    <string name="revanced_webview_copy">复制</string>
+    <string name="revanced_webview_data_sync_id">数据同步 ID</string>
+    <string name="revanced_webview_toast_copy_success">%s 已复制到剪贴板。</string>
+    <string name="revanced_webview_toast_empty">%s 为空。</string>
+    <string name="revanced_webview_toast_no_network">请检查你的网络连接。</string>
+    <string name="revanced_webview_toast_unavailable">WebView 不可用。</string>
+    <string name="revanced_webview_visitor_data">访客数据</string>
 </resources>

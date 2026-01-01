@@ -2,6 +2,7 @@ package app.revanced.extension.shared.patches.spoof;
 
 import static app.revanced.extension.shared.innertube.utils.J2V8Support.supportJ2V8;
 import static app.revanced.extension.shared.innertube.utils.StreamingDataOuterClassUtils.prioritizeResolution;
+import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 
 import android.net.Uri;
 import android.text.TextUtils;
@@ -22,7 +23,8 @@ import java.util.concurrent.CompletableFuture;
 import app.revanced.extension.shared.innertube.client.YouTubeClient.ClientType;
 import app.revanced.extension.shared.innertube.utils.ThrottlingParameterUtils;
 import app.revanced.extension.shared.patches.PatchStatus;
-import app.revanced.extension.shared.patches.auth.AuthPatch;
+import app.revanced.extension.shared.patches.auth.YouTubeAuthPatch;
+import app.revanced.extension.shared.patches.auth.YouTubeVRAuthPatch;
 import app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
@@ -41,8 +43,6 @@ public class SpoofStreamingDataPatch {
             SPOOF_STREAMING_DATA && J2V8_LIBRARY_AVAILABILITY && BaseSettings.SPOOF_STREAMING_DATA_USE_JS.get();
     private static final boolean SPOOF_STREAMING_DATA_USE_JS_ALL =
             SPOOF_STREAMING_DATA_USE_JS && BaseSettings.SPOOF_STREAMING_DATA_USE_JS_ALL.get();
-    private static final boolean SPOOF_STREAMING_DATA_USE_YT_DLP_EJS =
-            SPOOF_STREAMING_DATA_USE_JS && BaseSettings.SPOOF_STREAMING_DATA_USE_YT_DLP_EJS.get();
 
     /**
      * Domain used for internet connectivity verification.
@@ -73,8 +73,6 @@ public class SpoofStreamingDataPatch {
      * Prefix present in all Short player parameters signature.
      */
     private static final String SHORTS_PLAYER_PARAMETERS = "8AEB";
-    @NonNull
-    private static volatile String playerResponseCpn = "";
     @Nullable
     private static volatile String playerResponseParameter = null;
 
@@ -210,7 +208,6 @@ public class SpoofStreamingDataPatch {
                 return;
             }
             String tParameter = YouTubeHelper.generateTParameter(uri.getQueryParameter("t"));
-            String cpn = YouTubeHelper.generateContentPlaybackNonce(playerResponseCpn);
             String reasonSkipped;
             if (playerResponseParameter != null &&
                     SPOOF_STREAMING_DATA_USE_JS &&
@@ -229,11 +226,11 @@ public class SpoofStreamingDataPatch {
                 reasonSkipped = "";
             }
 
-            AuthPatch.checkAccessToken();
+            YouTubeAuthPatch.checkAccessToken();
+            YouTubeVRAuthPatch.checkAccessToken();
             StreamingDataRequest.fetchRequest(
                     id,
                     tParameter,
-                    cpn,
                     requestHeader,
                     reasonSkipped
             );
@@ -317,15 +314,6 @@ public class SpoofStreamingDataPatch {
     /**
      * Injection point.
      */
-    public static void newPlayerResponseCpn(@Nullable String cpn) {
-        if (cpn != null && !cpn.isEmpty()) {
-            playerResponseCpn = cpn;
-        }
-    }
-
-    /**
-     * Injection point.
-     */
     @Nullable
     public static String newPlayerResponseParameter(@NonNull String newlyLoadedVideoId, @Nullable String playerParameter) {
         return newPlayerResponseParameter(newlyLoadedVideoId, playerParameter, null, false);
@@ -354,10 +342,11 @@ public class SpoofStreamingDataPatch {
     public static void initializeJavascript() {
         if (SPOOF_STREAMING_DATA_USE_JS) {
             // Download JavaScript and initialize the Cipher class
-            CompletableFuture.runAsync(() -> ThrottlingParameterUtils.initializeJavascript(
-                    SPOOF_STREAMING_DATA_USE_YT_DLP_EJS,
-                    BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getRequirePoToken()
-            ));
+            if (isSDKAbove(24)) {
+                CompletableFuture.runAsync(ThrottlingParameterUtils::initializeJavascript);
+            } else {
+                Utils.runOnBackgroundThread(ThrottlingParameterUtils::initializeJavascript);
+            }
         }
     }
 
@@ -424,20 +413,6 @@ public class SpoofStreamingDataPatch {
                     BaseSettings.SPOOF_STREAMING_DATA,
                     BaseSettings.SPOOF_STREAMING_DATA_USE_JS
             );
-        }
-    }
-
-    public static final class ClientSingleAudioTrackAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return BaseSettings.SPOOF_STREAMING_DATA.get() &&
-                    !BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getSupportsCookies() &&
-                    !BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getSupportsMultiAudioTracks();
-        }
-
-        @Override
-        public List<Setting<?>> getParentSettings() {
-            return List.of(BaseSettings.SPOOF_STREAMING_DATA);
         }
     }
 

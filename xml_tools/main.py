@@ -6,7 +6,7 @@ import os
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Callable
+from typing import TYPE_CHECKING, Any
 
 import click
 
@@ -28,6 +28,7 @@ from handlers import (
 from utils import GitClient
 
 if TYPE_CHECKING:
+    from collections.abc import Callable
     from logging import Logger
 
 settings = Settings()
@@ -82,7 +83,9 @@ def is_rvx_dir_needed(options: dict[str, Any]) -> bool:
     is_flag=True,
     help="Check git diff and create updated_strings.xml for forced strings.",
 )
-@click.option("--youtube/--music", default=True, help="Process YouTube or Music strings")
+@click.option("--youtube", is_flag=True, help="Process YouTube")
+@click.option("--music", is_flag=True, help="Process Music")
+@click.option("--reddit", is_flag=True, help="Process Reddit")
 @click.option("--debug", is_flag=True, help="Enable debug logging")
 @click.pass_context
 def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
@@ -90,7 +93,20 @@ def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
     log_file = kwargs.get("log_file")
     log_file = log_file if isinstance(log_file, str) else None
 
-    app: str = "youtube" if kwargs.get("youtube") else "music"
+    flags = [bool(kwargs.get("youtube")), bool(kwargs.get("music")), bool(kwargs.get("reddit"))]
+    if sum(flags) > 1:
+        exc: str = "You can only use one of --youtube, --music, or --reddit at a time."
+        raise click.UsageError(exc)
+
+    app: str = (
+        "youtube"
+        if kwargs.get("youtube")
+        else "music"
+        if kwargs.get("music")
+        else "reddit"
+        if kwargs.get("reddit")
+        else "youtube"  # The default fallback if nothing is clicked
+    )
     debug: bool = bool(kwargs.get("debug", False))
 
     logger = setup_logging(Path(log_file) if log_file else None, debug=debug)
@@ -155,8 +171,10 @@ def process_all(config: CLIConfig) -> None:
         ("Remove Unused Strings (YouTube Music)", remove_unused_strings.process, ["music"]),
         ("Sort Strings (YouTube)", sort_strings.process, ["youtube"]),
         ("Sort Strings (YouTube Music)", sort_strings.process, ["music"]),
+        ("Sort Strings (Reddit)", sort_strings.process, ["reddit"]),
         ("Missing Strings Creation (YouTube)", missing_strings.process, ["youtube"]),
         ("Missing Strings Creation (YouTube Music)", missing_strings.process, ["music"]),
+        ("Missing Strings Creation (Reddit)", missing_strings.process, ["reddit"]),
         ("Remove Unused Resources (YouTube)", remove_unused_resources.process, ["youtube"]),
         ("Remove Unused Resources (YouTube Music)", remove_unused_resources.process, ["music"]),
         ("Missing Prefs Check", check_prefs.process, ["youtube", base_dir]),

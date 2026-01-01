@@ -8,7 +8,6 @@ import static app.revanced.extension.shared.utils.Utils.hideViewGroupByMarginLay
 import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
 import static app.revanced.extension.youtube.patches.utils.PatchStatus.ImageSearchButton;
 import static app.revanced.extension.youtube.patches.utils.PatchStatus.TargetActivityClass;
-import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -26,17 +25,13 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.google.android.apps.youtube.app.application.Shell_SettingsActivity;
 import com.google.android.apps.youtube.app.settings.SettingsActivity;
 
-import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
-import java.util.EnumMap;
-import java.util.Map;
 import java.util.Objects;
 
 import app.revanced.extension.shared.utils.Logger;
@@ -111,11 +106,7 @@ public class GeneralPatch {
     // region [Hide layout components] patch
 
     public static boolean disableTranslucentStatusBar(boolean original) {
-        if (Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get()) {
-            return false;
-        }
-
-        return original;
+        return !Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get() && original;
     }
 
     private static String[] accountMenuBlockList;
@@ -199,71 +190,6 @@ public class GeneralPatch {
 
     public static boolean hideFloatingMicrophone(boolean original) {
         return Settings.HIDE_FLOATING_MICROPHONE.get() || original;
-    }
-
-    // endregion
-
-    // region [Hide navigation bar components] patch
-
-    private static final Map<NavigationButton, Boolean> shouldHideMap = new EnumMap<>(NavigationButton.class) {
-        {
-            put(NavigationButton.HOME, Settings.HIDE_NAVIGATION_HOME_BUTTON.get());
-            put(NavigationButton.SHORTS, Settings.HIDE_NAVIGATION_SHORTS_BUTTON.get());
-            put(NavigationButton.SUBSCRIPTIONS, Settings.HIDE_NAVIGATION_SUBSCRIPTIONS_BUTTON.get());
-            put(NavigationButton.CREATE, Settings.HIDE_NAVIGATION_CREATE_BUTTON.get());
-            put(NavigationButton.NOTIFICATIONS, Settings.HIDE_NAVIGATION_NOTIFICATIONS_BUTTON.get());
-            put(NavigationButton.LIBRARY, Settings.HIDE_NAVIGATION_LIBRARY_BUTTON.get());
-        }
-    };
-
-    public static boolean enableNarrowNavigationButton(boolean original) {
-        return Settings.ENABLE_NARROW_NAVIGATION_BUTTONS.get() || original;
-    }
-
-    public static boolean enableTranslucentNavigationBar() {
-        return Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR.get();
-    }
-
-    /**
-     * @noinspection ALL
-     */
-    public static void setCairoNotificationFilledIcon(EnumMap enumMap, Enum tabActivityCairo) {
-        final int fillBellCairoBlack = ResourceUtils.getDrawableIdentifier("yt_fill_bell_cairo_black_24");
-        if (fillBellCairoBlack != 0) {
-            // It's very unlikely, but Google might fix this issue someday.
-            // If so, [fillBellCairoBlack] might already be in enumMap.
-            // That's why 'EnumMap.putIfAbsent()' is used instead of 'EnumMap.put()'.
-            enumMap.putIfAbsent(tabActivityCairo, Integer.valueOf(fillBellCairoBlack));
-        }
-    }
-
-    public static int getLibraryDrawableId(int original) {
-        if (ExtendedUtils.IS_19_26_OR_GREATER &&
-                !ExtendedUtils.isSpoofingToLessThan("19.27.00")) {
-            int libraryCairoId = ResourceUtils.getDrawableIdentifier("yt_outline_library_cairo_black_24");
-            if (libraryCairoId != 0) {
-                return libraryCairoId;
-            }
-        }
-        return original;
-    }
-
-    public static boolean switchCreateWithNotificationButton(boolean original) {
-        return Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON.get() || original;
-    }
-
-    public static void navigationTabCreated(NavigationButton button, View tabView) {
-        if (BooleanUtils.isTrue(shouldHideMap.get(button))) {
-            tabView.setVisibility(View.GONE);
-        }
-    }
-
-    public static void hideNavigationLabel(TextView view) {
-        hideViewUnderCondition(Settings.HIDE_NAVIGATION_LABEL.get(), view);
-    }
-
-    public static void hideNavigationBar(View view) {
-        hideViewUnderCondition(Settings.HIDE_NAVIGATION_BAR.get(), view);
     }
 
     // endregion
@@ -519,6 +445,21 @@ public class GeneralPatch {
         hideViewUnderCondition(isNotificationButton(enumString), view);
     }
 
+    public static void hideSearchButton(String enumString, View view) {
+        if (!Settings.HIDE_TOOLBAR_SEARCH_BUTTON.get())
+            return;
+
+        hideViewUnderCondition(isSearchButton(enumString), view);
+    }
+
+    public static void hideSearchButton(MenuItem menuItem, int original) {
+        menuItem.setShowAsAction(
+                Settings.HIDE_TOOLBAR_SEARCH_BUTTON.get()
+                        ? MenuItem.SHOW_AS_ACTION_NEVER
+                        : original
+        );
+    }
+
     public static boolean hideSearchTermThumbnail() {
         return Settings.HIDE_SEARCH_TERM_THUMBNAIL.get();
     }
@@ -726,7 +667,16 @@ public class GeneralPatch {
         return StringUtils.equalsAny(
                 enumString,
                 "TAB_ACTIVITY", // Notification button
-                "TAB_ACTIVITY_CAIRO" // Notification button (new layout)
+                "TAB_ACTIVITY_CAIRO" // Notification button (New layout)
+        );
+    }
+
+    private static boolean isSearchButton(String enumString) {
+        return StringUtils.equalsAny(
+                enumString,
+                "SEARCH", // Search button
+                "SEARCH_CAIRO", // Search button (New layout)
+                "SEARCH_BOLD" // Search button (Shorts)
         );
     }
 

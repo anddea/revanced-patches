@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout android:background="?selectableItemBackgroundBorderless" android:layout_width="0.0dip" android:layout_height="fill_parent" android:minWidth="@dimen/pivot_bar_tab_min_width" android:layout_weight="1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yt="http://schemas.android.com/apk/res-auto">
+    <ViewStub android:id="@+id/empty_content_dot" android:layout="@layout/empty_content_dot" android:inflatedId="@+id/empty_content_dot" android:layout_width="0.0dip" android:layout_height="0.0dip" />
+    <ViewStub android:id="@+id/empty_content_count" android:layout="@layout/empty_content_count" android:inflatedId="@+id/empty_content_count" android:layout_width="0.0dip" android:layout_height="0.0dip" />
+</android.support.constraint.ConstraintLayout>

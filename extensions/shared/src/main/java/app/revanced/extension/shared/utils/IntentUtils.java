@@ -7,6 +7,8 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.shared.patches.PatchStatus;
+
 public class IntentUtils extends Utils {
 
     public static void launchExternalDownloader(@NonNull String content, @NonNull String downloaderPackageName) {
@@ -40,6 +42,26 @@ public class IntentUtils extends Utils {
             intent.setPackage(packageName);
         }
         launchIntent(intent);
+    }
+
+    public static void launchWebViewActivity(Context mContext,
+                                             boolean clearCookiesOnStartUp,
+                                             boolean clearCookiesOnShutDown,
+                                             boolean useDesktopUserAgent,
+                                             String url) {
+        try {
+            Intent intent = new Intent();
+            intent.setPackage(mContext.getPackageName());
+            intent.setData(Uri.parse("revanced_webview"));
+            intent.putExtra("clearCookiesOnStartUp", clearCookiesOnStartUp);
+            intent.putExtra("clearCookiesOnShutDown", clearCookiesOnShutDown);
+            intent.putExtra("useDesktopUserAgent", useDesktopUserAgent);
+            intent.putExtra("url", url);
+            intent.setClassName(mContext, PatchStatus.WebViewActivityClass());
+            mContext.startActivity(intent);
+        } catch (Exception ex) {
+            Logger.printException(() -> "launchWebViewActivity failed", ex);
+        }
     }
 
 }

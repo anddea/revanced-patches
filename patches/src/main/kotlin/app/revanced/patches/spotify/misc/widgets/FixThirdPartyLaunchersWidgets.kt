@@ -8,7 +8,11 @@ val fixThirdPartyLaunchersWidgets = bytecodePatch(
     name = "Fix third party launchers widgets",
     description = "Fixes Spotify widgets not working in third party launchers, like Nova Launcher.",
 ) {
-    compatibleWith("com.spotify.music")
+    compatibleWith(
+        "com.spotify.music"(
+            "9.0.90.1229",
+        ),
+    )
 
     execute {
         // Only system app launchers are granted the BIND_APPWIDGET permission.

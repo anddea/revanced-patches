@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.List;
 
 import app.revanced.extension.music.patches.utils.PatchStatus;
 import app.revanced.extension.music.settings.Settings;
@@ -62,7 +64,7 @@ public class NavigationPatch {
         }
 
         for (NavigationButton button : NavigationButton.values()) {
-            if (button.ytEnumNames.equals(lastYTNavigationEnumName)) {
+            if (button.ytEnumNames.contains(lastYTNavigationEnumName)) {
                 if (button.replace) {
                     Runnable onClickAction = button.onClickAction;
                     if (onClickAction != null) {
@@ -112,7 +114,7 @@ public class NavigationPatch {
 
     public static Spanned replaceNavigationLabel(@NonNull Spanned sourceStyle) {
         for (NavigationButton button : NavigationButton.values()) {
-            if (button.ytEnumNames.equals(lastYTNavigationEnumName) && button.replace) {
+            if (button.ytEnumNames.contains(lastYTNavigationEnumName) && button.replace) {
                 String label = button.label;
                 if (!label.isEmpty()) {
                     return Utils.newSpanUsingStylingOfAnotherSpan(sourceStyle, label);
@@ -125,12 +127,12 @@ public class NavigationPatch {
 
     private enum NavigationButton {
         HOME(
-                "TAB_HOME",
+                Arrays.asList("TAB_HOME"),
                 Settings.HIDE_NAVIGATION_HOME_BUTTON.get(),
                 "FEmusic_home"
         ),
         SAMPLES(
-                "TAB_SAMPLES",
+                Arrays.asList("TAB_SAMPLES"),
                 Settings.HIDE_NAVIGATION_SAMPLES_BUTTON.get(),
                 IS_6_27_OR_GREATER && !IS_8_29_OR_GREATER &&
                         Settings.REPLACE_NAVIGATION_SAMPLES_BUTTON.get(),
@@ -142,17 +144,20 @@ public class NavigationPatch {
                 ExtendedUtils::openSearch
         ),
         EXPLORE(
-                "TAB_EXPLORE",
+                Arrays.asList("TAB_EXPLORE"),
                 Settings.HIDE_NAVIGATION_EXPLORE_BUTTON.get(),
                 "FEmusic_explore"
         ),
         LIBRARY(
-                "LIBRARY_MUSIC",
+                Arrays.asList(
+                        "LIBRARY_MUSIC",
+                        "TAB_BOOKMARK" // YouTube Music 8.24+
+                ),
                 Settings.HIDE_NAVIGATION_LIBRARY_BUTTON.get(),
                 "FEmusic_library_landing"
         ),
         UPGRADE(
-                "TAB_MUSIC_PREMIUM",
+                Arrays.asList("TAB_MUSIC_PREMIUM"),
                 Settings.HIDE_NAVIGATION_UPGRADE_BUTTON.get(),
                 Settings.REPLACE_NAVIGATION_UPGRADE_BUTTON.get(),
                 "SPunlimited",
@@ -163,7 +168,7 @@ public class NavigationPatch {
                 ExtendedUtils::openSetting
         );
 
-        private final String ytEnumNames;
+        private final List<String> ytEnumNames;
         private final boolean hidden;
         private final boolean replace;
         @NonNull
@@ -176,12 +181,12 @@ public class NavigationPatch {
         @Nullable
         private final Runnable onClickAction;
 
-        NavigationButton(@NonNull String ytEnumNames, boolean hidden,
+        NavigationButton(@NonNull List<String> ytEnumNames, boolean hidden,
                          @NonNull String browseId) {
             this(ytEnumNames, hidden, false, browseId, null, null, null, null, null);
         }
 
-        NavigationButton(@NonNull String ytEnumNames, boolean hidden, boolean replace,
+        NavigationButton(@NonNull List<String> ytEnumNames, boolean hidden, boolean replace,
                          @NonNull String browseId, @Nullable String label,
                          @Nullable String selectedIcon, @Nullable String unSelectedIcon,
                          @Nullable String replaceIcon, @Nullable Runnable onClickAction) {

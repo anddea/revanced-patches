@@ -3,10 +3,12 @@ package app.revanced.patches.youtube.general.formfactor
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.shared.CLIENT_INFO_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.createPlayerRequestBodyWithModelFingerprint
+import app.revanced.patches.shared.spoof.guide.addClientInfoHook
+import app.revanced.patches.shared.spoof.guide.spoofClientGuideEndpointPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_PATH
-import app.revanced.patches.youtube.utils.navigation.hookNavigationButtonCreated
 import app.revanced.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.CHANGE_FORM_FACTOR
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
@@ -19,6 +21,7 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
@@ -36,6 +39,7 @@ val changeFormFactorPatch = bytecodePatch(
         settingsPatch,
         playerTypeHookPatch,
         navigationBarHookPatch,
+        spoofClientGuideEndpointPatch,
     )
 
     execute {
@@ -44,18 +48,41 @@ val changeFormFactorPatch = bytecodePatch(
             .definingClassOrThrow()
 
         createPlayerRequestBodyWithModelFingerprint.methodOrThrow().apply {
-            val index = indexOfFirstInstructionOrThrow {
+            val ordinalIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<FieldReference>()
                 opcode == Opcode.IGET &&
                         reference?.definingClass == formFactorEnumClass &&
                         reference.type == "I"
             }
-            val register = getInstruction<TwoRegisterInstruction>(index).registerA
+            val ordinalRegister = getInstruction<TwoRegisterInstruction>(ordinalIndex).registerA
 
+            // This patch changes the 'clientFormFactor' value to a different value
             addInstructions(
-                index + 1, """
-                    invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->getFormFactor(I)I
-                    move-result v$register
+                ordinalIndex + 1, """
+                    invoke-static {v$ordinalRegister}, $EXTENSION_CLASS_DESCRIPTOR->getFormFactor(I)I
+                    move-result v$ordinalRegister
+                    """
+            )
+
+            val clientFormFactorOrdinalIndex =
+                indexOfFirstInstructionOrThrow(ordinalIndex - 1) {
+                    val reference = getReference<FieldReference>()
+                    opcode == Opcode.IPUT &&
+                            reference?.type == "I" &&
+                            reference.definingClass == CLIENT_INFO_CLASS_DESCRIPTOR
+                }
+            val clientFormFactorOrdinalReference =
+                getInstruction<ReferenceInstruction>(clientFormFactorOrdinalIndex).reference
+
+            // Changing 'clientFormFactor' in all requests will also affect the navigation bar
+            // If 'clientFormFactor' is 'AUTOMOTIVE_FORM_FACTOR', the 'Shorts' button in the navigation bar will change to 'Explore'
+            // To fix this side effect, requests to the '/guide' endpoint, which are related to navigation buttons, use the original 'clientFormFactor'
+            addClientInfoHook(
+                "patch_setClientFormFactor",
+                """
+                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->getFormFactor()I
+                    move-result v2
+                    iput v2, v1, $clientFormFactorOrdinalReference
                     """
             )
         }
@@ -73,8 +100,6 @@ val changeFormFactorPatch = bytecodePatch(
                 )
             }
         }
-
-        hookNavigationButtonCreated(EXTENSION_CLASS_DESCRIPTOR)
 
         // region add settings
 

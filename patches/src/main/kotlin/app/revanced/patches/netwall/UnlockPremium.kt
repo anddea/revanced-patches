@@ -80,7 +80,11 @@ val unlockPremiumResourcePatch = resourcePatch(
     name = "Unlock Premium",
     description = "Unlocks NetWall Premium features once 'Unlock Premium Now' button is clicked.",
 ) {
-    compatibleWith("com.ysy.app.firewall")
+    compatibleWith(
+        "com.ysy.app.firewall"(
+            "1.3.4"
+        )
+    )
     dependsOn(unlockPremiumPatch, unlockPremiumRawResourcePatch)
 
     execute {

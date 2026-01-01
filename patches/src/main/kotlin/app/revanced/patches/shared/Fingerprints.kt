@@ -12,8 +12,71 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
+internal const val ANDROID_AUTOMOTIVE_STRING = "Android Automotive"
 internal const val CLIENT_INFO_CLASS_DESCRIPTOR =
     "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
+
+internal val authenticationChangeListenerFingerprint = legacyFingerprint(
+    name = "authenticationChangeListenerFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    strings = listOf("Authentication changed while request was being made"),
+    customFingerprint = { method, _ ->
+        indexOfMessageLiteBuilderReference(method) >= 0
+    }
+)
+
+internal fun indexOfMessageLiteBuilderReference(method: Method, type: String = "L") =
+    method.indexOfFirstInstruction {
+        val reference = getReference<MethodReference>()
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                reference?.parameterTypes?.isEmpty() == true &&
+                reference.returnType.startsWith(type)
+    }
+
+internal val autoMotiveFingerprint = legacyFingerprint(
+    name = "autoMotiveFingerprint",
+    opcodes = listOf(
+        Opcode.GOTO,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT,
+        Opcode.IF_EQZ
+    ),
+    strings = listOf(ANDROID_AUTOMOTIVE_STRING),
+    customFingerprint = { _, classDef ->
+        !classDef.type.startsWith("Lapp/")
+    }
+)
+
+internal val buildRequestParentFingerprint = legacyFingerprint(
+    name = "buildRequestParentFingerprint",
+    returnType = "Ljava/util/Map;",
+    strings = listOf("If-Modified-Since"),
+)
+
+internal val buildRequestFingerprint = legacyFingerprint(
+    name = "buildRequestFingerprint",
+    customFingerprint = { method, _ ->
+        method.implementation != null &&
+                indexOfNewUrlRequestBuilderInstruction(method) >= 0 &&
+                // Earlier targets
+                (indexOfEntrySetInstruction(method) >= 0 ||
+                        // Later targets
+                        method.parameters[1].type == "Ljava/util/Map;")
+    }
+)
+
+internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>().toString() == "Lorg/chromium/net/CronetEngine;->newUrlRequestBuilder(Ljava/lang/String;Lorg/chromium/net/UrlRequest${'$'}Callback;Ljava/util/concurrent/Executor;)Lorg/chromium/net/UrlRequest${'$'}Builder;"
+    }
+
+internal fun indexOfEntrySetInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_INTERFACE &&
+                getReference<MethodReference>().toString() == "Ljava/util/Map;->entrySet()Ljava/util/Set;"
+    }
 
 internal val clientTypeFingerprint = legacyFingerprint(
     name = "clientTypeFingerprint",
@@ -130,7 +193,7 @@ internal val formatStreamModelToStringFingerprint = legacyFingerprint(
         AUDIO_TRACK_DISPLAY_NAME_STRING,
         AUDIO_TRACK_ID_STRING
     ),
-    customFingerprint = { method, classDef ->
+    customFingerprint = { method, _ ->
         method.name == "toString"
     }
 )
@@ -236,7 +299,7 @@ internal val playbackStartParametersToStringFingerprint = legacyFingerprint(
         FIXED_RESOLUTION_STRING,
         WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING
     ),
-    customFingerprint = { method, classDef ->
+    customFingerprint = { method, _ ->
         method.name == "toString"
     }
 )

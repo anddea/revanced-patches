@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.shorts.components
 
 import app.revanced.patcher.extensions.InstructionExtensions.instructionsOrNull
 import app.revanced.patcher.fingerprint
-import app.revanced.patches.youtube.utils.resourceid.badgeLabel
 import app.revanced.patches.youtube.utils.resourceid.reelDynRemix
 import app.revanced.patches.youtube.utils.resourceid.reelDynShare
 import app.revanced.patches.youtube.utils.resourceid.reelFeedbackLike
@@ -206,16 +205,6 @@ internal val shortsButtonFingerprint = legacyFingerprint(
         reelRightLikeIcon,
         rightComment
     ),
-)
-
-/**
- * The method by which patches are applied is different between the minimum supported version and the maximum supported version.
- * There are two classes where R.id.badge_label[badgeLabel] is used,
- * but due to the structure of ReVanced Patcher, the patch is applied to the method found first.
- */
-internal val shortsPaidPromotionFingerprint = legacyFingerprint(
-    name = "shortsPaidPromotionFingerprint",
-    literals = listOf(badgeLabel),
 )
 
 internal val shortsPausedHeaderFingerprint = legacyFingerprint(

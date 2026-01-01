@@ -1,29 +1,24 @@
 package app.revanced.patches.youtube.general.audiotracks
 
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.shared.audiotracks.disableForcedAudioTracks
-import app.revanced.patches.youtube.utils.audiotracks.audioTracksHookPatch
+import app.revanced.patches.shared.audiotracks.audioTracksPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.patch.PatchList.DISABLE_FORCED_AUTO_AUDIO_TRACKS
+import app.revanced.patches.youtube.utils.playservice.is_20_07_or_greater
+import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 
 @Suppress("unused")
-val audioTracksPatch = bytecodePatch(
-    DISABLE_FORCED_AUTO_AUDIO_TRACKS.title,
-    DISABLE_FORCED_AUTO_AUDIO_TRACKS.summary,
-) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+val audioTracksPatch = audioTracksPatch(
+    block = {
+        compatibleWith(COMPATIBLE_PACKAGE)
 
-    dependsOn(
-        settingsPatch,
-        audioTracksHookPatch,
-    )
-
-    execute {
-
-        disableForcedAudioTracks()
-
+        dependsOn(
+            settingsPatch,
+            versionCheckPatch,
+        )
+    },
+    executeBlock = {
         // region add settings
 
         addPreference(
@@ -35,6 +30,6 @@ val audioTracksPatch = bytecodePatch(
         )
 
         // endregion
-
-    }
-}
+    },
+    fixUseLocalizedAudioTrackFlag = is_20_07_or_greater
+)

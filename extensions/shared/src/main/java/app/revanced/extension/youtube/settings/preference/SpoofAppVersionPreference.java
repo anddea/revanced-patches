@@ -45,11 +45,12 @@ public class SpoofAppVersionPreference extends CustomDialogListPreference {
      * Enum representing supported YouTube Music app with their display names, package names.
      */
     private enum AppVersion {
-        YT_20_05_46("20.05.46"),
-        YT_19_33_37("19.33.37"),
-        YT_19_28_42("19.28.42"),
-        YT_19_26_42("19.26.42"),
-        YT_19_01_34("19.01.34"),
+        YT_20_13_41(),
+        YT_20_05_46(),
+        YT_19_33_37(),
+        YT_19_28_42(),
+        YT_19_26_42(),
+        YT_19_01_34(),
         OTHER(sf("revanced_spoof_app_version_other_item").toString());
 
         @NonNull
@@ -65,12 +66,15 @@ public class SpoofAppVersionPreference extends CustomDialogListPreference {
         public final String entryName;
         public final String versionName;
 
-        AppVersion(String versionName) {
-            this.entryName = name().startsWith("YT")
-                    ? sf("revanced_spoof_app_version_target_entry" +
-                    name().replaceAll("YT", "")).toString()
-                    : versionName;
-            this.versionName = versionName;
+        AppVersion() {
+            String tmpVersionName = name().replaceAll("YT_", "");
+            this.entryName = sf("revanced_spoof_app_version_target_entry_" + tmpVersionName).toString();
+            this.versionName = tmpVersionName.replaceAll("_", ".");
+        }
+
+        AppVersion(String itemName) {
+            this.entryName = itemName;
+            this.versionName = itemName;
         }
 
         public boolean isAvailable() {

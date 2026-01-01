@@ -18,17 +18,22 @@ public final class DescriptionsFilter extends Filter {
     private final StringFilterGroup macroMarkerShelf;
 
     public DescriptionsFilter() {
-        // game section, music section and places section now use the same identifier in the latest version.
+        final StringFilterGroup askSection = new StringFilterGroup(
+                Settings.HIDE_ASK_SECTION,
+                "youchat_entrypoint."
+        );
+
         final StringFilterGroup attributesSection = new StringFilterGroup(
                 Settings.HIDE_ATTRIBUTES_SECTION,
+                "video_attributes_section.",
+                // It appears to be deprecated, but it can still be used in YouTube 19.05.36.
                 "gaming_section.",
                 "music_section.",
-                "place_section.",
-                "video_attributes_section."
+                "place_section."
         );
 
         final StringFilterGroup podcastSection = new StringFilterGroup(
-                Settings.HIDE_PODCAST_SECTION,
+                Settings.HIDE_EXPLORE_PODCAST_SECTION,
                 "playlist_section."
         );
 
@@ -43,24 +48,15 @@ public final class DescriptionsFilter extends Filter {
         );
 
         addIdentifierCallbacks(
+                askSection,
                 attributesSection,
                 podcastSection,
                 transcriptSection,
                 videoSummarySection
         );
 
-        final StringFilterGroup askSection = new StringFilterGroup(
-                Settings.HIDE_ASK_SECTION,
-                "youchat_entrypoint.eml"
-        );
-
-        final StringFilterGroup hypePoints = new StringFilterGroup(
-                Settings.HIDE_HYPE_POINTS,
-                "hype_points_factoid.eml"
-        );
-
         howThisWasMadeSection = new StringFilterGroup(
-                Settings.HIDE_CONTENTS_SECTION,
+                Settings.HIDE_HOW_THIS_WAS_MADE_SECTION,
                 "how_this_was_made_section."
         );
 
@@ -71,23 +67,19 @@ public final class DescriptionsFilter extends Filter {
                 "horizontal_shelf."
         );
 
+        final StringFilterGroup hypePointsSection = new StringFilterGroup(
+                Settings.HIDE_HYPE_POINTS_SECTION,
+                "hype_points_factoid."
+        );
+
         infoCardsSection = new StringFilterGroup(
-                Settings.HIDE_INFO_CARDS_SECTION,
+                null,
                 "infocards_section."
         );
 
         macroMarkerShelf = new StringFilterGroup(
                 null,
                 "macro_markers_carousel."
-        );
-
-        addPathCallbacks(
-                askSection,
-                hypePoints,
-                howThisWasMadeSection,
-                horizontalShelf,
-                infoCardsSection,
-                macroMarkerShelf
         );
 
         macroMarkerShelfGroupList.addAll(
@@ -100,14 +92,53 @@ public final class DescriptionsFilter extends Filter {
                         "learning_concept_macro_markers_carousel_shelf"
                 )
         );
+
+        addPathCallbacks(
+                howThisWasMadeSection,
+                horizontalShelf,
+                hypePointsSection,
+                infoCardsSection,
+                macroMarkerShelf
+        );
+    }
+
+    private boolean hideInfoCards(String path, int contentIndex) {
+        if (contentIndex != 0) {
+            return false;
+        }
+
+        final boolean hideInfoCardsSection = Settings.HIDE_INFO_CARDS_SECTION.get();
+        final boolean hideFeaturedLinksSection = Settings.HIDE_FEATURED_LINKS_SECTION.get();
+        final boolean hideFeaturedVideosSection = Settings.HIDE_FEATURED_VIDEOS_SECTION.get();
+        final boolean hideSubscribeButton = Settings.HIDE_SUBSCRIBE_BUTTON.get();
+
+        if (!hideInfoCardsSection && !hideFeaturedLinksSection && !hideFeaturedVideosSection && !hideSubscribeButton) {
+            return false;
+        }
+
+        if (hideInfoCardsSection) {
+            return true;
+        }
+
+        if (path.contains("media_lockup.")) {
+            return hideFeaturedLinksSection;
+        } else if (path.contains("structured_description_video_lockup.")) {
+            return hideFeaturedVideosSection;
+        } else if (path.contains("subscribe_button.")) {
+            return hideSubscribeButton;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // Check for the index because of likelihood of false positives.
-        if (matchedGroup == howThisWasMadeSection || matchedGroup == infoCardsSection) {
+        if (matchedGroup == howThisWasMadeSection) {
             return contentIndex == 0;
+        } else if (matchedGroup == infoCardsSection) {
+            return hideInfoCards(path, contentIndex);
         } else if (matchedGroup == macroMarkerShelf) {
             if (contentIndex != 0) {
                 return false;

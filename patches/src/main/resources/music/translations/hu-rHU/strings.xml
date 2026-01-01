@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Folytatás</string>
+    <string name="gms_core_dialog_dismiss_text">Ne jelenjen meg többet</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"A GmsCore-nak nincs engedélye a háttérben történő futtatásra.
 
 Kövesd a telefonodra vonatkozó 'Don't kill my app!' útmutatót és alkalmazd az utasításokat a MicroG telepítésére.
@@ -137,9 +138,9 @@ Információk:
 • A legújabb YouTube Music kliensek alapértelmezés szerint az OPUS audio kodeket használják.
 • Ez csak a nagyon régi kliensekre hamisító felhasználókra érvényes."</string>
     <string name="revanced_enable_opus_codec_title">Opus codec engedélyezése</string>
-    <string name="revanced_enable_smooth_transition_animation_summary">"Sima animációt engedélyez, amikor a minilejátszót a minimalizált állapotból maximalizálják.
+    <string name="revanced_enable_smooth_transition_animation_summary">Sima animációt engedélyez, amikor a minilejátszót a minimalizált állapotból maximalizálják.
 
-Korlátozások: A valós idejű dalszöveg felület néhány felhasználónál hibásan működhet."</string>
+Korlátozások: A valós idejű dalszöveg felület néhány felhasználónál hibásan működhet.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Sima átmenet animáció engedélyezése</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Lehetővé teszi a minialejátszó elhagyását lefelé húzással.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Minilejátszó elhagyása egy húzással</string>
@@ -153,11 +154,6 @@ Korlátozások: A SponsorBlock szegmensek nem jelennek meg a keresősávon."</st
     <string name="revanced_enable_zen_mode_podcast_title">Zen mód engedélyezése podcastekben</string>
     <string name="revanced_enable_zen_mode_summary">Világosszürke színt használ a lejátszó hátteréhez, hogy csökkentse a szem megerőltetését.</string>
     <string name="revanced_enable_zen_mode_title">Zen mód bekapcsolása</string>
-    <string name="revanced_extended_settings_export_failed">A beállítások exportálása sikertelen.</string>
-    <string name="revanced_extended_settings_export_success">A beállítások sikeresen exportálva.</string>
-    <string name="revanced_extended_settings_import">Importálás</string>
-    <string name="revanced_extended_settings_import_reset">Beállítások visszaállítása alapra.</string>
-    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"A Letöltés gomb megnyitja a külső letöltőt.
 
 • Csak a lejátszóban lévő letöltési művelet gombot írja felül.
@@ -171,6 +167,8 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_external_downloader_package_name_summary">A telepített külső letöltő alkalmazás csomagneve, például NewPipe vagy YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Külső letöltő csomagneve</string>
     <string name="revanced_fullscreen_ads_closed_toast">Teljes képernyős hirdetések bezárva.</string>
+    <string name="revanced_gms_show_dialog_summary">Megjeleníti a GMSCore optimalizálási párbeszédablakát minden alkalmazásindításkor.</string>
+    <string name="revanced_gms_show_dialog_title">Optimalizálási párbeszédablak megjelenítése a GMSCore-hoz</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Elrejti az üres részeket a fiók menüben.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Üres részek elrejtése</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">A fiókmenüben szűrendő nevek listája, új sorokkal elválasztva.</string>
@@ -234,7 +232,6 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Eltávolítás a lejátszási listáról menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_report_title">Jelentés menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Rész elmentése későbbre menü elrejtése</string>
-    <string name="revanced_hide_flyout_menu_save_to_library_title">Mentés a könyvtárba menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">Mentés a lejátszási listába menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_share_title">Megosztás menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_shuffle_play_title">Kevert lejátszás menü elrejtése</string>
@@ -244,10 +241,7 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Feliratkozás / Leiratkozás menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Kitűzés a Gyorshívóba menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Dalkredit menü elrejtése</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"Teljes képernyős hirdetések elrejtése.
-
-Limitáció;
-•Néha lehet hogy csak fekete képet látsz a kezdő képernyő helyett."</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Teljes képernyős hirdetések elrejtése."</string>
     <string name="revanced_hide_fullscreen_ads_title">Teljes képernyős hirdetések elrejtése</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Elrejti a megosztás gombot a teljes képernyős lejátszóban.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Teljes képernyős megosztás gomb elrejtése</string>
@@ -371,6 +365,9 @@ Kattintson a 'Kezdőlap módosítása' beállítások megnyitásához."</string>
     <string name="revanced_replace_navigation_samples_button_title">Minták gomb kicserélése</string>
     <string name="revanced_replace_navigation_upgrade_button_summary">A létrehozás gombot beállítások gombra cseréli.</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Előfizetés gomb kicserélése</string>
+    <string name="revanced_reset_to_default_toast">Visszaállítás az alapértelmezett értékekre.</string>
+    <string name="revanced_restart_first_run">Indítsa újra az elrendezés normális betöltéséhez</string>
+    <string name="revanced_restart_message">Frissítés és újraindítás</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Visszaállítja a megjegyzések felugró paneljeit a régi megjelenésére.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Régi komment felugró menü visszaállítása</string>
     <string name="revanced_restore_old_player_background_summary">Visszaállítja a lejátszó hátterét a régi stílusára.</string>
@@ -434,7 +431,9 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_sb_enabled_sum">A SponsorBlock egy közösségi rendszer a YouTube-videók idegesítő részeinek kihagyására.</string>
     <string name="revanced_sb_reset_color">Szín visszaállítása</string>
     <string name="revanced_sb_segments_filler">Kitöltő / Vicces részek</string>
-    <string name="revanced_sb_segments_filler_sum">Csak töltelék vagy humornak hozzáadott részek, amik nem szükségesek a videó fő tartalmának megértéséhez. Ne tartalmazzon olyan részeket, amik összefüggést, vagy háttérinformációt szolgáltatnak.</string>
+    <string name="revanced_sb_segments_filler_sum">Olyan érintőleges jelenetek vagy poénok, amelyek nem szükségesek a videó fő tartalmának megértéséhez. Nem tartalmaznak kontextust vagy háttérinformációkat tartalmazó részeket.</string>
+    <string name="revanced_sb_segments_hook">Felvezetés / Köszöntés</string>
+    <string name="revanced_sb_segments_hook_sum">Narrált előzetesek a közelgő videóhoz, üdvözlések és búcsúk. Nem tartalmaz további tartalmat hozzáadó részeket.</string>
     <string name="revanced_sb_segments_interaction">Emlékeztető (Feliratkozás)</string>
     <string name="revanced_sb_segments_interaction_sum">Rövid emlékeztető a kedvelésre, feliratkozásra vagy követésre a tartalom közepette. Ha hosszú vagy valami specifikusról szól, akkor azt önpromóció alatt kell feltüntetni.</string>
     <string name="revanced_sb_segments_intro">Szünet/Intro animáció</string>
@@ -451,7 +450,8 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_sb_segments_sponsor_sum">Fizetett promóciók, fizetett hivatkozások és közvetlen reklámok. Nem önreklámozásra vagy ingyenes kiemelésre vonatkozik okok / alkotók / weboldalak / termékek esetében, amelyeket szeretnek.</string>
     <string name="revanced_sb_skip_automatically">Átugrás automatikusan</string>
     <string name="revanced_sb_skip_ignore">Letiltás</string>
-    <string name="revanced_sb_skipped_filler">Töltelék átugorva.</string>
+    <string name="revanced_sb_skipped_filler">Töltelékrész kihagyva.</string>
+    <string name="revanced_sb_skipped_hook">Átugrott felvezetés.</string>
     <string name="revanced_sb_skipped_interaction">Idegesítő emlékeztető átugorva.</string>
     <string name="revanced_sb_skipped_intro_beginning">Bevezető kihagyva.</string>
     <string name="revanced_sb_skipped_intro_end">Szünet átugorva.</string>
@@ -471,6 +471,32 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Üzenetet ír ki, ha a SponsorBlock API nem érhető el.</string>
     <string name="revanced_sb_toast_on_skip">Üzenet megjelenítése automatikus ugráskor</string>
     <string name="revanced_sb_toast_on_skip_sum">Üzenetet jelenít meg, amikor egy szegmens automatikusan kihagyásra kerül.</string>
+    <string name="revanced_settings_export_failed">A beállítások exportálása sikertelen.</string>
+    <string name="revanced_settings_export_success">A beállítások exportálása sikeres.</string>
+    <string name="revanced_settings_import">Importálás</string>
+    <string name="revanced_settings_import_copy">Másolás</string>
+    <string name="revanced_settings_import_export_as_text">Beállítások importálása vagy exportálása szövegként.</string>
+    <string name="revanced_settings_import_reset">Beállítások visszaállítása alapértelmezettre.</string>
+    <string name="revanced_settings_reset">Visszaállítás</string>
+    <string name="revanced_settings_search_clear_history">Keresési előzmények törlése</string>
+    <string name="revanced_settings_search_clear_history_message">Biztosan ki akarja törölni a korábbi keresési előzményeket?</string>
+    <string name="revanced_settings_search_empty_history_summary">A keresési előzmények mentéséhez írjon be egy keresési lekérdezést, és nyomja meg az Enter billentyűt.</string>
+    <string name="revanced_settings_search_empty_history_title">A keresési előzmények üresek</string>
+    <string name="revanced_settings_search_history_summary_off">A beállítások keresési előzménye nem látható.</string>
+    <string name="revanced_settings_search_history_summary_on">A beállítások keresési előzménye látható.</string>
+    <string name="revanced_settings_search_history_title">Beállítások keresési előzményének megjelenítése</string>
+    <string name="revanced_settings_search_no_results_summary">Próbálkozzon másik kulcsszóval.</string>
+    <string name="revanced_settings_search_no_results_title">Nincs találat a(z) \'%s\' kifejezésre.</string>
+    <string name="revanced_settings_search_recent_searches">Legutóbbi keresések</string>
+    <string name="revanced_settings_search_remove_message">Eltávolítja a keresési előzményekből?</string>
+    <string name="revanced_settings_search_tips_summary">"• Koppintson egy elérési útra a navigáláshoz.
+• Nyomja meg hosszan a beállítást a navigáláshoz.
+• Nyomja meg az Enter billentyűt a keresési lekérdezés mentéséhez az előzmények közé.
+• A keresés figyelmen kívül hagyja a kis- és nagybetűket, valamint az írásjeleket.
+• A szülőbeállítások a letiltott gyermekbeállítások felett jelennek meg."</string>
+    <string name="revanced_settings_search_tips_title">Keresési tanácsok</string>
+    <string name="revanced_settings_search_title">%s keresése</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">A beállítások vágólapra másolva.</string>
     <string name="revanced_spoof_app_version_summary">"Hamisítja a kliens verziót egy régi verzióra.
 
@@ -490,21 +516,75 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_spoof_client_title">Kliens hamisítása</string>
     <string name="revanced_spoof_client_type_summary">"Meghatároz egy alapértelmezett klienst a hamisításhoz."</string>
     <string name="revanced_spoof_client_type_title">Alapértelmezett kliens</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Örökölt</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV egyszerű</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
+    <string name="revanced_spoof_streaming_data_default_client_title">Alapértelmezett kliens</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">Nem sikerült lekérni egyetlen kliens adatfolyamot sem.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Próbálja meg az alapértelmezett klienst TV-re módosítani.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Kattintson ide az Android VR-ba való bejelentkezéshez.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Be kell jelentkezni az Android VR-hoz</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Aktiváló kód:
+%s
+
+1. Kattints a 'Webhely megnyitása' gombra a 'https://yt.be/activate' oldal eléréséhez.
+2. Írd be az aktiváló kódot.
+3. Jelentkezz be, amikor a rendszer kéri. Ha több Google-fiókod van, válaszd ki azt, amelyet a YouTube-hoz használsz. Ha már be vagy jelentkezve, ugorj a következő lépésre.
+4. Miután bejelentkeztél, térj vissza az RVX-be, és kattints újra a 'Bejelentkezés az Android VR-ba' lehetőségre.
+5. Kattints az 'Hitelesítési token beszerzése' gombra a token megszerzéséhez."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Webhely megnyitása</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Aktivációs kód</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Aktiváló kód a vágólapra másolva: %s.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Aktiváló kód beszerzése</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Hitelesítési token beszerzése</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Az Android VR (YouTube VR) szolgáltatásba való bejelentkezés a Google által megadott irányelveket követi (Google-fiók hitelesítése - OAuth 2.0 TV-hez és korlátozott beviteli eszközalkalmazásokhoz):
+
+1. Kattintson az 'Aktiválási kód beszerzése' gombra az aktiválási kód létrehozásához.
+2. Kattintson a 'Webhely megnyitása' gombra a 'https://yt.be/activate' oldal eléréséhez.
+3. Adja meg az aktiválási kódot.
+4. Jelentkezzen be, amikor a rendszer kéri. Ha több Google-fiókja van, válassza ki a YouTube-bal használt fiókot. Ha már be van jelentkezve, ugorjon a következő lépésre.
+5. Miután bejelentkezett, térjen vissza az RVX-be, és kattintson ismét a 'Android VR bejelentkezés' gombra.
+6. Kattintson az 'Aktiváló kód beszerzése' gombra az engedélyezési token beszerzéséhez.
+
+※ Kattintson a 'Visszaállítás' gombra a hitelesítési token vagy aktiválási kód eltávolításához."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Visszaállítás</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Android VR bejelentkezés</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Hitelesítési token mentése.
+
+- Az ezen a folyamaton keresztül kiállított hitelesítési token csak a YouTube VR-ben használható (RVX-ben a YouTube VR-ből származó streamelési adatok lekérésére szolgál).
+- A 6 hónapnál hosszabb ideig fel nem használt hitelesítési tokent a Google szerverei visszavonják.
+- Ha megváltoztatod a jelszavadat, vagy törlöd az eszköz regisztrációját a fiókbeállításaidban, vagy eltávolítod az alkalmazást, akkor újra ki kell állítanod a hitelesítési tokent."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Bejelentkezve</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Nem sikerült hitelesítési tokent kiállítani.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Kattintson a Visszaállítás gombra, és próbálja újra.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Hitelesítési token és aktiválási kód visszaállítása.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Megmutatja a streaming adatok lekérdezésére használt klienst a Statisztikák kockáknakban.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Megjelenik a statisztikák kockáknakban</string>
     <string name="revanced_spoof_streaming_data_summary">"A lejátszási problémák megelőzése érdekében hamisítja a streaming-adatokat.
 
-• A 'Kliens hamisítása' használata esetén lejátszási problémák léphetnek fel."</string>
+Ha YouTube Premium felhasználó vagy, akkor ez a beállítás nem feltétlenül szükséges."</string>
     <string name="revanced_spoof_streaming_data_title">Adatfolyam meghamisítása</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_video_streams_default_client_entry_ios_music_8_12">iOS Music 8.12</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"Ha engedélyezve van, a legújabb lejátszó JavaScriptet használja a streaming URL-ek visszafejtéséhez 'TV' és 'Mobil web' esetén.
+
+Ha problémát tapasztalsz a JavaScript klienseddel, próbáld meg először ezt kikapcsolni."</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Használja a legújabb lejátszó JavaScriptjét</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"Ha engedélyezve van, a „Külső JavaScript a yt-dlp-hez (yt-dlp-ejs)”-t használja a streaming URL-ek visszafejtéséhez 'TV' és 'Mobil web' esetén.
+
+• A visszafejtéshez használt lejátszó JavaScript naprakész marad.
+• 5–15 másodpercbe telhet, mire a videó elindul."</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Használjon yt-dlp-ejs (Folyamatban)</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kattintson ide, ha szeretné megtudni, hogyan szerezhet be hitelesítési tokent.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR hitelesítésről</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Mellékhatás:
 • Az alkalmazás kényszerbezáródhat VPN vagy DNS használatakor.
 • A hang időnként akadozhat lejátszás közben adaptív bitrátájú streaming klienseken (Minden kliens, kivéve az Android VR 1.43.32-t)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Alapértelmezett kliens</string>
     <string name="revanced_spoof_video_streams_summary">A kliens videófolyamainak hamisítása a lejátszási problémák elkerülése érdekében.</string>
     <string name="revanced_spoof_video_streams_title">Videófolyamok hamisítása</string>
+    <string name="revanced_translations_title">Fordítások</string>
     <string name="revanced_watch_history_type_entry_1">Eredeti</string>
     <string name="revanced_watch_history_type_entry_2">Domain cseréje</string>
     <string name="revanced_watch_history_type_entry_3">Megtekintési előzmények tiltása</string>
@@ -512,4 +592,16 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
 • Domain cseréje: Követi a Google-fiók megtekintési előzmények beállításait.
 • Megtekintési előzmények blokkolása: A megtekintési előzmények blokkolva vannak."</string>
     <string name="revanced_watch_history_type_title">Megtekintési előzmények típusa</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">Sütik fogadása</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">Adatszinkron azonosító lekérése</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">Látogató adatok lekérése</string>
+    <string name="revanced_webview_contextual_menu_refresh">Frissít</string>
+    <string name="revanced_webview_cookies">Sütik</string>
+    <string name="revanced_webview_copy">Másol</string>
+    <string name="revanced_webview_data_sync_id">Adatszinkron azonosító</string>
+    <string name="revanced_webview_toast_copy_success">%s vágólapra másolva.</string>
+    <string name="revanced_webview_toast_empty">%s üres.</string>
+    <string name="revanced_webview_toast_no_network">Kérem ellenőrizze a hálózati kapcsolatot.</string>
+    <string name="revanced_webview_toast_unavailable">A webes nézet nem elérhető.</string>
+    <string name="revanced_webview_visitor_data">Látogató adatok</string>
 </resources>

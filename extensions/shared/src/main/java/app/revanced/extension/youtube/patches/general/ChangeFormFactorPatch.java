@@ -3,8 +3,8 @@ package app.revanced.extension.youtube.patches.general;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
-
-import android.view.View;
+import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_AUTOMOTIVE;
+import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_WATCH;
 
 import androidx.annotation.Nullable;
 
@@ -73,6 +73,47 @@ public class ChangeFormFactorPatch {
     private static final boolean USING_AUTOMOTIVE_TYPE = Objects.requireNonNull(
             FormFactor.AUTOMOTIVE.formFactorType).equals(FORM_FACTOR_TYPE);
 
+    private static final int smallestScreenWidthDp = PackageUtils.getSmallestScreenWidthDp();
+    private static int clientFormFactorOrdinal = -1;
+
+    private static int getClientFormFactorOrdinal() {
+        if (clientFormFactorOrdinal == -1) {
+            if (IS_WATCH) {
+                clientFormFactorOrdinal = 4; // WEARABLE_FORM_FACTOR
+            } else if (IS_AUTOMOTIVE) {
+                clientFormFactorOrdinal = 3; // AUTOMOTIVE_FORM_FACTOR
+            } else {
+                if (smallestScreenWidthDp >= 600) {
+                    clientFormFactorOrdinal = 2; // LARGE_FORM_FACTOR
+                } else if (smallestScreenWidthDp > 0) {
+                    clientFormFactorOrdinal = 1; // SMALL_FORM_FACTOR
+                } else {
+                    clientFormFactorOrdinal = 0; // UNKNOWN_FORM_FACTOR
+                }
+            }
+        }
+
+        return clientFormFactorOrdinal;
+    }
+
+    /**
+     * Toolbar buttons (including the YouTube logo) and navigation bar buttons depend on the
+     * '<a href="https://www.youtube.com/youtubei/v1/guide">'/guide' endpoint</a>' requests.
+     * <p>
+     * Therefore, the patch works if the 'clientFormFactor' value is spoofed only in '/guide' endpoint requests.
+     *
+     * @return clientFormFactor (ordinal).
+     */
+    public static int getFormFactor() {
+        int original = getClientFormFactorOrdinal();
+
+        return FORM_FACTOR_TYPE == null || USING_AUTOMOTIVE_TYPE
+                // When 'USING_AUTOMOTIVE_TYPE' is true, the 'Shorts' button in the navigation bar is replaced with the 'Explore' button.
+                // To prevent this, the original clientFormFactorOrdinal is used when 'USING_AUTOMOTIVE_TYPE' is true.
+                ? original
+                : FORM_FACTOR_TYPE;
+    }
+
     /**
      * Injection point.
      */
@@ -117,7 +158,6 @@ public class ChangeFormFactorPatch {
         if (widthDp == null) {
             return original;
         }
-        final int smallestScreenWidthDp = PackageUtils.getSmallestScreenWidthDp();
         if (smallestScreenWidthDp == 0) {
             return original;
         }
@@ -132,20 +172,5 @@ public class ChangeFormFactorPatch {
 
     public static boolean tabletLayoutEnabled() {
         return Objects.equals(FORM_FACTOR.formFactorType, 2);
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void navigationTabCreated(NavigationButton button, View tabView) {
-        // On first startup of the app the navigation buttons are fetched and updated.
-        // If the user immediately opens the 'You' or opens a video, then the call to
-        // update the navigtation buttons will use the non automotive form factor
-        // and the explore tab is missing.
-        // Fixing this is not so simple because of the concurrent calls for the player and You tab.
-        // For now, always hide the explore tab.
-        if (USING_AUTOMOTIVE_TYPE && button == NavigationButton.EXPLORE) {
-            tabView.setVisibility(View.GONE);
-        }
     }
 }

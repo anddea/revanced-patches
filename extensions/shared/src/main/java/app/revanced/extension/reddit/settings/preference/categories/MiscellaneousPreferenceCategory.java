@@ -5,13 +5,16 @@ import android.preference.PreferenceScreen;
 
 import app.revanced.extension.reddit.settings.Settings;
 import app.revanced.extension.reddit.settings.SettingsStatus;
+import app.revanced.extension.reddit.settings.preference.LinkPreference;
 import app.revanced.extension.reddit.settings.preference.TogglePreference;
+
+import static app.revanced.extension.shared.utils.StringRef.dstr;
 
 @SuppressWarnings("deprecation")
 public class MiscellaneousPreferenceCategory extends ConditionalPreferenceCategory {
     public MiscellaneousPreferenceCategory(Context context, PreferenceScreen screen) {
         super(context, screen);
-        setTitle("Miscellaneous");
+        setTitle(dstr("revanced_misc_category"));
     }
 
     @Override
@@ -24,26 +27,25 @@ public class MiscellaneousPreferenceCategory extends ConditionalPreferenceCatego
         if (SettingsStatus.openLinksDirectlyEnabled) {
             addPreference(new TogglePreference(
                     context,
-                    "Open links directly",
-                    "Skips over redirection URLs in external links.",
                     Settings.OPEN_LINKS_DIRECTLY
             ));
         }
         if (SettingsStatus.openLinksExternallyEnabled) {
             addPreference(new TogglePreference(
                     context,
-                    "Open links externally",
-                    "Opens links in your browser instead of in the in-app-browser.",
                     Settings.OPEN_LINKS_EXTERNALLY
             ));
         }
         if (SettingsStatus.sanitizeUrlQueryEnabled) {
             addPreference(new TogglePreference(
                     context,
-                    "Sanitize sharing links",
-                    "Sanitizes sharing links by removing tracking query parameters.",
                     Settings.SANITIZE_URL_QUERY
             ));
         }
+        addPreference(new LinkPreference(
+                context,
+                "revanced_translations_title",
+                "https://rvxtranslate.netlify.app/"
+        ));
     }
 }

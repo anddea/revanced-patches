@@ -9,13 +9,16 @@ import com.liskovsoft.youtubeapi.app.nsigsolver.runtime.Script
 import com.liskovsoft.youtubeapi.app.nsigsolver.runtime.ScriptSource
 import com.liskovsoft.youtubeapi.app.nsigsolver.runtime.ScriptType
 import com.liskovsoft.youtubeapi.app.nsigsolver.runtime.ScriptVariant
+import java.util.concurrent.Callable
+import java.util.concurrent.Executors
 
 internal object V8ChallengeProvider : JsRuntimeChalBaseJCP() {
     private val v8NpmLibFilename = listOf(
         "${libPrefix}polyfill.js",
-        "${libPrefix}meriyah.bundle.min.js",
-        "${libPrefix}astring.bundle.min.js"
+        "${libPrefix}meriyah-6.1.4.min.js",
+        "${libPrefix}astring-1.9.0.min.js"
     )
+    private val v8Executor = Executors.newSingleThreadExecutor()
     private var v8Runtime: V8? = null
 
     override fun iterScriptSources(): Sequence<Pair<ScriptSource, (ScriptType) -> Script?>> =
@@ -37,34 +40,42 @@ internal object V8ChallengeProvider : JsRuntimeChalBaseJCP() {
 
     override fun runJsRuntime(stdin: String): String {
         warmup()
-
-        return runV8(stdin)
+        return runJS(stdin)
     }
 
-    private fun runV8(stdin: String): String {
+    private fun runJS(stdin: String, warmup: Boolean = false): String {
         try {
-            v8Runtime?.locker?.acquire()
-            return v8Runtime?.executeStringScript(stdin)
-                ?: throw JsChallengeProviderError("V8 runtime error: empty response")
+            val result = v8Executor.submit(
+                Callable { v8Runtime?.executeStringScript(stdin) }
+            ).get()
+
+            return if (warmup) "" else if (result.isNullOrEmpty())
+                throw JsChallengeProviderError("V8 runtime error: empty response")
+                else result
         } catch (e: V8ScriptExecutionException) {
-            throw JsChallengeProviderError("V8 runtime error", e)
-        } finally {
-            try {
-                v8Runtime?.locker?.release()
-            } catch (_: Exception) {
+            if (e.message?.contains("Invalid or unexpected token") ?: false)
+                ie.cache.clear(cacheSection) // cached data broken?
+            if (!warmup) {
+                shutDown()
             }
+            throw JsChallengeProviderError("V8 runtime error: ${e.message}", e)
         }
+    }
+
+    fun shutDown() {
+        v8Executor.submit {
+            v8Runtime?.release(false)
+            v8Runtime = null
+        }
+        v8Executor.shutdown()
     }
 
     fun warmup() {
-        if (v8Runtime == null) {
-            v8Runtime = V8.createV8Runtime()
-            runV8(constructCommonStdin()) // ignore result, just warm up
-        }
-    }
+        if (v8Runtime != null) return
 
-    fun shutdown() {
-        v8Runtime?.release(false)
-        v8Runtime = null
+        v8Executor.submit {
+            v8Runtime = V8.createV8Runtime()
+        }
+        runJS(constructCommonStdin(), true)
     }
 }

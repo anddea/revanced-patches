@@ -1,7 +1,7 @@
 package app.revanced.extension.youtube.settings.preference;
 
+import static app.revanced.extension.shared.utils.IntentUtils.launchWebViewActivity;
 import static app.revanced.extension.shared.utils.StringRef.str;
-import static app.revanced.extension.youtube.utils.ExtendedUtils.launchWebViewActivity;
 
 import android.app.Dialog;
 import android.content.Context;
