@@ -1,3 +1,29 @@
+# [3.15.0](https://github.com/anddea/revanced-patches/compare/v3.14.0...v3.15.0) (2026-01-01)
+
+
+### Bug Fixes
+
+* **YouTube - Swipe controls:** Validate swipe zones before intercepting for delay ([46480ca](https://github.com/anddea/revanced-patches/commit/46480cac2b119aa07108806c3ccf3bf4da7329db))
+* **YouTube Music:** Fix crashes on Android 5-6 ([#1321](https://github.com/anddea/revanced-patches/issues/1321)) ([d13adb5](https://github.com/anddea/revanced-patches/commit/d13adb5401536d7d10a9d223b4d2232f37cd79d7))
+* **YouTube:** External downloader was not selectable ([6752d2a](https://github.com/anddea/revanced-patches/commit/6752d2a8138a0499f5f236bccf3088314347547e))
+
+
+### Features
+
+* Align with RVX [[v5.13.1-dev.2](https://github.com/inotia00/revanced-patches/releases/tag/v5.13.1-dev.2)] ([b73819f](https://github.com/anddea/revanced-patches/commit/b73819f5d28b65c0c5f5b334decd0dd327cedf61))
+* Align with RVX [[v5.13.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.13.1)] ([899a8c0](https://github.com/anddea/revanced-patches/commit/899a8c0b809925ea596870f6090e277dd2ffc02f))
+* Align with RVX [[v5.14.1-dev.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.14.1-dev.1)] ([ab3f98c](https://github.com/anddea/revanced-patches/commit/ab3f98cb315b9b797b44ac36d7e93c0eb742aca5))
+* Align with RVX [[v5.14.1-dev.2](https://github.com/inotia00/revanced-patches/releases/tag/v5.14.1-dev.2)] ([2790767](https://github.com/anddea/revanced-patches/commit/2790767543711a8e2f16c76ab5b28a874fdd1d14))
+* Align with RVX [[v5.14.1-dev.3](https://github.com/inotia00/revanced-patches/releases/tag/v5.14.1-dev.3)] ([d1f40ad](https://github.com/anddea/revanced-patches/commit/d1f40ad31aedc895cb6cc316a40fdd90f66f4700))
+* Align with RVX [[v5.14.1-dev.5](https://github.com/inotia00/revanced-patches/releases/tag/v5.14.1-dev.5)] ([1f4fee9](https://github.com/anddea/revanced-patches/commit/1f4fee9c4fd04e15bf3f2ee3fba13cbae6b537a2))
+* Align with RVX [[v5.14.1-dev.8](https://github.com/inotia00/revanced-patches/releases/tag/v5.14.1-dev.8)] ([e97a77d](https://github.com/anddea/revanced-patches/commit/e97a77dc3bb324d08dc83d4235b44228552378cd))
+* Align with RVX [[v5.14.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.14.1)] ([8c04286](https://github.com/anddea/revanced-patches/commit/8c04286ec28e591399db18932c22aa6ee8b0828f))
+* **Reddit:** Add `Translations` patch ([d0ab25e](https://github.com/anddea/revanced-patches/commit/d0ab25e06d917464807fc3739cdc264a2c9e67d7))
+* **YouTube - Custom branding icon:** Add `Xisr Aurora`, `Xisr Evergreen` & `Xisr White` icons ([#1320](https://github.com/anddea/revanced-patches/issues/1320)) ([f945cb7](https://github.com/anddea/revanced-patches/commit/f945cb7669ab466c7194c877d5a0fe20701dfe15))
+* **YouTube - Custom branding icon:** Add `Xisr Winter` icon ([#1300](https://github.com/anddea/revanced-patches/issues/1300)) ([2fb13f0](https://github.com/anddea/revanced-patches/commit/2fb13f06e8a2227025edcc5e58da9165722ecd20))
+* **YouTube - Swipe controls:** Add `Speed and seek gestures delay` setting to defer horizontal swipe gestures to prevent conflict with pinch-to-zoom ([8dfd715](https://github.com/anddea/revanced-patches/commit/8dfd715a3ff596afc6242b633480167662f3ce28))
+* **YouTube - Swipe controls:** Add `Swipe gestures delay` instead of `Speed and seek gestures delay` ([90dcc64](https://github.com/anddea/revanced-patches/commit/90dcc64ac5b4d5cceef6caa475e4d5c4aca0578e))
+
 # [3.15.0-dev.9](https://github.com/anddea/revanced-patches/compare/v3.15.0-dev.8...v3.15.0-dev.9) (2025-12-31)
 
 
