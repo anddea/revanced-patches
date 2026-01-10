@@ -17,7 +17,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="gms_core_dialog_open_website_text">ウェブサイトを開く</string>
     <string name="gms_core_dialog_title">操作が必要です</string>
     <string name="gms_core_offline_account_login_error">最近アカウントのログイン情報を変更した場合は、GmsCore をアンインストールして再インストールしてください。</string>
-    <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging の設定を有効にしてください。</string>
+    <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging を有効にしてください。</string>
     <string name="gms_core_settings_title">GmsCore の設定を開く</string>
     <string name="gms_core_toast_not_installed_message">GmsCore がインストールされていません。インストールしてください。</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">画質の詳細設定メニューを表示します。</string>
@@ -182,8 +182,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_custom_playback_speeds_parse_exception">無効なカスタム再生速度です。デフォルトの値を使用します。</string>
     <string name="revanced_custom_playback_speeds_summary">利用可能な再生速度を追加または変更します。</string>
     <string name="revanced_custom_playback_speeds_title">カスタム再生速度の編集</string>
-    <string name="revanced_custom_player_overlay_opacity_invalid_toast">プレーヤーのオーバーレイの不透明度は 0 ~ 100 の間でなければなりません。デフォルト値にリセットします。</string>
-    <string name="revanced_custom_player_overlay_opacity_summary">不透明度の値は 0 ~ 100 の間で、0 が透明です。</string>
+    <string name="revanced_custom_player_overlay_opacity_invalid_toast">プレーヤーのオーバーレイの不透明度は 0 から 100 の間でなければなりません。デフォルト値にリセットします。</string>
+    <string name="revanced_custom_player_overlay_opacity_summary">不透明度の値は 0 から 100 の間で、0 が透明です。</string>
     <string name="revanced_custom_player_overlay_opacity_title">プレーヤーオーバーレイのカスタム不透明度</string>
     <string name="revanced_custom_seekbar_color_accent_summary">シークバーのアクセントカラーを 16 進数カラーコードで入力してください。</string>
     <string name="revanced_custom_seekbar_color_accent_title">シークバーのアクセントカラー</string>
@@ -2616,7 +2616,7 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
 
 画面左側を上下にスワイプして明るさを調整できます。"</string>
     <string name="revanced_swipe_brightness_title">明るさジェスチャーを有効化</string>
-    <string name="revanced_swipe_delay_summary">スワイプが認識されるまでの遅延時間です (ミリ秒単位)。ピンチズームジェスチャーの妨げになる場合は、この値を大きくしてください。</string>
+    <string name="revanced_swipe_delay_summary">スワイプが認識されるまでの遅延時間です (ミリ秒単位)。ピンチしてズームするジェスチャーの妨げになる場合は、この値を大きくしてください。</string>
     <string name="revanced_swipe_delay_title">スワイプジェスチャーの遅延</string>
     <string name="revanced_swipe_distance_invalid">無効なスワイプ距離です。1から1000の範囲内である必要があります。</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">スワイプジェスチャーを「画面のロック」モードで有効にします。</string>
