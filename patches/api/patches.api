@@ -155,6 +155,7 @@ public final class app/revanced/patches/music/layout/theme/DarkThemePatchKt {
 }
 
 public final class app/revanced/patches/music/layout/translations/TranslationsPatchKt {
+	public static final fun getTranslationsBytecodePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun getTranslationsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
@@ -475,6 +476,7 @@ public final class app/revanced/patches/reddit/layout/toolbar/ToolBarButtonPatch
 }
 
 public final class app/revanced/patches/reddit/layout/translations/TranslationsPatchKt {
+	public static final fun getTranslationsBytecodePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun getTranslationsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
@@ -995,6 +997,7 @@ public final class app/revanced/patches/youtube/layout/theme/ThemePatchKt {
 }
 
 public final class app/revanced/patches/youtube/layout/translations/TranslationsPatchKt {
+	public static final fun getTranslationsBytecodePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun getTranslationsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 

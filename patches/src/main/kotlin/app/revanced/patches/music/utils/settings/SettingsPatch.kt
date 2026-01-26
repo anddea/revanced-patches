@@ -281,15 +281,6 @@ val settingsPatch = resourcePatch(
         ResourceUtils.updatePatchStatus(SETTINGS_FOR_YOUTUBE_MUSIC)
 
         /**
-         * add translations app
-         */
-        addLinkPreference(
-            CategoryType.MISC,
-            "revanced_translations",
-            "https://rvxtranslate.netlify.app/"
-        )
-
-        /**
          * add import export settings
          */
         addPreferenceWithIntent(

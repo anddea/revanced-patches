@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.translations
 
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.shared.translations.APP_LANGUAGES
@@ -54,14 +55,7 @@ private val SUPPORTED_TRANSLATIONS = setOf(
 )
 
 @Suppress("unused")
-val translationsPatch = resourcePatch(
-    TRANSLATIONS_FOR_YOUTUBE.title,
-    TRANSLATIONS_FOR_YOUTUBE.summary,
-) {
-    compatibleWith(COMPATIBLE_PACKAGE)
-
-    dependsOn(settingsPatch)
-
+val translationsPatch = resourcePatch {
     val customTranslations by stringOption(
         key = "customTranslations",
         default = "",
@@ -102,5 +96,21 @@ val translationsPatch = resourcePatch(
 
         addPreference(TRANSLATIONS_FOR_YOUTUBE)
 
+    }
+}
+
+@Suppress("unused")
+val translationsBytecodePatch = bytecodePatch(
+    TRANSLATIONS_FOR_YOUTUBE.title,
+    TRANSLATIONS_FOR_YOUTUBE.summary,
+) {
+    compatibleWith(COMPATIBLE_PACKAGE)
+    dependsOn(translationsPatch, settingsPatch)
+    execute {
+        addPreference(
+            arrayOf(
+                "PREFERENCE_SCREEN: TRANSLATIONS"
+            ), TRANSLATIONS_FOR_YOUTUBE
+        )
     }
 }
