@@ -45,8 +45,8 @@ import static app.revanced.extension.shared.utils.Utils.showToastShort;
 public final class GeminiManager {
     // --- Constants ---
     private static final Pattern TRANSCRIPTION_PATTERN = Pattern.compile(
-            // Matches [HH:MM:SS.ms - HH:MM:SS.ms]: TEXT or [MM:SS.ms - MM:SS.ms]: TEXT
-            "\\[(?:(\\d{2}):)?(\\d{2}):(\\d{2})\\.(\\d{1,3})\\s*-\\s*(?:(\\d{2}):)?(\\d{2}):(\\d{2})\\.(\\d{1,3})\\]:?\\s*(.*)"
+            // Matches [ HH:MM:SS.ms - HH:MM:SS.ms ]: TEXT and dot/colon/comma separator for milliseconds
+            "\\[\\s*(?:(\\d{2}):)?(\\d{2}):(\\d{2})[.,:](\\d{1,3})\\s*-\\s*(?:(\\d{2}):)?(\\d{2}):(\\d{2})[.,:](\\d{1,3})\\s*\\]:?\\s*(.*)"
     );
     private static final long SUBTITLE_UPDATE_INTERVAL_MS = 250; // How often to check for subtitle text updates
     private static final String EMPTY_SUBTITLE_PLACEHOLDER = "..."; // Displayed when no subtitle text is active
@@ -1244,7 +1244,6 @@ public final class GeminiManager {
         String msg = rawTranscription + timeMsg;
 
         final String dialogVideoUrl = currentVideoUrl;
-        final OperationType dialogOpType = OperationType.TRANSCRIBE;
 
         new AlertDialog.Builder(context)
                 .setTitle(str("revanced_gemini_transcription_result_title"))
@@ -1255,28 +1254,18 @@ public final class GeminiManager {
                 .setNeutralButton(str("revanced_gemini_transcription_parse_button"), (dialog, which) -> {
                     // Ensure this action is still relevant when the button is clicked
                     ensureMainThread(() -> {
-                        if (!isOperationRelevant(dialogOpType, Objects.requireNonNull(dialogVideoUrl))) {
-                            Logger.printDebug(() -> "Parse button click ignored, operation no longer relevant.");
-                            String busyMsg = (currentOperation != OperationType.NONE)
-                                    ? str("revanced_gemini_error_already_running_" + currentOperation.name().toLowerCase())
-                                    : str("revanced_gemini_cancelled");
-                            showToastShort(busyMsg);
-                            try {dialog.dismiss();} catch (Exception ignored) {}
-                            return;
-                        }
                         Logger.printDebug(() -> "Parse button clicked (Gemini raw). Attempting parse and display overlay.");
 
                         // Ensure any previous overlay is gone before attempting parse/display
                         hideTranscriptionOverlayInternal();
 
-                        if (attemptParseAndDisplayCachedTranscriptionInternal()) {
-                            // Success: Overlay is shown. Dismiss this raw text dialog.
-                            dialog.dismiss();
-                            // Operation is logically finished (a raw text retrieved), now showing overlay.
-                            // Reset flags but keep cache/UI.
-                            resetOperationStateInternal(OperationType.TRANSCRIBE, false);
-                            showToastShort(str("revanced_gemini_transcription_parse_success"));
-                        }
+                        // Pass the exact text and URL associated with this dialog to the parser.
+                        // This avoids race conditions where the singleton cache or currentUrl might have changed or been cleared.
+                        String urlToUse = dialogVideoUrl != null ? dialogVideoUrl : "";
+                        parseAndShowTranscriptionInternal(rawTranscription, urlToUse);
+
+                        // Close dialog since we are moving to overlay
+                        try { dialog.dismiss(); } catch (Exception ignored) {}
                     });
                 })
                 .show();
@@ -1287,67 +1276,66 @@ public final class GeminiManager {
     // region UI Methods: Transcription Parsing and Overlay
 
     /**
-     * Attempts to parse the cached raw Gemini transcription data ({@link #cachedRawTranscription})
-     * and, if successful, displays it using the subtitle overlay.
-     * Ensures any previous overlay is hidden first. Used only when Yandex is OFF.
+     * Attempts to parse the provided raw Gemini transcription data and, if successful,
+     * displays it using the subtitle overlay. Updates the cache upon success.
+     * Used when the user explicitly clicks "Subtitle" from the results dialog.
      * Must be called on the Main Thread.
      *
-     * @return {@code true} if parsing and displaying were successful, {@code false} otherwise.
+     * @param rawText  The raw transcription text to parse.
+     * @param videoUrl The video URL associated with this text.
      */
     @MainThread
-    private boolean attemptParseAndDisplayCachedTranscriptionInternal() {
-        Logger.printDebug(() -> "Attempting parse/display cached RAW Gemini transcription...");
+    private void parseAndShowTranscriptionInternal(@NonNull String rawText, @NonNull String videoUrl) {
+        Logger.printDebug(() -> "Parsing and showing Gemini transcription from dialog input...");
 
-        if (TextUtils.isEmpty(cachedRawTranscription)) {
-            Logger.printException(() -> "Cannot parse raw Gemini data, cache is empty.", null);
+        if (TextUtils.isEmpty(rawText)) {
+            Logger.printException(() -> "Cannot parse raw Gemini data, input text is empty.", null);
             showToastLong(str("revanced_gemini_error_transcription_no_raw_data"));
             hideTranscriptionOverlayInternal();
-            return false;
+            return;
         }
 
         TreeMap<Long, Pair<Long, String>> parsedData;
         try {
-            parsedData = parseGeminiTranscriptionInternal(cachedRawTranscription);
+            parsedData = parseGeminiTranscriptionInternal(rawText);
         } catch (Exception e) {
-            Logger.printException(() -> "Failed to parse cached raw Gemini data.", e);
+            Logger.printException(() -> "Failed to parse raw Gemini data.", e);
             showToastLong(str("revanced_gemini_error_transcription_parse") + ": " + e.getMessage());
             hideTranscriptionOverlayInternal();
             parsedTranscription = null;
-            return false;
+            return;
         }
 
         // Check if parsing succeeded but yielded no results
         if (parsedData.isEmpty()) {
-            // Check if the raw text was actually empty vs. parsing failed to find entries
-            if (cachedRawTranscription.trim().isEmpty()) {
+            if (rawText.trim().isEmpty()) {
                 Logger.printInfo(() -> "Raw Gemini transcription was empty, parsed to empty map.");
             } else {
                 Logger.printException(() -> "Parsed Gemini data is null or empty after parsing non-empty raw text.", null);
                 showToastLong(str("revanced_gemini_error_transcription_parse"));
             }
             parsedTranscription = parsedData;
+            cachedTranscriptionVideoUrl = videoUrl;
+            cachedRawTranscription = rawText;
             hideTranscriptionOverlayInternal();
-            // Return true if raw text was empty, false if parsing failed on non-empty text?
-            // Let's return false if parsing non-empty text yielded nothing.
-            return cachedRawTranscription.trim().isEmpty();
+            return;
         }
 
         // Successfully parsed Gemini data
-        TreeMap<Long, Pair<Long, String>> finalParsedData = parsedData;
-        Logger.printDebug(() -> "Successfully parsed " + finalParsedData.size() + " Gemini entries.");
+        Logger.printDebug(() -> "Successfully parsed " + parsedData.size() + " Gemini entries.");
 
         parsedTranscription = parsedData;
+        cachedTranscriptionVideoUrl = videoUrl;
+        cachedRawTranscription = rawText;
 
         // Attempt to display using the overlay
-        if (!displayTranscriptionOverlayInternal()) {
-            // Error toast/logging handled inside displayTranscriptionOverlayInternal
-            // Parsed data remains cached, but display failed. Overlay should be hidden.
-            return false;
-        }
+        if (displayTranscriptionOverlayInternal()) {
+            Logger.printInfo(() -> "Successfully parsed and displayed Gemini transcription overlay.");
+            showToastShort(str("revanced_gemini_transcription_parse_success"));
 
-        // Successfully parsed and displayed Gemini data via overlay
-        Logger.printInfo(() -> "Successfully parsed and displayed Gemini transcription overlay.");
-        return true;
+            // Ensure state flags are clean (though they should be already)
+            resetOperationStateInternal(OperationType.TRANSCRIBE, false);
+        }
     }
 
     /**
