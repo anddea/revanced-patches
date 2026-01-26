@@ -22,21 +22,17 @@ import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class GeminiUtils {
-    private static final ExecutorService executor = Executors.newSingleThreadExecutor();
+    private static final ExecutorService executor = Executors.newCachedThreadPool();
     private static final String BASE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
     private static final String GEMINI_MODEL = "gemini-2.5-flash";
     private static final String ACTION = ":generateContent?key=";
-    private static final AtomicReference<Future<?>> currentTask = new AtomicReference<>(null);
+
     private static final Handler mainThreadHandler = new Handler(Looper.getMainLooper());
-    private static volatile HttpURLConnection currentConnection = null;
 
     /**
      * Initiates an asynchronous request to the Gemini API to generate a summary for the given video URL.
-     * Cancels any previous ongoing task before starting.
      *
      * @param videoUrl The publicly accessible URL of the video to summarize.
      * @param apiKey   The Gemini API key.
@@ -51,7 +47,6 @@ public class GeminiUtils {
 
     /**
      * Initiates an asynchronous request to the Gemini API to generate a transcription for the given video URL.
-     * Cancels any previous ongoing task before starting.
      *
      * @param videoUrl The publicly accessible URL of the video to transcribe.
      * @param apiKey   The Gemini API key.
@@ -81,8 +76,6 @@ public class GeminiUtils {
      * <p>
      * It then calls the internal {@link #generateContent(String, String, String, String, Callback)} method,
      * passing {@code null} for the video URL, as this operation only involves text processing.
-     * Any previously running Gemini task initiated by this utility class will be canceled
-     * before this new translation task begins.
      * <p>
      * Note: The reliability of the translation and structure preservation depends on the
      * Gemini model's ability to follow the complex instructions in the prompt. Basic
@@ -120,7 +113,6 @@ public class GeminiUtils {
      * Constructs the JSON payload. If videoUrl is provided, includes video and text parts.
      * If videoUrl is null, includes ONLY the text part.
      * Handles the API response, parsing the result or error.
-     * Manages the task lifecycle and cancellation via {@link #currentTask} and {@link #currentConnection}.
      *
      * @param videoUrl   The publicly accessible URL of the video (nullable).
      * @param apiKey     The Gemini API key.
@@ -129,17 +121,12 @@ public class GeminiUtils {
      * @param callback   The {@link Callback} to handle the success or failure response.
      */
     private static void generateContent(@Nullable String videoUrl, @NonNull String apiKey, @NonNull String textPrompt, @NonNull String model, @NonNull Callback callback) {
-        cancelCurrentTask();
-
-        final AtomicReference<Future<?>> taskRef = new AtomicReference<>();
-        Future<?> newTask = executor.submit(() -> {
+        executor.submit(() -> {
             HttpURLConnection connection = null;
-            Future<?> taskBeingRun = taskRef.get();
 
             try {
                 URL url = new URL(BASE_API_URL + model + ACTION + apiKey);
                 connection = (HttpURLConnection) url.openConnection();
-                currentConnection = connection;
 
                 connection.setRequestMethod("POST");
                 connection.setRequestProperty("Content-Type", "application/json; utf-8");
@@ -296,14 +283,9 @@ public class GeminiUtils {
                 mainThreadHandler.post(() -> callback.onFailure("Operation cancelled."));
                 Thread.currentThread().interrupt();
             } catch (IOException e) {
-                if (Thread.currentThread().isInterrupted() || (taskBeingRun != null && taskBeingRun.isCancelled())) {
-                    Logger.printInfo(() -> "Gemini task explicitly cancelled (IOException).");
-                    mainThreadHandler.post(() -> callback.onFailure("Operation cancelled."));
-                } else {
-                    Logger.printException(() -> "Gemini API request IO failed (" + model + ")", e);
-                    final String ioErrorMsg = e.getMessage() != null ? "Network error: " + e.getMessage() : "Unknown network error";
-                    mainThreadHandler.post(() -> callback.onFailure(ioErrorMsg));
-                }
+                Logger.printException(() -> "Gemini API request IO failed (" + model + ")", e);
+                final String ioErrorMsg = e.getMessage() != null ? "Network error: " + e.getMessage() : "Unknown network error";
+                mainThreadHandler.post(() -> callback.onFailure(ioErrorMsg));
             } catch (Exception e) {
                 Logger.printException(() -> "Gemini API request failed (" + model + ")", e);
                 final String genericErrorMsg = e.getMessage() != null ? e.getMessage() : "Unknown error during request setup";
@@ -312,39 +294,8 @@ public class GeminiUtils {
                 if (connection != null) {
                     connection.disconnect();
                 }
-                currentConnection = null;
-                currentTask.compareAndSet(taskBeingRun, null);
             }
         });
-        taskRef.set(newTask);
-
-        currentTask.set(newTask);
-    }
-
-    /**
-     * Attempts to cancel the currently running Gemini API task, if any.
-     * It cancels the {@link Future} associated with the task and attempts to disconnect the underlying {@link HttpURLConnection}.
-     */
-    public static void cancelCurrentTask() {
-        Future<?> taskToCancel = currentTask.getAndSet(null);
-        if (taskToCancel != null) {
-            Logger.printDebug(() -> "Attempting to cancel current Gemini task.");
-            taskToCancel.cancel(true);
-        }
-
-        HttpURLConnection conn = currentConnection;
-        if (conn != null) {
-            Logger.printDebug(() -> "Attempting to disconnect potentially active Gemini connection during cancellation.");
-            executor.execute(() -> { // Disconnect off main thread
-                try {
-                    conn.disconnect();
-                    Logger.printDebug(() -> "Disconnected Gemini connection via cancelCurrentTask.");
-                } catch (Exception e) {
-                    Logger.printDebug(() -> "Ignoring error disconnecting Gemini connection during cancellation: " + e.getMessage());
-                }
-            });
-        }
-        currentConnection = null;
     }
 
     /**
