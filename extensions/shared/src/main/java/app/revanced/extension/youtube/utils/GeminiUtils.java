@@ -26,7 +26,8 @@ import java.util.concurrent.Executors;
 public class GeminiUtils {
     private static final ExecutorService executor = Executors.newCachedThreadPool();
     private static final String BASE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
-    private static final String GEMINI_MODEL = "gemini-2.5-flash";
+    private static final String GEMINI_MODEL = "gemini-3-flash-preview";
+    private static final String GEMINI_FALLBACK_MODEL = "gemini-2.5-flash";
     private static final String ACTION = ":generateContent?key=";
 
     private static final Handler mainThreadHandler = new Handler(Looper.getMainLooper());
@@ -42,7 +43,7 @@ public class GeminiUtils {
         String langName = getLanguageName();
         String prompt = "Summarize the key points of this video in " + langName + ". Skip any preamble, intro phrases, or explanations — output only the summary.";
         Logger.printDebug(() -> "GeminiUtils (SUMMARY): Sending Prompt: " + prompt);
-        generateContent(videoUrl, apiKey, prompt, GEMINI_MODEL, callback);
+        generateContent(videoUrl, apiKey, prompt, GEMINI_MODEL, callback, true);
     }
 
     /**
@@ -56,30 +57,12 @@ public class GeminiUtils {
         String langName = getLanguageName();
         String prompt = "Transcribe this video precisely in " + langName + ", including spoken words, written words in the video and significant sounds. Provide timestamps for each segment in the format [HH:MM:SS.mmm - HH:MM:SS.mmm]: Text. Skip any preamble, intro phrases, or explanations — output only the transcription.";
         Logger.printDebug(() -> "GeminiUtils (TRANSCRIPTION): Sending Prompt: " + prompt);
-        generateContent(videoUrl, apiKey, prompt, GEMINI_MODEL, callback);
+        generateContent(videoUrl, apiKey, prompt, GEMINI_MODEL, callback, true);
     }
 
     /**
      * Initiates an asynchronous request to the Gemini API to translate the text content
      * within a Yandex-formatted subtitle JSON string to a specified target language.
-     * <p>
-     * This method is specifically designed for the scenario where Yandex VOT provides
-     * subtitles in an intermediate language (e.g., English), and they need to be
-     * translated to the user's final desired language using the Gemini API.
-     * <p>
-     * It constructs a detailed text prompt instructing the Gemini model to:
-     * <ul>
-     *     <li>Translate only the string values associated with the `"text"` keys within the input JSON.</li>
-     *     <li>Preserve the exact original JSON structure, including all other keys and numeric values.</li>
-     *     <li>Output only the translated JSON data, without any extra text, explanations, or formatting.</li>
-     * </ul>
-     * <p>
-     * It then calls the internal {@link #generateContent(String, String, String, String, Callback)} method,
-     * passing {@code null} for the video URL, as this operation only involves text processing.
-     * <p>
-     * Note: The reliability of the translation and structure preservation depends on the
-     * Gemini model's ability to follow the complex instructions in the prompt. Basic
-     * validation is performed on the output to check if it looks like JSON.
      *
      * @param yandexJson     The non-null JSON string containing subtitles in the Yandex format
      *                       (typically an array of objects or an object containing a "subtitles" array,
@@ -105,22 +88,20 @@ public class GeminiUtils {
         String prompt = "Translate ONLY the string values associated with the \"text\" keys within the following JSON subtitle data to " + targetLangName + ". Preserve the exact JSON structure, including all keys (like \"startMs\", \"endMs\", \"durationMs\") and their original numeric values. Output ONLY the fully translated JSON data, without any introductory text, explanations, comments, or markdown formatting (like ```json ... ```).\n\nInput JSON:\n" + yandexJson;
 
         Logger.printDebug(() -> "GeminiUtils (JSON TRANSLATE): Sending Translation Prompt for target '" + targetLangName + "'.");
-        generateContent(null, apiKey, prompt, GEMINI_MODEL, callback);
+        generateContent(null, apiKey, prompt, GEMINI_MODEL, callback, true);
     }
 
     /**
      * Makes an asynchronous POST request to the Gemini API's generateContent endpoint.
-     * Constructs the JSON payload. If videoUrl is provided, includes video and text parts.
-     * If videoUrl is null, includes ONLY the text part.
-     * Handles the API response, parsing the result or error.
      *
-     * @param videoUrl   The publicly accessible URL of the video (nullable).
-     * @param apiKey     The Gemini API key.
-     * @param textPrompt The specific text prompt to send.
-     * @param model      The Gemini model to use (e.g., "gemini-2.0-flash" or "gemini-2.5-flash-preview-04-17").
-     * @param callback   The {@link Callback} to handle the success or failure response.
+     * @param videoUrl      The publicly accessible URL of the video (nullable).
+     * @param apiKey        The Gemini API key.
+     * @param textPrompt    The specific text prompt to send.
+     * @param model         The Gemini model to use.
+     * @param callback      The {@link Callback} to handle the success or failure response.
+     * @param allowFallback If true, a failure will trigger a retry with the fallback model.
      */
-    private static void generateContent(@Nullable String videoUrl, @NonNull String apiKey, @NonNull String textPrompt, @NonNull String model, @NonNull Callback callback) {
+    private static void generateContent(@Nullable String videoUrl, @NonNull String apiKey, @NonNull String textPrompt, @NonNull String model, @NonNull Callback callback, boolean allowFallback) {
         executor.submit(() -> {
             HttpURLConnection connection = null;
 
@@ -173,10 +154,25 @@ public class GeminiUtils {
                 requestBody.put("safetySettings", safetySettingsArray);
                 */
 
-                // Include generationConfig only for models that support thinkingConfig (e.g., transcription model)
-                JSONObject thinkingConfig = new JSONObject().put("thinkingBudget", 0);
-                JSONObject generationConfig = new JSONObject().put("thinkingConfig", thinkingConfig);
-                requestBody.put("generationConfig", generationConfig);
+                // Configure generation options based on the model
+                JSONObject generationConfig = new JSONObject();
+                JSONObject thinkingConfig;
+
+                if (model.equals(GEMINI_MODEL)) {
+                    // Gemini 3 (Thinking Model) Configuration
+                    // Gemini 3 does not support turning thinking fully "off", but "minimal" acts as the disabled state.
+                    thinkingConfig = new JSONObject()
+                            .put("thinkingLevel", "minimal")
+                            .put("includeThoughts", false);
+                } else {
+                    // Fallback Model (Gemini 2.5 Flash) Configuration
+                    thinkingConfig = new JSONObject().put("thinkingBudget", 0);
+                }
+                generationConfig.put("thinkingConfig", thinkingConfig);
+
+                if (generationConfig.length() > 0) {
+                    requestBody.put("generationConfig", generationConfig);
+                }
 
                 String jsonInputString = requestBody.toString();
 
@@ -257,6 +253,12 @@ public class GeminiUtils {
                         mainThreadHandler.post(() -> callback.onFailure(finalError));
                     }
                 } else {
+                    if (allowFallback) {
+                        Logger.printDebug(() -> "GeminiUtils: Primary model " + model + " failed (HTTP " + responseCode + "). Fallback to " + GEMINI_FALLBACK_MODEL);
+                        generateContent(videoUrl, apiKey, textPrompt, GEMINI_FALLBACK_MODEL, callback, false);
+                        return;
+                    }
+
                     String errorMessage = "HTTP Error: " + responseCode;
                     String errorDetails = " - " + responseString.substring(0, Math.min(responseString.length(), 200)) + "...";
                     try {
@@ -275,6 +277,12 @@ public class GeminiUtils {
                 }
 
             } catch (java.net.SocketTimeoutException e) {
+                if (allowFallback) {
+                    Logger.printDebug(() -> "GeminiUtils: Primary model " + model + " timed out. Fallback to " + GEMINI_FALLBACK_MODEL);
+                    generateContent(videoUrl, apiKey, textPrompt, GEMINI_FALLBACK_MODEL, callback, false);
+                    return;
+                }
+
                 Logger.printException(() -> "Gemini API request timed out (" + model + ")", e);
                 final String timeoutMsg = "Request timed out after " + (connection != null ? connection.getReadTimeout() / 1000 : "?") + " seconds.";
                 mainThreadHandler.post(() -> callback.onFailure(timeoutMsg));
@@ -283,10 +291,22 @@ public class GeminiUtils {
                 mainThreadHandler.post(() -> callback.onFailure("Operation cancelled."));
                 Thread.currentThread().interrupt();
             } catch (IOException e) {
+                if (allowFallback) {
+                    Logger.printDebug(() -> "GeminiUtils: Primary model " + model + " network failed. Fallback to " + GEMINI_FALLBACK_MODEL);
+                    generateContent(videoUrl, apiKey, textPrompt, GEMINI_FALLBACK_MODEL, callback, false);
+                    return;
+                }
+
                 Logger.printException(() -> "Gemini API request IO failed (" + model + ")", e);
                 final String ioErrorMsg = e.getMessage() != null ? "Network error: " + e.getMessage() : "Unknown network error";
                 mainThreadHandler.post(() -> callback.onFailure(ioErrorMsg));
             } catch (Exception e) {
+                if (allowFallback) {
+                    Logger.printDebug(() -> "GeminiUtils: Primary model " + model + " failed with exception. Fallback to " + GEMINI_FALLBACK_MODEL);
+                    generateContent(videoUrl, apiKey, textPrompt, GEMINI_FALLBACK_MODEL, callback, false);
+                    return;
+                }
+
                 Logger.printException(() -> "Gemini API request failed (" + model + ")", e);
                 final String genericErrorMsg = e.getMessage() != null ? e.getMessage() : "Unknown error during request setup";
                 mainThreadHandler.post(() -> callback.onFailure(genericErrorMsg));
