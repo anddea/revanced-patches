@@ -236,7 +236,19 @@ public class GeminiUtils {
                                 .getJSONArray("parts")
                                 .getJSONObject(0)
                                 .getString("text");
-                        final String finalResult = resultText.trim();
+
+                        final String finalResult = sanitizeJsonOutput(resultText);
+                        Logger.printDebug(() -> "Gemini RAW result (Sanitized): " + finalResult.substring(0, Math.min(finalResult.length(), 300)) + "...");
+
+                        if (videoUrl == null) {
+                            boolean looksLikeJson = finalResult.startsWith("[") || finalResult.startsWith("{");
+                            if (!looksLikeJson) {
+                                Logger.printInfo(() -> "Gemini JSON translation result doesn't look like valid JSON!");
+                                Logger.printInfo(() -> "Start of content: " + finalResult.substring(0, Math.min(finalResult.length(), 50)));
+                                mainThreadHandler.post(() -> callback.onFailure("Translation result format error. Expected JSON."));
+                                return;
+                            }
+                        }
 
                         Logger.printDebug(() -> "Gemini RAW result received: " + finalResult.substring(0, Math.min(finalResult.length(), 300)) + "...");
 
@@ -496,6 +508,22 @@ public class GeminiUtils {
 
         // Absolute fallback
         return "English";
+    }
+
+    /**
+     * Cleans the Gemini response to remove potential Markdown formatting.
+     */
+    private static String sanitizeJsonOutput(String text) {
+        if (text == null) return "";
+        text = text.trim();
+
+        if (text.startsWith("```")) {
+            text = text.replaceFirst("^```[a-zA-Z]*\\s*", "");
+        }
+        if (text.endsWith("```")) {
+            text = text.replaceAll("\\s*```$", "");
+        }
+        return text.trim();
     }
 
     /**

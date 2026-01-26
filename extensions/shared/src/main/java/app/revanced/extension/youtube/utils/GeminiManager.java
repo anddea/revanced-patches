@@ -374,8 +374,10 @@ public final class GeminiManager {
                             }
 
                             // Call Gemini for translation
+                            String cleanedJson = YandexVotUtils.stripTokensFromYandexJson(rawIntermediateJson);
+
                             GeminiUtils.translateYandexJson(
-                                    rawIntermediateJson,
+                                    cleanedJson,
                                     targetLangName,
                                     apiKey,
                                     new GeminiUtils.Callback() {
