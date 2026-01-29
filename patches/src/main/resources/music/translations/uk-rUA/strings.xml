@@ -245,6 +245,7 @@
     <string name="revanced_hide_flyout_menu_start_radio_title">Приховати \"Увімкнути Радіо\"</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Приховати \"Статистика для досвідчених користувачів\"</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Приховати \"Підписатися / Скасувати підписку\"</string>
+    <string name="revanced_hide_flyout_menu_taste_match_title">Приховати \"Підбір переваг\"</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Приховати \"Відкріпити від розділу Швидкий набір\"</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Приховати \"Переглянути авторів пісні\"</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Приховує повноекранну рекламу."</string>
@@ -349,7 +350,15 @@
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Вилучає діалог про небажаний контент.
 Це не обходить вікові обмеження. Просто приймає їх автоматично."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Вилучити діалог про небажаний контент</string>
+    <string name="revanced_replace_action_button_like_summary">"Замінює іконку та анімацію кнопки "Подобається".
+
+• Ця установка більше не знадобиться, як тільки проблема буде вирішена на стороні сервера."</string>
     <string name="revanced_replace_action_button_like_title">Заміна кнопки \"Подобається\"</string>
+    <string name="revanced_replace_action_button_like_type_summary">"Використовує зменшену кнопку "Подобається".
+
+• У деяких користувачів панель дій знаходиться нижче (A/B-тестування).
+• Ця настройка призначена для таких користувачів, не була протестована."</string>
+    <string name="revanced_replace_action_button_like_type_title">Використовувати зменшену кнопку</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Продовжує відео з поточного моменту під час переходу на YouTube.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Продовжити перегляд</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Замінює пункт \"Відхилити чергу\" на пункт \"Дивитись на YouTube\".</string>
@@ -510,11 +519,14 @@
     <string name="revanced_settings_search_title">Пошук %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Налаштування скопійовано до буфера обміну.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_summary">Підміняє версію клієнта, яка використовується в текстах пісень, на старішу версію.</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Без динамічних текстів</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_7_12_52">7.12.52 - З динамічним текстом</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_06_52">8.06.52 - З динамічним текстом + кнопка \"Поділитися\"</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - З динамічним текстом + кнопка \"Поділитися\" + Кнопка \"Перекласти\" (тільки для Преміум користувачів)</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_summary">Виберіть зі списку цільову версію для текстів.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_title">Версія програми при заміні для текстів</string>
+    <string name="revanced_spoof_app_version_for_lyrics_title">Підміна версії програми для текстів</string>
     <string name="revanced_spoof_app_version_summary">"Підміняє версію клієнта на старішу версію.
 
 • Це змінить зовнішній вигляд застосунку, але можуть виникнути невідомі побічні ефекти.
@@ -652,16 +664,4 @@
     <string name="revanced_webview_toast_no_network">Перевірте підключення до Інтернету.</string>
     <string name="revanced_webview_toast_unavailable">WebView недоступний.</string>
     <string name="revanced_webview_visitor_data">Дані відвідуваності</string>
-    <string name="revanced_hide_flyout_menu_taste_match_title">Приховати \"Підбір переваг\"</string>
-    <string name="revanced_replace_action_button_like_summary">"Замінює іконку та анімацію кнопки "Подобається".
-
-• Ця установка більше не знадобиться, як тільки проблема буде вирішена на стороні сервера."</string>
-    <string name="revanced_replace_action_button_like_type_summary">"Використовує зменшену кнопку "Подобається".
-
-• У деяких користувачів панель дій знаходиться нижче (A/B-тестування).
-• Ця настройка призначена для таких користувачів, не була протестована."</string>
-    <string name="revanced_replace_action_button_like_type_title">Використовувати зменшену кнопку</string>
-    <string name="revanced_spoof_app_version_for_lyrics_summary">Підміняє версію клієнта, яка використовується в текстах пісень, на старішу версію.</string>
-    <string name="revanced_spoof_app_version_for_lyrics_target_title">Версія програми при заміні для текстів</string>
-    <string name="revanced_spoof_app_version_for_lyrics_title">Підміна версії програми для текстів</string>
 </resources>

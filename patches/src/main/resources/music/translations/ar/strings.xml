@@ -2,10 +2,7 @@
 <resources>
     <string name="gms_core_dialog_continue_text">تابع / اكمل
 </string>
-    <string name="gms_core_dialog_open_website_text">فتح الموقع</string>
     <string name="gms_core_dialog_dismiss_text">لا تظهر مرة اخرى</string>
-    <string name="gms_core_dialog_title">يجب اتخاذ إجراء</string>
-    <string name="gms_core_settings_title">GmsCore فتح اعدادات </string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"ليس لدى GmsCore إذن للتشغيل في الخلفية.
 
 اتبع دليل 'لا تقتل تطبيقي!' الخاص بهاتفك، وقم بتطبيق التعليمات على تثبيت GmsCore الخاص بك.
@@ -16,7 +13,10 @@
 لن يؤثر تعطيل تحسينات البطارية لـ GmsCore سلبًا على استخدام البطارية.
 
 انقر فوق زر الاستمرار واسمح بتغييرات التحسين."</string>
+    <string name="gms_core_dialog_open_website_text">فتح الموقع</string>
+    <string name="gms_core_dialog_title">يجب اتخاذ إجراء</string>
     <string name="gms_core_settings_summary">لتلقي الإشعارات في RVX Music، قم بتمكين المراسلة السحابية.</string>
+    <string name="gms_core_settings_title">GmsCore فتح اعدادات </string>
     <string name="gms_core_toast_not_installed_message">لم يتم تثبيت GmsCore. قم بتثبيته.</string>
     <string name="revanced_bypass_image_region_restrictions_title">تجاوز القيود على منطقة الصورة</string>
     <string name="revanced_change_share_sheet_title">تغيير لوح مشاركة</string>
@@ -105,6 +105,9 @@
     <string name="revanced_preference_screen_misc_title">خيارات متنوعة</string>
     <string name="revanced_preference_screen_navigation_title">شريط التنقل</string>
     <string name="revanced_preference_screen_player_title">المشغل</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
+    <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
+    <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_settings_title">قائمة الإعدادات</string>
     <string name="revanced_preference_screen_video_title">الفيديو</string>
     <string name="revanced_remember_playback_speed_last_selected_title">تذكر التغيرات في سرعة التشغيل</string>
@@ -133,6 +136,7 @@
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">إصدار مفتاح مطور YouTube Data API v3</string>
     <string name="revanced_ryd_about">لمحة</string>
     <string name="revanced_ryd_attribution_summary">يتم توفير بيانات لم يعجبني بفيديوهات YouTube بواسطة the Return YouTube Dislike API. اضغط هنا لمعرفة المزيد.</string>
+    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_title">مقاس زر أعجبني</string>
     <string name="revanced_ryd_dislike_percentage_title">لم يعجبني كــ نسبة مئوية</string>
     <string name="revanced_ryd_enabled_title">تمكين Return YouTube Dislike</string>
@@ -146,6 +150,7 @@
     <string name="revanced_sanitize_sharing_links_summary">يزيل معلمات استعلام التتبع من عناوين URL عند مشاركة الروابط.</string>
     <string name="revanced_sanitize_sharing_links_title">تطهير روابط المشاركة</string>
     <string name="revanced_sb_about">لمحة</string>
+    <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">يتم توفير البيانات بواسطة SponsorBlock API. اضغط هنا لمعرفة المزيد والتنزيل لمنصات أخرى.</string>
     <string name="revanced_sb_api_url">تغيير عنوان API</string>
     <string name="revanced_sb_api_url_changed">تم تغيير رابط API.</string>
@@ -225,12 +230,21 @@
 • تظهر إعدادات الوالدين أعلى إعدادات الطفل المعطلة."</string>
     <string name="revanced_settings_search_tips_title">نصائح البحث</string>
     <string name="revanced_settings_search_title">بحث %s</string>
+    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">تم نسخ الإعدادات إلى الحافظة.</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">إصدار التطبيق الوهمي غير صالح: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق الوهمي.</string>
     <string name="revanced_spoof_app_version_target_title">الهدف من خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_title">إصدار تطبيق وهمي</string>
     <string name="revanced_spoof_client_type_title">العميل الافتراضي</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music No SDK</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Legacy</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_title">العميل الافتراضي</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">لم يتمكن من جلب أي تدفقات عميل.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">جرّب تغيير العميل الافتراضي إلى TV Simply.</string>
@@ -306,18 +320,4 @@
     <string name="revanced_webview_toast_no_network">يرجى التحقق من اتصالك بالشبكة.</string>
     <string name="revanced_webview_toast_unavailable">WebView غير متاح.</string>
     <string name="revanced_webview_visitor_data">بيانات الزائر</string>
-    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
-    <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
-    <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
-    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_sb_about_api">sponsor.ajay.app</string>
-    <string name="revanced_settings_title">RVX</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android No SDK</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Legacy</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music No SDK</string>
 </resources>

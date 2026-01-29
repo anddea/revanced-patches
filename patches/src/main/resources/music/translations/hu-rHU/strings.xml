@@ -81,6 +81,10 @@ Lehetőség szerint használj sötét színeket, mivel az alkalmazás nem támog
     <string name="revanced_debug_title">Hibakeresési naplózás engedélyezése</string>
     <string name="revanced_default_app_settings_summary">A YouTube Music linkek megnyitásához az RVX Musicban engedélyezze a Támogatott linkek megnyitása és az összes Támogatott webcím engedélyezése opciót.</string>
     <string name="revanced_default_app_settings_title">Alapértelmezett program beállítások megnyitása</string>
+    <string name="revanced_disable_auto_audio_tracks_summary">"Kikapcsolja a kényszerített automatikus hangsávokat a podcastoknál.
+
+Korlátozás: Ha a 'Statisztikai adatok megtévesztése' engedélyezve van és az alapértelmezett kliens az 'Android VR Auth', előfordulhat, hogy ez nem működik."</string>
+    <string name="revanced_disable_auto_audio_tracks_title">Kényszerített automatikus hangsávok letiltása</string>
     <string name="revanced_disable_auto_captions_summary">Letiltja az automatikus feliratok bekapcsolását.</string>
     <string name="revanced_disable_auto_captions_title">Kényszerített automatikus feliratok letiltása</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Letiltja a betöltési animációt amikor az app indul.</string>
@@ -207,6 +211,8 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Csatorna irányelveinek elrejtése</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Elrejti az emoji és az időbélyeg gombokat a hozzászólás beírásakor.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Emoji és időbélyeg gombok elrejtése</string>
+    <string name="revanced_hide_comments_information_button_summary">Elrejti az Információ gombot a megjegyzések panelen.</string>
+    <string name="revanced_hide_comments_information_button_title">Információ gomb elrejtése</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Elrejti dupla koppintáskor megjelenő sötét átfedést.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Dupla koppintás átfedés elrejtése</string>
     <string name="revanced_hide_floating_button_summary">Elrejti a lebegő gombot a könyvtárban.</string>
@@ -231,6 +237,7 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Eltávolítás a könyvtárból menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Eltávolítás a lejátszási listáról menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_report_title">Jelentés menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_save_episode_for_later_save_to_library_title">\'Epizód mentése későbbre\' és \'Mentés a könyvtárba\' menük elrejtése</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Rész elmentése későbbre menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">Mentés a lejátszási listába menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_share_title">Megosztás menü elrejtése</string>
@@ -239,6 +246,7 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_hide_flyout_menu_start_radio_title">Rádió indítás menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Statisztikák kockáknak menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Feliratkozás / Leiratkozás menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_taste_match_title">\'Ízlésbeli egyezés\' menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Kitűzés a Gyorshívóba menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Dalkredit menü elrejtése</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Teljes képernyős hirdetések elrejtése."</string>
@@ -343,6 +351,15 @@ Ez nemcsak az YT Music beállítások menüjét, hanem a ReVanced Extended beál
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Eltávolítja a nézői döntés menüt.
 Ez nem kerüli meg a korhatárkorlátozást. Csak automatikusan elfogadja azt."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Nézői döntés menü eltávolítása</string>
+    <string name="revanced_replace_action_button_like_summary">"Másik ikon és animáció használata a Like gombhoz.
+
+• Erre a beállításra már nem lesz szükség, amint a hibát szerveroldalon javítják."</string>
+    <string name="revanced_replace_action_button_like_title">Like gomb lecserélése</string>
+    <string name="revanced_replace_action_button_like_type_summary">"Kisebb Like gomb használata.
+
+• Egyes felhasználóknál alacsonyabb műveleti sáv jelenik meg (A/B tesztelés).
+• Ez a beállítás nekik készült, de még nem lett tesztelve."</string>
+    <string name="revanced_replace_action_button_like_type_title">Kisebb ikon használata</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Folytatja a videót attól az időponttól, amikor átváltasz a Youtube-ra.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Megtekintés folytatása</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Kicseréli a \"Várólistát\" a \"Megtekintés a Youtube-on\"-nal.</string>
@@ -471,12 +488,18 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Üzenetet ír ki, ha a SponsorBlock API nem érhető el.</string>
     <string name="revanced_sb_toast_on_skip">Üzenet megjelenítése automatikus ugráskor</string>
     <string name="revanced_sb_toast_on_skip_sum">Üzenetet jelenít meg, amikor egy szegmens automatikusan kihagyásra kerül.</string>
+    <string name="revanced_settings_export_as_file">Beállítások exportálása fájlba</string>
     <string name="revanced_settings_export_failed">A beállítások exportálása sikertelen.</string>
     <string name="revanced_settings_export_success">A beállítások exportálása sikeres.</string>
     <string name="revanced_settings_import">Importálás</string>
+    <string name="revanced_settings_import_as_file">Beállítások importálása fájlból</string>
     <string name="revanced_settings_import_copy">Másolás</string>
     <string name="revanced_settings_import_export_as_text">Beállítások importálása vagy exportálása szövegként.</string>
+    <string name="revanced_settings_import_export_summary">RVX Music beállítások importálása / exportálása.</string>
+    <string name="revanced_settings_import_export_title">Beállítások importálása / exportálása</string>
+    <string name="revanced_settings_import_failed">Sikertelen importálás: %s.</string>
     <string name="revanced_settings_import_reset">Beállítások visszaállítása alapértelmezettre.</string>
+    <string name="revanced_settings_import_success">%d beállítás importálva.</string>
     <string name="revanced_settings_reset">Visszaállítás</string>
     <string name="revanced_settings_search_clear_history">Keresési előzmények törlése</string>
     <string name="revanced_settings_search_clear_history_message">Biztosan ki akarja törölni a korábbi keresési előzményeket?</string>
@@ -498,6 +521,14 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_settings_search_title">%s keresése</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">A beállítások vágólapra másolva.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_summary">A dalszövegekhez használt kliensverziót egy régebbi verzióra cseréli (szimulálja).</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Nincs valós idejű dalszöveg</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_7_12_52">7.12.52 - Valós idejű dalszöveg</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_06_52">8.06.52 - Valós idejű dalszöveg + Megosztás gomb</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - Valós idejű dalszöveg + Megosztás gomb + Fordítás gomb (csak Premium felhasználóknak)</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_summary">Válaszd ki a dalszövegekhez szimulált alkalmazásverziót.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_title">Szimulált alkalmazásverzió célpontja dalszövegekhez</string>
+    <string name="revanced_spoof_app_version_for_lyrics_title">Alkalmazásverzió szimulálása a dalszövegekhez</string>
     <string name="revanced_spoof_app_version_summary">"Hamisítja a kliens verziót egy régi verzióra.
 
 • Ez megváltoztatja az alkalmazás megjelenését, de ismeretlen hibák előfordulhatnak.
@@ -517,14 +548,38 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_spoof_client_type_summary">"Meghatároz egy alapértelmezett klienst a hamisításhoz."</string>
     <string name="revanced_spoof_client_type_title">Alapértelmezett kliens</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music No SDK</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android No SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Örökölt</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV egyszerű</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
+    <string name="revanced_spoof_streaming_data_default_client_summary">Meghatároz egy alapértelmezett klienst a megtévesztéshez.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Alapértelmezett kliens</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">Nem sikerült lekérni egyetlen kliens adatfolyamot sem.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Próbálja meg az alapértelmezett klienst \"TV egyszerű\"-re módosítani.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Kattintson ide, ha szeretné megtudni, hogyan szerezhet be hitelesítési tokent.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Az Android No SDK Auth-ról</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Kattints ide az Android No SDK-ba való bejelentkezéshez.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Bejelentkezés az Android No SDK-ba</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">Hitelesítési token lekérése</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message">"A bejelentkezés az Android No SDK-ba (YouTube) a Google által biztosított irányelveket követi (Google fiók hitelesítés - OAuth 2.0 Android alkalmazásokhoz):
+
+1. Kattints a 'Hitelesítési token lekérése' gombra a bejelentkezési oldal megnyitásához a WebView-ban.
+2. Jelentkezz be a Google-fiókodba.
+3. A bejelentkezés eredménye 5 másodpercen belül megjelenik.
+
+※ Kattints a 'Visszaállítás' gombra a hitelesítési token eltávolításához."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Visszaállítás</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Bejelentkezés az Android No SDK-ba</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Hitelesítési token elmentve.
+
+- Az ezen folyamat során kiadott hitelesítési token csak a YouTube-ban használható (az RVX-ben a streaming adatok lekérésére szolgál a YouTube-ról).
+- A 6 hónapnál hosszabb ideig nem használt hitelesítési tokent a Google szerverei visszavonják.
+- Ha megváltoztatod a jelszavad, eltávolítod az eszközt a fiókbeállításokban, vagy törlöd az alkalmazást, újra ki kell kérned a hitelesítési tokent."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Bejelentkezve</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Hitelesítési token visszaállítva.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Kattintson ide az Android VR-ba való bejelentkezéshez.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Be kell jelentkezni az Android VR-hoz</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Aktiváló kód:
@@ -604,59 +659,4 @@ Ha problémát tapasztalsz a JavaScript klienseddel, próbáld meg először ezt
     <string name="revanced_webview_toast_no_network">Kérem ellenőrizze a hálózati kapcsolatot.</string>
     <string name="revanced_webview_toast_unavailable">A webes nézet nem elérhető.</string>
     <string name="revanced_webview_visitor_data">Látogató adatok</string>
-    <string name="revanced_disable_auto_audio_tracks_summary">"Kikapcsolja a kényszerített automatikus hangsávokat a podcastoknál.
-
-Korlátozás: Ha a 'Statisztikai adatok megtévesztése' engedélyezve van és az alapértelmezett kliens az 'Android VR Auth', előfordulhat, hogy ez nem működik."</string>
-    <string name="revanced_disable_auto_audio_tracks_title">Kényszerített automatikus hangsávok letiltása</string>
-    <string name="revanced_hide_comments_information_button_summary">Elrejti az Információ gombot a megjegyzések panelen.</string>
-    <string name="revanced_hide_comments_information_button_title">Információ gomb elrejtése</string>
-    <string name="revanced_hide_flyout_menu_save_episode_for_later_save_to_library_title">\'Epizód mentése későbbre\' és \'Mentés a könyvtárba\' menük elrejtése</string>
-    <string name="revanced_hide_flyout_menu_taste_match_title">\'Ízlésbeli egyezés\' menü elrejtése</string>
-    <string name="revanced_replace_action_button_like_summary">"Másik ikon és animáció használata a Like gombhoz.
-
-• Erre a beállításra már nem lesz szükség, amint a hibát szerveroldalon javítják."</string>
-    <string name="revanced_replace_action_button_like_title">Like gomb lecserélése</string>
-    <string name="revanced_replace_action_button_like_type_summary">"Kisebb Like gomb használata.
-
-• Egyes felhasználóknál alacsonyabb műveleti sáv jelenik meg (A/B tesztelés).
-• Ez a beállítás nekik készült, de még nem lett tesztelve."</string>
-    <string name="revanced_replace_action_button_like_type_title">Kisebb ikon használata</string>
-    <string name="revanced_settings_export_as_file">Beállítások exportálása fájlba</string>
-    <string name="revanced_settings_import_as_file">Beállítások importálása fájlból</string>
-    <string name="revanced_settings_import_export_summary">RVX Music beállítások importálása / exportálása.</string>
-    <string name="revanced_settings_import_export_title">Beállítások importálása / exportálása</string>
-    <string name="revanced_settings_import_failed">Sikertelen importálás: %s.</string>
-    <string name="revanced_settings_import_success">%d beállítás importálva.</string>
-    <string name="revanced_spoof_app_version_for_lyrics_summary">A dalszövegekhez használt kliensverziót egy régebbi verzióra cseréli (szimulálja).</string>
-    <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Nincs valós idejű dalszöveg</string>
-    <string name="revanced_spoof_app_version_for_lyrics_target_entry_7_12_52">7.12.52 - Valós idejű dalszöveg</string>
-    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_06_52">8.06.52 - Valós idejű dalszöveg + Megosztás gomb</string>
-    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - Valós idejű dalszöveg + Megosztás gomb + Fordítás gomb (csak Premium felhasználóknak)</string>
-    <string name="revanced_spoof_app_version_for_lyrics_target_summary">Válaszd ki a dalszövegekhez szimulált alkalmazásverziót.</string>
-    <string name="revanced_spoof_app_version_for_lyrics_target_title">Szimulált alkalmazásverzió célpontja dalszövegekhez</string>
-    <string name="revanced_spoof_app_version_for_lyrics_title">Alkalmazásverzió szimulálása a dalszövegekhez</string>
-    <string name="revanced_spoof_streaming_data_default_client_summary">Meghatároz egy alapértelmezett klienst a megtévesztéshez.</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Kattintson ide, ha szeretné megtudni, hogyan szerezhet be hitelesítési tokent.</string>
-    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Az Android No SDK Auth-ról</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Kattints ide az Android No SDK-ba való bejelentkezéshez.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Bejelentkezés az Android No SDK-ba</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">Hitelesítési token lekérése</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message">"A bejelentkezés az Android No SDK-ba (YouTube) a Google által biztosított irányelveket követi (Google fiók hitelesítés - OAuth 2.0 Android alkalmazásokhoz):
-
-1. Kattints a 'Hitelesítési token lekérése' gombra a bejelentkezési oldal megnyitásához a WebView-ban.
-2. Jelentkezz be a Google-fiókodba.
-3. A bejelentkezés eredménye 5 másodpercen belül megjelenik.
-
-※ Kattints a 'Visszaállítás' gombra a hitelesítési token eltávolításához."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Visszaállítás</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Bejelentkezés az Android No SDK-ba</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Hitelesítési token elmentve.
-
-- Az ezen folyamat során kiadott hitelesítési token csak a YouTube-ban használható (az RVX-ben a streaming adatok lekérésére szolgál a YouTube-ról).
-- A 6 hónapnál hosszabb ideig nem használt hitelesítési tokent a Google szerverei visszavonják.
-- Ha megváltoztatod a jelszavad, eltávolítod az eszközt a fiókbeállításokban, vagy törlöd az alkalmazást, újra ki kell kérned a hitelesítési tokent."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Bejelentkezve</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Hitelesítési token visszaállítva.</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music No SDK</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android No SDK</string>
 </resources>
