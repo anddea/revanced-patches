@@ -1,3 +1,19 @@
+# [3.16.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.15.0...v3.16.0-dev.1) (2026-01-29)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Fix issues with Gemini transcription failures and the UI layout of subtitles ([77c52ee](https://github.com/anddea/revanced-patches/commit/77c52ee38ceb9c6151f44de125b6b93b837763d1))
+* **YouTube, YT Music & Reddit - Translations:** Do not add the Translations preference when the `Translations` patch is disabled ([2abf4ae](https://github.com/anddea/revanced-patches/commit/2abf4aecca9b45ce8f4486ff0b6cb0bffa850db9))
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add `Seal Plus` downloader ([98fb5d6](https://github.com/anddea/revanced-patches/commit/98fb5d63738997cd3a115c98d4bfc01971e76445))
+* **YouTube - Overlay buttons:** Allow simultaneous summary and transcription operations, cache summaries and transcriptions for all videos until the app is restarted ([7325d2a](https://github.com/anddea/revanced-patches/commit/7325d2aae355fd968bea6439d9acc796f0c15e20))
+* **YouTube - Overlay buttons:** Improve the translation workflow of subtitles after Yandex transcription ([88e54e6](https://github.com/anddea/revanced-patches/commit/88e54e64db3778c14a2d5cdecc6516632eae1875))
+* **YouTube - Overlay buttons:** Update Gemini to `Gemini 3 Flash Preview` and fallback to `Gemini 2.5 Flash` ([16c53da](https://github.com/anddea/revanced-patches/commit/16c53dad17fdf6b1f8ae2d71d7f4825744f8ae5f))
+
 # [3.15.0](https://github.com/anddea/revanced-patches/compare/v3.14.0...v3.15.0) (2026-01-01)
 
 
