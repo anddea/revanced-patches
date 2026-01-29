@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Włączyć gesty ułatwień dostępu dla odtwarzacza filmów?</string>
-    <string name="accessibility_settings_edu_opt_out_text">Twoje kontroly są zmodyfikowane, ponieważ serwis ułatwień dostępu jest włączony.</string>
+    <string name="accessibility_settings_edu_opt_out_text">Twoje ustawienia są zmienione, ponieważ usługa ułatwień dostępu jest włączony.</string>
     <string name="gms_core_dialog_continue_text">Kontynuuj</string>
     <string name="gms_core_dialog_dismiss_text">Nie pokazuj ponownie</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore nie ma uprawnień do działania w tle.
@@ -20,11 +20,11 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="gms_core_settings_summary">Aby otrzymywać powiadomienia w RVX, włącz Cloud Messaging.</string>
     <string name="gms_core_settings_title">Otwórz ustawienia GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore nie jest zainstalowany. Zainstaluj go.</string>
-    <string name="revanced_advanced_video_quality_menu_summary_off">Zaawansowane menu jakości filmu nie jest pokazane.</string>
-    <string name="revanced_advanced_video_quality_menu_summary_on">Zaawansowane menu jakości filmu jest pokazane.</string>
+    <string name="revanced_advanced_video_quality_menu_summary_off">Ukryte</string>
+    <string name="revanced_advanced_video_quality_menu_summary_on">Widoczne</string>
     <string name="revanced_advanced_video_quality_menu_title">Zaawansowane menu od jakości filmu</string>
-    <string name="revanced_advanced_video_quality_menu_type_summary_off">Stary styl wylotu menu jest używany.</string>
-    <string name="revanced_advanced_video_quality_menu_type_summary_on">Własny dialog jest używany.</string>
+    <string name="revanced_advanced_video_quality_menu_type_summary_off">Stary</string>
+    <string name="revanced_advanced_video_quality_menu_type_summary_on">Własny</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Typ zaawansowanego menu od jakości filmu w Shortsach</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki filmów z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube. 
 
@@ -35,8 +35,8 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">Nieprawidłowy adres URL API DeArrow.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Adres URL punktu końcowego do miniaturek DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">Punkt końcowy API DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Komunikat nie jest pokazany gdy DeArrow jest niedostępne.</string>
-    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Komunikat jest pokazany gdy DeArrow jest niedostępne.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Ukryty</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Widoczny</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Komunikat, jeśli API jest niedostępne</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow jest tymczasowo niedostępne. (kod statusu: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow jest tymczasowo niedostępne.</string>
@@ -62,8 +62,8 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_app_name_title">Nazwa aplikacji</string>
     <string name="revanced_app_version_title">Wersja aplikacji</string>
     <string name="revanced_append_time_stamp_information_playback_speed_menu_type_title">Typ menu od prędkości odtwarzania</string>
-    <string name="revanced_append_time_stamp_information_summary_off">Informacja nie jest dodana do znacznika czasu.</string>
-    <string name="revanced_append_time_stamp_information_summary_on">"Informacja jest dodana do znacznika czasu.
+    <string name="revanced_append_time_stamp_information_summary_off">Niewidoczna</string>
+    <string name="revanced_append_time_stamp_information_summary_on">"Widoczna
 
 Stuknij, by skonfigurować jakość filmu lub prędkość odtwarzania.
 Stuknij i przytrzymaj, by przełączać się pomiędzy typami wyświetlanej informacji."</string>
@@ -71,55 +71,55 @@ Stuknij i przytrzymaj, by przełączać się pomiędzy typami wyświetlanej info
     <string name="revanced_append_time_stamp_information_type_summary_off">Prędkość odtwarzania</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Jakość filmu</string>
     <string name="revanced_append_time_stamp_information_type_title">Typ informacji</string>
-    <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">Stary wygląd wylotu menu jest używany.</string>
-    <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">Własny dialog jest używany.</string>
+    <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">Stary</string>
+    <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">Własny</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Typ menu od jakości filmu</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Oświetlenie kinowe w trybie oszczędzania baterii jest wyłączone.</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Oświetlenie kinowe w trybie oszczędzania baterii jest włączone.</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Wyłączone</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Włączone</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Obejdź ograniczenia oświetlenia kinowego</string>
     <string name="revanced_bypass_image_region_restrictions_domain_summary">Domena, z której mają być pobierane obrazy.\nNotka: Wprowadź tylko nazwę domeny, tzn. bez prefiksu \"https\:\/\/\".</string>
     <string name="revanced_bypass_image_region_restrictions_domain_title">Alternatywna domena</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Oryginalny\n\nWłączenie tej opcji może naprawić brakujące obrazy, które są blokowane w niektórych regionach.</string>
-    <string name="revanced_bypass_image_region_restrictions_summary_on">Używasz hostu obrazów yt4.ggpht.com</string>
-    <string name="revanced_bypass_image_region_restrictions_title">Omiń ograniczenia regionu obrazu</string>
-    <string name="revanced_bypass_url_redirects_summary_off">Przekierowania URL nie są ominięte.</string>
-    <string name="revanced_bypass_url_redirects_summary_on">Przekierowania URL są ominięte.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Host dla obrazów</string>
+    <string name="revanced_bypass_url_redirects_summary_off">Wyłączone</string>
+    <string name="revanced_bypass_url_redirects_summary_on">Włączone</string>
     <string name="revanced_bypass_url_redirects_title">Omiń przekierowania URL</string>
     <string name="revanced_cancel">Anuluj</string>
     <string name="revanced_change_form_factor_entry_1">Domyślny</string>
-    <string name="revanced_change_form_factor_entry_2">Telefon</string>
-    <string name="revanced_change_form_factor_entry_3">Telefon (Max 480 dp)</string>
-    <string name="revanced_change_form_factor_entry_4">Tablet</string>
-    <string name="revanced_change_form_factor_entry_5">Tablet (Min 600 dp)</string>
-    <string name="revanced_change_form_factor_entry_6">Automobilowy</string>
-    <string name="revanced_change_form_factor_title">Układ współczynniku kształtu</string>
+    <string name="revanced_change_form_factor_entry_2">Telefonowy</string>
+    <string name="revanced_change_form_factor_entry_3">Telefonowy (max. 480 dpi)</string>
+    <string name="revanced_change_form_factor_entry_4">Tabletowy</string>
+    <string name="revanced_change_form_factor_entry_5">Tabletowy (min. 600 dpi)</string>
+    <string name="revanced_change_form_factor_entry_6">Samochodowy</string>
+    <string name="revanced_change_form_factor_title">Współczynik kształtu układu aplikacji</string>
     <string name="revanced_change_form_factor_user_dialog_message">"Zmiany zawierają:
 
 Układ tabletowy:
 • Posty społeczności są ukryte
 
-Układ automobilowy:
+Układ samochodowy:
 • Shortsy otwierają się w zwykłym odtwarzaczu
 • Strona główna jest sortowana po tematach i kanałach
 • Opis filmu nie może być otwarty po wyłączeniu 'Oszukuj strumień danych'"</string>
-    <string name="revanced_change_live_ring_click_action_summary_off">Transmisja na żywo otwiera się gdy pierścień transmisji na żywo jest kliknięty.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"Kanał się otwiera się gdy pierścień transmisji na żywo jest kliknięty.
+    <string name="revanced_change_live_ring_click_action_summary_off">Otwarcie transmisji na żywo</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"Otwarcie kanału
 
 Ograniczenie: jeśli transmisja na żywo Shortsa jest otwierana w zwykłym odtwarzaczu przy użyciu opcji 'Otwieranie Shortsów w zwykłym odtwarzaczu', kanał się nie otworzy."</string>
-    <string name="revanced_change_live_ring_click_action_title">Zachowanie po kliknięciu pierścieni od transmisji na żywo</string>
-    <string name="revanced_change_player_flyout_menu_toggle_summary_off">Przełączniki są używane.</string>
-    <string name="revanced_change_player_flyout_menu_toggle_summary_on">Tekst jest używany.</string>
+    <string name="revanced_change_live_ring_click_action_title">Zachowanie po kliknięciu okręgu od transmisji na żywo</string>
+    <string name="revanced_change_player_flyout_menu_toggle_summary_off">Przełączniki</string>
+    <string name="revanced_change_player_flyout_menu_toggle_summary_on">Tekst</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Wygląd przełączników</string>
-    <string name="revanced_change_server_side_snack_bar_background_summary_off">Kolor tła snackbara strony serwera nie zmieniła się.</string>
-    <string name="revanced_change_server_side_snack_bar_background_summary_on">Kolor tła snackbara strony serwera zmieniła się.</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_off">Niezmienione</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_on">Zmienione</string>
     <string name="revanced_change_server_side_snack_bar_background_title">Tło komunikatów po stronie serwera</string>
     <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"Większość komunikatów używa zdefiniowanego motywu po stronie serwera, a nie motywu aplikacji.
 
 To ustawienie zmienia kolor tła tych komunikatów.
 
 Jeśli zajdą zmiany po stronie serwera, kolor tła tych komunikatów może się nie zmienić."</string>
-    <string name="revanced_change_share_sheet_summary_off">Aplikacji menu udostępniania jest używane.</string>
-    <string name="revanced_change_share_sheet_summary_on">Systemowe menu udostępniania jest używane.</string>
+    <string name="revanced_change_share_sheet_summary_off">Aplikacji</string>
+    <string name="revanced_change_share_sheet_summary_on">Systemowy</string>
     <string name="revanced_change_share_sheet_title">Wygląd menu udostępniania</string>
     <string name="revanced_change_shorts_background_repeat_state_title">Zmień stan powtarzania w tle Shortsów</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">Automatyczne odtwarzanie</string>
@@ -151,7 +151,7 @@ Jeśli zajdą zmiany po stronie serwera, kolor tła tych komunikatów może się
     <string name="revanced_change_start_page_entry_sports">Sport</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subskrypcje</string>
     <string name="revanced_change_start_page_entry_trending">Na czasie</string>
-    <string name="revanced_change_start_page_entry_virtual_reality">Rzeczywistość wirtualna</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">Wirtualna rzeczywistość</string>
     <string name="revanced_change_start_page_entry_watch_later">Do obejrzenia</string>
     <string name="revanced_change_start_page_entry_your_clips">Twoje klipy</string>
     <string name="revanced_change_start_page_title">Strona startowa</string>
@@ -184,7 +184,7 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
     <string name="revanced_custom_playback_speeds_summary">Dodaj lub zmień dostępne prędkości odtwarzania</string>
     <string name="revanced_custom_playback_speeds_title">Edytuj niestandardowe prędkości odtwarzania</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Przezroczystość nakładki odtwarzacza musi wynosić między 0 a 100.</string>
-    <string name="revanced_custom_player_overlay_opacity_summary">Wartość przezroczystości musi wynosić między 0 a 100, gdzie 0 oznacza przezroczystość</string>
+    <string name="revanced_custom_player_overlay_opacity_summary">Wartość przezroczystości musi wynosić między 0 a 100, gdzie 0 oznacza przezroczystość.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Niestandardowa przezroczystość nakładki</string>
     <string name="revanced_custom_seekbar_color_accent_summary">Wpisz kod hex akcentu paska postępu filmu.</string>
     <string name="revanced_custom_seekbar_color_accent_title">Niestandardowy kolor akcentu</string>
@@ -647,7 +647,7 @@ Informacje:
     <string name="revanced_hide_category_bar_in_search_title">Nad wynikami wyszukiwania</string>
     <string name="revanced_hide_channel_guidelines_summary_off">Widoczne</string>
     <string name="revanced_hide_channel_guidelines_summary_on">Ukryte</string>
-    <string name="revanced_hide_channel_guidelines_title">Wytyczne</string>
+    <string name="revanced_hide_channel_guidelines_title">Wytyczne kanału</string>
     <string name="revanced_hide_channel_tab_filter_strings_hint">"Shortsy
 Playlisty
 Sklep"</string>
@@ -2497,11 +2497,11 @@ Przykład 2:
 • filmy mogą zacząć się z opóźnieniem
 • tryb immersyjny 360° VR nie jest dostępny"</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv_simply">"• jeśli odszyfrowywanie się nie uda, odtwarzanie może się nie powieść
-• niektóre konto wymagają PoToken, w rezultacie czego odtwarzanie może się nie powieść
+• niektóre konta wymagają PoToken, w rezultacie czego odtwarzanie może się nie powieść
 • czasem film nie odtwarza się nawet po 10 sekundach, dlatego należy kliknąć przycisk od odświeżenia filmu
 • filmy mogą zacząć się z opóźnieniem"</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv_simply_no_potoken">"• jeśli odszyfrowywanie się nie powiedzie, odtwarzanie może się nie powieść
-• niektóre konto wymagają PoToken, w rezultacie czego odtwarzanie może się nie powieść
+• niektóre konta wymagają PoToken, w rezultacie czego odtwarzanie może się nie powieść
 • czasem film nie odtwarza się nawet po 10 sekundach, dlatego należy kliknąć przycisk od odświeżenia filmu
 • filmy mogą zacząć się z opóźnieniem"</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Nieznane</string>

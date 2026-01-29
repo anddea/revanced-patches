@@ -6,7 +6,7 @@
     <string name="gms_core_dialog_dismiss_text">Không hiển thị lại nữa</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Hiện GmsCore không có quyền chạy nền.
 
-Hãy làm theo hướng dẫn của 'Don't kill my app!' và tiến hành cài đặt GmsCore đúng cách.
+Hãy làm theo hướng dẫn của 'Don't kill my app!' và tiến hành theo các chỉ dẫn cho GmsCore đúng cách.
 
 Để ứng dụng hoạt động hiệu quả nhất."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Vui lòng tắt tối ưu hoá pin cho GmsCore để tránh phát sinh lỗi.
@@ -1747,7 +1747,7 @@ Nhấn và giữ để mở hộp thoại cài đặt Danh sách trắng.</strin
     <string name="revanced_preference_category_suggested_actions">Hành động đề xuất</string>
     <string name="revanced_preference_category_video_quality">Chất lượng video</string>
     <string name="revanced_preference_category_view_counts_filter">Bộ lọc số lượt xem</string>
-    <string name="revanced_preference_group_sb_title">SponsorBlock</string>
+    <string name="revanced_preference_group_sb_title">Chặn Nhà tài trợ</string>
     <string name="revanced_preference_screen_account_menu_summary">Ẩn hoặc hiển thị các thành phần của trình đơn Tài khoản và thẻ Bạn.</string>
     <string name="revanced_preference_screen_account_menu_title">Trình đơn Tài khoản</string>
     <string name="revanced_preference_screen_action_buttons_summary">Ẩn hoặc hiển thị các nút thao tác bên dưới video.</string>
@@ -1796,9 +1796,9 @@ Nhấn và giữ để mở hộp thoại cài đặt Danh sách trắng.</strin
     <string name="revanced_preference_screen_player_flyout_menu_summary">Ẩn hoặc thay đổi thành phần của trình đơn tuỳ chọn trong trình phát video.</string>
     <string name="revanced_preference_screen_player_flyout_menu_title">Trình đơn tuỳ chọn</string>
     <string name="revanced_preference_screen_player_title">Trình phát</string>
-    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
-    <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
-    <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Trả về Tên người dùng YouTube</string>
+    <string name="revanced_preference_screen_ryd_title">Trả về Lượt không thích YouTube</string>
+    <string name="revanced_preference_screen_sb_title">Chặn Nhà tài trợ</string>
     <string name="revanced_preference_screen_seekbar_summary">Ẩn hoặc tùy chỉnh các thành phần của thanh tiến trình.</string>
     <string name="revanced_preference_screen_seekbar_title">Thanh tiến trình</string>
     <string name="revanced_preference_screen_settings_menu_summary">Ẩn các thành phần của trình đơn Cài đặt YouTube.</string>
@@ -1957,7 +1957,7 @@ Không còn lề trên và dưới trong trình phát."</string>
     <string name="revanced_return_youtube_username_display_format_username_only">Tên người dùng</string>
     <string name="revanced_return_youtube_username_enabled_summary_off">Tên hiển thị (@handle) đã được áp dụng.</string>
     <string name="revanced_return_youtube_username_enabled_summary_on">Tên người dùng đang được áp dụng.</string>
-    <string name="revanced_return_youtube_username_enabled_title">Kích hoạt Return YouTube Username</string>
+    <string name="revanced_return_youtube_username_enabled_title">Kích hoạt Tên người dùng YouTube</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Khoá nhà phát triển YouTube Data API v3 là một mã khoá cho phép các nhà phát triển truy cập lấy dữ liệu từ YouTube, và chúng cũng cần thiết để thay thế @tên hiển thị thành tên người dùng.
 
 Giới hạn truy cập hàng ngày cho các khoá API trên gói miễn phí là 10000 lượt, với mỗi lượt truy cập chỉ áp dụng cho 1 bình luận.
@@ -1969,7 +1969,7 @@ Nhấn vào đây để xem các bước tạo khóa API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;Tạo dự án mới&lt;/a&gt;.&lt;br&gt;2. Ấn vào &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Đi tới &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Ấn vào &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Ấn vào &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Chọn &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Ấn vào &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Sao chép mã khoá API.&lt;br&gt;&lt;br&gt;※ Không nên chia sẻ mã khoá API với người khác, vì vậy chúng cũng không có mặt trong mục Nhập/Xuất cài đặt.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Tạo mã khoá</string>
     <string name="revanced_ryd_about">Giới thiệu</string>
-    <string name="revanced_ryd_attribution_summary">Dữ liệu về lượt không thích được cung cấp bởi API Return YouTube Dislike. Nhấn vào đây để tìm hiểu thêm.</string>
+    <string name="revanced_ryd_attribution_summary">Dữ liệu về lượt không thích được cung cấp bởi API Trả về Lượt không thích YouTube. Nhấn vào đây để tìm hiểu thêm.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Nút Thích được thiết kế để đồng bộ khả năng hiển thị với nút Không thích.</string>
     <string name="revanced_ryd_compact_layout_summary_on">Nút Thích được thiết kế để tối ưu kích thước hiển thị.</string>
@@ -1979,7 +1979,7 @@ Nhấn vào đây để xem các bước tạo khóa API."</string>
     <string name="revanced_ryd_dislike_percentage_title">Hiện số lượt không thích theo phần trăm</string>
     <string name="revanced_ryd_enable_summary_off">Số lượt không thích đã ẩn.</string>
     <string name="revanced_ryd_enable_summary_on">Số lượt không thích được hiển thị.</string>
-    <string name="revanced_ryd_enable_title">Hiện số lượt không thích</string>
+    <string name="revanced_ryd_enable_title">Kích hoạt Lượt không thích YouTube</string>
     <string name="revanced_ryd_estimated_like_summary_off">Số lượt thích ước tính không được hiển thị.</string>
     <string name="revanced_ryd_estimated_like_summary_on">Các video đã tắt lượt thích vẫn hiển thị số lượt thích ước tính.</string>
     <string name="revanced_ryd_estimated_like_title">Hiện số lượt thích ước tính</string>
@@ -1987,15 +1987,15 @@ Nhấn vào đây để xem các bước tạo khóa API."</string>
     <string name="revanced_ryd_failure_connection_status_code">Số lượt không thích không khả dụng (trạng thái %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Số lượt không thích tạm thời không khả dụng (API đã hết thời gian chờ).</string>
     <string name="revanced_ryd_failure_generic">Số lượt không thích không khả dụng (%s).</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Tải lại video để bình chọn bằng Return YouTube Dislike</string>
+    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Tải lại video để bình chọn bằng Lượt không thích YouTube</string>
     <string name="revanced_ryd_shorts_summary_off">Số lượt không thích đã ẩn khỏi trình phát Shorts.</string>
     <string name="revanced_ryd_shorts_summary_on">Số lượt không thích được hiển thị trong trình phát Shorts.</string>
     <string name="revanced_ryd_shorts_summary_on_disclaimer">"Số lượt không thích được hiển thị trên Shorts.
 
 Hạn chế: Số lượt không thích có thể không hiển thị nếu người dùng không đăng nhập hoặc ở chế độ ẩn danh."</string>
     <string name="revanced_ryd_shorts_title">Hiện số lượt không thích trong Shorts</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_off">Không hiện thông báo ngắn nếu Return YouTube Dislike không khả dụng.</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_on">Hiển thị thông báo ngắn nếu Return YouTube Dislike không khả dụng.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Không hiện thông báo ngắn nếu Lượt không thích YouTube không khả dụng.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Hiển thị thông báo ngắn nếu Lượt không thích YouTube không khả dụng.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Hiện thông báo ngắn nếu API không khả dụng</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ẩn</string>
     <string name="revanced_sanitize_comments_category_bar_summary_off">Các nút danh mục được hiển thị trong thanh danh mục của bình luận.</string>
@@ -2008,7 +2008,7 @@ Hạn chế: Số lượt không thích có thể không hiển thị nếu ngư
     <string name="revanced_sanitize_video_subtitle_title">Ẩn các tag bên dưới tiêu đề video</string>
     <string name="revanced_sb_about">Giới thiệu</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
-    <string name="revanced_sb_about_api_sum">Dữ liệu này được cung cấp bởi API SponsorBlock. Nhấn vào đây để tìm hiểu thêm và xem các bản tải xuống cho các nền tảng khác.</string>
+    <string name="revanced_sb_about_api_sum">Dữ liệu này được cung cấp bởi API Chặn Nhà tài trợ. Nhấn vào đây để tìm hiểu thêm và xem các bản tải xuống cho các nền tảng khác.</string>
     <string name="revanced_sb_api_url_changed">URL của API đã thay đổi.</string>
     <string name="revanced_sb_api_url_invalid">URL của API không hợp lệ.</string>
     <string name="revanced_sb_api_url_reset">Đã đặt lại URL của API.</string>
@@ -2040,8 +2040,8 @@ Hạn chế: Số lượt không thích có thể không hiển thị nếu ngư
     <string name="revanced_sb_enable_create_segment">Nút tạo phân đoạn mới</string>
     <string name="revanced_sb_enable_create_segment_sum_off">Nút tạo phân đoạn mới không được hiển thị.</string>
     <string name="revanced_sb_enable_create_segment_sum_on">Nút tạo phân đoạn mới được hiển thị.</string>
-    <string name="revanced_sb_enable_sb">SponsorBlock</string>
-    <string name="revanced_sb_enable_sb_sum">SponsorBlock là một tiện ích được đóng góp bởi cộng đồng giúp bỏ qua các phần gây khó chịu trong video trên YouTube.</string>
+    <string name="revanced_sb_enable_sb">Kích hoạt Chặn Nhà tài trợ</string>
+    <string name="revanced_sb_enable_sb_sum">Chặn Nhà tài trợ là một tiện ích được đóng góp bởi cộng đồng giúp bỏ qua các phần gây khó chịu trong video trên YouTube.</string>
     <string name="revanced_sb_enable_voting">Nút Bình chọn phân đoạn</string>
     <string name="revanced_sb_enable_voting_sum_off">Nút Bình chọn phân đoạn không được hiển thị.</string>
     <string name="revanced_sb_enable_voting_sum_on">Nút Bình chọn phân đoạn được hiển thị.</string>
@@ -2050,13 +2050,13 @@ Hạn chế: Số lượt không thích có thể không hiển thị nếu ngư
     <string name="revanced_sb_general_adjusting_invalid">Giá trị nhập phải là một số dương.</string>
     <string name="revanced_sb_general_adjusting_sum">Số mili giây bạn có thể tua đi và tua lại khi sử dụng các nút điều chỉnh thời gian trong lúc tạo phân đoạn mới.</string>
     <string name="revanced_sb_general_api_url">Thay đổi URL của API</string>
-    <string name="revanced_sb_general_api_url_sum">Địa chỉ SponsorBlock sử dụng để liên lạc đến máy chủ.</string>
+    <string name="revanced_sb_general_api_url_sum">Địa chỉ Chặn Nhà tài trợ sử dụng để liên lạc đến máy chủ.</string>
     <string name="revanced_sb_general_min_duration">Thời lượng phân đoạn tối thiểu</string>
     <string name="revanced_sb_general_min_duration_invalid">Thời lượng không hợp lệ.</string>
     <string name="revanced_sb_general_min_duration_sum">Các đoạn ngắn hơn giá trị này (tính bằng giây) sẽ không được hiển thị hoặc bị bỏ qua.</string>
     <string name="revanced_sb_general_skipcount">Theo dõi số lần bỏ qua</string>
     <string name="revanced_sb_general_skipcount_sum_off">Theo dõi số lần bỏ qua không được bật.</string>
-    <string name="revanced_sb_general_skipcount_sum_on">Cho bảng xếp hạng của SponsorBlock biết lượng thời gian đã tiết kiệm được. Một thông báo sẽ được gửi tới bảng xếp hạng mỗi khi một phân đoạn đã bỏ qua.</string>
+    <string name="revanced_sb_general_skipcount_sum_on">Cho bảng xếp hạng của Chặn Nhà tài trợ biết lượng thời gian đã tiết kiệm được. Một thông báo sẽ được gửi tới bảng xếp hạng mỗi khi một phân đoạn đã bỏ qua.</string>
     <string name="revanced_sb_general_skiptoast">Hiện thông báo ngắn hoàn tác bỏ qua</string>
     <string name="revanced_sb_general_skiptoast_sum_off">Không hiển thị thông báo ngắn.</string>
     <string name="revanced_sb_general_skiptoast_sum_on">Hiển thị thông báo ngắn mỗi khi tự động bỏ qua một phân đoạn. Nhấn vào thông báo này để hoàn tác bỏ qua.</string>
@@ -2067,7 +2067,7 @@ Hạn chế: Số lượt không thích có thể không hiển thị nếu ngư
     <string name="revanced_sb_general_uuid_invalid">ID người dùng riêng tư phải dài ít nhất 30 ký tự.</string>
     <string name="revanced_sb_general_uuid_sum">Mã ID này giống như mật khẩu của bạn, do đó không nên chia sẻ với bất kỳ ai. Nếu ai đó có được nó, họ có thể mạo danh bạn.</string>
     <string name="revanced_sb_guidelines_popup_already_read">Đã đọc</string>
-    <string name="revanced_sb_guidelines_popup_content">Hãy đọc nguyên tắc của SponsorBlock trước khi tạo phân đoạn mới.</string>
+    <string name="revanced_sb_guidelines_popup_content">Hãy đọc nguyên tắc của Chặn Nhà tài trợ trước khi tạo phân đoạn mới.</string>
     <string name="revanced_sb_guidelines_popup_open">Xem ngay</string>
     <string name="revanced_sb_guidelines_popup_title">Thực hiện theo các nguyên tắc</string>
     <string name="revanced_sb_guidelines_preference_sum">Hướng dẫn bao gồm các nguyên tắc và mẹo về cách tạo phân đoạn mới.</string>
@@ -2103,7 +2103,7 @@ Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_sb_new_segment_start_is_before_end">Thời gian bắt đầu phải nằm trước thời gian kết thúc.</string>
     <string name="revanced_sb_new_segment_time_end">Phân đoạn kết thúc lúc</string>
     <string name="revanced_sb_new_segment_time_start">Phân đoạn bắt đầu lúc</string>
-    <string name="revanced_sb_new_segment_title">Đoạn SponsorBlock mới</string>
+    <string name="revanced_sb_new_segment_title">Đoạn Chặn Nhà tài trợ mới</string>
     <string name="revanced_sb_reset">Đặt lại</string>
     <string name="revanced_sb_reset_color">Đặt lại màu</string>
     <string name="revanced_sb_segments_filler">Lạc đề/Hài hước</string>
@@ -2114,26 +2114,26 @@ Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_sb_segments_hook_sum">Phân đoạn lồng tiếng trong trailer giới thiệu video sắp phát, lời chào mở đầu và kết thúc. Không bao gồm các đoạn chứa nội dung bổ sung.</string>
     <string name="revanced_sb_segments_interaction">Nhắc nhở tương tác (Đăng ký)</string>
     <string name="revanced_sb_segments_interaction_sum">Một lời nhắc ngắn rằng bạn hãy nhấn vào nút thích, đăng ký hoặc theo dõi họ ở giữa nội dung. Nếu chúng dài hoặc về một cái gì đó cụ thể, thay vào đó chúng sẽ được xếp vào phân đoạn Tự quảng cáo.</string>
-    <string name="revanced_sb_segments_intro">Đoạn tạm dừng/Phần Intro</string>
+    <string name="revanced_sb_segments_intro">Đoạn tạm dừng &amp; mở đầu</string>
     <string name="revanced_sb_segments_intro_sum">Một khoảng thời gian không chứa nội dung thực tế nào. Có thể chỉ là tạm dừng, khung hình tĩnh hoặc hoạt ảnh lặp lại. Không bao gồm các phần chuyển cảnh chứa thông tin.</string>
     <string name="revanced_sb_segments_nomusic">Âm nhạc: Phần không phải nhạc</string>
     <string name="revanced_sb_segments_nomusic_sum">Phần của video âm nhạc nhưng không có âm nhạc, cũng không thuộc danh mục nào.</string>
-    <string name="revanced_sb_segments_outro">Đoạn kết thúc/Phần Credit</string>
-    <string name="revanced_sb_segments_outro_sum">Phần Credit hoặc đoạn YouTube chèn các thẻ liên kết video khác ở cuối video. Không chứa thông tin quan trọng.</string>
+    <string name="revanced_sb_segments_outro">Đoạn kết thúc &amp; ghi công</string>
+    <string name="revanced_sb_segments_outro_sum">Phần ghi công hoặc đoạn YouTube chèn các thẻ liên kết video khác ở cuối video. Không chứa thông tin quan trọng.</string>
     <string name="revanced_sb_segments_preview">Đoạn xem trước/Phần tóm tắt</string>
     <string name="revanced_sb_segments_preview_sum">Đoạn cắt thể hiện những gì đã xảy ra hoặc sắp xảy ra trong video này hoặc trong loạt video khác cùng bộ.</string>
     <string name="revanced_sb_segments_selfpromo">Không được trả tiền/Tự quảng cáo</string>
     <string name="revanced_sb_segments_selfpromo_sum">Tương tự như Nhà tài trợ, ngoại trừ việc không được trả phí hoặc tự quảng bá. Thì chúng bao gồm các phần về sản phẩm, quyên góp hoặc thông tin về người mà họ hợp tác.</string>
-    <string name="revanced_sb_segments_sponsor">Nhà tài trợ</string>
+    <string name="revanced_sb_segments_sponsor">Nhà tài trợ cơ bản</string>
     <string name="revanced_sb_segments_sponsor_sum">Dạng quảng cáo, giới thiệu được trả phí và quảng cáo trực tiếp. Không nhằm mục đích tự quảng bá hoặc giới thiệu với người xem về các hoạt động từ thiện, nhà sáng tạo khác, trang web hay các sản phẩm mà họ yêu thích.</string>
     <string name="revanced_sb_settings_copy">Sao chép</string>
     <string name="revanced_sb_settings_export_failed">Xuất cài đặt thất bại: %s.</string>
     <string name="revanced_sb_settings_ie">Nhập/Xuất cài đặt</string>
-    <string name="revanced_sb_settings_ie_sum">Cấu hình tệp JSON SponsorBlock của bạn có thể được nhập/xuất tới RVX và các nền tảng SponsorBlock khác.</string>
+    <string name="revanced_sb_settings_ie_sum">Cấu hình tệp JSON Chặn Nhà tài trợ của bạn có thể được nhập/xuất tới RVX và các nền tảng Chặn Nhà tài trợ khác.</string>
     <string name="revanced_sb_settings_ie_sum_warning">Cấu hình tệp JSON Chặn nhà tài trợ của bạn có thể được nhập/xuất tới RVX và các nền tảng SponsorBlock khác. Điều này bao gồm cả ID riêng tư của bạn. Vì vậy hãy thật cẩn thận khi chia sẻ nó.</string>
     <string name="revanced_sb_settings_import_failed">Nhập cài đặt thất bại: %s.</string>
     <string name="revanced_sb_settings_import_successful">Nhập cài đặt thành công.</string>
-    <string name="revanced_sb_settings_revanced_export_user_id_warning">Cài đặt của bạn chứa ID SponsorBlock cá nhân.\n\nID của bạn cũng giống như mật khẩu, nên đừng bao giờ chia sẻ nó.\n</string>
+    <string name="revanced_sb_settings_revanced_export_user_id_warning">Cài đặt của bạn chứa ID Chặn Nhà tài trợ cá nhân.\n\nID của bạn cũng giống như mật khẩu, nên đừng bao giờ chia sẻ nó.\n</string>
     <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Không hiển thị lại lần nữa</string>
     <string name="revanced_sb_share_copy_settings_success">Đã sao chép cài đặt vào bảng nhớ tạm.</string>
     <string name="revanced_sb_skip_automatically">Tự động bỏ qua</string>
@@ -2144,7 +2144,7 @@ Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_sb_skip_button_highlight">Bỏ qua khoảnh khắc nổi bật</string>
     <string name="revanced_sb_skip_button_hook">Bỏ qua đoạn gây chú ý</string>
     <string name="revanced_sb_skip_button_interaction">Bỏ qua nhắc nhở tương tác</string>
-    <string name="revanced_sb_skip_button_intro_beginning">Bỏ qua phần intro</string>
+    <string name="revanced_sb_skip_button_intro_beginning">Bỏ qua phần mở đầu</string>
     <string name="revanced_sb_skip_button_intro_end">Bỏ qua đoạn tạm dừng</string>
     <string name="revanced_sb_skip_button_intro_middle">Bỏ qua đoạn tạm dừng</string>
     <string name="revanced_sb_skip_button_nomusic">Bỏ qua phần không phải nhạc</string>
@@ -2162,9 +2162,9 @@ Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_sb_skipped_highlight">Đã bỏ qua Khoảnh khắc nổi bật.</string>
     <string name="revanced_sb_skipped_hook">Đã bỏ qua đoạn gây chú ý.</string>
     <string name="revanced_sb_skipped_interaction">Đã bỏ qua Nhắc nhở tương tác.</string>
-    <string name="revanced_sb_skipped_intro_beginning">Đã bỏ qua Phần Intro.</string>
-    <string name="revanced_sb_skipped_intro_end">Đã bỏ qua Đoạn tạm dừng.</string>
-    <string name="revanced_sb_skipped_intro_middle">Đã bỏ qua Đoạn tạm dừng.</string>
+    <string name="revanced_sb_skipped_intro_beginning">Đã bỏ qua đoạn mở đầu.</string>
+    <string name="revanced_sb_skipped_intro_end">Đã bỏ qua đoạn tạm dừng.</string>
+    <string name="revanced_sb_skipped_intro_middle">Đã bỏ qua đoạn tạm dừng.</string>
     <string name="revanced_sb_skipped_multiple_segments">Đã bỏ qua nhiều phân đoạn.</string>
     <string name="revanced_sb_skipped_nomusic">Đã bỏ qua Phần không phải nhạc.</string>
     <string name="revanced_sb_skipped_outro">Đã bỏ qua Phần Outro.</string>
@@ -2174,8 +2174,8 @@ Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_sb_skipped_selfpromo">Đã bỏ qua đoạn Tự quảng cáo.</string>
     <string name="revanced_sb_skipped_sponsor">Đã bỏ qua Nhà tài trợ.</string>
     <string name="revanced_sb_skipped_unsubmitted">Đã bỏ qua phân đoạn chưa được gửi.</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock tạm thời không khả dụng.</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock tạm thời không khả dụng (trạng thái %d).</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">Chặn Nhà tài trợ tạm thời không khả dụng.</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">Chặn Nhà tài trợ tạm thời không khả dụng (trạng thái %d).</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock tạm thời không khả dụng (hết thời gian chờ API).</string>
     <string name="revanced_sb_square_layout">Bố cục vuông</string>
     <string name="revanced_sb_square_layout_sum_off">Các nút và thành phần điều khiển được bo tròn.</string>
@@ -2190,8 +2190,8 @@ Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_sb_stats_saved_second_format">%s giây</string>
     <string name="revanced_sb_stats_saved_sum">Đó là &lt;b&gt;%s&lt;/b&gt; của mọi người.&lt;br&gt;Nhấn vào đây để xem bảng xếp hạng.</string>
     <string name="revanced_sb_stats_saved_sum_zero">Nhấn vào đây để xem số liệu thống kê toàn cầu và những người đóng góp hàng đầu.</string>
-    <string name="revanced_sb_stats_saved_zero">Bảng xếp hạng SponsorBlock</string>
-    <string name="revanced_sb_stats_sb_disabled">SponsorBlock đã vô hiệu hóa.</string>
+    <string name="revanced_sb_stats_saved_zero">Bảng xếp hạng Chặn Nhà tài trợ</string>
+    <string name="revanced_sb_stats_sb_disabled">Chặn Nhà tài trợ đã vô hiệu hóa.</string>
     <string name="revanced_sb_stats_self_saved">Bạn đã bỏ qua &lt;b&gt;%s&lt;/b&gt; phân đoạn</string>
     <string name="revanced_sb_stats_self_saved_reset_title">Đặt lại bộ đếm phân đoạn đã bỏ qua?</string>
     <string name="revanced_sb_stats_self_saved_sum">Đó là &lt;b&gt;%s&lt;/b&gt;.</string>
@@ -2205,14 +2205,14 @@ Bạn đã sẵn sàng gửi?"</string>
     <string name="revanced_sb_submit_failed_forbidden">Không thể gửi phân đoạn: %s.</string>
     <string name="revanced_sb_submit_failed_invalid">Không thể gửi phân đoạn: %s.</string>
     <string name="revanced_sb_submit_failed_rate_limit">Không thể gửi phân đoạn.\nGiới hạn truy cập (quá nhiều phân đoạn được gửi từ cùng một người dùng hoặc IP).</string>
-    <string name="revanced_sb_submit_failed_timeout">SponsorBlock tạm thời không hoạt động.</string>
+    <string name="revanced_sb_submit_failed_timeout">Chặn Nhà tài trợ tạm thời không hoạt động.</string>
     <string name="revanced_sb_submit_failed_unknown_error">Không thể gửi phân đoạn (trạng thái: %1$d %2$s).</string>
     <string name="revanced_sb_submit_succeeded">Đã gửi phân đoạn thành công.</string>
     <string name="revanced_sb_toast_on_connection_error">Hiện thông báo ngắn nếu API không khả dụng</string>
-    <string name="revanced_sb_toast_on_connection_error_sum_off">Không hiện thông báo ngắn nếu SponsorBlock không khả dụng.</string>
+    <string name="revanced_sb_toast_on_connection_error_sum_off">Không hiện thông báo ngắn nếu Chặn Nhà tài trợ không khả dụng.</string>
     <string name="revanced_sb_toast_on_connection_error_sum_on">Hiển thị thông báo ngắn nếu SponsorBlock không khả dụng.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Không hiện thông báo ngắn nếu SponsorBlock không khả dụng.</string>
-    <string name="revanced_sb_toast_on_connection_error_summary_on">Hiển thị thông báo ngắn nếu SponsorBlock không khả dụng.</string>
+    <string name="revanced_sb_toast_on_connection_error_summary_on">Hiển thị thông báo ngắn nếu Chặn Nhà tài trợ không khả dụng.</string>
     <string name="revanced_sb_toast_on_connection_error_title">Hiện thông báo ngắn nếu API không khả dụng</string>
     <string name="revanced_sb_toast_on_skip_duration">Thời gian hiện thông báo ngắn</string>
     <string name="revanced_sb_toast_on_skip_duration_sum">Thời gian hiển thị thông báo ngắn để hoàn tác.</string>
@@ -2391,7 +2391,7 @@ Chi tiết:
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"Video dùng codec AVC (H.264), VP9 or AV1.
 
 Trong khi phát video có thể gặp hiện tượng giật lag hoặc tụt FPS."</string>
-    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_title">Codec OPUS</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_title">Vô hiệu hóa codec AV1 trên VR</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Bật cài đặt này có thể sử dụng giải mã AV1 bằng phần mềm.
 
 Trong khi phát video có thể gặp hiện tượng giật lag hoặc tụt FPS."</string>
@@ -2771,7 +2771,7 @@ Miễn trừ trách nhiệm: Cookie tạo ra khi không đăng nhập có thể 
     <string name="revanced_whitelist_removed">Kênh \'%1$s\' đã bị xóa khỏi Danh sách trắng của %2$s.</string>
     <string name="revanced_whitelist_settings_summary">Kiểm tra hoặc xóa các kênh đã thêm vào Danh sách trắng.</string>
     <string name="revanced_whitelist_settings_title">Danh sách trắng</string>
-    <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_whitelist_sponsor_block">Chặn Nhà tài trợ</string>
     <string name="revanced_yandex_error_download_subs_failed">Không thể tải tệp phụ đề (Mã: %1$d)</string>
     <string name="revanced_yandex_error_internal_no_chosen_url">Lỗi hệ thống: Không tìm thấy đường dẫn của bản nhạc đã chọn.</string>
     <string name="revanced_yandex_error_internal_null_subs_response">Lỗi hệ thống: Không thể tải phụ đề hoàn chỉnh.</string>

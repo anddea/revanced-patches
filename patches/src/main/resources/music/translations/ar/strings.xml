@@ -1,2 +1,323 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources />
+<resources>
+    <string name="gms_core_dialog_continue_text">تابع / اكمل
+</string>
+    <string name="gms_core_dialog_open_website_text">فتح الموقع</string>
+    <string name="gms_core_dialog_dismiss_text">لا تظهر مرة اخرى</string>
+    <string name="gms_core_dialog_title">يجب اتخاذ إجراء</string>
+    <string name="gms_core_settings_title">GmsCore فتح اعدادات </string>
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"ليس لدى GmsCore إذن للتشغيل في الخلفية.
+
+اتبع دليل 'لا تقتل تطبيقي!' الخاص بهاتفك، وقم بتطبيق التعليمات على تثبيت GmsCore الخاص بك.
+
+وهذا مطلوب لكي يعمل التطبيق."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"يجب تعطيل تحسينات بطارية GmsCore لمنع حدوث مشكلات.
+
+لن يؤثر تعطيل تحسينات البطارية لـ GmsCore سلبًا على استخدام البطارية.
+
+انقر فوق زر الاستمرار واسمح بتغييرات التحسين."</string>
+    <string name="gms_core_settings_summary">لتلقي الإشعارات في RVX Music، قم بتمكين المراسلة السحابية.</string>
+    <string name="gms_core_toast_not_installed_message">لم يتم تثبيت GmsCore. قم بتثبيته.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">تجاوز القيود على منطقة الصورة</string>
+    <string name="revanced_change_share_sheet_title">تغيير لوح مشاركة</string>
+    <string name="revanced_change_start_page_entry_default">الافتراضي</string>
+    <string name="revanced_change_start_page_entry_explore">اكتشف</string>
+    <string name="revanced_change_start_page_entry_history">السجلّ</string>
+    <string name="revanced_change_start_page_entry_library">المكتبة</string>
+    <string name="revanced_change_start_page_entry_podcasts">البودكاست</string>
+    <string name="revanced_change_start_page_entry_search">البحث</string>
+    <string name="revanced_change_start_page_entry_subscription">الاشتراكات</string>
+    <string name="revanced_change_start_page_entry_subscriptions">الاشتراكات</string>
+    <string name="revanced_change_start_page_title">تغيير صفحة البداية</string>
+    <string name="revanced_custom_filter_strings_summary">قائمة سلاسل منشئ مسار المكونات المراد تصفيتها، مفصولة بسطور جديدة.</string>
+    <string name="revanced_custom_filter_strings_title">فلتر مخصص</string>
+    <string name="revanced_custom_filter_title">تمكين الفلتر المخصص</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">فلتر مخصص غير صالح: %s.</string>
+    <string name="revanced_custom_playback_speeds_invalid">يجب أن تكون السرعات المخصصة أقل من %sx.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">سرعات التشغيل المخصصة غير صالحة.</string>
+    <string name="revanced_custom_playback_speeds_summary">إضافة أو تغيير سرعات التشغيل المتاحة.</string>
+    <string name="revanced_custom_playback_speeds_title">تعديل سرعة التشغيل المخصصة</string>
+    <string name="revanced_debug_protobuffer_title">سجل بروتوكول التخزين المؤقت</string>
+    <string name="revanced_debug_spannable_title">سجل قابل للامتداد</string>
+    <string name="revanced_debug_title">تمكين سجلات التصحيح</string>
+    <string name="revanced_default_app_settings_summary">لفتح روابط YouTube Music في RVX Music، قم بتمكين خيار فتح الروابط المدعومة وتمكين جميع عناوين الويب المدعومة.</string>
+    <string name="revanced_default_app_settings_title">فتح إعدادات التطبيق الافتراضية</string>
+    <string name="revanced_disable_auto_audio_tracks_title">تعطيل المقطع الصوتي التلقائي المفروض</string>
+    <string name="revanced_disable_auto_captions_title">تعطيل الترجمة التلقائية المفروضة</string>
+    <string name="revanced_disable_drc_audio_title">تعطيل صوت DRC</string>
+    <string name="revanced_disable_quic_protocol_summary">"يُعطل بروتوكول QUIC الخاص بـ CronetEngine."</string>
+    <string name="revanced_disable_quic_protocol_title">تعطيل بروتوكول QUIC</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"عند النقر على عنوان لوحة التعليقات ('التعليقات')، ينتقل إلى الأعلى.
+
+القيود:
+• لا ينطبق على ردود التعليقات."</string>
+    <string name="revanced_enable_comments_scroll_top_title">تمكين التمرير إلى الأعلى في التعليقات</string>
+    <string name="revanced_enable_opus_codec_title">تمكين ترميز OPUS</string>
+    <string name="revanced_external_downloader_dialog_title">التنزيل الخارجي</string>
+    <string name="revanced_external_downloader_not_installed_dialog_message">"لم يتم تثبيت %1$s.
+الرجاء تنزيل %2$s من الموقع."</string>
+    <string name="revanced_external_downloader_not_installed_dialog_title">تحذير</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s لم يتم تثبيته. الرجاء تثبيته.</string>
+    <string name="revanced_fullscreen_ads_closed_toast">تم إغلاق الإعلانات على كامل الشاشة.</string>
+    <string name="revanced_gms_show_dialog_summary">يعرض مربع حوار تحسين GMSCore عند كل بدء تشغيل للتطبيق.</string>
+    <string name="revanced_gms_show_dialog_title">إظهار مربع حوار تحسين GMSCore</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">قائمة بأسماء قائمة الحسابات المراد تصفيتها، مفصولة بسطور جديدة.</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">تعديل فلتر قائمة الحساب</string>
+    <string name="revanced_hide_account_menu_title">إخفاء قائمة الحساب</string>
+    <string name="revanced_hide_action_button_add_to_playlist_title">إخفاء زر الحفظ</string>
+    <string name="revanced_hide_action_button_comment_title">إخفاء زر التعليقات</string>
+    <string name="revanced_hide_action_button_download_title">إخفاء زر التنزيل</string>
+    <string name="revanced_hide_action_button_like_dislike_title">إخفاء أزرار أعجبني ولم يعجبني</string>
+    <string name="revanced_hide_action_button_share_title">إخفاء زر مشاركة</string>
+    <string name="revanced_hide_cast_button_title">إخفاء زر البث</string>
+    <string name="revanced_hide_comment_channel_guidelines_title">إخفاء إرشادات القناة</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">إخفاء أزرار الرموز التعبيرية والطوابع الزمنية</string>
+    <string name="revanced_hide_comments_information_button_title">إخفاء زر المعلومات</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">إخفاء فلتر واجهة النقر المزدوج</string>
+    <string name="revanced_hide_floating_button_title">إخفاء الزر العائم</string>
+    <string name="revanced_hide_flyout_menu_captions_title">إخفاء قائمة الترجمة</string>
+    <string name="revanced_hide_flyout_menu_help_title">إخفاء قائمة المساعدة &amp; الملاحظات</string>
+    <string name="revanced_hide_flyout_menu_like_dislike_title">إخفاء أزرار أعجبني ولم يعجبني</string>
+    <string name="revanced_hide_flyout_menu_report_title">إخفاء قائمة الإبلاغ</string>
+    <string name="revanced_hide_flyout_menu_sleep_timer_title">إخفاء قائمة مؤقت النوم</string>
+    <string name="revanced_hide_flyout_menu_stats_for_nerds_title">إخفاء قائمة إحصاءات تقنية</string>
+    <string name="revanced_hide_fullscreen_ads_title">إخفاء إعلانات ملء الشاشة</string>
+    <string name="revanced_hide_general_ads_title">إخفاء الإعلانات العامة</string>
+    <string name="revanced_hide_handle_title">إخفاء الاسم المعرِّف</string>
+    <string name="revanced_hide_navigation_bar_title">إخفاء شريط التنقل</string>
+    <string name="revanced_hide_navigation_home_button_title">إخفاء زر الصفحة الرئيسية</string>
+    <string name="revanced_hide_navigation_label_title">إخفاء تسميات شريط التنقل</string>
+    <string name="revanced_hide_navigation_library_button_title">إخفاء زر المكتبة</string>
+    <string name="revanced_hide_notification_button_title">إخفاء زر الإشعارات</string>
+    <string name="revanced_hide_paid_promotion_label_title">إخفاء تصنيف الترويج المدفوع</string>
+    <string name="revanced_hide_promotion_alert_banner_title">إخفاء لافتة تنبيه الترقية</string>
+    <string name="revanced_hide_search_button_title">إخفاء زر البحث</string>
+    <string name="revanced_hide_settings_menu_about_title">إخفاء قائمة لمحة</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">إخفاء قائمة توفير البيانات</string>
+    <string name="revanced_hide_settings_menu_general_title">إخفاء قائمة عامة</string>
+    <string name="revanced_hide_settings_menu_notification_title">إخفاء قائمة الإشعارات</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">إخفاء قائمة مركز العائلة</string>
+    <string name="revanced_hide_settings_menu_title">إخفاء قائمة إعدادات</string>
+    <string name="revanced_hide_voice_search_button_title">إخفاء زر البحث الصوتي</string>
+    <string name="revanced_preference_screen_ads_title">الإعلانات</string>
+    <string name="revanced_preference_screen_flyout_title">القائمة المنبثقة</string>
+    <string name="revanced_preference_screen_general_title">عام</string>
+    <string name="revanced_preference_screen_misc_title">خيارات متنوعة</string>
+    <string name="revanced_preference_screen_navigation_title">شريط التنقل</string>
+    <string name="revanced_preference_screen_player_title">المشغل</string>
+    <string name="revanced_preference_screen_settings_title">قائمة الإعدادات</string>
+    <string name="revanced_preference_screen_video_title">الفيديو</string>
+    <string name="revanced_remember_playback_speed_last_selected_title">تذكر التغيرات في سرعة التشغيل</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">عرض ملاحظة</string>
+    <string name="revanced_remember_playback_speed_toast">تغيير سرعة التشغيل الافتراضية إلى %s.</string>
+    <string name="revanced_remember_video_quality_last_selected_title">تذكر تغييرات جودة الفيديو</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">عرض ملاحظة</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"يزيل مربع حوار تقدير المشاهد. هذا لا يتجاوز القيود العمرية. إنه يقبل ذلك تلقائيًا."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">إزالة مربع حوار تقدير المشاهد</string>
+    <string name="revanced_reset_to_default_toast">إعادة التعيين إلى القيم الافتراضية.</string>
+    <string name="revanced_restart_first_run">إعادة التشغيل لتحميل التخطيط بشكل عادي</string>
+    <string name="revanced_restore_old_player_layout_title">استعادة تخطيط المشغل القديم</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">(اسم المستخدم) Handle@</string>
+    <string name="revanced_return_youtube_username_display_format_title">شكل العرض</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">اسم المستخدم (Handle@)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">اسم المستخدم</string>
+    <string name="revanced_return_youtube_username_enabled_title">تمكين إعادة اسم مستخدم YouTube</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"مطلوب مفتاح مطور بيانات YouTube API v3 لاستبدال الاسم المعرِّف بـ اسم المستخدم.
+
+الحصة اليومية لمفاتيح API في الخطة المجانية هي 10.000، ويتم استخدام حصة واحدة لاستبدال الاسم المعرِّف بـ اسم المستخدم لتعليق واحد.
+
+انقر لمعرفة كيفية إصدار مفتاح API."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">لمحة عن مفتاح YouTube Data API</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">مفتاح المطور لاستخدام بيانات YouTube API v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">مفتاح API لبيانات YouTube</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">إصدار مفتاح مطور YouTube Data API v3</string>
+    <string name="revanced_ryd_about">لمحة</string>
+    <string name="revanced_ryd_attribution_summary">يتم توفير بيانات لم يعجبني بفيديوهات YouTube بواسطة the Return YouTube Dislike API. اضغط هنا لمعرفة المزيد.</string>
+    <string name="revanced_ryd_compact_layout_title">مقاس زر أعجبني</string>
+    <string name="revanced_ryd_dislike_percentage_title">لم يعجبني كــ نسبة مئوية</string>
+    <string name="revanced_ryd_enabled_title">تمكين Return YouTube Dislike</string>
+    <string name="revanced_ryd_estimated_like_title">عرض الإعجابات المقدرة</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">لم يعجبني غير متوفر (تم الوصول إلى حد API العميل).</string>
+    <string name="revanced_ryd_failure_connection_status_code">لم يعجبني غير متوفر (الحالة %d).</string>
+    <string name="revanced_ryd_failure_connection_timeout">لم يعجبني غير متوفر مؤقتًا (انتهت مهلة API).</string>
+    <string name="revanced_ryd_failure_generic">لم يعجبني غير متوفر (%s).</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">عرض ملاحظة إذا كان API غير متوفر</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">مخفي</string>
+    <string name="revanced_sanitize_sharing_links_summary">يزيل معلمات استعلام التتبع من عناوين URL عند مشاركة الروابط.</string>
+    <string name="revanced_sanitize_sharing_links_title">تطهير روابط المشاركة</string>
+    <string name="revanced_sb_about">لمحة</string>
+    <string name="revanced_sb_about_api_sum">يتم توفير البيانات بواسطة SponsorBlock API. اضغط هنا لمعرفة المزيد والتنزيل لمنصات أخرى.</string>
+    <string name="revanced_sb_api_url">تغيير عنوان API</string>
+    <string name="revanced_sb_api_url_changed">تم تغيير رابط API.</string>
+    <string name="revanced_sb_api_url_invalid">رابط API غير صالح.</string>
+    <string name="revanced_sb_api_url_reset">إعادة تعيين رابط API.</string>
+    <string name="revanced_sb_api_url_sum">العنوان الذي يستخدمه SponsorBlock لإجراء اتصالات إلى الخادم.</string>
+    <string name="revanced_sb_color_changed">تم تغيير اللون.</string>
+    <string name="revanced_sb_color_dot_label">اللون:</string>
+    <string name="revanced_sb_color_invalid">رمز اللون غير صالح.</string>
+    <string name="revanced_sb_color_reset">إعادة ضبط اللون.</string>
+    <string name="revanced_sb_diff_segments">تغيير سلوك المقطع</string>
+    <string name="revanced_sb_enabled">تمكين SponsorBlock</string>
+    <string name="revanced_sb_enabled_sum">مانِع الرُعَاة هو نظام جماعي لتخطي الأجزاء المزعجة من فيديوهات YouTube.</string>
+    <string name="revanced_sb_reset_color">إعادة تعيين اللون</string>
+    <string name="revanced_sb_segments_filler">خارج الموضوع / النكات</string>
+    <string name="revanced_sb_segments_filler_sum">مشاهد جانبية أو نكات غير ضرورية لفهم المحتوى الرئيسي للفيديو. لا يتضمن مقاطع توضح السياق أو تفاصيل الخلفية.</string>
+    <string name="revanced_sb_segments_hook">تحية / وداع</string>
+    <string name="revanced_sb_segments_hook_sum">مقاطع دعائية مروية للفيديو القادم، تحيات ووداع. لا يتضمن أي محتوى إضافي.</string>
+    <string name="revanced_sb_segments_interaction">التذكير بالتفاعل (الاشتراك)</string>
+    <string name="revanced_sb_segments_interaction_sum">تذكير قصير للإعجاب، أو الاشتراك، أو المتابعة في منتصف المحتوى. إذا كانت طويلة أو تتعلق بشيء محدد، فيجب أن تكون خاضعة للترويج الشخصي بدلاً من ذلك.</string>
+    <string name="revanced_sb_segments_intro">المقدمة / فاصل</string>
+    <string name="revanced_sb_segments_intro_sum">فاصل زمني بدون محتوى فعلي. يمكن أن يكون توقفًا مؤقتًا أو إطارًا ثابتًا أو تكرار الرسوم المتحركة. لا يتضمن انتقالات تحتوي على معلومات.</string>
+    <string name="revanced_sb_segments_nomusic">الموسيقى: مقطع بدون موسيقى</string>
+    <string name="revanced_sb_segments_nomusic_sum">فقط للاستخدام في مقاطع الفيديو الموسيقية. أقسام مقاطع الفيديو الموسيقية بدون موسيقى، والتي لم يتم تغطيتها بالفعل من قبل فئة أخرى.</string>
+    <string name="revanced_sb_segments_outro">الخاتمة / تترات النهاية</string>
+    <string name="revanced_sb_segments_outro_sum">تتر النهاية أو عندما تظهر بطاقات نهاية YouTube، نهايات غير منطوقة. ليس للاستنتاجات مع المعلومات.</string>
+    <string name="revanced_sb_segments_preview">معاينة / ملخص</string>
+    <string name="revanced_sb_segments_preview_sum">مجموعة من المقاطع التي توضح ما هو قادم أو ما حدث في الفيديو أو في مقاطع فيديو أخرى من السلسلة، حيث تتكرر جميع المعلومات في مكان آخر.</string>
+    <string name="revanced_sb_segments_selfpromo">ترويج شخصي / غير مدفوع الأجر</string>
+    <string name="revanced_sb_segments_selfpromo_sum">شبيهة بالراعي، باستثناء ما يتعلق بالإعلانات غير المدفوعة الأجر أو الذاتية. ويشمل ذلك أقسام عن السلع أو التبرعات أو المعلومات المتعلقة بمن تعاونوا مع ناشر المحتوى.</string>
+    <string name="revanced_sb_segments_sponsor">الراعي</string>
+    <string name="revanced_sb_segments_sponsor_sum">الترويج المدفوع الأجر، والتوصيات المدفوعة الأجر، والإعلانات المباشرة. ليس للترويج الشخصي أو التصريحات المجانية للأسباب / المبدعين / مواقع الويب /المنتجات التي يحبونها.</string>
+    <string name="revanced_sb_skip_automatically">التخطي تلقائيًا</string>
+    <string name="revanced_sb_skip_ignore">تعطيل</string>
+    <string name="revanced_sb_skipped_filler">تم تخطي مقطع غير ذي صلة.</string>
+    <string name="revanced_sb_skipped_hook">تم تخطي التحية.</string>
+    <string name="revanced_sb_skipped_interaction">تم تخطي تذكير مزعج.</string>
+    <string name="revanced_sb_skipped_intro_beginning">تم تخطي المقدمة.</string>
+    <string name="revanced_sb_skipped_intro_end">تم تخطي الفاصل.</string>
+    <string name="revanced_sb_skipped_intro_middle">تم تخطي الفاصل.</string>
+    <string name="revanced_sb_skipped_multiple_segments">تم تخطي عدة مقاطع.</string>
+    <string name="revanced_sb_skipped_nomusic">تم تخطي جزء غير موسيقي.</string>
+    <string name="revanced_sb_skipped_outro">تم تخطي الخاتمة.</string>
+    <string name="revanced_sb_skipped_preview_beginning">تم تخطي النظرة العامة.</string>
+    <string name="revanced_sb_skipped_preview_end">تم تخطي الملخص.</string>
+    <string name="revanced_sb_skipped_preview_middle">تم تخطي النظرة العامة.</string>
+    <string name="revanced_sb_skipped_selfpromo">تم تخطي الترويج الشخصي.</string>
+    <string name="revanced_sb_skipped_sponsor">تم تخطي الراعي.</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock غير متوفر مؤقتًا.</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock غير متوفر مؤقتًا (الحالة %d).</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock غير متوفر مؤقتًا (انتهت مهلة API).</string>
+    <string name="revanced_sb_toast_on_connection_error">عرض ملاحظة إذا كان API غير متوفر</string>
+    <string name="revanced_settings_export_failed">فشل تصدير الإعدادات.</string>
+    <string name="revanced_settings_export_success">تم تصدير الإعدادات بنجاح.</string>
+    <string name="revanced_settings_import">استيراد</string>
+    <string name="revanced_settings_import_copy">نسخ</string>
+    <string name="revanced_settings_import_export_as_text">استيراد \ تصدير الإعدادات كنص</string>
+    <string name="revanced_settings_import_export_summary">إستيراد \ تصدير إعدادات RVX Music.</string>
+    <string name="revanced_settings_import_export_title">إستيراد \ تصدير إعدادات</string>
+    <string name="revanced_settings_import_reset">إعادة تعيين الإعدادات إلى الافتراضي.</string>
+    <string name="revanced_settings_reset">إعادة تعيين</string>
+    <string name="revanced_settings_search_clear_history">مسح سجل البحث</string>
+    <string name="revanced_settings_search_clear_history_message">هل أنت متأكد من أنك تريد مسح سجل البحث بالكامل؟</string>
+    <string name="revanced_settings_search_empty_history_summary">لحفظ سجل البحث، اكتب استعلام بحث واضغط على Enter.</string>
+    <string name="revanced_settings_search_empty_history_title">سجل البحث فارغ</string>
+    <string name="revanced_settings_search_history_summary_off">لا يتم عرض سجل البحث في الإعدادات.</string>
+    <string name="revanced_settings_search_history_summary_on">يتم عرض سجل البحث في الإعدادات.</string>
+    <string name="revanced_settings_search_history_title">عرض سجل بحث الإعدادات</string>
+    <string name="revanced_settings_search_no_results_summary">جرب كلمة مفتاحية أخرى.</string>
+    <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \'%s\'.</string>
+    <string name="revanced_settings_search_recent_searches">عمليات البحث الأخيرة</string>
+    <string name="revanced_settings_search_remove_message">إزالة من سجل البحث؟</string>
+    <string name="revanced_settings_search_tips_summary">"• انقر على مسار للانتقال إليه.
+• اضغط مطولًا على أحد الإعدادات للانتقال إليه.
+• اضغط على مفتاح الإدخال لحفظ استعلام البحث في السجل.
+• يتجاهل البحث حالة الأحرف وعلامات الترقيم.
+• تظهر إعدادات الوالدين أعلى إعدادات الطفل المعطلة."</string>
+    <string name="revanced_settings_search_tips_title">نصائح البحث</string>
+    <string name="revanced_settings_search_title">بحث %s</string>
+    <string name="revanced_share_copy_settings_success">تم نسخ الإعدادات إلى الحافظة.</string>
+    <string name="revanced_spoof_app_version_target_invalid_toast">إصدار التطبيق الوهمي غير صالح: %s.</string>
+    <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق الوهمي.</string>
+    <string name="revanced_spoof_app_version_target_title">الهدف من خِداع إصدار التطبيق</string>
+    <string name="revanced_spoof_app_version_title">إصدار تطبيق وهمي</string>
+    <string name="revanced_spoof_client_type_title">العميل الافتراضي</string>
+    <string name="revanced_spoof_streaming_data_default_client_title">العميل الافتراضي</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">لم يتمكن من جلب أي تدفقات عميل.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">جرّب تغيير العميل الافتراضي إلى TV Simply.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">انقر لمعرفة كيفية الحصول على رمز المصادقة.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">لمحة عن مصادقة Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">انقر هنا لمعرفة كيفية تسجيل الدخول إلى Android No SDK.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">تسجيل الدخول إلى Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">الحصول على رمز المصادقة</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">إعادة تعيين</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">تسجيل الدخول إلى Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"تم حفظ رمز المصادقة.
+
+- رمز المصادقة الصادر من خلال هذه العملية لا يمكن استخدامه إلا في YouTube (في RVX, يستخدم لجلب بيانات البث من YouTube).
+- رمز المصادقة غير مستخدم لأكثر من 6 أشهر سيتم إلغاؤه من خوادم Google.
+- إذا قمت بتغيير كلمة المرور الخاصة بك، أو ألغيت تسجيل جهاز في إعدادات حسابك، أو إلغاء تثبيت التطبيق، سوف تحتاج إلى إعادة إصدار رمز المصادقة."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">تم تسجيل الدخول</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">انقر هنا لمعرفة كيفية تسجيل الدخول إلى Android VR.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">تسجيل الدخول إلى Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"رمز التفعيل:
+%s
+
+1. انقر على 'فتح الموقع' للانتقال إلى 'https://yt.be/activate'.
+2. أدخل رمز التفعيل.
+3. سجّل الدخول عند الطلب. إذا كان لديك حسابات جوجل متعددة، فحدد الحساب الذي تستخدمه مع YouTube. إذا كنت قد سجّلت الدخول بالفعل، فانتقل إلى الخطوة التالية.
+4. بعد تسجيل الدخول، ارجع إلى RVX وانقر على 'تسجيل الدخول إلى Android VR' مرة أخرى.
+5. انقر على 'الحصول على رمز المصادقة' للحصول على رمز التفويض."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">فتح الموقع</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">رمز التفعيل</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">تم نسخ رمز التفعيل إلى الحافظة: %s.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">الحصول على رمز التفعيل</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">الحصول على رمز المصادقة</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"لتسجيل الدخول إلى Android VR (YouTube VR)، اتبع إرشادات Google (تفويض حساب جوجل - OAuth 2.0 لتطبيقات التلفزيون والأجهزة ذات الإدخال المحدود):
+
+1. انقر على 'الحصول على رمز التفعيل' لإنشاء رمز التفعيل.
+2. انقر على 'فتح الموقع' للانتقال إلى 'https://yt.be/activate'.
+3. أدخل رمز التفعيل.
+4. سجّل الدخول عند الطلب. إذا كان لديك حسابات Google متعددة، فحدد الحساب الذي تستخدمه مع YouTube. إذا كنت قد سجّلت الدخول بالفعل، فانتقل إلى الخطوة التالية.
+5. بعد تسجيل الدخول، ارجع إلى RVX وانقر على 'تسجيل الدخول إلى Android VR' مرة أخرى.
+6. انقر على 'الحصول على رمز المصادقة' للحصول على رمز التفويض.
+
+※ انقر على 'إعادة تعيين' لإزالة رمز المصادقة أو رمز التفعيل."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">إعادة تعيين</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">تسجيل الدخول إلى Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"تم حفظ رمز المصادقة.
+
+- رمز المصادقة الصادر من خلال هذه العملية لا يمكن استخدامه إلا في YouTube VR(في RVX, يستخدم لجلب بيانات البث من YouTube VR).
+- رمز المصادقة غير مستخدم لأكثر من 6 أشهر سيتم إلغاؤه من خوادم Google.
+- إذا قمت بتغيير كلمة المرور الخاصة بك، أو ألغيت تسجيل جهاز في إعدادات حسابك، أو إلغاء تثبيت التطبيق، سوف تحتاج إلى إعادة إصدار رمز المصادقة."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">تم تسجيل الدخول</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">فشل في إصدار رمز المصادقة.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">انقر فوق إعادة تعيين ثم حاول مرة أخرى.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">إعادة تعيين رمز المصادقة و رمز التفعيل.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">عرض في إحصاءات تقنية</string>
+    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">استخدام أحدث مشغل JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">استخدام yt-dlp ejs (WIP)</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">انقر لمعرفة كيفية الحصول على رمز المصادقة.</string>
+    <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">لمحة عن مصادقة Android VR</string>
+    <string name="revanced_spoof_video_streams_default_client_title">العميل الافتراضي</string>
+    <string name="revanced_translations_title">الترجمات</string>
+    <string name="revanced_watch_history_type_entry_1">الأصلي</string>
+    <string name="revanced_watch_history_type_entry_2">استبدال النطاق</string>
+    <string name="revanced_watch_history_type_entry_3">حظر سجل المشاهدة</string>
+    <string name="revanced_watch_history_type_title">نوع سجل المشاهدة</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">الحصول على ملفات تعريف الارتباط</string>
+    <string name="revanced_webview_contextual_menu_get_data_sync_id">الحصول على معرف مزامنة البيانات</string>
+    <string name="revanced_webview_contextual_menu_get_visitor_data">الحصول على بيانات الزائر</string>
+    <string name="revanced_webview_contextual_menu_refresh">تحديث</string>
+    <string name="revanced_webview_cookies">ملفات تعريف الارتباط</string>
+    <string name="revanced_webview_copy">نسخ</string>
+    <string name="revanced_webview_data_sync_id">معرف مزامنة البيانات</string>
+    <string name="revanced_webview_toast_copy_success">%s نُسخ إلى الحافظة.</string>
+    <string name="revanced_webview_toast_empty">%s فارغ.</string>
+    <string name="revanced_webview_toast_no_network">يرجى التحقق من اتصالك بالشبكة.</string>
+    <string name="revanced_webview_toast_unavailable">WebView غير متاح.</string>
+    <string name="revanced_webview_visitor_data">بيانات الزائر</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
+    <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
+    <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
+    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
+    <string name="revanced_sb_about_api">sponsor.ajay.app</string>
+    <string name="revanced_settings_title">RVX</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Legacy</string>
+    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music No SDK</string>
+</resources>

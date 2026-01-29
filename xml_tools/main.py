@@ -44,22 +44,6 @@ class CLIConfig:
     logger: Logger
 
 
-def get_rvx_base_dir(logger: Logger) -> str:
-    """Get the RVX base directory from the environment."""
-    rvx_dir = os.getenv("RVX_BASE_DIR")
-    if not rvx_dir:
-        logger.error("RVX_BASE_DIR must be provided for replace operation.")
-        sys.exit(1)
-    return rvx_dir
-
-
-def is_rvx_dir_needed(options: dict[str, Any]) -> bool:
-    """Determine if rvx_base_dir validation is needed based on options."""
-    # Update operation doesn't strictly need RVX dir unless source keys could come from there
-    # For now, assume it only uses local host strings.xml
-    return any(options.get(key) for key in ["run_all", "replace", "prefs", "reverse", "check"])
-
-
 @click.group(invoke_without_command=True)
 @click.option("--log-file", type=str, help="Path to log file")
 @click.option("--rvx-base-dir", type=str, envvar="RVX_BASE_DIR", help="Path to RVX 'patches' directory")
@@ -111,15 +95,15 @@ def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
 
     logger = setup_logging(Path(log_file) if log_file else None, debug=debug)
 
-    rvx_base_dir = kwargs.get("rvx_base_dir")
-    rvx_base_dir = rvx_base_dir if isinstance(rvx_base_dir, str) else None
+    rvx_base_dir_str = kwargs.get("rvx_base_dir")
+    if not rvx_base_dir_str:
+        rvx_base_dir_str = os.getenv("RVX_BASE_DIR")
 
-    if is_rvx_dir_needed(kwargs) and not rvx_base_dir:
-        rvx_base_dir = get_rvx_base_dir(logger)
+    rvx_base_dir = Path(rvx_base_dir_str) if rvx_base_dir_str else None
 
     ctx.obj = CLIConfig(
         log_file=log_file,
-        rvx_base_dir=Path(rvx_base_dir) if rvx_base_dir else None,
+        rvx_base_dir=rvx_base_dir,
         app=app,
         logger=logger,
     )
@@ -150,9 +134,6 @@ def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
 
 def process_all(config: CLIConfig) -> None:
     """Run all operations in sequence."""
-    # Note: The 'update_strings' command requires a specific input file,
-    # so it's generally NOT included in 'run_all'. Keep it this way unless
-    # there's a standard input file path to use.
     logger = config.logger
     base_dir = config.rvx_base_dir
 
@@ -160,8 +141,12 @@ def process_all(config: CLIConfig) -> None:
         logger.error("Base directory (RVX_BASE_DIR) is required for '--all' operation.")
         sys.exit(1)
 
-    git = GitClient(base_dir)
-    if not git.sync_repository():
+    try:
+        git = GitClient(base_dir)
+        if not git.sync_repository():
+            sys.exit(1)
+    except Exception as e:
+        logger.error("Failed to initialize Git client: %s", e)
         sys.exit(1)
 
     handlers: list[tuple[str, Callable[..., Any], list[str | Path]]] = [
@@ -216,7 +201,6 @@ def handle_individual_operations(config: CLIConfig, options: dict[str, Any]) -> 
     """Handle individual operations based on user flags."""
     base_dir = config.rvx_base_dir
     app = config.app
-    git = GitClient(base_dir) if base_dir else None
 
     operations: list[tuple[str, str, Callable[..., Any], tuple[Any, ...]]] = [
         ("missing", "Missing Strings Check", missing_strings.process, (app,)),
@@ -239,21 +223,27 @@ def handle_individual_operations(config: CLIConfig, options: dict[str, Any]) -> 
             # Validation for operations requiring base_dir
             if option_key in ("replace", "check", "prefs", "reverse") and base_dir is None:
                 config.logger.error(
-                    "Base directory (RVX_BASE_DIR) is required for %s operation.",
-                    operation_name.lower(),
+                    "Base directory (RVX_BASE_DIR) is required for '%s' operation.",
+                    operation_name,
                 )
                 sys.exit(1)
 
             # Special handling for 'replace' which needs git sync
             if option_key == "replace":
-                if git is not None:
-                    if git.sync_repository():
-                        handle_operation(config, operation_name, handler, *args)
+                try:
+                    if base_dir:
+                        git = GitClient(base_dir)
+                        if git.sync_repository():
+                            handle_operation(config, operation_name, handler, *args)
+                        else:
+                            sys.exit(1)
                     else:
+                        config.logger.error("Base directory missing for replace operation.")
                         sys.exit(1)
-                else:
-                    config.logger.error("Git client could not be initialized (base_dir missing?).")
+                except Exception as e:
+                    config.logger.error("Failed to initialize Git client: %s", e)
                     sys.exit(1)
+
             elif option_key == "update_file":
                 if args[1] is None:
                     config.logger.error("Input file path is missing for update operation.")
