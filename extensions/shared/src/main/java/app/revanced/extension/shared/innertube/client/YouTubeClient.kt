@@ -542,13 +542,11 @@ object YouTubeClient {
 
         companion object {
             val CLIENT_ORDER_TO_USE_YOUTUBE: Array<ClientType> = arrayOf(
-                ANDROID_NO_SDK,
                 VISIONOS,
                 ANDROID_VR,
                 ANDROID_CREATOR,
             )
             val CLIENT_ORDER_TO_USE_JS_YOUTUBE: Array<ClientType> = arrayOf(
-                ANDROID_NO_SDK,
                 VISIONOS,
                 ANDROID_VR,
                 ANDROID_CREATOR,
@@ -558,13 +556,11 @@ object YouTubeClient {
             )
             val CLIENT_ORDER_TO_USE_YOUTUBE_MUSIC: Array<ClientType> = arrayOf(
                 ANDROID_MUSIC_NO_SDK,
-                ANDROID_NO_SDK,
                 VISIONOS,
                 ANDROID_VR,
             )
             val CLIENT_ORDER_TO_USE_JS_YOUTUBE_MUSIC: Array<ClientType> = arrayOf(
                 ANDROID_MUSIC_NO_SDK,
-                ANDROID_NO_SDK,
                 VISIONOS,
                 ANDROID_VR,
                 TV_SIMPLY,
