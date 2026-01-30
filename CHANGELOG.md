@@ -1,3 +1,10 @@
+# [3.16.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.16.0-dev.1...v3.16.0-dev.2) (2026-01-30)
+
+
+### Bug Fixes
+
+* **YouTube & YT Music:** Remove no longer working `Android No SDK` client from clients order ([ce23663](https://github.com/anddea/revanced-patches/commit/ce23663bf977c42accba4797576b415b6327ee96))
+
 # [3.16.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.15.0...v3.16.0-dev.1) (2026-01-29)
 
 

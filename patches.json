@@ -3451,7 +3451,7 @@
     "description": "Add translations for RVX settings.",
     "use": true,
     "dependencies": [
-      "ResourcePatch",
+      "BytecodePatch",
       "Settings for Reddit"
     ],
     "compatiblePackages": {
@@ -3461,14 +3461,42 @@
         "2025.12.1"
       ]
     },
-    "options": []
+    "options": [
+      {
+        "key": "customTranslations",
+        "title": "Custom translations",
+        "description": "The path to the \u0027strings.xml\u0027 file.\nPlease note that applying the \u0027strings.xml\u0027 file will overwrite all existing translations.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "",
+        "values": null
+      },
+      {
+        "key": "selectedTranslations",
+        "title": "Translations to add",
+        "description": "A list of translations to be added for the RVX settings, separated by commas.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "ar, az-rAZ, bg-rBG, da-rDK, de-rDE, el-rGR, es-rES, fil-rPH, fr-rFR, hu-rHU, id-rID, in, it-rIT, iw-rIL, ja-rJP, ko-rKR, pl-rPL, pt-rBR, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW",
+        "values": null
+      },
+      {
+        "key": "selectedStringResources",
+        "title": "String resources to keep",
+        "description": "A list of string resources to be kept, separated by commas.\nString resources not in the list will be removed from the app.\n\nDefault string resource, English, is not removed.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fil-rPH, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
+        "values": null
+      }
+    ]
   },
   {
     "name": "Translations for YouTube",
     "description": "Add translations or remove string resources.",
     "use": true,
     "dependencies": [
-      "ResourcePatch",
+      "BytecodePatch",
       "Settings for YouTube"
     ],
     "compatiblePackages": {
@@ -3481,14 +3509,42 @@
         "20.05.46"
       ]
     },
-    "options": []
+    "options": [
+      {
+        "key": "customTranslations",
+        "title": "Custom translations",
+        "description": "The path to the \u0027strings.xml\u0027 file.\nPlease note that applying the \u0027strings.xml\u0027 file will overwrite all existing translations.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "",
+        "values": null
+      },
+      {
+        "key": "selectedTranslations",
+        "title": "Translations to add",
+        "description": "A list of translations to be added for the RVX settings, separated by commas.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "ar, az-rAZ, be-rBY, bg-rBG, cs-rCZ, da-rDK, de-rDE, el-rGR, en-rGB, en-rUS, es-rES, es-rUS, fa-rIR, fil-rPH, fr-rFR, ga-rIE, hu-rHU, id-rID, in, it-rIT, iw-rIL, ja-rJP, ko-rKR, lo-rLA, my-rMM, nl-rNL, pa-rIN, pl-rPL, pt-rBR, ru-rRU, sk-rSK, sv-rSE, ta-rIN, tr-rTR, uk-rUA, ur-rPK, uz-rUZ, vi-rVN, zh-rCN, zh-rTW",
+        "values": null
+      },
+      {
+        "key": "selectedStringResources",
+        "title": "String resources to keep",
+        "description": "A list of string resources to be kept, separated by commas.\nString resources not in the list will be removed from the app.\n\nDefault string resource, English, is not removed.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fil-rPH, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
+        "values": null
+      }
+    ]
   },
   {
     "name": "Translations for YouTube Music",
     "description": "Add translations or remove string resources.",
     "use": true,
     "dependencies": [
-      "ResourcePatch",
+      "BytecodePatch",
       "Settings for YouTube Music"
     ],
     "compatiblePackages": {
@@ -3504,7 +3560,35 @@
         "8.30.54"
       ]
     },
-    "options": []
+    "options": [
+      {
+        "key": "customTranslations",
+        "title": "Custom translations",
+        "description": "The path to the \u0027strings.xml\u0027 file.\nPlease note that applying the \u0027strings.xml\u0027 file will overwrite all existing translations.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "",
+        "values": null
+      },
+      {
+        "key": "selectedTranslations",
+        "title": "Translations to add",
+        "description": "A list of translations to be added for the RVX settings, separated by commas.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "bg-rBG, bn, cs-rCZ, el-rGR, es-rES, fr-rFR, hu-rHU, id-rID, in, it-rIT, ja-rJP, ko-rKR, nl-rNL, pl-rPL, pt-rBR, ro-rRO, ru-rRU, ta-rIN, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW",
+        "values": null
+      },
+      {
+        "key": "selectedStringResources",
+        "title": "String resources to keep",
+        "description": "A list of string resources to be kept, separated by commas.\nString resources not in the list will be removed from the app.\n\nDefault string resource, English, is not removed.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fil-rPH, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
+        "values": null
+      }
+    ]
   },
   {
     "name": "Unlock Premium",
