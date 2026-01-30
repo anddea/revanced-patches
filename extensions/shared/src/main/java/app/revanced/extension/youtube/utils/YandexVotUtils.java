@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.revanced.extension.shared.utils.Logger;
 import okhttp3.*;
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -971,6 +972,60 @@ public class YandexVotUtils {
             return str("revanced_yandex_error_server_try_again");
 
         return serverMessage;
+    }
+
+    /**
+     * Helper method to strip the "tokens" array from Yandex JSON.
+     * This drastically reduces the size of the JSON sent to Gemini,
+     * preventing output truncation and saving tokens.
+     *
+     * @param jsonContent The raw JSON from Yandex.
+     * @return The JSON string with 'tokens' arrays removed from each subtitle entry.
+     */
+    public static String stripTokensFromYandexJson(String jsonContent) {
+        if (TextUtils.isEmpty(jsonContent)) return jsonContent;
+        try {
+            // Handle case where JSON is just an array (non-standard Yandex output)
+            if (jsonContent.trim().startsWith("[")) {
+                JSONArray root = new JSONArray(jsonContent);
+                for (int i = 0; i < root.length(); i++) {
+                    JSONObject item = root.getJSONObject(i);
+                    if (item.has("tokens")) item.remove("tokens");
+                }
+                return root.toString();
+            } else {
+                // Handle standard object with "subtitles" array (standard Yandex output)
+                JSONObject root = getJsonObject(jsonContent);
+                return root.toString();
+            }
+        } catch (JSONException e) {
+            Logger.printException(() -> "Failed to strip tokens from JSON", e);
+            return jsonContent; // Return original if modification fails
+        }
+    }
+
+    /**
+     * Parses the provided JSON string into a JSONObject and removes the verbose "tokens"
+     * arrays from within the "subtitles" list. It also updates metadata flags to reflect
+     * the removal of tokens.
+     *
+     * @param jsonContent The raw JSON string containing the subtitle object.
+     * @return The modified {@link JSONObject} with tokens removed.
+     * @throws JSONException If the string cannot be parsed or the structure is invalid.
+     */
+    @NotNull
+    private static JSONObject getJsonObject(String jsonContent) throws JSONException {
+        JSONObject root = new JSONObject(jsonContent);
+        if (root.has("subtitles")) {
+            JSONArray subs = root.getJSONArray("subtitles");
+            for (int i = 0; i < subs.length(); i++) {
+                JSONObject item = subs.getJSONObject(i);
+                if (item.has("tokens")) item.remove("tokens");
+            }
+        }
+        // Also remove top-level containsTokens flag if present
+        if (root.has("containsTokens")) root.put("containsTokens", false);
+        return root;
     }
 
     // endregion Utils

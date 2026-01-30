@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
-import android.graphics.Rect;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Handler;
@@ -165,9 +164,9 @@ public class SubtitleOverlay {
      * @return The screen height in pixels.
      */
     private int getScreenHeight() {
-        Rect visibleFrame = new Rect();
-        windowManager.getDefaultDisplay().getRectSize(visibleFrame);
-        return visibleFrame.height();
+        DisplayMetrics dm = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getRealMetrics(dm);
+        return dm.heightPixels;
     }
 
     /**
@@ -179,6 +178,42 @@ public class SubtitleOverlay {
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
         return dm.widthPixels;
+    }
+
+    /**
+     * Helper to get the height of the system navigation bar using official WindowInsets APIs.
+     */
+    private int getNavigationBarHeight() {
+        // API 30+ (Android 11+)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            return windowManager.getCurrentWindowMetrics()
+                    .getWindowInsets()
+                    .getInsets(WindowInsets.Type.navigationBars())
+                    .bottom;
+        }
+        // API 23+ (Android +)
+        else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (context != null && context.getWindow() != null) {
+                WindowInsets insets = context.getWindow().getDecorView().getRootWindowInsets();
+                if (insets != null) {
+                    return insets.getSystemWindowInsetBottom();
+                }
+            }
+        }
+
+        // Fallback for very old devices or if insets are not yet available:
+        // Calculate the difference between the physical screen height and the usable screen height.
+        DisplayMetrics realMetrics = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getRealMetrics(realMetrics);
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+
+        if (realMetrics.heightPixels > displayMetrics.heightPixels) {
+            return realMetrics.heightPixels - displayMetrics.heightPixels;
+        }
+
+        return 0;
     }
 
     /**
@@ -285,7 +320,9 @@ public class SubtitleOverlay {
                 int screenHeight = getScreenHeight();
                 int overlayHeight = overlayView.getHeight();
                 int minY = dipToPixels(MARGIN_DP);
-                int maxY = screenHeight - overlayHeight;
+                int bottomMargin = dipToPixels(MARGIN_DP) + getNavigationBarHeight();
+                int maxY = screenHeight - overlayHeight - bottomMargin;
+
                 newAbsoluteTopY = Math.max(minY, Math.min(newAbsoluteTopY, maxY));
 
                 layoutParams.y = (int) newAbsoluteTopY;
@@ -344,7 +381,13 @@ public class SubtitleOverlay {
 
         // Calculate target position, accounting for margins and orientation
         int margin = dipToPixels(MARGIN_DP);
-        int targetAbsoluteTopY = snapToTop ? margin + (isPortrait() ? dipToPixels(24) : 0) : screenHeight - overlayHeight;
+        int targetAbsoluteTopY;
+
+        if (snapToTop) {
+            targetAbsoluteTopY = margin + (isPortrait() ? dipToPixels(24) : 0);
+        } else {
+            targetAbsoluteTopY = screenHeight - overlayHeight - margin - getNavigationBarHeight();
+        }
 
         // Animate the snapping motion
         ValueAnimator animator = ValueAnimator.ofInt(overlayAbsoluteTopY, targetAbsoluteTopY);
@@ -398,9 +441,11 @@ public class SubtitleOverlay {
                 int margin = dipToPixels(MARGIN_DP);
 
                 // Set initial position based on isAtBottom
-                layoutParams.y = isAtBottom
-                        ? screenHeight - overlayHeight
-                        : margin + (isPortrait() ? dipToPixels(24) : 0);
+                if (isAtBottom) {
+                    layoutParams.y = screenHeight - overlayHeight - margin - getNavigationBarHeight();
+                } else {
+                    layoutParams.y = margin + (isPortrait() ? dipToPixels(24) : 0);
+                }
 
                 windowManager.addView(overlayView, layoutParams);
                 isShowing = true;
@@ -466,7 +511,8 @@ public class SubtitleOverlay {
             int newHeight = overlayView.getMeasuredHeight();
             if (oldHeight != newHeight) {
                 if (isAtBottom) {
-                    layoutParams.y = getScreenHeight() - newHeight;
+                    int margin = dipToPixels(MARGIN_DP);
+                    layoutParams.y = getScreenHeight() - newHeight - margin - getNavigationBarHeight();
                     updateOverlayPosition();
                 }
             }

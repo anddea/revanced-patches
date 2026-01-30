@@ -3451,6 +3451,7 @@
     "description": "Add translations for RVX settings.",
     "use": true,
     "dependencies": [
+      "BytecodePatch",
       "Settings for Reddit"
     ],
     "compatiblePackages": {
@@ -3495,6 +3496,7 @@
     "description": "Add translations or remove string resources.",
     "use": true,
     "dependencies": [
+      "BytecodePatch",
       "Settings for YouTube"
     ],
     "compatiblePackages": {
@@ -3542,6 +3544,7 @@
     "description": "Add translations or remove string resources.",
     "use": true,
     "dependencies": [
+      "BytecodePatch",
       "Settings for YouTube Music"
     ],
     "compatiblePackages": {

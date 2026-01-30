@@ -1,13 +1,14 @@
 package app.revanced.patches.reddit.layout.translations
 
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.reddit.utils.patch.PatchList.TRANSLATIONS_FOR_REDDIT
 import app.revanced.patches.reddit.utils.settings.settingsPatch
+import app.revanced.patches.reddit.utils.settings.updatePatchStatus
 import app.revanced.patches.shared.translations.APP_LANGUAGES
 import app.revanced.patches.shared.translations.baseTranslationsPatch
-import org.w3c.dom.Element
 
 // Array of supported translations, each represented by its language code.
 private val SUPPORTED_TRANSLATIONS = setOf(
@@ -16,13 +17,22 @@ private val SUPPORTED_TRANSLATIONS = setOf(
 )
 
 @Suppress("unused")
+val translationsBytecodePatch = bytecodePatch {
+    execute {
+        updatePatchStatus(
+            "enableTranslations",
+            TRANSLATIONS_FOR_REDDIT
+        )
+    }
+}
+
+@Suppress("unused")
 val translationsPatch = resourcePatch(
     TRANSLATIONS_FOR_REDDIT.title,
     TRANSLATIONS_FOR_REDDIT.summary,
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
-
-    dependsOn(settingsPatch)
+    dependsOn(translationsBytecodePatch, settingsPatch)
 
     val customTranslations by stringOption(
         key = "customTranslations",

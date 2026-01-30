@@ -243,6 +243,7 @@
     <string name="revanced_hide_flyout_menu_start_radio_title">Скрыть пункт \"Включить радиостанцию\"</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Скрыть пункт \"Статистика для сисадминов\"</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Скрыть пункт \"Подписаться / Отменить подписку\"</string>
+    <string name="revanced_hide_flyout_menu_taste_match_title">Скрыть \"Подбор предпочтений\"</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Скрыть \"Открепить из быстрого выбора\"</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Скрыть пункт \"Участники и создатели\"</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Скрывает полноэкранную рекламу."</string>
@@ -347,7 +348,15 @@
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Убирает окно о нежелательном контенте.
 Не обходит возрастное ограничение, просто принимает его автоматически."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Убрать окно о нежелательном контенте</string>
-    <string name="revanced_replace_action_button_like_title">Замена кнопки \"Нравится\"</string>
+    <string name="revanced_replace_action_button_like_summary">"Заменяет иконку и анимацию кнопки "Нравится".
+
+• Эта настройка больше не понадобится, как только проблема будет устранена на стороне сервера."</string>
+    <string name="revanced_replace_action_button_like_title">Заменить кнопку \"Нравится\"</string>
+    <string name="revanced_replace_action_button_like_type_summary">"Использует уменьшенную кнопку "Нравится".
+
+• У некоторых пользователей панель действий расположена ниже (A/B-тестирование).
+• Эта настройка предназначена для таких пользователей, не была протестирована."</string>
+    <string name="revanced_replace_action_button_like_type_title">Использовать уменьшенную кнопку</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Видео продолжается с текущего времени просмотра при переходе на YouTube.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Продолжить просмотр</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Заменяет \"Очистить очередь\" на \"Открыть в YouTube\'.</string>
@@ -509,11 +518,14 @@
     <string name="revanced_settings_search_title">Поиск %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Настройки скопированы в буфер.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_summary">Подменяет версию клиента, используемую в текстах песен, на более старую версию.</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Без динамического текста</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_7_12_52">7.12.52 - С динамическим текстом</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_06_52">8.06.52 - С динамическим текстом + кнопка \"Поделиться\"</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - С динамическим текстом + кнопка \"Поделиться\" + кнопка \"Перевод\" (только для Premium пользователей)</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_summary">Выберите целевую версию приложения для текстов.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_title">Версия приложения при подмене для текстов</string>
+    <string name="revanced_spoof_app_version_for_lyrics_title">Подмена версии приложения для текстов</string>
     <string name="revanced_spoof_app_version_summary">"Подменяет версию клиента на более старую.
 
 • Это изменит внешний вид приложения, но могут возникнуть неизвестные побочные эффекты.

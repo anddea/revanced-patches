@@ -211,6 +211,8 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Nascondi linee guida del canale</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Nasconde i pulsanti emoji e timestamp durante la digitazione dei commenti.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Nascondi i pulsanti Timestamp e Emoji</string>
+    <string name="revanced_hide_comments_information_button_summary">Nasconde il pulsante Informazioni nel pannello dei commenti.</string>
+    <string name="revanced_hide_comments_information_button_title">Nascondi il pulsante Informazioni</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Nasconde la sovrapposizione scura che appare quando si tocca due volte per cercare.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Nascondi filtro sovrapposizione doppio tocco</string>
     <string name="revanced_hide_floating_button_summary">Nasconde il pulsante fluttuante nella scheda Libreria.</string>
@@ -235,6 +237,7 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Nascondi il menu Rimuovi della libreria</string>
     <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Nascondi il menu Rimuovi della playlist</string>
     <string name="revanced_hide_flyout_menu_report_title">Nascondi il menu Segnala</string>
+    <string name="revanced_hide_flyout_menu_save_episode_for_later_save_to_library_title">Nascondi i menu \"Salva episodio per più tardi\" e \"Salva nella raccolta\"</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Nascondi il menu Salva episodio per dopo</string>
     <string name="revanced_hide_flyout_menu_save_to_playlist_title">Nascondi il menu Salva nella playlist</string>
     <string name="revanced_hide_flyout_menu_share_title">Nascondi il menu Condivisione</string>
@@ -243,6 +246,7 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_hide_flyout_menu_start_radio_title">Nascondi il menu Avvia radio</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Nascondi il menu Statistiche per nerd</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Nascondi il menu Iscriviti / Annulla Iscrizione</string>
+    <string name="revanced_hide_flyout_menu_taste_match_title">Nascondi il menu \"Affinità musicale\"</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Nascondi dal menu Sblocca dalla selezione rapida</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Nascondi il menu Visualizza crediti brano</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Nasconde gli annunci a schermo intero."</string>
@@ -347,6 +351,15 @@ Questo nasconde non solo il menu delle impostazioni di YT Music, ma anche il men
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Rimuove la finestra di dialogo sulla discrezione dello spettatore.
 Questo non aggira la restrizione di età. Semplicemente la accetta automaticamente."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Rimuovi la finestra di dialogo sulla discrezione dello spettatore</string>
+    <string name="revanced_replace_action_button_like_summary">"Utilizza un'icona e un'animazione diverse per il pulsante Mi piace.
+
+• Questa impostazione potrebbe non essere più necessaria una volta risolto il problema lato server."</string>
+    <string name="revanced_replace_action_button_like_title">Sostituisci il pulsante Mi piace</string>
+    <string name="revanced_replace_action_button_like_type_summary">"Utilizza un pulsante Mi piace più piccolo.
+
+• Alcuni utenti visualizzano una barra delle azioni più bassa (test A/B).
+• Questa impostazione è destinata a tali utenti, ma non è stata testata."</string>
+    <string name="revanced_replace_action_button_like_type_title">Usa un\'icona più piccola</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Continua il video dall\'orario corrente quando si passa a YouTube.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Continua a guardare</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Sostituisce il menu Ignora coda con il menu Guarda su YouTube.</string>
@@ -508,6 +521,14 @@ Fai clic per vedere come emettere una chiave API."</string>
     <string name="revanced_settings_search_title">Cerca %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Impostazioni copiate negli appunti.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_summary">Simula una versione precedente del client per i testi delle canzoni.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Senza testi in tempo real</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_7_12_52">7.12.52 - Testi in tempo reale</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_06_52">8.06.52 - Testi in tempo reale + pulsante Condividi</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - Testi in tempo reale + pulsante Condividi + pulsante Traduci (solo utenti Premium)</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_summary">Seleziona la versione dell\'app da simulare per i testi.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_title">Versione app da simulare per i testi</string>
+    <string name="revanced_spoof_app_version_for_lyrics_title">Simula versione app per i testi</string>
     <string name="revanced_spoof_app_version_summary">"Falsifica la versione client con una versione precedente.
 
 • Ciò cambierà l'aspetto dell'app, ma potrebbero verificarsi effetti collaterali sconosciuti.
@@ -527,6 +548,7 @@ Fai clic per vedere come emettere una chiave API."</string>
     <string name="revanced_spoof_client_type_summary">"Definisce un client predefinito per la falsificazione."</string>
     <string name="revanced_spoof_client_type_title">Client predefinito</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music No SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android No SDK</string>
     <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
@@ -539,6 +561,25 @@ Fai clic per vedere come emettere una chiave API."</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Prova a cambiare il client predefinito in TV o TV Simply.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Clicca per vedere come ottenere un token di autenticazione.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Informazioni su Android No Sdk Auth</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Clicca qui per scoprire come accedere ad Android No SDK.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Accedi ad Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">Ottieni token di autorizzazione</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message">"L'accesso ad Android No SDK (YouTube) segue le linee guida fornite da Google (autorizzazione account Google - OAuth 2.0 per app Android):
+
+1. Clicca su 'Ottieni token di autorizzazione' per aprire la pagina di accesso in WebView.
+2. Accedi al tuo account Google.
+3. I risultati dell'accesso verranno mostrati entro 5 secondi.
+
+※ Clicca su 'Ripristina' per rimuovere un token di autenticazione."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Ripristina</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Accedi ad Android No SDK</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Token di autenticazione salvato.
+
+- Il token di autenticazione emesso tramite questo processo può essere utilizzato solo in YouTube (in RVX, viene utilizzato per recuperare i dati di streaming da YouTube).
+- I token di autenticazione non utilizzati per più di 6 mesi verranno revocati dai server Google.
+- Se cambi la password, scolleghi un dispositivo nelle impostazioni del tuo account o disinstalli l'app, dovrai richiedere nuovamente il token di autenticazione."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Accesso effettuato</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Token di autenticazione ripristinato.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Tocca qui per vedere come accedere ad Android VR.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Accedi ad Android VR</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Codice di attivazione:
@@ -585,6 +626,10 @@ Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necess
 
 Se hai problemi con il tuo client JavaScript, prova prima a disabilitarlo."</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Usa l\'ultima versione di JavaScript</string>
+    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"Se abilitato, verrà utilizzato lo 'JavaScript esterno per yt-dlp (yt-dlp-ejs)' per decodificare gli URL di streaming su 'TV' e 'Mobile Web'.
+
+• Lo JavaScript del player per la decodifica è mantenuto aggiornato.
+• Potrebbero essere necessari da 5 a 15 secondi per l'avvio del video."</string>
     <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Usa yt-dlp ejs (In fase di sviluppo)</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Clicca per vedere come ottenere un token di autenticazione.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Informazioni Su Android VR Auth</string>

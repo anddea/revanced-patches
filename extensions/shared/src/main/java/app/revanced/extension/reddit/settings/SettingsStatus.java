@@ -12,6 +12,7 @@ public class SettingsStatus {
     public static boolean screenshotPopupEnabled = false;
     public static boolean subRedditDialogEnabled = false;
     public static boolean toolBarButtonEnabled = false;
+    public static boolean translationsEnabled = false;
     public static boolean trendingTodayShelfEnabled = false;
 
 
@@ -55,6 +56,10 @@ public class SettingsStatus {
         toolBarButtonEnabled = true;
     }
 
+    public static void enableTranslations() {
+        translationsEnabled = true;
+    }
+
     public static void enableTrendingTodayShelf() {
         trendingTodayShelfEnabled = true;
     }
@@ -75,7 +80,8 @@ public class SettingsStatus {
     public static boolean miscellaneousCategoryEnabled() {
         return openLinksDirectlyEnabled ||
                 openLinksExternallyEnabled ||
-                sanitizeUrlQueryEnabled;
+                sanitizeUrlQueryEnabled ||
+                translationsEnabled;
     }
 
     public static void load() {

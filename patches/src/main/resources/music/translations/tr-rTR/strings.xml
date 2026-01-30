@@ -243,6 +243,7 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_hide_flyout_menu_start_radio_title">Radyoyu başlat menüsünü gizle</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">\"Meraklısı için istatikler\" menüsü</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Abone ol / Abonelikten çık menüsünü gizle</string>
+    <string name="revanced_hide_flyout_menu_taste_match_title">\'İzlence eşleşmesi\' menüsünü gizle</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Hızlı erişim menüsünden sabitlemeyi gizle</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Şarkı kredileri menüsünü görüntüle</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Tam ekran reklamları gizler."</string>
@@ -346,6 +347,15 @@ Bu, yalnızca YT Music ayarlar menüsünü değil aynı zamanda ReVanced Extende
     <string name="revanced_remember_video_quality_wifi">Wi-Fi\'da varsayılan video kalitesi %s olarak değiştiriliyor.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Görüntüleyicinin takdirine ilişkin iletişim kutusunu kaldırır. Bu yaş sınırlamasını atlamaz. Sadece otomatik olarak kabul ediyor."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">İzleyicinin takdirine bağlı iletişim kutusunu kaldır</string>
+    <string name="revanced_replace_action_button_like_summary">"Beğen düğmesi için farklı bir simge ve animasyon kullanın.
+
+• Sorun sunucu tarafında düzeltildiğinde bu ayara artık gerek kalmayabilir."</string>
+    <string name="revanced_replace_action_button_like_title">Beğen düğmesini değiştir</string>
+    <string name="revanced_replace_action_button_like_type_summary">"Daha küçük bir beğen düğmesi kullanın.
+
+• Bazı kullanıcılar daha düşük bir işlem çubuğuna sahiptir (A/B testi).
+• Bu ayar bu kullanıcılar içindir ancak test edilmemiştir."</string>
+    <string name="revanced_replace_action_button_like_type_title">Daha küçük simge kullan</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">YouTube\'da izlerken geçerli saatten itibaren izlemeye devam ettirir.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">İzlemeye devam et</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">\'Sırayı kapat\' seçeneğini \'YouTube\'da İzle\' ile değiştirir.</string>
@@ -519,6 +529,14 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_settings_search_title">Ara %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Ayarlar panoya kopyalandı</string>
+    <string name="revanced_spoof_app_version_for_lyrics_summary">Şarkı sözlerinde kullanılan istemci sürümünü eski bir sürümle değiştirir (taklit eder).</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Gerçek zamanlı şarkı sözü yok</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_7_12_52">7.12.52 - Gerçek zamanlı şarkı sözleri</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_06_52">8.06.52 - Gerçek zamanlı şarkı sözleri + Paylaş düğmesi</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - Gerçek zamanlı şarkı sözleri + Paylaş düğmesi + Çevir düğmesi (Yalnızca Premium kullanıcılar)</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_summary">Şarkı sözleri için taklit edilecek uygulama sürümü hedefini seçin.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_title">Şarkı sözleri için taklit uygulama sürümü hedefi</string>
+    <string name="revanced_spoof_app_version_for_lyrics_title">Şarkı sözleri için uygulama sürümünü taklit et</string>
     <string name="revanced_spoof_app_version_summary">"İstemciyi sürümünün eski sürümle sahteleştir 
 
 • Bu, uygulamanın görünümünü değiştirir ancak bilinmeyen yan etkiler ortaya çıkabilir.
@@ -551,7 +569,9 @@ Bilinen Sorunlar:
 • Oynatma sırasında ses aralıklı olarak takılabilir.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Varsayılan istemci</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">İstemci akışlarından hiçbiri alınamadı.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Varsayılan istemciyi TV olarak değiştirmeyi deneyin.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Varsayılan istemciyi Basit TV olarak değiştirmeyi deneyin.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Kimlik doğrulama belirtecinin nasıl alınacağını görmek için tıklayın.</string>
+    <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Android No SDK Kimlik Doğrulama Hakkında</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Android SDK olmadan nasıl giriş yapacağınızı görmek için buraya tıklayın.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Android SDK olmadan oturum açın</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">Yetkilendirme anahtarı alın</string>

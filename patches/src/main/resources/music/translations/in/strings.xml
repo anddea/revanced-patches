@@ -21,8 +21,10 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
     <string name="revanced_add_miniplayer_next_button_title">Menambahkan tombol berikutnya pemutar mini</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Menambahkan tombol trek sebelumnya ke pemutar mini.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Tambahkan tombol sebelumnya miniplayer</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;App name&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;App version&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Patched date&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
     <string name="revanced_app_info_dialog_title">Informasi aplikasi </string>
     <string name="revanced_app_info_summary">Klik untuk memeriksa nama aplikasi, versi aplikasi, versi patch, dan tanggal patch.</string>
+    <string name="revanced_app_info_title">App info</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Mengabaikan domain yang diblokir di beberapa wilayah sehingga thumbnail playlist, avatar saluran, dll. dapat diterima.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Abaikan pembatasan wilayah gambar</string>
     <string name="revanced_change_action_bar_position_summary">Pindahkan bilah tindakan di bawah tombol putar.</string>
@@ -71,8 +73,18 @@ Gunakan warna gelap jika memungkinkan, karena aplikasi ini tidak mendukung tema 
 Gunakan warna gelap jika memungkinkan, karena aplikasi ini tidak mendukung tema terang."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Warna sekunder latar belakang pemutar</string>
     <string name="revanced_custom_player_background_invalid_toast">Warna latar belakang pemutar tidak sah.</string>
+    <string name="revanced_debug_protobuffer_summary">Includes proto buffer in the debug log.</string>
+    <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
+    <string name="revanced_debug_spannable_summary">Includes spannable in the debug log.</string>
+    <string name="revanced_debug_spannable_title">Log spannable</string>
+    <string name="revanced_debug_summary">Prints the debug log.</string>
+    <string name="revanced_debug_title">Enable debug logging</string>
     <string name="revanced_default_app_settings_summary">Untuk membuka tautan YouTube Music di RVX Music, aktifkan Buka tautan yang didukung dan aktifkan semua alamat web yang Didukung.</string>
     <string name="revanced_default_app_settings_title">Buka pengaturan aplikasi bawaan</string>
+    <string name="revanced_disable_auto_audio_tracks_summary">"Disables forced auto audio tracks for podcasts.
+
+Limitation: If 'Spoof streaming data' is enabled and the default client is 'Android VR Auth', this may not work."</string>
+    <string name="revanced_disable_auto_audio_tracks_title">Disable forced auto audio tracks</string>
     <string name="revanced_disable_auto_captions_summary">Menonaktifkan teks otomatis agar tidak aktif.</string>
     <string name="revanced_disable_auto_captions_title">Nonaktifkan teks otomatis paksa</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Menonaktifkan animasi percikan Cairo saat aplikasi dimulai.</string>
@@ -98,6 +110,15 @@ Keterbatasan: Video anak-anak mungkin tidak dapat dialihkan."</string>
     <string name="revanced_disable_player_gesture_title">Nonaktifkan gerakan pemutar</string>
     <string name="revanced_disable_quic_protocol_summary">"Menonaktifkan protokol QUIC CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Nonaktifkan protokol QUIC</string>
+    <string name="revanced_disable_trim_silence_summary">"Disables a Trim silence switch in the playback speed flyout menu.
+
+Info:
+• This feature is for podcasts.
+• This feature is still in development, so it may be unstable."</string>
+    <string name="revanced_disable_trim_silence_title">Disable Trim silence switch</string>
+    <string name="revanced_enable_comments_scroll_top_summary">"Clicking on the comment panel title ('Comments') scrolls to the top.
+
+Limitations: Does not apply to comment replies."</string>
     <string name="revanced_enable_comments_scroll_top_title">Aktifkan gulir ke atas pada komentar </string>
     <string name="revanced_enable_compact_dialog_summary">"Mengaktifkan dialog ringkas di ponsel.
 
@@ -445,6 +466,7 @@ Klik untuk melihat cara menerbitkan kunci API."</string>
     <string name="revanced_sb_toast_on_skip">Menampilkan toast saat melewatkan secara otomatis</string>
     <string name="revanced_sb_toast_on_skip_sum">Menampilkan toast ketika segmen dilewati secara otomatis.</string>
     <string name="revanced_share_copy_settings_success">Setelan disalin ke papan klip.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - Real-time lyrics + Share button + Translate button (Premium users only)</string>
     <string name="revanced_spoof_app_version_summary">"Memalsukan versi klien ke versi lama.
 
 • Ini akan mengubah tampilan aplikasi, namun efek samping yang tidak diketahui mungkin terjadi.
