@@ -55,7 +55,24 @@ private val SUPPORTED_TRANSLATIONS = setOf(
 )
 
 @Suppress("unused")
-val translationsPatch = resourcePatch {
+val translationsBytecodePatch = bytecodePatch {
+    execute {
+        addPreference(
+            arrayOf(
+                "PREFERENCE_SCREEN: TRANSLATIONS"
+            ), TRANSLATIONS_FOR_YOUTUBE
+        )
+    }
+}
+
+@Suppress("unused")
+val translationsPatch = resourcePatch(
+    TRANSLATIONS_FOR_YOUTUBE.title,
+    TRANSLATIONS_FOR_YOUTUBE.summary,
+) {
+    compatibleWith(COMPATIBLE_PACKAGE)
+    dependsOn(translationsBytecodePatch, settingsPatch)
+
     val customTranslations by stringOption(
         key = "customTranslations",
         default = "",
@@ -96,21 +113,5 @@ val translationsPatch = resourcePatch {
 
         addPreference(TRANSLATIONS_FOR_YOUTUBE)
 
-    }
-}
-
-@Suppress("unused")
-val translationsBytecodePatch = bytecodePatch(
-    TRANSLATIONS_FOR_YOUTUBE.title,
-    TRANSLATIONS_FOR_YOUTUBE.summary,
-) {
-    compatibleWith(COMPATIBLE_PACKAGE)
-    dependsOn(translationsPatch, settingsPatch)
-    execute {
-        addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: TRANSLATIONS"
-            ), TRANSLATIONS_FOR_YOUTUBE
-        )
     }
 }

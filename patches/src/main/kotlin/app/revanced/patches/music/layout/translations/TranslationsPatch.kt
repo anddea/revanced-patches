@@ -20,7 +20,24 @@ private val SUPPORTED_TRANSLATIONS = setOf(
 )
 
 @Suppress("unused")
-val translationsPatch = resourcePatch {
+val translationsBytecodePatch = bytecodePatch {
+    execute {
+        addLinkPreference(
+            CategoryType.MISC,
+            "revanced_translations",
+            "https://rvxtranslate.netlify.app/"
+        )
+    }
+}
+
+@Suppress("unused")
+val translationsPatch = resourcePatch(
+    TRANSLATIONS_FOR_YOUTUBE_MUSIC.title,
+    TRANSLATIONS_FOR_YOUTUBE_MUSIC.summary,
+) {
+    compatibleWith(COMPATIBLE_PACKAGE)
+    dependsOn(translationsBytecodePatch, settingsPatch)
+
     val customTranslations by stringOption(
         key = "customTranslations",
         default = "",
@@ -61,21 +78,5 @@ val translationsPatch = resourcePatch {
 
         updatePatchStatus(TRANSLATIONS_FOR_YOUTUBE_MUSIC)
 
-    }
-}
-
-@Suppress("unused")
-val translationsBytecodePatch = bytecodePatch(
-    TRANSLATIONS_FOR_YOUTUBE_MUSIC.title,
-    TRANSLATIONS_FOR_YOUTUBE_MUSIC.summary,
-) {
-    compatibleWith(COMPATIBLE_PACKAGE)
-    dependsOn(translationsPatch, settingsPatch)
-    execute {
-        addLinkPreference(
-            CategoryType.MISC,
-            "revanced_translations",
-            "https://rvxtranslate.netlify.app/"
-        )
     }
 }

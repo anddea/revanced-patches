@@ -17,7 +17,23 @@ private val SUPPORTED_TRANSLATIONS = setOf(
 )
 
 @Suppress("unused")
-val translationsPatch = resourcePatch {
+val translationsBytecodePatch = bytecodePatch {
+    execute {
+        updatePatchStatus(
+            "enableTranslations",
+            TRANSLATIONS_FOR_REDDIT
+        )
+    }
+}
+
+@Suppress("unused")
+val translationsPatch = resourcePatch(
+    TRANSLATIONS_FOR_REDDIT.title,
+    TRANSLATIONS_FOR_REDDIT.summary,
+) {
+    compatibleWith(COMPATIBLE_PACKAGE)
+    dependsOn(translationsBytecodePatch, settingsPatch)
+
     val customTranslations by stringOption(
         key = "customTranslations",
         default = "",
@@ -71,20 +87,5 @@ val translationsPatch = resourcePatch {
                 }
             }
         } catch (_: Exception) {}
-    }
-}
-
-@Suppress("unused")
-val translationsBytecodePatch = bytecodePatch(
-    TRANSLATIONS_FOR_REDDIT.title,
-    TRANSLATIONS_FOR_REDDIT.summary,
-) {
-    compatibleWith(COMPATIBLE_PACKAGE)
-    dependsOn(translationsPatch, settingsPatch)
-    execute {
-        updatePatchStatus(
-            "enableTranslations",
-            TRANSLATIONS_FOR_REDDIT
-        )
     }
 }
