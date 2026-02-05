@@ -458,6 +458,10 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting YANDEX_TRANSCRIBE_SUBTITLES = new BooleanSetting("revanced_yandex_transcribe_subtitles", TRUE, parent(OVERLAY_BUTTON_GEMINI));
     public static final StringSetting YANDEX_TRANSCRIBE_SUBTITLES_LANGUAGE = new StringSetting("revanced_yandex_transcribe_subtitles_language", "app", true, parent(OVERLAY_BUTTON_GEMINI));
 
+    // PreferenceScreen: Video - Voice-over translation
+    public static final BooleanSetting ENABLE_VOICE_OVER_TRANSLATION = new BooleanSetting("revanced_enable_voice_over_translation", FALSE);
+    public static final StringSetting VOICE_OVER_TRANSLATION_LANGUAGE = new StringSetting("revanced_voice_over_translation_language", "en", true, parent(ENABLE_VOICE_OVER_TRANSLATION));
+
     // PreferenceScreen: Player - Seekbar
     public static final BooleanSetting APPEND_TIME_STAMP_INFORMATION = new BooleanSetting("revanced_append_time_stamp_information", TRUE, true);
     public static final BooleanSetting APPEND_TIME_STAMP_INFORMATION_TYPE = new BooleanSetting("revanced_append_time_stamp_information_type", TRUE, parent(APPEND_TIME_STAMP_INFORMATION));

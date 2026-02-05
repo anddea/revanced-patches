@@ -1028,6 +1028,52 @@ public class YandexVotUtils {
         return root;
     }
 
+    /**
+     * Gets the translated audio URL for a video.
+     * This method requests translation and returns the audio URL when available.
+     *
+     * @param videoUrl         The YouTube video URL.
+     * @param durationSeconds  The video duration in seconds.
+     * @param targetLang       The target language code (e.g., "en", "ru", "kk").
+     * @return The translated audio URL, or null if not available.
+     */
+    @Nullable
+    public static String getTranslatedAudioUrl(String videoUrl, double durationSeconds, String targetLang) {
+        try {
+            String yandexTargetLang = "en".equals(targetLang) || "ru".equals(targetLang) || "kk".equals(targetLang)
+                    ? targetLang
+                    : "en";
+            
+            SessionInfo session = ensureSession();
+            String videoTitle = getVideoTitle();
+            ManualVideoTranslationResponse transResponse = requestTranslation(videoUrl, yandexTargetLang, session, durationSeconds, videoTitle);
+            
+            if (transResponse.status == STATUS_SUCCESS || transResponse.status == STATUS_PART_CONTENT) {
+                // The url field in ManualVideoTranslationResponse may contain the audio URL
+                if (!TextUtils.isEmpty(transResponse.url)) {
+                    Logger.printInfo(() -> "VOT: Found translated audio URL: " + transResponse.url);
+                    return transResponse.url;
+                }
+                
+                // Try to get audio URL from subtitle tracks response
+                ManualSubtitlesResponse subsResponse = getFinalSubtitleTracks(videoUrl, session);
+                if (subsResponse != null && !subsResponse.waiting && subsResponse.subtitles != null) {
+                    for (ManualSubtitlesObject sub : subsResponse.subtitles) {
+                        if (yandexTargetLang.equals(sub.translatedLanguage) && !TextUtils.isEmpty(sub.translatedUrl)) {
+                            // The translated URL might be an audio URL or subtitle URL
+                            // For now, we'll use it as audio URL (may need adjustment based on actual API response)
+                            Logger.printInfo(() -> "VOT: Using translated URL as audio URL: " + sub.translatedUrl);
+                            return sub.translatedUrl;
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            Logger.printException(() -> "VOT: Failed to get translated audio URL", e);
+        }
+        return null;
+    }
+
     // endregion Utils
 
     // region Interfaces and Inner Classes

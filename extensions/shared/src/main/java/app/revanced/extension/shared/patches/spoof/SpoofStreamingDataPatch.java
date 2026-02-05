@@ -290,6 +290,33 @@ public class SpoofStreamingDataPatch {
 
     /**
      * Injection point.
+     * Adds translated audio track to StreamingData if voice-over translation is enabled.
+     * Called after {@link #getStreamingData(String)}.
+     */
+    public static StreamingData addVoiceOverTranslation(@Nullable StreamingData streamingData) {
+        if (streamingData == null) {
+            return null;
+        }
+        
+        try {
+            // Use reflection to call VoiceOverTranslationPatch if available
+            Class<?> patchClass = Class.forName("app.revanced.extension.youtube.patches.video.VoiceOverTranslationPatch");
+            java.lang.reflect.Method method = patchClass.getMethod("addTranslatedAudioTrack", StreamingData.class);
+            Object result = method.invoke(null, streamingData);
+            if (result instanceof StreamingData) {
+                return (StreamingData) result;
+            }
+        } catch (ClassNotFoundException e) {
+            // VoiceOverTranslationPatch not available, skip
+        } catch (Exception e) {
+            Logger.printException(() -> "Failed to add voice-over translation", e);
+        }
+        
+        return streamingData;
+    }
+
+    /**
+     * Injection point.
      * Called after {@link #getStreamingData(String)}.
      */
     @Nullable

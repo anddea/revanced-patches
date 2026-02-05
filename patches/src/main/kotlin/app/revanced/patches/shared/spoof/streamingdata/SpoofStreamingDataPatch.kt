@@ -405,6 +405,11 @@ fun spoofStreamingDataPatch(
                                 # Get streaming data.
                                 invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->getStreamingData(Ljava/lang/String;)$STREAMING_DATA_OUTER_CLASS
                                 move-result-object v1
+                                if-eqz v1, :addVoiceOver
+                                # Add voice-over translation if enabled.
+                                invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->addVoiceOverTranslation($STREAMING_DATA_OUTER_CLASS)$STREAMING_DATA_OUTER_CLASS
+                                move-result-object p1
+                                :addVoiceOver
                                 if-eqz v1, :ignore
                                 iput-object v1, v0, $streamingDataField
                                 return-object v1
