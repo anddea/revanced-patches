@@ -43,10 +43,7 @@ public class VoiceOverTranslationPatch {
     private static final AtomicBoolean isTranslating = new AtomicBoolean(false);
     private static final AtomicReference<String> currentTranslatedVideoId = new AtomicReference<>("");
     private static volatile boolean isPaused = false;
-    private static volatile float savedOriginalVolume = 1.0f;
     private static float lastAppliedPlaybackSpeed = 1.0f;
-    private static final long MUTE_RETRY_THROTTLE_MS = 600;
-    private static volatile long lastMuteAttemptTime = 0;
     private static Object audioFocusRequest;
     private static volatile long lastVideoTimeMs = -1;
     private static final long SEEK_DRIFT_THRESHOLD_MS = 20000;
@@ -139,13 +136,6 @@ public class VoiceOverTranslationPatch {
         mainHandler.removeCallbacks(pauseCheckRunnable);
         mainHandler.postDelayed(pauseCheckRunnable, PAUSE_DETECTION_TIMEOUT_MS);
         MediaPlayer mp = mediaPlayer.get();
-        if (mp != null) {
-            long now = System.currentTimeMillis();
-            if (now - lastMuteAttemptTime >= MUTE_RETRY_THROTTLE_MS) {
-                lastMuteAttemptTime = now;
-                mainHandler.post(() -> VideoInformation.setPlayerVolume(0f));
-            }
-        }
         if (mp == null || !mp.isPlaying()) return;
         final long time = videoTimeMillis;
         mainHandler.post(() -> {
@@ -273,16 +263,7 @@ public class VoiceOverTranslationPatch {
                             .build());
             mp.setDataSource(audioUrl);
             mp.setOnPreparedListener(player -> {
-                Utils.runOnMainThread(() -> {
-                    savedOriginalVolume = VideoInformation.getPlayerVolume();
-                    VideoInformation.setPlayerVolume(0f);
-                });
-                // Retry mute at intervals: YouTube sometimes restores volume after initial mute
-                // (e.g. when player state updates). Workaround until a player-state listener is available.
-                mainHandler.postDelayed(() -> Utils.runOnMainThread(() -> VideoInformation.setPlayerVolume(0f)), 250);
-                mainHandler.postDelayed(() -> Utils.runOnMainThread(() -> VideoInformation.setPlayerVolume(0f)), 700);
-                mainHandler.postDelayed(() -> Utils.runOnMainThread(() -> VideoInformation.setPlayerVolume(0f)), 1500);
-                requestAudioFocusForTranslation();
+                Utils.runOnMainThread(() -> requestAudioFocusForTranslation());
                 float vol = Settings.VOT_TRANSLATION_VOLUME.get() / 100.0f;
                 player.setVolume(vol, vol);
                 long videoTime = VideoInformation.getVideoTime();
@@ -313,7 +294,6 @@ public class VoiceOverTranslationPatch {
         lastAppliedPlaybackSpeed = 1.0f;
         lastVideoTimeMs = -1;
         abandonAudioFocus();
-        Utils.runOnMainThread(() -> VideoInformation.setPlayerVolume(savedOriginalVolume));
     }
 
     private static void requestAudioFocusForTranslation() {
