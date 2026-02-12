@@ -48,7 +48,7 @@ public class BaseSettings {
     // Client type must be last spoof setting due to cyclic references.
     // TV_SIMPLY for YouTube so 4K/HDR formats are returned when spoofing (e.g. devices without GMS).
     public static final EnumSetting<ClientType> SPOOF_STREAMING_DATA_DEFAULT_CLIENT = new EnumSetting<>("revanced_spoof_streaming_data_default_client",
-            IS_YOUTUBE ? ClientType.TV_SIMPLY : ClientType.ANDROID_MUSIC_NO_SDK, true, parent(SPOOF_STREAMING_DATA));
+            IS_YOUTUBE ? ClientType.TV : ClientType.ANDROID_MUSIC_NO_SDK, true, parent(SPOOF_STREAMING_DATA));
 
     public static final BooleanSetting ENABLE_COMMENTS_SCROLL_TOP = new BooleanSetting("revanced_enable_comments_scroll_top", FALSE, true);
     public static final BooleanSetting DISABLE_AUTO_AUDIO_TRACKS = new BooleanSetting("revanced_disable_auto_audio_tracks", TRUE);
