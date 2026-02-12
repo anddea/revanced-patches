@@ -41,12 +41,6 @@ public final class VotStreamReplacer {
         return t;
     });
 
-    private static String truncateUrl(String url, int maxLen) {
-        if (url == null) return "null";
-        if (url.length() <= maxLen) return url;
-        return url.substring(0, maxLen) + "...";
-    }
-
     @Nullable
     public static StreamingData process(@NonNull StreamingData stream, @NonNull String videoId) {
         if (!Settings.VOT_ENABLED.get()) {
@@ -62,7 +56,8 @@ public final class VotStreamReplacer {
         Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_requesting")));
         String sourceLang = Settings.VOT_SOURCE_LANGUAGE.get();
         String targetLang = Settings.VOT_TARGET_LANGUAGE.get();
-        if (sourceLang != null && sourceLang.equals(targetLang)) {
+        if (sourceLang != null && !sourceLang.isEmpty() && !"auto".equalsIgnoreCase(sourceLang)
+                && sourceLang.equals(targetLang)) {
             return stream;
         }
         long durationMs = StreamingDataOuterClassUtils.getApproxDurationMsFromFirstFormat(stream);
@@ -167,8 +162,5 @@ public final class VotStreamReplacer {
         } catch (ExecutionException e) {
             return stream;
         }
-    }
-
-    public static void register() {
     }
 }

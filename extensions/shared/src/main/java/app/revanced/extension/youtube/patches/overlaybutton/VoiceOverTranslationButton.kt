@@ -56,7 +56,6 @@ object VoiceOverTranslationButton {
 
     private fun isButtonEnabled(): Boolean {
         return Settings.VOT_ENABLED.get()
-                && Settings.OVERLAY_BUTTON_VOT.get()
                 && !isAdProgressTextVisible()
     }
 

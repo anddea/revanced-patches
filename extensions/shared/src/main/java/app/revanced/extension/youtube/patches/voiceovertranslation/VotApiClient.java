@@ -17,6 +17,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 
+import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.youtube.settings.Settings;
 
 public class VotApiClient {
@@ -70,9 +71,12 @@ public class VotApiClient {
                 duration = DEFAULT_DURATION;
             }
 
+            String apiSourceLang = (sourceLang == null || sourceLang.isEmpty() || "auto".equalsIgnoreCase(sourceLang))
+                    ? "" : sourceLang;
+
             byte[] body = VotProtobuf.encodeTranslationRequest(
                     videoUrl, true, duration,
-                    sourceLang, targetLang, videoTitle
+                    apiSourceLang, targetLang, videoTitle
             );
 
             String path = "/video-translation/translate";
@@ -100,7 +104,7 @@ public class VotApiClient {
             );
 
         } catch (Exception e) {
-
+            Logger.printException(() -> "VotApiClient.requestTranslation failed for " + videoUrl, e);
             return null;
         }
     }
@@ -114,7 +118,7 @@ public class VotApiClient {
 
             sendWorkerJsonRequest(path, jsonBody, "PUT");
         } catch (Exception e) {
-
+            Logger.printException(() -> "VotApiClient.sendFailedAudio failed for " + videoUrl, e);
         }
     }
 
@@ -134,7 +138,7 @@ public class VotApiClient {
                     sessionSecretKey, tokenSignature + ":" + token, "PUT");
 
         } catch (Exception e) {
-
+            Logger.printException(() -> "VotApiClient.sendEmptyAudio failed for " + videoUrl, e);
         }
     }
 
@@ -162,9 +166,6 @@ public class VotApiClient {
 
             sessionSecretKey = sessionResponse.secretKey;
             sessionExpires = now + sessionResponse.expires - 60;
-
-            final int expiresVal = sessionResponse.expires;
-
 
         } finally {
             sessionLock.unlock();
@@ -210,7 +211,6 @@ public class VotApiClient {
             bodyArrayJson.append(body[i] & 0xFF);
         }
         bodyArrayJson.append("]");
-
         String jsonPayload = "{\"headers\":" + headersJson + ",\"body\":" + bodyArrayJson + "}";
 
         HttpURLConnection connection = (HttpURLConnection) new URL(workerUrl).openConnection();

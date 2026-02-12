@@ -15,6 +15,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 
+import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.RootView;
@@ -107,7 +108,8 @@ public class VoiceOverTranslationPatch {
         }
         String sourceLang = Settings.VOT_SOURCE_LANGUAGE.get();
         String targetLang = Settings.VOT_TARGET_LANGUAGE.get();
-        if (sourceLang != null && sourceLang.equals(targetLang)) {
+        if (sourceLang != null && !sourceLang.isEmpty() && !"auto".equalsIgnoreCase(sourceLang)
+                && sourceLang.equals(targetLang)) {
             showToastShort(str("revanced_vot_unavailable_same_language"));
             return;
         }
@@ -197,7 +199,7 @@ public class VoiceOverTranslationPatch {
                     break;
             }
         } catch (Exception e) {
-
+            Logger.printException(() -> "requestTranslation failed", e);
         } finally {
             isTranslating.set(false);
         }
@@ -232,7 +234,9 @@ public class VoiceOverTranslationPatch {
                     return;
                 }
                 waitSeconds = result.remainingTime > 0 ? result.remainingTime : 5;
-            } catch (Exception ignored) { }
+            } catch (Exception e) {
+                Logger.printException(() -> "pollTranslation failure", e);
+            }
         }
     }
 
@@ -254,7 +258,7 @@ public class VoiceOverTranslationPatch {
                 Utils.runOnMainThread(() -> startAudioPlayback(videoId, result.audioUrl));
             }
         } catch (Exception e) {
-
+            Logger.printException(() -> "handleAudioRequested failed", e);
         }
     }
 
@@ -273,6 +277,8 @@ public class VoiceOverTranslationPatch {
                     savedOriginalVolume = VideoInformation.getPlayerVolume();
                     VideoInformation.setPlayerVolume(0f);
                 });
+                // Retry mute at intervals: YouTube sometimes restores volume after initial mute
+                // (e.g. when player state updates). Workaround until a player-state listener is available.
                 mainHandler.postDelayed(() -> Utils.runOnMainThread(() -> VideoInformation.setPlayerVolume(0f)), 250);
                 mainHandler.postDelayed(() -> Utils.runOnMainThread(() -> VideoInformation.setPlayerVolume(0f)), 700);
                 mainHandler.postDelayed(() -> Utils.runOnMainThread(() -> VideoInformation.setPlayerVolume(0f)), 1500);
@@ -289,7 +295,7 @@ public class VoiceOverTranslationPatch {
             currentTranslatedVideoId.set(videoId != null ? videoId : "");
             mp.prepareAsync();
         } catch (IOException e) {
-
+            Logger.printException(() -> "startAudioPlayback failed for videoId: " + videoId, e);
         }
     }
 
@@ -323,15 +329,20 @@ public class VoiceOverTranslationPatch {
                         .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
                         .build())
                     .build();
-                int r = am.requestAudioFocus(req);
-                audioFocusRequest = req;
-
+                int result = am.requestAudioFocus(req);
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    audioFocusRequest = req;
+                } else {
+                    Logger.printDebug(() -> "requestAudioFocus failed: " + result);
+                }
             } else {
-                int r = am.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK);
-
+                int result = am.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK);
+                if (result != AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    Logger.printDebug(() -> "requestAudioFocus failed: " + result);
+                }
             }
         } catch (Exception e) {
-
+            Logger.printException(() -> "requestAudioFocusForTranslation failed", e);
         }
     }
 
