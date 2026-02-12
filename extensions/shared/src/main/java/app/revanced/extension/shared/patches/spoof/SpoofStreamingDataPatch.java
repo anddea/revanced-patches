@@ -34,6 +34,22 @@ import app.revanced.extension.youtube.shared.VideoInformation;
 
 @SuppressWarnings("unused")
 public class SpoofStreamingDataPatch {
+
+    /**
+     * Optional post-processor for the stream (e.g. replace audio with translation when VOT is on).
+     * Set by the YouTube extension so playback uses one player and native speed.
+     */
+    public interface StreamPostProcessor {
+        @Nullable
+        StreamingData process(@NonNull StreamingData stream, @NonNull String videoId);
+    }
+
+    private static volatile StreamPostProcessor streamPostProcessor;
+
+    public static void setStreamPostProcessor(@Nullable StreamPostProcessor processor) {
+        streamPostProcessor = processor;
+    }
+
     public static final boolean SPOOF_STREAMING_DATA =
             BaseSettings.SPOOF_STREAMING_DATA.get() && PatchStatus.SpoofStreamingData();
     private static final boolean J2V8_LIBRARY_AVAILABILITY = supportJ2V8();
@@ -250,24 +266,27 @@ public class SpoofStreamingDataPatch {
         if (SPOOF_STREAMING_DATA && isValidVideoId(videoId)) {
             try {
                 StreamingDataRequest request = StreamingDataRequest.getRequestForVideoId(videoId);
+                Logger.printInfo(() -> "getStreamingData videoId=" + videoId + " request=" + (request != null ? "ok" : "null") + " postProcessor=" + (streamPostProcessor != null));
                 if (request != null) {
-                    // This hook is always called off the main thread,
-                    // but this can later be called for the same video id from the main thread.
-                    // This is not a concern, since the fetch will always be finished
-                    // and never block the main thread.
-                    // But if debugging, then still verify this is the situation.
                     if (BaseSettings.DEBUG.get() && !request.fetchCompleted() && Utils.isCurrentlyOnMainThread()) {
                         Logger.printException(() -> "Error: Blocking main thread");
                     }
 
                     var stream = request.getStream();
+                    final boolean hasStream = (stream != null);
+                    Logger.printInfo(() -> "getStreamingData videoId=" + videoId + " stream=" + (hasStream ? "ok" : "null"));
                     if (stream != null) {
-                        Logger.printDebug(() -> "Overriding video stream: " + videoId);
-                        return stream;
+                        if (streamPostProcessor != null) {
+                            stream = streamPostProcessor.process(stream, videoId);
+                        }
+                        if (stream != null) {
+                            Logger.printDebug(() -> "Overriding video stream: " + videoId);
+                            return stream;
+                        }
                     }
                 }
 
-                Logger.printDebug(() -> "Not overriding streaming data (video stream is null, it may be video ads): " + videoId);
+                Logger.printInfo(() -> "getStreamingData videoId=" + videoId + " return null (request/stream null or postProcessor returned null)");
             } catch (Exception ex) {
                 Logger.printException(() -> "getStreamingData failure", ex);
             }

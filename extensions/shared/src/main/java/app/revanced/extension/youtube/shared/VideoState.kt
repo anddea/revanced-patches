@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.shared
 
 import app.revanced.extension.shared.utils.Logger
+import java.util.concurrent.CopyOnWriteArrayList
 
 /**
  * VideoState playback state.
@@ -16,6 +17,14 @@ enum class VideoState {
     companion object {
 
         private val nameToVideoState = entries.associateBy { it.name }
+
+        private val onPlayingListeners = CopyOnWriteArrayList<Runnable>()
+
+        /** Add a listener that is run when state changes to PLAYING. Used e.g. by VOT to resume translation. */
+        @JvmStatic
+        fun addOnPlayingListener(listener: Runnable) {
+            onPlayingListeners.add(listener)
+        }
 
         @JvmStatic
         fun setFromString(enumName: String) {
@@ -33,8 +42,16 @@ enum class VideoState {
             private set(type) {
                 if (currentVideoState != type) {
                     Logger.printDebug { "Changed to: $type" }
-
                     currentVideoState = type
+                    if (type == PLAYING) {
+                        for (listener in onPlayingListeners) {
+                            try {
+                                listener.run()
+                            } catch (e: Exception) {
+                                Logger.printException { "OnPlaying listener error: ${e.message}" }
+                            }
+                        }
+                    }
                 }
             }
 

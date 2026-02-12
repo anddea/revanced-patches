@@ -160,6 +160,12 @@ class StreamingDataRequest private constructor(
             return cache[videoId]
         }
 
+        /** Удаляет кэшированный запрос для videoId. После этого при следующей загрузке этого видео будет создан новый запрос (если приложение сделает новый player-запрос). Используется VOT при включении перевода перед перезагрузкой. */
+        @JvmStatic
+        fun invalidateCacheForVideoId(videoId: String) {
+            cache.remove(videoId)
+        }
+
         private fun handleConnectionError(
             toastMessage: String,
             ex: Exception?,

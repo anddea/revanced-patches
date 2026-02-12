@@ -265,6 +265,10 @@ internal enum class PatchList(
         "Video playback",
         "Adds options to customize settings related to video playback, such as default video quality and playback speed."
     ),
+    VOICE_OVER_TRANSLATION(
+        "Voice Over Translation",
+        "Adds an option to enable Yandex voice-over translation of video audio tracks."
+    ),
     VISUAL_PREFERENCES_ICONS_FOR_YOUTUBE(
         "Visual preferences icons for YouTube",
         "Adds icons to specific preferences in the settings."

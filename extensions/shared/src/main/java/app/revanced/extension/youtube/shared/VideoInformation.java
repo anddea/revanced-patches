@@ -5,6 +5,9 @@ import static app.revanced.extension.shared.utils.Utils.getFormattedTimeStamp;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.utils.AlwaysRepeatPatch;
@@ -57,6 +60,16 @@ public final class VideoInformation {
      * The current playback speed
      */
     private static float playbackSpeed = DEFAULT_YOUTUBE_PLAYBACK_SPEED;
+
+    private static final List<Runnable> playbackSpeedChangeListeners = new CopyOnWriteArrayList<>();
+
+    /**
+     * Add a listener that is run when playback speed changes (setPlaybackSpeed or overridePlaybackSpeed).
+     * Used by VOT to apply the new speed to the translation player.
+     */
+    public static void addOnPlaybackSpeedChangeListener(Runnable listener) {
+        if (listener != null) playbackSpeedChangeListeners.add(listener);
+    }
 
     /**
      * Injection point.
@@ -383,6 +396,83 @@ public final class VideoInformation {
     }
 
     /**
+     * Tries to read the current playback speed from the app's player (playbackSpeedClass / timeUpdateReceiver).
+     * Used by VOT to sync translation speed when the user changes speed via any UI (not only the menu we hook).
+     *
+     * @return Speed &gt; 0 if found, otherwise -1f (use {@link #getPlaybackSpeed()} as fallback).
+     */
+    public static float getPlaybackSpeedFromPlayer() {
+        float v = tryGetSpeedFromObject(getPlaybackSpeedClassRef());
+        if (v > 0f) return v;
+        Object receiver = getTimeUpdateReceiverRef();
+        v = tryGetSpeedFromObject(receiver);
+        if (v > 0f) return v;
+        if (receiver != null) {
+            for (String getterName : new String[]{"getPlayer", "getExoPlayer", "getPlayback", "getWrappedPlayer", "getInnerPlayer", "getAudioComponent", "getController", "getPlaybackController"}) {
+                try {
+                    java.lang.reflect.Method m = receiver.getClass().getMethod(getterName);
+                    if (m.getParameterCount() == 0 && !m.getReturnType().isPrimitive()) {
+                        Object child = m.invoke(receiver);
+                        v = tryGetSpeedFromObject(child);
+                        if (v > 0f) return v;
+                    }
+                } catch (Exception ignored) { }
+            }
+        }
+        return -1f;
+    }
+
+    private static float tryGetSpeedFromObject(Object obj) {
+        if (obj == null) return -1f;
+        try {
+            for (String methodName : new String[]{"getPlaybackSpeed", "getSpeed", "getPlaybackRate", "getCurrentSpeed"}) {
+                java.lang.reflect.Method m = findMethod(obj.getClass(), methodName);
+                if (m != null && m.getParameterCount() == 0) {
+                    Class<?> ret = m.getReturnType();
+                    if (ret == float.class || ret == double.class || ret == Float.class || ret == Double.class) {
+                        Object result = m.invoke(obj);
+                        if (result != null) {
+                            float f = ((Number) result).floatValue();
+                            if (f > 0f && f <= 10f) return f;
+                        }
+                    }
+                }
+            }
+            // ExoPlayer/Media3: getPlaybackParameters().getSpeed()
+            java.lang.reflect.Method getParams = findMethod(obj.getClass(), "getPlaybackParameters");
+            if (getParams != null && getParams.getParameterCount() == 0) {
+                Object params = getParams.invoke(obj);
+                if (params != null) {
+                    float fromParams = tryGetSpeedFromObject(params);
+                    if (fromParams > 0f) return fromParams;
+                }
+            }
+            for (String fieldName : new String[]{"playbackSpeed", "speed", "playbackRate", "mSpeed"}) {
+                try {
+                    java.lang.reflect.Field f = obj.getClass().getDeclaredField(fieldName);
+                    f.setAccessible(true);
+                    Object val = f.get(obj);
+                    if (val instanceof Number) {
+                        float speedVal = ((Number) val).floatValue();
+                        if (speedVal > 0f && speedVal <= 10f) return speedVal;
+                    }
+                } catch (NoSuchFieldException ignored) { }
+            }
+        } catch (Exception ignored) { }
+        return -1f;
+    }
+
+    private static Object getTimeUpdateReceiverRef() {
+        try {
+            java.lang.reflect.Field f = VideoInformation.class.getDeclaredField("timeUpdateReceiver");
+            f.setAccessible(true);
+            return f.get(null);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
      * Injection point.
      *
      * @param newlyLoadedPlaybackSpeed The current playback speed.
@@ -391,6 +481,9 @@ public final class VideoInformation {
         if (playbackSpeed != newlyLoadedPlaybackSpeed) {
             Logger.printDebug(() -> "Video speed changed: " + newlyLoadedPlaybackSpeed);
             playbackSpeed = newlyLoadedPlaybackSpeed;
+            for (Runnable r : playbackSpeedChangeListeners) {
+                try { r.run(); } catch (Exception e) { Logger.printException(() -> "Playback speed listener", e); }
+            }
         }
     }
 
@@ -465,6 +558,160 @@ public final class VideoInformation {
      */
     public static void overridePlaybackSpeed(float speedOverride) {
         Logger.printDebug(() -> "Overriding playback speed to: " + speedOverride);
+        if (playbackSpeed != speedOverride) {
+            playbackSpeed = speedOverride;
+            for (Runnable r : playbackSpeedChangeListeners) {
+                try { r.run(); } catch (Exception e) { Logger.printException(() -> "Playback speed listener", e); }
+            }
+        }
+    }
+
+    /**
+     * Gets the current ExoPlayer volume (0..1).
+     * Uses reflection on playbackSpeedClass (set by patch). Used by VOT to restore volume when unmuting.
+     *
+     * @return current volume or 1.0f if player not available
+     */
+    public static float getPlayerVolume() {
+        Object target = getVolumeTarget();
+        if (target == null) return 1.0f;
+        try {
+            java.lang.reflect.Method getVol = findMethod(target.getClass(), "getVolume");
+            if (getVol != null) {
+                Object result = getVol.invoke(target);
+                if (result instanceof Number) {
+                    float v = ((Number) result).floatValue();
+                    return (v > 1.0f) ? (v / 100.0f) : v; // normalize 0-100 to 0-1
+                }
+            }
+        } catch (Exception e) {
+            Logger.printDebug(() -> "getPlayerVolume: " + e.getMessage());
+        }
+        return 1.0f;
+    }
+
+    /**
+     * Sets the ExoPlayer volume (0 = mute, 1 = full). Used by VOT to mute original when translation is playing.
+     *
+     * @param volume volume in 0..1
+     */
+    public static void setPlayerVolume(float volume) {
+        Object target = getVolumeTarget();
+        if (target == null) {
+            Logger.printInfo(() -> "setPlayerVolume: no target (playbackSpeedClass/timeUpdateReceiver or resolveVolumeTarget returned null). Mute may not work.");
+            return;
+        }
+        try {
+            Class<?> c = target.getClass();
+            java.lang.reflect.Method setVol = findMethod(c, "setVolume", float.class);
+            if (setVol != null) {
+                setVol.invoke(target, volume);
+                Logger.printDebug(() -> "setPlayerVolume: set " + volume + " on " + c.getSimpleName());
+                return;
+            }
+            setVol = findMethod(c, "setVolume", int.class);
+            if (setVol != null) {
+                setVol.invoke(target, Math.round(volume * 100));
+                Logger.printDebug(() -> "setPlayerVolume: set (int) " + Math.round(volume * 100) + " on " + c.getSimpleName());
+                return;
+            }
+            setVol = findMethod(c, "setVolume", double.class);
+            if (setVol != null) {
+                setVol.invoke(target, (double) volume);
+                Logger.printDebug(() -> "setPlayerVolume: set (double) on " + c.getSimpleName());
+            }
+        } catch (Exception e) {
+            Logger.printInfo(() -> "setPlayerVolume failed: " + e.getMessage());
+        }
+    }
+
+    /** Set by patch from the method that reports video time (p0). Used as fallback when playbackSpeedClass is null. */
+    private static volatile Object timeUpdateReceiver;
+
+    public static void setTimeUpdateReceiver(Object receiver) {
+        timeUpdateReceiver = receiver;
+    }
+
+    private static Object getVolumeTarget() {
+        // 1) Try playbackSpeedClass (set when speed menu / player is used)
+        Object obj = getPlaybackSpeedClassRef();
+        if (obj != null) {
+            Object target = resolveVolumeTarget(obj);
+            if (target != null) return target;
+        }
+        // 2) Fallback: object from the method that reports video time (set every ~100ms while playing)
+        obj = timeUpdateReceiver;
+        if (obj != null) {
+            Object target = resolveVolumeTarget(obj);
+            if (target != null) return target;
+        }
+        return null;
+    }
+
+    private static Object getPlaybackSpeedClassRef() {
+        try {
+            java.lang.reflect.Field f = VideoInformation.class.getDeclaredField("playbackSpeedClass");
+            f.setAccessible(true);
+            return f.get(null);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private static Object resolveVolumeTarget(Object obj) {
+        if (obj == null) return null;
+        Class<?> clazz = obj.getClass();
+        if (hasVolumeMethods(clazz)) return obj;
+        if (hasSetVolumeOnly(clazz)) return obj;
+        String[] getterNames = {
+            "getAudioComponent", "getPlayer", "getExoPlayer",
+            "getWrappedPlayer", "getInnerPlayer", "getPlayback"
+        };
+        for (String name : getterNames) {
+            try {
+                for (java.lang.reflect.Method m : clazz.getMethods()) {
+                    if (!m.getName().equals(name) || m.getParameterCount() != 0) continue;
+                    Class<?> ret = m.getReturnType();
+                    if (ret.isPrimitive() || ret == String.class) continue;
+                    Object child = m.invoke(obj);
+                    if (child != null && (hasVolumeMethods(child.getClass()) || hasSetVolumeOnly(child.getClass())))
+                        return child;
+                }
+            } catch (Exception ignored) { }
+        }
+        for (java.lang.reflect.Method m : clazz.getMethods()) {
+            if (m.getParameterCount() != 0 || m.getReturnType().isPrimitive()) continue;
+            String name = m.getName();
+            if (!name.startsWith("get") || name.length() < 4) continue;
+            try {
+                Object child = m.invoke(obj);
+                if (child != null && child != obj && (hasVolumeMethods(child.getClass()) || hasSetVolumeOnly(child.getClass())))
+                    return child;
+            } catch (Exception ignored) { }
+        }
+        return null;
+    }
+
+    private static boolean hasSetVolumeOnly(Class<?> c) {
+        return findMethod(c, "setVolume", float.class) != null || findMethod(c, "setVolume", int.class) != null || findMethod(c, "setVolume", double.class) != null;
+    }
+
+    private static boolean hasVolumeMethods(Class<?> c) {
+        if (findMethod(c, "getVolume") == null) return false;
+        return findMethod(c, "setVolume", float.class) != null
+                || findMethod(c, "setVolume", int.class) != null
+                || findMethod(c, "setVolume", double.class) != null;
+    }
+
+    private static java.lang.reflect.Method findMethod(Class<?> c, String name, Class<?>... paramTypes) {
+        for (; c != null; c = c.getSuperclass()) {
+            try {
+                java.lang.reflect.Method m = c.getDeclaredMethod(name, paramTypes);
+                m.setAccessible(true);
+                return m;
+            } catch (NoSuchMethodException ignored) { }
+        }
+        return null;
     }
 
     /**

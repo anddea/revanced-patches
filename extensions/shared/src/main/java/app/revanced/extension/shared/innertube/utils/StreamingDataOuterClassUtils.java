@@ -166,6 +166,17 @@ public class StreamingDataOuterClassUtils {
         }
     }
 
+    /** Returns the URL of the format, or null. For debug logging. */
+    public static String getFormatUrl(Object adaptiveFormat) {
+        if (adaptiveFormat == null) return null;
+        try {
+            Field field = adaptiveFormat.getClass().getField(FormatFields.url);
+            field.setAccessible(true);
+            if (field.get(adaptiveFormat) instanceof String url) return url;
+        } catch (Exception ignored) { }
+        return null;
+    }
+
     private static int getHeight(Object adaptiveFormat) {
         if (adaptiveFormat != null) {
             try {
@@ -211,6 +222,34 @@ public class StreamingDataOuterClassUtils {
         return null;
     }
 
+    /**
+     * Returns true if the format is audio-only (no video). Used e.g. to replace audio with translation URL.
+     */
+    public static boolean isAudioOnlyFormat(Object adaptiveFormat) {
+        if (adaptiveFormat == null) return false;
+        String mime = getMimeType(adaptiveFormat);
+        if (mime != null && mime.startsWith("audio")) return true;
+        return getHeight(adaptiveFormat) <= 0;
+    }
+
+    /**
+     * Gets approx duration in ms from the first adaptive format. Returns 0 if not available.
+     */
+    public static long getApproxDurationMsFromFirstFormat(StreamingDataOuterClass.StreamingData streamingData) {
+        List<?> list = getAdaptiveFormats(streamingData);
+        if (list == null || list.isEmpty()) return 0L;
+        try {
+            Object first = list.get(0);
+            Field field = first.getClass().getField(FormatFields.approxDurationMs);
+            field.setAccessible(true);
+            Object val = field.get(first);
+            if (val instanceof Long l) return l;
+            if (val instanceof Number n) return n.longValue();
+        } catch (Exception ex) {
+            Logger.printException(() -> "getApproxDurationMsFromFirstFormat failed", ex);
+        }
+        return 0L;
+    }
 
     /**
      * Field access via reflection will be replaced by Protobuf.MessageParser in the future.

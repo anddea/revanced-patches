@@ -157,6 +157,7 @@ val overlayButtonsPatch = resourcePatch(
             "MuteVolumeButton",
             "PlayAllButton",
             "PlaybackSpeedDialogButton",
+            "VoiceOverTranslationButton",
             "WhitelistButton",
         ).forEach { className ->
             injectControl("$OVERLAY_BUTTONS_PATH/${className};", false)
@@ -171,6 +172,8 @@ val overlayButtonsPatch = resourcePatch(
                 "playlist_shuffle_button.xml",
                 "revanced_repeat_button.xml",
                 "revanced_mute_volume_button.xml",
+                "revanced_vot_button.xml",
+                "revanced_vot_button_icon.xml",
             )
         )
 
