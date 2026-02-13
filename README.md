@@ -88,6 +88,7 @@ Report issues [here](https://github.com/inotia00/ReVanced_Extended).
 | `Translations for YouTube` | Add translations or remove string resources. | 19.05.36 ~ 20.05.46 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 19.05.36 ~ 20.05.46 |
 | `Visual preferences icons for YouTube` | Adds icons to specific preferences in the settings. | 19.05.36 ~ 20.05.46 |
+| `Voice Over Translation` | Adds an option to enable Yandex voice-over translation of video audio tracks. | 19.05.36 ~ 20.05.46 |
 </details>
 
 ### [📦 `com.google.android.apps.youtube.music`](https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music)

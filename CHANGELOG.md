@@ -1,3 +1,10 @@
+# [3.17.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.16.0...v3.17.0-dev.1) (2026-02-13)
+
+
+### Features
+
+* **YouTube - Voice Over Translation:** Add Yandex voice-over translation ([#1370](https://github.com/anddea/revanced-patches/issues/1370)) ([889118e](https://github.com/anddea/revanced-patches/commit/889118eb63e2e33560347ad5c0b065d9784150f2))
+
 # [3.16.0](https://github.com/anddea/revanced-patches/compare/v3.15.0...v3.16.0) (2026-01-30)
 
 
