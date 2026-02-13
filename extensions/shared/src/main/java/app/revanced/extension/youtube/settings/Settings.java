@@ -217,7 +217,7 @@ public class Settings extends BaseSettings {
             "revanced_queue_manager_user_dialog_message", parent(OVERRIDE_VIDEO_DOWNLOAD_BUTTON));
     public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME_PLAYLIST = new StringSetting("revanced_external_downloader_package_name_playlist", "com.deniscerri.ytdl");
     public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME_VIDEO = new StringSetting("revanced_external_downloader_package_name_video", "com.deniscerri.ytdl");
-    public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME_VIDEO_LONG_PRESS = new StringSetting("revanced_external_downloader_package_name_video_long_press", "com.junkfood.sealplus");
+    public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME_VIDEO_LONG_PRESS = new StringSetting("revanced_external_downloader_package_name_video_long_press", "com.maheshtechnicals.sealplus");
     public static final BooleanSetting OVERRIDE_YOUTUBE_MUSIC_BUTTON = new BooleanSetting("revanced_override_youtube_music_button", FALSE, true);
     public static final StringSetting THIRD_PARTY_YOUTUBE_MUSIC_PACKAGE_NAME = new StringSetting("revanced_third_party_youtube_music_package_name", PackageNameYouTubeMusic(), true
             , new YouTubeMusicActionsPatch.HookYouTubeMusicPackageNameAvailability());
