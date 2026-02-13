@@ -1,3 +1,17 @@
+# [4.0.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.17.0-dev.1...v4.0.0-dev.1) (2026-02-13)
+
+
+### Code Refactoring
+
+* Migrate to Morphe patcher ([44d12f2](https://github.com/anddea/revanced-patches/commit/44d12f217ca72783c0000c09a3f77f6b0854d490))
+
+
+### BREAKING CHANGES
+
+* Patches are now migrated to Morphe patcher
+
+Signed-off-by: Aaron Veil <70171475+anddea@users.noreply.github.com>
+
 # [3.17.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.16.0...v3.17.0-dev.1) (2026-02-13)
 
 

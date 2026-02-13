@@ -160,30 +160,6 @@ Report issues [here](https://github.com/inotia00/ReVanced_Extended).
 | `Translations for Reddit` | Add translations for RVX settings. | 2024.17.0 ~ 2025.12.1 |
 </details>
 
-### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `Change lyrics provider` | Changes the lyrics provider to a custom one. | 9.0.90.1229 |
-| `Custom branding name for Spotify` | Changes the Spotify app name to the name specified in patch options. | ALL |
-| `Custom theme` | Applies a custom theme (defaults to amoled black) | 9.0.90.1229 |
-| `Fix Facebook login` | Fix logging in with Facebook when the app is patched by always opening the login in a web browser window. | 9.0.90.1229 |
-| `Fix third party launchers widgets` | Fixes Spotify widgets not working in third party launchers, like Nova Launcher. | 9.0.90.1229 |
-| `Hide Create button` | Hides the "Create" button in the navigation bar. | 9.0.90.1229 |
-| `Lyrics search` | Displays a "Search Lyrics" panel in the Main Activity that searches for lyrics on Google, and song meanings on Songtell. The activity is set to SpotifyMainActivity, so the "Search Lyrics" panel won't be shown in NowPlayingActivity (Player view) or possibly other activities. | 9.0.90.1229 |
-| `Sanitize sharing links` | Removes the tracking query parameters from links before they are shared. | 9.0.90.1229 |
-| `Unlock Premium` | Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked. | 9.0.90.1229 |
-</details>
-
-### [📦 `com.ysy.app.firewall`](https://play.google.com/store/apps/details?id=com.ysy.app.firewall)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `Unlock Premium` | Unlocks NetWall Premium features once 'Unlock Premium Now' button is clicked. | 1.3.4 |
-</details>
-
 
 
 ## 📝 JSON Format
