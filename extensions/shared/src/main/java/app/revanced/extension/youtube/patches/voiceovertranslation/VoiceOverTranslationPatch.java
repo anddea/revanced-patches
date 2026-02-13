@@ -62,8 +62,12 @@ public class VoiceOverTranslationPatch {
     private static volatile boolean pendingIsLive = false;
 
     public static void initialize() {
-        VideoState.addOnPlayingListener(() -> mainHandler.post(() -> resumeAudio(-1)));
+        VideoState.addOnPlayingListener(() -> mainHandler.post(() -> {
+            if (VideoState.getCurrent() != VideoState.PLAYING) return;
+            resumeAudio(-1);
+        }));
         VideoInformation.addOnPlaybackSpeedChangeListener(() -> mainHandler.post(() -> {
+            if (VideoState.getCurrent() != VideoState.PLAYING) return;
             MediaPlayer p = mediaPlayer.get();
             if (p != null) applyPlaybackSpeedToPlayer(p);
         }));
@@ -354,6 +358,7 @@ public class VoiceOverTranslationPatch {
     }
 
     public static void resumeAudio(long videoTimeMillis) {
+        if (VideoState.getCurrent() != VideoState.PLAYING) return;
         MediaPlayer mp = mediaPlayer.get();
         if (mp == null || !isPaused) return;
         try {
