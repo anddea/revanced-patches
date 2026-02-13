@@ -1679,6 +1679,8 @@ Shorts
 Нажать и удерживать - скорость просмотра в 1.0x."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Кнопка Скорость просмотра</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">Стиль меню скорости</string>
+    <string name="revanced_overlay_button_vot_summary">Показывать кнопку на плеере для включения/выключения закадрового перевода</string>
+    <string name="revanced_overlay_button_vot_title">Закадровый перевод</string>
     <string name="revanced_overlay_button_whitelist_summary">Нажать - Открыть \"Белый список\".
 Нажать и удерживать - Открыть настройки \"Белый список\".</string>
     <string name="revanced_overlay_button_whitelist_title">Кнопка \"Белый список\"</string>
@@ -1781,32 +1783,6 @@ Shorts
     <string name="revanced_preference_screen_return_youtube_username_title">Имя пользователя YouTube - \"RYU\"</string>
     <string name="revanced_preference_screen_ryd_title">Вернуть YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
-    <string name="revanced_preference_screen_vot_title">Закадровый перевод</string>
-    <string name="revanced_vot_enabled_title">Включить закадровый перевод</string>
-    <string name="revanced_vot_enabled_summary_on">Закадровый перевод Яндекс включён</string>
-    <string name="revanced_vot_enabled_summary_off">Закадровый перевод Яндекс выключен</string>
-    <string name="revanced_vot_lang_auto">Автоопределение</string>
-    <string name="revanced_vot_source_language_title">Язык оригинала</string>
-    <string name="revanced_vot_source_language_summary">Выберите язык аудио видео</string>
-    <string name="revanced_vot_target_language_title">Язык перевода</string>
-    <string name="revanced_vot_target_language_summary">Выберите язык перевода</string>
-    <string name="revanced_vot_translation_volume_title">Громкость перевода</string>
-    <string name="revanced_vot_translation_volume_summary">Громкость переведённой аудиодорожки (0-100). По умолчанию: 100</string>
-    <string name="revanced_vot_proxy_url_title">Прокси-сервер</string>
-    <string name="revanced_vot_proxy_url_summary">Хост прокси-сервера VOT worker. По умолчанию: vot-worker.toil.cc</string>
-    <string name="revanced_overlay_button_vot_title">Закадровый перевод</string>
-    <string name="revanced_overlay_button_vot_summary">Показывать кнопку на плеере для включения/выключения закадрового перевода</string>
-    <string name="revanced_vot_unavailable_live">Перевод недоступен для стримов</string>
-    <string name="revanced_vot_unavailable_too_long">Видео слишком длинное для перевода (макс. 4 часа)</string>
-    <string name="revanced_vot_unavailable_same_language">Аудио видео уже на выбранном языке</string>
-    <string name="revanced_vot_started">Перевод запущен</string>
-    <string name="revanced_vot_stopped">Перевод остановлен</string>
-    <string name="revanced_vot_already_playing_stream">Перевод уже воспроизводится (основной плеер)</string>
-    <string name="revanced_vot_stream_waiting">Ожидание перевода…</string>
-    <string name="revanced_vot_stream_ready">Перевод готов, воспроизведение</string>
-    <string name="revanced_vot_stream_not_ready">Перевод ещё не готов. Включите кнопкой, когда будет готов.</string>
-    <string name="revanced_vot_stream_reloading">Перезагрузка видео с переводом…</string>
-    <string name="revanced_vot_stream_requesting">Запрос перевода для потока…</string>
     <string name="revanced_preference_screen_seekbar_summary">Настроить компоненты шкалы воспроизведения.</string>
     <string name="revanced_preference_screen_seekbar_title">Шкала воспроизведения</string>
     <string name="revanced_preference_screen_settings_menu_summary">Настройка меню YouTube.</string>
@@ -1826,6 +1802,7 @@ Shorts
     <string name="revanced_preference_screen_video_filter_summary">Скрытие видео по ключевым словам, просмотрам или продолжительности.</string>
     <string name="revanced_preference_screen_video_filter_title">Фильтрация видео</string>
     <string name="revanced_preference_screen_video_title">Видео</string>
+    <string name="revanced_preference_screen_vot_title">Закадровый перевод</string>
     <string name="revanced_preference_screen_watch_history_summary">Изменить настройки истории просмотра.</string>
     <string name="revanced_preference_screen_watch_history_title">История просмотра</string>
     <string name="revanced_queue_manager_add_to_queue">Добавить в очередь</string>
@@ -2731,6 +2708,27 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_transcript_cookies_summary">Куки для запросов расшифровок API.</string>
     <string name="revanced_transcript_cookies_title">Расшифровки куки</string>
     <string name="revanced_translations_title">Переводы</string>
+    <string name="revanced_vot_enabled_summary_off">Закадровый перевод Яндекс выключен</string>
+    <string name="revanced_vot_enabled_summary_on">Закадровый перевод Яндекс включён</string>
+    <string name="revanced_vot_enabled_title">Включить закадровый перевод</string>
+    <string name="revanced_vot_lang_auto">Автоопределение</string>
+    <string name="revanced_vot_proxy_url_summary">Хост прокси-сервера VOT worker. По умолчанию: vot-worker.toil.cc</string>
+    <string name="revanced_vot_proxy_url_title">Прокси-сервер</string>
+    <string name="revanced_vot_source_language_summary">Выберите язык аудио видео</string>
+    <string name="revanced_vot_source_language_title">Язык оригинала</string>
+    <string name="revanced_vot_started">Перевод запущен</string>
+    <string name="revanced_vot_stopped">Перевод остановлен</string>
+    <string name="revanced_vot_stream_not_ready">Перевод ещё не готов. Включите кнопкой, когда будет готов.</string>
+    <string name="revanced_vot_stream_ready">Перевод готов, воспроизведение</string>
+    <string name="revanced_vot_stream_requesting">Запрос перевода для потока…</string>
+    <string name="revanced_vot_stream_waiting">Ожидание перевода…</string>
+    <string name="revanced_vot_target_language_summary">Выберите язык перевода</string>
+    <string name="revanced_vot_target_language_title">Язык перевода</string>
+    <string name="revanced_vot_translation_volume_summary">Громкость переведённой аудиодорожки (0-100). По умолчанию: 100</string>
+    <string name="revanced_vot_translation_volume_title">Громкость перевода</string>
+    <string name="revanced_vot_unavailable_live">Перевод недоступен для стримов</string>
+    <string name="revanced_vot_unavailable_same_language">Аудио видео уже на выбранном языке</string>
+    <string name="revanced_vot_unavailable_too_long">Видео слишком длинное для перевода (макс. 4 часа)</string>
     <string name="revanced_watch_history_about_status_blocked">• История просмотра не работает.</string>
     <string name="revanced_watch_history_about_status_original">"• Статус истории просмотров обычный.
 • История просмотров может не работать с DNS или VPN."</string>

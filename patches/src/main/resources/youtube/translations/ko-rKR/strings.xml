@@ -4,7 +4,7 @@
     <string name="accessibility_settings_edu_opt_out_text">접근성 서비스가 활성화되어 있기 때문에 플레이어 컨트롤을 변경합니다.</string>
     <string name="gms_core_dialog_continue_text">계속하기</string>
     <string name="gms_core_dialog_dismiss_text">다시 보지 않기</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore에 백그라운드에서 실행할 수 있는 권한이 없습니다.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG에 백그라운드에서 실행할 수 있는 권한이 없습니다.
 
 이 기기에 대한 \"Don't kill my app\" 가이드를 읽어보고, MicroG 설치 지침을 적용하세요.
 
@@ -16,7 +16,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 앱 배터리 최적화를 비활성화(제한 없음)하려면 '계속하기' 버튼을 탭하세요."</string>
     <string name="gms_core_dialog_open_website_text">웹사이트 열기</string>
     <string name="gms_core_dialog_title">필수 조치</string>
-    <string name="gms_core_offline_account_login_error">최근에 계정 로그인 정보를 변경한 경우에는 GmsCore를 삭제했다가 다시 설치하세요.</string>
+    <string name="gms_core_offline_account_login_error">최근에 계정 로그인 정보를 변경한 경우에는 GmsCore를 제거했다가 다시 설치하세요.</string>
     <string name="gms_core_settings_summary">RVX 알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
     <string name="gms_core_settings_title">GmsCore 설정 열기</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
@@ -240,8 +240,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"강제 사용이 설정된 자동 오디오 트랙을 비활성화합니다.
 
 일부 사용자에게는 작동하지 않을 수 있습니다. 작동하지 않는 경우에는:
-1. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 'JavaScript 클라이언트 사용하기'를 활성화합니다.
-2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV Simply’로 변경합니다."</string>
+1. 설정 - RVX - 기타 - '스트리밍 데이터 속이기'로 이동하여 'JavaScript 클라이언트 사용하기'를 활성화합니다.
+2. 설정 - RVX - 기타 - '스트리밍 데이터 속이기'로 이동하여 ‘기본 클라이언트'를 'TV Simply’로 변경합니다."</string>
     <string name="revanced_disable_auto_audio_tracks_title">강제된 자동 오디오 트랙 비활성화하기</string>
     <string name="revanced_disable_auto_captions_summary_off">자동 자막을 활성화합니다</string>
     <string name="revanced_disable_auto_captions_summary_on">자동 자막을 비활성화합니다</string>
@@ -304,7 +304,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
 
 변경 사항
 • 플레이어 메뉴 구성 요소(또는 관련 설정)가 작동되지 않을 수 있습니다.
-• 롤링 넘버 애니메이션이 적용되지 않습니다.
+• 롤링 넘버 애니메이션이 작동되지 않습니다.
 • 보관함 탭이 사용됩니다.
 • 동영상 설명에서 음악 섹션이 작동되지 않을 수 있습니다.
 • 보관함 탭에서 계정 전환 버튼이 표시되지 않을 수 있습니다. '내 페이지에서 넓은 검색창 활성화하기' 설정을 사용하세요."</string>
@@ -447,7 +447,7 @@ Shorts 플레이어 배경을 탭하는 경우에 UI를 숨길 수 있습니다.
     <string name="revanced_enable_watch_next_processing_delay_summary_off">다음 시청 처리 지연을 비활성화합니다.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">다음 시청 처리 지연을 활성화합니다.</string>
     <string name="revanced_enable_watch_next_processing_delay_title">다음 시청 처리 지연 활성화하기</string>
-    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"이 설정은 플레이어 UI를 로드하기 전에 지연을 강제합니다.
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"이 설정은 플레이어 UI를 불러오기 전에 지연을 강제합니다.
 
 MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"이 설정을 활성화하면 내 페이지에서 설정 버튼이 비활성화됩니다.
@@ -485,7 +485,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_expand_video_description_summary_on">동영상 설명이 자동으로 펼쳐집니다.</string>
     <string name="revanced_expand_video_description_title">동영상 설명 펼치기</string>
     <string name="revanced_extended_audio_tracks_unavailable">"이 설정은 현재 사용할 수 없습니다.
-이 기능을 사용하려면, '스트리밍 데이터 변경하기'에서 기본 클라이언트를 iOS TV, TV 또는 TV Simply로 변경하세요.
+이 기능을 사용하려면, '스트리밍 데이터 속이기'에서 기본 클라이언트를 iOS TV, TV 또는 TV Simply로 변경하세요.
 
 알림:
 • 일부 지역에서는 iOS TV를 사용할 수 없으며, 이 경우에 이 설정이 여전히 작동하지 않을 수 있습니다."</string>
@@ -513,15 +513,15 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_fix_hype_button_icon_title">Hype 버튼 아이콘 수정하기</string>
     <string name="revanced_fix_hype_button_icon_user_dialog_message">"YouTube 19.25.39 이하 버전에서는 동영상 동작바 및 동영상 설명 패널에서 Hype 아이콘이 숨겨집니다.
 
-해결 방법으로 ‘/get_watch’ 엔드포인트와 ‘/next’ 엔드포인트에서 앱 버전이 19.26.42로 변경됩니다.
+해결 방법으로 ‘/get_watch’ 엔드포인트와 ‘/next’ 엔드포인트에서 앱 버전이 19.26.42로 속여집니다.
 
 이 설정을 비활성화할 경우에 동영상 동작바 및 동영상 설명 패널에 Hype 아이콘이 표시되지 않을 수 있습니다.
 
 ※ 이 설정을 비활성화하더라도 Hype 버튼이 숨겨지지 않을 수 있습니다."</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_off">\'자동재생\' 설정 대신에 ‘재생’ 설정이 사용됩니다.</string>
     <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"'재생' 설정 대신에 ‘자동재생’ 설정이 사용됩니다."</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_title">\'앱 버전 변경하기\' 부작용 수정하기</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"앱 버전이 한 번이라도 19.30 이전 버전으로 변경된 경우 '재생' 설정이 깨질 수 있습니다.
+    <string name="revanced_fix_spoof_app_version_side_effect_title">\'앱 버전 속이기\' 부작용 수정하기</string>
+    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"앱 버전이 한 번이라도 19.30 이전 버전으로 속여진 경우에는 '재생' 설정이 깨질 수 있습니다.
 
 이는 앱이 서버로부터 어떤 응답을 받는지에 따라 달라집니다.
 
@@ -548,11 +548,11 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_gemini_error_transcription_parse">필사 데이터를 분석할 수 없습니다.</string>
     <string name="revanced_gemini_error_translation_failed">Gemini가 번역할 수 없습니다.</string>
     <string name="revanced_gemini_error_translation_parse_failed">Gemini가 번역 분석을 할 수 없습니다.</string>
-    <string name="revanced_gemini_loading_default">불러오는 중 ...</string>
-    <string name="revanced_gemini_loading_summarize">동영상을 요약하는 중 ...</string>
-    <string name="revanced_gemini_loading_transcribe">동영상을 필사하는 중 ...</string>
-    <string name="revanced_gemini_loading_yandex_transcribe">Yandex: 자막을 가져오는 중 …</string>
-    <string name="revanced_gemini_status_translating">Gemini로 번역하는 중 ...\n\n⚠️ Gemini가 지침을 무시하거나 한계에 도달하면 이 단계가 실패할 수 있습니다.</string>
+    <string name="revanced_gemini_loading_default">불러오는 중...</string>
+    <string name="revanced_gemini_loading_summarize">동영상을 요약하는 중...</string>
+    <string name="revanced_gemini_loading_transcribe">동영상을 필사하는 중...</string>
+    <string name="revanced_gemini_loading_yandex_transcribe">Yandex: 자막을 가져오는 중…</string>
+    <string name="revanced_gemini_status_translating">Gemini로 번역하는 중...\n\n⚠️ Gemini가 지침을 무시하거나 한계에 도달하면 이 단계가 실패할 수 있습니다.</string>
     <string name="revanced_gemini_summary_title">Gemini 동영상 요약</string>
     <string name="revanced_gemini_time_taken">(%d 초가 소요되었습니다.)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">자막으로 표시하려면 \'다른 앱 위에 표시\' 권한을 활성화하세요.</string>
@@ -954,8 +954,8 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"오디오 트랙 메뉴가 숨겨집니다.
 
 오디오 트랙 메뉴를 표시하려면:
-1. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 'JavaScript 클라이언트 사용하기'를 활성화합니다.
-2. 설정 - RVX - 기타 - '스트리밍 데이터 변경하기'로 이동하여 ‘기본 클라이언트'를 'TV Simply’로 변경합니다."</string>
+1. 설정 - RVX - 기타 - '스트리밍 데이터 속이기'로 이동하여 'JavaScript 클라이언트 사용하기'를 활성화합니다.
+2. 설정 - RVX - 기타 - '스트리밍 데이터 속이기'로 이동하여 ‘기본 클라이언트'를 'TV Simply’로 변경합니다."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">오디오 트랙 메뉴가 표시됩니다.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">오디오 트랙 메뉴가 숨겨집니다.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">오디오 트랙 메뉴 숨기기</string>
@@ -1076,7 +1076,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_related_videos_summary_off">빠른 동작 컨테이너에서 관련 동영상이 표시됩니다</string>
     <string name="revanced_hide_related_videos_summary_on">빠른 동작 컨테이너에서 관련 동영상이 숨겨집니다</string>
     <string name="revanced_hide_related_videos_title">관련 동영상 숨기기</string>
-    <string name="revanced_hide_related_videos_user_dialog_message">"이 설정은 플레이어 화면에서 로드할 수 있는 최대 레이아웃 수를 제한합니다.
+    <string name="revanced_hide_related_videos_user_dialog_message">"이 설정은 플레이어 화면에서 불러올 수 있는 최대 레이아웃 수를 제한합니다.
 
 일부 관련 동영상이 숨겨지지 않거나 동작 바 또는 댓글 섹션과 같은 의도하지 않은 레이아웃이 숨겨지는 경우에 오프셋을 변경하면 문제가 해결될 수 있습니다.
 
@@ -1236,7 +1236,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_shorts_live_header_summary_on">실시간 채팅 헤더(상단 채널바)가 숨겨집니다.\n\n헤더에서 뒤로 가기 버튼은 숨길 수 없습니다.</string>
     <string name="revanced_hide_shorts_live_header_title">실시간 채팅 헤더 숨기기</string>
     <string name="revanced_hide_shorts_live_preview_summary_off">라이브 미리보기가 표시됩니다</string>
-    <string name="revanced_hide_shorts_live_preview_summary_on">라이브 미리보기가 숨겨집니다</string>
+    <string name="revanced_hide_shorts_live_preview_summary_on">라이브 미리보기가 숨겨집니다\n\n이 기능이 활성화되어 있더라도 Shorts 라이브 스트림은 Shorts 시퀀스에서 완전히 제거되지 않습니다</string>
     <string name="revanced_hide_shorts_live_preview_title">라이브 미리보기 숨기기</string>
     <string name="revanced_hide_shorts_location_button_summary_off">위치 버튼이 표시됩니다.</string>
     <string name="revanced_hide_shorts_location_button_summary_on">위치 버튼이 숨겨집니다.</string>
@@ -1723,11 +1723,11 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
     <string name="revanced_override_playlist_download_button_summary_on">기본 재생목록 오프라인 저장 버튼이 항상 표시되어 있으며, 공개 재생목록에서는 그 버튼으로 외부 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"기본 재생목록 오프라인 저장 버튼이 표시되어 있으면, 그 버튼으로 외부 다운로더를 실행할 수 있습니다.
 
-기본 재생목록 오프라인 저장 버튼을 표시하려면 ‘앱 버전 변경하기'를 활성화한 후에 '변경할 앱 버전'을 '19.28.42’ 이하로 선택하세요."</string>
+기본 재생목록 오프라인 저장 버튼을 표시하려면 ‘앱 버전 변경하기'를 활성화한 후에 '속이기에 사용될 앱 버전'을 '19.28.42’ 이하로 선택하세요."</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer_1">기본 재생목록 오프라인 저장 버튼이 표시되어 있으면, 그 버튼으로 외부 다운로더가 실행할 수 있습니다.</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer_2">"기본 재생목록 오프라인 저장 버튼이 표시되어 있으면, 그 버튼으로 외부 다운로더가 실행할 수 있습니다.
 
-기본 재생목록 오프라인 버튼을 표시하려면 ‘앱 버전 변경하기'를 활성화하고, '변경할 앱 버전'을 '19.28.42’ 이하로 변경하세요."</string>
+기본 재생목록 오프라인 버튼을 표시하려면 ‘앱 버전 변경하기'를 활성화하고, '속이기에 사용될 앱 버전'을 '19.28.42’ 이하로 변경하세요."</string>
     <string name="revanced_override_playlist_download_button_title">재생목록 오프라인 저장 버튼 재정의하기</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_off">기본 동영상 오프라인 저장 버튼으로 외부 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_on">기본 동영상 오프라인 저장 버튼으로 현재 재생목록 관리자를 실행할 수 있습니다.</string>
@@ -1828,8 +1828,8 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
     <string name="revanced_preference_screen_snack_bar_summary">스낵바와 관련된 구성요소를 숨기거나 변경할 수 있습니다.</string>
     <string name="revanced_preference_screen_snack_bar_title">스낵바 (팝업메세지바)</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_summary">스트리밍 데이터를 변경하여 동영상 재생 문제를 방지할 수 있습니다.</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_title">스트리밍 데이터 변경하기</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_summary">스트리밍 데이터를 속여서 동영상 재생 문제를 방지할 수 있습니다.</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_title">스트리밍 데이터 속이기</string>
     <string name="revanced_preference_screen_swipe_controls_title">스와이프 제스처</string>
     <string name="revanced_preference_screen_toolbar_summary">툴바에서 헤더, 검색창, 버튼과 같은 구성요소를 숨기거나 변경할 수 있습니다.</string>
     <string name="revanced_preference_screen_toolbar_title">툴바</string>
@@ -1852,13 +1852,13 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
     <string name="revanced_queue_manager_external_downloader">외부 다운로더</string>
     <string name="revanced_queue_manager_fetch_failed_add">동영상을 추가할 수 없습니다.</string>
     <string name="revanced_queue_manager_fetch_failed_create">현재 재생목록을 만들 수 없습니다.</string>
-    <string name="revanced_queue_manager_fetch_failed_delete">현재 재생목록을 제거할 수 없습니다.</string>
+    <string name="revanced_queue_manager_fetch_failed_delete">현재 재생목록을 삭제할 수 없습니다.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">동영상을 제거할 수 없습니다.</string>
     <string name="revanced_queue_manager_fetch_failed_save">현재 재생목록을 저장할 수 없습니다.</string>
     <string name="revanced_queue_manager_fetch_failed_video_information">동영상 정보를 가져올 수 없습니다.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">동영상을 성공적으로 추가하였습니다.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">현재 재생목록을 성공적으로 만들었습니다.</string>
-    <string name="revanced_queue_manager_fetch_succeeded_delete">현재 재생목록을 성공적으로 제거하였습니다.</string>
+    <string name="revanced_queue_manager_fetch_succeeded_delete">현재 재생목록을 성공적으로 삭제하였습니다.</string>
     <string name="revanced_queue_manager_fetch_succeeded_remove">동영상을 성공적으로 제거하였습니다.</string>
     <string name="revanced_queue_manager_fetch_succeeded_save">현재 재생목록을 \'%s\'에 성공적으로 저장하였습니다.</string>
     <string name="revanced_queue_manager_open_queue">현재 재생목록 열기</string>
@@ -1937,7 +1937,7 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
     <string name="revanced_remix_button_index_title">리믹스 버튼 인덱스</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"일부 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다.\n\n이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다."</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 삭제하기</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
     <string name="revanced_replace_channel_handle_summary_off">채널 핸들(@채널 아이디)을 사용합니다.</string>
     <string name="revanced_replace_channel_handle_summary_on">채널 이름을 사용합니다.</string>
     <string name="revanced_replace_channel_handle_title">채널 핸들 변경하기</string>
@@ -1961,7 +1961,7 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
     <string name="revanced_reset_to_default_toast">기본값으로 초기화하였습니다.</string>
     <string name="revanced_restart">다시 시작</string>
     <string name="revanced_restart_dialog_message">이 변경 사항을 적용하려면 앱을 다시 시작해야 합니다.</string>
-    <string name="revanced_restart_first_run">레이아웃을 정상적으로 로드하기 위해 다시 시작합니다.</string>
+    <string name="revanced_restart_first_run">레이아웃을 정상적으로 불러오기 위해 다시 시작합니다.</string>
     <string name="revanced_restart_title">앱을 다시 시작하세요</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">플레이어에서 전체 화면으로 된 썸네일을 표시합니다</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">재생바 상단에서 최소화된 썸네일을 표시합니다</string>
@@ -2042,7 +2042,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_sb_color_dot_label">색상:</string>
     <string name="revanced_sb_color_invalid">잘못된 색상입니다.</string>
     <string name="revanced_sb_color_reset">색상을 초기화하였습니다.</string>
-    <string name="revanced_sb_create_segment_category">새로운 구간 추가하기</string>
+    <string name="revanced_sb_create_segment_category">새 구간 추가하기</string>
     <string name="revanced_sb_diff_segments">각 구간에 설정할 동작</string>
     <string name="revanced_sb_duration_10s">10 초</string>
     <string name="revanced_sb_duration_1s">1 초</string>
@@ -2071,7 +2071,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_sb_general">일반</string>
     <string name="revanced_sb_general_adjusting">구간 추가 시 최소 슬라이더 단위 설정</string>
     <string name="revanced_sb_general_adjusting_invalid">값은 양수여야 합니다</string>
-    <string name="revanced_sb_general_adjusting_sum">새로운 구간 추가 시에 시간 앞으로 버튼 또는 뒤로 버튼을 탭하였을 때 이동하는 최소 시간으로, 단위는 밀리초입니다</string>
+    <string name="revanced_sb_general_adjusting_sum">새 구간 추가 시에 시간 앞으로 버튼 또는 뒤로 버튼을 탭하였을 때 이동하는 최소 시간으로, 단위는 밀리초입니다</string>
     <string name="revanced_sb_general_api_url">API URL 변경하기</string>
     <string name="revanced_sb_general_api_url_sum">SponsorBlock이 요청을 보낼 서버 URL입니다. 이것이 무슨 역할을 하는지 모르는 경우에는 이 URL을 변경하지 마세요</string>
     <string name="revanced_sb_general_min_duration">건너뛸 최소 구간 길이</string>
@@ -2126,7 +2126,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_sb_new_segment_start_is_before_end">구간의 시작 또는 끝을 잘못 설정하였습니다</string>
     <string name="revanced_sb_new_segment_time_end">구간의 끝</string>
     <string name="revanced_sb_new_segment_time_start">구간의 시작</string>
-    <string name="revanced_sb_new_segment_title">새로운 SponsorBlock 구간</string>
+    <string name="revanced_sb_new_segment_title">새 SponsorBlock 구간</string>
     <string name="revanced_sb_reset">초기화</string>
     <string name="revanced_sb_reset_color">색상 초기화</string>
     <string name="revanced_sb_segments_filler">주제와 관련 없는 구간</string>
@@ -2207,7 +2207,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_sb_square_layout_sum_on">버튼과 컨트롤을 각지게 활성화합니다</string>
     <string name="revanced_sb_stats">통계</string>
     <string name="revanced_sb_stats_connection_failure">기록을 일시적으로 가져올 수 없습니다 (응답 시간 초과)</string>
-    <string name="revanced_sb_stats_loading">불러오는 중 ...</string>
+    <string name="revanced_sb_stats_loading">불러오는 중...</string>
     <string name="revanced_sb_stats_reputation">사용자의 평판: &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="revanced_sb_stats_saved">다른 분들이 &lt;b&gt;%s&lt;/b&gt;개의 구간을 건너뛸 수 있게 해주셨습니다</string>
     <string name="revanced_sb_stats_saved_hour_format">%1$s 시간 %2$s 분</string>
@@ -2300,7 +2300,7 @@ Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
     <string name="revanced_settings_search_no_results_summary">다른 키워드를 검색해 보세요</string>
     <string name="revanced_settings_search_no_results_title">\'%s\'에 대한 검색 결과가 없습니다</string>
     <string name="revanced_settings_search_recent_searches">최근 검색어</string>
-    <string name="revanced_settings_search_remove_message">검색 기록에서 삭제하시겠습니까?</string>
+    <string name="revanced_settings_search_remove_message">검색 기록에서 제거하시겠습니까?</string>
     <string name="revanced_settings_search_tips_summary">"• 경로를 탭하여 설정 카테고리로 이동할 수 있습니다.
 • 설정을 길게 탭하여 설정 위치로 이동할 수 있습니다.
 • 엔터키를 탭하여 검색어를 기록에 저장할 수 있습니다.
@@ -2379,12 +2379,12 @@ Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
     <string name="revanced_speed_overlay_value_title">동영상 재생 속도 오버레이 값</string>
     <string name="revanced_spoof_app_version_other_item">그 외</string>
     <string name="revanced_spoof_app_version_other_item_hint">앱 버전을 입력하세요.</string>
-    <string name="revanced_spoof_app_version_summary">"서버에 연결할 때 사용되는 앱 버전을 지정하여 앱 레이아웃을 변경합니다.
+    <string name="revanced_spoof_app_version_summary">"서버에 연결할 때 사용되는 앱 버전을 속여서 앱 레이아웃을 변경합니다.
 
 • 이 설정을 활성화하면 앱 레이아웃이 변경되지만 알려지지 않은 문제점이 발생할 수 있습니다.
 • 나중에 이 설정을 비활성화하면 앱 데이터를 지우기 전까지 이전 레이아웃이 유지될 수 있습니다."</string>
-    <string name="revanced_spoof_app_version_summary_off">앱 버전을 변경하지 않습니다</string>
-    <string name="revanced_spoof_app_version_summary_on">앱 버전을 변경합니다</string>
+    <string name="revanced_spoof_app_version_summary_off">앱 버전이 속여지지 않습니다</string>
+    <string name="revanced_spoof_app_version_summary_on">앱 버전이 속여집니다</string>
     <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - 이전 레이아웃으로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - 이전 재생목록 선반으로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 이전 댓글 입력 상자로 복원합니다.</string>
@@ -2399,22 +2399,22 @@ Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - 이전 동영상 재생 속도 구성요소 패널을 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - 스크립트 기능을 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - 접히지 않은 동영상 동작바를 복원합니다.</string>
-    <string name="revanced_spoof_app_version_target_entry_title">변경할 앱 버전</string>
-    <string name="revanced_spoof_app_version_target_invalid_toast">변경할 앱 버전이 잘못되었습니다: %s</string>
-    <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 입력하세요.</string>
-    <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
-    <string name="revanced_spoof_app_version_title">앱 버전 변경하기</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"앱 버전을 YouTube 이전 앱 버전으로 변경합니다.
+    <string name="revanced_spoof_app_version_target_entry_title">속이기에 사용될 앱 버전</string>
+    <string name="revanced_spoof_app_version_target_invalid_toast">속이기에 사용될 앱 버전이 잘못되었습니다: %s</string>
+    <string name="revanced_spoof_app_version_target_summary">속이기에 사용될 앱 버전을 입력하세요.</string>
+    <string name="revanced_spoof_app_version_target_title">속이기에 사용될 앱 버전</string>
+    <string name="revanced_spoof_app_version_title">앱 버전 속이기</string>
+    <string name="revanced_spoof_app_version_user_dialog_message">"앱 버전이 YouTube 이전 앱 버전으로 속여집니다.
 
 이 경우 앱 레이아웃과 기능이 변경되지만 알려지지 않은 부작용이 발생할 수 있습니다.
 
 나중에 이 기능을 비활성화하면 앱 UI 버그를 방지하기 위해 앱 데이터를 지우는 것이 좋습니다."</string>
-    <string name="revanced_spoof_device_dimensions_summary">"기기 크기 정보를 최대 값으로 변경합니다.
+    <string name="revanced_spoof_device_dimensions_summary">"기기 크기 정보이 최대 값으로 속여집니다.
 
 알림:
 • 높은 기기 크기 정보가 필요한 동영상에서는 고화질 동영상 값이 해제될 수 있지만 모든 동영상에는 적용되지 않습니다.
-• '스트리밍 데이터 변경하기'가 활성화되어 있으면, 이 설정을 사용할 수 없습니다."</string>
-    <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
+• '스트리밍 데이터 속이기'가 활성화되어 있으면, 이 설정을 사용할 수 없습니다."</string>
+    <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 속이기</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">동영상 코덱이 AVC (H.264) 또는 VP9으로 결정됩니다.</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"동영상 코덱이 AVC (H.264), VP9 또는 AV1으로 결정됩니다.
 
@@ -2514,7 +2514,7 @@ VP9은 AVC보다 고급 코덱이지만, 일부 사용자는 '360p VP9'보다 '1
 • 복호화에 실패하면 재생이 실패할 수 있습니다.
 • 간혹 10초가 지나도 동영상이 재생되지 않는 경우가 있습니다. 이 경우에는 동영상 새로고침 버튼을 탭해야 합니다.
 • 동영상이 늦게 시작될 수 있습니다."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_title">변경에 따른 부작용</string>
+    <string name="revanced_spoof_streaming_data_side_effects_title">속이기에 따른 부작용</string>
     <string name="revanced_spoof_streaming_data_side_effects_tv">"• 복호화에 실패하면 재생이 실패할 수 있습니다.
 • 간혹 10초가 지나도 동영상이 재생되지 않는 경우가 있습니다. 이 경우에는 동영상 새로고침 버튼을 탭해야 합니다.
 • 동영상이 늦게 시작될 수 있습니다.
@@ -2556,14 +2556,14 @@ VP9은 AVC보다 고급 코덱이지만, 일부 사용자는 '360p VP9'보다 '1
 5. 로그인 후에 RVX로 돌아가서 'Android VR에 로그인하기'를 다시 탭합니다.
 6. '승인 토큰 받기'를 탭하여 승인 토큰을 받습니다.
 
-* '인증 토큰 또는 활성화 코드를 삭제하려면 '초기화'를 탭하세요."</string>
+* '인증 토큰 또는 활성화 코드를 제거하려면 '초기화'를 탭하세요."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">초기화</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Android VR에 로그인하기</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"인증 토큰을 저장하였습니다.
 
 • 이 과정을 통해 발급된 인증 토큰은 YouTube VR에서만 사용할 수 있습니다 (RVX에서는 YouTube VR에서 스트리밍 데이터를 가져오는 데 사용됩니다).
 • 6개월 이상 사용되지 않은 인증 토큰은 Google 서버에서 취소됩니다.
-• 비밀번호를 변경하거나 계정 설정에서 기기 등록을 해제하거나 앱을 삭제하면 인증 토큰을 다시 발급받아야 합니다."</string>
+• 비밀번호를 변경하거나 계정 설정에서 기기 등록을 해제하거나 앱을 제거하면 인증 토큰을 다시 발급받아야 합니다."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">로그인하였습니다</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">인증 토큰을 발급할 수 없습니다.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">초기화를 탭하고 다시 시도하세요.</string>
@@ -2571,11 +2571,11 @@ VP9은 AVC보다 고급 코덱이지만, 일부 사용자는 '360p VP9'보다 '1
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">스트리밍 데이터를 가져오는 데 사용되는 클라이언트를 전문 통계에서 표시하지 않습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">스트리밍 데이터를 가져오는 데 사용되는 클라이언트를 전문 통계에서 표시합니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
-    <string name="revanced_spoof_streaming_data_summary_off">"스트리밍 데이터를 변경하지 않습니다.\n\n동영상 재생 문제가 발생할 수 있습니다."</string>
-    <string name="revanced_spoof_streaming_data_summary_on">"스트리밍 데이터를 변경합니다.
+    <string name="revanced_spoof_streaming_data_summary_off">"스트리밍 데이터가 속여지지 않습니다.\n\n동영상 재생 문제가 발생할 수 있습니다."</string>
+    <string name="revanced_spoof_streaming_data_summary_on">"스트리밍 데이터가 속여집니다.
 
 YouTube Premium 사용자라면 이 설정이 필요하지 않을 수 있습니다."</string>
-    <string name="revanced_spoof_streaming_data_title">스트리밍 데이터 변경하기</string>
+    <string name="revanced_spoof_streaming_data_title">스트리밍 데이터 속이기</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
     <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"JavaScript 클라이언트가 빠른 재생이 필요한 일부 동영상에는 사용되지 않습니다:
 
@@ -2588,7 +2588,7 @@ YouTube Premium 사용자라면 이 설정이 필요하지 않을 수 있습니�
     <string name="revanced_spoof_streaming_data_use_js_all_title">모든 동영상에 JavaScript 클라이언트 사용하기</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">자세한 정보를 보려면 여기를 탭하세요.</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">페이크 버퍼링에 대한 정보</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"JavaScript 클라이언트에서 동영상이 너무 늦게 시작되는 한 가지 이유는 YouTube의 새로운 광고 차단 방지 조치 때문입니다.
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"JavaScript 클라이언트에서 동영상이 너무 늦게 시작되는 한 가지 이유는 YouTube의 새 광고 차단 방지 조치 때문입니다.
 
 동영상 광고가 차단되면 GVS (Google Video Server)는 광고 길이에 비례하는 페이크 버퍼링을 생성합니다 (A/B 테스트).
 
@@ -2596,21 +2596,21 @@ uBlock Origin은 이 문제에 대한 해결 방법을 찾아냈으며, ‘페�
 
 기사를 읽으려면 '열기'를 탭하세요."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">열기</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"YouTube의 새로운 광고 차단 방지 조치"</string>
+    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"YouTube의 새 광고 차단 방지 조치"</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">페이크 버퍼링를 우회하지 않습니다.</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"페이크 버퍼링를 우회합니다.
 
 제한 사항:
 • 서버 측 변경으로 인하여 언제든지 작동이 중단될 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">페이크 버퍼링 우회하기</string>
-    <string name="revanced_spoof_streaming_data_use_js_summary_off">JavaScript 클라이언트가 사용 가능한 클라이언트에 추가되지 않습니다.</string>
-    <string name="revanced_spoof_streaming_data_use_js_summary_on">JavaScript 클라이언트가 사용 가능한 클라이언트에 추가됩니다.</string>
+    <string name="revanced_spoof_streaming_data_use_js_summary_off">TV 및 TV Simply 클라이언트가 사용 가능한 클라이언트에 추가되지 않습니다.</string>
+    <string name="revanced_spoof_streaming_data_use_js_summary_on">TV 및 TV Simply 클라이언트가 사용 가능한 클라이언트에 추가됩니다.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">JavaScript 클라이언트 사용하기</string>
     <string name="revanced_spoof_streaming_data_use_js_user_dialog_message">"JavaScript 클라이언트는 n-sig 패턴 디코딩 요구사항으로 인하여 동영상 시작 시 약간의 지연이 발생할 수 있습니다.
 
 때때로 n-sig 패턴 디코딩이 실패하여 동영상 시작이 지연되거나 동영상 스트림이 끊길 수 있습니다.
 
-플레이어의 '동영상 새로고침 버튼'을 탭하여 동영상을 다시 로드하게 되면 이 문제를 쉽게 해결할 수 있습니다.
+플레이어의 '동영상 새로고침 버튼'을 탭하여 동영상을 다시 불러오게 되면 이 문제를 쉽게 해결할 수 있습니다.
 
 (전제 조건: '동영상 새로고침 버튼 표시하기'와 '동영상 새로고침 버튼 항상 표시하기'가 모두 활성화된 상태)
 
@@ -2710,9 +2710,9 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_swipe_volume_summary_off">전체 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절하지 않습니다</string>
     <string name="revanced_swipe_volume_summary_on">"전체 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절합니다"</string>
     <string name="revanced_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
-    <string name="revanced_switch_create_with_notifications_button_summary">"기기 정보를 변경하여 만들기 버튼과 알림 버튼의 위치를 교환합니다.
+    <string name="revanced_switch_create_with_notifications_button_summary">"기기 정보를 속여서 만들기 버튼과 알림 버튼의 위치를 교환합니다.
 • 이 설정을 변경하더라도 기기를 다시 시작할 때까지 적용되지 않을 수 있습니다.
-• 이 설정을 비활성화하면 서버에서 광고 필터에 등록되지 않은 광고(Shorts 광고)가 로드됩니다.
+• 이 설정을 비활성화하면 서버에서 광고 필터에 등록되지 않은 광고(Shorts 광고)를 불러옵니다.
 • 이 설정을 활성화하면 일부 광고가 강제로 숨겨집니다. (동영상 광고, 일반 레이아웃 광고)
 • 광고 설정에 있는 일부 설정들을 비활성화하려면 이 설정도 비활성화해야 합니다."</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">만들기 버튼과 알림 버튼의 위치를 교환하지 않습니다</string>
@@ -2793,10 +2793,10 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_whitelist_added">\'%1$s\' 채널을 %2$s 화이트리스트에 추가하였습니다.</string>
     <string name="revanced_whitelist_empty">화이트리스트 채널이 없습니다.</string>
     <string name="revanced_whitelist_excluded">화이트리스트에 추가되어 있지 않습니다.</string>
-    <string name="revanced_whitelist_failure_generic">채널 정보를 로드하지 못하였습니다.</string>
+    <string name="revanced_whitelist_failure_generic">채널 정보를 불러오지 못하였습니다.</string>
     <string name="revanced_whitelist_included">화이트리스트에 추가되어 있습니다.</string>
     <string name="revanced_whitelist_playback_speed">재생 속도</string>
-    <string name="revanced_whitelist_reload_video">지금 동영상을 다시 로드하시겠습니까?</string>
+    <string name="revanced_whitelist_reload_video">지금 동영상을 다시 불러오시겠습니까?</string>
     <string name="revanced_whitelist_remove_dialog_message">\'%1$s\' 채널을 %2$s 화이트리스트에서 제거하시겠습니까?</string>
     <string name="revanced_whitelist_remove_failed">\'%1$s\' 채널을 %2$s 화이트리스트에서 제거할 수 없습니다.</string>
     <string name="revanced_whitelist_removed">\'%1$s\' 채널을 %2$s 화이트리스트에서 제거하였습니다.</string>
@@ -2817,15 +2817,15 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_yandex_error_subs_stuck_processing">내부 오류: 자막 처리가 중단되었습니다.</string>
     <string name="revanced_yandex_error_translation_failed">번역을 할 수 없습니다.</string>
     <string name="revanced_yandex_error_unknown">알 수 없는 문제점</string>
-    <string name="revanced_yandex_status_processing_hour">한 시간 이상 남았습니다 ...</string>
-    <string name="revanced_yandex_status_processing_minute">대략 1분 정도 남았습니다 ...</string>
-    <string name="revanced_yandex_status_processing_minutes_plural">%d 분 남았습니다 ...</string>
-    <string name="revanced_yandex_status_processing_short">처리 중 ...</string>
+    <string name="revanced_yandex_status_processing_hour">한 시간 이상 남았습니다...</string>
+    <string name="revanced_yandex_status_processing_minute">대략 1분 정도 남았습니다...</string>
+    <string name="revanced_yandex_status_processing_minutes_plural">%d 분 남았습니다...</string>
+    <string name="revanced_yandex_status_processing_short">처리 중...</string>
     <string name="revanced_yandex_status_requesting_translation">번역을 요청하는 중입니다.</string>
     <string name="revanced_yandex_status_session_ok">세션을 확인하였습니다.</string>
-    <string name="revanced_yandex_status_subs_found">자막이 발견되었습니다, 가져오는 중입니다 ...</string>
+    <string name="revanced_yandex_status_subs_found">자막이 발견되었습니다, 가져오는 중입니다...</string>
     <string name="revanced_yandex_status_transcription_delayed">필사가 약간 지연됩니다.</string>
-    <string name="revanced_yandex_status_youtube_specific">YouTube 오디오 요청 처리 중 ...</string>
+    <string name="revanced_yandex_status_youtube_specific">YouTube 오디오 요청 처리 중...</string>
     <string name="revanced_yandex_transcribe_subtitles_language_summary">Yandex는 모든 언어의 동영상을 텍스트로 필사할 수 있지만 출력은 영어(en), 러시아어(ru), 카자흐어(kk)로만 가능합니다. 다른 언어 코드 또는 앱의 기본 언어를 의미하는 \'app\'을 입력하면 Gemini에게 번역을 요청합니다. (API Key가 요구됨)</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex 언어</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Gemini 대신에 Yandex 필사기를 사용할 수 있습니다. Yandex는 더 빠르고 안정적일 수 있습니다. API Key가 필요하지 않습니다.</string>

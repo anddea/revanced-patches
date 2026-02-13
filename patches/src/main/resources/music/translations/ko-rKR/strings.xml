@@ -81,7 +81,7 @@
     <string name="revanced_default_app_settings_title">기본 앱 설정 열기</string>
     <string name="revanced_disable_auto_audio_tracks_summary">"팟캐스트를 위한 강제 사용이 설정된 자동 오디오 트랙을 비활성화합니다.
 
-제한 사항: '스트리밍 데이터 변경'이 활성화되어 있고 기본 클라이언트가 'Android VR 인증 있음'인 경우에는 작동하지 않을 수 있습니다."</string>
+제한 사항: '스트리밍 데이터 속이기'가 활성화되어 있고 기본 클라이언트가 'Android VR 인증 있음'인 경우에는 작동하지 않을 수 있습니다."</string>
     <string name="revanced_disable_auto_audio_tracks_title">강제된 자동 오디오 트랙 비활성화</string>
     <string name="revanced_disable_auto_captions_summary">자동 자막이 강제로 활성화되지 않도록 설정합니다.</string>
     <string name="revanced_disable_auto_captions_title">강제된 자동 자막 비활성화</string>
@@ -140,7 +140,7 @@
 
 알림:
 • 최신 YT Music 클라이언트는 기본적으로 OPUS 코덱을 사용합니다.
-• 클라이언트 또는 동영상 스트림이 변경된 경우에는 이 옵션이 필요할 수 있습니다."</string>
+• 클라이언트 또는 동영상 스트림이 속여진 경우에는 이 옵션이 필요할 수 있습니다."</string>
     <string name="revanced_enable_opus_codec_title">OPUS 코덱 활성화</string>
     <string name="revanced_enable_smooth_transition_animation_summary">미니 플레이어를 최소화 상태에서 최대화할 때, 부드러운 애니메이션을 활성화합니다.</string>
     <string name="revanced_enable_smooth_transition_animation_title">부드러운 전환 애니메이션 활성화</string>
@@ -510,7 +510,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_settings_search_no_results_summary">다른 키워드를 검색해 보세요.</string>
     <string name="revanced_settings_search_no_results_title">\'%s\'에 대한 검색 결과가 없습니다.</string>
     <string name="revanced_settings_search_recent_searches">최근 검색어</string>
-    <string name="revanced_settings_search_remove_message">검색 기록에서 삭제하시겠습니까?</string>
+    <string name="revanced_settings_search_remove_message">검색 기록에서 제거하시겠습니까?</string>
     <string name="revanced_settings_search_tips_summary">"• 경로를 탭하여 설정 카테고리로 이동할 수 있습니다.
 • 설정을 길게 탭하여 설정 위치로 이동할 수 있습니다.
 • 엔터키를 탭하여 검색어를 기록에 저장할 수 있습니다.
@@ -520,15 +520,15 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_settings_search_title">%s 검색</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">설정을 클립보드에 복사하였습니다.</string>
-    <string name="revanced_spoof_app_version_for_lyrics_summary">가사에 사용된 클라이언트 버전을 이전 버전으로 변경합니다.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_summary">가사에 사용된 클라이언트 버전이 이전 버전으로 속여집니다.</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - 실시간 가사가 없습니다</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_7_12_52">7.12.52 - 실시간 가사가 있습니다</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_06_52">8.06.52 - 실시간 가사 + 공유 버튼</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - 실시간 가사 + 공유 버튼 + 번역 버튼 (Premium 사용자 전용)</string>
-    <string name="revanced_spoof_app_version_for_lyrics_target_summary">가사를 위해 변경할 앱 버전을 선택하세요.</string>
-    <string name="revanced_spoof_app_version_for_lyrics_target_title">가사를 위해 변경할 앱 버전</string>
-    <string name="revanced_spoof_app_version_for_lyrics_title">가사를 위한 앱 버전 변경</string>
-    <string name="revanced_spoof_app_version_summary">"클라이언트 버전을 이전 버전으로 변경합니다.
+    <string name="revanced_spoof_app_version_for_lyrics_target_summary">가사를 위해 속여질 앱 버전을 선택하세요.</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_title">가사를 위해 속여질 앱 버전</string>
+    <string name="revanced_spoof_app_version_for_lyrics_title">가사를 위한 앱 버전 속이기</string>
+    <string name="revanced_spoof_app_version_summary">"클라이언트 버전이 이전 버전으로 속여집니다.
 
 • 이 기능을 활성화하면 앱 레이아웃이 변경되지만 알려지지 않은 부작용이 발생할 수 있습니다.
 • 이 기능을 활성화했지만 작동하지 않는 경우에는 다른 계정으로 전환해 보세요.
@@ -539,12 +539,12 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - 실시간 가사를 비활성화합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - 이전 동작바로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - 홈 피드에서 댓글 섹션이 표시되지 않습니다.</string>
-    <string name="revanced_spoof_app_version_target_invalid_toast">변경할 앱 버전이 잘못되었습니다: %s</string>
-    <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 선택하세요.</string>
-    <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
-    <string name="revanced_spoof_app_version_title">앱 버전 변경</string>
-    <string name="revanced_spoof_client_summary">클라이언트를 변경하여 재생 문제를 방지할 수 있습니다.</string>
-    <string name="revanced_spoof_client_title">클라이언트 변경</string>
+    <string name="revanced_spoof_app_version_target_invalid_toast">속여질 앱 버전이 잘못되었습니다: %s</string>
+    <string name="revanced_spoof_app_version_target_summary">속여질 앱 버전을 선택하세요.</string>
+    <string name="revanced_spoof_app_version_target_title">속여질 앱 버전</string>
+    <string name="revanced_spoof_app_version_title">앱 버전 속이기</string>
+    <string name="revanced_spoof_client_summary">클라이언트를 속여서 재생 문제를 방지할 수 있습니다.</string>
+    <string name="revanced_spoof_client_title">클라이언트 속이기</string>
     <string name="revanced_spoof_client_type_summary">"부작용:
 • 동작 버튼 또는 플레이어 메뉴 구성요소가 제대로 표시되지 않을 수 있습니다.
 • 이러한 부작용은 앱 데이터를 지우고 다시 로그인하면 해결될 수 있습니다.
@@ -560,7 +560,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV 기존</string>
     <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
     <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
-    <string name="revanced_spoof_streaming_data_default_client_summary">클라이언트를 변경하기 위한 기본 클라이언트를 정의할 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_default_client_summary">클라이언트를 속이기 위한 기본 클라이언트를 정의할 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">기본 클라이언트</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">클라이언트 스트림을 가져올 수 없습니다.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">기본 클라이언트를 TV Simply로 변경해 보세요.</string>
@@ -575,14 +575,14 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
 2. Google 계정에 로그인합니다.
 3. 로그인 결과가 5초 이내에 표시됩니다.
 
-* 인증 토큰을 삭제하려면 '초기화'를 탭하세요."</string>
+* 인증 토큰을 제거하려면 '초기화'를 탭하세요."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">초기화</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Android SDK 없음에 로그인</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"인증 토큰을 저장하였습니다.
 
 • 이 과정을 통해 발급된 인증 토큰은 YouTube에서만 사용할 수 있습니다 (RVX에서는 YouTube에서 스트리밍 데이터를 가져오는 데 사용됩니다).
 • 6개월 이상 사용되지 않은 인증 토큰은 Google 서버에서 취소됩니다.
-• 비밀번호를 변경하거나 계정 설정에서 기기 등록을 해제하거나 앱을 삭제하면 인증 토큰을 다시 발급받아야 합니다."</string>
+• 비밀번호를 변경하거나 계정 설정에서 기기 등록을 해제하거나 앱을 제거하면 인증 토큰을 다시 발급받아야 합니다."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">로그인하였습니다</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">인증 토큰을 초기화하였습니다.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Android VR에 로그인하는 방법을 보려면 여기를 탭하세요.</string>
@@ -609,24 +609,24 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
 5. 로그인 후에 RVX로 돌아가서 'Android VR에 로그인'을 다시 탭합니다.
 6. '승인 토큰 받기'를 탭하여 승인 토큰을 받습니다.
 
-※ 인증 토큰 또는 활성화 코드를 삭제하려면 '초기화'를 탭하세요."</string>
+※ 인증 토큰 또는 활성화 코드를 제거하려면 '초기화'를 탭하세요."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">초기화</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Android VR에 로그인</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"인증 토큰을 저장하였습니다.
 
 • 이 과정을 통해 발급된 인증 토큰은 YouTube VR에서만 사용할 수 있습니다 (RVX에서는 YouTube VR에서 스트리밍 데이터를 가져오는 데 사용됩니다).
 • 6개월 이상 사용되지 않은 인증 토큰은 Google 서버에서 취소됩니다.
-• 비밀번호를 변경하거나 계정 설정에서 기기 등록을 해제하거나 앱을 삭제하면 인증 토큰을 다시 발급받아야 합니다."</string>
+• 비밀번호를 변경하거나 계정 설정에서 기기 등록을 해제하거나 앱을 제거하면 인증 토큰을 다시 발급받아야 합니다."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">로그인을 하였습니다</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">인증 토큰을 발급할 수 없습니다.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">초기화를 탭하고 다시 시도하세요.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">인증 토큰과 활성화 코드를 초기화하였습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 동영상 통계에서 표시됩니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">동영상 통계에서 표시</string>
-    <string name="revanced_spoof_streaming_data_summary">"클라이언트 동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다.
+    <string name="revanced_spoof_streaming_data_summary">"클라이언트 동영상 스트림을 속여서 재생 문제를 방지할 수 있습니다.
 
 YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다."</string>
-    <string name="revanced_spoof_streaming_data_title">스트리밍 데이터 변경</string>
+    <string name="revanced_spoof_streaming_data_title">스트리밍 데이터 속이기</string>
     <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"이 기능을 활성화하면, ‘TV’ 및 'Mobile Web'에서 최신 플레이어 JavaScript가 스트리밍 URL을 복호화하는 데 사용됩니다.
 
 JavaScript 클라이언트에 문제가 발생할 경우에 먼저 이 기능을 비활성화해보세요."</string>
@@ -642,8 +642,8 @@ JavaScript 클라이언트에 문제가 발생할 경우에 먼저 이 기능을
 • VPN 또는 DNS를 사용할 경우에 앱이 강제로 종료될 수 있습니다.
 • 적응형 비트레이트 스트리밍 클라이언트 (Android VR 1.43.32 이외의 모든 클라이언트)를 사용하는 경우에 오디오 재생이 간헐적으로 끊길 수 있습니다."</string>
     <string name="revanced_spoof_video_streams_default_client_title">기본 클라이언트</string>
-    <string name="revanced_spoof_video_streams_summary">클라이언트 동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다.</string>
-    <string name="revanced_spoof_video_streams_title">동영상 스트림 변경</string>
+    <string name="revanced_spoof_video_streams_summary">클라이언트 동영상 스트림을 속여서 재생 문제를 방지할 수 있습니다.</string>
+    <string name="revanced_spoof_video_streams_title">동영상 스트림 속이기</string>
     <string name="revanced_translations_title">번역에 도움주기</string>
     <string name="revanced_watch_history_type_entry_1">원본</string>
     <string name="revanced_watch_history_type_entry_2">도메인 변경</string>
