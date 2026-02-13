@@ -181,6 +181,7 @@ public class VoiceOverTranslationPatch {
                     break;
                 case STATUS_WAITING:
                 case STATUS_LONG_WAITING:
+                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting")));
                     int waitTime = result.remainingTime > 0 ? result.remainingTime : 5;
                     pollTranslation(videoId, videoTitle, youtubeUrl, durationSeconds, sourceLang, targetLang, waitTime);
                     break;
@@ -246,6 +247,7 @@ public class VoiceOverTranslationPatch {
             VotApiClient.TranslationResult result = VotApiClient.requestTranslation(
                     url, duration, sourceLang, targetLang, videoTitle);
             if (result != null && (result.status == STATUS_WAITING || result.status == STATUS_LONG_WAITING)) {
+                Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting")));
                 int waitTime = result.remainingTime > 0 ? result.remainingTime : 10;
                 pollTranslation(videoId, videoTitle, url, duration, sourceLang, targetLang, waitTime);
             } else if (result != null && (result.status == STATUS_FINISHED || result.status == STATUS_PART_CONTENT) && result.audioUrl != null) {
