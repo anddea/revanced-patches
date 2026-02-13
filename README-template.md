@@ -14,6 +14,8 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 
 Report issues [here](https://github.com/inotia00/ReVanced_Extended).
 
+This app uses code from Morphe. To learn more, visit https://morphe.software.
+
 ## 📋 List of patches in this repository
 
 {{ table }}
