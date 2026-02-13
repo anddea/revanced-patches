@@ -160,6 +160,12 @@ class StreamingDataRequest private constructor(
             return cache[videoId]
         }
 
+        /** Invalidates the cached request for a videoId. The next time this video is loaded, a new request will be created (if the app makes a new player request). Used by VOT when enabling translation before reloading. */
+        @JvmStatic
+        fun invalidateCacheForVideoId(videoId: String) {
+            cache.remove(videoId)
+        }
+
         private fun handleConnectionError(
             toastMessage: String,
             ex: Exception?,

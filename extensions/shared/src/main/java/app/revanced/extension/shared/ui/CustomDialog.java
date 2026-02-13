@@ -30,6 +30,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import android.view.View;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;

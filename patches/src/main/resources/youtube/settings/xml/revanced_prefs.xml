@@ -880,6 +880,16 @@
     </PreferenceScreen>PREFERENCE_SCREEN: RETURN_YOUTUBE_USERNAME -->
 
 
+    <!-- PREFERENCE_SCREEN: VOICE_OVER_TRANSLATION
+    <PreferenceScreen android:title="@string/revanced_preference_screen_vot_title" android:key="revanced_preference_screen_vot">
+        <SwitchPreference android:title="@string/revanced_vot_enabled_title" android:key="vot_enabled" android:summaryOn="@string/revanced_vot_enabled_summary_on" android:summaryOff="@string/revanced_vot_enabled_summary_off" />
+        <app.revanced.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_vot_source_language_entries" android:title="@string/revanced_vot_source_language_title" android:key="vot_source_language" android:summary="@string/revanced_vot_source_language_summary" android:dependency="vot_enabled" android:entryValues="@array/revanced_vot_source_language_entry_values" android:defaultValue="auto" />
+        <app.revanced.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_vot_target_language_entries" android:title="@string/revanced_vot_target_language_title" android:key="vot_target_language" android:summary="@string/revanced_vot_target_language_summary" android:dependency="vot_enabled" android:entryValues="@array/revanced_vot_target_language_entry_values" android:defaultValue="ru" />
+        <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_vot_translation_volume_title" android:key="vot_translation_volume" android:summary="@string/revanced_vot_translation_volume_summary" android:dependency="vot_enabled" />
+        <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_vot_proxy_url_title" android:key="vot_proxy_url" android:summary="@string/revanced_vot_proxy_url_summary" android:dependency="vot_enabled" />
+    </PreferenceScreen>PREFERENCE_SCREEN: VOICE_OVER_TRANSLATION -->
+
+
     <!-- PREFERENCE_SCREEN: SPONSOR_BLOCK
     <PreferenceScreen android:title="@string/revanced_preference_screen_sb_title" android:key="revanced_preference_screen_sb" >
         <app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup android:title="@string/revanced_preference_group_sb_title" android:key="revanced_preference_group_sb" />

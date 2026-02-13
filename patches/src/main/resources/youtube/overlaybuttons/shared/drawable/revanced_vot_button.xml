@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:constantSize="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_activated="true" android:drawable="@drawable/revanced_vot_button_icon" android:tint="?ytCallToAction" />
+    <item android:drawable="@drawable/revanced_vot_button_icon" android:tint="@color/yt_white1" />
+</selector>

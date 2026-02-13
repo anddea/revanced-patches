@@ -1538,6 +1538,11 @@ public final class app/revanced/patches/youtube/video/videoid/VideoIdPatchKt {
 	public static final fun getVideoIdPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/video/voiceovertranslation/VoiceOverTranslationPatchKt {
+	public static final fun getVoiceOverTranslationBytecodePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getVoiceOverTranslationPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public final class app/revanced/util/BytecodeUtilsKt {
 	public static final field REGISTER_TEMPLATE_REPLACEMENT Ljava/lang/String;
 	public static final fun addInstructionsAtControlFlowLabel (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)V

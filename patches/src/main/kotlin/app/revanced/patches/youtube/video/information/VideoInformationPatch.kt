@@ -386,6 +386,13 @@ val videoInformationPatch = bytecodePatch(
         }
 
         /**
+         * Store receiver (p0) of the time-update method so VOT can use it for volume when playbackSpeedClass is null.
+         */
+        videoTimeConstructorMethod.addInstruction(
+            videoTimeConstructorInsertIndex++,
+            "invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->setTimeUpdateReceiver(Ljava/lang/Object;)V"
+        )
+        /**
          * Set current video time
          */
         videoTimeHook(EXTENSION_CLASS_DESCRIPTOR, "setVideoTime")

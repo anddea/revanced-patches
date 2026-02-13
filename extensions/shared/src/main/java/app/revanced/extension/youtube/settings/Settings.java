@@ -706,6 +706,13 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting RYD_TOAST_ON_CONNECTION_ERROR = new BooleanSetting("ryd_toast_on_connection_error", TRUE, parent(RYD_ENABLED));
 
 
+    // PreferenceScreen: Voice Over Translation
+    public static final BooleanSetting VOT_ENABLED = new BooleanSetting("vot_enabled", TRUE);
+    public static final StringSetting VOT_SOURCE_LANGUAGE = new StringSetting("vot_source_language", "auto", parent(VOT_ENABLED));
+    public static final StringSetting VOT_TARGET_LANGUAGE = new StringSetting("vot_target_language", "ru", parent(VOT_ENABLED));
+    public static final IntegerSetting VOT_TRANSLATION_VOLUME = new IntegerSetting("vot_translation_volume", 100, parent(VOT_ENABLED));
+    public static final StringSetting VOT_PROXY_URL = new StringSetting("vot_proxy_url", "vot-worker.toil.cc", parent(VOT_ENABLED));
+
     // PreferenceScreen: SponsorBlock
     public static final BooleanSetting SB_ENABLED = new BooleanSetting("sb_enabled", TRUE);
     /**
