@@ -173,7 +173,6 @@ val overlayButtonsPatch = resourcePatch(
                 "revanced_repeat_button.xml",
                 "revanced_mute_volume_button.xml",
                 "revanced_vot_button.xml",
-                "revanced_vot_button_icon.xml",
             )
         )
 
@@ -215,7 +214,8 @@ val overlayButtonsPatch = resourcePatch(
                 ),
                 ResourceGroup(
                     "drawable",
-                    "yt_outline_screen_vertical_vd_theme_24.xml"
+                    "revanced_vot_button_icon.xml",
+                    "yt_outline_screen_vertical_vd_theme_24.xml",
                 )
             )
         }
