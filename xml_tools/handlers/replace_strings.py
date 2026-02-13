@@ -38,7 +38,7 @@ def _find_source_translation_file(source_base_path: Path, lang_code: str) -> Pat
     )
 
     if matching_dir:
-        source_file = matching_dir / "strings.xml"
+        source_file = matching_dir / "youtube/strings.xml"
         if source_file.exists():
             return source_file
     return None
@@ -240,7 +240,7 @@ def process(app: str, base_dir: Path) -> None:
     #     "revanced_swipe_text_overlay_size_title",
     # }
 
-    if "revanced/revanced-patches" in str(base_dir):
+    if "morphe-patches" in str(base_dir):
         update_translations_with_keys(translations_path, base_dir)
         # update_translations_with_keys(translations_path, base_dir, additional_keys)
     else:

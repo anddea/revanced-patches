@@ -1,8 +1,7 @@
 [versions]
-revanced-patcher = "21.0.0"
-# Tracking https://github.com/google/smali/issues/64.
-#noinspection GradleDependency
-smali = "3.0.5"
+morphe-patcher = "1.0.1"
+# Tracking https://github.com/google/smali/issues/100.
+smali = "b6365a84f4"
 gson = "2.13.2"
 agp = "8.2.2"
 annotation = "1.9.1"
@@ -30,5 +29,5 @@ protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.
 protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
 
 [plugins]
-android-library = { id = "com.android.library", version.ref = "agp" }
+android-library = { id = "com.android.library" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobuf" }

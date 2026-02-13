@@ -5,11 +5,11 @@ plugins {
 }
 
 extension {
-    name = "extensions/shared.rve"
+    name = "extensions/shared.mpe"
 }
 
 android {
-    namespace = "app.revanced.extension"
+    namespace = "app.morphe.extension"
     compileSdk = 34
 
     defaultConfig {
@@ -48,6 +48,8 @@ dependencies {
 
     implementation(libs.nanohttpd)
     implementation(libs.protobuf.javalite)
+
+    implementation(libs.hiddenapi)
 
     coreLibraryDesugaring(libs.desugar.jdk.libs)
     compileOnly(project(":extensions:shared:stub"))

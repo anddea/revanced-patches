@@ -1,6 +1,6 @@
 package com.liskovsoft.youtubeapi.app.playerdata
 
-import app.revanced.extension.shared.utils.Logger
+import app.morphe.extension.shared.utils.Logger
 import com.liskovsoft.youtubeapi.app.nsigsolver.impl.V8ChallengeProvider
 import com.liskovsoft.youtubeapi.app.nsigsolver.provider.ChallengeInput
 import com.liskovsoft.youtubeapi.app.nsigsolver.provider.JsChallengeRequest

@@ -1,8 +1,8 @@
 package com.liskovsoft.youtubeapi.app.nsigsolver.runtime
 
 import androidx.annotation.GuardedBy
-import app.revanced.extension.shared.innertube.utils.ThrottlingParameterUtils
-import app.revanced.extension.shared.utils.Logger
+import app.morphe.extension.shared.innertube.utils.ThrottlingParameterUtils
+import app.morphe.extension.shared.utils.Logger
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.liskovsoft.youtubeapi.app.nsigsolver.common.CachedData

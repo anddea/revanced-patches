@@ -1,214 +1,178 @@
-public final class app/revanced/generator/MainKt {
+public final class app/morphe/generator/MainKt {
 	public static synthetic fun main ([Ljava/lang/String;)V
 }
 
-public final class app/revanced/patches/all/misc/connectivity/wifi/spoof/SpoofWifiPatchKt {
-	public static final fun getSpoofWifiPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/all/misc/hex/HexPatchKt {
+	public static final fun getHexPatch ()Lapp/morphe/patcher/patch/RawResourcePatch;
 }
 
-public final class app/revanced/patches/all/misc/display/edgetoedge/EdgeToEdgeDisplayPatchKt {
-	public static final fun getEdgeToEdgeDisplayPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-}
-
-public final class app/revanced/patches/all/misc/hex/HexPatchKt {
-	public static final fun getHexPatch ()Lapp/revanced/patcher/patch/RawResourcePatch;
-}
-
-public final class app/revanced/patches/all/misc/installer/ChangeInstallerPackageNamePatchKt {
-	public static final fun getChangeInstallerPackageNamePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/all/misc/network/OverrideCertificatePinningPatchKt {
-	public static final fun getOverrideCertificatePinningPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-}
-
-public final class app/revanced/patches/all/misc/signature/AppInfo {
-	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun getCertificateData ()Ljava/lang/String;
-	public final fun getPackageName ()Ljava/lang/String;
-}
-
-public final class app/revanced/patches/all/misc/signature/BaseSpoofSignaturePatchKt {
-	public static final fun baseSpoofSignaturePatch (Lkotlin/jvm/functions/Function0;)Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/all/misc/signature/SpoofSignaturePatchKt {
-	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public abstract interface class app/revanced/patches/all/misc/transformation/IMethodCall {
+public abstract interface class app/morphe/patches/all/misc/transformation/IMethodCall {
 	public abstract fun getDefinedClassName ()Ljava/lang/String;
 	public abstract fun getMethodName ()Ljava/lang/String;
 	public abstract fun getMethodParams ()[Ljava/lang/String;
 	public abstract fun getReturnType ()Ljava/lang/String;
-	public abstract fun replaceInvokeVirtualWithExtension (Ljava/lang/String;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/iface/instruction/formats/Instruction35c;I)V
+	public abstract fun replaceInvokeVirtualWithExtension (Ljava/lang/String;Lapp/morphe/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/iface/instruction/formats/Instruction35c;I)V
 }
 
-public final class app/revanced/patches/all/misc/transformation/IMethodCall$DefaultImpls {
-	public static fun replaceInvokeVirtualWithExtension (Lapp/revanced/patches/all/misc/transformation/IMethodCall;Ljava/lang/String;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/iface/instruction/formats/Instruction35c;I)V
+public final class app/morphe/patches/all/misc/transformation/IMethodCall$DefaultImpls {
+	public static fun replaceInvokeVirtualWithExtension (Lapp/morphe/patches/all/misc/transformation/IMethodCall;Ljava/lang/String;Lapp/morphe/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/iface/instruction/formats/Instruction35c;I)V
 }
 
-public final class app/revanced/patches/all/misc/transformation/TransformInstructionsPatchKt {
-	public static final fun transformInstructionsPatch (Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Z)Lapp/revanced/patcher/patch/BytecodePatch;
-	public static synthetic fun transformInstructionsPatch$default (Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ZILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/all/misc/transformation/TransformInstructionsPatchKt {
+	public static final fun transformInstructionsPatch (Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Z)Lapp/morphe/patcher/patch/BytecodePatch;
+	public static synthetic fun transformInstructionsPatch$default (Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ZILjava/lang/Object;)Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/all/misc/versioncode/ChangeVersionCodePatchKt {
-	public static final fun getChangeVersionCodePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/morphe/patches/music/account/components/AccountComponentsPatchKt {
+	public static final fun getAccountComponentsPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/account/components/AccountComponentsPatchKt {
-	public static final fun getAccountComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/actionbar/components/ActionBarComponentsPatchKt {
+	public static final fun getActionBarComponentsPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/actionbar/components/ActionBarComponentsPatchKt {
-	public static final fun getActionBarComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/ads/general/AdsPatchKt {
+	public static final fun getAdsPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/ads/general/AdsPatchKt {
-	public static final fun getAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/flyoutmenu/components/FlyoutMenuComponentsPatchKt {
+	public static final fun getFlyoutMenuComponentsPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/flyoutmenu/components/FlyoutMenuComponentsPatchKt {
-	public static final fun getFlyoutMenuComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/general/audiotracks/AudioTracksPatchKt {
+	public static final fun getAudioTracksPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/general/audiotracks/AudioTracksPatchKt {
-	public static final fun getAudioTracksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/general/autocaptions/AutoCaptionsPatchKt {
+	public static final fun getAutoCaptionsPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/general/autocaptions/AutoCaptionsPatchKt {
-	public static final fun getAutoCaptionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/music/general/components/FingerprintsKt {
+public final class app/morphe/patches/music/general/components/FingerprintsKt {
 	public static final fun indexOfVisibilityInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 }
 
-public final class app/revanced/patches/music/general/components/LayoutComponentsPatchKt {
-	public static final fun getLayoutComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/general/components/LayoutComponentsPatchKt {
+	public static final fun getLayoutComponentsPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/general/dialog/ViewerDiscretionDialogPatchKt {
-	public static final fun getViewerDiscretionDialogPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/general/dialog/ViewerDiscretionDialogPatchKt {
+	public static final fun getViewerDiscretionDialogPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/general/landscapemode/LandScapeModePatchKt {
-	public static final fun getLandScapeModePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/general/landscapemode/LandScapeModePatchKt {
+	public static final fun getLandScapeModePatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/general/oldstylelibraryshelf/OldStyleLibraryShelfPatchKt {
-	public static final fun getOldStyleLibraryShelfPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/general/oldstylelibraryshelf/OldStyleLibraryShelfPatchKt {
+	public static final fun getOldStyleLibraryShelfPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/general/redirection/DislikeRedirectionPatchKt {
-	public static final fun getDislikeRedirectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/general/redirection/DislikeRedirectionPatchKt {
+	public static final fun getDislikeRedirectionPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 	public static final fun getOnClickReference ()Ljava/lang/String;
 	public static final fun setOnClickReference (Ljava/lang/String;)V
 }
 
-public final class app/revanced/patches/music/general/splash/CairoSplashAnimationPatchKt {
-	public static final fun getCairoSplashAnimationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/general/splash/CairoSplashAnimationPatchKt {
+	public static final fun getCairoSplashAnimationPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/general/spoofappversion/SpoofAppVersionForLyricsPatchKt {
-	public static final fun getSpoofAppVersionForLyricsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/morphe/patches/music/general/spoofappversion/SpoofAppVersionForLyricsPatchKt {
+	public static final fun getSpoofAppVersionForLyricsPatch ()Lapp/morphe/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/general/spoofappversion/SpoofAppVersionPatchKt {
-	public static final fun getSpoofAppVersionPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/morphe/patches/music/general/spoofappversion/SpoofAppVersionPatchKt {
+	public static final fun getSpoofAppVersionPatch ()Lapp/morphe/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/general/startpage/ChangeStartPagePatchKt {
-	public static final fun getChangeStartPagePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/general/startpage/ChangeStartPagePatchKt {
+	public static final fun getChangeStartPagePatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/general/startpage/FingerprintsKt {
+public final class app/morphe/patches/music/general/startpage/FingerprintsKt {
 	public static final field DEFAULT_BROWSE_ID Ljava/lang/String;
 }
 
-public final class app/revanced/patches/music/layout/branding/icon/CustomBrandingIconPatchKt {
-	public static final fun getCustomBrandingIconPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/morphe/patches/music/layout/branding/icon/CustomBrandingIconPatchKt {
+	public static final fun getCustomBrandingIconPatch ()Lapp/morphe/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/layout/branding/name/CustomBrandingNamePatchKt {
-	public static final fun getCustomBrandingNamePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/morphe/patches/music/layout/branding/name/CustomBrandingNamePatchKt {
+	public static final fun getCustomBrandingNamePatch ()Lapp/morphe/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/layout/header/ChangeHeaderPatchKt {
-	public static final fun getChangeHeaderPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/morphe/patches/music/layout/header/ChangeHeaderPatchKt {
+	public static final fun getChangeHeaderPatch ()Lapp/morphe/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/layout/overlayfilter/OverlayFilterPatchKt {
-	public static final fun getOverlayFilterPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/morphe/patches/music/layout/overlayfilter/OverlayFilterPatchKt {
+	public static final fun getOverlayFilterPatch ()Lapp/morphe/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/layout/playeroverlay/PlayerOverlayFilterPatchKt {
-	public static final fun getPlayerOverlayFilterPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/morphe/patches/music/layout/playeroverlay/PlayerOverlayFilterPatchKt {
+	public static final fun getPlayerOverlayFilterPatch ()Lapp/morphe/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/layout/theme/DarkThemePatchKt {
+public final class app/morphe/patches/music/layout/theme/DarkThemePatchKt {
 	public static final fun getDARK_COLOR ()[Ljava/lang/String;
-	public static final fun getDarkThemePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun getDarkThemePatch ()Lapp/morphe/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/layout/translations/TranslationsPatchKt {
-	public static final fun getTranslationsBytecodePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getTranslationsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/morphe/patches/music/layout/translations/TranslationsPatchKt {
+	public static final fun getTranslationsBytecodePatch ()Lapp/morphe/patcher/patch/BytecodePatch;
+	public static final fun getTranslationsPatch ()Lapp/morphe/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/layout/visual/VisualPreferencesIconsPatchKt {
+public final class app/morphe/patches/music/layout/visual/VisualPreferencesIconsPatchKt {
 	public static final fun getIntentIcon ()Ljava/util/Map;
-	public static final fun getVisualPreferencesIconsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun getVisualPreferencesIconsPatch ()Lapp/morphe/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/misc/album/AlbumMusicVideoPatchKt {
-	public static final fun getAlbumMusicVideoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/misc/album/AlbumMusicVideoPatchKt {
+	public static final fun getAlbumMusicVideoPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatchKt {
-	public static final fun getBackgroundPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/misc/backgroundplayback/BackgroundPlaybackPatchKt {
+	public static final fun getBackgroundPlaybackPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/misc/bitrate/BitrateDefaultValuePatchKt {
-	public static final fun getBitrateDefaultValuePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/morphe/patches/music/misc/bitrate/BitrateDefaultValuePatchKt {
+	public static final fun getBitrateDefaultValuePatch ()Lapp/morphe/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/misc/debugging/DebuggingPatchKt {
-	public static final fun getDebuggingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/morphe/patches/music/misc/debugging/DebuggingPatchKt {
+	public static final fun getDebuggingPatch ()Lapp/morphe/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/music/misc/quic/QUICProtocolPatchKt {
-	public static final fun getQuicProtocolPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/misc/quic/QUICProtocolPatchKt {
+	public static final fun getQuicProtocolPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/misc/share/ShareSheetPatchKt {
-	public static final fun getShareSheetPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/misc/share/ShareSheetPatchKt {
+	public static final fun getShareSheetPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/misc/thumbnails/BypassImageRegionRestrictionsPatchKt {
-	public static final fun getBypassImageRegionRestrictionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/misc/thumbnails/BypassImageRegionRestrictionsPatchKt {
+	public static final fun getBypassImageRegionRestrictionsPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/misc/tracking/SanitizeUrlQueryPatchKt {
-	public static final fun getSanitizeUrlQueryPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/misc/tracking/SanitizeUrlQueryPatchKt {
+	public static final fun getSanitizeUrlQueryPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/misc/watchhistory/WatchHistoryPatchKt {
-	public static final fun getWatchHistoryPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/misc/watchhistory/WatchHistoryPatchKt {
+	public static final fun getWatchHistoryPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/navigation/components/NavigationBarComponentsPatchKt {
-	public static final fun getNavigationBarComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/morphe/patches/music/navigation/components/NavigationBarComponentsPatchKt {
+	public static final fun getNavigationBarComponentsPatch ()Lapp/morphe/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/player/components/FingerprintsKt {
+public final class app/morphe/patches/music/player/components/FingerprintsKt {
 	public static final field AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY Ljava/lang/String;
 }
 
-public final class app/revanced/patches/music/player/components/PlayerComponentsPatchKt {
+public final class app/morphe/patches/music/player/components/PlayerComponentsPatchKt {
 	public static final fun getPlayerComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
@@ -417,119 +381,6 @@ public final class app/revanced/patches/music/video/playerresponse/PlayerRespons
 public final class app/revanced/patches/netwall/UnlockPremiumKt {
 	public static final fun getUnlockPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun getUnlockPremiumResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-}
-
-public final class app/revanced/patches/reddit/ad/AdsPatchKt {
-	public static final fun getAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/layout/branding/name/CustomBrandingNamePatchKt {
-	public static final fun getCustomBrandingNamePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-}
-
-public final class app/revanced/patches/reddit/layout/branding/packagename/ChangePackageNamePatchKt {
-	public static final fun getChangePackageNamePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-}
-
-public final class app/revanced/patches/reddit/layout/communities/RecommendedCommunitiesPatchKt {
-	public static final fun getRecommendedCommunitiesPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/layout/navigation/FingerprintsKt {
-	public static final fun indexOfGetDimensionPixelSizeInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
-	public static final fun indexOfGetItemsInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
-	public static final fun indexOfSetSelectedItemTypeInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
-}
-
-public final class app/revanced/patches/reddit/layout/navigation/NavigationButtonsPatchKt {
-	public static final fun getNavigationButtonsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/layout/premiumicon/PremiumIconPatchKt {
-	public static final fun getPremiumIconPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/layout/recentlyvisited/FingerprintsKt {
-	public static final fun indexOfHeaderItemInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
-}
-
-public final class app/revanced/patches/reddit/layout/recentlyvisited/RecentlyVisitedShelfPatchKt {
-	public static final fun getRecentlyVisitedShelfPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/layout/screenshotpopup/ScreenshotPopupPatchKt {
-	public static final fun getScreenshotPopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/layout/subredditdialog/FingerprintsKt {
-	public static final fun indexOfHasBeenVisitedInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
-	public static final fun indexOfSetBackgroundTintListInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
-	public static final fun listOfIsLoggedInInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/util/List;
-}
-
-public final class app/revanced/patches/reddit/layout/subredditdialog/SubRedditDialogPatchKt {
-	public static final fun getSubRedditDialogPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/layout/toolbar/ToolBarButtonPatchKt {
-	public static final fun getToolBarButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/layout/translations/TranslationsPatchKt {
-	public static final fun getTranslationsBytecodePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getTranslationsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-}
-
-public final class app/revanced/patches/reddit/layout/trendingtoday/TrendingTodayShelfPatchKt {
-	public static final fun getTrendingTodayShelfPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/misc/openlink/FingerprintsKt {
-	public static final fun indexOfScreenNavigatorInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
-}
-
-public final class app/revanced/patches/reddit/misc/openlink/OpenLinksDirectlyPatchKt {
-	public static final fun getOpenLinksDirectlyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/misc/openlink/OpenLinksExternallyPatchKt {
-	public static final fun getOpenLinksExternallyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/misc/openlink/ScreenNavigatorMethodResolverPatchKt {
-	public static field screenNavigatorMethod Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
-	public static final fun getScreenNavigatorMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
-	public static final fun getScreenNavigatorMethodResolverPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun setScreenNavigatorMethod (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;)V
-}
-
-public final class app/revanced/patches/reddit/misc/tracking/url/FingerprintsKt {
-	public static final fun indexOfClearQueryInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
-}
-
-public final class app/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQueryPatchKt {
-	public static final fun getSanitizeUrlQueryPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/utils/extension/SharedExtensionPatchKt {
-	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/utils/fix/signature/SpoofSignaturePatchKt {
-	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/reddit/utils/resourceid/SharedResourceIdPatchKt {
-	public static final fun getNsfwDialogTitle ()J
-}
-
-public final class app/revanced/patches/reddit/utils/settings/SettingsPatchKt {
-	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-	public static final fun is_2024_26_or_greater ()Z
-	public static final fun is_2024_41_or_greater ()Z
-	public static final fun is_2025_01_or_greater ()Z
-	public static final fun is_2025_05_or_greater ()Z
-	public static final fun is_2025_06_or_greater ()Z
 }
 
 public final class app/revanced/patches/shared/FingerprintsKt {

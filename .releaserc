@@ -15,8 +15,22 @@
       }
     ],
     "@semantic-release/release-notes-generator",
-    "@semantic-release/changelog",
+    [
+      "@MorpheApp/changelog", {
+        "releaseJson": {
+          "path": "patches-bundle.json",
+          "downloadUrlTemplate": "https://github.com/${owner}/${repo}/releases/download/v${version}/patches-${version}.mpp",
+          "signatureUrlTemplate": "https://github.com/${owner}/${repo}/releases/download/v${version}/patches-${version}.mpp.asc"
+        }
+      }
+    ],
     "gradle-semantic-release-plugin",
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "jq '.version=\"${nextRelease.version}\"' patches-list.json > patches-list.json.tmp && mv patches-list.json.tmp patches-list.json"
+      }
+    ],
     [
       "@semantic-release/git",
       {
@@ -24,7 +38,8 @@
           "README.md",
           "CHANGELOG.md",
           "gradle.properties",
-          "patches.json",
+          "patches-bundle.json",
+          "patches-list.json"
         ],
         "message": "chore: Release v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
@@ -34,20 +49,17 @@
       {
         "assets": [
           {
-            "path": "patches/build/libs/patches-!(*sources*|*javadoc*).rvp?(.asc)"
-          },
-          {
-            "path": "patches.json"
-          },
+            "path": "patches/build/libs/patches-!(*sources*|*javadoc*).mpp?(.asc)"
+          }
         ],
-        successComment: false
+        "successComment": false
       }
     ],
     [
       "@saithodev/semantic-release-backmerge",
       {
-        backmergeBranches: [{"from": "main", "to": "dev"}],
-        clearWorkspace: true
+        "backmergeBranches": [{"from": "main", "to": "dev"}],
+        "clearWorkspace": true
       }
     ]
   ]

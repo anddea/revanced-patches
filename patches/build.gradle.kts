@@ -1,4 +1,4 @@
-group = "app.revanced"
+group = "app.morphe"
 
 patches {
     about {
@@ -19,19 +19,19 @@ dependencies {
 
 tasks {
     jar {
-        exclude("app/revanced/generator")
+        exclude("app/morphe/generator")
     }
-    register<JavaExec>("generatePatchesFiles") {
-        description = "Generate patches files"
+    register<JavaExec>("generatePatchesList") {
+        description = "Build patch with patch list"
 
         dependsOn(build)
 
         classpath = sourceSets["main"].runtimeClasspath
-        mainClass.set("app.revanced.generator.MainKt")
+        mainClass.set("app.morphe.generator.MainKt")
     }
     // Used by gradle-semantic-release-plugin.
     publish {
-        dependsOn("generatePatchesFiles")
+        dependsOn("generatePatchesList")
     }
 }
 
