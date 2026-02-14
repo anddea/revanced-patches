@@ -16,7 +16,7 @@ val spoofWifiPatch = bytecodePatch(
     description = "Spoofs an existing Wi-Fi connection.",
     use = false,
 ) {
-    extendWith("extensions/spoof-wifi.mpe")
+    extendWith("extensions/all/connectivity/wifi/spoof/spoof-wifi.mpe")
 
     dependsOn(
         transformInstructionsPatch(
