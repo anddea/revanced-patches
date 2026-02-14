@@ -1,3 +1,10 @@
+# [4.0.0-dev.2](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.1...v4.0.0-dev.2) (2026-02-14)
+
+
+### Bug Fixes
+
+* **Spoof Wi-Fi connection:** Failed previously ([7187215](https://github.com/anddea/revanced-patches/commit/718721561056a4d2ab225caad6b755c77e07328a))
+
 # [4.0.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.17.0-dev.1...v4.0.0-dev.1) (2026-02-13)
 
 
