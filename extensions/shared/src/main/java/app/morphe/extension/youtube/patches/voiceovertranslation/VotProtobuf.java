@@ -1,3 +1,16 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of https://github.com/anddea/revanced-patches/.
+ *
+ * The original author: https://github.com/Jav1x.
+ *
+ * IMPORTANT: This file is the proprietary work of https://github.com/Jav1x.
+ * Any modifications, derivatives, or substantial rewrites of this file
+ * must retain this copyright notice and the original author attribution
+ * in the source code and version control history.
+ */
+
 package app.morphe.extension.youtube.patches.voiceovertranslation;
 
 import java.io.ByteArrayOutputStream;
