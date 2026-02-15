@@ -77,7 +77,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">배터리 절전 모드에서 앰비언트 모드를 비활성화합니다.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">배터리 절전 모드에서 앰비언트 모드를 활성화합니다.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">앰비언트 모드 제한 우회하기</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">이미지를 가져올 대체 도메인을 입력하세요.\n알림: \'https\:\/\/\' 없이 도메인 이름만 입력해야 합니다.</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">이미지를 가져올 대체 도메인을 입력하세요.\n알림: \n• \'https\:\/\/\' 없이 도메인 이름만 입력해야 합니다.</string>
     <string name="revanced_bypass_image_region_restrictions_domain_title">대체 이미지 도메인</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">"기본 이미지 호스트를 사용합니다
 
@@ -327,7 +327,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
     <string name="revanced_disable_seekbar_chapters_title">재생바 챕터 비활성화하기</string>
     <string name="revanced_disable_shorts_background_playback_summary_off">"Shorts 백그라운드 재생을 활성화합니다.
 
-알림: Shorts 백그라운드 재생은 PIP 모드를 통해서만 사용할 수 있습니다."</string>
+알림: 
+• Shorts 백그라운드 재생은 PIP 모드를 통해서만 사용할 수 있습니다."</string>
     <string name="revanced_disable_shorts_background_playback_summary_on">Shorts 백그라운드 재생을 비활성화합니다.</string>
     <string name="revanced_disable_shorts_background_playback_title">Shorts 백그라운드 재생 비활성화하기</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">좋아요 버튼 상단에 표시되는 애니메이션을 활성화합니다.</string>
@@ -442,7 +443,8 @@ Shorts 플레이어 배경을 탭하는 경우에 UI를 숨길 수 있습니다.
     <string name="revanced_enable_translucent_navigation_bar_summary_off">하단바가 불투명합니다.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">"하단바가 반투명합니다.
 
-알려진 문제점: 시스템 네비게이션바가 반투명해질 수 있습니다."</string>
+알려진 문제점: 
+• 시스템 네비게이션바가 반투명해질 수 있습니다."</string>
     <string name="revanced_enable_translucent_navigation_bar_title">반투명 하단바 활성화하기</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">다음 시청 처리 지연을 비활성화합니다.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">다음 시청 처리 지연을 활성화합니다.</string>
@@ -531,36 +533,37 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">길게 탭하기 속도는 사용자가 화면을 길게 탭하지 않았더라도 작동될 수 있습니다.</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"길게 탭하기 속도는 사용자가 화면을 길게 탭했을 경우에만 작동됩니다.
 
-알려진 문제점: 전체 화면 모드로 전환하기 전에 가끔 스와이프 오버레이가 표시됩니다."</string>
+알려진 문제점: 
+• 전체 화면 모드로 전환하기 전에 가끔 스와이프 오버레이가 표시됩니다."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">스와이프 제스처 길게 탭하기 속도 수정하기</string>
     <string name="revanced_fullscreen_ads_closed_toast">전체 화면 광고가 닫아졌습니다.</string>
     <string name="revanced_gemini_cancelled">취소하였습니다.</string>
     <string name="revanced_gemini_copy_success">요약을 클립보드에 복사하였습니다.</string>
     <string name="revanced_gemini_error_already_running_summarize">요약이 이미 진행 중입니다.</string>
-    <string name="revanced_gemini_error_already_running_transcribe">필사가 이미 진행 중입니다.</string>
-    <string name="revanced_gemini_error_already_running_yandex_transcribe">Yandex 필사기가 이미 실행 중입니다.</string>
+    <string name="revanced_gemini_error_already_running_transcribe">기록이 이미 진행 중입니다.</string>
+    <string name="revanced_gemini_error_already_running_yandex_transcribe">Yandex 기록기가 이미 실행 중입니다.</string>
     <string name="revanced_gemini_error_api_failed">Gemini API 요청을 할 수 없습니다: %s</string>
     <string name="revanced_gemini_error_dialog_show">다이얼로그를 표시할 수 없습니다.</string>
     <string name="revanced_gemini_error_no_api_key">RVX 설정에서 Gemini API Key가 설정되어 있지 않습니다.</string>
     <string name="revanced_gemini_error_no_video">동영상 URL을 가져올 수 없습니다.</string>
     <string name="revanced_gemini_error_overlay_display">자막 오버레이를 표시할 수 없습니다.</string>
-    <string name="revanced_gemini_error_transcription_no_raw_data">구문 분석할 처리되지 않은 필사 데이터가 없습니다.</string>
-    <string name="revanced_gemini_error_transcription_parse">필사 데이터를 분석할 수 없습니다.</string>
+    <string name="revanced_gemini_error_transcription_no_raw_data">구문 분석할 처리되지 않은 기록 데이터가 없습니다.</string>
+    <string name="revanced_gemini_error_transcription_parse">기록 데이터를 분석할 수 없습니다.</string>
     <string name="revanced_gemini_error_translation_failed">Gemini가 번역할 수 없습니다.</string>
     <string name="revanced_gemini_error_translation_parse_failed">Gemini가 번역 분석을 할 수 없습니다.</string>
     <string name="revanced_gemini_loading_default">불러오는 중...</string>
     <string name="revanced_gemini_loading_summarize">동영상을 요약하는 중...</string>
-    <string name="revanced_gemini_loading_transcribe">동영상을 필사하는 중...</string>
+    <string name="revanced_gemini_loading_transcribe">동영상을 기록하는 중...</string>
     <string name="revanced_gemini_loading_yandex_transcribe">Yandex: 자막을 가져오는 중…</string>
-    <string name="revanced_gemini_status_translating">Gemini로 번역하는 중...\n\n⚠️ Gemini가 지침을 무시하거나 한계에 도달하면 이 단계가 실패할 수 있습니다.</string>
+    <string name="revanced_gemini_status_translating">Gemini로 번역하는 중...\n\n⚠️ Gemini가 지침을 무시하거나 한도에 도달하면 이 단계가 실패할 수 있습니다.</string>
     <string name="revanced_gemini_summary_title">Gemini 동영상 요약</string>
     <string name="revanced_gemini_time_taken">(%d 초가 소요되었습니다.)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">자막으로 표시하려면 \'다른 앱 위에 표시\' 권한을 활성화하세요.</string>
-    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">필사된 동영상 자막의 폰트 사이즈를 지정할 수 있습니다.\n\n• 자막 상자를 탭하여 숨길 수 있습니다. 길게 탭하면 다른 위치로 드래그됩니다.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">기록된 동영상 자막의 폰트 사이즈를 지정할 수 있습니다.\n\n• 자막 상자를 탭하여 숨길 수 있습니다. 길게 탭하면 다른 위치로 드래그됩니다.</string>
     <string name="revanced_gemini_transcribe_subtitles_font_size_title">자막 폰트 사이즈</string>
     <string name="revanced_gemini_transcription_parse_button">자막</string>
     <string name="revanced_gemini_transcription_parse_success">자막을 성공적으로 분석하였습니다.</string>
-    <string name="revanced_gemini_transcription_result_title">Gemini 동영상 필사</string>
+    <string name="revanced_gemini_transcription_result_title">Gemini 동영상 기록</string>
     <string name="revanced_gms_show_dialog_summary">앱을 시작할 때마다 GmsCore에 대한 배터리 최적화 다이얼로그를 표시합니다.</string>
     <string name="revanced_gms_show_dialog_title">GmsCore 최적화 다이얼로그 표시하기</string>
     <string name="revanced_gradient_seekbar_positions_summary">Cairo 재생바의 시작 위치와 종료 위치를 0에서 1까지 쉼표로 구분하여 설정할 수 있습니다.</string>
@@ -724,8 +727,8 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_community_posts_subscriptions_summary_off">구독 피드에서 표시됩니다.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">구독 피드에서 숨겨집니다.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">구독 피드에서 숨기기</string>
-    <string name="revanced_hide_creator_store_shelf_summary_off">판매자(크리에이터명) 스토어 선반이 표시됩니다</string>
-    <string name="revanced_hide_creator_store_shelf_summary_on">판매자(크리에이터명) 스토어 선반이 숨겨집니다</string>
+    <string name="revanced_hide_creator_store_shelf_summary_off">판매자(크리에이터) 스토어 선반이 표시됩니다</string>
+    <string name="revanced_hide_creator_store_shelf_summary_on">판매자(크리에이터) 스토어 선반이 숨겨집니다</string>
     <string name="revanced_hide_creator_store_shelf_title">판매자 스토어 선반 숨기기</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">모금 행사 패널이 표시됩니다</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">모금 행사 패널이 숨겨집니다</string>
@@ -1280,7 +1283,8 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_shorts_shelf_history_summary_off">시청 기록에서 표시됩니다.</string>
     <string name="revanced_hide_shorts_shelf_history_summary_on">"시청 기록에서 숨겨집니다.
 
-부작용: 내 페이지 탭에서 시청 기록 선반이 숨겨질 수 있습니다."</string>
+부작용: 
+• 내 페이지 탭에서 시청 기록 선반이 숨겨질 수 있습니다."</string>
     <string name="revanced_hide_shorts_shelf_history_title">시청 기록에서 숨기기</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_off">홈 피드 및 관련 동영상에서 표시됩니다.</string>
     <string name="revanced_hide_shorts_shelf_home_related_videos_summary_on">홈 피드 및 관련 동영상에서 숨겨집니다.</string>
@@ -1415,7 +1419,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_video_by_view_counts_subscriptions_summary_off">구독 피드에서 조회수 필터를 비활성화합니다.</string>
     <string name="revanced_hide_video_by_view_counts_subscriptions_summary_on">구독 피드에서 조회수 필터를 활성화합니다.</string>
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">구독 피드에서 조회수 필터 활성화하기</string>
-    <string name="revanced_hide_video_by_view_counts_summary">조회수가 높거나 낮은 추천 동영상을 숨길 수 있습니다.\n\n알려진 문제점: 실시간 스트림과 \'조회수 없음\' 동영상은 숨겨지지 않습니다.</string>
+    <string name="revanced_hide_video_by_view_counts_summary">조회수가 높거나 낮은 추천 동영상을 숨길 수 있습니다.\n\n알려진 문제점:\n• 실시간 스트림과 \'조회수 없음\' 동영상은 숨겨지지 않습니다.</string>
     <string name="revanced_hide_video_by_view_counts_title">조회수를 기준으로 동영상 숨기기</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">검색 결과에서 다음 라벨이 표시됩니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
     <string name="revanced_hide_video_recommendation_labels_summary_on">검색 결과에서 다음 라벨이 숨겨집니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
@@ -1451,7 +1455,8 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_youtube_premium_promotion_summary_off">YouTube Premium 프로모션이 표시됩니다.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"YouTube Premium 프로모션이 숨겨집니다.
 
-알려진 문제점: 이 설정이 활성화되면, YouTube Doodles을 탭할 수 없습니다."</string>
+알려진 문제점: 
+• 이 설정이 활성화되면, YouTube Doodles을 탭할 수 없습니다."</string>
     <string name="revanced_hide_youtube_premium_promotion_title">YouTube Premium 프로모션 숨기기</string>
     <string name="revanced_hide_zoom_overlay_summary_off">줌 오버레이가 표시됩니다.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">줌 오버레이가 숨겨집니다.</string>
@@ -1674,7 +1679,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">현재 재생목록 관리자</string>
     <string name="revanced_overlay_button_external_downloader_summary">버튼을 탭하여 외부 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_overlay_button_external_downloader_title">외부 다운로더 버튼 표시하기</string>
-    <string name="revanced_overlay_button_gemini_about_summary">"동영상 구문 분석은 동영상 길이에 따라 어느 정도의 시간이 걸릴 수 있습니다. 너무 긴 동영상을 필사하게 되면 Gemini의 한계를 초과할 수 있습니다.
+    <string name="revanced_overlay_button_gemini_about_summary">"동영상 구문 분석은 동영상 길이에 따라 어느 정도의 시간이 걸릴 수 있습니다. 너무 긴 동영상을 기록하게 되면 Gemini의 한계를 초과할 수 있습니다.
 
 AI가 생성한 동영상 요약에는 부정확한 정보가 포함될 수 있습니다.
 
@@ -1683,9 +1688,9 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
     <string name="revanced_overlay_button_gemini_summarize">요약하기</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Gemini API Key를 등록할 수 있습니다."</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API Key 등록하기</string>
-    <string name="revanced_overlay_button_gemini_summarize_summary">"버튼을 탭하면 동영상을 요약할 수 있습니다. 길게 탭하면 필사됩니다.
+    <string name="revanced_overlay_button_gemini_summarize_summary">"버튼을 탭하면 동영상을 요약할 수 있습니다. 길게 탭하면 기록됩니다.
 
-앱을 닫거나 다른 동영상에서 Gemini를 사용하지 않는 한 요약 또는 필사된 결과는 저장됩니다. 결과를 보려면 버튼을 다시 탭하세요."</string>
+앱을 닫거나 다른 동영상에서 Gemini를 사용하지 않는 한 요약 또는 기록된 결과는 저장됩니다. 결과를 보려면 버튼을 다시 탭하세요."</string>
     <string name="revanced_overlay_button_gemini_summarize_title">Gemini 버튼 표시하기</string>
     <string name="revanced_overlay_button_mute_volume_summary">버튼을 탭하여 재생 중인 동영상을 음소거할 수 있습니다.\n다시 탭하면 음소거가 해제됩니다.</string>
     <string name="revanced_overlay_button_mute_volume_title">음소거 버튼 표시하기</string>
@@ -1716,6 +1721,8 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
 길게 탭하면 동영상 재생 속도 값이 1.0배속으로 설정되고, 다시 길게 탭하면 기본 동영상 재생 속도 값으로 설정됩니다."</string>
     <string name="revanced_overlay_button_speed_dialog_title">동영상 재생 속도 버튼 표시하기</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">재생 속도 다이얼로그 유형</string>
+    <string name="revanced_overlay_button_vot_summary">현재 동영상의 음성 번역을 켜고 끄는 오버레이 버튼을 표시합니다.</string>
+    <string name="revanced_overlay_button_vot_title">음성 번역</string>
     <string name="revanced_overlay_button_whitelist_summary">버튼을 탭하여 화이트리스트 다이얼로그를 열 수 있습니다.
 길게 탭하면 화이트리스트 설정 다이얼로그가 열립니다.</string>
     <string name="revanced_overlay_button_whitelist_title">화이트리스트 버튼 표시하기</string>
@@ -1838,6 +1845,7 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
     <string name="revanced_preference_screen_video_filter_summary">키워드 또는 조회수로 동영상을 숨길 수 있습니다.</string>
     <string name="revanced_preference_screen_video_filter_title">동영상 필터</string>
     <string name="revanced_preference_screen_video_title">동영상</string>
+    <string name="revanced_preference_screen_vot_title">음성 번역</string>
     <string name="revanced_preference_screen_watch_history_summary">시청 기록과 관련된 설정을 변경할 수 있습니다.</string>
     <string name="revanced_preference_screen_watch_history_title">시청 기록</string>
     <string name="revanced_queue_manager_add_to_queue">현재 재생목록에 추가</string>
@@ -2252,26 +2260,26 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_sb_vote_upvote">좋아요</string>
     <string name="revanced_search_settings_category_title">설정 검색</string>
     <string name="revanced_search_title">검색</string>
-    <string name="revanced_set_transcript_cookies_all_summary_off">자동 번역 자막 요청에 대해서만 Cookies를 설정합니다.</string>
-    <string name="revanced_set_transcript_cookies_all_summary_on">모든 스크립트 API 요청에 대한 Cookies를 설정합니다.</string>
-    <string name="revanced_set_transcript_cookies_all_title">모든 스크립트 API 요청에 대한 Cookies 설정하기</string>
-    <string name="revanced_set_transcript_cookies_summary_off">스크립트 Cookies를 설정하지 않습니다.</string>
-    <string name="revanced_set_transcript_cookies_summary_on">스크립트 Cookies를 설정합니다.</string>
-    <string name="revanced_set_transcript_cookies_title">스크립트 Cookies 설정하기</string>
+    <string name="revanced_set_transcript_cookies_all_summary_off">자동 번역 자막 요청에 대해서만 쿠키를 설정합니다.</string>
+    <string name="revanced_set_transcript_cookies_all_summary_on">모든 스크립트 API 요청에 대한 쿠키를 설정합니다.</string>
+    <string name="revanced_set_transcript_cookies_all_title">모든 스크립트 API 요청에 대한 쿠키 설정하기</string>
+    <string name="revanced_set_transcript_cookies_summary_off">스크립트 쿠키를 설정하지 않습니다.</string>
+    <string name="revanced_set_transcript_cookies_summary_on">스크립트 쿠키를 설정합니다.</string>
+    <string name="revanced_set_transcript_cookies_title">스크립트 쿠키 설정하기</string>
     <string name="revanced_set_transcript_cookies_user_dialog_message">"현재 YouTube에서 자동 번역 자막을 사용할 수 없는 문제가 있습니다.
 
 이는 YouTube 스크립트 API의 문제이며 Google에서 이 문제를 해결해야 합니다.
 
-임시 해결 방법으로 Cookies를 설정하여 이 문제를 해결할 수 있습니다.
+임시 해결 방법으로 쿠키를 설정하여 이 문제를 해결할 수 있습니다.
 
 [고지 사항]
 
-Cookies를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
+쿠키를 사용한다고 해서 문제가 해결되는 것은 아닙니다.
 
 다음과 같은 경우 작동하지 않을 수 있습니다:
-• Cookies가 만료된 경우
-• 유효하지 않은 Cookies가 사용 중인 경우
-• YouTube 스크립트 API가 더 이상 Cookies의 유효성을 검사하지 않는 경우"</string>
+• 쿠키가 만료된 경우
+• 유효하지 않은 쿠키가 사용 중인 경우
+• YouTube 스크립트 API가 더 이상 쿠키의 유효성을 검사하지 않는 경우"</string>
     <string name="revanced_settings_color_invalid">잘못된 색상입니다</string>
     <string name="revanced_settings_color_picker">색상 선택기</string>
     <string name="revanced_settings_export_failed">설정을 내보낼 수 없습니다.</string>
@@ -2716,9 +2724,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
 • 이 설정을 활성화하면 일부 광고가 강제로 숨겨집니다. (동영상 광고, 일반 레이아웃 광고)
 • 광고 설정에 있는 일부 설정들을 비활성화하려면 이 설정도 비활성화해야 합니다."</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">만들기 버튼과 알림 버튼의 위치를 교환하지 않습니다</string>
-    <string name="revanced_switch_create_with_notifications_button_summary_on">"만들기 버튼과 알림 버튼의 위치를 교환합니다
-
-알림: 이 설정을 활성화하면 동영상 광고가 강제로 숨겨집니다"</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"만들기 버튼과 알림 버튼의 위치를 교환합니다"</string>
     <string name="revanced_switch_create_with_notifications_button_title">만들기와 알림 위치 교환하기</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"이 설정을 비활성화하면 Shorts 광고가 차단되지 않습니다.
 
@@ -2728,8 +2734,8 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_third_party_youtube_music_not_installed_dialog_title">경고</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">이 기기에 설치된 RVX Music 앱 패키지명을 설정하세요.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music 앱 패키지명</string>
-    <string name="revanced_transcript_cookies_about_summary">Cookies를 가져오는 방법을 보려면 여기를 탭하세요.</string>
-    <string name="revanced_transcript_cookies_about_title">스크립트 Cookies에 대한 정보</string>
+    <string name="revanced_transcript_cookies_about_summary">쿠키를 가져오는 방법을 보려면 여기를 탭하세요.</string>
+    <string name="revanced_transcript_cookies_about_title">스크립트 쿠키에 대한 정보</string>
     <string name="revanced_transcript_cookies_dialog_auth_text">인증 있음</string>
     <string name="revanced_transcript_cookies_dialog_message">"인증 있음
 ══════════════
@@ -2739,9 +2745,9 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
 4. 자동 번역 자막을 활성화하고 작동하는지 확인합니다.
 4-1. 자동 번역 자막이 작동하지 않으면 자동 번역 자막을 지원하는 다른 동영상으로 전환한 후 4단계를 다시 시도합니다.
 5. 툴바에서 점 3개를 탭하여 상황에 맞는 메뉴를 엽니다.
-6. 'Cookies 가져오기'를 탭합니다.
-7. '복사'를 탭하여 Cookies를 복사합니다.
-8. WebView를 닫고 복사한 Cookies를 ‘스크립트 Cookies’ 설정에 붙여넣습니다.
+6. '쿠키 가져오기'를 탭합니다.
+7. '복사'를 탭하여 쿠키를 복사합니다.
+8. WebView를 닫고 복사한 쿠키를 ‘스크립트 쿠키’ 설정에 붙여넣습니다.
 
 
 인증 없음
@@ -2749,16 +2755,37 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
 1. '인증 없음'을 탭하여 WebView에서 동영상을 엽니다.
 2. 동영상을 3초 이상 재생합니다.
 3. 툴바에서 점 3개를 탭하여 상황에 맞는 메뉴를 엽니다.
-4. 'Cookies 가져오기'를 탭합니다.
-5. '복사'를 탭하여 Cookies를 복사합니다.
-6. WebView를 닫고 복사한 Cookies를 ‘스크립트 Cookies’ 설정에 붙여넣습니다.
+4. '쿠키 가져오기'를 탭합니다.
+5. '복사'를 탭하여 쿠키를 복사합니다.
+6. WebView를 닫고 복사한 쿠키를 ‘스크립트 쿠키’ 설정에 붙여넣습니다.
 
-고지 사항: 로그인하지 않고 발급된 Cookies는 유효하지 않거나 스크립트 API에서 사용할 수 있게 되는 데 시간이 걸릴 수 있습니다."</string>
+고지 사항: 로그인하지 않고 발급된 쿠키는 유효하지 않거나 스크립트 API에서 사용할 수 있게 되는 데 시간이 걸릴 수 있습니다."</string>
     <string name="revanced_transcript_cookies_dialog_no_auth_text">인증 없음</string>
-    <string name="revanced_transcript_cookies_dialog_title">스크립트 Cookies 내보내기</string>
-    <string name="revanced_transcript_cookies_summary">스크립트 API 요청에 사용될 Cookies를 설정할 수 있습니다.</string>
-    <string name="revanced_transcript_cookies_title">스크립트 Cookies</string>
+    <string name="revanced_transcript_cookies_dialog_title">스크립트 쿠키 내보내기</string>
+    <string name="revanced_transcript_cookies_summary">스크립트 API 요청에 사용될 쿠키를 설정할 수 있습니다.</string>
+    <string name="revanced_transcript_cookies_title">스크립트 쿠키</string>
     <string name="revanced_translations_title">번역에 도움주기</string>
+    <string name="revanced_vot_enabled_summary_off">Yandex 음성 번역을 비활성화합니다.</string>
+    <string name="revanced_vot_enabled_summary_on">Yandex 음성 번역을 활성화합니다</string>
+    <string name="revanced_vot_enabled_title">음성 번역 활성화하기</string>
+    <string name="revanced_vot_lang_auto">자동 감지</string>
+    <string name="revanced_vot_proxy_url_summary">VOT worker 프록시 호스트입니다. (기본값: vot-worker.toil.cc)</string>
+    <string name="revanced_vot_proxy_url_title">프록시 서버</string>
+    <string name="revanced_vot_source_language_summary">동영상 오디오의 언어를 선택하세요</string>
+    <string name="revanced_vot_source_language_title">언어 원본</string>
+    <string name="revanced_vot_started">번역이 시작되었습니다</string>
+    <string name="revanced_vot_stopped">번역이 중지되었습니다</string>
+    <string name="revanced_vot_stream_not_ready">번역이 준비되지 않았습니다. 준비되었을 때 버튼을 탭하여 활성화하세요.</string>
+    <string name="revanced_vot_stream_ready">번역 준비 완료, 재생 중</string>
+    <string name="revanced_vot_stream_requesting">스트림에 번역 요청 중...</string>
+    <string name="revanced_vot_stream_waiting">번역 준비 중...</string>
+    <string name="revanced_vot_target_language_summary">번역될 언어를 선택하세요</string>
+    <string name="revanced_vot_target_language_title">번역될 언어</string>
+    <string name="revanced_vot_translation_volume_summary">번역된 오디오 트랙의 볼륨 값을 0-100 사이에서 지정할 수 있습니다. (기본값: 100)</string>
+    <string name="revanced_vot_translation_volume_title">번역 볼륨</string>
+    <string name="revanced_vot_unavailable_live">실시간 스트림의 번역을 이용할 수 없습니다</string>
+    <string name="revanced_vot_unavailable_same_language">해당 동영상의 오디오가 이미 선택한 언어로 제공되고 있습니다</string>
+    <string name="revanced_vot_unavailable_too_long">동영상이 번역하기에 너무 깁니다 (최대 4시간)</string>
     <string name="revanced_watch_history_about_status_blocked">• 시청 기록이 차단됩니다.</string>
     <string name="revanced_watch_history_about_status_original">"• Google 계정의 시청 기록 설정을 따릅니다.
 • DNS 또는 VPN으로 인하여 시청 기록이 작동되지 않을 수 있습니다."</string>
@@ -2772,17 +2799,17 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_watch_history_type_title">시청 기록 유형</string>
     <string name="revanced_watch_next_processing_delay_summary">다음 시청 응답 처리할 때의 지연 시간을 지정할 수 있습니다. (밀리초)</string>
     <string name="revanced_watch_next_processing_delay_title">다음 시청 처리 지연</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">Cookies 가져오기</string>
+    <string name="revanced_webview_contextual_menu_get_cookies">쿠키 가져오기</string>
     <string name="revanced_webview_contextual_menu_get_data_sync_id">Data Sync ID 가져오기</string>
     <string name="revanced_webview_contextual_menu_get_visitor_data">Visitor Data 가져오기</string>
     <string name="revanced_webview_contextual_menu_refresh">새로고침</string>
-    <string name="revanced_webview_cookies">Cookies</string>
+    <string name="revanced_webview_cookies">쿠키</string>
     <string name="revanced_webview_copy">복사</string>
     <string name="revanced_webview_data_sync_id">Data Sync ID</string>
-    <string name="revanced_webview_intent_clear_cookies_on_shutdown">종료 시 Cookies 지우기</string>
-    <string name="revanced_webview_intent_clear_cookies_on_startup">시작 시 Cookies 지우기</string>
+    <string name="revanced_webview_intent_clear_cookies_on_shutdown">종료 시 쿠키 지우기</string>
+    <string name="revanced_webview_intent_clear_cookies_on_startup">시작 시 쿠키 지우기</string>
     <string name="revanced_webview_intent_use_desktop_user_agent">Desktop User-Agent 사용하기</string>
-    <string name="revanced_webview_summary">WebView를 열어 Cookies를 가져올 수 있습니다.</string>
+    <string name="revanced_webview_summary">WebView를 열어 쿠키를 가져올 수 있습니다.</string>
     <string name="revanced_webview_title">WebView</string>
     <string name="revanced_webview_toast_copy_success">%s 를 클립보드에 복사하였습니다.</string>
     <string name="revanced_webview_toast_empty">%s 가 비어 있습니다.</string>
@@ -2811,7 +2838,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_yandex_error_no_language_selected">선택된 언어가 없습니다.</string>
     <string name="revanced_yandex_error_no_subs_for_language">%s 에서 자막을 사용할 수 없습니다.</string>
     <string name="revanced_yandex_error_no_subs_returned">사용할 수 있는 자막 트랙이 없습니다.</string>
-    <string name="revanced_yandex_error_server_try_again">필사하는 동안에 오류가 발생하였습니다. 나중에 다시 시도하세요.</string>
+    <string name="revanced_yandex_error_server_try_again">기록하는 동안에 오류가 발생하였습니다. 나중에 다시 시도하세요.</string>
     <string name="revanced_yandex_error_subs_parsing_failed">자막 JSON 콘텐츠를 분석할 수 없습니다.</string>
     <string name="revanced_yandex_error_subs_processing_failed">자막 콘텐츠를 처리하는 중에 오류가 발생하였습니다.</string>
     <string name="revanced_yandex_error_subs_stuck_processing">내부 오류: 자막 처리가 중단되었습니다.</string>
@@ -2824,10 +2851,10 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_yandex_status_requesting_translation">번역을 요청하는 중입니다.</string>
     <string name="revanced_yandex_status_session_ok">세션을 확인하였습니다.</string>
     <string name="revanced_yandex_status_subs_found">자막이 발견되었습니다, 가져오는 중입니다...</string>
-    <string name="revanced_yandex_status_transcription_delayed">필사가 약간 지연됩니다.</string>
+    <string name="revanced_yandex_status_transcription_delayed">기록이 약간 지연됩니다.</string>
     <string name="revanced_yandex_status_youtube_specific">YouTube 오디오 요청 처리 중...</string>
-    <string name="revanced_yandex_transcribe_subtitles_language_summary">Yandex는 모든 언어의 동영상을 텍스트로 필사할 수 있지만 출력은 영어(en), 러시아어(ru), 카자흐어(kk)로만 가능합니다. 다른 언어 코드 또는 앱의 기본 언어를 의미하는 \'app\'을 입력하면 Gemini에게 번역을 요청합니다. (API Key가 요구됨)</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">Yandex는 모든 언어의 동영상을 텍스트로 기록할 수 있지만 출력은 영어(en), 러시아어(ru), 카자흐어(kk)로만 가능합니다. 다른 언어 코드 또는 앱의 기본 언어를 의미하는 \'app\'을 입력하면 Gemini에게 번역을 요청합니다. (API Key가 요구됨)</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex 언어</string>
-    <string name="revanced_yandex_transcribe_subtitles_summary">Gemini 대신에 Yandex 필사기를 사용할 수 있습니다. Yandex는 더 빠르고 안정적일 수 있습니다. API Key가 필요하지 않습니다.</string>
-    <string name="revanced_yandex_transcribe_subtitles_title">Yandex 필사기</string>
+    <string name="revanced_yandex_transcribe_subtitles_summary">Gemini 대신에 Yandex 기록기를 사용할 수 있습니다. Yandex는 더 빠르고 안정적일 수 있습니다. API Key가 필요하지 않습니다.</string>
+    <string name="revanced_yandex_transcribe_subtitles_title">Yandex 기록기</string>
 </resources>

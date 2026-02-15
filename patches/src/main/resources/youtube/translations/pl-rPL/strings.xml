@@ -1703,6 +1703,8 @@ Informacja:
 Stuknij i przytrzymaj, by zmienić prędkość odtwarzania na 1.0x. Stuknij i przytrzymaj ponownie, by zresetować do domyślnej prędkości."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Przycisk od prędkości</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">Typ okna dialogowego prędkości</string>
+    <string name="revanced_overlay_button_vot_summary">Wyświetlaj przycisk do przełączania tłumaczenia lektorskiego w bieżącym filmie</string>
+    <string name="revanced_overlay_button_vot_title">Tłumaczenie lektorskie</string>
     <string name="revanced_overlay_button_whitelist_summary">Stuknij, by otworzyć okno białej listy.
 Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_overlay_button_whitelist_title">Przycisk od białej listy</string>
@@ -1826,6 +1828,7 @@ Stuknij tutaj, by pobrać YouTube Music.</string>
     <string name="revanced_preference_screen_video_filter_summary">Ukryj filmy, używając słów lub wyświetleń</string>
     <string name="revanced_preference_screen_video_filter_title">Filtr filmów</string>
     <string name="revanced_preference_screen_video_title">Filmy</string>
+    <string name="revanced_preference_screen_vot_title">Tłumaczenie lektorskie</string>
     <string name="revanced_preference_screen_watch_history_summary">Zmień ustawienia związane z historią oglądania</string>
     <string name="revanced_preference_screen_watch_history_title">Historia oglądania</string>
     <string name="revanced_queue_manager_add_to_queue">Dodaj do kolejki</string>
@@ -2752,6 +2755,27 @@ Zastrzeżenie: Pliki cookie wydane bez logowania mogą być nieprawidłowe lub i
     <string name="revanced_transcript_cookies_summary">Pliki cookie używane w żądaniach transkrypcyjnego API.</string>
     <string name="revanced_transcript_cookies_title">Transkrypcyjne pliki cookie</string>
     <string name="revanced_translations_title">Tłumaczenia</string>
+    <string name="revanced_vot_enabled_summary_off">Wyłączone</string>
+    <string name="revanced_vot_enabled_summary_on">Włączone</string>
+    <string name="revanced_vot_enabled_title">Tłumaczenie lektorskie</string>
+    <string name="revanced_vot_lang_auto">Wykryj automatycznie</string>
+    <string name="revanced_vot_proxy_url_summary">Host usługi VOT. Domyślnie: vot-worker.toil.cc</string>
+    <string name="revanced_vot_proxy_url_title">Serwer proxy</string>
+    <string name="revanced_vot_source_language_summary">Wybierz język ścieżki dźwiękowej filmu</string>
+    <string name="revanced_vot_source_language_title">Język źródłowy</string>
+    <string name="revanced_vot_started">Rozpoczęto tłumaczenie</string>
+    <string name="revanced_vot_stopped">Zatrzymano tłumaczenie</string>
+    <string name="revanced_vot_stream_not_ready">Tłumaczenie nie jest gotowe. Użyj przycisku, gdy będzie dostępne.</string>
+    <string name="revanced_vot_stream_ready">Tłumaczenie gotowe, odtwarzanie</string>
+    <string name="revanced_vot_stream_requesting">Żądanie tłumaczenia strumienia...</string>
+    <string name="revanced_vot_stream_waiting">Oczekiwanie na tłumaczenie...</string>
+    <string name="revanced_vot_target_language_summary">Wybierz język, na który ma zostać przetłumaczony film</string>
+    <string name="revanced_vot_target_language_title">Język docelowy</string>
+    <string name="revanced_vot_translation_volume_summary">Głośność przetłumaczonej ścieżki dźwiękowej (0-100). Domyślnie: 100</string>
+    <string name="revanced_vot_translation_volume_title">Głośność tłumaczenia</string>
+    <string name="revanced_vot_unavailable_live">Tłumaczenie nie jest dostępne dla transmisji na żywo</string>
+    <string name="revanced_vot_unavailable_same_language">Ścieżka dźwiękowa jest już w języku docelowym</string>
+    <string name="revanced_vot_unavailable_too_long">Film jest za długi, aby go przetłumaczyć (maks. 4 godziny)</string>
     <string name="revanced_watch_history_about_status_blocked">• Historia oglądania nie działa</string>
     <string name="revanced_watch_history_about_status_original">"• Stosuje się do ustawień historii oglądania konta Google
 • Historia oglądania może nie działać przy używaniu DNS lub VPN"</string>
