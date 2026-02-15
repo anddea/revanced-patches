@@ -8,10 +8,12 @@ import app.morphe.patches.youtube.utils.patch.PatchList.VOICE_OVER_TRANSLATION
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.player.overlaybuttons.overlayButtonsPatch
+import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.video.information.hookVideoInformation
 import app.morphe.patches.youtube.video.information.onCreateHook
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.information.videoTimeHook
+import app.morphe.util.updatePatchStatus
 
 private const val EXTENSION_VOT_PATH =
     "$EXTENSION_PATH/patches/voiceovertranslation"
@@ -43,6 +45,9 @@ val voiceOverTranslationBytecodePatch = bytecodePatch(
         hookVideoInformation(
             "$EXTENSION_VOT_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V"
         )
+
+        // Update the patch status to enabled for the extension
+        updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "VoiceOverTranslation")
     }
 }
 

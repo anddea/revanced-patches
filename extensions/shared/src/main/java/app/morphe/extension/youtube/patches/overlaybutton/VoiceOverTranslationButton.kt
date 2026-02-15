@@ -2,6 +2,7 @@ package app.morphe.extension.youtube.patches.overlaybutton
 
 import android.view.View
 import app.morphe.extension.shared.utils.Logger
+import app.morphe.extension.youtube.patches.utils.PatchStatus
 import app.morphe.extension.youtube.patches.voiceovertranslation.VoiceOverTranslationPatch
 import app.morphe.extension.youtube.settings.Settings
 import app.morphe.extension.youtube.shared.PlayerControlButton
@@ -57,6 +58,7 @@ object VoiceOverTranslationButton {
     private fun isButtonEnabled(): Boolean {
         return Settings.VOT_ENABLED.get()
                 && !isAdProgressTextVisible()
+                && PatchStatus.VoiceOverTranslation()
     }
 
     private fun onClick(view: View) {

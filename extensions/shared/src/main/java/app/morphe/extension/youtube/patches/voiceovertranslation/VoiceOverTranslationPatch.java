@@ -272,8 +272,17 @@ public class VoiceOverTranslationPatch {
                 player.setVolume(vol, vol);
                 long videoTime = VideoInformation.getVideoTime();
                 if (videoTime > 0) player.seekTo((int) videoTime);
-                applyPlaybackSpeedToPlayer(player);
-                player.start();
+
+                // Only start playing if the video is actually playing.
+                // Otherwise, mark it as paused so it starts automatically when the user hits play.
+                if (VideoState.getCurrent() == VideoState.PLAYING) {
+                    // applyPlaybackSpeedToPlayer uses setPlaybackParams, which may
+                    // auto-start the player on some Android versions.
+                    applyPlaybackSpeedToPlayer(player);
+                    player.start();
+                } else {
+                    isPaused = true;
+                }
             });
             mp.setOnErrorListener((p, what, extra) -> true);
             mediaPlayer.set(mp);
