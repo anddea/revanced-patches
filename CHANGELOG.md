@@ -1,3 +1,10 @@
+# [4.0.0-dev.3](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.2...v4.0.0-dev.3) (2026-02-15)
+
+
+### Bug Fixes
+
+* **YouTube - Voice Over Translation:** Do not show the VOT button if the patch is disabled ([48abec6](https://github.com/anddea/revanced-patches/commit/48abec6b41a1b878a2d24cfb2cf31fb2984c6a72)), closes [/github.com/anddea/revanced-patches/pull/1370#issuecomment-3901622830](https://github.com//github.com/anddea/revanced-patches/pull/1370/issues/issuecomment-3901622830)
+
 # [4.0.0-dev.2](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.1...v4.0.0-dev.2) (2026-02-14)
 
 
