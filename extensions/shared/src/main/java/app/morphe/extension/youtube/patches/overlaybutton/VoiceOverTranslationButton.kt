@@ -19,7 +19,9 @@ import app.morphe.extension.youtube.patches.utils.PatchStatus
 import app.morphe.extension.youtube.patches.voiceovertranslation.VoiceOverTranslationPatch
 import app.morphe.extension.youtube.settings.Settings
 import app.morphe.extension.youtube.shared.PlayerControlButton
+import app.morphe.extension.youtube.shared.RootView
 import app.morphe.extension.youtube.shared.RootView.isAdProgressTextVisible
+import app.morphe.extension.youtube.utils.VideoUtils
 
 @Suppress("DEPRECATION", "unused")
 object VoiceOverTranslationButton {
@@ -31,11 +33,13 @@ object VoiceOverTranslationButton {
     @JvmStatic
     fun initializeButton(controlsView: View) {
         try {
+            VoiceOverTranslationPatch.setOnTranslationStateChangeCallback { refreshActivatedState() }
             instance = PlayerControlButton(
                 controlsViewGroup = controlsView,
                 imageViewButtonId = "revanced_vot_button",
                 buttonVisibility = { isButtonEnabled() },
                 onClickListener = { view: View -> onClick(view) },
+                onLongClickListener = { view: View -> onLongClick(view) },
             )
         } catch (ex: Exception) {
             Logger.printException({ "VoiceOverTranslationButton initializeButton failure" }, ex)
@@ -77,6 +81,16 @@ object VoiceOverTranslationButton {
     private fun onClick(view: View) {
         VoiceOverTranslationPatch.toggleTranslation()
         instance?.imageView()?.isActivated = VoiceOverTranslationPatch.isTranslationActive()
+    }
+
+    private fun onLongClick(view: View): Boolean {
+        val context = RootView.getContext() ?: return false
+        VideoUtils.showVotBottomSheetDialog(context)
+        return true
+    }
+
+    private fun refreshActivatedState() {
+        instance?.setActivated()
     }
 
     private fun PlayerControlButton.setActivated() {

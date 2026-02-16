@@ -146,9 +146,13 @@ public final class VotStreamReplacer {
                 return stream;
             }
             int replaced = 0;
+            String audioUrl = result.audioUrl();
+            if (Settings.VOT_AUDIO_PROXY_ENABLED.get()) {
+                audioUrl = VotApiClient.toProxyAudioUrl(audioUrl);
+            }
             for (Object format : formatList) {
                 if (StreamingDataOuterClassUtils.isAudioOnlyFormat(format)) {
-                    StreamingDataOuterClassUtils.setUrl(format, result.audioUrl());
+                    StreamingDataOuterClassUtils.setUrl(format, audioUrl);
                     replaced++;
                 }
             }

@@ -75,6 +75,7 @@ import app.morphe.extension.youtube.patches.shorts.ShortsRepeatStatePatch.Shorts
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
 import app.morphe.extension.youtube.patches.video.PlaybackSpeedPatch;
+import app.morphe.extension.youtube.patches.voiceovertranslation.VoiceOverTranslationPatch;
 import app.morphe.extension.youtube.patches.video.VideoQualityPatch;
 import app.morphe.extension.youtube.patches.video.VideoQualityPatch.VideoQualityMenuInterface;
 import app.morphe.extension.youtube.settings.Settings;
@@ -947,6 +948,109 @@ public class VideoUtils extends IntentUtils {
             ExtendedUtils.showBottomSheetDialog(context, mainLayout);
         } catch (Exception ex) {
             Logger.printException(() -> "showCustomModernPlaybackSpeedDialog failure", ex);
+        }
+    }
+
+    /**
+     * Shows a bottom sheet dialog for Voice Over Translation with a volume slider.
+     * Similar to the playback speed menu - slides up from the bottom.
+     */
+    public static void showVotBottomSheetDialog(@NonNull Context context) {
+        try {
+            SheetBottomDialog.DraggableLinearLayout mainLayout =
+                    SheetBottomDialog.createMainLayout(context, getDialogBackgroundColor());
+
+            final int dip4 = dipToPixels(4);
+            final int dip8 = dipToPixels(8);
+            final int dip12 = dipToPixels(12);
+            final int dip20 = dipToPixels(20);
+
+            // Title: "Громкость перевода"
+            TextView titleText = new TextView(context);
+            titleText.setText(str("revanced_vot_translation_volume_title"));
+            titleText.setTextColor(ThemeUtils.getAppForegroundColor());
+            titleText.setTextSize(16);
+            titleText.setTypeface(Typeface.DEFAULT_BOLD);
+            titleText.setGravity(Gravity.CENTER);
+            LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            titleParams.setMargins(0, dip20, 0, dip12);
+            titleText.setLayoutParams(titleParams);
+            mainLayout.addView(titleText);
+
+            // Slider row with -/+ buttons
+            LinearLayout sliderLayout = new LinearLayout(context);
+            sliderLayout.setOrientation(LinearLayout.HORIZONTAL);
+            sliderLayout.setGravity(Gravity.CENTER_VERTICAL);
+
+            Button minusButton = createStyledButton(context, false, dip8, dip8);
+            Button plusButton = createStyledButton(context, true, dip8, dip8);
+
+            SeekBar volumeSlider = new SeekBar(context);
+            volumeSlider.setFocusable(true);
+            volumeSlider.setFocusableInTouchMode(true);
+            volumeSlider.setMax(100);
+            volumeSlider.setProgress(Settings.VOT_TRANSLATION_VOLUME.get());
+            volumeSlider.getProgressDrawable().setColorFilter(
+                    ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
+            volumeSlider.getThumb().setColorFilter(
+                    ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
+            LinearLayout.LayoutParams sliderParams = new LinearLayout.LayoutParams(
+                    0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+            volumeSlider.setLayoutParams(sliderParams);
+
+            TextView volumeValueText = new TextView(context);
+            volumeValueText.setText(String.valueOf(Settings.VOT_TRANSLATION_VOLUME.get()) + "%");
+            volumeValueText.setTextColor(ThemeUtils.getAppForegroundColor());
+            volumeValueText.setTextSize(14);
+            volumeValueText.setMinWidth(dipToPixels(40));
+
+            sliderLayout.addView(minusButton);
+            sliderLayout.addView(volumeSlider);
+            sliderLayout.addView(plusButton);
+            sliderLayout.addView(volumeValueText);
+
+            mainLayout.addView(sliderLayout);
+
+            java.util.function.Consumer<Integer> applyVolume = vol -> {
+                vol = Utils.clamp(vol, 0, 100);
+                Settings.VOT_TRANSLATION_VOLUME.save(vol);
+                volumeSlider.setProgress(vol);
+                volumeValueText.setText(vol + "%");
+                VoiceOverTranslationPatch.applyVolumeToCurrentPlayer();
+            };
+
+            volumeSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                    if (fromUser) applyVolume.accept(progress);
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) { }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) { }
+            });
+
+            minusButton.setOnClickListener(v -> applyVolume.accept(Settings.VOT_TRANSLATION_VOLUME.get() - 5));
+            plusButton.setOnClickListener(v -> applyVolume.accept(Settings.VOT_TRANSLATION_VOLUME.get() + 5));
+
+            // Toggle translation item
+            String toggleLabel = VoiceOverTranslationPatch.isTranslationActive()
+                    ? str("revanced_vot_menu_stop")
+                    : str("revanced_vot_menu_start");
+            LinearLayout toggleItem = ExtendedUtils.createItemLayout(context, toggleLabel, 0);
+            mainLayout.addView(toggleItem);
+
+            Map<LinearLayout, Runnable> actionsMap = new LinkedHashMap<>(1);
+            actionsMap.put(toggleItem, () -> {
+                VoiceOverTranslationPatch.toggleTranslation();
+            });
+
+            ExtendedUtils.showBottomSheetDialog(context, mainLayout, actionsMap);
+        } catch (Exception ex) {
+            Logger.printException(() -> "showVotBottomSheetDialog failure", ex);
         }
     }
 

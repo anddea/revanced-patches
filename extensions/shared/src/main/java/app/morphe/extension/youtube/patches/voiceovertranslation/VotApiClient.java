@@ -20,6 +20,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
@@ -33,6 +35,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 
 public class VotApiClient {
@@ -57,6 +60,57 @@ public class VotApiClient {
 
     public record TranslationResult(int status, String audioUrl, int remainingTime,
                                     String translationId, String message) {
+    }
+
+    /**
+     * Converts a direct audio URL (S3/Yandex) to a proxied URL.
+     * Format: https://{proxyHost}/video-translation/audio-proxy/{path}?{query}
+     * Takes path and query from the original URL. The proxy fetches using its configured
+     * base URL + path with the given query (AWS signature params).
+     *
+     * @param originalUrl the original audio URL
+     * @return proxied URL, or originalUrl on error
+     */
+    @NonNull
+    public static String toProxyAudioUrl(@NonNull String originalUrl) {
+        if (originalUrl == null || originalUrl.isEmpty()) {
+            return originalUrl;
+        }
+        String proxyHost = Settings.VOT_PROXY_URL.get();
+        if (proxyHost == null || proxyHost.isEmpty()) {
+            proxyHost = DEFAULT_WORKER_HOST;
+        }
+        proxyHost = proxyHost.replaceFirst("^https?://", "").replaceAll("/+$", "");
+        try {
+            URI uri = new URI(originalUrl);
+            String path = uri.getRawPath();
+            String query = uri.getRawQuery();
+            if (path == null || path.isEmpty()) {
+                return originalUrl;
+            }
+            String pathTrimmed = path.replaceFirst("^/+", "");
+            int lastSlash = pathTrimmed.lastIndexOf('/');
+            if (lastSlash >= 0) {
+                pathTrimmed = pathTrimmed.substring(lastSlash + 1);
+            }
+            StringBuilder proxyUrl = new StringBuilder();
+            proxyUrl.append("https://").append(proxyHost);
+            proxyUrl.append("/video-translation/audio-proxy/");
+            proxyUrl.append(pathTrimmed);
+            if (query != null && !query.isEmpty()) {
+                proxyUrl.append("?").append(query);
+            }
+            String result = proxyUrl.toString();
+            final String toastPath = pathTrimmed;
+            final String toastHost = proxyHost;
+            Logger.printDebug(() -> "toProxyAudioUrl: " + originalUrl + " -> " + result);
+            Utils.runOnMainThread(() -> Utils.showToastShort("VOT proxy: " + toastHost + "/" + toastPath));
+            return result;
+        } catch (URISyntaxException e) {
+            Logger.printDebug(() -> "toProxyAudioUrl: invalid URL " + originalUrl);
+            Utils.runOnMainThread(() -> Utils.showToastShort("VOT proxy: invalid URL"));
+            return originalUrl;
+        }
     }
 
     public static TranslationResult requestTranslation(
