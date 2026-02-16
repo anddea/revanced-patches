@@ -74,6 +74,7 @@ val voiceOverTranslationPatch = resourcePatch(
     dependsOn(
         overlayButtonsPatch,
         voiceOverTranslationBytecodePatch,
+        votOriginalVolumeBytecodePatch,
         settingsPatch,
     )
 

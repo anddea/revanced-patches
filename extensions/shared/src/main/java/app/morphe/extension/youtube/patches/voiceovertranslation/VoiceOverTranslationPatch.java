@@ -666,6 +666,14 @@ public class VoiceOverTranslationPatch {
         } catch (Exception ignored) { }
     }
 
+    /**
+     * No-op for compatibility. Original volume is now controlled by bytecode patch
+     * (VotOriginalVolumePatch) which multiplies before AudioTrack.setVolume.
+     */
+    public static void applyOriginalVolumeToPlayer() {
+        // Bytecode patch handles this at cbt.Q() and oec.t()
+    }
+
     private static void applyPlaybackSpeedToPlayer(MediaPlayer mp) {
         if (mp == null) return;
         float speed = VideoInformation.getPlaybackSpeedFromPlayer();

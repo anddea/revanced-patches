@@ -665,7 +665,8 @@ public final class VideoInformation {
         if (hasSetVolumeOnly(clazz)) return obj;
         String[] getterNames = {
             "getAudioComponent", "getPlayer", "getExoPlayer",
-            "getWrappedPlayer", "getInnerPlayer", "getPlayback"
+            "getWrappedPlayer", "getInnerPlayer", "getPlayback",
+            "getImpl", "getDelegate", "getExoPlayerImpl", "getPlaybackImpl"
         };
         for (String name : getterNames) {
             try {

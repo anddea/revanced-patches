@@ -44,7 +44,9 @@ import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -64,6 +66,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Function;
 
+import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.settings.EnumSetting;
 import app.morphe.extension.shared.ui.SheetBottomDialog;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
@@ -1036,22 +1039,132 @@ public class VideoUtils extends IntentUtils {
             minusButton.setOnClickListener(v -> applyVolume.accept(Settings.VOT_TRANSLATION_VOLUME.get() - 5));
             plusButton.setOnClickListener(v -> applyVolume.accept(Settings.VOT_TRANSLATION_VOLUME.get() + 5));
 
-            // Toggle translation item
-            String toggleLabel = VoiceOverTranslationPatch.isTranslationActive()
-                    ? str("revanced_vot_menu_stop")
-                    : str("revanced_vot_menu_start");
-            LinearLayout toggleItem = ExtendedUtils.createItemLayout(context, toggleLabel, 0);
-            mainLayout.addView(toggleItem);
+            // Original audio volume
+            TextView origTitleText = new TextView(context);
+            origTitleText.setText(str("revanced_vot_original_audio_volume_title"));
+            origTitleText.setTextColor(ThemeUtils.getAppForegroundColor());
+            origTitleText.setTextSize(16);
+            origTitleText.setTypeface(Typeface.DEFAULT_BOLD);
+            origTitleText.setGravity(Gravity.CENTER);
+            LinearLayout.LayoutParams origTitleParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            origTitleParams.setMargins(0, dip20, 0, dip12);
+            origTitleText.setLayoutParams(origTitleParams);
+            mainLayout.addView(origTitleText);
 
-            Map<LinearLayout, Runnable> actionsMap = new LinkedHashMap<>(1);
-            actionsMap.put(toggleItem, () -> {
-                VoiceOverTranslationPatch.toggleTranslation();
+            LinearLayout origSliderLayout = new LinearLayout(context);
+            origSliderLayout.setOrientation(LinearLayout.HORIZONTAL);
+            origSliderLayout.setGravity(Gravity.CENTER_VERTICAL);
+
+            Button origMinusButton = createStyledButton(context, false, dip8, dip8);
+            Button origPlusButton = createStyledButton(context, true, dip8, dip8);
+
+            SeekBar origVolumeSlider = new SeekBar(context);
+            origVolumeSlider.setFocusable(true);
+            origVolumeSlider.setFocusableInTouchMode(true);
+            origVolumeSlider.setMax(100);
+            origVolumeSlider.setProgress(Settings.VOT_ORIGINAL_AUDIO_VOLUME.get());
+            origVolumeSlider.getProgressDrawable().setColorFilter(
+                    ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
+            origVolumeSlider.getThumb().setColorFilter(
+                    ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
+            LinearLayout.LayoutParams origSliderParams = new LinearLayout.LayoutParams(
+                    0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+            origVolumeSlider.setLayoutParams(origSliderParams);
+
+            TextView origVolumeValueText = new TextView(context);
+            origVolumeValueText.setText(String.valueOf(Settings.VOT_ORIGINAL_AUDIO_VOLUME.get()) + "%");
+            origVolumeValueText.setTextColor(ThemeUtils.getAppForegroundColor());
+            origVolumeValueText.setTextSize(14);
+            origVolumeValueText.setMinWidth(dipToPixels(40));
+
+            origSliderLayout.addView(origMinusButton);
+            origSliderLayout.addView(origVolumeSlider);
+            origSliderLayout.addView(origPlusButton);
+            origSliderLayout.addView(origVolumeValueText);
+
+            mainLayout.addView(origSliderLayout);
+
+            java.util.function.Consumer<Integer> applyOrigVolume = vol -> {
+                vol = Utils.clamp(vol, 0, 100);
+                Settings.VOT_ORIGINAL_AUDIO_VOLUME.save(vol);
+                origVolumeSlider.setProgress(vol);
+                origVolumeValueText.setText(vol + "%");
+                VoiceOverTranslationPatch.applyOriginalVolumeToPlayer();
+            };
+
+            Runnable showOrigVolumeToast = () -> Utils.runOnMainThread(() ->
+                    Toast.makeText(context, Settings.VOT_ORIGINAL_AUDIO_VOLUME.get() + "%", Toast.LENGTH_SHORT).show());
+
+            java.util.function.Consumer<Integer> applyOrigVolumeWithToast = vol -> {
+                applyOrigVolume.accept(vol);
+                showOrigVolumeToast.run();
+            };
+
+            origVolumeSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                    if (fromUser) applyOrigVolume.accept(progress);
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) { }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                    showOrigVolumeToast.run();
+                }
             });
 
-            ExtendedUtils.showBottomSheetDialog(context, mainLayout, actionsMap);
+            origMinusButton.setOnClickListener(v -> applyOrigVolumeWithToast.accept(Settings.VOT_ORIGINAL_AUDIO_VOLUME.get() - 5));
+            origPlusButton.setOnClickListener(v -> applyOrigVolumeWithToast.accept(Settings.VOT_ORIGINAL_AUDIO_VOLUME.get() + 5));
+
+            // Audio proxy toggle
+            LinearLayout proxyItem = createVotSwitchItem(context, str("revanced_vot_audio_proxy_title"),
+                    Settings.VOT_AUDIO_PROXY_ENABLED);
+            mainLayout.addView(proxyItem);
+
+            ExtendedUtils.showBottomSheetDialog(context, mainLayout);
         } catch (Exception ex) {
             Logger.printException(() -> "showVotBottomSheetDialog failure", ex);
         }
+    }
+
+    /**
+     * Creates a row with title and switch for a boolean setting (e.g. audio proxy).
+     */
+    private static LinearLayout createVotSwitchItem(Context context, String title,
+                                                    BooleanSetting setting) {
+        LinearLayout itemLayout = new LinearLayout(context);
+        itemLayout.setOrientation(LinearLayout.HORIZONTAL);
+        itemLayout.setPadding(dipToPixels(16), dipToPixels(12), dipToPixels(16), dipToPixels(12));
+        itemLayout.setGravity(Gravity.CENTER_VERTICAL);
+        itemLayout.setClickable(true);
+        itemLayout.setFocusable(true);
+
+        android.graphics.drawable.StateListDrawable background = new android.graphics.drawable.StateListDrawable();
+        background.addState(new int[]{android.R.attr.state_pressed},
+                new android.graphics.drawable.ColorDrawable(ThemeUtils.getAdjustedBackgroundColor(true)));
+        background.addState(new int[]{}, new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
+        itemLayout.setBackground(background);
+
+        TextView titleView = new TextView(context);
+        titleView.setText(title);
+        titleView.setTextSize(16);
+        titleView.setTextColor(ThemeUtils.getAppForegroundColor());
+        LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+        itemLayout.addView(titleView, titleParams);
+
+        Switch switchView = new Switch(context);
+        switchView.setChecked(setting.get());
+        switchView.getThumbDrawable().setColorFilter(ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_ATOP);
+        switchView.getTrackDrawable().setColorFilter(ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_ATOP);
+        switchView.setOnCheckedChangeListener((v, isChecked) -> setting.save(isChecked));
+        itemLayout.addView(switchView);
+
+        itemLayout.setOnClickListener(v -> switchView.setChecked(!setting.get()));
+
+        return itemLayout;
     }
 
     /**
