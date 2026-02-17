@@ -13,29 +13,71 @@
 
 package app.morphe.patches.youtube.video.voiceovertranslation
 
+import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.all.misc.transformation.transformInstructionsPatch
+import app.morphe.patcher.methodCall
 import app.morphe.patches.youtube.utils.extension.Constants.EXTENSION_PATH
+import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.parametersEqual
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
-import com.android.tools.smali.dexlib2.iface.ClassDef
-import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$EXTENSION_PATH/patches/voiceovertranslation/VotOriginalVolumePatch;"
 
-private const val AUDIO_TRACK_SET_VOLUME = "Landroid/media/AudioTrack;->setVolume(F)I"
+private const val AUDIO_TRACK_CLASS = "Landroid/media/AudioTrack;"
 
-/** Only patch DefaultAudioSink (cbt) and alternate sink (oec) — the two known setVolume(F) call sites. */
-private fun isTargetMethod(classDef: ClassDef, method: Method): Boolean {
-    val className = classDef.type.substringAfterLast("/").removeSuffix(";")
-    return (className == "cbt" && method.name == "Q") || (className == "oec" && method.name == "t")
+private fun MethodReference.isAudioTrackSetVolume(): Boolean =
+    definingClass == AUDIO_TRACK_CLASS &&
+        name == "setVolume" &&
+        parametersEqual(parameterTypes, listOf("F")) &&
+        returnType == "I"
+
+/**
+ * For invoke-virtual {obj, float}: float is last register.
+ * FiveRegisterInstruction (35c): registerC=obj, registerD=float.
+ * TwoRegisterInstruction (22c): registerA=obj, registerB=float.
+ * RegisterRangeInstruction (3rc): float in last register.
+ */
+private fun getVolumeRegister(instruction: Instruction): Int? {
+    return when (instruction) {
+        is FiveRegisterInstruction -> {
+            if (instruction.registerCount >= 2) instruction.registerD
+            else null
+        }
+        is TwoRegisterInstruction -> instruction.registerB
+        is RegisterRangeInstruction -> {
+            if (instruction.registerCount >= 2)
+                instruction.startRegister + instruction.registerCount - 1
+            else null
+        }
+        else -> null
+    }
 }
+
+private object AudioTrackSetVolumeMethodFingerprint : Fingerprint(
+    returnType = "V",
+    parameters = listOf(),
+    filters = listOf(
+        methodCall(
+            definingClass = "Landroid/media/AudioTrack;",
+            name = "setVolume",
+            parameters = listOf("F"),
+            returnType = "I"
+        )
+    )
+)
+
+private val audioTrackSetVolumeMethodFingerprint =
+    Pair("audioTrackSetVolumeMethodFingerprint", AudioTrackSetVolumeMethodFingerprint)
 
 val votOriginalVolumeBytecodePatch = bytecodePatch(
     description = "votOriginalVolumeBytecodePatch"
@@ -43,41 +85,20 @@ val votOriginalVolumeBytecodePatch = bytecodePatch(
     dependsOn(voiceOverTranslationBytecodePatch)
 
     execute {
-        transformInstructionsPatch(
-            filterMap = { classDef, method, instruction, index ->
-                if (!isTargetMethod(classDef, method)) return@transformInstructionsPatch null
-
-                if (instruction.opcode != Opcode.INVOKE_VIRTUAL &&
-                    instruction.opcode != Opcode.INVOKE_VIRTUAL_RANGE
-                ) return@transformInstructionsPatch null
-
-                val ref = instruction.getReference<MethodReference>() ?: return@transformInstructionsPatch null
-                if (ref.toString() != AUDIO_TRACK_SET_VOLUME) return@transformInstructionsPatch null
-
-                val volReg = when (instruction) {
-                    is FiveRegisterInstruction -> {
-                        if (instruction.registerCount >= 2) instruction.registerD
-                        else return@transformInstructionsPatch null
-                    }
-                    is RegisterRangeInstruction -> {
-                        if (instruction.registerCount >= 2)
-                            instruction.startRegister + 1
-                        else return@transformInstructionsPatch null
-                    }
-                    else -> return@transformInstructionsPatch null
-                }
-                index to volReg
-            },
-            transform = { mutableMethod, entry ->
-                val (index, volReg) = entry
-                mutableMethod.addInstructions(
-                    index,
-                    """
-                    invoke-static { v$volReg }, $EXTENSION_CLASS_DESCRIPTOR->applyVolumeMultiplier(F)F
-                    move-result v$volReg
-                    """.trimIndent()
-                )
-            },
+        val mutableMethod = audioTrackSetVolumeMethodFingerprint.methodOrThrow()
+        val index = mutableMethod.indexOfFirstInstructionOrThrow {
+            (opcode == Opcode.INVOKE_VIRTUAL || opcode == Opcode.INVOKE_VIRTUAL_RANGE) &&
+                (getReference<MethodReference>()?.let { it.isAudioTrackSetVolume() } == true)
+        }
+        val instruction = mutableMethod.implementation!!.instructions.elementAt(index)
+        val volReg = getVolumeRegister(instruction)
+            ?: throw PatchException("VotOriginalVolume: cannot get volume register")
+        mutableMethod.addInstructions(
+            index,
+            """
+            invoke-static { v$volReg }, $EXTENSION_CLASS_DESCRIPTOR->applyVolumeMultiplier(F)F
+            move-result v$volReg
+            """.trimIndent()
         )
     }
 }

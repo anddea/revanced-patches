@@ -46,7 +46,6 @@ import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -1090,15 +1089,9 @@ public class VideoUtils extends IntentUtils {
                 Settings.VOT_ORIGINAL_AUDIO_VOLUME.save(vol);
                 origVolumeSlider.setProgress(vol);
                 origVolumeValueText.setText(vol + "%");
-                VoiceOverTranslationPatch.applyOriginalVolumeToPlayer();
-            };
-
-            Runnable showOrigVolumeToast = () -> Utils.runOnMainThread(() ->
-                    Toast.makeText(context, Settings.VOT_ORIGINAL_AUDIO_VOLUME.get() + "%", Toast.LENGTH_SHORT).show());
-
-            java.util.function.Consumer<Integer> applyOrigVolumeWithToast = vol -> {
-                applyOrigVolume.accept(vol);
-                showOrigVolumeToast.run();
+                if (VoiceOverTranslationPatch.isTranslationActive()) {
+                    reloadVideo();
+                }
             };
 
             origVolumeSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -1111,17 +1104,15 @@ public class VideoUtils extends IntentUtils {
                 public void onStartTrackingTouch(SeekBar seekBar) { }
 
                 @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {
-                    showOrigVolumeToast.run();
-                }
+                public void onStopTrackingTouch(SeekBar seekBar) { }
             });
 
-            origMinusButton.setOnClickListener(v -> applyOrigVolumeWithToast.accept(Settings.VOT_ORIGINAL_AUDIO_VOLUME.get() - 5));
-            origPlusButton.setOnClickListener(v -> applyOrigVolumeWithToast.accept(Settings.VOT_ORIGINAL_AUDIO_VOLUME.get() + 5));
+            origMinusButton.setOnClickListener(v -> applyOrigVolume.accept(Settings.VOT_ORIGINAL_AUDIO_VOLUME.get() - 5));
+            origPlusButton.setOnClickListener(v -> applyOrigVolume.accept(Settings.VOT_ORIGINAL_AUDIO_VOLUME.get() + 5));
 
-            // Audio proxy toggle
+            // Audio proxy toggle — restart translation when changed (proxy vs direct URL)
             LinearLayout proxyItem = createVotSwitchItem(context, str("revanced_vot_audio_proxy_title"),
-                    Settings.VOT_AUDIO_PROXY_ENABLED);
+                    Settings.VOT_AUDIO_PROXY_ENABLED, () -> VoiceOverTranslationPatch.restartTranslationIfActive());
             mainLayout.addView(proxyItem);
 
             ExtendedUtils.showBottomSheetDialog(context, mainLayout);
@@ -1132,9 +1123,15 @@ public class VideoUtils extends IntentUtils {
 
     /**
      * Creates a row with title and switch for a boolean setting (e.g. audio proxy).
+     * @param onChanged optional callback when the setting changes (e.g. to restart translation)
      */
     private static LinearLayout createVotSwitchItem(Context context, String title,
                                                     BooleanSetting setting) {
+        return createVotSwitchItem(context, title, setting, null);
+    }
+
+    private static LinearLayout createVotSwitchItem(Context context, String title,
+                                                    BooleanSetting setting, Runnable onChanged) {
         LinearLayout itemLayout = new LinearLayout(context);
         itemLayout.setOrientation(LinearLayout.HORIZONTAL);
         itemLayout.setPadding(dipToPixels(16), dipToPixels(12), dipToPixels(16), dipToPixels(12));
@@ -1159,7 +1156,10 @@ public class VideoUtils extends IntentUtils {
         switchView.setChecked(setting.get());
         switchView.getThumbDrawable().setColorFilter(ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_ATOP);
         switchView.getTrackDrawable().setColorFilter(ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_ATOP);
-        switchView.setOnCheckedChangeListener((v, isChecked) -> setting.save(isChecked));
+        switchView.setOnCheckedChangeListener((v, isChecked) -> {
+            setting.save(isChecked);
+            if (onChanged != null) onChanged.run();
+        });
         itemLayout.addView(switchView);
 
         itemLayout.setOnClickListener(v -> switchView.setChecked(!setting.get()));

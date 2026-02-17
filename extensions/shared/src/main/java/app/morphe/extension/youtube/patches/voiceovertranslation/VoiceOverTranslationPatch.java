@@ -15,11 +15,8 @@ package app.morphe.extension.youtube.patches.voiceovertranslation;
 
 import android.content.Context;
 import android.media.AudioAttributes;
-import android.media.AudioFocusRequest;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.PlaybackParams;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 
@@ -39,6 +36,7 @@ import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.RootView;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.shared.VideoState;
+import app.morphe.extension.youtube.utils.VideoUtils;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.showToastShort;
@@ -66,7 +64,6 @@ public class VoiceOverTranslationPatch {
     private static final AtomicReference<String> currentTranslatedVideoId = new AtomicReference<>("");
     private static volatile boolean isPaused = false;
     private static float lastAppliedPlaybackSpeed = 1.0f;
-    private static Object audioFocusRequest;
     private static volatile long lastVideoTimeMs = -1;
     private static final long SEEK_DRIFT_THRESHOLD_MS = 20000;
     private static final long USER_SEEK_JUMP_MS = 3000;
@@ -97,10 +94,17 @@ public class VoiceOverTranslationPatch {
     private static volatile long pendingVideoLength = 0L;
     private static volatile boolean pendingIsLive = false;
 
+    /** True when user started translation and we reloaded - video will load with reduced volume. Cleared when translation actually starts. */
+    public static volatile boolean translationStarting = false;
+
     public static void initialize() {
         VideoState.addOnPlayingListener(() -> mainHandler.post(() -> {
             if (VideoState.getCurrent() != VideoState.PLAYING) return;
             resumeAudio(-1);
+        }));
+        VideoState.addOnNotPlayingListener(() -> mainHandler.post(() -> {
+            mainHandler.removeCallbacks(pauseCheckRunnable);
+            pauseAudio();
         }));
         VideoInformation.addOnPlaybackSpeedChangeListener(() -> mainHandler.post(() -> {
             if (VideoState.getCurrent() != VideoState.PLAYING) return;
@@ -116,6 +120,9 @@ public class VoiceOverTranslationPatch {
     ) {
         if (!Settings.VOT_ENABLED.get()) return;
         String newId = videoId != null ? videoId : "";
+        if (!newId.equals(pendingVideoId)) {
+            translationStarting = false;
+        }
         if (!newId.equals(currentTranslatedVideoId.get())) {
             stopAudioPlayback();
         }
@@ -130,9 +137,11 @@ public class VoiceOverTranslationPatch {
         if (!Settings.VOT_ENABLED.get()) return;
 
         if (isTranslationActive()) {
+            translationStarting = false;
             stopAudioPlayback();
             notifyTranslationStateChanged();
             showToastShort(str("revanced_vot_stopped"));
+            VideoUtils.reloadVideo();
             return;
         }
 
@@ -152,19 +161,47 @@ public class VoiceOverTranslationPatch {
         }
         if (pendingVideoId == null || pendingVideoId.isEmpty()) return;
 
-        double durationSeconds = pendingVideoLength / 1000.0;
+        final String videoId = pendingVideoId;
+        final String videoTitle = pendingVideoTitle;
+        final double durationSeconds = pendingVideoLength / 1000.0;
         showToastShort(str("revanced_vot_started"));
-        Utils.runOnBackgroundThread(() -> requestTranslation(
-                pendingVideoId, pendingVideoTitle,
+        translationStarting = true;
+        VideoUtils.reloadVideo();
+        Utils.runOnMainThreadDelayed(() -> Utils.runOnBackgroundThread(() -> requestTranslation(
+                videoId, videoTitle,
                 sourceLang, targetLang,
                 durationSeconds
-        ));
+        )), 2500);
     }
 
     public static boolean isTranslationActive() {
         MediaPlayer mp = mediaPlayer.get();
         if (mp == null) return false;
         return currentTranslatedVideoId.get() != null && !currentTranslatedVideoId.get().isEmpty();
+    }
+
+    /**
+     * Stops current translation and restarts it (e.g. when audio proxy setting changes).
+     * No-op if translation is not active.
+     */
+    public static void restartTranslationIfActive() {
+        if (!Settings.VOT_ENABLED.get()) return;
+        if (!isTranslationActive()) return;
+        String videoId = currentTranslatedVideoId.get();
+        if (videoId == null || videoId.isEmpty()) return;
+        if (pendingIsLive) return;
+        if (pendingVideoLength > 4 * 60 * 60 * 1000L) return;
+        String sourceLang = Settings.VOT_SOURCE_LANGUAGE.get();
+        String targetLang = Settings.VOT_TARGET_LANGUAGE.get();
+        if (!sourceLang.isEmpty() && !"auto".equalsIgnoreCase(sourceLang) && sourceLang.equals(targetLang)) return;
+
+        stopAudioPlayback();
+        double durationSeconds = pendingVideoLength / 1000.0;
+        Utils.runOnBackgroundThread(() -> requestTranslation(
+                videoId, pendingVideoTitle,
+                sourceLang, targetLang,
+                durationSeconds
+        ));
     }
 
     public static void setVideoTime(long videoTimeMillis) {
@@ -207,7 +244,10 @@ public class VoiceOverTranslationPatch {
             VotApiClient.TranslationResult result = VotApiClient.requestTranslation(
                     youtubeUrl, durationSeconds, sourceLang, targetLang, videoTitle);
             if (result == null) {
-                Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
+                Utils.runOnMainThread(() -> {
+                    translationStarting = false;
+                    showToastShort(str("revanced_vot_playback_error"));
+                });
                 return;
             }
             switch (result.status()) {
@@ -225,7 +265,10 @@ public class VoiceOverTranslationPatch {
                         final String fallbackFinal = fallback;
                         Utils.runOnMainThread(() -> startAudioPlayback(videoId, urlFinal, fallbackFinal));
                     } else {
-                        Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
+                        Utils.runOnMainThread(() -> {
+                            translationStarting = false;
+                            showToastShort(str("revanced_vot_playback_error"));
+                        });
                     }
                     break;
                 case STATUS_WAITING:
@@ -239,12 +282,18 @@ public class VoiceOverTranslationPatch {
                     break;
                 case STATUS_FAILED:
                 default:
-                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
+                    Utils.runOnMainThread(() -> {
+                        translationStarting = false;
+                        showToastShort(str("revanced_vot_playback_error"));
+                    });
                     break;
             }
         } catch (Exception e) {
             Logger.printException(() -> "requestTranslation failed", e);
-            Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
+            Utils.runOnMainThread(() -> {
+                translationStarting = false;
+                showToastShort(str("revanced_vot_playback_error"));
+            });
         } finally {
             isTranslating.set(false);
         }
@@ -287,7 +336,10 @@ public class VoiceOverTranslationPatch {
                     Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
                     return;
                 } else if (result.status() == STATUS_FAILED) {
-                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
+                    Utils.runOnMainThread(() -> {
+                        translationStarting = false;
+                        showToastShort(str("revanced_vot_playback_error"));
+                    });
                     return;
                 }
                 waitSeconds = result.remainingTime() > 0 ? result.remainingTime() : 5;
@@ -295,7 +347,10 @@ public class VoiceOverTranslationPatch {
                 Logger.printException(() -> "pollTranslation failure", e);
             }
         }
-        Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_not_ready")));
+        Utils.runOnMainThread(() -> {
+            translationStarting = false;
+            showToastShort(str("revanced_vot_stream_not_ready"));
+        });
     }
 
     private static void handleAudioRequested(
@@ -335,10 +390,8 @@ public class VoiceOverTranslationPatch {
         stopAudioPlayback();
         mainHandler.removeCallbacks(proxyPrepareTimeoutRunnable);
         if (audioUrl.contains("/audio-proxy/")) {
-            showToastShort("VOT: fetching proxy...");
             Context ctx = RootView.getContext();
             if (ctx == null) {
-                showToastShort("VOT proxy: no context");
                 if (fallbackUrl != null && !fallbackUrl.isEmpty()) {
                     startAudioPlayback(videoId, fallbackUrl, null);
                 } else {
@@ -351,10 +404,8 @@ public class VoiceOverTranslationPatch {
                 String localPath = fetchProxyAudioToTemp(audioUrl, ctxFinal);
                 Utils.runOnMainThread(() -> {
                     if (localPath != null) {
-                        showToastShort("VOT: proxy loaded, playing");
                         startAudioPlaybackFromFile(videoId, localPath);
                     } else if (fallbackUrl != null && !fallbackUrl.isEmpty()) {
-                        showToastShort("VOT proxy fetch failed, retrying direct");
                         startAudioPlayback(videoId, fallbackUrl, null);
                     } else {
                         showToastShort(str("revanced_vot_playback_error"));
@@ -363,7 +414,6 @@ public class VoiceOverTranslationPatch {
             });
             return;
         }
-        showToastShort("VOT: direct URL");
         startAudioPlaybackDirect(videoId, audioUrl, fallbackUrl);
     }
 
@@ -392,14 +442,9 @@ public class VoiceOverTranslationPatch {
                         urlToFetch = location.startsWith("http") ? location : url.getProtocol() + "://" + url.getHost() + location;
                         continue;
                     }
-                    Utils.runOnMainThread(() -> showToastShort("VOT proxy: redirect no Location"));
                     return null;
                 }
-                if (code != 200 && code != 206) {
-                    final int c = code;
-                    Utils.runOnMainThread(() -> showToastShort("VOT proxy: HTTP " + c));
-                    return null;
-                }
+                if (code != 200 && code != 206) return null;
                 File cacheDir = ctx.getCacheDir();
                 File tempFile = File.createTempFile("vot_proxy_", ".mp3", cacheDir);
                 long totalBytes = 0;
@@ -417,17 +462,12 @@ public class VoiceOverTranslationPatch {
                 }
                 final long bytes = totalBytes;
                 if (bytes < 1000) {
-                    Utils.runOnMainThread(() -> showToastShort("VOT proxy: file too small " + bytes));
                     tempFile.delete();
                     return null;
                 }
                 return tempFile.getAbsolutePath();
             } catch (Exception e) {
                 Logger.printException(() -> "VOT proxy fetch failed", e);
-                String msg = e.getMessage() != null ? e.getMessage() : e.getClass().getSimpleName();
-                if (msg != null && msg.length() > 40) msg = msg.substring(0, 40) + "...";
-                final String msgFinal = msg != null ? msg : "error";
-                Utils.runOnMainThread(() -> showToastShort("VOT proxy: " + msgFinal));
                 return null;
             } finally {
                 if (fos != null) {
@@ -436,7 +476,6 @@ public class VoiceOverTranslationPatch {
                 if (conn != null) conn.disconnect();
             }
         }
-        Utils.runOnMainThread(() -> showToastShort("VOT proxy: redirect loop"));
         return null;
     }
 
@@ -452,8 +491,7 @@ public class VoiceOverTranslationPatch {
                             .build());
             mp.setDataSource(filePath);
             mp.setOnPreparedListener(player -> Utils.runOnMainThread(() -> {
-                showToastShort("VOT: playing via proxy");
-                requestAudioFocusForTranslation();
+                translationStarting = false;
                 float vol = Settings.VOT_TRANSLATION_VOLUME.get() / 100.0f;
                 player.setVolume(vol, vol);
                 long videoTime = VideoInformation.getVideoTime();
@@ -506,8 +544,8 @@ public class VoiceOverTranslationPatch {
             mp.setDataSource(audioUrl);
             final String fallback = fallbackUrl;
             mp.setOnPreparedListener(player -> Utils.runOnMainThread(() -> {
+                translationStarting = false;
                 mainHandler.removeCallbacks(proxyPrepareTimeoutRunnable);
-                requestAudioFocusForTranslation();
                 float vol = Settings.VOT_TRANSLATION_VOLUME.get() / 100.0f;
                 player.setVolume(vol, vol);
                 long videoTime = VideoInformation.getVideoTime();
@@ -525,7 +563,6 @@ public class VoiceOverTranslationPatch {
                 Utils.runOnMainThread(() -> {
                     stopAudioPlayback();
                     if (fallback != null && !fallback.isEmpty()) {
-                        showToastShort("VOT proxy failed, retrying direct");
                         startAudioPlayback(videoId, fallback, null);
                     } else {
                         showToastShort(str("revanced_vot_playback_error"));
@@ -543,7 +580,6 @@ public class VoiceOverTranslationPatch {
                         Logger.printDebug(() -> "VOT proxy prepare timeout, retrying direct");
                         Utils.runOnMainThread(() -> {
                             stopAudioPlayback();
-                            showToastShort("VOT proxy timeout, retrying direct");
                             startAudioPlayback(videoId, fallback, null);
                         });
                     }
@@ -555,7 +591,6 @@ public class VoiceOverTranslationPatch {
             Logger.printException(() -> "startAudioPlayback failed for videoId: " + videoId, e);
             Utils.runOnMainThread(() -> {
                 if (fallbackUrl != null && !fallbackUrl.isEmpty()) {
-                    showToastShort("VOT proxy failed, retrying direct");
                     startAudioPlayback(videoId, fallbackUrl, null);
                 } else {
                     showToastShort(str("revanced_vot_playback_error"));
@@ -580,52 +615,6 @@ public class VoiceOverTranslationPatch {
         isPaused = false;
         lastAppliedPlaybackSpeed = 1.0f;
         lastVideoTimeMs = -1;
-        abandonAudioFocus();
-    }
-
-    private static void requestAudioFocusForTranslation() {
-        try {
-            Context ctx = RootView.getContext();
-            if (ctx == null) return;
-            AudioManager am = (AudioManager) ctx.getSystemService(Context.AUDIO_SERVICE);
-            if (am == null) return;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                AudioFocusRequest req = new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK)
-                    .setAudioAttributes(new AudioAttributes.Builder()
-                        .setUsage(AudioAttributes.USAGE_MEDIA)
-                        .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-                        .build())
-                    .build();
-                int result = am.requestAudioFocus(req);
-                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    audioFocusRequest = req;
-                } else {
-                    Logger.printDebug(() -> "requestAudioFocus failed: " + result);
-                }
-            } else {
-                int result = am.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK);
-                if (result != AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    Logger.printDebug(() -> "requestAudioFocus failed: " + result);
-                }
-            }
-        } catch (Exception e) {
-            Logger.printException(() -> "requestAudioFocusForTranslation failed", e);
-        }
-    }
-
-    private static void abandonAudioFocus() {
-        try {
-            Context ctx = RootView.getContext();
-            if (ctx == null) return;
-            AudioManager am = (AudioManager) ctx.getSystemService(Context.AUDIO_SERVICE);
-            if (am == null) return;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && audioFocusRequest != null) {
-                am.abandonAudioFocusRequest((AudioFocusRequest) audioFocusRequest);
-                audioFocusRequest = null;
-            } else {
-                am.abandonAudioFocus(null);
-            }
-        } catch (Exception ignored) { }
     }
 
     public static void pauseAudio() {
@@ -667,11 +656,19 @@ public class VoiceOverTranslationPatch {
     }
 
     /**
-     * No-op for compatibility. Original volume is now controlled by bytecode patch
-     * (VotOriginalVolumePatch) which multiplies before AudioTrack.setVolume.
+     * Re-applies original volume so the bytecode patch (VotOriginalVolumePatch) picks up
+     * the new VOT_ORIGINAL_AUDIO_VOLUME. Call when user changes the original volume slider.
+     * DefaultAudioSink skips update when value unchanged (if Q==p1), so we force a change:
+     * set slightly different value then restore to trigger the flow through AudioTrack.setVolume.
      */
     public static void applyOriginalVolumeToPlayer() {
-        // Bytecode patch handles this at cbt.Q() and oec.t()
+        if (!isTranslationActive()) return;
+        float current = VideoInformation.getPlayerVolume();
+        float perturb = (current > 0.01f) ? current * 0.99f : 0.01f;
+        Utils.runOnMainThread(() -> {
+            VideoInformation.setPlayerVolume(perturb);
+            Utils.runOnMainThreadDelayed(() -> VideoInformation.setPlayerVolume(current), 16);
+        });
     }
 
     private static void applyPlaybackSpeedToPlayer(MediaPlayer mp) {
