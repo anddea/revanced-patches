@@ -2741,6 +2741,12 @@ Disclaimer: Cookies issued without signing in may be invalid or may take time to
     <string name="revanced_vot_lang_auto">Auto-detect</string>
     <string name="revanced_vot_proxy_url_summary">VOT worker proxy host. Default: vot-worker.toil.cc</string>
     <string name="revanced_vot_proxy_url_title">Proxy server</string>
+    <string name="revanced_vot_voice_style_title">Voice-over style</string>
+    <string name="revanced_vot_voice_style_standard">Standard voices</string>
+    <string name="revanced_vot_voice_style_live">Live voices</string>
+    <string name="revanced_vot_voice_style_live_title">Live voices</string>
+    <string name="revanced_vot_voice_style_live_summary_on">Natural-sounding voices from Yandex</string>
+    <string name="revanced_vot_voice_style_live_summary_off">Standard TTS voices</string>
     <string name="revanced_vot_audio_proxy_title">Proxy audio stream</string>
     <string name="revanced_vot_audio_proxy_summary_on">Audio stream is proxied through the worker</string>
     <string name="revanced_vot_audio_proxy_summary_off">Audio stream uses direct URL</string>
@@ -2752,7 +2758,9 @@ Disclaimer: Cookies issued without signing in may be invalid or may take time to
     <string name="revanced_vot_stream_ready">Translation ready, playing</string>
     <string name="revanced_vot_playback_error">Failed to play translation audio</string>
     <string name="revanced_vot_stream_requesting">Requesting translation for stream…</string>
-    <string name="revanced_vot_stream_waiting">Waiting for translation…</string>
+    <string name="revanced_vot_stream_waiting">Waiting… ~%s</string>
+    <string name="revanced_vot_time_sec">%d sec</string>
+    <string name="revanced_vot_time_min">%d min</string>
     <string name="revanced_vot_target_language_summary">Select the language to translate to</string>
     <string name="revanced_vot_target_language_title">Target language</string>
     <string name="revanced_vot_translation_volume_summary">Volume of the translated audio track (0-100). Default: 100</string>
@@ -2761,6 +2769,7 @@ Disclaimer: Cookies issued without signing in may be invalid or may take time to
     <string name="revanced_vot_original_audio_volume_summary">Volume of the original video track when translation is playing (0-100). Default: 50</string>
     <string name="revanced_vot_menu_start">Start translation</string>
     <string name="revanced_vot_menu_stop">Stop translation</string>
+    <string name="revanced_vot_live_voices_unavailable">Live voices unavailable, using standard</string>
     <string name="revanced_vot_unavailable_live">Translation is not available for live streams</string>
     <string name="revanced_vot_unavailable_same_language">Video audio is already in the target language</string>
     <string name="revanced_vot_unavailable_too_long">Video is too long for translation (max 4 hours)</string>

@@ -233,6 +233,14 @@ public class VoiceOverTranslationPatch {
         });
     }
 
+    static String formatRemainingTime(int seconds) {
+        if (seconds < 60) {
+            return str("revanced_vot_time_sec", Math.max(1, seconds));
+        }
+        int minutes = (seconds + 30) / 60;
+        return str("revanced_vot_time_min", minutes);
+    }
+
     private static void requestTranslation(
             String videoId, String videoTitle,
             String sourceLang, String targetLang,
@@ -244,6 +252,13 @@ public class VoiceOverTranslationPatch {
             VotApiClient.TranslationResult result = VotApiClient.requestTranslation(
                     youtubeUrl, durationSeconds, sourceLang, targetLang, videoTitle);
             if (result == null) {
+                if (Settings.VOT_USE_LIVE_VOICES.get()) {
+                    Settings.VOT_USE_LIVE_VOICES.save(false);
+                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_live_voices_unavailable")));
+                    isTranslating.set(false);
+                    requestTranslation(videoId, videoTitle, sourceLang, targetLang, durationSeconds);
+                    return;
+                }
                 Utils.runOnMainThread(() -> {
                     translationStarting = false;
                     showToastShort(str("revanced_vot_playback_error"));
@@ -273,8 +288,8 @@ public class VoiceOverTranslationPatch {
                     break;
                 case STATUS_WAITING:
                 case STATUS_LONG_WAITING:
-                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting")));
                     int waitTime = result.remainingTime() > 0 ? result.remainingTime() : 5;
+                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting", formatRemainingTime(waitTime))));
                     pollTranslation(videoId, videoTitle, youtubeUrl, durationSeconds, sourceLang, targetLang, waitTime);
                     break;
                 case STATUS_AUDIO_REQUESTED:
@@ -282,6 +297,13 @@ public class VoiceOverTranslationPatch {
                     break;
                 case STATUS_FAILED:
                 default:
+                    if (Settings.VOT_USE_LIVE_VOICES.get()) {
+                        Settings.VOT_USE_LIVE_VOICES.save(false);
+                        Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_live_voices_unavailable")));
+                        isTranslating.set(false);
+                        requestTranslation(videoId, videoTitle, sourceLang, targetLang, durationSeconds);
+                        return;
+                    }
                     Utils.runOnMainThread(() -> {
                         translationStarting = false;
                         showToastShort(str("revanced_vot_playback_error"));
@@ -336,6 +358,13 @@ public class VoiceOverTranslationPatch {
                     Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
                     return;
                 } else if (result.status() == STATUS_FAILED) {
+                    if (Settings.VOT_USE_LIVE_VOICES.get()) {
+                        Settings.VOT_USE_LIVE_VOICES.save(false);
+                        Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_live_voices_unavailable")));
+                        isTranslating.set(false);
+                        requestTranslation(videoId, videoTitle, sourceLang, targetLang, duration);
+                        return;
+                    }
                     Utils.runOnMainThread(() -> {
                         translationStarting = false;
                         showToastShort(str("revanced_vot_playback_error"));
@@ -365,8 +394,8 @@ public class VoiceOverTranslationPatch {
             VotApiClient.TranslationResult result = VotApiClient.requestTranslation(
                     url, duration, sourceLang, targetLang, videoTitle);
             if (result != null && (result.status() == STATUS_WAITING || result.status() == STATUS_LONG_WAITING)) {
-                Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting")));
                 int waitTime = result.remainingTime() > 0 ? result.remainingTime() : 10;
+                Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting", formatRemainingTime(waitTime))));
                 pollTranslation(videoId, videoTitle, url, duration, sourceLang, targetLang, waitTime);
             } else if (result != null && (result.status() == STATUS_FINISHED || result.status() == STATUS_PART_CONTENT) && result.audioUrl() != null) {
                 String directUrl = result.audioUrl();

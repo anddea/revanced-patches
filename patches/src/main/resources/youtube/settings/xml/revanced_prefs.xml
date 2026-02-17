@@ -888,6 +888,7 @@
         <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_vot_translation_volume_title" android:key="vot_translation_volume" android:summary="@string/revanced_vot_translation_volume_summary" android:dependency="vot_enabled" />
         <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_vot_original_audio_volume_title" android:key="vot_original_audio_volume" android:summary="@string/revanced_vot_original_audio_volume_summary" android:dependency="vot_enabled" />
         <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_vot_proxy_url_title" android:key="vot_proxy_url" android:summary="@string/revanced_vot_proxy_url_summary" android:dependency="vot_enabled" />
+        <SwitchPreference android:title="@string/revanced_vot_voice_style_live_title" android:key="vot_use_live_voices" android:summaryOn="@string/revanced_vot_voice_style_live_summary_on" android:summaryOff="@string/revanced_vot_voice_style_live_summary_off" android:dependency="vot_enabled" />
         <SwitchPreference android:title="@string/revanced_vot_audio_proxy_title" android:key="vot_audio_proxy_enabled" android:summaryOn="@string/revanced_vot_audio_proxy_summary_on" android:summaryOff="@string/revanced_vot_audio_proxy_summary_off" android:dependency="vot_enabled" />
     </PreferenceScreen>PREFERENCE_SCREEN: VOICE_OVER_TRANSLATION -->
 

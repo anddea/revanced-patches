@@ -107,6 +107,11 @@ public final class VotStreamReplacer {
                     break;
                 }
                 if (result.status() == STATUS_FAILED) {
+                    if (Settings.VOT_USE_LIVE_VOICES.get()) {
+                        Settings.VOT_USE_LIVE_VOICES.save(false);
+                        Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_live_voices_unavailable")));
+                        continue; // retry with standard TTS
+                    }
                     if (hadWaiting) {
                         Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_not_ready")));
                     }
@@ -115,7 +120,9 @@ public final class VotStreamReplacer {
                 if (result.status() == STATUS_WAITING || result.status() == STATUS_LONG_WAITING) {
                     hadWaiting = true;
                     if (retry == 0) {
-                        Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_waiting")));
+                        int waitSecs = result.remainingTime() > 0 ? result.remainingTime() : 5;
+                        String timeStr = VoiceOverTranslationPatch.formatRemainingTime(waitSecs);
+                        Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_waiting", timeStr)));
                     }
                     waitSeconds = result.remainingTime() > 0 ? result.remainingTime() : 5;
                     waitSeconds = Math.min(waitSeconds, (int) ((deadline - System.currentTimeMillis()) / 1000));

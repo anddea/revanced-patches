@@ -104,11 +104,9 @@ public class VotApiClient {
             final String toastPath = pathTrimmed;
             final String toastHost = proxyHost;
             Logger.printDebug(() -> "toProxyAudioUrl: " + originalUrl + " -> " + result);
-            Utils.runOnMainThread(() -> Utils.showToastShort("VOT proxy: " + toastHost + "/" + toastPath));
             return result;
         } catch (URISyntaxException e) {
             Logger.printDebug(() -> "toProxyAudioUrl: invalid URL " + originalUrl);
-            Utils.runOnMainThread(() -> Utils.showToastShort("VOT proxy: invalid URL"));
             return originalUrl;
         }
     }
@@ -130,7 +128,8 @@ public class VotApiClient {
 
             byte[] body = VotProtobuf.encodeTranslationRequest(
                     videoUrl, true, duration,
-                    apiSourceLang, targetLang, videoTitle
+                    apiSourceLang, targetLang, videoTitle,
+                    Settings.VOT_USE_LIVE_VOICES.get()
             );
 
             String path = "/video-translation/translate";
