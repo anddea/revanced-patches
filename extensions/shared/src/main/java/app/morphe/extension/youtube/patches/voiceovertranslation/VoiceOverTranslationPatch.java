@@ -35,6 +35,7 @@ import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.RootView;
 import app.morphe.extension.youtube.shared.VideoInformation;
+import app.morphe.extension.youtube.shared.VideoInformation.OnPlayerResponseReceivedListener;
 import app.morphe.extension.youtube.shared.VideoState;
 import app.morphe.extension.youtube.utils.VideoUtils;
 
@@ -54,6 +55,8 @@ public class VoiceOverTranslationPatch {
     private static final int STATUS_AUDIO_REQUESTED = 6;
     private static final long PAUSE_DETECTION_TIMEOUT_MS = 1500;
     private static final long PROXY_PREPARE_TIMEOUT_MS = 15000;
+    /** Fallback timeout if player response callback never fires (slow network, user navigated away). */
+    private static final long RELOAD_CALLBACK_TIMEOUT_MS = 30_000;
     private static final String PROXY_USER_AGENT =
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
             "(KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36";
@@ -166,12 +169,27 @@ public class VoiceOverTranslationPatch {
         final double durationSeconds = pendingVideoLength / 1000.0;
         showToastShort(str("revanced_vot_started"));
         translationStarting = true;
+
+        final Runnable onTimeout = () -> {
+            VideoInformation.setOnPlayerResponseReceivedListener(null);
+            if (translationStarting) {
+                translationStarting = false;
+                showToastShort(str("revanced_vot_playback_error"));
+            }
+        };
+
+        VideoInformation.setOnPlayerResponseReceivedListener(receivedVideoId -> {
+            if (!videoId.equals(receivedVideoId)) return;
+            mainHandler.removeCallbacks(onTimeout);
+            Utils.runOnBackgroundThread(() -> requestTranslation(
+                    videoId, videoTitle,
+                    sourceLang, targetLang,
+                    durationSeconds
+            ));
+        });
+
         VideoUtils.reloadVideo();
-        Utils.runOnMainThreadDelayed(() -> Utils.runOnBackgroundThread(() -> requestTranslation(
-                videoId, videoTitle,
-                sourceLang, targetLang,
-                durationSeconds
-        )), 2500);
+        mainHandler.postDelayed(onTimeout, RELOAD_CALLBACK_TIMEOUT_MS);
     }
 
     public static boolean isTranslationActive() {
@@ -682,22 +700,6 @@ public class VoiceOverTranslationPatch {
         try {
             mp.setVolume(vol, vol);
         } catch (Exception ignored) { }
-    }
-
-    /**
-     * Re-applies original volume so the bytecode patch (VotOriginalVolumePatch) picks up
-     * the new VOT_ORIGINAL_AUDIO_VOLUME. Call when user changes the original volume slider.
-     * DefaultAudioSink skips update when value unchanged (if Q==p1), so we force a change:
-     * set slightly different value then restore to trigger the flow through AudioTrack.setVolume.
-     */
-    public static void applyOriginalVolumeToPlayer() {
-        if (!isTranslationActive()) return;
-        float current = VideoInformation.getPlayerVolume();
-        float perturb = (current > 0.01f) ? current * 0.99f : 0.01f;
-        Utils.runOnMainThread(() -> {
-            VideoInformation.setPlayerVolume(perturb);
-            Utils.runOnMainThreadDelayed(() -> VideoInformation.setPlayerVolume(current), 16);
-        });
     }
 
     private static void applyPlaybackSpeedToPlayer(MediaPlayer mp) {
