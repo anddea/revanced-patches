@@ -59,11 +59,13 @@ public class VotProtobuf {
      *   responseLanguage = 14 (string)
      *   unknown2 = 15 (int32)
      *   unknown3 = 16 (int32)
+     *   useLivelyVoice = 18 (bool) — live voices from Yandex (more natural TTS)
      *   videoTitle = 19 (string)
      */
     public static byte[] encodeTranslationRequest(
             String url, boolean firstRequest, double duration,
-            String language, String responseLanguage, String videoTitle
+            String language, String responseLanguage, String videoTitle,
+            boolean useLiveVoices
     ) {
         try {
             ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -77,6 +79,7 @@ public class VotProtobuf {
             writeString(out, 14, responseLanguage);
             writeInt32(out, 15, 1);         // unknown2
             writeInt32(out, 16, 2);         // unknown3
+            writeBool(out, 18, useLiveVoices);  // useLivelyVoice — live voices
             if (videoTitle != null && !videoTitle.isEmpty()) {
                 writeString(out, 19, videoTitle);
             }

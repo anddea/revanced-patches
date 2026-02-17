@@ -1110,6 +1110,10 @@ public class VideoUtils extends IntentUtils {
             origMinusButton.setOnClickListener(v -> applyOrigVolume.accept(Settings.VOT_ORIGINAL_AUDIO_VOLUME.get() - 5));
             origPlusButton.setOnClickListener(v -> applyOrigVolume.accept(Settings.VOT_ORIGINAL_AUDIO_VOLUME.get() + 5));
 
+            // Voice style: segmented buttons (Standard | Live)
+            LinearLayout voiceStyleRow = createVotVoiceStyleButtons(context, () -> VoiceOverTranslationPatch.restartTranslationIfActive());
+            mainLayout.addView(voiceStyleRow);
+
             // Audio proxy toggle — restart translation when changed (proxy vs direct URL)
             LinearLayout proxyItem = createVotSwitchItem(context, str("revanced_vot_audio_proxy_title"),
                     Settings.VOT_AUDIO_PROXY_ENABLED, () -> VoiceOverTranslationPatch.restartTranslationIfActive());
@@ -1119,6 +1123,93 @@ public class VideoUtils extends IntentUtils {
         } catch (Exception ex) {
             Logger.printException(() -> "showVotBottomSheetDialog failure", ex);
         }
+    }
+
+    /**
+     * Creates a segmented control for voice style: two buttons (Standard voices | Live voices).
+     * @param onChanged optional callback when the selection changes (e.g. to restart translation)
+     */
+    private static LinearLayout createVotVoiceStyleButtons(Context context, Runnable onChanged) {
+        final int dip8 = dipToPixels(8);
+        final int dip12 = dipToPixels(12);
+
+        LinearLayout container = new LinearLayout(context);
+        container.setOrientation(LinearLayout.VERTICAL);
+        container.setPadding(dipToPixels(16), dip12, dipToPixels(16), dip12);
+
+        TextView labelText = new TextView(context);
+        labelText.setText(str("revanced_vot_voice_style_title"));
+        labelText.setTextColor(ThemeUtils.getAppForegroundColor());
+        labelText.setTextSize(14);
+        labelText.setTypeface(Typeface.DEFAULT_BOLD);
+        labelText.setGravity(Gravity.START);
+        LinearLayout.LayoutParams labelParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        labelParams.setMargins(0, 0, 0, dip8);
+        labelText.setLayoutParams(labelParams);
+        container.addView(labelText);
+
+        LinearLayout buttonsRow = new LinearLayout(context);
+        buttonsRow.setOrientation(LinearLayout.HORIZONTAL);
+        buttonsRow.setGravity(Gravity.CENTER);
+
+        Button standardButton = createVotSegmentedButton(context, str("revanced_vot_voice_style_standard"));
+        Button liveButton = createVotSegmentedButton(context, str("revanced_vot_voice_style_live"));
+
+        Runnable updateSelection = () -> {
+            boolean useLive = Settings.VOT_USE_LIVE_VOICES.get();
+            int selectedColor = getAdjustedBackgroundColor(true);
+            int unselectedColor = getAdjustedBackgroundColor(false);
+            ShapeDrawable standardBg = (ShapeDrawable) standardButton.getBackground();
+            ShapeDrawable liveBg = (ShapeDrawable) liveButton.getBackground();
+            standardBg.getPaint().setColor(useLive ? unselectedColor : selectedColor);
+            liveBg.getPaint().setColor(useLive ? selectedColor : unselectedColor);
+            standardBg.invalidateSelf();
+            liveBg.invalidateSelf();
+            standardButton.invalidate();
+            liveButton.invalidate();
+        };
+
+        standardButton.setOnClickListener(v -> {
+            Settings.VOT_USE_LIVE_VOICES.save(false);
+            updateSelection.run();
+            if (onChanged != null) onChanged.run();
+        });
+        liveButton.setOnClickListener(v -> {
+            Settings.VOT_USE_LIVE_VOICES.save(true);
+            updateSelection.run();
+            if (onChanged != null) onChanged.run();
+        });
+
+        LinearLayout.LayoutParams btnParams = new LinearLayout.LayoutParams(0, dipToPixels(40), 1f);
+        btnParams.setMargins(0, 0, dip8 / 2, 0);
+        standardButton.setLayoutParams(btnParams);
+        LinearLayout.LayoutParams btnParams2 = new LinearLayout.LayoutParams(0, dipToPixels(40), 1f);
+        btnParams2.setMargins(dip8 / 2, 0, 0, 0);
+        liveButton.setLayoutParams(btnParams2);
+
+        buttonsRow.addView(standardButton);
+        buttonsRow.addView(liveButton);
+        container.addView(buttonsRow);
+
+        updateSelection.run();
+        return container;
+    }
+
+    private static Button createVotSegmentedButton(Context context, String text) {
+        Button button = new Button(context, null, 0);
+        button.setText(text);
+        button.setTextColor(ThemeUtils.getAppForegroundColor());
+        button.setTextSize(13);
+        button.setAllCaps(false);
+        button.setGravity(Gravity.CENTER);
+
+        ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
+                Utils.createCornerRadii(12), null, null));
+        background.getPaint().setColor(getAdjustedBackgroundColor(false));
+        button.setBackground(background);
+        button.setPadding(dipToPixels(12), dipToPixels(8), dipToPixels(12), dipToPixels(8));
+        return button;
     }
 
     /**
