@@ -378,6 +378,28 @@ public final class VideoInformation {
     }
 
     /**
+     * Listener invoked when a new player response is received (video metadata loaded).
+     * Called off the main thread. Used by VOT to start translation after video reload.
+     */
+    @Nullable
+    private static volatile OnPlayerResponseReceivedListener onPlayerResponseReceivedListener;
+
+    /**
+     * Sets a one-shot listener for the next player response. Cleared after invocation or when set to null.
+     */
+    public static void setOnPlayerResponseReceivedListener(@Nullable OnPlayerResponseReceivedListener listener) {
+        onPlayerResponseReceivedListener = listener;
+    }
+
+    /**
+     * Listener for when player response is received. Called off the main thread.
+     */
+    @FunctionalInterface
+    public interface OnPlayerResponseReceivedListener {
+        void onPlayerResponseReceived(@NonNull String videoId);
+    }
+
+    /**
      * Injection point.  Called off the main thread.
      *
      * @param videoId The id of the last video loaded.
@@ -385,6 +407,15 @@ public final class VideoInformation {
     public static void setPlayerResponseVideoId(@NonNull String videoId, boolean isShortAndOpeningOrPlaying) {
         if (!playerResponseVideoId.equals(videoId)) {
             playerResponseVideoId = videoId;
+        }
+        OnPlayerResponseReceivedListener listener = onPlayerResponseReceivedListener;
+        if (listener != null) {
+            onPlayerResponseReceivedListener = null;
+            try {
+                listener.onPlayerResponseReceived(videoId);
+            } catch (Exception e) {
+                Logger.printException(() -> "onPlayerResponseReceived failed", e);
+            }
         }
     }
 
