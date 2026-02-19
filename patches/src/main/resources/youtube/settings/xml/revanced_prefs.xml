@@ -880,6 +880,16 @@
     </PreferenceScreen>PREFERENCE_SCREEN: RETURN_YOUTUBE_USERNAME -->
 
 
+    <!-- PREFERENCE_SCREEN: SPONSOR_BLOCK
+    <PreferenceScreen android:title="@string/revanced_preference_screen_sb_title" android:key="revanced_preference_screen_sb" >
+        <app.morphe.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup android:title="@string/revanced_preference_group_sb_title" android:key="revanced_preference_group_sb" />
+        <app.morphe.extension.youtube.sponsorblock.ui.SponsorBlockStatsPreferenceCategory android:title="@string/revanced_sb_stats" android:key="revanced_sb_stats" android:layout="@layout/revanced_settings_preferences_category" />
+        <PreferenceCategory android:title="@string/revanced_sb_about" android:key="revanced_sb_about" android:layout="@layout/revanced_settings_preferences_category">
+            <app.morphe.extension.youtube.sponsorblock.ui.SponsorBlockAboutPreference android:title="@string/revanced_sb_about_api" android:selectable="true" android:key="revanced_sb_about_api" android:summary="@string/revanced_sb_about_api_sum" />
+        </PreferenceCategory>
+    </PreferenceScreen>PREFERENCE_SCREEN: SPONSOR_BLOCK -->
+
+
     <!-- PREFERENCE_SCREEN: VOICE_OVER_TRANSLATION
     <PreferenceScreen android:title="@string/revanced_preference_screen_vot_title" android:key="revanced_preference_screen_vot">
         <SwitchPreference android:title="@string/revanced_vot_enabled_title" android:key="vot_enabled" android:summaryOn="@string/revanced_vot_enabled_summary_on" android:summaryOff="@string/revanced_vot_enabled_summary_off" />
@@ -892,15 +902,6 @@
         <SwitchPreference android:title="@string/revanced_vot_audio_proxy_title" android:key="vot_audio_proxy_enabled" android:summaryOn="@string/revanced_vot_audio_proxy_summary_on" android:summaryOff="@string/revanced_vot_audio_proxy_summary_off" android:dependency="vot_enabled" />
     </PreferenceScreen>PREFERENCE_SCREEN: VOICE_OVER_TRANSLATION -->
 
-
-    <!-- PREFERENCE_SCREEN: SPONSOR_BLOCK
-    <PreferenceScreen android:title="@string/revanced_preference_screen_sb_title" android:key="revanced_preference_screen_sb" >
-        <app.morphe.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup android:title="@string/revanced_preference_group_sb_title" android:key="revanced_preference_group_sb" />
-        <app.morphe.extension.youtube.sponsorblock.ui.SponsorBlockStatsPreferenceCategory android:title="@string/revanced_sb_stats" android:key="revanced_sb_stats" android:layout="@layout/revanced_settings_preferences_category" />
-        <PreferenceCategory android:title="@string/revanced_sb_about" android:key="revanced_sb_about" android:layout="@layout/revanced_settings_preferences_category">
-            <app.morphe.extension.youtube.sponsorblock.ui.SponsorBlockAboutPreference android:title="@string/revanced_sb_about_api" android:selectable="true" android:key="revanced_sb_about_api" android:summary="@string/revanced_sb_about_api_sum" />
-        </PreferenceCategory>
-    </PreferenceScreen>PREFERENCE_SCREEN: SPONSOR_BLOCK -->
 
     <PreferenceScreen android:title="@string/revanced_preference_screen_misc_title" android:key="revanced_preference_screen_misc">
 
@@ -976,7 +977,7 @@
 
         <!-- PREFERENCE: GMS_CORE_SETTINGS
         <Preference android:title="@string/gms_core_settings_title" android:key="gms_core_settings" android:summary="@string/gms_core_settings_summary">
-            <intent android:targetPackage="app.morphe.android.gms" android:targetClass="org.microg.gms.ui.SettingsActivity" />
+            <intent android:targetPackage="app.revanced.android.gms" android:targetClass="org.microg.gms.ui.SettingsActivity" />
         </Preference>
         <SwitchPreference android:title="@string/revanced_gms_show_dialog_title" android:key="revanced_gms_show_dialog" android:summary="@string/revanced_gms_show_dialog_summary" />PREFERENCE: GMS_CORE_SETTINGS -->
 
