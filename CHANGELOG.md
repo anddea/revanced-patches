@@ -1,3 +1,10 @@
+# [4.0.0-dev.4](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.3...v4.0.0-dev.4) (2026-02-19)
+
+
+### Features
+
+* **YouTube - Voice Over Translation:** Volume patch fixes, audio proxy, immediate pause on video stop ([#1382](https://github.com/anddea/revanced-patches/issues/1382)) ([6ac278c](https://github.com/anddea/revanced-patches/commit/6ac278cc65b8e55d9f434c8b479665a00c17bedc))
+
 # [4.0.0-dev.3](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.2...v4.0.0-dev.3) (2026-02-15)
 
 
