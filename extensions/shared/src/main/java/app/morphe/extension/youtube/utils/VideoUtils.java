@@ -1002,7 +1002,7 @@ public class VideoUtils extends IntentUtils {
             volumeSlider.setLayoutParams(sliderParams);
 
             TextView volumeValueText = new TextView(context);
-            volumeValueText.setText(String.valueOf(Settings.VOT_TRANSLATION_VOLUME.get()) + "%");
+            volumeValueText.setText(str("revanced_vot_percent_value", Settings.VOT_TRANSLATION_VOLUME.get()));
             volumeValueText.setTextColor(ThemeUtils.getAppForegroundColor());
             volumeValueText.setTextSize(14);
             volumeValueText.setMinWidth(dipToPixels(40));
@@ -1018,7 +1018,7 @@ public class VideoUtils extends IntentUtils {
                 vol = Utils.clamp(vol, 0, 100);
                 Settings.VOT_TRANSLATION_VOLUME.save(vol);
                 volumeSlider.setProgress(vol);
-                volumeValueText.setText(vol + "%");
+                volumeValueText.setText(str("revanced_vot_percent_value", vol));
                 VoiceOverTranslationPatch.applyVolumeToCurrentPlayer();
             };
 
@@ -1072,7 +1072,7 @@ public class VideoUtils extends IntentUtils {
             origVolumeSlider.setLayoutParams(origSliderParams);
 
             TextView origVolumeValueText = new TextView(context);
-            origVolumeValueText.setText(String.valueOf(Settings.VOT_ORIGINAL_AUDIO_VOLUME.get()) + "%");
+            origVolumeValueText.setText(str("revanced_vot_percent_value", Settings.VOT_ORIGINAL_AUDIO_VOLUME.get()));
             origVolumeValueText.setTextColor(ThemeUtils.getAppForegroundColor());
             origVolumeValueText.setTextSize(14);
             origVolumeValueText.setMinWidth(dipToPixels(40));
@@ -1088,9 +1088,9 @@ public class VideoUtils extends IntentUtils {
                 vol = Utils.clamp(vol, 0, 100);
                 Settings.VOT_ORIGINAL_AUDIO_VOLUME.save(vol);
                 origVolumeSlider.setProgress(vol);
-                origVolumeValueText.setText(vol + "%");
+                origVolumeValueText.setText(str("revanced_vot_percent_value", vol));
                 if (VoiceOverTranslationPatch.isTranslationActive()) {
-                    reloadVideo();
+                    VoiceOverTranslationPatch.refreshOriginalAudioVolumeIfActive();
                 }
             };
 
@@ -1111,12 +1111,12 @@ public class VideoUtils extends IntentUtils {
             origPlusButton.setOnClickListener(v -> applyOrigVolume.accept(Settings.VOT_ORIGINAL_AUDIO_VOLUME.get() + 5));
 
             // Voice style: segmented buttons (Standard | Live)
-            LinearLayout voiceStyleRow = createVotVoiceStyleButtons(context, () -> VoiceOverTranslationPatch.restartTranslationIfActive());
+            LinearLayout voiceStyleRow = createVotVoiceStyleButtons(context, VoiceOverTranslationPatch::restartTranslationIfActive);
             mainLayout.addView(voiceStyleRow);
 
             // Audio proxy toggle — restart translation when changed (proxy vs direct URL)
             LinearLayout proxyItem = createVotSwitchItem(context, str("revanced_vot_audio_proxy_title"),
-                    Settings.VOT_AUDIO_PROXY_ENABLED, () -> VoiceOverTranslationPatch.restartTranslationIfActive());
+                    Settings.VOT_AUDIO_PROXY_ENABLED, VoiceOverTranslationPatch::restartTranslationIfActive);
             mainLayout.addView(proxyItem);
 
             ExtendedUtils.showBottomSheetDialog(context, mainLayout);
@@ -1214,7 +1214,6 @@ public class VideoUtils extends IntentUtils {
 
     /**
      * Creates a row with title and switch for a boolean setting (e.g. audio proxy).
-     * @param onChanged optional callback when the setting changes (e.g. to restart translation)
      */
     private static LinearLayout createVotSwitchItem(Context context, String title,
                                                     BooleanSetting setting) {

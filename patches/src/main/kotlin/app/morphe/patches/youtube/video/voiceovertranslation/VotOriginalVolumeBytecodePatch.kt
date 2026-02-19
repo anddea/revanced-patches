@@ -63,6 +63,21 @@ private fun getVolumeRegister(instruction: Instruction): Int? {
     }
 }
 
+/**
+ * For invoke-virtual {obj, float}: obj is first register.
+ * FiveRegisterInstruction (35c): registerC=obj.
+ * TwoRegisterInstruction (22c): registerA=obj.
+ * RegisterRangeInstruction (3rc): obj in startRegister.
+ */
+private fun getAudioTrackRegister(instruction: Instruction): Int? {
+    return when (instruction) {
+        is FiveRegisterInstruction -> if (instruction.registerCount >= 1) instruction.registerC else null
+        is TwoRegisterInstruction -> instruction.registerA
+        is RegisterRangeInstruction -> if (instruction.registerCount >= 1) instruction.startRegister else null
+        else -> null
+    }
+}
+
 private object AudioTrackSetVolumeMethodFingerprint : Fingerprint(
     returnType = "V",
     parameters = listOf(),
@@ -88,15 +103,17 @@ val votOriginalVolumeBytecodePatch = bytecodePatch(
         val mutableMethod = audioTrackSetVolumeMethodFingerprint.methodOrThrow()
         val index = mutableMethod.indexOfFirstInstructionOrThrow {
             (opcode == Opcode.INVOKE_VIRTUAL || opcode == Opcode.INVOKE_VIRTUAL_RANGE) &&
-                (getReference<MethodReference>()?.let { it.isAudioTrackSetVolume() } == true)
+                (getReference<MethodReference>()?.isAudioTrackSetVolume() == true)
         }
         val instruction = mutableMethod.implementation!!.instructions.elementAt(index)
+        val audioTrackReg = getAudioTrackRegister(instruction)
+            ?: throw PatchException("VotOriginalVolume: cannot get AudioTrack register")
         val volReg = getVolumeRegister(instruction)
             ?: throw PatchException("VotOriginalVolume: cannot get volume register")
         mutableMethod.addInstructions(
             index,
             """
-            invoke-static { v$volReg }, $EXTENSION_CLASS_DESCRIPTOR->applyVolumeMultiplier(F)F
+            invoke-static { v$audioTrackReg, v$volReg }, $EXTENSION_CLASS_DESCRIPTOR->applyVolumeMultiplier(Landroid/media/AudioTrack;F)F
             move-result v$volReg
             """.trimIndent()
         )

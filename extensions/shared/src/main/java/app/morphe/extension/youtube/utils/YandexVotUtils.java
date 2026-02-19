@@ -176,10 +176,12 @@ public class YandexVotUtils {
 
         try (Response response = httpClient.newCall(request).execute()) {
             if (!response.isSuccessful()) {
+                assert response.body() != null;
                 String bodyString = response.body().string();
                 Logger.printException(() -> "VOT: Failed to create session: " + response.code() + " " + response.message() + ", Body: " + bodyString);
                 throw new IOException("Failed to create session: " + response.code());
             }
+            assert response.body() != null;
             byte[] responseBytes = response.body().bytes();
             ManualYandexSessionResponse sessionResponse = ManualYandexSessionResponse.parseFrom(responseBytes);
             if (TextUtils.isEmpty(sessionResponse.secretKey)) {
@@ -482,10 +484,12 @@ public class YandexVotUtils {
 
         try (Response response = httpClient.newCall(request).execute()) {
             if (!response.isSuccessful()) {
+                assert response.body() != null;
                 String bodyString = response.body().string();
                 Logger.printException(() -> "VOT: Translation request failed: " + response.code() + " " + response.message() + ", Body: " + bodyString);
                 throw new IOException("API Error: " + response.code());
             }
+            assert response.body() != null;
             byte[] responseBytes = response.body().bytes();
             Logger.printDebug(() -> "VOT: Translation response body: " + Arrays.toString(responseBytes));
             return ManualVideoTranslationResponse.parseFrom(responseBytes);
@@ -517,10 +521,12 @@ public class YandexVotUtils {
 
         try (Response response = httpClient.newCall(request).execute()) {
             if (!response.isSuccessful()) {
+                assert response.body() != null;
                 String bodyString = response.body().string();
                 Logger.printException(() -> "VOT: Failed to get subtitle tracks: " + response.code() + " " + response.message() + ", Body: " + bodyString);
                 return null;
             }
+            assert response.body() != null;
             ManualSubtitlesResponse subResponse = ManualSubtitlesResponse.parseFrom(response.body().bytes());
             String availableSubsLog = subResponse.subtitles != null && !subResponse.subtitles.isEmpty()
                     ? subResponse.subtitles.stream()
@@ -569,6 +575,7 @@ public class YandexVotUtils {
 
         try (Response response = httpClient.newCall(request).execute()) {
             if (!response.isSuccessful()) {
+                assert response.body() != null;
                 String bodyString = response.body().string();
                 Logger.printException(() -> "VOT: Failed fail-audio-js request: " + response.code() + " " + response.message() + ", Body: " + bodyString);
             } else {
@@ -605,6 +612,7 @@ public class YandexVotUtils {
 
             try (Response response = httpClient.newCall(request).execute()) {
                 if (!response.isSuccessful()) {
+                    assert response.body() != null;
                     String bodyString = response.body().string();
                     Logger.printException(() -> "VOT: Failed /audio request: " + response.code() + " " + response.message() + ", Body: " + bodyString);
                 } else {
@@ -771,12 +779,14 @@ public class YandexVotUtils {
             public void onResponse(@NonNull Call call, @NonNull Response response) {
                 try (ResponseBody body = response.body()) {
                     if (!response.isSuccessful()) {
+                        assert body != null;
                         String bodyPreview = body.source().peek().readString(1024, StandardCharsets.UTF_8);
                         Logger.printException(() -> "VOT: Failed to download subtitle: " + response.code() + " " + response.message() + ", Preview: " + bodyPreview);
                         postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_download_subs_failed", response.code())));
                         return;
                     }
 
+                    assert body != null;
                     String subtitleText = body.string();
 
                     Logger.printInfo(() -> "VOT: Fetched subtitle content (" + yandexTargetLang + ", " + subtitleText.length() + " chars)");

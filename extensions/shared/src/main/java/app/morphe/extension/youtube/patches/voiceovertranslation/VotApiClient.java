@@ -35,7 +35,6 @@ import javax.crypto.spec.SecretKeySpec;
 
 
 import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 
 public class VotApiClient {
@@ -73,11 +72,11 @@ public class VotApiClient {
      */
     @NonNull
     public static String toProxyAudioUrl(@NonNull String originalUrl) {
-        if (originalUrl == null || originalUrl.isEmpty()) {
+        if (originalUrl.isEmpty()) {
             return originalUrl;
         }
         String proxyHost = Settings.VOT_PROXY_URL.get();
-        if (proxyHost == null || proxyHost.isEmpty()) {
+        if (proxyHost.isEmpty()) {
             proxyHost = DEFAULT_WORKER_HOST;
         }
         proxyHost = proxyHost.replaceFirst("^https?://", "").replaceAll("/+$", "");
@@ -88,27 +87,30 @@ public class VotApiClient {
             if (path == null || path.isEmpty()) {
                 return originalUrl;
             }
-            String pathTrimmed = path.replaceFirst("^/+", "");
-            int lastSlash = pathTrimmed.lastIndexOf('/');
-            if (lastSlash >= 0) {
-                pathTrimmed = pathTrimmed.substring(lastSlash + 1);
-            }
-            StringBuilder proxyUrl = new StringBuilder();
-            proxyUrl.append("https://").append(proxyHost);
-            proxyUrl.append("/video-translation/audio-proxy/");
-            proxyUrl.append(pathTrimmed);
-            if (query != null && !query.isEmpty()) {
-                proxyUrl.append("?").append(query);
-            }
-            String result = proxyUrl.toString();
-            final String toastPath = pathTrimmed;
-            final String toastHost = proxyHost;
+            String result = getString(path, proxyHost, query);
             Logger.printDebug(() -> "toProxyAudioUrl: " + originalUrl + " -> " + result);
             return result;
         } catch (URISyntaxException e) {
             Logger.printDebug(() -> "toProxyAudioUrl: invalid URL " + originalUrl);
             return originalUrl;
         }
+    }
+
+    @NonNull
+    private static String getString(String path, String proxyHost, String query) {
+        String pathTrimmed = path.replaceFirst("^/+", "");
+        int lastSlash = pathTrimmed.lastIndexOf('/');
+        if (lastSlash >= 0) {
+            pathTrimmed = pathTrimmed.substring(lastSlash + 1);
+        }
+        StringBuilder proxyUrl = new StringBuilder();
+        proxyUrl.append("https://").append(proxyHost);
+        proxyUrl.append("/video-translation/audio-proxy/");
+        proxyUrl.append(pathTrimmed);
+        if (query != null && !query.isEmpty()) {
+            proxyUrl.append("?").append(query);
+        }
+        return proxyUrl.toString();
     }
 
     public static TranslationResult requestTranslation(

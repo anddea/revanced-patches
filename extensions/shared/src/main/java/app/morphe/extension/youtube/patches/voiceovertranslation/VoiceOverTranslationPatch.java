@@ -35,9 +35,7 @@ import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.RootView;
 import app.morphe.extension.youtube.shared.VideoInformation;
-import app.morphe.extension.youtube.shared.VideoInformation.OnPlayerResponseReceivedListener;
 import app.morphe.extension.youtube.shared.VideoState;
-import app.morphe.extension.youtube.utils.VideoUtils;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.showToastShort;
@@ -55,8 +53,6 @@ public class VoiceOverTranslationPatch {
     private static final int STATUS_AUDIO_REQUESTED = 6;
     private static final long PAUSE_DETECTION_TIMEOUT_MS = 1500;
     private static final long PROXY_PREPARE_TIMEOUT_MS = 15000;
-    /** Fallback timeout if player response callback never fires (slow network, user navigated away). */
-    private static final long RELOAD_CALLBACK_TIMEOUT_MS = 30_000;
     private static final String PROXY_USER_AGENT =
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
             "(KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36";
@@ -97,7 +93,7 @@ public class VoiceOverTranslationPatch {
     private static volatile long pendingVideoLength = 0L;
     private static volatile boolean pendingIsLive = false;
 
-    /** True when user started translation and we reloaded - video will load with reduced volume. Cleared when translation actually starts. */
+    /** True when user started translation and original audio should be ducked before translated audio starts. */
     public static volatile boolean translationStarting = false;
 
     public static void initialize() {
@@ -144,7 +140,7 @@ public class VoiceOverTranslationPatch {
             stopAudioPlayback();
             notifyTranslationStateChanged();
             showToastShort(str("revanced_vot_stopped"));
-            VideoUtils.reloadVideo();
+            refreshOriginalAudioVolume();
             return;
         }
 
@@ -169,33 +165,46 @@ public class VoiceOverTranslationPatch {
         final double durationSeconds = pendingVideoLength / 1000.0;
         showToastShort(str("revanced_vot_started"));
         translationStarting = true;
-
-        final Runnable onTimeout = () -> {
-            VideoInformation.setOnPlayerResponseReceivedListener(null);
-            if (translationStarting) {
-                translationStarting = false;
-                showToastShort(str("revanced_vot_playback_error"));
-            }
-        };
-
-        VideoInformation.setOnPlayerResponseReceivedListener(receivedVideoId -> {
-            if (!videoId.equals(receivedVideoId)) return;
-            mainHandler.removeCallbacks(onTimeout);
-            Utils.runOnBackgroundThread(() -> requestTranslation(
-                    videoId, videoTitle,
-                    sourceLang, targetLang,
-                    durationSeconds
-            ));
-        });
-
-        VideoUtils.reloadVideo();
-        mainHandler.postDelayed(onTimeout, RELOAD_CALLBACK_TIMEOUT_MS);
+        refreshOriginalAudioVolume();
+        Utils.runOnBackgroundThread(() -> requestTranslation(
+                videoId, videoTitle,
+                sourceLang, targetLang,
+                durationSeconds
+        ));
     }
 
     public static boolean isTranslationActive() {
         MediaPlayer mp = mediaPlayer.get();
         if (mp == null) return false;
         return currentTranslatedVideoId.get() != null && !currentTranslatedVideoId.get().isEmpty();
+    }
+
+    /**
+     * Re-applies the current player volume so VOT original-audio multiplier takes effect immediately
+     * without reloading the video.
+     */
+    public static void refreshOriginalAudioVolumeIfActive() {
+        if (!Settings.VOT_ENABLED.get()) return;
+        if (!isTranslationActive() && !translationStarting) return;
+        refreshOriginalAudioVolume();
+    }
+
+    /**
+     * Forces the player to re-apply volume so AudioTrack.setVolume hook runs immediately.
+     */
+    public static void refreshOriginalAudioVolume() {
+        if (VotOriginalVolumePatch.applyCurrentMultiplierNow()) return;
+
+        // Fallback path if no AudioTrack has been captured yet.
+        float currentVolume = VideoInformation.getPlayerVolume();
+        if (Float.isNaN(currentVolume)) currentVolume = 1.0f;
+        if (currentVolume < 0f) currentVolume = 0f;
+        if (currentVolume > 1f) currentVolume = 1f;
+        float nudgedVolume = currentVolume >= 0.99f
+                ? Math.max(0f, currentVolume - 0.01f)
+                : Math.min(1f, currentVolume + 0.01f);
+        VideoInformation.setPlayerVolume(nudgedVolume);
+        VideoInformation.setPlayerVolume(currentVolume);
     }
 
     /**
@@ -504,12 +513,15 @@ public class VoiceOverTranslationPatch {
                         totalBytes += n;
                     }
                 }
-                if (fos != null) {
-                    try { fos.close(); } catch (IOException ignored) { }
-                }
+                try {
+                    fos.close();
+                } catch (IOException ignored) {}
                 final long bytes = totalBytes;
                 if (bytes < 1000) {
-                    tempFile.delete();
+                    boolean deleted = tempFile.delete();
+                    if (!deleted) {
+                        Logger.printDebug(() -> "VOT temp proxy file could not be deleted: " + tempFile.getAbsolutePath());
+                    }
                     return null;
                 }
                 return tempFile.getAbsolutePath();
@@ -575,7 +587,11 @@ public class VoiceOverTranslationPatch {
         tempProxyFile = null;
         if (path != null) {
             try {
-                new File(path).delete();
+                File file = new File(path);
+                boolean deleted = file.delete();
+                if (!deleted) {
+                    Logger.printDebug(() -> "VOT temp proxy file could not be deleted: " + file.getAbsolutePath());
+                }
             } catch (Exception ignored) { }
         }
     }
