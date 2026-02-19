@@ -1,14 +1,42 @@
 /*
  * Copyright (C) 2026 anddea
  *
- * This file is part of https://github.com/anddea/revanced-patches/.
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
  *
- * The original author: https://github.com/Jav1x.
+ * Original author(s) (based on contributions):
+ * - Jav1x (https://github.com/Jav1x)
+ * - anddea (https://github.com/anddea)
  *
- * IMPORTANT: This file is the proprietary work of https://github.com/Jav1x.
- * Any modifications, derivatives, or substantial rewrites of this file
- * must retain this copyright notice and the original author attribution
- * in the source code and version control history.
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Attribution Notice
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Attribution (Section 7(b)): This specific copyright notice and the
+ *    list of original authors above must be preserved in any copy or
+ *    derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin (Section 7(c)): Modified versions must be clearly marked as
+ *    such (e.g., by adding a "Modified by" line or a new copyright notice).
+ *    They must not be misrepresented as the original work.
+ *
+ * ------------------------------------------------------------------------
+ * Version Control Acknowledgement (Non-binding Request)
+ * ------------------------------------------------------------------------
+ *
+ * While not a legal requirement of the GPLv3, the original author(s)
+ * respectfully request that ports or substantial modifications retain
+ * historical authorship credit in version control systems (e.g., Git),
+ * listing original author(s) appropriately and modifiers as committers
+ * or co-authors.
  */
 
 package app.morphe.extension.youtube.patches.voiceovertranslation;
@@ -20,6 +48,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
@@ -59,6 +89,58 @@ public class VotApiClient {
                                     String translationId, String message) {
     }
 
+    /**
+     * Converts a direct audio URL (S3/Yandex) to a proxied URL.
+     * Format: https://{proxyHost}/video-translation/audio-proxy/{path}?{query}
+     * Takes path and query from the original URL. The proxy fetches using its configured
+     * base URL + path with the given query (AWS signature params).
+     *
+     * @param originalUrl the original audio URL
+     * @return proxied URL, or originalUrl on error
+     */
+    @NonNull
+    public static String toProxyAudioUrl(@NonNull String originalUrl) {
+        if (originalUrl.isEmpty()) {
+            return originalUrl;
+        }
+        String proxyHost = Settings.VOT_PROXY_URL.get();
+        if (proxyHost.isEmpty()) {
+            proxyHost = DEFAULT_WORKER_HOST;
+        }
+        proxyHost = proxyHost.replaceFirst("^https?://", "").replaceAll("/+$", "");
+        try {
+            URI uri = new URI(originalUrl);
+            String path = uri.getRawPath();
+            String query = uri.getRawQuery();
+            if (path == null || path.isEmpty()) {
+                return originalUrl;
+            }
+            String result = getString(path, proxyHost, query);
+            Logger.printDebug(() -> "toProxyAudioUrl: " + originalUrl + " -> " + result);
+            return result;
+        } catch (URISyntaxException e) {
+            Logger.printDebug(() -> "toProxyAudioUrl: invalid URL " + originalUrl);
+            return originalUrl;
+        }
+    }
+
+    @NonNull
+    private static String getString(String path, String proxyHost, String query) {
+        String pathTrimmed = path.replaceFirst("^/+", "");
+        int lastSlash = pathTrimmed.lastIndexOf('/');
+        if (lastSlash >= 0) {
+            pathTrimmed = pathTrimmed.substring(lastSlash + 1);
+        }
+        StringBuilder proxyUrl = new StringBuilder();
+        proxyUrl.append("https://").append(proxyHost);
+        proxyUrl.append("/video-translation/audio-proxy/");
+        proxyUrl.append(pathTrimmed);
+        if (query != null && !query.isEmpty()) {
+            proxyUrl.append("?").append(query);
+        }
+        return proxyUrl.toString();
+    }
+
     public static TranslationResult requestTranslation(
             String videoUrl, double duration,
             String sourceLang, String targetLang,
@@ -76,7 +158,8 @@ public class VotApiClient {
 
             byte[] body = VotProtobuf.encodeTranslationRequest(
                     videoUrl, true, duration,
-                    apiSourceLang, targetLang, videoTitle
+                    apiSourceLang, targetLang, videoTitle,
+                    Settings.VOT_USE_LIVE_VOICES.get()
             );
 
             String path = "/video-translation/translate";

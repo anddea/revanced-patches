@@ -1,3 +1,45 @@
+/*
+ * Copyright (C) anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s) (alphabetical order):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ * - Jav1x (https://github.com/Jav1x)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7(b) – Attribution Notice
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Attribution (Section 7(b)): This specific copyright notice and the
+ *    list of original authors above must be preserved in any copy or
+ *    derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin (Section 7(c)): Modified versions must be clearly marked as
+ *    such (e.g., by adding a "Modified by" line or a new copyright notice).
+ *    They must not be misrepresented as the original work.
+ *
+ * ------------------------------------------------------------------------
+ * Version Control Acknowledgement (Non-binding Request)
+ * ------------------------------------------------------------------------
+ *
+ * While not a legal requirement of the GPLv3, the original author(s)
+ * respectfully request that ports or substantial modifications retain
+ * historical authorship credit in version control systems (e.g., Git),
+ * listing original author(s) appropriately and modifiers as committers
+ * or co-authors.
+ */
+
 package app.morphe.extension.youtube.shared;
 
 import static app.morphe.extension.shared.utils.Utils.getFormattedTimeStamp;
@@ -378,6 +420,28 @@ public final class VideoInformation {
     }
 
     /**
+     * Listener invoked when a new player response is received (video metadata loaded).
+     * Called off the main thread. Used by VOT to start translation after video reload.
+     */
+    @Nullable
+    private static volatile OnPlayerResponseReceivedListener onPlayerResponseReceivedListener;
+
+    /**
+     * Sets a one-shot listener for the next player response. Cleared after invocation or when set to null.
+     */
+    public static void setOnPlayerResponseReceivedListener(@Nullable OnPlayerResponseReceivedListener listener) {
+        onPlayerResponseReceivedListener = listener;
+    }
+
+    /**
+     * Listener for when player response is received. Called off the main thread.
+     */
+    @FunctionalInterface
+    public interface OnPlayerResponseReceivedListener {
+        void onPlayerResponseReceived(@NonNull String videoId);
+    }
+
+    /**
      * Injection point.  Called off the main thread.
      *
      * @param videoId The id of the last video loaded.
@@ -385,6 +449,15 @@ public final class VideoInformation {
     public static void setPlayerResponseVideoId(@NonNull String videoId, boolean isShortAndOpeningOrPlaying) {
         if (!playerResponseVideoId.equals(videoId)) {
             playerResponseVideoId = videoId;
+        }
+        OnPlayerResponseReceivedListener listener = onPlayerResponseReceivedListener;
+        if (listener != null) {
+            onPlayerResponseReceivedListener = null;
+            try {
+                listener.onPlayerResponseReceived(videoId);
+            } catch (Exception e) {
+                Logger.printException(() -> "onPlayerResponseReceived failed", e);
+            }
         }
     }
 
@@ -665,7 +738,8 @@ public final class VideoInformation {
         if (hasSetVolumeOnly(clazz)) return obj;
         String[] getterNames = {
             "getAudioComponent", "getPlayer", "getExoPlayer",
-            "getWrappedPlayer", "getInnerPlayer", "getPlayback"
+            "getWrappedPlayer", "getInnerPlayer", "getPlayback",
+            "getImpl", "getDelegate", "getExoPlayerImpl", "getPlaybackImpl"
         };
         for (String name : getterNames) {
             try {

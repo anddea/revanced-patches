@@ -19,11 +19,18 @@ enum class VideoState {
         private val nameToVideoState = entries.associateBy { it.name }
 
         private val onPlayingListeners = CopyOnWriteArrayList<Runnable>()
+        private val onNotPlayingListeners = CopyOnWriteArrayList<Runnable>()
 
         /** Add a listener that is run when state changes to PLAYING. Used e.g. by VOT to resume translation. */
         @JvmStatic
         fun addOnPlayingListener(listener: Runnable) {
             onPlayingListeners.add(listener)
+        }
+
+        /** Add a listener that is run when state changes to non-PLAYING (PAUSED, ENDED, etc). Used e.g. by VOT to pause translation immediately. */
+        @JvmStatic
+        fun addOnNotPlayingListener(listener: Runnable) {
+            onNotPlayingListeners.add(listener)
         }
 
         @JvmStatic
@@ -49,6 +56,14 @@ enum class VideoState {
                                 listener.run()
                             } catch (e: Exception) {
                                 Logger.printException { "OnPlaying listener error: ${e.message}" }
+                            }
+                        }
+                    } else if (type != null) {
+                        for (listener in onNotPlayingListeners) {
+                            try {
+                                listener.run()
+                            } catch (e: Exception) {
+                                Logger.printException { "OnNotPlaying listener error: ${e.message}" }
                             }
                         }
                     }

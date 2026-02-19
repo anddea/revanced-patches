@@ -388,6 +388,9 @@ public class ExtendedUtils extends PackageUtils {
         ImageView iconView = new ImageView(mContext);
         if (iconId != 0) {
             iconView.setImageResource(iconId);
+            iconView.setVisibility(View.VISIBLE);
+        } else {
+            iconView.setVisibility(View.GONE);
         }
         iconView.setColorFilter(cf);
         LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(dipToPixels(24), dipToPixels(24));

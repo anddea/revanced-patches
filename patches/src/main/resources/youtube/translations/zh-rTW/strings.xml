@@ -1701,6 +1701,8 @@ AI 生成的回應可能包含不準確的資訊。
 長按設定預設播放速度（1.0x）"</string>
     <string name="revanced_overlay_button_speed_dialog_title">播放速度按鈕</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">快速對話類型</string>
+    <string name="revanced_overlay_button_vot_summary">顯示疊加按鈕，用於切換目前影片的語音翻譯</string>
+    <string name="revanced_overlay_button_vot_title">語音翻譯</string>
     <string name="revanced_overlay_button_whitelist_summary">點選可開啟白名單對話框。
 點選並按住可開啟白名單設定對話框。</string>
     <string name="revanced_overlay_button_whitelist_title">顯示白名單按鈕</string>
@@ -1823,6 +1825,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_preference_screen_video_filter_summary">依關鍵字或觀看次數隱藏影片。</string>
     <string name="revanced_preference_screen_video_filter_title">影片篩選器</string>
     <string name="revanced_preference_screen_video_title">影片</string>
+    <string name="revanced_preference_screen_vot_title">語音翻譯</string>
     <string name="revanced_preference_screen_watch_history_summary">變更與觀看歷史記錄相關的設定。</string>
     <string name="revanced_preference_screen_watch_history_title">觀看歷史記錄</string>
     <string name="revanced_queue_manager_add_to_queue">加入佇列清單</string>
@@ -2742,6 +2745,27 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_transcript_cookies_summary">在 Transcript API 請求使用 Cookie。</string>
     <string name="revanced_transcript_cookies_title">字幕 Cookie</string>
     <string name="revanced_translations_title">翻譯</string>
+    <string name="revanced_vot_enabled_summary_off">Yandex語音翻譯已停用</string>
+    <string name="revanced_vot_enabled_summary_on">Yandex語音翻譯功能已啟用</string>
+    <string name="revanced_vot_enabled_title">啟用語音翻譯</string>
+    <string name="revanced_vot_lang_auto">自動偵測</string>
+    <string name="revanced_vot_proxy_url_summary">vot 工作進程代理主機。預設值：vot-worker.toil.cc</string>
+    <string name="revanced_vot_proxy_url_title">代理伺服器</string>
+    <string name="revanced_vot_source_language_summary">選擇影片音訊的語言</string>
+    <string name="revanced_vot_source_language_title">原始語言</string>
+    <string name="revanced_vot_started">翻譯開始</string>
+    <string name="revanced_vot_stopped">翻譯已停止</string>
+    <string name="revanced_vot_stream_not_ready">翻譯尚未完成。完成後，請點選按鈕啟用翻譯。</string>
+    <string name="revanced_vot_stream_ready">翻譯完成，開始播放</string>
+    <string name="revanced_vot_stream_requesting">請求翻譯直播串流…</string>
+    <string name="revanced_vot_stream_waiting">等待翻譯…</string>
+    <string name="revanced_vot_target_language_summary">選擇要翻譯成的語言</string>
+    <string name="revanced_vot_target_language_title">目標語言</string>
+    <string name="revanced_vot_translation_volume_summary">翻譯後音軌的音量（0-100）。預設值：100</string>
+    <string name="revanced_vot_translation_volume_title">翻譯音量</string>
+    <string name="revanced_vot_unavailable_live">直播內容暫不提供翻譯服務</string>
+    <string name="revanced_vot_unavailable_same_language">音訊已為目標語言</string>
+    <string name="revanced_vot_unavailable_too_long">影片太長，無法翻譯（最多 4 小時）</string>
     <string name="revanced_watch_history_about_status_blocked">• 觀看歷史記錄不起作用。</string>
     <string name="revanced_watch_history_about_status_original">"• 遵循Google 帳戶的觀看記錄設定。
 • 由於 DNS 或 VPN 的原因，觀看記錄可能無法運作。"</string>

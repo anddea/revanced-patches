@@ -1,14 +1,41 @@
 /*
  * Copyright (C) 2026 anddea
  *
- * This file is part of https://github.com/anddea/revanced-patches/.
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
  *
- * The original author: https://github.com/Jav1x.
+ * Original author(s):
+ * - Jav1x (https://github.com/Jav1x)
  *
- * IMPORTANT: This file is the proprietary work of https://github.com/Jav1x.
- * Any modifications, derivatives, or substantial rewrites of this file
- * must retain this copyright notice and the original author attribution
- * in the source code and version control history.
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Attribution Notice
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Attribution (Section 7(b)): This specific copyright notice and the
+ *    list of original authors above must be preserved in any copy or
+ *    derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin (Section 7(c)): Modified versions must be clearly marked as
+ *    such (e.g., by adding a "Modified by" line or a new copyright notice).
+ *    They must not be misrepresented as the original work.
+ *
+ * ------------------------------------------------------------------------
+ * Version Control Acknowledgement (Non-binding Request)
+ * ------------------------------------------------------------------------
+ *
+ * While not a legal requirement of the GPLv3, the original author(s)
+ * respectfully request that ports or substantial modifications retain
+ * historical authorship credit in version control systems (e.g., Git),
+ * listing original author(s) appropriately and modifiers as committers
+ * or co-authors.
  */
 
 package app.morphe.extension.youtube.patches.voiceovertranslation;
@@ -107,6 +134,11 @@ public final class VotStreamReplacer {
                     break;
                 }
                 if (result.status() == STATUS_FAILED) {
+                    if (Settings.VOT_USE_LIVE_VOICES.get()) {
+                        Settings.VOT_USE_LIVE_VOICES.save(false);
+                        Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_live_voices_unavailable")));
+                        continue; // retry with standard TTS
+                    }
                     if (hadWaiting) {
                         Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_not_ready")));
                     }
@@ -115,7 +147,9 @@ public final class VotStreamReplacer {
                 if (result.status() == STATUS_WAITING || result.status() == STATUS_LONG_WAITING) {
                     hadWaiting = true;
                     if (retry == 0) {
-                        Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_waiting")));
+                        int waitSecs = result.remainingTime() > 0 ? result.remainingTime() : 5;
+                        String timeStr = VoiceOverTranslationPatch.formatRemainingTime(waitSecs);
+                        Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_waiting", timeStr)));
                     }
                     waitSeconds = result.remainingTime() > 0 ? result.remainingTime() : 5;
                     waitSeconds = Math.min(waitSeconds, (int) ((deadline - System.currentTimeMillis()) / 1000));
@@ -146,9 +180,13 @@ public final class VotStreamReplacer {
                 return stream;
             }
             int replaced = 0;
+            String audioUrl = result.audioUrl();
+            if (Settings.VOT_AUDIO_PROXY_ENABLED.get()) {
+                audioUrl = VotApiClient.toProxyAudioUrl(audioUrl);
+            }
             for (Object format : formatList) {
                 if (StreamingDataOuterClassUtils.isAudioOnlyFormat(format)) {
-                    StreamingDataOuterClassUtils.setUrl(format, result.audioUrl());
+                    StreamingDataOuterClassUtils.setUrl(format, audioUrl);
                     replaced++;
                 }
             }
