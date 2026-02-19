@@ -11,6 +11,10 @@ from utils.xml_processor import XMLProcessor
 
 logger = logging.getLogger("xml_tools")
 
+BLACKLIST = {
+    "revanced_vot_percent_value",
+}
+
 
 def compare_and_update(source_path: Path, dest_path: Path, missing_path: Path) -> None:
     """Compare source and destination files and update missing strings.
@@ -26,8 +30,10 @@ def compare_and_update(source_path: Path, dest_path: Path, missing_path: Path) -
         _, _, source_strings = XMLProcessor.parse_file(source_path)
         _, _, dest_strings = XMLProcessor.parse_file(dest_path)
 
-        # Find missing strings
-        missing_strings = {name: data for name, data in source_strings.items() if name not in dest_strings}
+        # Find missing strings (excluding those in the BLACKLIST)
+        missing_strings = {
+            name: data for name, data in source_strings.items() if name not in dest_strings and name not in BLACKLIST
+        }
 
         if missing_strings:
             # Create new root with missing strings
