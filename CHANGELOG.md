@@ -1,3 +1,10 @@
+# [4.0.0-dev.5](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.4...v4.0.0-dev.5) (2026-02-20)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCore:** Crashes because of the wrong intent ([829ec70](https://github.com/anddea/revanced-patches/commit/829ec708013b8a4aa66b8de59c74d0d307491e1b))
+
 # [4.0.0-dev.4](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.3...v4.0.0-dev.4) (2026-02-19)
 
 
