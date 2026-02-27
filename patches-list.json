@@ -1006,7 +1006,8 @@
       "description": "Adds options to disable haptic feedback when swiping in the video player.",
       "use": true,
       "dependencies": [
-        "ResourcePatch"
+        "ResourcePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
