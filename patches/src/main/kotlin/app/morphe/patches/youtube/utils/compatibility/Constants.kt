@@ -15,6 +15,9 @@ internal object Constants {
             "19.44.39", // This is the only version that has experimental shortcut icons.
             "19.47.53", // This was the latest version supported by the previous RVX patch.
             "20.05.46", // This is the latest version supported by the RVX patch.
+            // "20.21.37", // Morphe
+            // "20.31.42", // Morphe
+            // "20.40.45", // Morphe
         )
     )
 }
