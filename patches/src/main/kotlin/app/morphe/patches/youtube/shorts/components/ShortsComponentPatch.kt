@@ -675,8 +675,12 @@ private val shortsTimeStampPatch = bytecodePatch(
 
                 node.getAttributeNode("android:id")?.let { attribute ->
                     if (attribute.textContent == "@id/reel_player_footer_container") {
+                        // apktool and arsclib serialize the same effective namespace to different names
+                        // we normalize it here by removing the yt: prefixed attribute if it exists, to
+                        // avoid attribute collision
+                        node.removeAttribute("yt:layout_constraintBottom_toTopOf")
                         node.setAttribute(
-                            "yt:layout_constraintBottom_toTopOf",
+                            "app:layout_constraintBottom_toTopOf",
                             "@id/reel_vod_timestamps_container"
                         )
                     }
