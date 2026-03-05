@@ -1704,6 +1704,7 @@
 انقر مع الاستمرار لضبط سرعة التشغيل على 1.0x. انقر مع الاستمرار مرة أخرى لإعادة ضبط السرعة الافتراضية."</string>
     <string name="revanced_overlay_button_speed_dialog_title">عرض مربع زر حوار السرعة</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">نوع مربع حوار السرعة</string>
+    <string name="revanced_overlay_button_vot_summary">إظهار زر التراكب لتبديل الترجمة الصوتية للفيديو الحالي</string>
     <string name="revanced_overlay_button_whitelist_summary">\"انقر لفتح مربع حوار القائمة البيضاء.
 انقر مع الاستمرار لفتح مربع حوار إعداد القائمة البيضاء.</string>
     <string name="revanced_overlay_button_whitelist_title">عرض زر القائمة البيضاء</string>
@@ -1826,6 +1827,7 @@
     <string name="revanced_preference_screen_video_filter_summary">إخفاء الفيديوهات بواسطة الكلمات المفتاحية أو المشاهدة.</string>
     <string name="revanced_preference_screen_video_filter_title">عامل تصفية الفيديو</string>
     <string name="revanced_preference_screen_video_title">الفيديو</string>
+    <string name="revanced_preference_screen_vot_title">الترجمة الصوتية</string>
     <string name="revanced_preference_screen_watch_history_summary">تغيير الإعدادات المتعلقة بسجل المشاهدة.</string>
     <string name="revanced_preference_screen_watch_history_title">سجل المشاهدة</string>
     <string name="revanced_queue_manager_add_to_queue">إضافة إلى قائمة الانتظار</string>
@@ -2736,6 +2738,37 @@
     <string name="revanced_transcript_cookies_summary">ملفات تعريف الارتباط التي سيتم استخدامها في طلبات API Transcript.</string>
     <string name="revanced_transcript_cookies_title">ملفات تعريف ارتباط Transcript</string>
     <string name="revanced_translations_title">الترجمات</string>
+    <string name="revanced_vot_audio_proxy_summary_off">يستخدم بث الصوت الرابط المباشر</string>
+    <string name="revanced_vot_audio_proxy_summary_on">يتم إرسال البث الصوتي عبر العامل</string>
+    <string name="revanced_vot_audio_proxy_title">بث الصوت عبر الوكيل</string>
+    <string name="revanced_vot_enabled_summary_off">الترجمة الصوتية من Yandex معطلة</string>
+    <string name="revanced_vot_enabled_summary_on">الترجمة الصوتية من Yandex ممكنة</string>
+    <string name="revanced_vot_enabled_title">تمكين الترجمة الصوتية</string>
+    <string name="revanced_vot_original_audio_volume_title">حجم الصوت الاصلي</string>
+    <string name="revanced_vot_playback_error">تعذر تشغيل الترجمة الصوتية</string>
+    <string name="revanced_vot_proxy_url_title">خادم بروكسي</string>
+    <string name="revanced_vot_source_language_title">اللغه الام</string>
+    <string name="revanced_vot_started">يدأت الترجمة</string>
+    <string name="revanced_vot_stopped">توقفت الترجمة</string>
+    <string name="revanced_vot_stream_not_ready">الترجمة لم تجهز بعد. عندما تنتهي استخدم الزر لتمكينها.</string>
+    <string name="revanced_vot_stream_ready">الترجمة جاهزة، تشغيل</string>
+    <string name="revanced_vot_stream_requesting">جاري طلب الترجمة للبث المباشر...</string>
+    <string name="revanced_vot_stream_waiting">انتظر...~%s</string>
+    <string name="revanced_vot_target_language_summary">اختار لغة الترجمة التي تريد الترجمة اليها</string>
+    <string name="revanced_vot_target_language_title">اللغه الهدف</string>
+    <string name="revanced_vot_time_min">الحد الأدنى %d</string>
+    <string name="revanced_vot_time_sec">ث %d</string>
+    <string name="revanced_vot_translation_volume_summary">مستوى صوت مسار الصوت المترجم (٠ - ١٠٠).
+الافتراضي: ١٠٠</string>
+    <string name="revanced_vot_translation_volume_title">صوت الترجمة</string>
+    <string name="revanced_vot_unavailable_live">الترجمة غير متاحه للبثوث المباشرة.</string>
+    <string name="revanced_vot_unavailable_same_language">صوت الفيديو بالفعل باللغة المطلوبه.</string>
+    <string name="revanced_vot_unavailable_too_long">هذا الفيديو طويل للغاية لذا لايمكن ترجمة (اقصى حد ٤ ساعات).</string>
+    <string name="revanced_vot_voice_style_live">أصوات حية</string>
+    <string name="revanced_vot_voice_style_live_summary_off">أصوات تحويل النص إلى كلام القياسية</string>
+    <string name="revanced_vot_voice_style_live_summary_on">الأصوات الطبيعية من Yandex.</string>
+    <string name="revanced_vot_voice_style_live_title">الأصوات الحية</string>
+    <string name="revanced_vot_voice_style_standard">الأصوات القياسية</string>
     <string name="revanced_watch_history_about_status_blocked">• سجل المشاهدة محظور.</string>
     <string name="revanced_watch_history_about_status_original">"• يتبع إعدادات سجل المشاهدة لحساب Google.
 • قد لا يعمل سجل المشاهدة بسبب DNS أو VPN."</string>
