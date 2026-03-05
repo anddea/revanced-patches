@@ -49,16 +49,22 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.Pair;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.morphe.extension.shared.settings.AppLanguage;
+import app.morphe.extension.shared.utils.IntentUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.VideoInformation;
@@ -81,6 +87,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
+import static app.morphe.extension.shared.utils.Utils.dipToPixels;
 import static app.morphe.extension.shared.utils.Utils.showToastLong;
 import static app.morphe.extension.shared.utils.Utils.showToastShort;
 
@@ -100,6 +107,13 @@ public final class GeminiManager {
     private static final Pattern TRANSCRIPTION_PATTERN = Pattern.compile(
             "\\[\\s*(?:(\\d{2}):)?(\\d{2}):(\\d{2})[.,:](\\d{1,3})\\s*-\\s*(?:(\\d{2}):)?(\\d{2}):(\\d{2})[.,:](\\d{1,3})\\s*\\]:?\\s*(.*)"
     );
+    /**
+     * Pattern to match summary timestamps (HH:MM:SS or MM:SS), with optional milliseconds.
+     */
+    private static final Pattern SUMMARY_TIMESTAMP_PATTERN = Pattern.compile(
+            "(?<!\\d)(?:(\\d{1,2}):)?(\\d{2}):(\\d{2})(?:[.,:](\\d{1,3}))?(?!\\d)"
+    );
+    private static final String VIDEO_SCHEME_INTENT_FORMAT = "vnd.youtube://%s?start=%d";
 
     /**
      * Pattern to extract video ID from YouTube URLs.
@@ -257,6 +271,11 @@ public final class GeminiManager {
     private final Map<String, Integer> summaryTimeCache = new ConcurrentHashMap<>();
 
     /**
+     * Cache for summary generation model names.
+     */
+    private final Map<String, String> summaryModelCache = new ConcurrentHashMap<>();
+
+    /**
      * Cache for parsed transcriptions.
      */
     private final Map<String, TreeMap<Long, Pair<Long, String>>> transcriptionCache = new ConcurrentHashMap<>();
@@ -369,7 +388,8 @@ public final class GeminiManager {
                 Logger.printDebug(() -> "Displaying cached summary for ID: " + videoId);
                 String result = summaryCache.get(videoId);
                 Integer time = summaryTimeCache.getOrDefault(videoId, -1);
-                showSummaryDialog(context, Objects.requireNonNull(result), Objects.requireNonNull(time), videoUrl);
+                String model = summaryModelCache.get(videoId);
+                showSummaryDialog(context, Objects.requireNonNull(result), Objects.requireNonNull(time), videoUrl, model);
                 resetOperationStateInternal(OperationType.SUMMARIZE, false);
                 return;
             }
@@ -400,12 +420,17 @@ public final class GeminiManager {
             GeminiUtils.getVideoSummary(videoUrl, apiKey, new GeminiUtils.Callback() {
                 @Override
                 public void onSuccess(String result) {
+                    onSuccessWithModel(result, null);
+                }
+
+                @Override
+                public void onSuccessWithModel(String result, String model) {
                     if (!activeTasks.containsKey(taskKey)) {
                         Logger.printDebug(() -> "Summary success callback ignored - task was cancelled: " + taskKey);
                         return;
                     }
                     activeTasks.remove(taskKey);
-                    handleApiResponseInternal(context, OperationType.SUMMARIZE, videoUrl, result, null);
+                    handleApiResponseInternal(context, OperationType.SUMMARIZE, videoUrl, result, null, model);
                 }
 
                 @Override
@@ -961,6 +986,15 @@ public final class GeminiManager {
      */
     @MainThread
     private void handleApiResponseInternal(@NonNull Context context, @NonNull OperationType opType, @NonNull String videoUrl, @Nullable String result, @Nullable String error) {
+        handleApiResponseInternal(context, opType, videoUrl, result, error, null);
+    }
+
+    /**
+     * Handles the result (success or failure) from the *direct* Gemini API callback
+     * with optional model metadata.
+     */
+    @MainThread
+    private void handleApiResponseInternal(@NonNull Context context, @NonNull OperationType opType, @NonNull String videoUrl, @Nullable String result, @Nullable String error, @Nullable String usedModel) {
         dismissProgressDialogInternal();
         String videoId = getVideoIdFromUrl(videoUrl);
 
@@ -983,9 +1017,14 @@ public final class GeminiManager {
             if (opType == OperationType.SUMMARIZE) {
                 summaryCache.put(videoId, result);
                 summaryTimeCache.put(videoId, time);
+                if (!TextUtils.isEmpty(usedModel)) {
+                    summaryModelCache.put(videoId, usedModel);
+                } else {
+                    summaryModelCache.remove(videoId);
+                }
 
                 if (Objects.equals(currentVideoUrl, videoUrl)) {
-                    showSummaryDialog(context, result, time, videoUrl);
+                    showSummaryDialog(context, result, time, videoUrl, usedModel);
                     resetOperationStateInternal(opType, false);
                 }
             } else if (opType == OperationType.TRANSCRIBE) {
@@ -1462,10 +1501,15 @@ public final class GeminiManager {
      * @param summary  The summary text.
      * @param seconds  Time taken for the operation.
      * @param videoUrl The video URL.
+     * @param usedModel The Gemini model used for this summary (nullable).
      */
     @MainThread
-    private void showSummaryDialog(@NonNull Context context, @NonNull String summary, int seconds, @NonNull String videoUrl) {
-        String timeMsg = (seconds >= 0) ? "\n\n" + str("revanced_gemini_time_taken", seconds) : "";
+    private void showSummaryDialog(@NonNull Context context, @NonNull String summary, int seconds, @NonNull String videoUrl, @Nullable String usedModel) {
+        StringBuilder summaryMetaInfo = new StringBuilder();
+
+        if (!TextUtils.isEmpty(usedModel)) summaryMetaInfo.append(usedModel).append('\n');
+        if (seconds >= 0) summaryMetaInfo.append(str("revanced_gemini_time_taken", seconds));
+        String timeMsg = summaryMetaInfo.length() > 0 ? "\n\n" + summaryMetaInfo : "";
 
         // Prepare the header (Metadata)
         String videoId = getVideoIdFromUrl(videoUrl);
@@ -1475,21 +1519,48 @@ public final class GeminiManager {
             metaPrefix = meta + "\n\n";
         }
 
-        Spanned formattedSummary = MarkdownUtils.fromMarkdown(summary);
+        String normalizedSummary = summary.replace("\r\n", "\n").trim();
 
-        SpannableStringBuilder finalMessage = new SpannableStringBuilder();
+        String displaySummary = wrapTimestampReferencesForPillStyle(normalizedSummary);
+        Spanned formattedSummary = MarkdownUtils.fromMarkdown(displaySummary);
+        SpannableStringBuilder clickableSummary = createClickableTimestampSummary(formattedSummary, videoUrl);
+
+        SpannableStringBuilder summaryMessage = new SpannableStringBuilder();
         if (!metaPrefix.isEmpty()) {
-            finalMessage.append(metaPrefix);
+            summaryMessage.append(metaPrefix);
         }
-        finalMessage.append(formattedSummary);
-        finalMessage.append(timeMsg);
+        summaryMessage.append(clickableSummary);
+        summaryMessage.append(timeMsg);
+
+        TextView summaryTextView = new TextView(context);
+        summaryTextView.setText(summaryMessage);
+        summaryTextView.setTextColor(ThemeUtils.getAppForegroundColor());
+        summaryTextView.setTextSize(16f);
+        summaryTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        summaryTextView.setLinksClickable(true);
+
+        LinearLayout contentLayout = new LinearLayout(context);
+        contentLayout.setOrientation(LinearLayout.VERTICAL);
+        contentLayout.setPadding(dipToPixels(20), dipToPixels(10), dipToPixels(20), dipToPixels(8));
+        contentLayout.addView(summaryTextView, new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        ));
+
+        ScrollView scrollView = new ScrollView(context);
+        scrollView.setVerticalScrollBarEnabled(false);
+        scrollView.addView(contentLayout, new ScrollView.LayoutParams(
+                ScrollView.LayoutParams.MATCH_PARENT,
+                ScrollView.LayoutParams.WRAP_CONTENT
+        ));
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(str("revanced_gemini_summary_title"));
+        builder.setView(scrollView);
 
-        AlertDialog dialog = builder.setMessage(finalMessage)
+        AlertDialog dialog = builder
                 .setPositiveButton(android.R.string.ok, (d, w) -> d.dismiss())
-                .setNeutralButton(str("revanced_copy"), (d, w) -> setClipboard(context, summary, str("revanced_gemini_copy_success")))
+                .setNeutralButton(str("revanced_copy"), (d, w) -> setClipboard(context, normalizedSummary, str("revanced_gemini_copy_success")))
                 .setCancelable(true)
                 .create();
 
@@ -1498,6 +1569,97 @@ public final class GeminiManager {
         Window window = dialog.getWindow();
         if (window != null) {
             window.setLayout((int) (context.getResources().getDisplayMetrics().widthPixels * 0.90), WindowManager.LayoutParams.WRAP_CONTENT);
+        }
+    }
+
+    @NonNull
+    private String wrapTimestampReferencesForPillStyle(@NonNull String summary) {
+        Matcher matcher = SUMMARY_TIMESTAMP_PATTERN.matcher(summary);
+        StringBuilder builder = new StringBuilder(summary.length() + 16);
+        int cursor = 0;
+
+        while (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+
+            builder.append(summary, cursor, start);
+
+            boolean alreadyWrapped = (start > 0 && summary.charAt(start - 1) == '`')
+                    || (end < summary.length() && summary.charAt(end) == '`');
+
+            if (alreadyWrapped) {
+                builder.append(summary, start, end);
+            } else {
+                builder.append('`').append(summary, start, end).append('`');
+            }
+            cursor = end;
+        }
+
+        builder.append(summary, cursor, summary.length());
+        return builder.toString();
+    }
+
+    @NonNull
+    private SpannableStringBuilder createClickableTimestampSummary(@NonNull Spanned formattedSummary, @NonNull String videoUrl) {
+        SpannableStringBuilder clickableSummary = new SpannableStringBuilder(formattedSummary);
+        String videoId = getVideoIdFromUrl(videoUrl);
+        if (TextUtils.isEmpty(videoId)) {
+            return clickableSummary;
+        }
+
+        Matcher matcher = SUMMARY_TIMESTAMP_PATTERN.matcher(clickableSummary.toString());
+        while (matcher.find()) {
+            final long timestampSeconds;
+            try {
+                timestampSeconds = parseTimestampToSeconds(matcher);
+            } catch (Exception ignored) {
+                continue;
+            }
+
+            String vndLink = String.format(Locale.ENGLISH, VIDEO_SCHEME_INTENT_FORMAT, videoId, timestampSeconds);
+            clickableSummary.setSpan(
+                    new TimestampClickableSpan(vndLink),
+                    matcher.start(),
+                    matcher.end(),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+            );
+        }
+        return clickableSummary;
+    }
+
+    private long parseTimestampToSeconds(@NonNull Matcher matcher) {
+        long hours = 0L;
+        String hoursPart = matcher.group(1);
+        if (!TextUtils.isEmpty(hoursPart)) {
+            hours = Long.parseLong(hoursPart);
+        }
+
+        long minutes = Long.parseLong(Objects.requireNonNull(matcher.group(2)));
+        long seconds = Long.parseLong(Objects.requireNonNull(matcher.group(3)));
+        return TimeUnit.HOURS.toSeconds(hours) + TimeUnit.MINUTES.toSeconds(minutes) + seconds;
+    }
+
+    private static final class TimestampClickableSpan extends ClickableSpan {
+        private final String vndLink;
+
+        private TimestampClickableSpan(@NonNull String vndLink) {
+            this.vndLink = vndLink;
+        }
+
+        @Override
+        public void onClick(@NonNull View widget) {
+            try {
+                IntentUtils.launchView(vndLink, widget.getContext().getPackageName());
+            } catch (Exception e) {
+                Logger.printException(() -> "Failed to open summary timestamp link: " + vndLink, e);
+            }
+        }
+
+        @Override
+        public void updateDrawState(@NonNull TextPaint ds) {
+            super.updateDrawState(ds);
+            ds.setUnderlineText(false);
+            ds.setColor(ThemeUtils.getAppForegroundColor());
         }
     }
 
