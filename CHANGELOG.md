@@ -1,3 +1,15 @@
+# [4.0.0-dev.6](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.5...v4.0.0-dev.6) (2026-03-05)
+
+
+### Bug Fixes
+
+* ARSCLib compatibility ([#1404](https://github.com/anddea/revanced-patches/issues/1404)) ([bc75d5a](https://github.com/anddea/revanced-patches/commit/bc75d5a4b05be0915beeafdda6307b014bffcce4))
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Use cascade of Gemini models ([56db9b3](https://github.com/anddea/revanced-patches/commit/56db9b3195033ce39af66e8d49b09b436d4419e0))
+
 # [4.0.0-dev.5](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.4...v4.0.0-dev.5) (2026-02-20)
 
 
