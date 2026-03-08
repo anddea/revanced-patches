@@ -4,6 +4,7 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static app.morphe.extension.music.sponsorblock.objects.CategoryBehaviour.IGNORE;
 import static app.morphe.extension.music.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
+import static app.morphe.extension.shared.settings.Setting.parent;
 import static app.morphe.extension.shared.utils.StringRef.str;
 
 import androidx.annotation.NonNull;
@@ -19,13 +20,19 @@ import app.morphe.extension.shared.settings.FloatSetting;
 import app.morphe.extension.shared.settings.IntegerSetting;
 import app.morphe.extension.shared.settings.LongSetting;
 import app.morphe.extension.shared.settings.Setting;
+import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.settings.StringSetting;
+import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 
 
 @SuppressWarnings("unused")
-public class Settings extends BaseSettings {
+public class Settings extends SharedYouTubeSettings {
+    public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE =
+            new EnumSetting<>("morphe_spoof_video_streams_client_type",
+                    ClientType.ANDROID_VR_1_47_48, true, parent(SPOOF_VIDEO_STREAMS));
+
     // PreferenceScreen: Account
     public static final BooleanSetting HIDE_ACCOUNT_MENU = new BooleanSetting("revanced_hide_account_menu", FALSE);
     public static final StringSetting HIDE_ACCOUNT_MENU_FILTER_STRINGS = new StringSetting("revanced_hide_account_menu_filter_strings", "");
@@ -203,8 +210,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting DISABLE_MUSIC_VIDEO_IN_ALBUM = new BooleanSetting("revanced_disable_music_video_in_album", FALSE, true);
     public static final EnumSetting<RedirectType> DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE = new EnumSetting<>("revanced_disable_music_video_in_album_redirect_type", RedirectType.REDIRECT, true);
     public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_settings_import_export", FALSE, false);
-    public static final BooleanSetting SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_NO_SDK_ABOUT = new BooleanSetting("revanced_spoof_streaming_data_sign_in_android_no_sdk_about", FALSE, false);
-    public static final BooleanSetting SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_VR_ABOUT = new BooleanSetting("revanced_spoof_streaming_data_sign_in_android_vr_about", FALSE, false);
+    public static final BooleanSetting SPOOF_VIDEO_STREAMS_SIGN_IN_ANDROID_VR_ABOUT =
+            new BooleanSetting("morphe_spoof_video_streams_sign_in_android_vr_about", FALSE, false);
     public static final BooleanSetting APP_INFO = new BooleanSetting("revanced_app_info", FALSE, false);
 
     // PreferenceScreen: Return YouTube Dislike
@@ -268,6 +275,12 @@ public class Settings extends BaseSettings {
             SPOOF_APP_VERSION_FOR_LYRICS_TARGET.resetToDefault();
         }
 
+        // TV Simply may require PoToken
+        if (SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.TV_SIMPLY) {
+            Logger.printInfo(() -> "Migrating from TV Simply to TV");
+            SPOOF_VIDEO_STREAMS_CLIENT_TYPE.save(ClientType.TV);
+        }
+
         // endregion
 
         // region SB import/export callbacks
@@ -301,17 +314,17 @@ public class Settings extends BaseSettings {
             HIDE_ACCOUNT_MENU_FILTER_STRINGS.key,
             OPEN_DEFAULT_APP_SETTINGS,
             OPTIONAL_SPONSOR_BLOCK_SETTINGS_PREFIX,
+            REPLACE_NAVIGATION_BUTTON_ABOUT.key,
             RETURN_YOUTUBE_USERNAME_ABOUT.key,
             RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT.key,
             RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY.key,
-            REPLACE_NAVIGATION_BUTTON_ABOUT.key,
             SB_API_URL.key,
             SETTINGS_IMPORT_EXPORT.key,
-            SPOOF_APP_VERSION_TARGET.key,
             SPOOF_APP_VERSION_FOR_LYRICS_TARGET.key,
-            SPOOF_STREAMING_DATA_DEFAULT_CLIENT.key,
-            SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_NO_SDK_ABOUT.key,
-            SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_VR_ABOUT.key,
+            SPOOF_APP_VERSION_TARGET.key,
+            SPOOF_VIDEO_STREAMS_CLIENT_TYPE.key,
+            SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH.key,
+            SPOOF_VIDEO_STREAMS_SIGN_IN_ANDROID_VR_ABOUT.key,
             WATCH_HISTORY_TYPE.key,
     };
 

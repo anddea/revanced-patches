@@ -274,7 +274,8 @@ internal object ResourceUtils {
     fun addPreferenceWithIntent(
         category: String,
         key: String,
-        dependencyKey: String
+        dependencyKey: String,
+        setSummary: Boolean,
     ) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -285,7 +286,9 @@ internal object ResourceUtils {
                 .forEach {
                     it.adoptChild("Preference") {
                         setAttribute("android:title", "@string/$key" + "_title")
+                        if (setSummary) {
                             setAttribute("android:summary", "@string/$key" + "_summary")
+                        }
                         setAttribute("android:key", key)
                         if (dependencyKey.isNotEmpty()) {
                             setAttribute("android:dependency", dependencyKey)

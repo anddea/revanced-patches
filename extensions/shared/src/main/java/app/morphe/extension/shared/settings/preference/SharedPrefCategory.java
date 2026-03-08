@@ -1,5 +1,6 @@
 package app.morphe.extension.shared.settings.preference;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceFragment;
@@ -9,8 +10,8 @@ import androidx.annotation.Nullable;
 
 import java.util.Objects;
 
-import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.shared.Logger;
+import app.morphe.extension.shared.Utils;
 
 /**
  * Shared categories, and helper methods.
@@ -37,19 +38,27 @@ public class SharedPrefCategory {
         removeKey(key);
     }
 
+    @SuppressLint("ApplySharedPref") // Must use commit to ensure default value is not saved to preferences.
     private void saveObjectAsString(@NonNull String key, @Nullable Object value) {
-        preferences.edit().putString(key, (value == null ? null : value.toString())).apply();
+        preferences.edit().putString(key, (value == null ? null : value.toString())).commit();
+    }
+
+    @SuppressLint("ApplySharedPref") // Must use commit to ensure default value is not saved to preferences.
+    public void clear() {
+        preferences.edit().clear().commit();
     }
 
     /**
      * Removes any preference data type that has the specified key.
      */
+    @SuppressLint("ApplySharedPref") // Must use commit to ensure default value is not saved to preferences.
     public void removeKey(@NonNull String key) {
-        preferences.edit().remove(Objects.requireNonNull(key)).apply();
+        preferences.edit().remove(Objects.requireNonNull(key)).commit();
     }
 
+    @SuppressLint("ApplySharedPref") // Must use commit to ensure default value is not saved to preferences.
     public void saveBoolean(@NonNull String key, boolean value) {
-        preferences.edit().putBoolean(key, value).apply();
+        preferences.edit().putBoolean(key, value).commit();
     }
 
     /**
@@ -110,7 +119,7 @@ public class SharedPrefCategory {
                     return (T) Enum.valueOf(_default.getClass(), enumName);
                 } catch (IllegalArgumentException ex) {
                     // Info level to allow removing enum values in the future without showing any user errors.
-                    Logger.printInfo(() -> "Using default, and ignoring unknown enum value: " + enumName);
+                    Logger.printInfo(() -> "Using default, and ignoring unknown enum value: "  + enumName);
                     removeKey(key);
                 }
             }

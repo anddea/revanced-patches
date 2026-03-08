@@ -44,7 +44,7 @@ dependencies {
     implementation(libs.protobuf.javalite)
 
     //noinspection UseTomlInstead
-    implementation("com.eclipsesource.j2v8:j2v8:6.3.4@aar")
+    implementation("com.github.ynab:J2V8:6.2.1-16kb.2@aar")
 
     implementation(libs.nanohttpd)
     implementation(libs.protobuf.javalite)

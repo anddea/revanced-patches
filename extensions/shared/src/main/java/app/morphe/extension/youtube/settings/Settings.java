@@ -22,15 +22,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.HideAudioFlyoutMenuAvailability;
-import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.settings.EnumSetting;
 import app.morphe.extension.shared.settings.FloatSetting;
 import app.morphe.extension.shared.settings.IntegerSetting;
 import app.morphe.extension.shared.settings.LongSetting;
 import app.morphe.extension.shared.settings.Setting;
+import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.settings.StringSetting;
 import app.morphe.extension.shared.settings.preference.SharedPrefCategory;
+import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.alternativethumbnails.AlternativeThumbnailsPatch.DeArrowAvailability;
@@ -45,6 +46,7 @@ import app.morphe.extension.youtube.patches.player.ExitFullscreenPatch.Fullscree
 import app.morphe.extension.youtube.patches.player.MiniplayerPatch;
 import app.morphe.extension.youtube.patches.shorts.AnimationFeedbackPatch.AnimationType;
 import app.morphe.extension.youtube.patches.shorts.ShortsRepeatStatePatch.ShortsLoopBehavior;
+import app.morphe.extension.youtube.patches.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOverlayBrightnessColorAvailability;
 import app.morphe.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOverlayVolumeColorAvailability;
 import app.morphe.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOverlaySpeedColorAvailability;
@@ -58,7 +60,25 @@ import app.morphe.extension.youtube.sponsorblock.SponsorBlockSettings;
 import app.morphe.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider.SwipeOverlayStyle;
 
 @SuppressWarnings("unused")
-public class Settings extends BaseSettings {
+public class Settings extends SharedYouTubeSettings {
+    public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE =
+            new EnumSetting<>("morphe_spoof_video_streams_client_type", ClientType.ANDROID_VR_1_47_48, true, parent(SPOOF_VIDEO_STREAMS));
+    public static final BooleanSetting FORCE_AVC_CODEC = new BooleanSetting(
+            "morphe_force_avc_codec",
+            FALSE,
+            true,
+            "morphe_force_avc_codec_user_dialog_message"
+    );
+    public static final BooleanSetting SPOOF_VIDEO_STREAMS_AV1 = new BooleanSetting(
+            "morphe_spoof_video_streams_av1",
+            FALSE,
+            true,
+            "morphe_spoof_video_streams_av1_user_dialog_message",
+            new SpoofVideoStreamsPatch.SpoofClientAv1Availability()
+    );
+    public static final BooleanSetting SPOOF_VIDEO_STREAMS_SIGN_IN_ANDROID_VR_ABOUT =
+            new BooleanSetting("morphe_spoof_video_streams_sign_in_android_vr_about", FALSE, false);
+
     // PreferenceScreen: Ads
     public static final BooleanSetting HIDE_CREATOR_STORE_SHELF = new BooleanSetting("revanced_hide_creator_store_shelf", TRUE);
     public static final BooleanSetting HIDE_END_SCREEN_STORE_BANNER = new BooleanSetting("revanced_hide_end_screen_store_banner", TRUE, true);
@@ -799,6 +819,17 @@ public class Settings extends BaseSettings {
             Utils.showToastShort(str("revanced_reset_to_default_toast"));
             Logger.printInfo(() -> "Resetting spoof app version target");
             SPOOF_APP_VERSION_TARGET.resetToDefault();
+        }
+
+        // VR 1.54 is not selectable in the settings, and it's selected by spoof stream patch if needed.
+        if (SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_1_54_20) {
+            SPOOF_VIDEO_STREAMS_CLIENT_TYPE.resetToDefault();
+        }
+
+        // TV Simply may require PoToken
+        if (SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.TV_SIMPLY) {
+            Logger.printInfo(() -> "Migrating from TV Simply to TV");
+            SPOOF_VIDEO_STREAMS_CLIENT_TYPE.save(ClientType.TV);
         }
 
         // Categories were previously saved without a 'sb_' key prefix, so they need an additional adjustment.

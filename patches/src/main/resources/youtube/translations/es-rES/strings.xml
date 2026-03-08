@@ -20,6 +20,100 @@ Toca el botón continuar y permite los cambios de optimización."</string>
     <string name="gms_core_settings_summary">Activa la mensajería en la nube para recibir notificaciones.</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore no está instalado. Instálalo.</string>
+    <string name="morphe_disable_drc_audio_summary_off">El audio DRC está activado</string>
+    <string name="morphe_disable_drc_audio_summary_on">El audio DRC está desactivado</string>
+    <string name="morphe_disable_drc_audio_title">Desactivar audio DRC</string>
+    <string name="morphe_disable_quic_protocol_summary_off">El protocolo QUIC está activado</string>
+    <string name="morphe_disable_quic_protocol_summary_on">El protocolo QUIC está desactivado</string>
+    <string name="morphe_disable_quic_protocol_title">Desactivar protocolo QUIC</string>
+    <string name="morphe_force_original_audio_not_available">Para usar esta función, cambia \'Falsificar transmisiones de vídeo\' a Android Reel o TV</string>
+    <string name="morphe_force_original_audio_summary_off">Utilizando audio predeterminado</string>
+    <string name="morphe_force_original_audio_summary_on">Usar el idioma de audio original</string>
+    <string name="morphe_force_original_audio_title">Forzar idioma de audio original</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">No se puede iniciar sesión en VR: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">No se puede iniciar sesión en VR, la autenticación del sitio web no se ha aprobado</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 no está disponible temporalmente</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 no está disponible temporalmente (estado %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">El inicio de sesión de Android VR ha expirado, intenta iniciar sesión en VR de nuevo</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 no está disponible temporalmente (la API no responde)</string>
+    <string name="morphe_oauth2_toast_invalid">Token de inicio de sesión de VR no válido, intenta iniciar sesión en VR de nuevo</string>
+    <string name="morphe_oauth2_toast_reset">Desconectado de Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">Los enlaces compartidos usan music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">Los enlaces compartidos usan youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">Cambiar enlaces compartidos a youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">El parámetro de consulta de seguimiento no se elimina de los enlaces compartidos</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">El parámetro de consulta de seguimiento se elimina de los enlaces compartidos</string>
+    <string name="morphe_sanitize_sharing_links_title">Limpiar enlaces compartidos</string>
+    <string name="morphe_spoof_video_streams_about_experimental">• El cliente es experimental y puede dejar de funcionar en cualquier momento</string>
+    <string name="morphe_spoof_video_streams_about_js">• Si el descifrado falla, la reproducción puede fallar</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Falta el menú de la pista de audio</string>
+    <string name="morphe_spoof_video_streams_about_no_av1">• Sin códec de vídeo AV1</string>
+    <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Forzar audio original no está disponible</string>
+    <string name="morphe_spoof_video_streams_about_no_immersive_mode">• El modo inmersivo 360° VR no está disponible</string>
+    <string name="morphe_spoof_video_streams_about_no_stable_volume">• Volumen estable no disponible</string>
+    <string name="morphe_spoof_video_streams_about_playback_failure">• El vídeo puede detenerse en 1:00, o puede no estar disponible en algunas regiones</string>
+    <string name="morphe_spoof_video_streams_about_title">Efectos secundarios de la falsificación</string>
+    <string name="morphe_spoof_video_streams_av1_summary_off">El códec de vídeo es AVC (H.264) o VP9</string>
+    <string name="morphe_spoof_video_streams_av1_summary_on">"El códec de vídeo es AVC (H.264), VP9 o AV1
+
+La reproducción se puede atascar o perder fotogramas"</string>
+    <string name="morphe_spoof_video_streams_av1_title">Permitir Android VR AV1</string>
+    <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Al activar este ajuste, es posible que se utilice la decodificación AV1 del software.
+
+La reproducción de vídeo con AV1 se puede atascar o perder fotogramas."</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Cliente predeterminado</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">La actualización de JavaScript del reproductor está activada</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"La actualización de JavaScript del reproductor está desactivada
+
+• Se requiere un hash JavaScript del reproductor válido
+• La reproducción fallará si el hash JavaScript del reproductor es revocado por GVS"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Desactivar la actualización de JavaScript del reproductor</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Los hashes JavaScript del reproductor son válidos aproximadamente un mes, y los hashes obsoletos pueden ser revocados por GVS.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Prueba a activar: Falsificar transmisiones de vídeo &gt; Inicio de sesión de Android VR</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">No se ha podido obtener ninguna transmisión del cliente</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_summary">Introduzca un hash JavaScript del reproductor válido</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_title">Hash JavaScript del reproductor</string>
+    <string name="morphe_spoof_video_streams_player_js_variant_title">Variante de JavaScript del reproductor</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Falsifica las transmisiones de vídeo del cliente para evitar problemas de reproducción</string>
+    <string name="morphe_spoof_video_streams_screen_title">Falsificar transmisiones de vídeo</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">No has iniciado sesión en Android VR. Pulsa aquí para iniciar sesión</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Para usar esta función, cambia \"Cliente predeterminado\" a Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Actualmente conectado a Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Inicio de sesión de Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Código de activación: %s
+
+1. Pulsa \"Abrir sitio web\" a continuación para abrir el sitio web \"Conectar un dispositivo\"
+2. Pega desde el portapapeles (o escribe) el código de activación que se muestra arriba
+3. Inicia sesión en Google si se te solicita. Si tienes varias cuentas, elige esta cuenta de YouTube
+4. Pulsa \"Permitir acceso a YouTube VR\"
+5. Vuelve a esta aplicación después de ver el mensaje \"Dispositivo conectado\""</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Abrir sitio web</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instrucciones</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Continuar</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Iniciar sesión en Android VR puede solucionar problemas de reproducción para algunos usuarios
+
+Para iniciar sesión, pulsa en \"Continuar\" a continuación"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Cerrar sesión</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Iniciar sesión en Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Autenticación guardada
+
+• Tus ajustes de Morphe no importarán/exportarán la autenticación de Android VR
+• Si esta aplicación no se utiliza durante 6 meses, Google eliminará esta autenticación
+• Tendrás que iniciar sesión de nuevo si cambias tu contraseña de Google o cancelas el registro de este dispositivo en tus ajustes de Google"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Sesión iniciada correctamente</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">No se pudo emitir un código de activación</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">No se pudo emitir un token de autenticación</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">El cliente está oculto en \"Estadísticas para nerds\"</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">El tipo de cliente se muestra en \"Estadísticas para nerds\"</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Mostrar en \"Estadísticas para nerds\"</string>
+    <string name="morphe_spoof_video_streams_summary_off">"Las transmisiones de video no están suplantadas
+
+La reproducción podría no funcionar"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"Las transmisiones de vídeo están falsificadas
+
+Si eres un usuario de YouTube Premium, esta configuración podría no ser necesaria"</string>
+    <string name="morphe_spoof_video_streams_title">Falsificar transmisiones de vídeo</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">No se muestra el menú de calidad de vídeo avanzado</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Se muestra el menú de calidad de vídeo avanzado</string>
     <string name="revanced_advanced_video_quality_menu_title">Mostrar menú de calidad de vídeo avanzado</string>
@@ -230,11 +324,6 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_disable_ambient_mode_title">Desactivar modo ambiente</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">"Las pistas de audio automáticas forzadas están activadas."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Las pistas de audio automáticas forzadas están desactivadas.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Las pistas de audio automáticas forzadas están desactivadas.
-
-Es posible que esto no funcione para algunos usuarios. Si no funciona para ti:
-1. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y activa \"Usar cliente JavaScript\".
-2. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y cambia \"Cliente predeterminado\" a \"TV Simply\"."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Desactivar pistas de audio automáticas forzadas</string>
     <string name="revanced_disable_auto_captions_summary_off">Los subtítulos Auto están activados</string>
     <string name="revanced_disable_auto_captions_summary_on">Los subtítulos Auto están desactivados</string>
@@ -926,11 +1015,6 @@ Las palabras con mayúsculas en medio deben introducirse con las mayúsculas (es
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">El menú \"Modo ambiente\" está visible.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">El menú \"Modo ambiente\" está oculto.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Ocultar menú \"Modo ambiente\"</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"El menú \"Pista de audio\" está oculto.
-
-Para mostrar el menú \"Pista de audio\":
-1. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y activa \"Usar cliente JavaScript\".
-2. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y cambia \"Cliente predeterminado\" a \"TV Simply\"."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">El menú \"Pista de audio\" está visible.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">El menú \"Pista de audio\" está oculto.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Ocultar menú \"Pista de audio\"</string>
@@ -1676,6 +1760,9 @@ Información:
 Mantén pulsado para establecer la velocidad de reproducción en 1.0x."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Mostrar botón de diálogo de velocidad</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">Tipo de diálogo de velocidad</string>
+    <string name="revanced_overlay_button_vot_summary">Mostrar botón de superposición para alternar la traducción de voz en el video actual</string>
+    <string name="revanced_overlay_button_vot_title">Traductor De Voz activado
+</string>
     <string name="revanced_overlay_button_whitelist_summary">\"Toque para abrir el diálogo de la lista blanca.
 Toque y mantenga presionado para abrir el diálogo de configuración de la lista blanca.</string>
     <string name="revanced_overlay_button_whitelist_title">Mostrar botón de lista blanca</string>
@@ -1788,8 +1875,6 @@ Para mostrar el botón de descarga de la lista de reproducción nativa, activa \
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
     <string name="revanced_preference_screen_snack_bar_summary">Ocultar o cambiar los componentes relacionados con la barra de notificaciones.</string>
     <string name="revanced_preference_screen_snack_bar_title">Barra de notificaciones</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_summary">Falsifica los datos de transmisión para evitar problemas de reproducción.</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_title">Falsificar datos de transmisión</string>
     <string name="revanced_preference_screen_swipe_controls_title">Controles deslizantes</string>
     <string name="revanced_preference_screen_toolbar_summary">Ocultar o cambiar los componentes situados en la barra de herramientas, como los botones, la barra de búsqueda o la cabecera.</string>
     <string name="revanced_preference_screen_toolbar_title">Barra de herramientas</string>
@@ -1798,6 +1883,7 @@ Para mostrar el botón de descarga de la lista de reproducción nativa, activa \
     <string name="revanced_preference_screen_video_filter_summary">Ocultar vídeos por palabras clave o visualizaciones.</string>
     <string name="revanced_preference_screen_video_filter_title">Filtro de vídeo</string>
     <string name="revanced_preference_screen_video_title">Vídeo</string>
+    <string name="revanced_preference_screen_vot_title">Traductor De Voz Apagado </string>
     <string name="revanced_preference_screen_watch_history_summary">Cambiar ajustes relacionados con el historial de reproducciones.</string>
     <string name="revanced_preference_screen_watch_history_title">Historial de reproducciones</string>
     <string name="revanced_queue_manager_add_to_queue">Añadir a la cola</string>
@@ -2373,22 +2459,7 @@ La reproducción se puede atascar o perder fotogramas."</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Si activas este ajuste, es posible que se utilice la decodificación AV1 por software.
 
 La reproducción se puede atascar o perder fotogramas."</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio 
-<small>(Inicio de sesión requerido)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
-<small>(sin SDK)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV
-<small>(todavía en desarrollo)</small>
-    </string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
-<small>(Antiguo)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
-<small>(no publicado, sin autenticación)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Cliente predeterminado</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">No se han podido obtener las transmisiones de ningún cliente.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Intenta cambiar el cliente predeterminado a TV Simply.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Se priorizan los códecs de vídeo.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Se prioriza la calidad del vídeo.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Priorizar calidad de vídeo</string>
@@ -2493,20 +2564,6 @@ Se utiliza→ 1080p VP9."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Abrir sitio web</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Código de activación</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Código de activación copiado al portapapeles: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Obtener código de activación</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Obtener token de autorización</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"El inicio de sesión en Android VR (YouTube VR) sigue las directrices proporcionadas por Google: \"Autorización de cuenta de Google - OAuth 2.0 para aplicaciones de TV y dispositivos de entrada limitada\":
-
-1. Pulsa en \"Obtener código de activación\" para generar un código de activación.
-2. Pulsa en \"Abrir sitio web\" para ir a \"https://yt.be/activate\".
-3. Introduce el código de activación.
-4. Inicia sesión cuando se te solicite. Si tienes varias cuentas de Google, selecciona la cuenta que utilizas con YouTube. Si ya has iniciado sesión, ve al siguiente paso.
-5. Una vez que hayas iniciado sesión, vuelve a RVX y pulsa en \"Iniciar sesión en Android VR\" de nuevo.
-6. Pulsa en \"Obtener token de autorización\" para obtener un token de autorización.
-
-※ Pulsa en \"Restablecer\" para eliminar un token de autenticación o un código de activación."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Restablecer</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Iniciar sesión en Android VR</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Token de autenticación guardado.
 
 - El token de autenticación emitido a través de este proceso solo se puede utilizar en YouTube VR (en RVX, se utiliza para obtener datos de transmisión de YouTube VR).
@@ -2532,8 +2589,6 @@ Se utiliza→ 1080p VP9."</string>
 
 • El cliente JavaScript todavía no puede reproducir algunos vídeos."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Usar cliente JavaScript para todos los vídeos</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Pulsa para más información.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">Acerca de búfer falso</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Una de las razones por las que los vídeos se inician demasiado tarde en el cliente de JavaScript se debe a las nuevas medidas de YouTube contra el bloqueo de anuncios.
 
 Cuando se bloquea un anuncio de vídeo, GVS (Google Video Server) genera un búfer falso proporcional a la duración del anuncio (prueba A/B).
@@ -2561,23 +2616,6 @@ Esto se puede solucionar fácilmente haciendo clic en el 'Botón de recargar vid
 (Requisitos previos: Tanto 'Mostrar botón de recargar video' como 'Mostrar siempre el botón de recargar video' deben estar activados)
 
 Entre los clientes de JavaScript, el cliente recomendado es TV Simply."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"El reproductor JavaScript para la desofuscación no se mantiene actualizado.
-
-• Se utiliza el reproductor JavaScript que logra la desofuscación, pero sigue siendo algo dependiente del servidor."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"El reproductor JavaScript para la desofuscación se mantiene actualizado.
-
-• Depende en gran medida del servidor, y el éxito o el fracaso de la desofuscación depende del reproductor JavaScript que se utilice actualmente en el servidor.
-• Si tienes problemas con el cliente de JavaScript, intenta desactivar esto primero."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Usar último reproductor JavaScript</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"Se utiliza el extractor de SmartTube.
-
-• El reproductor JavaScript para la desofuscación no está actualizado.
-• Esto será obsoleto para los servidores en un futuro próximo."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"Se utiliza JavaScript externo para yt-dlp (yt-dlp-ejs).
-
-• El reproductor JavaScript para la desofuscación se mantiene actualizado.
-• El vídeo puede tardar entre 5 y 15 segundos en iniciarse."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Usar yt-dlp ejs (todavía en desarrollo)</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Desactivar este ajuste puede causar problemas de reproducción de vídeo.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Pulsa para ver cómo obtener un token de autenticación.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Acerca de la autenticación de Android VR</string>
@@ -2713,6 +2751,42 @@ Descargo de responsabilidad: las cookies emitidas sin iniciar sesión pueden no 
     <string name="revanced_transcript_cookies_summary">Cookies para usar en solicitudes de la API de transcripción.</string>
     <string name="revanced_transcript_cookies_title">Cookies de transcripción</string>
     <string name="revanced_translations_title">Traducciones</string>
+    <string name="revanced_vot_audio_proxy_summary_off">La transmisión de audio utiliza URL directa</string>
+    <string name="revanced_vot_audio_proxy_summary_on">La transmisión de audio se transmite a través del servidor </string>
+    <string name="revanced_vot_audio_proxy_title">Proxy de transmisión de audio</string>
+    <string name="revanced_vot_enabled_summary_off">La traducción de voz de Yandex está deshabilitada</string>
+    <string name="revanced_vot_enabled_summary_on">La traducción de voz de Yandex está habilitada</string>
+    <string name="revanced_vot_enabled_title">Habilitar traducción de voz </string>
+    <string name="revanced_vot_lang_auto">Detección automática</string>
+    <string name="revanced_vot_live_voices_unavailable">Voces en vivo no disponibles, usando estándar</string>
+    <string name="revanced_vot_original_audio_volume_summary">Volumen de la pista de vídeo original cuando se reproduce la traducción (0-100). Predeterminado: 50</string>
+    <string name="revanced_vot_original_audio_volume_title">Volumen de audio original</string>
+    <string name="revanced_vot_playback_error">No se pudo reproducir el audio de traducción</string>
+    <string name="revanced_vot_proxy_url_summary">Host del servidor proxy VOT. Valor predeterminado: vot-worker.toil.cc</string>
+    <string name="revanced_vot_proxy_url_title">Servidor Proxy</string>
+    <string name="revanced_vot_source_language_summary">Selecciona el idioma del audio del vídeo.</string>
+    <string name="revanced_vot_source_language_title">Idioma de origen</string>
+    <string name="revanced_vot_started">La traducción comenzó</string>
+    <string name="revanced_vot_stopped">La traducción se detuvo</string>
+    <string name="revanced_vot_stream_not_ready">La traducción no está lista. Utilice el botón para habilitar cuando esté listo.</string>
+    <string name="revanced_vot_stream_ready">Traducción lista, iniciando...</string>
+    <string name="revanced_vot_stream_requesting">Solicitando traducción para la transmisión...</string>
+    <string name="revanced_vot_stream_waiting">Esperando… ~%s</string>
+    <string name="revanced_vot_target_language_summary">Seleccione el idioma al que traducir</string>
+    <string name="revanced_vot_target_language_title">Lenguaje de inicio</string>
+    <string name="revanced_vot_time_min">%d minimo</string>
+    <string name="revanced_vot_time_sec">%d Segundo</string>
+    <string name="revanced_vot_translation_volume_summary">Volumen de la pista de audio traducida (0-100). Predeterminado: 100</string>
+    <string name="revanced_vot_translation_volume_title">Volumen de traducción</string>
+    <string name="revanced_vot_unavailable_live">La traducción no está disponible para transmisiones en vivo.</string>
+    <string name="revanced_vot_unavailable_same_language">El audio del vídeo ya está en el idioma de destino.</string>
+    <string name="revanced_vot_unavailable_too_long">El vídeo es demasiado largo para traducirlo (máximo 4 horas)</string>
+    <string name="revanced_vot_voice_style_live">Voces en vivo</string>
+    <string name="revanced_vot_voice_style_live_summary_off">Voces TTS estándar</string>
+    <string name="revanced_vot_voice_style_live_summary_on">Voces que suenan naturales de Yandex</string>
+    <string name="revanced_vot_voice_style_live_title">Voces en vivo</string>
+    <string name="revanced_vot_voice_style_standard">Voces estándar</string>
+    <string name="revanced_vot_voice_style_title">Estilo de voz apagado</string>
     <string name="revanced_watch_history_about_status_blocked">• El historial de reproducciones no funciona.</string>
     <string name="revanced_watch_history_about_status_original">"• Sigue la configuración del historial de reproducciones de la cuenta de Google.
 • Es posible que el historial de reproducciones no funcione debido a DNS o VPN."</string>
@@ -2784,4 +2858,27 @@ Descargo de responsabilidad: las cookies emitidas sin iniciar sesión pueden no 
     <string name="revanced_yandex_transcribe_subtitles_language_title">Idioma de Yandex</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Usar transcripción de Yandex en lugar de Gemini. Yandex es más rápido y confiable. No se requiere clave de API.</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Transcripción de Yandex</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
+<small>(no publicado, sin autenticación)</small>"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"El inicio de sesión en Android VR (YouTube VR) sigue las directrices proporcionadas por Google: \"Autorización de cuenta de Google - OAuth 2.0 para aplicaciones de TV y dispositivos de entrada limitada\":
+
+1. Pulsa en \"Obtener código de activación\" para generar un código de activación.
+2. Pulsa en \"Abrir sitio web\" para ir a \"https://yt.be/activate\".
+3. Introduce el código de activación.
+4. Inicia sesión cuando se te solicite. Si tienes varias cuentas de Google, selecciona la cuenta que utilizas con YouTube. Si ya has iniciado sesión, ve al siguiente paso.
+5. Una vez que hayas iniciado sesión, vuelve a RVX y pulsa en \"Iniciar sesión en Android VR\" de nuevo.
+6. Pulsa en \"Obtener token de autorización\" para obtener un token de autorización.
+
+※ Pulsa en \"Restablecer\" para eliminar un token de autenticación o un código de activación."</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Las pistas de audio automáticas forzadas están desactivadas.
+
+Es posible que esto no funcione para algunos usuarios. Si no funciona para ti:
+1. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y activa \"Usar cliente JavaScript\".
+2. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y cambia \"Cliente predeterminado\" a \"TV Simply\"."</string>
+    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"El menú \"Pista de audio\" está oculto.
+
+Para mostrar el menú \"Pista de audio\":
+1. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y activa \"Usar cliente JavaScript\".
+2. Ve a Configuración &gt; RVX &gt; Otros &gt; Falsificar datos de transmisión, y cambia \"Cliente predeterminado\" a \"TV Simply\"."</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Intenta cambiar el cliente predeterminado a TV Simply.</string>
 </resources>

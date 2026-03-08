@@ -1,7 +1,7 @@
 package app.morphe.patches.music.utils.fix.streamingdata
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
+import app.morphe.patches.music.utils.mainactivity.mainActivityFingerprint
 import app.morphe.patches.music.utils.playservice.is_7_16_or_greater
 import app.morphe.patches.music.utils.playservice.is_7_33_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_12_or_greater
@@ -13,82 +13,58 @@ import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.patches.music.utils.webview.webViewPatch
 import app.morphe.patches.music.video.information.videoInformationPatch
-import app.morphe.patches.music.video.playerresponse.Hook
-import app.morphe.patches.music.video.playerresponse.addPlayerResponseMethodHook
-import app.morphe.patches.shared.buildRequestFingerprint
-import app.morphe.patches.shared.buildRequestParentFingerprint
-import app.morphe.patches.shared.indexOfNewUrlRequestBuilderInstruction
-import app.morphe.patches.shared.spoof.streamingdata.EXTENSION_CLASS_DESCRIPTOR
-import app.morphe.patches.shared.spoof.streamingdata.spoofStreamingDataPatch
-import app.morphe.util.fingerprint.methodOrThrow
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import app.morphe.patches.shared.misc.spoof.spoofVideoStreamsPatch
+import app.morphe.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
 
-val spoofStreamingDataPatch = spoofStreamingDataPatch(
-    block = {
-        dependsOn(
-            settingsPatch,
-            versionCheckPatch,
-            videoInformationPatch,
-            webViewPatch,
-        )
-    },
-    isYouTube = {
-        false
-    },
-    outlineIcon = {
-        false
-    },
-    fixMediaFetchHotConfigChanges = {
+val spoofStreamingDataPatch = spoofVideoStreamsPatch(
+    extensionClassDescriptor = "Lapp/morphe/extension/music/patches/spoof/SpoofVideoStreamsPatch;",
+    mainActivityOnCreateFingerprint = mainActivityFingerprint.second,
+    fixMediaFetchHotConfig = {
         is_7_16_or_greater
     },
-    fixMediaFetchHotConfigAlternativeChanges = {
+    fixMediaFetchHotConfigAlternative = {
         // In 8.15 the flag was merged with 7.33 start playback flag.
         is_8_12_or_greater && !is_8_15_or_greater
     },
     fixParsePlaybackResponseFeatureFlag = {
         is_7_33_or_greater
     },
-    executeBlock = {
-
-        // region Get replacement streams at player requests.
-
-        buildRequestFingerprint.methodOrThrow(buildRequestParentFingerprint).apply {
-            val newRequestBuilderIndex = indexOfNewUrlRequestBuilderInstruction(this)
-            val urlRegister =
-                getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
-
-            addInstructions(
-                newRequestBuilderIndex,
-                "invoke-static { v$urlRegister, p1 }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V"
-            )
-        }
-
-        // endregion
-
-        addPlayerResponseMethodHook(
-            Hook.ProtoBufferParameterBeforeVideoId(
-                "$EXTENSION_CLASS_DESCRIPTOR->newPlayerResponseParameter(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"
-            )
+    block = {
+        dependsOn(
+            settingsPatch,
+            versionCheckPatch,
+            videoInformationPatch,
+            webViewPatch,
+            baseSpoofUserAgentPatch(YOUTUBE_MUSIC_PACKAGE_NAME),
         )
+    },
+    executeBlock = {
         addSwitchPreference(
             CategoryType.MISC,
-            "revanced_spoof_streaming_data",
+            "morphe_spoof_video_streams",
             "true"
         )
         addPreferenceWithIntent(
             CategoryType.MISC,
-            "revanced_spoof_streaming_data_default_client",
-            "revanced_spoof_streaming_data",
+            "morphe_spoof_video_streams_client_type",
+            "morphe_spoof_video_streams",
+            false,
         )
         addPreferenceWithIntent(
             CategoryType.MISC,
-            "revanced_spoof_streaming_data_sign_in_android_no_sdk_about",
-            "revanced_spoof_streaming_data"
+            "morphe_spoof_video_streams_sign_in_android_vr_about",
+            "morphe_spoof_video_streams"
+        )
+        addSwitchPreference(
+            CategoryType.MISC,
+            "morphe_spoof_video_streams_disable_player_js_update",
+            "false",
+            "morphe_spoof_video_streams"
         )
         addPreferenceWithIntent(
             CategoryType.MISC,
-            "revanced_spoof_streaming_data_sign_in_android_vr_about",
-            "revanced_spoof_streaming_data"
+            "morphe_spoof_video_streams_player_js_hash",
+            "morphe_spoof_video_streams_disable_player_js_update"
         )
     },
 )

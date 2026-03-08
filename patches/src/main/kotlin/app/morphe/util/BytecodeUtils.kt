@@ -2,6 +2,7 @@
 
 package app.morphe.util
 
+import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.FingerprintBuilder
 import app.morphe.patcher.Match
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
@@ -146,6 +147,30 @@ private fun Method.findInstructionIndexFromToString(fieldName: String, isField: 
     }
 
     return fieldSetIndex
+}
+
+context(BytecodePatchContext)
+internal fun setExtensionIsPatchIncluded(patchExtensionClassType: String) {
+    val methodName = "isPatchIncluded"
+    val returnType = "Z"
+
+    val fingerprint = Fingerprint(
+        definingClass = patchExtensionClassType,
+        name = methodName,
+        returnType = returnType,
+        parameters = listOf(),
+        custom = { method, _ ->
+            AccessFlags.STATIC.isSet(method.accessFlags)
+        }
+    )
+
+    if (fingerprint.methodOrNull == null) {
+        throw PatchException(
+            "Could not find required extension method: $patchExtensionClassType->$methodName()$returnType"
+        )
+    }
+
+    fingerprint.method.returnEarly(true)
 }
 
 /**

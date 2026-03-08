@@ -15,6 +15,79 @@
     <string name="gms_core_settings_summary">RVX Music 알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
     <string name="gms_core_settings_title">GmsCore 설정 열기</string>
     <string name="gms_core_toast_not_installed_message">GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
+    <string name="morphe_disable_drc_audio_summary_off">DRC 오디오를 활성화합니다</string>
+    <string name="morphe_disable_drc_audio_summary_on">DRC 오디오를 비활성화합니다</string>
+    <string name="morphe_disable_drc_audio_title">DRC 오디오 비활성화하기</string>
+    <string name="morphe_disable_quic_protocol_summary_off">QUIC 프로토콜을 활성화합니다</string>
+    <string name="morphe_disable_quic_protocol_summary_on">QUIC 프로토콜을 비활성화합니다</string>
+    <string name="morphe_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
+    <string name="morphe_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 \'Android Reel\'이나 \'TV\'로 변경하세요</string>
+    <string name="morphe_force_original_audio_summary_off">기본 오디오 언어를 활성화합니다</string>
+    <string name="morphe_force_original_audio_summary_on">원본 오디오 언어를 활성화합니다</string>
+    <string name="morphe_force_original_audio_title">원본 오디오 언어 강제로 활성화하기</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">VR에 로그인할 수 없습니다: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">VR에 로그인할 수 없습니다. 웹사이트 인증이 승인되지 않았습니다</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2를 일시적으로 사용할 수 없습니다</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2를 일시적으로 사용할 수 없습니다 (상태 코드 %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Android VR 로그인이 만료되었습니다. VR에 다시 로그인하세요</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2를 일시적으로 사용할 수 없습니다 (API 시간 초과)</string>
+    <string name="morphe_oauth2_toast_invalid">잘못된 VR 로그인 토큰입니다. 다시 VR에 로그인하세요</string>
+    <string name="morphe_oauth2_toast_reset">Android VR에서 로그아웃되었습니다</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">공유 링크를 \'music.youtube.com\'으로 사용합니다</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">공유 링크를 \'youtube.com\'으로 사용합니다</string>
+    <string name="morphe_replace_music_with_youtube_title">공유 링크를 \'youtube.com\'으로 변경하기</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거하지 않습니다</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거합니다</string>
+    <string name="morphe_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
+    <string name="morphe_spoof_video_streams_client_type_title">기본 클라이언트</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">플레이어 자바스크립트 업데이트를 활성화합니다</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"플레이어 자바스크립트 업데이트를 비활성화합니다
+
+• 유효한 플레이어 자바스크립트 해시가 필요합니다
+• 플레이어 자바스크립트 해시가 GVS에서 취소되면 재생이 실패합니다"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">플레이어 자바스크립트 업데이트 비활성화하기</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">플레이어 자바스크립트 해시는 약 한 달 동안 유효하며, 오래된 해시는 GVS에 의해 취소될 수 있습니다.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">다음을 활성화해 보세요: 동영상 스트림 속이기 &gt; Android VR에 로그인하기</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">클라이언트 스트림을 가져올 수 없습니다</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_summary">유효한 플레이어 자바스크립트 해시를 입력하세요</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_title">플레이어 자바스크립트 해시</string>
+    <string name="morphe_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 속여서 재생 문제를 방지할 수 있습니다</string>
+    <string name="morphe_spoof_video_streams_screen_title">동영상 스트림 속이기</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR에 로그인되어 있지 않습니다 \n로그인하려면 여기를 탭하세요</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">이 기능을 사용하려면, \'기본 클라이언트\'를 Android VR로 변경하세요</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">현재 Android VR에 로그인되어 있습니다</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR에 로그인하기</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"활성화 코드: %s
+
+1. 아래에 있는 '웹사이트 열기'를 탭하여 '기기 연결' 웹사이트를 엽니다.
+2. 위에 표시된 활성화 코드를 클립보드로부터 붙여넣거나 입력합니다.
+3. 로그인이 요청되면 Google에 로그인합니다. 계정이 여러 개인 경우에는 Morphe에서 사용하는 YouTube 계정을 선택합니다.
+4. YouTube VR 액세스를 허용합니다.
+5. '기기에 연결됨' 메시지가 표시되면 이 앱으로 돌아옵니다."</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">웹사이트 열기</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">설명서</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">계속하기</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Android VR에 로그인하면 일부 사용자의 재생 문제가 해결될 수 있습니다
+
+로그인하려면 아래에 있는 '계속하기'를 탭하세요"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">로그아웃</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Android VR에 로그인하기</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"인증을 저장하였습니다
+
+• Morphe 설정에서 Android VR 인증을 가져오거나 내보낼 수 없습니다.
+• 이 앱을 6개월 동안 사용하지 않으면 Google에서 이 인증이 제거됩니다.
+• Google 암호를 변경하거나 Google 설정에서 이 기기 등록을 해제하면 다시 로그인해야 합니다"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">로그인 성공</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">활성화 코드를 발급할 수 없습니다</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">인증 토큰을 발급할 수 없습니다</string>
+    <string name="morphe_spoof_video_streams_summary_off">"동영상 스트림이 속여지지 않습니다
+
+재생 문제가 발생할 수 있습니다"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"동영상 스트림이 속여집니다
+
+YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다"</string>
+    <string name="morphe_spoof_video_streams_title">동영상 스트림 속이기</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 재생 문제가 발생할 수 있습니다.</string>
     <string name="revanced_add_miniplayer_next_button_summary">미니 플레이어에 다음 트랙 재생 버튼을 추가합니다.</string>
     <string name="revanced_add_miniplayer_next_button_title">미니 플레이어 다음 재생 버튼 추가</string>
     <string name="revanced_add_miniplayer_previous_button_summary">미니 플레이어에 이전 트랙 재생 버튼을 추가합니다.</string>
@@ -552,18 +625,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
 부작용 (요청 차단):
 • VPN 또는 DNS를 사용할 경우에 앱이 강제로 종료될 수 있습니다."</string>
     <string name="revanced_spoof_client_type_title">기본 클라이언트</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music SDK 없음</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android SDK 없음</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV 기존</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
-    <string name="revanced_spoof_streaming_data_default_client_summary">클라이언트를 속이기 위한 기본 클라이언트를 정의할 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">기본 클라이언트</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">클라이언트 스트림을 가져올 수 없습니다.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">기본 클라이언트를 TV Simply로 변경해 보세요.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">인증 토큰을 받는 방법을 보려면 여기를 탭하세요.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Android SDK 없음 인증 있음에 대한 정보</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Android SDK 없음에 로그인하는 방법을 보려면 여기를 탭하세요.</string>
@@ -598,20 +660,6 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">웹사이트 열기</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">활성화 코드</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">활성화 코드를 클립보드에 복사하였습니다: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">활성화 코드 받기</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">승인 토큰 받기</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Android VR (YouTube VR)에 로그인은 Google에서 제공하는 가이드라인 (Google 계정 승인 - TV 및 입력 제한 기기 애플리케이션을 위한 OAuth 2.0)을 따릅니다:
-
-1. '활성화 코드 받기'를 탭하여 활성화 코드를 생성합니다.
-2. '웹사이트 열기'를 탭하여 'https://yt.be/activate'로 이동합니다.
-3. 활성화 코드를 입력합니다.
-4. 로그인이 요청되면 로그인합니다. 여러 Google 계정이 있는 경우에는 YouTube에 사용하는 계정을 선택합니다. 이미 로그인된 상태라면 다음 단계로 건너뜁니다.
-5. 로그인 후에 RVX로 돌아가서 'Android VR에 로그인'을 다시 탭합니다.
-6. '승인 토큰 받기'를 탭하여 승인 토큰을 받습니다.
-
-※ 인증 토큰 또는 활성화 코드를 제거하려면 '초기화'를 탭하세요."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">초기화</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Android VR에 로그인</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"인증 토큰을 저장하였습니다.
 
 • 이 과정을 통해 발급된 인증 토큰은 YouTube VR에서만 사용할 수 있습니다 (RVX에서는 YouTube VR에서 스트리밍 데이터를 가져오는 데 사용됩니다).
@@ -627,15 +675,6 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
 
 YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_title">스트리밍 데이터 속이기</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"이 기능을 활성화하면, ‘TV’ 및 'Mobile Web'에서 최신 플레이어 JavaScript가 스트리밍 URL을 복호화하는 데 사용됩니다.
-
-JavaScript 클라이언트에 문제가 발생할 경우에 먼저 이 기능을 비활성화해보세요."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">최신 플레이어 JavaScript 사용</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"이 기능을 활성화하면, ‘yt-dlp를 위한 외부 JavaScript (yt-dlp-ejs)'가 'TV’ 및 'Mobile Web'에서 스트리밍 URL의 복호화하는 데 사용됩니다.
-
-• 복호화를 위한 플레이어 JavaScript는 최신 상태로 유지됩니다.
-• 동영상 재생 시작까지 5~15초가 소요될 수 있습니다."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">yt-dlp ejs 사용 (개발 중)</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">인증 토큰을 받는 방법을 보려면 여기를 탭하세요.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR 인증 있음에 대한 정보</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"부작용:
@@ -664,4 +703,15 @@ JavaScript 클라이언트에 문제가 발생할 경우에 먼저 이 기능을
     <string name="revanced_webview_toast_no_network">네트워크 연결상태를 확인하세요.</string>
     <string name="revanced_webview_toast_unavailable">WebView를 사용할 수 없습니다.</string>
     <string name="revanced_webview_visitor_data">Visitor Data</string>
+    <string name="revanced_spoof_streaming_data_default_client_summary">클라이언트를 속이기 위한 기본 클라이언트를 정의할 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Android VR (YouTube VR)에 로그인은 Google에서 제공하는 가이드라인 (Google 계정 승인 - TV 및 입력 제한 기기 애플리케이션을 위한 OAuth 2.0)을 따릅니다:
+
+1. '활성화 코드 받기'를 탭하여 활성화 코드를 생성합니다.
+2. '웹사이트 열기'를 탭하여 'https://yt.be/activate'로 이동합니다.
+3. 활성화 코드를 입력합니다.
+4. 로그인이 요청되면 로그인합니다. 여러 Google 계정이 있는 경우에는 YouTube에 사용하는 계정을 선택합니다. 이미 로그인된 상태라면 다음 단계로 건너뜁니다.
+5. 로그인 후에 RVX로 돌아가서 'Android VR에 로그인'을 다시 탭합니다.
+6. '승인 토큰 받기'를 탭하여 승인 토큰을 받습니다.
+
+※ 인증 토큰 또는 활성화 코드를 제거하려면 '초기화'를 탭하세요."</string>
 </resources>

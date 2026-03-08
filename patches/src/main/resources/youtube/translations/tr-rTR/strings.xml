@@ -20,6 +20,100 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin.</string>
     <string name="gms_core_settings_title">GmsCore ayarlarını aç </string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore yüklü değil. Yükleyin.</string>
+    <string name="morphe_disable_drc_audio_summary_off">DRC sesi etkin</string>
+    <string name="morphe_disable_drc_audio_summary_on">DRC sesi devre dışı</string>
+    <string name="morphe_disable_drc_audio_title">DRC sesi devre dışı bırak</string>
+    <string name="morphe_disable_quic_protocol_summary_off">QUIC protokolü etkin</string>
+    <string name="morphe_disable_quic_protocol_summary_on">QUIC protokolü devre dışı</string>
+    <string name="morphe_disable_quic_protocol_title">QUIC protokolünü devre dışı bırak</string>
+    <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için \'Video akışlarını taklit et\' ayarını Android Reel veya TV\'ye değiştirin</string>
+    <string name="morphe_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
+    <string name="morphe_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
+    <string name="morphe_force_original_audio_title">Orijinal ses dilini zorla</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">VR oturumu açılamadı: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">VR oturumu açılamadı, web sitesi kimlik doğrulaması onaylanmadı</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 geçici olarak kullanılamıyor</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 geçici olarak kullanılamıyor (durum %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Android VR oturum süresi doldu, VR\'da tekrar oturum açmayı deneyin</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 geçici olarak kullanılamıyor (API zaman aşımına uğradı)</string>
+    <string name="morphe_oauth2_toast_invalid">Geçersiz VR oturum açma belirteci, VR\'da tekrar oturum açmayı deneyin</string>
+    <string name="morphe_oauth2_toast_reset">Android VR oturumu kapatıldı</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan bağlantılar music.youtube.com kullanır</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">Paylaşılan bağlantılar youtube.com kullanır</string>
+    <string name="morphe_replace_music_with_youtube_title">Paylaşım bağlantılarını youtube.com olarak değiştir</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılır</string>
+    <string name="morphe_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
+    <string name="morphe_spoof_video_streams_about_experimental">• Deneysel istemci ve her an çalışmayı durdurabilir</string>
+    <string name="morphe_spoof_video_streams_about_js">• Eşleştirme başarısız olursa oynatma da başarısız olabilir</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Ses Parçası menüsü eksik</string>
+    <string name="morphe_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
+    <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Orijinal sesi zorlama mevcut değil</string>
+    <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR immersif modu mevcut değil</string>
+    <string name="morphe_spoof_video_streams_about_no_stable_volume">• Sabit ses mevcut değil</string>
+    <string name="morphe_spoof_video_streams_about_playback_failure">• Video 1:00\'da durabilir veya bazı bölgelerde kullanılamayabilir</string>
+    <string name="morphe_spoof_video_streams_about_title">Taklit yan etkileri</string>
+    <string name="morphe_spoof_video_streams_av1_summary_off">Video kodeği AVC (H.264) veya VP9\'dur</string>
+    <string name="morphe_spoof_video_streams_av1_summary_on">"Video kodeği AVC (H.264), VP9 veya AV1'dir
+
+Oynatma takılabilir veya kare atlayabilir"</string>
+    <string name="morphe_spoof_video_streams_av1_title">Android VR AV1\'e izin ver</string>
+    <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Bu ayarı etkinleştirmek yazılım tabanlı AV1 kod çözmeyi kullanabilir.
+
+AV1 ile video oynatma takılabilir veya kare atlayabilir."</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Varsayılan istemci</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Oynatıcı JavaScript güncellemesi etkin</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Oynatıcı JavaScript güncellemesi devre dışı
+
+• Geçerli bir oynatıcı JavaScript hash'i gereklidir
+• GVS'de Oynatıcı JavaScript hash'i iptal edilirse oynatma başarısız olur"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Oynatıcı JavaScript güncellemesini devre dışı bırak</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Oynatıcı JavaScript hash\'leri yaklaşık bir ay süreyle geçerlidir ve süresi geçmiş hash\'ler GVS tarafından iptal edilebilir.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Şunu etkinleştirmeyi dene: Video akışlarını taklit et (Spoof) &gt; Android VR oturum açma</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Hiçbir istemci akışı alınamadı.</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_summary">Geçerli bir oynatıcı JavaScript hash değeri girin</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_title">Oynatıcı JavaScript hash</string>
+    <string name="morphe_spoof_video_streams_player_js_variant_title">Oynatıcı JavaScript varyantı</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Oynatma sorunlarını önlemek için istemci video akışlarını taklit et</string>
+    <string name="morphe_spoof_video_streams_screen_title">Video akışlarını taklit et</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR oturumu açılmadı. Oturum açmak için buraya dokunun.</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Bu özelliği kullanmak için \'Varsayılan istemci\'yi Android VR olarak değiştirin.</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Şu anda Android VR oturumu açık.</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR oturum açma</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Etkinleştirme kodu: %s
+
+1. 'Bir cihaz bağlayın' web sitesini açmak için aşağıdaki 'Web sitesini aç'a dokunun 
+2. Yukarıda gösterilen etkinleştirme kodunu panodan yapıştırın (veya elle yazın) 
+3. İstenirse Google'da oturum açın. Birden fazla hesabınız varsa bu YouTube hesabını seçin 
+4. 'YouTube VR erişimine izin ver' seçeneğine dokunun 
+5. 'Cihaz bağlandı' mesajını gördükten sonra bu uygulamaya dönün"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Web sitesini aç</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Talimatlar</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Devam et</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Android VR'de oturum açmak, bazı kullanıcılar için oynatma sorunlarını çözebilir.
+
+Oturum açmak için, devam et butonuna basın."</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Çıkış yap</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Android VR\'da oturum aç</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Kimlik doğrulama kaydedildi
+
+• Morphe ayarlarınız, Android VR kimlik doğrulamasını içe/dışa aktarmaz 
+• Bu uygulama 6 ay boyunca kullanılmazsa Google bu kimlik doğrulamasını kaldıracaktır 
+• Google şifrenizi değiştirirseniz veya bu cihazı Google ayarlarınızdan kaldırırsanız tekrar oturum açmanız gerekir"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Başarıyla oturum açıldı</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Aktivasyon kodu oluşturulamadı</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Kimlik doğrulama anahtarı oluşturulamadı</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">İstemci, meraklısı için istatistiklerde gizli</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">İstemci tipi meraklısı için istatistiklerde gösterilir</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Meraklısı için istatistiklerde göster</string>
+    <string name="morphe_spoof_video_streams_summary_off">"Video akışları taklit edilmez
+
+Oynatma çalışmayabilir"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"Video akışları taklit ediliyor.
+
+YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
+    <string name="morphe_spoof_video_streams_title">Video akışlarını taklit et</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak oynatma sorunlarına yol açabilir.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Gelişmiş video kalitesi menüsü gösterilmez</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Gelişmiş video kalitesi menüsü gösterilir</string>
     <string name="revanced_advanced_video_quality_menu_title">Gelişmiş video kalitesi menüsünü göster</string>
@@ -232,11 +326,6 @@ Sınırlama: Araç çubuğundaki Geri butonu çalışmayabilir."</string>
     <string name="revanced_disable_ambient_mode_title">Ambiyans modunu devre dışı bırak</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">"Ses parçalarının kendiliğinden açılması etkin."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Otomatik olarak etkinleştirilen zorunlu ses parçalarını devre dışı.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Zorunlu otomatik ses parçaları devre dışı bırakıldı.
-
-Bu, bazı kullanıcılar için işe yaramayabilir, eğer sizin için işe yaramazsa:
-1. Ayarlar - RVX - Çeşitli - Sahte veri akışı'na gidin ve 'JavaScript istemcisini kullan' seçeneğini açın.
-2. Ayarlar - RVX - Çeşitli - Sahte akış verileri bölümüne gidin ve 'Varsayılan istemci'yi 'Basit TV' olarak değiştirin."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Otomatik olarak etkinleştirilen zorunlu ses parçalarını devre dışı bırak.</string>
     <string name="revanced_disable_auto_captions_summary_off">Otomatik olarak etkinleştirilen zorunlu altyazılar etkinleştirildi.</string>
     <string name="revanced_disable_auto_captions_summary_on">Otomatik olarak etkinleştirilen zorunlu altyazılar devre dışı.</string>
@@ -923,11 +1012,6 @@ Ortadaki harfleri büyük olan kelimeler, büyük/küçük harf kullanımına g�
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Ambiyans modu menüsü görünür.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ambiyans modu menüsü gizli.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Ambiyans mod menüsünü gizle</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Ses parçası menüsü gizli.
-
-Ses parçası menüsünü göstermek için:
-1. Ayarlar - RVX - Çeşitli - Sahte veri akışı'na gidin ve 'JavaScript istemcisini kullan' seçeneğini açın.
-2. Ayarlar - RVX - Çeşitli - Sahte veri akışı'na gidin ve 'Varsayılan istemci'yi 'Basit TV' olarak değiştirin."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">\"Ses Parçası\" menüsü gösteriliyor.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">\"Ses Parçası\" menüsü gizleniyor.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Ses parçası menüsünü gizle</string>
@@ -1658,6 +1742,8 @@ Bilgi:
 Oynatma hızını 1,0x'e sıfırlamak için dokunun ve basılı tutun. Varsayılan hıza sıfırlamak için tekrar dokunun ve basılı tutun."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Oynatma hızını ayarlama butonunu ekle</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">Hız iletişim kutusu türü</string>
+    <string name="revanced_overlay_button_vot_summary">Geçerli video için seslendirme çevirisini açıp kapatmak için "Yer paylaşımı göster" düğmesini göster.</string>
+    <string name="revanced_overlay_button_vot_title">Seslendirme Çevirisi</string>
     <string name="revanced_overlay_button_whitelist_summary">\"Beyaz liste iletişim kutusunu açmak için dokunun.
 Beyaz liste ayarı iletişim kutusunu açmak için dokunun ve basılı tutun.</string>
     <string name="revanced_overlay_button_whitelist_title">Beyaz liste düğmesini göster</string>
@@ -1770,8 +1856,6 @@ Yerel oynatma listesi indirme düğmesini göstermek için \'Uygulama sürümün
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
     <string name="revanced_preference_screen_snack_bar_summary">Kısa bildirim çubuğuyla ilgili bileşenleri gizleyin veya değiştirin.</string>
     <string name="revanced_preference_screen_snack_bar_title">Kısa bildirim çubuğu</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_summary">Oynatma sorunlarını önlemek için akış verilerini taklit edin.</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_title">Akış Verilerini Taklit Et</string>
     <string name="revanced_preference_screen_swipe_controls_title">Kaydırma kontrolleri</string>
     <string name="revanced_preference_screen_toolbar_summary">Araç çubuğu düğmeleri, arama çubuğu, başlık gibi araç çubuğunda bulunan bileşenleri gizleyin veya değiştirin.</string>
     <string name="revanced_preference_screen_toolbar_title">Araç Çubuğu</string>
@@ -1780,6 +1864,7 @@ Yerel oynatma listesi indirme düğmesini göstermek için \'Uygulama sürümün
     <string name="revanced_preference_screen_video_filter_summary">Videoları anahtar kelimelere veya görüntülemelere göre gizleyin.</string>
     <string name="revanced_preference_screen_video_filter_title">Video filtresi</string>
     <string name="revanced_preference_screen_video_title">Video</string>
+    <string name="revanced_preference_screen_vot_title">Seslendirme Çevirisi</string>
     <string name="revanced_preference_screen_watch_history_summary">İzlemek geçmişi ile alakalı ayarları değiştirir.</string>
     <string name="revanced_preference_screen_watch_history_title">İzleme geçmişi</string>
     <string name="revanced_queue_manager_add_to_queue">Kuyruğa ekle</string>
@@ -2363,20 +2448,7 @@ Oynatma takılabilir veya kare atlayabilir."</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Bu ayarı etkinleştirmek, yazılımsal AV1 kod çözmeyi kullanabilir.
 
 Oynatma takılabilir veya kare atlayabilir."</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
-<small>(Giriş gerekli)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
-<small>(SDK Yok)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
-<small>(Eski)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Basit TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
-<small>(Yayınlanmadı)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Varsayılan istemci</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">Hiçbir istemci akışı alınamadı.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Varsayılan istemciyi Basit TV olarak değiştirmeyi deneyin.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Video kodeklerine öncelik verilir.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Video kalitesine öncelik verilir.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Video kalitesine öncelik ver</string>
@@ -2485,20 +2557,6 @@ Bu ayar etkinleştirilirse, video kodeğinden bağımsız olarak sunucu yanıtı
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Web sitesini aç</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Etkinleştirme kodu</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Etkinleştirme kodu panoya kopyalandı: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Etkinleştirme kodunu alın</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Yetkilendirme anahtarı alın</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Android VR'a (YouTube VR) giriş yapmak, Google tarafından sağlanan yönergeleri (Google hesabı yetkilendirmesi - TV ve sınırlı giriş cihazı uygulamaları için OAuth 2,0) izler:
-
-1. Etkinleştirme kodu oluşturmak için 'Etkinleştirme kodunu al' seçeneğine tıklayın.
-2. 'Web sitesini aç' seçeneğine tıklayarak 'https://yt.be/activate' adresine gidin.
-3. Etkinleştirme kodunu girin.
-4. İstendiğinde oturum açın. Birden fazla Google Hesabınız varsa, YouTube ile kullandığınız hesabı seçin. Zaten oturum açtıysanız, bir sonraki adıma geçin.
-5. Oturum açtıktan sonra RVX'e geri dönün ve tekrar 'Android VR'a giriş yap' seçeneğine tıklayın.
-6. Yetkilendirme anahtarı almak için 'Yetkilendirme anahtarı al' seçeneğine tıklayın.
-
-※ Kimlik doğrulama anahtarını veya etkinleştirme kodunu kaldırmak için 'Sıfırla' seçeneğine tıklayın."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Sıfırla</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Android VR\'a giriş yapın</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Kimlik doğrulama anahtarı kaydedildi.
 
 - Bu işlemle verilen kimlik doğrulama anahtarı yalnızca YouTube VR'da kullanılabilir (RVX'te, YouTube VR'dan akış verilerini almak için kullanılır).
@@ -2526,8 +2584,6 @@ YouTube Premium kullanıcısıysanız bu ayara gerek olmayabilir."</string>
 
 • JavaScript istemcisi yine de bazı videoları oynatamayabilir."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Tüm videolar için JavaScript istemcisini kullanın</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Daha fazla bilgi için tıkla.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">Sahte ara belleğe alma hakkında</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"JavaScript istemcisinde videoların çok geç başlamasının bir nedeni, YouTube'un yeni reklam engelleyici önlemleridir.
 
 Bir video reklamı engellendiğinde, GVS (Google Video Sunucusu) reklam süresiyle orantılı olarak sahte ara belleğe alma oluşturur (A/B testi).
@@ -2555,23 +2611,6 @@ Bu durum, videoyu yeniden yüklemek için oynatıcıdaki 'Videoyu yenile düğme
 (Ön koşullar: Hem 'Videoyu yenile düğmesini göster' hem de 'Videoyu yenile düğmesini her zaman göster' etkinleştirilmelidir)
 
 JavaScript istemcileri arasında önerilen istemci Basit TV."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"Çözümleme için oynatıcı JavaScript'i güncel tutulmaz.
-
-• Çözümlemede başarılı olan oynatıcı JavaScript'i kullanılır, ancak yine de kısmen sunucuya bağımlıdır."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"Çözümleme için oynatıcı JavaScript'i güncel tutulur.
-
-• Büyük ölçüde sunucuya bağımlıdır ve çözümlemenin başarısı veya başarısızlığı, sunucuda o anda kullanılan oynatıcı JavaScript'ine bağlıdır.
-• JavaScript istemcisiyle ilgili sorun yaşıyorsanız, önce bunu devre dışı bırakmayı deneyin."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">En yeni oynatıcı JavaScript\'ini kullan</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"SmartTube çıkarıcısı kullanılır.
-
-• Çözümleme için oynatıcı JavaScript'i güncel değildir.
-• Bu, yakın gelecekte sunucular tarafından kullanımdan kaldırılacaktır."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"yt-dlp için Harici JavaScript (yt-dlp-ejs) kullanılır.
-
-• Çözümleme için oynatıcı JavaScript'i güncel tutulur.
-• Videonun başlaması 5 ila 15 saniye sürebilir."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">yt-dlp ejs kullan (Geliştiriliyor)</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Bu ayarı kapatmak video oynatma sorunlarına neden olabilir.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kimlik doğrulama belirtecinin nasıl alınacağını görmek için tıklayın.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR Kimlik Doğrulama Hakkında</string>
@@ -2702,6 +2741,43 @@ Sorumluluk Reddi: Oturum açmadan gönderilen çerezler geçersiz olabilir veya 
     <string name="revanced_transcript_cookies_summary">Transkript API isteklerinde kullanılacak çerezler.</string>
     <string name="revanced_transcript_cookies_title">Transkript Çerezleri</string>
     <string name="revanced_translations_title">Çeviriler</string>
+    <string name="revanced_vot_audio_proxy_summary_off">Ses akışı doğrudan URL kullanıyor.</string>
+    <string name="revanced_vot_audio_proxy_summary_on">Ses akışı, çalışan sunucu üzerinden yönlendirilir.</string>
+    <string name="revanced_vot_audio_proxy_title">Proxy ses yayını</string>
+    <string name="revanced_vot_enabled_summary_off">Yandex sesli çeviri devre dışı bırakıldı.</string>
+    <string name="revanced_vot_enabled_summary_on">Yandex sesli çeviri özelliği etkinleştirildi.</string>
+    <string name="revanced_vot_enabled_title">Sesli Çeviriyi aç</string>
+    <string name="revanced_vot_lang_auto">Oto algılama</string>
+    <string name="revanced_vot_live_voices_unavailable">Canlı çeviri kullanılamıyor, normal ses kullanılıyor</string>
+    <string name="revanced_vot_original_audio_volume_summary">Çeviri oynatılırken orijinal video parçasının ses seviyesi (0-100). Varsayılan: 50</string>
+    <string name="revanced_vot_original_audio_volume_title">Orjinal ses yüksekliği</string>
+    <string name="revanced_vot_playback_error">Çevrili sesi oynatırken hata oldu</string>
+    <string name="revanced_vot_proxy_url_summary">VOT çalışan proxy sunucusu. Varsayılan: vot-worker.toil.cc</string>
+    <string name="revanced_vot_proxy_url_title">Proxy sunucusu</string>
+    <string name="revanced_vot_source_language_summary">Video sesinin dilini seçin.</string>
+    <string name="revanced_vot_source_language_title">Kaynak dili</string>
+    <string name="revanced_vot_started">Çeviri başladı</string>
+    <string name="revanced_vot_stopped">Çeviri durduruldu</string>
+    <string name="revanced_vot_stream_not_ready">Çeviri hazır değil hazır olduğunda açma botununu kullanın</string>
+    <string name="revanced_vot_stream_ready">Çeviri hazır, oynatılıyor</string>
+    <string name="revanced_vot_stream_requesting">Yayın için çeviri isteği gönderiliyor…</string>
+    <string name="revanced_vot_stream_waiting">Bekleniyor… ~%s</string>
+    <string name="revanced_vot_target_language_summary">Çevirilecek dili seçin</string>
+    <string name="revanced_vot_target_language_title">Hedef dil</string>
+    <string name="revanced_vot_time_min">https://youtu.be/JQatRG3Tx18
+</string>
+    <string name="revanced_vot_time_sec">%d saniye</string>
+    <string name="revanced_vot_translation_volume_summary">Çevrilen ses parçasının ses seviyesi (0-100). Varsayılan: 100</string>
+    <string name="revanced_vot_translation_volume_title">Çeviri sesi ayarla</string>
+    <string name="revanced_vot_unavailable_live">Canlı yayınlarda çeviri kullanılamaz</string>
+    <string name="revanced_vot_unavailable_same_language">Video sesi zaten hedef dile hazır</string>
+    <string name="revanced_vot_unavailable_too_long">Video çeviri için fazla uzun(maks 4 saat)</string>
+    <string name="revanced_vot_voice_style_live">Canlı sesler</string>
+    <string name="revanced_vot_voice_style_live_summary_off">Standard TTS sesleri</string>
+    <string name="revanced_vot_voice_style_live_summary_on">Yandex\'ten doğal sesler.</string>
+    <string name="revanced_vot_voice_style_live_title">Canlı sesler</string>
+    <string name="revanced_vot_voice_style_standard">Standard sesler</string>
+    <string name="revanced_vot_voice_style_title">Seslendirme tarzı</string>
     <string name="revanced_watch_history_about_status_blocked">• İzleme geçmişi çalışmaz.</string>
     <string name="revanced_watch_history_about_status_original">"• Google hesabının izleme geçmişi ayarlarını takip eder.
 • DNS veya VPN nedeniyle izleme geçmişi çalışmayabilir."</string>
@@ -2773,4 +2849,30 @@ Sorumluluk Reddi: Oturum açmadan gönderilen çerezler geçersiz olabilir veya 
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex dili</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Gemini yerine Yandex yazıya dökme işlemi kullanın. Yandex daha hızlı ve daha güvenilirdir. API anahtarı gerekmez.</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex yazıya dökme</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_summary">Oynatma sorunlarını önlemek için akış verilerini taklit edin.</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_title">Akış Verilerini Taklit Et</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
+<small>(Yayınlanmadı)</small>"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Android VR'a (YouTube VR) giriş yapmak, Google tarafından sağlanan yönergeleri (Google hesabı yetkilendirmesi - TV ve sınırlı giriş cihazı uygulamaları için OAuth 2,0) izler:
+
+1. Etkinleştirme kodu oluşturmak için 'Etkinleştirme kodunu al' seçeneğine tıklayın.
+2. 'Web sitesini aç' seçeneğine tıklayarak 'https://yt.be/activate' adresine gidin.
+3. Etkinleştirme kodunu girin.
+4. İstendiğinde oturum açın. Birden fazla Google Hesabınız varsa, YouTube ile kullandığınız hesabı seçin. Zaten oturum açtıysanız, bir sonraki adıma geçin.
+5. Oturum açtıktan sonra RVX'e geri dönün ve tekrar 'Android VR'a giriş yap' seçeneğine tıklayın.
+6. Yetkilendirme anahtarı almak için 'Yetkilendirme anahtarı al' seçeneğine tıklayın.
+
+※ Kimlik doğrulama anahtarını veya etkinleştirme kodunu kaldırmak için 'Sıfırla' seçeneğine tıklayın."</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Zorunlu otomatik ses parçaları devre dışı bırakıldı.
+
+Bu, bazı kullanıcılar için işe yaramayabilir, eğer sizin için işe yaramazsa:
+1. Ayarlar - RVX - Çeşitli - Sahte veri akışı'na gidin ve 'JavaScript istemcisini kullan' seçeneğini açın.
+2. Ayarlar - RVX - Çeşitli - Sahte akış verileri bölümüne gidin ve 'Varsayılan istemci'yi 'Basit TV' olarak değiştirin."</string>
+    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Ses parçası menüsü gizli.
+
+Ses parçası menüsünü göstermek için:
+1. Ayarlar - RVX - Çeşitli - Sahte veri akışı'na gidin ve 'JavaScript istemcisini kullan' seçeneğini açın.
+2. Ayarlar - RVX - Çeşitli - Sahte veri akışı'na gidin ve 'Varsayılan istemci'yi 'Basit TV' olarak değiştirin."</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Varsayılan istemciyi Basit TV olarak değiştirmeyi deneyin.</string>
 </resources>

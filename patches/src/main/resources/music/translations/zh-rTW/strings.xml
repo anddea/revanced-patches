@@ -17,6 +17,79 @@
     <string name="gms_core_settings_summary">打開GmsCore 設定，並啟用雲端訊息已接收通知。</string>
     <string name="gms_core_settings_title">開啟 GmsCore 設定</string>
     <string name="gms_core_toast_not_installed_message">GmsCore未安裝，請安裝。</string>
+    <string name="morphe_disable_drc_audio_summary_off">已啟用 DRC 音效</string>
+    <string name="morphe_disable_drc_audio_summary_on">已停用 DRC 音效</string>
+    <string name="morphe_disable_drc_audio_title">停用 DRC 音效</string>
+    <string name="morphe_disable_quic_protocol_summary_off">已啟用 QUIC 協定</string>
+    <string name="morphe_disable_quic_protocol_summary_on">已停用 QUIC 協定</string>
+    <string name="morphe_disable_quic_protocol_title">停用 QUIC 協定</string>
+    <string name="morphe_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Reel 或 TV</string>
+    <string name="morphe_force_original_audio_summary_off">使用預設音訊</string>
+    <string name="morphe_force_original_audio_summary_on">正在使用原始音訊語言</string>
+    <string name="morphe_force_original_audio_title">強制使用原始音訊語言</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">無法登錄 VR：%s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">無法登入 VR，網站驗證未獲批准</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 暫時不可用</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 暫時不可用（狀態 %d）</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Android VR 登入已過期，請重新登入 VR</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暫時不可用（API 已逾時）</string>
+    <string name="morphe_oauth2_toast_invalid">無效的 VR 登錄權杖，請重新登錄 VR</string>
+    <string name="morphe_oauth2_toast_reset">已從 Android VR 中登出</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">分享連結使用 music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">分享連結使用 youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">將分享連結更改為 youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">追蹤查詢參數未從分享連結中移除</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">追蹤查詢參數已從分享連結中移除</string>
+    <string name="morphe_sanitize_sharing_links_title">清理分享連結</string>
+    <string name="morphe_spoof_video_streams_client_type_title">預設用戶端</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">播放器 JavaScript 更新已啟用</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"播放器 JavaScript 更新已停用
+
+• 需要有效的播放器 JavaScript 哈希值
+• 如果 GVS 中撤銷了播放器 JavaScript 哈希值，則播放將失敗"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">停用播放器 JavaScript 更新</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">播放器 JavaScript 雜湊約有效期一個月，且過期的雜湊可能由 GVS 撤銷。</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">試試啟用：偽裝視訊串流 &gt; Android VR 登入</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">未能擷取任何用戶端串流</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_summary">請輸入有效的播放器 JavaScript 雜湊值</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_title">播放器 JavaScript 雜湊值</string>
+    <string name="morphe_spoof_video_streams_screen_summary">偽造用戶端影片串流以避免播放問題</string>
+    <string name="morphe_spoof_video_streams_screen_title">偽造影片串流</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">尚未登入 Android VR。輕觸這裡即可登入</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">如要使用這項功能，請將「預設用戶端」改為 Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">已登入 Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR 登入</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"啟動碼：%s
+
+1. 輕觸下方「開啟網站」以開啟「連線裝置」網站
+2. 從剪貼簿貼上（或手動輸入）上方顯示的啟動碼。
+3. 如果系統提示，請登入 Google 帳戶。如果你有多個帳戶， 請選擇這個 YouTube 帳戶
+4. 輕觸「允許 YouTube VR」存取權
+5. 看到「裝置已連結」訊息後，請返回這個應用程式"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">開啟網站</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">說明</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">繼續</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"登入 Android VR 可解決部分使用者的播放問題
+
+如要登入，請按下下方的「繼續」按鈕"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">登出</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">登入 Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"驗證已儲存
+
+• 你的 Morphe 設定不會匯入/匯出 Android VR 驗證資訊。
+• 如果這個應用程式超過 6 個月未使用，Google 將會移除這個驗證授權。
+• 如果你變更 Google 密碼，或在 Google 設定中取消註冊這個裝置，則需要重新登入。"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">登入成功</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">無法發出啟動碼</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">無法發出啟動權杖</string>
+    <string name="morphe_spoof_video_streams_summary_off">"未偽裝視訊串流
+
+播放可能無法運作"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"已偽裝視訊串流
+
+如果您是 YouTube Premium 使用者，則可能不需要此設定"</string>
+    <string name="morphe_spoof_video_streams_title">偽裝影片串流</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">關閉此設定可能會導致播放問題。</string>
     <string name="revanced_add_miniplayer_next_button_summary">在迷你播放器中新增下一首按鈕。</string>
     <string name="revanced_add_miniplayer_next_button_title">新增迷你播放器的下一首按鈕</string>
     <string name="revanced_add_miniplayer_previous_button_summary">在迷你播放器中新增上一首按鈕。</string>
@@ -516,15 +589,7 @@
     <string name="revanced_spoof_client_summary">偽裝客戶端以避免播放問題。</string>
     <string name="revanced_spoof_client_title">偽裝客戶端</string>
     <string name="revanced_spoof_client_type_title">預設客戶端</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">電視</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">電視舊版</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
     <string name="revanced_spoof_streaming_data_default_client_title">預設用戶端</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">無法獲取任何客戶端串流。</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">嘗試將預設客戶端變更為 TV Simply。</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">點擊查看如何取得身份驗證令牌。</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">取得授權令牌</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">重置</string>
@@ -547,19 +612,6 @@
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">打開網站</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">啟動碼</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">啟動碼已複製到剪貼簿: %s。</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">取得啟動碼</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">取得授權令牌</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"登入 Android VR（YouTube VR）需遵循 Google 提供的指南（Google 帳戶授權 - 適用於電視和輸入限制裝置應用程式的 OAuth 2.0）：
-
-1. 點選「取得啟動碼」產生啟動碼。
-2. 點選「開啟網站」前往「https://yt.be/activate」。
-3. 輸入啟動碼。
-4. 出現提示時登入。如果您有多個 Google 帳戶，請選擇您用於 YouTube 的帳戶。如果您已登錄，請跳至下一步。
-5. 登入後，返回 RVX 並再次點選「登入 Android VR」。
-6. 點選「取得授權令牌」以取得授權令牌。
-※ 點選「重置」可移除授權令牌或啟動碼。"</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">重置</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">登入 Android VR</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"身份驗證令牌已儲存。
 
 - 透過此流程頒發的身份驗證令牌只能在 YouTube VR 中使用（在 RVX 中，它用於從 YouTube VR 獲取串流資料）。
@@ -574,8 +626,6 @@
 
 如果您是 YouTube Premium 用戶，則可能無需進行此設定。"</string>
     <string name="revanced_spoof_streaming_data_title">偽裝串流數據</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">使用最新的播放器 JavaScript</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">使用 yt-dlp ejs (開發中)</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">點擊查看如何取得身份驗證令牌。</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">關於 Android VR 驗證</string>
     <string name="revanced_spoof_video_streams_default_client_title">預設用戶端</string>
@@ -599,4 +649,5 @@
     <string name="revanced_webview_toast_no_network">請檢查您的網路連線。</string>
     <string name="revanced_webview_toast_unavailable">WebView 無法使用。</string>
     <string name="revanced_webview_visitor_data">訪客資料</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">嘗試將預設客戶端變更為 TV Simply。</string>
 </resources>

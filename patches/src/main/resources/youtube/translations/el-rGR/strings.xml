@@ -20,6 +20,100 @@
     <string name="gms_core_settings_summary">Για να λαμβάνετε ειδοποιήσεις στο RVX, ενεργοποιήστε τις ρυθμίσεις Cloud Messaging.</string>
     <string name="gms_core_settings_title">Άνοιγμα ρυθμίσεων του MicroG GmsCore</string>
     <string name="gms_core_toast_not_installed_message">Το MicroG GmsCore δεν έχει εγκατασταθεί. Εγκαταστήστε το.</string>
+    <string name="morphe_disable_drc_audio_summary_off">Ο ήχος DRC είναι ενεργοποιημένος</string>
+    <string name="morphe_disable_drc_audio_summary_on">Ο ήχος DRC είναι απενεργοποιημένος</string>
+    <string name="morphe_disable_drc_audio_title">Απενεργοποίηση ήχου DRC</string>
+    <string name="morphe_disable_quic_protocol_summary_off">Το πρωτόκολλο QUIC είναι ενεργοποιημένο</string>
+    <string name="morphe_disable_quic_protocol_summary_on">Το πρωτόκολλο QUIC είναι απενεργοποιημένο</string>
+    <string name="morphe_disable_quic_protocol_title">Απενεργοποίηση πρωτοκόλλου QUIC</string>
+    <string name="morphe_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, αλλάξτε το \"Παραποίηση ροών βίντεο\" σε Android Reel ή TV</string>
+    <string name="morphe_force_original_audio_summary_off">Χρησιμοποιείται ο προεπιλεγμένος ήχος</string>
+    <string name="morphe_force_original_audio_summary_on">Χρησιμοποιείται η αρχική γλώσσα ήχου</string>
+    <string name="morphe_force_original_audio_title">Εξαναγκασμός αρχικής γλώσσας ήχου</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">Δεν είναι δυνατή η σύνδεση στο VR: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Δεν είναι δυνατός ο έλεγχος εισόδου VR, η έγκριση διαδικασίας ελέγχου ιστοσελίδας δεν έχει επιτευχθεί</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 είναι προσωρινά μη διαθέσιμο</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 προσωρινά μη διαθέσιμο (καθυστέρηση %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Η σύνδεση Android VR έληξε, προσπαθήστε να συνδεθείτε ξανά στο VR</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 προσωρινά μη διαθέσιμο (καθυστέρηση API)</string>
+    <string name="morphe_oauth2_toast_invalid">Δεν έγκειται το κωδικό εισόδου VR, προσπαθήστε να συνδεθείτε ξανά στο VR</string>
+    <string name="morphe_oauth2_toast_reset">Έξοδος από το Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">Αλλαγή συνδέσμων κοινοποίησης σε youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">Η παράμετρος παρακολούθησης δεν αφαιρείται από τους συνδέσμους κατά την κοινοποίηση</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">Η παράμετρος παρακολούθησης αφαιρείται από τους συνδέσμους κατά την κοινοποίηση</string>
+    <string name="morphe_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
+    <string name="morphe_spoof_video_streams_about_experimental">• Πειραματικός πελάτης και μπορεί να σταματήσει να λειτουργεί ανά πάσα στιγμή</string>
+    <string name="morphe_spoof_video_streams_about_js">• Εάν η αποπερικοπή αποτύχει, η αναπαραγωγή μπορεί να αποτύχει</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Το μενού «Κομμάτι ήχου» λείπει</string>
+    <string name="morphe_spoof_video_streams_about_no_av1">• Δεν υπάρχει ο κωδικοποιητής βίντεο AV1</string>
+    <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Ο εξαναγκασμός αρχικής γλώσσας ήχου δεν είναι διαθέσιμος</string>
+    <string name="morphe_spoof_video_streams_about_no_immersive_mode">• Η 360° VR βιωματική λειτουργία δεν είναι διαθέσιμη</string>
+    <string name="morphe_spoof_video_streams_about_no_stable_volume">• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη</string>
+    <string name="morphe_spoof_video_streams_about_playback_failure">• Το βίντεο μπορεί να σταματήσει στο 1:00 ή να μην είναι διαθέσιμο σε ορισμένες περιοχές</string>
+    <string name="morphe_spoof_video_streams_about_title">Παρενέργειες παραποίησης</string>
+    <string name="morphe_spoof_video_streams_av1_summary_off">Ο κωδικοποιητής βίντεο είναι ο AVC (H.264) ή ο VP9</string>
+    <string name="morphe_spoof_video_streams_av1_summary_on">"Ο κωδικοποιητής βίντεο είναι ο AVC (H.264), ο VP9 ή ο AV1
+
+Η αναπαραγωγή μπορεί να κομπιάζει ή να χάνει καρέ"</string>
+    <string name="morphe_spoof_video_streams_av1_title">Να επιτρέπεται ο κωδικοποιητής Android VR AV1</string>
+    <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Η ενεργοποίηση αυτής της ρύθμισης ενδέχεται να χρησιμοποιήσει αποκωδικοποίηση λογισμικού AV1.
+
+Η αναπαραγωγή βίντεο μπορεί να κομπιάζει ή να χάνει καρέ."</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Η ενημέρωση JavaScript του προγράμματος αναπαραγωγής είναι ενεργοποιημένη</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Η ενημέρωση JavaScript του προγράμματος αναπαραγωγής είναι απενεργοποιημένη
+
+• Απαιτείται έγκυρο hash JavaScript του προγράμματος αναπαραγωγής.
+• Η αναπαραγωγή αποτυγχάνει εάν το hash JavaScript του προγράμματος αναπαραγωγής ανακληθεί στο GVS"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Απενεργοποίηση ενημέρωσης JavaScript του προγράμματος αναπαραγωγής</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Τα JavaScript hashes για τον παίκτη είναι έγκυρα για περίπου ένα μήνα, και τα устаревшая hashes ενδέχεται να ανακληθούν από το GVS.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Δοκιμάστε να ενεργοποιήσετε: Μιμήση ροής βίντεο &gt; Είσοδος Android VR</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Αδυναμία λήψης ροής του προγράμματος πελάτη</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_summary">Εισάγετε ένα έγκυρο hash JavaScript παίκτη</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_title">Hash JavaScript παίκτη</string>
+    <string name="morphe_spoof_video_streams_player_js_variant_title">Παραλλαγή JavaScript του παίκτη</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Παραποίηση ροών βίντεο του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής</string>
+    <string name="morphe_spoof_video_streams_screen_title">Παραποίηση ροών βίντεο</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Δεν είστε συνδεδεμένοι στο Android VR. Πατήστε εδώ για να συνδεθείτε</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Για να χρησιμοποιήσετε αυτή τη δυνατότητα, αλλάξτε \'Κyendo κλέιντ\' σε Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Τρέχουσα σύνδεση σε Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Είσοδος Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Κωδικός ενεργοποίησης: %s
+
+1. Πατήστε 'Άνοιγμα ιστοσελίδας' παρακάτω για να ανοίξετε την ιστοσελίδα 'Σύνδεση συσκευής'
+2. Εισάγετε από το πρόχειρο (ή πληκτρολογήστε) τον κωδικό ενεργοποίησης που εμφανίζεται παραπάνω
+3. Είσοδος στο Google εάν ζητηθεί. Εάν έχετε πολλαπλές λογαριασμούς τότε επιλέξτε αυτόν τον λογαριασμό YouTube
+4. Πατήστε 'Είσοδος YouTube VR'
+5. Επιστρέψτε σε αυτήν την εφαρμογή αφού φτάσετε στο μήνυμα 'Συσκευή συνδεδεμένη'"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Άνοιγμα ιστοσελίδας</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Οδηγίες</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Συνέχεια</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Είσοδος στο Android VR μπορεί να επιλύσει προβλήματα αναπαραγωγής για ορισμένους χρήστες
+
+Για να εισέλθετε, πατήστε \"Συνέχεια\" παρακάτω"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Αποσύνδεση</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Είσοδος στο Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Η εγκρίνιση αποθηκεύτηκε
+
+• Οι ρυθμίσεις Morphe δεν θα εισάγουν/εξάγουν εγκρίνιση Android VR
+• Εάν η εφαρμογή παραμείνει αχρησιμοποίητη για 6 μήνες, η Google θα αφαιρέσει αυτή την εγκρίνιση
+• Θα χρειαστεί να συνδεθείτε ξανά εάν αλλάξετε το κωδικό πρόσβασης της Google ή να αποσυνδεθείτε αυτή την συσκευή από τις ρυθμίσεις της Google"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Είσοδος ολοκληρώθηκε με επιτυχία</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Αποτυχία εξαγωγής κώδικα ενεργοποίησης</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Αποτυχία έκδοσης διακριτικού εξουσιοδότησης</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Το πρόγραμμα πελάτη δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Το πρόγραμμα πελάτη εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Εμφάνιση στο μενού «Στατιστικά για σπασίκλες»</string>
+    <string name="morphe_spoof_video_streams_summary_off">"Οι ροές βίντεο δεν παραποιούνται
+
+Η αναπαραγωγή ενδέχεται να μην λειτουργεί"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"Οι ροές βίντεο παραποιούνται
+
+Αν είστε χρήστης YouTube Premium, αυτή η ρύθμιση μπορεί να μην απαιτείται"</string>
+    <string name="morphe_spoof_video_streams_title">Παραποίηση ροών βίντεο</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Δεν εμφανίζεται το προχωρημένο μενού ποιότητας βίντεο</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Εμφανίζεται το προχωρημένο μενού ποιότητας βίντεο</string>
     <string name="revanced_advanced_video_quality_menu_title">Εμφάνιση προχωρημένου μενού ποιότητας βίντεο</string>
@@ -233,11 +327,6 @@
     <string name="revanced_disable_ambient_mode_title">Απενεργοποίηση λειτουργίας περιβάλλοντος</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">"Τα υποχρεωτικά κομμάτια ήχου είναι ενεργοποιημένα."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Τα υποχρεωτικά κομμάτια ήχου είναι απενεργοποιημένα.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Τα υποχρεωτικά κομμάτια ήχου είναι απενεργοποιημένα.
-
-Αυτή η ρύθμιση μπορεί να μη λειτουργεί για ορισμένους χρήστες, αν δε λειτουργεί για εσάς:
-1. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, ενεργοποιήστε τη ρύθμιση «Χρήση προγράμματος πελάτη JavaScript».
-2. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» σε «TV Simply»."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Απενεργοποίηση υποχρεωτικών κομματιών ήχου</string>
     <string name="revanced_disable_auto_captions_summary_off">Οι αυτόματοι υπότιτλοι είναι ενεργοποιημένοι</string>
     <string name="revanced_disable_auto_captions_summary_on">Οι αυτόματοι υπότιτλοι είναι απενεργοποιημένοι</string>
@@ -937,11 +1026,6 @@ Playlists
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Μενού «Λειτουργία περιβάλλοντος»</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Κρυμμένο.
-
-Για να εμφανίζεται το μενού «Κομμάτι ήχου»:
-1. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, ενεργοποιήστε τη ρύθμιση «Χρήση προγράμματος πελάτη JavaScript».
-2. Στις ρυθμίσεις RVX - Διάφορα - Παραποίηση δεδομένων ροής, αλλάξτε το «Προεπιλεγμένο πρόγραμμα πελάτη» σε «TV Simply»."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Μενού «Κομμάτι ήχου»</string>
@@ -1817,8 +1901,6 @@ Playlists
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
     <string name="revanced_preference_screen_snack_bar_summary">Απόκρυψη ή αλλαγή στοιχείων που σχετίζονται με τη γραμμή μηνυμάτων αλληλεπίδρασης.</string>
     <string name="revanced_preference_screen_snack_bar_title">Γραμμή μηνυμάτων αλληλεπίδρασης</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_summary">Παραποίηση των δεδομένων ροής για την αποφυγή προβλημάτων αναπαραγωγής.</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_title">Παραποίηση δεδομένων ροής</string>
     <string name="revanced_preference_screen_swipe_controls_title">Έλεγχος με σάρωση οθόνης</string>
     <string name="revanced_preference_screen_toolbar_summary">Απόκρυψη ή αλλαγή στοιχείων που βρίσκονται στη γραμμή εργαλείων, όπως την επικεφαλίδα, τη γραμμή αναζήτησης και τα κουμπιά.</string>
     <string name="revanced_preference_screen_toolbar_title">Γραμμή εργαλείων</string>
@@ -2409,20 +2491,7 @@ Playlists
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Η ενεργοποίηση αυτής της ρύθμισης ενδέχεται να έχει ως αποτέλεσμα τη χρήση αποκωδικοποίησης AV1.
 
 Η αναπαραγωγή μπορεί να κομπιάζει ή να χάνει καρέ."</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
-<small>(Απαιτείται σύνδεση)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
-<small>(No SDK)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
-<small>(Παλιό)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
-<small>(Ακυκλοφόρητο)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">Αδυναμία λήψης ροής του προγράμματος πελάτη.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Δοκιμάστε να αλλάξετε το προεπιλεγμένο πρόγραμμα πελάτη παραποίησης δεδομένων ροής σε TV Simply.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Προτεραιοποιούνται οι κωδικοποιητές βίντεο.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Προτεραιοποιείται η ποιότητα βίντεο.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Προτεραιοποίηση ποιότητας βίντεο</string>
@@ -2530,20 +2599,6 @@ Playlists
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Κωδικός ενεργοποίησης</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Ο κωδικός αντιγράφηκε στο πρόχειρο: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Λήψη κωδικού ενεργοποίησης</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Λήψη διακριτικού εξουσιοδότησης</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Η σύνδεση στο Android VR (YouTube VR) γίνεται σύμφωνα με τις οδηγίες της Google (Google account authorization - OAuth 2.0 for TV and Limited-Input Device Applications):
-
-1. Πατήστε «Λήψη κωδικού ενεργοποίησης» για να δημιουργήσετε έναν κωδικό ενεργοποίησης.
-2. Πατήστε «Άνοιγμα ιστοσελίδας» για να μεταβείτε στο 'https://yt.be/activate'.
-3. Εισάγετε τον κωδικό ενεργοποίησης.
-4. Συνδεθείτε όταν σας ζητηθεί. Αν έχετε πολλαπλούς λογαριασμούς Google, επιλέξτε τον λογαριασμό που χρησιμοποιείτε με το YouTube. Αν έχετε συνδεθεί ήδη, συνεχίστε στο επόμενο βήμα.
-5. Μόλις συνδεθείτε, επιστρέψτε στο RVX και πατήστε το «Σχετικά με το Android VR (με σύνδεση χρήστη)» ξανά.
-6. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να λάβετε διακριτικό εξουσιοδότησης.
-
-※ Πατήστε «Επαναφορά» για να καταργήσετε το διακριτικό εξουσιοδότησης ή τον κωδικό ενεργοποίησης."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Επαναφορά</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Σύνδεση στο Android VR</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Το διακριτικό εξουσιοδότησης αποθηκεύτηκε.
 
 - Το διακριτικό εξουσιοδότησης που εκδίδεται μέσω αυτής της διαδικασίας μπορεί να χρησιμοποιηθεί μόνο στο YouTube VR (Στο RVX, χρησιμοποιείται για τη λήψη δεδομένων ροής από το YouTube VR).
@@ -2571,8 +2626,6 @@ Playlists
 
 • Ορισμένα βίντεο ενδέχεται να μην αναπαράγονται."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Χρήση του προγράμματος πελάτη JavaScript για όλα τα βίντεο</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Πατήστε για περισσότερες πληροφορίες.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">Σχετικά με το ψεύτικο κόλλημα</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Ένας λόγος για τον οποίο τα βίντεο καθυστερούν να ξεκινήσουν όταν χρησιμοποιείται πρόγραμμα πελάτη τύπου JavaScript, οφείλεται στα νέα μέτρα κατά του αποκλεισμού διαφημίσεων του YouTube.
 
 Όταν αποκλείεται διαφήμιση βίντεο. ο διακομιστής βίντεο της Google (GVS) δημιουργεί ψεύτικο κόλλημα ανάλογα με τη διάρκεια της διαφήμισης. (A/B testing)
@@ -2600,23 +2653,6 @@ Playlists
 (Προαπαιτούμενα: Οι ρυθμίσεις «Εμφάνιση κουμπιού επαναφόρτωσης βίντεο» και «Να εμφανίζεται πάντα το κουμπί επαναφόρτωσης βίντεο» πρέπει να είναι ενεργοποιημένες)
 
 Μεταξύ των προγραμμάτων πελάτη JavaScript, το προτεινόμενο είναι το TV Simply."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"Η Player JavaScript για αποσυσκότιση δεν τηρείται ενημερωμένη.
-
-• Χρησιμοποιείται η έκδοση Player JavaScript που πετυχαίνει στην αποσυσκότιση, αλλά παραμένει σε κάποιο βαθμό εξαρτημένη από τον διακομιστή."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"Η Player JavaScript για αποσυσκότιση τηρείται ενημερωμένη.
-
-• Είναι ιδιαίτερα εξαρτημένη από τον διακομιστή, και η επιτυχία ή η αποτυχία της αποσυσκότισης εξαρτάται από την έκδοση Player JavaScript που χρησιμοποιείται αυτή τη στιγμή στον διακομιστή.
-• Αν αντιμετωπίζετε προβλήματα με τον πελάτη JavaScript, δοκιμάστε πρώτα να απενεργοποιήσετε αυτή τη ρύθμιση."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Χρήση Player JavaScript τελευταίας έκδοσης</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"Χρησιμοποιείται ο SmartTube extractor.
-
-• Η Player JavaScript για την αποσυσκότιση δεν είναι ενημερωμένη.
-• Αυτό θα παρεμποδιστεί από τους διακομιστές στο κοντινό μέλλον."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"Χρησιμοποιείται η εξωτερική JavaScript για το yt-dlp (yt-dlp-ejs).
-
-• Η Player JavaScript για την αποσυσκότιση διατηρείται ενημερωμένη.
-• Μπορεί να χρειαστούν από 5 έως 15 δευτερόλεπτα για να ξεκινήσει η αναπαραγωγή του βίντεο."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Χρήση του yt-dlp ejs (λειτουργία σε εξέλιξη)</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Πατήστε για να δείτε πώς να αποκτήσετε ένα διακριτικό εξουσιοδότησης.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Σχετικά με το Android VR (με σύνδεση χρήστη)</string>
@@ -2821,4 +2857,15 @@ Playlists
     <string name="revanced_yandex_transcribe_subtitles_language_title">Γλώσσα Yandex</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Χρησιμοποιήστε μεταγραφή Yandex αντί για Gemini. Το Yandex είναι ταχύτερο και πιο αξιόπιστο. Δεν απαιτείται κλειδί API.</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Μεταγραφή Yandex</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Η σύνδεση στο Android VR (YouTube VR) γίνεται σύμφωνα με τις οδηγίες της Google (Google account authorization - OAuth 2.0 for TV and Limited-Input Device Applications):
+
+1. Πατήστε «Λήψη κωδικού ενεργοποίησης» για να δημιουργήσετε έναν κωδικό ενεργοποίησης.
+2. Πατήστε «Άνοιγμα ιστοσελίδας» για να μεταβείτε στο 'https://yt.be/activate'.
+3. Εισάγετε τον κωδικό ενεργοποίησης.
+4. Συνδεθείτε όταν σας ζητηθεί. Αν έχετε πολλαπλούς λογαριασμούς Google, επιλέξτε τον λογαριασμό που χρησιμοποιείτε με το YouTube. Αν έχετε συνδεθεί ήδη, συνεχίστε στο επόμενο βήμα.
+5. Μόλις συνδεθείτε, επιστρέψτε στο RVX και πατήστε το «Σχετικά με το Android VR (με σύνδεση χρήστη)» ξανά.
+6. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να λάβετε διακριτικό εξουσιοδότησης.
+
+※ Πατήστε «Επαναφορά» για να καταργήσετε το διακριτικό εξουσιοδότησης ή τον κωδικό ενεργοποίησης."</string>
 </resources>

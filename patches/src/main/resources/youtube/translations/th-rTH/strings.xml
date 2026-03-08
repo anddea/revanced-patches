@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">อนุญาตการเข้าถึงการควบคุมตัวเล่นวิดีโอหรือไม่?</string>
+    <string name="accessibility_settings_edu_opt_out_text">การควบคุมของคุณจะถูกปรับเปลี่ยนเนื่องจากมีการเปิดใช้งานบริการการเข้าถึง</string>
     <string name="gms_core_dialog_continue_text">ดำเนินการต่อ</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore ไม่มีสิทธิ์รันในพื้นหลัง
 
@@ -15,6 +16,100 @@
     <string name="gms_core_dialog_open_website_text">เปิดเว็บไซต์</string>
     <string name="gms_core_dialog_title">ต้องดำเนินการ</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore ไม่ได้ติดตั้ง ติดตั้ง</string>
+    <string name="morphe_disable_drc_audio_summary_off">เสียง DRC ถูกเปิด</string>
+    <string name="morphe_disable_drc_audio_summary_on">เสียง DRC ถูกปิด</string>
+    <string name="morphe_disable_drc_audio_title">ปิดเสียง DRC</string>
+    <string name="morphe_disable_quic_protocol_summary_off">โพรโทคอล QUIC ถูกเปิดใช้งาน</string>
+    <string name="morphe_disable_quic_protocol_summary_on">โพรโทคอล QUIC ถูกปิดใช้งาน</string>
+    <string name="morphe_disable_quic_protocol_title">ปิดใช้งานโพรโทคอล QUIC</string>
+    <string name="morphe_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'Spoof video streams\' เป็น Android Reel หรือ TV</string>
+    <string name="morphe_force_original_audio_summary_off">กำลังใช้ออดิโอเริ่มต้น</string>
+    <string name="morphe_force_original_audio_summary_on">กำลังใช้ภาษาเสียงต้นฉบับ</string>
+    <string name="morphe_force_original_audio_title">บังคับใช้ภาษาเสียงต้นฉบับ</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">ไม่สามารถเข้าสู่ระบบ VR: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">ไม่สามารถลงชื่อเข้าใช้ VR ได้ เว็บไซต์ยังไม่ได้อนุมัติการรับรอง</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 นั้นล่าช้าชั่วคราว</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 นั้นล่าช้าชั่วคราว (%d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">การลงชื่อเข้าใช้ Android VR หมดอายุแล้ว กรุณาลงชื่อเข้าใช้ VR อีกครั้ง</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 นั้นล่าช้าชั่วคราว (API หมดเวลา)</string>
+    <string name="morphe_oauth2_toast_invalid">โทเค็นเข้าสู่ระบบ VR ไม่ถูกต้อง กรุณาลองเข้าสู่ระบบ VR อีกครั้ง</string>
+    <string name="morphe_oauth2_toast_reset">ออกจากระบสเวล VR</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">ลิงก์ที่แชร์ใช้ music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">ลิงก์ที่แชร์ใช้ youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">เปลี่ยนลิงก์การแชร์เป็น youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">พารามิเตอร์การติดตามไม่ได้ถูกลบออกจากลิงก์ที่แชร์</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">พารามิเตอร์การติดตามจะถูกลบออกจากลิงก์ที่แชร์</string>
+    <string name="morphe_sanitize_sharing_links_title">ล้างข้อมูลลิงก์ที่แชร์</string>
+    <string name="morphe_spoof_video_streams_about_experimental">• ไคลเอนต์ทดลองและอาจหยุดทำงานได้ตลอดเวลา</string>
+    <string name="morphe_spoof_video_streams_about_js">• ถ้า Deobfuscation ล้มเหลว การเล่นอาจล้มเหลว</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• เมนูแทร็กเสียงหายไป</string>
+    <string name="morphe_spoof_video_streams_about_no_av1">• ไม่มีตัวแปลงสัญญาณวิดีโอ AV1</string>
+    <string name="morphe_spoof_video_streams_about_no_force_original_audio">• บังคับใช้เสียงต้นฉบับไม่พร้อมใช้งาน</string>
+    <string name="morphe_spoof_video_streams_about_no_immersive_mode">• รูปแบบ 360° VR Immersive ไม่พร้อมใช้งาน</string>
+    <string name="morphe_spoof_video_streams_about_no_stable_volume">• ระดับเสียงคงที่ไม่พร้อมใช้งาน</string>
+    <string name="morphe_spoof_video_streams_about_playback_failure">• วิดีโออาจหยุดที่ 1:00 หรืออาจไม่สามารถรับชมได้ในบางภูมิภาค</string>
+    <string name="morphe_spoof_video_streams_about_title">ผลข้างเคียงของการปลอมแปลง</string>
+    <string name="morphe_spoof_video_streams_av1_summary_off">ตัวแปลงสัญญาณวิดีโอคือ AVC (H.264) หรือ VP9</string>
+    <string name="morphe_spoof_video_streams_av1_summary_on">"ตัวแปลงสัญญาณวิดีโอคือ AVC (H.264), VP9 หรือ AV1
+
+การเล่นอาจกระตุกหรือเฟรมตก"</string>
+    <string name="morphe_spoof_video_streams_av1_title">อนุญาต Android VR AV1</string>
+    <string name="morphe_spoof_video_streams_av1_user_dialog_message">"การเปิดใช้งานการตั้งค่านี้อาจใช้ซอฟต์แวร์ถอดรหัส AV1
+
+การเล่นวิดีโอด้วย AV1 อาจกระตุกหรือเฟรมตก"</string>
+    <string name="morphe_spoof_video_streams_client_type_title">ไคลเอ็นต์เริ่มต้น</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">การอัปเดต JavaScript ของผู้เล่นเปิดใช้งาน</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"การอัปเดต JavaScript ของผู้เล่นถูกปิดใช้งาน
+
+• จำเป็นต้องมีแฮช JavaScript ของผู้เล่นที่ถูกต้อง
+• การเล่นวิดีโอจะล้มเหลวหากแฮช JavaScript ของผู้เล่นถูกเพิกถอนใน GVS"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">ปิดการอัปเดต JavaScript ของผู้เล่น</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript hash ของผู้เล่นมีความถูกต้องประมาณหนึ่งเดือน และ JavaScript hash ที่หมดอายุอาจถูกเพิกถอนโดย GVS</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">ลองเปิดใช้วิธี: Spoof video streams &gt; Android VR sign in</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">ไม่สามารถดึงข้อมูล clinets ทั้งหมดได้</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_summary">ป้อนค่าแฮช JavaScript ของผู้เล่นที่ถูกต้อง</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_title">ค่าแฮช JavaScript ของผู้เล่น</string>
+    <string name="morphe_spoof_video_streams_player_js_variant_title">แปลรูปแบบ JavaScript ของเพลเยอร์</string>
+    <string name="morphe_spoof_video_streams_screen_summary">ปลอมแปลงสตรีมวิดีโอของไคลเอนต์เพื่อป้องกันปัญหาการเล่น</string>
+    <string name="morphe_spoof_video_streams_screen_title">ปลอมแปลงสตรีมวิดีโอ</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">ยังไม่ได้เข้าสู่ระบบ Android VR กดที่นี่เพื่อเข้าสู่ระบบ</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">เปลี่ยน \'Default client\' เป็น Android VR เพื่อใช้งานคุณสมบัติ</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">อยู่ในส่วนของ Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">เข้าสู่ระบบ Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"รหัสเข้าสู่ระบบ: %s
+
+1. กด 'เปิดเว็บไซต์' ด้านล่างเพื่อเปิดเข้าสู่เว็บไซต์ 'ที่เชื่อมต่ออุปกรณ์'
+2. วางข้อมูลจากคลิปบอร์ด (หรือสามารถพิมพ์ออกมาได้) ของรหัสเข้าสู่ระบบที่อยู่ด้านบนนี้
+3. หากต้องเข้าสู่ระบบ Google ให้ดำเนินการทันที ถ้ามีหลายบัญชีให้เลือกบัญชีนี้ของ YouTube
+4. กด 'Metadata API'
+5. กลับมาที่แอปนี้หลังจากเห็นข้อความ 'อุปกรณ์ได้เชื่อมต่อแล้ว'"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">เปิดเว็บไซต์</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">คำแนะนำ</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">ดำเนินการต่อ</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"กดต่อไปเพื่อลงชื่อเข้าใช้ใน Android VR เพื่อแก้ปัญหาการเล่นกลับบางครั้ง
+
+ลงชื่อเข้าใช้เพื่อลงชื่อเข้าใช้"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">ออกจากระบบ</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">เข้าสู่ระบบ Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"โทเค็นเข้าสู่ระบบสำเร็จ
+
+• ตั้งแตนี้ต่อไป Morphe รับ batery meter ข้อมูลฉบับเต็มจาก Android VR กลับสู่ระบบจะไม่สามารถทำได้
+• ถ้าแอปนี้มิได้ใช้เป็นระยะเวลา 6 เดือน Google จะลบทोเค็นนี้ไป
+• ถ้าคุณเปลี่ยนรหัสผ่าน Google หรือลบที่นี้ออกจากตั้งค่า Google คุณก็ต้องเข้าสู่ระบบอีกครั้ง"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">เข้าสู่ระบบสำเร็จ</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">ล้มเหลวในการออกฤทธิ์ของรหัสเข้าสู่ระบบ</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">ล้มเหลวในการออกฤทธิ์ของโทเค็นเข้าสู่ระบบ</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">ซ่อนไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">แสดงชนิดไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">แสดงในสถิติสำหรับพวกเนิร์ด</string>
+    <string name="morphe_spoof_video_streams_summary_off">"สตรีมวิดีโอไม่ได้ถูกปลอมแปลง
+
+การเล่นอาจไม่ทำงาน"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"สตรีมวิดีโอถูกปลอมแปลง
+
+หากคุณเป็นผู้ใช้ YouTube Premium การตั้งค่านี้อาจไม่จำเป็น"</string>
+    <string name="morphe_spoof_video_streams_title">วิดีโอปลอม</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้อาจทำให้เกิดปัญหาในการเล่น</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">เมนูคุณภาพวิดีโอขั้นสูงไม่ปรากฏ</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">เมนูคุณภาพวิดีโอขั้นสูงปรากฏขึ้น</string>
     <string name="revanced_advanced_video_quality_menu_title">แสดงเมนูคุณภาพวิดีโอขั้นสูง</string>

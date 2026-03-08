@@ -17,6 +17,79 @@ Nyomj a folytatás gombra, és engedélyezd az optimalizálási módosításokat
     <string name="gms_core_settings_summary">Értesítések fogadásához engedélyezd a felhő alapú üzenetküldést.</string>
     <string name="gms_core_settings_title">GmsCore megnyitása</string>
     <string name="gms_core_toast_not_installed_message">A GmsCore nincs telepítve. Telepítsd.</string>
+    <string name="morphe_disable_drc_audio_summary_off">A DRC hang engedélyezve van</string>
+    <string name="morphe_disable_drc_audio_summary_on">A DRC hang letiltva van</string>
+    <string name="morphe_disable_drc_audio_title">DRC hang letiltása</string>
+    <string name="morphe_disable_quic_protocol_summary_off">QUIC protokoll engedélyezve</string>
+    <string name="morphe_disable_quic_protocol_summary_on">QUIC protokoll letiltva</string>
+    <string name="morphe_disable_quic_protocol_title">QUIC protokoll letiltása</string>
+    <string name="morphe_force_original_audio_not_available">A funkció használatához módosítsa a \"Videóstreamek hamisítása\" beállítást Android Reel vagy TV-re</string>
+    <string name="morphe_force_original_audio_summary_off">Alapértelmezett hang használata</string>
+    <string name="morphe_force_original_audio_summary_on">Eredeti hang használata a hang nyelvén</string>
+    <string name="morphe_force_original_audio_title">Eredeti hang kikényszerítése</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">Nem tud bejelentkezni a VR-ba: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Nem lehetséges a VR-ba belépni, a webhely hitelesítése nem lett jóváhagyva</string>
+    <string name="morphe_oauth2_connection_failure_generic">Az OAuth2 átmenetileg nem elérhető</string>
+    <string name="morphe_oauth2_connection_failure_status">Az OAuth2 átmenetileg nem elérhető (állapot %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Android VR belépés lejárt, próbáld meg újra belépni a VR-ba</string>
+    <string name="morphe_oauth2_connection_failure_timeout">Az OAuth2 átmenetileg nem elérhető (az API időtúllépés miatt)</string>
+    <string name="morphe_oauth2_toast_invalid">Érvénytelen VR bejelentkezési token, próbálja meg újra a bejelentkezést a VR-ba</string>
+    <string name="morphe_oauth2_toast_reset">Kijelentkezett az Android VR-ből</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">A megosztott linkek a music.youtube.com-ot használják</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">A megosztott linkek a youtube.com-ot használják</string>
+    <string name="morphe_replace_music_with_youtube_title">Módosítsa a megosztási linkeket youtube.com-ra</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">A követési lekérdezési paraméter nem kerül eltávolításra a megosztott linkekből</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">A követési lekérdezési paraméter eltávolításra kerül a megosztott linkekből</string>
+    <string name="morphe_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">A lejátszó JavaScript frissítése engedélyezve van</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"A lejátszó JavaScript frissítése ki van kapcsolva
+
+• Érvényes lejátszó JavaScript hash szükséges
+• A lejátszó JavaScript hash visszavonása a GVS-ben lejátszási hibákhoz vezet"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Kapcsold ki a lejátszó JavaScript frissítését</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">A lejátszó JavaScript hash-ai kb. egy hónapig érvényesek, és a GVS visszavonhatja a lejárt hash-okat.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Próbálja meg a következők engedélyezését: Spoof video streams &gt; Android VR bejelentkezés</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Nem találtunk ügyfelek által megosztott folyamokat</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_summary">Adjon meg egy érvényes játékos JavaScript hasht</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_title">Játékos JavaScript hash</string>
+    <string name="morphe_spoof_video_streams_screen_summary">A kliens videó streamek hamisítása a lejátszási problémák elkerülése érdekében</string>
+    <string name="morphe_spoof_video_streams_screen_title">Videó streamek hamisítása</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Nem vagy bejelentkezve az Android VR-ben. Vágja le a kurzort itt a bejelentkezéshez</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Ehhez a funkcionálisitásért, változtassa meg a \"Default client\" (alap ügyfél) beállítás lehetőséget az Android VR-ba</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Jelenleg bejelentkezve az Android VR-ben</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR bejelentkezés</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Engedélykód: %s
+
+1. Nyomja meg az \"Open website\" (Webhely megnyitása) lehetőséget a fenti weboldal megnyitásához, hogy a \"Connect a device\" (Eszköz kapcsolása) weboldalt nyissa meg
+2. Illessze be a klipborító (vagy írja le) fenti képernyőn található engedélykódot
+3. Ha a promptot (leütöttékbirod) kérdés feltételezi, jelentkezzen be a Google be. Ha több fiókját használja, válassza ki ezt a YouTube fiókot
+4. Válaszoljon \"Allow YouTube VR\" (Engedélyezés a YouTube VR számára)
+5. A \"Device connected\" (Eszköz kapcsolva) üzenettel való visszatérés után térjen vissza ez az alkalmazás"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Webhely megnyitása</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Utasítások</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Folytatás</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Android VR-ba belépéssel megoldhatók a lejátszás problémái
+
+Belépéshez nyomd meg a folytatást alul"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Kijelentkezés</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Bejelentkezés az Android VR-ba</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Elérési jogkivonat el lett mentve
+
+• A Morphe beállításai nem exportálhatnak/be nem importhatnak Android VR-hez elérési jogkivonatot
+• Ha ez az alkalmazás 6 hónapig nem használatos, a Google eltávolítja ezt az elérési jogkivonatot
+• Ha megváltoztatja a Google jelszavát vagy eltávolítja ezt az eszközt a Google beállításairól, újra be kell jelentkeznie"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Sikeresen bejelentkezett</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Sikertelen volt az engedélykód kiállítása</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Sikertelen volt az elérési jogkivonat kiállítása</string>
+    <string name="morphe_spoof_video_streams_summary_off">"A videó streamek nincsenek hamisítva
+
+A lejátszás nem működhet"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"A videó adatfolyamok hamisítva vannak
+
+Ha Ön YouTube Premium felhasználó, ez a beállítás nem feltétlenül szükséges"</string>
+    <string name="morphe_spoof_video_streams_title">Hamis videó stream</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Ennek a beállításnak a kikapcsolása lejátszási problémákat okozhat.</string>
     <string name="revanced_add_miniplayer_next_button_summary">Hozzáad egy következő szám gombot a minilejátszóhoz.</string>
     <string name="revanced_add_miniplayer_next_button_title">Minilejátszó következő gomb engedélyezése</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Hozzáad egy előző szám gombot a minilejátszóhoz.</string>
@@ -547,18 +620,7 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_spoof_client_title">Kliens hamisítása</string>
     <string name="revanced_spoof_client_type_summary">"Meghatároz egy alapértelmezett klienst a hamisításhoz."</string>
     <string name="revanced_spoof_client_type_title">Alapértelmezett kliens</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music No SDK</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android No SDK</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Örökölt</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV egyszerű</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
-    <string name="revanced_spoof_streaming_data_default_client_summary">Meghatároz egy alapértelmezett klienst a megtévesztéshez.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Alapértelmezett kliens</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">Nem sikerült lekérni egyetlen kliens adatfolyamot sem.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Próbálja meg az alapértelmezett klienst \"TV egyszerű\"-re módosítani.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Kattintson ide, ha szeretné megtudni, hogyan szerezhet be hitelesítési tokent.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Az Android No SDK Auth-ról</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Kattints ide az Android No SDK-ba való bejelentkezéshez.</string>
@@ -593,20 +655,6 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Webhely megnyitása</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Aktivációs kód</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Aktiváló kód a vágólapra másolva: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Aktiváló kód beszerzése</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Hitelesítési token beszerzése</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Az Android VR (YouTube VR) szolgáltatásba való bejelentkezés a Google által megadott irányelveket követi (Google-fiók hitelesítése - OAuth 2.0 TV-hez és korlátozott beviteli eszközalkalmazásokhoz):
-
-1. Kattintson az 'Aktiválási kód beszerzése' gombra az aktiválási kód létrehozásához.
-2. Kattintson a 'Webhely megnyitása' gombra a 'https://yt.be/activate' oldal eléréséhez.
-3. Adja meg az aktiválási kódot.
-4. Jelentkezzen be, amikor a rendszer kéri. Ha több Google-fiókja van, válassza ki a YouTube-bal használt fiókot. Ha már be van jelentkezve, ugorjon a következő lépésre.
-5. Miután bejelentkezett, térjen vissza az RVX-be, és kattintson ismét a 'Android VR bejelentkezés' gombra.
-6. Kattintson az 'Aktiváló kód beszerzése' gombra az engedélyezési token beszerzéséhez.
-
-※ Kattintson a 'Visszaállítás' gombra a hitelesítési token vagy aktiválási kód eltávolításához."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Visszaállítás</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Android VR bejelentkezés</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Hitelesítési token mentése.
 
 - Az ezen a folyamaton keresztül kiállított hitelesítési token csak a YouTube VR-ben használható (RVX-ben a YouTube VR-ből származó streamelési adatok lekérésére szolgál).
@@ -622,15 +670,6 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
 
 Ha YouTube Premium felhasználó vagy, akkor ez a beállítás nem feltétlenül szükséges."</string>
     <string name="revanced_spoof_streaming_data_title">Adatfolyam meghamisítása</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"Ha engedélyezve van, a legújabb lejátszó JavaScriptet használja a streaming URL-ek visszafejtéséhez 'TV' és 'Mobil web' esetén.
-
-Ha problémát tapasztalsz a JavaScript klienseddel, próbáld meg először ezt kikapcsolni."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Használja a legújabb lejátszó JavaScriptjét</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"Ha engedélyezve van, a „Külső JavaScript a yt-dlp-hez (yt-dlp-ejs)”-t használja a streaming URL-ek visszafejtéséhez 'TV' és 'Mobil web' esetén.
-
-• A visszafejtéshez használt lejátszó JavaScript naprakész marad.
-• 5–15 másodpercbe telhet, mire a videó elindul."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Használjon yt-dlp-ejs (Folyamatban)</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kattintson ide, ha szeretné megtudni, hogyan szerezhet be hitelesítési tokent.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR hitelesítésről</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Mellékhatás:
@@ -659,4 +698,5 @@ Ha problémát tapasztalsz a JavaScript klienseddel, próbáld meg először ezt
     <string name="revanced_webview_toast_no_network">Kérem ellenőrizze a hálózati kapcsolatot.</string>
     <string name="revanced_webview_toast_unavailable">A webes nézet nem elérhető.</string>
     <string name="revanced_webview_visitor_data">Látogató adatok</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Próbálja meg az alapértelmezett klienst \"TV egyszerű\"-re módosítani.</string>
 </resources>

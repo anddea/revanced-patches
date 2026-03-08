@@ -496,37 +496,6 @@ fun spoofStreamingDataPatch(
 
         // endregion
 
-        // region Player buttons
-
-        if (isYouTube()) {
-            val directory = if (outlineIcon())
-                "outline"
-            else
-                "default"
-
-            arrayOf(
-                ResourceGroup(
-                    "drawable",
-                    "revanced_reload_video.xml",
-                )
-            ).forEach { resourceGroup ->
-                context.copyResources("youtube/spoof/$directory", resourceGroup)
-            }
-
-            progressBarVisibilityFingerprint
-                .methodOrThrow(progressBarVisibilityParentFingerprint).apply {
-                    val index = indexOfProgressBarVisibilityInstruction(this)
-                    val register = getInstruction<FiveRegisterInstruction>(index).registerD
-
-                    addInstructionsAtControlFlowLabel(
-                        index,
-                        "invoke-static {v$register}, $EXTENSION_RELOAD_VIDEO_CLASS_DESCRIPTOR->setProgressBarVisibility(I)V"
-                    )
-                }
-        }
-
-        // endregion
-
         // region Append spoof info.
 
         nerdsStatsFormatBuilderFingerprint.methodOrThrow().apply {

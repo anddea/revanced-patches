@@ -391,11 +391,12 @@ internal fun addSwitchPreference(
 internal fun addPreferenceWithIntent(
     category: CategoryType,
     key: String,
-    dependencyKey: String = ""
+    dependencyKey: String = "",
+    setSummary: Boolean = true,
 ) {
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)
-    ResourceUtils.addPreferenceWithIntent(categoryValue, key, dependencyKey)
+    ResourceUtils.addPreferenceWithIntent(categoryValue, key, dependencyKey, setSummary)
 }
 
 internal fun addLinkPreference(

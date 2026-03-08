@@ -49,6 +49,33 @@ fun Node.cloneNodes(parent: Node) {
 }
 
 /**
+ * Removes a node from its parent.
+ *
+ * @return The node that was removed (object this method was called on).
+ */
+fun Node.removeFromParent() : Node = parentNode.removeChild(this)
+
+/**
+ * Returns a sequence for all child nodes.
+ */
+fun NodeList.asSequence() = (0 until this.length).asSequence().map { this.item(it) }
+
+/**
+ * Returns a sequence for all child nodes.
+ */
+@Suppress("UNCHECKED_CAST")
+fun Node.childElementsSequence() =
+    this.childNodes.asSequence().filter { it.nodeType == Node.ELEMENT_NODE } as Sequence<Element>
+
+/**
+ * Performs the given [action] on each child element.
+ */
+inline fun Node.forEachChildElement(action: (Element) -> Unit) =
+    childElementsSequence().forEach {
+        action(it)
+    }
+
+/**
  * Recursively traverse the DOM tree starting from the given root node.
  *
  * @param action function that is called for every node in the tree.

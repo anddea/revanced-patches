@@ -17,6 +17,79 @@ Toque no botão continuar e permita as alterações de otimização."</string>
     <string name="gms_core_settings_summary">Para receber notificações no RVX Music, ative as mensagens na nuvem.</string>
     <string name="gms_core_settings_title">Abrir configurações do GmsCore</string>
     <string name="gms_core_toast_not_installed_message">O GmsCore não está instalado. Instale-o.</string>
+    <string name="morphe_disable_drc_audio_summary_off">Áudio DRC ativado</string>
+    <string name="morphe_disable_drc_audio_summary_on">Áudio DRC desativado</string>
+    <string name="morphe_disable_drc_audio_title">Desativar áudio DRC</string>
+    <string name="morphe_disable_quic_protocol_summary_off">Protocolo QUIC ativado</string>
+    <string name="morphe_disable_quic_protocol_summary_on">Protocolo QUIC desativado</string>
+    <string name="morphe_disable_quic_protocol_title">Desativar protocolo QUIC</string>
+    <string name="morphe_force_original_audio_not_available">Para usar este recurso, altere \'Falsificar fluxos de vídeo\' para Android Reel ou TV</string>
+    <string name="morphe_force_original_audio_summary_off">Usando áudio padrão</string>
+    <string name="morphe_force_original_audio_summary_on">Usar o idioma original do áudio</string>
+    <string name="morphe_force_original_audio_title">Forçar idioma do áudio original</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">Não é possível fazer login no VR: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Não é possível entrar na VR, a autenticação do site não foi aprovada</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 temporariamente indisponível</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 temporariamente indisponível (status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Entrada na Android VR expirou, tente entrar novamente na VR</string>
+    <string name="morphe_oauth2_connection_failure_timeout">\"OAuth2 está temporariamente indisponível (API expirou)\"</string>
+    <string name="morphe_oauth2_toast_invalid">Token de login do VR inválido, tente fazer login no VR novamente</string>
+    <string name="morphe_oauth2_toast_reset">Deslogado do Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">Links compartilhados usam music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">Links compartilhados usam youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">Alterar links de compartilhamento para youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">Parâmetro de consulta de rastreamento não é removido dos links compartilhados</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">Parâmetro de consulta de rastreamento é removido dos links compartilhados</string>
+    <string name="morphe_sanitize_sharing_links_title">Higienizar links de compartilhamento</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Cliente padrão</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Atualização JavaScript do player está habilitada</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Atualização JavaScript do player está desabilitada
+
+• Um hash JavaScript do player válido é necessário
+• A reprodução falha se o hash JavaScript do Player for revogado no GVS"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Desabilitar atualização JavaScript do player</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Hashes JavaScript do player são válidos por aproximadamente um mês, e hashes desatualizados podem ser revogados pelo GVS.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Tente habilitar: Simular fluxos de vídeo &gt; Android VR sign in</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Não foi possível obter nenhum fluxo de cliente</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_summary">Insira um hash JavaScript do jogador válido</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_title">Hash JavaScript do jogador</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Simular os fluxos de vídeo do cliente para evitar problemas de reprodução</string>
+    <string name="morphe_spoof_video_streams_screen_title">Simular fluxos de vídeo</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Não conectado ao Android VR. Toque aqui para conectar</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Para usar essa função, altere \'Cliente padrão\' para Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Conectado atualmente ao Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Conectar ao Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Código de ativação: %s
+
+1. Toque 'Abrir site' abaixo para abrir o site 'Conectar um dispositivo'
+2. Cole da área de transferência (ou digite) o código de ativação mostrado acima
+3. Faça login no Google se solicitado. Se você tiver múltiplas contas, escolha esta conta do YouTube
+4. Toque em 'Permitir acesso YouTube VR'
+5. Volte para este aplicativo após ver a mensagem 'Dispositivo conectado'"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Abrir site</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instruções</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Continuar</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Entrar na Android VR pode resolver problemas de reprodução para alguns usuários
+
+Para entrar, pressione continuar abaixo"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Desconectar</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Conectar ao Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Autenticação salva
+
+• Suas configurações do Morphe não importar/exportar autenticação do Android VR
+• Se este aplicativo não for usado por 6 meses, o Google removerá esta autenticação
+• Você precisará se conectar novamente se alterar sua senha do Google ou desregistrar este dispositivo das configurações do Google"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Conectado com sucesso</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Falha ao emitir código de ativação</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Falha ao emitir um token de autenticação</string>
+    <string name="morphe_spoof_video_streams_summary_off">"Os fluxos de vídeo não estão sendo simulados
+
+A reprodução pode não funcionar"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"Streams de vídeo são falsificados
+
+Se você é um usuário do YouTube Premium, esta configuração pode não ser necessária"</string>
+    <string name="morphe_spoof_video_streams_title">Spoofing do fluxo de vídeo</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução.</string>
     <string name="revanced_add_miniplayer_next_button_summary">Adiciona o botão próxima faixa ao mini reprodutor.</string>
     <string name="revanced_add_miniplayer_next_button_title">Adicionar o botão próximo ao mini reprodutor</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Adiciona o botão faixa anterior ao mini reprodutor.</string>
@@ -547,18 +620,7 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
     <string name="revanced_spoof_client_type_summary">"Define um cliente padrão para falsificar."</string>
     <string name="revanced_spoof_client_type_title">Cliente padrão</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Música no Android sem SDK</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android Não SDK</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Legado</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simples</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
-    <string name="revanced_spoof_streaming_data_default_client_summary">Define um cliente padrão para falsificar.</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Cliente padrão</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">Não foi possível obter nenhum fluxo de cliente.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Tente alterar o cliente padrão para TV Simples.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Clique para ver como obter um token de autenticação.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Sobre o Android: Sem autenticação do SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Clique aqui para ver como iniciar sessão no Android sem SDK.</string>
@@ -593,20 +655,6 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Abra o site</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Código de ativação</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Código de ativação copiado para a área de transferência: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Obtenha o código de ativação</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Obter token de autorização</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Entrar no Android VR (Youtube VR) segue as seguintes diretrizes fornecidas pelo Google (Autorização da Conta do Google - OAuth 2.0 para TV e Aplicativos para Dispositivos de Entrada Limitada):
-
-1. Clique em 'Obter código de ativação' para gerar um código de ativação.
-2. Clique em 'Abrir site' para ir para 'https://yt.be/activate'.
-3. Insira o código de ativação.
-4. Faça o login quando solicitado. Se você tem várias Contas do Google, selecione a conta que você usa com o YouTube. Se você já está logado, pule para o próximo passo.
-5. Depois de entrar, volte ao RVX e clique 'Sobre o Android VR Autenticação' novamente.
-6. Clique em 'Obter token de autorização' para obter um token de autorização.
-
-※ Clique em 'Redefinir' para remover um token de autenticação ou código de ativação."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Redefinir</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Faça login no Android VR</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Token de autenticação salvo.
 
 · O token de autenticação emitido por este processo só pode ser usado no YouTube VR (no RVX, é usado para buscar dados de streaming do YouTube VR).
@@ -622,15 +670,6 @@ Clique para ver como emitir uma chave de API."</string>
 
 Se você é um usuário de YouTube Premium, essa configuração pode não ser necessária."</string>
     <string name="revanced_spoof_streaming_data_title">Dados de transmissão falsos</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"Quando ativado, o JavaScript do reprodutor mais recente será usado para desofuscar a URL de transmissão na 'TV' e 'Mobile Web'.
-
-Se você estiver tendo problemas com seu cliente JavaScript, tente desativar isto primeiro."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Use JavaScript do reprodutor mais recente</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"Quando ativado, o \"JavaScript externo para yt-dlp (yt-dlp-ejs)\" será usado para desofuscar a URL de transmissão na \"TV\" e na \"Mobime Web\".
-
-• O JavaScript do reprodutor para desofuscação é mantido atualizado.
-• O vídeo pode levar de 5 a 15 segundos para iniciar."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Usar yt-dlp ejs (WIP)</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Clique para ver como obter um token de autenticação.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Sobre o Android VR Autenticação</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Efeito colateral:
@@ -659,4 +698,15 @@ Se você estiver tendo problemas com seu cliente JavaScript, tente desativar ist
     <string name="revanced_webview_toast_no_network">Por favor, verifique sua conexão com a internet.</string>
     <string name="revanced_webview_toast_unavailable">O WebView não está disponível.</string>
     <string name="revanced_webview_visitor_data">Dados do visitante</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Entrar no Android VR (Youtube VR) segue as seguintes diretrizes fornecidas pelo Google (Autorização da Conta do Google - OAuth 2.0 para TV e Aplicativos para Dispositivos de Entrada Limitada):
+
+1. Clique em 'Obter código de ativação' para gerar um código de ativação.
+2. Clique em 'Abrir site' para ir para 'https://yt.be/activate'.
+3. Insira o código de ativação.
+4. Faça o login quando solicitado. Se você tem várias Contas do Google, selecione a conta que você usa com o YouTube. Se você já está logado, pule para o próximo passo.
+5. Depois de entrar, volte ao RVX e clique 'Sobre o Android VR Autenticação' novamente.
+6. Clique em 'Obter token de autorização' para obter um token de autorização.
+
+※ Clique em 'Redefinir' para remover um token de autenticação ou código de ativação."</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Tente alterar o cliente padrão para TV Simples.</string>
 </resources>
