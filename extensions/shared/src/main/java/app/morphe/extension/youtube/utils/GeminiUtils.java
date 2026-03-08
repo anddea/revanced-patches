@@ -67,10 +67,12 @@ public class GeminiUtils {
     private static final ExecutorService executor = Executors.newCachedThreadPool();
     private static final String BASE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
     private static final String[] GEMINI_MODELS = {
+            "gemini-3.1-flash-lite-preview",
             "gemini-3-flash-preview",
             "gemini-3.1-pro-preview",
             "gemini-3-pro-preview",
-            "gemini-2.5-flash"
+            "gemini-2.5-flash",
+            "gemini-2.5-flash-lite",
     };
     private static final String ACTION = ":generateContent?key=";
 
@@ -84,11 +86,16 @@ public class GeminiUtils {
      * @param callback The {@link Callback} to receive the summary result or an error message.
      */
     public static void getVideoSummary(@NonNull String videoUrl, @NonNull String apiKey, @NonNull Callback callback) {
-        String langName = getLanguageName();
-        String prompt = "Write a spoiler-heavy summary of this video in " + langName + ". Focus on key events in chronological order. Output only summary. Do not include preamble, greetings, or phrases like \"Here is the summary\". If the video contains sponsored segments, exclude them from the summary entirely. Add timestamp references at the end of each summary section in this format: [HH:MM:SS - HH:MM:SS].";
-        String promptForGemini25 = "Write a spoiler-heavy summary of this video in " + langName + ". Focus on key events in chronological order. Output only summary. Do not include preamble, greetings, or phrases like \"Here is the summary\". If the video contains sponsored segments, exclude them from the summary entirely.";
+        String promptForGemini25 = getPrompt();
+        String prompt = promptForGemini25 + " Include timestamp references at the end of each summary section in this format: [MM:SS – MM:SS], or if the video is an hour long or longer: [HH:MM:SS – HH:MM:SS]. Timestamps must be accurate (hours:minutes:seconds) and double-checked. Please verify the correct format is used.";
         Logger.printDebug(() -> "GeminiUtils (SUMMARY): Sending Prompt (Gemini 3.x base): " + prompt);
         generateContent(videoUrl, apiKey, prompt, promptForGemini25, GEMINI_MODELS[0], 0, callback);
+    }
+
+    @NonNull
+    private static String getPrompt() {
+        String langName = getLanguageName();
+        return "Write a spoiler‑heavy summary of this video in " + langName + ". Focus on key events in chronological order. Use Markdown to make it readable, and mark important details with bold text. Output only the summary—do not include a preamble, greetings, or phrases like \"Here is the summary.\" If the video contains sponsored segments, exclude them entirely. Add a TL;DR at the beginning that gives only the most important information. Then provide the summary, separated from the TL;DR.";
     }
 
     /**
