@@ -20,6 +20,100 @@
     <string name="gms_core_settings_summary">Щоб отримувати сповіщення у RVX, увімкніть Хмарні повідомлення.</string>
     <string name="gms_core_settings_title">Відкрити налаштування GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore не встановлено. Встановіть його.</string>
+    <string name="morphe_disable_drc_audio_summary_off">Аудіо DRC увімкнено</string>
+    <string name="morphe_disable_drc_audio_summary_on">Аудіо DRC вимкнено</string>
+    <string name="morphe_disable_drc_audio_title">Вимкнути аудіо DRC</string>
+    <string name="morphe_disable_quic_protocol_summary_off">Протокол QUIC увімкнено</string>
+    <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC вимкнено</string>
+    <string name="morphe_disable_quic_protocol_title">Вимкнути протокол QUIC</string>
+    <string name="morphe_force_original_audio_not_available">Щоб використати цю функцію, змініть \"Підміна відео потоків\" на Android Reel або TV</string>
+    <string name="morphe_force_original_audio_summary_off">Використовується звукова доріжка за замовчуванням</string>
+    <string name="morphe_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
+    <string name="morphe_force_original_audio_title">Примусово оригінальна мова звукової доріжки</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">Не вдається ввійти до VR: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Не вдається ввійти у VR, автентифікацію вебсайту не схвалено</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 тимчасово недоступний</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 тимчасово недоступний (статус %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Термін дії входу в Android VR закінчився. Спробуйте ввійти у VR ще раз</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 тимчасово недоступний (тайм-аут API)</string>
+    <string name="morphe_oauth2_toast_invalid">Недійсний токен входу у VR, спробуйте ввійти у VR ще раз</string>
+    <string name="morphe_oauth2_toast_reset">Ви вийшли з Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">Під час поширення посилань використовується music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">Під час поширення посилань використовується youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">Змінити посилання для поширення на youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">Параметри запиту відстеження не вилучаються з поширених посилань</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">Параметри запиту відстеження вилучаються з поширених посилань</string>
+    <string name="morphe_sanitize_sharing_links_title">Очищення посилань для поширення</string>
+    <string name="morphe_spoof_video_streams_about_experimental">• Експериментальний клієнт, який може припинити працювати будь-якої миті</string>
+    <string name="morphe_spoof_video_streams_about_js">• Якщо деобфускація не вдається, відтворення може завершитися невдачею</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Пункт меню \"Звукова доріжка\" відсутній</string>
+    <string name="morphe_spoof_video_streams_about_no_av1">• Відеокодек AV1 відсутній</string>
+    <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Примусово оригінальна мова звукової доріжки\" недоступна</string>
+    <string name="morphe_spoof_video_streams_about_no_immersive_mode">• Режим занурення у віртуальну реальність 360° недоступний</string>
+    <string name="morphe_spoof_video_streams_about_no_stable_volume">• Пункт меню \"Стабілізувати гучність\" недоступний</string>
+    <string name="morphe_spoof_video_streams_about_playback_failure">• Відео може зупинитися на 1:00, або може бути недоступним у деяких регіонах</string>
+    <string name="morphe_spoof_video_streams_about_title">Побічні ефекти підміни</string>
+    <string name="morphe_spoof_video_streams_av1_summary_off">Відеокодек AVC (H.264) або VP9</string>
+    <string name="morphe_spoof_video_streams_av1_summary_on">"Відеокодек AVC (H.264), VP9 або AV1
+
+Відтворення може заїкатися або пропускати кадри"</string>
+    <string name="morphe_spoof_video_streams_av1_title">Дозволити Android VR AV1</string>
+    <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Увімкнення цього налаштування може призвести до використання програмного декодування AV1.
+
+Відтворення відео з AV1 може заїкатися або мати пропуски кадрів."</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Клієнт за замовчуванням</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Оновлення JavaScript плеєра увімкнено</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Оновлення JavaScript плеєра вимкнено
+
+• Потрібен дійсний хеш JavaScript плеєра
+• Відтворення не вдається, якщо хеш JavaScript плеєра скасовано у GVS"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Вимкнути оновлення JavaScript плеєра</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Хеші JavaScript плеєра дійсні приблизно один місяць, а застарілі хеші можуть бути скасовані GVS.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Спробуйте увімкнути: Підміна відеопотоків &gt; Android VR з входом</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Не вдалося отримати жодних клієнтських потоків</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_summary">Введіть дійсний хеш JavaScript плеєра</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_title">Хеш JavaScript плеєра</string>
+    <string name="morphe_spoof_video_streams_player_js_variant_title">Варіант JavaScript плеєра</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Підміняти відеопотоки клієнта, щоб уникнути проблем із відтворенням</string>
+    <string name="morphe_spoof_video_streams_screen_title">Підміна відеопотоків</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Ви не ввійшли в Android VR. Натисніть тут, щоб увійти</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Щоб використовувати цю функцію, змініть \"Клієнт за замовчуванням\" на Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Наразі ви ввійшли в Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR з входом</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Код активації: %s
+
+1. Натисніть \"Відкрити вебсайт\" нижче, щоб відкрити вебсайт \"Підключити пристрій\"
+2. Вставте з буфера обміну (або введіть) код активації, показаний вище
+3. Увійдіть до Google, за потреби. Якщо у вас є кілька облікових записів, виберіть цей обліковий запис YouTube
+4. Натисніть \"Дозволити доступ до YouTube VR\"
+5. Поверніться до застосунку після того, як побачите повідомлення \"Пристрій підключено\""</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Відкрити вебсайт</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Інструкції</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Продовжити</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Вхід в Android VR може виправити проблеми з відтворенням для деяких користувачів
+
+Щоб увійти, натисніть \"Продовжити\" нижче"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Вийти</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Увійти в Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Автентифікацію збережено
+
+• Ваші налаштування Morphe не імпортуватимуть/експортуватимуть автентифікацію Android VR
+• Якщо цей застосунок не використовуватиметься протягом 6 місяців, Google видалить цю автентифікацію
+• Вам потрібно буде знову ввійти, якщо ви зміните пароль Google або скасуєте реєстрацію цього пристрою в налаштуваннях Google"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Вхід виконано успішно</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Не вдалося створити код активації</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Не вдалося створити токен автентифікації</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Тип клієнта показується у вікні \"Статистика для сисадмінів\"</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
+    <string name="morphe_spoof_video_streams_summary_off">"Відеопотоки не підмінено
+
+Відтворення може не працювати"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"Відеопотоки підмінено
+
+Якщо Ви користуєтеся YouTube Premium, ця опція може бути не потрібна"</string>
+    <string name="morphe_spoof_video_streams_title">Підміна відеопотоків</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Вимкнення цього налаштування може спричинити проблеми з відтворенням.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Розширене меню якості відео не показується</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Розширене меню якості відео показується</string>
     <string name="revanced_advanced_video_quality_menu_title">Показувати розширене меню якості відео</string>
@@ -235,11 +329,6 @@
     <string name="revanced_disable_ambient_mode_title">Вимкнути кінематографічне освітлення</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">"Примусові автоматичні звукові доріжки увімкнено."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Примусові автоматичні звукові доріжки вимкнено.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Примусові автоматичні звукові доріжки вимкнено.
-
-Це може не працювати для деяких користувачів, якщо не працює то:
-1. Перейдіть до Налаштування - RVX - Різне - Підробка даних трансляції та увімкніть 'Використовувати клієнт JavaScript'.
-2. Перейдіть до Налаштування - RVX - Різне - Підробка даних трансляції і змініть 'Основний клієнт' на 'Простий TV'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Вимкнути примусові автоматичні звукові доріжки</string>
     <string name="revanced_disable_auto_captions_summary_off">Автоматичні субтитри ввімкнено</string>
     <string name="revanced_disable_auto_captions_summary_on">Автоматичні субтитри вимкнено</string>
@@ -940,11 +1029,6 @@
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Меню Кінематографічне освітлення показується.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Меню Кінематографічне освітлення приховано.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Приховати меню Кінематографічне освітлення</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Меню Звукова доріжка приховано.
-
-Для показу меню Звукова доріжка:
-1. Перейдіть до Налаштування - RVX - Різне - Підробка даних трансляції та увімкніть 'Використовувати клієнт JavaScript'.
-2. Перейдіть до Налаштування - RVX - Різне - Підробка даних трансляції і змініть 'Основний клієнт' на 'Простий TV'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Меню Звукова доріжка показується.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Меню Звукова доріжка приховано.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Приховати меню Звукова доріжка</string>
@@ -1816,8 +1900,6 @@
     <string name="revanced_preference_screen_shorts_title">YouTube Shorts</string>
     <string name="revanced_preference_screen_snack_bar_summary">Приховати або змінити компоненти, пов\'язані з панеллю взаємодії.</string>
     <string name="revanced_preference_screen_snack_bar_title">Панель взаємодії</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_summary">Підробка даних трансляції для вирішення проблем відтворення.</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_title">Підробка даних трансляції</string>
     <string name="revanced_preference_screen_swipe_controls_title">Керування жестами</string>
     <string name="revanced_preference_screen_toolbar_summary">Приховати або змінити компоненти, розташовані на панелі інструментів, такі як кнопки панелі інструментів, панель пошуку, заголовок.</string>
     <string name="revanced_preference_screen_toolbar_title">Панель інструментів</string>
@@ -2409,20 +2491,7 @@
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Якщо увімкнути це налаштування, може використовуватися програмне декодування AV1.
 
 Відтворення може затинатися або втрачати кадри."</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
-<small>(Потрібна авторизація)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
-<small>(Без SDK)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
-<small>(Застарілий)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">Простий TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
-<small>(Невипущений)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Основний клієнт</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">Не вдалося отримати трансляції клієнта.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Спробуйте змінити основний клієнт на Простий TV.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Кодеки відео пріоритетні.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Якість відео пріоритетна.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Пріоритетна якість відео</string>
@@ -2531,20 +2600,6 @@
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Відкрити сайт</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Код активації</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Код активації скопійовано в буфер обміну: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Отримати код активації</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Отримати токен авторизації</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Вхід в Android VR (YouTube VR) здійснюється відповідно до інструкцій, наданих Google (авторизація облікового запису Google — OAuth 2.0 для TV та додатків з обмеженим введенням даних):
-
-1. Натисніть 'Отримати код активації', щоб згенерувати код активації.
-2. Натисніть 'Відкрити сайт', щоб перейти до 'https://yt.be/activate'.
-3. Введіть код активації.
-4. Увійдіть, коли з'явиться запит. Якщо у вас кілька облікових записів Google, виберіть обліковий запис, який використовуєте для YouTube. Якщо вже увійшли, перейдіть до наступного кроку.
-5. Після входу поверніться до RVX і знову натисніть 'Авторизуватися в Android VR'.
-6. Натисніть 'Отримати токен авторизації', щоб отримати токен авторизації.
-
-※ Натисніть 'Скинути', щоб вилучити токен автентифікації або код активації."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Скинути</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Авторизація в Android VR</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Токен автентифікації збережено.
 
 - Токен автентифікації, виданий за допомогою цього процесу, можна використовувати тільки в YouTube VR (У RVX він використовується для отримання даних трансляції із YouTube VR).
@@ -2572,8 +2627,6 @@
 
 • Клієнт JavaScript все ще не може відтворювати деякі відео."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Використовувати клієнт JavaScript для всіх відео</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Натисніть, щоб дізнатись більше.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">Про фальшиву буферизацію</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Однією з причин, чому відео розпочинається надто пізно у клієнті JavaScript є нові антирекламоблокувальні заходи YouTube
 
 Коли відеорекламу блокується, GVS (Відеосервер Google) генерує фальшиву буферизацію, пропорційну тривалості реклами (A/B тестування).
@@ -2601,23 +2654,6 @@ uBlock Origin знайшов обхідний шлях для вирішення
 (Необхідні умови: 'Показувати кнопку перезавантаження відео' і 'Завжди показувати кнопку перезавантаження відео' увімкнені)
 
 Серед клієнтів JavaScript рекомендується Простий TV."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"JavaScript відтворювача для деобфускації не підтримується в актуальному стані.
-
-• Використовується JavaScript відтворювача, який успішно виконує деобфускацію, але він все одно дещо залежний від сервера."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"JavaScript відтворювача для деобфускації підтримується в актуальному стані.
-
-• Він значною мірою залежить від сервера, і успіх чи невдача деобфускації залежить від JavaScript відтворювача, який наразі використовується на сервері.
-• Якщо виникли проблеми з клієнтом JavaScript, спробуйте спочатку вимкнути його."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Використовувати останній JavaScript відтворювача</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"Використовується екстрактор SmartTube.
-
-• JavaScript відтворювача для деобфускації не в актуальному стані.
-• Найближчим часом це буде застаріле на серверах."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"Використовується зовнішній JavaScript для yt-dlp (yt-dlp-ejs).
-
-• JavaScript відтворювача для деобфускації підтримується в актуальному стані.
-• Запуск відео може зайняти від 5 до 15 секунд."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Використовувати ejs yt-dlp (Ще в розробці)</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Вимикання цього налаштування може призвести до проблем відтворення відео.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Натисніть, щоб побачити, як отримати токен автентифікації.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Про авторизацію Android VR</string>
@@ -2827,4 +2863,15 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_yandex_transcribe_subtitles_language_title"> Мова Yandex</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Використовуйте транскрибування Yandex замість Gemini. Ключ API не потрібен.</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Транскрибування Yandex</string>
+    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Вхід в Android VR (YouTube VR) здійснюється відповідно до інструкцій, наданих Google (авторизація облікового запису Google — OAuth 2.0 для TV та додатків з обмеженим введенням даних):
+
+1. Натисніть 'Отримати код активації', щоб згенерувати код активації.
+2. Натисніть 'Відкрити сайт', щоб перейти до 'https://yt.be/activate'.
+3. Введіть код активації.
+4. Увійдіть, коли з'явиться запит. Якщо у вас кілька облікових записів Google, виберіть обліковий запис, який використовуєте для YouTube. Якщо вже увійшли, перейдіть до наступного кроку.
+5. Після входу поверніться до RVX і знову натисніть 'Авторизуватися в Android VR'.
+6. Натисніть 'Отримати токен авторизації', щоб отримати токен авторизації.
+
+※ Натисніть 'Скинути', щоб вилучити токен автентифікації або код активації."</string>
 </resources>

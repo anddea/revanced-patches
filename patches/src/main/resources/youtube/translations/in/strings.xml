@@ -20,6 +20,100 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
     <string name="gms_core_settings_summary">To receive notifications in RVX, enable Cloud Messaging.</string>
     <string name="gms_core_settings_title">Buka Pengaturan GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore belum dipasang. Pasang dulu.</string>
+    <string name="morphe_disable_drc_audio_summary_off">Audio DRC diaktifkan</string>
+    <string name="morphe_disable_drc_audio_summary_on">Audio DRC dinonaktifkan</string>
+    <string name="morphe_disable_drc_audio_title">Nonaktifkan audio DRC</string>
+    <string name="morphe_disable_quic_protocol_summary_off">Protokol QUIC diaktifkan</string>
+    <string name="morphe_disable_quic_protocol_summary_on">Protokol QUIC dinonaktifkan</string>
+    <string name="morphe_disable_quic_protocol_title">Nonaktifkan protokol QUIC</string>
+    <string name="morphe_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke Android Reel atau TV</string>
+    <string name="morphe_force_original_audio_summary_off">Menggunakan audio bawaan</string>
+    <string name="morphe_force_original_audio_summary_on">Menggunakan bahasa audio asli</string>
+    <string name="morphe_force_original_audio_title">Paksa bahasa audio asli</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">Tidak dapat masuk ke VR: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Tidak dapat masuk ke VR, autentikasi situs web tidak disetujui</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 sementara tidak tersedia</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 sementara tidak tersedia (status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Masuk ke Android VR telah kadaluwarsa, coba masuk ke VR lagi</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 sementara tidak tersedia (API kehabisan waktu)</string>
+    <string name="morphe_oauth2_toast_invalid">Token masuk VR tidak sah, coba masuk ke VR lagi</string>
+    <string name="morphe_oauth2_toast_reset">Keluar dari Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">Tautan yang dibagikan menggunakan music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">Tautan yang dibagikan menggunakan youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">Ubah tautan berbagi ke youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">Parameter kueri pelacakan tidak dihapus dari tautan yang dibagikan</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">Parameter kueri pelacakan dihapus dari tautan yang dibagikan</string>
+    <string name="morphe_sanitize_sharing_links_title">Bersihkan tautan berbagi</string>
+    <string name="morphe_spoof_video_streams_about_experimental">• Klien eksperimental dan dapat berhenti berfungsi kapan saja</string>
+    <string name="morphe_spoof_video_streams_about_js">• Jika proses pembukaan kode terenkripsi gagal, pemutaran mungkin gagal</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Menu trek audio hilang</string>
+    <string name="morphe_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
+    <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Paksa audio asli tidak tersedia</string>
+    <string name="morphe_spoof_video_streams_about_no_immersive_mode">• Mode imersif 360° VR tidak tersedia</string>
+    <string name="morphe_spoof_video_streams_about_no_stable_volume">• Volume stabil tidak tersedia</string>
+    <string name="morphe_spoof_video_streams_about_playback_failure">• Video mungkin berhenti pada 1:00, atau mungkin tidak tersedia di beberapa wilayah</string>
+    <string name="morphe_spoof_video_streams_about_title">Efek samping pemalsuan</string>
+    <string name="morphe_spoof_video_streams_av1_summary_off">Codec video adalah AVC (H.264) atau VP9</string>
+    <string name="morphe_spoof_video_streams_av1_summary_on">"Codec video adalah AVC (H.264), VP9, atau AV1
+
+Pemutaran mungkin tersendat atau kehilangan bingkai"</string>
+    <string name="morphe_spoof_video_streams_av1_title">Izinkan Android VR AV1</string>
+    <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Mengaktifkan pengaturan ini mungkin menggunakan perangkat lunak decoding AV1.
+
+Pemutaran video dengan AV1 mungkin tersendat atau kehilangan bingkai."</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Klien bawaan</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Pembaruan pemutar JavaScript diaktifkan</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Pembaruan pemutar JavaScript dinonaktifkan
+
+• Diperlukan hash player JavaScript yang sah
+• Pemutaran gagal jika hash pemutar JavaScript dicabut di GVS"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Nonaktifkan pembaruan pemutar JavaScript</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Pemutar hash JavaScript berlaku selama kurang lebih satu bulan, dan hash yang kedaluwarsa mungkin dicabut oleh GVS.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Cobalah mengaktifkan: Palsukan aliran video &gt; Masuk Android VR</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Tidak dapat mengambil aliran klien apa pun</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_summary">Masukkan hash pemutar JavaScript yang sah</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_title">Hash pemutar JavaScript</string>
+    <string name="morphe_spoof_video_streams_player_js_variant_title">Varian pemutar JavaScript</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Palsukan klien aliran video untuk mencegah masalah pemutaran</string>
+    <string name="morphe_spoof_video_streams_screen_title">Palsukan aliran video</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Tidak masuk ke Android VR. Ketuk disini untuk masuk</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Untuk menggunakan fitur ini, ubah \'Klien bawaan\' ke Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Saat ini sedang masuk ke Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Masuk Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Kode aktivasi: %s
+
+1. Ketuk 'Buka situs web' di bawah ini untuk membuka situs web 'Hubungkan perangkat'
+2. Tempel dari papan klip (atau ketik) kode aktivasi yang ditampilkan di atas
+3. Masuk ke Google jika diminta. Jika Anda memiliki beberapa akun, pilih akun YouTube ini
+4. Ketuk 'Izinkan akses YouTube VR'
+5. Kembali ke aplikasi ini setelah muncul pesan 'Perangkat terhubung'"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Buka situs web</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Petunjuk</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Lanjutkan</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Masuk ke Android VR dapat memperbaiki masalah pemutaran untuk beberapa pengguna
+
+Untuk masuk, tekan lanjutkan di bawah ini"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Keluar</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Masuk ke Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Autentikasi disimpan
+
+• Pengaturan Morphe Anda tidak akan mengimpor/mengekspor autentikasi Android VR
+• Jika aplikasi ini tidak digunakan selama 6 bulan, Google akan menghapus autentikasi ini
+• Anda perlu masuk kembali jika Anda mengubah kata sandi Google Anda atau menghapus pendaftaran perangkat ini dari pengaturan Google Anda"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Berhasil masuk</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Gagal dalam menghasilkan kode aktivasi</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Gagal dalam menghasilkan token autentikasi</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Klien disembunyikan di Statistik untuk nerds</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Jenis klien ditampilkan di Statistik untuk nerds</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Tampilkan di Statistik untuk nerds</string>
+    <string name="morphe_spoof_video_streams_summary_off">"Aliran video tidak dipalsukan
+
+Pemutaran mungkin tidak berfungsi"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"Aliran video dipalsukan
+
+Jika Anda adalah pengguna YouTube Premium, setelan ini mungkin tidak diperlukan"</string>
+    <string name="morphe_spoof_video_streams_title">Palsukan aliran video</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Menu kualitas video lanjutan tidak ditampilkan</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Menu kualitas video lanjutan ditampilkan</string>
     <string name="revanced_advanced_video_quality_menu_title">Tampilkan menu kualitas video lanjutan</string>
@@ -235,11 +329,6 @@ Keterbatasan: Tombol Kembali pada bilah alat mungkin tidak berfungsi."</string>
     <string name="revanced_disable_ambient_mode_title">Nonaktifkan mode Ambien</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">"Trek audio otomatis yang dipaksakan diaktifkan."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Trek audio otomatis yang dipaksakan dinonaktifkan.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Fitur pemutaran audio otomatis yang dipaksa dinonaktifkan.
-
-Hal ini mungkin tidak berfungsi untuk beberapa pengguna. Jika tidak berfungsi untuk Anda:
-1. Buka Pengaturan - RVX - Berbagai - Data streaming palsu, dan aktifkan ‘Gunakan klien JavaScript’.
-2. Buka Pengaturan - RVX - Berbagai - Data streaming palsu, dan ubah ‘Klien default’ menjadi ‘TV Simply’."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Nonaktifkan trek audio otomatis yang dipaksakan</string>
     <string name="revanced_disable_auto_captions_summary_off">Teks otomatis diaktifkan</string>
     <string name="revanced_disable_auto_captions_summary_on">Teks otomatis dinonaktifkan</string>

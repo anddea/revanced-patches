@@ -2,7 +2,6 @@ package app.morphe.extension.youtube.settings.preference;
 
 import static app.morphe.extension.shared.patches.PatchStatus.PatchVersion;
 import static app.morphe.extension.shared.patches.PatchStatus.PatchedTime;
-import static app.morphe.extension.shared.settings.BaseSettings.SPOOF_STREAMING_DATA_USE_JS;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.youtube.settings.Settings.HIDE_PREVIEW_COMMENT;
 import static app.morphe.extension.youtube.settings.Settings.HIDE_PREVIEW_COMMENT_TYPE;
@@ -10,7 +9,6 @@ import static app.morphe.extension.youtube.settings.Settings.HIDE_PREVIEW_COMMEN
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.SharedPreferences;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
@@ -18,12 +16,10 @@ import android.widget.Toolbar;
 
 import java.util.Date;
 
-import app.morphe.extension.shared.innertube.client.YouTubeClient;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.preference.LogBufferManager;
 import app.morphe.extension.shared.settings.preference.ToolbarPreferenceFragment;
 import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.general.ChangeFormFactorPatch;
 import app.morphe.extension.youtube.patches.utils.PatchStatus;
@@ -65,9 +61,6 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
                     ExtendedUtils.setPlayerFlyoutMenuAdditionalSettings();
                 } else if (setting.equals(HIDE_PREVIEW_COMMENT) || setting.equals(HIDE_PREVIEW_COMMENT_TYPE)) {
                     ExtendedUtils.setCommentPreviewSettings();
-                } else if (setting.equals(SPOOF_STREAMING_DATA_USE_JS)) {
-                    YouTubeClient.availableClientTypes(Settings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get());
-                    setSpoofStreamingDataPreference();
                 }
             }
 
@@ -315,20 +308,8 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
     }
 
     private void setSpoofStreamingDataPreference() {
-        if (findPreference(Settings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.key) instanceof ListPreference listPreference
-                && findPreference(SPOOF_STREAMING_DATA_USE_JS.key) instanceof SwitchPreference switchPreference) {
-            boolean useJS = SPOOF_STREAMING_DATA_USE_JS.get() || switchPreference.isChecked();
-
-            String entriesKey = useJS
-                    ? "revanced_spoof_streaming_data_default_client_with_js_entries"
-                    : "revanced_spoof_streaming_data_default_client_entries";
-            String entryValueKey = useJS
-                    ? "revanced_spoof_streaming_data_default_client_with_js_entry_values"
-                    : "revanced_spoof_streaming_data_default_client_entry_values";
-
-            listPreference.setEntries(ResourceUtils.getArrayIdentifier(entriesKey));
-            listPreference.setEntryValues(ResourceUtils.getArrayIdentifier(entryValueKey));
-        }
+        // Morphe-style spoof video streams keeps a fixed client list and exposes
+        // the JavaScript variant as a separate preference.
     }
 
     private void setWhitelistPreference() {

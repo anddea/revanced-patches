@@ -18,30 +18,38 @@ if TYPE_CHECKING:
 logger = logging.getLogger("xml_tools")
 
 
-def _find_source_translation_file(source_base_path: Path, lang_code: str) -> Path | None:
-    """Find a source translation file by matching the language code prefix.
+def _find_source_translation_files(source_base_path: Path, lang_code: str, app: str) -> list[Path]:
+    """Find source translation files for the app and the shared-youtube directory.
 
     Matches 'ar' to 'values-ar-rSA', 'in' to 'values-in', etc.
 
     Args:
         source_base_path: The base directory containing 'values-*' folders.
         lang_code: The two-letter language code (e.g., 'ar').
+        app: The application identifier ('youtube' or 'music').
 
     Returns:
-        The path to the 'strings.xml' file if found, otherwise None.
+        A list of paths to the 'strings.xml' files if found.
 
     """
-    # Use a generator expression with next() to find the first match efficiently.
     matching_dir = next(
         (d for d in source_base_path.iterdir() if d.is_dir() and d.name.startswith(f"values-{lang_code}")),
         None,  # Default to None if no directory matches
     )
 
+    found_paths: list[Path] = []
     if matching_dir:
-        source_file = matching_dir / "youtube/strings.xml"
-        if source_file.exists():
-            return source_file
-    return None
+        # Check for app-specific strings
+        app_file = matching_dir / f"{app}/strings.xml"
+        if app_file.exists():
+            found_paths.append(app_file)
+
+        # Check for shared-youtube strings
+        shared_file = matching_dir / "shared-youtube/strings.xml"
+        if shared_file.exists():
+            found_paths.append(shared_file)
+
+    return found_paths
 
 
 def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] | None = None) -> None:
@@ -65,12 +73,8 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
         _, target_root, _ = XMLProcessor.parse_file(target_path)
         _, source_root, source_strings = XMLProcessor.parse_file(source_path)
 
-        if target_root is None:
-            logger.error("Failed to parse target XML file: %s", target_path)
-            return
-
-        if source_root is None:
-            logger.error("Failed to parse source XML file: %s", source_path)
+        if target_root is None or source_root is None:
+            logger.error("Failed to parse files: %s or %s", target_path, source_path)
             return
 
         # Create a dictionary of existing elements
@@ -89,10 +93,11 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
             if filter_keys is not None and name not in filter_keys:
                 continue
 
+            # Parse the new element once if we need it
+            new_elem: Any = DefusedET.fromstring(data["text"])
+
             if name in existing_elements:
-                # Update existing element
                 existing_elem: Any = existing_elements[name]
-                new_elem: Any = DefusedET.fromstring(data["text"])
                 # Replace attributes and children
                 existing_elem.attrib.clear()
                 existing_elem.attrib.update(new_elem.attrib)
@@ -100,8 +105,6 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
                 existing_elem.text = new_elem.text
                 existing_elem.tail = new_elem.tail
             elif name not in blacklist and (filter_keys is None or name in filter_keys):
-                # Add new element (only if not blacklisted and passes filter)
-                new_elem: Any = DefusedET.fromstring(data["text"])
                 target_root.append(new_elem)
 
         # Write updated file
@@ -148,6 +151,7 @@ def sync_translations(translations_path: Path, rvx_base_path: Path) -> None:
 def update_translations_with_keys(
     translations_path: Path,
     base_dir: Path,
+    app: str,
     additional_keys: set[str] | None = None,
 ) -> None:
     """Update translation strings with specific keys."""
@@ -159,12 +163,13 @@ def update_translations_with_keys(
 
         target_path = lang_dir / "strings.xml"
 
-        # Find the corresponding source file using the helper function
-        rvx_lang_path = _find_source_translation_file(source_base_path, lang_dir.name)
+        # Find the corresponding source files (app-specific + shared)
+        rvx_lang_paths = _find_source_translation_files(source_base_path, lang_dir.name, app)
 
-        if rvx_lang_path:
-            logger.debug("Found source %s for target %s", rvx_lang_path, target_path)
-            update_strings(target_path, rvx_lang_path, filter_keys=additional_keys)
+        if rvx_lang_paths:
+            for source_path in rvx_lang_paths:
+                logger.debug("Found source %s for target %s", source_path, target_path)
+                update_strings(target_path, source_path, filter_keys=additional_keys)
         else:
             logger.warning("No matching source translation found for language: %s", lang_dir.name)
 
@@ -241,7 +246,7 @@ def process(app: str, base_dir: Path) -> None:
     # }
 
     if "morphe-patches" in str(base_dir):
-        update_translations_with_keys(translations_path, base_dir)
-        # update_translations_with_keys(translations_path, base_dir, additional_keys)
+        update_translations_with_keys(translations_path, base_dir, app)
+        # update_translations_with_keys(translations_path, base_dir, app, additional_keys)
     else:
         sync_translations(translations_path, rvx_base_path)

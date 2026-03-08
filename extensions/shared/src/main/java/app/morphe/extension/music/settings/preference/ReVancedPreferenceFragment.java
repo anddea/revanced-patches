@@ -19,9 +19,8 @@ import static app.morphe.extension.music.settings.Settings.SB_API_URL;
 import static app.morphe.extension.music.settings.Settings.SETTINGS_IMPORT_EXPORT;
 import static app.morphe.extension.music.settings.Settings.SPOOF_APP_VERSION_TARGET;
 import static app.morphe.extension.music.settings.Settings.SPOOF_APP_VERSION_FOR_LYRICS_TARGET;
-import static app.morphe.extension.music.settings.Settings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT;
-import static app.morphe.extension.music.settings.Settings.SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_NO_SDK_ABOUT;
-import static app.morphe.extension.music.settings.Settings.SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_VR_ABOUT;
+import static app.morphe.extension.music.settings.Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE;
+import static app.morphe.extension.music.settings.Settings.SPOOF_VIDEO_STREAMS_SIGN_IN_ANDROID_VR_ABOUT;
 import static app.morphe.extension.music.settings.Settings.WATCH_HISTORY_TYPE;
 import static app.morphe.extension.music.utils.ExtendedUtils.getDialogBuilder;
 import static app.morphe.extension.music.utils.ExtendedUtils.getLayoutParams;
@@ -30,6 +29,7 @@ import static app.morphe.extension.shared.patches.PatchStatus.PatchVersion;
 import static app.morphe.extension.shared.settings.BaseSettings.RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT;
 import static app.morphe.extension.shared.settings.BaseSettings.RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY;
 import static app.morphe.extension.shared.settings.Setting.getSettingFromPath;
+import static app.morphe.extension.shared.settings.SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH;
 import static app.morphe.extension.shared.utils.ResourceUtils.getStringArray;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.isSDKAbove;
@@ -151,7 +151,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                         || settings.equals(CUSTOM_PLAYER_BACKGROUND_COLOR_SECONDARY)
                         || settings.equals(ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE)
                         || settings.equals(HIDE_ACCOUNT_MENU_FILTER_STRINGS)
-                        || settings.equals(RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY)) {
+                        || settings.equals(RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY)
+                        || settings.equals(SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH)) {
                     ResettableEditTextPreference.showDialog(mActivity, stringSetting);
                 } else if (settings.equals(EXTERNAL_DOWNLOADER_PACKAGE_NAME)) {
                     ExternalDownloaderPreference.showDialog(mActivity);
@@ -172,9 +173,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     YouTubeDataAPIDialogBuilder.showDialog(mActivity);
                 } else if (settings.equals(REPLACE_NAVIGATION_BUTTON_ABOUT)) {
                     ResettableListPreference.showDialog(mActivity, CHANGE_START_PAGE, 0);
-                } else if (settings.equals(SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_NO_SDK_ABOUT)) {
-                    SpoofStreamingDataSignInDialogBuilder.showNoSDKDialog(mActivity);
-                } else if (settings.equals(SPOOF_STREAMING_DATA_SIGN_IN_ANDROID_VR_ABOUT)) {
+                } else if (settings.equals(SPOOF_VIDEO_STREAMS_SIGN_IN_ANDROID_VR_ABOUT)) {
                     SpoofStreamingDataSignInDialogBuilder.showVRDialog(mActivity);
                 } else {
                     Logger.printDebug(() -> "Failed to find the right value: " + dataString);
@@ -183,7 +182,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 if (settings.equals(CHANGE_START_PAGE)
                         || settings.equals(DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE)
                         || settings.equals(RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT)
-                        || settings.equals(SPOOF_STREAMING_DATA_DEFAULT_CLIENT)
+                        || settings.equals(SPOOF_VIDEO_STREAMS_CLIENT_TYPE)
                         || settings.equals(WATCH_HISTORY_TYPE)
                 ) {
                     ResettableListPreference.showDialog(mActivity, enumSetting, 0);

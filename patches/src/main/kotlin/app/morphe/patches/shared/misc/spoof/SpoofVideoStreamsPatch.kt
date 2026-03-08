@@ -1,0 +1,441 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ */
+
+package app.morphe.patches.shared.misc.spoof
+
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.OpcodesFilter.Companion.opcodesToFilters
+import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.patch.BytecodePatchBuilder
+import app.morphe.patcher.patch.BytecodePatchContext
+import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.patch.rawResourcePatch
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
+import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethod
+import app.morphe.util.ResourceGroup
+import app.morphe.util.copyResources
+import app.morphe.util.findFreeRegister
+import app.morphe.util.findInstructionIndicesReversedOrThrow
+import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
+import app.morphe.util.inputStreamFromBundledResource
+import app.morphe.util.insertLiteralOverride
+import app.morphe.util.setExtensionIsPatchIncluded
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import org.w3c.dom.Element
+import java.lang.ref.WeakReference
+import java.nio.file.Files
+
+internal const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/morphe/extension/shared/spoof/SpoofVideoStreamsPatch;"
+
+private lateinit var buildRequestMethodRef : WeakReference<MutableMethod>
+private var buildRequestMethodURLRegister = -1
+
+private val spoofVideoStreamsRawResourcePatch = rawResourcePatch {
+    execute {
+
+        // region copy the j2v8 library.
+
+        setOf(
+            "arm64-v8a",
+            "armeabi-v7a",
+            "x86",
+            "x86_64"
+        ).forEach { arch ->
+            val architectureDirectory = get("lib/$arch")
+
+            // For YouTube Music, there is only one architecture in the app.
+            // Copy only if the architecture folder exists.
+            if (architectureDirectory.exists()) {
+                val inputStream = inputStreamFromBundledResource(
+                    "spoof/jniLibs",
+                    "$arch/libj2v8.so"
+                )
+                if (inputStream != null) {
+                    Files.copy(
+                        inputStream,
+                        architectureDirectory.resolve("libj2v8.so").toPath(),
+                    )
+                }
+            }
+        }
+
+        copyResources(
+            "spoof",
+            ResourceGroup(
+                "raw",
+                "astring-1.9.0.min.js",
+                "meriyah-6.1.4.min.js",
+                "polyfill.js",
+                "yt.solver.core.js", // yt-dlp-ejs 0.5.1: https://github.com/MorpheApp/ejs/releases/tag/0.5.1
+            )
+        )
+
+        // Fix compile error in YouTube Music.
+        document("AndroidManifest.xml").use { document ->
+            val applicationNode =
+                document
+                    .getElementsByTagName("application")
+                    .item(0) as Element
+            applicationNode.setAttribute("android:extractNativeLibs", "true")
+        }
+
+        // endregion
+    }
+}
+
+internal fun spoofVideoStreamsPatch(
+    extensionClassDescriptor: String,
+    mainActivityOnCreateFingerprint: Fingerprint,
+    fixMediaFetchHotConfig: BytecodePatchBuilder.() -> Boolean = { false },
+    fixMediaFetchHotConfigAlternative: BytecodePatchBuilder.() -> Boolean = { false },
+    fixParsePlaybackResponseFeatureFlag: BytecodePatchBuilder.() -> Boolean = { false },
+    fixMediaSessionFeatureFlag: BytecodePatchBuilder.() -> Boolean = { false },
+    block: BytecodePatchBuilder.() -> Unit,
+    executeBlock: BytecodePatchContext.() -> Unit = {},
+) = bytecodePatch(
+    // This patch is part of the 'GmsCore support' patch.
+    // name = "Spoof video streams",
+    description = "Adds options to spoof the client video streams to fix playback."
+) {
+    block()
+
+    dependsOn(
+        fixProtoLibraryPatch,
+        spoofVideoStreamsRawResourcePatch,
+    )
+
+    execute {
+        mainActivityOnCreateFingerprint.method.addInstructions(
+            0,
+            """
+                invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->setMainActivity(Landroid/app/Activity;)V       
+                invoke-static { }, $extensionClassDescriptor->setClientOrderToUse()V   
+            """
+        )
+
+        // region Enable extension helper method used by other patches
+
+        setExtensionIsPatchIncluded(EXTENSION_CLASS_DESCRIPTOR)
+
+        // endregion
+
+        // region Block /initplayback requests to fall back to /get_watch requests.
+
+
+        BuildInitPlaybackRequestFingerprint.let {
+            it.method.apply {
+                val moveUriStringIndex = it.instructionMatches.first().index
+                val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
+
+                addInstructions(
+                    moveUriStringIndex + 1,
+                    """
+                        invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$targetRegister
+                    """
+                )
+            }
+        }
+
+        // endregion
+
+        // region Block /get_watch requests to fall back to /player requests.
+
+        BuildPlayerRequestURIFingerprint.let {
+            it.method.apply {
+                val invokeToStringIndex = it.instructionMatches.first().index
+                val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
+
+                addInstructions(
+                    invokeToStringIndex,
+                    """
+                        invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
+                        move-result-object v$uriRegister
+                    """
+                )
+            }
+        }
+
+        // endregion
+
+        // region Get replacement streams at player requests.
+
+        BuildRequestFingerprint.method.apply {
+            buildRequestMethodRef = WeakReference(this)
+
+            val newRequestBuilderIndex = BuildRequestFingerprint.instructionMatches.first().index
+            buildRequestMethodURLRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
+            val freeRegister = findFreeRegister(newRequestBuilderIndex, buildRequestMethodURLRegister)
+
+            addInstructions(
+                newRequestBuilderIndex,
+                """
+                    move-object v$freeRegister, p1
+                    invoke-static { v$buildRequestMethodURLRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
+                """
+            )
+        }
+
+        // endregion
+
+        // region Replace the streaming data with the replacement streams.
+        
+        CreateStreamingDataFingerprint.method.apply {
+            val setStreamDataMethodName = "patch_setStreamingData"
+            val resultMethodType = CreateStreamingDataFingerprint.classDef.type
+            val videoDetailsIndex = CreateStreamingDataFingerprint.instructionMatches.last().index
+            val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
+            val videoDetailsClass = getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
+
+            addInstruction(
+                videoDetailsIndex + 1,
+                "invoke-direct { p0, v$videoDetailsRegister }, " +
+                    "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
+            )
+
+            val setStreamingDataIndex = CreateStreamingDataFingerprint.instructionMatches.first().index
+
+            val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
+                .getReference<FieldReference>()!!.definingClass
+
+            val setStreamingDataField = getInstruction(setStreamingDataIndex).getReference<FieldReference>()
+
+            val getStreamingDataField = getInstruction(
+                indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.IGET_OBJECT && getReference<FieldReference>()?.definingClass == playerProtoClass
+                },
+            ).getReference<FieldReference>()
+
+            // Use a helper method to avoid the need of picking out multiple free registers from the hooked code.
+            CreateStreamingDataFingerprint.classDef.methods.add(
+                ImmutableMethod(
+                    resultMethodType,
+                    setStreamDataMethodName,
+                    listOf(ImmutableMethodParameter(videoDetailsClass, null, "videoDetails")),
+                    "V",
+                    AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(9),
+                ).toMutable().apply {
+                    addInstructionsWithLabels(
+                        0,
+                        """
+                            invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->isSpoofingEnabled()Z
+                            move-result v0
+                            if-eqz v0, :disabled
+    
+                            # Get video ID.
+                            iget-object v2, p1, $videoDetailsClass->c:Ljava/lang/String;
+                            if-eqz v2, :disabled
+    
+                            # Get streaming data.
+                            invoke-static { v2 }, $EXTENSION_CLASS_DESCRIPTOR->getStreamingData(Ljava/lang/String;)[B
+                            move-result-object v3
+                            if-eqz v3, :disabled
+    
+                            # Parse streaming data.
+                            sget-object v4, $playerProtoClass->a:$playerProtoClass
+                            invoke-static { v4, v3 }, $parseByteArrayMethod
+                            move-result-object v5
+                            check-cast v5, $playerProtoClass
+    
+                            # Set streaming data.
+                            iget-object v6, v5, $getStreamingDataField
+                            if-eqz v6, :disabled
+                            iput-object v6, p0, $setStreamingDataField
+                            
+                            :disabled
+                            return-void
+                        """
+                    )
+                }
+            )
+        }
+
+        // endregion
+
+        // region block getAtt request
+
+        buildRequestMethodRef.get()!!.apply {
+            val insertIndex = indexOfNewUrlRequestBuilderInstruction(this)
+
+            addInstructions(
+                insertIndex, """
+                    invoke-static { v$buildRequestMethodURLRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetAttRequest(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$buildRequestMethodURLRegister
+                """
+            )
+        }
+
+        // endregion
+
+        // region Remove video playback request body to fix playback.
+        // It is assumed, YouTube makes a request with a body tuned for Android.
+        // Requesting streams intended for other platforms with a body tuned for Android could be the cause of 400 errors.
+        // A proper fix may include modifying the request body to match the platforms expected body.
+
+        BuildMediaDataSourceFingerprint.method.apply {
+            val targetIndex =
+                indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
+
+            // Instructions are added just before the method returns,
+            // so there's no concern of clobbering in-use registers.
+            addInstructions(
+                targetIndex,
+                """
+                        # Field a: Stream uri.
+                        # Field c: Http method.
+                        # Field d: Post data.
+                        move-object v0, p0  # method has over 15 registers and must copy p0 to a lower register.
+                        iget-object v1, v0, $definingClass->a:Landroid/net/Uri;
+                        iget v2, v0, $definingClass->c:I
+                        iget-object v3, v0, $definingClass->d:[B
+                        invoke-static { v1, v2, v3 }, $EXTENSION_CLASS_DESCRIPTOR->removeVideoPlaybackPostBody(Landroid/net/Uri;I[B)[B
+                        move-result-object v1
+                        iput-object v1, v0, $definingClass->d:[B
+                    """,
+            )
+        }
+
+        // endregion
+
+        // region Append spoof info.
+
+        NerdsStatsVideoFormatBuilderFingerprint.method.apply {
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index,
+                    """
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->appendSpoofedClient(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$register
+                    """
+                )
+            }
+        }
+
+        // endregion
+
+        // region Fix iOS livestream current time.
+
+        HlsCurrentTimeFingerprint.let {
+            it.method.insertLiteralOverride(
+                it.instructionMatches.first().index,
+                "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
+            )
+        }
+
+        // endregion
+
+        // region Disable SABR playback.
+        // If SABR is disabled, it seems 'MediaFetchHotConfig' may no longer need an override (not confirmed).
+
+        val (mediaFetchEnumClass, sabrFieldReference) = with(MediaFetchEnumConstructorFingerprint.method) {
+            val stringIndex = MediaFetchEnumConstructorFingerprint.stringMatches.first {
+                it.string == DISABLED_BY_SABR_STREAMING_URI_STRING
+            }.index
+
+            val mediaFetchEnumClass = definingClass
+            val sabrFieldIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                opcode == Opcode.SPUT_OBJECT &&
+                        getReference<FieldReference>()?.type == mediaFetchEnumClass
+            }
+
+            Pair(
+                mediaFetchEnumClass,
+                getInstruction<ReferenceInstruction>(sabrFieldIndex).reference
+            )
+        }
+
+        val sabrFingerprint = Fingerprint(
+            returnType = mediaFetchEnumClass,
+            filters = opcodesToFilters(
+                Opcode.SGET_OBJECT,
+                Opcode.RETURN_OBJECT,
+            ),
+            custom = { method, _ ->
+                !method.parameterTypes.isEmpty()
+            }
+        )
+        sabrFingerprint.method.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disableSABR()Z
+                move-result v0
+                if-eqz v0, :ignore
+                sget-object v0, $sabrFieldReference
+                return-object v0
+                :ignore
+                nop
+            """
+        )
+
+        // endregion
+
+        // region turn off stream config replacement feature flag.
+
+        if (fixMediaFetchHotConfig()) {
+            MediaFetchHotConfigFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
+                )
+            }
+        }
+
+        if (fixMediaFetchHotConfigAlternative()) {
+            MediaFetchHotConfigAlternativeFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
+                )
+            }
+        }
+
+        if (fixParsePlaybackResponseFeatureFlag()) {
+            PlaybackStartDescriptorFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->usePlaybackStartFeatureFlag(Z)Z"
+                )
+            }
+        }
+
+        if (fixMediaSessionFeatureFlag()) {
+            MediaSessionFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useMediaSessionFeatureFlag(Z)Z"
+                )
+            }
+        }
+
+        // endregion
+
+        executeBlock()
+    }
+}

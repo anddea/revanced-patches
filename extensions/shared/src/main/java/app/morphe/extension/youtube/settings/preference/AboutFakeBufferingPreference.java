@@ -12,6 +12,7 @@ import android.util.Pair;
 import android.widget.LinearLayout;
 
 import app.morphe.extension.shared.ui.CustomDialog;
+import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"deprecation", "unused"})
@@ -20,9 +21,8 @@ public class AboutFakeBufferingPreference extends Preference implements Preferen
     private void init() {
         setSelectable(true);
         setOnPreferenceClickListener(this);
-        setEnabled(Settings.SPOOF_STREAMING_DATA.get() &&
-                Settings.SPOOF_STREAMING_DATA_USE_JS.get() &&
-                Settings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().getRequireJS());
+        setEnabled(SharedYouTubeSettings.SPOOF_VIDEO_STREAMS.get() &&
+                Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get().requireJS);
     }
 
     public AboutFakeBufferingPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {

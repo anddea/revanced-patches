@@ -38,33 +38,6 @@ public class SpoofStreamingDataSignInDialogBuilder {
     }
 
     public static void showVRDialog(Activity mActivity) {
-        AlertDialog.Builder builder = Utils.getDialogBuilder(mActivity);
-
-        String dialogTitle =
-                str("revanced_spoof_streaming_data_sign_in_android_vr_dialog_title");
-        String dialogMessage =
-                str("revanced_spoof_streaming_data_sign_in_android_vr_dialog_message");
-        String resetButtonText =
-                str("revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text");
-
-        builder.setTitle(dialogTitle);
-        builder.setMessage(dialogMessage);
-        builder.setNeutralButton(resetButtonText, (dialog, id) -> YouTubeVRAuthPatch.clearAll());
-
-        if (YouTubeVRAuthPatch.isDeviceCodeAvailable()) {
-            String okButtonText =
-                    str("revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text");
-            builder.setPositiveButton(okButtonText, (dialog, id) -> {
-                YouTubeVRAuthPatch.setRefreshToken();
-                YouTubeVRAuthPatch.setAccessToken(mActivity);
-            });
-        } else {
-            String okButtonText =
-                    str("revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text");
-            builder.setPositiveButton(okButtonText, (dialog, id) -> {
-                YouTubeVRAuthPatch.setActivationCode(mActivity);
-            });
-        }
-        builder.show();
+        new SpoofVideoStreamsSignInPreference(mActivity).onPreferenceClick(null);
     }
 }

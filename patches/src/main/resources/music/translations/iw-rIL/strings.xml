@@ -6,6 +6,79 @@
     <string name="gms_core_dialog_title">פעולה נדרשת</string>
     <string name="gms_core_settings_title">פתח הגדרות GmsCore</string>
     <string name="gms_core_toast_not_installed_message">אין GmsCore מותקן - לא להתקין</string>
+    <string name="morphe_disable_drc_audio_summary_off">אודיו DRC מופעל</string>
+    <string name="morphe_disable_drc_audio_summary_on">אודיו DRC מושבת</string>
+    <string name="morphe_disable_drc_audio_title">השבת אודיו DRC</string>
+    <string name="morphe_disable_quic_protocol_summary_off">פרוטוקול QUIC פעיל</string>
+    <string name="morphe_disable_quic_protocol_summary_on">פרוטוקול QUIC מושבת</string>
+    <string name="morphe_disable_quic_protocol_title">השבת פרוטוקול QUIC</string>
+    <string name="morphe_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה \'זיוף זרמי וידאו\' ל-Android Reel או TV</string>
+    <string name="morphe_force_original_audio_summary_off">שימוש בשמע ברירת מחדל</string>
+    <string name="morphe_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
+    <string name="morphe_force_original_audio_title">כפה שפת שמע מקורית</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">לא ניתן להתחבר ל-VR: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">לא ניתן להתחבר ל-VR, אישור אימות אתר לא אושר</string>
+    <string name="morphe_oauth2_connection_failure_generic">Очнення временно недоступен</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 временно недоступен (статус %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">התחברות לאנדרואיד VR פגה, נסה להתחבר ל-VR שוב</string>
+    <string name="morphe_oauth2_connection_failure_timeout">Очнення (способность  временно недоступен (время вышло)</string>
+    <string name="morphe_oauth2_toast_invalid">טוקן התחברות ל-VR לא חוקי, נסה להתחבר ל-VR שוב</string>
+    <string name="morphe_oauth2_toast_reset">Вышли из Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">קישורים משותפים משתמשים ב-music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">קישורים משותפים משתמשים ב-youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">שנה קישורי שיתוף ל-youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">פרמטר מעקב אינו מוסר מקישורי שיתוף</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">פרמטר מעקב מוסר מקישורי שיתוף</string>
+    <string name="morphe_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
+    <string name="morphe_spoof_video_streams_client_type_title">לקוח ברירת מחדל</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">עדכון JavaScript של הנגן מופעל</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"עדכון JavaScript של הנגן מושבת
+
+• נדרש hash JavaScript חוקי עבור הנגן
+• ההפעלה תיכשל אם ה-hash של JavaScript של הנגן בוטל ב-GVS"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">לשבט את עדכוני JavaScript של הנגן</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript hashes של השחקן תקפים לתקופה של כחודש, ו-hashes מיושנים עשויים להתבטל על ידי GVS.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Попробуйте включить: Фальшивый поток &gt; Войти в Android VR</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Не удалось получить доступ к потокам клиента</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_summary">\"הזן hash JavaScript תקף של השחקן</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_title">‌Ԓ԰՞ԑ JavaScript ԲՈԴ</string>
+    <string name="morphe_spoof_video_streams_screen_summary">זייף את זרמי הווידאו של הלקוח כדי למנוע בעיות השמעה</string>
+    <string name="morphe_spoof_video_streams_screen_title">זיוף זרמי וידאו</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Вы не вошли в Android VR. Нажмите здесь, чтобы войти</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Чтобы использовать эту функцию, измените \'Default client\' на Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Вы вошли в Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Войти в Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Код активации: %s
+
+1. Нажмите «Открыть сайт» ниже, чтобы открыть сайт «Подключить устройство»
+2. Вставьте с буфера обмена (или введите) код активации, показанный выше
+3. Войдите в Google при запросе. Если у вас несколько аккаунтов, выберите этот аккаунт YouTube
+4. Нажмите «Разрешить доступ YouTube VR»
+5. Вернитесь в это приложение после появления сообщения «Устройство подключено»"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Открыть сайт</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Инструкции</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Продолжить</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"התחברות לאנדרואיד VR תוכל לתקן בעיות תצוגה עבור כמה משתמשים
+
+להתחברות, לחץ על המשך למטה"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Выйти</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Войти в Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Аутентификация сохранена
+
+• Настройки Morphe не будут импортироваться/экспортироваться для аутентификации Android VR
+• Если это приложение не используется в течение 6 месяцев, Google удалит эту аутентификацию
+• Если вы измените пароль Google или снимете регистрацию этого устройства, вам придется войти снова"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Успешный вход</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Не удалось выдать код активации</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Не удалось получить токен аутентификации</string>
+    <string name="morphe_spoof_video_streams_summary_off">"זרמי וידאו אינם מזויפים
+
+ההשמעה עשויה שלא לפעול"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"מתבצעת התחזות לזרמי וידאו
+
+אם אתה משתמש YouTube Premium, ייתכן שהגדרה זו אינה נחוצה"</string>
+    <string name="morphe_spoof_video_streams_title">זייף זרמי וידאו</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">כיבוי הגדרה זו עלול לגרום לבעיות השמעה.</string>
     <string name="revanced_app_info_dialog_title">מידע היישום</string>
     <string name="revanced_app_info_title">מידע היישום</string>
     <string name="revanced_change_start_page_entry_default">ברירת מחדל</string>

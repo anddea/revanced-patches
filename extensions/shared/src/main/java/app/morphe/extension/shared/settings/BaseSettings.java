@@ -5,7 +5,6 @@ import static java.lang.Boolean.TRUE;
 import static app.morphe.extension.shared.patches.AppCheckPatch.IS_YOUTUBE;
 import static app.morphe.extension.shared.settings.Setting.parent;
 
-import app.morphe.extension.shared.innertube.client.YouTubeClient.ClientType;
 import app.morphe.extension.shared.patches.ReturnYouTubeUsernamePatch.DisplayFormat;
 import app.morphe.extension.shared.patches.WatchHistoryPatch.WatchHistoryType;
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch;
@@ -13,6 +12,7 @@ import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientA
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientJSAvailability;
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.J2V8Availability;
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.ShowReloadVideoButtonAvailability;
+import app.morphe.extension.shared.spoof.ClientType;
 
 /**
  * Settings shared across multiple apps.
@@ -46,9 +46,8 @@ public class BaseSettings {
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING = new BooleanSetting("revanced_spoof_streaming_data_use_js_bypass_fake_buffering", FALSE, true, new ClientJSAvailability());
 
     // Client type must be last spoof setting due to cyclic references.
-    // TV_SIMPLY for YouTube so 4K/HDR formats are returned when spoofing (e.g. devices without GMS).
     public static final EnumSetting<ClientType> SPOOF_STREAMING_DATA_DEFAULT_CLIENT = new EnumSetting<>("revanced_spoof_streaming_data_default_client",
-            IS_YOUTUBE ? ClientType.TV : ClientType.ANDROID_MUSIC_NO_SDK, true, parent(SPOOF_STREAMING_DATA));
+            IS_YOUTUBE ? ClientType.TV : ClientType.ANDROID_VR_1_47_48, true, parent(SPOOF_STREAMING_DATA));
 
     public static final BooleanSetting ENABLE_COMMENTS_SCROLL_TOP = new BooleanSetting("revanced_enable_comments_scroll_top", FALSE, true);
     public static final BooleanSetting DISABLE_AUTO_AUDIO_TRACKS = new BooleanSetting("revanced_disable_auto_audio_tracks", TRUE);

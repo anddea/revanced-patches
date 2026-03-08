@@ -20,6 +20,100 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
     <string name="gms_core_settings_summary">Cloud-Nachrichteneinstellungen aktivieren, um Benachrichtigungen zu erhalten</string>
     <string name="gms_core_settings_title">GmsCore öffnen</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore ist nicht installiert. Installieren Sie es.</string>
+    <string name="morphe_disable_drc_audio_summary_off">DRC-Audio ist aktiviert</string>
+    <string name="morphe_disable_drc_audio_summary_on">DRC-Audio ist deaktiviert</string>
+    <string name="morphe_disable_drc_audio_title">DRC-Audio deaktivieren</string>
+    <string name="morphe_disable_quic_protocol_summary_off">QUIC-Protokoll ist aktiviert</string>
+    <string name="morphe_disable_quic_protocol_summary_on">QUIC-Protokoll ist deaktiviert</string>
+    <string name="morphe_disable_quic_protocol_title">Deaktivieren Sie das QUIC-Protokoll</string>
+    <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändere \'Spoof-Videostreams\' auf Android Reel oder TV</string>
+    <string name="morphe_force_original_audio_summary_off">Standardaudio verwenden</string>
+    <string name="morphe_force_original_audio_summary_on">Original-Audiosprache verwenden</string>
+    <string name="morphe_force_original_audio_title">Original Audio erzwingen</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">Kann nicht in VR anmelden: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Kann sich nicht bei VR anmelden, Website-Authentifizierung wurde nicht genehmigt.</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 ist vorübergehend nicht verfügbar</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 ist vorübergehend nicht verfügbar (Status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Android VR-Anmeldung abgelaufen, versuchen Sie erneut, sich bei VR anzumelden.</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 ist vorübergehend nicht verfügbar (API Timeout)</string>
+    <string name="morphe_oauth2_toast_invalid">Ungültiges VR-Anmelde-Token, melden Sie sich erneut in VR an</string>
+    <string name="morphe_oauth2_toast_reset">Von Android VR abgemeldet</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">Geteilte Links verwenden music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">Geteilte Links verwenden youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">Teilen-Links zu youtube.com ändern</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht aus freigegebenen Links entfernt</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
+    <string name="morphe_sanitize_sharing_links_title">Freigabelinks säubern</string>
+    <string name="morphe_spoof_video_streams_about_experimental">• Experimenteller Client und kann jederzeit aufhören zu funktionieren</string>
+    <string name="morphe_spoof_video_streams_about_js">• Wenn die Deobfuskation fehlschlägt, kann die Wiedergabe fehlschlagen</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Audiotrack-Menü fehlt</string>
+    <string name="morphe_spoof_video_streams_about_no_av1">• Kein AV1-Videocodec</string>
+    <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Originalton erzwingen ist nicht verfügbar</string>
+    <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR immersiver Modus ist nicht verfügbar</string>
+    <string name="morphe_spoof_video_streams_about_no_stable_volume">• Stabile Lautstärke ist nicht verfügbar</string>
+    <string name="morphe_spoof_video_streams_about_playback_failure">• Video kann um 1:00 Uhr stoppen oder ist möglicherweise in einigen Regionen nicht verfügbar</string>
+    <string name="morphe_spoof_video_streams_about_title">Nebenwirkungen des Spoofings</string>
+    <string name="morphe_spoof_video_streams_av1_summary_off">Video-Codec ist AVC (H.264) oder VP9</string>
+    <string name="morphe_spoof_video_streams_av1_summary_on">"Video-Codec ist AVC (H.264), VP9 oder AV1
+
+Die Wiedergabe kann stottern oder Frames verlieren"</string>
+    <string name="morphe_spoof_video_streams_av1_title">Android VR AV1 zulassen</string>
+    <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Durch Aktivierung dieser Einstellung kann Software-AV1-Decodierung verwendet werden.
+
+Die Videowiedergabe mit AV1 kann stottern oder Bilder überspringen."</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Standard-Client</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">JavaScript-Update des Players ist aktiviert</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"JavaScript-Update des Players ist deaktiviert
+
+• Ein gültiger Player JavaScript Hash ist erforderlich
+• Die Wiedergabe schlägt fehl, wenn der Player JavaScript Hash in GVS widerrufen wird"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">JavaScript-Update des Players deaktivieren</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript-Hashes des Spielers sind ungefähr einen Monat gültig, und veraltete Hashes können von GVS widerrufen werden.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Versuchen Sie, dies zu aktivieren: Spoof video streams &gt; Android VR Anmeldung</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Keine Client-Streams konnten abgerufen werden</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_summary">Geben Sie einen gültigen Spieler JavaScript Hash ein</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_title">Spieler JavaScript Hash</string>
+    <string name="morphe_spoof_video_streams_player_js_variant_title">Player-JavaScript-Variante</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Spoofe die Client-Video-Streams, um Wiedergabeprobleme zu verhindern</string>
+    <string name="morphe_spoof_video_streams_screen_title">Spoofe Video-Streams</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Sie sind nicht bei Android VR angemeldet. Tappen Sie hier zum Anmelden</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie ‚Standardclient‘ zu Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Sie sind derzeit bei Android VR angemeldet</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR Anmeldung</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Aktivierungscode: %s
+
+1. Drücken Sie ‚Website öffnen‘ unten, um die ‚Gerät verbinden‘-Website zu öffnen
+2. Legen Sie den aus der Zwischenablage kopierten (oder selbst eingegebenen) Aktivierungscode oben ein
+3. Bei Aufforderung auf ‚Google Anmelden‘ klicken. Wenn Sie mehrere Konten haben, wählen Sie dieses YouTube-Konto
+4. Tappen Sie auf ‚YouTube VR‘ Zugriff erlauben
+5. Nach der Anzeige ‚Gerät verbunden‘ kehren Sie in diese App zurück"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Website öffnen</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Anleitung</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Weiter</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Anmeldung bei Android VR kann Wiedergabeprobleme für einige Benutzer beheben
+
+Um sich anzumelden, drücken Sie auf \"Weiter unten\"."</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Abmelden</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Bei Android VR anmelden</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Authentifizierung erfolgreich
+
+• Ihre Morphe-Einstellungen importieren/-exportieren keine Android VR-Authentifizierung
+• Wenn diese App 6 Monate lang nicht genutzt wird, entfernt Google diese Authentifizierung
+• Wenn Sie Ihr Google-Kennwort ändern oder dieses Gerät von Ihren Google-Einstellungen deregistrieren, müssen Sie sich erneut anmelden"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Erfolgreich angemeldet</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Ausgabe eines Aktivierungs-codes fehlgeschlagen</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Ausgabe eines Authentifizierungstokens fehlgeschlagen</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Der Client wird in den Statistiken für Nerds ausgeblendet</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Der Client-Typ wird in den Statistiken für Nerds angezeigt</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">In Statistiken für Nerds anzeigen</string>
+    <string name="morphe_spoof_video_streams_summary_off">"Video-Streams werden nicht gespooft
+
+Die Wiedergabe funktioniert möglicherweise nicht"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"Videostreams werden gespooft
+
+Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
+    <string name="morphe_spoof_video_streams_title">Spoofe Video-Streams</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann Wiedergabeprobleme verursachen.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Erweitertes Videoqualitätsmenü wird nicht angezeigt</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Erweitertes Videoqualitätsmenü wird angezeigt</string>
     <string name="revanced_advanced_video_quality_menu_title">Erweitertes Videoqualitätsmenü anzeigen</string>
@@ -232,11 +326,6 @@ Einschränkung: Zurück-Taste in der Symbolleiste funktioniert möglicherweise n
     <string name="revanced_disable_ambient_mode_title">Ambient-Modus deaktivieren</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">"Erzwungene automatische Audiospuren sind aktiviert."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Erzwungene automatische Audiospuren sind deaktiviert.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Erzwungene automatische Audiospuren sind deaktiviert.
-
-Bei einigen Benutzern funktioniert dies möglicherweise nicht. Wenn es bei Ihnen nicht funktioniert:
-1. Gehen Sie zu 'Einstellungen' – 'RVX' – 'Verschiedenes' – 'Spoof Streamingdaten' und aktivieren Sie 'JavaScript-Client verwenden'.
-2. Gehen Sie zu 'Einstellungen' – 'RVX' – 'Verschiedenes' – 'Spoof Streamingdaten' und ändern Sie 'Standard-Client' in 'TV'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Erzwungene automatische Audiotracks deaktivieren</string>
     <string name="revanced_disable_auto_captions_summary_off">Automatische Untertitel sind aktiviert</string>
     <string name="revanced_disable_auto_captions_summary_on">Automatische Untertitel sind deaktiviert</string>
@@ -729,6 +818,9 @@ Einstellungen → Wiedergabe → Nächstes Video automatisch abspielen"</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Erweiterbare Regale werden angezeigt.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Erweiterbare Regale sind ausgeblendet.</string>
     <string name="revanced_hide_expandable_shelf_title">Erweiterbare Regale ausblenden</string>
+    <string name="revanced_hide_explore_podcast_section_summary_off">Erkunde die Podcast sektion, wird angezeigt</string>
+    <string name="revanced_hide_explore_podcast_section_summary_on">Erkunde die Podcast sektion, wird versteckt</string>
+    <string name="revanced_hide_explore_podcast_section_title">Ausblenden, Erkunde die Podcast sektion</string>
     <string name="revanced_hide_featured_links_section_summary_off">Bereich „Empfohlene Links“ wird angezeigt</string>
     <string name="revanced_hide_featured_links_section_summary_on">Bereich „Empfohlene Links“ wird ausgeblendet</string>
     <string name="revanced_hide_featured_links_section_title">Empfohlene Links ausblenden</string>
@@ -921,11 +1013,6 @@ Wörter mit Großbuchstaben in der Mitte müssen mit der Groß- und Kleinschreib
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Ambient-Modus wird angezeigt.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ambient-Modus wird ausgeblendet.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Ambient-Modus ausblenden</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Audiospur-Menü wird ausgeblendet.
-
-So blenden Sie das Audiospur-Menü ein:
-1. Gehen Sie zu 'Einstellungen' – 'RVX' – 'Verschiedenes' – 'Spoof Streamingdaten' und aktivieren Sie 'JavaScript-Client verwenden'.
-2. Gehen Sie zu 'Einstellungen' – 'RVX' – 'Verschiedenes' – 'Spoof Streamingdaten' und ändern Sie 'Standard-Client' in 'TV'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Audiospur-Menü wird angezeigt.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Audiospur-Menü wird ausgeblendet.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Audiospur-Menü ausblenden</string>
@@ -1754,8 +1841,6 @@ Um den Download-Button der nativen Wiedergabeliste anzuzeigen, aktivieren Sie 'S
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
     <string name="revanced_preference_screen_snack_bar_summary">Komponenten im Zusammenhang mit Snackbar ausblenden oder ändern.</string>
     <string name="revanced_preference_screen_snack_bar_title">Snackbar</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_summary">Spoof die Streaming-Daten, um Wiedergabeprobleme zu vermeiden.</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_title">Spoof Streamingdaten</string>
     <string name="revanced_preference_screen_swipe_controls_title">Wischgesten</string>
     <string name="revanced_preference_screen_toolbar_summary">Verstecke oder ändere Toolbar-Komponenten, wie die Suchleiste, Buttons und Header.</string>
     <string name="revanced_preference_screen_toolbar_title">Werkzeugleiste</string>
@@ -2321,16 +2406,7 @@ Info:
 • High quality may be unlocked on some videos that require high device dimensions, but not all videos.
 • This setting is not available if 'Spoof streaming data' is turned on."</string>
     <string name="revanced_spoof_device_dimensions_title">Spoof-Gerätegröße</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
-<small>(Login required)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">"Android VR
-<small>(No Auth)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
-<small>(Unreleased)</small>"</string>
     <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Du bist möglicherweise nicht eingeloggt.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Video codecs are prioritized.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Video quality is prioritized.</string>
     <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Prioritize video quality</string>
@@ -2425,8 +2501,6 @@ Example 2:
 
 • JavaScript client still cannot play some videos."</string>
     <string name="revanced_spoof_streaming_data_use_js_all_title">Use JavaScript client for all videos</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Click for more information.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">About fake buffering</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"One reason videos start too late in the JavaScript client is due to YouTube's new anti-adblock measures.
 
 When a video ad is blocked, GVS (Google Video Server) generate fake buffering proportional to the ad duration (A/B testing).
@@ -2454,15 +2528,6 @@ This can be easily resolved by clicking the 'Reload video button' in the player 
 (Prerequisites: Both 'Show reload video button' and 'Always show reload video button' are enabled)
 
 Among JavaScript clients, the recommended client is TV."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"SmartTube extractor is used.
-
-• Player JavaScript for deobfuscation is not up to date.
-• This will be deprecated by servers in the near future."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"External JavaScript for yt-dlp (yt-dlp-ejs) is used.
-
-• Player JavaScript for deobfuscation is kept up to date.
-• It may take 5 to 15 seconds for the video to start."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Use yt-dlp ejs (WIP)</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Das Deaktivieren dieser Einstellung kann zu Videowiedergabeproblemen führen.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Klicken Sie hier, um zu erfahren, wie Sie einen Authentifizierungstoken erhalten.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Über Android VR Auth</string>
@@ -2612,4 +2677,7 @@ Haftungsausschluss: Cookies, die ohne Anmeldung ausgestellt werden, können ung�
     <string name="revanced_whitelist_sponsor_block">Sponsorenblock</string>
     <string name="revanced_yandex_error_no_subs_returned">Keine Untertitel-Spuren verfügbar</string>
     <string name="revanced_yandex_status_subs_found">Untertitel gefunden, abfragen...</string>
+    <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
+<small>(Unreleased)</small>"</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Du bist möglicherweise nicht eingeloggt.</string>
 </resources>
