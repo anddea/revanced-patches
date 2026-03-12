@@ -1,3 +1,11 @@
+# [4.0.0-dev.7](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.6...v4.0.0-dev.7) (2026-03-12)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add `Gemini 3.1 Flash Lite Preview` and update prompt ([36bca64](https://github.com/anddea/revanced-patches/commit/36bca64ec6112e96d10c55f083492d30f8032e25))
+* **YouTube & YT Music - Spoof video streams:** Match Morphe ([43cab65](https://github.com/anddea/revanced-patches/commit/43cab65290c3ca17c3d56a952479f1d20b83cf36))
+
 # [4.0.0-dev.6](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.5...v4.0.0-dev.6) (2026-03-05)
 
 
