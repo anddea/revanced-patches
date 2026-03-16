@@ -28,11 +28,13 @@ public class AppInfoDialogBuilder {
             long patchedTime = PatchedTime();
             Date date = new Date(patchedTime);
 
+            final String creditsUrl = "https://github.com/anddea/revanced-patches/wiki/Credits";
+
             final String htmlDialog = "<html>" +
                     "<body style=\"padding: 15px;\"><p>" +
                     String.format(
                             Locale.ENGLISH,
-                            "<style> body { background-color: %s; color: %s; line-height: 20px; } a { color: %s; } </style>",
+                            "<style> body { background-color: %s; color: %s; line-height: 20px; } a { color: %s; text-decoration: underline; } </style>",
                             backgroundColorHex, foregroundColorHex, foregroundColorHex) +
                     "<h2>" +
                     str("revanced_app_info_dialog_title") +
@@ -44,6 +46,8 @@ public class AppInfoDialogBuilder {
                             PatchVersion(),
                             date.toLocaleString()
                     ) +
+                    "<br><br>" +
+                    "<a href=\"" + creditsUrl + "\">" + str("revanced_credits_title") + "</a>" +
                     "</p></body></html>";
 
             Utils.runOnMainThreadNowOrLater(() -> {

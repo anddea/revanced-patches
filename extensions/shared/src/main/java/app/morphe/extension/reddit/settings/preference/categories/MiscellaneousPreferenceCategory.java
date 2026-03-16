@@ -49,5 +49,10 @@ public class MiscellaneousPreferenceCategory extends ConditionalPreferenceCatego
                     "https://rvxtranslate.netlify.app/"
             ));
         }
+        addPreference(new LinkPreference(
+                context,
+                "revanced_credits_title",
+                "https://github.com/anddea/revanced-patches/wiki/Credits"
+        ));
     }
 }
