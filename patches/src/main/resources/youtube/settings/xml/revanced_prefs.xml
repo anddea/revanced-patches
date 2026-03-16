@@ -991,6 +991,7 @@
 
         <PreferenceCategory android:title="@string/revanced_preference_category_patch_information" android:layout="@layout/revanced_settings_preferences_category"/>
         <PreferenceScreen android:title="@string/revanced_preference_screen_patch_information_title"  android:key="revanced_preference_screen_patch_information" android:summary="@string/revanced_preference_screen_patch_information_summary" >
+            <app.morphe.extension.youtube.settings.preference.CreditsPreference android:title="@string/revanced_credits_title" android:key="revanced_credits" />
             <PreferenceCategory android:title="@string/revanced_preference_category_app_info" android:layout="@layout/revanced_settings_preferences_category" >
                 <Preference android:title="@string/revanced_app_name_title" android:key="revanced_app_name" android:selectable="false" />
                 <Preference android:title="@string/revanced_app_version_title" android:key="revanced_app_version" android:selectable="false" />
