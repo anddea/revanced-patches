@@ -215,6 +215,7 @@ val overlayButtonsPatch = resourcePatch(
                 ResourceGroup(
                     "drawable",
                     "revanced_vot_button_icon.xml",
+                    "revanced_vot_button_activated_icon.xml",
                     "yt_outline_screen_vertical_vd_theme_24.xml",
                 )
             )
