@@ -1,3 +1,15 @@
+# [4.0.0-dev.8](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.7...v4.0.0-dev.8) (2026-03-16)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Gemini summary could use the wrong markdown for titles ([aac78fd](https://github.com/anddea/revanced-patches/commit/aac78fdb7ce2980647f723c0f3b92f7e4e38c795))
+
+
+### Features
+
+* **YouTube, YT Music & Reddit:** Add credits ([b20f2f1](https://github.com/anddea/revanced-patches/commit/b20f2f1cb8e35ddc9cf9d7e1f8d6f84e81d462a1))
+
 # [4.0.0-dev.7](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.6...v4.0.0-dev.7) (2026-03-12)
 
 
