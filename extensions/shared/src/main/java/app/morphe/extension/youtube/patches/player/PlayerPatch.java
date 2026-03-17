@@ -5,6 +5,9 @@ import static app.morphe.extension.shared.utils.Utils.hideViewByRemovingFromPare
 import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
 import static app.morphe.extension.shared.utils.Utils.validateValue;
 
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -220,21 +223,47 @@ public class PlayerPatch {
         return Settings.DISABLE_HAPTIC_FEEDBACK_CHAPTERS.get();
     }
 
-
-    public static boolean disableSeekVibrate() {
-        return Settings.DISABLE_HAPTIC_FEEDBACK_SEEK.get();
+    public static boolean disablePreciseSeekingVibrate() {
+        return Settings.DISABLE_HAPTIC_FEEDBACK_PRECISE_SEEKING.get();
     }
 
     public static boolean disableSeekUndoVibrate() {
         return Settings.DISABLE_HAPTIC_FEEDBACK_SEEK_UNDO.get();
     }
 
-    public static boolean disableScrubbingVibrate() {
-        return Settings.DISABLE_HAPTIC_FEEDBACK_SCRUBBING.get();
+    public static Object disableTapAndHoldVibrate(Object vibrator) {
+        return Settings.DISABLE_HAPTIC_FEEDBACK_TAP_AND_HOLD.get()
+                ? null
+                : vibrator;
     }
 
     public static boolean disableZoomVibrate() {
         return Settings.DISABLE_HAPTIC_FEEDBACK_ZOOM.get();
+    }
+
+    public static void vibrate(Vibrator vibrator, VibrationEffect vibrationEffect) {
+        if (canVibrate(vibrator)) {
+            vibrator.vibrate(vibrationEffect);
+        }
+    }
+
+    @SuppressWarnings("deprecation")
+    public static void vibrate(Vibrator vibrator, long milliseconds) {
+        if (canVibrate(vibrator)) {
+            vibrator.vibrate(milliseconds);
+        }
+    }
+
+    private static boolean canVibrate(Vibrator vibrator) {
+        return vibrator != null && !areAllHapticsDisabled();
+    }
+
+    private static boolean areAllHapticsDisabled() {
+        return Settings.DISABLE_HAPTIC_FEEDBACK_CHAPTERS.get()
+                && Settings.DISABLE_HAPTIC_FEEDBACK_PRECISE_SEEKING.get()
+                && Settings.DISABLE_HAPTIC_FEEDBACK_SEEK_UNDO.get()
+                && Settings.DISABLE_HAPTIC_FEEDBACK_TAP_AND_HOLD.get()
+                && Settings.DISABLE_HAPTIC_FEEDBACK_ZOOM.get();
     }
 
     // endregion
