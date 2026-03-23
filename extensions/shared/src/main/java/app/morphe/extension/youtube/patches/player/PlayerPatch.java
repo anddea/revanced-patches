@@ -5,6 +5,7 @@ import static app.morphe.extension.shared.utils.Utils.hideViewByRemovingFromPare
 import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
 import static app.morphe.extension.shared.utils.Utils.validateValue;
 
+import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 
@@ -20,6 +21,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
@@ -241,6 +243,7 @@ public class PlayerPatch {
         return Settings.DISABLE_HAPTIC_FEEDBACK_ZOOM.get();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void vibrate(Vibrator vibrator, VibrationEffect vibrationEffect) {
         if (disableVibrate()) return;
         vibrator.vibrate(vibrationEffect);
