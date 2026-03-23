@@ -426,8 +426,8 @@ public class Settings extends SharedYouTubeSettings {
 
     // PreferenceScreen: Player - Haptic feedback
     public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_CHAPTERS = new BooleanSetting("revanced_disable_haptic_feedback_chapters", FALSE);
-    public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_SCRUBBING = new BooleanSetting("revanced_disable_haptic_feedback_scrubbing", FALSE);
-    public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_SEEK = new BooleanSetting("revanced_disable_haptic_feedback_seek", FALSE);
+    public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_PRECISE_SEEKING = new BooleanSetting("revanced_disable_haptic_feedback_precise_seeking", FALSE);
+    public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_TAP_AND_HOLD = new BooleanSetting("revanced_disable_haptic_feedback_tap_and_hold", FALSE);
     public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_SEEK_UNDO = new BooleanSetting("revanced_disable_haptic_feedback_seek_undo", FALSE);
     public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_ZOOM = new BooleanSetting("revanced_disable_haptic_feedback_zoom", FALSE);
 

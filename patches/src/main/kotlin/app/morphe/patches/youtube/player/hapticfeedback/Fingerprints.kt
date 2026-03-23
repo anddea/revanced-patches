@@ -1,36 +1,47 @@
 package app.morphe.patches.youtube.player.hapticfeedback
 
-import app.morphe.util.fingerprint.legacyFingerprint
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.checkCast
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.string
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val markerHapticsFingerprint = legacyFingerprint(
-    name = "markerHapticsFingerprint",
+internal object MarkerHapticsFingerprint : Fingerprint(
     returnType = "V",
     strings = listOf("Failed to execute markers haptics vibrate.")
 )
 
-internal val scrubbingHapticsFingerprint = legacyFingerprint(
-    name = "scrubbingHapticsFingerprint",
+internal object ScrubbingHapticsFingerprint : Fingerprint(
     returnType = "V",
     strings = listOf("Failed to haptics vibrate for fine scrubbing.")
 )
 
-internal val seekHapticsFingerprint = legacyFingerprint(
-    name = "seekHapticsFingerprint",
-    returnType = "V",
-    opcodes = listOf(Opcode.SGET),
-    strings = listOf("Failed to easy seek haptics vibrate."),
-    customFingerprint = { method, _ -> method.name == "run" }
-)
-
-internal val seekUndoHapticsFingerprint = legacyFingerprint(
-    name = "seekUndoHapticsFingerprint",
+internal object SeekUndoHapticsFingerprint : Fingerprint(
     returnType = "V",
     strings = listOf("Failed to execute seek undo haptics vibrate.")
 )
 
-internal val zoomHapticsFingerprint = legacyFingerprint(
-    name = "zoomHapticsFingerprint",
+internal object TapAndHoldHapticsHandlerFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    returnType = "V",
+    parameters = listOf("Landroid/content/Context;", "Landroid/os/Handler;"),
+    filters = listOf(
+        string("vibrator"),
+        checkCast("Landroid/os/Vibrator;"),
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            type = "Ljava/lang/Object;",
+            location = MatchAfterImmediately()
+        )
+    ),
+    custom = { method, _ ->
+        method.name == "<init>"
+    }
+)
+
+internal object ZoomHapticsFingerprint : Fingerprint(
     returnType = "V",
     strings = listOf("Failed to haptics vibrate for video zoom")
 )
