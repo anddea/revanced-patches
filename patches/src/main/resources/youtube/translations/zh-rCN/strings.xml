@@ -165,14 +165,14 @@
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">使用旧版样式的弹出菜单。</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">使用自定义对话框。</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">视频画质菜单类型</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">省电模式下氛围模式已禁用</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">省电模式下氛围模式已启用</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_title">解除氛围模式限制</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">未绕过电源节能的氛围模式限制</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">已绕过电源节能的氛围模式限制</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">绕过氛围模式限制</string>
     <string name="revanced_bypass_image_region_restrictions_domain_summary">获取图片的域名\n注意：仅输入域名，不输入“https\:\/\/”前缀</string>
     <string name="revanced_bypass_image_region_restrictions_domain_title">替代域名</string>
-    <string name="revanced_bypass_image_region_restrictions_summary_off">"使用原始图片主机地址
+    <string name="revanced_bypass_image_region_restrictions_summary_off">"使用原始图片主机
 
-启用此选项可以修复在某些地区因被屏蔽而缺失的图片"</string>
+启用此选项可以修复在某些地区被屏蔽的缺失图片"</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">使用图像主机 yt4.ggpht.com</string>
     <string name="revanced_bypass_image_region_restrictions_title">绕过图像区域限制</string>
     <string name="revanced_bypass_url_redirects_summary_off">URL 重定向将不被跳过</string>
@@ -190,10 +190,16 @@
 
 平板电脑布局
 • 社区帖子已隐藏
+• 订阅源中的播放设置不可用
+• Shorts 中未提供 Remix 按钮和 Sound 按钮
+• 视频操作栏未折叠
 
-汽车布局
+车载布局
+• 订阅源按主题和频道组织
+• 订阅源中的播放设置不可用
+• Shorts 中未提供 Remix 按钮和 Sound 按钮
 • Shorts 在常规播放器中打开
-• Feed 按主题和频道组织"</string>
+• 视频操作栏未折叠"</string>
     <string name="revanced_change_live_ring_click_action_summary_off">点击直播环形框即可打开直播。</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"点击直播环形框即可打开频道。
 
@@ -224,7 +230,7 @@
     <string name="revanced_change_start_page_entry_courses">学习</string>
     <string name="revanced_change_start_page_entry_default">默认</string>
     <string name="revanced_change_start_page_entry_explore">探索</string>
-    <string name="revanced_change_start_page_entry_fashion">时尚和美容</string>
+    <string name="revanced_change_start_page_entry_fashion">时尚 &amp; 美妆</string>
     <string name="revanced_change_start_page_entry_gaming">游戏</string>
     <string name="revanced_change_start_page_entry_history">历史记录</string>
     <string name="revanced_change_start_page_entry_hype">热门</string>
@@ -349,24 +355,24 @@
     <string name="revanced_disable_default_playback_speed_music_type_off">对于可在YouTube音乐上播放的视频，禁用默认播放速度。</string>
     <string name="revanced_disable_default_playback_speed_music_type_on">如果视频类别为音乐，则禁用默认播放速度。</string>
     <string name="revanced_disable_default_playback_speed_music_type_title">使用类别验证</string>
-    <string name="revanced_disable_drc_audio_summary_off">DRC（动态范围压缩）音频已启用。</string>
-    <string name="revanced_disable_drc_audio_summary_on">DRC（动态范围压缩）音频已禁用。</string>
-    <string name="revanced_disable_drc_audio_title">禁用DRC音频</string>
+    <string name="revanced_disable_drc_audio_summary_off">DRC 音频已启用</string>
+    <string name="revanced_disable_drc_audio_summary_on">DRC 音频已禁用</string>
+    <string name="revanced_disable_drc_audio_title">禁用 DRC 音频</string>
     <string name="revanced_disable_engagement_panel_summary_off">启用互动面板</string>
     <string name="revanced_disable_engagement_panel_summary_on">禁用互动面板</string>
     <string name="revanced_disable_engagement_panel_title">禁用互动面板</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">已启用章节触感反馈</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">已禁用章节触感反馈</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">禁用章节触感反馈</string>
-    <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">启用滑动触感反馈</string>
-    <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">禁用滑动触感反馈</string>
-    <string name="revanced_disable_haptic_feedback_precise_seeking_title">禁用滑动触感反馈</string>
-    <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">启用进度触感反馈</string>
-    <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">禁用进度触感反馈</string>
-    <string name="revanced_disable_haptic_feedback_tap_and_hold_title">禁用进度触感反馈</string>
+    <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">已启用精确搜索触感反馈</string>
+    <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">精确查找触觉反馈已禁用</string>
+    <string name="revanced_disable_haptic_feedback_precise_seeking_title">禁用精确搜索触感反馈</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">撤销查找触觉反馈已启用</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">撤销查找触觉反馈已禁用</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_title">禁用撤销查找触觉反馈</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">长按触觉反馈已启用</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">长按触觉反馈已禁用</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_title">禁用长按触觉反馈</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">缩放触觉反馈已启用</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">缩放触觉反馈已禁用</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">禁用缩放触觉反馈</string>
@@ -379,24 +385,25 @@
     <string name="revanced_disable_landscape_mode_summary_off">全屏时的横屏模式已启用</string>
     <string name="revanced_disable_landscape_mode_summary_on">全屏时的横屏模式已禁用</string>
     <string name="revanced_disable_landscape_mode_title">横屏模式</string>
-    <string name="revanced_disable_layout_updates_summary_off">布局将由服务器更新。</string>
-    <string name="revanced_disable_layout_updates_summary_on">布局将不会由服务器更新。</string>
+    <string name="revanced_disable_layout_updates_summary_off">服务器会更新布局</string>
+    <string name="revanced_disable_layout_updates_summary_on">服务器不会更新布局</string>
     <string name="revanced_disable_layout_updates_title">禁用布局更新</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"应用布局将恢复为初次安装时使用的布局。
+    <string name="revanced_disable_layout_updates_user_dialog_message">"应用布局恢复到首次安装时使用的布局。
 
 某些服务器端布局可能无法恢复。
 
-变更包括：
-• 播放器弹出菜单（或相关设置）中的组件可能无法正常工作。
-• 滚动数字不再呈现动画效果。
-• 使用“媒体库”标签页。
-• 视频说明中的“音乐”部分可能无法正常工作。
-• 账号切换按钮可能不会显示在“媒体库”标签页上。请使用“在‘你’标签页中启用宽搜索栏”设置。"</string>
+更改包括：
+• 播放器飞出菜单（或相关设置）中的组件可能无法工作。
+• 滚动数字没有动画。
+• 显示库标签。
+• 视频描述中的音乐部分可能无法工作。
+• 播放器飞出菜单项无法隐藏。
+• 帐户切换按钮可能不会出现在库标签上。"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">点赞和点踩按钮点击时有动效</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">点赞和点踩按钮点击时无动效</string>
     <string name="revanced_disable_like_dislike_glow_title">禁用点赞和点踩按钮动效</string>
     <string name="revanced_disable_quic_protocol_summary">"禁用 Cronet 引擎的 QUIC 协议"</string>
-    <string name="revanced_disable_quic_protocol_title">禁用 QUIC 协议</string>
+    <string name="revanced_disable_quic_protocol_title">禁用QUIC协议</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;继续观看&lt;/b&gt;将在应用启动时恢复。&lt;br&gt;&lt;br&gt;信息：&lt;br&gt;• &lt;b&gt;继续观看&lt;/b&gt;是YouTube Premium功能。&lt;br&gt;• 此设置不会强制启用&lt;b&gt;继续观看&lt;/b&gt;。</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;继续观看&lt;/b&gt;将在应用启动时不恢复。</string>
     <string name="revanced_disable_resuming_miniplayer_title">禁用恢复迷你播放器</string>
@@ -648,6 +655,9 @@
     <string name="revanced_hide_account_menu_summary">"隐藏帐户菜单和你的选项卡的元素
 某些组件可能不会隐藏"</string>
     <string name="revanced_hide_account_menu_title">账号菜单</string>
+    <string name="revanced_hide_action_bar_summary_off">操作栏已显示</string>
+    <string name="revanced_hide_action_bar_summary_on">操作栏已隐藏</string>
+    <string name="revanced_hide_action_bar_title">隐藏操作栏</string>
     <string name="revanced_hide_action_button_index_summary_off">"“操作按钮已按标识符过滤器隐藏。
 
 信息：
@@ -680,9 +690,9 @@
     <string name="revanced_hide_attributes_section_summary_off">已显示“精选地点”、“游戏”、“音乐”和“提及的人物”部分</string>
     <string name="revanced_hide_attributes_section_summary_on">已隐藏“精选地点”、“游戏”、“音乐”和“提及的人物”部分</string>
     <string name="revanced_hide_attributes_section_title">隐藏属性</string>
-    <string name="revanced_hide_autoplay_preview_summary_off">自动播放预览面板已显示</string>
-    <string name="revanced_hide_autoplay_preview_summary_on">自动播放预览面板已隐藏</string>
-    <string name="revanced_hide_autoplay_preview_title">隐藏自动播放预览面板</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">自动播放预览已显示</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">自动播放预览已隐藏</string>
+    <string name="revanced_hide_autoplay_preview_title">隐藏自动播放预览</string>
     <string name="revanced_hide_carousel_shelf_about_summary">轮播栏示例：&lt;br&gt;&lt;br&gt;&lt;b&gt;突发新闻&lt;/b&gt;、&lt;b&gt;继续观看&lt;/b&gt;、&lt;b&gt;探索更多频道&lt;/b&gt;、&lt;b&gt;为你推荐&lt;/b&gt;、&lt;b&gt;再次收听&lt;/b&gt;、&lt;b&gt;最相关&lt;/b&gt;、&lt;b&gt;购物&lt;/b&gt;、&lt;b&gt;再次观看&lt;/b&gt;</string>
     <string name="revanced_hide_carousel_shelf_about_title">关于轮播栏</string>
     <string name="revanced_hide_carousel_shelf_home_summary_off">已在主页动态和相关视频中显示。</string>
@@ -731,13 +741,13 @@
     <string name="revanced_hide_channel_tab_filter_strings_hint">"Shorts
 播放列表
 商店"</string>
-    <string name="revanced_hide_channel_tab_filter_strings_summary">要过滤的频道标签名称列表，每行一个名称</string>
-    <string name="revanced_hide_channel_tab_filter_strings_title">频道标签过滤器</string>
-    <string name="revanced_hide_channel_tab_summary_off">频道标签过滤器已禁用</string>
-    <string name="revanced_hide_channel_tab_summary_on">频道标签过滤器已启用。</string>
-    <string name="revanced_hide_channel_tab_title">启用频道标签过滤器</string>
-    <string name="revanced_hide_channel_watermark_summary_off">众筹框已隐藏</string>
-    <string name="revanced_hide_channel_watermark_summary_on">水印已隐藏</string>
+    <string name="revanced_hide_channel_tab_filter_strings_summary">输入要过滤的频道标签名称，每行一个</string>
+    <string name="revanced_hide_channel_tab_filter_strings_title">频道标签过滤</string>
+    <string name="revanced_hide_channel_tab_summary_off">频道标签过滤已禁用</string>
+    <string name="revanced_hide_channel_tab_summary_on">频道标签过滤已启用</string>
+    <string name="revanced_hide_channel_tab_title">启用频道标签过滤</string>
+    <string name="revanced_hide_channel_watermark_summary_off">频道水印已显示</string>
+    <string name="revanced_hide_channel_watermark_summary_on">频道水印已隐藏</string>
     <string name="revanced_hide_channel_watermark_title">隐藏频道水印</string>
     <string name="revanced_hide_chapters_section_summary_off">「章节」部分已显示</string>
     <string name="revanced_hide_chapters_section_summary_on">「章节」部分已隐藏</string>
@@ -771,18 +781,18 @@
     <string name="revanced_hide_comments_information_button_summary_off">信息按钮已显示。</string>
     <string name="revanced_hide_comments_information_button_summary_on">信息按钮已隐藏。</string>
     <string name="revanced_hide_comments_information_button_title">隐藏信息按钮</string>
-    <string name="revanced_hide_comments_section_in_home_feed_summary_off">首页动态中评论部分已显示</string>
-    <string name="revanced_hide_comments_section_in_home_feed_summary_on">首页动态中评论部分已隐藏</string>
-    <string name="revanced_hide_comments_section_in_home_feed_title">隐藏首页动态中的评论部分</string>
+    <string name="revanced_hide_comments_section_in_home_feed_summary_off">主页feed中视频下方的评论部分已显示</string>
+    <string name="revanced_hide_comments_section_in_home_feed_summary_on">主页feed中视频下方的评论部分已隐藏</string>
+    <string name="revanced_hide_comments_section_in_home_feed_title">隐藏主页动态的评论区</string>
     <string name="revanced_hide_comments_section_summary_off">评论区已显示</string>
     <string name="revanced_hide_comments_section_summary_on">评论区已隐藏</string>
     <string name="revanced_hide_comments_section_title">隐藏评论区</string>
     <string name="revanced_hide_comments_thanks_button_summary_off">感谢按钮已显示</string>
     <string name="revanced_hide_comments_thanks_button_summary_on">感谢按钮已隐藏</string>
     <string name="revanced_hide_comments_thanks_button_title">隐藏感谢按钮</string>
-    <string name="revanced_hide_community_button_summary_off">“社区”按钮已显示</string>
-    <string name="revanced_hide_community_button_summary_on">“社区”按钮已隐藏</string>
-    <string name="revanced_hide_community_button_title">隐藏社区按钮</string>
+    <string name="revanced_hide_community_button_summary_off">「社区」按钮已显示</string>
+    <string name="revanced_hide_community_button_summary_on">「社区」按钮已隐藏</string>
+    <string name="revanced_hide_community_button_title">隐藏「社区」按钮</string>
     <string name="revanced_hide_community_posts_channel_summary_off">频道中的社区帖子已显示</string>
     <string name="revanced_hide_community_posts_channel_summary_on">频道中的社区帖子隐藏</string>
     <string name="revanced_hide_community_posts_channel_title">隐藏频道中的社区帖子</string>
@@ -804,9 +814,9 @@
     <string name="revanced_hide_download_button_summary_off">下载按钮已显示</string>
     <string name="revanced_hide_download_button_summary_on">下载按钮已隐藏</string>
     <string name="revanced_hide_download_button_title">隐藏「下载」按钮</string>
-    <string name="revanced_hide_end_screen_cards_summary_off">结束界面卡片已显示</string>
-    <string name="revanced_hide_end_screen_cards_summary_on">结束界面卡片已隐藏</string>
-    <string name="revanced_hide_end_screen_cards_title">隐藏结束界面卡片</string>
+    <string name="revanced_hide_end_screen_cards_summary_off">片尾卡已显示</string>
+    <string name="revanced_hide_end_screen_cards_summary_on">片尾卡已隐藏</string>
+    <string name="revanced_hide_end_screen_cards_title">隐藏片尾卡</string>
     <string name="revanced_hide_end_screen_store_banner_summary_off">结束画面商店横幅已显示</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">结束画面商店横幅已隐藏</string>
     <string name="revanced_hide_end_screen_store_banner_title">商店横幅已隐藏</string>
@@ -822,11 +832,11 @@
     <string name="revanced_hide_expandable_shelf_summary_off">扩展边框已显示</string>
     <string name="revanced_hide_expandable_shelf_summary_on">扩展边框已隐藏</string>
     <string name="revanced_hide_expandable_shelf_title">隐藏扩展边框</string>
-    <string name="revanced_hide_explore_podcast_section_summary_off">“浏览播客”部分已显示。</string>
-    <string name="revanced_hide_explore_podcast_section_summary_on">“浏览播客”部分已隐藏。</string>
-    <string name="revanced_hide_explore_podcast_section_title">隐藏「探索该博客」部分</string>
-    <string name="revanced_hide_featured_links_section_summary_off">特色链接部分已显示</string>
-    <string name="revanced_hide_featured_links_section_summary_on">特色链接部分已隐藏</string>
+    <string name="revanced_hide_explore_podcast_section_summary_off">“浏览播客”部分已显示</string>
+    <string name="revanced_hide_explore_podcast_section_summary_on">“浏览播客”部分已隐藏</string>
+    <string name="revanced_hide_explore_podcast_section_title">隐藏“浏览播客”</string>
+    <string name="revanced_hide_featured_links_section_summary_off">精选链接部分已显示</string>
+    <string name="revanced_hide_featured_links_section_summary_on">精选链接部分已隐藏</string>
     <string name="revanced_hide_featured_links_section_title">隐藏精选链接</string>
     <string name="revanced_hide_featured_videos_section_summary_off">精选视频部分已显示</string>
     <string name="revanced_hide_featured_videos_section_summary_on">精选视频部分已隐藏</string>
@@ -834,14 +844,14 @@
     <string name="revanced_hide_feed_captions_button_off">显示字幕按钮</string>
     <string name="revanced_hide_feed_captions_button_on">隐藏字幕按钮</string>
     <string name="revanced_hide_feed_captions_button_title">隐藏动态字幕按钮</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">要过滤的动态弹出菜单名称列表，每行一个名称</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_strings_title">编辑资讯弹出菜单过滤</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">输入飞出菜单名称以按名称过滤，每行一个</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_title">信息流飞出菜单筛选器</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">如果匹配则进行过滤。&lt;br&gt;&lt;br&gt;要隐藏&lt;b&gt;“播放队列中的下一个”&lt;/b&gt;菜单，你只能使用&lt;b&gt;“播放下一个”&lt;/b&gt;或&lt;b&gt;“播放队列中的下一个”&lt;/b&gt;作为关键字。</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">如果包含则进行过滤。&lt;br&gt;&lt;br&gt;要隐藏&lt;b&gt;“播放队列中的下一个”&lt;/b&gt;菜单，你可以使用&lt;b&gt;“播放下一个”&lt;/b&gt;或&lt;b&gt;“在队列中”&lt;/b&gt;作为关键字。</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">动态弹出菜单过滤类型</string>
-    <string name="revanced_hide_feed_flyout_menu_summary_off">资讯弹出菜单已显示</string>
-    <string name="revanced_hide_feed_flyout_menu_summary_on">资讯弹出菜单已隐藏</string>
-    <string name="revanced_hide_feed_flyout_menu_title">隐藏资讯弹出菜单</string>
+    <string name="revanced_hide_feed_flyout_menu_summary_off">信息流飞出菜单筛选器已禁用</string>
+    <string name="revanced_hide_feed_flyout_menu_summary_on">信息流飞出菜单筛选器已启用</string>
+    <string name="revanced_hide_feed_flyout_menu_title">启用信息流飞出菜单筛选器</string>
     <string name="revanced_hide_feed_search_bar_summary_off">显示动态搜索栏</string>
     <string name="revanced_hide_feed_search_bar_summary_on">隐藏动态搜索栏</string>
     <string name="revanced_hide_feed_search_bar_title">隐藏新闻源搜索栏</string>
@@ -855,9 +865,7 @@
     <string name="revanced_hide_floating_microphone_summary_on">弹出麦克风按钮已隐藏</string>
     <string name="revanced_hide_floating_microphone_title">隐藏弹出麦克风按钮</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">全屏广告已显示</string>
-    <string name="revanced_hide_fullscreen_ads_summary_on">"全屏广告已隐藏
-
-此功能仅适用于旧设备"</string>
+    <string name="revanced_hide_fullscreen_ads_summary_on">全屏广告已隐藏</string>
     <string name="revanced_hide_fullscreen_ads_title">隐藏全屏广告</string>
     <string name="revanced_hide_general_ads_summary_off">一般广告已显示</string>
     <string name="revanced_hide_general_ads_summary_on">一般广告已隐藏</string>
@@ -895,16 +903,16 @@
     <string name="revanced_hide_join_button_in_channel_page_summary_off">加入按钮已显示</string>
     <string name="revanced_hide_join_button_in_channel_page_summary_on">加入按钮已隐藏</string>
     <string name="revanced_hide_join_button_in_channel_page_title">隐藏「加入」按钮</string>
-    <string name="revanced_hide_join_button_summary_off">“加入”按钮已显示</string>
-    <string name="revanced_hide_join_button_summary_on">“加入”按钮已隐藏</string>
-    <string name="revanced_hide_join_button_title">隐藏“加入”按钮</string>
+    <string name="revanced_hide_join_button_summary_off">加入按钮已显示</string>
+    <string name="revanced_hide_join_button_summary_on">加入按钮已隐藏</string>
+    <string name="revanced_hide_join_button_title">隐藏「加入」按钮</string>
     <string name="revanced_hide_key_concepts_section_summary_off">“主要概念”部分已显示</string>
     <string name="revanced_hide_key_concepts_section_summary_on">“主要概念”部分已隐藏</string>
     <string name="revanced_hide_key_concepts_section_title">隐藏“主要概念”</string>
-    <string name="revanced_hide_keyword_content_about_summary">"首页/订阅/搜索结果会过滤掉与关键词短语匹配的内容
+    <string name="revanced_hide_keyword_content_about_summary">"首页/订阅/搜索结果过滤掉与关键词短语匹配的内容
 
-限制
-• Shorts 无法通过频道名称隐藏
+限制：
+• 短视频无法通过频道名称隐藏
 • 某些 UI 组件可能不会隐藏
 • 搜索关键词可能没有结果"</string>
     <string name="revanced_hide_keyword_content_about_title">关于关键字过滤</string>
@@ -939,9 +947,9 @@
     <string name="revanced_hide_latest_posts_summary_off">最新帖子已显示</string>
     <string name="revanced_hide_latest_posts_summary_on">最新帖子已隐藏</string>
     <string name="revanced_hide_latest_posts_title">隐藏「最新帖子」</string>
-    <string name="revanced_hide_latest_videos_button_summary_off">最新视频按钮已显示</string>
-    <string name="revanced_hide_latest_videos_button_summary_on">最新视频按钮已隐藏</string>
-    <string name="revanced_hide_latest_videos_button_title">隐藏最新视频按钮</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">「最新视频」按钮已显示</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">「最新视频」按钮已隐藏</string>
+    <string name="revanced_hide_latest_videos_button_title">隐藏「最新视频」按钮</string>
     <string name="revanced_hide_like_dislike_button_summary_off">点赞与点踩按钮已显示</string>
     <string name="revanced_hide_like_dislike_button_summary_on">点赞与点踩按钮已隐藏</string>
     <string name="revanced_hide_like_dislike_button_title">隐藏「顶」和「踩」按钮</string>
@@ -951,9 +959,9 @@
     <string name="revanced_hide_live_chat_messages_summary_off">实时聊天消息已显示\n\n此设置也适用于 Shorts</string>
     <string name="revanced_hide_live_chat_messages_summary_on">实时聊天消息已隐藏\n\n此设置也适用于 Shorts</string>
     <string name="revanced_hide_live_chat_messages_title">隐藏实时聊天消息</string>
-    <string name="revanced_hide_live_chat_replay_button_summary_off">实时聊天重播按钮已显示\n\n关闭实时聊天时它会以全屏显示</string>
-    <string name="revanced_hide_live_chat_replay_button_summary_on">实时聊天重播按钮已隐藏\n\n在关闭实时聊天时它会以全屏显示</string>
-    <string name="revanced_hide_live_chat_replay_button_title">隐藏实时聊天重播按钮</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_off">播放器重叠中显示“直播聊天回放”按钮</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_on">播放器重叠中隐藏“直播聊天回放”按钮</string>
+    <string name="revanced_hide_live_chat_replay_button_title">隐藏“直播聊天回放”按钮</string>
     <string name="revanced_hide_medical_panel_summary_off">医疗面板已显示</string>
     <string name="revanced_hide_medical_panel_summary_on">医疗面板已隐藏</string>
     <string name="revanced_hide_medical_panel_title">隐藏医疗面板</string>
@@ -1000,8 +1008,8 @@
     <string name="revanced_hide_paid_promotion_label_summary_on">付费推广标签已隐藏</string>
     <string name="revanced_hide_paid_promotion_label_title">隐藏付费推广标签</string>
     <string name="revanced_hide_playables_summary_off">可播放内容已显示</string>
-    <string name="revanced_hide_playables_summary_on">Playables 游戏已隐藏</string>
-    <string name="revanced_hide_playables_title">隐藏 Playables 游戏</string>
+    <string name="revanced_hide_playables_summary_on">可播放内容已隐藏</string>
+    <string name="revanced_hide_playables_title">隐藏可播放内容</string>
     <string name="revanced_hide_player_autoplay_button_summary_off">自动播放按钮已显示</string>
     <string name="revanced_hide_player_autoplay_button_summary_on">自动播放按钮已隐藏</string>
     <string name="revanced_hide_player_autoplay_button_title">隐藏自动播放按钮</string>
@@ -1255,8 +1263,8 @@
     <string name="revanced_hide_shopping_links_summary_off">视频描述中的购物链接已显示</string>
     <string name="revanced_hide_shopping_links_summary_on">视频说明中的购物链接已隐藏</string>
     <string name="revanced_hide_shopping_links_title">隐藏购物链接</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">自动配音标签已显示</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">自动配音标签已隐藏</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">位置标签已显示</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">位置标签已隐藏</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_title">隐藏“自动配音”标签</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_off">购买超级感谢按钮已显示。</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_on">购买超级感谢按钮已隐藏。</string>
@@ -1294,9 +1302,9 @@
     <string name="revanced_hide_shorts_live_header_summary_off">实时聊天栏已显示\n\n其中的返回按钮不会隐藏</string>
     <string name="revanced_hide_shorts_live_header_summary_on">实时聊天栏已隐藏\n\n其中的返回按钮不会隐藏</string>
     <string name="revanced_hide_shorts_live_header_title">隐藏实时聊天栏</string>
-    <string name="revanced_hide_shorts_live_preview_summary_off">实时预览已显示</string>
-    <string name="revanced_hide_shorts_live_preview_summary_on">实时预览已隐藏</string>
-    <string name="revanced_hide_shorts_live_preview_title">隐藏实时预览</string>
+    <string name="revanced_hide_shorts_live_preview_summary_off">预览已显示</string>
+    <string name="revanced_hide_shorts_live_preview_summary_on">预览已隐藏</string>
+    <string name="revanced_hide_shorts_live_preview_title">隐藏预览</string>
     <string name="revanced_hide_shorts_location_button_summary_off">位置按钮已显示</string>
     <string name="revanced_hide_shorts_location_button_summary_on">位置按钮已隐藏</string>
     <string name="revanced_hide_shorts_location_button_title">隐藏位置按钮</string>
@@ -1305,7 +1313,7 @@
     <string name="revanced_hide_shorts_navigation_bar_title">隐藏导航栏</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_off">显示“新帖”按钮</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_on">隐藏“新帖”按钮</string>
-    <string name="revanced_hide_shorts_new_posts_button_title">隐藏“新帖子”按钮</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">隐藏“新帖”按钮</string>
     <string name="revanced_hide_shorts_paused_header_summary_off">已暂停的标题已显示</string>
     <string name="revanced_hide_shorts_paused_header_summary_on">已暂停的标题已隐藏</string>
     <string name="revanced_hide_shorts_paused_header_title">隐藏已暂停的标题</string>
@@ -1406,18 +1414,18 @@
     <string name="revanced_hide_stop_ads_button_summary_off">停止广告按钮已显示</string>
     <string name="revanced_hide_stop_ads_button_summary_on">停止广告按钮已隐藏</string>
     <string name="revanced_hide_stop_ads_button_title">隐藏停止广告</string>
-    <string name="revanced_hide_store_button_summary_off">“商店”按钮已显示</string>
-    <string name="revanced_hide_store_button_summary_on">“商店”按钮已隐藏</string>
-    <string name="revanced_hide_store_button_title">隐藏“商店”按钮</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">“订阅”按钮已显示</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">“订阅”按钮已隐藏</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_title">隐藏“订阅”按钮</string>
+    <string name="revanced_hide_store_button_summary_off">「分享」按钮已显示</string>
+    <string name="revanced_hide_store_button_summary_on">「分享」按钮已隐藏</string>
+    <string name="revanced_hide_store_button_title">隐藏「分享」按钮</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">订阅按钮已显示</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">订阅按钮已隐藏</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_title">隐藏「订阅」按钮</string>
     <string name="revanced_hide_subscribe_button_summary_off">订阅按钮已显示</string>
     <string name="revanced_hide_subscribe_button_summary_on">订阅按钮已隐藏</string>
-    <string name="revanced_hide_subscribe_button_title">隐藏订阅按钮</string>
-    <string name="revanced_hide_subscribed_channels_bar_summary_off">订阅的频道栏已显示。</string>
-    <string name="revanced_hide_subscribed_channels_bar_summary_on">订阅的频道栏已隐藏。</string>
-    <string name="revanced_hide_subscribed_channels_bar_title">隐藏订阅的频道栏</string>
+    <string name="revanced_hide_subscribe_button_title">隐藏「订阅」按钮</string>
+    <string name="revanced_hide_subscribed_channels_bar_summary_off">订阅频道栏已显示</string>
+    <string name="revanced_hide_subscribed_channels_bar_summary_on">订阅频道栏已隐藏</string>
+    <string name="revanced_hide_subscribed_channels_bar_title">隐藏订阅频道栏</string>
     <string name="revanced_hide_suggested_actions_summary_off">操作建议已显示</string>
     <string name="revanced_hide_suggested_actions_summary_on">操作建议已隐藏</string>
     <string name="revanced_hide_suggested_actions_title">隐藏操作建议</string>
@@ -1439,17 +1447,15 @@
     <string name="revanced_hide_toolbar_cast_button_summary_off">Cast 按钮已显示</string>
     <string name="revanced_hide_toolbar_cast_button_summary_on">Cast 按钮已隐藏</string>
     <string name="revanced_hide_toolbar_cast_button_title">隐藏 Cast 按钮</string>
-    <string name="revanced_hide_toolbar_create_button_summary_off">创建按钮已显示</string>
-    <string name="revanced_hide_toolbar_create_button_summary_on">创建按钮已隐藏</string>
-    <string name="revanced_hide_toolbar_create_button_title">隐藏创建按钮</string>
+    <string name="revanced_hide_toolbar_create_button_summary_off">创作按钮已显示</string>
+    <string name="revanced_hide_toolbar_create_button_summary_on">创作按钮已隐藏</string>
+    <string name="revanced_hide_toolbar_create_button_title">隐藏创作的「+」号按钮</string>
     <string name="revanced_hide_toolbar_notification_button_summary_off">通知按钮已显示</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">通知按钮已隐藏</string>
-    <string name="revanced_hide_toolbar_notification_button_title">隐藏通知按钮</string>
-    <string name="revanced_hide_toolbar_search_button_summary_off">搜索按钮已显示。</string>
-    <string name="revanced_hide_toolbar_search_button_summary_on">"搜索按钮已隐藏。
-
-如果启用了宽搜索栏，此设置可能无法生效。"</string>
-    <string name="revanced_hide_toolbar_search_button_title">隐藏搜索按钮</string>
+    <string name="revanced_hide_toolbar_notification_button_title">隐藏通知</string>
+    <string name="revanced_hide_toolbar_search_button_summary_off">搜索按钮已显示</string>
+    <string name="revanced_hide_toolbar_search_button_summary_on">搜索按钮已隐藏</string>
+    <string name="revanced_hide_toolbar_search_button_title">隐藏搜索</string>
     <string name="revanced_hide_transcript_section_summary_off">「转写文稿」部分已显示</string>
     <string name="revanced_hide_transcript_section_summary_on">「转写文稿」部分已隐藏</string>
     <string name="revanced_hide_transcript_section_title">隐藏文字记录</string>
@@ -1495,9 +1501,9 @@
     <string name="revanced_hide_web_search_results_summary_off">网页搜索结果已显示</string>
     <string name="revanced_hide_web_search_results_summary_on">网页搜索结果已隐藏</string>
     <string name="revanced_hide_web_search_results_title">隐藏网页搜索结果</string>
-    <string name="revanced_hide_you_may_like_section_summary_off">“您可能喜欢”部分已显示。</string>
-    <string name="revanced_hide_you_may_like_section_summary_on">“您可能喜欢”部分已隐藏。</string>
-    <string name="revanced_hide_you_may_like_section_title">隐藏“你可能喜欢”部分</string>
+    <string name="revanced_hide_you_may_like_section_summary_off">“可能喜欢”部分已显示</string>
+    <string name="revanced_hide_you_may_like_section_summary_on">“可能喜欢”部分已隐藏</string>
+    <string name="revanced_hide_you_may_like_section_title">隐藏“您可能喜欢”的部分</string>
     <string name="revanced_hide_youtube_doodles_summary_off">YouTube 涂鸦已显示</string>
     <string name="revanced_hide_youtube_doodles_summary_on">YouTube 涂鸦已隐藏</string>
     <string name="revanced_hide_youtube_doodles_title">隐藏 YouTube 涂鸦</string>
@@ -1674,10 +1680,10 @@
 
 迷你播放器可以拖动到屏幕的任何角落。"</string>
     <string name="revanced_miniplayer_drag_and_drop_title">启用拖放</string>
-    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">展开和关闭按钮已显示。</string>
-    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"按钮已隐藏。
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">显示展开和关闭按钮</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"按钮已隐藏
 
-向上或向下滑动以展开或关闭。"</string>
+滑动以展开或关闭"</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">隐藏展开和关闭按钮</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">悬浮窗按钮已显示</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">悬浮窗按钮已隐藏</string>
@@ -1794,9 +1800,9 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_override_video_download_button_title">覆盖视频下载按钮</string>
     <string name="revanced_override_youtube_music_button_about_prerequisite_summary">需要 YouTube Music 来覆盖按钮操作，点击此处下载 YouTube Music</string>
     <string name="revanced_override_youtube_music_button_about_prerequisite_title">前提条件</string>
-    <string name="revanced_override_youtube_music_button_summary_off">YouTube Music 按钮会打开原生应用</string>
-    <string name="revanced_override_youtube_music_button_summary_on">YouTube Music 按钮会打开 RVX Music</string>
-    <string name="revanced_override_youtube_music_button_title">覆盖 YouTube Music 按钮</string>
+    <string name="revanced_override_youtube_music_button_summary_off">YouTube 音乐按钮打开原生应用</string>
+    <string name="revanced_override_youtube_music_button_summary_on">YouTube Music按钮打开您的目标音乐应用</string>
+    <string name="revanced_override_youtube_music_button_title">覆盖YouTube Music按钮</string>
     <string name="revanced_patched_date_title">补丁日期</string>
     <string name="revanced_patches_excluded">已排除</string>
     <string name="revanced_patches_included">已包含</string>
@@ -2015,7 +2021,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_reset_to_default_toast">已重置为默认值。</string>
     <string name="revanced_restart">重启</string>
     <string name="revanced_restart_dialog_message">重启应用以使更改生效。</string>
-    <string name="revanced_restart_first_run">重启以正常加载布局</string>
+    <string name="revanced_restart_first_run">重启以完成设置</string>
     <string name="revanced_restart_title">需要重启</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">进度条缩略图将显示在全屏</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">进度条缩略图将显示在进度条上方</string>
@@ -2073,9 +2079,9 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 不可用，则显示提示</string>
     <string name="revanced_ryd_toast_on_connection_error_title">如果 API 不可用，则显示提示</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">所有者已隐藏</string>
-    <string name="revanced_sanitize_comments_category_bar_summary_off">评论类别栏中的类别按钮已显示。</string>
-    <string name="revanced_sanitize_comments_category_bar_summary_on">"“评论类别栏中除“热门”和“最新”外的类别按钮已隐藏。”"</string>
-    <string name="revanced_sanitize_comments_category_bar_title">清理类别栏</string>
+    <string name="revanced_sanitize_comments_category_bar_summary_off">分类按钮在评论分类栏中显示</string>
+    <string name="revanced_sanitize_comments_category_bar_summary_on">除了“置顶”和“最新”之外的分类按钮在评论分类栏中被隐藏</string>
+    <string name="revanced_sanitize_comments_category_bar_title">清理分类栏</string>
     <string name="revanced_sanitize_sharing_links_summary">共享链接时，删除 URL 中的跟踪查询参数</string>
     <string name="revanced_sanitize_sharing_links_title">净化分享链接</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"像'#', 'Shop' 和 'N products' 这样的词组已在视频字幕中显示"</string>
@@ -2196,7 +2202,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_segments_intro">过场/开场动画</string>
     <string name="revanced_sb_segments_intro_sum">没有实际内容的间隔。可以是暂停、静态帧或重复动画。不包括包含信息的过渡</string>
     <string name="revanced_sb_segments_nomusic">音乐：非音乐部分</string>
-    <string name="revanced_sb_segments_nomusic_sum">仅供音乐视频使用。音乐视频中没有音乐的部分，这些部分没有被其他类别涵盖</string>
+    <string name="revanced_sb_segments_nomusic_sum">仅限音乐视频使用。音乐视频中没有音乐的部分，这些部分没有被其他类别涵盖</string>
     <string name="revanced_sb_segments_outro">结束画面/贡献表</string>
     <string name="revanced_sb_segments_outro_sum">片尾字幕或 YouTube 结尾卡出现时。不适用于包含信息的结论</string>
     <string name="revanced_sb_segments_preview">预览 / 回顾</string>
@@ -2208,8 +2214,8 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_settings_copy">复制</string>
     <string name="revanced_sb_settings_export_failed">导出失败：%s</string>
     <string name="revanced_sb_settings_ie">导入/导出设置</string>
-    <string name="revanced_sb_settings_ie_sum">您的 SponsorBlock JSON 配置，可以导入/导出到 ReVanced 和其他 SponsorBlock 平台</string>
-    <string name="revanced_sb_settings_ie_sum_warning">您的 SponsorBlock JSON 配置，可以导入/导出到 ReVanced 和其他 SponsorBlock 平台。这包括您的私人用户 ID。请务必谨慎共享</string>
+    <string name="revanced_sb_settings_ie_sum">您的 SponsorBlock JSON 配置，可以导入/导出到 Morphe 和其他 SponsorBlock 平台</string>
+    <string name="revanced_sb_settings_ie_sum_warning">您的 SponsorBlock JSON 配置，可以导入/导出到 Morphe 和其他 SponsorBlock 平台。这包括您的私人用户 ID。请务必谨慎共享</string>
     <string name="revanced_sb_settings_import_failed">导入失败：%s</string>
     <string name="revanced_sb_settings_import_successful">设置导入成功</string>
     <string name="revanced_sb_settings_revanced_export_user_id_warning">"你的设置包含一个私有的 SponsorBlock 用户ID。
@@ -2270,7 +2276,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_stats_saved_hour_format">%1$s 小时 %2$s 分钟</string>
     <string name="revanced_sb_stats_saved_minute_format">%1$s 分钟 %2$s 秒</string>
     <string name="revanced_sb_stats_saved_second_format">%s 秒</string>
-    <string name="revanced_sb_stats_saved_sum">这相当于他们人生的 &lt;b&gt;%s&lt;/b&gt;。点击这里查看排行榜</string>
+    <string name="revanced_sb_stats_saved_sum">这是他们生命的&lt;b&gt;%s&lt;/b&gt;。&lt;br&gt;点击此处查看排行榜</string>
     <string name="revanced_sb_stats_saved_sum_zero">点击这里查看全球统计数据和顶级贡献者</string>
     <string name="revanced_sb_stats_saved_zero">SponsorBlock 排行榜</string>
     <string name="revanced_sb_stats_sb_disabled">SponsorBlock 已禁用</string>
@@ -2690,7 +2696,7 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_swipe_overlay_style_entry_6">垂直提示层</string>
     <string name="revanced_swipe_overlay_style_entry_7">垂直提示层 (极简)</string>
     <string name="revanced_swipe_overlay_style_title">滑动提示层样式</string>
-    <string name="revanced_swipe_overlay_timeout_summary">滑动提示的显示时长（毫秒）</string>
+    <string name="revanced_swipe_overlay_timeout_summary">覆盖层可见的毫秒数</string>
     <string name="revanced_swipe_overlay_timeout_title">滑动提示层显示时长</string>
     <string name="revanced_swipe_press_to_engage_summary_off">按压以滑动已禁用</string>
     <string name="revanced_swipe_press_to_engage_summary_on">按压以滑动已启用</string>

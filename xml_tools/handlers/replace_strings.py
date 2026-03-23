@@ -52,7 +52,11 @@ def _find_source_translation_files(source_base_path: Path, lang_code: str, app: 
     return found_paths
 
 
-def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] | None = None) -> None:
+def update_strings(
+    target_path: Path,
+    source_path: Path,
+    filter_keys: set[str] | None = None,
+) -> None:
     """Update target XML file with strings from source file.
 
     Args:
@@ -85,27 +89,35 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
         }
 
         # Update existing strings or add new ones
-        for name, data in source_strings.items():
-            if name in blacklist:
-                continue  # Skip blacklisted strings
+        for original_name, data in source_strings.items():
+            names_to_process = [original_name]
 
-            # Apply filter if provided
-            if filter_keys is not None and name not in filter_keys:
+            # Always add a copy of the string renamed to 'revanced' if applicable
+            if original_name.startswith("morphe_"):
+                names_to_process.append("revanced_" + original_name[7:])
+
+            # Skip if any of the derived names are blacklisted
+            if any(name in blacklist for name in names_to_process):
                 continue
 
-            # Parse the new element once if we need it
-            new_elem: Any = DefusedET.fromstring(data["text"])
+            # Apply filter if provided
+            if filter_keys is not None and not any(name in filter_keys for name in names_to_process):
+                continue
 
-            if name in existing_elements:
-                existing_elem: Any = existing_elements[name]
-                # Replace attributes and children
-                existing_elem.attrib.clear()
-                existing_elem.attrib.update(new_elem.attrib)
-                existing_elem[:] = new_elem[:]
-                existing_elem.text = new_elem.text
-                existing_elem.tail = new_elem.tail
-            elif name not in blacklist and (filter_keys is None or name in filter_keys):
-                target_root.append(new_elem)
+            for name in names_to_process:
+                new_elem: Any = DefusedET.fromstring(data["text"])
+                new_elem.set("name", name)
+
+                if name in existing_elements:
+                    existing_elem: Any = existing_elements[name]
+                    # Replace attributes and children
+                    existing_elem.attrib.clear()
+                    existing_elem.attrib.update(new_elem.attrib)
+                    existing_elem[:] = new_elem[:]
+                    existing_elem.text = new_elem.text
+                    existing_elem.tail = new_elem.tail
+                else:
+                    target_root.append(new_elem)
 
         # Write updated file
         XMLProcessor.write_file(target_path, target_root)
@@ -187,6 +199,8 @@ def process(app: str, base_dir: Path) -> None:
     translations_path = settings.get_resource_path(app, "translations")
     rvx_base_path = base_dir / "src/main/resources" / app
 
+    is_morphe = "morphe-patches" in str(base_dir)
+
     # Update base strings file
     update_base_strings(base_path, rvx_base_path)
 
@@ -245,7 +259,7 @@ def process(app: str, base_dir: Path) -> None:
     #     "revanced_swipe_text_overlay_size_title",
     # }
 
-    if "morphe-patches" in str(base_dir):
+    if is_morphe:
         update_translations_with_keys(translations_path, base_dir, app)
         # update_translations_with_keys(translations_path, base_dir, app, additional_keys)
     else:
