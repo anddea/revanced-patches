@@ -1,3 +1,10 @@
+# [4.0.0-dev.9](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.8...v4.0.0-dev.9) (2026-03-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide action buttons:** Fix empty spaces when hiding buttons ([bda1ddb](https://github.com/anddea/revanced-patches/commit/bda1ddba6959fd7d25dcb8952d986440ea7d9670))
+
 # [4.0.0-dev.8](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.7...v4.0.0-dev.8) (2026-03-16)
 
 

@@ -1,5 +1,5 @@
 {
-  "version": "4.0.0-dev.8",
+  "version": "4.0.0-dev.9",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -325,6 +325,7 @@
       "description": "Adds an option to set which page the app opens in instead of the homepage.",
       "use": true,
       "dependencies": [
+        "BytecodePatch",
         "ResourcePatch"
       ],
       "compatiblePackages": {
@@ -1006,7 +1007,8 @@
       "description": "Adds options to disable haptic feedback when swiping in the video player.",
       "use": true,
       "dependencies": [
-        "ResourcePatch"
+        "ResourcePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -1642,6 +1644,7 @@
       "use": true,
       "dependencies": [
         "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
