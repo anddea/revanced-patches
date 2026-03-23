@@ -249,7 +249,6 @@ public class PlayerPatch {
         vibrator.vibrate(vibrationEffect);
     }
 
-    @SuppressWarnings("deprecation")
     public static void vibrate(Vibrator vibrator, long milliseconds) {
         if (disableVibrate()) return;
         vibrator.vibrate(milliseconds);
