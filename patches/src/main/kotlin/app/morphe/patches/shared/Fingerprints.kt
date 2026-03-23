@@ -257,9 +257,14 @@ internal val startVideoInformerFingerprint = legacyFingerprint(
 
 internal val videoLengthFingerprint = legacyFingerprint(
     name = "videoLengthFingerprint",
-    returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    strings = listOf("Gaplessly transitioning away from an Ad before it ends.")
+    parameters = listOf("J", "J"),
+    returnType = "V",
+    literals = listOf(45633940L, 1000L),
+    // strings = listOf("Gaplessly transitioning away from an Ad before it ends.")
+    customFingerprint = { method, _ ->
+        method.name == "a"
+    }
 )
 
 internal val dislikeFingerprint = legacyFingerprint(
