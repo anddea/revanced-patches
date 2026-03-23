@@ -15,19 +15,30 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
     <string name="gms_core_dialog_open_website_text">Veb saytı aç</string>
     <string name="gms_core_dialog_title">Fəaliyyət lazımdır</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore quraşdırılmayıb. Bunu quraşdır.</string>
+    <string name="morphe_disable_drc_audio_summary_off">DRC səsi işləkdir</string>
+    <string name="morphe_disable_drc_audio_summary_on">DRC səsi qapalıdır</string>
+    <string name="morphe_disable_drc_audio_title">DRC səsin qapat</string>
+    <string name="morphe_disable_quic_protocol_summary_off">QUIC protokolu işləkdir</string>
+    <string name="morphe_disable_quic_protocol_summary_on">QUIC protokolu qapadılıb</string>
+    <string name="morphe_disable_quic_protocol_title">QUIC protokolunu qeyri-aktiv et</string>
+    <string name="morphe_force_original_audio_not_available">Bu xüsusiyyəti istifadə etmək üçün \"Video yayımların saxtalaşdır\"-ı Android Reel-ə və ya TV-yə dəyişdir</string>
     <string name="morphe_force_original_audio_summary_off">İlkin səs istifadəsi</string>
-    <string name="morphe_force_original_audio_summary_on">Orijinal səs dilini istifadə</string>
+    <string name="morphe_force_original_audio_summary_on">Orijinal səs dilini faydalanmaq</string>
     <string name="morphe_force_original_audio_title">Orijinal səs dilini zorla</string>
-    <string name="morphe_oauth2_connection_failure_generic">OAuth2 müvəqqəti olaraq mövcud deyil.</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 müvəqqəti olaraq mövcud deyil (status %d).</string>
-    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 müvəqqəti olaraq mövcud deyil (API vaxtı bitdi).</string>
-    <string name="morphe_oauth2_toast_reset">Android VR-dən çıxdı.</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">VR-a daxil olmaq olmur: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">VR-a daxil olmaq olmur, veb sayt təsdiqlənməsi qəbul edilməyib</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 keçici olaraq əlçatan deyil</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 keçici olaraq əlçatan deyil (vəziyyət %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Android VR girişi sonlandı, VR-a təkrar daxil olmağa cəhd et</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 keçici olaraq əlçatan deyil (API vaxtı bitdi)</string>
+    <string name="morphe_oauth2_toast_invalid">Token-dəki etibarsız VR girişi, VR-a təkrar daxil olmağa cəhd et</string>
+    <string name="morphe_oauth2_toast_reset">Android VR-dan Çıxıldı</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan keçidlər music.youtube.com istifadə edir</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Paylaşılan keçidlər youtube.com istifadə edir</string>
     <string name="morphe_replace_music_with_youtube_title">Paylaşma keçidlərini youtube.com-a dəyişdir</string>
-    <string name="morphe_sanitize_sharing_links_summary_off">İzləmə sorğusu faktoru paylaşılan linklərdən silinmir</string>
-    <string name="morphe_sanitize_sharing_links_summary_on">İzləmə sorğusu faktoru paylaşılan linklərdən silinir</string>
-    <string name="morphe_sanitize_sharing_links_title">Paylaşım linklərin təmizlə</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">İzlənmə sorğusu faktoru paylaşılan linklərdən silinmir</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">İzlənmə sorğusu faktoru paylaşılan linklərdən silinir</string>
+    <string name="morphe_sanitize_sharing_links_title">Paylaşım keçidlərin təmizlə</string>
     <string name="morphe_spoof_video_streams_about_experimental">• Təcrübi qəbuledici və hər vaxt işləməyi dayandıra bilər</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Səs treki menyusu çatışmır</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• AV1 video kodlayıcı yoxdur</string>
@@ -44,34 +55,44 @@ Oynatma ilişə bilər və ya kadrlar buraxıla bilər"</string>
 
 Video oynatma AV1 ilə ilişə bilər və ya kadrlar buraxıla bilər."</string>
     <string name="morphe_spoof_video_streams_client_type_title">İlkin qəbuledici</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Bunları aktiv etməyə cəhd edin: Video axınlarını əyləcələmək &gt; Android VR-na daxil olmaq.</string>
-    <string name="morphe_spoof_video_streams_no_clients_toast">Heç bir client axını əldə etmək mümkün olmadı.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Oynadıcı JavaScript yenilənməsi işləkdir</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Oynadıcı JavaScript yenilənməsi qapadılıb
+
+• Etibarlı oynadıcı JavaScript hash-i tələb olunur
+• GVS-də Oynadıcı JavaScript hash-i ləğv edilərsə, oynatma uğursuz olur"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Oynadıcı JavaScript yenilənməsini qapat</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Oynadıcı JavaScript hash-ləri təqribi bir ay müddətində etibarlıdır və köhnələn hash-lər GVS tərəfindən ləğv edilə bilər.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Aktivləşdirməyə cəhd edin: Video yayımların saxtalaşdır &gt; Android VR girişi</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Hər hansı qəbuledici yayımları əldə etmək olmadı</string>
     <string name="morphe_spoof_video_streams_screen_summary">Oynatma problemlərin önləmək üçün qəbuledici video yayımların saxtalaşdır</string>
     <string name="morphe_spoof_video_streams_screen_title">Video yayımların saxtalaşdır</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR-a daxil edilməmiş. Daxil olmaq üçün bura vurun.</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Bu funksiyanı istifadə etmək üçün, \'Zəhmət client\'ni Android VR ilə dəyişin.</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Hal-hazırda Android VR-a daxil edilmişsiniz.</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR-na daxil olmaq.</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Aktivasiya kodu: %s
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR-a daxil olunmayıb. Daxil olmaq üçün bura toxun</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Bu xüsusiyyəti istifadə etmək üçün, \"İlkin qəbuledici\"-ni Android VR-a dəyişdir</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Hazırda Android VR-a daxil olunub</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR girişi</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Aktivləşdirmə kodu: %s
 
-1. sayta getmək üçün aşağıdakı 'Veb saytını aç' düyməsini vurun
-2. yuxarıda göstərilən aktivasiya kodunu bufere alıb (və ya əllə yazın)
-3. Əgər xoad hạň manipulate Google-a daxil olmaq tələb olunursa. Əgər çoxlu hesablarınız var, bu YouTube hesabını seçin.
-4. 'YouTube VR' üçün icazəni vurun
-5. 'Qərar verildi' mesajına çatdıqdan sonra bu proqrama geri qayıtın."</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Veb saytını aç.</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Qaydalar.</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Davam et.</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Çıxış.</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Android VR-a daxil ol.</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Kimlikdəstəsi saxlanıldı.
+1. \"Cihazı əlaqələndir\" veb saytını açmaq üçün aşağıda \"Veb saytı aç\"-a toxun
+2. Yuxarıda görünən aktivləşdirmə şifrəsin buferdən yapışdır (yaxud kənara yaz)
+3. Təhrik olunduqda Google-a daxil olun. Çoxlu hesabınız varsa, sonra bu YouTube hesabını seçin
+4. \"YouTube VR-a Giriş-ə\" icazə ver-ə toxun
+5. \"Cihaz qoşuldu\" məlumatına çatandan sonra bu tətbiqə qayıdın"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Veb saytı aç</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Təlimatlar</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Davam et</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Android VR-a daxil olmaq bəzi istifadəçilər üçün oynatma problemlərini düzəldə bilər
 
-• Morphe tənzimlənləri Android VR kimliyəsini idxal və ixrac edə bilməz.
-• Əgər bu proqram 6 ay ərzində istifadə edilməsə, Google bu kimliyi siləcək.
-• Əgər Google parolunuzu dəyişir və ya bu cihazınızı Google tənzimlənmələrdən çıxarthersəyid, yenidən daxil olmaq lazım."</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Uğurla daxil olundu.</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Aktivasiya kodu vermək mümkün olmadı.</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Kimlikdəstəyi vermək mümkünsüzləşdi.</string>
+Daxil olmaq üçün aşağıda davam et-i vurun"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Çıxış et</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Android VR-a Giriş Et</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Təsdiqlənmə saxlanıldı
+
+• Morphe tənzimləmələriniz Android VR təsdiqlənməsini idxal/ixrac etməyəcək
+• Bu tətbiq 6 ay ərzində istifadə olunmazsa, Google bu təsdiqlənməni siləcək
+• Google parolunuzu dəyişdirsəniz və ya bu cihazı Google tənzimləmələrinizdən çıxarsanız, təkrar daxil olmalı olacaqsınız"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Uğurla daxil olundu</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Aktivləşdirmə şifrəsi buraxılışı alınmadı</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Təsdiqlənmə token-i buraxılış üçün alınmadı</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Qəbuledici nerd üçün Statistikada gizlidir</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Qəbuledici növü İstək üçün statistikada göstərilir</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">İstək üçün Statistikada göstər</string>
@@ -81,7 +102,7 @@ Oynatma işləməyə bilər"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Video yayımları saxtalaşdırılıb
 
 Əgər YouTube Premium istifadəçisisinizsə, bu tənzimlənmə tələb olunmaya bilər"</string>
-    <string name="morphe_spoof_video_streams_title">Video yayımları saxtalaşdır</string>
+    <string name="morphe_spoof_video_streams_title">Video yayımların saxtalaşdır</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Bu tənzimləməni qapatmaq oynatma problemlərinə səbəb ola bilər.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Qabaqcıl video keyfiyyət siyahısı göstərilmir</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Qabaqcıl video keyfiyyət siyahısı göstərilir</string>
@@ -141,7 +162,7 @@ Avtomobil tərtibatı
     <string name="revanced_change_start_page_entry_courses">Kurslar / Öyrənmə</string>
     <string name="revanced_change_start_page_entry_default">İlkin</string>
     <string name="revanced_change_start_page_entry_explore">Kəşf et</string>
-    <string name="revanced_change_start_page_entry_fashion">Dəb və Gözəllik</string>
+    <string name="revanced_change_start_page_entry_fashion">Moda &amp; Gözəllik</string>
     <string name="revanced_change_start_page_entry_gaming">Oyun</string>
     <string name="revanced_change_start_page_entry_history">Tarixçə</string>
     <string name="revanced_change_start_page_entry_library">Kitabxana</string>
@@ -154,6 +175,7 @@ Avtomobil tərtibatı
     <string name="revanced_change_start_page_entry_playlists">Pleylistlər</string>
     <string name="revanced_change_start_page_entry_search">Axtarış</string>
     <string name="revanced_change_start_page_entry_shopping">Mağaza</string>
+    <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">İdman</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abunəliklər</string>
     <string name="revanced_change_start_page_entry_trending">Trendlər</string>
@@ -195,9 +217,15 @@ Avtomobil tərtibatı
     <string name="revanced_disable_chapter_skip_double_tap_summary_off">Cüt toxunma bəzən növbəti/əvvəlki fəsilə keçidi zorlaya bilər</string>
     <string name="revanced_disable_chapter_skip_double_tap_summary_on">Cüt toxunma heç vaxt növbəti/əvvəlki fəsilə keçidi zorlaya bilməz</string>
     <string name="revanced_disable_chapter_skip_double_tap_title">Cüt toxunuşla fəsil ötürməsini qapat</string>
+    <string name="revanced_disable_drc_audio_summary_off">DRC səsi işləkdir</string>
+    <string name="revanced_disable_drc_audio_summary_on">DRC səsi qapalıdır</string>
+    <string name="revanced_disable_drc_audio_title">DRC səsin qapat</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Fəsillər reaksiyası aktivdir</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Fəsillər reaksiyası qapalıdır</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Fəsillər reaksiyasın qapat</string>
+    <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Dəqiq axtarış reaksiyası aktivdir</string>
+    <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Dəqiq axtarış reaksiyası qapalıdır</string>
+    <string name="revanced_disable_haptic_feedback_precise_seeking_title">Dəqiq axtarış reaksiyasın qapat</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Axtarış geri reaksiyası aktivdir</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Axtarış geri reaksiyası qapalıdır</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_title">Axtarış geriyə reaksiyasın qapat</string>
@@ -207,6 +235,10 @@ Avtomobil tərtibatı
     <string name="revanced_disable_hdr_video_summary_off">HDR video aktivdir</string>
     <string name="revanced_disable_hdr_video_summary_on">HDR video qapalıdır</string>
     <string name="revanced_disable_hdr_video_title">HDR Videonu Qapat</string>
+    <string name="revanced_disable_layout_updates_summary_off">Tərtibat server tərəfindən yenilənəcək</string>
+    <string name="revanced_disable_layout_updates_summary_on">Tərtibat server tərəfindən yenilənməyəcək</string>
+    <string name="revanced_disable_layout_updates_title">Tərtibat yenilənmələrini qapat</string>
+    <string name="revanced_disable_quic_protocol_title">QUIC protokolunu qeyri-aktiv et</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">Tətbiq açılanda Shorts oynadıcı davam edəcək</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">Tətbiq açılanda Shorts oynadıcı davam etməyəcək</string>
     <string name="revanced_disable_resuming_shorts_player_title">Shorts oynadıcı başladıcını qapat</string>
@@ -247,8 +279,11 @@ Paket adının düzgünlüyün və tətbiqin quraşdırıldığını yoxlayın."
     <string name="revanced_hide_attributes_section_summary_off">Seçilən yerlər, Oyunlar, Musiqi və qeyd edilən insanlar bölmələri görünür</string>
     <string name="revanced_hide_attributes_section_summary_on">Seçilən yerlər, Oyunlar, Musiqi və qeyd edilən insanlar bölmələri gizlədilir</string>
     <string name="revanced_hide_attributes_section_title">Atributları Gizlət</string>
-    <string name="revanced_hide_channel_watermark_summary_off">Su nişanı göstərilir</string>
-    <string name="revanced_hide_channel_watermark_summary_on">Su nişanı gizlidir</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">Avtomatik önizləmə önizlənməsi göstərilir</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">Avtomatik önizləmə önizlənməsi gizlidir</string>
+    <string name="revanced_hide_autoplay_preview_title">Avtomatik önizləmə önizlənməsini gizlət</string>
+    <string name="revanced_hide_channel_watermark_summary_off">Kanal suvotu göstərilir</string>
+    <string name="revanced_hide_channel_watermark_summary_on">Kanal suvotu gizlidir</string>
     <string name="revanced_hide_channel_watermark_title">Kanal filiqranını gizlət</string>
     <string name="revanced_hide_chapters_section_summary_off">Bölümlər bölməsi göstərilir</string>
     <string name="revanced_hide_chapters_section_summary_on">Bölümlər bölməsi gizlidir</string>
@@ -272,9 +307,9 @@ Paket adının düzgünlüyün və tətbiqin quraşdırıldığını yoxlayın."
     <string name="revanced_hide_comments_thanks_button_summary_off">Təşəkkür düyməsi göstərilir</string>
     <string name="revanced_hide_comments_thanks_button_summary_on">Təşəkkür düyməsi gizlidir</string>
     <string name="revanced_hide_comments_thanks_button_title">Təşəkkür Düyməsini Gizlət</string>
-    <string name="revanced_hide_community_button_summary_off">İcmaya düyməsi görünür</string>
-    <string name="revanced_hide_community_button_summary_on">İcmaya düyməsi gizlidir</string>
-    <string name="revanced_hide_community_button_title">İcma düyməsini gizlət</string>
+    <string name="revanced_hide_community_button_summary_off">Şərhlər düyməsi göstərilir</string>
+    <string name="revanced_hide_community_button_summary_on">Şərhlər düyməsi gizlidir</string>
+    <string name="revanced_hide_community_button_title">Şərhlər düyməsin gizlət</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Videolar altında yaradıcı mağaza cərgəsi görünür.</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Videolar altında yaradıcı mağaza cərgəsi gizlidir.</string>
     <string name="revanced_hide_creator_store_shelf_title">Yaradıcı mağaza bölümün gizlət</string>
@@ -284,15 +319,21 @@ Paket adının düzgünlüyün və tətbiqin quraşdırıldığını yoxlayın."
     <string name="revanced_hide_download_button_summary_off">Yükləmə düyməsi göstərilir</string>
     <string name="revanced_hide_download_button_summary_on">Yükləmə düyməsi gizlidir</string>
     <string name="revanced_hide_download_button_title">\"Endirin\"i gizlət</string>
+    <string name="revanced_hide_end_screen_cards_summary_off">Son ekran kartları göstərilir</string>
+    <string name="revanced_hide_end_screen_cards_summary_on">Son ekran kartları gizlidir</string>
+    <string name="revanced_hide_end_screen_cards_title">Son ekran kartlarını gizlət</string>
     <string name="revanced_hide_end_screen_store_banner_summary_off">Son ekran mağaza afişası görünür.</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">Son ekran mağaza afişası gizlidir.</string>
     <string name="revanced_hide_end_screen_store_banner_title">Son ekran mağaza afişasın gizlət</string>
     <string name="revanced_hide_expandable_card_summary_off">Videoların altında genişlənən kart görünür</string>
     <string name="revanced_hide_expandable_card_summary_on">Videoların aşağısında genişlənən kart gizlidir</string>
     <string name="revanced_hide_expandable_card_title">Genişlənən kartı gizlət</string>
-    <string name="revanced_hide_featured_links_section_summary_off">Seçilən keçidlər bölməsi göstərilir</string>
-    <string name="revanced_hide_featured_links_section_summary_on">Seçilən keçidlər bölməsi gizlidir</string>
-    <string name="revanced_hide_featured_links_section_title">Seçilən keçidləri gizlət</string>
+    <string name="revanced_hide_explore_podcast_section_summary_off">Podkast bölməsin araşdırın görünür</string>
+    <string name="revanced_hide_explore_podcast_section_summary_on">Podkast bölməsin araşdırın gizlidir</string>
+    <string name="revanced_hide_explore_podcast_section_title">\'Podkastı araşdırın\"-ı Gizlət</string>
+    <string name="revanced_hide_featured_links_section_summary_off">Seçilən məzmun bölməsi göstərilir</string>
+    <string name="revanced_hide_featured_links_section_summary_on">Seçilən məzmun bölməsi gizlidir</string>
+    <string name="revanced_hide_featured_links_section_title">Seçilən məzmunu gizlət</string>
     <string name="revanced_hide_featured_videos_section_summary_off">Seçilən videolar bölməsi göstərilir</string>
     <string name="revanced_hide_featured_videos_section_summary_on">Seçilən videolar bölməsi gizlidir</string>
     <string name="revanced_hide_featured_videos_section_title">Seçilən videoları gizlət</string>
@@ -320,9 +361,9 @@ Paket adının düzgünlüyün və tətbiqin quraşdırıldığını yoxlayın."
     <string name="revanced_hide_info_cards_summary_off">Məlumat kartları göstərilir</string>
     <string name="revanced_hide_info_cards_summary_on">Məlumat kartları gizlidir</string>
     <string name="revanced_hide_info_cards_title">Məlumat kartlarını gizlət</string>
-    <string name="revanced_hide_join_button_summary_off">Qoşul düyməsi görünür</string>
-    <string name="revanced_hide_join_button_summary_on">Qoşul düyməsi gizlidir</string>
-    <string name="revanced_hide_join_button_title">Qoşulun düyməsini gizlət</string>
+    <string name="revanced_hide_join_button_summary_off">Qoşulma düyməsi göstərilir</string>
+    <string name="revanced_hide_join_button_summary_on">Qoşulma düyməsi gizlidir</string>
+    <string name="revanced_hide_join_button_title">Qoşul düyməsin gizlə</string>
     <string name="revanced_hide_key_concepts_section_summary_off">Əsas konseptlər bölməsi görünür</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Əsas konseptlər bölməsi gizlidir</string>
     <string name="revanced_hide_key_concepts_section_title">\"Əsas konseptlər-i\" gizlət</string>
@@ -358,12 +399,18 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_latest_posts_summary_off">Ən son elanlar göstərilir</string>
     <string name="revanced_hide_latest_posts_summary_on">Ən son elanlar gizlədilib</string>
     <string name="revanced_hide_latest_posts_title">Son elanları gizlət</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">Son videolar düyməsi göstərilir</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">Son videolar düyməsi gizlidir</string>
+    <string name="revanced_hide_latest_videos_button_title">Gizlət \'Son videolar\' düyməsini</string>
     <string name="revanced_hide_like_dislike_button_summary_off">Bəyənmə və Bəyənməmə düymələri göstərilir</string>
     <string name="revanced_hide_like_dislike_button_summary_on">Bəyənmə və Bəyənməmə düymələri gizlidir</string>
     <string name="revanced_hide_like_dislike_button_title">\"Bəyənmə\" və \"Bəyənməmə\"ni gizlət</string>
     <string name="revanced_hide_links_preview_summary_off">Keçidlər önizləməsi görünür</string>
     <string name="revanced_hide_links_preview_summary_on">Keçidlər önizləməsi gizlədilib</string>
     <string name="revanced_hide_links_preview_title">Keçidlərin önizləməsini gizlət</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_off">Oyunçu örtüyündə canlı sohbet təkrarı düyməsi göstərilib</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_on">Oyunçu örtüyündə canlı sohbet təkrarı düyməsi gizlədilib</string>
+    <string name="revanced_hide_live_chat_replay_button_title">Gizlət \'Canlı sohbet təkrarı\' düyməsini</string>
     <string name="revanced_hide_members_shelf_summary_off">Üzvlər cərgəsi görünür</string>
     <string name="revanced_hide_members_shelf_summary_on">Üzvlər cərgəsi gizlidir</string>
     <string name="revanced_hide_members_shelf_title">Üzvlər cərgəsini gizlət</string>
@@ -373,6 +420,9 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_mix_playlists_summary_off">Qarışıq oynatma siyahıları göstərilir</string>
     <string name="revanced_hide_mix_playlists_summary_on">Qarışıq oynatma siyahıları gizlədilir</string>
     <string name="revanced_hide_mix_playlists_title">Qarışıq pleylistləri gizlət</string>
+    <string name="revanced_hide_navigation_bar_summary_off">Fəaliyyət çubuğu göstərilir</string>
+    <string name="revanced_hide_navigation_bar_summary_on">Fəaliyyət çubuğu gizlidir</string>
+    <string name="revanced_hide_navigation_bar_title">Fəaliyyət çubuğunu gizlət</string>
     <string name="revanced_hide_notify_me_button_summary_off">Mənə bildir düyməsi görünür</string>
     <string name="revanced_hide_notify_me_button_summary_on">Mənə bildir düyməsi gizlidir</string>
     <string name="revanced_hide_notify_me_button_title">\"Mənə bildir\" düyməsini gizlət</string>
@@ -424,9 +474,9 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_shopping_links_summary_off">Video təsvirində alış-veriş linkləri görünür.</string>
     <string name="revanced_hide_shopping_links_summary_on">Video təsvirində alış-veriş linkləri gizlədilib.</string>
     <string name="revanced_hide_shopping_links_title">Alış-veriş linklərin gizlət</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Avto-dublyaj etiketi göstərilir</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Avto-dublyaj etiketi gizlidir</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_title">\'Avtomatik dublyaj olunmuş\' etiketini gizlət</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Məkan etiketi göstərilir</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Məkan etiketi gizlidir</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_title">Avtomatik dublyaj labelini gizlət</string>
     <string name="revanced_hide_shorts_channel_bar_summary_off">Kanal çubuğu göstərilir</string>
     <string name="revanced_hide_shorts_channel_bar_summary_on">Kanal çubuğu gizlidir</string>
     <string name="revanced_hide_shorts_channel_bar_title">Kanal çubuğunu gizlət</string>
@@ -438,7 +488,7 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_shorts_dislike_button_title">Bəyənməmə düyməsini gizlət</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_off">\"Yaşıl ekran\" düyməsi göstərilir</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">\"Yaşıl ekran\" düyməsi gizlidir</string>
-    <string name="revanced_hide_shorts_green_screen_button_title">\'Yaşıl ekran\' düyməsini gizlət</string>
+    <string name="revanced_hide_shorts_green_screen_button_title">Yaşıl ekran düyməsini gizlət</string>
     <string name="revanced_hide_shorts_hashtag_button_summary_off">Mövzu etiketi düyməsi göstərilir</string>
     <string name="revanced_hide_shorts_hashtag_button_summary_on">Mövzu etiketi düyməsi gizlidir</string>
     <string name="revanced_hide_shorts_hashtag_button_title">Mövzu etiketi düyməsini gizlət</string>
@@ -451,9 +501,9 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_shorts_like_button_summary_off">Bəyənmə düyməsi göstərilir</string>
     <string name="revanced_hide_shorts_like_button_summary_on">Bəyənmə düyməsi gizlidir</string>
     <string name="revanced_hide_shorts_like_button_title">Bəyənmə düyməsini gizlət</string>
-    <string name="revanced_hide_shorts_live_preview_summary_off">Canlı önizləmə göstərilir</string>
-    <string name="revanced_hide_shorts_live_preview_summary_on">Canlı önizləmə gizlədilib</string>
-    <string name="revanced_hide_shorts_live_preview_title">Canlı önizləməni gizlət</string>
+    <string name="revanced_hide_shorts_live_preview_summary_off">Keçidlər önizləməsi görünür</string>
+    <string name="revanced_hide_shorts_live_preview_summary_on">Keçidlər önizləməsi gizlədilib</string>
+    <string name="revanced_hide_shorts_live_preview_title">Keçidlərin önizləməsini gizlət</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_off">Fəaliyyət çubuğu göstərilir</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">Fəaliyyət çubuğu gizlidir</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Fəaliyyət çubuğunu gizlət</string>
@@ -499,15 +549,18 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_stop_ads_button_summary_off">Reklamları dayandır düyməsi görünür</string>
     <string name="revanced_hide_stop_ads_button_summary_on">Reklamları dayandır düyməsi gizlidir</string>
     <string name="revanced_hide_stop_ads_button_title">Reklamları Dayandırın-ı gizlət</string>
-    <string name="revanced_hide_store_button_summary_off">Mağaza düyməsi görünür</string>
-    <string name="revanced_hide_store_button_summary_on">Mağaza düyməsi gizlidir</string>
-    <string name="revanced_hide_store_button_title">Mağaza düyməsini gizlət</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Abunə ol düyməsi görünür</string>
+    <string name="revanced_hide_store_button_summary_off">Paylaş düyməsi göstərilir</string>
+    <string name="revanced_hide_store_button_summary_on">Paylaş düyməsi gizlidir</string>
+    <string name="revanced_hide_store_button_title">Paylaş düyməsini gizlət</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Abunə ol düyməsi göstərilir</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Abunə ol düyməsi gizlidir</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_title">Abunə ol düyməsini gizlət</string>
-    <string name="revanced_hide_subscribe_button_summary_off">Abunə ol düyməsi görünür</string>
+    <string name="revanced_hide_subscribe_button_summary_off">Abunə ol düyməsi göstərilir</string>
     <string name="revanced_hide_subscribe_button_summary_on">Abunə ol düyməsi gizlidir</string>
     <string name="revanced_hide_subscribe_button_title">Abunə ol düyməsini gizlət</string>
+    <string name="revanced_hide_subscribed_channels_bar_summary_off">Abunə kanal çubuğu göstərilir</string>
+    <string name="revanced_hide_subscribed_channels_bar_summary_on">Abunə kanal çubuğu gizlidir</string>
+    <string name="revanced_hide_subscribed_channels_bar_title">Abunə kanal çubuğunu gizlə</string>
     <string name="revanced_hide_surveys_summary_off">Sorğular görünür</string>
     <string name="revanced_hide_surveys_summary_on">Sorğular gizlədilib</string>
     <string name="revanced_hide_surveys_title">Sorğuları gizlət</string>
@@ -520,6 +573,14 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_timed_reactions_summary_off">Zamanlanmış reaksiyalar göstərilir</string>
     <string name="revanced_hide_timed_reactions_summary_on">Zamanlanmış reaksiyalar gizlədilir</string>
     <string name="revanced_hide_timed_reactions_title">Vaxtlı reaksiyaları gizlət</string>
+    <string name="revanced_hide_toolbar_create_button_summary_off">Yarat düyməsi göstərilir</string>
+    <string name="revanced_hide_toolbar_create_button_summary_on">Yarat düyməsi gizlidir</string>
+    <string name="revanced_hide_toolbar_create_button_title">\"Yarat\"ı gizlət</string>
+    <string name="revanced_hide_toolbar_notification_button_summary_off">Bildirişlər düyməsi görünür</string>
+    <string name="revanced_hide_toolbar_notification_button_summary_on">Bildirişlər düyməsi gizlidir</string>
+    <string name="revanced_hide_toolbar_notification_button_title">Bildirişləri Gizlət</string>
+    <string name="revanced_hide_toolbar_search_button_summary_off">Axtarış düyməsi görünür</string>
+    <string name="revanced_hide_toolbar_search_button_summary_on">Axtarış düyməsi gizlidir</string>
     <string name="revanced_hide_transcript_section_summary_off">Transkripsiya bölməsi göstərilir</string>
     <string name="revanced_hide_transcript_section_summary_on">Transkripsiya bölməsi gizlidir</string>
     <string name="revanced_hide_transcript_section_title">Transkript-i Gizlət</string>
@@ -536,6 +597,8 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_web_search_results_summary_off">Veb axtarış nəticələri göstərilir</string>
     <string name="revanced_hide_web_search_results_summary_on">Veb axtarış nəticələri gizlədilir</string>
     <string name="revanced_hide_web_search_results_title">Veb axtarış nəticələrini gizlət</string>
+    <string name="revanced_hide_you_may_like_section_summary_off">Bəyənə bilərsiniz bölməsi görünür</string>
+    <string name="revanced_hide_you_may_like_section_summary_on">Bəyənə bilərsiniz bölməsi gizlidir</string>
     <string name="revanced_language_DEFAULT">Tətbiq dili</string>
     <string name="revanced_language_title">ReVanced dili</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Ölçüsünü dəyişdirmək üçün cüt toxunma fəaliyyəti və çimdikləmə yoxdur</string>
@@ -549,6 +612,11 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
 
 Kiçik oynadıcı ekranın istənilən küncünə sürüklənə bilər"</string>
     <string name="revanced_miniplayer_drag_and_drop_title">\"Sürüklə və burax\"ı aktivləşdir</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Genişləndirmə və bağlama düymələri göstərilir</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Düymələr gizlənib
+
+Genişləndirmək və ya bağlamaq üçün sürüşdürün"</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Genişləndirmə və bağlama düymələrini gizlət</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Örtük düymələri görünür</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Örtük düymələri gizlidir</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_title">Örtük düymələrini gizlət</string>
@@ -599,6 +667,7 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
     <string name="revanced_remember_video_quality_toast_shorts">Shorts-un %1$s keyfiyyəti %2$s olaraq dəyişdirildi</string>
     <string name="revanced_remember_video_quality_wifi">wi-fi</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">İzləyici mülahizə dialoqun sil</string>
+    <string name="revanced_restart_first_run">Tənzimləməni bitirmək üçün yenidən başlat</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Axtarış cizgisi miniatürləri tam ekranda görünəcək</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Axtarış cizgisi miniatürləri axtarış çubuğu üstündə görünəcək</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Köhnə irəliləmə cizgi miniatürün al</string>
@@ -626,7 +695,7 @@ Məhdudiyyət: Bəyənməmələr gizli rejimdə görünməyə bilər"</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike əlçatan deyilsə ani bildiriş göstər</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API əlçatan deyilsə ani bildiriş göstər</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Sahib tərəfindən gizlədilib</string>
-    <string name="revanced_sanitize_sharing_links_title">Paylaşım linklərin təmizlə</string>
+    <string name="revanced_sanitize_sharing_links_title">Paylaşım keçidlərin təmizlə</string>
     <string name="revanced_sb_api_url_changed">API URL dəyişdirildi</string>
     <string name="revanced_sb_api_url_invalid">API URL etibarsızdır</string>
     <string name="revanced_sb_api_url_reset">API URL sıfırlaması</string>
@@ -734,7 +803,7 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_sb_settings_copy">Köçür</string>
     <string name="revanced_sb_settings_export_failed">%s ixrac uğursuz</string>
     <string name="revanced_sb_settings_ie">İdxal/İxrac etmə tənzimləmələri</string>
-    <string name="revanced_sb_settings_ie_sum">ReVanced və digər SponsorBlock platformalarına idxal/ixrac edilə bilən SponsorBlock JSON qurmanız</string>
+    <string name="revanced_sb_settings_ie_sum">Morphe və digər SponsorBlock platformalarına idxal/ixrac edilə bilən SponsorBlock JSON qurmanız</string>
     <string name="revanced_sb_settings_ie_sum_warning">ReVanced və digər SponsorBlock platformalarına idxal/ixrac edilə bilən SponsorBlock JSON qurmanız. Bu şəxsi istifadəçi kimliyinizi saxlayır. Bunu düzgün şəkildə paylaşdığınıza əmin olun</string>
     <string name="revanced_sb_settings_import_failed">%s idxal uğursuz</string>
     <string name="revanced_sb_settings_import_successful">Tənzimləmələr uğurla idxal edildi</string>
@@ -807,7 +876,7 @@ Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz.
     <string name="revanced_sb_stats_username_change">İstifadəçi adınızı dəyişdirmək üçün bura toxunun</string>
     <string name="revanced_sb_stats_username_change_unknown_error">İstifadəçi adı dəyişdirilə bilmir: Status: %1$d %2$s</string>
     <string name="revanced_sb_stats_username_changed">İstifadəçi adı uğurla dəyişdirildi</string>
-    <string name="revanced_sb_submit_failed_duplicate">"Bölüm təqdim etmək olmur.
+    <string name="revanced_sb_submit_failed_duplicate">"Bölüm təqdim etmək mümkün deyil.
 Artıq mövcuddur"</string>
     <string name="revanced_sb_submit_failed_forbidden">Bölüm göndərilmir: %s</string>
     <string name="revanced_sb_submit_failed_invalid">Bölüm göndərilmir: %s</string>

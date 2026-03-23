@@ -163,9 +163,9 @@
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">נעשה שימוש בתפריט נשלף בסגנון ישן.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">נעשה שימוש בדיאלוג מותאם אישית.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">סוג תפריט איכות וידיאו</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">מצב אווירה מושבת במצב חיסכון בסוללה.</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">מצב אווירה מופעל במצב חיסכון בסוללה.</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_title">עוקף את הגבלות מצב הסביבה</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">הסרת הגבלות של תאורת אווירה לשמירה על כוח חשמלי אינה פעילה</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">הסרת הגבלות של תאורת אווירה לשמירה על כוח חשמלי</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">עקוף מגבלות מצב אטמוספירה</string>
     <string name="revanced_bypass_image_region_restrictions_domain_title">תחום חלופי</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">"שימוש במארח תמונות מקורי
 
@@ -187,10 +187,16 @@
 
 פריסת טאבלט
 • פוסטים קהילתיים מוסתרים
+• הגדרת השמעה במקורות אינה זמינה
+• כפתור 'מיזוג' וכפתור 'סאונד' אינם זמינים ב-Shorts
+• שורת הפעולות של הווידאו אינה מקופלת
 
 פריסת רכב
-• סרטוני Shorts נפתחים בנגן הרגיל
-• פיד מאורגן לפי נושאים וערוצים"</string>
+• המקורות מאורגנים לפי נושאים וערוצים
+• הגדרת השמעה במקורות אינה זמינה
+• כפתור 'מיזוג' וכפתור 'סאונד' אינם זמינים ב-Shorts
+• Shorts נפתחים בנגן הרגיל
+• שורת הפעולות של הווידאו אינה מקופלת"</string>
     <string name="revanced_change_live_ring_click_action_summary_off">שידור חי נפתח בעת לחיצה על טבעת הלייב.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">נעשה שימוש במתגים.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">נעשה שימוש בלחצני טקסט.</string>
@@ -218,6 +224,7 @@
     <string name="revanced_change_start_page_entry_podcasts">פודקאסטים</string>
     <string name="revanced_change_start_page_entry_search">חיפוש</string>
     <string name="revanced_change_start_page_entry_shopping">שופינג</string>
+    <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">ספורט</string>
     <string name="revanced_change_start_page_entry_subscriptions">מינויים</string>
     <string name="revanced_change_start_page_entry_trending">הסרטונים החמים</string>
@@ -264,24 +271,51 @@
     <string name="revanced_debug_toast_on_error_summary_off">הודעה קופצת אינה מוצגת אם מתרחשת שגיאה</string>
     <string name="revanced_debug_toast_on_error_summary_on">הודעה קופצת מוצגת אם מתרחשת שגיאה</string>
     <string name="revanced_debug_toast_on_error_title">הצג הודעה קופצת בעת שגיאת ReVanced</string>
+    <string name="revanced_disable_ambient_mode_summary_off">תאורת אווירה מופעלת</string>
+    <string name="revanced_disable_ambient_mode_summary_on">תאורת אווירה מושבתת</string>
+    <string name="revanced_disable_ambient_mode_title">הסתר תאורת אווירה</string>
     <string name="revanced_disable_auto_captions_summary_off">כתוביות אוטומטיות מושבתות</string>
     <string name="revanced_disable_auto_captions_summary_on">כתוביות אוטומטיות מופעלות</string>
     <string name="revanced_disable_auto_captions_title">השבת כתוביות אוטומטיות</string>
     <string name="revanced_disable_chapter_skip_double_tap_summary_off">הקשה כפולה יכולה לגרום מדי פעם דילוג לפרק הבא/הקודם</string>
     <string name="revanced_disable_chapter_skip_double_tap_summary_on">הקשה כפולה לעולם לא יכולה לגרום דילוג לפרק הבא/הקודם</string>
     <string name="revanced_disable_chapter_skip_double_tap_title">השבת דילוג פרקים בהקשה כפולה</string>
+    <string name="revanced_disable_drc_audio_summary_off">אודיו DRC מופעל</string>
+    <string name="revanced_disable_drc_audio_summary_on">אודיו DRC מושבת</string>
+    <string name="revanced_disable_drc_audio_title">השבת אודיו DRC</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">משוב ברטט עבור פרקים מופעל</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">משוב ברטט עבור פרקים מושבת</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">השבת משוב ברטט עבור פרקים</string>
+    <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">משוב ברטט עבור דילוג מדויק מופעל</string>
+    <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">משוב ברטט עבור דילוג מדויק מושבת</string>
+    <string name="revanced_disable_haptic_feedback_precise_seeking_title">השבת משוב ברטט עבור דילוג מדויק</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">משוב ברטט עבור ביטול דילוג מופעל</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">משוב ברטט עבור ביטול דילוג מושבת</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_title">השבת משוב ברטט עבור ביטול דילוג</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">משוב טאפ אנד הולד מופעל</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">משוב טאפ אנד הולד מושבת</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_title">השבת משוב טאפ אנד הולד</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">משוב ברטט עבור זום מופעל</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">משוב ברטט עבור זום מושבת</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">השבת משוב זום ברטט</string>
     <string name="revanced_disable_hdr_video_summary_off">סרטון HDR מופעל</string>
     <string name="revanced_disable_hdr_video_summary_on">סרטון HDR מושבת</string>
     <string name="revanced_disable_hdr_video_title">השבת סרטון HDR</string>
+    <string name="revanced_disable_layout_updates_summary_off">השליטה תעדכן את השayout על ידי השרת</string>
+    <string name="revanced_disable_layout_updates_summary_on">השליטה לא תעדכן את השayout על ידי השרת</string>
+    <string name="revanced_disable_layout_updates_title">השבתה של עדכונים שלayout</string>
+    <string name="revanced_disable_layout_updates_user_dialog_message">"התצורה של האפליקציה חוזרת לתצורה שהייתה בשימוש לראשונה.
+
+לתצורות מסוימות שרתיי עשויה שלא לחזור.
+
+השינויים כוללים:
+• מרכיבים בתפריט הטיסה של שחקן (או הגדרות קשורות) עשויים שלא לעבוד.
+• המספרים המתגלגלים אינם מתנוענים.
+• טאב ספרייה מופיע.
+•部分 של המוזיקה של תיאור הוידאו עשויה שלא לעבוד.
+•מרכיבי תפריט הטיסה של שחקן לא ניתן להסתר.
+• כפתור החלפת חשבון עשוי שלא להופיע על טאב הספרייה."</string>
+    <string name="revanced_disable_quic_protocol_title">השבת פרוטוקול QUIC</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">נגן Shorts יתחדש בעת הפעלת היישום</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">נגן Shorts לא יתחדש בעת הפעלת היישום</string>
     <string name="revanced_disable_resuming_shorts_player_title">השבת חידוש נגן Shorts</string>
@@ -294,6 +328,7 @@
     <string name="revanced_disable_translucent_status_bar_summary_off">שורת מצב אטומה או שקופה</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">שורת מצב אטומה</string>
     <string name="revanced_disable_translucent_status_bar_title">השבת שורת מצב שקופה</string>
+    <string name="revanced_dismiss_player_not_available_toast">מזהה הסרטון אינו זמין. אנא פתח מחדש את הסרטון באופן ידני.</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">הקשה בסרגל החיפוש מושבתת.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">הקשה בסרגל החיפוש מופעלת.</string>
     <string name="revanced_enable_seekbar_tapping_title">אפשר הקשה בסרגל החיפוש</string>
@@ -311,6 +346,9 @@
     <string name="revanced_external_downloader_package_not_found_warning">"לא ניתן למצוא יישום מותקן עם שם חבילה: %s
 
 יש לוודא ששם החבילה נכון ושהיישום מותקן"</string>
+    <string name="revanced_hide_action_bar_summary_off">סרגל הפעולות מוצג</string>
+    <string name="revanced_hide_action_bar_summary_on">סרגל הפעולות מוסתר</string>
+    <string name="revanced_hide_action_bar_title">הסתר סרגל פעולות</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">קטע סיכום סרטון הנוצר על ידי AI מוצג</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">קטע סיכום סרטון הנוצר על ידי AI מוסתר</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">הסתר את \'סיכום הווידאו שנוצר על ידי בינה מלאכותית\'</string>
@@ -323,8 +361,16 @@
     <string name="revanced_hide_attributes_section_summary_off">המדורים \'מקומות שמככבים בסרטון\', \'משחקים\', \'מוזיקה\', ו\'אנשים שאוזכרו\' מוצגים</string>
     <string name="revanced_hide_attributes_section_summary_on">המדורים \'מקומות שמככבים בסרטון\', \'משחקים\', \'מוזיקה\', ו\'אנשים שאוזכרו\' מוסתרים</string>
     <string name="revanced_hide_attributes_section_title">הסתר מאפיינים</string>
-    <string name="revanced_hide_channel_watermark_summary_off">סימן מים מוצג</string>
-    <string name="revanced_hide_channel_watermark_summary_on">סימן מים מוסתר</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">תצוגה מקדימה אוטומטית מוצגת</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">תצוגה מקדימה אוטומטית מוסתרת</string>
+    <string name="revanced_hide_autoplay_preview_title">הסתר תצוגה מקדימה אוטומטית</string>
+    <string name="revanced_hide_channel_tab_filter_strings_summary">הזן את שמות הטאבים של הערוץ כדי לסנן, אחד בכל שורה</string>
+    <string name="revanced_hide_channel_tab_filter_strings_title">טאב ערוץ סינטר</string>
+    <string name="revanced_hide_channel_tab_summary_off">סנן טאב ערוץ מושבת</string>
+    <string name="revanced_hide_channel_tab_summary_on">סנן טאב ערוץ מופעל</string>
+    <string name="revanced_hide_channel_tab_title">הפעל סנן טאב ערוץ</string>
+    <string name="revanced_hide_channel_watermark_summary_off">סימן מים של ערוץ מוצג</string>
+    <string name="revanced_hide_channel_watermark_summary_on">סימן מים של ערוץ מוסתר</string>
     <string name="revanced_hide_channel_watermark_title">הסתר סימן מים של ערוץ</string>
     <string name="revanced_hide_chapters_section_summary_off">מדור הפרקים מוצג</string>
     <string name="revanced_hide_chapters_section_summary_on">מדור הפרקים מוסתר</string>
@@ -342,15 +388,18 @@
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">לחצני אימוג\'י וחותמת זמן מוצגים</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">לחצני אימוג\'י וחותמת זמן מוסתרים</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">הסתר לחצני אימוג\'י וחותמת זמן</string>
+    <string name="revanced_hide_comments_section_in_home_feed_summary_off">Comments section under videos in Home feed is shown</string>
+    <string name="revanced_hide_comments_section_in_home_feed_summary_on">Comments section under videos in Home feed is hidden</string>
+    <string name="revanced_hide_comments_section_in_home_feed_title">הסתר את מדור התגובות בפיד</string>
     <string name="revanced_hide_comments_section_summary_off">מדור התגובות מוצג</string>
     <string name="revanced_hide_comments_section_summary_on">מדור התגובות מוסתר</string>
     <string name="revanced_hide_comments_section_title">הסתר מדור תגובות</string>
     <string name="revanced_hide_comments_thanks_button_summary_off">לחצן תודה מוצג</string>
     <string name="revanced_hide_comments_thanks_button_summary_on">לחצן תודה מוסתר</string>
     <string name="revanced_hide_comments_thanks_button_title">הסתר לחצן תודה</string>
-    <string name="revanced_hide_community_button_summary_off">הלחצן \'קהילה\' מוצג</string>
-    <string name="revanced_hide_community_button_summary_on">הלחצן \'קהילה\' מוסתר</string>
-    <string name="revanced_hide_community_button_title">הסתר לחצן קהילה</string>
+    <string name="revanced_hide_community_button_summary_off">לחצן תגובות מוצג</string>
+    <string name="revanced_hide_community_button_summary_on">לחצן תגובות מוסתר</string>
+    <string name="revanced_hide_community_button_title">הסתר לחצן תגובות</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">מדף חנות היוצר מתחת לנגן הוידאו מוצג</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">מדף חנות היוצר מתחת לנגן הוידאו מוסתר</string>
     <string name="revanced_hide_creator_store_shelf_title">הסתר מדף חנות היוצר</string>
@@ -360,22 +409,31 @@
     <string name="revanced_hide_download_button_summary_off">לחצן הורדה מוצג</string>
     <string name="revanced_hide_download_button_summary_on">לחצן הורדה מוסתר</string>
     <string name="revanced_hide_download_button_title">הסתר הורדה</string>
+    <string name="revanced_hide_end_screen_cards_summary_off">כרטיסי מסך מסיום מוצגים</string>
+    <string name="revanced_hide_end_screen_cards_summary_on">כרטיסי מסך מסיום מוסתרים</string>
+    <string name="revanced_hide_end_screen_cards_title">הסתר כרטיסי מסך סיום</string>
     <string name="revanced_hide_end_screen_store_banner_summary_off">באנר החנות של מסך הסיום מוצג</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">באנר החנות של מסך סיום מוסתר</string>
     <string name="revanced_hide_end_screen_store_banner_title">הסתר כרזת חנות של מסך סיום</string>
     <string name="revanced_hide_expandable_card_summary_off">כרטיס הניתן להרחבה מתחת לסרטונים מוצג</string>
     <string name="revanced_hide_expandable_card_summary_on">כרטיס הניתן להרחבה מתחת לסרטונים מוסתר</string>
     <string name="revanced_hide_expandable_card_title">הסתר כרטיס הניתן להרחבה</string>
-    <string name="revanced_hide_featured_links_section_summary_off">קטע קישורים מוצגים מוצג</string>
-    <string name="revanced_hide_featured_links_section_summary_on">קטע קישורים מוצגים מוסתר</string>
-    <string name="revanced_hide_featured_links_section_title">הסתר קישורים מומלצים</string>
-    <string name="revanced_hide_featured_videos_section_summary_off">קטע סרטונים מוצגים מוצג</string>
-    <string name="revanced_hide_featured_videos_section_summary_on">קטע סרטונים מוצגים מוסתר</string>
-    <string name="revanced_hide_featured_videos_section_title">הסתר סרטונים מוצגים</string>
+    <string name="revanced_hide_explore_podcast_section_summary_off">מדור \'גלה את הפודקאסט\' מוצג</string>
+    <string name="revanced_hide_explore_podcast_section_summary_on">מדור \'גלה את הפודקאסט\' מוסתר</string>
+    <string name="revanced_hide_explore_podcast_section_title">הסתר את \'גלה את הפודקאסט\'</string>
+    <string name="revanced_hide_featured_links_section_summary_off">מקטע תוכן מומלץ מוצג</string>
+    <string name="revanced_hide_featured_links_section_summary_on">מקטע תוכן מומלץ מוסתר</string>
+    <string name="revanced_hide_featured_links_section_title">הסתר תוכן מומלץ</string>
+    <string name="revanced_hide_featured_videos_section_summary_off">מקטע סרטונים קשורים מוצג</string>
+    <string name="revanced_hide_featured_videos_section_summary_on">מקטע סרטונים קשורים מוסתר</string>
+    <string name="revanced_hide_featured_videos_section_title">הסתר סרטונים קשורים</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">הזן את שמות תפריט הפופאפ כדי לסנן לפי, אחד בכל שורה</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_title">סינון תפריט הטיסה של האכבר</string>
+    <string name="revanced_hide_feed_flyout_menu_summary_off">סינון תפריט הטיסה של האכבר מושבת</string>
+    <string name="revanced_hide_feed_flyout_menu_summary_on">סינון תפריט הטיסה של האכבר מופעל</string>
+    <string name="revanced_hide_feed_flyout_menu_title">אפשר את סינון תפריט הטיסה של האכبار</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">מודעות מסך מלא מוצגות</string>
-    <string name="revanced_hide_fullscreen_ads_summary_on">"מודעות במסך מלא מוסתרות
-
-תכונה זו זמינה רק עבור מכשירים ישנים יותר"</string>
+    <string name="revanced_hide_fullscreen_ads_summary_on">מודעות מסך מלא מוסתרות</string>
     <string name="revanced_hide_fullscreen_ads_title">הסתר מודעות מסך מלא</string>
     <string name="revanced_hide_general_ads_summary_off">מודעות כלליות מוצגות</string>
     <string name="revanced_hide_general_ads_summary_on">מודעות כלליות מוסתרות</string>
@@ -398,15 +456,15 @@
     <string name="revanced_hide_info_cards_summary_off">כרטיסי המידע מוצגים</string>
     <string name="revanced_hide_info_cards_summary_on">כרטיסי המידע מוסתרים</string>
     <string name="revanced_hide_info_cards_title">הסתר כרטיסי מידע</string>
-    <string name="revanced_hide_join_button_summary_off">לחצן הצטרפות מוצג</string>
-    <string name="revanced_hide_join_button_summary_on">לחצן הצטרפות מוסתר</string>
-    <string name="revanced_hide_join_button_title">הסתר לחצן \'הצטרפות\'</string>
+    <string name="revanced_hide_join_button_summary_off">לחצן להצטרפות מוצג</string>
+    <string name="revanced_hide_join_button_summary_on">לחצן להצטרפות מוסתר</string>
+    <string name="revanced_hide_join_button_title">הסתר לחצן להצטרפות</string>
     <string name="revanced_hide_key_concepts_section_summary_off">מדור מושגי מפתח מוצג</string>
     <string name="revanced_hide_key_concepts_section_summary_on">מדור מושגי מפתח מוסתר</string>
     <string name="revanced_hide_key_concepts_section_title">הסתר \'מושגי מפתח\'</string>
-    <string name="revanced_hide_keyword_content_about_summary">"תוצאות דף הבית/מינויים/חיפוש מסוננות כדי להסתיר תוכן שתואם ביטויי מילות מפתח
+    <string name="revanced_hide_keyword_content_about_summary">"דף הבית/מינויים/תוצאות החיפוש מסוננות כדי להסתיר תוכן שתואם ביטויי מילות מפתח
 
-מגבלות
+מגבלות:
 • סרטוני Shorts אינם ניתנים להסתרה לפי שם ערוץ
 • ייתכן שחלק מרכיבי ממשק המשתמש לא יוסתרו
 • חיפוש אחר מילת מפתח עשוי שלא להציג תוצאות"</string>
@@ -436,18 +494,27 @@
     <string name="revanced_hide_latest_posts_summary_off">הפוסטים האחרונים מוצגים</string>
     <string name="revanced_hide_latest_posts_summary_on">הפוסטים האחרונים מוסתרים</string>
     <string name="revanced_hide_latest_posts_title">הסתר פוסטים אחרונים</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">לחצן וידאו אחרון מוצג</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">לחצן וידאו אחרון מוסתר</string>
+    <string name="revanced_hide_latest_videos_button_title">הסתר את לחצן \'וידאו אחרון\'</string>
     <string name="revanced_hide_like_dislike_button_summary_off">לחצני אהבתי ודיסלייק מוצגים</string>
     <string name="revanced_hide_like_dislike_button_summary_on">לחצני אהבתי ודיסלייק מוסתרים</string>
     <string name="revanced_hide_like_dislike_button_title">הסתר אהבתי ודיסלייק</string>
     <string name="revanced_hide_links_preview_summary_off">תצוגה מקדימה של קישורים מוצגת</string>
     <string name="revanced_hide_links_preview_summary_on">תצוגה מקדימה של קישורים מוסתרת</string>
     <string name="revanced_hide_links_preview_title">הסתר תצוגה מקדימה של קישורים</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_off">לחצן \'רשף צ\'ט חיי\' על שכבת שחקה של שחקן מופיע</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_on">לחצן \'רשף צ\'ט חיי\' על שכבת שחקה של שחקן מוסתר</string>
+    <string name="revanced_hide_live_chat_replay_button_title">הסתר את לחצן \'רשף צ\'ט חיי\'</string>
     <string name="revanced_hide_members_shelf_summary_off">מדף חברים מוצג</string>
     <string name="revanced_hide_members_shelf_summary_on">מדף חברים מוסתר</string>
     <string name="revanced_hide_members_shelf_title">הסתר מדף חברים</string>
     <string name="revanced_hide_mix_playlists_summary_off">פלייליסטים של מיקס מוצגים</string>
     <string name="revanced_hide_mix_playlists_summary_on">פלייליסטים של מיקס מוסתרים</string>
     <string name="revanced_hide_mix_playlists_title">הסתר פלייליסטים של מיקס</string>
+    <string name="revanced_hide_navigation_bar_summary_off">סרגל ניווט מוצג</string>
+    <string name="revanced_hide_navigation_bar_summary_on">סרגל ניווט מוסתר</string>
+    <string name="revanced_hide_navigation_bar_title">הסתר סרגל ניווט</string>
     <string name="revanced_hide_notify_me_button_summary_off">הלחצן \'הודע לי\' מוצג</string>
     <string name="revanced_hide_notify_me_button_summary_on">הלחצן \'הודע לי\' מוסתר</string>
     <string name="revanced_hide_notify_me_button_title">הסתר לחצן \'אני רוצה לקבל התראה\'</string>
@@ -493,9 +560,9 @@
     <string name="revanced_hide_shopping_links_summary_off">קישורי קניות בתיאור הסרטון מוצגים</string>
     <string name="revanced_hide_shopping_links_summary_on">קישורי קניות בתיאור הסרטון מוסתרים</string>
     <string name="revanced_hide_shopping_links_title">הסתר קישורי קניות</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">תווית בדיבוב אוטומטי מוצגת</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">תווית בדיבוב אוטומטי מוסתרת</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_title">הסתר תווית \'מדובב אוטומטית\'</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">תווית מיקום מוצגת</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">תווית מיקום מוסתרת</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_title">הסתר את הלאabel \'אוטו-דובב\'</string>
     <string name="revanced_hide_shorts_channel_bar_summary_off">סרגל הערוץ מוצג</string>
     <string name="revanced_hide_shorts_channel_bar_summary_on">סרגל הערוץ מוסתר</string>
     <string name="revanced_hide_shorts_channel_bar_title">הסתר סרגל ערוץ</string>
@@ -507,7 +574,7 @@
     <string name="revanced_hide_shorts_dislike_button_title">הסתר לחצן דיסלייק</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_off">לחצן מסך ירוק מוצג</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">לחצן מסך ירוק מוסתר</string>
-    <string name="revanced_hide_shorts_green_screen_button_title">הסתר לחצן \'מסך ירוק\'</string>
+    <string name="revanced_hide_shorts_green_screen_button_title">הסתר את הלחצן \'מסך ירוק\'</string>
     <string name="revanced_hide_shorts_hashtag_button_summary_off">לחצן hashtag מוצג</string>
     <string name="revanced_hide_shorts_hashtag_button_summary_on">לחצן hashtag מוסתר</string>
     <string name="revanced_hide_shorts_hashtag_button_title">הסתר לחצן hashtag</string>
@@ -520,15 +587,15 @@
     <string name="revanced_hide_shorts_like_button_summary_off">לחצן אהבתי מוצג</string>
     <string name="revanced_hide_shorts_like_button_summary_on">לחצן אהבתי מוסתר</string>
     <string name="revanced_hide_shorts_like_button_title">הסתר לחצן אהבתי</string>
-    <string name="revanced_hide_shorts_live_preview_summary_off">תצוגה מקדימה חיה מוצגת</string>
-    <string name="revanced_hide_shorts_live_preview_summary_on">תצוגה מקדימה חיה מוסתרת</string>
-    <string name="revanced_hide_shorts_live_preview_title">הסתר תצוגה מקדימה חיה</string>
+    <string name="revanced_hide_shorts_live_preview_summary_off">תצוגה מקדימה של קישורים מוצגת</string>
+    <string name="revanced_hide_shorts_live_preview_summary_on">תצוגה מקדימה של קישורים מוסתרת</string>
+    <string name="revanced_hide_shorts_live_preview_title">הסתר תצוגה מקדימה של קישורים</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_off">סרגל ניווט מוצג</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">סרגל ניווט מוסתר</string>
     <string name="revanced_hide_shorts_navigation_bar_title">הסתר סרגל ניווט</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_off">לחצן \"פוסטים חדשים\" מוצג</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_on">לחצן \"פוסטים חדשים\" מוסתר</string>
-    <string name="revanced_hide_shorts_new_posts_button_title">הסתר לחצן \'פוסטים חדשים\'</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">הסתר את הלחצן \'פוסטים חדשים\'</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">לחצני שכבת-על בעת השהיה מוצגים</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">לחצני שכבת-על בעת השהיה מוסתרים</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">הסתר לחצני שכבת-על בעת השהיה</string>
@@ -568,15 +635,18 @@
     <string name="revanced_hide_stop_ads_button_summary_off">לחצן עצירת מודעות מוצג</string>
     <string name="revanced_hide_stop_ads_button_summary_on">לחצן עצירת מודעות מוסתר</string>
     <string name="revanced_hide_stop_ads_button_title">הסתר עצירת מודעות</string>
-    <string name="revanced_hide_store_button_summary_off">הלחצן \'חנות\' מוצג</string>
-    <string name="revanced_hide_store_button_summary_on">הלחצן \'חנות\' מוסתר</string>
-    <string name="revanced_hide_store_button_title">הסתר לחצן \'חנות\'</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">הלחצן \'הירשם\' מוצג</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">הלחצן \'הירשם\' מוסתר</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_title">הסתר לחצן \'הירשם\'</string>
-    <string name="revanced_hide_subscribe_button_summary_off">לחצן \'הירשם\' מוצג</string>
-    <string name="revanced_hide_subscribe_button_summary_on">לחצן \'הירשם\' מוסתר</string>
-    <string name="revanced_hide_subscribe_button_title">הסתר לחצן \'הירשם\'</string>
+    <string name="revanced_hide_store_button_summary_off">לחצן שיתוף מוצג</string>
+    <string name="revanced_hide_store_button_summary_on">לחצן שיתוף מוסתר</string>
+    <string name="revanced_hide_store_button_title">הסתר לחצן שיתוף</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">לחצן הרשמה למינוי מוצג</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">לחצן הרשמה למינוי מוסתר</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_title">הסתר לחצן הרשמה למינוי</string>
+    <string name="revanced_hide_subscribe_button_summary_off">לחצן הרשמה למינוי מוצג</string>
+    <string name="revanced_hide_subscribe_button_summary_on">לחצן הרשמה למינוי מוסתר</string>
+    <string name="revanced_hide_subscribe_button_title">הסתר לחצן הרשמה למינוי</string>
+    <string name="revanced_hide_subscribed_channels_bar_summary_off">סרגל תעודות מנויים מופיע</string>
+    <string name="revanced_hide_subscribed_channels_bar_summary_on">סרגל תעודות מנויים מוסתר</string>
+    <string name="revanced_hide_subscribed_channels_bar_title">הסתר סרגל תעודות מנויים</string>
     <string name="revanced_hide_surveys_summary_off">הסקרים מוצגים</string>
     <string name="revanced_hide_surveys_summary_on">הסקרים מוסתרים</string>
     <string name="revanced_hide_surveys_title">הסתר סקרים</string>
@@ -589,6 +659,15 @@
     <string name="revanced_hide_timed_reactions_summary_off">תגובות באמוג\'י מתוזמנות מוצגות</string>
     <string name="revanced_hide_timed_reactions_summary_on">תגובות באמוג\'י מתוזמנות מוסתרות</string>
     <string name="revanced_hide_timed_reactions_title">הסתר תגובות באמוג\'י מתוזמנות</string>
+    <string name="revanced_hide_toolbar_create_button_summary_off">לחצן יצירה מוצג</string>
+    <string name="revanced_hide_toolbar_create_button_summary_on">לחצן יצירה מוסתר</string>
+    <string name="revanced_hide_toolbar_create_button_title">הסתר יצירה</string>
+    <string name="revanced_hide_toolbar_notification_button_summary_off">לחצן עדכונים מוצג</string>
+    <string name="revanced_hide_toolbar_notification_button_summary_on">לחצן עדכונים מוסתר</string>
+    <string name="revanced_hide_toolbar_notification_button_title">הסתר עדכונים</string>
+    <string name="revanced_hide_toolbar_search_button_summary_off">לחצן החיפוש מוצג</string>
+    <string name="revanced_hide_toolbar_search_button_summary_on">לחצן החיפוש מוסתר</string>
+    <string name="revanced_hide_toolbar_search_button_title">הסתר חיפוש</string>
     <string name="revanced_hide_transcript_section_summary_off">מדור התמליל מוצג</string>
     <string name="revanced_hide_transcript_section_summary_on">מדור התמליל מוסתר</string>
     <string name="revanced_hide_transcript_section_title">הסתר תמליל</string>
@@ -604,6 +683,9 @@
     <string name="revanced_hide_web_search_results_summary_off">תוצאות חיפוש באינטרנט מוצגות</string>
     <string name="revanced_hide_web_search_results_summary_on">תוצאות חיפוש באינטרנט מוסתרות</string>
     <string name="revanced_hide_web_search_results_title">הסתר תוצאות חיפוש באינטרנט</string>
+    <string name="revanced_hide_you_may_like_section_summary_off">מדור \"אולי תעניק\" מוצג</string>
+    <string name="revanced_hide_you_may_like_section_summary_on">מדור \"אולי תעניק\" מוסתר</string>
+    <string name="revanced_hide_you_may_like_section_title">הסתר את \"אולי תהנה\"</string>
     <string name="revanced_language_DEFAULT">שפת היישום</string>
     <string name="revanced_language_title">שפת ReVanced</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">פעולת הקשה כפולה וצביטה לשינוי גודל מושבתת</string>
@@ -617,6 +699,11 @@
 
 מיני-נגן ניתן לגרירה לעבר כל פינה של המסך"</string>
     <string name="revanced_miniplayer_drag_and_drop_title">הפעל גרירה ושחרור</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">כפתורי הרחבה וסגירה מוצגים</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"הכפתורים מוסתרים
+
+החלק להרחבה או סגירה"</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">הסתר כפתורי הרחבה וסגירה</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">לחצני שכבת-על מוצגים</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">לחצני שכבת-על מוסתרים</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_title">הסתר לחצני שכבת-על</string>
@@ -649,6 +736,9 @@
     <string name="revanced_miniplayer_width_dip_invalid_toast">גודל פיקסל חייב להיות בין %1$s ו-%2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">גודל על המסך ראשוני, בפיקסלים</string>
     <string name="revanced_miniplayer_width_dip_title">גודל ראשוני</string>
+    <string name="revanced_override_youtube_music_button_summary_off">כפתור YouTube Music נפתח את האפליקציה המקורית</string>
+    <string name="revanced_override_youtube_music_button_summary_on">כפתור יוטיוב מיוזיק יפתח את אפליקציית המוזיקה שלך</string>
+    <string name="revanced_override_youtube_music_button_title">עקוף כפתור יוטיוב מיוזיק</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">שינויי מהירות הפעלה חלים רק על הסרטון הנוכחי</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">שינויי מהירות הפעלה חלים על כל הסרטונים</string>
     <string name="revanced_remember_playback_speed_last_selected_title">זכור שינויי מהירות הפעלה</string>
@@ -667,6 +757,7 @@
     <string name="revanced_remember_video_quality_toast_shorts">איכות %1$s Shorts שונתה ל: %2$s</string>
     <string name="revanced_remember_video_quality_wifi">אלחוטית</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">הסר דו-שיח שיקול דעת הצופים</string>
+    <string name="revanced_restart_first_run">הפעל מחדש כדי לסיים את ההגדרות</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">תמונות ממוזערות של סרגל דילוג יופיעו במסך מלא</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">תמונות ממוזערות של סרגל דילוג יופיעו מעל סרגל הדילוג</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">שחזר תמונות ממוזערות של סרגל דילוג ישנות</string>
@@ -694,6 +785,9 @@
     <string name="revanced_ryd_toast_on_connection_error_summary_on">הודעה קופצת מוצגת אם Return YouTube Dislike אינו זמין</string>
     <string name="revanced_ryd_toast_on_connection_error_title">הצג הודעה קופצת אם ה-API אינו זמין</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">מוסתר על ידי הבעלים</string>
+    <string name="revanced_sanitize_comments_category_bar_summary_off">לחצני קטגוריה מוצגים בסרגל קטגוריות התגובות</string>
+    <string name="revanced_sanitize_comments_category_bar_summary_on">לחצני קטגוריה מלבד \'למעלה\' ו-\'חדש\' מוסתרים בסרגל קטגוריות התגובות</string>
+    <string name="revanced_sanitize_comments_category_bar_title">ניקוי סרגל קטגוריות</string>
     <string name="revanced_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
     <string name="revanced_sb_api_url_changed">כתובת API שונתה</string>
     <string name="revanced_sb_api_url_invalid">כתובת ה-URL של ה-API אינה חוקית</string>
@@ -746,8 +840,8 @@
     <string name="revanced_sb_general_time_without">הצג אורך סרטון ללא מקטעים</string>
     <string name="revanced_sb_general_time_without_sum_off">אורך סרטון מלא מוצג</string>
     <string name="revanced_sb_general_time_without_sum_on">אורך הסרטון פחות כל המקטעים מוצג על סרגל הדילוג</string>
-    <string name="revanced_sb_general_uuid">מזהה המשתמש הפרטי שלך</string>
-    <string name="revanced_sb_general_uuid_invalid">מזהה משתמש פרטי חייב להיות באורך של לפחות 30 תווים </string>
+    <string name="revanced_sb_general_uuid">מזהה משתמש פרטי</string>
+    <string name="revanced_sb_general_uuid_invalid">מזהה משתמש פרטי חייב להיות באורך של לפחות 30 תווים</string>
     <string name="revanced_sb_general_uuid_sum">זה צריך להישמר פרטי. זה כמו סיסמה ולא צריך להיות משותף עם אף אחד. אם למישהו יש את זה, הוא יכול להתחזות אליך</string>
     <string name="revanced_sb_guidelines_popup_already_read">כבר קראתי</string>
     <string name="revanced_sb_guidelines_popup_content">קרא את ההנחיות של SponsorBlock לפני יצירת מקטעים חדשים</string>
@@ -802,8 +896,8 @@
     <string name="revanced_sb_settings_copy">העתק</string>
     <string name="revanced_sb_settings_export_failed">נכשל לייצא את: %s</string>
     <string name="revanced_sb_settings_ie">ייבוא/ייצוא הגדרות</string>
-    <string name="revanced_sb_settings_ie_sum">תצורת JSON של ה-SponsorBlock שלך שניתן לייבא/לייצא אל ReVanced ופלטפורמות SponsorBlock אחרות</string>
-    <string name="revanced_sb_settings_ie_sum_warning">תצורת JSON של ה-SponsorBlock שלך שניתן לייבא/לייצא אל ReVanced ופלטפורמות SponsorBlock אחרות. זה כולל את מזהה המשתמש הפרטי שלך. הקפד לשתף את זה בתבונה</string>
+    <string name="revanced_sb_settings_ie_sum">תצורת JSON של ה-SponsorBlock שלך שניתן לייבא/לייצא אל Morphe ופלטפורמות SponsorBlock אחרות</string>
+    <string name="revanced_sb_settings_ie_sum_warning">תצורת JSON שלך של SponsorBlock שניתן לייבא/לייצא אל Morphe ופלטפורמות SponsorBlock אחרות. זה כולל את מזהה המשתמש הפרטי שלך. הקפד לשתף את זה בתבונה</string>
     <string name="revanced_sb_settings_import_failed">נכשל לייבא את: %s</string>
     <string name="revanced_sb_settings_import_successful">ההגדרות יובאו בהצלחה</string>
     <string name="revanced_sb_settings_revanced_export_user_id_warning">"ההגדרות שלך מכילות מזהה משתמש פרטי של SponsorBlock.
@@ -874,9 +968,9 @@
     <string name="revanced_sb_stats_username_change">הקש כאן כדי לשנות את שם המשתמש שלך</string>
     <string name="revanced_sb_stats_username_change_unknown_error">לא ניתן לשנות את שם המשתמש: סטטוס: %1$d %2$s</string>
     <string name="revanced_sb_stats_username_changed">שם משתמש שונה בהצלחה</string>
-    <string name="revanced_sb_submit_failed_duplicate">"לא יכול לשלוח את המקטע.
+    <string name="revanced_sb_submit_failed_duplicate">"לא ניתן להגיש את המקטע.
 כבר קיים"</string>
-    <string name="revanced_sb_submit_failed_forbidden">לא יכול לשלוח את המקטע: %s</string>
+    <string name="revanced_sb_submit_failed_forbidden">לא ניתן לשלוח את המקטע: %s</string>
     <string name="revanced_sb_submit_failed_invalid">לא ניתן לשלוח את המקטע: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">לא ניתן לשלוח מקטע. מוגבל קצב (יותר מדי מאותו המשתמש או כתובת IP)</string>
     <string name="revanced_sb_submit_failed_timeout">המערכת SponsorBlock מושבתת באופן זמני</string>

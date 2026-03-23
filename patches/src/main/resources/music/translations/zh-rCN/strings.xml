@@ -111,10 +111,10 @@
     <string name="revanced_change_start_page_entry_chart">图表</string>
     <string name="revanced_change_start_page_entry_charts">图表</string>
     <string name="revanced_change_start_page_entry_default">默认</string>
-    <string name="revanced_change_start_page_entry_episodes_for_later">后续剧集</string>
+    <string name="revanced_change_start_page_entry_episodes_for_later">待看集数</string>
     <string name="revanced_change_start_page_entry_explore">探索</string>
     <string name="revanced_change_start_page_entry_history">历史记录</string>
-    <string name="revanced_change_start_page_entry_library">媒体库</string>
+    <string name="revanced_change_start_page_entry_library">库</string>
     <string name="revanced_change_start_page_entry_liked_music">喜欢的音乐</string>
     <string name="revanced_change_start_page_entry_podcasts">播客</string>
     <string name="revanced_change_start_page_entry_samples">样品</string>
@@ -122,7 +122,7 @@
     <string name="revanced_change_start_page_entry_subscription">订阅</string>
     <string name="revanced_change_start_page_entry_subscriptions">订阅</string>
     <string name="revanced_change_start_page_summary">选择打开应用显示的页面</string>
-    <string name="revanced_change_start_page_title">更改起始页面</string>
+    <string name="revanced_change_start_page_title">更改起始页</string>
     <string name="revanced_custom_filter_strings_summary">按行分割过滤组件名称</string>
     <string name="revanced_custom_filter_strings_title">编辑自定义过滤隐藏</string>
     <string name="revanced_custom_filter_summary">启用自定义过滤</string>
@@ -157,7 +157,7 @@
     <string name="revanced_disable_dislike_redirection_summary">点击不喜欢按钮时禁用重定向到下一曲目</string>
     <string name="revanced_disable_dislike_redirection_title">禁用不喜欢重定向</string>
     <string name="revanced_disable_drc_audio_summary">禁用应用于音频的 DRC（动态范围压缩）。</string>
-    <string name="revanced_disable_drc_audio_title">禁用动态范围压缩音频</string>
+    <string name="revanced_disable_drc_audio_title">禁用 DRC 音频</string>
     <string name="revanced_disable_miniplayer_gesture_summary">禁用滑动切换迷你播放器中的曲目。</string>
     <string name="revanced_disable_miniplayer_gesture_title">禁用迷你播放器手势</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">轻点歌曲/视频切换</string>
@@ -169,7 +169,7 @@
     <string name="revanced_disable_player_gesture_summary">禁用滑动切换播放器中的曲目。</string>
     <string name="revanced_disable_player_gesture_title">禁用播放器手势</string>
     <string name="revanced_disable_quic_protocol_summary">"禁用 Cronet 引擎的 QUIC 协议"</string>
-    <string name="revanced_disable_quic_protocol_title">禁用 QUIC 协议</string>
+    <string name="revanced_disable_quic_protocol_title">禁用QUIC协议</string>
     <string name="revanced_enable_comments_scroll_top_summary">"“点击评论面板标题（“评论”）会滚动到顶部。
 
 限制：不适用于评论回复。"</string>
@@ -395,7 +395,7 @@
     <string name="revanced_replace_flyout_menu_report_summary">用播放速度菜单替换举报菜单</string>
     <string name="revanced_replace_flyout_menu_report_title">替换举报菜单</string>
     <string name="revanced_reset_to_default_toast">重置为默认值。</string>
-    <string name="revanced_restart_first_run">重启即可正常加载布局</string>
+    <string name="revanced_restart_first_run">重启以完成设置</string>
     <string name="revanced_restart_message">刷新并重启</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">将评论弹出面板恢复为旧样式。</string>
     <string name="revanced_restore_old_comments_popup_panels_title">恢复旧版评论弹出面板</string>
@@ -442,7 +442,7 @@
     <string name="revanced_ryd_toast_on_connection_error_title">当 API 不可用时显示提示</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隐藏</string>
     <string name="revanced_sanitize_sharing_links_summary">分享链接时删除跟踪查询参数</string>
-    <string name="revanced_sanitize_sharing_links_title">清理分享链接</string>
+    <string name="revanced_sanitize_sharing_links_title">净化分享链接</string>
     <string name="revanced_sb_about">关于</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">数据由 SponsorBlock API 提供。点击此处了解更多信息并查看其他平台的下载。</string>
@@ -580,6 +580,7 @@
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">点击查看如何获取认证令牌。</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">关于 Android VR 认证</string>
     <string name="revanced_spoof_video_streams_default_client_title">默认客户端</string>
+    <string name="revanced_spoof_video_streams_title">伪造视频流</string>
     <string name="revanced_translations_title">翻译</string>
     <string name="revanced_watch_history_type_entry_1">原始</string>
     <string name="revanced_watch_history_type_entry_2">替换网域</string>
