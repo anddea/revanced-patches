@@ -1,22 +1,25 @@
 package app.morphe.patches.youtube.general.startpage
 
-import app.morphe.util.fingerprint.legacyFingerprint
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.literal
+import app.morphe.patcher.string
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val browseIdFingerprint = legacyFingerprint(
-    name = "browseIdFingerprint",
-    returnType = "Lcom/google/android/apps/youtube/app/common/ui/navigation/PaneDescriptor;",
-    parameters = emptyList(),
-    opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.RETURN_OBJECT,
-    ),
-    strings = listOf("FEwhat_to_watch"),
+internal object IntentActionFingerprint : Fingerprint(
+    parameters = listOf("Landroid/content/Intent;"),
+    filters = listOf(
+        string("has_handled_intent")
+    )
 )
 
-internal val intentFingerprint = legacyFingerprint(
-    name = "intentFingerprint",
-    parameters = listOf("Landroid/content/Intent;"),
-    strings = listOf("has_handled_intent"),
+internal object BrowseIdFingerprint : Fingerprint(
+    returnType = "L",
+
+    //parameters() // 20.30 and earlier is no parameters = listOf(.  20.31+ parameter is L.),
+    filters = listOf(
+        string("FEwhat_to_watch"),
+        literal(512),
+        fieldAccess(opcode = Opcode.IPUT_OBJECT, type = "Ljava/lang/String;")
+    )
 )
