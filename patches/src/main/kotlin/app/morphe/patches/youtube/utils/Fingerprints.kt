@@ -278,8 +278,13 @@ internal val videoIdFingerprintShorts = legacyFingerprint(
             return@custom true
 
         method.indexOfFirstInstruction {
-            getReference<FieldReference>()?.name == "reelWatchEndpoint"
+            opcode == Opcode.INVOKE_STATIC &&
+                    getReference<MethodReference>()?.toString() == "Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;"
         } >= 0
+
+        // method.indexOfFirstInstruction {
+            // getReference<FieldReference>()?.name == "reelWatchEndpoint"
+        // } >= 0
     }
 )
 
