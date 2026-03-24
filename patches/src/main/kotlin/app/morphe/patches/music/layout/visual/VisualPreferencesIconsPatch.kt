@@ -327,7 +327,7 @@ val intentIcon = intentKey.associateWith { "${it}_icon" }
 private val emptyTitles = setOf(
     "morphe_spoof_video_streams_client_type",
     "morphe_spoof_video_streams_disable_player_js_update",
-    "morphe_spoof_video_streams_player_js_hash",
+    "morphe_spoof_video_streams_player_js_hash_value",
     "morphe_spoof_video_streams_sign_in_android_vr_about",
     "revanced_custom_filter_strings",
     "revanced_custom_playback_speeds",
@@ -341,7 +341,6 @@ private val emptyTitles = setOf(
     "revanced_replace_flyout_menu_dismiss_queue_continue_watch",
     "revanced_replace_flyout_menu_report_only_player",
     "revanced_spoof_client_type",
-    "revanced_spoof_streaming_data_default_client",
     "revanced_spoof_streaming_data_no_sdk_auth_token_about",
     "revanced_spoof_streaming_data_sign_in_android_no_sdk_about",
     "revanced_spoof_streaming_data_sign_in_android_vr_about",

@@ -72,13 +72,6 @@ const val EXTENSION_STREAMING_DATA_OUTER_CLASS_DESCRIPTOR =
 const val EXTENSION_STREAMING_DATA_INTERFACE =
     "$SPOOF_PATH/StreamingDataOuterClassPatch${'$'}StreamingDataMessage;"
 
-const val EXTENSION_YOUTUBE_SPOOF_PATH =
-    app.morphe.patches.youtube.utils.extension.Constants.SPOOF_PATH
-const val EXTENSION_RELOAD_VIDEO_CLASS_DESCRIPTOR =
-    "$EXTENSION_YOUTUBE_SPOOF_PATH/ReloadVideoPatch;"
-const val EXTENSION_RELOAD_VIDEO_BUTTON_CLASS_DESCRIPTOR =
-    "$EXTENSION_YOUTUBE_SPOOF_PATH/ui/ReloadVideoButton;"
-
 fun spoofStreamingDataPatch(
     block: BytecodePatchBuilder.() -> Unit = {},
     isYouTube: BytecodePatchBuilder.() -> Boolean = { false },

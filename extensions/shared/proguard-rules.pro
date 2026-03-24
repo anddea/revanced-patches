@@ -13,9 +13,6 @@
 -keep class com.eclipsesource.v8.** {
   *;
 }
--keep class com.liskovsoft.** {
-  *;
-}
 
 ## Rules for OkHttp. Copy pasted from https://github.com/square/okhttp
 -dontwarn okhttp3.**

@@ -71,8 +71,8 @@ La riproduzione video con AV1 potrebbe rallentare o perdere fotogrammi."</string
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Gli hash JavaScript del lettore sono validi per circa un mese e gli hash obsoleti potrebbero essere revocati da GVS.</string>
     <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Prova ad abilitare: Falsificare video streams &gt; accesso Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Impossibile recuperare qualsiasi flusso client</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_summary">Inserisci un hash JavaScript del lettore valido</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_title">Hash JavaScript del giocatore</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Inserisci un hash JavaScript del lettore valido</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash JavaScript del giocatore</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Variante JavaScript del lettore</string>
     <string name="morphe_spoof_video_streams_screen_summary">Falsifica i flussi video del client per prevenire problemi di riproduzione</string>
     <string name="morphe_spoof_video_streams_screen_title">Falsifica i flussi video</string>
@@ -2485,38 +2485,6 @@ Nota: la riproduzione potrebbe avere rallentamenti o perdite di fotogrammi."</st
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"L'attivazione di questa impostazione potrebbe comportare l'uso della decodifica software AV1.
 
 Nota: la riproduzione potrebbe avere rallentamenti o perdite di fotogrammi."</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">Client predefinito</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Codec</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Qualità</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Cambia cosa dare priorità nei video</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message">"Alcuni video hanno le seguenti qualità video e codec:
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-Se il dispositivo supporta VP9, 1080p AVC e 720p AVC verranno ignorati. In altre parole, 360p VP9 verrà usato come qualità video più elevata, mentre 1080p AVC e 720p AVC saranno nascosti nel menù a comparsa Qualità.
-Questo è il comportamento previsto dall'app YouTube per Android, ed è il motivo per cui il menù Qualità non era disponibile per alcuni video.
-
-Sebbene VP9 sia un codec più avanzato di AVC, alcuni utenti potrebbero preferire 1080p AVC a 360p VP9.
-
-Verrà usata la massima qualità video disponibile dalla risposta del server, indipendentemente dal codec video.
-Esempio 1:
-• AVC 1080p
-• AVC 720p
-• VP9 360p
-→ Verrà usato AVC 1080p.
-
-Esempio 2:
-• AVC 1080p
-• VP9 1080p
-• VP9 720p
-→ Verrà usato VP9 1080p."</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">Il pulsante Ricarica Video è visibile quando è visibile l\'animazione di buffering.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">Il pulsante Ricarica Video è sempre visibile.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">Mostra sempre il pulsante Ricarica Video</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">Il pulsante Ricarica Video è nascosto.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Il pulsante Ricarica Video è visibile.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_title">Mostra il pulsante Ricarica Video</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Il menù Traccia Audio è nascosto.
 • La disattivazione delle tracce audio automatiche forzate non funziona.
 • Il menù Volume Stabile è nascosto.
@@ -2595,20 +2563,12 @@ Note:
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Emissione di un token di accesso non riuscita</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Tocca \"Ripristina\" e riprova</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Token di accesso e codice di attivazione ripristinati</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Il client è nascosto nelle statistiche per nerd</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Il tipo di client è mostrato nelle statistiche per nerd</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra nelle statistiche per nerd</string>
     <string name="revanced_spoof_streaming_data_summary_off">"I dati in streaming non sono camuffati. La riproduzione potrebbe non funzionare."</string>
     <string name="revanced_spoof_streaming_data_summary_on">"I dati in streaming sono camuffati.
 
 Nota: questa impostazione potrebbe non essere necessaria se sei un utente YouTube Premium."</string>
     <string name="revanced_spoof_streaming_data_title">Camuffa i dati in streaming</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"Il client JavaScript non viene usato per clip, riproduzione automatica nelle schede e Shorts, poichè richiedono una riproduzione rapida."</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_on">"Il client JavaScript viene usato indipendentemente dal tipo di video.
-
-Nota: questo client non riesce ancora a riprodurre clip, riproduzione automatica nelle schede e Shorts."</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_title">Usa il client JavaScript per tutti i video</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Uno dei motivi per cui i video iniziano tardi con i client JavaScript è dovuto alle nuove misure anti-adblock di YouTube.
 Quando un annuncio viene bloccato, il Google Video Server (GVS) genera un falso buffering proporzionale alla durata dell'annuncio (test A/B).
 
@@ -2616,11 +2576,6 @@ uBlock Origin ha trovato una soluzione alternativa a questo problema, che può e
 Tocca \"Apri\" per leggere l'articolo."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Apri</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Nuove misure anti-adblock di YouTube"</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Il bypass del falso buffering è disattivato.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Il bypass del falso buffering è attivato.
-
-Nota: questa impostazione potrebbe smettere di funzionare in qualsiasi momento a causa di modifiche lato server."</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Bypassa il falso buffering</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">I client JavaScript sono nascosti tra i client disponibili.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">I client JavaScript sono visibili tra i client disponibili.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Mostra i client JavaScript tra i client disponibili</string>
@@ -2781,10 +2736,6 @@ Nota: i cookie generati senza effettuare l'accesso potrebbero non essere validi 
     <string name="revanced_watch_history_type_title">Cambia il tipo di cronologia</string>
     <string name="revanced_watch_next_processing_delay_summary">La quantità di millisecondi di ritardo nell\'elaborazione della risposta del video successivo.</string>
     <string name="revanced_watch_next_processing_delay_title">Ritardo di elaborazione del video successivo</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">Ottieni i cookie</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">Ottieni l\'ID di sincronizzazione dati</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">Ottieni i dati del visitatore</string>
-    <string name="revanced_webview_contextual_menu_refresh">Ricarica</string>
     <string name="revanced_webview_cookies">Cookie</string>
     <string name="revanced_webview_copy">Copia</string>
     <string name="revanced_webview_data_sync_id">ID di sincronizzazione dati</string>

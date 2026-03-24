@@ -71,8 +71,8 @@
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">تكون تجزئات مشغل JavaScript صالحة لمدة شهر تقريبًا، وقد يتم إلغاء التجزئات القديمة بواسطة GVS.</string>
     <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">جرب تمكين: تضمين تدفقات الفيديو &gt; تسجيل الدخول إلى Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">تعذر جلب أي تدفقات عميل</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_summary">أدخل تجزئة مشغل JavaScript صالحة</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_title">تجزئة مشغل JavaScript</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">أدخل تجزئة مشغل JavaScript صالحة</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">تجزئة مشغل JavaScript</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">مشغل JavaScript المتغير</string>
     <string name="morphe_spoof_video_streams_screen_summary">تزييف بثوث الفيديو الخاصة بالعميل لمنع مشكلات التشغيل</string>
     <string name="morphe_spoof_video_streams_screen_title">Spoof Video Streams</string>
@@ -2486,47 +2486,6 @@
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"قد يؤدي تمكين هذا الإعداد إلى استخدام برنامج فك التشفير AV1.
 
 قد يتقطع التشغيل أو تنخفض الإطارات."</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">العميل الافتراضي</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">يتم إعطاء الأولوية لترميزات الفيديو.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">يتم إعطاء الأولوية لجودة الفيديو.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">إعطاء الأولوية لجودة الفيديو</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message">"تحتوي بعض الفيديوهات على جودة الفيديو وبرامج الترميز التالية:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-إذا كان الجهاز يدعم VP9، فسيتم تجاهل '1080p AVC' و'720p AVC'.
-
-بمعنى آخر، يُستخدم '360p VP9' كأعلى جودة فيديو، ولا يظهر '1080p AVC' و'720p AVC' في قائمة جودة الفيديو المنبثقة.
-
-هذا هو السلوك المقصود لتطبيق YouTube على نظام Android، ولهذا السبب لم تكن قائمة جودة الفيديو المنبثقة متاحة لبعض مقاطع الفيديو.
-
-على الرغم من أن VP9 برنامج ترميز أكثر تقدمًا من AVC، إلا أن بعض المستخدمين قد يفضلون '1080p AVC' على 360p' VP9'.
-
-عند تفعيل هذا الإعداد، يتم استخدام أعلى جودة فيديو متاحة من استجابة الخادم، بغض النظر عن برنامج ترميز الفيديو.
-
- المثال 1:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-← تم استخدام 1080p AVC.
-
-المثال 2:
-
-• 1080p AVC
-• 1080p VP9
-• 720p VP9
-
-← تم استخدام 1080p VP9."</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">يتم عرض زر إعادة تحميل الفيديو عندما يظهر الدوران.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">يتم عرض زر إعادة تحميل الفيديو دائما.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">عرض زر إعادة تحميل الفيديو دائمًا</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">تم إخفاء زر إعادة تحميل الفيديو.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">يتم عرض زر إعادة تحميل الفيديو.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_title">عرض زر إعادة تحميل الفيديو</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• قائمة المقطع الصوتي مفقودة.
 • لا يتوفر تعطيل المقطع الصوتي التلقائي المفروض.
 • مستوى الصوت الثابت غير متاح.
@@ -2605,24 +2564,12 @@
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">فشل في إصدار رمز المصادقة.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">انقر فوق إعادة تعيين ثم حاول مرة أخرى.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">إعادة تعيين رمز المصادقة و رمز التفعيل.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">تم إخفاء نوع العميل في إحصاءات تقنية</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">يتم عرض نوع العميل في إحصاءات تقنية</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">عرض في إحصاءات تقنية</string>
     <string name="revanced_spoof_streaming_data_summary_off">"لا يتم تزييف بيانات البث. قد لا يعمل تشغيل الفيديو."</string>
     <string name="revanced_spoof_streaming_data_summary_on">"يتم تزييف بيانات البث.
 
 إذا كنت أحد مستخدمي YouTube Premium، فقد لا يكون هذا الإعداد ضروريًا."</string>
     <string name="revanced_spoof_streaming_data_title">Spoof Streaming Data</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"لا يُستخدم عميل JavaScript لبعض الفيديوهات التي تتطلب تشغيلًا سريعًا:
-
-• التشغيل التلقائي في الموجز
-• المقاطع
-• فيديوهات Shorts"</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_on">"يتم استخدام عميل JavaScript بغض النظر عن نوع الفيديو.
-
-• لا يزال عميل JavaScript غير قادر على تشغيل بعض الفيديوهات."</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_title">استخدام عميل JavaScript لجميع الفيديوهات</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"أحد أسباب تأخر بدء تشغيل الفيديوهات في عميل JavaScript هو إجراءات YouTube الجديدة لمكافحة حظر الإعلانات.
 
 عند حظر إعلان فيديو، يُنشئ GVS (خادم فيديو Google) تخزينًا مؤقتًا زائفًا يتناسب مع مدة الإعلان (اختبار A/B).
@@ -2632,12 +2579,6 @@
 انقر على 'فتح' لقراءة المقال."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">فتح</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"إجراءات جديدة لمكافحة حظر الإعلانات على YouTube"</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">تم تعطيل تجاوز التخزين المؤقت الزائف.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"تم تمكين تجاوز التخزين المؤقت الزائف.
-
-القيود:
-• بسبب تغييرات من جانب الخادم، قد يتوقف هذا عن العمل في أي وقت."</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">تجاوز التخزين المؤقت الزائف</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">لم يتم إضافة عميل JavaScript إلى العملاء المتاحين.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">تم إضافة عميل JavaScript إلى العملاء المتاحين.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">استخدام عميل JavaScript</string>
@@ -2834,10 +2775,6 @@
     <string name="revanced_watch_history_type_title">نوع سجل المشاهدة</string>
     <string name="revanced_watch_next_processing_delay_summary">مقدار التأخير بجزء الثانية في معالجة استجابة Watch Next.</string>
     <string name="revanced_watch_next_processing_delay_title">تأخير معالجة Watch Next</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">الحصول على ملفات تعريف الارتباط</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">الحصول على معرف مزامنة البيانات</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">الحصول على بيانات الزائر</string>
-    <string name="revanced_webview_contextual_menu_refresh">تحديث</string>
     <string name="revanced_webview_cookies">ملفات تعريف الارتباط</string>
     <string name="revanced_webview_copy">نسخ</string>
     <string name="revanced_webview_data_sync_id">معرف مزامنة البيانات</string>

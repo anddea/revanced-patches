@@ -84,7 +84,7 @@ public final class JavaScriptManager {
      * JavaScript hash setting.
      */
     private static final StringSetting PLAYER_JS_HASH =
-            SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH;
+            SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH_VALUE;
     /**
      * Variant of JavaScript url.
      */
@@ -336,22 +336,18 @@ public final class JavaScriptManager {
         streamingDataBuilder.clearFormats();
 
         // Deobfuscate formats.
-        boolean deobfuscateResult = deobfuscateFormat(
+        deobfuscateFormat(
                 streamingDataBuilder,
                 streamingData.getFormatsList(),
                 serverAbrStreamingUrl,
                 false
         );
 
-        if (!deobfuscateResult) {
-            return null;
-        }
-
         // Initialize streamingDataBuilder before adding adaptiveFormats.
         streamingDataBuilder.clearAdaptiveFormats();
 
         // Deobfuscate adaptiveFormats.
-        deobfuscateResult = deobfuscateFormat(
+        boolean deobfuscateResult = deobfuscateFormat(
                 streamingDataBuilder,
                 streamingData.getAdaptiveFormatsList(),
                 serverAbrStreamingUrl,
@@ -371,6 +367,10 @@ public final class JavaScriptManager {
                                          boolean isAdaptiveFormats) {
         PlayerDataExtractor playerDataExtractor = getPlayerDataExtractor();
 
+        if (!isAdaptiveFormats) {
+            streamingDataBuilder.addFormats(Format.newBuilder().build());
+            return true;
+        }
         if (playerDataExtractor != null && formats != null && !formats.isEmpty()) {
             // In streamingData, all n-parameters have the same value.
             String obfuscatedNParameter = null;
@@ -444,11 +444,7 @@ public final class JavaScriptManager {
                     formatBuilder.clearSignatureCipher();
                     Format newFormat = formatBuilder.build();
 
-                    if (isAdaptiveFormats) {
-                        streamingDataBuilder.addAdaptiveFormats(newFormat);
-                    } else {
-                        streamingDataBuilder.addFormats(newFormat);
-                    }
+                    streamingDataBuilder.addAdaptiveFormats(newFormat);
                     i++;
                 }
 
@@ -459,11 +455,6 @@ public final class JavaScriptManager {
 
                 return true;
             }
-        } else if (!isAdaptiveFormats) {
-            // The TV client may not have formats in live streams, which is normal.
-            // Since formats aren't used for playback, there's no problem using the default instance.
-            streamingDataBuilder.addFormats(Format.newBuilder().build());
-            return true;
         }
 
         return false;

@@ -1,6 +1,6 @@
 package app.morphe.extension.shared.patches.spoof;
 
-import static app.morphe.extension.shared.spoof.js.J2V8Support.supportJ2V8;
+import static app.morphe.extension.shared.spoof.js.JavaScriptEngineSupport.supportsJavaScriptEngine;
 
 import android.net.Uri;
 
@@ -21,17 +21,27 @@ import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.js.JavaScriptManager;
 import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class SpoofStreamingDataPatch {
-    private static final boolean J2V8_LIBRARY_AVAILABILITY = supportJ2V8();
+    // Keep the old name for existing availability classes and settings that still reference it.
+    private static final boolean J2V8_LIBRARY_AVAILABILITY = supportsJavaScriptEngine();
+    private static final boolean JAVASCRIPT_ENGINE_AVAILABILITY = supportsJavaScriptEngine();
 
     public static final boolean SPOOF_STREAMING_DATA =
             BaseSettings.SPOOF_STREAMING_DATA.get() && PatchStatus.SpoofStreamingData();
 
     private static boolean isSpoofingEnabled() {
         return SPOOF_STREAMING_DATA;
+    }
+
+    @NonNull
+    private static ClientType getSelectedClientType() {
+        if (AppCheckPatch.IS_YOUTUBE) {
+            return app.morphe.extension.youtube.settings.Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
+        }
+
+        return app.morphe.extension.music.settings.Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
     }
 
     public static String blockGetAttRequest(String originalUrlString) {
@@ -114,8 +124,8 @@ public class SpoofStreamingDataPatch {
 
     public static void initializeJavascript() {
         if (isSpoofingEnabled()
-                && Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get().requireJS
-                && J2V8_LIBRARY_AVAILABILITY) {
+                && getSelectedClientType().requireJS
+                && JAVASCRIPT_ENGINE_AVAILABILITY) {
             app.morphe.extension.shared.utils.Utils.runOnBackgroundThread(JavaScriptManager::getSignatureTimestamp);
         }
     }
@@ -132,21 +142,7 @@ public class SpoofStreamingDataPatch {
         @Override
         public boolean isAvailable() {
             return BaseSettings.SPOOF_STREAMING_DATA.get()
-                    && BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.get().name().startsWith("ANDROID_VR");
-        }
-
-        @Override
-        public List<Setting<?>> getParentSettings() {
-            return List.of(BaseSettings.SPOOF_STREAMING_DATA);
-        }
-    }
-
-    public static final class ClientJSAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return BaseSettings.SPOOF_STREAMING_DATA.get()
-                    && J2V8_LIBRARY_AVAILABILITY
-                    && Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get().requireJS;
+                    && getSelectedClientType().name().startsWith("ANDROID_VR");
         }
 
         @Override
@@ -173,26 +169,6 @@ public class SpoofStreamingDataPatch {
         @Override
         public boolean isAvailable() {
             return BaseSettings.SPOOF_STREAMING_DATA.get() && J2V8_LIBRARY_AVAILABILITY;
-        }
-    }
-
-    public static final class ShowReloadVideoButtonAvailability implements Setting.Availability {
-        private static final boolean AVAILABLE_ON_LAUNCH = BaseSettings.SPOOF_STREAMING_DATA.get()
-                && BaseSettings.SPOOF_STREAMING_DATA_RELOAD_VIDEO_BUTTON.get();
-
-        @Override
-        public boolean isAvailable() {
-            return AVAILABLE_ON_LAUNCH
-                    && BaseSettings.SPOOF_STREAMING_DATA.get()
-                    && BaseSettings.SPOOF_STREAMING_DATA_RELOAD_VIDEO_BUTTON.get();
-        }
-
-        @Override
-        public List<Setting<?>> getParentSettings() {
-            return List.of(
-                    BaseSettings.SPOOF_STREAMING_DATA,
-                    BaseSettings.SPOOF_STREAMING_DATA_RELOAD_VIDEO_BUTTON
-            );
         }
     }
 }

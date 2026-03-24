@@ -71,8 +71,8 @@
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Τα JavaScript hashes για τον παίκτη είναι έγκυρα για περίπου ένα μήνα, και τα устаревшая hashes ενδέχεται να ανακληθούν από το GVS.</string>
     <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Δοκιμάστε να ενεργοποιήσετε: Μιμήση ροής βίντεο &gt; Είσοδος Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Αδυναμία λήψης ροής του προγράμματος πελάτη</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_summary">Εισάγετε ένα έγκυρο hash JavaScript παίκτη</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_title">Hash JavaScript παίκτη</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Εισάγετε ένα έγκυρο hash JavaScript παίκτη</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash JavaScript παίκτη</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Παραλλαγή JavaScript του παίκτη</string>
     <string name="morphe_spoof_video_streams_screen_summary">Παραποίηση ροών βίντεο του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής</string>
     <string name="morphe_spoof_video_streams_screen_title">Παραποίηση ροών βίντεο</string>
@@ -2499,46 +2499,6 @@ Playlists
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Η ενεργοποίηση αυτής της ρύθμισης ενδέχεται να έχει ως αποτέλεσμα τη χρήση αποκωδικοποίησης AV1.
 
 Η αναπαραγωγή μπορεί να κομπιάζει ή να χάνει καρέ."</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Προτεραιοποιούνται οι κωδικοποιητές βίντεο.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Προτεραιοποιείται η ποιότητα βίντεο.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Προτεραιοποίηση ποιότητας βίντεο</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message">"Κάποια βίντεο διαθέτουν τις εξής ποιότητες και κωδικοποιήσεις:
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-Αν η συσκευή σας υποστηρίζει VP9, οι επιλογές \"1080p AVC\" και \"720p AVC\" παρακάμπτονται.
-
-Δηλαδή, η μέγιστη διαθέσιμη ποιότητα είναι \"360p VP9\" και οι επιλογές \"1080p AVC\" και \"720p AVC\" δεν εμφανίζονται στο μενού επιλογής ποιότητας.
-
-Αυτό είναι η προεπιλεγμένη συμπεριφορά της εφαρμογής YouTube και είναι ο λόγος που το μενού επιλογής ποιότητας δεν είναι διαθέσιμο για ορισμένα βίντεο.
-
-Αν και ο VP9 είναι πιο προηγμένος κωδικοποιητής από το AVC, κάποιοι χρήστες μπορεί να προτιμούν το \"1080p AVC\" αντί για το \"360p VP9\".
-
-Όταν αυτή η ρύθμιση είναι ενεργοποιημένη, χρησιμοποιείται η υψηλότερη διαθέσιμη ποιότητα βίντεο από την απόκριση του διακομιστή, ανεξάρτητα από τον κωδικοποιητή.
-
-Παράδειγμα 1:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-→ Χρησιμοποιείται το 1080p AVC.
-
-Παράδειγμα 2:
-
-• 1080p AVC
-• 1080p VP9
-• 720p VP9
-
-→ Χρησιμοποιείται το 1080p VP9."</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">Το κουμπί επαναφόρτωσης βίντεο εμφανίζεται μόνο όταν εμφανίζεται η κινούμενη ένδειξη φόρτωσης.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">Το κουμπί επαναφόρτωσης βίντεο εμφανίζεται πάντα.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">Να εμφανίζεται πάντα το κουμπί επαναφόρτωσης βίντεο</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">Το κουμπί επαναφόρτωσης βίντεο δεν εμφανίζεται.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Το κουμπί επαναφόρτωσης βίντεο εμφανίζεται.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_title">Εμφάνιση κουμπιού επαναφόρτωσης βίντεο</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Το μενού «Κομμάτι ήχου» λείπει.
 • Η ρύθμιση «Απενεργοποίηση υποχρεωτικών κομματιών ήχου» δε λειτουργεί.
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη.
@@ -2616,24 +2576,12 @@ Playlists
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Αποτυχία έκδοσης διακριτικού εξουσιοδότησης.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Πατήστε «Επαναφορά» και προσπαθήστε ξανά.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Το διακριτικό και ο κωδικός επαναφέρθηκαν.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Το πρόγραμμα πελάτη δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Το πρόγραμμα πελάτη εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Εμφάνιση στο μενού «Στατιστικά για σπασίκλες»</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Τα δεδομένα ροής δεν παραποιούνται. Η αναπαραγωγή βίντεο ενδέχεται να μη λειτουργεί σωστά."</string>
     <string name="revanced_spoof_streaming_data_summary_on">"Τα δεδομένα ροής παραποιούνται.
 
 Αν είστε χρήστης του YouTube Premium, αυτή η ρύθμιση μπορεί να μην είναι απαραίτητη."</string>
     <string name="revanced_spoof_streaming_data_title">Παραποίηση δεδομένων ροής</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"Το πρόγραμμα πελάτη JavaScript δεν χρησιμοποιείται σε κάποιες περιπτώσεις που απαιτούν γρήγορη αναπαραγωγή, όπως:
-
-• Αυτόματη αναπαραγωγή των βίντεο στη ροή
-• Κλιπ
-• Shorts"</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_on">"Το πρόγραμμα πελάτη JavaScript χρησιμοποιείται ανεξάρτητα από τον τύπο βίντεο.
-
-• Ορισμένα βίντεο ενδέχεται να μην αναπαράγονται."</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_title">Χρήση του προγράμματος πελάτη JavaScript για όλα τα βίντεο</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Ένας λόγος για τον οποίο τα βίντεο καθυστερούν να ξεκινήσουν όταν χρησιμοποιείται πρόγραμμα πελάτη τύπου JavaScript, οφείλεται στα νέα μέτρα κατά του αποκλεισμού διαφημίσεων του YouTube.
 
 Όταν αποκλείεται διαφήμιση βίντεο. ο διακομιστής βίντεο της Google (GVS) δημιουργεί ψεύτικο κόλλημα ανάλογα με τη διάρκεια της διαφήμισης. (A/B testing)
@@ -2643,12 +2591,6 @@ Playlists
 Πατήστε «Άνοιγμα» για να διαβάσετε το σχετικό άρθρο."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Άνοιγμα</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Τα νέα μέτρα Anti-Adblock του YouTube"</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Η παράκαμψη ψεύτικου κολλήματος είναι απενεργοποιημένη.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Η παράκαμψη ψεύτικου κολλήματος είναι ενεργοποιημένη.
-
-Περιορισμοί:
-• Μπορεί να σταματήσει να λειτουργεί ανά πάσα στιγμή λόγω αλλαγών από πλευρά του διακομιστή."</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Παράκαμψη ψεύτικου κολλήματος</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">Το JavaScript δεν προστέθηκε στα διαθέσιμα προγράμματα πελάτη.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">Το JavaScript προστέθηκε στα διαθέσιμα προγράμματα πελάτη.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Χρήση προγράμματος πελάτη JavaScript</string>
@@ -2807,10 +2749,6 @@ Playlists
     <string name="revanced_watch_history_type_title">Τύπος ιστορικού παρακολούθησης</string>
     <string name="revanced_watch_next_processing_delay_summary">Ο αριθμός των χιλιοστών του δευτερολέπτου που κρατάει η καθυστέρηση επεξεργασίας της απόκρισης επόμενης παρακολούθησης.</string>
     <string name="revanced_watch_next_processing_delay_title">Καθυστέρηση επεξεργασίας επόμενης παρακολούθησης</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">Λήψη των Cookies</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">Λήψη του Data Sync ID</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">Λήψη των Visitor Data</string>
-    <string name="revanced_webview_contextual_menu_refresh">Ανανέωση</string>
     <string name="revanced_webview_cookies">Cookies</string>
     <string name="revanced_webview_copy">Αντιγραφή</string>
     <string name="revanced_webview_data_sync_id">Data Sync ID</string>

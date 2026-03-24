@@ -1,10 +1,12 @@
 package app.morphe.extension.shared.innertube.client
 
 import android.os.Build
+import app.morphe.extension.music.settings.Settings as MusicSettings
 import app.morphe.extension.shared.innertube.utils.J2V8Support.supportJ2V8
 import app.morphe.extension.shared.patches.AppCheckPatch.IS_YOUTUBE
 import app.morphe.extension.shared.settings.BaseSettings
 import app.morphe.extension.shared.utils.PackageUtils
+import app.morphe.extension.youtube.settings.Settings as YouTubeSettings
 import org.apache.commons.lang3.ArrayUtils
 import java.util.Locale
 
@@ -291,7 +293,11 @@ object YouTubeClient {
             }
             return clientToUse.filterNotNull().toTypedArray()
         } else {
-            BaseSettings.SPOOF_STREAMING_DATA_DEFAULT_CLIENT.resetToDefault()
+            if (IS_YOUTUBE) {
+                YouTubeSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.resetToDefault()
+            } else {
+                MusicSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.resetToDefault()
+            }
             return availableClientTypes
         }
     }

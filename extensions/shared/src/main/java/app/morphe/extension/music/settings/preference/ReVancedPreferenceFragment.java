@@ -29,7 +29,7 @@ import static app.morphe.extension.shared.patches.PatchStatus.PatchVersion;
 import static app.morphe.extension.shared.settings.BaseSettings.RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT;
 import static app.morphe.extension.shared.settings.BaseSettings.RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY;
 import static app.morphe.extension.shared.settings.Setting.getSettingFromPath;
-import static app.morphe.extension.shared.settings.SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH;
+import static app.morphe.extension.shared.settings.SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH_VALUE;
 import static app.morphe.extension.shared.utils.ResourceUtils.getStringArray;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.isSDKAbove;
@@ -152,7 +152,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                         || settings.equals(ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE)
                         || settings.equals(HIDE_ACCOUNT_MENU_FILTER_STRINGS)
                         || settings.equals(RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY)
-                        || settings.equals(SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH)) {
+                        || settings.equals(SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH_VALUE)) {
                     ResettableEditTextPreference.showDialog(mActivity, stringSetting);
                 } else if (settings.equals(EXTERNAL_DOWNLOADER_PACKAGE_NAME)) {
                     ExternalDownloaderPreference.showDialog(mActivity);

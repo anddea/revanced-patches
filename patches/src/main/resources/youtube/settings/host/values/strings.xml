@@ -38,6 +38,9 @@ Tap the continue button and allow optimization changes."</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 is temporarily not available (API timed out)</string>
     <string name="morphe_oauth2_toast_invalid">Invalid VR sign in token, try signing in to VR again</string>
     <string name="morphe_oauth2_toast_reset">Logged out of Android VR</string>
+    <string name="morphe_reload_video_summary_off">Reload video button is hidden.</string>
+    <string name="morphe_reload_video_summary_on">Reload video button is shown.</string>
+    <string name="morphe_reload_video_title">Show reload video button</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Change share links to youtube.com</string>
@@ -71,8 +74,8 @@ Video playback with AV1 may stutter or drop frames."</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Player JavaScript hashes are valid for approximately one month, and outdated hashes may be revoked by GVS.</string>
     <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Try enabling: Spoof video streams &gt; Android VR sign in</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Could not fetch any client streams</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_summary">Enter a valid player JavaScript hash</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_title">Player JavaScript hash</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Enter a valid player JavaScript hash</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player JavaScript hash</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Player JavaScript variant</string>
     <string name="morphe_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
     <string name="morphe_spoof_video_streams_screen_title">Spoof video streams</string>
@@ -2480,47 +2483,6 @@ Playback may stutter or drop frames"</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Enabling this setting may use software AV1 decoding.
 
 Video playback with AV1 may stutter or drop frames."</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Video codecs are prioritized.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Video quality is prioritized.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Prioritize video quality</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message">"Some videos have the following video quality and codecs:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-If the device supports VP9, '1080p AVC' and '720p AVC' are ignored.
-
-In other words, '360p VP9' is used as the highest video quality, and '1080p AVC' and '720p AVC' are not visible in the video quality flyout menu.
-
-This is the intended behavior of the Android YouTube app, and this is why the video quality flyout menu was unavailable for some videos.
-
-Although VP9 is a more advanced codec than AVC, some users may prefer '1080p AVC' over '360p VP9'.
-
-If this setting is enabled, the highest available video quality from the server response is used, regardless of the video codec.
-
-Example 1:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-→ 1080p AVC is used.
-
-Example 2:
-
-• 1080p AVC
-• 1080p VP9
-• 720p VP9
-
-→ 1080p VP9 is used."</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">Reload video button is shown when loading spinner showing.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">Reload video button is always shown.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">Always show reload video button</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">Reload video button is hidden.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Reload video button is shown.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_title">Show reload video button</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Audio track menu is missing.
 • Disable forced auto audio tracks is not available.
 • Stable volume is not available.
@@ -2598,9 +2560,6 @@ Example 2:
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Failed to issue an authentication token.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Click Reset and try again.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Authentication token and activation code reset.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Video streams are not spoofed
 
 Playback may not work"</string>
@@ -2609,15 +2568,6 @@ Playback may not work"</string>
 If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="revanced_spoof_streaming_data_title">Spoof video streams</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"JavaScript client is not used for some videos that require fast playback:
-
-• Autoplay in feed
-• Clips
-• Shorts"</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_on">"JavaScript client is used regardless of video type.
-
-• JavaScript client still cannot play some videos."</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_title">Use JavaScript client for all videos</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"One reason videos start too late in the JavaScript client is due to YouTube's new anti-adblock measures.
 
 When a video ad is blocked, GVS (Google Video Server) generate fake buffering proportional to the ad duration (A/B testing).
@@ -2627,12 +2577,6 @@ uBlock Origin has found a workaround for this issue, which can be enabled via th
 Click 'Open' to read the article."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Open</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"YouTube's new anti-adblock measures"</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Bypass fake buffering is disabled.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Bypass fake buffering is enabled.
-
-Limitations:
-• Due to server-side changes, this may stop working at any time."</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Bypass fake buffering</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">JavaScript client not added to available clients.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">JavaScript client added to the available clients.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Use JavaScript client</string>
@@ -2826,10 +2770,6 @@ Disclaimer: Cookies issued without signing in may be invalid or may take time to
     <string name="revanced_watch_history_type_title">Watch history type</string>
     <string name="revanced_watch_next_processing_delay_summary">The amount of milliseconds delay in processing the watch next response.</string>
     <string name="revanced_watch_next_processing_delay_title">Watch next processing delay</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">Get Cookies</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">Get Data Sync Id</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">Get Visitor Data</string>
-    <string name="revanced_webview_contextual_menu_refresh">Refresh</string>
     <string name="revanced_webview_cookies">Cookies</string>
     <string name="revanced_webview_copy">Copy</string>
     <string name="revanced_webview_data_sync_id">Data Sync Id</string>

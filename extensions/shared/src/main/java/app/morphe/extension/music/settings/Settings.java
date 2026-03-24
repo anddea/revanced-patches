@@ -31,7 +31,7 @@ import app.morphe.extension.shared.utils.Utils;
 public class Settings extends SharedYouTubeSettings {
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE =
             new EnumSetting<>("morphe_spoof_video_streams_client_type",
-                    ClientType.ANDROID_VR_1_47_48, true, parent(SPOOF_VIDEO_STREAMS));
+                    ClientType.ANDROID_REEL, true, parent(SPOOF_VIDEO_STREAMS));
 
     // PreferenceScreen: Account
     public static final BooleanSetting HIDE_ACCOUNT_MENU = new BooleanSetting("revanced_hide_account_menu", FALSE);
@@ -323,7 +323,7 @@ public class Settings extends SharedYouTubeSettings {
             SPOOF_APP_VERSION_FOR_LYRICS_TARGET.key,
             SPOOF_APP_VERSION_TARGET.key,
             SPOOF_VIDEO_STREAMS_CLIENT_TYPE.key,
-            SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH.key,
+            SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH_VALUE.key,
             SPOOF_VIDEO_STREAMS_SIGN_IN_ANDROID_VR_ABOUT.key,
             WATCH_HISTORY_TYPE.key,
     };
