@@ -71,8 +71,8 @@
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Player JavaScript 哈希有效期约为一个月，过期的哈希可能由 GVS 撤销。</string>
     <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">请尝试启用：欺骗视频流 &gt; 登录 Google VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">无法获取任何客户端流</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_summary">输入有效的 Player JavaScript 哈希</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_title">Player JavaScript hash</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">输入有效的 Player JavaScript 哈希</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player JavaScript hash</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">播放器JavaScript变种</string>
     <string name="morphe_spoof_video_streams_screen_summary">欺骗客户端视频流以防止播放问题</string>
     <string name="morphe_spoof_video_streams_screen_title">欺骗视频流</string>
@@ -2491,47 +2491,6 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"启用此设置可能会使用软件 AV1 解码。
 
 播放可能会出现卡顿或掉帧。"</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">默认客户端</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">视频编解码器被优先考虑。</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">视频画质被优先考虑。</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">优先考虑视频画质</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message">"某些视频具有以下视频画质和编解码器：
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-如果设备支持VP9，则忽略“1080p AVC”和“720p AVC”。
-
-换句话说，“360p VP9”被用作最高视频画质，而“1080p AVC”和“720p AVC”在视频画质弹出菜单中不可见。
-
-这是Android YouTube应用程序的预期行为，这就是为什么某些视频的画质弹出菜单不可用。
-
-尽管VP9是一种比AVC更先进的编解码器，但某些用户可能更喜欢“1080p AVC”而不是“360p VP9”。
-
-如果启用此设置，则无论视频编解码器如何，均使用服务器响应中的最高可用视频画质。
-
-示例 1：
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-→ 使用1080p AVC。
-
-示例 2：
-
-• 1080p AVC
-• 1080p VP9
-• 720p VP9
-
-→ 使用1080p VP9。"</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">仅在加载动画显示时显示重新加载视频按钮。</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">始终显示重新加载视频按钮。</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">始终显示重新加载视频按钮</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">已隐藏重新加载视频按钮。</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">已显示重新加载视频按钮。</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_title">显示重新加载视频按钮</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• 音轨菜单丢失。
 • 禁用强制自动音轨不可用。
 • 无法获得稳定的音量。
@@ -2605,24 +2564,12 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">无法颁发身份验证令牌。</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">点击重置并重试。</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">身份验证令牌和激活码已重置。</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">客户端隐藏在 Stats for nerds 中</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">客户端类型显示在 Stats for nerds 中</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">显示在 Stats for nerds 中</string>
     <string name="revanced_spoof_streaming_data_summary_off">"流媒体数据未伪装，视频可能无法正常播放"</string>
     <string name="revanced_spoof_streaming_data_summary_on">"流媒体数据已伪装
 
 如果您是 YouTube Premium 用户，则可能不需要此设置。"</string>
     <string name="revanced_spoof_streaming_data_title">伪装流媒体数据</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android 创作者</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"对于需要快速播放的某些视频，不使用 JavaScript 客户端：
-
-• 信息流中的自动播放
-• 剪辑
-• Shorts"</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_on">"无论视频类型如何，均使用JavaScript客户端。
-
-• JavaScript 客户端仍无法播放某些视频。"</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_title">所有视频使用JavaScript客户端</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"JavaScript 客户端中视频启动过慢的原因之一，是由于 YouTube 新的反广告屏蔽措施。
 
 当视频广告被屏蔽时，GVS（Google 视频服务器）会生成与广告时长成比例的假缓冲（灰度测试）。
@@ -2632,12 +2579,6 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
 点击“打开”阅读相关文章。"</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">打开</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"YouTube 新的反广告屏蔽措施"</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">已禁用绕过假缓冲。</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"已启用绕过假缓冲。
-
-限制：
-• 由于服务器端更改，可能随时失效。"</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">绕过假缓冲</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">JavaScript 客户端未添加到可用客户端。</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">JavaScript 客户端已添加到可用客户端。</string>
     <string name="revanced_spoof_streaming_data_use_js_title">使用 JavaScript 客户端</string>
@@ -2797,10 +2738,6 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_watch_history_type_title">历史记录类型</string>
     <string name="revanced_watch_next_processing_delay_summary">处理观看下一个响应的延迟毫秒数。</string>
     <string name="revanced_watch_next_processing_delay_title">观看下一个处理延迟</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">获取 Cookie</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">获取数据同步 ID</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">获取访客数据</string>
-    <string name="revanced_webview_contextual_menu_refresh">刷新</string>
     <string name="revanced_webview_cookies">Cookie</string>
     <string name="revanced_webview_copy">复制</string>
     <string name="revanced_webview_data_sync_id">数据同步 ID</string>

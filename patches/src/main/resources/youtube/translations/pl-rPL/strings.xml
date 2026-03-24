@@ -71,8 +71,8 @@ Odtwarzanie filmu z użyciem AV1 może powodować zacinanie się lub gubienie kl
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Hashe JavaScript odtwarzacza są ważne przez około miesiąc, a nieaktualne hashe mogą zostać unieważnione przez GVS.</string>
     <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Spróbuj włączyć: Oszukuj strumienie filmów i Logowanie Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nie można przechwycić żadnego ze strumieni klienta.</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_summary">Wprowadź poprawny hash JavaScript odtwarzacza</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_title">Hash JavaScript odtwarzacza</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Wprowadź poprawny hash JavaScript odtwarzacza</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash JavaScript odtwarzacza</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Wariant JavaScript odtwarzacza</string>
     <string name="morphe_spoof_video_streams_screen_summary">Oszukuje strumień filmów klienta, aby zapobiec problemom z odtwarzaniem</string>
     <string name="morphe_spoof_video_streams_screen_title">Oszukuj strumienie filmów</string>
@@ -2494,47 +2494,6 @@ Podczas odtwarzania film może się zacinać lub pomijać klatki."</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Włączenie tego ustawienia może używać dekodowania oprogramowania AV1.
 
 Podczas odtwarzania film może się zacinać lub pomijać klatki."</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">Domyślny klient</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Kodeków w filmie</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Jakości filmu</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Priorytet w filmie</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message">"Niektóre filmy mają następującą jakość obrazu i kodeki:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-Jeśli urządzenie obsługuje VP9, opcje '1080p AVC' i '720p AVC' są ignorowane.
-
-Innymi słowy, jako najwyższa jakość filmu używany jest '360p VP9', a '1080p AVC' i '720p AVC' nie są widoczne w menu ustawień filmu.
-
-Jest to zamierzone działanie aplikacji YouTube na Androida i dlatego menu ustawień filmu było niedostępne dla niektórych filmów.
-
-Chociaż VP9 jest bardziej zaawansowanym kodekiem niż AVC, niektórzy użytkownicy mogą preferować '1080p AVC' zamiast '360p VP9'.
-
-Jeśli to ustawienie jest włączone, używana jest najwyższa dostępna jakość filmu z odpowiedzi serwera, niezależnie od kodeka filmu.
-
-Przykład 1:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-→ Używana jest jakość 1080p AVC
-
-Przykład 2:
-
-• 1080p AVC
-• 1080p VP9
-• 720p VP9
-
-→ Używana jest jakość 1080p VP9"</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">Nie</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">Tak</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">Zawsze pokazuj przycisk od odświeżenia filmu</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">Ukryty</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Widoczny</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_title">Przycisk od odświeżenia filmu</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• brakuje menu od ścieżki dźwiękowej
 • automatyczne wymuszenie ścieżki dźwiękowej nie jest dostępne
 • stabilna głośność nie jest dostępna
@@ -2612,24 +2571,12 @@ Przykład 2:
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Nie udało się wygenerować tokenu uwierzytelniającego.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Kliknij przycisk zresetuj i spróbuj ponownie.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Zresetowano token uwierzytelniający i kod aktywacyjny.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient jest ukryty w statystykach dla nerdów</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta jest wyświetlany w Statystykach dla nerdów</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Pokaż w statystykach dla nerdów</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Wyłączone. Odtwarzanie filmów może nie działać"</string>
     <string name="revanced_spoof_streaming_data_summary_on">"Włączone
 
 Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie te nie jest konieczne."</string>
     <string name="revanced_spoof_streaming_data_title">Oszukuj strumień danych</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Kreator Androida</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"Nie. Nie jest używany dla niektórych filmów wymagających szybkiego odtwarzania:
-
-• autoodtwarzanie na stronie głównej
-• klipy
-• shortsy"</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_on">"Tak
-
-• Klient JavaScript nie odtworzy niektórych filmów"</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_title">Włącz klienta JavaScript na wszystkie filmy</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Jednym z powodów późnego zaczynania się filmów na klientach JavaScript są nowe środki YouTube przeciwko blokowaniu reklam.
 
 Kiedy reklama w filmie jest blokowana, GVS (Google Video Server) tworzy fałszywy bufor proporcjonalny do długości reklamy (testy A/B).
@@ -2639,12 +2586,6 @@ uBlock Origin znalazło obejście tego problemu, które może być włączone po
 Kliknij 'Otwórz', by przeczytać artykuł."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Otwórz</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Nowe środki YouTube przeciwko blokowaniu reklam"</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Wyłączone</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Włączone
-
-Ograniczenie:
-• ze względu na zmiany po stronie serwera, opcja może przestać działać w każdej chwili"</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Obejście fałszywego buforowania</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">Nie</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">Tak</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Włącz klienta JavaScript</string>
@@ -2825,10 +2766,6 @@ Zastrzeżenie: Pliki cookie wydane bez logowania mogą być nieprawidłowe lub i
     <string name="revanced_watch_history_type_title">Historia</string>
     <string name="revanced_watch_next_processing_delay_summary">Ilość milisekund opóźnienia w przetwarzaniu odpowiedzi na oglądanie dalej.</string>
     <string name="revanced_watch_next_processing_delay_title">Ustaw opóźnienie przetwarzania oglądania dalej</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">Pobierz pliki cookie</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">Pobierz ID synchronizacji danych</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">Pobierz Visitor Data</string>
-    <string name="revanced_webview_contextual_menu_refresh">Odśwież</string>
     <string name="revanced_webview_cookies">Pliki cookie</string>
     <string name="revanced_webview_copy">Kopiuj</string>
     <string name="revanced_webview_data_sync_id">ID synchronizacji danych</string>

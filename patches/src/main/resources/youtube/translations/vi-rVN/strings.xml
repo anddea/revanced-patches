@@ -71,8 +71,8 @@ Phát video bằng AV1 có thể bị giật hoặc tụt khung hình."</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Mã băm JavaScript của trình phát thường có hiệu lực khoảng một tháng, và các mã băm quá hạn có thể bị GVS thu hồi.</string>
     <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Hãy thử bật: Giả mạo luồng phát video &gt; Đăng nhập Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Không thể lấy bất kỳ luồng phát nào</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_summary">Nhập mã băm JavaScript hợp lệ của trình phát</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_title">Mã băm JavaScript của trình phát</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Nhập mã băm JavaScript hợp lệ của trình phát</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Mã băm JavaScript của trình phát</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Biến thể JavaScript của trình phát</string>
     <string name="morphe_spoof_video_streams_screen_summary">Giả mạo luồng phát video của client nhằm ngăn chặn lỗi khi phát</string>
     <string name="morphe_spoof_video_streams_screen_title">Giả mạo luồng phát video</string>
@@ -2486,43 +2486,6 @@ Trong khi phát video có thể gặp hiện tượng giật lag hoặc tụt FP
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Bật cài đặt này có thể sử dụng giải mã AV1 bằng phần mềm.
 
 Trong khi phát video có thể gặp hiện tượng giật lag hoặc tụt FPS."</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">Ứng dụng khách mặc định</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Codec video được ưu tiên.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Chất lượng video được ưu tiên.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Ưu tiên chất lượng video</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message">"Một số video có các chất lượng và codec như sau:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-Nếu thiết bị hỗ trợ VP9, thì các tùy chọn 1080p AVC và 720p AVC sẽ bị bỏ qua - mặc định của YouTube trên Android.
-
-Nói cách khác, 360p VP9 sẽ được sử dụng làm chất lượng cao nhất, còn các tùy chọn 1080p và 720p (dùng AVC) sẽ không hiển thị trong trình đơn chọn chất lượng video.
-
-Mặc dù VP9 là codec tiên tiến hơn AVC, nhưng một số người dùng vẫn thích dùng 1080p AVC hơn là 360p VP9.
-
-Nên nếu bật tùy chọn này, ứng dụng sẽ ưu tiên chọn chất lượng video cao nhất mà server trả về, bất kể đang dùng codec nào.
-
-Ví dụ 1:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-→ 1080p AVC sẽ được chọn.
-
-Ví dụ 2:
-
-• 1080p AVC
-• 1080p VP9
-• 720p VP9
-→ 1080p VP9 sẽ được chọn."</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">Nút tải lại video chỉ hiển thị khi video bị đứng và đang tải (hoạt ảnh chờ đang hiển thị).</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">Nút tải lại video luôn được hiển thị.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">Luôn hiện nút tải lại video</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">Nút tải lại video đã ẩn.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Nút tải lại video đã được hiển thị.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_title">Nút tải lại video</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Thiếu trình đơn Bản âm thanh.
 • Tắt buộc bản âm thanh tự động không khả dụng.
 • Âm lượng ổn định không khả dụng.
@@ -2598,24 +2561,12 @@ Chi tiết:
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Không thể tạo mã xác thực.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Nhấn Đặt lại và thử lại.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Đặt lại mã xác thực và mã kích hoạt.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Ứng dụng khách đã ẩn trong Thống kê chi tiết</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Ứng dụng khách đã được hiển thị trong Thống kê chi tiết</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiện trong Thống kê chi tiết</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Dữ liệu phát chưa được giả mạo. Khi phát video có thể gặp lỗi đứng hình."</string>
     <string name="revanced_spoof_streaming_data_summary_on">"Dữ liệu phát đã được giả mạo.
 
 Nếu bạn đã đăng ký YouTube Premium, thì có thể không cần thiết phải bật cài đặt này."</string>
     <string name="revanced_spoof_streaming_data_title">Giả mạo dữ liệu phát video</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"JavaScript không được sử dụng cho một số video cần phát nhanh:
-
-• Tự động phát trên trang video
-• Các đoạn video
-• Video Shorts"</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_on">"JavaScript được sử dụng cho bất kể loại video nào.
-
-Hạn chế: JavaScript vẫn không thể phát một số video."</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_title">Giả mạo JavaScript cho tất cả video</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Một lý do khiến video phát chậm trên ứng dụng khách JavaScript là do biện pháp chặn quảng cáo mới của YouTube.
 
 Rằng khi một quảng cáo dạng video bị chặn, GVS (Google Video Server) sẽ tạo ra một bộ đệm giả (trông như video đang tải nhưng không phải) tương ứng với tỷ lệ thời lượng quảng cáo đó (kiểu thử nghiệm A/B).
@@ -2625,11 +2576,6 @@ Nhưng đừng lo, uBlock Origin đã tìm ra giải pháp và bạn có thể b
 Nhấn Mở để đọc chi tiết bài viết."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Mở</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Biện pháp chặn quảng cáo mới của YouTube"</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Bỏ qua bộ đệm giả đã tắt.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Bỏ qua bộ đệm giả đã bật.
-
-Hạn chế: Do những thay đổi từ phía máy chủ, cài đặt này có thể ngừng hoạt động bất cứ lúc nào."</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Bỏ qua bộ đệm giả</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">JavaScript không được thêm vào danh sách khả dụng.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">JavaScript được thêm vào danh sách khả dụng.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Giả mạo JavaScript</string>
@@ -2786,10 +2732,6 @@ Miễn trừ trách nhiệm: Cookie tạo ra khi không đăng nhập có thể 
     <string name="revanced_watch_history_type_title">Kiểu nhật ký</string>
     <string name="revanced_watch_next_processing_delay_summary">Nhập khoảng trễ (tính bằng mili giây) trong xử lý phản hồi phát video tiếp theo.</string>
     <string name="revanced_watch_next_processing_delay_title">Độ trễ</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">Lấy Cookie</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">Lấy ID đồng bộ dữ liệu</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">Lấy dữ liệu khách</string>
-    <string name="revanced_webview_contextual_menu_refresh">Tải lại</string>
     <string name="revanced_webview_cookies">Cookie</string>
     <string name="revanced_webview_copy">Sao chép</string>
     <string name="revanced_webview_data_sync_id">ID đồng bộ dữ liệu</string>

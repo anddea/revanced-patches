@@ -2,17 +2,13 @@ package app.morphe.extension.shared.settings;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-import static app.morphe.extension.shared.patches.AppCheckPatch.IS_YOUTUBE;
 import static app.morphe.extension.shared.settings.Setting.parent;
 
 import app.morphe.extension.shared.patches.ReturnYouTubeUsernamePatch.DisplayFormat;
 import app.morphe.extension.shared.patches.WatchHistoryPatch.WatchHistoryType;
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch;
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientAndroidVRAvailability;
-import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientJSAvailability;
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.J2V8Availability;
-import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.ShowReloadVideoButtonAvailability;
-import app.morphe.extension.shared.spoof.ClientType;
 
 /**
  * Settings shared across multiple apps.
@@ -31,23 +27,12 @@ public class BaseSettings {
     public static final EnumSetting<AppLanguage> REVANCED_LANGUAGE = new EnumSetting<>("revanced_language", AppLanguage.DEFAULT, true);
 
     public static final BooleanSetting SPOOF_STREAMING_DATA = new BooleanSetting("revanced_spoof_streaming_data", TRUE, true, "revanced_spoof_streaming_data_user_dialog_message");
-    public static final BooleanSetting SPOOF_STREAMING_DATA_PRIORITIZE_VIDEO_QUALITY = new BooleanSetting("revanced_spoof_streaming_data_prioritize_video_quality", FALSE, true,
-            "revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message", parent(SPOOF_STREAMING_DATA));
-    public static final BooleanSetting SPOOF_STREAMING_DATA_RELOAD_VIDEO_BUTTON = new BooleanSetting("revanced_spoof_streaming_data_reload_video_button", FALSE, true, parent(SPOOF_STREAMING_DATA));
-    public static final BooleanSetting SPOOF_STREAMING_DATA_RELOAD_VIDEO_BUTTON_ALWAYS_SHOW = new BooleanSetting("revanced_spoof_streaming_data_reload_video_button_always_show", TRUE, true, new ShowReloadVideoButtonAvailability());
-    public static final BooleanSetting SPOOF_STREAMING_DATA_STATS_FOR_NERDS = new BooleanSetting("revanced_spoof_streaming_data_stats_for_nerds", TRUE, parent(SPOOF_STREAMING_DATA));
 
     public static final BooleanSetting SPOOF_STREAMING_DATA_ANDROID_VR_ENABLE_AV1_CODEC = new BooleanSetting("revanced_spoof_streaming_data_android_vr_enable_av1_codec", FALSE, true,
             "revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message", new ClientAndroidVRAvailability());
 
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS = new BooleanSetting("revanced_spoof_streaming_data_use_js", TRUE, true,
             "revanced_spoof_streaming_data_use_js_user_dialog_message", new J2V8Availability());
-    public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS_ALL = new BooleanSetting("revanced_spoof_streaming_data_use_js_all", FALSE, true, new ClientJSAvailability());
-    public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS_BYPASS_FAKE_BUFFERING = new BooleanSetting("revanced_spoof_streaming_data_use_js_bypass_fake_buffering", FALSE, true, new ClientJSAvailability());
-
-    // Client type must be last spoof setting due to cyclic references.
-    public static final EnumSetting<ClientType> SPOOF_STREAMING_DATA_DEFAULT_CLIENT = new EnumSetting<>("revanced_spoof_streaming_data_default_client",
-            IS_YOUTUBE ? ClientType.TV : ClientType.ANDROID_VR_1_47_48, true, parent(SPOOF_STREAMING_DATA));
 
     public static final BooleanSetting ENABLE_COMMENTS_SCROLL_TOP = new BooleanSetting("revanced_enable_comments_scroll_top", FALSE, true);
     public static final BooleanSetting DISABLE_AUTO_AUDIO_TRACKS = new BooleanSetting("revanced_disable_auto_audio_tracks", TRUE);

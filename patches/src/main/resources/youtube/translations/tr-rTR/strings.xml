@@ -71,8 +71,8 @@ AV1 ile video oynatma takılabilir veya kare atlayabilir."</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Oynatıcı JavaScript hash\'leri yaklaşık bir ay süreyle geçerlidir ve süresi geçmiş hash\'ler GVS tarafından iptal edilebilir.</string>
     <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Şunu etkinleştirmeyi dene: Video akışlarını taklit et (Spoof) &gt; Android VR oturum açma</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Hiçbir istemci akışı alınamadı.</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_summary">Geçerli bir oynatıcı JavaScript hash değeri girin</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_title">Oynatıcı JavaScript hash</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Geçerli bir oynatıcı JavaScript hash değeri girin</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Oynatıcı JavaScript hash</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Oynatıcı JavaScript varyantı</string>
     <string name="morphe_spoof_video_streams_screen_summary">Oynatma sorunlarını önlemek için istemci video akışlarını taklit et</string>
     <string name="morphe_spoof_video_streams_screen_title">Video akışlarını taklit et</string>
@@ -2456,47 +2456,6 @@ Oynatma takılabilir veya kare atlayabilir."</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Bu ayarı etkinleştirmek, yazılımsal AV1 kod çözmeyi kullanabilir.
 
 Oynatma takılabilir veya kare atlayabilir."</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">Varsayılan istemci</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Video kodeklerine öncelik verilir.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Video kalitesine öncelik verilir.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Video kalitesine öncelik ver</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message">"Bazı videolar aşağıdaki video kalitesine ve kodeklere sahiptir:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-Eğer cihaz VP9'u destekliyorsa, '1080p AVC' ve '720p AVC' göz ardı edilir.
-
-Başka bir deyişle, '360p VP9' en yüksek video kalitesi olarak kullanılır ve '1080p AVC' ile '720p AVC' video kalitesi açılır menüsünde görünmez.
-
-Bu, Android YouTube uygulamasının amaçlanan davranışıdır ve bu nedenle bazı videolar için video kalitesi menüsü kullanılamamaktaydı.
-
-VP9, AVC'den daha gelişmiş bir kodek olsa da, bazı kullanıcılar '1080p AVC'yi '360p VP9'a tercih edebilir.
-
-Bu ayar etkinleştirilirse, video kodeğinden bağımsız olarak sunucu yanıtındaki mevcut en yüksek video kalitesi kullanılır.
-
-Örnek 1:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-→ 1080p AVC kullanılır.
-
-Örnek 2:
-
-• 1080p AVC
-• 1080p VP9
-• 720p VP9
-
-→ 1080p VP9 kullanılır."</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">Videoyu yenile düğmesi, yükleme simgesi göründüğünde gösteriliyor.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">Videoyu yenile düğmesi her zaman gösteriliyor.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">Videoyu yenile düğmesini her zaman göster</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">Videoyu yenile düğmesi gizlendi.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Videoyu yenile düğmesi gösteriliyor.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_title">Videoyu yenile düğmesini göster</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Ses parçası menüsü eksik.
 • Otomatik olarak etkinleştirilen zorunlu ses parçalarını devre dışı bırakma özelliği mevcut değil.
 • Sabit ses seviyesi mevcut değil.
@@ -2575,24 +2534,12 @@ Bu ayar etkinleştirilirse, video kodeğinden bağımsız olarak sunucu yanıtı
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Kimlik doğrulama anahtarı oluşturulamadı.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Sıfırla butonuna tıklayın ve tekrar deneyin.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Kimlik doğrulama anahtarı ve etkinleştirme kodu sıfırlandı.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">İstemci, meraklısı için istatistiklerde gizli</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">İstemci tipi meraklısı için istatistiklerde gösterilir</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Meraklısı için istatistiklerde göster</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Akış verileri taklit edilmiyor. Video oynatma çalışmayabilir."</string>
     <string name="revanced_spoof_streaming_data_summary_on">"Akış verileri taklit ediliyor.
 
 YouTube Premium kullanıcısıysanız bu ayara gerek olmayabilir."</string>
     <string name="revanced_spoof_streaming_data_title">Akış verilerini taklit et</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"Hızlı oynatma gerektiren bazı videolar için JavaScript istemcisi kullanılmaz:
-
-• Akışta otomatik oynatma
-• Klipler
-• Shorts"</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_on">"Video türünden bağımsız olarak JavaScript istemcisi kullanılır.
-
-• JavaScript istemcisi yine de bazı videoları oynatamayabilir."</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_title">Tüm videolar için JavaScript istemcisini kullanın</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"JavaScript istemcisinde videoların çok geç başlamasının bir nedeni, YouTube'un yeni reklam engelleyici önlemleridir.
 
 Bir video reklamı engellendiğinde, GVS (Google Video Sunucusu) reklam süresiyle orantılı olarak sahte ara belleğe alma oluşturur (A/B testi).
@@ -2602,12 +2549,6 @@ uBlock Origin bu sorun için bir geçici çözüm buldu; bu çözüm 'Sahte ara 
 Makaleyi okumak için 'Aç'a tıklayın."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Aç</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"YouTube'un yeni reklam engelleyici önlemleri"</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Sahte ara belleğe almayı atlama devre dışı.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Sahte ara belleğe almayı atlama etkin.
-
-Sınırlamalar:
-• Sunucu taraflı değişiklikler nedeniyle bu özellik her an çalışmayı durdurabilir."</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Sahte ara belleğe almayı atla</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">JavaScript istemcisi kullanılabilir istemcilere eklenemedi.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">JavaScript istemcisi, mevcut istemcilere eklendi.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">JavaScript istemcisini kullan</string>
@@ -2800,10 +2741,6 @@ Sorumluluk Reddi: Oturum açmadan gönderilen çerezler geçersiz olabilir veya 
     <string name="revanced_watch_history_type_title">İzleme geçmişi tipi</string>
     <string name="revanced_watch_next_processing_delay_summary">Sıradakini izle (watch next) yanıtını işlemedeki milisaniye cinsinden gecikme miktarı.</string>
     <string name="revanced_watch_next_processing_delay_title">Sıradakini izle işleme gecikmesi</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">Çerezleri getir</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">Veri Senkronizasyon Kimliğini getir</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">Ziyaretçi Verilerini getir</string>
-    <string name="revanced_webview_contextual_menu_refresh">Yenile</string>
     <string name="revanced_webview_cookies">Çerezler</string>
     <string name="revanced_webview_copy">Kopyala</string>
     <string name="revanced_webview_data_sync_id">Veri Senkronizasyon Kimliği</string>

@@ -1,5 +1,3 @@
-import java.lang.Boolean.TRUE
-
 plugins {
     alias(libs.plugins.protobuf)
 }
@@ -10,21 +8,10 @@ extension {
 
 android {
     namespace = "app.morphe.extension"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = 24
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = TRUE
-
-            // 'libj2v8.so' is already included in the patch.
-            ndk {
-                abiFilters.add("")
-            }
-        }
+        minSdk = 26
     }
 
     compileOptions {
@@ -37,14 +24,12 @@ dependencies {
     compileOnly(libs.annotation)
     compileOnly(libs.preference)
 
+    implementation(libs.androidx.javascriptengine)
     implementation(libs.collections4)
     implementation(libs.gson)
     implementation(libs.lang3)
     implementation(libs.okhttp3)
     implementation(libs.protobuf.javalite)
-
-    //noinspection UseTomlInstead
-    implementation("com.github.ynab:J2V8:6.2.1-16kb.2@aar")
 
     implementation(libs.nanohttpd)
     implementation(libs.protobuf.javalite)

@@ -71,8 +71,8 @@
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Хеші JavaScript плеєра дійсні приблизно один місяць, а застарілі хеші можуть бути скасовані GVS.</string>
     <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Спробуйте увімкнути: Підміна відеопотоків &gt; Android VR з входом</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не вдалося отримати жодних клієнтських потоків</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_summary">Введіть дійсний хеш JavaScript плеєра</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_title">Хеш JavaScript плеєра</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Введіть дійсний хеш JavaScript плеєра</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Хеш JavaScript плеєра</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Варіант JavaScript плеєра</string>
     <string name="morphe_spoof_video_streams_screen_summary">Підміняти відеопотоки клієнта, щоб уникнути проблем із відтворенням</string>
     <string name="morphe_spoof_video_streams_screen_title">Підміна відеопотоків</string>
@@ -2497,47 +2497,6 @@
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Якщо увімкнути це налаштування, може використовуватися програмне декодування AV1.
 
 Відтворення може затинатися або втрачати кадри."</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">Основний клієнт</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Кодеки відео пріоритетні.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Якість відео пріоритетна.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Пріоритетна якість відео</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message">"Деякі відео мають такі якість відео та кодеки:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-Якщо пристрій підтримує VP9, '1080p AVC' і '720p AVC' ігноруються.
-
-Іншими словами, '360p VP9' використовується як найвища якість відео, і '1080p AVC' і '720p AVC' не відображаються у висувному меню якості відео.
-
-Це передбачувана поведінка програми YouTube Android, і саме тому висувне меню якості відео було недоступне для деяких відео.
-
-Хоча VP9 є більш досконалим кодеком, ніж AVC, деякі користувачі можуть віддати перевагу '1080p AVC' ніж '360p VP9'.
-
-Якщо це налаштування увімкнено, використовується найвища доступна якість відео з відповіді сервера, незалежно від відеокодека.
-
-Приклад 1:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-→ 1080p AVC використовується.
-
-Приклад 2:
-
-• 1080p AVC
-• 1080p VP9
-• 720p VP9
-
-→ 1080p VP9 використовується."</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">Кнопку перезавантаження відео показується під час показу анімації вантаження.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">Кнопку перезавантаження відео завжди показується.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">Завжди показувати кнопку перезавантаження відео</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">Кнопку перезавантаження відео приховано.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Кнопку перезавантаження відео показується.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_title">Показувати кнопку перезавантаження відео</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Меню звукової доріжки відсутнє.
 • Вимкнення примусових авто звукових доріжок недоступне.
 • Стабілізація гучності недоступна.
@@ -2615,24 +2574,12 @@
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Не вдалося видати токен автентифікації.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Натисніть Скинути та спробуйте ще раз.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Токен автентифікації та код активації скинуто.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клієнта відображається у вікні \"Статистика для сисадмінів\"</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Дані трансляції не підроблено. Відтворення відео може не працювати."</string>
     <string name="revanced_spoof_streaming_data_summary_on">"Дані трансляції підроблено.
 
 Якщо маєте YouTube Premium, це налаштування може не знадобитися."</string>
     <string name="revanced_spoof_streaming_data_title">Підробити дані трансляції</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Розробник Android</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"Клієнт JavaScript не використовується для деяких відео, які потребують швидкого відтворення:
-
-• Автовідтворення у стрічці
-• Кліпи
-• YouTube Shorts"</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_on">"Клієнт JavaScript використовується незалежно від типу відео.
-
-• Клієнт JavaScript все ще не може відтворювати деякі відео."</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_title">Використовувати клієнт JavaScript для всіх відео</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Однією з причин, чому відео розпочинається надто пізно у клієнті JavaScript є нові антирекламоблокувальні заходи YouTube
 
 Коли відеорекламу блокується, GVS (Відеосервер Google) генерує фальшиву буферизацію, пропорційну тривалості реклами (A/B тестування).
@@ -2642,12 +2589,6 @@ uBlock Origin знайшов обхідний шлях для вирішення
 Натисніть 'Відкрити', щоб прочитати статтю."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Відкрити</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"Нові антирекламоблокувальні заходи YouTube"</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Обхід фальшивої буферизації вимкнено.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Обхід фальшивої буферизації увімкнено.
-
-Застереження:
-• Через зміни на стороні сервера це може перестати працювати в будь-який момент."</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Обходити фальшиву буферизацію</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">Клієнт JavaScript не доданий до доступних клієнтів.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">Клієнт JavaScript доданий до доступних клієнтів.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Використовувати клієнт JavaScript</string>
@@ -2811,10 +2752,6 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_watch_history_type_title">Тип історії перегляду</string>
     <string name="revanced_watch_next_processing_delay_summary">Кількість мілісекунд затримки при обробці відповіді перегляду наступного.</string>
     <string name="revanced_watch_next_processing_delay_title">Затримка обробки перегляду наступного</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">Отримати куки</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">Отримати ідентифікатор синхронізації даних</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">Отримати дані відвідувача</string>
-    <string name="revanced_webview_contextual_menu_refresh">Поновити</string>
     <string name="revanced_webview_cookies">Куки</string>
     <string name="revanced_webview_copy">Скопіювати</string>
     <string name="revanced_webview_data_sync_id">Ідентифікатор синхронізації даних</string>

@@ -49,8 +49,8 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Los hashes JavaScript del reproductor son válidos aproximadamente un mes, y los hashes obsoletos pueden ser revocados por GVS.</string>
     <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Prueba a activar: Falsificar transmisiones de vídeo &gt; Inicio de sesión de Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">No se ha podido obtener ninguna transmisión del cliente</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_summary">Introduzca un hash JavaScript del reproductor válido</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_title">Hash JavaScript del reproductor</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Introduzca un hash JavaScript del reproductor válido</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash JavaScript del reproductor</string>
     <string name="morphe_spoof_video_streams_screen_summary">Falsifica las transmisiones de vídeo del cliente para evitar problemas de reproducción</string>
     <string name="morphe_spoof_video_streams_screen_title">Falsificar transmisiones de vídeo</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">No has iniciado sesión en Android VR. Pulsa aquí para iniciar sesión</string>
@@ -610,7 +610,6 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
     <string name="revanced_spoof_client_type_summary">"Define un cliente de por defecto para el falsificado."</string>
     <string name="revanced_spoof_client_type_title">Cliente por defecto</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">Cliente predeterminado</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Clic para ver como obtener un token de autentificación.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Acerca de la Autentificación de Android No Sdk</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Clic aquí para ver como iniciar sesión en Android No SDK</string>
@@ -654,8 +653,6 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Error al emitir un token de autenticación.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Pulsa en \"Restablecer\" e inténtalo de nuevo.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Token de autenticación y código de activación restablecidos.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Muestra el cliente utilizado para obtener datos de streaming en Estadísticas para nerds.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostrar en estadísticas para nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Falsifica las transmisiones de video para prevenir problemas de reproducción.
 
 Si eres un usuario de YouTube Premium, esta opción puede ser necesaria."</string>
@@ -676,10 +673,6 @@ Si eres un usuario de YouTube Premium, esta opción puede ser necesaria."</strin
 • Reemplazar dominio: Sigue la configuración del registro del historial de su cuenta de Google.
 • Bloquear el registro del historial: El registro de historial está bloqueado."</string>
     <string name="revanced_watch_history_type_title">Tipo de vista del historial</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">Obtener cookies</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">Obtener ID de sincronización de datos</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">Obtener datos de visitante</string>
-    <string name="revanced_webview_contextual_menu_refresh">Actualizar</string>
     <string name="revanced_webview_cookies">Cookies</string>
     <string name="revanced_webview_copy">Copiar</string>
     <string name="revanced_webview_data_sync_id">ID de sincronización de datos</string>

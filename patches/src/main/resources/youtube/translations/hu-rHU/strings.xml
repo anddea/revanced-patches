@@ -71,8 +71,8 @@ Az AV1-es videólejátszás akadozhat vagy képkockákat ejthet."</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">A lejátszó JavaScript hash-ai kb. egy hónapig érvényesek, és a GVS visszavonhatja a lejárt hash-okat.</string>
     <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Próbálja meg a következők engedélyezését: Spoof video streams &gt; Android VR bejelentkezés</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nem találtunk ügyfelek által megosztott folyamokat</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_summary">Adjon meg egy érvényes játékos JavaScript hasht</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_title">Játékos JavaScript hash</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Adjon meg egy érvényes játékos JavaScript hasht</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Játékos JavaScript hash</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Lejátszó JavaScript változata</string>
     <string name="morphe_spoof_video_streams_screen_summary">A kliens videó streamek hamisítása a lejátszási problémák elkerülése érdekében</string>
     <string name="morphe_spoof_video_streams_screen_title">Videó streamek hamisítása</string>
@@ -2487,47 +2487,6 @@ A lejátszás akadozhat vagy kimaradhatnak képkockák."</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Ennek a beállításnak az engedélyezése szoftveres AV1 dekódolást eredményezhet.
 
 A lejátszás akadozhat vagy kimaradhatnak képkockák."</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">Alapértelmezett kliens</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">A videokodekek elsőséget élveznek.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">A videó minőség az elsődleges.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Videó minőségének priorizálása</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message">"Néhány videó a következő videominőséggel és kodekekkel rendelkezik:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-Ha az eszköz támogatja a VP9-et, a '1080p AVC' és a '720p AVC' beállításokat figyelmen kívül hagyja a rendszer.
-
-Más szóval, a '360p VP9' a legmagasabb videominőség, és a '1080p AVC' és a '720p AVC' nem látható a videominőség felugró menüjében.
-
-Ez az Android YouTube alkalmazás tervezett viselkedése, és ezért nem volt elérhető a videominőség felugró menüje egyes videók esetében.
-
-Bár a VP9 egy fejlettebb kodek, mint az AVC, egyes felhasználók az '1080p AVC'-t részesíthetik előnyben a '360p VP9'-cel szemben.
-
-Ha ez a beállítás engedélyezve van, a szerver válaszából származó legmagasabb elérhető videominőséget használja a rendszer, a videokodektől függetlenül.
-
-1. példa:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-→ 1080p AVC használatban.
-
-2. példa:
-
-• 1080p AVC
-• 1080p VP9
-• 720p VP9
-
-→ 1080p VP9 használatban."</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">A videó újratöltése gomb akkor látható, amikor a betöltő animáció.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">A videó újratöltés gomb mindig látható.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">Videó újratöltése gomb láthatósága</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">A videó újratöltés gomb rejtett.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">A videó újratöltés gomb látható.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_title">Videó újratöltés gomb megjelenítése</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• A hangsáv menü hiányzik.
 • A kényszerített automatikus hangsávok letiltása nem elérhető.
 • A stabil hangerő nem áll rendelkezésre.
@@ -2603,24 +2562,12 @@ Ha ez a beállítás engedélyezve van, a szerver válaszából származó legma
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Nem sikerült hitelesítési tokent kiállítani.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Kattintson a Visszaállítás gombra, és próbálja újra.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Hitelesítési token és aktiválási kód visszaállítása.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">A kliens el van rejtve a Statisztikákban</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">A kliens típusa a Statisztikákban látható</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Megjelenítés a Statisztikákban</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Az adatfolyam nincs meghamisítva. Lehet, hogy a videó lejátszás nem működik."</string>
     <string name="revanced_spoof_streaming_data_summary_on">"Az adatfolyam hamisított.
 
 Ha YouTube Premium felhasználó vagy, akkor ez a beállítás nem feltétlenül szükséges."</string>
     <string name="revanced_spoof_streaming_data_title">Adatfolyam meghamisítása</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"A JavaScript kliens nem használható bizonyos, gyors lejátszást igénylő videóknál:
-
-• Automatikus lejátszás a hírfolyamban
-• Klipek
-• Shortok"</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_on">"A JavaScript klienst a videó típusától függetlenül használjuk.
-
-• A TV kliens továbbra sem tud lejátszani bizonyos videókat."</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_title">JavaScript kliens használata minden videóhoz</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"Az egyik ok, amiért a videók túl későn indulnak el a JavaScript kliensben, a YouTube új hirdetésblokkolás elleni intézkedései.
 
 Amikor egy videóhirdetés blokkolva van, a GVS (Google Video Server) hamis pufferelést generál a hirdetés időtartamával arányosan (A/B tesztelés).
@@ -2630,12 +2577,6 @@ Az uBlock Origin talált egy kerülő megoldást erre a problémára, amely a �
 A cikk elolvasásához kattintson a 'Megnyitás' gombra."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Megnyitás</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"A YouTube új hirdetésblokkoló elleni intézkedései"</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">A hamis pufferelés megkerülése kikapcsolva.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"A hamis pufferelés megkerülése engedélyezett.
-
-Korlátozások:
-• A szerveroldali változások miatt ez bármikor leállhat."</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Kerülje a hamis pufferelést</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">A JavaScript kliens nem lett hozzáadva az elérhető kliensekhez.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">A JavaScript kliens hozzáadva az elérhető kliensekhez.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">JavaScript kliens használata</string>
@@ -2804,10 +2745,6 @@ Jogi nyilatkozat: A bejelentkezés nélkül kibocsátott sütik érvénytelenek 
     <string name="revanced_watch_history_type_title">Megtekintési előzmények típusa</string>
     <string name="revanced_watch_next_processing_delay_summary">A következő a lejátszási listában válaszának feldolgozási késleltetése ezredmásodpercben.</string>
     <string name="revanced_watch_next_processing_delay_title">Következő a lejátszási sorban feldolgozási késleltetés</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">Sütik fogadása</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">Adatszinkron azonosító lekérése</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">Látogató adatok lekérése</string>
-    <string name="revanced_webview_contextual_menu_refresh">Frissít</string>
     <string name="revanced_webview_cookies">Sütik</string>
     <string name="revanced_webview_copy">Másol</string>
     <string name="revanced_webview_data_sync_id">Adatszinkron azonosító</string>

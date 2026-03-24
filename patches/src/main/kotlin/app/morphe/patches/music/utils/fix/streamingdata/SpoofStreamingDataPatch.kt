@@ -63,7 +63,7 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
         )
         addPreferenceWithIntent(
             CategoryType.MISC,
-            "morphe_spoof_video_streams_player_js_hash",
+            "morphe_spoof_video_streams_player_js_hash_value",
             "morphe_spoof_video_streams_disable_player_js_update"
         )
     },

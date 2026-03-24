@@ -5,14 +5,14 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.liskovsoft.sharedutils.helpers.Helpers;
-import com.liskovsoft.youtubeapi.app.playerdata.PlayerDataExtractor;
-
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.net.SocketTimeoutException;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -21,6 +21,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import app.morphe.extension.shared.innertube.client.YouTubeClient;
+import app.morphe.extension.shared.spoof.js.PlayerDataExtractor;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import okhttp3.OkHttpClient;
@@ -187,7 +188,7 @@ public class ThrottlingParameterUtils {
                     String signatureTimestamp = matcher.group(1);
                     if (StringUtils.isNotEmpty(signatureTimestamp)) {
                         Logger.printDebug(() -> "signatureTimestamp: " + signatureTimestamp);
-                        return Helpers.parseInt(signatureTimestamp);
+                        return Integer.parseInt(signatureTimestamp);
                     }
                 }
             }
@@ -413,9 +414,15 @@ public class ThrottlingParameterUtils {
                     String urlParam = paramUrlMatcher.group(1);
                     if (StringUtils.isNotEmpty(sParam) && StringUtils.isNotEmpty(urlParam)) {
                         // The 'sig' parameter converted by javascript rules.
-                        String decodedSigParm = extractor.extractSig(Helpers.decode(sParam));
+                        var results = extractor.bulkSigExtract(
+                                null,
+                                Collections.singletonList(decodeUrl(sParam))
+                        );
+                        String decodedSigParm = results.second.isEmpty()
+                                ? null
+                                : results.second.get(0);
                         if (StringUtils.isNotEmpty(decodedSigParm)) {
-                            String decodedUriParm = Helpers.decode(urlParam);
+                            String decodedUriParm = decodeUrl(urlParam);
                             Logger.printDebug(() -> "Converted signatureCipher to obfuscatedUrl, videoId: " + videoId);
                             return decodedUriParm + "&sig=" + decodedSigParm;
                         }
@@ -526,7 +533,13 @@ public class ThrottlingParameterUtils {
             PlayerDataExtractor extractor = getExtractor();
             if (extractor != null) {
                 // The 'n' parameter deobfuscated by javascript rules.
-                String deObfuscatedNParams = extractor.extractNSig(obfuscatedNParams);
+                var results = extractor.bulkSigExtract(
+                        Collections.singletonList(obfuscatedNParams),
+                        null
+                );
+                String deObfuscatedNParams = results.first.isEmpty()
+                        ? null
+                        : results.first.get(0);
                 if (StringUtils.isNotEmpty(deObfuscatedNParams)) {
                     String deObfuscatedUrl = replaceNParam(obfuscatedUrl, obfuscatedNParams, deObfuscatedNParams);
                     return new Pair<>(deObfuscatedUrl, deObfuscatedNParams);
@@ -537,5 +550,16 @@ public class ThrottlingParameterUtils {
         }
 
         return new Pair<>(obfuscatedUrl, "");
+    }
+
+    @NonNull
+    private static String decodeUrl(@NonNull String value) {
+        try {
+            //noinspection CharsetObjectCanBeUsed
+            return URLDecoder.decode(value, "UTF-8");
+        } catch (UnsupportedEncodingException ex) {
+            Logger.printException(() -> "Failed to decode url", ex);
+            return value;
+        }
     }
 }

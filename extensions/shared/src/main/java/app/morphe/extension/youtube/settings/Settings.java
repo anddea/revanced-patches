@@ -62,7 +62,7 @@ import app.morphe.extension.youtube.swipecontrols.SwipeControlsConfigurationProv
 @SuppressWarnings("unused")
 public class Settings extends SharedYouTubeSettings {
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE =
-            new EnumSetting<>("morphe_spoof_video_streams_client_type", ClientType.ANDROID_VR_1_47_48, true, parent(SPOOF_VIDEO_STREAMS));
+            new EnumSetting<>("morphe_spoof_video_streams_client_type", ClientType.ANDROID_REEL, true, parent(SPOOF_VIDEO_STREAMS));
     public static final BooleanSetting FORCE_AVC_CODEC = new BooleanSetting(
             "morphe_force_avc_codec",
             FALSE,
@@ -588,6 +588,9 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG = new BooleanSetting("revanced_shorts_custom_actions_speed_dialog", FALSE, true);
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_GEMINI = new BooleanSetting("revanced_shorts_custom_actions_gemini", FALSE, true);
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_REPEAT_STATE = new BooleanSetting("revanced_shorts_custom_actions_repeat_state", FALSE, true);
+
+    // PreferenceScreen: Player - Buttons
+    public static final BooleanSetting RELOAD_VIDEO = new BooleanSetting("morphe_reload_video", FALSE);
     public static final EnumSetting<PlaybackSpeedMenuType> SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG_TYPE = new EnumSetting<>("revanced_shorts_custom_actions_speed_dialog_type", IS_19_34_OR_GREATER ? PlaybackSpeedMenuType.CUSTOM_MODERN : PlaybackSpeedMenuType.CUSTOM_LEGACY,
             true, IS_19_34_OR_GREATER ? null : "revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message", parent(SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG));
 
@@ -822,8 +825,8 @@ public class Settings extends SharedYouTubeSettings {
             SPOOF_APP_VERSION_TARGET.resetToDefault();
         }
 
-        // VR 1.54 is not selectable in the settings, and it's selected by spoof stream patch if needed.
-        if (SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_1_54_20) {
+        // VR 1.65 is not selectable in the settings, and it's selected by spoof stream patch if needed.
+        if (SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_1_65) {
             SPOOF_VIDEO_STREAMS_CLIENT_TYPE.resetToDefault();
         }
 
