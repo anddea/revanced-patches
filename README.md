@@ -71,6 +71,7 @@ Report issues [here](https://github.com/inotia00/ReVanced_Extended).
 | `Open links externally` | Adds an option to always open links in your browser instead of the in-app browser. | 19.05.36 ~ 20.05.46 |
 | `Overlay buttons` | Adds options to display useful overlay buttons in the video player. | 19.05.36 ~ 20.05.46 |
 | `Player components` | Adds options to hide or change components related to the video player. | 19.05.36 ~ 20.05.46 |
+| `Reload video` | Adds an option to display a button in the video player to reload the current video. | 19.05.36 ~ 20.05.46 |
 | `Remove background playback restrictions` | Removes restrictions on background playback, including for music and kids videos. | 19.05.36 ~ 20.05.46 |
 | `Remove viewer discretion dialog` | Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction. | 19.05.36 ~ 20.05.46 |
 | `Return YouTube Dislike` | Adds an option to show the dislike count of videos using the Return YouTube Dislike API. | 19.05.36 ~ 20.05.46 |
