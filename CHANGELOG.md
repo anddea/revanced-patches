@@ -1,3 +1,10 @@
+# [4.0.0-dev.10](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.9...v4.0.0-dev.10) (2026-03-24)
+
+
+### Features
+
+* **YouTube:** Add `Reload video` patch & reduce patches bundle size ([33fdf51](https://github.com/anddea/revanced-patches/commit/33fdf51520946ae35ba2181eaf17d6ad7c2cc44e))
+
 # [4.0.0-dev.9](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.8...v4.0.0-dev.9) (2026-03-23)
 
 

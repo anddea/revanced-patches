@@ -1,5 +1,5 @@
 {
-  "version": "4.0.0-dev.9",
+  "version": "4.0.0-dev.10",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -2385,6 +2385,27 @@
           "2024.17.0",
           "2025.05.1",
           "2025.12.1"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Reload video",
+      "description": "Adds an option to display a button in the video player to reload the current video.",
+      "use": true,
+      "dependencies": [
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53",
+          "20.05.46"
         ]
       },
       "options": []
