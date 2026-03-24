@@ -25,7 +25,7 @@ val translationsBytecodePatch = bytecodePatch {
         addLinkPreference(
             CategoryType.MISC,
             "revanced_translations",
-            "https://rvxtranslate.netlify.app/"
+            "https://rvxtranslate.vercel.app/"
         )
     }
 }
