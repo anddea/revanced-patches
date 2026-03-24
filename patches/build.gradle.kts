@@ -7,7 +7,7 @@ patches {
         source = "git@github.com:anddea/revanced-patches.git"
         author = "Aaron Veil (anddea)"
         contact = "https://github.com/anddea/revanced-patches/issues"
-        website = "https://rvxtranslate.netlify.app/"
+        website = "https://rvxtranslate.vercel.app/"
         license = "GNU General Public License v3.0"
     }
 }

@@ -14,7 +14,7 @@ public class TranslationsPreference extends Preference {
     {
         setOnPreferenceClickListener(pref -> {
             Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse("https://rvxtranslate.netlify.app/"));
+            i.setData(Uri.parse("https://rvxtranslate.vercel.app/"));
             pref.getContext().startActivity(i);
             return false;
         });

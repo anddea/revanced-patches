@@ -46,7 +46,7 @@ public class MiscellaneousPreferenceCategory extends ConditionalPreferenceCatego
             addPreference(new LinkPreference(
                     context,
                     "revanced_translations_title",
-                    "https://rvxtranslate.netlify.app/"
+                    "https://rvxtranslate.vercel.app/"
             ));
         }
         addPreference(new LinkPreference(
