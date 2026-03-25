@@ -28,7 +28,6 @@ Report issues [here](https://github.com/inotia00/ReVanced_Extended).
 | `Bypass URL redirects` | Adds an option to bypass URL redirects and open the original URL directly. | 19.05.36 ~ 20.05.46 |
 | `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 19.05.36 ~ 20.05.46 |
 | `Change form factor` | Adds an option to change the UI appearance to a phone, tablet, or automotive device. | 19.05.36 ~ 20.05.46 |
-| `Change live ring click action` | Adds an option to open the channel instead of the live stream when clicking on the live ring. | 19.05.36 ~ 20.05.46 |
 | `Change player flyout menu toggles` | Adds an option to use text toggles instead of switch toggles within the additional settings menu. | 19.05.36 ~ 20.05.46 |
 | `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 19.05.36 ~ 20.05.46 |
 | `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 19.05.36 ~ 20.05.46 |
@@ -78,7 +77,7 @@ Report issues [here](https://github.com/inotia00/ReVanced_Extended).
 | `Return YouTube Username` | Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3. | 19.05.36 ~ 20.05.46 |
 | `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 19.05.36 ~ 20.05.46 |
 | `Seekbar components` | Adds options to hide or change components related to the seekbar. | 19.05.36 ~ 20.05.46 |
-| `Set Transcript Cookies` | Adds an option to set Cookies in YouTube Transcript API requests. | 19.05.36 ~ 20.05.46 |
+| `Set transcript cookies` | Adds an option to set Cookies in YouTube Transcript API requests. | 19.05.36 ~ 20.05.46 |
 | `Settings for YouTube` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 19.05.36 ~ 20.05.46 |
 | `Shorts components` | Adds options to hide or change components related to YouTube Shorts. | 19.05.36 ~ 20.05.46 |
 | `Snack bar components` | Adds options to hide or change components related to the snack bar. | 19.05.36 ~ 20.05.46 |
@@ -166,8 +165,6 @@ Report issues [here](https://github.com/inotia00/ReVanced_Extended).
 
 
 ## 📝 JSON Format
-
-This section explains the JSON format for the [patches.json](patches.json) file.
 
 Example:
 

@@ -1,5 +1,5 @@
 {
-  "version": "4.0.0-dev.10",
+  "version": "4.0.0-dev.11",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -177,28 +177,6 @@
         "BytecodePatch"
       ],
       "compatiblePackages": null,
-      "options": []
-    },
-    {
-      "name": "Change live ring click action",
-      "description": "Adds an option to open the channel instead of the live stream when clicking on the live ring.",
-      "use": true,
-      "dependencies": [
-        "ResourcePatch",
-        "ResourcePatch",
-        "BytecodePatch",
-        "ResourcePatch"
-      ],
-      "compatiblePackages": {
-        "com.google.android.youtube": [
-          "19.05.36",
-          "19.16.39",
-          "19.43.41",
-          "19.44.39",
-          "19.47.53",
-          "20.05.46"
-        ]
-      },
       "options": []
     },
     {
@@ -1721,6 +1699,7 @@
         "ResourcePatch",
         "BytecodePatch",
         "ResourcePatch",
+        "BytecodePatch",
         "ResourcePatch"
       ],
       "compatiblePackages": {
@@ -2712,11 +2691,12 @@
       "options": []
     },
     {
-      "name": "Set Transcript Cookies",
+      "name": "Set transcript cookies",
       "description": "Adds an option to set Cookies in YouTube Transcript API requests.",
       "use": true,
       "dependencies": [
         "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": {
@@ -2892,6 +2872,7 @@
       "dependencies": [
         "ResourcePatch",
         "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
