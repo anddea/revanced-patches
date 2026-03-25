@@ -14,6 +14,8 @@ import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.spoof.guide.addClientOSVersionHook
 import app.morphe.patches.shared.spoof.guide.spoofClientGuideEndpointPatch
+import app.morphe.patches.youtube.utils.engagement.addEngagementPanelIdHook
+import app.morphe.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.morphe.patches.youtube.utils.extension.Constants.ADS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
@@ -52,12 +54,14 @@ val adsPatch = adsPatch(
             sharedResourceIdPatch,
             spoofClientGuideEndpointPatch,
             versionCheckPatch,
+            engagementPanelHookPatch,
         )
     },
     classDescriptor = ADS_CLASS_DESCRIPTOR,
     methodDescriptor = "hideVideoAds",
     executeBlock = {
         addLithoFilter(ADS_FILTER_CLASS_DESCRIPTOR)
+        addEngagementPanelIdHook("$ADS_CLASS_DESCRIPTOR->hidePlayerPopupAds(Ljava/lang/String;)Z")
 
         // region patch for hide general ads
 

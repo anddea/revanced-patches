@@ -2,6 +2,7 @@ package app.morphe.patches.youtube.utils.engagement
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
@@ -26,6 +27,7 @@ internal lateinit var engagementPanelBuilderMethod: MutableMethod
 internal var engagementPanelFreeRegister = 0
 internal var engagementPanelIdIndex = 0
 internal var engagementPanelIdRegister = 0
+internal var engagementPanelIdInstruction = ""
 
 val engagementPanelHookPatch = bytecodePatch(
     description = "engagementPanelHookPatch"
@@ -87,6 +89,8 @@ val engagementPanelHookPatch = bytecodePatch(
                     invoke-static {v$engagementPanelIdRegister}, $EXTENSION_CLASS_DESCRIPTOR->setId(Ljava/lang/String;)V
                     """
             )
+            engagementPanelIdInstruction =
+                "iget-object v$engagementPanelIdRegister, v$classRegister, $engagementPanelIdReference"
             engagementPanelIdIndex = insertIndex + 1
             engagementPanelBuilderMethod = this
         }
@@ -99,3 +103,17 @@ val engagementPanelHookPatch = bytecodePatch(
             )
     }
 }
+
+internal fun addEngagementPanelIdHook(descriptor: String) =
+    engagementPanelBuilderMethod.addInstructionsWithLabels(
+        engagementPanelIdIndex, """
+            $engagementPanelIdInstruction
+            invoke-static {v$engagementPanelIdRegister}, $descriptor
+            move-result v$engagementPanelFreeRegister
+            if-eqz v$engagementPanelFreeRegister, :shown
+            const/4 v$engagementPanelFreeRegister, 0x0
+            return-object v$engagementPanelFreeRegister
+            :shown
+            nop
+            """
+    )
