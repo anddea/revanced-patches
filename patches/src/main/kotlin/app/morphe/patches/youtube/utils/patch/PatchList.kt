@@ -222,7 +222,7 @@ internal enum class PatchList(
         "Adds options to hide or change components related to the seekbar."
     ),
     SET_TRANSCRIPT_COOKIES(
-        "Set Transcript Cookies",
+        "Set transcript cookies",
         "Adds an option to set Cookies in YouTube Transcript API requests."
     ),
     SETTINGS_FOR_YOUTUBE(

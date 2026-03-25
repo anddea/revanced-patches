@@ -49,3 +49,18 @@ internal fun hookBuildRequestUrl(descriptor: String) {
         )
     }
 }
+
+internal fun hookBuildRequestBody(descriptor: String) {
+    buildRequestMethod.apply {
+        val insertIndex = indexOfNewUrlRequestBuilderInstruction(this)
+
+        addInstructions(
+            insertIndex, """
+                move-object/from16 v$freeRegister, p2
+                invoke-static { v$urlRegister, v$freeRegister }, $descriptor
+                move-result-object v$freeRegister
+                move-object/from16 p2, v$freeRegister
+                """
+        )
+    }
+}

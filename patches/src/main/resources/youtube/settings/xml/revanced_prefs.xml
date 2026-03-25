@@ -158,6 +158,9 @@
         <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_transcript_cookies_title" android:key="revanced_transcript_cookies" android:summary="@string/revanced_transcript_cookies_summary" android:inputType="textMultiLine" />
         <app.morphe.extension.youtube.settings.preference.GetCookiesPreference android:title="@string/revanced_transcript_cookies_about_title" android:key="revanced_transcript_cookies_about" android:summary="@string/revanced_transcript_cookies_about_summary" />SETTINGS: SET_TRANSCRIPT_COOKIES -->
 
+        <!-- SETTINGS: FIX_TRANSCRIPT
+        <SwitchPreference android:title="@string/revanced_fix_transcript_title" android:key="revanced_fix_transcript" android:summaryOn="@string/revanced_fix_transcript_summary_on" android:summaryOff="@string/revanced_fix_transcript_summary_off" />SETTINGS: FIX_TRANSCRIPT -->
+
         <!-- PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS
         <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS -->
 
