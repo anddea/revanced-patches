@@ -298,7 +298,7 @@ fun ResourcePatchContext.removeStringsElements(
             replacements.forEach replacementsLoop@{ replacement ->
                 targetXml.writeText(
                     targetXml.readText()
-                        .replaceFirst(""" {4}<string name="$replacement".+""".toRegex(), "")
+                        .replaceFirst(""" +<string name="$replacement".+""".toRegex(), "")
                 )
             }
         }
