@@ -38,6 +38,9 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 geçici olarak kullanılamıyor (API zaman aşımına uğradı)</string>
     <string name="morphe_oauth2_toast_invalid">Geçersiz VR oturum açma belirteci, VR\'da tekrar oturum açmayı deneyin</string>
     <string name="morphe_oauth2_toast_reset">Android VR oturumu kapatıldı</string>
+    <string name="morphe_reload_video_summary_off">Videoyu yeniden yükle düğmesi gösterilmiyor</string>
+    <string name="morphe_reload_video_summary_on">Videoyu yeniden yükle düğmesi gösteriliyor</string>
+    <string name="morphe_reload_video_title">Videoyu yeniden yükle düğmesini göster</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan bağlantılar music.youtube.com kullanır</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Paylaşılan bağlantılar youtube.com kullanır</string>
     <string name="morphe_replace_music_with_youtube_title">Paylaşım bağlantılarını youtube.com olarak değiştir</string>
@@ -200,11 +203,6 @@ Otomotiv düzeni
 • Remix düğmesi ve Ses düğmesi Shorts'ta kullanılamıyor
 • Shorts normal oynatıcıda açılıyor
 • Video hareket çubuğu katlanmıyor"</string>
-    <string name="revanced_change_live_ring_click_action_summary_off">Canlı halkaya tıklandığında canlı yayın açılır.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"Canlı halkaya tıklandığında kanal açılır.
-
-Kısıtlamalar: Shorts canlı yayını 'Shorts'u normal oynatıcıda aç' ayarı nedeniyle normal oynatıcıda açıldığında kanal açılmaz."</string>
-    <string name="revanced_change_live_ring_click_action_title">Canlı halka eylemini değiştir</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Anahtar geçişleri kullanılıyor.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Yazı geçişleri kullanılıryor.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Geçiş anahtarı tipini değiştir</string>
@@ -616,6 +614,9 @@ Bu ayarı açıp kapattıktan sonra bile ‘Oynatma’ ayarı hala bozuksa, uygu
 
 Bilinen sorun: Bazen kaydırma kaplaması, tam ekran moduna geçmeden önce görünebiliyor.”</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">Kaydırma kontrollerinin dokunma ve basılı tutma hızını düzelt.</string>
+    <string name="revanced_fix_transcript_summary_off">Önkoşul kontrolü başarısızlığı nedeniyle transkript olabilir olmasın</string>
+    <string name="revanced_fix_transcript_summary_on">Transkript mevcut</string>
+    <string name="revanced_fix_transcript_title">Transkripti düzelt</string>
     <string name="revanced_fullscreen_ads_closed_toast">Tam ekran reklamlar kapatıldı.</string>
     <string name="revanced_gemini_cancelled">İptal edildi</string>
     <string name="revanced_gemini_copy_success">Özet panoya kopyalandı.</string>
@@ -684,8 +685,8 @@ Bilgi:
     <string name="revanced_hide_ask_button_summary_off">Sor düğmesi görünür</string>
     <string name="revanced_hide_ask_button_summary_on">Sor düğmesi gizli</string>
     <string name="revanced_hide_ask_button_title">Sor\'u gizle</string>
-    <string name="revanced_hide_ask_section_summary_off">Sor kısmı görünür.</string>
-    <string name="revanced_hide_ask_section_summary_on">Sor kısmı gizli.</string>
+    <string name="revanced_hide_ask_section_summary_off">Sor kısmı görünür</string>
+    <string name="revanced_hide_ask_section_summary_on">Sor kısmı gizli</string>
     <string name="revanced_hide_ask_section_title">\'Sor\'u gizle</string>
     <string name="revanced_hide_attributes_section_summary_off">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler kısımları görünür</string>
     <string name="revanced_hide_attributes_section_summary_on">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler kısımları gizli</string>
@@ -910,7 +911,7 @@ Sınırlamalar
 • Bazı kullanıcı arayüzü bileşenleri gizlenemeyebilir
 • Bir anahtar kelime aranması sonuç göstermeyebilir"</string>
     <string name="revanced_hide_keyword_content_about_title">Anahtar kelimeyle filtreleme hakkında</string>
-    <string name="revanced_hide_keyword_content_about_whole_words_summary">Bir anahtar kelimeyi/ifadeyi çift tırnak işaretleriyle çevrelemek, video başlıklarının ve kanal adlarının kısmi eşleşmelerini önleyecektir.&lt;br&gt;&lt;br&gt; Örneğin,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; şu videoyu gizler: &lt;b&gt;AI nasıl çalışır?&lt;/b&gt;&lt;br&gt;ancak şu videoyu gizlemez: &lt;b&gt;Adil kullanım ne anlama gelir?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Bir anahtar kelimeyi veya ifadeyi tırnak işareti içine almak, video başlıkları ve kanal adlarının kısmi eşleşmelerini önleyecektir&lt;br&gt;&lt;br&gt;Örneğin,&lt;br&gt;&lt;b&gt;\"ağustos\"&lt;/b&gt;, &lt;b&gt;Ağustos ayında kardan adam yapmak!&lt;/b&gt; başlıklı videoyu gizleyecektir&lt;br&gt;ancak &lt;b&gt;Ağustosböcekleri hakkında bilgiler&lt;/b&gt; başlıklı videoyu gizlemeyecektir</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Tam kelimeleri eşleştir</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">Yorumlar anahtar kelimelerle filtrelenmiyor.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Yorumlar anahtar kelimelerle filtreleniyor.</string>
@@ -937,7 +938,7 @@ Ortadaki harfleri büyük olan kelimeler, büyük/küçük harf kullanımına g�
     <string name="revanced_hide_keyword_toast_invalid_common">Anahtar kelime kullanılamıyor: %s</string>
     <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Kullanmak için tırnak içine alın: %s</string>
     <string name="revanced_hide_keyword_toast_invalid_conflicting">Anahtar kelimede çelişki var: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_length">Anahtar kelime çok kısa ve tırnak işareti gerektiriyor: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Kelime kısa, tırnak içine alın: %s</string>
     <string name="revanced_hide_latest_posts_summary_off">Son gönderiler görünür</string>
     <string name="revanced_hide_latest_posts_summary_on">Son gönderiler gizli</string>
     <string name="revanced_hide_latest_posts_title">Son gönderileri gizle</string>
@@ -1082,6 +1083,9 @@ Ortadaki harfleri büyük olan kelimeler, büyük/küçük harf kullanımına g�
     <string name="revanced_hide_player_fullscreen_button_summary_off">Tam ekran butonu gizlenmiyor.</string>
     <string name="revanced_hide_player_fullscreen_button_summary_on">"Tam ekran butonu gizli."</string>
     <string name="revanced_hide_player_fullscreen_button_title">Tam ekran butonunu gizle</string>
+    <string name="revanced_hide_player_popup_ads_summary_off">Oynatıcı açılır reklamları görünür</string>
+    <string name="revanced_hide_player_popup_ads_summary_on">Oynatıcı açılır reklamları gizli</string>
+    <string name="revanced_hide_player_popup_ads_title">Oynatıcı açılır reklamları gizle</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Düğmeler görünür.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Düğmeler gizli.</string>
     <string name="revanced_hide_player_previous_next_button_title">Önceki &amp; sonraki düğmelerini gizle</string>
@@ -1309,8 +1313,8 @@ Oynatıcı ekranının düzeni sunucu tarafındaki değişiklikler nedeniyle de�
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">Buton arka planı gizlenmiyor.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">Buton arka planı gizli.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">Oynatma &amp; buton arka planı duraklat</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_off">Ön izlenen yorum görünür.</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_on">Ön izlenen yorum gizli.</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_off">Ön izlenen yorum görünür</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_on">Ön izlenen yorum gizli</string>
     <string name="revanced_hide_shorts_preview_comment_title">Ön izlenen yorumu gizle</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">Remix düğmesi görünür</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">Remix düğmesi gizli</string>
@@ -1691,9 +1695,6 @@ Mini oynatıcı, ekranın dışına sağa veya sola sürüklenebilir"</string>
     <string name="revanced_open_links_externally_summary_off">Bağlantıları uygulama içi tarayıcıda açar.</string>
     <string name="revanced_open_links_externally_summary_on">Bağlantıları harici tarayıcıda açar.</string>
     <string name="revanced_open_links_externally_title">Bağlantıları harici olarak aç</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_off">Shorts\'u normal oynatıcıda açmaz.</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_on">Shorts\'u normal oynatıcıda açar.</string>
-    <string name="revanced_open_shorts_in_regular_player_title">Shorts\'u normal oynatıcıda aç</string>
     <string name="revanced_overlay_button">Bindirme düğmesi</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Her zaman tekrarlama ayarı için dokunun.
 Tekrarlama durumlarından sonra duraklamayı etkinleştirmek için basılı tutun."</string>
@@ -2116,9 +2117,9 @@ Kısıtlama: Gizli modda beğenmeme sayıları görünmeyebilir."</string>
     <string name="revanced_sb_general_skiptoast">Atlamayı geri al bildirimini göster</string>
     <string name="revanced_sb_general_skiptoast_sum_off">Bildirim gösterilmez</string>
     <string name="revanced_sb_general_skiptoast_sum_on">Bir kısım otomatik olarak atlandığında bildirim gösterilir. Atlamayı geri almak için bildirime dokunun</string>
-    <string name="revanced_sb_general_time_without">Video süresini bölümler olmadan göster</string>
-    <string name="revanced_sb_general_time_without_sum_off">Tam video süresi gösteriliyor.</string>
-    <string name="revanced_sb_general_time_without_sum_on">Arama çubuğunda videonun tüm bölümleri çıkarıldıktan sonraki süreyi gösterilir.</string>
+    <string name="revanced_sb_general_time_without">Kısımlar olmadan video süresini göster</string>
+    <string name="revanced_sb_general_time_without_sum_off">Tam video süresi görünür</string>
+    <string name="revanced_sb_general_time_without_sum_on">Video süresi eksi bütün kısımların süresi zaman çubuğunda görünür</string>
     <string name="revanced_sb_general_uuid">Özel kullanıcı kimliğiniz</string>
     <string name="revanced_sb_general_uuid_invalid">Özel kullanıcı kimliği en az 30 karakter olmalıdır</string>
     <string name="revanced_sb_general_uuid_sum">Bu gizli tutulmalıdır. Bu bir şifreye benzer ve başkalarıyla paylaşılmaması gerekir. Birinin eline geçerse, sizi taklit edebilirler</string>
@@ -2163,7 +2164,7 @@ Göndermeye hazır mısınız?"</string>
     <string name="revanced_sb_reset">Sıfırla</string>
     <string name="revanced_sb_reset_color">Rengi sıfırla</string>
     <string name="revanced_sb_segments_filler">Konuyla Alakasız / Şakalar</string>
-    <string name="revanced_sb_segments_filler_sum">Konuyla alakasız sahneler veya şakalar videoyu doldurmak ya da mizah için eklenmiş, videonun ana içeriğini anlamak için gerekli olmayan alakasız sahneler. Bu, içerik veya arka plan detayları hakkında bilgi veren kısımları içermemelidir</string>
+    <string name="revanced_sb_segments_filler_sum">Videonun ana içeriğini anlamak için gerekli olmayan alakasız sahneler veya şakalar. Bağlam veya arka plan detayları sağlayan kısımları içermez</string>
     <string name="revanced_sb_segments_highlight">Vurgu</string>
     <string name="revanced_sb_segments_highlight_sum">Videonun çoğu kişinin aradığı bölümü</string>
     <string name="revanced_sb_segments_hook">Giriş / Selamlama</string>
@@ -2199,7 +2200,7 @@ Kullanıcı kimliğiniz bir parola gibidir ve asla paylaşılmamalıdır.
     <string name="revanced_sb_skip_automatically_once">Bir defalık otomatik atla</string>
     <string name="revanced_sb_skip_button_compact">Atla</string>
     <string name="revanced_sb_skip_button_compact_highlight">Vurgu</string>
-    <string name="revanced_sb_skip_button_filler">Alakasız konuyu atla.</string>
+    <string name="revanced_sb_skip_button_filler">Konu dışını atla</string>
     <string name="revanced_sb_skip_button_highlight">Vurguya atla</string>
     <string name="revanced_sb_skip_button_hook">Girişi atla</string>
     <string name="revanced_sb_skip_button_interaction">Etkileşimi atla</string>
@@ -2217,7 +2218,7 @@ Kullanıcı kimliğiniz bir parola gibidir ve asla paylaşılmamalıdır.
     <string name="revanced_sb_skip_ignore">Devre dışı bırak</string>
     <string name="revanced_sb_skip_seekbaronly">Zaman çubuğunda göster</string>
     <string name="revanced_sb_skip_showbutton">Atlama düğmesi göster</string>
-    <string name="revanced_sb_skipped_filler">Alakasız konu atlandı.</string>
+    <string name="revanced_sb_skipped_filler">Konu dışı atlandı</string>
     <string name="revanced_sb_skipped_highlight">Vurguya atlandı</string>
     <string name="revanced_sb_skipped_hook">Giriş atlandı</string>
     <string name="revanced_sb_skipped_interaction">Sıkıcı hatırlatma atlandı</string>
@@ -2400,6 +2401,10 @@ Aynısı mevcut"</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">Yükseklik yüzdesi 0-100 (%) arasında olmalıdır.</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Gezinme çubuğu gizlendiğinde kalan boş alanın yükseklik yüzdesini 0 ile 100 (%) arasında yapılandırın.</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Boş alanın yükseklik yüzdesi</string>
+    <string name="revanced_shorts_player_type_regular_player">Normal oynatıcı</string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">Normal oynatıcı tam ekran</string>
+    <string name="revanced_shorts_player_type_shorts">Shorts oynatıcı</string>
+    <string name="revanced_shorts_player_type_title">Shorts\'u şununla aç</string>
     <string name="revanced_show_video_title_section_summary">"Video başlığı bölümünü tam ekranda gösterir.
 
 Sınırlama: Tıklandığında video başlığı kayboluyor."</string>
@@ -2418,18 +2423,6 @@ Sınırlama: Tıklandığında video başlığı kayboluyor."</string>
 • Daha sonra kapatılırsa, uygulama verileri temizlenene kadar eski kullanıcı arayüzü kalabilir."</string>
     <string name="revanced_spoof_app_version_summary_off">Sürüm taklit edilmiyor</string>
     <string name="revanced_spoof_app_version_summary_on">Sürüm taklit ediliyor</string>
-    <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - Eski kullanıcı arayüzü düzenini geri yükle</string>
-    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Eski oynatma listesi raf düzenini geri yükle</string>
-    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Eski yorum girme düzenini geri yükle</string>
-    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Eski tarz oynatıcı açılır panelini geri yükleyin</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Eski shorts aksiyon çubuğunu geri yükle</string>
-    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Eski varsayılan video kalitesi davranışını geri getir</string>
-    <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Görüntülemelerin ve beğenilerin gerçek zamanlı olarak güncellenmesini devre dışı bırakır</string>
-    <string name="revanced_spoof_app_version_target_entry_19_01_34">19.01.34 - Video açıklaması etkileşimini devre dışı bırak</string>
-    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Eski stil. Yuvarlanan sayı animasyonlarını geri yükleyin</string>
-    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 -  Cairo ikonunu gezinme ve araç çubuğunda devre dışı bırak</string>
-    <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Eski çalma listesi başlığını geri yükle</string>
-    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Eski tarz oynatma hızı açılır panelini geri yükleyin</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Transkript işlevini geri yükle</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Daraltılmamış video eylem çubuğunu geri getir</string>
     <string name="revanced_spoof_app_version_target_entry_title">Taklit edilecek sürüm</string>
