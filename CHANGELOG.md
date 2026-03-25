@@ -1,3 +1,19 @@
+# [4.0.0-dev.11](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.10...v4.0.0-dev.11) (2026-03-25)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding name:** Custom name did not apply properly ([02b5519](https://github.com/anddea/revanced-patches/commit/02b55191134f012087684f4ef99693413d5e65b2))
+* **YouTube & YT Music:** Fix the app crash caused by incorrect resource attribution ([5247736](https://github.com/anddea/revanced-patches/commit/5247736538743e4cec1075dce5d2ba1998816009))
+
+
+### Features
+
+* **YouTube - Hide ads:** Add `Hide player popup ads` setting ([06275f4](https://github.com/anddea/revanced-patches/commit/06275f4cf47c039833bf9e5e8ad8442378245a24))
+* **YouTube - Set transcript cookies:** Add "Fix transcript" setting ([7c42e04](https://github.com/anddea/revanced-patches/commit/7c42e042387d0708991450649f8d03ae0176a278))
+* **YouTube - Shorts components:** Add Open Shorts with `Regular player fullscreen` ([a5985e9](https://github.com/anddea/revanced-patches/commit/a5985e9bf5078ec7f5296a89e4c78667750e8903))
+* **YouTube:** Remove `Change live ring click action` patch ([bc40616](https://github.com/anddea/revanced-patches/commit/bc406169a060e9da486b67a0a3436a46154dd035))
+
 # [4.0.0-dev.10](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.9...v4.0.0-dev.10) (2026-03-24)
 
 
