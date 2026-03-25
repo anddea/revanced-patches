@@ -760,7 +760,7 @@
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_change_shorts_repeat_state_entries" android:title="@string/revanced_change_shorts_background_repeat_state_title" android:key="revanced_change_shorts_background_repeat_state" android:entryValues="@array/revanced_change_shorts_repeat_state_entry_values" />SETTINGS: SHORTS_REPEAT_STATE_BACKGROUND -->
 
         <!-- SETTINGS: SHORTS_COMPONENTS
-        <SwitchPreference android:title="@string/revanced_open_shorts_in_regular_player_title" android:key="revanced_open_shorts_in_regular_player" android:summaryOn="@string/revanced_open_shorts_in_regular_player_summary_on" android:summaryOff="@string/revanced_open_shorts_in_regular_player_summary_off" />SETTINGS: SHORTS_COMPONENTS -->
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_shorts_player_type_entries" android:title="@string/revanced_shorts_player_type_title" android:key="revanced_shorts_player_type" android:entryValues="@array/revanced_shorts_player_type_entry_values" />SETTINGS: SHORTS_COMPONENTS -->
 
     <!-- PREFERENCE_SCREEN: SHORTS
     </PreferenceScreen>PREFERENCE_SCREEN: SHORTS -->

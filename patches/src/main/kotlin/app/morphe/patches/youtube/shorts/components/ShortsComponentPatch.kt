@@ -16,6 +16,7 @@ import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.morphe.patches.shared.textcomponent.hookSpannableString
 import app.morphe.patches.shared.textcomponent.textComponentPatch
 import app.morphe.patches.youtube.player.overlaybuttons.geminiButton
+import app.morphe.patches.youtube.player.fullscreen.openVideosFullscreenHookPatch
 import app.morphe.patches.youtube.utils.bottomSheetMenuItemBuilderFingerprint
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.morphe.patches.youtube.utils.engagement.engagementPanelHookPatch
@@ -743,6 +744,7 @@ val shortsComponentPatch = bytecodePatch(
         lithoFilterPatch,
         lithoLayoutPatch,
         navigationBarHookPatch,
+        openVideosFullscreenHookPatch,
         playbackStartDescriptorPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
