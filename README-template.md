@@ -22,8 +22,6 @@ Report issues [here](https://github.com/inotia00/ReVanced_Extended).
 
 ## 📝 JSON Format
 
-This section explains the JSON format for the [patches.json](patches.json) file.
-
 Example:
 
 ```json

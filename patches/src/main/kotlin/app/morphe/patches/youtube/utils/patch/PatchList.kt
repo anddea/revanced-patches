@@ -25,10 +25,6 @@ internal enum class PatchList(
         "Change form factor",
         "Adds an option to change the UI appearance to a phone, tablet, or automotive device."
     ),
-    CHANGE_LIVE_RING_CLICK_ACTION(
-        "Change live ring click action",
-        "Adds an option to open the channel instead of the live stream when clicking on the live ring."
-    ),
     CHANGE_PLAYER_FLYOUT_MENU_TOGGLES(
         "Change player flyout menu toggles",
         "Adds an option to use text toggles instead of switch toggles within the additional settings menu."
