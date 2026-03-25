@@ -9,6 +9,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.utils.ExtendedUtils;
 
@@ -23,6 +24,10 @@ public class AdsPatch {
             Settings.HIDE_YOUTUBE_PREMIUM_PROMOTION.get();
     private static final boolean HIDE_VIDEO_ADS =
             Settings.HIDE_VIDEO_ADS.get();
+    private static final String[] PLAYER_POPUP_AD_PANEL_IDS = {
+            "PAproduct", // Shopping.
+            "jumpahead" // Premium promotion.
+    };
 
     // https://encrypted-tbn0.gstatic.com/shopping?q=tbn
     private static final String STORE_BANNER_DOMAIN =
@@ -73,6 +78,14 @@ public class AdsPatch {
      */
     public static boolean hideShortsPaidPromotionLabel() {
         return Settings.HIDE_PAID_PROMOTION_LABEL.get();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean hidePlayerPopupAds(String panelId) {
+        return Settings.HIDE_PLAYER_POPUP_ADS.get()
+                && Utils.containsAny(panelId, PLAYER_POPUP_AD_PANEL_IDS);
     }
 
     /**

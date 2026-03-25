@@ -1,6 +1,7 @@
 package app.morphe.extension.shared.utils;
 
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
+import static app.morphe.extension.shared.Utils.isNotEmpty;
 import static app.morphe.extension.shared.utils.BaseThemeUtils.getCancelOrNeutralButtonBackgroundColor;
 import static app.morphe.extension.shared.utils.BaseThemeUtils.getOkButtonBackgroundColor;
 import static app.morphe.extension.shared.utils.BaseThemeUtils.isDarkModeEnabled;
@@ -219,10 +220,12 @@ public class Utils {
     }
 
     public static int indexOfFirstFound(@NonNull String value, @NonNull String... targets) {
-        for (String string : targets) {
-            if (!string.isEmpty()) {
-                final int indexOf = value.indexOf(string);
-                if (indexOf >= 0) return indexOf;
+        if (isNotEmpty(value)) {
+            for (String string : targets) {
+                if (!string.isEmpty()) {
+                    final int indexOf = value.indexOf(string);
+                    if (indexOf >= 0) return indexOf;
+                }
             }
         }
         return -1;
