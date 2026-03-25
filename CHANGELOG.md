@@ -1,3 +1,10 @@
+# [4.0.0-dev.12](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.11...v4.0.0-dev.12) (2026-03-25)
+
+
+### Bug Fixes
+
+* **YouTube:** Resolved patching error caused by an unexpected array value ([ca3772e](https://github.com/anddea/revanced-patches/commit/ca3772e18029b2b843f7af3b7137390cefeec6a6))
+
 # [4.0.0-dev.11](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.10...v4.0.0-dev.11) (2026-03-25)
 
 
