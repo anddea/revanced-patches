@@ -4,11 +4,18 @@ import android.net.Uri;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.nio.charset.StandardCharsets;
+
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.utils.ExtendedUtils;
 
 @SuppressWarnings({"deprecation", "unused"})
 public final class TranscriptCookiePatch {
+
+    private static final boolean FIX_TRANSCRIPT =
+            Settings.FIX_TRANSCRIPT.get() &&
+                    !ExtendedUtils.isSpoofingToLessThan("20.05.00");
 
     private static final boolean SET_TRANSCRIPT_COOKIES =
             Settings.SET_TRANSCRIPT_COOKIES.get();
@@ -67,6 +74,31 @@ public final class TranscriptCookiePatch {
      */
     public static String getUserAgent() {
         return USER_AGENT_CHROME;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static byte[] fixTranscriptRequestBody(String url, byte[] requestBody) {
+        if (!FIX_TRANSCRIPT || requestBody == null || !StringUtils.contains(url, "get_transcript")) {
+            return requestBody;
+        }
+
+        try {
+            String body = new String(requestBody, StandardCharsets.UTF_8);
+            String updatedBody = body.replaceFirst(
+                    "\"clientVersion\":\"[^\"]+\"",
+                    "\"clientVersion\":\"20.05.46\""
+            );
+
+            return updatedBody.equals(body)
+                    ? requestBody
+                    : updatedBody.getBytes(StandardCharsets.UTF_8);
+        } catch (Exception ex) {
+            Logger.printException(() -> "fixTranscriptRequestBody failure", ex);
+        }
+
+        return requestBody;
     }
 
 }

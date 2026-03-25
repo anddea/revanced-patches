@@ -8,6 +8,8 @@ import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMuta
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.SET_TRANSCRIPT_COOKIES
+import app.morphe.patches.youtube.utils.request.buildRequestPatch
+import app.morphe.patches.youtube.utils.request.hookBuildRequestBody
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.webview.webViewPatch
@@ -32,6 +34,7 @@ val autoCaptionsPatch = bytecodePatch(
     dependsOn(
         settingsPatch,
         webViewPatch,
+        buildRequestPatch,
     )
 
     execute {
@@ -102,11 +105,18 @@ val autoCaptionsPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for fix transcript
+
+        hookBuildRequestBody("$EXTENSION_CLASS_DESCRIPTOR->fixTranscriptRequestBody(Ljava/lang/String;[B)[B")
+
+        // endregion
+
         // region add settings
 
         addPreference(
             arrayOf(
                 "PREFERENCE_SCREEN: GENERAL",
+                "SETTINGS: FIX_TRANSCRIPT",
                 "SETTINGS: SET_TRANSCRIPT_COOKIES"
             ),
             SET_TRANSCRIPT_COOKIES
