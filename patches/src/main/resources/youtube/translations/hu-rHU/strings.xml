@@ -38,6 +38,9 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
     <string name="morphe_oauth2_connection_failure_timeout">Az OAuth2 átmenetileg nem elérhető (az API időtúllépés miatt)</string>
     <string name="morphe_oauth2_toast_invalid">Érvénytelen VR bejelentkezési token, próbálja meg újra a bejelentkezést a VR-ba</string>
     <string name="morphe_oauth2_toast_reset">Kijelentkezett az Android VR-ből</string>
+    <string name="morphe_reload_video_summary_off">A videó újraindítás gomb nem látható</string>
+    <string name="morphe_reload_video_summary_on">A videó újraindítás gomb látható</string>
+    <string name="morphe_reload_video_title">Videó újraindítás gomb megjelenítése</string>
     <string name="morphe_replace_music_with_youtube_summary_off">A megosztott linkek a music.youtube.com-ot használják</string>
     <string name="morphe_replace_music_with_youtube_summary_on">A megosztott linkek a youtube.com-ot használják</string>
     <string name="morphe_replace_music_with_youtube_title">Módosítsa a megosztási linkeket youtube.com-ra</string>
@@ -203,9 +206,6 @@ Autóelrendezés
 • A Remix gomb és a Hang gomb nem érhető el a Shortsban
 • A Shorts a hagyományos lejátszóban nyílnak meg
 • A videó műveleti sáv nem omlik össze"</string>
-    <string name="revanced_change_live_ring_click_action_summary_off">Az élő közvetítés nyílik meg az ikonra kattintva.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"A csatorna nyílik meg az ikonra kattintva."</string>
-    <string name="revanced_change_live_ring_click_action_title">Élő közvetítés ikon kattintás műveletének módosítása</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Kapcsolók használata.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Szövegkapcsolók használata.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Kapcsolótípus megváltoztatása</string>
@@ -621,6 +621,9 @@ Ha a 'Lejátszás' beállítás a beállítás engedélyezése vagy letiltása u
 
 Ismert probléma: Előfordul, hogy a húzás átfedése megjelenik a teljes képernyős módra váltás előtt."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">A húzással vezérlés működésének javítása</string>
+    <string name="revanced_fix_transcript_summary_off">Előfeltétel ellenőrzés sikertelensége miatt az átirat lehetségesen nem áll rendelkezésre</string>
+    <string name="revanced_fix_transcript_summary_on">Átirat áll rendelkezésre</string>
+    <string name="revanced_fix_transcript_title">Átirat javítása</string>
     <string name="revanced_fullscreen_ads_closed_toast">A teljes képernyős hirdetések bezárva.</string>
     <string name="revanced_gemini_cancelled">Megszakítva</string>
     <string name="revanced_gemini_copy_success">Összefoglaló a vágólapra másolva.</string>
@@ -920,7 +923,7 @@ Korlátozások
 • Egyes felület elemek nem rejtőknek el
 • A kulcsszó keresése nem eredményezhet eredményt"</string>
     <string name="revanced_hide_keyword_content_about_title">A kulcsszó alapú szűrésről</string>
-    <string name="revanced_hide_keyword_content_about_whole_words_summary">Ha egy kulcsszót/kifejezést dupla idézőjelekkel vesz körül, akkor elkerülhető a videócímek és a csatornanevek részleges egyezése&lt;br&gt;&lt;br&gt;Például:&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; elrejti a videót: &lt;b&gt;Hogyan működik az AI?&lt;/b&gt;&lt;br&gt;de nem rejti el: &lt;b&gt;Mit jelent a fair use?&lt;/b&gt; </string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Ha egy kulcsszót/kifejezést dupla idézőjelekkel vesz körül, akkor elkerülhető a videócímek és a csatornanevek részleges egyezése&lt;br&gt;&lt;br&gt;Például:&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; elrejti a videót: &lt;b&gt;Hogyan működik az AI?&lt;/b&gt;&lt;br&gt;de nem rejti el: &lt;b&gt;Mit jelent a fair use?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Párosítson egész szavakat</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">A kommentek nincsenek szűrve.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">A kommentek szűrve vannak.</string>
@@ -1094,6 +1097,9 @@ Nagybetűs szavakat a középső betűkkel együtt kell megadni (pl.: iPhone, Ti
 
 Korlátozás: A videó vége után az összes átfedő gomb rejtve maradhat."</string>
     <string name="revanced_hide_player_fullscreen_button_title">Teljes képernyős gomb elrejtése</string>
+    <string name="revanced_hide_player_popup_ads_summary_off">A lejátszó előugró reklámok megjelennek</string>
+    <string name="revanced_hide_player_popup_ads_summary_on">A lejátszó előugró reklámok elrejtve</string>
+    <string name="revanced_hide_player_popup_ads_title">Elrejtés a lejátszó előugró reklámok</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Az előző &amp; következő gombok láthatóak.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Az előző &amp; következő gombok rejtettek.</string>
     <string name="revanced_hide_player_previous_next_button_title">Előző és következő gombok elrejtése</string>
@@ -1725,9 +1731,6 @@ A minilejátszó jobbra vagy balra húzható a képernyőn."</string>
     <string name="revanced_open_links_externally_summary_off">A linkek az app böngészőjében nyílnak meg.</string>
     <string name="revanced_open_links_externally_summary_on">A linkek a külső böngészőben nyílnak meg.</string>
     <string name="revanced_open_links_externally_title">Linkek külső megnyitása</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_off">A Short-ok megnyitása nem a normál lejátszóban.</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_on">A Short-ok megnyitása a normál lejátszóban.</string>
-    <string name="revanced_open_shorts_in_regular_player_title">Short-ok megnyitása a normál lejátszóban</string>
     <string name="revanced_overlay_button">Átfedés gomb</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Koppintson a mindig ismétlődő állapotok váltásához.
 Érintse meg és tartsa lenyomva az ismétlődő állapotok szüneteltetéséhez."</string>
@@ -2230,7 +2233,7 @@ A felhasználói azonosítója olyan, mint egy jelszó, és soha nem szabad mego
     <string name="revanced_sb_skip_automatically_once">Automatikus kihagyás egyszer</string>
     <string name="revanced_sb_skip_button_compact">Kihagyás</string>
     <string name="revanced_sb_skip_button_compact_highlight">Kiemelt</string>
-    <string name="revanced_sb_skip_button_filler">Töltelékrész kihagyása </string>
+    <string name="revanced_sb_skip_button_filler">Mellékes rész kihagyása</string>
     <string name="revanced_sb_skip_button_highlight">Ugrás az kiemelthez</string>
     <string name="revanced_sb_skip_button_hook">Horog kihagyása</string>
     <string name="revanced_sb_skip_button_interaction">Interakció kihagyása</string>
@@ -2248,7 +2251,7 @@ A felhasználói azonosítója olyan, mint egy jelszó, és soha nem szabad mego
     <string name="revanced_sb_skip_ignore">Letiltás</string>
     <string name="revanced_sb_skip_seekbaronly">Megjelenítés a folyamatsávban</string>
     <string name="revanced_sb_skip_showbutton">Átugrás gomb megjelenítése</string>
-    <string name="revanced_sb_skipped_filler">Töltelékrész kihagyva.</string>
+    <string name="revanced_sb_skipped_filler">Mellékes rész kihagyva</string>
     <string name="revanced_sb_skipped_highlight">Kihagyva a kiemelthez</string>
     <string name="revanced_sb_skipped_hook">Horog kihagyva</string>
     <string name="revanced_sb_skipped_interaction">Zavaró emlékeztető kihagyva</string>
@@ -2431,6 +2434,10 @@ A legtöbb hiba nem javítható az ügyféloldali korlátozások miatt, ezért c
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">A magasság százalékának 0-100 (%) között kell lennie.</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Beállítja a navigációs sáv elrejtésekor megmaradó üres terület magasságának arányát 0 és 100 (%) között.</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Az üres hely magasságának százaléka</string>
+    <string name="revanced_shorts_player_type_regular_player">Normál lejátszó</string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">Teljes képernyős normál lejátszó</string>
+    <string name="revanced_shorts_player_type_shorts">Shorts lejátszó</string>
+    <string name="revanced_shorts_player_type_title">Shorts megnyitása ezzel:</string>
     <string name="revanced_show_video_title_section_summary">"Megjeleníti a videócím részt teljes képernyős módban.
 
 Korlátozás: A videó címe eltűnik, ha rákattint."</string>
@@ -2449,18 +2456,6 @@ Korlátozás: A videó címe eltűnik, ha rákattint."</string>
 • Ha később kikapcsolja, a régi felhasználói felület megmaradhat az alkalmazás adatainak törléséig."</string>
     <string name="revanced_spoof_app_version_summary_off">A verzió nincs hamisítva</string>
     <string name="revanced_spoof_app_version_summary_on">A verzió hamisítva</string>
-    <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - Visszaállítás a régi felhasználói felületre</string>
-    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Régi lejátszási lista polc visszállítása</string>
-    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Régi megjegyzési szövegdoboz visszaállítása</string>
-    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Régi előugró lejátszói ablak visszaállítása</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Régi Shorts művelet sáv visszaállítása</string>
-    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Visszaállítja a régi alapértelmezett videó minőség viselkedést</string>
-    <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Letiltja a \'Megtekintések\' és a \'Kedvelések\' valós idejű frissítését</string>
-    <string name="revanced_spoof_app_version_target_entry_19_01_34">19.01.34 – Videóleírás interakció letiltása</string>
-    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Visszaállítja a régi stílusú gördülő szám animációkat</string>
-    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Cairo ikon letiltása a navigációban és az eszköztárban</string>
-    <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Régi lejátszási lista fejléc visszállítása</string>
-    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - A régi lejátszási sebesség felugró menü visszaállítása</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Átirat funkció visszaállítása</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Nem összecsukott videós műveletsáv visszaállítása</string>
     <string name="revanced_spoof_app_version_target_entry_title">Hamis alkalmazásverzió</string>

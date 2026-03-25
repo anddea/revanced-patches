@@ -38,6 +38,9 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 προσωρινά μη διαθέσιμο (καθυστέρηση API)</string>
     <string name="morphe_oauth2_toast_invalid">Δεν έγκειται το κωδικό εισόδου VR, προσπαθήστε να συνδεθείτε ξανά στο VR</string>
     <string name="morphe_oauth2_toast_reset">Έξοδος από το Android VR</string>
+    <string name="morphe_reload_video_summary_off">Δεν εμφανίζεται το κουμπί επανεξέτασης βίντεο</string>
+    <string name="morphe_reload_video_summary_on">Εμφανίζεται το κουμπί επανεξέτασης βίντεο</string>
+    <string name="morphe_reload_video_title">Εμφάνιση κουμπιού επανεξέτασης βίντεο</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Αλλαγή συνδέσμων κοινοποίησης σε youtube.com</string>
@@ -201,11 +204,6 @@
 • Το κουμπί Remix και το κουμπί Ήχου δεν είναι διαθέσιμα στο Shorts
 • Τα Shorts ανοίγουν στον κανονικό αναπαραγωγέ
 • Η γραμμή ενεργειών βίντεο δεν έχει καταρρεύσει"</string>
-    <string name="revanced_change_live_ring_click_action_summary_off">Ανοίγει η ζωντανή μετάδοση όταν πατιέται ο δακτύλιος ζωντανής μετάδοσης.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"Ανοίγει το κανάλι όταν πατιέται ο δακτύλιος ζωντανής μετάδοσης.
-
-Περιορισμός: Όταν πρόκειται για ζωντανή μετάδοση Shorts και η λειτουργία «Άνοιγμα των Shorts στην κανονική οθόνη αναπαραγωγής» είναι ενεργοποιημένη, δεν ανοίγει το κανάλι."</string>
-    <string name="revanced_change_live_ring_click_action_title">Αλλαγή ενέργειας πατήματος δακτυλίου ζωντανής μετάδοσης</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Χρησιμοποιούνται εναλλαγές διακοπτών.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Χρησιμοποιούνται εναλλαγές κειμένου.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Τύπος εναλλαγής ρυθμίσεων</string>
@@ -622,6 +620,9 @@
 
 Γνωστό θέμα: Μερικές φορές εμφανίζεται η διάταξη ελέγχων σάρωσης πριν γίνει μετάβαση σε λειτουργία πλήρους οθόνης."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">Διόρθωση ελέγχων σάρωσης και διεπαφής ταχύτητας</string>
+    <string name="revanced_fix_transcript_summary_off">Η μεταγραφή μπορεί να μην είναι διαθέσιμη λόγω έλεγχου προϋποθέσεων</string>
+    <string name="revanced_fix_transcript_summary_on">Επιλέγεται μεταγραφή</string>
+    <string name="revanced_fix_transcript_title">Επљеφρώσε τη μεταγραφή</string>
     <string name="revanced_fullscreen_ads_closed_toast">Οι διαφημίσεις πλήρους οθόνης έκλεισαν.</string>
     <string name="revanced_gemini_cancelled">Ακυρώθηκε</string>
     <string name="revanced_gemini_copy_success">Η σύνοψη αντιγράφηκε στο πρόχειρο.</string>
@@ -1098,6 +1099,9 @@ Playlists
 
 Περιορισμός: Ενδέχεται να εξαφανίζονται όλα τα κουμπιά της οθόνης αναπαραγωγής μετά το τέλος του βίντεο."</string>
     <string name="revanced_hide_player_fullscreen_button_title">Κουμπί λειτουργίας πλήρους οθόνης</string>
+    <string name="revanced_hide_player_popup_ads_summary_off">Οι διαφημίσεις του παίκτη εμφανίζονται</string>
+    <string name="revanced_hide_player_popup_ads_summary_on">Οι διαφημίσεις του παίκτη είναι κρυμμένες</string>
+    <string name="revanced_hide_player_popup_ads_title">Απόκρυψη διαφημίσεων παίκτη</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Κρυμμένα.</string>
     <string name="revanced_hide_player_previous_next_button_title">Κουμπιά προηγούμενου &amp; επόμενου βίντεο</string>
@@ -1437,8 +1441,8 @@ Playlists
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Εμφανίζεται</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Κρυμμένο</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_title">Κουμπί «Εγγραφή»</string>
-    <string name="revanced_hide_subscribe_button_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_subscribe_button_summary_on">Κρυμμένο.</string>
+    <string name="revanced_hide_subscribe_button_summary_off">Εμφανίζεται</string>
+    <string name="revanced_hide_subscribe_button_summary_on">Κρυμμένο</string>
     <string name="revanced_hide_subscribe_button_title">Κουμπί «Εγγραφή»</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">Η μπαρ συνδεδεμένων καναλιών είναι ορατή</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">Η μπαρ συνδεδεμένων καναλιών είναι κρυμμένη</string>
@@ -1737,9 +1741,6 @@ Playlists
     <string name="revanced_open_links_externally_summary_off">Οι σύνδεσμοι ανοίγουν εσωτερικά στην εφαρμογή.</string>
     <string name="revanced_open_links_externally_summary_on">Οι σύνδεσμοι ανοίγουν σε εξωτερικό πρόγραμμα περιήγησης.</string>
     <string name="revanced_open_links_externally_title">Άνοιγμα συνδέσμων σε πρόγραμμα περιήγησης</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_off">Τα Shorts δεν ανοίγουν στην οθόνη αναπαραγωγής κανονικών βίντεο.</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_on">Τα Shorts ανοίγουν στην οθόνη αναπαραγωγής κανονικών βίντεο.</string>
-    <string name="revanced_open_shorts_in_regular_player_title">Άνοιγμα των Shorts στην κανονική οθόνη αναπαραγωγής</string>
     <string name="revanced_overlay_button">Προσθήκη κουμπιών στην οθόνη αναπαραγωγής</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Πατήστε για ενεργοποίηση ή απενεργοποίηση της λειτουργίας συνεχούς επανάληψης.
 Πατήστε παρατεταμένα για ενεργοποίηση παύσης κατά την επανάληψη."</string>
@@ -2261,7 +2262,7 @@ Playlists
     <string name="revanced_sb_skip_ignore">Απενεργοποίηση</string>
     <string name="revanced_sb_skip_seekbaronly">Εμφάνιση στη γραμμή προόδου</string>
     <string name="revanced_sb_skip_showbutton">Εμφάνιση κουμπιού παράλειψης</string>
-    <string name="revanced_sb_skipped_filler">Παραλείφθηκε η σπατάλη χρόνου.</string>
+    <string name="revanced_sb_skipped_filler">Παραλείφθηκε η σπατάλη χρόνου</string>
     <string name="revanced_sb_skipped_highlight">Έγινε μετάβαση στο αποκορύφωμα</string>
     <string name="revanced_sb_skipped_hook">Παραλείφθηκε η έναρξη</string>
     <string name="revanced_sb_skipped_interaction">Παραλείφθηκε η ενοχλητική υπενθύμιση</string>
@@ -2444,6 +2445,10 @@ Playlists
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">Το ποσοστό ύψους πρέπει να είναι μεταξύ 0-100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Ρύθμιση του ποσοστού ύψους του κενού χώρου που απομένει όταν η γραμμή πλοήγησης είναι κρυμμένη, μεταξύ 0 και 100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Ποσοστό ύψους του κενού χώρου</string>
+    <string name="revanced_shorts_player_type_regular_player">Οθόνη αναπαραγωγής κανονικών βίντεο </string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">Πλήρη οθόνη αναπαραγωγής κανονικών βίντεο </string>
+    <string name="revanced_shorts_player_type_shorts">Οθόνη αναπαραγωγής Shorts</string>
+    <string name="revanced_shorts_player_type_title">Άνοιγμα Shorts με</string>
     <string name="revanced_show_video_title_section_summary">"Εμφάνιση τίτλου του βίντεο σε πλήρη οθόνη.
 
 Περιορισμός: Ο τίτλος εξαφανίζεται όταν πατηθεί."</string>
@@ -2462,18 +2467,6 @@ Playlists
 Εάν αργότερα απενεργοποιηθεί, η παλιά εμφάνιση μπορεί να παραμείνει μέχρι να διαγραφούν τα δεδομένα της εφαρμογής."</string>
     <string name="revanced_spoof_app_version_summary_off">Η έκδοση δεν παραποιείται</string>
     <string name="revanced_spoof_app_version_summary_on">Η έκδοση παραποιείται</string>
-    <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - Επαναφορά της παλιάς εμφάνισης</string>
-    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Επαναφορά ενότητας λίστας αναπαραγωγής στο παλιό στυλ</string>
-    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Επαναφορά πλαισίου εισαγωγής σχολίων στο παλιό στυλ</string>
-    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Επαναφορά αναδυόμενου πίνακα της οθόνης αναπαραγωγής στο παλιό στυλ</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Επαναφορά γραμμής ενεργειών Shorts στο παλιό στυλ</string>
-    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Επαναφορά της παλιάς συμπεριφοράς προεπιλεγμένης ποιότητας βίντεο</string>
-    <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Απενεργοποίηση ενημέρωσης των προβολών &amp; αριθμού των «Μου αρέσει» σε πραγματικό χρόνο</string>
-    <string name="revanced_spoof_app_version_target_entry_19_01_34">19.01.34 - Απενεργοποίηση αλληλεπίδρασης περιγραφής βίντεο</string>
-    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Επαναφορά των παλιών εφέ κίνησης αριθμών</string>
-    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Απενεργοποίηση εικονιδίων θέματος Cairo στις γραμμές πλοήγησης και εργαλείων</string>
-    <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Επαναφορά παλιάς επικεφαλίδας λίστας αναπαραγωγής</string>
-    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Επαναφορά αναδυόμενου πίνακα ταχύτητας αναπαραγωγής παλιού στυλ</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Επαναφορά λειτουργικότητας μεταγραφής</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Επαναφορά μη καταρρέουσας γραμμής ενέργειας βίντεο</string>
     <string name="revanced_spoof_app_version_target_entry_title">Έκδοση παραποίησης της εφαρμογής</string>

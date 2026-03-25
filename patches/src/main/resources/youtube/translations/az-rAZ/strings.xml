@@ -40,9 +40,11 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
     <string name="morphe_sanitize_sharing_links_summary_on">İzlənmə sorğusu faktoru paylaşılan linklərdən silinir</string>
     <string name="morphe_sanitize_sharing_links_title">Paylaşım keçidlərin təmizlə</string>
     <string name="morphe_spoof_video_streams_about_experimental">• Təcrübi qəbuledici və hər vaxt işləməyi dayandıra bilər</string>
+    <string name="morphe_spoof_video_streams_about_js">•  Deobfuscation qırılarsa, oynatma uğursuz ola bilər</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Səs treki menyusu çatışmır</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• AV1 video kodlayıcı yoxdur</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• \"Orijinal səsi zorla\" əlçatmazdır</string>
+    <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR immersiv rejimi əlçatan deyil</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Sabit səs yoxdur</string>
     <string name="morphe_spoof_video_streams_about_playback_failure">• Video 01:00-da dayana bilər və ya bəzi bölgələrdə mövcud olmaya bilər</string>
     <string name="morphe_spoof_video_streams_about_title">Saxtakarlıq yan təsirləri</string>
@@ -64,6 +66,9 @@ Video oynatma AV1 ilə ilişə bilər və ya kadrlar buraxıla bilər."</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Oynadıcı JavaScript hash-ləri təqribi bir ay müddətində etibarlıdır və köhnələn hash-lər GVS tərəfindən ləğv edilə bilər.</string>
     <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Aktivləşdirməyə cəhd edin: Video yayımların saxtalaşdır &gt; Android VR girişi</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Hər hansı qəbuledici yayımları əldə etmək olmadı</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">İşlək oynadıcı JavaScript hash-i qeyd et</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Oynadıcı JavaScript hash-i</string>
+    <string name="morphe_spoof_video_streams_player_js_variant_title">Oynadıcı JavaScript seçimi</string>
     <string name="morphe_spoof_video_streams_screen_summary">Oynatma problemlərin önləmək üçün qəbuledici video yayımların saxtalaşdır</string>
     <string name="morphe_spoof_video_streams_screen_title">Video yayımların saxtalaşdır</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR-a daxil olunmayıb. Daxil olmaq üçün bura toxun</string>
@@ -259,13 +264,16 @@ Avtomobil tərtibatı
     <string name="revanced_exit_fullscreen_entry_4">Şaquli və üfüqi</string>
     <string name="revanced_exit_fullscreen_title">Video sonunda tam ekran rejimindən çıx</string>
     <string name="revanced_external_downloader_empty_warning">Paket adı boş ola bilməz</string>
-    <string name="revanced_external_downloader_not_found_title">Tətbiq quraşdırılmadı.</string>
+    <string name="revanced_external_downloader_not_found_title">Tətbiq quraşdırılmayıb</string>
     <string name="revanced_external_downloader_not_installed_warning">%s quraşdırılmayıb. Lütfən, bunu quraşdır.</string>
     <string name="revanced_external_downloader_other_item">Digər</string>
     <string name="revanced_external_downloader_other_item_hint">Paket adını yerləşdir</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"Paket adı ilə quraşdırılan tətbiqi tapmaq olmadı: %s.
+    <string name="revanced_external_downloader_package_not_found_warning">"Paket adı ilə quraşdırılan tətbiq tapılmadı: %s
 
-Paket adının düzgünlüyün və tətbiqin quraşdırıldığını yoxlayın."</string>
+Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
+    <string name="revanced_fix_transcript_summary_off">İlkin status yoxlanılması uğursuzluğuna görə transkript əlçatan olmaya bilər</string>
+    <string name="revanced_fix_transcript_summary_on">Transkript əlçatandır</string>
+    <string name="revanced_fix_transcript_title">Transkripti düzəlt</string>
     <string name="revanced_fullscreen_ads_closed_toast">Tam ekran reklamları bağlandı.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sİ ilə yaradılan video xülasə bölməsi görünür</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sİ ilə yaradılan video xülasə bölməsi gizlədilib</string>
@@ -310,8 +318,8 @@ Paket adının düzgünlüyün və tətbiqin quraşdırıldığını yoxlayın."
     <string name="revanced_hide_community_button_summary_off">Şərhlər düyməsi göstərilir</string>
     <string name="revanced_hide_community_button_summary_on">Şərhlər düyməsi gizlidir</string>
     <string name="revanced_hide_community_button_title">Şərhlər düyməsin gizlət</string>
-    <string name="revanced_hide_creator_store_shelf_summary_off">Videolar altında yaradıcı mağaza cərgəsi görünür.</string>
-    <string name="revanced_hide_creator_store_shelf_summary_on">Videolar altında yaradıcı mağaza cərgəsi gizlidir.</string>
+    <string name="revanced_hide_creator_store_shelf_summary_off">Yaradıcı alış-veriş cərgəsi video oynadıcı altında görünür</string>
+    <string name="revanced_hide_creator_store_shelf_summary_on">Yaradıcı alış-veriş cərgəsi video oynadıcı altında gizlidir</string>
     <string name="revanced_hide_creator_store_shelf_title">Yaradıcı mağaza bölümün gizlət</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">İanə qutusu göstərilir</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">İanə qutusu gizlidir</string>
@@ -322,8 +330,8 @@ Paket adının düzgünlüyün və tətbiqin quraşdırıldığını yoxlayın."
     <string name="revanced_hide_end_screen_cards_summary_off">Son ekran kartları göstərilir</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Son ekran kartları gizlidir</string>
     <string name="revanced_hide_end_screen_cards_title">Son ekran kartlarını gizlət</string>
-    <string name="revanced_hide_end_screen_store_banner_summary_off">Son ekran mağaza afişası görünür.</string>
-    <string name="revanced_hide_end_screen_store_banner_summary_on">Son ekran mağaza afişası gizlidir.</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">Son ekran mağaza afişası görünür</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">Son ekran mağaza afişası gizlidir</string>
     <string name="revanced_hide_end_screen_store_banner_title">Son ekran mağaza afişasın gizlət</string>
     <string name="revanced_hide_expandable_card_summary_off">Videoların altında genişlənən kart görünür</string>
     <string name="revanced_hide_expandable_card_summary_on">Videoların aşağısında genişlənən kart gizlidir</string>
@@ -337,11 +345,11 @@ Paket adının düzgünlüyün və tətbiqin quraşdırıldığını yoxlayın."
     <string name="revanced_hide_featured_videos_section_summary_off">Seçilən videolar bölməsi göstərilir</string>
     <string name="revanced_hide_featured_videos_section_summary_on">Seçilən videolar bölməsi gizlidir</string>
     <string name="revanced_hide_featured_videos_section_title">Seçilən videoları gizlət</string>
-    <string name="revanced_hide_fullscreen_ads_summary_off">Tam ekran reklamları görünür.</string>
-    <string name="revanced_hide_fullscreen_ads_summary_on">Tam ekran reklamları gizlidir.</string>
+    <string name="revanced_hide_fullscreen_ads_summary_off">Tam ekran reklamları göstərilir</string>
+    <string name="revanced_hide_fullscreen_ads_summary_on">Tam ekran reklamları gizlənir</string>
     <string name="revanced_hide_fullscreen_ads_title">Tam ekran reklamlarını gizlət</string>
-    <string name="revanced_hide_general_ads_summary_off">Ümumi reklamlar görünür.</string>
-    <string name="revanced_hide_general_ads_summary_on">Ümumi reklamlar gizlidir.</string>
+    <string name="revanced_hide_general_ads_summary_off">Ümumi reklamlar göstərilir</string>
+    <string name="revanced_hide_general_ads_summary_on">Ümumi reklamlar gizlidir</string>
     <string name="revanced_hide_general_ads_title">Ümumi reklamları gizlət</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Bu məzmunun necə hazırlandığı bölməsi görünür</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Bu məzmunun necə hazırlandığı bölməsi gizlidir</string>
@@ -426,9 +434,9 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_notify_me_button_summary_off">Mənə bildir düyməsi görünür</string>
     <string name="revanced_hide_notify_me_button_summary_on">Mənə bildir düyməsi gizlidir</string>
     <string name="revanced_hide_notify_me_button_title">\"Mənə bildir\" düyməsini gizlət</string>
-    <string name="revanced_hide_paid_promotion_label_summary_off">Ödənişli reklam etiketi görünür.</string>
-    <string name="revanced_hide_paid_promotion_label_summary_on">Ödənişli reklam etiketi gizlədilib.</string>
-    <string name="revanced_hide_paid_promotion_label_title">Ödənişli reklam etiketini gizlət</string>
+    <string name="revanced_hide_paid_promotion_label_summary_off">Ödənişli reklam etiketi göstərilir</string>
+    <string name="revanced_hide_paid_promotion_label_summary_on">Ödənişli reklam etiketi gizlədilib</string>
+    <string name="revanced_hide_paid_promotion_label_title">Ödənişli tanıtım etiketini gizlət</string>
     <string name="revanced_hide_playables_summary_off">Oynadılanlar göstərilir</string>
     <string name="revanced_hide_playables_summary_on">Oynadılanlar gizlidir</string>
     <string name="revanced_hide_playables_title">Oynadılan elementləri gizlət</string>
@@ -471,9 +479,9 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_shop_button_summary_off">Mağaza düyməsi görünür</string>
     <string name="revanced_hide_shop_button_summary_on">Mağaza düyməsi gizlidir</string>
     <string name="revanced_hide_shop_button_title">Mağazanı Gizlət</string>
-    <string name="revanced_hide_shopping_links_summary_off">Video təsvirində alış-veriş linkləri görünür.</string>
-    <string name="revanced_hide_shopping_links_summary_on">Video təsvirində alış-veriş linkləri gizlədilib.</string>
-    <string name="revanced_hide_shopping_links_title">Alış-veriş linklərin gizlət</string>
+    <string name="revanced_hide_shopping_links_summary_off">Alış-veriş linkləri video təsvirdə görünür</string>
+    <string name="revanced_hide_shopping_links_summary_on">Alış-veriş linkləri video təsvirdə gizlidir</string>
+    <string name="revanced_hide_shopping_links_title">Alış-veriş linklərini gizlət</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Məkan etiketi göstərilir</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Məkan etiketi gizlidir</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_title">Avtomatik dublyaj labelini gizlət</string>
@@ -584,8 +592,8 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_transcript_section_summary_off">Transkripsiya bölməsi göstərilir</string>
     <string name="revanced_hide_transcript_section_summary_on">Transkripsiya bölməsi gizlidir</string>
     <string name="revanced_hide_transcript_section_title">Transkript-i Gizlət</string>
-    <string name="revanced_hide_video_ads_summary_off">Video reklamlar görünür.</string>
-    <string name="revanced_hide_video_ads_summary_on">Video reklamlar gizlidir.</string>
+    <string name="revanced_hide_video_ads_summary_off">Video reklamlar göstərilir</string>
+    <string name="revanced_hide_video_ads_summary_on">Video reklamlar gizlədilir</string>
     <string name="revanced_hide_video_ads_title">Video reklamlarını gizlət</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">\'İnsanlar həmçinin izləyiblər\' və \'Bunu da bəyənə bilərsiniz\' etiketləri axtarış nəticələrində görünür</string>
     <string name="revanced_hide_video_recommendation_labels_summary_on">\'İnsanlar həmçinin izləyiblər\' və \'Bunu da bəyənə bilərsiniz\' etiketləri axtarış nəticələrində gizlədilib</string>
@@ -926,6 +934,10 @@ Artıq mövcuddur"</string>
     <string name="revanced_settings_search_tips_title">Axtarış Tövsiyələri</string>
     <string name="revanced_share_copy_url_success">URL buferə köçürüldü</string>
     <string name="revanced_share_copy_url_timestamp_success">Vaxt möhürlü URL köçürüldü</string>
+    <string name="revanced_shorts_player_type_regular_player">Müntəzəm oynadıcı</string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">Müntəzəm oynadıcı tam ekran</string>
+    <string name="revanced_shorts_player_type_shorts">Shorts oynadıcı</string>
+    <string name="revanced_shorts_player_type_title">Shorts-u bununla aç</string>
     <string name="revanced_spoof_app_version_summary_off">Versiya saxtalaşdırılmadı</string>
     <string name="revanced_spoof_app_version_summary_on">Versiya saxtalaşdırıldı</string>
     <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>

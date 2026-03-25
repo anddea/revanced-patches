@@ -38,6 +38,9 @@ Appuyez sur le bouton Continuer et autorisez les modifications."</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 est temporairement indisponible (délai d’attente de l’API dépassé)</string>
     <string name="morphe_oauth2_toast_invalid">Jeton de connexion à VR invalide, veuillez réessayer la connexion à VR</string>
     <string name="morphe_oauth2_toast_reset">Déconnexion de Android VR</string>
+    <string name="morphe_reload_video_summary_off">Le bouton \'Recharger la vidéo\' n\'est pas affiché</string>
+    <string name="morphe_reload_video_summary_on">Le bouton \'Recharger la vidéo\' est affiché</string>
+    <string name="morphe_reload_video_title">Afficher un bouton \'Recharger la vidéo\'</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Les liens partagés utilisent music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Les liens partagés utilisent youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Rediriger les liens de partage vers youtube.com</string>
@@ -190,20 +193,20 @@ Activer ceci peut corriger les images manquantes qui sont bloquées dans certain
     <string name="revanced_change_form_factor_entry_5">Tablette (Min 600 dpi)</string>
     <string name="revanced_change_form_factor_entry_6">Automobile</string>
     <string name="revanced_change_form_factor_title">Format de mise en page</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"Les changements sont les suivants :
+    <string name="revanced_change_form_factor_user_dialog_message">"Les changements incluent :
 
-Mise en page tablettes
-- Les messages de la communauté sont masqués.
+Mise en page Tablette
+• Les posts communautaires sont masquées
+• Le lecture dans les paramètres de flux n'est pas disponible
+• Le bouton 'Remix' et le bouton 'Son' ne sont pas disponibles dans les Shorts
+• La barre d’actions de la vidéo n’est pas réduite
 
-Mise en page automobile
-- Les Shorts s'ouvrent dans le lecteur normal.
-- Le flux est organisé par thèmes et par chaînes.
-- La description de la vidéo ne peut pas être ouverte lorsque l'option 'Falsifier les données de diffusion en direct' est désactivée."</string>
-    <string name="revanced_change_live_ring_click_action_summary_off">La diffusion en direct s\'ouvre lorsque vous cliquez sur le cercle \'En direct\'.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"La chaîne s'ouvre lorsque vous cliquez sur le cercle 'En direct'.
-
-Limitation : Lorsque la diffusion en direct de Shorts est ouverte dans le lecteur normal en raison du paramètre \"Ouvrir Shorts dans le lecteur normal\", la chaîne ne s'ouvre pas."</string>
-    <string name="revanced_change_live_ring_click_action_title">Changer l\'action du cercle \'En direct\'</string>
+Mise en page Automobile
+• Le flux est organisé par sujets et par chaînes
+• Le lecture dans les paramètres de flux n'est pas disponible
+• Le bouton 'Remix' et le bouton 'Son' ne sont pas disponibles dans les Shorts
+• Les Shorts s'ouvrent dans le lecteur normal
+• La barre d’actions de la vidéo n’est pas réduite"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Les boutons à bascule sont utilisés.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Les boutons à bascule avec textes sont utilisés.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Type de bouton à bascule</string>
@@ -614,6 +617,9 @@ Si le paramètre 'Lecture' est toujours défectueux même après avoir activé o
 
 Problème connu : Il arrive que l'interface de balayage s'affiche avant le passage en mode plein écran."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">Correction de la vitesse de contrôle par glissement (appui long)</string>
+    <string name="revanced_fix_transcript_summary_off">La transcription peut ne pas être disponible en raison d’un échec de la vérification d’une condition préalable</string>
+    <string name="revanced_fix_transcript_summary_on">La transcription est disponible</string>
+    <string name="revanced_fix_transcript_title">Corriger la transcription</string>
     <string name="revanced_fullscreen_ads_closed_toast">Les publicités en plein écran sont fermées.</string>
     <string name="revanced_gemini_cancelled">Annulé</string>
     <string name="revanced_gemini_copy_success">Résumé copié dans le presse-papiers.</string>
@@ -1089,6 +1095,9 @@ Les mots comportant des majuscules au milieu doivent être saisis de la même fa
 
 Limitation : Tous les boutons superposés peuvent être masqués après la fin de la vidéo."</string>
     <string name="revanced_hide_player_fullscreen_button_title">Masquer le bouton \'Plein écran\'</string>
+    <string name="revanced_hide_player_popup_ads_summary_off">Les pop-up publicitaires du lecteur sont affichées</string>
+    <string name="revanced_hide_player_popup_ads_summary_on">Les pop-up publicitaires du lecteur sont masquées</string>
+    <string name="revanced_hide_player_popup_ads_title">Masquer les pop-up publicitaires du lecteur</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Les boutons sont affichés.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Les boutons sont masqués.</string>
     <string name="revanced_hide_player_previous_next_button_title">Masquer les boutons \'Précédent &amp; Suivant\'</string>
@@ -1266,9 +1275,9 @@ Info :
     <string name="revanced_hide_shopping_links_summary_off">Les liens de produit dans les descriptions vidéos sont affichés</string>
     <string name="revanced_hide_shopping_links_summary_on">Les liens de produit dans les descriptions vidéos sont masqués</string>
     <string name="revanced_hide_shopping_links_title">Masquer les liens de produit</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">"L'étiquette 'Doublage automatique' est affichée."</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">"L'étiquette 'Doublage automatique' est masquée."</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_title">"Masquer l'étiquette 'Doublage automatique'"</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Le libellé \'Doublé automatiquement\' est affichée</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Le libellé \'Doublé automatiquement\' est masquée</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_title">Masquer le libellé \'Doublé automatiquement\'</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_off">Le bouton \'Acheter des Super Thanks\' est affiché.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_on">Le bouton \'Acheter des Super Thanks\' est masqué.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_title">Masquer le bouton \'Acheter des Super Thanks\'</string>
@@ -1326,8 +1335,8 @@ Info :
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">Le fond des boutons Lecture &amp; Pause sont affichés.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">Le fond des boutons Lecture &amp; Pause sont masqués.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">Masquer fond du bouton \'Lecture\' &amp; \'Pause\'</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_off">L\'aperçu de commentaires est affiché.</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_on">L\'aperçu de commentaires est masqué.</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_off">L\'aperçu des commentaires est affiché</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_on">L\'aperçu des commentaires est masqué</string>
     <string name="revanced_hide_shorts_preview_comment_title">Masquer l\'aperçu des commentaires</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">Le bouton \'Remixer\' est affiché</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">Le bouton \'Remixer\' est masqué</string>
@@ -1725,9 +1734,6 @@ Le minilecteur peut être glissé hors de l'écran vers la gauche ou la droite."
     <string name="revanced_open_links_externally_summary_off">Ouvre les liens dans le navigateur de l\'application.</string>
     <string name="revanced_open_links_externally_summary_on">Ouvre les liens dans le navigateur externe.</string>
     <string name="revanced_open_links_externally_title">Ouvrir les liens en externe</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_off">N\'ouvre pas les Shorts dans le lecteur normal.</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_on">Ouvrir les Shorts dans le lecteur normal.</string>
-    <string name="revanced_open_shorts_in_regular_player_title">Ouvrir les Shorts dans le lecteur normal</string>
     <string name="revanced_overlay_button">Ajouts de boutons</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Appuyez pour basculer entre les états de répétition.
 Appuyez longuement pour activer la pause après les états de répétition."</string>
@@ -2433,6 +2439,10 @@ La plupart des erreurs ne peuvent pas être corrigées en raison des limitations
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">La hauteur en pourcentage doit être entre 0-100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Configure la hauteur en pourcentage de l\'espace vide à gauche lorsque la barre de navigation est cachée, entre 0 et 100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Hauteur en pourcentage de l\'espace vide</string>
+    <string name="revanced_shorts_player_type_regular_player">Le lecteur normal</string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">Lecteur normal en plein écran</string>
+    <string name="revanced_shorts_player_type_shorts">Le lecteur Shorts</string>
+    <string name="revanced_shorts_player_type_title">Ouvrir les Shorts avec</string>
     <string name="revanced_show_video_title_section_summary">"Affiche la section du titre de la vidéo en plein écran.
 
 Limitation : Le titre de la vidéo disparaît lorsque vous cliquez dessus."</string>
@@ -2451,18 +2461,6 @@ Celle-ci modifiera l'apparence de l'application, mais des effets indésirables i
 Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut subsister jusqu'à ce que les données de l'application soient effacées"</string>
     <string name="revanced_spoof_app_version_summary_off">Version non falsifiée</string>
     <string name="revanced_spoof_app_version_summary_on">Version falsifiée</string>
-    <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - Restaure l\'ancienne interface</string>
-    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Restaure l\'ancien menu \'Playlist\'</string>
-    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restaure l\'ancien menu \'Commentaires\'</string>
-    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restaure l\'ancien menu déroulant du lecteur</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restaure l\'ancienne barre d\'action Shorts</string>
-    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restaure l\'ancien menu de qualité vidéo</string>
-    <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Désactive les \'vues\' et \'j\'aime\'  en temps réel</string>
-    <string name="revanced_spoof_app_version_target_entry_19_01_34">19.01.34 - Désactiver l\'interaction des descriptions vidéo</string>
-    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Restaure l\'ancienne animation en temps réel des nombres</string>
-    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Désactiver l\'icône Cairo de la barre de navigation et d\'outils</string>
-    <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Restaure l\'ancien menu \'Playlist\'</string>
-    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restaure l\'ancien menu déroulant de vitesse de lecture du lecteur</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restaure la fonctionnalité de transcription</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Restauration de la barre d\'action vidéo non réduite</string>
     <string name="revanced_spoof_app_version_target_entry_title">Choisir la version à falsifier</string>

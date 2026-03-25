@@ -38,6 +38,9 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 غير متاح مؤقتًا (انتهت مهلة API)</string>
     <string name="morphe_oauth2_toast_invalid">رمز تسجيل الدخول إلى VR غير صالح، حاول تسجيل الدخول مرة أخرى إلى VR</string>
     <string name="morphe_oauth2_toast_reset">تم تسجيل خروج Android VR</string>
+    <string name="morphe_reload_video_summary_off">لا يتم عرض زر إعادة تحميل الفيديو</string>
+    <string name="morphe_reload_video_summary_on">يتم عرض زر إعادة تحميل الفيديو</string>
+    <string name="morphe_reload_video_title">عرض زر إعادة تحميل الفيديو</string>
     <string name="morphe_replace_music_with_youtube_summary_off">تستخدم روابط المشاركة music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">تستخدم روابط المشاركة youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">تغيير روابط المشاركة إلى youtube.com</string>
@@ -203,11 +206,6 @@
 • زر ريمكس و زر الصوت غير متوفرين في Shorts
 • فيديوهات Shorts تفتح في المشغل العادي
 • شريط إجراءات الفيديو غير مطوي"</string>
-    <string name="revanced_change_live_ring_click_action_summary_off">يتم فتح البث المباشر عند النقر على الحلقة المباشرة.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"يتم فتح القناة عند النقر على الحلقة المباشرة.
-
-القيود: عند فتح البث المباشر لفيديوهات Shorts في المشغل العادي بسبب إعداد \"فتح فيديوهات Shorts في المشغل العادي\"، لا يتم فتح القناة."</string>
-    <string name="revanced_change_live_ring_click_action_title">تغيير إجراء النقر على البث المباشر</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">يتم استخدام مفتاح التبديل.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">يتم استخدام مفتاح التبديل النصي.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">تغيير نوع التبديل</string>
@@ -625,6 +623,9 @@
 
 مشكلة معروفة: أحيانًا تظهر واجهة إيماءة التمرير قبل الانتقال إلى وضع ملء الشاشة."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">إصلاح سرعة النقر مع الاستمرار على عناصر التحكم في إيماءة التمرير</string>
+    <string name="revanced_fix_transcript_summary_off">قد لا يتوفر النص بسبب فشل في التحقق من الشروط المسبقة</string>
+    <string name="revanced_fix_transcript_summary_on">النص متاح</string>
+    <string name="revanced_fix_transcript_title">إصلاح النصوص</string>
     <string name="revanced_fullscreen_ads_closed_toast">تم إغلاق الإعلانات على كامل الشاشة.</string>
     <string name="revanced_gemini_cancelled">تم الالغاء</string>
     <string name="revanced_gemini_copy_success">المخلص نُسخ للحافظة</string>
@@ -927,7 +928,7 @@
 • بعض مكونات واجهة المستخدم قد لا يتم إخفاؤها
 • البحث عن كلمة ما قد لا يعطي نتائج"</string>
     <string name="revanced_hide_keyword_content_about_title">لمحة عن تصفية الكلمات المفتاحية</string>
-    <string name="revanced_hide_keyword_content_about_whole_words_summary">سيؤدي وضع علامة اقتباس مزدوجة حول كلمة رئيسية/عبارة إلى منع التطابقات الجزئية لعناوين الفيديو وأسماء القنوات.&lt;br&gt;&lt;br&gt;على سبيل المثال،&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; سيخفي الفيديو: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;ولكن لن يخفي: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">سيؤدي وضع علامة اقتباس مزدوجة حول كلمة رئيسية/عبارة إلى منع التطابقات الجزئية لعناوين الفيديو وأسماء القنوات&lt;br&gt;&lt;br&gt;على سبيل المثال،&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; سيخفي الفيديو: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;ولكن لن يخفي: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">مطابقة الكلمات بأكملها</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">لا يتم تصفية التعليقات.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">يتم تصفية التعليقات.</string>
@@ -1101,6 +1102,9 @@
 
 القيود: قد يتم إخفاء كل أزرار الواجهة بعد انتهاء الفيديو."</string>
     <string name="revanced_hide_player_fullscreen_button_title">إخفاء زر ملء الشاشة</string>
+    <string name="revanced_hide_player_popup_ads_summary_off">يتم عرض إعلانات المشغل المنبثقة</string>
+    <string name="revanced_hide_player_popup_ads_summary_on">تم إخفاء إعلانات المشغل المنبثقة</string>
+    <string name="revanced_hide_player_popup_ads_title">إخفاء إعلانات المشغل المنبثقة</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">يتم عرض أزرار السابق &amp; التالي.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">تم إخفاء أزرار السابق &amp; التالي.</string>
     <string name="revanced_hide_player_previous_next_button_title">إخفاء أزرار السابق &amp; التالي</string>
@@ -1436,8 +1440,8 @@
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">يتم عرض زر اشتراك</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">تم إخفاء زر اشتراك</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_title">إخفاء زر اشتراك</string>
-    <string name="revanced_hide_subscribe_button_summary_off">يتم عرض زر اشتراك في قسم Creator.</string>
-    <string name="revanced_hide_subscribe_button_summary_on">تم إخفاء زر اشتراك في قسم Creator.</string>
+    <string name="revanced_hide_subscribe_button_summary_off">يتم عرض زر اشتراك</string>
+    <string name="revanced_hide_subscribe_button_summary_on">تم إخفاء زر اشتراك</string>
     <string name="revanced_hide_subscribe_button_title">إخفاء زر اشتراك</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">يتم عرض شريط القنوات المشترك بها</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">تم إخفاء شريط القنوات المشترك بها</string>
@@ -1736,9 +1740,6 @@
     <string name="revanced_open_links_externally_summary_off">يفتح الروابط في المتصفح داخل التطبيق.</string>
     <string name="revanced_open_links_externally_summary_on">يفتح الروابط في المتصفح الخارجي.</string>
     <string name="revanced_open_links_externally_title">فتح الروابط خارجيًا</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_off">لا يتم فتح فيديوهات Shorts في المشغل العادي.</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_on">يتم فتح فيديوهات Shorts في المشغل العادي.</string>
-    <string name="revanced_open_shorts_in_regular_player_title">فتح Shorts في المشغل العادي</string>
     <string name="revanced_overlay_button">زر الواجهة</string>
     <string name="revanced_overlay_button_always_repeat_summary">"اضغط التبديل لتكرار العرض دائمًا
 اضغط مع الاستمرار على التبديل لإيقاف تكرار العرض."</string>
@@ -2191,7 +2192,7 @@
     <string name="revanced_sb_new_segment_title">مقطع SponsorBlock جديد</string>
     <string name="revanced_sb_reset">إعادة تعيين</string>
     <string name="revanced_sb_reset_color">إعادة تعيين اللون</string>
-    <string name="revanced_sb_segments_filler">خارج الموضوع / النكات</string>
+    <string name="revanced_sb_segments_filler">خارج الموضوع / نكات</string>
     <string name="revanced_sb_segments_filler_sum">مشاهد أو نكات جانبية غير ضرورية لفهم المحتوى الرئيسي للفيديو. لا تشمل الأقسام التي توفر سياقًا أو تفاصيل خلفية</string>
     <string name="revanced_sb_segments_highlight">الأبرز</string>
     <string name="revanced_sb_segments_highlight_sum">الجزء من الفيديو الذي يبحث عنه معظم الناس</string>
@@ -2246,7 +2247,7 @@
     <string name="revanced_sb_skip_ignore">تعطيل</string>
     <string name="revanced_sb_skip_seekbaronly">عرض في شريط تقدم الفيديو</string>
     <string name="revanced_sb_skip_showbutton">عرض زر التخطي</string>
-    <string name="revanced_sb_skipped_filler">تم تخطي مقطع غير ذي صلة.</string>
+    <string name="revanced_sb_skipped_filler">تم تخطي مقطع غير ذي صلة</string>
     <string name="revanced_sb_skipped_highlight">تم التخطي لأبرز المشاهد</string>
     <string name="revanced_sb_skipped_hook">تم تخطي المقدمة</string>
     <string name="revanced_sb_skipped_interaction">تم تخطي التذكير بالتفاعل</string>
@@ -2429,6 +2430,10 @@
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">يجب أن تكون نسبة الارتفاع بين 0-100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">يقوم بتكوين نسبة ارتفاع المساحة الفارغة المتبقية عند إخفاء شريط التنقل، بين 0 و100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">نسبة ارتفاع المساحة الفارغة</string>
+    <string name="revanced_shorts_player_type_regular_player">المشغل العادي</string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">المشغل العادي في وضع ملء الشاشة</string>
+    <string name="revanced_shorts_player_type_shorts">مشغل Shorts</string>
+    <string name="revanced_shorts_player_type_title">فتح فيديوهات Shorts باستخدام</string>
     <string name="revanced_show_video_title_section_summary">"يعرض قسم عنوان الفيديو في وضع ملء الشاشة.
 
 التقييد: يختفي عنوان الفيديو عند النقر عليه."</string>
@@ -2447,18 +2452,6 @@
 • إذا تم إيقاف تشغيله لاحقًا، فقد تظل واجهة المستخدم القديمة حتى يتم مسح بيانات التطبيق."</string>
     <string name="revanced_spoof_app_version_summary_off">لم يتم تغيير اصدار التطبيق</string>
     <string name="revanced_spoof_app_version_summary_on">تم تغيير اصدار التطبيق</string>
-    <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - استعادة تخطيط واجهة المستخدم القديم</string>
-    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - استعادة رف قائمة التشغيل القديم</string>
-    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - استعادة مربع إدخال التعليقات القديم</string>
-    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - استعادة لوحة المشغل المنبثقة القديمة</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - استعادة شريط إجراءات Shorts القديم</string>
-    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - استعادة سلوك جودة الفيديو الافتراضي القديم</string>
-    <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - تعطيل تحديث المشاهدات والإعجابات في الوقت الفعلي</string>
-    <string name="revanced_spoof_app_version_target_entry_19_01_34">19.01.34 - تعطيل تفاعل وصف الفيديو</string>
-    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13-37 - استعادة نمط الرسوم المتحركة القديم للأرقام المتكررة</string>
-    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - تعطيل أيقونة Cairo في شريط التنقل وشريط الأدوات</string>
-    <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - استعادة علامة قائمة التشغيل القديمة</string>
-    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - استعادة لوحة التحكم القديمة لسرعة التشغيل</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - استعادة وظيفة النسخ</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">\"20.13.41 - استعاده عرض شريط إجراءات الفيديو بالكامل</string>
     <string name="revanced_spoof_app_version_target_entry_title">الهدف من خِداع إصدار التطبيق</string>

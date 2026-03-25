@@ -38,6 +38,9 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 è temporaneamente non disponibile (API scaduta)</string>
     <string name="morphe_oauth2_toast_invalid">Token di accesso a VR non valido, prova ad accedere nuovamente a VR</string>
     <string name="morphe_oauth2_toast_reset">Disconnesso da Android VR</string>
+    <string name="morphe_reload_video_summary_off">Il pulsante ricarica video non è visibile</string>
+    <string name="morphe_reload_video_summary_on">Il pulsante ricarica video è visibile</string>
+    <string name="morphe_reload_video_title">Mostra il pulsante ricarica video</string>
     <string name="morphe_replace_music_with_youtube_summary_off">I link condivisi usano music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">I link condivisi usano youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Cambia i link di condivisione in youtube.com</string>
@@ -202,11 +205,6 @@ Layout per auto
 • Il pulsante Remix e il pulsante Audio non sono disponibili in Shorts
 • Shorts si apre nel lettore standard
 • La barra delle azioni video non è collassata"</string>
-    <string name="revanced_change_live_ring_click_action_summary_off">Video live</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"Canale
-
-Nota: i canali non si aprono se gli Shorts live sono aperti nel riproduttore normale."</string>
-    <string name="revanced_change_live_ring_click_action_title">Cambia cosa apre l\'anello live quando viene toccato</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Levette</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Testi</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Cambia il tipo di interruttori</string>
@@ -616,6 +614,9 @@ Se l'impostazione \"Riproduzione\" non funziona, attivarla potrebbe risolvere il
 
 Nota: a volte la sovrapposizione di scorrimento appare prima di passare alla modalità a schermo intero."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">Correggi il gesto Tocca e Tieni Premuto della velocità</string>
+    <string name="revanced_fix_transcript_summary_off">La trascrizione potrebbe non essere disponibile a causa di un errore di controllo delle precondizioni</string>
+    <string name="revanced_fix_transcript_summary_on">La trascrizione è disponibile</string>
+    <string name="revanced_fix_transcript_title">Correggi trascrizione</string>
     <string name="revanced_fullscreen_ads_closed_toast">Annunci a schermo intero chiusi</string>
     <string name="revanced_gemini_cancelled">Cancellato</string>
     <string name="revanced_gemini_copy_success">Riassunto copiato negli appunti.</string>
@@ -926,7 +927,7 @@ Limitazioni:
 • Alcuni componenti dell'interfaccia potrebbero non essere nascosti
 • La ricerca di una parola chiave potrebbe non mostrare alcun risultato"</string>
     <string name="revanced_hide_keyword_content_about_title">Informazioni sul filtro delle parole chiave</string>
-    <string name="revanced_hide_keyword_content_about_whole_words_summary">Racchiudendo una parola chiave o frase tra virgolette doppie si impediranno corrispondenze parziali dei titoli dei video e dei nomi dei canali.&lt;br&gt;&lt;br&gt;Ad esempio:&lt;br&gt;&lt;b&gt;\"ia\"&lt;/b&gt; nasconderà il video &lt;b&gt;\"Come funziona la IA?\"&lt;/b&gt;&lt;br&gt;Ma non nasconderà il video &lt;b&gt;\"Cosa significa imparzialità?\"&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Racchiudendo una parola chiave o frase tra virgolette doppie si impediranno corrispondenze parziali dei titoli dei video e dei nomi dei canali&lt;br&gt;&lt;br&gt;Ad esempio:&lt;br&gt;&lt;b&gt;\"ia\"&lt;/b&gt; nasconderà il video &lt;b&gt;\"Come funziona la IA?\"&lt;/b&gt;&lt;br&gt;Ma non nasconderà il video &lt;b&gt;\"Cosa significa imparzialità?\"&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Solo parole intere</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">I commenti non sono filtrati.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">I commenti sono filtrati.</string>
@@ -1100,6 +1101,9 @@ Le parole con lettere maiuscole all'interno devono essere inserite con il maiusc
 
 Nota: tutti i pulsanti in sovrapposizione potrebbero essere nascosti al termine dei video."</string>
     <string name="revanced_hide_player_fullscreen_button_title">Nascondi il pulsante Schermo Intero</string>
+    <string name="revanced_hide_player_popup_ads_summary_off">Gli annunci popup del giocatore sono visibili</string>
+    <string name="revanced_hide_player_popup_ads_summary_on">Gli annunci popup del giocatore sono nascosti</string>
+    <string name="revanced_hide_player_popup_ads_title">Nascondi gli annunci popup del giocatore</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">I pulsanti Precedente e Successivo sono visibili.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">I pulsanti Precedente e Successivo sono nascosti.</string>
     <string name="revanced_hide_player_previous_next_button_title">Nascondi i pulsanti Precedente e Successivo</string>
@@ -1331,8 +1335,8 @@ Nota: questa impostazione sembra essere obsoleta sul server. Usa invece \"Nascon
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">Lo sfondo dei pulsanti Riproduci e Pausa è visibile.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">Lo sfondo dei pulsanti Riproduci e Pausa è nascosto.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">Nascondi lo sfondo dei pulsanti Riproduci e Pausa</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_off">L\'anteprima dei commenti è visibile.</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_on">L\'anteprima dei commenti è nascosto.</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_off">Viene mostrata l\'anteprima del commento</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_on">Il commento di anteprima è nascosto</string>
     <string name="revanced_hide_shorts_preview_comment_title">Nascondi commento di anteprima</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">Il pulsante Remix è visibile</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">Il pulsante Remix è nascosto</string>
@@ -1427,8 +1431,8 @@ Nota: lo scaffale Cronologia nella scheda Tu potrebbe essere nascosto."</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Il pulsante Iscriviti è visibile</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Il pulsante Iscriviti è nascosto</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_title">Nascondi il pulsante Iscriviti</string>
-    <string name="revanced_hide_subscribe_button_summary_off">Il pulsante Iscriviti è visibile.</string>
-    <string name="revanced_hide_subscribe_button_summary_on">Il pulsante Iscriviti è nascosto.</string>
+    <string name="revanced_hide_subscribe_button_summary_off">Il pulsante Iscriviti è visibile</string>
+    <string name="revanced_hide_subscribe_button_summary_on">Il pulsante Iscriviti è nascosto</string>
     <string name="revanced_hide_subscribe_button_title">Nascondi il pulsante Iscriviti</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">La barra dei canali iscritti è visibile</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">La barra dei canali iscritti è nascosta</string>
@@ -1725,9 +1729,6 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
     <string name="revanced_open_links_externally_summary_off">Browser dell\'app</string>
     <string name="revanced_open_links_externally_summary_on">Browser esterno</string>
     <string name="revanced_open_links_externally_title">Cambia il modo di aprire i link</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_off">Gli Shorts non sono aperti nel riproduttore normale.</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_on">Gli Shorts sono aperti nel riproduttore normale.</string>
-    <string name="revanced_open_shorts_in_regular_player_title">Apri nel riproduttore normale</string>
     <string name="revanced_overlay_button">Pulsanti in sovrapposizione</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Tocca per attivare le ripetizioni dei video.
 Tocca e tieni premuto per attivare la pausa dopo le ripetizione."</string>
@@ -2428,6 +2429,10 @@ La maggior parte dei bug non può essere risolta a causa di limitazioni lato cli
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">La percentuale di altezza deve essere tra 0 e 100 (%)</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Configura la percentuale di altezza dello spazio vuoto rimasto quando la barra di navigazione è nascosta, tra 0 e 100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Altezza in percentuale dello spazio vuoto</string>
+    <string name="revanced_shorts_player_type_regular_player">Lettore normale</string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">Lettore normale a schermo intero</string>
+    <string name="revanced_shorts_player_type_shorts">Lettore Shorts</string>
+    <string name="revanced_shorts_player_type_title">Apri Shorts con</string>
     <string name="revanced_show_video_title_section_summary">"Mostra il titolo dei video a schermo intero.
 
 Nota: il titolo scompare quando lo si tocca."</string>
@@ -2447,18 +2452,6 @@ Note:
 • Se in seguito verrà disattivato, la vecchia interfaccia potrebbe rimanere fino a quando i dati dell'app non verranno cancellati"</string>
     <string name="revanced_spoof_app_version_summary_off">La simulazione della versione dell\'app è disattivata</string>
     <string name="revanced_spoof_app_version_summary_on">La simulazione della versione dell\'app è attivata</string>
-    <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - Ripristina la vecchia interfaccia</string>
-    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Ripristina il vecchio scaffale delle playlist</string>
-    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Ripristina la vecchia casella di inserimento dei commenti</string>
-    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Ripristina il vecchio pannello a comparsa del riproduttore</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Ripristina la vecchia barra delle azioni degli Shorts</string>
-    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Ripristina il comportamento della vecchia qualità video predefinita</string>
-    <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Disattiva l\'aggiornamento in tempo reale delle visualizzazioni e dei mi piace</string>
-    <string name="revanced_spoof_app_version_target_entry_19_01_34">19.01.34 - Disattiva l\'interazione con la descrizione dei video</string>
-    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Ripristina il vecchio effetto contatore dei numeri</string>
-    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Disattiva l\'icona Cairo nella navigazione e nella barra degli strumenti</string>
-    <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Ripristina la vecchia intestazione delle playlist</string>
-    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Ripristina il vecchio pannello della velocità di riproduzione</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Ripristina la trascrizione</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Ripristina la barra delle azioni non compressa dei video</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versione dell\'app da camuffare</string>

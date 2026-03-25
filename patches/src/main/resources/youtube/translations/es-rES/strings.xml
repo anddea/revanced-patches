@@ -38,6 +38,9 @@ Toca el botón continuar y permite los cambios de optimización."</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 no está disponible temporalmente (la API no responde)</string>
     <string name="morphe_oauth2_toast_invalid">Token de inicio de sesión de VR no válido, intenta iniciar sesión en VR de nuevo</string>
     <string name="morphe_oauth2_toast_reset">Desconectado de Android VR</string>
+    <string name="morphe_reload_video_summary_off">El botón de recargar vídeo está oculto</string>
+    <string name="morphe_reload_video_summary_on">El botón de recargar vídeo está visible</string>
+    <string name="morphe_reload_video_title">Mostrar botón de recargar vídeo</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Los enlaces compartidos usan music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Los enlaces compartidos usan youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Cambiar enlaces compartidos a youtube.com</string>
@@ -200,9 +203,6 @@ Diseño para automóviles
 • El botón de Remix y el botón de Sonido no están disponibles en Shorts
 • Shorts se abre en el reproductor regular
 • La barra de acción del video no se contrae"</string>
-    <string name="revanced_change_live_ring_click_action_summary_off">El directo se abre al pulsar en el anillo del directo.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"El canal se abre al pulsar en el anillo del directo."</string>
-    <string name="revanced_change_live_ring_click_action_title">Cambiar acción de pulsación en anillo del directo</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Se utilizan interruptores cambiables.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Se utilizan interruptores de texto.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Cambiar tipo de interruptores</string>
@@ -613,6 +613,9 @@ Si el ajuste \"Reproducción\" sigue sin funcionar incluso después de activar o
 
 Problema conocido: a veces, la superposición de deslizamiento aparece antes de cambiar al modo de pantalla completa."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">Arreglar controles de deslizamiento de pulsar y mantener la velocidad</string>
+    <string name="revanced_fix_transcript_summary_off">La transcripción puede no estar disponible debido a un error en la comprobación previa</string>
+    <string name="revanced_fix_transcript_summary_on">La transcripción está disponible</string>
+    <string name="revanced_fix_transcript_title">Corregir transcripción</string>
     <string name="revanced_fullscreen_ads_closed_toast">Los anuncios en pantalla completa están cerrados.</string>
     <string name="revanced_gemini_cancelled">Cancelado</string>
     <string name="revanced_gemini_copy_success">Resumen copiado al portapapeles.</string>
@@ -1084,6 +1087,9 @@ Las palabras con letras mayúsculas en el medio deben introducirse con la mayús
     <string name="revanced_hide_player_fullscreen_button_summary_off">El botón de pantalla completa está visible.</string>
     <string name="revanced_hide_player_fullscreen_button_summary_on">"El botón de pantalla completa está oculto."</string>
     <string name="revanced_hide_player_fullscreen_button_title">Ocultar botón de pantalla completa</string>
+    <string name="revanced_hide_player_popup_ads_summary_off">Los anuncios emergentes del reproductor están visibles</string>
+    <string name="revanced_hide_player_popup_ads_summary_on">Los anuncios emergentes del reproductor están ocultos</string>
+    <string name="revanced_hide_player_popup_ads_title">Ocultar anuncios emergentes del reproductor</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Los botones están visibles.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Los botones están ocultos.</string>
     <string name="revanced_hide_player_previous_next_button_title">Ocultar botones de anterior y siguiente</string>
@@ -1311,8 +1317,8 @@ Si el diseño de la pantalla del reproductor cambia debido a cambios en el servi
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">El fondo del botón está visible.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">El fondo del botón está oculto.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">Ocultar fondo del botón de reproducir y pausar</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_off">La vista previa de comentarios está visible.</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_on">La vista previa de comentarios está oculta.</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_off">La vista previa de comentarios está visible</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_on">La vista previa de comentarios está oculta</string>
     <string name="revanced_hide_shorts_preview_comment_title">Ocultar vista previa de comentarios</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">El botón \"Remix\" está visible</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">El botón \"Remix\" está oculto</string>
@@ -1708,9 +1714,6 @@ El mini reproductor puede ser arrastrado de la pantalla a la izquierda o derecha
     <string name="revanced_open_links_externally_summary_off">Abre enlaces en el navegador de la app.</string>
     <string name="revanced_open_links_externally_summary_on">Abre enlaces en el navegador externo.</string>
     <string name="revanced_open_links_externally_title">Abrir enlaces en el navegador</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_off">No abre los Shorts en el reproductor normal.</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_on">Abre los Shorts en el reproductor normal.</string>
-    <string name="revanced_open_shorts_in_regular_player_title">Abrir Shorts en reproductor normal</string>
     <string name="revanced_overlay_button">Botón superpuesto</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Pulsa para activar los estados de repetición continua.
 Mantén pulsado para pausar después de los estados de repetición."</string>
@@ -2137,7 +2140,7 @@ Limitación: es posible que los \"no me gusta\" no aparezcan en modo incógnito.
     <string name="revanced_sb_general_skiptoast_sum_on">Se muestra una notificación cuando un segmento se omite automáticamente. Toque la notificación para deshacer la omisión</string>
     <string name="revanced_sb_general_time_without">Mostrar duración del vídeo sin segmentos</string>
     <string name="revanced_sb_general_time_without_sum_off">Se muestra la duración completa del vídeo</string>
-    <string name="revanced_sb_general_time_without_sum_on">Duración del vídeo sin todos los segmentos, que se muestran entre paréntesis junto a la duración completa del vídeo.</string>
+    <string name="revanced_sb_general_time_without_sum_on">La duración del vídeo, excluyendo todos los segmentos, se muestra en la barra de progreso</string>
     <string name="revanced_sb_general_uuid">Tu ID de usuario privado</string>
     <string name="revanced_sb_general_uuid_invalid">El ID de usuario privado debe tener al menos 30 caracteres</string>
     <string name="revanced_sb_general_uuid_sum">Esto debería mantenerse privado. Es como una contraseña y no debe ser compartido con nadie. Si alguien obtiene esto, podran usarlo para suplantarte</string>
@@ -2182,7 +2185,7 @@ a
     <string name="revanced_sb_reset">Restablecer</string>
     <string name="revanced_sb_reset_color">Restablecer color</string>
     <string name="revanced_sb_segments_filler">Tangente de relleno / Bromas</string>
-    <string name="revanced_sb_segments_filler_sum">Escenas tangenciales añadidas solo para relleno o humor que no son necesarias para entender el contenido principal del vídeo. No incluye segmentos que proporcionen contexto o detalles de fondo.</string>
+    <string name="revanced_sb_segments_filler_sum">Escenas o bromas tangenciales que no son necesarias para entender el contenido principal del vídeo. No incluye segmentos que proporcionen contexto o detalles de fondo</string>
     <string name="revanced_sb_segments_highlight">Destacado</string>
     <string name="revanced_sb_segments_highlight_sum">La parte del vídeo que la mayoría de la gente busca</string>
     <string name="revanced_sb_segments_hook">Enganche / Saludos</string>
@@ -2195,7 +2198,7 @@ a
     <string name="revanced_sb_segments_nomusic_sum">Solo para usar en vídeos musicales. Secciones de vídeos musicales sin música, que no estén ya cubiertas por otra categoría</string>
     <string name="revanced_sb_segments_outro">Tarjetas finales / Créditos</string>
     <string name="revanced_sb_segments_outro_sum">Créditos o cuando aparecen las tarjetas finales de YouTube. No es para conclusiones con información</string>
-    <string name="revanced_sb_segments_preview">Adelanto / Resumen / Enganche</string>
+    <string name="revanced_sb_segments_preview">Adelanto / Resumen</string>
     <string name="revanced_sb_segments_preview_sum">Colección de clips que muestran lo que está por venir o lo que sucedió en el vídeo o en otros vídeos de una serie, donde toda la información se repite en otra parte</string>
     <string name="revanced_sb_segments_selfpromo">Promoción propia / no pagada</string>
     <string name="revanced_sb_segments_selfpromo_sum">Similar a \"Patrocinador\", excepto cuando se trata de promoción propia o no pagada. Incluye secciones sobre mercancía, donaciones, o información sobre con quién colaboraron</string>
@@ -2235,7 +2238,7 @@ Tu ID de usuario es como una contraseña y nunca debe compartirse."</string>
     <string name="revanced_sb_skip_ignore">Desactivado</string>
     <string name="revanced_sb_skip_seekbaronly">Mostrar en barra de progreso</string>
     <string name="revanced_sb_skip_showbutton">Mostrar botón de omitir</string>
-    <string name="revanced_sb_skipped_filler">Relleno omitido.</string>
+    <string name="revanced_sb_skipped_filler">Relleno omitido</string>
     <string name="revanced_sb_skipped_highlight">Saltado destacado</string>
     <string name="revanced_sb_skipped_hook">Enganche omitido</string>
     <string name="revanced_sb_skipped_interaction">Recordatorio molesto omitido</string>
@@ -2418,6 +2421,10 @@ La mayoría de los errores no pueden solucionarse debido a las limitaciones del 
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">El porcentaje de altura debe estar entre 0-100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Configura el porcentaje de altura del espacio vacío izquierdo cuando la barra de navegación está oculta, entre 0 y 100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Porcentaje de altura del espacio vacío</string>
+    <string name="revanced_shorts_player_type_regular_player">Reproductor normal</string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">Reproductor normal en pantalla completa</string>
+    <string name="revanced_shorts_player_type_shorts">Reproductor de Shorts</string>
+    <string name="revanced_shorts_player_type_title">Abrir Shorts con</string>
     <string name="revanced_show_video_title_section_summary">"Muestra la sección de título de vídeo en pantalla completa.
 
 Limitación: el título de vídeo desaparece cuando se pulsa."</string>
@@ -2436,18 +2443,6 @@ Limitación: el título de vídeo desaparece cuando se pulsa."</string>
 • Si más tarde se desactiva, la antigua interfaz de usuario puede permanecer hasta que se borren los datos de la app."</string>
     <string name="revanced_spoof_app_version_summary_off">Versión no falsificada</string>
     <string name="revanced_spoof_app_version_summary_on">Versión falsificada</string>
-    <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - Restaura el antiguo diseño de la interfaz de usuario</string>
-    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Restaura la antigua estantería de listas de reproducción</string>
-    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restaura la antigua caja de entrada de comentarios</string>
-    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restaura el antiguo panel desplegable del reproductor</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restaura la antigua barra de acción de Shorts</string>
-    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restaura el antiguo comportamiento de la calidad predeterminada de vídeo</string>
-    <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Desactiva la actualización en tiempo real de las visualizaciones y los me gusta</string>
-    <string name="revanced_spoof_app_version_target_entry_19_01_34">19.01.34 - Desactivar la interacción con la descripción del vídeo</string>
-    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Restaura el antiguo estilo de las animaciones de números rodantes</string>
-    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Desactivar icono de Cairo en la barra de navegación y herramientas</string>
-    <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Restaura el antiguo encabezado de la lista de reproducción</string>
-    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restaurar el antiguo panel desplegable de velocidad de reproducción</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restaurar funcionalidad de transcripción</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Restaurar la barra de acción de vídeo no contraída</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versión a falsificar de la app</string>

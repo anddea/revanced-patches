@@ -609,14 +609,14 @@ This depends on what response the app receives from the server.
 If the 'Playback' setting is broken, turning on this setting may resolve the issue.
 
 If the 'Playback' setting is still broken even after enabling or disabling this setting, then you should clear the app data."</string>
-    <string name="revanced_fix_transcript_summary_off">Transcript may not be available due to a precondition check failure.</string>
-    <string name="revanced_fix_transcript_summary_on">Transcript is available.</string>
-    <string name="revanced_fix_transcript_title">Fix transcript</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">Tap and hold speed may sometimes be activated even if the user does not tap and hold.</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"Tap and hold speed is only activated when the user taps and holds.
 
 Known issue: Sometimes the swipe overlay appears before switching to fullscreen mode."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">Fix swipe controls tap and hold speed</string>
+    <string name="revanced_fix_transcript_summary_off">Transcript may not be available due to a precondition check failure.</string>
+    <string name="revanced_fix_transcript_summary_on">Transcript is available.</string>
+    <string name="revanced_fix_transcript_title">Fix transcript</string>
     <string name="revanced_fullscreen_ads_closed_toast">Fullscreen ads are closed.</string>
     <string name="revanced_gemini_cancelled">Canceled</string>
     <string name="revanced_gemini_copy_success">Summary copied to clipboard.</string>
@@ -1009,9 +1009,6 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_paid_promotion_label_summary_off">Paid promotion label is shown.</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">Paid promotion label is hidden.</string>
     <string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
-    <string name="revanced_hide_player_popup_ads_summary_off">Player popup ads are shown.</string>
-    <string name="revanced_hide_player_popup_ads_summary_on">Player popup ads are hidden.</string>
-    <string name="revanced_hide_player_popup_ads_title">Hide player popup ads</string>
     <string name="revanced_hide_playables_summary_off">Playables are shown.</string>
     <string name="revanced_hide_playables_summary_on">Playables are hidden.</string>
     <string name="revanced_hide_playables_title">Hide Playables</string>
@@ -1095,6 +1092,9 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 
 Limitation: All overlay buttons may be hidden after the video ends."</string>
     <string name="revanced_hide_player_fullscreen_button_title">Hide Fullscreen button</string>
+    <string name="revanced_hide_player_popup_ads_summary_off">Player popup ads are shown.</string>
+    <string name="revanced_hide_player_popup_ads_summary_on">Player popup ads are hidden.</string>
+    <string name="revanced_hide_player_popup_ads_title">Hide player popup ads</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Previous &amp; Next buttons are shown.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Previous &amp; Next buttons are hidden.</string>
     <string name="revanced_hide_player_previous_next_button_title">Hide Previous &amp; Next buttons</string>
@@ -1732,10 +1732,6 @@ Miniplayer can be dragged off-screen to the left or right."</string>
     <string name="revanced_open_links_externally_summary_off">Opens links in in-app browser.</string>
     <string name="revanced_open_links_externally_summary_on">Opens links in external browser.</string>
     <string name="revanced_open_links_externally_title">Open links externally</string>
-    <string name="revanced_shorts_player_type_title">Open Shorts with</string>
-    <string name="revanced_shorts_player_type_shorts_player">Shorts player</string>
-    <string name="revanced_shorts_player_type_regular_player">Regular player</string>
-    <string name="revanced_shorts_player_type_regular_player_fullscreen">Regular player fullscreen</string>
     <string name="revanced_overlay_button">Overlay buttons</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Tap to toggle always repeat states.
 Tap and hold to toggle pause after repeat states."</string>
@@ -2429,6 +2425,10 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">Height percentage must be between 0-100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Configure the height percentage of the empty space left when the navigation bar is hidden, between 0 and 100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Height percentage of empty space</string>
+    <string name="revanced_shorts_player_type_regular_player">Regular player</string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">Regular player fullscreen</string>
+    <string name="revanced_shorts_player_type_shorts">Shorts player</string>
+    <string name="revanced_shorts_player_type_title">Open Shorts with</string>
     <string name="revanced_show_video_title_section_summary">"Shows the video title section in fullscreen.
 
 Limitation: Video title disappears when clicked."</string>
@@ -2447,20 +2447,9 @@ Limitation: Video title disappears when clicked."</string>
 • If later turned off, the old UI may remain until clear the app data."</string>
     <string name="revanced_spoof_app_version_summary_off">Version not spoofed</string>
     <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
-    <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - Restore old UI layout</string>
-    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Restore old playlist shelf</string>
-    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restore old comment input box</string>
-    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restore old player flyout panel</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restore old Shorts action bar</string>
-    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restore old default video quality behavior</string>
-    <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Disable views and likes from being updated in real time</string>
-    <string name="revanced_spoof_app_version_target_entry_19_01_34">19.01.34 - Disable video description interaction</string>
-    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Restore old style Rolling number animations</string>
-    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Disable Cairo icon in navigation and toolbar</string>
-    <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Restore old playlist header</string>
-    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restore old playback speed flyout panel</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restore Transcript functionality</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Restore non collapsed video action bar</string>
+    <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Restore old components filter</string>
     <string name="revanced_spoof_app_version_target_entry_title">Spoof app version target</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Invalid spoof app version: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Type the spoof app version target.</string>
