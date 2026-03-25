@@ -45,6 +45,7 @@ import app.morphe.extension.youtube.patches.general.YouTubeMusicActionsPatch;
 import app.morphe.extension.youtube.patches.player.ExitFullscreenPatch.FullscreenMode;
 import app.morphe.extension.youtube.patches.player.MiniplayerPatch;
 import app.morphe.extension.youtube.patches.shorts.AnimationFeedbackPatch.AnimationType;
+import app.morphe.extension.youtube.patches.shorts.ShortsPatch.ShortsPlayerType;
 import app.morphe.extension.youtube.patches.shorts.ShortsRepeatStatePatch.ShortsLoopBehavior;
 import app.morphe.extension.youtube.patches.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOverlayBrightnessColorAvailability;
@@ -534,7 +535,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_SHORTS_SHELF_HISTORY = new BooleanSetting("revanced_hide_shorts_shelf_history", FALSE, parent(HIDE_SHORTS_SHELF));
     public static final EnumSetting<ShortsLoopBehavior> CHANGE_SHORTS_BACKGROUND_REPEAT_STATE = new EnumSetting<>("revanced_change_shorts_background_repeat_state", ShortsLoopBehavior.UNKNOWN);
     public static final EnumSetting<ShortsLoopBehavior> CHANGE_SHORTS_REPEAT_STATE = new EnumSetting<>("revanced_change_shorts_repeat_state", ShortsLoopBehavior.UNKNOWN);
-    public static final BooleanSetting OPEN_SHORTS_IN_REGULAR_PLAYER = new BooleanSetting("revanced_open_shorts_in_regular_player", FALSE);
+    public static final EnumSetting<ShortsPlayerType> SHORTS_PLAYER_TYPE = new EnumSetting<>("revanced_shorts_player_type", ShortsPlayerType.SHORTS_PLAYER);
 
     // PreferenceScreen: Shorts - Shorts player components
     public static final BooleanSetting HIDE_SHORTS_AUTO_DUBBED_LABEL = new BooleanSetting("revanced_hide_shorts_auto_dubbed_label", FALSE);
@@ -874,6 +875,17 @@ public class Settings extends SharedYouTubeSettings {
                 migrateFromOldPreferences(rydPrefs, setting, key);
             } else {
                 migrateFromOldPreferences(ytPrefs, setting, key);
+            }
+        }
+
+        // Migrate old open Shorts in regular player to new Shorts player type.
+        final String oldOpenShortsInRegularPlayerKey = "revanced_open_shorts_in_regular_player";
+        if (ytPrefs.preferences.contains(oldOpenShortsInRegularPlayerKey)) {
+            boolean oldOpenShortsInRegularPlayer = ytPrefs.getBoolean(oldOpenShortsInRegularPlayerKey, FALSE);
+            ytPrefs.removeKey(oldOpenShortsInRegularPlayerKey);
+
+            if (oldOpenShortsInRegularPlayer && SHORTS_PLAYER_TYPE.isSetToDefault()) {
+                SHORTS_PLAYER_TYPE.save(ShortsPlayerType.REGULAR_PLAYER);
             }
         }
 
