@@ -54,6 +54,7 @@ import android.graphics.Rect;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
@@ -71,6 +72,7 @@ import android.view.WindowManager;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -343,6 +345,7 @@ final class GeminiBottomSheetUi {
             messagesScrollView.setVerticalScrollBarEnabled(false);
             messagesScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER);
             messagesScrollView.setFillViewport(true);
+            messagesScrollView.setClipToPadding(false);
             messagesScrollView.setOnScrollPositionChangedListener(
                     () -> followConversationBottom = messagesScrollView.isNearBottom(dipToPixels(32))
             );
@@ -359,7 +362,15 @@ final class GeminiBottomSheetUi {
                     ScrollView.LayoutParams.MATCH_PARENT,
                     ScrollView.LayoutParams.WRAP_CONTENT
             ));
-            mainLayout.addView(messagesScrollView, messagesParams);
+
+            FrameLayout conversationFrame = new FrameLayout(context);
+            conversationFrame.setClipChildren(false);
+            conversationFrame.setClipToPadding(false);
+            mainLayout.addView(conversationFrame, messagesParams);
+            conversationFrame.addView(messagesScrollView, new FrameLayout.LayoutParams(
+                    FrameLayout.LayoutParams.MATCH_PARENT,
+                    FrameLayout.LayoutParams.MATCH_PARENT
+            ));
             followConversationBottom = false;
 
             appendSummaryMessage(summaryText, rawSummaryText);
@@ -375,26 +386,42 @@ final class GeminiBottomSheetUi {
 
             footerContainer = new LinearLayout(context);
             footerContainer.setOrientation(LinearLayout.VERTICAL);
+            footerContainer.setClipChildren(false);
+            footerContainer.setClipToPadding(false);
             footerContainer.setPadding(0, footerVerticalPadding, 0, footerVerticalPadding);
-            mainLayout.addView(footerContainer, new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
+            footerContainer.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) ->
+                    updateMessageViewportInset()
+            );
+            conversationFrame.addView(footerContainer, new FrameLayout.LayoutParams(
+                    FrameLayout.LayoutParams.MATCH_PARENT,
+                    FrameLayout.LayoutParams.WRAP_CONTENT,
+                    Gravity.BOTTOM
             ));
 
             LinearLayout inputRow = new LinearLayout(context);
             inputRow.setOrientation(LinearLayout.HORIZONTAL);
-            inputRow.setGravity(Gravity.BOTTOM);
+            inputRow.setGravity(Gravity.CENTER_VERTICAL);
             footerContainer.addView(inputRow, new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             ));
 
+            int floatingSurfaceColor = withAlpha(
+                    ThemeUtils.getAdjustedBackgroundColor(false),
+                    ThemeUtils.isDarkModeEnabled() ? 210 : 224
+            );
+            int floatingStrokeColor = withAlpha(
+                    ThemeUtils.getAppForegroundColor(),
+                    ThemeUtils.isDarkModeEnabled() ? 60 : 42
+            );
+
             inputView = new EditText(context);
             inputView.setHint(str("revanced_gemini_chat_input_hint"));
             inputView.setTextColor(ThemeUtils.getAppForegroundColor());
             inputView.setHintTextColor(withAlpha(ThemeUtils.getAppForegroundColor(), 150));
-            inputView.setBackground(createRoundedBackground(
-                    ThemeUtils.getAdjustedBackgroundColor(false),
+            inputView.setBackground(createFloatingBackground(
+                    floatingSurfaceColor,
+                    floatingStrokeColor,
                     20
             ));
             inputView.setFocusableInTouchMode(true);
@@ -403,6 +430,7 @@ final class GeminiBottomSheetUi {
             inputView.setMaxLines(1);
             inputView.setTextSize(15);
             inputView.setMinHeight(dip42);
+            inputView.setElevation(dipToPixels(6));
             inputView.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
             inputView.setInputType(InputType.TYPE_CLASS_TEXT
                     | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
@@ -419,15 +447,22 @@ final class GeminiBottomSheetUi {
             sendButton = createIconButton(
                     context,
                     "revanced_gemini_send",
-                    true,
+                    false,
                     str("revanced_send")
             );
+            sendButton.setBackground(createFloatingBackground(
+                    floatingSurfaceColor,
+                    floatingStrokeColor,
+                    20
+            ));
+            sendButton.setElevation(dipToPixels(8));
             LinearLayout.LayoutParams sendParams = new LinearLayout.LayoutParams(
                     dip42,
                     dip42
             );
             sendParams.setMarginStart(dip8);
             inputRow.addView(sendButton, sendParams);
+            footerContainer.post(this::updateMessageViewportInset);
 
             inputView.setOnClickListener(v -> {
                 inputView.requestFocus();
@@ -817,6 +852,7 @@ final class GeminiBottomSheetUi {
                     0,
                     footerVerticalPadding + keyboardLiftPadding
             );
+            updateMessageViewportInset();
 
             Window window = dialog.getWindow();
             if (window == null) {
@@ -826,6 +862,20 @@ final class GeminiBottomSheetUi {
             WindowManager.LayoutParams params = window.getAttributes();
             params.y = 0;
             window.setAttributes(params);
+        }
+
+        private void updateMessageViewportInset() {
+            int footerInset = footerContainer.getHeight();
+            if (footerInset <= 0) {
+                footerInset = inputView.getMinHeight() + (footerVerticalPadding * 2);
+            }
+
+            int bottomPadding = footerInset + dipToPixels(12);
+            if (messagesScrollView.getPaddingBottom() == bottomPadding) {
+                return;
+            }
+
+            messagesScrollView.setPadding(0, 0, 0, bottomPadding);
         }
 
         private int resolveBottomInset(@NonNull View targetView) {
@@ -1073,6 +1123,16 @@ final class GeminiBottomSheetUi {
                 Utils.createCornerRadii(radiusDp), null, null
         ));
         background.getPaint().setColor(color);
+        return background;
+    }
+
+    @NonNull
+    private static Drawable createFloatingBackground(int color, int strokeColor, float radiusDp) {
+        GradientDrawable background = new GradientDrawable();
+        background.setShape(GradientDrawable.RECTANGLE);
+        background.setCornerRadius(dipToPixels(radiusDp));
+        background.setColor(color);
+        background.setStroke(Math.max(1, dipToPixels(1)), strokeColor);
         return background;
     }
 
