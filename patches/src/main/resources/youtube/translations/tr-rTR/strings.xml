@@ -385,9 +385,9 @@ Ayarlar → Otomatik Oynatma / Oynatma → Sonraki videoyu otomatik oynat"</stri
     <string name="revanced_disable_landscape_mode_summary_off">Videoyu tam ekrana alırken otomatik olarak yatay moda geçme etkin</string>
     <string name="revanced_disable_landscape_mode_summary_on">Videoyu tam ekrana alırken otomatik olarak yatay moda geçme devre dışı</string>
     <string name="revanced_disable_landscape_mode_title">Videoyu otomatik yatay moda geçirmeyi kapat</string>
-    <string name="revanced_disable_layout_updates_summary_off">Sunucu, yerleşimi güncelleyecektir</string>
-    <string name="revanced_disable_layout_updates_summary_on">Sunucu, yerleşimi güncellemeyecektir</string>
-    <string name="revanced_disable_layout_updates_title">Yerleşim güncellemelerini devre dışı bırak</string>
+    <string name="revanced_disable_layout_updates_summary_off">Arayüz sunucu tarafından güncellenecek</string>
+    <string name="revanced_disable_layout_updates_summary_on">Arayüz sunucu tarafından güncellemeyecek</string>
+    <string name="revanced_disable_layout_updates_title">Arayüz güncellemelerini devre dışı bırak</string>
     <string name="revanced_disable_layout_updates_user_dialog_message">"Uygulama ilk kurulduğunda kullanılan düzeni geri döner.
 
 Bazı sunucu tarafı düzenler geri döndürülmez olabilir.
@@ -776,9 +776,9 @@ Sınırlama: Varsayılan metin stiline sahip olmayan bazı vurgulanan arama bağ
     <string name="revanced_hide_comments_information_button_summary_off">Bilgi düğmesi gösteriliyor.</string>
     <string name="revanced_hide_comments_information_button_summary_on">Bilgi düğmesi gizlendi.</string>
     <string name="revanced_hide_comments_information_button_title">Bilgileri Gizle düğmesi</string>
-    <string name="revanced_hide_comments_section_in_home_feed_summary_off">Ev yemekleri videosu altındaki yorumlar kısmı görünür</string>
-    <string name="revanced_hide_comments_section_in_home_feed_summary_on">Ev yemekleri videosu altındaki yorumlar kısmı gizli</string>
-    <string name="revanced_hide_comments_section_in_home_feed_title">Ana sayfadaki yorumlar bölümü gizle</string>
+    <string name="revanced_hide_comments_section_in_home_feed_summary_off">Ana sayfa akışında videoların altındaki yorumlar bölümü görünür</string>
+    <string name="revanced_hide_comments_section_in_home_feed_summary_on">Ana sayfa akışında videoların altındaki yorumlar bölümü gizli</string>
+    <string name="revanced_hide_comments_section_in_home_feed_title">Ana sayfa akışında yorumlar bölümünü gizle</string>
     <string name="revanced_hide_comments_section_summary_off">Yorumlar kısmı görünür</string>
     <string name="revanced_hide_comments_section_summary_on">Yorumlar kısmı gizli</string>
     <string name="revanced_hide_comments_section_title">Yorumlar kısmını gizle</string>
@@ -815,12 +815,9 @@ Sınırlama: Varsayılan metin stiline sahip olmayan bazı vurgulanan arama bağ
     <string name="revanced_hide_end_screen_store_banner_summary_off">Bitiş ekranı mağaza afişi görünür</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">Bitiş ekranı mağaza afişi gizli</string>
     <string name="revanced_hide_end_screen_store_banner_title">Bitiş ekranındaki mağaza afişini gizle</string>
-    <string name="revanced_hide_end_screen_suggested_video_summary_off">Bitiş ekranında önerilen video görünür.</string>
-    <string name="revanced_hide_end_screen_suggested_video_summary_on">“Otomatik oynatma kapalıyken, bitiş ekranındaki önerilen video gizlenir.
-
-Otomatik oynatma YouTube ayarlarından değiştirilebilir:
-Ayarlar → Otomatik Oynatma / Oynatma → Sonraki videoyu otomatik oynat”</string>
-    <string name="revanced_hide_end_screen_suggested_video_title">Bitiş ekranında önerilen videoyu gizle.</string>
+    <string name="revanced_hide_end_screen_suggested_video_summary_off">Bitiş ekranı önerilen videosu görünür</string>
+    <string name="revanced_hide_end_screen_suggested_video_summary_on">Bitiş ekranı önerilen videosu gizlenmiş</string>
+    <string name="revanced_hide_end_screen_suggested_video_title">Bitiş ekranı önerilen videosunu gizle</string>
     <string name="revanced_hide_expandable_card_summary_off">Videoların altındaki genişletilebilir kart görünür</string>
     <string name="revanced_hide_expandable_card_summary_on">Videoların altındaki genişletilebilir kart gizli</string>
     <string name="revanced_hide_expandable_card_title">Genişletilebilir kartı gizle</string>
@@ -1494,12 +1491,12 @@ Sınırlamalar:
     <string name="revanced_hide_you_may_like_section_summary_off">Hoşunuza gidebilecekler kısmı görünüyor</string>
     <string name="revanced_hide_you_may_like_section_summary_on">Hoşunuza gidebilecekler kısmı gizli</string>
     <string name="revanced_hide_you_may_like_section_title">Aramadaki \'Hoşunuza gidebilecekler\' kısmını gizle</string>
-    <string name="revanced_hide_youtube_doodles_summary_off">YouTube Doodle\'larını gösteriliyor.</string>
-    <string name="revanced_hide_youtube_doodles_summary_on">YouTube Doodle\'larını gizleniyor.</string>
+    <string name="revanced_hide_youtube_doodles_summary_off">Logodaki YouTube Doodles animasyonu görünür</string>
+    <string name="revanced_hide_youtube_doodles_summary_on">Logodaki YouTube Doodles animasyonu gizli</string>
     <string name="revanced_hide_youtube_doodles_title">YouTube Doodle\'larını gizle</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodle'ları yılda birkaç gün görünür.
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles, yılın çeşitli günlerinde dünyanın çeşitli yerlerinde gösterilir.
 
-Eğer bölgenizde bir YouTube Doodle'ı gösteriliyorsa ve bu ayar açıksa, arama çubuğunun altındaki filtre çubuğu da gizlenecektir."</string>
+YouTube Doodles göstermek, özel başlıkların görüntülenmesini engelleyebilir."</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">YouTube Premium tanıtımı gösteriliyor.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"YouTube Premium tanıtımı gizlendi.
 
@@ -1643,7 +1640,6 @@ Bilinen sorun: Bu ayar etkinleştirildiğinde YouTube Doodle'larına tıklanamaz
     <string name="revanced_language_ZH">"Çince
 <small>中文</small>"</string>
     <string name="revanced_language_title">ReVanced dili</string>
-    <string name="revanced_minimize">Küçült</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Boyutlandırmak için çift dokunma ve sıkıştırma devre dışı</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Boyutlandırmak için çift dokunma ve sıkıştırma etkin
 

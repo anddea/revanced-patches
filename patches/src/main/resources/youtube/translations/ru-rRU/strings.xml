@@ -77,7 +77,8 @@
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Введите допустимый хеш JavaScript плеера</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Хеш JavaScript плеера</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Вариант JavaScript плеера</string>
-    <string name="morphe_spoof_video_streams_screen_summary">Подделка видео потоков клиента для предотвращения проблем с воспроизведением</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Подмена видеопотоков клиента для предотвращения проблем с воспроизведением
+</string>
     <string name="morphe_spoof_video_streams_screen_title">Подмена видеопотоков</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Вы не вошли в Android VR. Нажмите здесь, чтобы войти</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Чтобы использовать эту функцию, изменить значение \'Default client\' на Android VR</string>
@@ -813,12 +814,9 @@ Shorts
     <string name="revanced_hide_end_screen_store_banner_summary_off">Баннер магазина в конце просмотра показан</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">Баннер магазина в конце просмотра скрыт</string>
     <string name="revanced_hide_end_screen_store_banner_title">Скрыть баннер магазина</string>
-    <string name="revanced_hide_end_screen_suggested_video_summary_off">Предлагаемые видео в конце просмотра включены.</string>
-    <string name="revanced_hide_end_screen_suggested_video_summary_on">"Предлагаемые видео в конце просмотра скрыты при выключенном автопросмотре.
-
-Автопросмотр можно изменить в настройках YouTube:
-Настройки → Автопросмотр / Просмотр → Следующее видео"</string>
-    <string name="revanced_hide_end_screen_suggested_video_title">Рекомендуемые видео в конце просмотра</string>
+    <string name="revanced_hide_end_screen_suggested_video_summary_off">Предлагаемые видео в конце просмотра показаны</string>
+    <string name="revanced_hide_end_screen_suggested_video_summary_on">Рекомендуемое видео в конце просмотра скрыто</string>
+    <string name="revanced_hide_end_screen_suggested_video_title">Скрыть предлагаемые видео в конце просмотра</string>
     <string name="revanced_hide_expandable_card_summary_off">Расширяемые фрагменты под плеером показаны</string>
     <string name="revanced_hide_expandable_card_summary_on">Расширяемые фрагменты под плеером скрыты</string>
     <string name="revanced_hide_expandable_card_title">Скрыть расширяемые фрагменты</string>
@@ -1506,12 +1504,12 @@ Shorts
     <string name="revanced_hide_you_may_like_section_summary_off">Раздел Вам может понравиться показан</string>
     <string name="revanced_hide_you_may_like_section_summary_on">Раздел Вам может понравиться скрыто</string>
     <string name="revanced_hide_you_may_like_section_title">Скрыть раздел \"Вам может понравиться\"</string>
-    <string name="revanced_hide_youtube_doodles_summary_off">YouTube Doodles отображены.</string>
-    <string name="revanced_hide_youtube_doodles_summary_on">YouTube Doodles скрыты.</string>
-    <string name="revanced_hide_youtube_doodles_title">YouTube Doodles</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles появляются несколько дней в году.
+    <string name="revanced_hide_youtube_doodles_summary_off">Анимация YouTube Doodles на логотипе показана</string>
+    <string name="revanced_hide_youtube_doodles_summary_on">Анимация YouTube Doodles на логотипе скрыта</string>
+    <string name="revanced_hide_youtube_doodles_title">Скрыть YouTube Doodles</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodle показывают несколько дней в году в разных частях света.
 
-Если YouTube Doodles отображаются в вашем регионе и они скрыты, то панель фильтров под строкой поиска будет также скрыта."</string>
+Показ YouTube Doodle может препятствовать отображению собственных заголовков."</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">Продвижение YouTube Premium отображено.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"Продвижение YouTube Premium скрыто.
 
@@ -1671,7 +1669,6 @@ Shorts
     <string name="revanced_language_ZH">"Китайский
 <small>中文</small>"</string>
     <string name="revanced_language_title">Язык настроек ReVanced</string>
-    <string name="revanced_minimize">Свернуть</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Двойное нажатие и изменение размера щипком отключены</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Двойное нажатие и изменение размера щипком включены
 
@@ -2442,6 +2439,7 @@ Shorts
     <string name="revanced_spoof_app_version_summary_on">Версия приложения подменена</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Восстановление функциональности Transcript</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 — Восстановлена несвернутая панель действий под видео</string>
+    <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 — Восстановить прежний фильтр компонентов</string>
     <string name="revanced_spoof_app_version_target_entry_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Неверная версия подмены: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Введите целевую версию приложения для подмены.</string>
