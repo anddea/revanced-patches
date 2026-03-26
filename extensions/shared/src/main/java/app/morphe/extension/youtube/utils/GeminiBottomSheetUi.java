@@ -271,6 +271,8 @@ final class GeminiBottomSheetUi {
     static final class SummarySheet {
         private final Context context;
         private final SheetBottomDialog.SlideDialog dialog;
+        private final LinearLayout headerContainer;
+        private final FrameLayout conversationFrame;
         private final LinearLayout messagesContainer;
         private final MaxHeightScrollView messagesScrollView;
         private final LinearLayout footerContainer;
@@ -278,12 +280,25 @@ final class GeminiBottomSheetUi {
         private final FrostedSurface sendSurface;
         private final EditText inputView;
         private final ImageButton sendButton;
+        private final TextView persistentHeaderView;
         private final MessageFormatter assistantMessageFormatter;
         private final OnCopyListener onCopyListener;
         private final OnConversationChangedListener onConversationChangedListener;
+        @Nullable
+        private final CollapsibleHeaderSection summaryTitleSection;
+        @Nullable
+        private final CollapsibleHeaderSection summaryInfoSection;
         private final List<GeminiUtils.ChatMessage> conversationHistory = new ArrayList<>();
         private final int contentHorizontalPadding;
         private final int footerVerticalPadding;
+        private final int headerExpandedTopMargin;
+        private final int headerCollapsedTopMargin;
+        private final int persistentHeaderExpandedTopMargin;
+        private final int persistentHeaderCollapsedTopMargin;
+        private final int messagesExpandedTopMargin;
+        private final int messagesCollapsedTopMargin;
+        private final int headerCollapseTranslation;
+        private final boolean collapsePersistentHeaderToSingleLine;
         @Nullable
         private String pendingUserQuestion;
         @Nullable
@@ -294,6 +309,7 @@ final class GeminiBottomSheetUi {
         private View keyboardObserverView;
         private boolean dismissedByOwner;
         private boolean followConversationBottom;
+        private float headerCollapseProgress;
         private int lastKeyboardInset;
 
         SummarySheet(
@@ -314,8 +330,10 @@ final class GeminiBottomSheetUi {
             this.onCopyListener = onCopyListener;
             this.onConversationChangedListener = onConversationChangedListener;
 
+            final int dip4 = dipToPixels(4);
             final int dip8 = dipToPixels(8);
             final int dip10 = dipToPixels(10);
+            final int dip12 = dipToPixels(12);
             final int dip16 = dipToPixels(16);
             final int dip20 = dipToPixels(20);
             final int dip42 = dipToPixels(42);
@@ -324,27 +342,50 @@ final class GeminiBottomSheetUi {
                     SheetBottomDialog.createMainLayout(context, ThemeUtils.getDialogBackgroundColor());
             contentHorizontalPadding = dip16;
             footerVerticalPadding = dip8;
+            headerExpandedTopMargin = dip20;
+            headerCollapsedTopMargin = dip8;
+            messagesExpandedTopMargin = dip16;
+            messagesCollapsedTopMargin = dip8;
+            persistentHeaderCollapsedTopMargin = 0;
+            headerCollapseTranslation = dip12;
             mainLayout.setPadding(contentHorizontalPadding, 0, contentHorizontalPadding, 0);
 
-            LinearLayout headerContainer = new LinearLayout(context);
+            headerContainer = new LinearLayout(context);
             headerContainer.setOrientation(LinearLayout.VERTICAL);
             LinearLayout.LayoutParams headerParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            headerParams.topMargin = dip20;
+            headerParams.topMargin = headerExpandedTopMargin;
             mainLayout.addView(headerContainer, headerParams);
 
             TextView titleView = createTitleView(context, str("revanced_gemini_summary_title"));
-            headerContainer.addView(titleView);
-
             TextView metaView = createMetaView(context);
-            headerContainer.addView(metaView);
             setTextOrHide(metaView, metaText);
+            if (metaView.getVisibility() == View.VISIBLE) {
+                summaryTitleSection = CollapsibleHeaderSection.create(context, titleView, 0);
+                headerContainer.addView(summaryTitleSection.container);
+                headerContainer.addView(metaView);
+                persistentHeaderView = metaView;
+                persistentHeaderExpandedTopMargin = dip8;
+                collapsePersistentHeaderToSingleLine = true;
+            } else {
+                summaryTitleSection = null;
+                headerContainer.addView(titleView);
+                headerContainer.addView(metaView);
+                persistentHeaderView = titleView;
+                persistentHeaderExpandedTopMargin = 0;
+                collapsePersistentHeaderToSingleLine = false;
+            }
 
             TextView infoView = createSecondaryTextView(context);
-            headerContainer.addView(infoView);
             setTextOrHide(infoView, infoText);
+            if (infoView.getVisibility() == View.VISIBLE) {
+                summaryInfoSection = CollapsibleHeaderSection.create(context, infoView, dip4);
+                headerContainer.addView(summaryInfoSection.container);
+            } else {
+                summaryInfoSection = null;
+            }
 
             messagesScrollView = new MaxHeightScrollView(context);
             messagesScrollView.setVerticalScrollBarEnabled(false);
@@ -353,6 +394,7 @@ final class GeminiBottomSheetUi {
             messagesScrollView.setClipToPadding(false);
             messagesScrollView.setOnScrollPositionChangedListener(() -> {
                 followConversationBottom = messagesScrollView.isNearBottom(dipToPixels(32));
+                updateCollapsingHeader();
                 refreshFrostedSurfaces();
             });
             LinearLayout.LayoutParams messagesParams = new LinearLayout.LayoutParams(
@@ -360,7 +402,7 @@ final class GeminiBottomSheetUi {
                     0,
                     1f
             );
-            messagesParams.topMargin = dip16;
+            messagesParams.topMargin = messagesExpandedTopMargin;
 
             messagesContainer = new LinearLayout(context);
             messagesContainer.setOrientation(LinearLayout.VERTICAL);
@@ -369,7 +411,7 @@ final class GeminiBottomSheetUi {
                     ScrollView.LayoutParams.WRAP_CONTENT
             ));
 
-            FrameLayout conversationFrame = new FrameLayout(context);
+            conversationFrame = new FrameLayout(context);
             conversationFrame.setClipChildren(false);
             conversationFrame.setClipToPadding(false);
             mainLayout.addView(conversationFrame, messagesParams);
@@ -529,6 +571,7 @@ final class GeminiBottomSheetUi {
             dialog.show();
             applySheetFrame(mainLayout, 0);
             bindKeyboardInsets(mainLayout);
+            messagesScrollView.post(this::updateCollapsingHeader);
 
             if (conversationHistory.isEmpty()) {
                 scrollToTop();
@@ -784,6 +827,63 @@ final class GeminiBottomSheetUi {
         private void scrollToTop() {
             followConversationBottom = false;
             messagesScrollView.post(() -> messagesScrollView.scrollTo(0, 0));
+        }
+
+        private void updateCollapsingHeader() {
+            float progress = resolveHeaderCollapseProgress();
+            if (Math.abs(progress - headerCollapseProgress) < 0.001f) {
+                return;
+            }
+
+            headerCollapseProgress = progress;
+            if (summaryTitleSection != null) {
+                summaryTitleSection.applyProgress(progress, headerCollapseTranslation);
+            }
+            if (summaryInfoSection != null) {
+                summaryInfoSection.applyProgress(progress, headerCollapseTranslation);
+            }
+
+            setTopMargin(headerContainer, lerp(headerExpandedTopMargin, headerCollapsedTopMargin, progress));
+            setTopMargin(
+                    persistentHeaderView,
+                    lerp(persistentHeaderExpandedTopMargin, persistentHeaderCollapsedTopMargin, progress)
+            );
+            setTopMargin(conversationFrame, lerp(messagesExpandedTopMargin, messagesCollapsedTopMargin, progress));
+
+            if (collapsePersistentHeaderToSingleLine && persistentHeaderView.getVisibility() == View.VISIBLE) {
+                boolean collapsed = progress >= 0.9f;
+                persistentHeaderView.setMaxLines(collapsed ? 1 : Integer.MAX_VALUE);
+                persistentHeaderView.setEllipsize(collapsed ? TextUtils.TruncateAt.END : null);
+            }
+        }
+
+        private float resolveHeaderCollapseProgress() {
+            int collapseDistance = resolveHeaderCollapseDistance();
+            if (collapseDistance <= 0) {
+                return 0f;
+            }
+            return Math.max(0f, Math.min(1f, messagesScrollView.getScrollY() / (float) collapseDistance));
+        }
+
+        private int resolveHeaderCollapseDistance() {
+            boolean hasCollapsibleHeaderContent = false;
+            int collapseDistance = headerExpandedTopMargin - headerCollapsedTopMargin;
+            collapseDistance += messagesExpandedTopMargin - messagesCollapsedTopMargin;
+            collapseDistance += persistentHeaderExpandedTopMargin - persistentHeaderCollapsedTopMargin;
+
+            if (summaryTitleSection != null && summaryTitleSection.isVisible()) {
+                collapseDistance += summaryTitleSection.getExpandedTotalHeight();
+                hasCollapsibleHeaderContent = true;
+            }
+            if (summaryInfoSection != null && summaryInfoSection.isVisible()) {
+                collapseDistance += summaryInfoSection.getExpandedTotalHeight();
+                hasCollapsibleHeaderContent = true;
+            }
+
+            if (!hasCollapsibleHeaderContent) {
+                return 0;
+            }
+            return Math.max(dipToPixels(56), collapseDistance);
         }
 
         private void bindKeyboardInsets(@NonNull View targetView) {
@@ -1148,6 +1248,21 @@ final class GeminiBottomSheetUi {
         }
     }
 
+    private static void setTopMargin(@NonNull View view, int topMargin) {
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        if (!(layoutParams instanceof ViewGroup.MarginLayoutParams marginLayoutParams)
+                || marginLayoutParams.topMargin == topMargin) {
+            return;
+        }
+
+        marginLayoutParams.topMargin = topMargin;
+        view.setLayoutParams(marginLayoutParams);
+    }
+
+    private static int lerp(int start, int end, float progress) {
+        return Math.round(start + ((end - start) * progress));
+    }
+
     @NonNull
     private static ShapeDrawable createRoundedBackground(int color, float radiusDp) {
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
@@ -1312,6 +1427,107 @@ final class GeminiBottomSheetUi {
             this.messageView = messageView;
             this.copyButton = copyButton;
             this.rawText = rawText;
+        }
+    }
+
+    private static final class CollapsibleHeaderSection {
+        private final FrameLayout container;
+        private final View contentView;
+        private final int expandedTopMargin;
+        private int expandedHeight = -1;
+
+        private CollapsibleHeaderSection(
+                @NonNull FrameLayout container,
+                @NonNull View contentView,
+                int expandedTopMargin
+        ) {
+            this.container = container;
+            this.contentView = contentView;
+            this.expandedTopMargin = expandedTopMargin;
+        }
+
+        @NonNull
+        private static CollapsibleHeaderSection create(
+                @NonNull Context context,
+                @NonNull View contentView,
+                int topMargin
+        ) {
+            FrameLayout container = new FrameLayout(context);
+            container.setClipChildren(true);
+            container.setClipToPadding(true);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.topMargin = topMargin;
+            container.setLayoutParams(params);
+            container.addView(contentView, new FrameLayout.LayoutParams(
+                    FrameLayout.LayoutParams.MATCH_PARENT,
+                    FrameLayout.LayoutParams.WRAP_CONTENT
+            ));
+            return new CollapsibleHeaderSection(container, contentView, topMargin);
+        }
+
+        private boolean isVisible() {
+            return container.getVisibility() == View.VISIBLE && contentView.getVisibility() == View.VISIBLE;
+        }
+
+        private int getExpandedTotalHeight() {
+            ensureExpandedHeight();
+            return expandedHeight > 0 ? expandedHeight + expandedTopMargin : 0;
+        }
+
+        private void applyProgress(float progress, int translationY) {
+            if (!isVisible()) {
+                return;
+            }
+
+            ensureExpandedHeight();
+            if (expandedHeight <= 0) {
+                contentView.setAlpha(1f - progress);
+                contentView.setTranslationY(-translationY * progress);
+                return;
+            }
+
+            ViewGroup.LayoutParams layoutParams = container.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams marginLayoutParams) {
+                int targetTopMargin = Math.max(0, Math.round(expandedTopMargin * (1f - progress)));
+                int targetHeight = progress <= 0f
+                        ? ViewGroup.LayoutParams.WRAP_CONTENT
+                        : Math.max(0, Math.round(expandedHeight * (1f - progress)));
+                if (marginLayoutParams.topMargin != targetTopMargin || marginLayoutParams.height != targetHeight) {
+                    marginLayoutParams.topMargin = targetTopMargin;
+                    marginLayoutParams.height = targetHeight;
+                    container.setLayoutParams(marginLayoutParams);
+                }
+            }
+
+            contentView.setAlpha(1f - progress);
+            contentView.setTranslationY(-translationY * progress);
+        }
+
+        private void ensureExpandedHeight() {
+            if (expandedHeight > 0) {
+                return;
+            }
+            if (contentView.getHeight() > 0) {
+                expandedHeight = contentView.getHeight();
+                return;
+            }
+
+            int width = container.getWidth();
+            if (width <= 0) {
+                width = contentView.getWidth();
+            }
+            if (width <= 0) {
+                return;
+            }
+
+            contentView.measure(
+                    View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
+                    View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+            );
+            expandedHeight = contentView.getMeasuredHeight();
         }
     }
 
