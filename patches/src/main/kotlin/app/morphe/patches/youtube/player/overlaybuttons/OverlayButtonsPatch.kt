@@ -170,8 +170,10 @@ val overlayButtonsPatch = resourcePatch(
                 "drawable",
                 "playlist_repeat_button.xml",
                 "playlist_shuffle_button.xml",
-                "revanced_repeat_button.xml",
+                "revanced_gemini_copy.xml",
+                "revanced_gemini_send.xml",
                 "revanced_mute_volume_button.xml",
+                "revanced_repeat_button.xml",
                 "revanced_vot_button.xml",
             )
         )

@@ -636,6 +636,7 @@ Known issue: Sometimes the swipe overlay appears before switching to fullscreen 
     <string name="revanced_gemini_loading_summarize">Summarizing the video...</string>
     <string name="revanced_gemini_loading_transcribe">Transcribing the video...</string>
     <string name="revanced_gemini_loading_yandex_transcribe">Yandex: Getting subtitles...</string>
+    <string name="revanced_gemini_chat_input_hint">Ask about this video</string>
     <string name="revanced_gemini_status_translating">Translating with Gemini...\n\n⚠️ This step may fail if Gemini ignores the instructions or hits the limit.</string>
     <string name="revanced_gemini_summary_title">Gemini Video Summary</string>
     <string name="revanced_gemini_time_taken">(Took %d seconds)</string>
@@ -645,6 +646,7 @@ Known issue: Sometimes the swipe overlay appears before switching to fullscreen 
     <string name="revanced_gemini_transcription_parse_button">Subtitles</string>
     <string name="revanced_gemini_transcription_parse_success">Subtitle parsed successfully</string>
     <string name="revanced_gemini_transcription_result_title">Gemini Video Transcription</string>
+    <string name="revanced_send">Send</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
     <string name="revanced_gradient_seekbar_positions_summary">Gradient start and end positions from 0 to 1 separated by comma.</string>
@@ -1753,8 +1755,8 @@ AI-generated responses may contain inaccurate information.
 Tap here to get an API key."</string>
     <string name="revanced_overlay_button_gemini_about_title">About Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize">Summarize</string>
-    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Get API key at https://aistudio.google.com/apikey"</string>
-    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API key</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Enter one Gemini API key per line. Get API keys at https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API keys</string>
     <string name="revanced_overlay_button_gemini_summarize_summary">"Tap to summarize the video. Tap and hold to transcribe.
 
 Summarized and transcribed results are saved unless you closed the app or used Gemini on another video. Tap the button again to view results."</string>
