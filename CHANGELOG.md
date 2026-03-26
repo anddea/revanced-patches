@@ -1,3 +1,10 @@
+# [4.0.0-dev.13](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.12...v4.0.0-dev.13) (2026-03-26)
+
+
+### Features
+
+* **YouTube - Gemini:** Redesign, support multiple API keys, add `Ask about this video` ([374b0e5](https://github.com/anddea/revanced-patches/commit/374b0e55b94c00a2a9da4d20bf58108ca71a433e))
+
 # [4.0.0-dev.12](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.11...v4.0.0-dev.12) (2026-03-25)
 
 
