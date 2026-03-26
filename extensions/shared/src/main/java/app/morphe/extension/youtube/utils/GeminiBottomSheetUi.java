@@ -272,7 +272,8 @@ final class GeminiBottomSheetUi {
         private final Context context;
         private final SheetBottomDialog.SlideDialog dialog;
         private final LinearLayout headerContainer;
-        private final FrameLayout conversationFrame;
+        private final View headerSpacerView;
+        private final Drawable headerOverlayBackground;
         private final LinearLayout messagesContainer;
         private final MaxHeightScrollView messagesScrollView;
         private final LinearLayout footerContainer;
@@ -298,6 +299,8 @@ final class GeminiBottomSheetUi {
         private final int messagesExpandedTopMargin;
         private final int messagesCollapsedTopMargin;
         private final int headerCollapseTranslation;
+        private final int headerOverlayFadeDistance;
+        private final int headerOverlayMaxAlpha;
         private final boolean collapsePersistentHeaderToSingleLine;
         @Nullable
         private String pendingUserQuestion;
@@ -309,7 +312,7 @@ final class GeminiBottomSheetUi {
         private View keyboardObserverView;
         private boolean dismissedByOwner;
         private boolean followConversationBottom;
-        private float headerCollapseProgress;
+        private float headerCollapseProgress = -1f;
         private int lastKeyboardInset;
 
         SummarySheet(
@@ -348,16 +351,16 @@ final class GeminiBottomSheetUi {
             messagesCollapsedTopMargin = dip8;
             persistentHeaderCollapsedTopMargin = 0;
             headerCollapseTranslation = dip12;
+            headerOverlayFadeDistance = dipToPixels(24);
+            headerOverlayMaxAlpha = ThemeUtils.isDarkModeEnabled() ? 208 : 236;
             mainLayout.setPadding(contentHorizontalPadding, 0, contentHorizontalPadding, 0);
 
             headerContainer = new LinearLayout(context);
             headerContainer.setOrientation(LinearLayout.VERTICAL);
-            LinearLayout.LayoutParams headerParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-            );
-            headerParams.topMargin = headerExpandedTopMargin;
-            mainLayout.addView(headerContainer, headerParams);
+            headerContainer.setPadding(0, 0, 0, messagesExpandedTopMargin);
+            headerOverlayBackground = createHeaderOverlayBackground(ThemeUtils.getDialogBackgroundColor());
+            headerOverlayBackground.setAlpha(0);
+            headerContainer.setBackground(headerOverlayBackground);
 
             TextView titleView = createTitleView(context, str("revanced_gemini_summary_title"));
             TextView metaView = createMetaView(context);
@@ -395,6 +398,7 @@ final class GeminiBottomSheetUi {
             messagesScrollView.setOnScrollPositionChangedListener(() -> {
                 followConversationBottom = messagesScrollView.isNearBottom(dipToPixels(32));
                 updateCollapsingHeader();
+                updateHeaderOverlay();
                 refreshFrostedSurfaces();
             });
             LinearLayout.LayoutParams messagesParams = new LinearLayout.LayoutParams(
@@ -402,16 +406,20 @@ final class GeminiBottomSheetUi {
                     0,
                     1f
             );
-            messagesParams.topMargin = messagesExpandedTopMargin;
 
             messagesContainer = new LinearLayout(context);
             messagesContainer.setOrientation(LinearLayout.VERTICAL);
+            headerSpacerView = new View(context);
+            messagesContainer.addView(headerSpacerView, new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    0
+            ));
             messagesScrollView.addView(messagesContainer, new ScrollView.LayoutParams(
                     ScrollView.LayoutParams.MATCH_PARENT,
                     ScrollView.LayoutParams.WRAP_CONTENT
             ));
 
-            conversationFrame = new FrameLayout(context);
+            FrameLayout conversationFrame = new FrameLayout(context);
             conversationFrame.setClipChildren(false);
             conversationFrame.setClipToPadding(false);
             mainLayout.addView(conversationFrame, messagesParams);
@@ -419,6 +427,18 @@ final class GeminiBottomSheetUi {
                     FrameLayout.LayoutParams.MATCH_PARENT,
                     FrameLayout.LayoutParams.MATCH_PARENT
             ));
+            FrameLayout.LayoutParams headerParams = new FrameLayout.LayoutParams(
+                    FrameLayout.LayoutParams.MATCH_PARENT,
+                    FrameLayout.LayoutParams.WRAP_CONTENT,
+                    Gravity.TOP
+            );
+            headerParams.topMargin = headerExpandedTopMargin;
+            conversationFrame.addView(headerContainer, headerParams);
+            headerContainer.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
+                updateMessageViewportInset();
+                updateHeaderOverlay();
+                refreshFrostedSurfaces();
+            });
             followConversationBottom = false;
 
             appendSummaryMessage(summaryText, rawSummaryText);
@@ -571,7 +591,10 @@ final class GeminiBottomSheetUi {
             dialog.show();
             applySheetFrame(mainLayout, 0);
             bindKeyboardInsets(mainLayout);
-            messagesScrollView.post(this::updateCollapsingHeader);
+            messagesScrollView.post(() -> {
+                updateCollapsingHeader();
+                updateHeaderOverlay();
+            });
 
             if (conversationHistory.isEmpty()) {
                 scrollToTop();
@@ -844,17 +867,19 @@ final class GeminiBottomSheetUi {
             }
 
             setTopMargin(headerContainer, lerp(headerExpandedTopMargin, headerCollapsedTopMargin, progress));
+            setBottomPadding(headerContainer, lerp(messagesExpandedTopMargin, messagesCollapsedTopMargin, progress));
             setTopMargin(
                     persistentHeaderView,
                     lerp(persistentHeaderExpandedTopMargin, persistentHeaderCollapsedTopMargin, progress)
             );
-            setTopMargin(conversationFrame, lerp(messagesExpandedTopMargin, messagesCollapsedTopMargin, progress));
 
             if (collapsePersistentHeaderToSingleLine && persistentHeaderView.getVisibility() == View.VISIBLE) {
                 boolean collapsed = progress >= 0.9f;
                 persistentHeaderView.setMaxLines(collapsed ? 1 : Integer.MAX_VALUE);
                 persistentHeaderView.setEllipsize(collapsed ? TextUtils.TruncateAt.END : null);
             }
+
+            updateMessageViewportInset();
         }
 
         private float resolveHeaderCollapseProgress() {
@@ -984,6 +1009,13 @@ final class GeminiBottomSheetUi {
         }
 
         private void updateMessageViewportInset() {
+            int headerInset = resolveHeaderInset();
+            ViewGroup.LayoutParams headerSpacerLayoutParams = headerSpacerView.getLayoutParams();
+            if (headerSpacerLayoutParams != null && headerSpacerLayoutParams.height != headerInset) {
+                headerSpacerLayoutParams.height = headerInset;
+                headerSpacerView.setLayoutParams(headerSpacerLayoutParams);
+            }
+
             int footerInset = footerContainer.getHeight();
             if (footerInset <= 0) {
                 footerInset = inputView.getMinHeight() + (footerVerticalPadding * 2);
@@ -996,6 +1028,33 @@ final class GeminiBottomSheetUi {
 
             messagesScrollView.setPadding(0, 0, 0, bottomPadding);
             refreshFrostedSurfaces();
+        }
+
+        private int resolveHeaderInset() {
+            int headerHeight = headerContainer.getHeight();
+            if (headerHeight <= 0) {
+                headerHeight = headerContainer.getMeasuredHeight();
+            }
+            return Math.max(0, headerHeight + getTopMargin(headerContainer));
+        }
+
+        private void updateHeaderOverlay() {
+            int overlayStart = headerContainer.getPaddingBottom();
+            int targetAlpha = Math.round(
+                    headerOverlayMaxAlpha * Math.max(
+                            0f,
+                            Math.min(
+                                    1f,
+                                    (messagesScrollView.getScrollY() - overlayStart) / (float) headerOverlayFadeDistance
+                            )
+                    )
+            );
+            if (headerOverlayBackground.getAlpha() == targetAlpha) {
+                return;
+            }
+
+            headerOverlayBackground.setAlpha(targetAlpha);
+            headerContainer.invalidate();
         }
 
         private void refreshFrostedSurfaces() {
@@ -1259,6 +1318,27 @@ final class GeminiBottomSheetUi {
         view.setLayoutParams(marginLayoutParams);
     }
 
+    private static int getTopMargin(@NonNull View view) {
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        if (layoutParams instanceof ViewGroup.MarginLayoutParams marginLayoutParams) {
+            return marginLayoutParams.topMargin;
+        }
+        return 0;
+    }
+
+    private static void setBottomPadding(@NonNull View view, int bottomPadding) {
+        if (view.getPaddingBottom() == bottomPadding) {
+            return;
+        }
+
+        view.setPadding(
+                view.getPaddingLeft(),
+                view.getPaddingTop(),
+                view.getPaddingRight(),
+                bottomPadding
+        );
+    }
+
     private static int lerp(int start, int end, float progress) {
         return Math.round(start + ((end - start) * progress));
     }
@@ -1289,6 +1369,18 @@ final class GeminiBottomSheetUi {
         background.setCornerRadius(dipToPixels((float) 20.0));
         background.setColor(Color.TRANSPARENT);
         return background;
+    }
+
+    @NonNull
+    private static Drawable createHeaderOverlayBackground(int color) {
+        return new GradientDrawable(
+                GradientDrawable.Orientation.TOP_BOTTOM,
+                new int[]{
+                        color,
+                        color,
+                        withAlpha(color, 0)
+                }
+        );
     }
 
     @NonNull
