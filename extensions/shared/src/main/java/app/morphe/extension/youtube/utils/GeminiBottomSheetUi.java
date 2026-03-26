@@ -47,10 +47,13 @@ import static app.morphe.extension.shared.utils.Utils.dipToPixels;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Matrix;
 import android.graphics.Rect;
+import android.graphics.RenderEffect;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -271,6 +274,8 @@ final class GeminiBottomSheetUi {
         private final LinearLayout messagesContainer;
         private final MaxHeightScrollView messagesScrollView;
         private final LinearLayout footerContainer;
+        private final FrostedSurface inputSurface;
+        private final FrostedSurface sendSurface;
         private final EditText inputView;
         private final ImageButton sendButton;
         private final MessageFormatter assistantMessageFormatter;
@@ -346,9 +351,10 @@ final class GeminiBottomSheetUi {
             messagesScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER);
             messagesScrollView.setFillViewport(true);
             messagesScrollView.setClipToPadding(false);
-            messagesScrollView.setOnScrollPositionChangedListener(
-                    () -> followConversationBottom = messagesScrollView.isNearBottom(dipToPixels(32))
-            );
+            messagesScrollView.setOnScrollPositionChangedListener(() -> {
+                followConversationBottom = messagesScrollView.isNearBottom(dipToPixels(32));
+                refreshFrostedSurfaces();
+            });
             LinearLayout.LayoutParams messagesParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     0,
@@ -389,9 +395,10 @@ final class GeminiBottomSheetUi {
             footerContainer.setClipChildren(false);
             footerContainer.setClipToPadding(false);
             footerContainer.setPadding(0, footerVerticalPadding, 0, footerVerticalPadding);
-            footerContainer.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) ->
-                    updateMessageViewportInset()
-            );
+            footerContainer.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
+                updateMessageViewportInset();
+                refreshFrostedSurfaces();
+            });
             conversationFrame.addView(footerContainer, new FrameLayout.LayoutParams(
                     FrameLayout.LayoutParams.MATCH_PARENT,
                     FrameLayout.LayoutParams.WRAP_CONTENT,
@@ -408,29 +415,31 @@ final class GeminiBottomSheetUi {
 
             int floatingSurfaceColor = withAlpha(
                     ThemeUtils.getAdjustedBackgroundColor(false),
-                    ThemeUtils.isDarkModeEnabled() ? 210 : 224
+                    ThemeUtils.isDarkModeEnabled() ? 92 : 132
             );
-            int floatingStrokeColor = withAlpha(
+            int floatingStrokeColor = blendColors(
+                    ThemeUtils.getAdjustedBackgroundColor(false),
                     ThemeUtils.getAppForegroundColor(),
-                    ThemeUtils.isDarkModeEnabled() ? 60 : 42
+                    ThemeUtils.isDarkModeEnabled() ? 0.28f : 0.16f
             );
 
+            inputSurface = createFrostedSurface(
+                    context,
+                    floatingSurfaceColor,
+                    floatingStrokeColor,
+                    6
+            );
             inputView = new EditText(context);
             inputView.setHint(str("revanced_gemini_chat_input_hint"));
             inputView.setTextColor(ThemeUtils.getAppForegroundColor());
             inputView.setHintTextColor(withAlpha(ThemeUtils.getAppForegroundColor(), 150));
-            inputView.setBackground(createFloatingBackground(
-                    floatingSurfaceColor,
-                    floatingStrokeColor,
-                    20
-            ));
+            inputView.setBackground(null);
             inputView.setFocusableInTouchMode(true);
             inputView.setSingleLine(true);
             inputView.setMinLines(1);
             inputView.setMaxLines(1);
             inputView.setTextSize(15);
             inputView.setMinHeight(dip42);
-            inputView.setElevation(dipToPixels(6));
             inputView.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
             inputView.setInputType(InputType.TYPE_CLASS_TEXT
                     | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
@@ -439,30 +448,41 @@ final class GeminiBottomSheetUi {
             inputView.setVerticalScrollBarEnabled(false);
             LinearLayout.LayoutParams inputParams = new LinearLayout.LayoutParams(
                     0,
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    dip42,
                     1f
             );
-            inputRow.addView(inputView, inputParams);
+            inputSurface.container.addView(inputView, new FrameLayout.LayoutParams(
+                    FrameLayout.LayoutParams.MATCH_PARENT,
+                    FrameLayout.LayoutParams.MATCH_PARENT
+            ));
+            inputRow.addView(inputSurface.container, inputParams);
 
+            sendSurface = createFrostedSurface(
+                    context,
+                    floatingSurfaceColor,
+                    floatingStrokeColor,
+                    8
+            );
             sendButton = createIconButton(
                     context,
                     "revanced_gemini_send",
-                    false,
                     str("revanced_send")
             );
-            sendButton.setBackground(createFloatingBackground(
-                    floatingSurfaceColor,
-                    floatingStrokeColor,
-                    20
-            ));
-            sendButton.setElevation(dipToPixels(8));
+            sendButton.setBackground(null);
             LinearLayout.LayoutParams sendParams = new LinearLayout.LayoutParams(
                     dip42,
                     dip42
             );
             sendParams.setMarginStart(dip8);
-            inputRow.addView(sendButton, sendParams);
-            footerContainer.post(this::updateMessageViewportInset);
+            sendSurface.container.addView(sendButton, new FrameLayout.LayoutParams(
+                    FrameLayout.LayoutParams.MATCH_PARENT,
+                    FrameLayout.LayoutParams.MATCH_PARENT
+            ));
+            inputRow.addView(sendSurface.container, sendParams);
+            footerContainer.post(() -> {
+                updateMessageViewportInset();
+                refreshFrostedSurfaces();
+            });
 
             inputView.setOnClickListener(v -> {
                 inputView.requestFocus();
@@ -494,6 +514,7 @@ final class GeminiBottomSheetUi {
             dialog = SheetBottomDialog.createSlideDialog(context, mainLayout, 180);
             dialog.setOnDismissListener(d -> {
                 clearKeyboardInsetsListener();
+                clearFrostedSurfaces();
                 if (!dismissedByOwner) {
                     onUserDismiss.run();
                 }
@@ -629,7 +650,6 @@ final class GeminiBottomSheetUi {
             ImageButton copyButton = createIconButton(
                     context,
                     "revanced_gemini_copy",
-                    false,
                     str("revanced_copy")
             );
             copyButton.setOnClickListener(v -> onCopyListener.onCopyRequested(rawText));
@@ -684,7 +704,6 @@ final class GeminiBottomSheetUi {
             ImageButton copyButton = createIconButton(
                     context,
                     "revanced_gemini_copy",
-                    false,
                     str("revanced_copy")
             );
             copyButton.setVisibility(showCopyButton ? View.VISIBLE : View.GONE);
@@ -876,6 +895,21 @@ final class GeminiBottomSheetUi {
             }
 
             messagesScrollView.setPadding(0, 0, 0, bottomPadding);
+            refreshFrostedSurfaces();
+        }
+
+        private void refreshFrostedSurfaces() {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+                return;
+            }
+
+            inputSurface.refresh(messagesScrollView);
+            sendSurface.refresh(messagesScrollView);
+        }
+
+        private void clearFrostedSurfaces() {
+            inputSurface.clear();
+            sendSurface.clear();
         }
 
         private int resolveBottomInset(@NonNull View targetView) {
@@ -1073,14 +1107,13 @@ final class GeminiBottomSheetUi {
     private static ImageButton createIconButton(
             @NonNull Context context,
             @NonNull String drawableName,
-            boolean primary,
             @NonNull String contentDescription
     ) {
         final int iconPadding = dipToPixels(5);
 
         ImageButton button = new ImageButton(context);
         button.setBackground(createRoundedBackground(
-                primary ? getPrimaryButtonBackgroundColor() : SECONDARY_BUTTON_BACKGROUND_COLOR,
+                SECONDARY_BUTTON_BACKGROUND_COLOR,
                 20
         ));
         button.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
@@ -1090,9 +1123,7 @@ final class GeminiBottomSheetUi {
         Drawable drawable = getDrawable(drawableName);
         if (drawable != null) {
             drawable = drawable.mutate();
-            drawable.setTint(primary
-                    ? (ThemeUtils.isDarkModeEnabled() ? Color.BLACK : Color.WHITE)
-                    : ThemeUtils.getAppForegroundColor());
+            drawable.setTint(ThemeUtils.getAppForegroundColor());
             button.setImageDrawable(drawable);
         }
         return button;
@@ -1127,17 +1158,93 @@ final class GeminiBottomSheetUi {
     }
 
     @NonNull
-    private static Drawable createFloatingBackground(int color, int strokeColor, float radiusDp) {
+    private static Drawable createFloatingBackground(int strokeColor) {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
-        background.setCornerRadius(dipToPixels(radiusDp));
-        background.setColor(color);
+        background.setCornerRadius(dipToPixels((float) 20.0));
+        background.setColor(Color.TRANSPARENT);
         background.setStroke(Math.max(1, dipToPixels(1)), strokeColor);
         return background;
     }
 
+    @NonNull
+    private static Drawable createFloatingOutlineBackground() {
+        GradientDrawable background = new GradientDrawable();
+        background.setShape(GradientDrawable.RECTANGLE);
+        background.setCornerRadius(dipToPixels((float) 20.0));
+        background.setColor(Color.TRANSPARENT);
+        return background;
+    }
+
+    @NonNull
+    @SuppressWarnings("SuspiciousNameCombination")
+    private static FrostedSurface createFrostedSurface(
+            @NonNull Context context,
+            int overlayColor,
+            int strokeColor,
+            float elevationDp
+    ) {
+        int strokeWidth = Math.max(1, dipToPixels(1));
+        FrameLayout container = new FrameLayout(context);
+        container.setClipChildren(true);
+        container.setClipToPadding(true);
+        container.setClipToOutline(true);
+        container.setBackground(createFloatingOutlineBackground());
+        container.setElevation(dipToPixels(elevationDp));
+        container.setTranslationZ(dipToPixels(elevationDp));
+
+        ImageView blurView = new ImageView(context);
+        blurView.setScaleType(ImageView.ScaleType.FIT_XY);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            float blurRadius = dipToPixels(18);
+            blurView.setRenderEffect(RenderEffect.createBlurEffect(
+                    blurRadius,
+                    blurRadius,
+                    Shader.TileMode.CLAMP
+            ));
+        } else {
+            blurView.setVisibility(View.GONE);
+        }
+        container.addView(blurView, new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT
+        ));
+        FrameLayout.LayoutParams blurParams = (FrameLayout.LayoutParams) blurView.getLayoutParams();
+        blurParams.setMargins(strokeWidth, strokeWidth, strokeWidth, strokeWidth);
+        blurView.setLayoutParams(blurParams);
+
+        View scrimView = new View(context);
+        scrimView.setBackground(createRoundedBackground(overlayColor, (float) 20));
+        container.addView(scrimView, new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT
+        ));
+        FrameLayout.LayoutParams scrimParams = (FrameLayout.LayoutParams) scrimView.getLayoutParams();
+        scrimParams.setMargins(strokeWidth, strokeWidth, strokeWidth, strokeWidth);
+        scrimView.setLayoutParams(scrimParams);
+
+        View borderView = new View(context);
+        borderView.setBackground(createFloatingBackground(strokeColor));
+        container.addView(borderView, new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT
+        ));
+
+        return new FrostedSurface(container, blurView);
+    }
+
     private static int getPrimaryButtonBackgroundColor() {
         return ThemeUtils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK;
+    }
+
+    private static int blendColors(int baseColor, int accentColor, float accentRatio) {
+        float clampedRatio = Math.max(0f, Math.min(1f, accentRatio));
+        float baseRatio = 1f - clampedRatio;
+        return Color.rgb(
+                Math.round((Color.red(baseColor) * baseRatio) + (Color.red(accentColor) * clampedRatio)),
+                Math.round((Color.green(baseColor) * baseRatio) + (Color.green(accentColor) * clampedRatio)),
+                Math.round((Color.blue(baseColor) * baseRatio) + (Color.blue(accentColor) * clampedRatio))
+        );
     }
 
     private static int withAlpha(int color, int alpha) {
@@ -1333,6 +1440,71 @@ final class GeminiBottomSheetUi {
             );
             getPaint().setShader(shimmerGradient);
             invalidate();
+        }
+    }
+
+    private static final class FrostedSurface {
+        private final FrameLayout container;
+        private final ImageView blurView;
+        @Nullable
+        private Bitmap blurBitmap;
+
+        private FrostedSurface(@NonNull FrameLayout container, @NonNull ImageView blurView) {
+            this.container = container;
+            this.blurView = blurView;
+        }
+
+        private void refresh(@NonNull View sourceView) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+                return;
+            }
+
+            int width = container.getWidth();
+            int height = container.getHeight();
+            if (width <= 0 || height <= 0 || sourceView.getWidth() <= 0 || sourceView.getHeight() <= 0) {
+                return;
+            }
+
+            View drawableSource = sourceView;
+            if (sourceView instanceof ViewGroup sourceGroup && sourceGroup.getChildCount() > 0) {
+                drawableSource = sourceGroup.getChildAt(0);
+            }
+
+            int[] sourceLocation = new int[2];
+            int[] targetLocation = new int[2];
+            drawableSource.getLocationInWindow(sourceLocation);
+            container.getLocationInWindow(targetLocation);
+
+            Bitmap bitmap = ensureBitmap(width, height);
+            bitmap.eraseColor(Color.TRANSPARENT);
+
+            Canvas canvas = new Canvas(bitmap);
+            canvas.translate(
+                    sourceLocation[0] - targetLocation[0],
+                    sourceLocation[1] - targetLocation[1]
+            );
+            drawableSource.draw(canvas);
+            blurView.setImageBitmap(bitmap);
+            blurView.invalidate();
+        }
+
+        private void clear() {
+            blurView.setImageDrawable(null);
+            if (blurBitmap != null) {
+                blurBitmap.recycle();
+                blurBitmap = null;
+            }
+        }
+
+        @NonNull
+        private Bitmap ensureBitmap(int width, int height) {
+            if (blurBitmap == null || blurBitmap.getWidth() != width || blurBitmap.getHeight() != height) {
+                if (blurBitmap != null) {
+                    blurBitmap.recycle();
+                }
+                blurBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+            }
+            return blurBitmap;
         }
     }
 }
