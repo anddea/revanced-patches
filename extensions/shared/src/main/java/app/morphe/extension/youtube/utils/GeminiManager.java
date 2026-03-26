@@ -41,7 +41,6 @@
 package app.morphe.extension.youtube.utils;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -51,19 +50,15 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Pair;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.morphe.extension.shared.settings.AppLanguage;
+import app.morphe.extension.shared.ui.SheetBottomDialog;
 import app.morphe.extension.shared.utils.IntentUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.youtube.settings.Settings;
@@ -87,7 +82,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
-import static app.morphe.extension.shared.utils.Utils.dipToPixels;
 import static app.morphe.extension.shared.utils.Utils.showToastLong;
 import static app.morphe.extension.shared.utils.Utils.showToastShort;
 
@@ -192,10 +186,28 @@ public final class GeminiManager {
     private final ExecutorService metadataExecutor = Executors.newCachedThreadPool();
 
     /**
-     * Reference to the progress dialog.
+     * Active loading bottom sheet for summarize/transcribe operations.
      */
     @Nullable
-    private WeakReference<AlertDialog> progressDialogRef;
+    private GeminiBottomSheetUi.LoadingSheet loadingSheet;
+
+    /**
+     * Active summary bottom sheet used after summarization completes.
+     */
+    @Nullable
+    private GeminiBottomSheetUi.SummarySheet summarySheet;
+
+    /**
+     * Active transcription bottom sheet used after Gemini transcription completes.
+     */
+    @Nullable
+    private WeakReference<SheetBottomDialog.SlideDialog> transcriptionDialogRef;
+
+    /**
+     * Active follow-up chat task inside the summary bottom sheet.
+     */
+    @Nullable
+    private Future<?> activeSummaryChatTask;
 
     /**
      * Flag indicating if the progress dialog is minimized.
@@ -274,6 +286,11 @@ public final class GeminiManager {
      * Cache for summary generation model names.
      */
     private final Map<String, String> summaryModelCache = new ConcurrentHashMap<>();
+
+    /**
+     * Cache for per-video summary follow-up chat history.
+     */
+    private final Map<String, List<GeminiUtils.ChatMessage>> summaryConversationCache = new ConcurrentHashMap<>();
 
     /**
      * Cache for parsed transcriptions.
@@ -405,19 +422,27 @@ public final class GeminiManager {
 
             prepareForNewOperationInternal(OperationType.SUMMARIZE, videoUrl);
 
-            final String apiKey = Settings.GEMINI_API_KEY.get();
-            if (isEmptyApiKey(apiKey)) {
+            final List<String> apiKeys = GeminiUtils.parseApiKeys(Settings.GEMINI_API_KEY.get());
+            if (isEmptyApiKey(apiKeys)) {
                 resetOperationStateInternal(OperationType.SUMMARIZE, true);
                 return;
             }
 
             Logger.printDebug(() -> "Starting new summarization workflow: " + videoId);
-            activeTasks.put(taskKey, DUMMY_FUTURE);
             taskStartTimes.put(taskKey, System.currentTimeMillis());
 
             showProgressDialogInternal(context, OperationType.SUMMARIZE);
 
-            GeminiUtils.getVideoSummary(videoUrl, apiKey, new GeminiUtils.Callback() {
+            Future<?> summaryTask = GeminiUtils.getVideoSummary(videoUrl, apiKeys, new GeminiUtils.Callback() {
+                @Override
+                public void onPartial(String partialText, String accumulatedText, @Nullable String model) {
+                    if (!activeTasks.containsKey(taskKey)) {
+                        Logger.printDebug(() -> "Summary partial callback ignored - task was cancelled: " + taskKey);
+                        return;
+                    }
+                    ensureMainThread(() -> handleSummaryStreamUpdate(videoUrl, accumulatedText));
+                }
+
                 @Override
                 public void onSuccess(String result) {
                     onSuccessWithModel(result, null);
@@ -443,6 +468,7 @@ public final class GeminiManager {
                     handleApiResponseInternal(context, OperationType.SUMMARIZE, videoUrl, null, error);
                 }
             });
+            activeTasks.put(taskKey, summaryTask != null ? summaryTask : DUMMY_FUTURE);
         });
     }
 
@@ -605,8 +631,8 @@ public final class GeminiManager {
                                 updateTimerMessageInternal();
                             }
 
-                            final String apiKey = Settings.GEMINI_API_KEY.get();
-                            if (isEmptyApiKey(apiKey)) {
+                            final List<String> apiKeys = GeminiUtils.parseApiKeys(Settings.GEMINI_API_KEY.get());
+                            if (isEmptyApiKey(apiKeys)) {
                                 activeTasks.remove(taskKey);
                                 taskStartTimes.remove(taskKey);
                                 if (Objects.equals(currentVideoUrl, videoUrl)) {
@@ -618,10 +644,10 @@ public final class GeminiManager {
                             // Call Gemini for translation
                             String cleanedJson = YandexVotUtils.stripTokensFromYandexJson(rawIntermediateJson);
 
-                            GeminiUtils.translateYandexJson(
+                            Future<?> translationTask = GeminiUtils.translateYandexJson(
                                     cleanedJson,
                                     targetLangName,
-                                    apiKey,
+                                    apiKeys,
                                     new GeminiUtils.Callback() {
                                         @Override
                                         public void onSuccess(String translatedJson) {
@@ -644,6 +670,7 @@ public final class GeminiManager {
                                         }
                                     }
                             );
+                            activeTasks.put(taskKey, translationTask != null ? translationTask : DUMMY_FUTURE);
                         });
                     }
 
@@ -697,11 +724,9 @@ public final class GeminiManager {
                 isWaitingForYandexRetry = true;
                 baseLoadingMessage = str("revanced_gemini_loading_yandex_transcribe") + "\n(" + statusMessage + ")";
 
-                AlertDialog currentDialog = (progressDialogRef != null) ? progressDialogRef.get() : null;
-
-                if (currentDialog != null && currentDialog.isShowing() && !isProgressDialogMinimized) {
+                if (loadingSheet != null && loadingSheet.isShowing() && !isProgressDialogMinimized) {
                     updateTimerMessageInternal();
-                } else if (progressDialogRef == null && !isProgressDialogMinimized) {
+                } else if (loadingSheet == null && !isProgressDialogMinimized) {
                     showProgressDialogInternal(context, OperationType.TRANSCRIBE);
                 }
             } else {
@@ -889,8 +914,8 @@ public final class GeminiManager {
         Logger.printInfo(() -> "Starting new Gemini direct transcription workflow: " + videoId);
         String taskKey = getTaskKey(videoId, OperationType.TRANSCRIBE);
 
-        final String apiKey = Settings.GEMINI_API_KEY.get();
-        if (isEmptyApiKey(apiKey)) {
+        final List<String> apiKeys = GeminiUtils.parseApiKeys(Settings.GEMINI_API_KEY.get());
+        if (isEmptyApiKey(apiKeys)) {
             resetOperationStateInternal(OperationType.TRANSCRIBE, true);
             taskStartTimes.remove(taskKey);
             return;
@@ -898,7 +923,7 @@ public final class GeminiManager {
 
         showProgressDialogInternal(context, OperationType.TRANSCRIBE);
 
-        GeminiUtils.getVideoTranscription(videoUrl, apiKey, new GeminiUtils.Callback() {
+        Future<?> transcriptionTask = GeminiUtils.getVideoTranscription(videoUrl, apiKeys, new GeminiUtils.Callback() {
             @Override
             public void onSuccess(String result) {
                 if (!activeTasks.containsKey(taskKey)) {
@@ -919,6 +944,7 @@ public final class GeminiManager {
                 handleApiResponseInternal(context, OperationType.TRANSCRIBE, videoUrl, null, error);
             }
         });
+        activeTasks.put(taskKey, transcriptionTask != null ? transcriptionTask : DUMMY_FUTURE);
     }
 
     /**
@@ -961,6 +987,9 @@ public final class GeminiManager {
     @MainThread
     private void prepareForNewOperationInternal(@NonNull OperationType newOperationType, @NonNull String newVideoUrl) {
         Logger.printDebug(() -> "Preparing UI for operation: " + newOperationType + " for URL: " + newVideoUrl);
+
+        dismissSummarySheetInternal();
+        dismissTranscriptionDialogInternal();
 
         isCancelled = false;
         isProgressDialogMinimized = false;
@@ -1017,6 +1046,7 @@ public final class GeminiManager {
             if (opType == OperationType.SUMMARIZE) {
                 summaryCache.put(videoId, result);
                 summaryTimeCache.put(videoId, time);
+                summaryConversationCache.remove(videoId);
                 if (!TextUtils.isEmpty(usedModel)) {
                     summaryModelCache.put(videoId, usedModel);
                 } else {
@@ -1230,11 +1260,11 @@ public final class GeminiManager {
     /**
      * Checks if the API key is empty and shows a toast if so.
      *
-     * @param key The API key.
+     * @param apiKeys List of API keys.
      * @return True if the key is empty, false otherwise.
      */
-    private boolean isEmptyApiKey(@Nullable String key) {
-        if (TextUtils.isEmpty(key)) {
+    private boolean isEmptyApiKey(@Nullable List<String> apiKeys) {
+        if (apiKeys == null || apiKeys.isEmpty()) {
             showToastLong(str("revanced_gemini_error_no_api_key"));
             Logger.printDebug(() -> "isValidApiKey: API key is empty or null.");
             return true;
@@ -1332,6 +1362,170 @@ public final class GeminiManager {
         return "English";
     }
 
+    @Nullable
+    private String getVideoMetaText(@Nullable String videoUrl) {
+        if (TextUtils.isEmpty(videoUrl)) {
+            return null;
+        }
+
+        String videoId = getVideoIdFromUrl(videoUrl);
+        String meta = videoMetadataCache.getOrDefault(videoId, "");
+        if (!TextUtils.isEmpty(meta) && !meta.equals(str("revanced_gemini_loading_default"))) {
+            return meta;
+        }
+        return null;
+    }
+
+    @Nullable
+    private String getCurrentVideoMetaText() {
+        return getVideoMetaText(currentVideoUrl);
+    }
+
+    @Nullable
+    private String buildInfoText(int seconds, @Nullable String usedModel) {
+        StringBuilder infoText = new StringBuilder();
+        if (!TextUtils.isEmpty(usedModel)) {
+            infoText.append(usedModel);
+        }
+        if (seconds >= 0) {
+            if (infoText.length() > 0) {
+                infoText.append('\n');
+            }
+            infoText.append(str("revanced_gemini_time_taken", seconds));
+        }
+        return infoText.length() == 0 ? null : infoText.toString();
+    }
+
+    @MainThread
+    private void handleSummaryStreamUpdate(@NonNull String videoUrl, @NonNull String accumulatedText) {
+        if (!Objects.equals(currentVideoUrl, videoUrl) || isProgressDialogMinimized || loadingSheet == null || !loadingSheet.isShowing()) {
+            return;
+        }
+        loadingSheet.updatePreview(accumulatedText);
+    }
+
+    @MainThread
+    private void handleSummaryChatSend(
+            @NonNull String videoUrl,
+            @NonNull String summary,
+            @NonNull GeminiBottomSheetUi.SummarySheet sheet
+    ) {
+        if (summarySheet != sheet || !sheet.isShowing()) {
+            sheet.failPendingResponse();
+            return;
+        }
+
+        List<String> apiKeys = GeminiUtils.parseApiKeys(Settings.GEMINI_API_KEY.get());
+        if (isEmptyApiKey(apiKeys)) {
+            sheet.failPendingResponse();
+            return;
+        }
+
+        cancelActiveSummaryChatTaskInternal();
+
+        Future<?> chatTask = GeminiUtils.chatWithVideo(
+                videoUrl,
+                summary,
+                sheet.getConversationWithPendingQuestion(),
+                apiKeys,
+                new GeminiUtils.Callback() {
+                    @Override
+                    public void onSuccess(String result) {
+                        onSuccessWithModel(result, null);
+                    }
+
+                    @Override
+                    public void onPartial(String partialText, String accumulatedText, @Nullable String model) {
+                        ensureMainThread(() -> {
+                            if (summarySheet == sheet && sheet.isShowing()) {
+                                sheet.updatePendingResponse(accumulatedText);
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onSuccessWithModel(String result, @Nullable String model) {
+                        ensureMainThread(() -> {
+                            if (summarySheet == sheet && sheet.isShowing()) {
+                                sheet.commitPendingResponse(normalizeGeminiText(result));
+                            }
+                            activeSummaryChatTask = null;
+                        });
+                    }
+
+                    @Override
+                    public void onFailure(String error) {
+                        ensureMainThread(() -> {
+                            if (summarySheet == sheet && sheet.isShowing()) {
+                                sheet.failPendingResponse();
+                            }
+                            activeSummaryChatTask = null;
+                            if (!"Operation cancelled.".equals(error)) {
+                                showToastLong(str("revanced_gemini_error_api_failed", error));
+                            }
+                        });
+                    }
+                }
+        );
+
+        if (chatTask == null) {
+            sheet.failPendingResponse();
+            return;
+        }
+        activeSummaryChatTask = chatTask;
+    }
+
+    @MainThread
+    private void cancelActiveSummaryChatTaskInternal() {
+        boolean hadActiveTask = activeSummaryChatTask != null;
+        if (hadActiveTask) {
+            try {
+                activeSummaryChatTask.cancel(true);
+            } catch (Exception e) {
+                Logger.printException(() -> "Error cancelling Gemini summary chat task", e);
+            } finally {
+                activeSummaryChatTask = null;
+            }
+        }
+
+        if (hadActiveTask && summarySheet != null && summarySheet.isShowing()) {
+            summarySheet.failPendingResponse();
+        }
+    }
+
+    @MainThread
+    private void dismissSummarySheetInternal() {
+        cancelActiveSummaryChatTaskInternal();
+
+        if (summarySheet != null) {
+            try {
+                if (summarySheet.isShowing()) {
+                    summarySheet.dismiss();
+                }
+            } catch (Exception e) {
+                Logger.printException(() -> "Error dismissing Gemini summary sheet", e);
+            } finally {
+                summarySheet = null;
+            }
+        }
+    }
+
+    @MainThread
+    private void dismissTranscriptionDialogInternal() {
+        if (transcriptionDialogRef != null) {
+            SheetBottomDialog.SlideDialog dialog = transcriptionDialogRef.get();
+            if (dialog != null && dialog.isShowing()) {
+                try {
+                    dialog.dismiss();
+                } catch (Exception e) {
+                    Logger.printException(() -> "Error dismissing Gemini transcription sheet", e);
+                }
+            }
+            transcriptionDialogRef.clear();
+            transcriptionDialogRef = null;
+        }
+    }
+
     // endregion Utility Methods
 
     // region UI Methods: Dialogs
@@ -1362,97 +1556,55 @@ public final class GeminiManager {
         }
 
         rebuildBaseLoadingMessage(opType);
-        String initialMsg = (baseLoadingMessage != null && !baseLoadingMessage.isEmpty())
-                ? baseLoadingMessage
-                : str("revanced_gemini_loading_default");
-
-        String timeSuffix = "";
-        int elapsedSeconds = calculateElapsedTimeSeconds();
-        if (elapsedSeconds >= 0) {
-            timeSuffix = "\n" + elapsedSeconds + "s";
-        }
-
-        String metaPrefix = "";
-        if (currentVideoUrl != null) {
-            String videoId = getVideoIdFromUrl(currentVideoUrl);
-            String meta = videoMetadataCache.getOrDefault(videoId, "");
-            if (!TextUtils.isEmpty(meta) && !meta.equals(str("revanced_gemini_loading_default"))) {
-                metaPrefix = meta + "\n\n";
-            }
-        }
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-        if (opType == OperationType.SUMMARIZE) {
-            builder.setTitle(str("revanced_gemini_summary_title"));
-        } else {
-            builder.setTitle(str("revanced_gemini_loading_default"));
-        }
-
-        builder.setMessage(metaPrefix + initialMsg + timeSuffix);
-        builder.setCancelable(false);
-
-        // Cancel Button
-        builder.setNegativeButton(str("revanced_cancel"), (d, w) -> {
-            final String urlAtClick = currentVideoUrl;
-
-            ensureMainThread(() -> {
-                if (urlAtClick == null) {
-                    try {d.dismiss();} catch (Exception ignored) {}
-                    return;
-                }
-
-                if (Objects.equals(currentVideoUrl, urlAtClick)) {
-                    Logger.printInfo(() -> opType + " UI cancelled by user for " + urlAtClick);
-                    isCancelled = true;
-
-                    String videoId = getVideoIdFromUrl(urlAtClick);
-                    String taskKey = getTaskKey(videoId, opType);
-
-                    Future<?> f = activeTasks.remove(taskKey);
-
-                    if (f != null) {
-                        try {
-                            f.cancel(true);
-                        } catch (Exception e) {
-                            Logger.printException(() -> "Error cancelling future for task: " + taskKey, e);
-                        }
-                    }
-
-                    if (opType == OperationType.TRANSCRIBE) {
-                        YandexVotUtils.forceReleaseWorkflowLock(urlAtClick);
-                    }
-
-                    resetOperationStateInternal(opType, true);
-                    showToastShort(str("revanced_gemini_cancelled"));
-                }
-            });
-        });
-
-        // Minimize Button
-        builder.setNeutralButton(str("revanced_minimize"), (d, w) -> {
-            final String urlAtClick = currentVideoUrl;
-
-            ensureMainThread(() -> {
-                assert urlAtClick != null;
-                if (Objects.equals(currentVideoUrl, urlAtClick) && !isProgressDialogMinimized) {
-                    isProgressDialogMinimized = true;
-                    stopTimerInternal();
-                    dismissProgressDialogInternal();
-                }
-            });
-        });
-
         try {
-            AlertDialog dialog = builder.create();
-            dialog.show();
+            final String statusText = (baseLoadingMessage != null && !baseLoadingMessage.isEmpty())
+                    ? baseLoadingMessage
+                    : str("revanced_gemini_loading_default");
+            final String videoUrlAtShow = currentVideoUrl;
 
-            Window window = dialog.getWindow();
-            if (window != null) {
-                window.setLayout((int) (context.getResources().getDisplayMetrics().widthPixels * 0.90), WindowManager.LayoutParams.WRAP_CONTENT);
-            }
+            loadingSheet = new GeminiBottomSheetUi.LoadingSheet(
+                    context,
+                    opType == OperationType.SUMMARIZE
+                            ? str("revanced_gemini_summary_title")
+                            : str("revanced_gemini_loading_default"),
+                    getCurrentVideoMetaText(),
+                    statusText,
+                    () -> ensureMainThread(() -> {
+                        if (videoUrlAtShow == null) {
+                            return;
+                        }
+                        if (Objects.equals(currentVideoUrl, videoUrlAtShow)) {
+                            Logger.printInfo(() -> opType + " UI cancelled by user for " + videoUrlAtShow);
+                            isCancelled = true;
 
-            progressDialogRef = new WeakReference<>(dialog);
+                            String videoId = getVideoIdFromUrl(videoUrlAtShow);
+                            String taskKey = getTaskKey(videoId, opType);
+                            Future<?> future = activeTasks.remove(taskKey);
+                            if (future != null) {
+                                try {
+                                    future.cancel(true);
+                                } catch (Exception e) {
+                                    Logger.printException(() -> "Error cancelling future for task: " + taskKey, e);
+                                }
+                            }
+
+                            if (opType == OperationType.TRANSCRIBE) {
+                                YandexVotUtils.forceReleaseWorkflowLock(videoUrlAtShow);
+                            }
+
+                            resetOperationStateInternal(opType, true);
+                            showToastShort(str("revanced_gemini_cancelled"));
+                        }
+                    }),
+                    () -> ensureMainThread(() -> {
+                        if (Objects.equals(currentVideoUrl, videoUrlAtShow) && !isProgressDialogMinimized) {
+                            isProgressDialogMinimized = true;
+                            stopTimerInternal();
+                            loadingSheet = null;
+                        }
+                    })
+            );
+            updateTimerMessageInternal();
             startTimerInternal();
         } catch (Exception e) {
             Logger.printException(() -> "Error showing progress dialog for " + opType, e);
@@ -1471,25 +1623,16 @@ public final class GeminiManager {
     @MainThread
     private void dismissProgressDialogInternal() {
         stopTimerInternal();
-
-        if (progressDialogRef != null) {
-            AlertDialog dialog = progressDialogRef.get();
-            if (dialog != null && dialog.isShowing()) {
-                try {
-                    Context ctx = dialog.getContext();
-                    if (ctx instanceof Activity activity) {
-                        if (!activity.isFinishing() && !activity.isDestroyed()) {
-                            dialog.dismiss();
-                        }
-                    } else {
-                        dialog.dismiss();
-                    }
-                } catch (Exception e) {
-                    Logger.printException(() -> "Error dismissing progress dialog", e);
+        if (loadingSheet != null) {
+            try {
+                if (loadingSheet.isShowing()) {
+                    loadingSheet.dismiss();
                 }
+            } catch (Exception e) {
+                Logger.printException(() -> "Error dismissing progress dialog", e);
+            } finally {
+                loadingSheet = null;
             }
-            progressDialogRef.clear();
-            progressDialogRef = null;
         }
     }
 
@@ -1505,71 +1648,43 @@ public final class GeminiManager {
      */
     @MainThread
     private void showSummaryDialog(@NonNull Context context, @NonNull String summary, int seconds, @NonNull String videoUrl, @Nullable String usedModel) {
-        StringBuilder summaryMetaInfo = new StringBuilder();
-
-        if (!TextUtils.isEmpty(usedModel)) summaryMetaInfo.append(usedModel).append('\n');
-        if (seconds >= 0) summaryMetaInfo.append(str("revanced_gemini_time_taken", seconds));
-        String timeMsg = summaryMetaInfo.length() > 0 ? "\n\n" + summaryMetaInfo : "";
-
-        // Prepare the header (Metadata)
         String videoId = getVideoIdFromUrl(videoUrl);
-        String meta = videoMetadataCache.getOrDefault(videoId, "");
-        String metaPrefix = "";
-        if (!TextUtils.isEmpty(meta) && !meta.equals(str("revanced_gemini_loading_default"))) {
-            metaPrefix = meta + "\n\n";
-        }
+        String normalizedSummary = normalizeGeminiText(summary);
+        CharSequence formattedSummary = formatGeminiText(normalizedSummary, videoUrl);
+        List<GeminiUtils.ChatMessage> cachedConversation = new ArrayList<>(
+                Objects.requireNonNull(summaryConversationCache.getOrDefault(videoId, Collections.emptyList()))
+        );
 
-        String normalizedSummary = summary.replace("\r\n", "\n").trim();
+        dismissSummarySheetInternal();
+        summarySheet = new GeminiBottomSheetUi.SummarySheet(
+                context,
+                getVideoMetaText(videoUrl),
+                buildInfoText(seconds, usedModel),
+                formattedSummary,
+                normalizedSummary,
+                cachedConversation,
+                text -> formatGeminiText(text, videoUrl),
+                text -> setClipboard(context, normalizeGeminiText(text), str("revanced_gemini_copy_success")),
+                history -> summaryConversationCache.put(videoId, new ArrayList<>(history)),
+                () -> ensureMainThread(() -> {
+                    cancelActiveSummaryChatTaskInternal();
+                    summarySheet = null;
+                }),
+                (sheet, question) -> ensureMainThread(() -> handleSummaryChatSend(videoUrl, normalizedSummary, sheet))
+        );
+    }
 
-        String displaySummary = wrapTimestampReferencesForPillStyle(normalizedSummary);
-        Spanned formattedSummary = MarkdownUtils.fromMarkdown(displaySummary);
-        SpannableStringBuilder clickableSummary = createClickableTimestampSummary(formattedSummary, videoUrl);
+    @NonNull
+    private String normalizeGeminiText(@NonNull String text) {
+        return text.replace("\r\n", "\n").trim();
+    }
 
-        SpannableStringBuilder summaryMessage = new SpannableStringBuilder();
-        if (!metaPrefix.isEmpty()) {
-            summaryMessage.append(metaPrefix);
-        }
-        summaryMessage.append(clickableSummary);
-        summaryMessage.append(timeMsg);
-
-        TextView summaryTextView = new TextView(context);
-        summaryTextView.setText(summaryMessage);
-        summaryTextView.setTextColor(ThemeUtils.getAppForegroundColor());
-        summaryTextView.setTextSize(16f);
-        summaryTextView.setMovementMethod(LinkMovementMethod.getInstance());
-        summaryTextView.setLinksClickable(true);
-
-        LinearLayout contentLayout = new LinearLayout(context);
-        contentLayout.setOrientation(LinearLayout.VERTICAL);
-        contentLayout.setPadding(dipToPixels(20), dipToPixels(10), dipToPixels(20), dipToPixels(8));
-        contentLayout.addView(summaryTextView, new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        ));
-
-        ScrollView scrollView = new ScrollView(context);
-        scrollView.setVerticalScrollBarEnabled(false);
-        scrollView.addView(contentLayout, new ScrollView.LayoutParams(
-                ScrollView.LayoutParams.MATCH_PARENT,
-                ScrollView.LayoutParams.WRAP_CONTENT
-        ));
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(str("revanced_gemini_summary_title"));
-        builder.setView(scrollView);
-
-        AlertDialog dialog = builder
-                .setPositiveButton(android.R.string.ok, (d, w) -> d.dismiss())
-                .setNeutralButton(str("revanced_copy"), (d, w) -> setClipboard(context, normalizedSummary, str("revanced_gemini_copy_success")))
-                .setCancelable(true)
-                .create();
-
-        dialog.show();
-
-        Window window = dialog.getWindow();
-        if (window != null) {
-            window.setLayout((int) (context.getResources().getDisplayMetrics().widthPixels * 0.90), WindowManager.LayoutParams.WRAP_CONTENT);
-        }
+    @NonNull
+    private CharSequence formatGeminiText(@NonNull String text, @NonNull String videoUrl) {
+        String normalizedText = normalizeGeminiText(text);
+        String displayText = wrapTimestampReferencesForPillStyle(normalizedText);
+        Spanned formattedText = MarkdownUtils.fromMarkdown(displayText);
+        return createClickableTimestampText(formattedText, videoUrl);
     }
 
     @NonNull
@@ -1600,14 +1715,14 @@ public final class GeminiManager {
     }
 
     @NonNull
-    private SpannableStringBuilder createClickableTimestampSummary(@NonNull Spanned formattedSummary, @NonNull String videoUrl) {
-        SpannableStringBuilder clickableSummary = new SpannableStringBuilder(formattedSummary);
+    private SpannableStringBuilder createClickableTimestampText(@NonNull Spanned formattedText, @NonNull String videoUrl) {
+        SpannableStringBuilder clickableText = new SpannableStringBuilder(formattedText);
         String videoId = getVideoIdFromUrl(videoUrl);
         if (TextUtils.isEmpty(videoId)) {
-            return clickableSummary;
+            return clickableText;
         }
 
-        Matcher matcher = SUMMARY_TIMESTAMP_PATTERN.matcher(clickableSummary.toString());
+        Matcher matcher = SUMMARY_TIMESTAMP_PATTERN.matcher(clickableText.toString());
         while (matcher.find()) {
             final long timestampSeconds;
             try {
@@ -1617,14 +1732,14 @@ public final class GeminiManager {
             }
 
             String vndLink = String.format(Locale.ENGLISH, VIDEO_SCHEME_INTENT_FORMAT, videoId, timestampSeconds);
-            clickableSummary.setSpan(
+            clickableText.setSpan(
                     new TimestampClickableSpan(vndLink),
                     matcher.start(),
                     matcher.end(),
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
             );
         }
-        return clickableSummary;
+        return clickableText;
     }
 
     private long parseTimestampToSeconds(@NonNull Matcher matcher) {
@@ -1677,40 +1792,21 @@ public final class GeminiManager {
     @MainThread
     private void showTranscriptionResultDialogInternal(@NonNull Context context, @NonNull String rawTranscription, int seconds, @NonNull String videoUrl) {
         Logger.printDebug(() -> "Showing raw Gemini transcription dialog.");
-        String timeMsg = (seconds >= 0) ? "\n\n" + str("revanced_gemini_time_taken", seconds) : "";
-
-        String metaPrefix = "";
-        String videoId = getVideoIdFromUrl(videoUrl);
-        String meta = videoMetadataCache.getOrDefault(videoId, "");
-        if (!TextUtils.isEmpty(meta) && !meta.equals(str("revanced_gemini_loading_default"))) {
-            metaPrefix = meta + "\n\n";
-        }
-
-        String msg = metaPrefix + rawTranscription + timeMsg;
-
         final String dialogVideoUrl = videoUrl;
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(str("revanced_gemini_transcription_result_title"));
-
-        AlertDialog dialog = builder.setMessage(msg)
-                .setCancelable(true)
-                .setPositiveButton(android.R.string.ok, (d, w) -> d.dismiss())
-                .setNegativeButton(str("revanced_copy"), (d, w) -> setClipboard(context, rawTranscription, str("revanced_gemini_copy_success")))
-                .setNeutralButton(str("revanced_gemini_transcription_parse_button"), (d, which) -> ensureMainThread(() -> {
+        dismissTranscriptionDialogInternal();
+        SheetBottomDialog.SlideDialog dialog = GeminiBottomSheetUi.showTranscriptionSheet(
+                context,
+                getVideoMetaText(videoUrl),
+                buildInfoText(seconds, null),
+                rawTranscription,
+                () -> setClipboard(context, rawTranscription, str("revanced_gemini_copy_success")),
+                () -> ensureMainThread(() -> {
                     Logger.printDebug(() -> "Parse button clicked (Gemini raw). Attempting parse and display overlay.");
                     hideTranscriptionOverlayInternal();
                     parseAndShowTranscriptionInternal(rawTranscription, dialogVideoUrl);
-                    try { d.dismiss(); } catch (Exception ignored) {}
-                }))
-                .create();
-
-        dialog.show();
-
-        Window window = dialog.getWindow();
-        if (window != null) {
-            window.setLayout((int) (context.getResources().getDisplayMetrics().widthPixels * 0.90), WindowManager.LayoutParams.WRAP_CONTENT);
-        }
+                })
+        );
+        transcriptionDialogRef = new WeakReference<>(dialog);
     }
 
     // endregion UI Methods: Dialogs
@@ -2009,13 +2105,11 @@ public final class GeminiManager {
      */
     @MainThread
     private void startTimerInternal() {
-        AlertDialog currentDialog = (progressDialogRef != null) ? progressDialogRef.get() : null;
-
         if (currentOperation == OperationType.NONE
                 || isCancelled
                 || isProgressDialogMinimized
-                || currentDialog == null
-                || !currentDialog.isShowing()) {
+                || loadingSheet == null
+                || !loadingSheet.isShowing()) {
             stopTimerInternal();
             return;
         }
@@ -2025,8 +2119,11 @@ public final class GeminiManager {
         timerRunnable = new Runnable() {
             @Override
             public void run() {
-                AlertDialog currentDialog = progressDialogRef.get();
-                if (currentOperation != OperationType.NONE && !isCancelled && !isProgressDialogMinimized && currentDialog != null && currentDialog.isShowing()) {
+                if (currentOperation != OperationType.NONE
+                        && !isCancelled
+                        && !isProgressDialogMinimized
+                        && loadingSheet != null
+                        && loadingSheet.isShowing()) {
                     updateTimerMessageInternal();
                     timerHandler.postDelayed(this, 1000);
                 } else {
@@ -2057,40 +2154,24 @@ public final class GeminiManager {
      */
     @MainThread
     private void updateTimerMessageInternal() {
-        if (progressDialogRef == null) {
+        if (loadingSheet == null) {
             stopTimerInternal();
             return;
         }
 
-        AlertDialog currentDialog = progressDialogRef.get();
-
-        if (currentDialog != null && currentDialog.isShowing() && !isCancelled && !isProgressDialogMinimized) {
+        if (loadingSheet.isShowing() && !isCancelled && !isProgressDialogMinimized) {
             int sec = calculateElapsedTimeSeconds();
-            if (sec < 0) return;
+            if (sec < 0) {
+                return;
+            }
 
-            String time = "\n" + sec + "s";
             String base = (baseLoadingMessage != null && !baseLoadingMessage.isEmpty())
                     ? baseLoadingMessage
                     : str("revanced_gemini_loading_default");
-
-            String metaPrefix = "";
-            if (currentVideoUrl != null) {
-                String videoId = getVideoIdFromUrl(currentVideoUrl);
-                String meta = videoMetadataCache.getOrDefault(videoId, "");
-                if (!TextUtils.isEmpty(meta) && !meta.equals(str("revanced_gemini_loading_default"))) {
-                    metaPrefix = meta + "\n\n";
-                }
-            }
-
-            String msg = metaPrefix + base + time;
-
             try {
-                TextView tv = currentDialog.findViewById(android.R.id.message);
-                if (tv != null) {
-                    tv.setText(msg);
-                } else {
-                    currentDialog.setMessage(msg);
-                }
+                loadingSheet.updateMeta(getCurrentVideoMetaText());
+                loadingSheet.updateStatus(base);
+                loadingSheet.updateElapsed(sec);
             } catch (Exception e) {
                 stopTimerInternal();
             }
