@@ -1,3 +1,46 @@
+# [4.0.0](https://github.com/anddea/revanced-patches/compare/v3.16.0...v4.0.0) (2026-03-27)
+
+
+### Bug Fixes
+
+* ARSCLib compatibility ([#1404](https://github.com/anddea/revanced-patches/issues/1404)) ([bc75d5a](https://github.com/anddea/revanced-patches/commit/bc75d5a4b05be0915beeafdda6307b014bffcce4))
+* **Spoof Wi-Fi connection:** Failed previously ([7187215](https://github.com/anddea/revanced-patches/commit/718721561056a4d2ab225caad6b755c77e07328a))
+* **YouTube - Custom branding name:** Custom name did not apply properly ([02b5519](https://github.com/anddea/revanced-patches/commit/02b55191134f012087684f4ef99693413d5e65b2))
+* **YouTube - GmsCore:** Crashes because of the wrong intent ([829ec70](https://github.com/anddea/revanced-patches/commit/829ec708013b8a4aa66b8de59c74d0d307491e1b))
+* **YouTube - Hide action buttons:** Fix empty spaces when hiding buttons ([bda1ddb](https://github.com/anddea/revanced-patches/commit/bda1ddba6959fd7d25dcb8952d986440ea7d9670))
+* **YouTube - Overlay buttons:** Gemini summary could use the wrong markdown for titles ([aac78fd](https://github.com/anddea/revanced-patches/commit/aac78fdb7ce2980647f723c0f3b92f7e4e38c795))
+* **YouTube - Voice Over Translation:** Do not show the VOT button if the patch is disabled ([48abec6](https://github.com/anddea/revanced-patches/commit/48abec6b41a1b878a2d24cfb2cf31fb2984c6a72))
+* **YouTube & YT Music:** Fix the app crash caused by incorrect resource attribution ([5247736](https://github.com/anddea/revanced-patches/commit/5247736538743e4cec1075dce5d2ba1998816009))
+* **YouTube:** Resolved patching error caused by an unexpected array value ([ca3772e](https://github.com/anddea/revanced-patches/commit/ca3772e18029b2b843f7af3b7137390cefeec6a6))
+
+
+### Code Refactoring
+
+* Migrate to Morphe patcher ([44d12f2](https://github.com/anddea/revanced-patches/commit/44d12f217ca72783c0000c09a3f77f6b0854d490))
+
+
+### Features
+
+* **YouTube - Gemini:** Redesign, support multiple API keys, add `Ask about this video` ([374b0e5](https://github.com/anddea/revanced-patches/commit/374b0e55b94c00a2a9da4d20bf58108ca71a433e))
+* **YouTube - Hide ads:** Add `Hide player popup ads` setting ([06275f4](https://github.com/anddea/revanced-patches/commit/06275f4cf47c039833bf9e5e8ad8442378245a24))
+* **YouTube - Overlay buttons:** Add `Gemini 3.1 Flash Lite Preview` and update prompt ([36bca64](https://github.com/anddea/revanced-patches/commit/36bca64ec6112e96d10c55f083492d30f8032e25))
+* **YouTube - Overlay buttons:** Use cascade of Gemini models ([56db9b3](https://github.com/anddea/revanced-patches/commit/56db9b3195033ce39af66e8d49b09b436d4419e0))
+* **YouTube - Set transcript cookies:** Add "Fix transcript" setting ([7c42e04](https://github.com/anddea/revanced-patches/commit/7c42e042387d0708991450649f8d03ae0176a278))
+* **YouTube - Shorts components:** Add Open Shorts with `Regular player fullscreen` ([a5985e9](https://github.com/anddea/revanced-patches/commit/a5985e9bf5078ec7f5296a89e4c78667750e8903))
+* **YouTube - Voice Over Translation:** Add Yandex voice-over translation ([#1370](https://github.com/anddea/revanced-patches/issues/1370)) ([889118e](https://github.com/anddea/revanced-patches/commit/889118eb63e2e33560347ad5c0b065d9784150f2))
+* **YouTube - Voice Over Translation:** Volume patch fixes, audio proxy, immediate pause on video stop ([#1382](https://github.com/anddea/revanced-patches/issues/1382)) ([6ac278c](https://github.com/anddea/revanced-patches/commit/6ac278cc65b8e55d9f434c8b479665a00c17bedc))
+* **YouTube & YT Music - Spoof video streams:** Match Morphe ([43cab65](https://github.com/anddea/revanced-patches/commit/43cab65290c3ca17c3d56a952479f1d20b83cf36))
+* **YouTube, YT Music & Reddit:** Add credits ([b20f2f1](https://github.com/anddea/revanced-patches/commit/b20f2f1cb8e35ddc9cf9d7e1f8d6f84e81d462a1))
+* **YouTube:** Add `Reload video` patch & reduce patches bundle size ([33fdf51](https://github.com/anddea/revanced-patches/commit/33fdf51520946ae35ba2181eaf17d6ad7c2cc44e))
+* **YouTube:** Remove `Change live ring click action` patch ([bc40616](https://github.com/anddea/revanced-patches/commit/bc406169a060e9da486b67a0a3436a46154dd035))
+
+
+### BREAKING CHANGES
+
+* Patches are now migrated to Morphe patcher
+
+Signed-off-by: Aaron Veil <70171475+anddea@users.noreply.github.com>
+
 # [4.0.0-dev.13](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.12...v4.0.0-dev.13) (2026-03-26)
 
 
