@@ -28,6 +28,9 @@ import android.widget.Scroller;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Utils;
 
@@ -123,7 +126,7 @@ public class SheetBottomDialog {
         LinearLayout handleContainer = new LinearLayout(context);
         LinearLayout.LayoutParams containerParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        containerParams.setMargins(0, dip8, 0, 0);
+        containerParams.setMargins(0, dip8, 0, dip8);
         handleContainer.setLayoutParams(containerParams);
         handleContainer.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
         View handleBar = new View(context);
@@ -136,6 +139,7 @@ public class SheetBottomDialog {
 
         handleContainer.addView(handleBar);
         mainLayout.addView(handleContainer);
+        mainLayout.addDragRegion(handleContainer);
 
         return mainLayout;
     }
@@ -158,11 +162,13 @@ public class SheetBottomDialog {
         private float dragOffset; // Current drag translation.
         private boolean isDragging;
         private boolean isDragEnabled;
+        private boolean touchStartedInDragRegion;
 
         private final int animationDuration;
         private final Scroller scroller;
         private final VelocityTracker velocityTracker;
         private final Runnable settleRunnable;
+        private final List<View> dragRegions = new ArrayList<>();
 
         private SlideDialog dialog;
         private float dismissThreshold;
@@ -204,6 +210,14 @@ public class SheetBottomDialog {
         }
 
         /**
+         * Registers a child or overlay region that should always behave like a drag handle, even if
+         * it sits above a scrollable view.
+         */
+        public void addDragRegion(@NonNull View view) {
+            dragRegions.add(view);
+        }
+
+        /**
          * Updates the dismissal threshold when the layout's size changes.
          */
         @Override
@@ -226,18 +240,21 @@ public class SheetBottomDialog {
                     float initialTouchX = ev.getX();
                     float initialTouchY = ev.getY();
                     isDragging = false;
+                    touchStartedInDragRegion = isTouchInsideDragRegion(ev.getRawX(), ev.getRawY());
                     scroller.forceFinished(true);
                     removeCallbacks(settleRunnable);
                     velocityTracker.clear();
                     velocityTracker.addMovement(ev);
                     dragOffset = getTranslationY();
-                    touchedScrollableChild = findScrollableChildUnder(this, (int) initialTouchX, (int) initialTouchY);
+                    touchedScrollableChild = touchStartedInDragRegion
+                            ? null
+                            : findScrollableChildUnder(this, (int) initialTouchX, (int) initialTouchY);
                     break;
 
                 case MotionEvent.ACTION_MOVE:
                     float dy = ev.getRawY() - initialTouchRawY;
                     if (dy > ViewConfiguration.get(getContext()).getScaledTouchSlop()
-                            && canStartDrag()) {
+                            && (touchStartedInDragRegion || canStartDrag())) {
                         isDragging = true;
                         return true; // Intercept touches for drag.
                     }
@@ -276,6 +293,7 @@ public class SheetBottomDialog {
                         startReturnAnimation();
                     }
                     isDragging = false;
+                    touchStartedInDragRegion = false;
                     return true;
             }
             // Consume the touch event to prevent focus changes on child views.
@@ -363,6 +381,25 @@ public class SheetBottomDialog {
         private boolean isPointInsideChild(@NonNull View child, int x, int y) {
             Rect bounds = new Rect(child.getLeft(), child.getTop(), child.getRight(), child.getBottom());
             return bounds.contains(x, y);
+        }
+
+        private boolean isTouchInsideDragRegion(float rawX, float rawY) {
+            int[] location = new int[2];
+            for (View dragRegion : dragRegions) {
+                if (dragRegion.getVisibility() != View.VISIBLE) {
+                    continue;
+                }
+
+                dragRegion.getLocationOnScreen(location);
+                float left = location[0];
+                float top = location[1];
+                float right = left + dragRegion.getWidth();
+                float bottom = top + dragRegion.getHeight();
+                if (rawX >= left && rawX <= right && rawY >= top && rawY <= bottom) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 

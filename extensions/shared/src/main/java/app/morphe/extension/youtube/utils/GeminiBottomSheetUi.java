@@ -47,13 +47,13 @@ import static app.morphe.extension.shared.utils.Utils.dipToPixels;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.RenderEffect;
+import android.graphics.RenderNode;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -84,6 +84,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,6 +96,8 @@ final class GeminiBottomSheetUi {
     private static final int SECONDARY_BUTTON_BACKGROUND_COLOR = Color.parseColor("#33888888");
     private static final float SHEET_HEIGHT_FRACTION = 0.9f;
     private static final int MIN_SHEET_HEIGHT_DP = 240;
+    private static final String PENDING_REPLY_PLACEHOLDER = "⋯";
+
     private GeminiBottomSheetUi() {
     }
 
@@ -273,6 +276,8 @@ final class GeminiBottomSheetUi {
         private final SheetBottomDialog.SlideDialog dialog;
         private final LinearLayout headerContainer;
         private final View headerSpacerView;
+        private final View footerSpacerView;
+        private final View headerDragView;
         private final Drawable headerOverlayBackground;
         private final LinearLayout messagesContainer;
         private final MaxHeightScrollView messagesScrollView;
@@ -314,6 +319,8 @@ final class GeminiBottomSheetUi {
         private boolean followConversationBottom;
         private float headerCollapseProgress = -1f;
         private int lastKeyboardInset;
+        private int stableHeaderInset;
+        private boolean frostedSourceBound;
 
         SummarySheet(
                 @NonNull Context context,
@@ -336,7 +343,6 @@ final class GeminiBottomSheetUi {
             final int dip4 = dipToPixels(4);
             final int dip8 = dipToPixels(8);
             final int dip10 = dipToPixels(10);
-            final int dip12 = dipToPixels(12);
             final int dip16 = dipToPixels(16);
             final int dip20 = dipToPixels(20);
             final int dip42 = dipToPixels(42);
@@ -344,13 +350,13 @@ final class GeminiBottomSheetUi {
             SheetBottomDialog.DraggableLinearLayout mainLayout =
                     SheetBottomDialog.createMainLayout(context, ThemeUtils.getDialogBackgroundColor());
             contentHorizontalPadding = dip16;
-            footerVerticalPadding = dip8;
+            footerVerticalPadding = dip16;
             headerExpandedTopMargin = dip20;
             headerCollapsedTopMargin = dip8;
             messagesExpandedTopMargin = dip16;
             messagesCollapsedTopMargin = dip8;
             persistentHeaderCollapsedTopMargin = 0;
-            headerCollapseTranslation = dip12;
+            headerCollapseTranslation = dipToPixels(12);
             headerOverlayFadeDistance = dipToPixels(24);
             headerOverlayMaxAlpha = ThemeUtils.isDarkModeEnabled() ? 208 : 236;
             mainLayout.setPadding(contentHorizontalPadding, 0, contentHorizontalPadding, 0);
@@ -360,11 +366,11 @@ final class GeminiBottomSheetUi {
             headerContainer.setPadding(0, 0, 0, messagesExpandedTopMargin);
             headerOverlayBackground = createHeaderOverlayBackground(ThemeUtils.getDialogBackgroundColor());
             headerOverlayBackground.setAlpha(0);
-            headerContainer.setBackground(headerOverlayBackground);
 
             TextView titleView = createTitleView(context, str("revanced_gemini_summary_title"));
             TextView metaView = createMetaView(context);
             setTextOrHide(metaView, metaText);
+
             if (metaView.getVisibility() == View.VISIBLE) {
                 summaryTitleSection = CollapsibleHeaderSection.create(context, titleView, 0);
                 headerContainer.addView(summaryTitleSection.container);
@@ -399,7 +405,7 @@ final class GeminiBottomSheetUi {
                 followConversationBottom = messagesScrollView.isNearBottom(dipToPixels(32));
                 updateCollapsingHeader();
                 updateHeaderOverlay();
-                refreshFrostedSurfaces();
+                requestFrostedSurfacesRefresh();
             });
             LinearLayout.LayoutParams messagesParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
@@ -411,6 +417,11 @@ final class GeminiBottomSheetUi {
             messagesContainer.setOrientation(LinearLayout.VERTICAL);
             headerSpacerView = new View(context);
             messagesContainer.addView(headerSpacerView, new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    0
+            ));
+            footerSpacerView = new View(context);
+            messagesContainer.addView(footerSpacerView, new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     0
             ));
@@ -427,6 +438,14 @@ final class GeminiBottomSheetUi {
                     FrameLayout.LayoutParams.MATCH_PARENT,
                     FrameLayout.LayoutParams.MATCH_PARENT
             ));
+            headerDragView = new View(context);
+            headerDragView.setBackground(headerOverlayBackground);
+            conversationFrame.addView(headerDragView, new FrameLayout.LayoutParams(
+                    FrameLayout.LayoutParams.MATCH_PARENT,
+                    0,
+                    Gravity.TOP
+            ));
+            mainLayout.addDragRegion(headerDragView);
             FrameLayout.LayoutParams headerParams = new FrameLayout.LayoutParams(
                     FrameLayout.LayoutParams.MATCH_PARENT,
                     FrameLayout.LayoutParams.WRAP_CONTENT,
@@ -437,7 +456,7 @@ final class GeminiBottomSheetUi {
             headerContainer.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
                 updateMessageViewportInset();
                 updateHeaderOverlay();
-                refreshFrostedSurfaces();
+                requestFrostedSurfacesRefresh();
             });
             followConversationBottom = false;
 
@@ -459,7 +478,7 @@ final class GeminiBottomSheetUi {
             footerContainer.setPadding(0, footerVerticalPadding, 0, footerVerticalPadding);
             footerContainer.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
                 updateMessageViewportInset();
-                refreshFrostedSurfaces();
+                requestFrostedSurfacesRefresh();
             });
             conversationFrame.addView(footerContainer, new FrameLayout.LayoutParams(
                     FrameLayout.LayoutParams.MATCH_PARENT,
@@ -503,8 +522,7 @@ final class GeminiBottomSheetUi {
             inputView.setTextSize(15);
             inputView.setMinHeight(dip42);
             inputView.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
-            inputView.setInputType(InputType.TYPE_CLASS_TEXT
-                    | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+            inputView.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
             inputView.setPadding(dip16, dip10, dip16, dip10);
             inputView.setOverScrollMode(View.OVER_SCROLL_NEVER);
             inputView.setVerticalScrollBarEnabled(false);
@@ -541,9 +559,10 @@ final class GeminiBottomSheetUi {
                     FrameLayout.LayoutParams.MATCH_PARENT
             ));
             inputRow.addView(sendSurface.container, sendParams);
+
             footerContainer.post(() -> {
                 updateMessageViewportInset();
-                refreshFrostedSurfaces();
+                requestFrostedSurfacesRefresh();
             });
 
             inputView.setOnClickListener(v -> {
@@ -617,7 +636,7 @@ final class GeminiBottomSheetUi {
             pendingUserQuestion = question;
             appendUserMessage(question, true);
             pendingAssistantEntry = appendAssistantMessage("", false, true, true);
-            pendingAssistantEntry.messageView.setText("...");
+            pendingAssistantEntry.messageView.setText(PENDING_REPLY_PLACEHOLDER);
             setSending(true);
         }
 
@@ -637,8 +656,10 @@ final class GeminiBottomSheetUi {
 
             pendingAssistantEntry.rawText = text;
             if (TextUtils.isEmpty(text)) {
-                pendingAssistantEntry.messageView.setText("...");
+                applyPendingPlaceholderStyle(pendingAssistantEntry.messageView, true);
+                pendingAssistantEntry.messageView.setText(PENDING_REPLY_PLACEHOLDER);
             } else {
+                applyPendingPlaceholderStyle(pendingAssistantEntry.messageView, false);
                 stopShimmerIfNeeded(pendingAssistantEntry.messageView);
                 setMessageText(pendingAssistantEntry.messageView, assistantMessageFormatter.format(text));
             }
@@ -654,6 +675,7 @@ final class GeminiBottomSheetUi {
 
             if (pendingAssistantEntry != null) {
                 pendingAssistantEntry.rawText = text;
+                applyPendingPlaceholderStyle(pendingAssistantEntry.messageView, false);
                 stopShimmerIfNeeded(pendingAssistantEntry.messageView);
                 setMessageText(pendingAssistantEntry.messageView, assistantMessageFormatter.format(text));
                 if (pendingAssistantEntry.copyButton != null) {
@@ -671,9 +693,9 @@ final class GeminiBottomSheetUi {
         void failPendingResponse() {
             if (pendingAssistantEntry != null) {
                 stopShimmerIfNeeded(pendingAssistantEntry.messageView);
-            }
-            if (pendingAssistantEntry != null && pendingAssistantEntry.row.getParent() instanceof ViewGroup parent) {
-                parent.removeView(pendingAssistantEntry.row);
+                if (pendingAssistantEntry.row.getParent() instanceof ViewGroup parent) {
+                    parent.removeView(pendingAssistantEntry.row);
+                }
             }
             pendingUserQuestion = null;
             pendingAssistantEntry = null;
@@ -724,7 +746,7 @@ final class GeminiBottomSheetUi {
             copyParams.gravity = Gravity.END;
             section.addView(copyButton, copyParams);
 
-            messagesContainer.addView(section);
+            addMessageContentView(section);
             maybeScrollToBottom(false);
         }
 
@@ -739,7 +761,7 @@ final class GeminiBottomSheetUi {
             setMessageText(messageView, rawText);
             row.addView(messageView);
 
-            messagesContainer.addView(row);
+            addMessageContentView(row);
             maybeScrollToBottom(forceScroll);
         }
 
@@ -785,14 +807,12 @@ final class GeminiBottomSheetUi {
                 }
             });
 
-            messagesContainer.addView(row);
+            addMessageContentView(row);
             maybeScrollToBottom(forceScroll);
             return entry;
         }
 
-        private void appendAssistantMessage(
-                @NonNull String rawText
-        ) {
+        private void appendAssistantMessage(@NonNull String rawText) {
             appendAssistantMessage(rawText, true, false, false);
         }
 
@@ -808,7 +828,6 @@ final class GeminiBottomSheetUi {
 
         @NonNull
         private TextView createMessageView(boolean isUser, boolean shimmerWhilePending) {
-            final int dip12 = dipToPixels(12);
             final int maxWidth = (int) (context.getResources().getDisplayMetrics().widthPixels * (isUser ? 0.74f : 0.68f));
 
             TextView messageView = shimmerWhilePending ? new ShimmerTextView(context) : new TextView(context);
@@ -823,10 +842,10 @@ final class GeminiBottomSheetUi {
                             : ThemeUtils.getAdjustedBackgroundColor(false),
                     18
             ));
-            messageView.setPadding(dip12, dip12, dip12, dip12);
+            applyPendingPlaceholderStyle(messageView, shimmerWhilePending);
+
             if (shimmerWhilePending) {
-                ShimmerTextView shimmerTextView = (ShimmerTextView) messageView;
-                shimmerTextView.startShimmer();
+                ((ShimmerTextView) messageView).startShimmer();
             }
             return messageView;
         }
@@ -836,9 +855,39 @@ final class GeminiBottomSheetUi {
             return createMessageView(isUser, false);
         }
 
+        private void applyPendingPlaceholderStyle(@NonNull TextView messageView, boolean pending) {
+            final int dip10 = dipToPixels(10);
+            final int dip12 = dipToPixels(12);
+            final int dip56 = dipToPixels(56);
+
+            messageView.setPadding(dip12, dip10, dip12, dip10);
+
+            if (pending) {
+                messageView.setGravity(Gravity.CENTER);
+                messageView.setIncludeFontPadding(false);
+                messageView.setMinWidth(dip56);
+                messageView.setMinimumWidth(dip56);
+                return;
+            }
+
+            messageView.setGravity(Gravity.START);
+            messageView.setIncludeFontPadding(true);
+            messageView.setMinWidth(0);
+            messageView.setMinimumWidth(0);
+        }
+
         private void maybeScrollToBottom(boolean forceScroll) {
             if (forceScroll || followConversationBottom) {
                 forceScrollToBottom();
+            }
+        }
+
+        private void addMessageContentView(@NonNull View view) {
+            int footerSpacerIndex = messagesContainer.indexOfChild(footerSpacerView);
+            if (footerSpacerIndex < 0) {
+                messagesContainer.addView(view);
+            } else {
+                messagesContainer.addView(view, footerSpacerIndex);
             }
         }
 
@@ -983,11 +1032,13 @@ final class GeminiBottomSheetUi {
                     screenHeight - bottomInset
             );
             int targetHeight = Math.min(desiredHeight, availableHeight);
+
             ViewGroup.LayoutParams layoutParams = targetView.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = targetHeight;
                 targetView.setLayoutParams(layoutParams);
             }
+
             int keyboardLiftPadding = Math.max(0, keyboardInset);
             targetView.setPadding(contentHorizontalPadding, 0, contentHorizontalPadding, 0);
             footerContainer.setPadding(
@@ -1010,10 +1061,19 @@ final class GeminiBottomSheetUi {
 
         private void updateMessageViewportInset() {
             int headerInset = resolveHeaderInset();
+            stableHeaderInset = Math.max(stableHeaderInset, headerInset);
+            int viewportHeaderInset = stableHeaderInset;
+
             ViewGroup.LayoutParams headerSpacerLayoutParams = headerSpacerView.getLayoutParams();
-            if (headerSpacerLayoutParams != null && headerSpacerLayoutParams.height != headerInset) {
-                headerSpacerLayoutParams.height = headerInset;
+            if (headerSpacerLayoutParams != null && headerSpacerLayoutParams.height != viewportHeaderInset) {
+                headerSpacerLayoutParams.height = viewportHeaderInset;
                 headerSpacerView.setLayoutParams(headerSpacerLayoutParams);
+            }
+
+            ViewGroup.LayoutParams headerDragLayoutParams = headerDragView.getLayoutParams();
+            if (headerDragLayoutParams != null && headerDragLayoutParams.height != headerInset) {
+                headerDragLayoutParams.height = headerInset;
+                headerDragView.setLayoutParams(headerDragLayoutParams);
             }
 
             int footerInset = footerContainer.getHeight();
@@ -1021,13 +1081,24 @@ final class GeminiBottomSheetUi {
                 footerInset = inputView.getMinHeight() + (footerVerticalPadding * 2);
             }
 
-            int bottomPadding = footerInset + dipToPixels(12);
-            if (messagesScrollView.getPaddingBottom() == bottomPadding) {
-                return;
+            int footerSpacerHeight = footerInset + dipToPixels(12);
+            boolean layoutChanged = false;
+
+            ViewGroup.LayoutParams footerSpacerLayoutParams = footerSpacerView.getLayoutParams();
+            if (footerSpacerLayoutParams != null && footerSpacerLayoutParams.height != footerSpacerHeight) {
+                footerSpacerLayoutParams.height = footerSpacerHeight;
+                footerSpacerView.setLayoutParams(footerSpacerLayoutParams);
+                layoutChanged = true;
             }
 
-            messagesScrollView.setPadding(0, 0, 0, bottomPadding);
-            refreshFrostedSurfaces();
+            if (messagesScrollView.getPaddingBottom() != 0) {
+                messagesScrollView.setPadding(0, 0, 0, 0);
+                layoutChanged = true;
+            }
+
+            if (layoutChanged) {
+                requestFrostedSurfacesRefresh();
+            }
         }
 
         private int resolveHeaderInset() {
@@ -1054,19 +1125,33 @@ final class GeminiBottomSheetUi {
             }
 
             headerOverlayBackground.setAlpha(targetAlpha);
-            headerContainer.invalidate();
+            headerDragView.invalidate();
         }
 
-        private void refreshFrostedSurfaces() {
+        private void requestFrostedSurfacesRefresh() {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+                return;
+            }
+            refreshFrostedSurfacesNow();
+        }
+
+        private void refreshFrostedSurfacesNow() {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
                 return;
             }
 
-            inputSurface.refresh(messagesScrollView);
-            sendSurface.refresh(messagesScrollView);
+            if (!frostedSourceBound) {
+                inputSurface.setSourceView(messagesContainer);
+                sendSurface.setSourceView(messagesContainer);
+                frostedSourceBound = true;
+            }
+
+            inputSurface.requestRefresh();
+            sendSurface.requestRefresh();
         }
 
         private void clearFrostedSurfaces() {
+            frostedSourceBound = false;
             inputSurface.clear();
             sendSurface.clear();
         }
@@ -1356,7 +1441,7 @@ final class GeminiBottomSheetUi {
     private static Drawable createFloatingBackground(int strokeColor) {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
-        background.setCornerRadius(dipToPixels((float) 20.0));
+        background.setCornerRadius(dipToPixels(20.0f));
         background.setColor(Color.TRANSPARENT);
         background.setStroke(Math.max(1, dipToPixels(1)), strokeColor);
         return background;
@@ -1366,7 +1451,7 @@ final class GeminiBottomSheetUi {
     private static Drawable createFloatingOutlineBackground() {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
-        background.setCornerRadius(dipToPixels((float) 20.0));
+        background.setCornerRadius(dipToPixels(20.0f));
         background.setColor(Color.TRANSPARENT);
         return background;
     }
@@ -1376,6 +1461,8 @@ final class GeminiBottomSheetUi {
         return new GradientDrawable(
                 GradientDrawable.Orientation.TOP_BOTTOM,
                 new int[]{
+                        withAlpha(color, 0),
+                        color,
                         color,
                         color,
                         withAlpha(color, 0)
@@ -1400,18 +1487,14 @@ final class GeminiBottomSheetUi {
         container.setElevation(dipToPixels(elevationDp));
         container.setTranslationZ(dipToPixels(elevationDp));
 
-        ImageView blurView = new ImageView(context);
-        blurView.setScaleType(ImageView.ScaleType.FIT_XY);
+        View blurView;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            float blurRadius = dipToPixels(18);
-            blurView.setRenderEffect(RenderEffect.createBlurEffect(
-                    blurRadius,
-                    blurRadius,
-                    Shader.TileMode.CLAMP
-            ));
+            blurView = new RealtimeBlurView(context);
         } else {
+            blurView = new View(context);
             blurView.setVisibility(View.GONE);
         }
+
         container.addView(blurView, new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT
@@ -1421,7 +1504,7 @@ final class GeminiBottomSheetUi {
         blurView.setLayoutParams(blurParams);
 
         View scrimView = new View(context);
-        scrimView.setBackground(createRoundedBackground(overlayColor, (float) 20));
+        scrimView.setBackground(createRoundedBackground(overlayColor, 20f));
         container.addView(scrimView, new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT
@@ -1751,68 +1834,124 @@ final class GeminiBottomSheetUi {
         }
     }
 
-    private static final class FrostedSurface {
-        private final FrameLayout container;
-        private final ImageView blurView;
+    @RequiresApi(Build.VERSION_CODES.S)
+    private static final class RealtimeBlurView extends View {
+        private final RenderNode renderNode;
+        private final int blurRadiusPx;
+        private final int[] sourceLocation = new int[2];
+        private final int[] targetLocation = new int[2];
+        private int lastDx = Integer.MIN_VALUE;
+        private int lastDy = Integer.MIN_VALUE;
+        private int lastExpandedWidth = -1;
+        private int lastExpandedHeight = -1;
+        private boolean renderNodeValid;
+        private boolean forceReblur;
         @Nullable
-        private Bitmap blurBitmap;
+        private View sourceView;
 
-        private FrostedSurface(@NonNull FrameLayout container, @NonNull ImageView blurView) {
+        RealtimeBlurView(@NonNull Context context) {
+            super(context);
+            renderNode = new RenderNode("BlurNode");
+            float blurRadius = dipToPixels(18);
+            blurRadiusPx = (int) Math.ceil(blurRadius);
+            renderNode.setRenderEffect(RenderEffect.createBlurEffect(
+                    blurRadius,
+                    blurRadius,
+                    Shader.TileMode.CLAMP
+            ));
+        }
+
+        void setSourceView(@Nullable View sourceView) {
+            if (this.sourceView == sourceView) {
+                return;
+            }
+            this.sourceView = sourceView;
+            renderNodeValid = false;
+            forceReblur = true;
+            invalidate();
+        }
+
+        void requestRefresh() {
+            forceReblur = true;
+            invalidate();
+        }
+
+        @Override
+        protected void onDraw(@NonNull Canvas canvas) {
+            if (sourceView == null || sourceView.getWidth() <= 0 || sourceView.getHeight() <= 0) return;
+
+            int width = getWidth();
+            int height = getHeight();
+            if (width <= 0 || height <= 0) return;
+
+            sourceView.getLocationInWindow(sourceLocation);
+            getLocationInWindow(targetLocation);
+
+            int dx = sourceLocation[0] - targetLocation[0];
+            int dy = sourceLocation[1] - targetLocation[1];
+
+            int expandedWidth = width + blurRadiusPx * 2;
+            int expandedHeight = height + blurRadiusPx * 2;
+
+            boolean geometryChanged = dx != lastDx
+                    || dy != lastDy
+                    || expandedWidth != lastExpandedWidth
+                    || expandedHeight != lastExpandedHeight;
+
+            if (canvas.isHardwareAccelerated() && (forceReblur || geometryChanged || !renderNodeValid)) {
+                renderNode.setPosition(0, 0, expandedWidth, expandedHeight);
+                Canvas recordingCanvas = renderNode.beginRecording();
+                try {
+                    recordingCanvas.clipRect(0, 0, expandedWidth, expandedHeight);
+
+                    recordingCanvas.translate(dx + blurRadiusPx, dy + blurRadiusPx);
+                    sourceView.draw(recordingCanvas);
+                } finally {
+                    renderNode.endRecording();
+                }
+
+                lastDx = dx;
+                lastDy = dy;
+                lastExpandedWidth = expandedWidth;
+                lastExpandedHeight = expandedHeight;
+                renderNodeValid = true;
+                forceReblur = false;
+            }
+
+            canvas.save();
+            canvas.translate(-blurRadiusPx, -blurRadiusPx);
+            if (canvas.isHardwareAccelerated()) {
+                canvas.drawRenderNode(renderNode);
+            } else {
+                canvas.translate(dx + blurRadiusPx, dy + blurRadiusPx);
+                sourceView.draw(canvas);
+            }
+            canvas.restore();
+        }
+    }
+
+    private record FrostedSurface(FrameLayout container, View blurView) {
+        private FrostedSurface(@NonNull FrameLayout container, @NonNull View blurView) {
             this.container = container;
             this.blurView = blurView;
         }
 
-        private void refresh(@NonNull View sourceView) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
-                return;
+        private void setSourceView(@NonNull View sourceView) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && blurView instanceof RealtimeBlurView) {
+                ((RealtimeBlurView) blurView).setSourceView(sourceView);
             }
+        }
 
-            int width = container.getWidth();
-            int height = container.getHeight();
-            if (width <= 0 || height <= 0 || sourceView.getWidth() <= 0 || sourceView.getHeight() <= 0) {
-                return;
+        private void requestRefresh() {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && blurView instanceof RealtimeBlurView) {
+                ((RealtimeBlurView) blurView).requestRefresh();
             }
-
-            View drawableSource = sourceView;
-            if (sourceView instanceof ViewGroup sourceGroup && sourceGroup.getChildCount() > 0) {
-                drawableSource = sourceGroup.getChildAt(0);
-            }
-
-            int[] sourceLocation = new int[2];
-            int[] targetLocation = new int[2];
-            drawableSource.getLocationInWindow(sourceLocation);
-            container.getLocationInWindow(targetLocation);
-
-            Bitmap bitmap = ensureBitmap(width, height);
-            bitmap.eraseColor(Color.TRANSPARENT);
-
-            Canvas canvas = new Canvas(bitmap);
-            canvas.translate(
-                    sourceLocation[0] - targetLocation[0],
-                    sourceLocation[1] - targetLocation[1]
-            );
-            drawableSource.draw(canvas);
-            blurView.setImageBitmap(bitmap);
-            blurView.invalidate();
         }
 
         private void clear() {
-            blurView.setImageDrawable(null);
-            if (blurBitmap != null) {
-                blurBitmap.recycle();
-                blurBitmap = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && blurView instanceof RealtimeBlurView) {
+                ((RealtimeBlurView) blurView).setSourceView(null);
             }
-        }
-
-        @NonNull
-        private Bitmap ensureBitmap(int width, int height) {
-            if (blurBitmap == null || blurBitmap.getWidth() != width || blurBitmap.getHeight() != height) {
-                if (blurBitmap != null) {
-                    blurBitmap.recycle();
-                }
-                blurBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-            }
-            return blurBitmap;
         }
     }
 }
