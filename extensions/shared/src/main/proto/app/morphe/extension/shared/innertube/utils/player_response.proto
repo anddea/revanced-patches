@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+package app.morphe.extension.shared.innertube.utils;
+
+option optimize_for = LITE_RUNTIME;
+option java_package = "app.morphe.extension.shared.innertube.utils";
+
+message PlayerResponse {
+    oneof data {
+        PlayabilityStatus playability_status = 2;
+        StreamingData streaming_data = 4;
+        VideoDetails video_details = 11;
+    }
+}
+
+message PlayabilityStatus {
+    Status status = 1;
+}
+
+enum Status {
+    OK = 0;
+    ERROR = 1;
+    UNPLAYABLE = 2;
+    LOGIN_REQUIRED = 3;
+    CONTENT_CHECK_REQUIRED = 4;
+    AGE_CHECK_REQUIRED = 5;
+    LIVE_STREAM_OFFLINE = 6;
+    FULLSCREEN_ONLY = 7;
+    GL_PLAYBACK_REQUIRED = 8;
+    AGE_VERIFICATION_REQUIRED = 9;
+}
+
+message StreamingData {
+    int64 expiresInSeconds = 1;
+    repeated Format formats = 2;
+    repeated Format adaptiveFormats = 3;
+    string serverAbrStreamingUrl = 15;
+}
+
+message Format {
+    int32 itag = 1;
+    string url = 2;
+    string mimeType = 5;
+    int32 bitrate = 6;
+    int32 width = 7;
+    int32 height = 8;
+    int64 lastModified = 11;
+    string quality = 16;
+    string xtags = 23;
+    int32 fps = 25;
+    string qualityLabel = 26;
+    int32 averageBitrate = 31;
+    int64 approxDurationMs = 44;
+    int64 audioSampleRate = 45;
+    int32 audioChannels = 46;
+    // This field does not exist on YouTube or YouTube Music.
+    // Therefore, you can't get the signatureCipher using the Message class included in YouTube or YouTube Music.
+    string signatureCipher = 48;
+
+    oneof data {
+        Range initRange = 9;
+        Range indexRange = 10;
+        AudioTrack audioTrack = 28;
+    }
+}
+
+message Range {
+    int64 start = 3;
+    int64 end = 4;
+}
+
+message AudioTrack {
+    string displayName = 4;
+    string id = 5;
+    bool audioIsDefault = 6;
+}
+
+message VideoDetails {
+    string videoId = 1;
+    string title = 15;
+    int64 lengthSeconds = 16;
+    repeated string keywords = 18;
+    bytes shortDescription = 21;
+    string channelId = 19;
+    Thumbnail thumbnail = 25;
+    int32 liveChunkReadahead = 29;
+    string viewCount = 32;
+    string author = 33;
+    bool isLiveContent = 41;
+}
+
+message Thumbnail {
+    repeated Thumbnails thumbnails = 1;
+}
+
+message Thumbnails {
+    string url = 1;
+    int32 width = 2;
+    int32 height = 3;
+}
+

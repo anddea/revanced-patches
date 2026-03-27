@@ -1,0 +1,72 @@
+package app.morphe.extension.shared.patches.components;
+
+import android.annotation.SuppressLint;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
+import app.morphe.extension.shared.utils.TrieSearch;
+
+@SuppressLint("ObsoleteSdkInt")
+@SuppressWarnings("unused")
+public abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<T> {
+
+    private final List<T> filterGroups = new ArrayList<>();
+    private final TrieSearch<V> search = createSearchGraph();
+
+    @SafeVarargs
+    public final void addAll(final T... groups) {
+        filterGroups.addAll(Arrays.asList(groups));
+
+        for (T group : groups) {
+            if (!group.includeInSearch()) {
+                continue;
+            }
+            for (V pattern : group.filters) {
+                search.addPattern(pattern, (textSearched, matchedStartIndex, matchedLength, callbackParameter) -> {
+                    if (group.isEnabled()) {
+                        FilterGroup.FilterGroupResult result = (FilterGroup.FilterGroupResult) callbackParameter;
+                        result.setValues(group.setting, matchedStartIndex, matchedLength);
+                        return true;
+                    }
+                    return false;
+                });
+            }
+        }
+    }
+
+    @NonNull
+    @Override
+    public Iterator<T> iterator() {
+        return filterGroups.iterator();
+    }
+
+    @RequiresApi(24)
+    @Override
+    public void forEach(@NonNull Consumer<? super T> action) {
+        filterGroups.forEach(action);
+    }
+
+    @RequiresApi(24)
+    @NonNull
+    @Override
+    public Spliterator<T> spliterator() {
+        return filterGroups.spliterator();
+    }
+
+    public FilterGroup.FilterGroupResult check(V stack) {
+        FilterGroup.FilterGroupResult result = new FilterGroup.FilterGroupResult();
+        search.matches(stack, result);
+        return result;
+
+    }
+
+    protected abstract TrieSearch<V> createSearchGraph();
+}

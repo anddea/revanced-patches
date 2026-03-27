@@ -1,5 +1,5 @@
 extension {
-    name = "extensions/all/connectivity/wifi/spoof/spoof-wifi.rve"
+    name = "extensions/all/connectivity/wifi/spoof/spoof-wifi.mpe"
 }
 
 android {

@@ -14,13 +14,13 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 
 Report issues [here](https://github.com/inotia00/ReVanced_Extended).
 
+[Credits](https://github.com/anddea/revanced-patches/wiki/Credits)
+
 ## 📋 List of patches in this repository
 
 {{ table }}
 
 ## 📝 JSON Format
-
-This section explains the JSON format for the [patches.json](patches.json) file.
 
 Example:
 

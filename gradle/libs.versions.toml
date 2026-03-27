@@ -1,23 +1,24 @@
 [versions]
-revanced-patcher = "21.0.0"
-# Tracking https://github.com/google/smali/issues/64.
-#noinspection GradleDependency
-smali = "3.0.5"
+morphe-patcher = "1.2.0"
+# Tracking https://github.com/google/smali/issues/100.
+smali = "b6365a84f4"
 gson = "2.13.2"
 agp = "8.2.2"
-annotation = "1.9.1"
+annotation = "1.8.1"
+androidx-javascriptengine = "1.1.0-alpha01"
 collections4 = "4.5.0"
 desugar = "2.1.5"
 nanohttpd = "2.3.1"
 hiddenapi = "6.1"
 lang3 = "3.20.0"
 okhttp3 = "4.12.0"
-protobuf = "0.9.5"
-protoc = "3.25.2"
+protobuf = "0.9.6"
+protoc = "4.34.0"
 preference = "1.2.1"
 
 [libraries]
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
+androidx-javascriptengine = { module = "androidx.javascriptengine:javascriptengine", version.ref = "androidx-javascriptengine" }
 collections4 = { module = "org.apache.commons:commons-collections4", version.ref = "collections4" }
 desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
@@ -30,5 +31,5 @@ protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.
 protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
 
 [plugins]
-android-library = { id = "com.android.library", version.ref = "agp" }
+android-library = { id = "com.android.library" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobuf" }

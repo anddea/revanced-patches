@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="revanced_dialog_rounded_corners" parent="@android:style/ThemeOverlay.Material.Dialog">
-        <item name="android:windowBackground">?ytRaisedBackground</item>
+        <item name="android:windowBackground">?attr/ytRaisedBackground</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:background">@drawable/revanced_settings_rounded_corners_background</item>
     </style>
