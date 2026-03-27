@@ -1,7 +1,7 @@
 -dontobfuscate
 -dontoptimize
 -keepattributes *
--keep class app.revanced.** {
+-keep class app.morphe.** {
   *;
 }
 -keep class com.aurora.** {
@@ -11,9 +11,6 @@
   *;
 }
 -keep class com.eclipsesource.v8.** {
-  *;
-}
--keep class com.liskovsoft.** {
   *;
 }
 

@@ -17,6 +17,81 @@ Tap the continue button and allow optimization changes."</string>
     <string name="gms_core_settings_summary">To receive notifications in RVX Music, enable Cloud Messaging.</string>
     <string name="gms_core_settings_title">Open GmsCore settings</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
+    <string name="morphe_disable_drc_audio_summary_off">DRC audio is enabled</string>
+    <string name="morphe_disable_drc_audio_summary_on">DRC audio is disabled</string>
+    <string name="morphe_disable_drc_audio_title">Disable DRC audio</string>
+    <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
+    <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
+    <string name="morphe_disable_quic_protocol_title">Disable QUIC protocol</string>
+    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to Android Reel or TV</string>
+    <string name="morphe_force_original_audio_summary_off">Using default audio</string>
+    <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
+    <string name="morphe_force_original_audio_title">Force original audio language</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">Cannot sign in to VR: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Cannot sign in to VR, website authentication was not approved</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 is temporarily not available</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 is temporarily not available (status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Android VR sign in expired, try signing in to VR again</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 is temporarily not available (API timed out)</string>
+    <string name="morphe_oauth2_toast_invalid">Invalid VR sign in token, try signing in to VR again</string>
+    <string name="morphe_oauth2_toast_reset">Logged out of Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">Change share links to youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">Tracking query parameter is not removed from shared links</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">Tracking query parameter is removed from shared links</string>
+    <string name="morphe_sanitize_sharing_links_title">Sanitize sharing links</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Default client</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">Disable player JavaScript update</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Player JavaScript update is enabled</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Player JavaScript update is disabled
+
+• A valid player JavaScript hash is required
+• Playback fails if the Player JavaScript hash is revoked in GVS"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Disable player JavaScript update</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Player JavaScript hashes are valid for approximately one month, and outdated hashes may be revoked by GVS.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Try enabling: Spoof video streams &gt; Android VR sign in</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Could not fetch any client streams</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Enter a valid player JavaScript hash</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player JavaScript hash</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
+    <string name="morphe_spoof_video_streams_screen_title">Spoof video streams</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Not signed in to Android VR. Tap here to sign in</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">To use this feature, change \'Default client\' to Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Currently signed into Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR sign in</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Activation code: %s
+
+1. Tap 'Open website' below to open the 'Connect a device' website
+2. Paste from the clipboard (or type out) the activation code shown above
+3. Sign in to Google if prompted. If you have multiple accounts then choose this YouTube account
+4. Tap 'Allow YouTube VR' access
+5. Return to this app after reaching the 'Device connected' message"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Open website</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instructions</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Continue</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Signing in to Android VR can fix playback issues for some users
+
+To sign in, press continue below"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Sign out</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Sign in to Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Authentication saved
+
+• Your Morphe settings will not import/export Android VR authentication
+• If this app is unused for 6 months then Google will remove this authentication
+• You will need to sign in again if you change your Google password or deregister this device from your Google settings"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Successfully signed in</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Failed to issue an activation code</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Failed to issue an authentication token</string>
+    <string name="morphe_spoof_video_streams_summary">Spoof the client video streams to prevent playback issues.</string>
+    <string name="morphe_spoof_video_streams_summary_off">"Video streams are not spoofed
+
+Playback may not work"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"Video streams are spoofed
+
+If you are a YouTube Premium user, this setting may not be required"</string>
+    <string name="morphe_spoof_video_streams_title">Spoof video streams</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Turning off this setting may cause playback issues.</string>
     <string name="revanced_add_miniplayer_next_button_summary">Adds a next track button to the miniplayer.</string>
     <string name="revanced_add_miniplayer_next_button_title">Add miniplayer next button</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Adds a previous track button to the miniplayer.</string>
@@ -52,6 +127,7 @@ Tap the continue button and allow optimization changes."</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
     <string name="revanced_change_start_page_summary">Select which page the app opens in.</string>
     <string name="revanced_change_start_page_title">Change start page</string>
+    <string name="revanced_credits_title">Credits</string>
     <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter, separated by new lines.</string>
     <string name="revanced_custom_filter_strings_title">Custom filter</string>
     <string name="revanced_custom_filter_summary">Enables the custom filter to hide layout components.</string>
@@ -552,18 +628,6 @@ Click to see how to issue an API key."</string>
 Side effect (Block request):
 • App may be forced to close when using a VPN or DNS."</string>
     <string name="revanced_spoof_client_type_title">Default client</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music No SDK</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android No SDK</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Legacy</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
-    <string name="revanced_spoof_streaming_data_default_client_summary">Defines a default client for spoofing.</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Try changing the default client to TV Simply.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Click to see how to get an authentication token.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">About Android No SDK Auth</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Click here to see how to sign in to Android No SDK.</string>
@@ -585,57 +649,31 @@ Side effect (Block request):
 - If you change your password, or deregister a device in your account settings, or uninstall the app, you will need to reissue the authentication token."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Signed in</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Authentication token reset.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Click here to see how to sign in to Android VR.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Sign in to Android VR</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Not signed in to Android VR. Tap here to sign in</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Android VR sign in</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Activation code:
 %s
 
-1. Click 'Open website' to go to 'https://yt.be/activate'.
-2. Enter the activation code.
-3. Sign in when prompted. If you have multiple Google Accounts, select the account you use with YouTube. If you're already signed in, skip to the next step.
-4. Once signed in, return to RVX and click 'Sign in to Android VR' again.
-5. Click 'Get authorization token' to get an authorization token."</string>
+1. Tap 'Open website' below to open the 'Connect a device' website
+2. Paste from the clipboard (or type out) the activation code shown above
+3. Sign in to Google if prompted. If you have multiple accounts then choose this YouTube account
+4. Tap 'Allow YouTube VR' access
+5. Return to this app after reaching the 'Device connected' message"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website">Open website</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Open website</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Activation code</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Instructions</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Activation code copied to clipboard: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Get activation code</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Get authorization token</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Signing in to Android VR (YouTube VR) follows the guidelines provided by Google (Google account authorization - OAuth 2.0 for TV and Limited-Input Device Applications):
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Authentication saved
 
-1. Click 'Get activation code' to generate an activation code.
-2. Click 'Open website' to go to 'https://yt.be/activate'.
-3. Enter the activation code.
-4. Sign in when prompted. If you have multiple Google Accounts, select the account you use with YouTube. If you're already signed in, skip to the next step.
-5. Once signed in, return to RVX and click 'Sign in to Android VR' again.
-6. Click 'Get authorization token' to get an authorization token.
-
-※ Click 'Reset' to remove an authentication token or activation code."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Reset</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Sign in to Android VR</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Authentication token saved.
-
-- Authentication token issued through this process can only be used in YouTube VR (In RVX, it is used to fetch streaming data from YouTube VR).
-- Authentication token unused for more than 6 months will be revoked by Google servers.
-- If you change your password, or deregister a device in your account settings, or uninstall the app, you will need to reissue the authentication token."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Signed in</string>
+• Your Morphe settings will not import/export Android VR authentication
+• If this app is unused for 6 months then Google will remove this authentication
+• You will need to sign in again if you change your Google password or deregister this device from your Google settings"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Successfully signed in</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Failed to issue an authentication token.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Click Reset and try again.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Authentication token and activation code reset.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
-    <string name="revanced_spoof_streaming_data_summary">"Spoof the client video streams to prevent playback issues.
-
-If you are a YouTube Premium user, this setting may not be necessary."</string>
-    <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"When enabled, the latest player JavaScript will be used to deobfuscate streaming Url on 'TV' and 'Mobile Web'.
-
-If you're having issues with your JavaScript client, try disabling this first."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Use latest player JavaScript</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"When enabled, the 'External JavaScript for yt-dlp (yt-dlp-ejs)' will be used to deobfuscate streaming Url on 'TV' and 'Mobile Web'.
-
-• Player JavaScript for deobfuscation is kept up to date.
-• It may take 5 to 15 seconds for the video to start."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Use yt-dlp ejs (WIP)</string>
+    <string name="revanced_spoof_streaming_data_summary">Spoof the client video streams to prevent playback issues</string>
+    <string name="revanced_spoof_streaming_data_title">Spoof video streams</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Click to see how to get an authentication token.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">About Android VR Auth</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Side effect:
@@ -652,10 +690,6 @@ If you're having issues with your JavaScript client, try disabling this first."<
 • Replace domain: Follows the watch history settings of Google account.
 • Block watch history: Watch history is blocked."</string>
     <string name="revanced_watch_history_type_title">Watch history type</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">Get Cookies</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">Get Data Sync Id</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">Get Visitor Data</string>
-    <string name="revanced_webview_contextual_menu_refresh">Refresh</string>
     <string name="revanced_webview_cookies">Cookies</string>
     <string name="revanced_webview_copy">Copy</string>
     <string name="revanced_webview_data_sync_id">Data Sync Id</string>

@@ -1,11 +1,11 @@
 import java.lang.Boolean.TRUE
 
 extension {
-    name = "extensions/all/misc/signature/spoof-signature.rve"
+    name = "extensions/all/misc/signature/spoof-signature.mpe"
 }
 
 android {
-    namespace = "app.revanced.extension"
+    namespace = "app.morphe.extension"
     compileSdk = 35
 
     defaultConfig {

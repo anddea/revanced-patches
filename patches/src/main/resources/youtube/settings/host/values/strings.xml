@@ -20,6 +20,103 @@ Tap the continue button and allow optimization changes."</string>
     <string name="gms_core_settings_summary">To receive notifications in RVX, enable Cloud Messaging.</string>
     <string name="gms_core_settings_title">Open GmsCore settings</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
+    <string name="morphe_disable_drc_audio_summary_off">DRC audio is enabled</string>
+    <string name="morphe_disable_drc_audio_summary_on">DRC audio is disabled</string>
+    <string name="morphe_disable_drc_audio_title">Disable DRC audio</string>
+    <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
+    <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
+    <string name="morphe_disable_quic_protocol_title">Disable QUIC protocol</string>
+    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to Android Reel or TV</string>
+    <string name="morphe_force_original_audio_summary_off">Using default audio</string>
+    <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
+    <string name="morphe_force_original_audio_title">Force original audio language</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">Cannot sign in to VR: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Cannot sign in to VR, website authentication was not approved</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 is temporarily not available</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 is temporarily not available (status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Android VR sign in expired, try signing in to VR again</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 is temporarily not available (API timed out)</string>
+    <string name="morphe_oauth2_toast_invalid">Invalid VR sign in token, try signing in to VR again</string>
+    <string name="morphe_oauth2_toast_reset">Logged out of Android VR</string>
+    <string name="morphe_reload_video_summary_off">Reload video button is hidden.</string>
+    <string name="morphe_reload_video_summary_on">Reload video button is shown.</string>
+    <string name="morphe_reload_video_title">Show reload video button</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">Change share links to youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">Tracking query parameter is not removed from shared links</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">Tracking query parameter is removed from shared links</string>
+    <string name="morphe_sanitize_sharing_links_title">Sanitize sharing links</string>
+    <string name="morphe_spoof_video_streams_about_experimental">• Experimental client and may stop working anytime</string>
+    <string name="morphe_spoof_video_streams_about_js">• If deobfuscation fails, playback may fail</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Audio track menu is missing</string>
+    <string name="morphe_spoof_video_streams_about_no_av1">• No AV1 video codec</string>
+    <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Force original audio is not available</string>
+    <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR immersive mode is not available</string>
+    <string name="morphe_spoof_video_streams_about_no_stable_volume">• Stable volume is not available</string>
+    <string name="morphe_spoof_video_streams_about_playback_failure">• Video may stop at 1:00, or may not be available in some regions</string>
+    <string name="morphe_spoof_video_streams_about_title">Spoofing side effects</string>
+    <string name="morphe_spoof_video_streams_av1_summary_off">Video codec is AVC (H.264) or VP9</string>
+    <string name="morphe_spoof_video_streams_av1_summary_on">"Video codec is AVC (H.264), VP9, or AV1
+
+Playback may stutter or drop frames"</string>
+    <string name="morphe_spoof_video_streams_av1_title">Allow Android VR AV1</string>
+    <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Enabling this setting may use software AV1 decoding.
+
+Video playback with AV1 may stutter or drop frames."</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Default client</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Player JavaScript update is enabled</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Player JavaScript update is disabled
+
+• A valid player JavaScript hash is required
+• Playback fails if the Player JavaScript hash is revoked in GVS"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Disable player JavaScript update</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Player JavaScript hashes are valid for approximately one month, and outdated hashes may be revoked by GVS.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Try enabling: Spoof video streams &gt; Android VR sign in</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Could not fetch any client streams</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Enter a valid player JavaScript hash</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player JavaScript hash</string>
+    <string name="morphe_spoof_video_streams_player_js_variant_title">Player JavaScript variant</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
+    <string name="morphe_spoof_video_streams_screen_title">Spoof video streams</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Not signed in to Android VR. Tap here to sign in</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">To use this feature, change \'Default client\' to Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Currently signed into Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR sign in</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Activation code: %s
+
+1. Tap 'Open website' below to open the 'Connect a device' website
+2. Paste from the clipboard (or type out) the activation code shown above
+3. Sign in to Google if prompted. If you have multiple accounts then choose this YouTube account
+4. Tap 'Allow YouTube VR' access
+5. Return to this app after reaching the 'Device connected' message"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Open website</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instructions</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Continue</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Signing in to Android VR can fix playback issues for some users
+
+To sign in, press continue below"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Sign out</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Sign in to Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Authentication saved
+
+• Your Morphe settings will not import/export Android VR authentication
+• If this app is unused for 6 months then Google will remove this authentication
+• You will need to sign in again if you change your Google password or deregister this device from your Google settings"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Successfully signed in</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Failed to issue an activation code</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Failed to issue an authentication token</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Show in Stats for nerds</string>
+    <string name="morphe_spoof_video_streams_summary_off">"Video streams are not spoofed
+
+Playback may not work"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"Video streams are spoofed
+
+If you are a YouTube Premium user, this setting may not be required"</string>
+    <string name="morphe_spoof_video_streams_title">Spoof video streams</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Turning off this setting may cause playback issues.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Advanced video quality menu is not shown.</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Advanced video quality menu is shown.</string>
     <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>
@@ -102,11 +199,6 @@ Automotive layout
 • Shorts open in regular player.
 • Feed is organized by topics and channels.
 • Video description cannot be opened when 'Spoof streaming data' is turned off."</string>
-    <string name="revanced_change_live_ring_click_action_summary_off">Live stream opens when the live ring is clicked.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"Channel opens when the live ring is clicked.
-
-Limitation: When the Shorts live stream is opened in regular player due to the 'Open Shorts in regular player' setting, channel does not open."</string>
-    <string name="revanced_change_live_ring_click_action_title">Change live ring click action</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Switch toggles are used.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Text toggles are used.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Change toggle type</string>
@@ -166,6 +258,7 @@ Limitation: Back button on the toolbar may not work."</string>
     <string name="revanced_confirm_user_dialog_title">Are you sure you want to proceed?</string>
     <string name="revanced_copy">Copy</string>
     <string name="revanced_copy_error">Failed to copy text</string>
+    <string name="revanced_credits_title">Credits</string>
     <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter, separated by new lines.</string>
     <string name="revanced_custom_filter_strings_title">Custom filter</string>
     <string name="revanced_custom_filter_summary_off">Custom filter is disabled.</string>
@@ -236,11 +329,6 @@ Limitation: Back button on the toolbar may not work."</string>
 
 Info: In some accounts, the original audio track is used."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Forced auto audio tracks are disabled.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on_disclaimer">"Forced auto audio tracks are disabled.
-
-This may not work for some users, if it doesn't work for you:
-1. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use JavaScript client'.
-2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV Simply'."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disable forced auto audio tracks</string>
     <string name="revanced_disable_auto_captions_summary_off">Forced auto captions are enabled.</string>
     <string name="revanced_disable_auto_captions_summary_on">Forced auto captions are disabled.</string>
@@ -273,15 +361,15 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptic feedback is enabled.</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptic feedback is disabled.</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Disable chapters haptic feedback</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Haptic feedback is enabled.</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Haptic feedback is disabled.</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_title">Disable scrubbing haptic feedback</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_off">Haptic feedback is enabled.</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_on">Haptic feedback is disabled.</string>
-    <string name="revanced_disable_haptic_feedback_seek_title">Disable seek haptic feedback</string>
+    <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Precise seeking haptics is enabled.</string>
+    <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Precise seeking haptics is disabled.</string>
+    <string name="revanced_disable_haptic_feedback_precise_seeking_title">Disable precise seeking haptics</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Haptic feedback is enabled.</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Haptic feedback is disabled.</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_title">Disable seek undo haptic feedback</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">Tap and hold haptics is enabled.</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">Tap and hold haptics is disabled.</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_title">Disable tap and hold haptics</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Haptic feedback is enabled.</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Haptic feedback is disabled.</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Disable zoom haptic feedback</string>
@@ -526,8 +614,12 @@ If the 'Playback' setting is still broken even after enabling or disabling this 
 
 Known issue: Sometimes the swipe overlay appears before switching to fullscreen mode."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">Fix swipe controls tap and hold speed</string>
+    <string name="revanced_fix_transcript_summary_off">Transcript may not be available due to a precondition check failure.</string>
+    <string name="revanced_fix_transcript_summary_on">Transcript is available.</string>
+    <string name="revanced_fix_transcript_title">Fix transcript</string>
     <string name="revanced_fullscreen_ads_closed_toast">Fullscreen ads are closed.</string>
     <string name="revanced_gemini_cancelled">Canceled</string>
+    <string name="revanced_gemini_chat_input_hint">Ask about this video</string>
     <string name="revanced_gemini_copy_success">Summary copied to clipboard.</string>
     <string name="revanced_gemini_error_already_running_summarize">Summarization already in progress.</string>
     <string name="revanced_gemini_error_already_running_transcribe">Transcription already in progress.</string>
@@ -566,11 +658,13 @@ Known issue: Sometimes the swipe overlay appears before switching to fullscreen 
     <string name="revanced_hide_account_menu_summary">"Hide elements of the account menu and You tab.
 Some components may not be hidden."</string>
     <string name="revanced_hide_account_menu_title">Hide account menu</string>
+    <string name="revanced_hide_action_bar_summary_off">Action bar is shown.</string>
+    <string name="revanced_hide_action_bar_summary_on">Action bar is hidden.</string>
+    <string name="revanced_hide_action_bar_title">Hide action bar</string>
     <string name="revanced_hide_action_button_index_summary_off">"Action buttons are hidden by identifier filter.
 
 Info:
-• Right action buttons are hidden.
-• Hiding action buttons leaves empty space."</string>
+• Supported action buttons are removed without leaving empty space."</string>
     <string name="revanced_hide_action_button_index_summary_on">"Action buttons are hidden by index.
 
 Info:
@@ -937,11 +1031,6 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Ambient mode menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ambient mode menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Hide Ambient mode menu</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_not_available">"Audio track menu is hidden.
-
-To show the Audio track menu:
-1. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and turn on 'Use JavaScript client'.
-2. Go to Settings - RVX - Miscellaneous - Spoof streaming data, and change 'Default client' to 'TV Simply'."</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Audio track menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Audio track menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Hide Audio track menu</string>
@@ -1004,6 +1093,9 @@ To show the Audio track menu:
 
 Limitation: All overlay buttons may be hidden after the video ends."</string>
     <string name="revanced_hide_player_fullscreen_button_title">Hide Fullscreen button</string>
+    <string name="revanced_hide_player_popup_ads_summary_off">Player popup ads are shown.</string>
+    <string name="revanced_hide_player_popup_ads_summary_on">Player popup ads are hidden.</string>
+    <string name="revanced_hide_player_popup_ads_title">Hide player popup ads</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Previous &amp; Next buttons are shown.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Previous &amp; Next buttons are hidden.</string>
     <string name="revanced_hide_player_previous_next_button_title">Hide Previous &amp; Next buttons</string>
@@ -1589,7 +1681,6 @@ Known issue: When this setting is enabled, YouTube Doodles are not clickable."</
     <string name="revanced_language_ZH">"Chinese
 <small>中文</small>"</string>
     <string name="revanced_language_title">RVX language</string>
-    <string name="revanced_minimize">Minimize</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Double-tap action and pinch to resize is enabled.
 
@@ -1641,9 +1732,6 @@ Miniplayer can be dragged off-screen to the left or right."</string>
     <string name="revanced_open_links_externally_summary_off">Opens links in in-app browser.</string>
     <string name="revanced_open_links_externally_summary_on">Opens links in external browser.</string>
     <string name="revanced_open_links_externally_title">Open links externally</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_off">Do not open Shorts in regular player.</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_on">Open Shorts in regular player.</string>
-    <string name="revanced_open_shorts_in_regular_player_title">Open Shorts in regular player</string>
     <string name="revanced_overlay_button">Overlay buttons</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Tap to toggle always repeat states.
 Tap and hold to toggle pause after repeat states."</string>
@@ -1665,8 +1753,8 @@ AI-generated responses may contain inaccurate information.
 Tap here to get an API key."</string>
     <string name="revanced_overlay_button_gemini_about_title">About Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize">Summarize</string>
-    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Get API key at https://aistudio.google.com/apikey"</string>
-    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API key</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Enter one Gemini API key per line. Get API keys at https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API keys</string>
     <string name="revanced_overlay_button_gemini_summarize_summary">"Tap to summarize the video. Tap and hold to transcribe.
 
 Summarized and transcribed results are saved unless you closed the app or used Gemini on another video. Tap the button again to view results."</string>
@@ -1700,6 +1788,8 @@ Info:
 Tap and hold to reset playback speed to 1.0x. Tap and hold again to reset back to default speed."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Show speed dialog button</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">Speed dialog type</string>
+    <string name="revanced_overlay_button_vot_summary">Show overlay button to toggle voice-over translation for the current video</string>
+    <string name="revanced_overlay_button_vot_title">Voice Over Translation</string>
     <string name="revanced_overlay_button_whitelist_summary">"Tap to open whitelist dialog.
 Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_overlay_button_whitelist_title">Show whitelist button</string>
@@ -1812,8 +1902,6 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
     <string name="revanced_preference_screen_snack_bar_summary">Hide or change snack bar related components.</string>
     <string name="revanced_preference_screen_snack_bar_title">Snack bar</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_summary">Spoof the streaming data to prevent playback issues.</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_title">Spoof streaming data</string>
     <string name="revanced_preference_screen_swipe_controls_title">Swipe controls</string>
     <string name="revanced_preference_screen_toolbar_summary">Hide or change toolbar components, such as the header, search bar, and toolbar buttons.</string>
     <string name="revanced_preference_screen_toolbar_title">Toolbar</string>
@@ -1822,6 +1910,7 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_screen_video_filter_summary">Hide videos by keywords or views.</string>
     <string name="revanced_preference_screen_video_filter_title">Video filter</string>
     <string name="revanced_preference_screen_video_title">Video</string>
+    <string name="revanced_preference_screen_vot_title">Voice Over Translation</string>
     <string name="revanced_preference_screen_watch_history_summary">Change settings related with watch history.</string>
     <string name="revanced_preference_screen_watch_history_title">Watch history</string>
     <string name="revanced_queue_manager_add_to_queue">Add to queue</string>
@@ -2222,6 +2311,7 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_vote_upvote">Upvote</string>
     <string name="revanced_search_settings_category_title">Search settings</string>
     <string name="revanced_search_title">Search</string>
+    <string name="revanced_send">Send</string>
     <string name="revanced_set_transcript_cookies_all_summary_off">Cookies are set only for auto-translated subtitle requests.</string>
     <string name="revanced_set_transcript_cookies_all_summary_on">Cookies are set for all Transcript API requests.</string>
     <string name="revanced_set_transcript_cookies_all_title">Set Cookies for all Transcript API requests</string>
@@ -2336,6 +2426,10 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">Height percentage must be between 0-100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Configure the height percentage of the empty space left when the navigation bar is hidden, between 0 and 100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Height percentage of empty space</string>
+    <string name="revanced_shorts_player_type_regular_player">Regular player</string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">Regular player fullscreen</string>
+    <string name="revanced_shorts_player_type_shorts">Shorts player</string>
+    <string name="revanced_shorts_player_type_title">Open Shorts with</string>
     <string name="revanced_show_video_title_section_summary">"Shows the video title section in fullscreen.
 
 Limitation: Video title disappears when clicked."</string>
@@ -2354,20 +2448,9 @@ Limitation: Video title disappears when clicked."</string>
 • If later turned off, the old UI may remain until clear the app data."</string>
     <string name="revanced_spoof_app_version_summary_off">Version not spoofed</string>
     <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
-    <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - Restore old UI layout</string>
-    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Restore old playlist shelf</string>
-    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restore old comment input box</string>
-    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restore old player flyout panel</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restore old Shorts action bar</string>
-    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restore old default video quality behavior</string>
-    <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Disable views and likes from being updated in real time</string>
-    <string name="revanced_spoof_app_version_target_entry_19_01_34">19.01.34 - Disable video description interaction</string>
-    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Restore old style Rolling number animations</string>
-    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Disable Cairo icon in navigation and toolbar</string>
-    <string name="revanced_spoof_app_version_target_entry_19_28_42">19.28.42 - Restore old playlist header</string>
-    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restore old playback speed flyout panel</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restore Transcript functionality</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Restore non collapsed video action bar</string>
+    <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Restore old components filter</string>
     <string name="revanced_spoof_app_version_target_entry_title">Spoof app version target</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Invalid spoof app version: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Type the spoof app version target.</string>
@@ -2384,68 +2467,14 @@ Info:
 • High quality may be unlocked on some videos that require high device dimensions, but not all videos.
 • This setting is not available if 'Spoof streaming data' is turned on."</string>
     <string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
-    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">Video codec is AVC (H.264) or VP9.</string>
-    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"Video codec is AVC (H.264), VP9 or AV1.
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">Video codec is AVC (H.264) or VP9</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"Video codec is AVC (H.264), VP9, or AV1
 
-Playback may stutter or drop frames."</string>
-    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_title">Enable AV1 codec</string>
+Playback may stutter or drop frames"</string>
+    <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_title">Allow Android VR AV1</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message">"Enabling this setting may use software AV1 decoding.
 
-Playback may stutter or drop frames."</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">"Android Studio
-<small>(Login required)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">"Android
-<small>(No SDK)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">"TV
-<small>(Legacy)</small>"</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">"visionOS
-<small>(Unreleased)</small>"</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">Default client</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Try changing the default client to TV Simply.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_off">Video codecs are prioritized.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_summary_on">Video quality is prioritized.</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_title">Prioritize video quality</string>
-    <string name="revanced_spoof_streaming_data_prioritize_video_quality_user_dialog_message">"Some videos have the following video quality and codecs:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-If the device supports VP9, '1080p AVC' and '720p AVC' are ignored.
-
-In other words, '360p VP9' is used as the highest video quality, and '1080p AVC' and '720p AVC' are not visible in the video quality flyout menu.
-
-This is the intended behavior of the Android YouTube app, and this is why the video quality flyout menu was unavailable for some videos.
-
-Although VP9 is a more advanced codec than AVC, some users may prefer '1080p AVC' over '360p VP9'.
-
-If this setting is enabled, the highest available video quality from the server response is used, regardless of the video codec.
-
-Example 1:
-
-• 1080p AVC
-• 720p AVC
-• 360p VP9
-
-→ 1080p AVC is used.
-
-Example 2:
-
-• 1080p AVC
-• 1080p VP9
-• 720p VP9
-
-→ 1080p VP9 is used."</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_off">Reload video button is shown when loading spinner showing.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_summary_on">Reload video button is always shown.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_always_show_title">Always show reload video button</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_off">Reload video button is hidden.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_summary_on">Reload video button is shown.</string>
-    <string name="revanced_spoof_streaming_data_reload_video_button_title">Show reload video button</string>
+Video playback with AV1 may stutter or drop frames."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Audio track menu is missing.
 • Disable forced auto audio tracks is not available.
 • Stable volume is not available.
@@ -2501,62 +2530,36 @@ Example 2:
 • Kids videos may not play when logged out or in incognito mode.
 • 360° VR immersive mode is not available.
 • Since this is an unreleased client, it may stop working at any time."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Click here to see how to sign in to Android VR.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Sign in to Android VR</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Activation code:
-%s
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Not signed in to Android VR. Tap here to sign in</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Android VR sign in</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Activation code: %s
 
-1. Click 'Open website' to go to 'https://yt.be/activate'.
-2. Enter the activation code.
-3. Sign in when prompted. If you have multiple Google Accounts, select the account you use with YouTube. If you're already signed in, skip to the next step.
-4. Once signed in, return to RVX and click 'Sign in to Android VR' again.
-5. Click 'Get authorization token' to get an authorization token."</string>
+1. Tap 'Open website' below to open the 'Connect a device' website
+2. Paste from the clipboard (or type out) the activation code shown above
+3. Sign in to Google if prompted. If you have multiple accounts then choose this YouTube account
+4. Tap 'Allow YouTube VR' access
+5. Return to this app after reaching the 'Device connected' message"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website">Open website</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Open website</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Activation code</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Instructions</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Activation code copied to clipboard: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Get activation code</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Get authorization token</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Signing in to Android VR (YouTube VR) follows the guidelines provided by Google (Google account authorization - OAuth 2.0 for TV and Limited-Input Device Applications):
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Authentication saved
 
-1. Click 'Get activation code' to generate an activation code.
-2. Click 'Open website' to go to 'https://yt.be/activate'.
-3. Enter the activation code.
-4. Sign in when prompted. If you have multiple Google Accounts, select the account you use with YouTube. If you're already signed in, skip to the next step.
-5. Once signed in, return to RVX and click 'Sign in to Android VR' again.
-6. Click 'Get authorization token' to get an authorization token.
-
-※ Click 'Reset' to remove an authentication token or activation code."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Reset</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Sign in to Android VR</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Authentication token saved.
-
-- Authentication token issued through this process can only be used in YouTube VR (In RVX, it is used to fetch streaming data from YouTube VR).
-- Authentication token unused for more than 6 months will be revoked by Google servers.
-- If you change your password, or deregister a device in your account settings, or uninstall the app, you will need to reissue the authentication token."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Signed in</string>
+• Your Morphe settings will not import/export Android VR authentication
+• If this app is unused for 6 months then Google will remove this authentication
+• You will need to sign in again if you change your Google password or deregister this device from your Google settings"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Successfully signed in</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Failed to issue an authentication token.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Click Reset and try again.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Authentication token and activation code reset.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client used to fetch streaming data is hidden in Stats for nerds.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client used to fetch streaming data is shown in Stats for nerds.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
-    <string name="revanced_spoof_streaming_data_summary_off">"Streaming data is not spoofed. Video playback may not work."</string>
-    <string name="revanced_spoof_streaming_data_summary_on">"Streaming data is spoofed.
+    <string name="revanced_spoof_streaming_data_summary_off">"Video streams are not spoofed
 
-If you are a YouTube Premium user, this setting may not be necessary."</string>
-    <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
+Playback may not work"</string>
+    <string name="revanced_spoof_streaming_data_summary_on">"Video streams are spoofed
+
+If you are a YouTube Premium user, this setting may not be required"</string>
+    <string name="revanced_spoof_streaming_data_title">Spoof video streams</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_off">"JavaScript client is not used for some videos that require fast playback:
-
-• Autoplay in feed
-• Clips
-• Shorts"</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_summary_on">"JavaScript client is used regardless of video type.
-
-• JavaScript client still cannot play some videos."</string>
-    <string name="revanced_spoof_streaming_data_use_js_all_title">Use JavaScript client for all videos</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_summary">Click for more information.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_about_title">About fake buffering</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_message">"One reason videos start too late in the JavaScript client is due to YouTube's new anti-adblock measures.
 
 When a video ad is blocked, GVS (Google Video Server) generate fake buffering proportional to the ad duration (A/B testing).
@@ -2566,12 +2569,6 @@ uBlock Origin has found a workaround for this issue, which can be enabled via th
 Click 'Open' to read the article."</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_open_text">Open</string>
     <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_dialog_title">"YouTube's new anti-adblock measures"</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_off">Bypass fake buffering is disabled.</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_summary_on">"Bypass fake buffering is enabled.
-
-Limitations:
-• Due to server-side changes, this may stop working at any time."</string>
-    <string name="revanced_spoof_streaming_data_use_js_bypass_fake_buffering_title">Bypass fake buffering</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_off">JavaScript client not added to available clients.</string>
     <string name="revanced_spoof_streaming_data_use_js_summary_on">JavaScript client added to the available clients.</string>
     <string name="revanced_spoof_streaming_data_use_js_title">Use JavaScript client</string>
@@ -2584,24 +2581,7 @@ This can be easily resolved by clicking the 'Reload video button' in the player 
 (Prerequisites: Both 'Show reload video button' and 'Always show reload video button' are enabled)
 
 Among JavaScript clients, the recommended client is TV Simply."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_off">"Player JavaScript for deobfuscation is not kept up to date.
-
-• Player JavaScript that succeeds in deobfuscation is used, but it is still somewhat server-dependent."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary_on">"Player JavaScript for deobfuscation is kept up to date.
-
-• It is highly server-dependent, and the success or failure of deobfuscation depends on the Player JavaScript currently used on the server.
-• If you're having issues with JavaScript client, try disabling this first."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Use latest player JavaScript</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_off">"SmartTube extractor is used.
-
-• Player JavaScript for deobfuscation is not up to date.
-• This will be deprecated by servers in the near future."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary_on">"External JavaScript for yt-dlp (yt-dlp-ejs) is used.
-
-• Player JavaScript for deobfuscation is kept up to date.
-• It may take 5 to 15 seconds for the video to start."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Use yt-dlp ejs (WIP)</string>
-    <string name="revanced_spoof_streaming_data_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+    <string name="revanced_spoof_streaming_data_user_dialog_message">Turning off this setting may cause playback issues.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Click to see how to get an authentication token.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">About Android VR Auth</string>
     <string name="revanced_swipe_brightness_distance_summary">The amount of pixels to swipe to change the brightness. Lower values make the brightness change faster, higher values make it slower (1-1000).</string>
@@ -2732,6 +2712,43 @@ Disclaimer: Cookies issued without signing in may be invalid or may take time to
     <string name="revanced_transcript_cookies_summary">Cookies to use in Transcript API requests.</string>
     <string name="revanced_transcript_cookies_title">Transcript Cookies</string>
     <string name="revanced_translations_title">Translations</string>
+    <string name="revanced_vot_audio_proxy_summary_off">Audio stream uses direct URL</string>
+    <string name="revanced_vot_audio_proxy_summary_on">Audio stream is proxied through the worker</string>
+    <string name="revanced_vot_audio_proxy_title">Proxy audio stream</string>
+    <string name="revanced_vot_enabled_summary_off">Yandex voice-over translation is disabled</string>
+    <string name="revanced_vot_enabled_summary_on">Yandex voice-over translation is enabled</string>
+    <string name="revanced_vot_enabled_title">Enable Voice Over Translation</string>
+    <string name="revanced_vot_lang_auto">Auto-detect</string>
+    <string name="revanced_vot_live_voices_unavailable">Live voices unavailable, using standard</string>
+    <string name="revanced_vot_original_audio_volume_summary">Volume of the original video track when translation is playing (0-100). Default: 50</string>
+    <string name="revanced_vot_original_audio_volume_title">Original audio volume</string>
+    <string name="revanced_vot_percent_value">%d%%</string>
+    <string name="revanced_vot_playback_error">Failed to play translation audio</string>
+    <string name="revanced_vot_proxy_url_summary">VOT worker proxy host. Default: vot-worker.toil.cc</string>
+    <string name="revanced_vot_proxy_url_title">Proxy server</string>
+    <string name="revanced_vot_source_language_summary">Select the language of the video audio</string>
+    <string name="revanced_vot_source_language_title">Source language</string>
+    <string name="revanced_vot_started">Translation started</string>
+    <string name="revanced_vot_stopped">Translation stopped</string>
+    <string name="revanced_vot_stream_not_ready">Translation not ready. Use the button to enable when ready.</string>
+    <string name="revanced_vot_stream_ready">Translation ready, playing</string>
+    <string name="revanced_vot_stream_requesting">Requesting translation for stream…</string>
+    <string name="revanced_vot_stream_waiting">Waiting… ~%s</string>
+    <string name="revanced_vot_target_language_summary">Select the language to translate to</string>
+    <string name="revanced_vot_target_language_title">Target language</string>
+    <string name="revanced_vot_time_min">%d min</string>
+    <string name="revanced_vot_time_sec">%d sec</string>
+    <string name="revanced_vot_translation_volume_summary">Volume of the translated audio track (0-100). Default: 100</string>
+    <string name="revanced_vot_translation_volume_title">Translation volume</string>
+    <string name="revanced_vot_unavailable_live">Translation is not available for live streams</string>
+    <string name="revanced_vot_unavailable_same_language">Video audio is already in the target language</string>
+    <string name="revanced_vot_unavailable_too_long">Video is too long for translation (max 4 hours)</string>
+    <string name="revanced_vot_voice_style_live">Live voices</string>
+    <string name="revanced_vot_voice_style_live_summary_off">Standard TTS voices</string>
+    <string name="revanced_vot_voice_style_live_summary_on">Natural-sounding voices from Yandex</string>
+    <string name="revanced_vot_voice_style_live_title">Live voices</string>
+    <string name="revanced_vot_voice_style_standard">Standard voices</string>
+    <string name="revanced_vot_voice_style_title">Voice-over style</string>
     <string name="revanced_watch_history_about_status_blocked">• Watch history is blocked.</string>
     <string name="revanced_watch_history_about_status_original">"• Follows the watch history settings of Google account.
 • Watch history may not work due to DNS or VPN."</string>
@@ -2745,10 +2762,6 @@ Disclaimer: Cookies issued without signing in may be invalid or may take time to
     <string name="revanced_watch_history_type_title">Watch history type</string>
     <string name="revanced_watch_next_processing_delay_summary">The amount of milliseconds delay in processing the watch next response.</string>
     <string name="revanced_watch_next_processing_delay_title">Watch next processing delay</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">Get Cookies</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">Get Data Sync Id</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">Get Visitor Data</string>
-    <string name="revanced_webview_contextual_menu_refresh">Refresh</string>
     <string name="revanced_webview_cookies">Cookies</string>
     <string name="revanced_webview_copy">Copy</string>
     <string name="revanced_webview_data_sync_id">Data Sync Id</string>

@@ -2,13 +2,93 @@
 <resources>
     <string name="gms_core_dialog_continue_text">Продължи</string>
     <string name="gms_core_dialog_open_website_text">Отвори уебсайт</string>
+    <string name="morphe_disable_drc_audio_summary_off">DRC аудио е включено</string>
+    <string name="morphe_disable_drc_audio_summary_on">DRC аудио е изключено</string>
+    <string name="morphe_disable_drc_audio_title">Изключете DRC аудио</string>
+    <string name="morphe_disable_quic_protocol_summary_off">Протокола QUIC е включен</string>
+    <string name="morphe_disable_quic_protocol_summary_on">Протокола QUIC е изключен</string>
+    <string name="morphe_disable_quic_protocol_title">Изключи протокола QUIC</string>
+    <string name="morphe_force_original_audio_not_available">За да използвате тази функция, променете \'Имитиране на видео потоци\' на Android Reel или TV</string>
+    <string name="morphe_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
+    <string name="morphe_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
+    <string name="morphe_force_original_audio_title">Принудително оригинален аудио език</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">Не може да се впишете в VR: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Не може да се впишете в VR, защото идентификацията на уебсайта не е одобрена</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 временно не е достъпен</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 временно не е достъпен (статус %d).</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Входът за Android VR е изтекъл, опитайте се да влезете в VR отново</string>
+    <string name="morphe_oauth2_connection_failure_timeout">Временно не е възможно OAuth2 (изтекло време на API).</string>
+    <string name="morphe_oauth2_toast_invalid">Невалиден токен за VR, опитайте се да се влезете в VR отново</string>
+    <string name="morphe_oauth2_toast_reset">Излезли сте от Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">Споделяните връзки използват music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">Споделяните връзки използват youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">Сменете споделяните връзки на youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">Параметърът за отчитане не е премахнат от споделяни връзки</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">Параметърът за следене е премахнат от споделяни връзки</string>
+    <string name="morphe_sanitize_sharing_links_title">Почистване на споделените връзки</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Актуализацията на JavaScript за плейъра е активирана</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Актуализацията на JavaScript за плейъра е деактивирана
+
+• Необходим е валиден JavaScript хеш на плейъра.
+• Възпроизвеждането се проваля, ако JavaScript хеш на плейъра е отменен в GVS"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Деактивиране на актуализацията на JavaScript за плейъра</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript хешовете на плейъра са валидни приблизително един месец и остарелите хешове може да бъдат отменени от GVS.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Пробвайте да вкл. Подправяне на видеопотокове &gt; Вход в Android VR</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Не може да се изтеглят клиентски потоци</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Въведете валиден JavaScript хеш на плейъра</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">JavaScript хеш на играча</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Подправете клиентските видео потоци, за да предотвратите проблеми с възпроизвеждането</string>
+    <string name="morphe_spoof_video_streams_screen_title">Подправяне на видео потоци</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Несте влезли в Android VR. Натиснете тук за да се влезете.</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">За да използвате тази функционалност, променете \'Стандартен клиент\' на Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Входът в Android VR е активен</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Вход в Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Код за активация: %s
+
+1. Натиснете 'Отвори уебсайт' отдолу, за да отворите уебсайта 'Приклейте уебсайт'
+2. Вмъкнете от клипборда (или напишете) кода за активация, показан отгоре
+3. Влезте в Google, ако ви е нужно. Ако имате повече сметки, изберете тази сметка YouTube
+4. Натиснете 'Разрешете YouTube VR' достъп
+5. Върнете се в това приложение след като достигнете съобщението 'Уебсайт приклеен'"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Отвори уебсайта</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Инструкции</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Продължи</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Вход в Android VR може да реши проблеми с възпроизвеждане за някои потребители
+
+За да се влезете, натиснете \"Продължи\" отдолу"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Изход</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Вход за Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Автентификацията е запазена
+
+• Настройките за Morphe няма да бъдат импортирани/експортирани за Android VR автентификация
+• Ако приложението не се използва в продължение на 6 месеца, Google ще премахне тази автентификация
+• Ще трябва да се впишете отново, ако промените своя Google парола или изключите това устройство от Google настройки"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Успешно се влязохте</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Неуспешно издаване на код за активация</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Неуспешно издаване на код за авторизация</string>
+    <string name="morphe_spoof_video_streams_summary_off">"Видеопотоците не са подправени
+
+Възпроизвеждането може да не работи"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"Видео потоците са подправени
+
+Ако сте потребител на YouTube Premium, това настройка може да не е нужна"</string>
+    <string name="morphe_spoof_video_streams_title">Подправяне на видео потоци</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Изключването на тази настройка може да причини проблеми при възпроизвеждане.</string>
     <string name="revanced_change_player_background_color_title">Смени фоновия цвят на плейъра</string>
     <string name="revanced_change_start_page_entry_chart">Хит-парад</string>
-    <string name="revanced_change_start_page_entry_explore">Преглед</string>
+    <string name="revanced_change_start_page_entry_charts">Графики</string>
+    <string name="revanced_change_start_page_entry_default">По подразбиране</string>
+    <string name="revanced_change_start_page_entry_episodes_for_later">Епизоди за по-късно</string>
+    <string name="revanced_change_start_page_entry_explore">Изискане</string>
+    <string name="revanced_change_start_page_entry_history">История</string>
     <string name="revanced_change_start_page_entry_library">Библиотека</string>
+    <string name="revanced_change_start_page_entry_liked_music">Предпочитания</string>
+    <string name="revanced_change_start_page_entry_search">Търсене</string>
     <string name="revanced_change_start_page_entry_subscription">Абонаменти</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Абонаменти</string>
     <string name="revanced_change_start_page_summary">Изберете на коя страница да се отвори приложението.</string>
-    <string name="revanced_change_start_page_title">Промяна на началната страница</string>
+    <string name="revanced_change_start_page_title">Смени стартова страница</string>
     <string name="revanced_custom_filter_strings_summary">Филтриране на компонентите по имена.</string>
     <string name="revanced_custom_filter_strings_title">Редактиране на потребителския филтъра</string>
     <string name="revanced_custom_filter_summary">Активира персонализиран филтър за скриване на компонентите на оформлението.</string>
@@ -22,6 +102,8 @@
     <string name="revanced_disable_auto_captions_title">Изкл. принудителни автоматични субтититри</string>
     <string name="revanced_disable_dislike_redirection_summary">Деактивира пренасочването към следващата песен, когато щракнете върху бутона „Не харесвам“.</string>
     <string name="revanced_disable_dislike_redirection_title">Désactiver la redirection du bouton \"Je n\'aime pas\"</string>
+    <string name="revanced_disable_drc_audio_title">Изключете DRC аудио</string>
+    <string name="revanced_disable_quic_protocol_title">Изключи протокола QUIC</string>
     <string name="revanced_enable_compact_dialog_summary">"Активира компактно изскачащо меню на телефони.
 
 Известни проблеми:
@@ -162,6 +244,7 @@
     <string name="revanced_replace_flyout_menu_report_only_player_title">Запазете доклада в коментарите</string>
     <string name="revanced_replace_flyout_menu_report_summary">Заменя менюто Доклад с менюто Скорост на възпроизвеждане.</string>
     <string name="revanced_replace_flyout_menu_report_title">Заменете менюто „Докладвай“</string>
+    <string name="revanced_restart_first_run">Рестартирайте, за да завършите настройката</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Възстановява стария стил на рафт \"Библиотека\". (Експериментално)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Възстановете стария стил на рафта „Библиотека“</string>
     <string name="revanced_ryd_about">Относно</string>
@@ -169,6 +252,7 @@
     <string name="revanced_ryd_compact_layout_title">Компактен бутон за харесване</string>
     <string name="revanced_ryd_dislike_percentage_title">Нехаресвания като процент</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Нехаресванията не са достъпни (достигнат лимит на API).</string>
+    <string name="revanced_sanitize_sharing_links_title">Почистване на споделените връзки</string>
     <string name="revanced_spoof_app_version_summary">"Заменя клиентската версия със старата.
 
 • Това ще промени външния вид на приложението, но може да възникнат неизвестни проблеми.
@@ -178,4 +262,5 @@
     <string name="revanced_spoof_app_version_target_summary">Задайте желаната фалшива версия на приложението.</string>
     <string name="revanced_spoof_app_version_target_title">Подлъгване за версията на приложението</string>
     <string name="revanced_spoof_app_version_title">Подлъгване за версията на приложението</string>
+    <string name="revanced_spoof_video_streams_title">Подправяне на видео потоци</string>
 </resources>

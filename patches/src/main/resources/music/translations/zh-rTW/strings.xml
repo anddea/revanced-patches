@@ -17,6 +17,79 @@
     <string name="gms_core_settings_summary">打開GmsCore 設定，並啟用雲端訊息已接收通知。</string>
     <string name="gms_core_settings_title">開啟 GmsCore 設定</string>
     <string name="gms_core_toast_not_installed_message">GmsCore未安裝，請安裝。</string>
+    <string name="morphe_disable_drc_audio_summary_off">已啟用 DRC 音效</string>
+    <string name="morphe_disable_drc_audio_summary_on">已停用 DRC 音效</string>
+    <string name="morphe_disable_drc_audio_title">停用 DRC 音效</string>
+    <string name="morphe_disable_quic_protocol_summary_off">已啟用 QUIC 協定</string>
+    <string name="morphe_disable_quic_protocol_summary_on">已停用 QUIC 協定</string>
+    <string name="morphe_disable_quic_protocol_title">停用 QUIC 協定</string>
+    <string name="morphe_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Reel 或 TV</string>
+    <string name="morphe_force_original_audio_summary_off">使用預設音訊</string>
+    <string name="morphe_force_original_audio_summary_on">正在使用原始音訊語言</string>
+    <string name="morphe_force_original_audio_title">強制使用原始音訊語言</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">無法登入 VR：%s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">無法登入 VR，網站驗證未獲批准</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 暫時不可用</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 暫時不可用（狀態 %d）</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Android VR 登入逾期，請再次登入 VR</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暫時不可用（API 已逾時）</string>
+    <string name="morphe_oauth2_toast_invalid">VR 登入憑證無效，請再次登入 VR</string>
+    <string name="morphe_oauth2_toast_reset">已登出 Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">分享連結使用 music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">分享連結使用 youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">將分享連結更改為 youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">未從分享連結中移除追蹤查詢參數</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">已從分享連結中移除追蹤查詢參數</string>
+    <string name="morphe_sanitize_sharing_links_title">清理分享連結</string>
+    <string name="morphe_spoof_video_streams_client_type_title">預設用戶端</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">已啟用播放器 JavaScript 更新</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"播放器 JavaScript 更新已停用
+
+• 需要有效的播放器 JavaScript 雜湊值
+• 如果 GVS 撤銷了播放器 JavaScript 雜湊值，則會無法播放影片"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">停用播放器 JavaScript 更新</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">播放器 JavaScript 雜湊值有效期約一個月，且過期的雜湊值可能被 GVS 撤銷。</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">試試啟用：偽裝視訊串流 &gt; Android VR 登入</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">未能擷取任何用戶端串流</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">請輸入有效的播放器 JavaScript 雜湊值</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">播放器 JavaScript 雜湊值</string>
+    <string name="morphe_spoof_video_streams_screen_summary">偽裝用戶端影片串流以避免播放問題</string>
+    <string name="morphe_spoof_video_streams_screen_title">偽裝影片串流</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">尚未登入 Android VR。輕觸這裡即可登入</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">如要使用這項功能，請將「預設用戶端」改為 Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">已登入 Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR 登入</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"啟動碼：%s
+
+1. 輕觸下方「開啟網站」以開啟「連線裝置」網站
+2. 從剪貼簿貼上（或手動輸入）上方顯示的啟動碼。
+3. 如果系統提示，請登入 Google 帳戶。如果你有多個帳戶， 請選擇這個 YouTube 帳戶
+4. 輕觸「允許 YouTube VR」存取權
+5. 看到「裝置已連結」訊息後，請返回這個應用程式"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">開啟網站</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">說明</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">繼續</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"登入 Android VR 可解決部分使用者的播放問題
+
+如要登入，請按下下方的「繼續」按鈕"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">登出</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">登入 Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"驗證已儲存
+
+• 你的 Morphe 設定不會匯入/匯出 Android VR 驗證資訊。
+• 如果這個應用程式超過 6 個月未使用，Google 將會移除這個驗證授權。
+• 如果你變更 Google 密碼，或在 Google 設定中取消註冊這個裝置，則需要重新登入。"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">成功登入</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">無法發出啟動碼</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">無法頒發驗證權杖</string>
+    <string name="morphe_spoof_video_streams_summary_off">"視訊串流未經偽裝
+
+影片可能無法播放"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"已偽裝視訊串流
+
+如果您是 YouTube Premium 使用者，則可能不需要此設定"</string>
+    <string name="morphe_spoof_video_streams_title">偽裝影片串流</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">關閉此設定可能會導致播放問題。</string>
     <string name="revanced_add_miniplayer_next_button_summary">在迷你播放器中新增下一首按鈕。</string>
     <string name="revanced_add_miniplayer_next_button_title">新增迷你播放器的下一首按鈕</string>
     <string name="revanced_add_miniplayer_previous_button_summary">在迷你播放器中新增上一首按鈕。</string>
@@ -40,18 +113,18 @@
     <string name="revanced_change_start_page_entry_chart">圖表</string>
     <string name="revanced_change_start_page_entry_charts">圖表</string>
     <string name="revanced_change_start_page_entry_default">預設</string>
-    <string name="revanced_change_start_page_entry_episodes_for_later">後續劇集</string>
+    <string name="revanced_change_start_page_entry_episodes_for_later">待播清單</string>
     <string name="revanced_change_start_page_entry_explore">探索</string>
-    <string name="revanced_change_start_page_entry_history">歷史紀錄</string>
+    <string name="revanced_change_start_page_entry_history">歷史記錄</string>
     <string name="revanced_change_start_page_entry_library">媒體庫</string>
     <string name="revanced_change_start_page_entry_liked_music">喜歡的音樂</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
     <string name="revanced_change_start_page_entry_samples">範例</string>
     <string name="revanced_change_start_page_entry_search">搜尋</string>
     <string name="revanced_change_start_page_entry_subscription">訂閱</string>
-    <string name="revanced_change_start_page_entry_subscriptions">訂閱</string>
+    <string name="revanced_change_start_page_entry_subscriptions">訂閱內容</string>
     <string name="revanced_change_start_page_summary">更改應用程式開啟時的頁面</string>
-    <string name="revanced_change_start_page_title">更改應用程式的起始頁面</string>
+    <string name="revanced_change_start_page_title">變更起始頁面</string>
     <string name="revanced_custom_filter_strings_summary">按行分隔篩選元件名稱</string>
     <string name="revanced_custom_filter_strings_title">編輯自訂篩選</string>
     <string name="revanced_custom_filter_summary">啟用自訂篩選以隱藏介面元件</string>
@@ -89,7 +162,7 @@
     <string name="revanced_disable_dislike_redirection_summary">點擊不喜歡按鈕時停用重定向到下一首歌曲</string>
     <string name="revanced_disable_dislike_redirection_title">停用不喜歡重定向</string>
     <string name="revanced_disable_drc_audio_summary">停用套用於音訊的 DRC（動態範圍壓縮）。</string>
-    <string name="revanced_disable_drc_audio_title">停用DRC音訊</string>
+    <string name="revanced_disable_drc_audio_title">停用 DRC 音效</string>
     <string name="revanced_disable_miniplayer_gesture_summary">停用迷你播放器中的滑動切換歌曲功能。</string>
     <string name="revanced_disable_miniplayer_gesture_title">停用迷你播放器手勢</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">點擊 歌曲/影片 按鈕</string>
@@ -106,7 +179,7 @@
     <string name="revanced_disable_player_gesture_summary">停用播放器中的滑動切換歌曲。</string>
     <string name="revanced_disable_player_gesture_title">停用播放器手勢</string>
     <string name="revanced_disable_quic_protocol_summary">"停用 CronetEngine 的 QUIC 協議。"</string>
-    <string name="revanced_disable_quic_protocol_title">停用 QUIC 協議</string>
+    <string name="revanced_disable_quic_protocol_title">停用 QUIC 協定</string>
     <string name="revanced_disable_trim_silence_summary">"在播放速度彈出選單中停用修改靜音開關。
 
 資訊：
@@ -364,7 +437,7 @@
     <string name="revanced_replace_navigation_upgrade_button_summary">替換升級按鈕為設定按鈕。</string>
     <string name="revanced_replace_navigation_upgrade_button_title">替換升級按鈕</string>
     <string name="revanced_reset_to_default_toast">重設為預設值。</string>
-    <string name="revanced_restart_first_run">重新啟動以正常載入介面佈局</string>
+    <string name="revanced_restart_first_run">重新啟動以完成設定</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">將留言彈出介面恢復為舊樣式</string>
     <string name="revanced_restore_old_comments_popup_panels_title">恢復舊版留言彈出介面</string>
     <string name="revanced_restore_old_player_background_summary">將播放器背景恢復為舊樣式</string>
@@ -516,15 +589,6 @@
     <string name="revanced_spoof_client_summary">偽裝客戶端以避免播放問題。</string>
     <string name="revanced_spoof_client_title">偽裝客戶端</string>
     <string name="revanced_spoof_client_type_title">預設客戶端</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">電視</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">電視舊版</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">預設用戶端</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">無法獲取任何客戶端串流。</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">嘗試將預設客戶端變更為 TV Simply。</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">點擊查看如何取得身份驗證令牌。</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">取得授權令牌</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">重置</string>
@@ -547,19 +611,6 @@
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">打開網站</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">啟動碼</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">啟動碼已複製到剪貼簿: %s。</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">取得啟動碼</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">取得授權令牌</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"登入 Android VR（YouTube VR）需遵循 Google 提供的指南（Google 帳戶授權 - 適用於電視和輸入限制裝置應用程式的 OAuth 2.0）：
-
-1. 點選「取得啟動碼」產生啟動碼。
-2. 點選「開啟網站」前往「https://yt.be/activate」。
-3. 輸入啟動碼。
-4. 出現提示時登入。如果您有多個 Google 帳戶，請選擇您用於 YouTube 的帳戶。如果您已登錄，請跳至下一步。
-5. 登入後，返回 RVX 並再次點選「登入 Android VR」。
-6. 點選「取得授權令牌」以取得授權令牌。
-※ 點選「重置」可移除授權令牌或啟動碼。"</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">重置</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">登入 Android VR</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"身份驗證令牌已儲存。
 
 - 透過此流程頒發的身份驗證令牌只能在 YouTube VR 中使用（在 RVX 中，它用於從 YouTube VR 獲取串流資料）。
@@ -569,16 +620,14 @@
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">頒發身份驗證令牌失敗。</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">點選重置按鈕然後重試。</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">身份驗證令牌和啟動碼重置。</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">顯示統計資料</string>
     <string name="revanced_spoof_streaming_data_summary">"串流資料已偽裝。
 
 如果您是 YouTube Premium 用戶，則可能無需進行此設定。"</string>
     <string name="revanced_spoof_streaming_data_title">偽裝串流數據</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">使用最新的播放器 JavaScript</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">使用 yt-dlp ejs (開發中)</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">點擊查看如何取得身份驗證令牌。</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">關於 Android VR 驗證</string>
     <string name="revanced_spoof_video_streams_default_client_title">預設用戶端</string>
+    <string name="revanced_spoof_video_streams_title">偽裝影片串流</string>
     <string name="revanced_translations_title">翻譯</string>
     <string name="revanced_watch_history_type_entry_1">原始</string>
     <string name="revanced_watch_history_type_entry_2">替換域名</string>
@@ -587,10 +636,6 @@
 ・更換域：關注谷歌帳戶的手錶歷史設定。
 ・封鎖觀看記錄：觀看記錄被封鎖。"</string>
     <string name="revanced_watch_history_type_title">觀看歷史類型</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">取得 Cookies</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">取得資料同步ID</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">取得訪客資料</string>
-    <string name="revanced_webview_contextual_menu_refresh">重新整理</string>
     <string name="revanced_webview_cookies">Cookies</string>
     <string name="revanced_webview_copy">複製</string>
     <string name="revanced_webview_data_sync_id">資料同步ID</string>

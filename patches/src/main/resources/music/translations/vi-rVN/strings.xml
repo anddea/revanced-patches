@@ -17,6 +17,79 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="gms_core_settings_summary">Chuyển hướng tới cài đặt GmsCore và kích hoạt Cloud Messaging để nhận thông báo đẩy.</string>
     <string name="gms_core_settings_title">Cài đặt GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore chưa được cài đặt. Hãy cài đặt nó đi nào.</string>
+    <string name="morphe_disable_drc_audio_summary_off">Tính năng nén dải động đã bật</string>
+    <string name="morphe_disable_drc_audio_summary_on">Tính năng nén dải động đã tắt</string>
+    <string name="morphe_disable_drc_audio_title">Tắt âm thanh DRC</string>
+    <string name="morphe_disable_quic_protocol_summary_off">Giao thức QUIC đã bật</string>
+    <string name="morphe_disable_quic_protocol_summary_on">Giao thức QUIC đã tắt</string>
+    <string name="morphe_disable_quic_protocol_title">Tắt giao thức QUIC</string>
+    <string name="morphe_force_original_audio_not_available">Để dùng tính năng này, hãy đổi \'Giả mạo luồng phát video\' thành Android Reel hoặc TV</string>
+    <string name="morphe_force_original_audio_summary_off">Đang dùng âm thanh mặc định</string>
+    <string name="morphe_force_original_audio_summary_on">Đang dùng ngôn ngữ âm thanh gốc</string>
+    <string name="morphe_force_original_audio_title">Buộc ngôn ngữ âm thanh gốc</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">Không thể đăng nhập vào VR: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Không thể đăng nhập vào VR vì xác thực qua trang web không được chấp thuận</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 tạm thời không khả dụng</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 tạm thời không khả dụng (trạng thái %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Phiên đăng nhập Android VR đã hết hạn, hãy thử đăng nhập lại vào VR</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 tạm thời không khả dụng (API đã hết thời gian chờ)</string>
+    <string name="morphe_oauth2_toast_invalid">Mã đăng nhập VR không hợp lệ, hãy thử đăng nhập lại vào VR</string>
+    <string name="morphe_oauth2_toast_reset">Đã đăng xuất khỏi Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">Liên kết chia sẻ bắt đầu bằng music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">Liên kết chia sẻ bắt đầu bằng youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">Thay đổi liên kết chia sẻ thành youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">Tham số truy vấn theo dõi không bị loại bỏ khỏi các liên kết được chia sẻ</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">Tham số truy vấn theo dõi bị loại bỏ khỏi các liên kết được chia sẻ</string>
+    <string name="morphe_sanitize_sharing_links_title">Rút gọn liên kết chia sẻ</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Client mặc định</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Cập nhật JavaScript của trình phát đã bật</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Cập nhật JavaScript của trình phát đã bị tắt
+
+• Cần có mã băm JavaScript hợp lệ
+• Video sẽ không phát được nếu mã băm này bị GVS thu hồi"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Tắt cập nhật JavaScript của trình phát</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Mã băm JavaScript của trình phát thường có hiệu lực khoảng một tháng, và các mã băm quá hạn có thể bị GVS thu hồi.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Hãy thử bật: Giả mạo luồng phát video &gt; Đăng nhập Android VR</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Không thể lấy bất kỳ luồng phát nào</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Nhập mã băm JavaScript hợp lệ của trình phát</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Mã băm JavaScript của trình phát</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Giả mạo luồng phát video của client nhằm ngăn chặn lỗi khi phát</string>
+    <string name="morphe_spoof_video_streams_screen_title">Giả mạo luồng phát video</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Chưa đăng nhập Android VR. Bấm vào đây để đăng nhập</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Để dùng tính năng này, thay đổi \'Client mặc định\' thành Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Đã đăng nhập vào Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Đăng nhập Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Mã kích hoạt: %s
+
+1. Bấm 'Mở trang web' dưới đây để mở trang web 'Kết nối thiết bị'
+2. Dán từ bảng nhớ tạm (hoặc gõ trực tiếp) mã kích hoạt được hiển thị ở trên
+3. Đăng nhập vào Google nếu được yêu cầu. Nếu bạn có nhiều tài khoản thì chọn tài khoản YouTube này
+4. Bấm 'Cho phép' YouTube VR truy cập
+5. Quay lại ứng dụng sau khi nhận được thông báo 'Kết nối thiết bị thành công'"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Mở trang web</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Hướng dẫn</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Tiếp tục</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Đăng nhập Android VR có thể sửa lỗi phát cho một số người dùng
+
+Bấm tiếp tục bên dưới để đăng nhập"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Đăng xuất</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Đăng nhập vào Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Đã lưu xác thực
+
+• Các cài đặt Morphe của bạn sẽ không nhập/xuất xác thực Android VR
+• Nếu ứng dụng này không được sử dụng trong 6 tháng thì Google sẽ xóa xác thực này
+• Nếu bạn thay đổi mật khẩu Google hoặc xóa bỏ cài đặt thiết bị này khỏi cài đặt Google thì cần đăng nhập lại"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Đã đăng nhập thành công</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Thất bại khi cấp mã kích hoạt</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Thất bại khi cấp mã xác thực</string>
+    <string name="morphe_spoof_video_streams_summary_off">"Luồng phát video không được giả mạo
+
+Có thể gặp lỗi khi phát."</string>
+    <string name="morphe_spoof_video_streams_summary_on">"Luồng phát video đã được giả mạo
+
+Nếu bạn đã mua gói Premium thì cài đặt này có thể không cần thiết"</string>
+    <string name="morphe_spoof_video_streams_title">Giả mạo luồng phát video</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Tắt cài đặt này có thể gây ra lỗi khi phát.</string>
     <string name="revanced_add_miniplayer_next_button_summary">Thêm nút bài hát tiếp theo vào trình phát thu nhỏ.</string>
     <string name="revanced_add_miniplayer_next_button_title">Nút tiếp theo trong trình phát thu nhỏ</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Thêm nút bài hát trước đó vào trình phát thu nhỏ.</string>
@@ -42,7 +115,7 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="revanced_change_start_page_entry_default">Mặc định</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Tập podcast để thưởng thức sau</string>
     <string name="revanced_change_start_page_entry_explore">Khám phá</string>
-    <string name="revanced_change_start_page_entry_history">Video đã xem</string>
+    <string name="revanced_change_start_page_entry_history">Lịch sử</string>
     <string name="revanced_change_start_page_entry_library">Thư viện</string>
     <string name="revanced_change_start_page_entry_liked_music">Nhạc đã thích</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
@@ -51,7 +124,7 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="revanced_change_start_page_entry_subscription">Kênh đăng ký</string>
     <string name="revanced_change_start_page_entry_subscriptions">Kênh đăng ký</string>
     <string name="revanced_change_start_page_summary">Chọn trang sẽ hiển thị khi bạn khởi động ứng dụng.</string>
-    <string name="revanced_change_start_page_title">Thay đổi trang khởi động</string>
+    <string name="revanced_change_start_page_title">Đổi trang khởi động</string>
     <string name="revanced_custom_filter_strings_summary">Nhập tên các mục mà bạn muốn lọc được phân cách bằng dòng.</string>
     <string name="revanced_custom_filter_strings_title">Chỉnh sửa bộ lọc</string>
     <string name="revanced_custom_filter_summary">Ẩn các thành phần không mong muốn bằng bộ lọc tuỳ chỉnh.</string>
@@ -92,7 +165,7 @@ Hạn chế: Nếu \"Giả mạo dữ liệu phát video\" đang bật và clien
     <string name="revanced_disable_dislike_redirection_summary">Không chuyển đến bài hát tiếp theo khi nhấn vào nút Không thích.</string>
     <string name="revanced_disable_dislike_redirection_title">Tắt chuyển hướng khi nhấn nút Không thích</string>
     <string name="revanced_disable_drc_audio_summary">Vô hiệu hoá tính năng nén dải động cho âm thanh.</string>
-    <string name="revanced_disable_drc_audio_title">Vô hiệu hoá DRC âm thanh</string>
+    <string name="revanced_disable_drc_audio_title">Tắt âm thanh DRC</string>
     <string name="revanced_disable_miniplayer_gesture_summary">Tắt vuốt để chuyển bài hát trong trình phát thu nhỏ.</string>
     <string name="revanced_disable_miniplayer_gesture_title">Tắt cử chỉ trình phát thu nhỏ</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Nhấn vào nút chuyển đổi giữa Bài hát và Video</string>
@@ -109,7 +182,7 @@ Hạn chế: Video dành cho trẻ em có thể không được chuyển hướn
     <string name="revanced_disable_player_gesture_summary">Tắt vuốt để chuyển bài hát trong trình phát.</string>
     <string name="revanced_disable_player_gesture_title">Tắt cử chỉ trình phát</string>
     <string name="revanced_disable_quic_protocol_summary">"Vô hiệu hoá giao thức QUIC của CronetEngine."</string>
-    <string name="revanced_disable_quic_protocol_title">Vô hiệu hoá giao thức QUIC</string>
+    <string name="revanced_disable_quic_protocol_title">Tắt giao thức QUIC</string>
     <string name="revanced_disable_trim_silence_summary">"Vô hiệu hoá nút Cắt bỏ khoảng lặng trong trình đơn tuỳ chọn tốc độ phát.
 
  Chi tiết:
@@ -384,7 +457,7 @@ Bạn có thể mở Thay đổi cài đặt trang khởi động bằng cách n
     <string name="revanced_replace_navigation_upgrade_button_summary">Thay thế nút Nâng cấp bằng nút Cài đặt.</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Thay thế nút Nâng cấp</string>
     <string name="revanced_reset_to_default_toast">Đặt lại về giá trị mặc định.</string>
-    <string name="revanced_restart_first_run">Vui lòng khởi động lại ứng dụng để các tính năng hoạt động bình thường</string>
+    <string name="revanced_restart_first_run">Khởi động lại để hoàn tất thiết lập</string>
     <string name="revanced_restart_message">Làm mới và khởi động lại</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Khôi phục bảng bình luận kiểu cũ.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Khôi phục bảng bình luận cũ</string>
@@ -431,7 +504,7 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Thông báo ngắn nếu API không khả dụng</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ẩn</string>
     <string name="revanced_sanitize_sharing_links_summary">Loại bỏ các tham số truy vấn theo dõi khỏi URL khi chia sẻ liên kết.</string>
-    <string name="revanced_sanitize_sharing_links_title">Liên kết sạch khi chia sẻ</string>
+    <string name="revanced_sanitize_sharing_links_title">Rút gọn liên kết chia sẻ</string>
     <string name="revanced_sb_about">Giới thiệu</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Dữ liệu được cung cấp bởi API SponsorBlock. Nhấn vào đây để tìm hiểu thêm và xem các bản tải xuống cho các nền tảng khác.</string>
@@ -553,18 +626,6 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
 Hạn chế (Chặn truy vấn):
 • Ứng dụng có thể bị buộc đóng khi đang dùng VPN hoặc DNS."</string>
     <string name="revanced_spoof_client_type_title">Loại client mặc định</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_creator">Android Studio</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_music_no_sdk">Android Music No SDK</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_no_sdk">Android No SDK</string>
-    <string name="revanced_spoof_streaming_data_client_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv">TV</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_legacy">TV Legacy</string>
-    <string name="revanced_spoof_streaming_data_client_entry_tv_simply">TV Simply</string>
-    <string name="revanced_spoof_streaming_data_client_entry_visionos">visionOS</string>
-    <string name="revanced_spoof_streaming_data_default_client_summary">Chọn client mặc định để giả mạo.</string>
-    <string name="revanced_spoof_streaming_data_default_client_title">Client mặc định</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">Không truy xuất được luồng phát từ bất kỳ client nào.</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Hãy thử chuyển client mặc định sang TV Simply.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Nhấn để xem cách lấy token xác thực.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Về xác thực Android No SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Nhấn vào đây để xem hướng dẫn đăng nhập vào Android No SDK.</string>
@@ -601,21 +662,6 @@ Chi tiết:
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Mở trang web</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Mã kích hoạt</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Đã sao chép mã kích hoạt vào bảng nhớ tạm: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_activation_code_text">Lấy mã kích hoạt</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_get_authorization_token_text">Lấy mã xác thực</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_message">"Đăng nhập vào Android VR (YouTube VR) tuân theo hướng dẫn chính thức của Google
-(Xác thực tài khoản Google – OAuth 2.0 cho TV và thiết bị có khả năng nhập liệu hạn chế):
-
-1. Nhấn \"Lấy mã kích hoạt\" để tạo mã.
-2. Nhấn \"Mở trang web\" để đi tới https://yt.be/activate.
-3. Nhập mã kích hoạt.
-4. Đăng nhập khi được yêu cầu. Nếu bạn có nhiều tài khoản Google, hãy chọn tài khoản mà bạn sử dụng để xem YouTube. Còn nếu bạn đã đăng nhập thì hãy bỏ qua bước này.
-5. Sau khi đã đăng nhập, quay lại RVX và nhấn \"Đăng nhập vào Android VR\" lần nữa.
-6. Nhấn \"Lấy mã xác thực\" để lấy mã.
-
-※ Nhấn \"Đặt lại\" để xoá mã xác thực hoặc mã kích hoạt."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_reset_text">Đặt lại</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_dialog_title">Đăng nhập vào Android VR</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Đã lưu mã xác thực.
 
 Chi tiết:
@@ -626,22 +672,10 @@ Chi tiết:
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Không thể tạo mã xác thực.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Nhấn Đặt lại và thử lại.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Đặt lại mã xác thực và mã kích hoạt.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Hiển thị ứng dụng khách được sử dụng để nạp luồng dữ liệu trực tuyến trong Thống kê chi tiết.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Thống kê chi tiết</string>
     <string name="revanced_spoof_streaming_data_summary">"Giả mạo client phát video để tránh lỗi khi phát.
 
 Nếu bạn đã đăng ký YouTube Premium, thì có thể không cần thiết phải bật cài đặt này."</string>
     <string name="revanced_spoof_streaming_data_title">Giả mạo dữ liệu phát</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_summary">"Khi bật, Player JS mới nhất sẽ được sử dụng để gỡ rối URL phát trên TV và Mobile Web.
-
-Nếu bạn gặp sự cố với client JavaScript, hãy thử tắt cài đặt này trước."</string>
-    <string name="revanced_spoof_streaming_data_use_latest_player_js_title">Dùng Player JavaScript mới nhất</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_summary">"Khi bật, JavaScript bên ngoài từ yt-dlp (yt-dlp-ejs) sẽ được sử dụng để gỡ rối URL phát trên TV và Mobile Web.
-
-Chi tiết:
-• Player JS luôn được cập nhật.
-• Video sẽ phải mất khoảng 5 tới 15 giây trước khi bắt đầu phát."</string>
-    <string name="revanced_spoof_streaming_data_use_yt_dlp_ejs_title">Dùng yt-dlp ejs (Thử nghiệm)</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Nhấn để biết cách lấy mã xác thực.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Giới thiệu về Android VR Auth</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Hạn chế:
@@ -649,7 +683,7 @@ Chi tiết:
 • Âm thanh có thể bị ngắt quãng khi phát trên client dùng truyền phát bit thích ứng (trừ Android VR 1.43.32)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Client mặc định</string>
     <string name="revanced_spoof_video_streams_summary">Giả mạo luồng video của client để tránh lỗi khi phát.</string>
-    <string name="revanced_spoof_video_streams_title">Giả mạo luồng video</string>
+    <string name="revanced_spoof_video_streams_title">Giả mạo luồng phát video</string>
     <string name="revanced_translations_title">Bản dịch</string>
     <string name="revanced_watch_history_type_entry_1">Gốc</string>
     <string name="revanced_watch_history_type_entry_2">Thay thế miền</string>
@@ -658,10 +692,6 @@ Chi tiết:
 • Thay thế miền: Vẫn tuân theo cài đặt nhật ký xem của tài khoản Google.
 • Chặn nhật ký: Nhật ký xem bị chặn hoàn toàn."</string>
     <string name="revanced_watch_history_type_title">Kiểu nhật ký</string>
-    <string name="revanced_webview_contextual_menu_get_cookies">Lấy Cookie</string>
-    <string name="revanced_webview_contextual_menu_get_data_sync_id">Lấy ID đồng bộ dữ liệu</string>
-    <string name="revanced_webview_contextual_menu_get_visitor_data">Lấy dữ liệu khách</string>
-    <string name="revanced_webview_contextual_menu_refresh">Làm mới</string>
     <string name="revanced_webview_cookies">Cookie</string>
     <string name="revanced_webview_copy">Sao chép</string>
     <string name="revanced_webview_data_sync_id">ID đồng bộ dữ liệu</string>

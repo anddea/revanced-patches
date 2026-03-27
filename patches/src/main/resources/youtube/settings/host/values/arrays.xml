@@ -68,7 +68,7 @@
         <item>@string/revanced_change_start_page_entry_your_clips</item>
     </string-array>
     <string-array name="revanced_change_start_page_entry_values">
-        <item>ORIGINAL</item>
+        <item>DEFAULT</item>
         <item>ALL_SUBSCRIPTIONS</item>
         <item>BROWSE</item>
         <item>COURSES</item>
@@ -107,6 +107,16 @@
         <item>SINGLE_PLAY</item>
         <item>REPEAT</item>
         <item>END_SCREEN</item>
+    </string-array>
+    <string-array name="revanced_shorts_player_type_entries">
+        <item>@string/revanced_shorts_player_type_shorts</item>
+        <item>@string/revanced_shorts_player_type_regular_player</item>
+        <item>@string/revanced_shorts_player_type_regular_player_fullscreen</item>
+    </string-array>
+    <string-array name="revanced_shorts_player_type_entry_values">
+        <item>SHORTS_PLAYER</item>
+        <item>REGULAR_PLAYER</item>
+        <item>REGULAR_PLAYER_FULLSCREEN</item>
     </string-array>
     <string-array name="revanced_custom_playback_speed_menu_type_entries">
         <item>@string/revanced_custom_playback_speed_menu_type_entry_youtube_legacy</item>
@@ -499,35 +509,35 @@
         <item>HEART_TINT</item>
         <item>HIDDEN</item>
     </string-array>
-    <string-array name="revanced_spoof_streaming_data_default_client_entries">
-        <item>@string/revanced_spoof_streaming_data_client_entry_android_creator</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_android_no_sdk</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_android_vr</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_visionos</item>
-    </string-array>
-    <string-array name="revanced_spoof_streaming_data_default_client_entry_values">
-        <item>ANDROID_CREATOR</item>
-        <item>ANDROID_NO_SDK</item>
-        <item>ANDROID_VR</item>
-        <item>VISIONOS</item>
-    </string-array>
-    <string-array name="revanced_spoof_streaming_data_default_client_with_js_entries">
-        <item>@string/revanced_spoof_streaming_data_client_entry_android_creator</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_android_no_sdk</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_android_vr</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_tv</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_tv_legacy</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_tv_simply</item>
-        <item>@string/revanced_spoof_streaming_data_client_entry_visionos</item>
-    </string-array>
-    <string-array name="revanced_spoof_streaming_data_default_client_with_js_entry_values">
-        <item>ANDROID_CREATOR</item>
-        <item>ANDROID_NO_SDK</item>
-        <item>ANDROID_VR</item>
+    <string-array name="morphe_spoof_video_streams_client_type_entries">
+        <item>Android Reel</item>
+        <item>Android Studio</item>
+        <item>Android VR</item>
         <item>TV</item>
-        <item>TV_LEGACY</item>
-        <item>TV_SIMPLY</item>
+        <item>visionOS</item>
+    </string-array>
+    <string-array name="morphe_spoof_video_streams_client_type_entry_values">
+        <item>ANDROID_REEL</item>
+        <item>ANDROID_CREATOR</item>
+        <item>ANDROID_VR_1_64</item>
+        <item>TV</item>
         <item>VISIONOS</item>
+    </string-array>
+    <string-array name="morphe_spoof_video_streams_player_js_variant_entries">
+        <item>House Brand</item>
+        <item>Phone</item>
+        <item>TV ES6</item>
+        <item>Web</item>
+        <item>Web ES6</item>
+        <item>Web Embed</item>
+    </string-array>
+    <string-array name="morphe_spoof_video_streams_player_js_variant_entry_values">
+        <item>HOUSE_BRAND</item>
+        <item>PHONE</item>
+        <item>TV_ES6</item>
+        <item>WEB</item>
+        <item>WEB_ES6</item>
+        <item>WEB_EMBED</item>
     </string-array>
     <string-array name="revanced_swipe_overlay_style_entries">
         <item>@string/revanced_swipe_overlay_style_entry_0</item>
@@ -592,5 +602,39 @@
         <item>ORIGINAL</item>
         <item>REPLACE</item>
         <item>BLOCK</item>
+    </string-array>
+    <string-array name="revanced_vot_source_language_entries">
+        <item>@string/revanced_vot_lang_auto</item>
+        <item>@string/revanced_language_EN</item>
+        <item>@string/revanced_language_RU</item>
+        <item>@string/revanced_language_DE</item>
+        <item>@string/revanced_language_FR</item>
+        <item>@string/revanced_language_ES</item>
+        <item>@string/revanced_language_IT</item>
+        <item>@string/revanced_language_JA</item>
+        <item>@string/revanced_language_KO</item>
+        <item>@string/revanced_language_ZH</item>
+    </string-array>
+    <string-array name="revanced_vot_source_language_entry_values">
+        <item>auto</item>
+        <item>en</item>
+        <item>ru</item>
+        <item>de</item>
+        <item>fr</item>
+        <item>es</item>
+        <item>it</item>
+        <item>ja</item>
+        <item>ko</item>
+        <item>zh</item>
+    </string-array>
+    <string-array name="revanced_vot_target_language_entries">
+        <item>@string/revanced_language_RU</item>
+        <item>@string/revanced_language_EN</item>
+        <item>@string/revanced_language_KK</item>
+    </string-array>
+    <string-array name="revanced_vot_target_language_entry_values">
+        <item>ru</item>
+        <item>en</item>
+        <item>kk</item>
     </string-array>
 </resources>

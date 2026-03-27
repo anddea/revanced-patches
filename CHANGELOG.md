@@ -1,3 +1,128 @@
+# [4.0.0-dev.13](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.12...v4.0.0-dev.13) (2026-03-26)
+
+
+### Features
+
+* **YouTube - Gemini:** Redesign, support multiple API keys, add `Ask about this video` ([374b0e5](https://github.com/anddea/revanced-patches/commit/374b0e55b94c00a2a9da4d20bf58108ca71a433e))
+
+# [4.0.0-dev.12](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.11...v4.0.0-dev.12) (2026-03-25)
+
+
+### Bug Fixes
+
+* **YouTube:** Resolved patching error caused by an unexpected array value ([ca3772e](https://github.com/anddea/revanced-patches/commit/ca3772e18029b2b843f7af3b7137390cefeec6a6))
+
+# [4.0.0-dev.11](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.10...v4.0.0-dev.11) (2026-03-25)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding name:** Custom name did not apply properly ([02b5519](https://github.com/anddea/revanced-patches/commit/02b55191134f012087684f4ef99693413d5e65b2))
+* **YouTube & YT Music:** Fix the app crash caused by incorrect resource attribution ([5247736](https://github.com/anddea/revanced-patches/commit/5247736538743e4cec1075dce5d2ba1998816009))
+
+
+### Features
+
+* **YouTube - Hide ads:** Add `Hide player popup ads` setting ([06275f4](https://github.com/anddea/revanced-patches/commit/06275f4cf47c039833bf9e5e8ad8442378245a24))
+* **YouTube - Set transcript cookies:** Add "Fix transcript" setting ([7c42e04](https://github.com/anddea/revanced-patches/commit/7c42e042387d0708991450649f8d03ae0176a278))
+* **YouTube - Shorts components:** Add Open Shorts with `Regular player fullscreen` ([a5985e9](https://github.com/anddea/revanced-patches/commit/a5985e9bf5078ec7f5296a89e4c78667750e8903))
+* **YouTube:** Remove `Change live ring click action` patch ([bc40616](https://github.com/anddea/revanced-patches/commit/bc406169a060e9da486b67a0a3436a46154dd035))
+
+# [4.0.0-dev.10](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.9...v4.0.0-dev.10) (2026-03-24)
+
+
+### Features
+
+* **YouTube:** Add `Reload video` patch & reduce patches bundle size ([33fdf51](https://github.com/anddea/revanced-patches/commit/33fdf51520946ae35ba2181eaf17d6ad7c2cc44e))
+
+# [4.0.0-dev.9](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.8...v4.0.0-dev.9) (2026-03-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide action buttons:** Fix empty spaces when hiding buttons ([bda1ddb](https://github.com/anddea/revanced-patches/commit/bda1ddba6959fd7d25dcb8952d986440ea7d9670))
+
+# [4.0.0-dev.8](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.7...v4.0.0-dev.8) (2026-03-16)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Gemini summary could use the wrong markdown for titles ([aac78fd](https://github.com/anddea/revanced-patches/commit/aac78fdb7ce2980647f723c0f3b92f7e4e38c795))
+
+
+### Features
+
+* **YouTube, YT Music & Reddit:** Add credits ([b20f2f1](https://github.com/anddea/revanced-patches/commit/b20f2f1cb8e35ddc9cf9d7e1f8d6f84e81d462a1))
+
+# [4.0.0-dev.7](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.6...v4.0.0-dev.7) (2026-03-12)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add `Gemini 3.1 Flash Lite Preview` and update prompt ([36bca64](https://github.com/anddea/revanced-patches/commit/36bca64ec6112e96d10c55f083492d30f8032e25))
+* **YouTube & YT Music - Spoof video streams:** Match Morphe ([43cab65](https://github.com/anddea/revanced-patches/commit/43cab65290c3ca17c3d56a952479f1d20b83cf36))
+
+# [4.0.0-dev.6](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.5...v4.0.0-dev.6) (2026-03-05)
+
+
+### Bug Fixes
+
+* ARSCLib compatibility ([#1404](https://github.com/anddea/revanced-patches/issues/1404)) ([bc75d5a](https://github.com/anddea/revanced-patches/commit/bc75d5a4b05be0915beeafdda6307b014bffcce4))
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Use cascade of Gemini models ([56db9b3](https://github.com/anddea/revanced-patches/commit/56db9b3195033ce39af66e8d49b09b436d4419e0))
+
+# [4.0.0-dev.5](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.4...v4.0.0-dev.5) (2026-02-20)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCore:** Crashes because of the wrong intent ([829ec70](https://github.com/anddea/revanced-patches/commit/829ec708013b8a4aa66b8de59c74d0d307491e1b))
+
+# [4.0.0-dev.4](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.3...v4.0.0-dev.4) (2026-02-19)
+
+
+### Features
+
+* **YouTube - Voice Over Translation:** Volume patch fixes, audio proxy, immediate pause on video stop ([#1382](https://github.com/anddea/revanced-patches/issues/1382)) ([6ac278c](https://github.com/anddea/revanced-patches/commit/6ac278cc65b8e55d9f434c8b479665a00c17bedc))
+
+# [4.0.0-dev.3](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.2...v4.0.0-dev.3) (2026-02-15)
+
+
+### Bug Fixes
+
+* **YouTube - Voice Over Translation:** Do not show the VOT button if the patch is disabled ([48abec6](https://github.com/anddea/revanced-patches/commit/48abec6b41a1b878a2d24cfb2cf31fb2984c6a72)), closes [/github.com/anddea/revanced-patches/pull/1370#issuecomment-3901622830](https://github.com//github.com/anddea/revanced-patches/pull/1370/issues/issuecomment-3901622830)
+
+# [4.0.0-dev.2](https://github.com/anddea/revanced-patches/compare/v4.0.0-dev.1...v4.0.0-dev.2) (2026-02-14)
+
+
+### Bug Fixes
+
+* **Spoof Wi-Fi connection:** Failed previously ([7187215](https://github.com/anddea/revanced-patches/commit/718721561056a4d2ab225caad6b755c77e07328a))
+
+# [4.0.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.17.0-dev.1...v4.0.0-dev.1) (2026-02-13)
+
+
+### Code Refactoring
+
+* Migrate to Morphe patcher ([44d12f2](https://github.com/anddea/revanced-patches/commit/44d12f217ca72783c0000c09a3f77f6b0854d490))
+
+
+### BREAKING CHANGES
+
+* Patches are now migrated to Morphe patcher
+
+Signed-off-by: Aaron Veil <70171475+anddea@users.noreply.github.com>
+
+# [3.17.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.16.0...v3.17.0-dev.1) (2026-02-13)
+
+
+### Features
+
+* **YouTube - Voice Over Translation:** Add Yandex voice-over translation ([#1370](https://github.com/anddea/revanced-patches/issues/1370)) ([889118e](https://github.com/anddea/revanced-patches/commit/889118eb63e2e33560347ad5c0b065d9784150f2))
+
 # [3.16.0](https://github.com/anddea/revanced-patches/compare/v3.15.0...v3.16.0) (2026-01-30)
 
 
