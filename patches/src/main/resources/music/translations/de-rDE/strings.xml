@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="morphe_disable_drc_audio_summary_off">DRC-Audio ist aktiviert</string>
+    <string name="morphe_disable_drc_audio_summary_on">DRC-Audio ist deaktiviert</string>
+    <string name="morphe_disable_drc_audio_title">DRC-Audio deaktivieren</string>
+    <string name="morphe_disable_quic_protocol_summary_off">QUIC-Protokoll ist aktiviert</string>
+    <string name="morphe_disable_quic_protocol_summary_on">QUIC-Protokoll ist deaktiviert</string>
+    <string name="morphe_disable_quic_protocol_title">Deaktivieren Sie das QUIC-Protokoll</string>
+    <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändere \'Spoof-Videostreams\' auf Android Reel oder TV</string>
+    <string name="morphe_force_original_audio_summary_off">Standardaudio verwenden</string>
+    <string name="morphe_force_original_audio_summary_on">Original-Audiosprache verwenden</string>
+    <string name="morphe_force_original_audio_title">Original Audio erzwingen</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">Kann nicht in VR anmelden: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Kann sich nicht bei VR anmelden, Website-Authentifizierung wurde nicht genehmigt.</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 ist vorübergehend nicht verfügbar</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 ist vorübergehend nicht verfügbar (Status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Android VR-Anmeldung abgelaufen, versuchen Sie erneut, sich bei VR anzumelden.</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 ist vorübergehend nicht verfügbar (API Timeout)</string>
+    <string name="morphe_oauth2_toast_invalid">Ungültiges VR-Anmelde-Token, melden Sie sich erneut in VR an</string>
+    <string name="morphe_oauth2_toast_reset">Von Android VR abgemeldet</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">Geteilte Links verwenden music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">Geteilte Links verwenden youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">Teilen-Links zu youtube.com ändern</string>
+    <string name="morphe_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht aus freigegebenen Links entfernt</string>
+    <string name="morphe_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
+    <string name="morphe_sanitize_sharing_links_title">Freigabelinks säubern</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Standard-Client</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">JavaScript-Update des Players ist aktiviert</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"JavaScript-Update des Players ist deaktiviert
+
+• Ein gültiger Player JavaScript Hash ist erforderlich
+• Die Wiedergabe schlägt fehl, wenn der Player JavaScript Hash in GVS widerrufen wird"</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">JavaScript-Update des Players deaktivieren</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript-Hashes des Spielers sind ungefähr einen Monat gültig, und veraltete Hashes können von GVS widerrufen werden.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Versuchen Sie, dies zu aktivieren: Spoof video streams &gt; Android VR Anmeldung</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Keine Client-Streams konnten abgerufen werden</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Geben Sie einen gültigen Spieler JavaScript Hash ein</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Spieler JavaScript Hash</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Spoofe die Client-Video-Streams, um Wiedergabeprobleme zu verhindern</string>
+    <string name="morphe_spoof_video_streams_screen_title">Spoofe Video-Streams</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Sie sind nicht bei Android VR angemeldet. Tappen Sie hier zum Anmelden</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie ‚Standardclient‘ zu Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Sie sind derzeit bei Android VR angemeldet</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR Anmeldung</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Aktivierungscode: %s
+
+1. Drücken Sie ‚Website öffnen‘ unten, um die ‚Gerät verbinden‘-Website zu öffnen
+2. Legen Sie den aus der Zwischenablage kopierten (oder selbst eingegebenen) Aktivierungscode oben ein
+3. Bei Aufforderung auf ‚Google Anmelden‘ klicken. Wenn Sie mehrere Konten haben, wählen Sie dieses YouTube-Konto
+4. Tappen Sie auf ‚YouTube VR‘ Zugriff erlauben
+5. Nach der Anzeige ‚Gerät verbunden‘ kehren Sie in diese App zurück"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Website öffnen</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Anleitung</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Weiter</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Anmeldung bei Android VR kann Wiedergabeprobleme für einige Benutzer beheben
+
+Um sich anzumelden, drücken Sie auf \"Weiter unten\"."</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Abmelden</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Bei Android VR anmelden</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Authentifizierung erfolgreich
+
+• Ihre Morphe-Einstellungen importieren/-exportieren keine Android VR-Authentifizierung
+• Wenn diese App 6 Monate lang nicht genutzt wird, entfernt Google diese Authentifizierung
+• Wenn Sie Ihr Google-Kennwort ändern oder dieses Gerät von Ihren Google-Einstellungen deregistrieren, müssen Sie sich erneut anmelden"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Erfolgreich angemeldet</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Ausgabe eines Aktivierungs-codes fehlgeschlagen</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Ausgabe eines Authentifizierungstokens fehlgeschlagen</string>
+    <string name="morphe_spoof_video_streams_summary_off">"Video-Streams werden nicht gespooft
+
+Die Wiedergabe funktioniert möglicherweise nicht"</string>
+    <string name="morphe_spoof_video_streams_summary_on">"Videostreams werden gespooft
+
+Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
+    <string name="morphe_spoof_video_streams_title">Spoofe Video-Streams</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann Wiedergabeprobleme verursachen.</string>
+    <string name="revanced_change_start_page_entry_charts">Diagramme</string>
+    <string name="revanced_change_start_page_entry_default">Standard</string>
+    <string name="revanced_change_start_page_entry_episodes_for_later">Für später</string>
+    <string name="revanced_change_start_page_entry_explore">Erforschen</string>
+    <string name="revanced_change_start_page_entry_history">Verlauf</string>
+    <string name="revanced_change_start_page_entry_library">Bibliothek</string>
+    <string name="revanced_change_start_page_entry_liked_music">Gefällte Musik</string>
+    <string name="revanced_change_start_page_entry_search">Suchen</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
+    <string name="revanced_change_start_page_title">Startseite ändern</string>
+    <string name="revanced_disable_drc_audio_title">DRC-Audio deaktivieren</string>
+    <string name="revanced_disable_quic_protocol_title">Deaktivieren Sie das QUIC-Protokoll</string>
+    <string name="revanced_restart_first_run">Neustart, um die Einrichtung abzuschließen</string>
+    <string name="revanced_sanitize_sharing_links_title">Freigabelinks säubern</string>
+    <string name="revanced_spoof_video_streams_title">Spoofe Video-Streams</string>
+</resources>
