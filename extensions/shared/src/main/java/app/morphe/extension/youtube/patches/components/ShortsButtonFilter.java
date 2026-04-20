@@ -34,7 +34,6 @@ public final class ShortsButtonFilter extends Filter {
 
     private final StringFilterGroup actionButton;
     private final ByteArrayFilterGroupList videoActionButtonGroupList = new ByteArrayFilterGroupList();
-    private final StringFilterGroup likeFountain;
     private final StringFilterGroup shortsActionBar;
     private final StringFilterGroup shortsActionButton;
     private final StringFilterGroupList shortsActionButtonGroupList = new StringFilterGroupList();
@@ -154,7 +153,7 @@ public final class ShortsButtonFilter extends Filter {
                 "shorts_video_action_button."
         );
 
-        likeFountain = new StringFilterGroup(
+        StringFilterGroup likeFountain = new StringFilterGroup(
                 Settings.DISABLE_SHORTS_LIKE_BUTTON_FOUNTAIN_ANIMATION,
                 "like_fountain."
         );
