@@ -115,6 +115,25 @@ var is_20_30_or_greater = false
     private set
 var is_20_31_or_greater = false
     private set
+var is_20_34_or_greater = false
+    private set
+var is_20_37_or_greater = false
+    private set
+var is_20_38_or_greater = false
+    private set
+var is_20_39_or_greater = false
+    private set
+var is_20_40_or_greater = false
+    private set
+var is_20_41_or_greater = false
+    private set
+var is_20_43_or_greater = false
+    private set
+var is_20_45_or_greater = false
+    private set
+var is_20_46_or_greater = false
+    private set
+var is_20_49_or_greater = false
 
 val versionCheckPatch = resourcePatch(
     description = "versionCheckPatch",
@@ -180,17 +199,23 @@ val versionCheckPatch = resourcePatch(
         is_20_16_or_greater = isGreaterThan(251705000)
         is_20_18_or_greater = isGreaterThan(251905000)
         is_20_19_or_greater = isGreaterThan(252005000)
-        is_20_19_or_greater = isGreaterThan(252005000)
-        is_20_20_or_greater = isGreaterThan(252105000)
         is_20_20_or_greater = isGreaterThan(252105000)
         is_20_21_or_greater = isGreaterThan(252205000)
-        is_20_21_or_greater = isGreaterThan(252205000)
-        is_20_22_or_greater = isGreaterThan(252305000)
         is_20_22_or_greater = isGreaterThan(252305000)
         is_20_26_or_greater = isGreaterThan(252705000)
         is_20_28_or_greater = isGreaterThan(252905000)
         is_20_29_or_greater = isGreaterThan(253005000)
         is_20_30_or_greater = isGreaterThan(253105000)
         is_20_31_or_greater = isGreaterThan(253205000)
+        is_20_34_or_greater = isGreaterThan(253505000)
+        is_20_37_or_greater = isGreaterThan(253805000)
+        is_20_38_or_greater = isGreaterThan(253905000)
+        is_20_39_or_greater = isGreaterThan(253980000)
+        is_20_40_or_greater = isGreaterThan(254105000)
+        is_20_41_or_greater = isGreaterThan(254205000)
+        is_20_43_or_greater = isGreaterThan(254405000)
+        is_20_45_or_greater = isGreaterThan(254605000)
+        is_20_46_or_greater = isGreaterThan(254705000)
+        is_20_49_or_greater = isGreaterThan(255005000)
     }
 }
