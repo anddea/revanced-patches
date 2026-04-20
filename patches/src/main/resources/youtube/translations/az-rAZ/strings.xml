@@ -2,6 +2,7 @@
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Video pleyer üçün əlçatanlıq nəzarətlərini aktivləşdirilsin?</string>
     <string name="gms_core_dialog_continue_text">Davam et</string>
+    <string name="gms_core_dialog_dismiss_text">Təkrat göstərmə</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore-un arxa planda işləməsi üçün icazəsi yoxdur.
 
 Telefonunuz üçün \"Tətbiqimi dayandırma\" bələdçisinə əməl edin və təlimatları MicroG quraşdırmanıza tətbiq edin.
@@ -33,6 +34,9 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 keçici olaraq əlçatan deyil (API vaxtı bitdi)</string>
     <string name="morphe_oauth2_toast_invalid">Token-dəki etibarsız VR girişi, VR-a təkrar daxil olmağa cəhd et</string>
     <string name="morphe_oauth2_toast_reset">Android VR-dan Çıxıldı</string>
+    <string name="morphe_reload_video_summary_off">Videonu təkrar yüklə düyməsi görünmür</string>
+    <string name="morphe_reload_video_summary_on">Videonu təkrar yüklə düyməsi görünür</string>
+    <string name="morphe_reload_video_title">Videonu təkrar yüklə düyməsini göstər</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan keçidlər music.youtube.com istifadə edir</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Paylaşılan keçidlər youtube.com istifadə edir</string>
     <string name="morphe_replace_music_with_youtube_title">Paylaşma keçidlərini youtube.com-a dəyişdir</string>
@@ -256,6 +260,7 @@ Avtomobil tərtibatı
     <string name="revanced_disable_translucent_status_bar_summary_off">Mövqe cizgisi qeyri-şəffaf və ya şəffafdır</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Mövqe cizgisi qeyri-şəffafdır</string>
     <string name="revanced_disable_translucent_status_bar_title">Yarımşəffaf mövqe cizgisin qapat</string>
+    <string name="revanced_dismiss_player_not_available_toast">Video id əlçatmazdır. Xahiş olunur, videonu əl ilə təkrar açın.</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">Qradiyent yüklənmə ekranı aktivdir</string>
     <string name="revanced_enable_gradient_loading_screen_title">Qradiyent yüklənmə ekranını aktivləşdir</string>
     <string name="revanced_exit_fullscreen_entry_1">Qapalı</string>
@@ -348,7 +353,7 @@ Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
     <string name="revanced_hide_featured_videos_section_summary_on">Seçilən videolar bölməsi gizlidir</string>
     <string name="revanced_hide_featured_videos_section_title">Seçilən videoları gizlət</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Tam ekran reklamları göstərilir</string>
-    <string name="revanced_hide_fullscreen_ads_summary_on">Tam ekran reklamları gizlənir</string>
+    <string name="revanced_hide_fullscreen_ads_summary_on">Tam ekran reklamları gizlidir</string>
     <string name="revanced_hide_fullscreen_ads_title">Tam ekran reklamlarını gizlət</string>
     <string name="revanced_hide_general_ads_summary_off">Ümumi reklamlar göstərilir</string>
     <string name="revanced_hide_general_ads_summary_on">Ümumi reklamlar gizlidir</string>
@@ -445,6 +450,9 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_player_control_buttons_background_summary_off">Oynadıcı idarəetmə fonu görünür</string>
     <string name="revanced_hide_player_control_buttons_background_summary_on">Oynadıcı idarəetmə fonu gizlədilib</string>
     <string name="revanced_hide_player_control_buttons_background_title">Oynadıcı idarəetmələri fonunu gizlət</string>
+    <string name="revanced_hide_player_popup_ads_summary_off">Oynadıcı ani açılan reklamları görünür</string>
+    <string name="revanced_hide_player_popup_ads_summary_on">Oynadıcı ani açılan reklamları gizlidir</string>
+    <string name="revanced_hide_player_popup_ads_title">Oynadıcı ani açılan reklamlarını gizlət</string>
     <string name="revanced_hide_promote_button_summary_off"> Sponsor düyməsi görünür</string>
     <string name="revanced_hide_promote_button_summary_on">Sponsor düyməsi gizlidir</string>
     <string name="revanced_hide_promote_button_title">Sponsor-u Gizlət</string>

@@ -303,9 +303,9 @@
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Логи завеликі для копіювання.</string>
     <string name="revanced_debug_logs_failed_to_export">Не вдалося експортувати журнали: %s</string>
     <string name="revanced_debug_logs_none_found">Журнали не знайдено</string>
-    <string name="revanced_debug_protobuffer_summary_off">Журнали налагодження не містять протобуфер</string>
-    <string name="revanced_debug_protobuffer_summary_on">Журнали налагодження містять протобуфер</string>
-    <string name="revanced_debug_protobuffer_title">Журнал протоколу буфера</string>
+    <string name="revanced_debug_protobuffer_summary_off">Журнали налагодження не містять буферів протоколу</string>
+    <string name="revanced_debug_protobuffer_summary_on">Журнали налагодження містять буфери протоколів</string>
+    <string name="revanced_debug_protobuffer_title">Журнал налагодження протоколу буфера</string>
     <string name="revanced_debug_spannable_summary_off">Журнали налагодження не включають проміжні.</string>
     <string name="revanced_debug_spannable_summary_on">Журнали налагодження включають проміжні.</string>
     <string name="revanced_debug_spannable_title">Журнал проміжних</string>
@@ -835,7 +835,7 @@
     <string name="revanced_hide_end_screen_suggested_video_title">Приховати рекомендоване відео наприкінці перегляду</string>
     <string name="revanced_hide_expandable_card_summary_off">Розширювана картка під відео показується</string>
     <string name="revanced_hide_expandable_card_summary_on">Розширювану картку під відео приховано</string>
-    <string name="revanced_hide_expandable_card_title">Приховати розширювану картку</string>
+    <string name="revanced_hide_expandable_card_title">Приховати розширювальні картки</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Висувні полиці показується.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Висувні полиці приховано.</string>
     <string name="revanced_hide_expandable_shelf_title">Приховати висувні полиці</string>
@@ -872,7 +872,7 @@
     <string name="revanced_hide_floating_microphone_summary_on">Плавучу кнопку мікрофону приховано.</string>
     <string name="revanced_hide_floating_microphone_title">Приховати плавучу кнопку мікрофону</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Повноекранна реклама показується</string>
-    <string name="revanced_hide_fullscreen_ads_summary_on">Повноекранна реклама прихована</string>
+    <string name="revanced_hide_fullscreen_ads_summary_on">Повноекранну рекламу приховано</string>
     <string name="revanced_hide_fullscreen_ads_title">Приховати повноекранну рекламу</string>
     <string name="revanced_hide_general_ads_summary_off">Загальна реклама показується</string>
     <string name="revanced_hide_general_ads_summary_on">Загальну рекламу приховано</string>
@@ -1523,9 +1523,9 @@
     <string name="revanced_hide_youtube_doodles_summary_off">Анімація YouTube Doodles на логотипі показується</string>
     <string name="revanced_hide_youtube_doodles_summary_on">Анімацію YouTube Doodles на логотипі приховано</string>
     <string name="revanced_hide_youtube_doodles_title">Приховати YouTube Doodles</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodle показують кілька днів на рік у різних частинах світу.
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles показуються кілька днів на рік у різних частинах світу.
 
-Показ YouTube Doodle може перешкоджати відображанню власних заголовків."</string>
+Показ YouTube Doodles може перешкодити показу користувацьких заголовків."</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">Рекламу YouTube Premium показується.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"Рекламу YouTube Premium приховано.
 
@@ -2551,6 +2551,7 @@
 3. Увійдіть, коли з'явиться запит. Якщо у вас кілька облікових записів Google, виберіть обліковий запис, який використовуєте для YouTube. Якщо вже увійшли, перейдіть до наступного кроку.
 4. Після входу поверніться до RVX і знову натисніть 'Авторизуватися в Android VR'.
 5. Натисніть 'Отримати токен авторизації', щоб отримати токен авторизації."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website">Відкрити сайт</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Відкрити сайт</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Код активації</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Код активації скопійовано в буфер обміну: %s.</string>
@@ -2724,6 +2725,12 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_vot_audio_proxy_summary_on">Аудіопотік проксіюється через воркера</string>
     <string name="revanced_vot_audio_proxy_title">Проксі-аудіопотік</string>
     <string name="revanced_vot_enabled_summary_off">Закадровий переклад Яндекса вимкнено</string>
+    <string name="revanced_vot_enabled_summary_on">Яндекс автопереклад звукової доріжки ввімкнено</string>
+    <string name="revanced_vot_enabled_title">Ввімкнути автопереклад звукової доріжки </string>
+    <string name="revanced_vot_lang_auto">Автоматичне розпізнавання </string>
+    <string name="revanced_vot_original_audio_volume_summary">Гучність оригінальної звукової доріжки коли автопереклад увімкнено (0-100). Стандартна: 50</string>
+    <string name="revanced_vot_original_audio_volume_title">Гучність звукової доріжки оригіналу </string>
+    <string name="revanced_vot_playback_error">Не вдалося програти аудіо доріжку з дубляжом </string>
     <string name="revanced_vot_unavailable_live">Переклад недоступний для прямих трансляцій</string>
     <string name="revanced_vot_unavailable_same_language">Аудіо відео вже перекладено обраною мовою перекладу</string>
     <string name="revanced_vot_unavailable_too_long">Відео занадто довге для перекладу (максимум 4 години)</string>

@@ -264,6 +264,7 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_confirm_user_dialog_title">Sei sicuro di voler procedere?</string>
     <string name="revanced_copy">Copia</string>
     <string name="revanced_copy_error">Impossibile copiare il testo</string>
+    <string name="revanced_credits_title">Crediti</string>
     <string name="revanced_custom_filter_strings_summary">L\'elenco dei componenti da filtrare separati da nuove righe</string>
     <string name="revanced_custom_filter_strings_title">Filtro personalizzato</string>
     <string name="revanced_custom_filter_summary_off">Il filtro personalizzato è disattivo</string>
@@ -302,9 +303,9 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">I logs di debug sono troppo lunghi per essere copiati</string>
     <string name="revanced_debug_logs_failed_to_export">Esportazione dei log non riuscita: %s</string>
     <string name="revanced_debug_logs_none_found">Nessun log trovato</string>
-    <string name="revanced_debug_protobuffer_summary_off">I logs di debug non includono</string>
-    <string name="revanced_debug_protobuffer_summary_on">I log di debug includono proto buffer</string>
-    <string name="revanced_debug_protobuffer_title">Buffer di protocollo per log</string>
+    <string name="revanced_debug_protobuffer_summary_off">I log di debug non includono protocol buffer</string>
+    <string name="revanced_debug_protobuffer_summary_on">I log di debug includono protocol buffer</string>
+    <string name="revanced_debug_protobuffer_title">Protocollo buffer di debug</string>
     <string name="revanced_debug_spannable_summary_off">I logs di debug non includono lo spannable.</string>
     <string name="revanced_debug_spannable_summary_on">I logs di debug includono lo spannable.</string>
     <string name="revanced_debug_spannable_title">Includi lo spannable</string>
@@ -836,7 +837,7 @@ Nota: alcuni link di ricerca evidenziati che non hanno uno stile di testo predef
     <string name="revanced_hide_end_screen_suggested_video_title">Nascondi video suggerito nella schermata finale</string>
     <string name="revanced_hide_expandable_card_summary_off">La scheda espandibile sotto i video è mostrata</string>
     <string name="revanced_hide_expandable_card_summary_on">La scheda espandibile sotto i video è nascosta</string>
-    <string name="revanced_hide_expandable_card_title">Nascondi scheda espandibile</string>
+    <string name="revanced_hide_expandable_card_title">Nascondi schede espandibili</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Gli scaffali espandibili sono visibili.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Gli scaffali espandibili sono nascosti.</string>
     <string name="revanced_hide_expandable_shelf_title">Nascondi gli scaffali espandibili</string>
@@ -1746,8 +1747,8 @@ Le risposte generate dall'IA possono contenere informazioni imprecise.
 Tocca qui per ottenere una chiave API. "</string>
     <string name="revanced_overlay_button_gemini_about_title">Informazioni su Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize">Riassumeri</string>
-    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"ottieni chiavi API a https://aistudio.google.com/apikey"</string>
-    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Chiave API Gemini</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Inserisci una chiave API Gemini per riga. Ottieni chiavi API su https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Chiavi API Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize_summary">"Tocca per riassumere il video. Tocca e tieni premuto per trascrivere.
 
 I risultati riassunti e trascritti vengono salvati a meno che tu non abbia chiuso l'app o utilizzato Gemelli su un altro video. Tocca nuovamente il pulsante per visualizzare i risultati. "</string>
@@ -2318,6 +2319,7 @@ Esiste già"</string>
     <string name="revanced_sb_vote_upvote">Mi piace</string>
     <string name="revanced_search_settings_category_title">Impostazioni ricerca</string>
     <string name="revanced_search_title">Ricerca</string>
+    <string name="revanced_send">Invia</string>
     <string name="revanced_set_transcript_cookies_all_summary_off">I cookie non sono impostati per tutte le richieste API di trascrizione.</string>
     <string name="revanced_set_transcript_cookies_all_summary_on">I cookie sono impostati per tutte le richieste API di trascrizione.</string>
     <string name="revanced_set_transcript_cookies_all_title">Imposta i cookie per tutte le richieste API di trascrizione</string>
@@ -2450,6 +2452,7 @@ Note:
     <string name="revanced_spoof_app_version_summary_on">La simulazione della versione dell\'app è attivata</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Ripristina la trascrizione</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Ripristina la barra delle azioni non compressa dei video</string>
+    <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Ripristina i filtri dei vecchi componenti</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versione dell\'app da camuffare</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Versione dell\'app da camuffare non valida: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da camuffare.</string>
@@ -2539,6 +2542,7 @@ Nota: la riproduzione potrebbe avere rallentamenti o perdite di fotogrammi."</st
 3. Accedi quando richiesto. Se hai più account Google, seleziona l'account che usi con YouTube. Se hai già effettuato l'accesso, vai al passaggio successivo.
 4. Una volta effettuato l'accesso, torna su RVX e tocca \"Accedi ad Android VR\".
 5. Tocca \"Ottieni un token di accesso\" per ottenere un token."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website">Apri website</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Apri sito</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Codice di attivazione</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Codice di attivazione copiato negli appunti (%s)</string>
@@ -2712,6 +2716,27 @@ Nota: i cookie generati senza effettuare l'accesso potrebbero non essere validi 
     <string name="revanced_vot_audio_proxy_summary_off">Lo streaming audio utilizza un URL diretto</string>
     <string name="revanced_vot_enabled_summary_off">La traduzione vocale di Yandex è disabilitata</string>
     <string name="revanced_vot_enabled_summary_on">La traduzione vocale di Yandex è abilitata</string>
+    <string name="revanced_vot_enabled_title">Attiva Voice Over Translation</string>
+    <string name="revanced_vot_live_voices_unavailable">Live voices non disponibile, verrà usata la modalità standard</string>
+    <string name="revanced_vot_original_audio_volume_summary">Volume della traccia video originale quando la traduzione è in esecuzione (0-100). Default: 50</string>
+    <string name="revanced_vot_original_audio_volume_title">Volume dell'audio originale</string>
+    <string name="revanced_vot_playback_error">Riproduzione della traduzione audio fallita</string>
+    <string name="revanced_vot_source_language_summary">Seleziona la lingua dell'audio del video</string>
+    <string name="revanced_vot_source_language_title">Lingua sorgente</string>
+    <string name="revanced_vot_started">Traduzione iniziata</string>
+    <string name="revanced_vot_stopped">Traduzione chiusa</string>
+    <string name="revanced_vot_stream_not_ready">Traduzione non disponibile. Usa il pulsante per abilitarla quando è disponibile.</string>
+    <string name="revanced_vot_stream_ready">Traduzione disponibile, in esecuzione</string>
+    <string name="revanced_vot_stream_requesting">Richiesta di traduzione per la stream...</string>
+    <string name="revanced_vot_stream_waiting">Attendi... ~%s</string>
+    <string name="revanced_vot_target_language_summary">Seleziona la lingua in cui tradurre</string>
+    <string name="revanced_vot_target_language_title">Lingua target</string>
+    <string name="revanced_vot_translation_volume_summary">Volume della traccia audio della traduzione (0-100). Default: 100</string>
+    <string name="revanced_vot_translation_volume_title">Volume della traduzione</string>
+    <string name="revanced_vot_unavailable_live">La traduzione non è disponibile per le live streams</string>
+    <string name="revanced_vot_unavailable_same_language">L'audio del video è già nella lingua target</string>
+    <string name="revanced_vot_unavailable_too_long">Il video è troppo lungo per essere tradotto (max 4 hours)</string>
+    <string name="revanced_vot_voice_style_live_summary_on">Voci con intonazione naturale da Yandex</string>
     <string name="revanced_watch_history_about_status_blocked">La cronologia è bloccata.</string>
     <string name="revanced_watch_history_about_status_original">"• Segue le impostazioni di cronologia dell'account Google.
 • La cronologia potrebbe non funzionare a causa di DNS o VPN."</string>
