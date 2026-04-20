@@ -25,28 +25,28 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
     <string name="morphe_disable_drc_audio_title">DRC-Audio deaktivieren</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC-Protokoll ist aktiviert</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC-Protokoll ist deaktiviert</string>
-    <string name="morphe_disable_quic_protocol_title">Deaktivieren Sie das QUIC-Protokoll</string>
-    <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändere \'Spoof-Videostreams\' auf Android Reel oder TV</string>
-    <string name="morphe_force_original_audio_summary_off">Standardaudio verwenden</string>
-    <string name="morphe_force_original_audio_summary_on">Original-Audiosprache verwenden</string>
+    <string name="morphe_disable_quic_protocol_title">QUIC-Protokoll deaktivieren </string>
+    <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändern Sie \"Fälsche Video-Streams\" auf Android Reel oder TV</string>
+    <string name="morphe_force_original_audio_summary_off">Standardaudio wird verwendet</string>
+    <string name="morphe_force_original_audio_summary_on">Original Audio wird verwendet</string>
     <string name="morphe_force_original_audio_title">Original Audio erzwingen</string>
-    <string name="morphe_oauth2_connection_failure_auth_error">Kann nicht in VR anmelden: %s</string>
-    <string name="morphe_oauth2_connection_failure_auth_not_approved">Kann sich nicht bei VR anmelden, Website-Authentifizierung wurde nicht genehmigt.</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">Eine Anmeldung bei VR ist nicht möglich: %s</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Eine Anmeldung bei VR ist nicht möglich, da die Website-Authentifizierung nicht genehmigt wurde</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 ist vorübergehend nicht verfügbar</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 ist vorübergehend nicht verfügbar (Status %d)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Android VR-Anmeldung abgelaufen, versuchen Sie erneut, sich bei VR anzumelden.</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Android VR-Anmeldung abgelaufen, versuchen Sie erneut sich bei VR anzumelden</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 ist vorübergehend nicht verfügbar (API Timeout)</string>
-    <string name="morphe_oauth2_toast_invalid">Ungültiges VR-Anmelde-Token, melden Sie sich erneut in VR an</string>
+    <string name="morphe_oauth2_toast_invalid">Ungültiger VR-Anmelde-Token, melden Sie sich erneut in VR an</string>
     <string name="morphe_oauth2_toast_reset">Von Android VR abgemeldet</string>
     <string name="morphe_reload_video_summary_off">Schaltfläche „Video wiederholen“ ist ausgeblendet</string>
     <string name="morphe_reload_video_summary_on">Schaltfläche „Video wiederholen“ wird angezeigt</string>
     <string name="morphe_reload_video_title">Video-Wiederholschaltfläche anzeigen</string>
-    <string name="morphe_replace_music_with_youtube_summary_off">Geteilte Links verwenden music.youtube.com</string>
-    <string name="morphe_replace_music_with_youtube_summary_on">Geteilte Links verwenden youtube.com</string>
-    <string name="morphe_replace_music_with_youtube_title">Teilen-Links zu youtube.com ändern</string>
+    <string name="morphe_replace_music_with_youtube_summary_off">Freigabe-Links verwenden music.youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_summary_on">Freigabe-Links verwenden youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">Freigabe-Links zu youtube.com ändern</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
-    <string name="morphe_sanitize_sharing_links_title">Freigabelinks säubern</string>
+    <string name="morphe_sanitize_sharing_links_title">Freigabe-Links säubern</string>
     <string name="morphe_spoof_video_streams_about_experimental">• Experimenteller Client und kann jederzeit aufhören zu funktionieren</string>
     <string name="morphe_spoof_video_streams_about_js">• Wenn die Deobfuskation fehlschlägt, kann die Wiedergabe fehlschlagen</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Audiotrack-Menü fehlt</string>
@@ -68,54 +68,54 @@ Die Videowiedergabe mit AV1 kann stottern oder Bilder überspringen."</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">JavaScript-Update des Players ist aktiviert</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"JavaScript-Update des Players ist deaktiviert
 
-• Ein gültiger Player JavaScript Hash ist erforderlich
-• Die Wiedergabe schlägt fehl, wenn der Player JavaScript Hash in GVS widerrufen wird"</string>
+• Ein gültiger Player-JavaScript-Hash ist erforderlich
+• Die Wiedergabe schlägt fehl, wenn der Player-JavaScript-Hash in GVS widerrufen wird"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">JavaScript-Update des Players deaktivieren</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript-Hashes des Spielers sind ungefähr einen Monat gültig, und veraltete Hashes können von GVS widerrufen werden.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Versuchen Sie, dies zu aktivieren: Spoof video streams &gt; Android VR Anmeldung</string>
-    <string name="morphe_spoof_video_streams_no_clients_toast">Keine Client-Streams konnten abgerufen werden</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Geben Sie einen gültigen Spieler JavaScript Hash ein</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Spieler JavaScript Hash</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript-Hashes des Players sind ungefähr einen Monat gültig und veraltete Hashes können von GVS widerrufen werden.</string>
+    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Versuchen Sie folgendes zu aktivieren: Fälsche Video-Streams &gt; Android VR Anmeldung</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Es konnten keine Client-Streams abgerufen werden</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Geben Sie einen gültigen Player-JavaScript-Hash ein</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player-JavaScript-Hash</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Player-JavaScript-Variante</string>
-    <string name="morphe_spoof_video_streams_screen_summary">Spoofe die Client-Video-Streams, um Wiedergabeprobleme zu verhindern</string>
-    <string name="morphe_spoof_video_streams_screen_title">Spoofe Video-Streams</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Sie sind nicht bei Android VR angemeldet. Tappen Sie hier zum Anmelden</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie ‚Standardclient‘ zu Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Sie sind derzeit bei Android VR angemeldet</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Fälsche die Client-Video-Streams, um Wiedergabeprobleme zu verhindern</string>
+    <string name="morphe_spoof_video_streams_screen_title">Fälsche Video-Streams</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Sie sind nicht bei Android VR angemeldet. Tippen Sie hier zum Anmelden</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie \"Standard-Client\" zu Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Derzeit bei Android VR angemeldet</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR Anmeldung</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Aktivierungscode: %s
 
-1. Drücken Sie ‚Website öffnen‘ unten, um die ‚Gerät verbinden‘-Website zu öffnen
-2. Legen Sie den aus der Zwischenablage kopierten (oder selbst eingegebenen) Aktivierungscode oben ein
-3. Bei Aufforderung auf ‚Google Anmelden‘ klicken. Wenn Sie mehrere Konten haben, wählen Sie dieses YouTube-Konto
-4. Tappen Sie auf ‚YouTube VR‘ Zugriff erlauben
-5. Nach der Anzeige ‚Gerät verbunden‘ kehren Sie in diese App zurück"</string>
+1. Drücken Sie unten auf \"Website öffnen\", um die \"Ein Gerät verbinden\"-Website zu öffnen
+2. Fügen Sie den oben angezeigten Aktivierungscode aus der Zwischenablage ein (oder tippen Sie ihn ein)
+3. Bei Aufforderung bei Google anmelden. Wenn Sie mehrere Konten haben, wählen Sie dieses YouTube-Konto aus
+4. Tippen Sie auf \"YouTube VR erlauben\" Zugriff
+5. Nach der \"Gerät verbunden\"-Nachricht, kehren Sie in diese App zurück"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Website öffnen</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Anleitung</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Weiter</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Anmeldung bei Android VR kann Wiedergabeprobleme für einige Benutzer beheben
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Die Anmeldung bei Android VR kann Wiedergabeprobleme für einige Benutzer beheben
 
-Um sich anzumelden, drücken Sie auf \"Weiter unten\"."</string>
+Um sich anzumelden, drücken Sie unten auf \"Weiter\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Abmelden</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Bei Android VR anmelden</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Authentifizierung erfolgreich
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Authentifizierung gespeichert
 
 • Ihre Morphe-Einstellungen importieren/-exportieren keine Android VR-Authentifizierung
 • Wenn diese App 6 Monate lang nicht genutzt wird, entfernt Google diese Authentifizierung
 • Wenn Sie Ihr Google-Kennwort ändern oder dieses Gerät von Ihren Google-Einstellungen deregistrieren, müssen Sie sich erneut anmelden"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Erfolgreich angemeldet</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Ausgabe eines Aktivierungs-codes fehlgeschlagen</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Ausgabe eines Aktivierungscodes fehlgeschlagen</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Ausgabe eines Authentifizierungstokens fehlgeschlagen</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Der Client wird in den Statistiken für Nerds ausgeblendet</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Der Client-Typ wird in den Statistiken für Nerds angezeigt</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">In Statistiken für Nerds anzeigen</string>
-    <string name="morphe_spoof_video_streams_summary_off">"Video-Streams werden nicht gespooft
+    <string name="morphe_spoof_video_streams_summary_off">"Video-Streams werden nicht gefälscht
 
 Die Wiedergabe funktioniert möglicherweise nicht"</string>
-    <string name="morphe_spoof_video_streams_summary_on">"Videostreams werden gespooft
+    <string name="morphe_spoof_video_streams_summary_on">"Videostreams werden gefälscht
 
 Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
-    <string name="morphe_spoof_video_streams_title">Spoofe Video-Streams</string>
+    <string name="morphe_spoof_video_streams_title">Fälsche Video-Streams</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann Wiedergabeprobleme verursachen.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Erweitertes Videoqualitätsmenü wird nicht angezeigt</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Erweitertes Videoqualitätsmenü wird angezeigt</string>
@@ -300,9 +300,9 @@ Einschränkung: Zurück-Taste in der Symbolleiste funktioniert möglicherweise n
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Logs are too large to copy.</string>
     <string name="revanced_debug_logs_failed_to_export">Fehler beim Exportieren der Protokolle: %s</string>
     <string name="revanced_debug_logs_none_found">Keine Protokolle gefunden</string>
-    <string name="revanced_debug_protobuffer_summary_off">Debug-Protokolle enthalten kein Protokollpuffer</string>
-    <string name="revanced_debug_protobuffer_summary_on">Debug-Protokolle enthalten Protokollpuffer</string>
-    <string name="revanced_debug_protobuffer_title">Protokollpuffer protokollieren</string>
+    <string name="revanced_debug_protobuffer_summary_off">Debug-Logs enthalten keine Protokollpuffer</string>
+    <string name="revanced_debug_protobuffer_summary_on">Debug-Logs enthalten Protokollpuffer</string>
+    <string name="revanced_debug_protobuffer_title">Debug-Protokollpuffer</string>
     <string name="revanced_debug_spannable_summary_off">Debug logs do not include spannable.</string>
     <string name="revanced_debug_spannable_summary_on">Debug logs include spannable.</string>
     <string name="revanced_debug_spannable_title">Log spannable</string>
@@ -401,7 +401,7 @@ Folgende Änderungen werden vorgenommen:
     <string name="revanced_disable_like_dislike_glow_summary_on">Die \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen leuchten nicht, wenn sie erwähnt werden.</string>
     <string name="revanced_disable_like_dislike_glow_title">Leuchten der \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen deaktivieren</string>
     <string name="revanced_disable_quic_protocol_summary">"CronetEngine's QUIC-Protokoll deaktivieren"</string>
-    <string name="revanced_disable_quic_protocol_title">Deaktivieren Sie das QUIC-Protokoll</string>
+    <string name="revanced_disable_quic_protocol_title">QUIC-Protokoll deaktivieren </string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Weiter beobachten&lt;/b&gt; wird beim Start der App fortgesetzt.&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;Weiter&lt;/b&gt; ist die YouTube Premium-Funktion.&lt;br&gt;• Diese Einstellung erzwingt &lt;b&gt;Weiter&lt;/b&gt; nicht zum Aktivieren.</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Weiter beobachten&lt;/b&gt; wird beim Start der App nicht fortgesetzt.</string>
     <string name="revanced_disable_resuming_miniplayer_title">Miniplayer fortsetzen deaktivieren</string>
@@ -616,6 +616,7 @@ Bekanntes Problem: Manchmal erscheint die Wisch-Überlagerung, bevor zum Vollbil
     <string name="revanced_fix_transcript_title">Transkript reparieren</string>
     <string name="revanced_fullscreen_ads_closed_toast">Vollbildwerbung wurde geschlossen.</string>
     <string name="revanced_gemini_cancelled">Abgebrochen</string>
+    <string name="revanced_gemini_chat_input_hint">Frage zu diesem Video</string>
     <string name="revanced_gemini_copy_success">Zusammenfassung in die Zwischenablage kopiert.</string>
     <string name="revanced_gemini_error_already_running_summarize">Die Zusammenfassung ist bereits im Gange.</string>
     <string name="revanced_gemini_error_already_running_transcribe">Transkription läuft bereits.</string>
@@ -822,7 +823,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_end_screen_suggested_video_title">Vorgeschlagenes Video auf dem Endbildschirm ausblenden</string>
     <string name="revanced_hide_expandable_card_summary_off">Ausklappbare Karte unter Videos wird angezeigt</string>
     <string name="revanced_hide_expandable_card_summary_on">Ausklappbare Karte unter Videos ist ausgeblendet</string>
-    <string name="revanced_hide_expandable_card_title">Ausklappbare Karte ausblenden</string>
+    <string name="revanced_hide_expandable_card_title">Ausklappbare Karten ausblenden</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Erweiterbare Regale werden angezeigt.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Erweiterbare Regale sind ausgeblendet.</string>
     <string name="revanced_hide_expandable_shelf_title">Erweiterbare Regale ausblenden</string>
@@ -859,7 +860,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_floating_microphone_summary_on">Die schwebende \'Mikrofon\' Schaltfläche ist ausgeblendet.</string>
     <string name="revanced_hide_floating_microphone_title">Die schwebende \'Mikrofon\' Schaltfläche ausblenden</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Vollbild-Anzeigen werden angezeigt</string>
-    <string name="revanced_hide_fullscreen_ads_summary_on">Vollbild-Anzeigen werden ausgeblendet</string>
+    <string name="revanced_hide_fullscreen_ads_summary_on">Vollbildanzeigen werden ausgeblendet</string>
     <string name="revanced_hide_fullscreen_ads_title">Vollbild-Werbung ausblenden</string>
     <string name="revanced_hide_general_ads_summary_off">Allgemeine Werbung werden angezeigt</string>
     <string name="revanced_hide_general_ads_summary_on">Allgemeine Werbung werden ausgeblendet</string>
@@ -873,6 +874,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_hype_button_summary_off">Hypen-Button wird angezeigt</string>
     <string name="revanced_hide_hype_button_summary_on">Hypen-Button ist ausgeblendet</string>
     <string name="revanced_hide_hype_button_title">Hypen ausblenden</string>
+    <string name="revanced_hide_hype_points_section_summary_off">Hype Punkte Bereich wird angezeigt.</string>
     <string name="revanced_hide_hype_points_summary_off">Hype-Punkte werden angezeigt</string>
     <string name="revanced_hide_hype_points_summary_on">Hype-Punkte sind ausgeblendet</string>
     <string name="revanced_hide_hype_points_title">Hype-Punkte ausblenden</string>
@@ -2039,7 +2041,7 @@ Einschränkung: Dislikes werden im Inkognito Modus nicht angezeigt."</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">Kategorie-Buttons außer \'Oben\' und \'Neu\' sind in der Kommentar-Kategorie-Leiste ausgeblendet</string>
     <string name="revanced_sanitize_comments_category_bar_title">Kategorieleiste bereinigen</string>
     <string name="revanced_sanitize_sharing_links_summary">Entfernt das Teilen von Links durch das Entfernen von Tracking-Abfrageparametern.</string>
-    <string name="revanced_sanitize_sharing_links_title">Freigabelinks säubern</string>
+    <string name="revanced_sanitize_sharing_links_title">Freigabe-Links säubern</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Ausdrücke wie '#', 'Spendenaktion', 'Shop' und 'Produkte' werden in den Videountertiteln angezeigt."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Ausdrücke wie '#', 'Spendenaktion', 'Shop' und 'Produkte' werden in den Videountertiteln ausgeblendet."</string>
     <string name="revanced_sanitize_video_subtitle_title">Video-Untertitel säubern</string>

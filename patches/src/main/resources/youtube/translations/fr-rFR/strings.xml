@@ -245,7 +245,7 @@ Si des modifications sont apportées côté serveur, il se peut que la couleur d
     <string name="revanced_change_start_page_entry_notifications">Notifications</string>
     <string name="revanced_change_start_page_entry_playlists">Playlists</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
-    <string name="revanced_change_start_page_entry_search">Recherche</string>
+    <string name="revanced_change_start_page_entry_search">Rechercher</string>
     <string name="revanced_change_start_page_entry_shopping">Produits</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Sports</string>
@@ -266,6 +266,7 @@ Limitation : Le bouton Retour de la barre d'outils peut ne pas fonctionner."</st
     <string name="revanced_confirm_user_dialog_title">Voulez-vous vraiment continuer ?</string>
     <string name="revanced_copy">Copier</string>
     <string name="revanced_copy_error">La copie du texte a échoué</string>
+    <string name="revanced_credits_title">Crédits</string>
     <string name="revanced_custom_filter_strings_summary">Liste des chemins de composants à filtrer séparés par un saut de ligne</string>
     <string name="revanced_custom_filter_strings_title">Filtre personnalisé</string>
     <string name="revanced_custom_filter_summary_off">Le filtre personnalisé est désactivé</string>
@@ -304,9 +305,9 @@ Limitation : Le bouton Retour de la barre d'outils peut ne pas fonctionner."</st
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Les journaux sont trop volumineux pour être copiés.</string>
     <string name="revanced_debug_logs_failed_to_export">Échec de l\'exportation des journaux : %s</string>
     <string name="revanced_debug_logs_none_found">Aucun journal trouvé</string>
-    <string name="revanced_debug_protobuffer_summary_off">Les journaux de débogage n\'incluent pas le protocole buffer</string>
-    <string name="revanced_debug_protobuffer_summary_on">Les journaux de débogage incluent le protocole buffer</string>
-    <string name="revanced_debug_protobuffer_title">Journaliser le protocole buffer</string>
+    <string name="revanced_debug_protobuffer_summary_off">Les journaux de débogage n\'incluent pas les protocol buffers</string>
+    <string name="revanced_debug_protobuffer_summary_on">Les journaux de débogage incluent les protocol buffers</string>
+    <string name="revanced_debug_protobuffer_title">Journal de débogage du protocol buffer</string>
     <string name="revanced_debug_spannable_summary_off">Les journaux de débogage n\'incluent pas le texte formaté (spannable).</string>
     <string name="revanced_debug_spannable_summary_on">Les journaux de débogage incluent le texte formaté (spannable).</string>
     <string name="revanced_debug_spannable_title">Enregistrer le texte formaté (spannable)</string>
@@ -622,6 +623,7 @@ Problème connu : Il arrive que l'interface de balayage s'affiche avant le pass
     <string name="revanced_fix_transcript_title">Corriger la transcription</string>
     <string name="revanced_fullscreen_ads_closed_toast">Les publicités en plein écran sont fermées.</string>
     <string name="revanced_gemini_cancelled">Annulé</string>
+    <string name="revanced_gemini_chat_input_hint">Posez des questions sur cette vidéo </string>
     <string name="revanced_gemini_copy_success">Résumé copié dans le presse-papiers.</string>
     <string name="revanced_gemini_error_already_running_summarize">Résumé déjà en cours.</string>
     <string name="revanced_gemini_error_already_running_transcribe">Transcription déjà en cours.</string>
@@ -830,7 +832,7 @@ Limitation : certains liens de recherche mis en surbrillance qui n'ont pas de st
     <string name="revanced_hide_end_screen_suggested_video_title">Masquer \'Vidéo suggéréé\' à l\'écran de fin</string>
     <string name="revanced_hide_expandable_card_summary_off">La carte extensible sous les vidéos est affichée</string>
     <string name="revanced_hide_expandable_card_summary_on">La carte extensible sous les vidéos est masquée</string>
-    <string name="revanced_hide_expandable_card_title">Masquer la carte extensible</string>
+    <string name="revanced_hide_expandable_card_title">Masquer les cartes extensibles</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Les étagères coulissantes sont affichés.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Les étagères coulissantes sont masqués.</string>
     <string name="revanced_hide_expandable_shelf_title">Masquer les étagères coulissantes</string>
@@ -1515,12 +1517,12 @@ Limitations :
     <string name="revanced_hide_you_may_like_section_summary_off">La section \'Recommandations\' est affichée</string>
     <string name="revanced_hide_you_may_like_section_summary_on">La section \'Recommandations\' est masquée</string>
     <string name="revanced_hide_you_may_like_section_title">Masquer la section \'Recommandations\'</string>
-    <string name="revanced_hide_youtube_doodles_summary_off">L\'animation Doodles sur le logo YouTube est affichée</string>
-    <string name="revanced_hide_youtube_doodles_summary_on">L\'animation Doodles sur le logo YouTube est masquée</string>
-    <string name="revanced_hide_youtube_doodles_title">Masquer les Doodles YouTube</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"Les Doodles YouTube sont affichés quelques jours par an dans diverses régions du monde.
+    <string name="revanced_hide_youtube_doodles_summary_off">L\'animation YouTube Doodles sur le logo est affichée</string>
+    <string name="revanced_hide_youtube_doodles_summary_on">L\'animation YouTube Doodles sur le logo est masquée</string>
+    <string name="revanced_hide_youtube_doodles_title">Masquer les YouTube Doodles</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">"Les YouTube Doodles sont affichés quelques jours par an dans différentes régions du monde.
 
-Afficher les Doodles YouTube peut empêcher l'affichage des en-têtes personnalisés."</string>
+L’affichage des YouTube Doodles peut empêcher l’affichage des en-têtes personnalisés."</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">La promotion YouTube Premium est affichée.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"La promotion YouTube Premium est masquée.
 
@@ -1751,8 +1753,8 @@ Les réponses générées par l'IA peuvent contenir des informations inexactes.
 Appuyez ici pour obtenir une clé API."</string>
     <string name="revanced_overlay_button_gemini_about_title">À propos de Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize">Résumer</string>
-    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Obtenez votre clé API sur https://aistudio.google.com/apikey"</string>
-    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API key</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Obtenez votre clé API sur https://aistudio.google.com/apikey" </string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Clé API Gemini </string>
     <string name="revanced_overlay_button_gemini_summarize_summary">"Appuyez pour résumer la vidéo. Maintenez pour transcrire.
 
 Les résultats résumés et transcrits sont enregistrés, sauf si vous fermez l'application ou utilisez Gemini sur une autre vidéo. Appuyez à nouveau sur le bouton pour afficher les résultats."</string>
@@ -1786,6 +1788,8 @@ Info :
 Appuyez longuement pour revenir à la vitesse de lecture à 1.0x. Appuyez longuement à nouveau rétablir les vitesses par défaut."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Afficher bouton \'Vitesse de lecture\'</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">Type de boîte de dialogue de vitesse</string>
+    <string name="revanced_overlay_button_vot_summary">Afficher le bouton de superposition pour basculer la traduction vocale pour la vidéo actuelle </string>
+    <string name="revanced_overlay_button_vot_title">Traduction voix off </string>
     <string name="revanced_overlay_button_whitelist_summary">Appuyez pour ouvrir la liste blanche.
 Appuyez longuement pour ouvrir les paramètres de la liste blanche.</string>
     <string name="revanced_overlay_button_whitelist_title">Afficher le bouton \'Liste blanche\'</string>
@@ -1906,6 +1910,7 @@ Pour afficher le bouton de téléchargement de playlist natif, activez l'option 
     <string name="revanced_preference_screen_video_filter_summary">Masque les vidéos par mot-clés ou par vues.</string>
     <string name="revanced_preference_screen_video_filter_title">Filtre vidéo</string>
     <string name="revanced_preference_screen_video_title">Vitesses et qualités vidéo</string>
+    <string name="revanced_preference_screen_vot_title">Traduction voix off </string>
     <string name="revanced_preference_screen_watch_history_summary">Modifie les paramètres liés à l\'historique de visionnage.</string>
     <string name="revanced_preference_screen_watch_history_title">Historique de visionnage</string>
     <string name="revanced_queue_manager_add_to_queue">Ajouter à la file d\'attente</string>
@@ -2320,6 +2325,7 @@ Il existe déjà"</string>
     <string name="revanced_sb_vote_upvote">Voter pour</string>
     <string name="revanced_search_settings_category_title">Recherche de paramètres</string>
     <string name="revanced_search_title">Recherche</string>
+    <string name="revanced_send">Envoyé</string>
     <string name="revanced_set_transcript_cookies_all_summary_off">Les cookies sont uniquement activés pour les demandes de sous-titres traduits auto.</string>
     <string name="revanced_set_transcript_cookies_all_summary_on">Les cookies sont configurés pour toutes les requêtes API Transcript.</string>
     <string name="revanced_set_transcript_cookies_all_title">Définir les Cookies pour toutes les requêtes API Transcript</string>
@@ -2459,6 +2465,7 @@ Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut 
     <string name="revanced_spoof_app_version_summary_on">Version falsifiée</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restaure la fonctionnalité de transcription</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Restauration de la barre d\'action vidéo non réduite</string>
+    <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Restaurer les anciens composants filtre </string>
     <string name="revanced_spoof_app_version_target_entry_title">Choisir la version à falsifier</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Version de falsification de l\'app invalide : %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Saisissez la version de l\'application à falsifier.</string>
@@ -2548,6 +2555,7 @@ La lecture peut alors présenter des saccades ou des pertes d'images."</string>
 3. Connectez-vous lorsque cela est demandé. Si vous possédez plusieurs comptes Google, sélectionnez celui que vous utilisez avec YouTube. Si vous êtes déjà connecté, passez à l'étape suivante.
 4. Une fois connecté, retournez sur RVX et cliquez à nouveau sur 'Se connecter à Android VR'.
 5. Cliquez sur 'Obtenir un jeton d'autorisation' pour obtenir un jeton d'autorisation."</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website">Site web ouvert </string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Ouvrir le site web</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Code d\'activation</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Code d\'activation copié dans le presse-papiers : %s.</string>
@@ -2723,6 +2731,42 @@ Avertissement : les cookies émis sans connexion peuvent être invalides ou mett
     <string name="revanced_transcript_cookies_summary">Cookies à utiliser dans les requêtes API Transcript.</string>
     <string name="revanced_transcript_cookies_title">Transcript Cookies</string>
     <string name="revanced_translations_title">Traductions</string>
+    <string name="revanced_vot_audio_proxy_summary_off">Le flux audio utilise l'URL directe </string>
+    <string name="revanced_vot_audio_proxy_summary_on">Le flux audio est fourni par le travailleur </string>
+    <string name="revanced_vot_audio_proxy_title">Spectre audio proxy </string>
+    <string name="revanced_vot_enabled_summary_off">La traduction en voix off de Yandex est désactivée </string>
+    <string name="revanced_vot_enabled_summary_on">La traduction en voix off de Yandex est activée </string>
+    <string name="revanced_vot_enabled_title">Permettre la traduction vocale </string>
+    <string name="revanced_vot_lang_auto">Détection automatique </string>
+    <string name="revanced_vot_live_voices_unavailable">Voix en direct indisponibles, utilisant la norme </string>
+    <string name="revanced_vot_original_audio_volume_summary">Volume de la piste vidéo originale lors de la lecture de la traduction (0-100) . Par défaut : 50 </string>
+    <string name="revanced_vot_original_audio_volume_title">Volume audio original </string>
+    <string name="revanced_vot_playback_error">Échec de la lecture audio de traduction </string>
+    <string name="revanced_vot_proxy_url_summary">hôte proxy VOT. Par défaut : vot-worker.toil.cc </string>
+    <string name="revanced_vot_proxy_url_title">Serveur proxy </string>
+    <string name="revanced_vot_source_language_summary">Sélectionnez la langue de l'audio vidéo </string>
+    <string name="revanced_vot_source_language_title">Langue source </string>
+    <string name="revanced_vot_started">Traduction commencée </string>
+    <string name="revanced_vot_stopped">Arrêt de la traduction </string>
+    <string name="revanced_vot_stream_not_ready">Traduction pas prête. Utilisez le bouton pour activer lorsqu'il est prêt. </string>
+    <string name="revanced_vot_stream_ready">Traduction prête, jouant </string>
+    <string name="revanced_vot_stream_requesting">Demander une traduction pour le flux... </string>
+    <string name="revanced_vot_stream_waiting">En attente... ~%s </string>
+    <string name="revanced_vot_target_language_summary">Sélectionnez la langue à traduire </string>
+    <string name="revanced_vot_target_language_title">Langue cible </string>
+    <string name="revanced_vot_time_min">%d min </string>
+    <string name="revanced_vot_time_sec">%d sec </string>
+    <string name="revanced_vot_translation_volume_summary">Volume de la piste audio traduite (0-100). Par défaut : 100 </string>
+    <string name="revanced_vot_translation_volume_title">Volume de traduction </string>
+    <string name="revanced_vot_unavailable_live">La traduction n'est pas disponible pour les flux en direct </string>
+    <string name="revanced_vot_unavailable_same_language">L'audio vidéo est déjà dans la langue cible </string>
+    <string name="revanced_vot_unavailable_too_long">La vidéo est trop longue pour la traduction (max 4 heures) </string>
+    <string name="revanced_vot_voice_style_live">Voix en direct </string>
+    <string name="revanced_vot_voice_style_live_summary_off">Voix TTS standard </string>
+    <string name="revanced_vot_voice_style_live_summary_on">Voix à consonance naturelle de Yandex </string>
+    <string name="revanced_vot_voice_style_live_title">Voix en direct </string>
+    <string name="revanced_vot_voice_style_standard">Voix standard </string>
+    <string name="revanced_vot_voice_style_title">Voix off </string>
     <string name="revanced_watch_history_about_status_blocked">• L\'historique de visionnage est bloqué.</string>
     <string name="revanced_watch_history_about_status_original">"• Suit les paramètres de l'historique de visionnage du compte Google.
 • L'historique de visionnage peut ne pas fonctionner en raison d'un DNS ou d'un VPN."</string>
