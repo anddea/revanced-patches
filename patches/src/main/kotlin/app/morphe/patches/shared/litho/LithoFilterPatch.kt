@@ -63,7 +63,7 @@ val lithoFilterPatch = bytecodePatch(
         // print("isYouTube: $isYouTube\n")
 
         if (isYouTube) {
-            // Remove dummy filter from extenion static field
+            // Remove dummy filter from extension static field
             // and add the filters included during patching.
             LithoFilterFingerprint.match(classDefBy(EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR)).let {
                 it.method.apply {

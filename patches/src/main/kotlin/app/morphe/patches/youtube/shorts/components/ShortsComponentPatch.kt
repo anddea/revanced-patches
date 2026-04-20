@@ -84,7 +84,6 @@ import app.morphe.util.findMethodOrThrow
 import app.morphe.util.findMutableMethodOf
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
-import app.morphe.util.fingerprint.methodCall
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.resolvable
 import app.morphe.util.getReference
@@ -817,10 +816,10 @@ val shortsComponentPatch = bytecodePatch(
             settingArray += "SETTINGS: SHORTS_REPEAT_STATE_BACKGROUND"
         }
 
-        if (is_19_34_or_greater && !is_20_18_or_greater) {
-            settingArray += "SETTINGS: SHORTS_TIME_STAMP"
+        settingArray += if (is_19_34_or_greater && !is_20_18_or_greater) {
+            "SETTINGS: SHORTS_TIME_STAMP"
         } else {
-            settingArray += "SETTINGS: SHORTS_PLAY_PAUSE_BUTTON_BACKGROUND"
+            "SETTINGS: SHORTS_PLAY_PAUSE_BUTTON_BACKGROUND"
         }
 
         // region patch for hide comments button (non-litho)
