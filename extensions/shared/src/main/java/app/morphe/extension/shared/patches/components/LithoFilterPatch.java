@@ -28,13 +28,15 @@ public final class LithoFilterPatch {
         final String identifier;
         final String path;
         final String accessibility;
+        final Object contextSource;
         final byte[] buffer;
 
         LithoFilterParameters(String lithoIdentifier, String lithoPath,
-                              String accessibility, byte[] buffer) {
+                              String accessibility, Object contextSource, byte[] buffer) {
             this.identifier = lithoIdentifier;
             this.path = lithoPath;
             this.accessibility = accessibility;
+            this.contextSource = contextSource;
             this.buffer = buffer;
         }
 
@@ -191,8 +193,8 @@ public final class LithoFilterPatch {
                             if (!group.isEnabled()) return false;
 
                             LithoFilterParameters parameters = (LithoFilterParameters) callbackParameter;
-                            final boolean isFiltered = filter.isFiltered(parameters.identifier,
-                                    parameters.accessibility, parameters.path, parameters.buffer,
+                            final boolean isFiltered = filter.isFiltered(parameters.contextSource,
+                                    parameters.identifier, parameters.accessibility, parameters.path, parameters.buffer,
                                     group, type, matchedStartIndex);
 
                             if (isFiltered && BaseSettings.DEBUG.get()) {
@@ -345,7 +347,8 @@ public final class LithoFilterPatch {
      * Injection point.
      */
     public static boolean isFiltered(String identifier, @Nullable String accessibilityId,
-                                     @Nullable String accessibilityText, StringBuilder pathBuilder) {
+                                     @Nullable String accessibilityText, StringBuilder pathBuilder,
+                                     Object contextSource) {
         try {
             if (identifier.isEmpty() || pathBuilder.length() == 0) {
                 return false;
@@ -398,7 +401,7 @@ public final class LithoFilterPatch {
             if (accessibilityText != null && !accessibilityText.isBlank()) {
                 accessibility = accessibilityId + '|' + accessibilityText;
             }
-            LithoFilterParameters parameter = new LithoFilterParameters(identifier, path, accessibility, buffer);
+            LithoFilterParameters parameter = new LithoFilterParameters(identifier, path, accessibility, contextSource, buffer);
             Logger.printDebug(() -> "Searching " + parameter);
 
             return identifierSearchTree.matches(identifier, parameter)

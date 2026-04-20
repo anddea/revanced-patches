@@ -1,11 +1,14 @@
 package app.morphe.extension.youtube.patches.components;
 
+import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_22_OR_GREATER;
+
 import org.apache.commons.lang3.StringUtils;
 
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
+import app.morphe.extension.shared.patches.components.StringFilterGroupList;
 import app.morphe.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"deprecation", "unused"})
@@ -31,6 +34,10 @@ public final class ShortsButtonFilter extends Filter {
 
     private final StringFilterGroup actionButton;
     private final ByteArrayFilterGroupList videoActionButtonGroupList = new ByteArrayFilterGroupList();
+    private final StringFilterGroup likeFountain;
+    private final StringFilterGroup shortsActionBar;
+    private final StringFilterGroup shortsActionButton;
+    private final StringFilterGroupList shortsActionButtonGroupList = new StringFilterGroupList();
 
     private final ByteArrayFilterGroup useThisSoundButton = new ByteArrayFilterGroup(
             Settings.HIDE_SHORTS_USE_THIS_SOUND_BUTTON,
@@ -147,43 +154,95 @@ public final class ShortsButtonFilter extends Filter {
                 "shorts_video_action_button."
         );
 
+        likeFountain = new StringFilterGroup(
+                Settings.DISABLE_SHORTS_LIKE_BUTTON_FOUNTAIN_ANIMATION,
+                "like_fountain."
+        );
+
+        shortsActionBar = new StringFilterGroup(
+                null,
+                "shorts_action_bar.",
+                "reel_action_bar."
+        );
+
+        shortsActionButton = new StringFilterGroup(
+                null,
+                // Can be any of:
+                // button.eml
+                // shorts_video_action_button.eml
+                // reel_action_button.eml
+                // reel_pivot_button.eml
+                "button.",
+                "shorts_video_action_button.",
+                "reel_action_button.",
+                "reel_pivot_button."
+        );
+
         suggestedAction = new StringFilterGroup(
                 null,
                 "suggested_action_inner."
         );
 
-        addPathCallbacks(
-                suggestedAction, actionButton, joinButton, subscribeButton, metaPanelButton,
-                pausedOverlayButtons, autoDubbedLabel, channelBar, videoLinkLabel,
-                videoTitle, reelSoundMetadata, infoPanel, liveHeader, livePreview,
-                previewComment, soundButton, stickers, likeButton, dislikeButton, shortsCommentsPanel
-        );
+        if (IS_20_22_OR_GREATER) {
+            addPathCallbacks(
+                    suggestedAction, joinButton, subscribeButton, metaPanelButton,
+                    pausedOverlayButtons, autoDubbedLabel, channelBar, videoLinkLabel,
+                    videoTitle, reelSoundMetadata, infoPanel, liveHeader, livePreview,
+                    previewComment, soundButton, stickers, likeButton, dislikeButton, shortsCommentsPanel,
+                    likeFountain, shortsActionBar
+            );
+        } else {
+            addPathCallbacks(
+                    suggestedAction, actionButton, joinButton, subscribeButton, metaPanelButton,
+                    pausedOverlayButtons, autoDubbedLabel, channelBar, videoLinkLabel,
+                    videoTitle, reelSoundMetadata, infoPanel, liveHeader, livePreview,
+                    previewComment, soundButton, stickers, likeButton, dislikeButton, shortsCommentsPanel,
+                    likeFountain, shortsActionBar
+            );
+        }
 
         //
         // Action buttons
         //
-        videoActionButtonGroupList.addAll(
-                new ByteArrayFilterGroup(
+        if (!IS_20_22_OR_GREATER) {
+            videoActionButtonGroupList.addAll(
+                    new ByteArrayFilterGroup(
+                            Settings.HIDE_SHORTS_COMMENTS_BUTTON,
+                            "ic_right_comment",
+                            "reel_comment_button",
+                            "youtube_shorts_comment_outline"
+                    ),
+                    new ByteArrayFilterGroup(
+                            Settings.HIDE_SHORTS_SHARE_BUTTON,
+                            "ic_right_share",
+                            "reel_share_button",
+                            "youtube_shorts_share_outline"
+                    ),
+                    new ByteArrayFilterGroup(
+                            Settings.HIDE_SHORTS_REMIX_BUTTON,
+                            "ic_remix_filled",
+                            "reel_remix_button",
+                            "youtube_shorts_remix_outline"
+                    ),
+                    new ByteArrayFilterGroup(
+                            Settings.DISABLE_SHORTS_LIKE_BUTTON_FOUNTAIN_ANIMATION,
+                            "shorts_like_fountain"
+                    )
+            );
+        }
+
+        shortsActionButtonGroupList.addAll(
+                new StringFilterGroup(
                         Settings.HIDE_SHORTS_COMMENTS_BUTTON,
-                        "ic_right_comment",
-                        "reel_comment_button",
-                        "youtube_shorts_comment_outline"
+                        "id.reel_comment_button"
                 ),
-                new ByteArrayFilterGroup(
+                new StringFilterGroup(
                         Settings.HIDE_SHORTS_SHARE_BUTTON,
-                        "ic_right_share",
-                        "reel_share_button",
-                        "youtube_shorts_share_outline"
+                        "id.reel_share_button"
                 ),
-                new ByteArrayFilterGroup(
+                new StringFilterGroup(
                         Settings.HIDE_SHORTS_REMIX_BUTTON,
-                        "ic_remix_filled",
-                        "reel_remix_button",
-                        "youtube_shorts_remix_outline"
-                ),
-                new ByteArrayFilterGroup(
-                        Settings.DISABLE_SHORTS_LIKE_BUTTON_FOUNTAIN_ANIMATION,
-                        "shorts_like_fountain"
+                        "id.reel_remix_button"
                 )
         );
 
@@ -266,6 +325,11 @@ public final class ShortsButtonFilter extends Filter {
         return true;
     }
 
+    private boolean isActionBarButtonFiltered(String path, String buttonIdentity) {
+        return shortsActionButton.check(path).isFiltered()
+                && shortsActionButtonGroupList.check(buttonIdentity).isFiltered();
+    }
+
     @Override
     public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
@@ -281,6 +345,46 @@ public final class ShortsButtonFilter extends Filter {
         // Video action buttons (like, dislike, comment, share, remix) have the same path.
         if (matchedGroup == actionButton) {
             return videoActionButtonGroupList.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == shortsActionBar) {
+            return isActionBarButtonFiltered(path, identifier);
+        }
+
+        if (matchedGroup == suggestedAction) {
+            if (isEverySuggestedActionFilterEnabled()) {
+                return true;
+            }
+            // Suggested actions can be at the start or in the middle of a path.
+            return suggestedActionsGroupList.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == pausedOverlayButtons) {
+            if (Settings.HIDE_SHORTS_PAUSED_OVERLAY_BUTTONS.get()) {
+                return true;
+            } else if (StringUtils.contains(path, SHORTS_PAUSED_STATE_BUTTON_PATH)) {
+                return pausedOverlayButtonsGroupList.check(buffer).isFiltered();
+            }
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public boolean isFiltered(Object contextSource, String identifier, String accessibility, String path, byte[] buffer,
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        if (matchedGroup == subscribeButton || matchedGroup == joinButton || matchedGroup == autoDubbedLabel) {
+            // Selectively filter to avoid false positive filtering of other subscribe/join buttons.
+            return StringUtils.startsWithAny(path, REEL_CHANNEL_BAR_PATH, REEL_LIVE_HEADER_PATH, REEL_METAPANEL_PATH);
+        }
+
+        if (matchedGroup == metaPanelButton) {
+            return path.startsWith(REEL_METAPANEL_PATH) && useThisSoundButton.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == shortsActionBar) {
+            return isActionBarButtonFiltered(path, accessibility);
         }
 
         if (matchedGroup == suggestedAction) {

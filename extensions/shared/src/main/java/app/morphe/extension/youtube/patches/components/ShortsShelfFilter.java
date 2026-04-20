@@ -90,6 +90,18 @@ public final class ShortsShelfFilter extends Filter {
     @Override
     public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        return isFiltered(feedGroup.matches(allValue), path, buffer, matchedGroup, contentType, contentIndex);
+    }
+
+    @Override
+    public boolean isFiltered(Object contextSource, String identifier, String accessibility, String path, byte[] buffer,
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        return isFiltered(String.valueOf(contextSource).contains(CONVERSATION_CONTEXT_FEED_IDENTIFIER),
+                path, buffer, matchedGroup, contentType, contentIndex);
+    }
+
+    private boolean isFiltered(boolean isHomeFeedOrRelatedVideo, String path, byte[] buffer,
+                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         final boolean playerActive = RootView.isPlayerActive();
         final boolean descriptionActive = EngagementPanel.isDescription();
         final boolean searchBarActive = RootView.isSearchBarActive();
@@ -108,22 +120,27 @@ public final class ShortsShelfFilter extends Filter {
             if (matchedGroup == compactFeedVideoPath) {
                 return hideShelves && compactFeedVideoBuffer.check(buffer).isFiltered();
             } else if (matchedGroup == shelfHeaderPath) {
-                // Because the header is used in watch history and possibly other places, check for the index,
-                // which is 0 when the shelf header is used for Shorts.
+                // Shelf header reused in history/channel/etc.
+                // Shorts header is always index 0.
                 if (contentIndex != 0) {
                     return false;
                 }
-                if (!channelProfileShelfHeader.check(buffer).isFiltered()) {
-                    return false;
+                if (!isHomeFeedOrRelatedVideo) {
+                    return channelProfileShelfHeader.check(buffer).isFiltered();
                 }
-                return !feedGroup.matches(allValue);
+                return hideShelves;
             }
         } else if (contentType == FilterContentType.IDENTIFIER) {
             // Feed/search identifier components.
             if (matchedGroup == shelfHeaderIdentifier) {
+                // Shelf header reused in history/channel/etc.
+                // Shorts header is always index 0.
+                if (contentIndex != 0) {
+                    return false;
+                }
                 // Check ConversationContext to not hide shelf header in channel profile
                 // This value does not exist in the shelf header in the channel profile
-                if (!feedGroup.matches(allValue)) {
+                if (!isHomeFeedOrRelatedVideo) {
                     return false;
                 }
             } else if (matchedGroup == channelProfile) {
@@ -182,15 +199,28 @@ public final class ShortsShelfFilter extends Filter {
             return hideHomeAndRelatedVideos;
         }
 
-        switch (browseId) {
-            case BROWSE_ID_HISTORY, BROWSE_ID_LIBRARY, BROWSE_ID_NOTIFICATION_INBOX -> {
-                return hideHistory;
+        switch (selectedNavButton) {
+            case SEARCH -> {
+                return hideSearch;
             }
-            case BROWSE_ID_SUBSCRIPTIONS -> {
+            case SUBSCRIPTIONS -> {
                 return hideSubscriptions;
             }
+            case LIBRARY -> {
+                return hideHistory;
+            }
             default -> {
-                return hideHomeAndRelatedVideos;
+                switch (browseId) {
+                    case BROWSE_ID_HISTORY, BROWSE_ID_LIBRARY, BROWSE_ID_NOTIFICATION_INBOX -> {
+                        return hideHistory;
+                    }
+                    case BROWSE_ID_SUBSCRIPTIONS -> {
+                        return hideSubscriptions;
+                    }
+                    default -> {
+                        return hideHomeAndRelatedVideos;
+                    }
+                }
             }
         }
     }

@@ -231,6 +231,10 @@ public final class NavigationBar {
          * Only shown to automotive layout.
          */
         EXPLORE("TAB_EXPLORE"),
+        /**
+         * Only shown when the Search navigation button is present.
+         */
+        SEARCH("SEARCH", "SEARCH_BOLD", "SEARCH_CAIRO"),
         SUBSCRIPTIONS("PIVOT_SUBSCRIPTIONS", "TAB_SUBSCRIPTIONS_CAIRO"),
         /**
          * Notifications tab.  Only present when
