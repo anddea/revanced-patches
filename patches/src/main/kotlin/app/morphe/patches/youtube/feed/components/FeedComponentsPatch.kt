@@ -6,6 +6,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.string
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.emptyComponentLabel
@@ -21,6 +22,7 @@ import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_02_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_10_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.bar
 import app.morphe.patches.youtube.utils.resourceid.captionToggleContainer
@@ -40,6 +42,7 @@ import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -138,25 +141,62 @@ val feedComponentsPatch = bytecodePatch(
 
         // region patch for hide floating button
 
-        onCreateMethod.apply {
-            val stringIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.CONST_STRING &&
-                        getReference<StringReference>()?.string == "fab"
-            }
-            val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
-            val insertIndex = indexOfFirstInstructionOrThrow(stringIndex) {
-                opcode == Opcode.INVOKE_DIRECT &&
-                        getReference<MethodReference>()?.name == "<init>"
-            }
-            val jumpIndex = indexOfFirstInstructionOrThrow(insertIndex, Opcode.CONST_STRING)
+        if (!is_20_28_or_greater) {
+            onCreateMethod.apply {
+                val stringIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.CONST_STRING &&
+                            getReference<StringReference>()?.string == "fab"
+                }
+                val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
+                val insertIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                    opcode == Opcode.INVOKE_DIRECT &&
+                            getReference<MethodReference>()?.name == "<init>"
+                }
+                val jumpIndex = indexOfFirstInstructionOrThrow(insertIndex, Opcode.CONST_STRING)
 
-            addInstructionsWithLabels(
-                insertIndex, """
-                    invoke-static {v$stringRegister}, $FEED_CLASS_DESCRIPTOR->hideFloatingButton(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$stringRegister
-                    if-eqz v$stringRegister, :hide
-                    """, ExternalLabel("hide", getInstruction(jumpIndex))
+                addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {v$stringRegister}, $FEED_CLASS_DESCRIPTOR->hideFloatingButton(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$stringRegister
+                        if-eqz v$stringRegister, :hide
+                        """, ExternalLabel("hide", getInstruction(jumpIndex))
+                )
+            }
+        }
+
+        if (is_20_28_or_greater) {
+            val hideFloatingButtonFingerprint = Fingerprint(
+                accessFlags = listOf(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR),
+                returnType = "V",
+                parameters = listOf(),
+                filters = listOf(
+                    string("fab"),
+                ),
+                custom = { method, _ ->
+                    method.name == "<clinit>"
+                }
             )
+
+            hideFloatingButtonFingerprint.let {
+                it.method.apply {
+                    val stringIndex = indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.CONST_STRING &&
+                                getReference<StringReference>()?.string == "fab"
+                    }
+                    val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
+                    val insertIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                        opcode == Opcode.CONST_STRING &&
+                                getReference<StringReference>()?.string == "initFloatingActionButton"
+                    }
+
+                    addInstructions(
+                        insertIndex, """
+                            invoke-static {v$stringRegister}, $FEED_CLASS_DESCRIPTOR->hideFloatingButton(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v$stringRegister
+                            """
+                    )
+                }
+            }
         }
 
         // endregion
