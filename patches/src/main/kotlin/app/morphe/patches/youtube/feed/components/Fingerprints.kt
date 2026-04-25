@@ -10,6 +10,13 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.string
+import app.morphe.patcher.checkCast
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.opcode
+
 internal val breakingNewsFingerprint = legacyFingerprint(
     name = "breakingNewsFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
@@ -158,5 +165,3 @@ internal val showMoreButtonFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
 )
-
-
