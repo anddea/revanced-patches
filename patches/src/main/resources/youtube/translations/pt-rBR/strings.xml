@@ -303,9 +303,9 @@ Limitação: O botão voltar na barra de ferramentas pode não funcionar."</stri
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Os registros são muito grandes para copiar.</string>
     <string name="revanced_debug_logs_failed_to_export">Falha ao exportar registros: %s</string>
     <string name="revanced_debug_logs_none_found">Nenhum registro encontrado</string>
-    <string name="revanced_debug_protobuffer_summary_off">Registro de depuração não incluem buffer de protocolo</string>
-    <string name="revanced_debug_protobuffer_summary_on">Registro de depuração incluem buffer de protocolo</string>
-    <string name="revanced_debug_protobuffer_title">Registro de buffer de protocolo</string>
+    <string name="revanced_debug_protobuffer_summary_off">Os registros de depuração não incluem buffers de protocolo</string>
+    <string name="revanced_debug_protobuffer_summary_on">Os registros de depuração incluem buffers de protocolo</string>
+    <string name="revanced_debug_protobuffer_title">Protocolo de buffer de depuração</string>
     <string name="revanced_debug_spannable_summary_off">Os registros de depuração não incluem expansíveis.</string>
     <string name="revanced_debug_spannable_summary_on">Os registros de depuração incluem expansíveis.</string>
     <string name="revanced_debug_spannable_title">Registro expansível</string>
@@ -618,6 +618,8 @@ Problema conhecido: Às vezes, a sobreposição de deslizar aparece antes de alt
     <string name="revanced_fix_transcript_title">Corrigir transcrição</string>
     <string name="revanced_fullscreen_ads_closed_toast">Os anúncios em tela cheia são fechados.</string>
     <string name="revanced_gemini_cancelled">Cancelado</string>
+    <string name="revanced_gemini_chat_input_hint">
+Pergunte sobre este Video</string>
     <string name="revanced_gemini_copy_success">Resumo copiado para a área de transferência</string>
     <string name="revanced_gemini_error_already_running_summarize">Sua sumarização está em andamento.</string>
     <string name="revanced_gemini_error_already_running_transcribe">Transcrição já em andamento.</string>
@@ -863,7 +865,7 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_floating_microphone_summary_on">O botão do microfone flutuante está oculto.</string>
     <string name="revanced_hide_floating_microphone_title">Ocultar botão de microfone flutuante</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Anúncios em tela cheia não estão ocultos</string>
-    <string name="revanced_hide_fullscreen_ads_summary_on">Anúncios em tela cheia estão ocultos</string>
+    <string name="revanced_hide_fullscreen_ads_summary_on">Anúncios em tela cheia não estão ocultos</string>
     <string name="revanced_hide_fullscreen_ads_title">Ocultar anúncios em tela cheia</string>
     <string name="revanced_hide_general_ads_summary_off">Os anúncios gerais são mostrados</string>
     <string name="revanced_hide_general_ads_summary_on">Anúncios gerais estão ocultos</string>
@@ -1733,7 +1735,7 @@ As respostas geradas por IA podem conter informações imprecisas.
 Toque aqui para obter uma chave de API."</string>
     <string name="revanced_overlay_button_gemini_about_title">Sobre o Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize">Resumir</string>
-    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Obtenha a chave de API em https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Ponha uma chave de API por linha. Obtenha chaves de API em https://aistudio.google.com/apikey"</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_title">Chave de API do Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize_summary">"Toque para resumir o vídeo. Mantenha pressionado para transcrever.
 
@@ -2305,6 +2307,7 @@ Já existe"</string>
     <string name="revanced_sb_vote_upvote">Aprovar</string>
     <string name="revanced_search_settings_category_title">Pesquisar configurações</string>
     <string name="revanced_search_title">Buscar</string>
+    <string name="revanced_send">Envio</string>
     <string name="revanced_set_transcript_cookies_all_summary_off">Os Cookies são definidos apenas para solicitações de legendas traduzidas automaticamente.</string>
     <string name="revanced_set_transcript_cookies_all_summary_on">Os Cookies são definidos para todas as solicitações da API de transcrição.</string>
     <string name="revanced_set_transcript_cookies_all_title">Definir Cookies para todas as solicitações da API de transcrição</string>
@@ -2443,6 +2446,7 @@ Limitação: Título do vídeo desaparece quando clicado."</string>
     <string name="revanced_spoof_app_version_summary_on">Versão spoofada</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restaurar funcionalidade de Transcrição</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Restaurar a barra de ação de vídeo não recolhida</string>
+    <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Restaurar filtro de componentes antigo</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Versão da falsificação do app inválida: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Digite a versão do app para falsificação</string>
@@ -2706,6 +2710,7 @@ Aviso: Cookies emitidos sem login podem ser inválidos ou levar algum tempo para
 O fluxo de áudio é encaminhado por meio do worker.m</string>
     <string name="revanced_vot_audio_proxy_title">Proxy audio stream
 Fluxo de áudio proxy</string>
+    <string name="revanced_vot_enabled_summary_off">A tradução de voz do Yandex está desativada</string>
     <string name="revanced_vot_enabled_summary_on">A tradução por voz do Yandex está ativada.</string>
     <string name="revanced_vot_enabled_title">Ativar tradução por voz</string>
     <string name="revanced_vot_lang_auto">Detecção automática</string>
@@ -2725,13 +2730,19 @@ Fluxo de áudio proxy</string>
     <string name="revanced_vot_stream_waiting">Aguardando tradução…</string>
     <string name="revanced_vot_target_language_summary">Selecione o idioma para o qual deseja traduzir</string>
     <string name="revanced_vot_target_language_title">Língua de destino</string>
+    <string name="revanced_vot_time_min">%d min </string>
+    <string name="revanced_vot_time_sec">%d seg</string>
     <string name="revanced_vot_translation_volume_summary">Volume da faixa de áudio traduzida (0-100). Padrão: 100</string>
     <string name="revanced_vot_translation_volume_title">Volume de tradução</string>
     <string name="revanced_vot_unavailable_live">A tradução não está disponível para transmissões ao vivo</string>
     <string name="revanced_vot_unavailable_same_language">O áudio do vídeo já está no idioma de destino</string>
     <string name="revanced_vot_unavailable_too_long">O vídeo é muito longo para ser traduzido (máximo de 4 horas)</string>
+    <string name="revanced_vot_voice_style_live">Voz ao vivo</string>
     <string name="revanced_vot_voice_style_live_summary_off">Vozes TTS (text-to-speech) padrão </string>
+    <string name="revanced_vot_voice_style_live_summary_on">Vozes realistas do Yandex</string>
+    <string name="revanced_vot_voice_style_live_title">Vozes em tempo real</string>
     <string name="revanced_vot_voice_style_standard">Vozes padrão. </string>
+    <string name="revanced_vot_voice_style_title">Estilo de dublagem</string>
     <string name="revanced_watch_history_about_status_blocked">• O histórico de exibição não funciona.</string>
     <string name="revanced_watch_history_about_status_original">"• Segue as configurações do histórico de exibição da conta do Google.
 • O histórico de exibição pode não funcionar devido ao DNS ou à VPN."</string>

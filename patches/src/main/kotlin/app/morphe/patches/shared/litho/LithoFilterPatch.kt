@@ -63,7 +63,7 @@ val lithoFilterPatch = bytecodePatch(
         // print("isYouTube: $isYouTube\n")
 
         if (isYouTube) {
-            // Remove dummy filter from extenion static field
+            // Remove dummy filter from extension static field
             // and add the filters included during patching.
             LithoFilterFingerprint.match(classDefBy(EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR)).let {
                 it.method.apply {
@@ -233,7 +233,7 @@ val lithoFilterPatch = bytecodePatch(
                     
                     iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
                     iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
-                    invoke-static { v$identifierRegister, v$accessibilityIdRegister, v$accessibilityTextRegister, v$pathRegister }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->isFiltered(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;)Z
+                    invoke-static { v$identifierRegister, v$accessibilityIdRegister, v$accessibilityTextRegister, v$pathRegister, v$freeRegister }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->isFiltered(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;Ljava/lang/Object;)Z
                     move-result v$freeRegister
                     if-eqz v$freeRegister, :unfiltered
                     
