@@ -143,7 +143,7 @@ DeArrow haqqında ətraflı öyrənmək üçün bura toxun"</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">Sürətli kadr çəkilişləri istifadə et</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Videonun başlanğıcı</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Videonun ortası</string>
-    <string name="revanced_alt_thumbnail_stills_time_entry_3">Videonun sonu</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_3">Bitmə</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Durğun kadrın götürüləcəyi video müddəti</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">"Orijinal şəkil təminatçısın işlətmə
 
@@ -213,7 +213,7 @@ Avtomobil tərtibatı
     <string name="revanced_debug_logs_none_found">Qeydlər tapılmadı</string>
     <string name="revanced_debug_protobuffer_summary_off">Sazlama jurnallarına protokol buferi daxil deyil</string>
     <string name="revanced_debug_protobuffer_summary_on">Sazlama jurnallarına protokol buferi daxildir</string>
-    <string name="revanced_debug_protobuffer_title">Bufer protokol jurnalı</string>
+    <string name="revanced_debug_protobuffer_title">Sazlanma qeydi protokol buferi</string>
     <string name="revanced_debug_summary_off">Sazlama jurnalı qeyri-aktivdir</string>
     <string name="revanced_debug_summary_on">Sazlama jurnalı işləkdir</string>
     <string name="revanced_debug_title">Sazlama jurnalı</string>
@@ -247,6 +247,17 @@ Avtomobil tərtibatı
     <string name="revanced_disable_layout_updates_summary_off">Tərtibat server tərəfindən yenilənəcək</string>
     <string name="revanced_disable_layout_updates_summary_on">Tərtibat server tərəfindən yenilənməyəcək</string>
     <string name="revanced_disable_layout_updates_title">Tərtibat yenilənmələrini qapat</string>
+    <string name="revanced_disable_layout_updates_user_dialog_message">"Tətbiq tərtibatı ilk quraşdırılanda istifadə olunan tərtibata qayıdır.
+
+Bəzi server əsaslı tərtibatlar qayıtmaya bilər.
+
+Dəyişikliklər ehtiva edir:
+• Oynadıcı açılan menyusundakı elementlər (və ya əlaqəli tənzimləmələr) işləməyə bilər.
+• Diyirlənən nömrələr animasiya olunmur.
+• Kitabxana tabeli görünür.
+• Video təsvirinin Musiqi bölməsi işləməyə bilər.
+• Oynadıcı açılan menyu elementləri gizlədilə bilməz.
+• Hesab keçirmə düyməsi Kitabxana tabelində görünməyə bilər."</string>
     <string name="revanced_disable_quic_protocol_title">QUIC protokolunu qeyri-aktiv et</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">Tətbiq açılanda Shorts oynadıcı davam edəcək</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">Tətbiq açılanda Shorts oynadıcı davam etməyəcək</string>
@@ -260,7 +271,7 @@ Avtomobil tərtibatı
     <string name="revanced_disable_translucent_status_bar_summary_off">Mövqe cizgisi qeyri-şəffaf və ya şəffafdır</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Mövqe cizgisi qeyri-şəffafdır</string>
     <string name="revanced_disable_translucent_status_bar_title">Yarımşəffaf mövqe cizgisin qapat</string>
-    <string name="revanced_dismiss_player_not_available_toast">Video id əlçatmazdır. Xahiş olunur, videonu əl ilə təkrar açın.</string>
+    <string name="revanced_dismiss_player_not_available_toast">Video ID-si əlçatmazdır. Xahiş olunur, videonu əl ilə təkrar yüklə</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">Qradiyent yüklənmə ekranı aktivdir</string>
     <string name="revanced_enable_gradient_loading_screen_title">Qradiyent yüklənmə ekranını aktivləşdir</string>
     <string name="revanced_exit_fullscreen_entry_1">Qapalı</string>
@@ -280,12 +291,13 @@ Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
     <string name="revanced_fix_transcript_summary_on">Transkript əlçatandır</string>
     <string name="revanced_fix_transcript_title">Transkripti düzəlt</string>
     <string name="revanced_fullscreen_ads_closed_toast">Tam ekran reklamları bağlandı.</string>
+    <string name="revanced_hide_action_bar_title">Fəaliyyət tabelin gizlət</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sİ ilə yaradılan video xülasə bölməsi görünür</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sİ ilə yaradılan video xülasə bölməsi gizlədilib</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">\"AI ilə yaradılan video xülasəsini\" gizlət</string>
     <string name="revanced_hide_ask_button_summary_off">\"Soruş\" düyməsi göstərilir</string>
     <string name="revanced_hide_ask_button_summary_on">Soruş düyməsi gizlidir</string>
-    <string name="revanced_hide_ask_button_title">Soruş\'u Gizlət</string>
+    <string name="revanced_hide_ask_button_title">Soruş düyməsini gizlət</string>
     <string name="revanced_hide_ask_section_summary_off">\"Soruş\" bölməsi göstərilir</string>
     <string name="revanced_hide_ask_section_summary_on">Soruş bölməsi gizlidir</string>
     <string name="revanced_hide_ask_section_title">Soruş\'u Gizlət</string>
@@ -295,6 +307,8 @@ Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
     <string name="revanced_hide_autoplay_preview_summary_off">Avtomatik önizləmə önizlənməsi göstərilir</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Avtomatik önizləmə önizlənməsi gizlidir</string>
     <string name="revanced_hide_autoplay_preview_title">Avtomatik önizləmə önizlənməsini gizlət</string>
+    <string name="revanced_hide_channel_tab_filter_strings_title">Kanal tabeli filtri</string>
+    <string name="revanced_hide_channel_tab_title">Kanal tabel filtrini aktivləşdir</string>
     <string name="revanced_hide_channel_watermark_summary_off">Kanal suvotu göstərilir</string>
     <string name="revanced_hide_channel_watermark_summary_on">Kanal suvotu gizlidir</string>
     <string name="revanced_hide_channel_watermark_title">Kanal filiqranını gizlət</string>
@@ -307,13 +321,14 @@ Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
     <string name="revanced_hide_clip_button_title">Kəsmə/ gizlət</string>
     <string name="revanced_hide_comments_button_summary_off">Şərhlər düyməsi görünür</string>
     <string name="revanced_hide_comments_button_summary_on">Şərhlər düyməsi gizlidir</string>
-    <string name="revanced_hide_comments_button_title">Şərhləri Gizlət</string>
+    <string name="revanced_hide_comments_button_title">Şərhlər düyməsin gizlət</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Short yarat düyməsi görünür</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Short yarat düyməsi gizlidir</string>
     <string name="revanced_hide_comments_create_a_short_button_title">\"Shorts Yarat\" düyməsini gizlət</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emoji və Vaxt damğası düymələri görünür</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emoji və Vaxt damğası düymələri gizlədilib</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Emoji və Vaxt damğası düymələrini gizlət</string>
+    <string name="revanced_hide_comments_section_in_home_feed_title">Ev axınında şərhlər bölməsini gizlət</string>
     <string name="revanced_hide_comments_section_summary_off">Şərhlər bölməsi göstərilir</string>
     <string name="revanced_hide_comments_section_summary_on">Şərhlər bölməsi gizlidir</string>
     <string name="revanced_hide_comments_section_title">Şərhlər bölməsini gizlət</string>
@@ -352,6 +367,8 @@ Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
     <string name="revanced_hide_featured_videos_section_summary_off">Seçilən videolar bölməsi göstərilir</string>
     <string name="revanced_hide_featured_videos_section_summary_on">Seçilən videolar bölməsi gizlidir</string>
     <string name="revanced_hide_featured_videos_section_title">Seçilən videoları gizlət</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Axın açılan menyu filtri</string>
+    <string name="revanced_hide_feed_flyout_menu_title">Axın açılan menyu filtrini aktivləşdir</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Tam ekran reklamları göstərilir</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Tam ekran reklamları gizlidir</string>
     <string name="revanced_hide_fullscreen_ads_title">Tam ekran reklamlarını gizlət</string>
@@ -425,7 +442,7 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_links_preview_title">Keçidlərin önizləməsini gizlət</string>
     <string name="revanced_hide_live_chat_replay_button_summary_off">Oyunçu örtüyündə canlı sohbet təkrarı düyməsi göstərilib</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Oyunçu örtüyündə canlı sohbet təkrarı düyməsi gizlədilib</string>
-    <string name="revanced_hide_live_chat_replay_button_title">Gizlət \'Canlı sohbet təkrarı\' düyməsini</string>
+    <string name="revanced_hide_live_chat_replay_button_title">\"Canlı söhbət oxudulması\" düyməsin gizlət</string>
     <string name="revanced_hide_members_shelf_summary_off">Üzvlər cərgəsi görünür</string>
     <string name="revanced_hide_members_shelf_summary_on">Üzvlər cərgəsi gizlidir</string>
     <string name="revanced_hide_members_shelf_title">Üzvlər cərgəsini gizlət</string>
@@ -459,9 +476,12 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_promotion_alert_banner_summary_off">Reklam bildirişi afişası görünür.</string>
     <string name="revanced_hide_promotion_alert_banner_summary_on">Reklam bildirişi afişası gizlədilib.</string>
     <string name="revanced_hide_promotion_alert_banner_title">Reklam bildirişi afişasın gizlət</string>
+    <string name="revanced_hide_quick_actions_dislike_button_title">Bəyənməmə düyməsini gizlət</string>
+    <string name="revanced_hide_quick_actions_like_button_title">Bəyənmə düyməsini gizlət</string>
+    <string name="revanced_hide_quick_actions_share_button_title">Paylaş düyməsini gizlət</string>
     <string name="revanced_hide_quick_actions_summary_off">Tam ekranda cəld fəaliyyətlər görünür</string>
     <string name="revanced_hide_quick_actions_summary_on">Tam ekranda cəld fəaliyyətlər gizlədilib</string>
-    <string name="revanced_hide_quick_actions_title">Cəld fəaliyyətləri gizlət</string>
+    <string name="revanced_hide_quick_actions_title">Fəaliyyət tabelin gizlət</string>
     <string name="revanced_hide_related_videos_overlay_summary_off">Əlaqəli videolar yerləşməsi tam ekranda görünür</string>
     <string name="revanced_hide_related_videos_overlay_summary_on">Əlaqəli videolar yerləşməsi tam ekranda gizlidir</string>
     <string name="revanced_hide_related_videos_overlay_title">Əlaqəli videolar örtüyünü gizlət</string>
@@ -470,7 +490,7 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_related_videos_title">Əlaqəli videoları gizlət</string>
     <string name="revanced_hide_remix_button_summary_off">Remiks düyməsi göstərilir</string>
     <string name="revanced_hide_remix_button_summary_on">Remix düyməsi gizlidir</string>
-    <string name="revanced_hide_remix_button_title">\"Remiks\"i gizlət</string>
+    <string name="revanced_hide_remix_button_title">Remix düyməsini gizlət</string>
     <string name="revanced_hide_report_button_summary_off">Xəbər ver/düyməsi göstərilir</string>
     <string name="revanced_hide_report_button_summary_on">Xəbər ver/düyməsi gizlidir</string>
     <string name="revanced_hide_report_button_title">\"Xəbər verin\"i gizlət</string>
@@ -485,10 +505,10 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_self_sponsor_cards_title">Özünə sponsorluq edən kartları gizlət</string>
     <string name="revanced_hide_share_button_summary_off">Paylaş düyməsi göstərilir</string>
     <string name="revanced_hide_share_button_summary_on">Paylaş düyməsi gizlidir</string>
-    <string name="revanced_hide_share_button_title">\"Paylaş\"ı gizlət</string>
+    <string name="revanced_hide_share_button_title">Paylaş düyməsini gizlət</string>
     <string name="revanced_hide_shop_button_summary_off">Mağaza düyməsi görünür</string>
     <string name="revanced_hide_shop_button_summary_on">Mağaza düyməsi gizlidir</string>
-    <string name="revanced_hide_shop_button_title">Mağazanı Gizlət</string>
+    <string name="revanced_hide_shop_button_title">Mağaza düyməsini gizlət</string>
     <string name="revanced_hide_shopping_links_summary_off">Alış-veriş linkləri video təsvirdə görünür</string>
     <string name="revanced_hide_shopping_links_summary_on">Alış-veriş linkləri video təsvirdə gizlidir</string>
     <string name="revanced_hide_shopping_links_title">Alış-veriş linklərini gizlət</string>
@@ -584,16 +604,17 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_surveys_title">Sorğuları gizlət</string>
     <string name="revanced_hide_thanks_button_summary_off">Təşəkkür düyməsi göstərilir</string>
     <string name="revanced_hide_thanks_button_summary_on">Təşəkkür düyməsi gizlidir</string>
-    <string name="revanced_hide_thanks_button_title">\"Təşəkkürlər\"i gizlət</string>
+    <string name="revanced_hide_thanks_button_title">Təşəkkür Düyməsini Gizlət</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Bilet bölməsi görünür</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Bilet bölməsi gizlidir</string>
     <string name="revanced_hide_ticket_shelf_title">Bilet bölməsin gizlət</string>
     <string name="revanced_hide_timed_reactions_summary_off">Zamanlanmış reaksiyalar göstərilir</string>
     <string name="revanced_hide_timed_reactions_summary_on">Zamanlanmış reaksiyalar gizlədilir</string>
     <string name="revanced_hide_timed_reactions_title">Vaxtlı reaksiyaları gizlət</string>
+    <string name="revanced_hide_toolbar_cast_button_title">Yayımla düyməsini gizlət</string>
     <string name="revanced_hide_toolbar_create_button_summary_off">Yarat düyməsi göstərilir</string>
     <string name="revanced_hide_toolbar_create_button_summary_on">Yarat düyməsi gizlidir</string>
-    <string name="revanced_hide_toolbar_create_button_title">\"Yarat\"ı gizlət</string>
+    <string name="revanced_hide_toolbar_create_button_title">Yarat düyməsini gizlət</string>
     <string name="revanced_hide_toolbar_notification_button_summary_off">Bildirişlər düyməsi görünür</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">Bildirişlər düyməsi gizlidir</string>
     <string name="revanced_hide_toolbar_notification_button_title">Bildirişləri Gizlət</string>
@@ -617,9 +638,13 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_web_search_results_title">Veb axtarış nəticələrini gizlət</string>
     <string name="revanced_hide_you_may_like_section_summary_off">Bəyənə bilərsiniz bölməsi görünür</string>
     <string name="revanced_hide_you_may_like_section_summary_on">Bəyənə bilərsiniz bölməsi gizlidir</string>
+    <string name="revanced_hide_you_may_like_section_title">\"Bəyənə bilərsiniz\" bölməsini gizlət</string>
     <string name="revanced_hide_youtube_doodles_summary_off">YouTube Doodles animasiyası simvolda görünür</string>
     <string name="revanced_hide_youtube_doodles_summary_on">YouTube Doodles animasiyası simvolda gizlidir</string>
     <string name="revanced_hide_youtube_doodles_title">YouTube Doodle-ları gizlət</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles hər il dünyanın müxtəlif yerlərində bir neçə gün görünür.
+
+YouTube Doodles görünməsi xüsusi sərlövhələrin göstərilməsinə mane ola bilər."</string>
     <string name="revanced_language_DEFAULT">Tətbiq dili</string>
     <string name="revanced_language_title">ReVanced dili</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Ölçüsünü dəyişdirmək üçün cüt toxunma fəaliyyəti və çimdikləmə yoxdur</string>
@@ -716,6 +741,7 @@ Məhdudiyyət: Bəyənməmələr gizli rejimdə görünməyə bilər"</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike əlçatan deyilsə ani bildiriş göstər</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API əlçatan deyilsə ani bildiriş göstər</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Sahib tərəfindən gizlədilib</string>
+    <string name="revanced_sanitize_comments_category_bar_title">Kateqoriya tabelin təmizlə</string>
     <string name="revanced_sanitize_sharing_links_title">Paylaşım keçidlərin təmizlə</string>
     <string name="revanced_sb_api_url_changed">API URL dəyişdirildi</string>
     <string name="revanced_sb_api_url_invalid">API URL etibarsızdır</string>
@@ -947,6 +973,7 @@ Artıq mövcuddur"</string>
     <string name="revanced_settings_search_tips_title">Axtarış Tövsiyələri</string>
     <string name="revanced_share_copy_url_success">URL buferə köçürüldü</string>
     <string name="revanced_share_copy_url_timestamp_success">Vaxt möhürlü URL köçürüldü</string>
+    <string name="revanced_shorts_autoplay_title">Shorts-ları avto-oynatma</string>
     <string name="revanced_shorts_player_type_regular_player">Müntəzəm oynadıcı</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Müntəzəm oynadıcı tam ekran</string>
     <string name="revanced_shorts_player_type_shorts">Shorts oynadıcı</string>

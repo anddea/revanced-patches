@@ -27,6 +27,10 @@
     <string name="morphe_sanitize_sharing_links_summary_on">Параметърът за следене е премахнат от споделяни връзки</string>
     <string name="morphe_sanitize_sharing_links_title">Почистване на споделените връзки</string>
     <string name="morphe_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Заключва JavaScript на плейъра към локален хеш вместо да извлича актуализации
+
+• Необходим е валиден хеш на JavaScript на плейъра
+• Възпроизвеждането ще се провали, ако хешът на JavaScript на плейъра бъде отменен в GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Актуализацията на JavaScript за плейъра е активирана</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Актуализацията на JavaScript за плейъра е деактивирана
 
@@ -67,6 +71,9 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Успешно се влязохте</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Неуспешно издаване на код за активация</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Неуспешно издаване на код за авторизация</string>
+    <string name="morphe_spoof_video_streams_summary">"Заблуждава YouTube да изпрати съвместим видео поток, което оправя възпроизвеждането за повечето потребители
+
+Ако сте потребител на YouTube Premium, тази настройка може да не е необходима"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Видеопотоците не са подправени
 
 Възпроизвеждането може да не работи"</string>
@@ -88,7 +95,7 @@
     <string name="revanced_change_start_page_entry_subscription">Абонаменти</string>
     <string name="revanced_change_start_page_entry_subscriptions">Абонаменти</string>
     <string name="revanced_change_start_page_summary">Изберете на коя страница да се отвори приложението.</string>
-    <string name="revanced_change_start_page_title">Смени стартова страница</string>
+    <string name="revanced_change_start_page_title">Начална страница</string>
     <string name="revanced_custom_filter_strings_summary">Филтриране на компонентите по имена.</string>
     <string name="revanced_custom_filter_strings_title">Редактиране на потребителския филтъра</string>
     <string name="revanced_custom_filter_summary">Активира персонализиран филтър за скриване на компонентите на оформлението.</string>
@@ -252,6 +259,7 @@
     <string name="revanced_ryd_compact_layout_title">Компактен бутон за харесване</string>
     <string name="revanced_ryd_dislike_percentage_title">Нехаресвания като процент</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Нехаресванията не са достъпни (достигнат лимит на API).</string>
+    <string name="revanced_sanitize_sharing_links_summary">Премахва параметрите за проследяване на заявките от споделени връзки</string>
     <string name="revanced_sanitize_sharing_links_title">Почистване на споделените връзки</string>
     <string name="revanced_spoof_app_version_summary">"Заменя клиентската версия със старата.
 
@@ -262,5 +270,8 @@
     <string name="revanced_spoof_app_version_target_summary">Задайте желаната фалшива версия на приложението.</string>
     <string name="revanced_spoof_app_version_target_title">Подлъгване за версията на приложението</string>
     <string name="revanced_spoof_app_version_title">Подлъгване за версията на приложението</string>
+    <string name="revanced_spoof_video_streams_summary">"Заблуждава YouTube да изпрати съвместим видео поток, което оправя възпроизвеждането за повечето потребители
+
+Ако сте потребител на YouTube Premium, тази настройка може да не е необходима"</string>
     <string name="revanced_spoof_video_streams_title">Подправяне на видео потоци</string>
 </resources>

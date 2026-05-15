@@ -40,7 +40,10 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="morphe_sanitize_sharing_links_summary_on">El parámetro de consulta de seguimiento se elimina de los enlaces compartidos</string>
     <string name="morphe_sanitize_sharing_links_title">Limpiar enlaces compartidos</string>
     <string name="morphe_spoof_video_streams_client_type_title">Cliente predeterminado</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">Desactivar la actualización de JavaScript del reproductor</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"La actualización del hash JavaScript del reproductor está desactivada
+
+• Se requiere un hash JavaScript del reproductor válido
+• La reproducción fallará si el hash JavaScript del reproductor es revocado por GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">La actualización de JavaScript del reproductor está activada</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"La actualización de JavaScript del reproductor está desactivada
 
@@ -81,7 +84,9 @@ Para iniciar sesión, pulsa en \"Continuar\" a continuación"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Sesión iniciada correctamente</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">No se pudo emitir un código de activación</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">No se pudo emitir un token de autenticación</string>
-    <string name="morphe_spoof_video_streams_summary">Falsificar las transmisiones de video del cliente para evitar problemas de reproducción.</string>
+    <string name="morphe_spoof_video_streams_summary">"Engaña a YouTube para que envíe una transmisión de vídeo compatible, lo que soluciona la reproducción para la mayoría de los usuarios
+
+Si eres usuario de YouTube Premium, es posible que esta configuración no sea necesaria"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Las transmisiones de video no están suplantadas
 
 La reproducción podría no funcionar"</string>
@@ -124,7 +129,7 @@ Si eres un usuario de YouTube Premium, esta configuración podría no ser necesa
     <string name="revanced_change_start_page_entry_subscription">Suscripciones</string>
     <string name="revanced_change_start_page_entry_subscriptions">Suscripciones</string>
     <string name="revanced_change_start_page_summary">Seleccione en qué página se abre la aplicación.</string>
-    <string name="revanced_change_start_page_title">Cambiar página de inicio</string>
+    <string name="revanced_change_start_page_title">Página de inicio</string>
     <string name="revanced_credits_title">Créditos</string>
     <string name="revanced_custom_filter_strings_summary">Filtra los nombres de los componentes, separados por líneas.</string>
     <string name="revanced_custom_filter_strings_title">Hola</string>
@@ -174,9 +179,9 @@ Limitación: Si 'Datos de streaming espóa' está habilitado y el cliente por de
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Redirigir</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_summary">Especifica cómo redirigir a la canción oficial.</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_title">Tipo de redirección</string>
-    <string name="revanced_disable_music_video_in_album_summary">"Cuando un usuario no-premium reproduce una canción incluida en un álbum, el video musical a veces es reproducido en lugar de la canción oficial en sí.
+    <string name="revanced_disable_music_video_in_album_summary">"Cuando un usuario no-premium reproduce una canción incluida en un álbum,  a veces se reproduce el vídeo musical en lugar de la canción oficial. 
 
-Encuentra y redirige la canción oficial, sí se detecta un video musical al reproducirse desde un álbum.
+Si se detecta que se está reproduciendo un vídeo musical de un álbum, se buscará la canción oficial. 
 
 Limitantes: Vídeos para niños puede que no se redirijan."</string>
     <string name="revanced_disable_music_video_in_album_title">Desactivar vídeo de música en el álbum</string>
@@ -495,7 +500,7 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Se muestra el mensaje si la API de ReturnYouTubeDislike no está disponible.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Mostrar mensaje si la API no está disponible</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
-    <string name="revanced_sanitize_sharing_links_summary">Elimina los parámetros de consulta de seguimiento de las URL al compartir enlaces.</string>
+    <string name="revanced_sanitize_sharing_links_summary">El parámetro de consulta de seguimiento se elimina de los enlaces compartidos</string>
     <string name="revanced_sanitize_sharing_links_title">Limpiar enlaces compartidos</string>
     <string name="revanced_sb_about">Acerca de</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -667,7 +672,9 @@ Si eres un usuario de YouTube Premium, esta opción puede ser necesaria."</strin
 • La aplicación puede verse forzada a cerrarse al usar una VPN o DNS.
 • El audio puede entrecortarse de forma intermitente durante la reproducción en clientes de transmisión con tasa de bits adaptable (todos los clientes excepto Android VR 1.43.32).</string>
     <string name="revanced_spoof_video_streams_default_client_title">Cliente predeterminado</string>
-    <string name="revanced_spoof_video_streams_summary">Suplanta las transmisiones de video del cliente para evitar problemas de reproducción.</string>
+    <string name="revanced_spoof_video_streams_summary">"Engaña a YouTube para que envíe una transmisión de vídeo compatible, lo que soluciona la reproducción para la mayoría de los usuarios
+
+Si eres usuario de YouTube Premium, es posible que esta configuración no sea necesaria"</string>
     <string name="revanced_spoof_video_streams_title">Falsificar transmisiones de vídeo</string>
     <string name="revanced_translations_title">Traducciones</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>

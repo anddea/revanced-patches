@@ -40,7 +40,10 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="morphe_sanitize_sharing_links_summary_on">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılır</string>
     <string name="morphe_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
     <string name="morphe_spoof_video_streams_client_type_title">Varsayılan istemci</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">Oynatıcı JavaScript güncellemesini devre dışı bırak</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Oynatıcı JavaScript'ini yerel bir hash'e kilitler, güncellemeleri almaz
+
+• Geçerli bir oynatıcı JavaScript hash'i gereklidir
+• Oynatıcı JavaScript hash'i GVS'de geçersiz kılınırsa oynatma başarısız olur"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Oynatıcı JavaScript güncellemesi etkin</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Oynatıcı JavaScript güncellemesi devre dışı
 
@@ -81,7 +84,9 @@ Oturum açmak için, devam et butonuna basın."</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Başarıyla oturum açıldı</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Aktivasyon kodu oluşturulamadı</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Kimlik doğrulama anahtarı oluşturulamadı</string>
-    <string name="morphe_spoof_video_streams_summary">Oynatma sorunlarını önlemek için istemci video akışlarını taklit et.</string>
+    <string name="morphe_spoof_video_streams_summary">"YouTube'u uyumlu bir video akışı göndermeye ikna eder, bu da çoğu kullanıcı için oynatmayı düzeltir
+
+YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Video akışları taklit edilmez
 
 Oynatma çalışmayabilir"</string>
@@ -124,7 +129,7 @@ YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="revanced_change_start_page_entry_subscription">Abonelikler</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonelikler</string>
     <string name="revanced_change_start_page_summary">Uygulamanın başlangıç sayfasını değiştirin.</string>
-    <string name="revanced_change_start_page_title">Başlangıç sayfasını değiştir</string>
+    <string name="revanced_change_start_page_title">Başlangıç sayfası</string>
     <string name="revanced_custom_filter_strings_summary">Yeni satırlarla ayrılmış olarak hangi bileşenlerin filtreleneceğini yapılandırın.</string>
     <string name="revanced_custom_filter_strings_title">Özel filtreyi düzenle</string>
     <string name="revanced_custom_filter_summary">Düzen bileşenlerini gizlemek için özel filtreyi etkinleştirir.</string>
@@ -390,7 +395,7 @@ Bu, yalnızca YT Music ayarlar menüsünü değil aynı zamanda ReVanced Extende
     <string name="revanced_hide_voice_search_button_summary">Arama çubuğundaki sesli arama düğmesini gizler.</string>
     <string name="revanced_hide_voice_search_button_title">Sesli arama düğmesini gizle</string>
     <string name="revanced_preference_screen_account_title">Hesap</string>
-    <string name="revanced_preference_screen_action_bar_title">Görev Çubuğu</string>
+    <string name="revanced_preference_screen_action_bar_title">Görev çubuğu</string>
     <string name="revanced_preference_screen_ads_title">Reklamlar</string>
     <string name="revanced_preference_screen_flyout_title">Açılır menü</string>
     <string name="revanced_preference_screen_general_title">Genel</string>
@@ -508,7 +513,7 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Return YouTube Dislike API mevcut değilse uyarı gösterir.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API mevcut değilse bir uyarı göster</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
-    <string name="revanced_sanitize_sharing_links_summary">Bağlantıları paylaşırken, tracking query parametrelerini URL\'lerden kaldırır.</string>
+    <string name="revanced_sanitize_sharing_links_summary">Paylaşılan bağlantılardan izleme sorgu parametrelerini kaldırır</string>
     <string name="revanced_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
     <string name="revanced_sb_about">Hakkında</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -692,7 +697,9 @@ YouTube Premium kullanıcısıysanız bu ayar gerekli olmayabilir."</string>
 • VPN veya DNS kullanırken uygulama zorla kapatılabilir.
 • Uyarlanabilir bit hızı akış istemcilerinde (Android VR 1.43.32 dışındaki tüm istemciler) oynatma sırasında ses aralıklı olarak kesilebilir."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Varsayılan işlemci</string>
-    <string name="revanced_spoof_video_streams_summary">Oynatma sorunlarını önlemek için istemci video akışlarını taklit edin.</string>
+    <string name="revanced_spoof_video_streams_summary">"YouTube'u uyumlu bir video akışı göndermeye ikna eder, bu da çoğu kullanıcı için oynatmayı düzeltir
+
+YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="revanced_spoof_video_streams_title">Video akışlarını taklit et</string>
     <string name="revanced_translations_title">Çeviriler</string>
     <string name="revanced_watch_history_type_entry_1">Orijinal</string>

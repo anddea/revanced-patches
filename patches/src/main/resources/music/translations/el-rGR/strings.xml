@@ -42,6 +42,10 @@
     <string name="morphe_sanitize_sharing_links_summary_on">Οι παράμετροι παρακολούθησης αφαιρούνται από τους συνδέσμους κατά την κοινοποίηση</string>
     <string name="morphe_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κατά την κοινοποίηση</string>
     <string name="morphe_spoof_video_streams_client_type_title">Προεπιλεγμένο πρόγραμμα αναπαραγωγής</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Κλειδώνει το JavaScript του προγράμματος αναπαραγωγής σε μια τοπική κατακερματισμένη τιμή αντί να ανακτά ενημερώσεις
+
+• Απαιτείται έγκυρη κατακερματισμένη τιμή JavaScript του προγράμματος αναπαραγωγής
+• Η αναπαραγωγή αποτυγχάνει εάν η κατακερματισμένη τιμή JavaScript του προγράμματος αναπαραγωγής ανακληθεί στο GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Η ενημέρωση JavaScript του προγράμματος αναπαραγωγής είναι ενεργοποιημένη</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Η ενημέρωση του προγράμματος αναπαραγωγής JavaScript είναι απενεργοποιημένη
 
@@ -82,6 +86,9 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Η είσοδος ολοκληρώθηκε με επιτυχία</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Αποτυχία έκδοσης κωδικού ενεργοποίησης</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Αποτυχία έκδοσης κλειδιού ταυτοποίησης</string>
+    <string name="morphe_spoof_video_streams_summary">"Εξαπατά το YouTube ώστε να στείλει μια συμβατή ροή βίντεο, γεγονός που διορθώνει την αναπαραγωγή για τους περισσότερους χρήστες
+
+Εάν είστε χρήστης του YouTube Premium, αυτή η ρύθμιση ενδέχεται να μην απαιτείται"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Οι ροές βίντεο δεν παραποιούνται
 
 Η αναπαραγωγή ενδέχεται να μη λειτουργεί"</string>
@@ -124,7 +131,7 @@
     <string name="revanced_change_start_page_entry_subscription">Εγγραφές</string>
     <string name="revanced_change_start_page_entry_subscriptions">Συνδρομές</string>
     <string name="revanced_change_start_page_summary">Ορισμός της αρχικής σελίδας ανοίγματος της εφαρμογής.</string>
-    <string name="revanced_change_start_page_title">Αλλαγή αρχικής σελίδας</string>
+    <string name="revanced_change_start_page_title">Αρχική σελίδα</string>
     <string name="revanced_custom_filter_strings_summary">Λίστα από συμβολοσειρές στοιχείων που θα φιλτραριστούν, διαχωρισμένες με νέες γραμμές.</string>
     <string name="revanced_custom_filter_strings_title">Επεξεργασία προσαρμοσμένου φίλτρου</string>
     <string name="revanced_custom_filter_summary">Χρήση προσαρμοσμένου φίλτρου για απόκρυψη στοιχείων διεπαφής.</string>
@@ -501,7 +508,7 @@
     <string name="revanced_ryd_toast_on_connection_error_summary">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike API δεν είναι διαθέσιμο.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Μήνυμα αν το API δεν είναι διαθέσιμο</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυμμένο</string>
-    <string name="revanced_sanitize_sharing_links_summary">Αφαίρεση των παραμέτρων παρακολούθησης από τις διευθύνσεις URL κατά την κοινοποίηση συνδέσμων.</string>
+    <string name="revanced_sanitize_sharing_links_summary">Οι παράμετροι παρακολούθησης αφαιρούνται από τους συνδέσμους κατά την κοινοποίηση</string>
     <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κατά την κοινοποίηση</string>
     <string name="revanced_sb_about">Σχετικά με</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -679,7 +686,9 @@
 • Η εφαρμογή μπορεί να κλείνει απότομα όταν χρησιμοποιείτε VPN ή εναλλακτικό DNS.
 • Ο ήχος μπορεί περιοδικά να σπάει κατά την αναπαραγωγή σε προγράμματα πελάτες προσαρμοστικού ρυθμού μετάδοσης (Όλα τα προγράμματα πελάτη εκτός από το Android VR 1.43.32)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
-    <string name="revanced_spoof_video_streams_summary">Παραποίηση ροών βίντεο του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής.</string>
+    <string name="revanced_spoof_video_streams_summary">"Εξαπατά το YouTube ώστε να στείλει μια συμβατή ροή βίντεο, γεγονός που διορθώνει την αναπαραγωγή για τους περισσότερους χρήστες
+
+Εάν είστε χρήστης του YouTube Premium, αυτή η ρύθμιση ενδέχεται να μην απαιτείται"</string>
     <string name="revanced_spoof_video_streams_title">Παραποίηση ροών βίντεο</string>
     <string name="revanced_translations_title">Μεταφράσεις</string>
     <string name="revanced_watch_history_type_entry_1">Αρχικός</string>

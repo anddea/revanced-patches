@@ -41,6 +41,10 @@ Cliquez sur le bouton Continuer et autorisez les modifications d'optimisations."
     <string name="morphe_sanitize_sharing_links_summary_on">Le paramètre de suivi est supprimé des liens partagés</string>
     <string name="morphe_sanitize_sharing_links_title">Nettoyer les liens partagés</string>
     <string name="morphe_spoof_video_streams_client_type_title">Client par défaut</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Verrouille le JavaScript du lecteur sur un hachage local au lieu de récupérer des mises à jour
+
+• Un hachage JavaScript de lecteur valide est requis
+• La lecture échoue si le hachage JavaScript du lecteur est révoqué dans GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">La mise à jour JavaScript du lecteur est activée</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"La mise à jour JavaScript du lecteur est désactivée
 
@@ -52,7 +56,7 @@ Cliquez sur le bouton Continuer et autorisez les modifications d'optimisations."
     <string name="morphe_spoof_video_streams_no_clients_toast">Impossible de récupérer les flux du client.</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Entrez un hachage JavaScript valide du lecteur</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hachage JavaScript du lecteur</string>
-    <string name="morphe_spoof_video_streams_screen_summary">Falsifiez les flux vidéo du client afin d’éviter les problèmes de lecture</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Configurer la falsification du client afin d’éviter les problèmes de lecture</string>
     <string name="morphe_spoof_video_streams_screen_title">Falsifier les flux vidéo</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Non connecté à Android VR. Appuyez pour vous connecter</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Pour utiliser cette fonction, changez le \'Client par défaut\' en Android VR</string>
@@ -81,6 +85,9 @@ Pour vous connecter, appuyez sur 'Continuer' ci-dessous."</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Connecté avec succès</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Échec de l’obtention du code d’activation</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Échec de l’obtention d\'un jeton d\'authentification</string>
+    <string name="morphe_spoof_video_streams_summary">"Fait croire à YouTube qu’il envoie un flux vidéo compatible, ce qui corrige la lecture pour la plupart des utilisateurs.
+
+Si vous êtes un utilisateur de YouTube Premium, ce paramètre peut ne pas être nécessaire"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Les flux vidéo ne sont pas falsifiés
 
 La lecture peut ne pas fonctionner"</string>
@@ -123,7 +130,7 @@ Si vous êtes abonné à YouTube Premium, ce paramètre n'est peut-être pas né
     <string name="revanced_change_start_page_entry_subscription">Abonnements</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
     <string name="revanced_change_start_page_summary">Sélectionnez la page de démarrage de l\'appli.</string>
-    <string name="revanced_change_start_page_title">Changer la page de démarrage</string>
+    <string name="revanced_change_start_page_title">Page de démarrage</string>
     <string name="revanced_custom_filter_strings_summary">Filtrer la liste des noms du composant séparés par un saut de ligne.</string>
     <string name="revanced_custom_filter_strings_title">Filtre personnalisé</string>
     <string name="revanced_custom_filter_summary">Active les filtres personnalisés pour masquer des éléments de l’interface.</string>
@@ -500,7 +507,7 @@ Cliquez ici pour découvrir comment créer une clé API."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Affiche un message si l\'API de Return YouTube Dislike n\'est pas disponible.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Afficher un message si l\'API est indisponible</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Masqué</string>
-    <string name="revanced_sanitize_sharing_links_summary">Nettoies les liens de partage en supprimant les paramètres de suivi (tracking).</string>
+    <string name="revanced_sanitize_sharing_links_summary">Supprime les paramètres de suivi des liens partagés</string>
     <string name="revanced_sanitize_sharing_links_title">Nettoyer les liens partagés</string>
     <string name="revanced_sb_about">À propos</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -672,7 +679,9 @@ Si vous êtes un utilisateur YouTube Premium, ce paramètre n'est peut-être pas
 • L'application peut être fermée de manière forcée lors de l'utilisation d'un VPN ou d'un DNS.
 • Le son peut être saccadé de manière intermittente lors de la lecture sur des clients en direct à débit adaptatif (tous les clients autres qu'Android VR 1.43.32)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Client par défaut</string>
-    <string name="revanced_spoof_video_streams_summary">Modifiez le flux vidéo du client pour éviter les problèmes de lecture.</string>
+    <string name="revanced_spoof_video_streams_summary">"Fait croire à YouTube qu’il envoie un flux vidéo compatible, ce qui corrige la lecture pour la plupart des utilisateurs.
+
+Si vous êtes un utilisateur de YouTube Premium, ce paramètre peut ne pas être nécessaire"</string>
     <string name="revanced_spoof_video_streams_title">Falsifier les flux vidéo</string>
     <string name="revanced_translations_title">Traductions</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>

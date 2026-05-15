@@ -42,6 +42,10 @@ Toque no botão continuar e permita as alterações de otimização."</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Parâmetro de consulta de rastreamento é removido dos links compartilhados</string>
     <string name="morphe_sanitize_sharing_links_title">Higienizar links de compartilhamento</string>
     <string name="morphe_spoof_video_streams_client_type_title">Cliente padrão</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Bloqueia o JavaScript do player em um hash local, em vez de buscar atualizações
+
+• Um hash de JavaScript de player válido é necessário
+• A reprodução falha se o hash do JavaScript do player for revogado no GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Atualização JavaScript do player está habilitada</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Atualização JavaScript do player está desabilitada
 
@@ -82,6 +86,9 @@ Para entrar, pressione continuar abaixo"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Conectado com sucesso</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Falha ao emitir código de ativação</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Falha ao emitir um token de autenticação</string>
+    <string name="morphe_spoof_video_streams_summary">"Engana o YouTube a enviar um fluxo de vídeo compatível, o que corrige a reprodução para a maioria dos usuários
+
+Se você for um usuário do YouTube Premium, esta configuração pode não ser necessária"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Os fluxos de vídeo não estão sendo simulados
 
 A reprodução pode não funcionar"</string>
@@ -124,7 +131,7 @@ Se você é um usuário do YouTube Premium, esta configuração pode não ser ne
     <string name="revanced_change_start_page_entry_subscription">Inscrições</string>
     <string name="revanced_change_start_page_entry_subscriptions">Inscrições</string>
     <string name="revanced_change_start_page_summary">Selecione em qual página o aplicativo será aberto.</string>
-    <string name="revanced_change_start_page_title">Alterar página inicial</string>
+    <string name="revanced_change_start_page_title">Página inicial</string>
     <string name="revanced_credits_title">Créditos</string>
     <string name="revanced_custom_filter_strings_summary">Lista de componentes a serem filtradas separadas por uma nova linha.</string>
     <string name="revanced_custom_filter_strings_title">Filtro personalizado</string>
@@ -502,7 +509,7 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Notificação flutuante exibida se o Return YouTube Dislike não está disponível.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Exibir uma notificação flutuante se a API não estiver disponível</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
-    <string name="revanced_sanitize_sharing_links_summary">Limpa links de compartilhamento removendo parâmetros de consulta de rastreamento.</string>
+    <string name="revanced_sanitize_sharing_links_summary">Remove parâmetros de consulta de rastreamento de links compartilhados</string>
     <string name="revanced_sanitize_sharing_links_title">Higienizar links de compartilhamento</string>
     <string name="revanced_sb_about">Sobre</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -598,7 +605,7 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Sem letras em tempo real</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_7_12_52">7.12.52 - Letras em tempo real</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_06_52">8.06.52 - Letras em tempo real + Botão Compartilhar</string>
-    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - Letras em tempo real + Botão Compartilhar + Botão Traduzir (apenas usuários Premium)</string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - Letras em tempo real + Botão Compartilhar + Botão Traduzir (Somente para usuários Premium) </string>
     <string name="revanced_spoof_app_version_for_lyrics_target_summary">Selecione a versão do app para falsificação.</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_title">Versão falsa do app para letras</string>
     <string name="revanced_spoof_app_version_for_lyrics_title">Versão falsa do app para letras</string>
@@ -674,7 +681,9 @@ Se você é um usuário de YouTube Premium, essa configuração pode não ser ne
 • O app pode ser encerrado forçadamente ao usar VPN ou DNS.
 • O áudio pode picotar intermitentemente durante a reprodução em clientes de streaming com taxa de bits adaptável (Todos os clientes, exceto Android VR 1.43.32)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Cliente padrão</string>
-    <string name="revanced_spoof_video_streams_summary">Falsificar o cliente de reprodução de vídeo para prevenir problemas de reprodução. </string>
+    <string name="revanced_spoof_video_streams_summary">"Engana o YouTube a enviar um fluxo de vídeo compatível, o que corrige a reprodução para a maioria dos usuários
+
+Se você for um usuário do YouTube Premium, esta configuração pode não ser necessária"</string>
     <string name="revanced_spoof_video_streams_title">Spoofing do fluxo de vídeo</string>
     <string name="revanced_translations_title">Traduções</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>

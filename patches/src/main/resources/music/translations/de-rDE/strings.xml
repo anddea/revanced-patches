@@ -42,7 +42,10 @@ Tippen Sie auf die Schaltfläche „Weiter“ und lassen Sie die Optimierungsän
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_title">Freigabe-Links säubern</string>
     <string name="morphe_spoof_video_streams_client_type_title">Standard-Client</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">JavaScript-Aktualisierung für den Player deaktivieren</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"JavaScript-Update des Players ist deaktiviert
+
+• Ein gültiger Player-JavaScript-Hash ist erforderlich
+• Die Wiedergabe schlägt fehl, wenn der Player-JavaScript-Hash in GVS widerrufen wird"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">JavaScript-Update des Players ist aktiviert</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"JavaScript-Update des Players ist deaktiviert
 
@@ -83,6 +86,9 @@ Um sich anzumelden, drücken Sie unten auf \"Weiter\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Erfolgreich angemeldet</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Ausgabe eines Aktivierungscodes fehlgeschlagen</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Ausgabe eines Authentifizierungstokens fehlgeschlagen</string>
+    <string name="morphe_spoof_video_streams_summary">"Täuscht YouTube, sodass ein kompatibler Videostream gesendet wird, wodurch die Wiedergabe für die meisten Nutzer behoben wird
+
+Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Video-Streams werden nicht gefälscht
 
 Die Wiedergabe funktioniert möglicherweise nicht"</string>
@@ -101,11 +107,15 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_change_start_page_entry_liked_music">Gelikte Musik</string>
     <string name="revanced_change_start_page_entry_search">Suchen</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
-    <string name="revanced_change_start_page_title">Startseite ändern</string>
+    <string name="revanced_change_start_page_title">Startseite</string>
     <string name="revanced_disable_drc_audio_title">DRC-Audio deaktivieren</string>
     <string name="revanced_disable_quic_protocol_title">QUIC-Protokoll deaktivieren </string>
     <string name="revanced_hide_fullscreen_ads_title">Vollbild-Werbung ausblenden</string>
     <string name="revanced_restart_first_run">Neustart, um die Einrichtung abzuschließen</string>
+    <string name="revanced_sanitize_sharing_links_summary">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
     <string name="revanced_sanitize_sharing_links_title">Freigabe-Links säubern</string>
+    <string name="revanced_spoof_video_streams_summary">"Täuscht YouTube, sodass ein kompatibler Videostream gesendet wird, wodurch die Wiedergabe für die meisten Nutzer behoben wird
+
+Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
     <string name="revanced_spoof_video_streams_title">Fälsche Video-Streams</string>
 </resources>

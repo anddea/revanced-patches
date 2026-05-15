@@ -42,7 +42,10 @@
     <string name="morphe_sanitize_sharing_links_summary_on">Параметр отслеживания запросов удален из ссылок для обмена</string>
     <string name="morphe_sanitize_sharing_links_title">Очищать ссылки для обмена</string>
     <string name="morphe_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">Отключить обновление JavaScript для плеера</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Блокирует JavaScript-код плеера к локальному хэшу вместо получения обновлений
+
+• Требуется действительный хэш JavaScript-кода плеера
+• Воспроизведение не удастся, если хэш JavaScript-кода плеера будет отозван в GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Обновление JavaScript плеера включено</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Обновление JavaScript плеера выключено
 
@@ -54,7 +57,7 @@
     <string name="morphe_spoof_video_streams_no_clients_toast">Не удалось получить никаких клиентских потоков</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Введите допустимый хеш JavaScript плеера</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Хеш JavaScript плеера</string>
-    <string name="morphe_spoof_video_streams_screen_summary">Подделка видео потоков клиента для предотвращения проблем с воспроизведением</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Настройте подмену клиента, чтобы предотвратить проблемы с воспроизведением</string>
     <string name="morphe_spoof_video_streams_screen_title">Подмена видеопотоков</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Вы не вошли в Android VR. Нажмите здесь, чтобы войти</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Чтобы использовать эту функцию, изменить значение \'Default client\' на Android VR</string>
@@ -83,7 +86,9 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Вход выполнен успешно</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Не удалось выдать код активации</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Не удалось выдать токен аутентификации</string>
-    <string name="morphe_spoof_video_streams_summary">Подмените видеопотоки клиента, чтобы избежать проблем при воспроизведении.</string>
+    <string name="morphe_spoof_video_streams_summary">"Обманывает YouTube, чтобы он отправлял совместимый видеопоток, что исправляет воспроизведение для большинства пользователей
+
+Если вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Видео потоки не подделаны
 
 Воспроизведение может не работать"</string>
@@ -126,7 +131,7 @@
     <string name="revanced_change_start_page_entry_subscription">Подписки</string>
     <string name="revanced_change_start_page_entry_subscriptions">Подписки</string>
     <string name="revanced_change_start_page_summary">Выберите, на какой странице откроется приложение.</string>
-    <string name="revanced_change_start_page_title">Изменить начальную страницу</string>
+    <string name="revanced_change_start_page_title">Начальная страница</string>
     <string name="revanced_credits_title">О разработчиках</string>
     <string name="revanced_custom_filter_strings_summary">Настройте, какие компоненты фильтровать, обозначая конец каждого из них новой строкой.</string>
     <string name="revanced_custom_filter_strings_title">Изменить пользовательский фильтр</string>
@@ -502,7 +507,7 @@
     <string name="revanced_ryd_toast_on_connection_error_summary">Отображает всплывающее уведомление, когда API Return YouTube Dislike недоступен.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Уведомлять, когда API недоступен</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто</string>
-    <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из адресов при отправке ссылки.</string>
+    <string name="revanced_sanitize_sharing_links_summary">Удаляет параметры отслеживания запросов из общих ссылок</string>
     <string name="revanced_sanitize_sharing_links_title">Очищать ссылки для обмена</string>
     <string name="revanced_sb_about">Об интеграции</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -673,11 +678,9 @@
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">О Android VR авторизации</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Определяет клиент по умолчанию для подмены."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Клиент по умолчанию</string>
-    <string name="revanced_spoof_video_streams_summary">Подменять клиентские видеопотоки для предотвращения проблем с воспроизведением.
+    <string name="revanced_spoof_video_streams_summary">"Обманывает YouTube, чтобы он отправлял совместимый видеопоток, что исправляет воспроизведение для большинства пользователей
 
-Побочный эффект:
-• Приложение может принудительно закрываться при использовании VPN или DNS.
-• Звук может периодически прерываться во время воспроизведения на клиентах потоковой передачи с адаптивным битрейтом (все клиенты, кроме Android VR 1.43.32).</string>
+Если вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться"</string>
     <string name="revanced_spoof_video_streams_title">Поддельные видео потоки</string>
     <string name="revanced_translations_title">Переводы</string>
     <string name="revanced_watch_history_type_entry_1">Оригинальный</string>
