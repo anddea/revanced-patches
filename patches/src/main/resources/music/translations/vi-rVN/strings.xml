@@ -42,6 +42,10 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="morphe_sanitize_sharing_links_summary_on">Tham số truy vấn theo dõi bị loại bỏ khỏi các liên kết được chia sẻ</string>
     <string name="morphe_sanitize_sharing_links_title">Rút gọn liên kết chia sẻ</string>
     <string name="morphe_spoof_video_streams_client_type_title">Client mặc định</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Khóa JavaScript của trình phát vào một hash cục bộ thay vì lấy cập nhật
+
+• Cần có một hash JavaScript của trình phát hợp lệ
+• Việc phát lại sẽ không thành công nếu hash JavaScript của trình phát bị thu hồi trong GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Cập nhật JavaScript của trình phát đã bật</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Cập nhật JavaScript của trình phát đã bị tắt
 
@@ -82,6 +86,9 @@ Bấm tiếp tục bên dưới để đăng nhập"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Đã đăng nhập thành công</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Thất bại khi cấp mã kích hoạt</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Thất bại khi cấp mã xác thực</string>
+    <string name="morphe_spoof_video_streams_summary">"Lừa YouTube gửi một luồng video tương thích, điều này khắc phục sự cố phát lại cho hầu hết người dùng
+
+Nếu bạn là người dùng YouTube Premium, có thể không cần thiết lập này"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Luồng phát video không được giả mạo
 
 Có thể gặp lỗi khi phát."</string>
@@ -124,7 +131,7 @@ Nếu bạn đã mua gói Premium thì cài đặt này có thể không cần t
     <string name="revanced_change_start_page_entry_subscription">Kênh đăng ký</string>
     <string name="revanced_change_start_page_entry_subscriptions">Kênh đăng ký</string>
     <string name="revanced_change_start_page_summary">Chọn trang sẽ hiển thị khi bạn khởi động ứng dụng.</string>
-    <string name="revanced_change_start_page_title">Đổi trang khởi động</string>
+    <string name="revanced_change_start_page_title">Trang bắt đầu</string>
     <string name="revanced_custom_filter_strings_summary">Nhập tên các mục mà bạn muốn lọc được phân cách bằng dòng.</string>
     <string name="revanced_custom_filter_strings_title">Chỉnh sửa bộ lọc</string>
     <string name="revanced_custom_filter_summary">Ẩn các thành phần không mong muốn bằng bộ lọc tuỳ chỉnh.</string>
@@ -503,7 +510,7 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Hiển thị thông báo ngắn nếu API ReturnYouTubeDislike không khả dụng.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Thông báo ngắn nếu API không khả dụng</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ẩn</string>
-    <string name="revanced_sanitize_sharing_links_summary">Loại bỏ các tham số truy vấn theo dõi khỏi URL khi chia sẻ liên kết.</string>
+    <string name="revanced_sanitize_sharing_links_summary">Loại bỏ các tham số truy vấn theo dõi khỏi các liên kết được chia sẻ</string>
     <string name="revanced_sanitize_sharing_links_title">Rút gọn liên kết chia sẻ</string>
     <string name="revanced_sb_about">Giới thiệu</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -682,7 +689,9 @@ Nếu bạn đã đăng ký YouTube Premium, thì có thể không cần thiết
 • Ứng dụng có thể bị buộc đóng khi dùng VPN hoặc DNS.
 • Âm thanh có thể bị ngắt quãng khi phát trên client dùng truyền phát bit thích ứng (trừ Android VR 1.43.32)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Client mặc định</string>
-    <string name="revanced_spoof_video_streams_summary">Giả mạo luồng video của client để tránh lỗi khi phát.</string>
+    <string name="revanced_spoof_video_streams_summary">"Lừa YouTube gửi một luồng video tương thích, điều này khắc phục sự cố phát lại cho hầu hết người dùng
+
+Nếu bạn là người dùng YouTube Premium, có thể không cần thiết lập này"</string>
     <string name="revanced_spoof_video_streams_title">Giả mạo luồng phát video</string>
     <string name="revanced_translations_title">Bản dịch</string>
     <string name="revanced_watch_history_type_entry_1">Gốc</string>

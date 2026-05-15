@@ -42,6 +42,10 @@ Nyomj a folytatás gombra, és engedélyezd az optimalizálási módosításokat
     <string name="morphe_sanitize_sharing_links_summary_on">A követési lekérdezési paraméter eltávolításra kerül a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
     <string name="morphe_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Rögzíti a lejátszó JavaScript kódját egy helyi hash-hez a frissítések letöltése helyett
+
+• Érvényes lejátszó JavaScript hash szükséges
+• A lejátszás hibás lesz, ha a lejátszó JavaScript hash-ét visszavonják a GVS-ben"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">A lejátszó JavaScript frissítése engedélyezve van</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"A lejátszó JavaScript frissítése ki van kapcsolva
 
@@ -82,6 +86,9 @@ Belépéshez nyomd meg a folytatást alul"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Sikeresen bejelentkezett</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Sikertelen volt az engedélykód kiállítása</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Sikertelen volt az elérési jogkivonat kiállítása</string>
+    <string name="morphe_spoof_video_streams_summary">"Trükközéssel arra készteti a YouTube-ot, hogy kompatibilis videó streamet küldjön, ami a legtöbb felhasználó számára megoldja a lejátszási problémákat
+
+Ha YouTube Premium előfizetője vagy, ez a beállítás nem feltétlenül szükséges."</string>
     <string name="morphe_spoof_video_streams_summary_off">"A videó streamek nincsenek hamisítva
 
 A lejátszás nem működhet"</string>
@@ -124,7 +131,7 @@ Ha Ön YouTube Premium felhasználó, ez a beállítás nem feltétlenül szüks
     <string name="revanced_change_start_page_entry_subscription">Feliratkozások</string>
     <string name="revanced_change_start_page_entry_subscriptions">Feliratkozások</string>
     <string name="revanced_change_start_page_summary">Kiválaszthatod, hogy milyen oldalon nyíljon meg az alkalmazás.</string>
-    <string name="revanced_change_start_page_title">Kezdőlap módosítása</string>
+    <string name="revanced_change_start_page_title">Kezdőlap</string>
     <string name="revanced_custom_filter_strings_summary">A szűrendő elemek útvonal-építő stringjeinek listája, új sorokkal elválasztva.</string>
     <string name="revanced_custom_filter_strings_title">Egyéni szűrő</string>
     <string name="revanced_custom_filter_summary">Engedélyezi, hogy saját menüket is elrejts.</string>
@@ -502,7 +509,7 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Megjelenik egy üzenet, ha a YouTube nem tetszések visszaállítása API nem érhető el.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Köszöntő megjelenítése, ha az API nem elérhető</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Rejtett</string>
-    <string name="revanced_sanitize_sharing_links_summary">A megosztási linkeket a nyomkövető lekérdezési paraméterek eltávolításával tisztítja.</string>
+    <string name="revanced_sanitize_sharing_links_summary">Eltávolítja a követési paramétereket a megosztott linkekből</string>
     <string name="revanced_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
     <string name="revanced_sb_about">Névjegy</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -673,7 +680,9 @@ Ha YouTube Premium felhasználó vagy, akkor ez a beállítás nem feltétlenül
 • Az alkalmazás kényszerbezáródhat VPN vagy DNS használatakor.
 • A hang időnként akadozhat lejátszás közben adaptív bitrátájú streaming klienseken (Minden kliens, kivéve az Android VR 1.43.32-t)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Alapértelmezett kliens</string>
-    <string name="revanced_spoof_video_streams_summary">A kliens videófolyamainak hamisítása a lejátszási problémák elkerülése érdekében.</string>
+    <string name="revanced_spoof_video_streams_summary">"Trükközéssel arra készteti a YouTube-ot, hogy kompatibilis videó streamet küldjön, ami a legtöbb felhasználó számára megoldja a lejátszási problémákat
+
+Ha YouTube Premium előfizetője vagy, ez a beállítás nem feltétlenül szükséges."</string>
     <string name="revanced_spoof_video_streams_title">Hamis videó stream</string>
     <string name="revanced_translations_title">Fordítások</string>
     <string name="revanced_watch_history_type_entry_1">Eredeti</string>

@@ -42,6 +42,10 @@
     <string name="morphe_sanitize_sharing_links_summary_on">跟踪查询参数已从分享链接中移除</string>
     <string name="morphe_sanitize_sharing_links_title">净化分享链接</string>
     <string name="morphe_spoof_video_streams_client_type_title">默认客户端</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"锁定播放器的 JavaScript 到本地哈希，而不是获取更新
+
+• 需要有效的播放器 JavaScript 哈希
+• 如果在 GVS 中撤销了播放器 JavaScript 哈希，则播放将失败"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">播放器 JavaScript 更新已启用</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"播放器 JavaScript 更新已禁用
 
@@ -53,7 +57,7 @@
     <string name="morphe_spoof_video_streams_no_clients_toast">无法获取任何客户端流</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">输入有效的 Player JavaScript 哈希</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player JavaScript hash</string>
-    <string name="morphe_spoof_video_streams_screen_summary">欺骗客户端视频流以防止播放问题</string>
+    <string name="morphe_spoof_video_streams_screen_summary">配置客户端欺骗以防止播放问题</string>
     <string name="morphe_spoof_video_streams_screen_title">欺骗视频流</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">尚未登录 Google VR。点击继续登录</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">要使用此功能，请将 \'默认客户端\' 更改至 Google VR</string>
@@ -82,6 +86,9 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">登录成功</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">无法获取激活码</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">无法获取身份验证令牌</string>
+    <string name="morphe_spoof_video_streams_summary">"欺骗 YouTube 以发送兼容的视频流，从而修复大多数用户的问题
+
+如果您是 YouTube Premium 用户，则可能不需要此设置"</string>
     <string name="morphe_spoof_video_streams_summary_off">"未欺骗视频流
 
 播放可能无法正常进行"</string>
@@ -122,7 +129,7 @@
     <string name="revanced_change_start_page_entry_subscription">订阅</string>
     <string name="revanced_change_start_page_entry_subscriptions">订阅</string>
     <string name="revanced_change_start_page_summary">选择打开应用显示的页面</string>
-    <string name="revanced_change_start_page_title">更改起始页</string>
+    <string name="revanced_change_start_page_title">开始页面</string>
     <string name="revanced_custom_filter_strings_summary">按行分割过滤组件名称</string>
     <string name="revanced_custom_filter_strings_title">编辑自定义过滤隐藏</string>
     <string name="revanced_custom_filter_summary">启用自定义过滤</string>
@@ -441,7 +448,7 @@
     <string name="revanced_ryd_toast_on_connection_error_summary">当 Return YouTube Dislike API 不可用时显示提示</string>
     <string name="revanced_ryd_toast_on_connection_error_title">当 API 不可用时显示提示</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隐藏</string>
-    <string name="revanced_sanitize_sharing_links_summary">分享链接时删除跟踪查询参数</string>
+    <string name="revanced_sanitize_sharing_links_summary">从共享链接中删除跟踪查询参数</string>
     <string name="revanced_sanitize_sharing_links_title">净化分享链接</string>
     <string name="revanced_sb_about">关于</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -578,6 +585,9 @@
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">点击查看如何获取认证令牌。</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">关于 Android VR 认证</string>
     <string name="revanced_spoof_video_streams_default_client_title">默认客户端</string>
+    <string name="revanced_spoof_video_streams_summary">"欺骗 YouTube 以发送兼容的视频流，从而修复大多数用户的问题
+
+如果您是 YouTube Premium 用户，则可能不需要此设置"</string>
     <string name="revanced_spoof_video_streams_title">伪造视频流</string>
     <string name="revanced_translations_title">翻译</string>
     <string name="revanced_watch_history_type_entry_1">原始</string>
