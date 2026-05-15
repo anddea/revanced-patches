@@ -44,7 +44,6 @@ package app.morphe.extension.youtube.utils;
 
 import static app.morphe.extension.shared.utils.BaseThemeUtils.getDialogBackgroundColor;
 import static app.morphe.extension.shared.utils.ResourceUtils.getString;
-import static app.morphe.extension.shared.utils.ResourceUtils.getStringArray;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.dipToPixels;
 import static app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MAXIMUM;
@@ -115,7 +114,6 @@ import app.morphe.extension.shared.utils.IntentUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
-import app.morphe.extension.youtube.patches.shorts.ShortsRepeatStatePatch.ShortsLoopBehavior;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
 import app.morphe.extension.youtube.patches.video.PlaybackSpeedPatch;
@@ -403,36 +401,6 @@ public class VideoUtils extends IntentUtils {
             case CUSTOM_LEGACY -> showCustomLegacyPlaybackSpeedDialog(context);
             case CUSTOM_MODERN -> showCustomModernPlaybackSpeedDialog(context);
         }
-    }
-
-    public static void showShortsRepeatDialog(@NonNull Context context) {
-        final EnumSetting<ShortsLoopBehavior> setting = Settings.CHANGE_SHORTS_REPEAT_STATE;
-        final String settingsKey = setting.key;
-
-        final String entryKey = settingsKey + "_entries";
-        final String entryValueKey = settingsKey + "_entry_values";
-        final String[] mEntries = getStringArray(entryKey);
-        final String[] mEntryValues = getStringArray(entryValueKey);
-
-        LinearLayout mainLayout = ExtendedUtils.prepareMainLayout(context);
-        Map<LinearLayout, Runnable> actionsMap = new LinkedHashMap<>(mEntryValues.length);
-        String currentValue = setting.get().name();
-        int checkIconId = ResourceUtils.getDrawableIdentifier("quantum_ic_check_white_24");
-
-        for (int i = 0; i < mEntryValues.length; i++) {
-            String label = mEntries[i];
-            String enumValue = mEntryValues[i];
-
-            int index = i;
-            Runnable action = () -> {
-                for (ShortsLoopBehavior behavior : ShortsLoopBehavior.values())
-                    if (behavior.ordinal() == index) setting.save(behavior);
-            };
-            LinearLayout itemLayout = ExtendedUtils.createItemLayout(context, label, currentValue.equals(enumValue) ? checkIconId : 0);
-            actionsMap.putIfAbsent(itemLayout, action);
-            mainLayout.addView(itemLayout);
-        }
-        ExtendedUtils.showBottomSheetDialog(context, mainLayout, actionsMap);
     }
 
     public static String getFormattedQualityString(@Nullable String prefix) {

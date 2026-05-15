@@ -754,10 +754,8 @@
         <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>SETTINGS: SHORTS_COMPONENTS -->
 
         <!-- SETTINGS: SHORTS_COMPONENTS
-        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_change_shorts_repeat_state_entries" android:title="@string/revanced_change_shorts_repeat_state_title" android:key="revanced_change_shorts_repeat_state" android:entryValues="@array/revanced_change_shorts_repeat_state_entry_values" />SETTINGS: SHORTS_COMPONENTS -->
-
-        <!-- SETTINGS: SHORTS_REPEAT_STATE_BACKGROUND
-        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_change_shorts_repeat_state_entries" android:title="@string/revanced_change_shorts_background_repeat_state_title" android:key="revanced_change_shorts_background_repeat_state" android:entryValues="@array/revanced_change_shorts_repeat_state_entry_values" />SETTINGS: SHORTS_REPEAT_STATE_BACKGROUND -->
+        <SwitchPreference android:title="@string/revanced_shorts_autoplay_title" android:key="revanced_shorts_autoplay" android:summary="@string/revanced_shorts_autoplay_summary" />
+        <SwitchPreference android:title="@string/revanced_shorts_autoplay_background_title" android:key="revanced_shorts_autoplay_background" android:summary="@string/revanced_shorts_autoplay_background_summary" />SETTINGS: SHORTS_COMPONENTS -->
 
         <!-- SETTINGS: SHORTS_COMPONENTS
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_shorts_player_type_entries" android:title="@string/revanced_shorts_player_type_title" android:key="revanced_shorts_player_type" android:entryValues="@array/revanced_shorts_player_type_entry_values" />SETTINGS: SHORTS_COMPONENTS -->

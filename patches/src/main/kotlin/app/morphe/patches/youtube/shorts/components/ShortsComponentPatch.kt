@@ -8,7 +8,9 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstructions
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.proxy.mutableTypes.MutableClass
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
@@ -98,10 +100,13 @@ import app.morphe.util.or
 import app.morphe.util.replaceLiteralInstructionCall
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
 
@@ -465,12 +470,19 @@ private val shortsRepeatPatch = bytecodePatch(
         }
 
         lateinit var insertMethod: MutableMethod
+        lateinit var insertClassDef: MutableClass
         var insertMethodFound = false
 
         if (is_20_16_or_greater) {
-            insertMethod = reelPlaybackRepeatFingerprint2016.methodOrThrow()
+            reelPlaybackRepeatFingerprint2016.matchOrThrow().let {
+                insertMethod = it.method
+                insertClassDef = it.classDef
+            }
         } else if (is_18_49_or_greater) {
-            insertMethod = reelPlaybackRepeatFingerprint.methodOrThrow()
+            reelPlaybackRepeatFingerprint.matchOrThrow().let {
+                insertMethod = it.method
+                insertClassDef = it.classDef
+            }
         } else {
             val isInsertMethod: Method.() -> Boolean = {
                 parameters.size == 1 &&
@@ -486,8 +498,8 @@ private val shortsRepeatPatch = bytecodePatch(
                     classDef.methods.forEach { method ->
                         if (method.isInsertMethod()) {
                             insertMethodFound = true
-                            insertMethod = mutableClassDefBy(classDef)
-                                .findMutableMethodOf(method)
+                            insertClassDef = mutableClassDefBy(classDef)
+                            insertMethod = insertClassDef.findMutableMethodOf(method)
                         }
                     }
                 }
@@ -497,15 +509,29 @@ private val shortsRepeatPatch = bytecodePatch(
         val enumMethod =
             reelEnumStaticFingerprint.methodOrThrow(reelEnumConstructorFingerprint)
 
-        findMethodOrThrow(EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR) {
-            name == "getShortsLoopBehaviorEnum"
-        }.addInstructions(
-            0, """
-                invoke-static/range { p0 .. p0 }, $enumMethod
-                move-result-object p0
-                return-object p0
-                """
-        )
+        reelEnumConstructorFingerprint.methodOrThrow().apply {
+            implementation!!.instructions
+                .withIndex()
+                .filter { (_, instruction) ->
+                    val reference = (instruction as? ReferenceInstruction)?.reference
+                    instruction.opcode == Opcode.SPUT_OBJECT &&
+                            reference is FieldReference &&
+                            reference.type == enumMethod.definingClass
+                }
+                .map { (index, instruction) ->
+                    index to (instruction as ReferenceInstruction).reference
+                }
+                .reversed()
+                .forEach { (index, reference) ->
+                    addInstructions(
+                        index + 1,
+                        """
+                            sget-object v0, $reference
+                            invoke-static {v0}, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->setYTShortsRepeatEnum(Ljava/lang/Enum;)V
+                            """
+                    )
+                }
+        }
 
         insertMethod.apply {
             implementation!!.instructions
@@ -532,8 +558,7 @@ private val shortsRepeatPatch = bytecodePatch(
         }
 
         // As of YouTube 20.09, Google has removed the code for 'Autoplay' and 'Pause' from this method.
-        // Manually add the 'Autoplay' code that Google removed.
-        // Tested on YouTube 20.10.
+        // Manually restore the removed 'Autoplay' code.
         if (is_20_09_or_greater) {
             val (directReference, virtualReference) = with(
                 reelPlaybackFingerprint.methodOrThrow(
@@ -553,36 +578,57 @@ private val shortsRepeatPatch = bytecodePatch(
             }
 
             insertMethod.apply {
-                val extensionIndex = indexOfFirstInstructionOrThrow {
+                val extensionReturnResultIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_STATIC &&
                             getReference<MethodReference>()?.definingClass == EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR
-                }
+                } + 1
                 val enumRegister =
-                    getInstruction<OneRegisterInstruction>(extensionIndex + 1).registerA
-                val freeIndex = indexOfFirstInstructionOrThrow(extensionIndex) {
-                    opcode == Opcode.SGET_OBJECT &&
-                            getReference<FieldReference>()?.name != "a"
-                }
-                val freeRegister = getInstruction<OneRegisterInstruction>(freeIndex).registerA
-                val getIndex = indexOfFirstInstructionOrThrow(extensionIndex) {
+                    getInstruction<OneRegisterInstruction>(extensionReturnResultIndex).registerA
+                val getIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<FieldReference>()
                     opcode == Opcode.IGET_OBJECT &&
                             reference?.definingClass == definingClass &&
                             reference.type == virtualReference.definingClass
                 }
                 val getReference = getInstruction<ReferenceInstruction>(getIndex).reference
+                val helperClass = definingClass
+                val helperName = "patch_handleAutoPlay"
+                val helperReturnType = "Ljava/lang/Enum;"
+                val helperMethod = ImmutableMethod(
+                    helperClass,
+                    helperName,
+                    listOf(ImmutableMethodParameter("Ljava/lang/Enum;", null, null)),
+                    helperReturnType,
+                    AccessFlags.PRIVATE.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(7),
+                ).toMutable().apply {
+                    addInstructionsWithLabels(
+                        0, """
+                            invoke-static {p1}, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->isAutoPlay(Ljava/lang/Enum;)Z
+                            move-result v0
+                            if-eqz v0, :ignore
+                            new-instance v0, ${directReference.definingClass}
+                            const/4 v1, 0x3
+                            const/4 v2, 0x0
+                            invoke-direct {v0, v1, v2, v2}, $directReference
+                            iget-object v3, p0, $getReference
+                            invoke-virtual {v3, v0}, $virtualReference
+                            const/4 v4, 0x0
+                            return-object v4
+                            :ignore
+                            return-object p1
+                            """
+                    )
+                }
+                insertClassDef.methods.add(helperMethod)
 
                 addInstructionsWithLabels(
-                    extensionIndex + 2, """
-                        invoke-static {v$enumRegister}, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->isAutoPlay(Ljava/lang/Enum;)Z
-                        move-result v$freeRegister
-                        if-eqz v$freeRegister, :ignore
-                        new-instance v0, ${directReference.definingClass}
-                        const/4 v1, 0x3
-                        const/4 v2, 0x0
-                        invoke-direct {v0, v1, v2, v2}, $directReference
-                        iget-object v3, p0, $getReference
-                        invoke-virtual {v3, v0}, $virtualReference
+                    extensionReturnResultIndex + 1, """
+                        invoke-direct {p0, v$enumRegister}, $helperClass->$helperName(Ljava/lang/Enum;)$helperReturnType
+                        move-result-object v$enumRegister
+                        if-nez v$enumRegister, :ignore
                         return-void
                         :ignore
                         nop
