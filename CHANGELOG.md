@@ -1,3 +1,10 @@
+## [4.0.1-dev.1](https://github.com/anddea/revanced-patches/compare/v4.0.0...v4.0.1-dev.1) (2026-05-15)
+
+
+### Bug Fixes
+
+* **YouTube Music:** `v6.2x.xx` failed to patch ([541263e](https://github.com/anddea/revanced-patches/commit/541263e74d6b8be88e6dd1007feb80c6077dbd77))
+
 # [4.0.0](https://github.com/anddea/revanced-patches/compare/v3.16.0...v4.0.0) (2026-03-27)
 
 

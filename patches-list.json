@@ -1,5 +1,5 @@
 {
-  "version": "4.0.0",
+  "version": "4.0.1-dev.1",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -70,6 +70,7 @@
       "description": "Adds an option to bypass URL redirects and open the original URL directly.",
       "use": true,
       "dependencies": [
+        "BytecodePatch",
         "ResourcePatch"
       ],
       "compatiblePackages": {
