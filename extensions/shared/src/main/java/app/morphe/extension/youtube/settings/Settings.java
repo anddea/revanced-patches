@@ -46,7 +46,6 @@ import app.morphe.extension.youtube.patches.player.ExitFullscreenPatch.Fullscree
 import app.morphe.extension.youtube.patches.player.MiniplayerPatch;
 import app.morphe.extension.youtube.patches.shorts.AnimationFeedbackPatch.AnimationType;
 import app.morphe.extension.youtube.patches.shorts.ShortsPatch.ShortsPlayerType;
-import app.morphe.extension.youtube.patches.shorts.ShortsRepeatStatePatch.ShortsLoopBehavior;
 import app.morphe.extension.youtube.patches.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOverlayBrightnessColorAvailability;
 import app.morphe.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOverlayVolumeColorAvailability;
@@ -533,8 +532,8 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_SHORTS_SHELF_SUBSCRIPTIONS = new BooleanSetting("revanced_hide_shorts_shelf_subscriptions", TRUE, parent(HIDE_SHORTS_SHELF));
     public static final BooleanSetting HIDE_SHORTS_SHELF_VIDEO_DESCRIPTION = new BooleanSetting("revanced_hide_shorts_shelf_video_description", TRUE, parent(HIDE_SHORTS_SHELF));
     public static final BooleanSetting HIDE_SHORTS_SHELF_HISTORY = new BooleanSetting("revanced_hide_shorts_shelf_history", FALSE, parent(HIDE_SHORTS_SHELF));
-    public static final EnumSetting<ShortsLoopBehavior> CHANGE_SHORTS_BACKGROUND_REPEAT_STATE = new EnumSetting<>("revanced_change_shorts_background_repeat_state", ShortsLoopBehavior.UNKNOWN);
-    public static final EnumSetting<ShortsLoopBehavior> CHANGE_SHORTS_REPEAT_STATE = new EnumSetting<>("revanced_change_shorts_repeat_state", ShortsLoopBehavior.UNKNOWN);
+    public static final BooleanSetting SHORTS_AUTOPLAY = new BooleanSetting("revanced_shorts_autoplay", FALSE);
+    public static final BooleanSetting SHORTS_AUTOPLAY_BACKGROUND = new BooleanSetting("revanced_shorts_autoplay_background", TRUE);
     public static final EnumSetting<ShortsPlayerType> SHORTS_PLAYER_TYPE = new EnumSetting<>("revanced_shorts_player_type", ShortsPlayerType.SHORTS_PLAYER);
 
     // PreferenceScreen: Shorts - Shorts player components

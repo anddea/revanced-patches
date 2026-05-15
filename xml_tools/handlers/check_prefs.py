@@ -87,7 +87,6 @@ def _get_default_key_only_check() -> list[str]:
 
     """
     return [
-        "revanced_change_shorts_repeat_state",
         "revanced_custom_seekbar_color_accent",
         "revanced_custom_seekbar_color_primary",
         "revanced_hide_player_youtube_music_button",

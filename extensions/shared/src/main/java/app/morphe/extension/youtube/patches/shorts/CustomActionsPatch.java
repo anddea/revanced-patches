@@ -353,7 +353,13 @@ public final class CustomActionsPatch {
         REPEAT_STATE(
                 Settings.SHORTS_CUSTOM_ACTIONS_REPEAT_STATE,
                 "yt_outline_arrow_repeat_1_black_24",
-                () -> VideoUtils.showShortsRepeatDialog(contextRef.get())
+                () -> {
+                    boolean enabled = !Settings.SHORTS_AUTOPLAY.get();
+                    Settings.SHORTS_AUTOPLAY.save(enabled);
+                    Utils.showToastShort(str(enabled
+                            ? "revanced_shorts_autoplay_enabled_toast"
+                            : "revanced_shorts_autoplay_disabled_toast"));
+                }
         );
 
         @NonNull
