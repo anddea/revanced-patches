@@ -255,6 +255,13 @@ internal val startVideoInformerFingerprint = legacyFingerprint(
     }
 )
 
+internal val videoLengthFingerprintLegacy = legacyFingerprint(
+    name = "videoLengthFingerprintLegacy",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    strings = listOf("Gaplessly transitioning away from an Ad before it ends.")
+)
+
 internal val videoLengthFingerprint = legacyFingerprint(
     name = "videoLengthFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
