@@ -1,5 +1,9 @@
 package app.morphe.patches.youtube.player.buttons
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.literal
+import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import app.morphe.patches.youtube.utils.resourceid.cfFullscreenButton
 import app.morphe.patches.youtube.utils.resourceid.fadeDurationFast
 import app.morphe.patches.youtube.utils.resourceid.fullScreenButton
@@ -8,17 +12,17 @@ import app.morphe.patches.youtube.utils.resourceid.playerCollapseButton
 import app.morphe.patches.youtube.utils.resourceid.titleAnchor
 import app.morphe.patches.youtube.utils.resourceid.youTubeControlsOverlaySubtitleButton
 import app.morphe.util.containsLiteralInstruction
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val fullScreenButtonFingerprint = legacyFingerprint(
-    name = "fullScreenButtonFingerprint",
+internal object FullScreenButtonFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Landroid/view/View;"),
-    customFingerprint = handler@{ method, _ ->
+    filters = listOf(
+        literal(fullScreenButton),
+    ),
+    custom = handler@{ method, _ ->
         if (!method.containsLiteralInstruction(fullScreenButton))
             return@handler false
 
@@ -28,6 +32,28 @@ internal val fullScreenButtonFingerprint = legacyFingerprint(
 )
 
 internal const val LITHO_SUBTITLE_BUTTON_FEATURE_FLAG = 45421555L
+internal const val CAST_BUTTON_PLAYER_FEATURE_FLAG = 45690091L
+internal const val CAST_BUTTON_ACTION_FEATURE_FLAG = 45690090L
+
+internal object MediaRouteButtonFingerprint : Fingerprint(
+    definingClass = "/MediaRouteButton;",
+    name = "setVisibility",
+    parameters = listOf("I"),
+)
+
+internal object CastButtonPlayerFeatureFlagFingerprint : Fingerprint(
+    returnType = "Z",
+    filters = listOf(
+        literal(CAST_BUTTON_PLAYER_FEATURE_FLAG),
+    )
+)
+
+internal object CastButtonActionFeatureFlagFingerprint : Fingerprint(
+    returnType = "Z",
+    filters = listOf(
+        literal(CAST_BUTTON_ACTION_FEATURE_FLAG),
+    )
+)
 
 /**
  * Added in YouTube v18.31.40
@@ -35,34 +61,40 @@ internal const val LITHO_SUBTITLE_BUTTON_FEATURE_FLAG = 45421555L
  * When this value is TRUE, litho subtitle button is used.
  * In this case, the empty area remains, so set this value to FALSE.
  */
-internal val lithoSubtitleButtonConfigFingerprint = legacyFingerprint(
-    name = "lithoSubtitleButtonConfigFingerprint",
-    literals = listOf(LITHO_SUBTITLE_BUTTON_FEATURE_FLAG),
+internal object LithoSubtitleButtonConfigFingerprint : Fingerprint(
+    filters = listOf(
+        literal(LITHO_SUBTITLE_BUTTON_FEATURE_FLAG),
+    )
 )
 
-internal val musicAppDeeplinkButtonFingerprint = legacyFingerprint(
-    name = "musicAppDeeplinkButtonFingerprint",
+internal object MusicAppDeeplinkButtonFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Z", "Z")
 )
 
-internal val musicAppDeeplinkButtonParentFingerprint = legacyFingerprint(
-    name = "musicAppDeeplinkButtonParentFingerprint",
+internal object MusicAppDeeplinkButtonParentFingerprint : Fingerprint(
     returnType = "V",
-    literals = listOf(musicAppDeeplinkButtonView),
+    filters = listOf(
+        literal(musicAppDeeplinkButtonView),
+    )
 )
 
-internal val playerControlsVisibilityModelFingerprint = legacyFingerprint(
-    name = "playerControlsVisibilityModelFingerprint",
-    opcodes = listOf(Opcode.INVOKE_DIRECT_RANGE),
-    strings = listOf("Missing required properties:", "hasNext", "hasPrevious")
+internal object PlayerControlsVisibilityModelFingerprint : Fingerprint(
+    filters = listOf(
+        string("Missing required properties:"),
+        string("hasNext"),
+        string("hasPrevious"),
+        opcode(Opcode.INVOKE_DIRECT_RANGE),
+    )
 )
 
-internal val titleAnchorFingerprint = legacyFingerprint(
-    name = "titleAnchorFingerprint",
+internal object TitleAnchorFingerprint : Fingerprint(
     returnType = "V",
-    literals = listOf(playerCollapseButton, titleAnchor),
+    filters = listOf(
+        literal(playerCollapseButton),
+        literal(titleAnchor),
+    )
 )
 
 /**
@@ -71,9 +103,10 @@ internal val titleAnchorFingerprint = legacyFingerprint(
  *
  * This fingerprint is compatible from YouTube v18.25.40 to YouTube v18.45.43
  */
-internal val youtubeControlsOverlaySubtitleButtonFingerprint = legacyFingerprint(
-    name = "youtubeControlsOverlaySubtitleButtonFingerprint",
+internal object YoutubeControlsOverlaySubtitleButtonFingerprint : Fingerprint(
     returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    literals = listOf(youTubeControlsOverlaySubtitleButton),
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
+    filters = listOf(
+        literal(youTubeControlsOverlaySubtitleButton),
+    )
 )

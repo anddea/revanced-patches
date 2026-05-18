@@ -384,12 +384,6 @@ public class PlayerPatch {
         return !Settings.HIDE_PLAYER_CAPTIONS_BUTTON.get() && original;
     }
 
-    public static int hideCastButton(int original) {
-        return Settings.HIDE_PLAYER_CAST_BUTTON.get()
-                ? View.GONE
-                : original;
-    }
-
     public static void hideCaptionsButton(View view) {
         Utils.hideViewUnderCondition(Settings.HIDE_PLAYER_CAPTIONS_BUTTON, view);
     }

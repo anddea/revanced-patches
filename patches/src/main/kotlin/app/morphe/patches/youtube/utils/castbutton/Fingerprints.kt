@@ -27,11 +27,3 @@ internal val menuItemVisibilityFingerprint = legacyFingerprint(
         } >= 0
     }
 )
-
-internal val playerButtonFingerprint = legacyFingerprint(
-    name = "playerButtonFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    parameters = emptyList(),
-    literals = listOf(11208L),
-)

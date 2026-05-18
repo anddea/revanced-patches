@@ -6,28 +6,29 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLa
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.morphe.patches.youtube.utils.castbutton.castButtonPatch
-import app.morphe.patches.youtube.utils.castbutton.hookPlayerCastButton
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
+import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.fix.bottomui.cfBottomUIPatch
 import app.morphe.patches.youtube.utils.inflateControlsGroupLayoutStubFingerprint
 import app.morphe.patches.youtube.utils.layoutConstructorFingerprint
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_PLAYER_BUTTONS
 import app.morphe.patches.youtube.utils.playservice.is_18_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.*
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.findFreeRegister
-import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
-import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+import app.morphe.util.insertLiteralOverride
+import app.morphe.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -37,6 +38,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val HAS_NEXT = 5
 private const val HAS_PREVIOUS = 6
+private const val PLAYER_CAST_BUTTON_CLASS_DESCRIPTOR =
+    "$PLAYER_PATH/PlayerCastButtonPatch;"
 
 @Suppress("unused")
 val playerButtonsPatch = bytecodePatch(
@@ -46,7 +49,6 @@ val playerButtonsPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
-        castButtonPatch,
         cfBottomUIPatch,
         sharedResourceIdPatch,
         settingsPatch,
@@ -77,13 +79,13 @@ val playerButtonsPatch = bytecodePatch(
         // region patch for hide captions button
 
         if (is_18_31_or_greater) {
-            lithoSubtitleButtonConfigFingerprint.injectLiteralInstructionBooleanCall(
+            LithoSubtitleButtonConfigFingerprint.method.insertLiteralOverride(
                 LITHO_SUBTITLE_BUTTON_FEATURE_FLAG,
                 "$PLAYER_CLASS_DESCRIPTOR->hideCaptionsButton(Z)Z"
             )
         }
 
-        youtubeControlsOverlaySubtitleButtonFingerprint.methodOrThrow().apply {
+        YoutubeControlsOverlaySubtitleButtonFingerprint.method.apply {
             val insertIndex = implementation!!.instructions.lastIndex
             val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
@@ -97,13 +99,33 @@ val playerButtonsPatch = bytecodePatch(
 
         // region patch for hide cast button
 
-        hookPlayerCastButton()
+        MediaRouteButtonFingerprint.method.addInstructions(
+            0,
+            """
+                invoke-static { p1 }, $PLAYER_CAST_BUTTON_CLASS_DESCRIPTOR->hideCastButton(I)I
+                move-result p1
+            """
+        )
+
+        if (is_20_28_or_greater) {
+            arrayOf(
+                CastButtonPlayerFeatureFlagFingerprint,
+                CastButtonActionFeatureFlagFingerprint,
+            ).forEach { fingerprint ->
+                fingerprint.method.insertLiteralOverride(
+                    fingerprint.instructionMatches.first().index,
+                    "$PLAYER_CAST_BUTTON_CLASS_DESCRIPTOR->getCastButtonOverride(Z)Z",
+                )
+            }
+        }
+
+        updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "PlayerButtons")
 
         // endregion
 
         // region patch for hide collapse button
 
-        titleAnchorFingerprint.methodOrThrow().apply {
+        TitleAnchorFingerprint.method.apply {
             val titleAnchorConstIndex = indexOfFirstLiteralInstructionOrThrow(titleAnchor)
             val titleAnchorIndex =
                 indexOfFirstInstructionOrThrow(titleAnchorConstIndex, Opcode.MOVE_RESULT_OBJECT)
@@ -132,26 +154,24 @@ val playerButtonsPatch = bytecodePatch(
 
         // region patch for hide fullscreen button
 
-        fullScreenButtonFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val buttonCalls = implementation!!.instructions.withIndex()
-                    .filter { instruction ->
-                        (instruction.value as? WideLiteralInstruction)?.wideLiteral == fullScreenButton
-                    }
-                val constIndex = buttonCalls.elementAt(buttonCalls.size - 1).index
-                val castIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
-                val insertIndex = castIndex + 1
-                val insertRegister = getInstruction<OneRegisterInstruction>(castIndex).registerA
+        FullScreenButtonFingerprint.method.apply {
+            val buttonCalls = implementation!!.instructions.withIndex()
+                .filter { instruction ->
+                    (instruction.value as? WideLiteralInstruction)?.wideLiteral == fullScreenButton
+                }
+            val constIndex = buttonCalls.elementAt(buttonCalls.size - 1).index
+            val castIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
+            val insertIndex = castIndex + 1
+            val insertRegister = getInstruction<OneRegisterInstruction>(castIndex).registerA
 
-                addInstructionsWithLabels(
-                    insertIndex, """
-                        invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->hideFullscreenButton(Landroid/widget/ImageView;)Landroid/widget/ImageView;
-                        move-result-object v$insertRegister
-                        if-nez v$insertRegister, :show
-                        return-void
-                        """, ExternalLabel("show", getInstruction(insertIndex))
-                )
-            }
+            addInstructionsWithLabels(
+                insertIndex, """
+                    invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->hideFullscreenButton(Landroid/widget/ImageView;)Landroid/widget/ImageView;
+                    move-result-object v$insertRegister
+                    if-nez v$insertRegister, :show
+                    return-void
+                    """, ExternalLabel("show", getInstruction(insertIndex))
+            )
         }
 
         // endregion
@@ -174,10 +194,10 @@ val playerButtonsPatch = bytecodePatch(
                     insertIndex,
                     "invoke-static { v$viewRegister }, $PLAYER_CLASS_DESCRIPTOR" +
                             "->hidePreviousNextButtons(Landroid/view/View;)V",
-                )
+            )
             }
         } else {
-            playerControlsVisibilityModelFingerprint.methodOrThrow().apply {
+            PlayerControlsVisibilityModelFingerprint.method.apply {
                 val callIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT_RANGE)
                 val callInstruction = getInstruction<RegisterRangeInstruction>(callIndex)
 
@@ -226,8 +246,8 @@ val playerButtonsPatch = bytecodePatch(
 
         // region patch for hide youtube music button
 
-        musicAppDeeplinkButtonFingerprint.methodOrThrow(musicAppDeeplinkButtonParentFingerprint)
-            .apply {
+        MusicAppDeeplinkButtonFingerprint.match(MusicAppDeeplinkButtonParentFingerprint.classDef)
+            .method.apply {
                 addInstructionsWithLabels(
                     0, """
                     invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideMusicButton()Z

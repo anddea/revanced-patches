@@ -4,14 +4,11 @@ package app.morphe.patches.youtube.utils.castbutton
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
-import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
-import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.util.findMethodOrThrow
@@ -19,14 +16,11 @@ import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.updatePatchStatus
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$UTILS_PATH/CastButtonPatch;"
 
-private lateinit var playerButtonMethod: MutableMethod
 private lateinit var toolbarMenuItemInitializeMethod: MutableMethod
 private lateinit var toolbarMenuItemVisibilityMethod: MutableMethod
 
@@ -40,8 +34,6 @@ val castButtonPatch = bytecodePatch(
         toolbarMenuItemVisibilityMethod =
             menuItemVisibilityFingerprint.methodOrThrow(menuItemInitializeFingerprint)
 
-        playerButtonMethod = playerButtonFingerprint.methodOrThrow()
-
         findMethodOrThrow("Landroidx/mediarouter/app/MediaRouteButton;") {
             name == "setVisibility"
         }.addInstructions(
@@ -51,29 +43,6 @@ val castButtonPatch = bytecodePatch(
                 """
         )
     }
-}
-
-context(BytecodePatchContext)
-internal fun hookPlayerCastButton() {
-    playerButtonMethod.apply {
-        val index = indexOfFirstInstructionOrThrow {
-            getReference<MethodReference>()?.name == "setVisibility"
-        }
-        val instruction = getInstruction<FiveRegisterInstruction>(index)
-        val viewRegister = instruction.registerC
-        val visibilityRegister = instruction.registerD
-        val reference = getInstruction<ReferenceInstruction>(index).reference
-
-        addInstructions(
-            index + 1, """
-                    invoke-static {v$visibilityRegister}, $PLAYER_CLASS_DESCRIPTOR->hideCastButton(I)I
-                    move-result v$visibilityRegister
-                    invoke-virtual {v$viewRegister, v$visibilityRegister}, $reference
-                    """
-        )
-        removeInstruction(index)
-    }
-    updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "PlayerButtons")
 }
 
 context(BytecodePatchContext)
