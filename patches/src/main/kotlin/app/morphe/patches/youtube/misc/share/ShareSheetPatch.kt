@@ -1,26 +1,30 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.misc.share
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
-import app.morphe.patches.youtube.utils.extension.Constants.MISC_PATH
-import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
+import app.morphe.patches.youtube.utils.extension.Constants.PATCHES_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.CHANGE_SHARE_SHEET
 import app.morphe.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
 import app.morphe.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
-import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
-import app.morphe.util.fingerprint.methodOrThrow
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
-    "$MISC_PATH/ShareSheetPatch;"
+    "$PATCHES_PATH/OpenSystemShareSheetPatch;"
 
 private const val FILTER_CLASS_DESCRIPTOR =
-    "$COMPONENTS_PATH/ShareSheetMenuFilter;"
+    "$COMPONENTS_PATH/SystemShareSheetFilter;"
 
 @Suppress("unused")
 val shareSheetPatch = bytecodePatch(
@@ -32,20 +36,18 @@ val shareSheetPatch = bytecodePatch(
     dependsOn(
         settingsPatch,
         lithoFilterPatch,
-        lithoLayoutPatch,
-        sharedResourceIdPatch,
         recyclerViewTreeObserverPatch,
     )
 
     execute {
 
         // Detects that the Share sheet panel has been invoked.
-        recyclerViewTreeObserverHook("$EXTENSION_CLASS_DESCRIPTOR->onShareSheetMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
+        recyclerViewTreeObserverHook("$EXTENSION_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
 
         // Remove the app list from the Share sheet panel on YouTube.
-        queryIntentListFingerprint.methodOrThrow().addInstructionsWithLabels(
+        QueryIntentListFingerprint.method.addInstructions(
             0, """
-                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->changeShareSheetEnabled()Z
+                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->openSystemShareSheetEnabled()Z
                 move-result v0
                 if-eqz v0, :ignore
                 new-instance v0, Ljava/util/ArrayList;

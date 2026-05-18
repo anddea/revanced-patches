@@ -1,22 +1,28 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.misc.share
 
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
-import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.or
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val queryIntentListFingerprint = legacyFingerprint(
-    name = "queryIntentListFingerprint",
+internal object QueryIntentListFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
     returnType = "Ljava/util/List;",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("Landroid/content/pm/PackageManager;"),
-    customFingerprint = { method, _ ->
-        method.indexOfFirstInstruction {
-            opcode == Opcode.INVOKE_VIRTUAL &&
-                    getReference<MethodReference>()?.name == "queryIntentActivities"
-        } >= 0
-    }
+    filters = listOf(
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "queryIntentActivities"
+        ),
+        opcode(Opcode.MOVE_RESULT_OBJECT),
+        opcode(Opcode.RETURN_OBJECT)
+    )
 )
