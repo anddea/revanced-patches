@@ -233,19 +233,20 @@ def validate_translation_strings(app: str) -> None:
         # Check each translation file
         for lang_dir in translations.iterdir():
             if lang_dir.is_dir():
-                trans_path = lang_dir / "strings.xml"
-                if trans_path.exists():
-                    _, _, trans_strings = XMLProcessor.parse_file(trans_path)
-                    trans_keys = set(trans_strings.keys())
-                    extra_strings = trans_keys - source_keys
-                    if extra_strings:
-                        logger.info(
-                            "Translation file %s contains strings not in main strings.xml: %s",
-                            trans_path,
-                            sorted(extra_strings),
-                        )
-                    else:
-                        logger.info("All strings in %s exist in main strings.xml", trans_path)
+                for filename in TARGET_XML_FILES:
+                    trans_path = lang_dir / filename
+                    if trans_path.exists():
+                        _, _, trans_strings = XMLProcessor.parse_file(trans_path)
+                        trans_keys = set(trans_strings.keys())
+                        extra_strings = trans_keys - source_keys
+                        if extra_strings:
+                            logger.info(
+                                "Translation file %s contains strings not in main strings.xml: %s",
+                                trans_path,
+                                sorted(extra_strings),
+                            )
+                        else:
+                            logger.info("All strings in %s exist in main strings.xml", trans_path)
     except Exception:
         logger.exception("Error during translation validation: ")
 
@@ -272,30 +273,31 @@ def remove_extra_translation_strings(app: str) -> None:
         # Check and update each translation file
         for lang_dir in translations.iterdir():
             if lang_dir.is_dir():
-                trans_path = lang_dir / "strings.xml"
-                if trans_path.exists():
-                    _, _, trans_strings = XMLProcessor.parse_file(trans_path)
-                    trans_keys = set(trans_strings.keys())
-                    extra_strings = trans_keys - source_keys
-                    if extra_strings:
-                        # Create new root with only valid strings
-                        new_root = ET.Element("resources")
-                        kept_strings = 0
-                        for name, data in sorted(trans_strings.items()):
-                            if name in source_keys:
-                                string_elem = DefusedET.fromstring(data["text"])
-                                new_root.append(string_elem)
-                                kept_strings += 1
-                        # Write updated file
-                        XMLProcessor.write_file(trans_path, new_root)
-                        logger.debug(
-                            "Updated %s: removed %s strings, kept %s strings",
-                            trans_path,
-                            len(extra_strings),
-                            kept_strings,
-                        )
-                    else:
-                        logger.debug("No extra strings to remove in %s", trans_path)
+                for filename in TARGET_XML_FILES:
+                    trans_path = lang_dir / filename
+                    if trans_path.exists():
+                        _, _, trans_strings = XMLProcessor.parse_file(trans_path)
+                        trans_keys = set(trans_strings.keys())
+                        extra_strings = trans_keys - source_keys
+                        if extra_strings:
+                            # Create new root with only valid strings
+                            new_root = ET.Element("resources")
+                            kept_strings = 0
+                            for name, data in sorted(trans_strings.items()):
+                                if name in source_keys:
+                                    string_elem = DefusedET.fromstring(data["text"])
+                                    new_root.append(string_elem)
+                                    kept_strings += 1
+                            # Write updated file
+                            XMLProcessor.write_file(trans_path, new_root)
+                            logger.debug(
+                                "Updated %s: removed %s strings, kept %s strings",
+                                trans_path,
+                                len(extra_strings),
+                                kept_strings,
+                            )
+                        else:
+                            logger.debug("No extra strings to remove in %s", trans_path)
     except Exception:
         logger.exception("Error during translation string removal: ")
 

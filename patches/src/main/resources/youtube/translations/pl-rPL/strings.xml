@@ -25,7 +25,7 @@ Naciśnij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
     <string name="morphe_disable_drc_audio_title">Wyłącz kompresję dźwięku</string>
     <string name="morphe_disable_quic_protocol_summary_off">Włączony</string>
     <string name="morphe_disable_quic_protocol_summary_on">Wyłączony</string>
-    <string name="morphe_disable_quic_protocol_title">Protokół QUIC</string>
+    <string name="morphe_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
     <string name="morphe_force_original_audio_not_available">Aby użyć tej funkcji, zmień \"Fałszowanie strumieni filmów\" na Android Reel lub TV</string>
     <string name="morphe_force_original_audio_summary_off">Wyłączone</string>
     <string name="morphe_force_original_audio_summary_on">Włączone</string>
@@ -41,6 +41,8 @@ Naciśnij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
     <string name="morphe_reload_video_summary_off">Ukryty</string>
     <string name="morphe_reload_video_summary_on">Widoczny</string>
     <string name="morphe_reload_video_title">Przycisk Odśwież film</string>
+    <string name="morphe_replace_links_with_shortener_summary">Wymusza używanie skróconego formatu adresu youtu.be dla transmisji na żywo i Shortsów</string>
+    <string name="morphe_replace_links_with_shortener_title">Zmień linki udostępniania na youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Zmień linki udostępniania na youtube.com</string>
@@ -79,16 +81,16 @@ Odtwarzanie filmu z użyciem AV1 może powodować zacinanie się lub gubienie kl
     <string name="morphe_spoof_video_streams_player_js_variant_title">Wariant skryptu JS odtwarzacza</string>
     <string name="morphe_spoof_video_streams_screen_summary">Skonfiguruj fałszowanie klienta, aby zapobiec problemom z odtwarzaniem</string>
     <string name="morphe_spoof_video_streams_screen_title">Fałszowanie strumieni filmów</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Nie zalogowano do Android VR. Stuknij tutaj, aby się zalogować</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Nie zalogowano do Android VR. Dotknij tutaj, aby się zalogować</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">By używać tej funkcji, zmień \"Domyślny klient\" na Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Obecnie zalogowano do Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Logowanie Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Kod aktywacyjny: %s
 
-1. Stuknij \"Otwórz stronę\" poniżej, aby przejść do strony \"Połącz urządzenie\"
+1. Dotknij \"Otwórz stronę\" poniżej, aby przejść do strony \"Połącz urządzenie\"
 2. Wklej (lub wpisz) kod aktywacyjny wyświetlony powyżej
 3. Zaloguj się na konto Google, jeśli pojawi się taki komunikat. Jeśli masz wiele kont Google, użyj tego, którego używasz w YouTube
-4. Stuknij \"Zezwól\" na dostęp YouTube VR
+4. Dotknij \"Zezwól\" na dostęp YouTube VR
 5. Wróć do aplikacji po zobaczeniu \"Urządzenie połączone\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Otwórz stronę</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instrukcja</string>
@@ -127,7 +129,7 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
 
 Jeśli opcja ta jest włączona, do serwera API wysyłane są wyłącznie adresy filmów. W przypadku braku miniaturek DeArrow, wyświetlana jest miniaturka oryginalna lub kadr z filmu
 
-Stuknij tutaj, aby dowiedzieć się więcej o DeArrow"</string>
+Dotknij tutaj, aby dowiedzieć się więcej o DeArrow"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">Nieprawidłowy adres URL API DeArrow.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Adres punktu końcowego do miniaturek DeArrow</string>
@@ -399,7 +401,7 @@ Zmiany obejmują:
     <string name="revanced_disable_like_dislike_glow_summary_on">Ukryta</string>
     <string name="revanced_disable_like_dislike_glow_title">Poświata przycisków od łapkowania w górę i dół</string>
     <string name="revanced_disable_quic_protocol_summary">"Wyłącz protokół QUIC w CronetEngine"</string>
-    <string name="revanced_disable_quic_protocol_title">Protokół QUIC</string>
+    <string name="revanced_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Oglądaj dalej&lt;/b&gt; pojawi się po uruchomieniu aplikacji.&lt;br&gt;&lt;br&gt;Informacje:&lt;br&gt;• &lt;b&gt;Oglądaj dalej&lt;/b&gt; jest funkcją YouTube Premium&lt;br&gt;• Ustawienie nie wymusza włączenia opcji &lt;b&gt;Oglądaj dalej&lt;/b&gt;</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Oglądaj dalej&lt;/b&gt; nie pojawi się po uruchomieniu aplikacji.</string>
     <string name="revanced_disable_resuming_miniplayer_title">Wznawianie filmu w miniodtwarzaczu</string>
@@ -773,6 +775,13 @@ Sklep"</string>
     <string name="revanced_hide_comments_by_members_summary_off">Widoczne</string>
     <string name="revanced_hide_comments_by_members_summary_on">Ukryte</string>
     <string name="revanced_hide_comments_by_members_title">Banery z komentarzami sponsorów</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">Wprowadź nazwy elementów karuzeli do filtrowania, każda w nowej linii</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">Karuzele do ukrycia</string>
+    <string name="revanced_hide_comments_carousel_title">Włącz filtr karuzeli komentarzy</string>
+    <string name="revanced_hide_comments_carousel_user_dialog_message">"Uwaga:
+• Upewnij się, że wprowadzasz dokładną nazwę elementu karuzeli (np. Pytania, Podbij ten film, Słuchaj w YouTube Music itp.).
+• Ukrywanie elementów karuzeli może mieć nieoczekiwane skutki uboczne.
+• Jeśli wszystkie elementy karuzeli zostaną ukryte, cała sekcja komentarzy również zostanie ukryta."</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Widoczny</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Ukryty</string>
     <string name="revanced_hide_comments_create_a_short_button_title">Ukryj przycisk \"Utwórz Shortsa\"</string>
@@ -829,8 +838,11 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_end_screen_suggested_video_summary_off">Widoczne</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_on">Ukryte</string>
     <string name="revanced_hide_end_screen_suggested_video_title">Ukryj sugerowane filmy na końcu filmu</string>
-    <string name="revanced_hide_expandable_card_summary_off">Widoczne</string>
-    <string name="revanced_hide_expandable_card_summary_on">Ukryte</string>
+    <string name="revanced_hide_expandable_card_entry_1">Pokaż wszystkie</string>
+    <string name="revanced_hide_expandable_card_entry_2">Ukryj tylko produkty</string>
+    <string name="revanced_hide_expandable_card_entry_3">Ukryj tylko podsumowanie</string>
+    <string name="revanced_hide_expandable_card_entry_4">Ukryj produkty i podsumowanie</string>
+    <string name="revanced_hide_expandable_card_entry_5">Ukryj wszystkie</string>
     <string name="revanced_hide_expandable_card_title">Rozwijane karty pod filmami</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Widoczne</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Ukryte</string>
@@ -869,7 +881,7 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_floating_microphone_title">Dolny przycisk od mikrofonu</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Ukryte</string>
-    <string name="revanced_hide_fullscreen_ads_title">Pełnoekranowe reklamy</string>
+    <string name="revanced_hide_fullscreen_ads_title">Ukryj reklamy pełnoekranowe</string>
     <string name="revanced_hide_general_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_general_ads_summary_on">Ukryte</string>
     <string name="revanced_hide_general_ads_title">Ukryj ogólne reklamy</string>
@@ -1558,121 +1570,121 @@ Znany problem: gdy opcja jest włączona, YouTube Doodles stają się nieklikaln
     <string name="revanced_keep_landscape_mode_timeout_summary">Ilość milisekund, podczas których tryb poziomy jest wymuszony.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Limit czasu zachowania trybu poziomego</string>
     <string name="revanced_keep_landscape_mode_title">Zachowaj tryb poziomy</string>
-    <string name="revanced_language_AM">"Amharski
-<small>አማርኛ</small>"</string>
-    <string name="revanced_language_AR">"Arabski
-<small>العربية</small>"</string>
-    <string name="revanced_language_AZ">"Azerbejdżański
-<small>Azərbaycan</small>"</string>
-    <string name="revanced_language_BE">"Białoruski
-<small>беларуская</small>"</string>
-    <string name="revanced_language_BG">"Bułgarski
-<small>Български</small>"</string>
-    <string name="revanced_language_BN">"Bengalski
-<small>বাংলা</small>"</string>
-    <string name="revanced_language_CA">"Kataloński
-<small>Català</small>"</string>
-    <string name="revanced_language_CS">"Czeski
-<small>Čeština</small>"</string>
-    <string name="revanced_language_DA">"Duński
-<small>Dansk</small>"</string>
-    <string name="revanced_language_DE">"Niemiecki
-<small>Deutsch</small>"</string>
+    <string name="revanced_language_AM">Amharski\n<small>አማርኛ</small>
+    </string>
+    <string name="revanced_language_AR">Arabski\n<small>العربية</small>
+    </string>
+    <string name="revanced_language_AZ">Azerbejdżański\n<small>Azərbaycan</small>
+    </string>
+    <string name="revanced_language_BE">Białoruski\n<small>беларуская</small>
+    </string>
+    <string name="revanced_language_BG">Bułgarski\n<small>Български</small>
+    </string>
+    <string name="revanced_language_BN">Bengalski\n<small>বাংলা</small>
+    </string>
+    <string name="revanced_language_CA">Kataloński\n<small>Català</small>
+    </string>
+    <string name="revanced_language_CS">Czeski\n<small>Čeština</small>
+    </string>
+    <string name="revanced_language_DA">Duński\n<small>Dansk</small>
+    </string>
+    <string name="revanced_language_DE">Niemiecki\n<small>Deutsch</small>
+    </string>
     <string name="revanced_language_DEFAULT">Język aplikacji</string>
-    <string name="revanced_language_EL">"Grecki
-<small>Ελληνικά</small>"</string>
-    <string name="revanced_language_EN">"Angielski
-<small>English</small>"</string>
-    <string name="revanced_language_ES">"Hiszpański
-<small>Español</small>"</string>
-    <string name="revanced_language_ET">"Estoński
-<small>Eesti</small>"</string>
-    <string name="revanced_language_FA">"Perski
-<small>فارسی</small>"</string>
-    <string name="revanced_language_FI">"Fiński
-<small>Suomi</small>"</string>
-    <string name="revanced_language_FR">"Francuski
-<small>Français</small>"</string>
-    <string name="revanced_language_GA">"Irlandzki
-<small>Gaeilge</small>"</string>
-    <string name="revanced_language_GU">"Gudżarati
-<small>ગુજરાતી</small>"</string>
-    <string name="revanced_language_HE">"Hebrajski
-<small>עברי</small>"</string>
-    <string name="revanced_language_HI">"Hindi
-<small>हिन्दी</small>"</string>
-    <string name="revanced_language_HR">"Chorwacki
-<small>Hrvatski</small>"</string>
-    <string name="revanced_language_HU">"Węgierski
-<small>Magyar</small>"</string>
-    <string name="revanced_language_ID">"Indonezyjski
-<small>Indonesia</small>"</string>
-    <string name="revanced_language_IT">"Włoski
-<small>Italiano</small>"</string>
-    <string name="revanced_language_JA">"Japoński
-<small>日本語</small>"</string>
-    <string name="revanced_language_KK">"Kazachski
-<small>Қазақ тілі</small>"</string>
-    <string name="revanced_language_KO">"Koreański
-<small>한국어</small>"</string>
-    <string name="revanced_language_LT">"Litewski
-<small>Lietuvių</small>"</string>
-    <string name="revanced_language_LV">"Łotewski
-<small>Latviešu</small>"</string>
-    <string name="revanced_language_MK">"Macedoński
-<small>Македонски</small>"</string>
-    <string name="revanced_language_MN">"Mongolski
-<small>Монгол</small>"</string>
-    <string name="revanced_language_MR">"Marathi
-<small>मराठी</small>"</string>
-    <string name="revanced_language_MS">"Malajski
-<small>Melayu</small>"</string>
-    <string name="revanced_language_MY">"Birmański
-<small>ဗမာ</small>"</string>
-    <string name="revanced_language_NL">"Niderlandzki
-<small>Nederlands</small>"</string>
-    <string name="revanced_language_OR">"Orija
-<small>ଓଡ଼ିଆ</small>"</string>
-    <string name="revanced_language_PA">"Pendżabski
-<small>ਪੰਜਾਬੀ</small>"</string>
-    <string name="revanced_language_PL">"Polski
-<small>Polski</small>"</string>
-    <string name="revanced_language_PT">"Portugalski
-<small>Português</small>"</string>
-    <string name="revanced_language_RO">"Rumuński
-<small>Română</small>"</string>
-    <string name="revanced_language_RU">"Rosyjski
-<small>Русский</small>"</string>
-    <string name="revanced_language_SK">"Słowacki
-<small>Slovenčina</small>"</string>
-    <string name="revanced_language_SL">"Słoweński
-<small>Slovenščina</small>"</string>
-    <string name="revanced_language_SQ">"Albański
-<small>Shqip</small>"</string>
-    <string name="revanced_language_SR">"Serbski
-<small>Српски</small>"</string>
-    <string name="revanced_language_SV">"Szwedzki
-<small>Svenska</small>"</string>
-    <string name="revanced_language_SW">"Suahili
-<small>Kiswahili</small>"</string>
-    <string name="revanced_language_TA">"Tamilski
-<small>தமிழ்</small>"</string>
-    <string name="revanced_language_TE">"Telugu
-<small>తెలుగు</small>"</string>
-    <string name="revanced_language_TH">"Tajski
-<small>ไทย</small>"</string>
-    <string name="revanced_language_TL">"Filipiński
-<small>Filipiński</small>"</string>
-    <string name="revanced_language_TR">"Turecki
-<small>Türkçe</small>"</string>
-    <string name="revanced_language_UK">"Ukraiński
-<small>Українська</small>"</string>
-    <string name="revanced_language_UR">"Urdu
-<small>اردو</small>"</string>
-    <string name="revanced_language_VI">"Wietnamski
-<small>Tiếng Việt</small>"</string>
-    <string name="revanced_language_ZH">"Chiński
-<small>中文</small>"</string>
+    <string name="revanced_language_EL">Grecki\n<small>Ελληνικά</small>
+    </string>
+    <string name="revanced_language_EN">Angielski\n<small>English</small>
+    </string>
+    <string name="revanced_language_ES">Hiszpański\n<small>Español</small>
+    </string>
+    <string name="revanced_language_ET">Estoński\n<small>Eesti</small>
+    </string>
+    <string name="revanced_language_FA">Perski\n<small>فارسی</small>
+    </string>
+    <string name="revanced_language_FI">Fiński\n<small>Suomi</small>
+    </string>
+    <string name="revanced_language_FR">Francuski\n<small>Français</small>
+    </string>
+    <string name="revanced_language_GA">Irlandzki\n<small>Gaeilge</small>
+    </string>
+    <string name="revanced_language_GU">Gudżarati\n<small>ગુજરાતી</small>
+    </string>
+    <string name="revanced_language_HE">Hebrajski\n<small>עברי</small>
+    </string>
+    <string name="revanced_language_HI">Hindi\n<small>हिन्दी</small>
+    </string>
+    <string name="revanced_language_HR">Chorwacki\n<small>Hrvatski</small>
+    </string>
+    <string name="revanced_language_HU">Węgierski\n<small>Magyar</small>
+    </string>
+    <string name="revanced_language_ID">Indonezyjski\n<small>Indonesia</small>
+    </string>
+    <string name="revanced_language_IT">Włoski\n<small>Italiano</small>
+    </string>
+    <string name="revanced_language_JA">Japoński\n<small>日本語</small>
+    </string>
+    <string name="revanced_language_KK">Kazachski\n<small>Қазақ тілі</small>
+    </string>
+    <string name="revanced_language_KO">Koreański\n<small>한국어</small>
+    </string>
+    <string name="revanced_language_LT">Litewski\n<small>Lietuvių</small>
+    </string>
+    <string name="revanced_language_LV">Łotewski\n<small>Latviešu</small>
+    </string>
+    <string name="revanced_language_MK">Macedoński\n<small>Македонски</small>
+    </string>
+    <string name="revanced_language_MN">Mongolski\n<small>Монгол</small>
+    </string>
+    <string name="revanced_language_MR">Marathi\n<small>मराठी</small>
+    </string>
+    <string name="revanced_language_MS">Malajski\n<small>Melayu</small>
+    </string>
+    <string name="revanced_language_MY">Birmański\n<small>ဗမာ</small>
+    </string>
+    <string name="revanced_language_NL">Niderlandzki\n<small>Nederlands</small>
+    </string>
+    <string name="revanced_language_OR">Orija\n<small>ଓଡ଼ିଆ</small>
+    </string>
+    <string name="revanced_language_PA">Pendżabski\n<small>ਪੰਜਾਬੀ</small>
+    </string>
+    <string name="revanced_language_PL">Polski\n<small>Polski</small>
+    </string>
+    <string name="revanced_language_PT">Portugalski\n<small>Português</small>
+    </string>
+    <string name="revanced_language_RO">Rumuński\n<small>Română</small>
+    </string>
+    <string name="revanced_language_RU">Rosyjski\n<small>Русский</small>
+    </string>
+    <string name="revanced_language_SK">Słowacki\n<small>Slovenčina</small>
+    </string>
+    <string name="revanced_language_SL">Słoweński\n<small>Slovenščina</small>
+    </string>
+    <string name="revanced_language_SQ">Albański\n<small>Shqip</small>
+    </string>
+    <string name="revanced_language_SR">Serbski\n<small>Српски</small>
+    </string>
+    <string name="revanced_language_SV">Szwedzki\n<small>Svenska</small>
+    </string>
+    <string name="revanced_language_SW">Suahili\n<small>Kiswahili</small>
+    </string>
+    <string name="revanced_language_TA">Tamilski\n<small>தமிழ்</small>
+    </string>
+    <string name="revanced_language_TE">Telugu\n<small>తెలుగు</small>
+    </string>
+    <string name="revanced_language_TH">Tajski\n<small>ไทย</small>
+    </string>
+    <string name="revanced_language_TL">Filipiński\n<small>Filipiński</small>
+    </string>
+    <string name="revanced_language_TR">Turecki\n<small>Türkçe</small>
+    </string>
+    <string name="revanced_language_UK">Ukraiński\n<small>Українська</small>
+    </string>
+    <string name="revanced_language_UR">Urdu\n<small>اردو</small>
+    </string>
+    <string name="revanced_language_VI">Wietnamski\n<small>Tiếng Việt</small>
+    </string>
+    <string name="revanced_language_ZH">Chiński\n<small>中文</small>
+    </string>
     <string name="revanced_language_title">Język ReVanced</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Wyłączone</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Włączone
@@ -2056,7 +2068,7 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Przejdź do &lt;a href=%1$s&gt;Utwórz nowy projekt&lt;/a&gt;.&lt;br&gt;2. Kliknij przycisk &lt;b&gt;UTWÓRZ&lt;/b&gt;&lt;br&gt;3. Przejdź do &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Kliknij przycisk &lt;b&gt;WŁĄCZ&lt;/b&gt;&lt;br&gt;5. Kliknij przycisk &lt;b&gt;UTWÓRZ DANE LOGOWANIA&lt;/b&gt;&lt;br&gt;6. Wybierz opcję &lt;b&gt;Dane publiczne&lt;/b&gt;&lt;br&gt;7. Kliknij przycisk &lt;b&gt;DALEJ&lt;/b&gt;&lt;br&gt;8. Skopiuj klucz API&lt;br&gt;&lt;br&gt;※ Klucz API nie powinien być współdzielony z innymi, dlatego nie jest zawarty w ustawieniach importu/eksportu</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Zgłoś klucz deweloperski YouTube Data API</string>
     <string name="revanced_ryd_about">O integracji</string>
-    <string name="revanced_ryd_attribution_summary">Dane są dostarczane przez API Return YouTube Dislike. Stuknij tutaj, aby dowiedzieć się więcej</string>
+    <string name="revanced_ryd_attribution_summary">Dane są dostarczane przez API Return YouTube Dislike. Dotknij tutaj, aby dowiedzieć się więcej</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Najlepszy wygląd</string>
     <string name="revanced_ryd_compact_layout_summary_on">Minimalna szerokość</string>
@@ -2090,8 +2102,6 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_sanitize_comments_category_bar_summary_off">Widoczny</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">Ukryty z wyjątkiem \"Najpopularniejsze\" i \"Najnowsze\"</string>
     <string name="revanced_sanitize_comments_category_bar_title">Oczyść pasek kategorii</string>
-    <string name="revanced_sanitize_sharing_links_summary">Usuwa parametry śledzące z udostępnianych linków</string>
-    <string name="revanced_sanitize_sharing_links_title">Oczyść udostępniane linki</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Frazy takie jak '#', 'Zbiórka', 'Sklep' i 'Produkty' są widoczne w napisach filmu"</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Frazy takie jak '#', 'Zbiórka', 'Sklep' i 'Produkty' są ukryte w napisach filmu"</string>
     <string name="revanced_sanitize_video_subtitle_title">Oczyść napisy w filmach</string>
@@ -2181,6 +2191,13 @@ Wysłać?"</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Podano nieprawidłowy format czasu</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Edytuj ręcznie czas segmentu</string>
     <string name="revanced_sb_new_segment_forward">Przewiń o określony czas (Domyślnie: 150 ms)</string>
+    <string name="revanced_sb_new_segment_highlight_content">"Czy czas wyróżnienia jest poprawny?
+
+%s
+
+Jeśli nie wysyłasz wyróżnienia, dotknij Anuluj i zaznacz drugi punkt"</string>
+    <string name="revanced_sb_new_segment_highlight_submit">Wyślij wyróżnienie</string>
+    <string name="revanced_sb_new_segment_highlight_title">Wyślij wyróżnienie</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">Ustawić %s jako początek, bądź koniec nowego segmentu?</string>
     <string name="revanced_sb_new_segment_mark_end">Koniec</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Najpierw zaznacz punkt na pasku postępu</string>
@@ -2290,7 +2307,7 @@ Twój identyfikator użytkownika jest jak hasło i nigdy nie powinno być udost�
     <string name="revanced_sb_stats_submissions">Utworzono &lt;b&gt;%s&lt;/b&gt; segmentów</string>
     <string name="revanced_sb_stats_submissions_sum">Stuknij tutaj, aby zobaczyć swoje segmenty</string>
     <string name="revanced_sb_stats_username">Twoja nazwa użytkownika: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="revanced_sb_stats_username_change">Stuknij tutaj, aby zmienić nazwę użytkownika</string>
+    <string name="revanced_sb_stats_username_change">Dotknij tutaj, aby zmienić nazwę użytkownika</string>
     <string name="revanced_sb_stats_username_change_unknown_error">Nie można zmienić nazwy użytkownika: Status: %1$d %2$s</string>
     <string name="revanced_sb_stats_username_changed">Nazwa użytkownika została zmieniona</string>
     <string name="revanced_sb_submit_failed_duplicate">"Nie można wysłać segmentu.

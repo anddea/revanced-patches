@@ -37,6 +37,8 @@
     <string name="morphe_reload_video_summary_off">ปุ่มโหลดวิดีโอไม่แสดง</string>
     <string name="morphe_reload_video_summary_on">ปุ่มโหลดวิดีโอแสดง</string>
     <string name="morphe_reload_video_title">แสดงปุ่มโหลดวิดีโอ</string>
+    <string name="morphe_replace_links_with_shortener_summary">บังคับให้สตรีมสดและ Shorts ใช้รูปแบบ URL แบบย่อ youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_title">เปลี่ยนลิงก์การแชร์เป็น youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">ลิงก์ที่แชร์ใช้ music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">ลิงก์ที่แชร์ใช้ youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">เปลี่ยนลิงก์การแชร์เป็น youtube.com</string>
@@ -340,6 +342,14 @@
     <string name="revanced_hide_comments_button_summary_off">ปุ่มความคิดเห็นแสดงอยู่</string>
     <string name="revanced_hide_comments_button_summary_on">ปุ่มความคิดเห็นถูกซ่อน</string>
     <string name="revanced_hide_comments_button_title">ซ่อนปุ่มแสดงความคิดเห็น</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">ป้อนชื่อ carousel ความคิดเห็นเพื่อกรอง โดยคั่นด้วยบรรทัดใหม่</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">ตัวกรองแคโรเซลความคิดเห็น</string>
+    <string name="revanced_hide_comments_carousel_title">เปิดใช้งานตัวกรองแคโรเซิลความคิดเห็น</string>
+    <string name="revanced_hide_comments_carousel_user_dialog_message">"หมายเหตุ:
+
+• ตรวจสอบให้แน่ใจว่าคุณป้อนชื่อรายการแคโรเซิลที่ถูกต้อง (เช่น ถาม เพิ่มความนิยมให้กับวิดีโอนี้ ฟังบน YouTube Music เป็นต้น)
+• การซ่อนรายการแคโรเซิลอาจมีผลข้างเคียงที่ไม่คาดคิด
+• หากซ่อนรายการแคโรเซิลทั้งหมด ส่วนแสดงความคิดเห็นทั้งหมดจะถูกซ่อนไปด้วย"</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">ปุ่มสร้าง Short แสดงอยู่</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">ปุ่มสร้าง Short ถูกซ่อน</string>
     <string name="revanced_hide_comments_create_a_short_button_title">ซ่อนปุ่ม \'สร้าง Shorts\'</string>
@@ -376,8 +386,11 @@
     <string name="revanced_hide_end_screen_suggested_video_summary_off">วิดีโอแนะนำในหน้าจอสิ้นสุดจะปรากฏ</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_on">วิดีโอแนะนำในหน้าจอสิ้นสุดถูกซ่อน</string>
     <string name="revanced_hide_end_screen_suggested_video_title">ซ่อนวิดีโอแนะนำในหน้าจอสิ้นสุด</string>
-    <string name="revanced_hide_expandable_card_summary_off">การ์ดแบบขยายได้ใต้คลิปวิดีโอแสดงอยู่</string>
-    <string name="revanced_hide_expandable_card_summary_on">การ์ดแบบขยายได้ใต้คลิปวิดีโอถูกซ่อนไว้</string>
+    <string name="revanced_hide_expandable_card_entry_1">แสดงทั้งหมด</string>
+    <string name="revanced_hide_expandable_card_entry_2">ซ่อนการ์ดผลิตภัณฑ์เท่านั้น</string>
+    <string name="revanced_hide_expandable_card_entry_3">ซ่อนการ์ดสรุปเท่านั้น</string>
+    <string name="revanced_hide_expandable_card_entry_4">ซ่อนการ์ดผลิตภัณฑ์และสรุป</string>
+    <string name="revanced_hide_expandable_card_entry_5">ซ่อนทั้งหมด</string>
     <string name="revanced_hide_expandable_card_title">การ์ดที่ขยายได้ใต้คลิปวิดีโอ</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">ส่วนสำรวจพอดแคสต์แสดงอยู่</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">ส่วนสำรวจพอดแคสต์ถูกซ่อน</string>
@@ -659,8 +672,8 @@
 
 การแสดง YouTube Doodles อาจป้องกันไม่ให้ส่วนหัวแบบกำหนดเองแสดงผล"</string>
     <string name="revanced_language_DEFAULT">ภาษาของแอป</string>
-    <string name="revanced_language_TH">"Thai
-<small>ไทย</small>"</string>
+    <string name="revanced_language_TH">Thai\n<small>ไทย</small>
+    </string>
     <string name="revanced_language_title">ภาษา ReVanced</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">การแตะสองครั้งและการบีบเพื่อปรับขนาดปิดใช้งานแล้ว</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"การกระทำแตะสองครั้ง และการบีบเพื่อปรับขนาด เปิดใช้งาน
@@ -751,8 +764,6 @@
     <string name="revanced_sanitize_comments_category_bar_summary_off">ปุ่มหมวดหมู่จะแสดงอยู่ในแถบหมวดหมู่ความคิดเห็น</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">ปุ่มหมวดหมู่ยกเว้น \'ด้านบน\' และ \'ใหม่ล่าสุด\' จะซ่อนอยู่ในแถบหมวดหมู่ความคิดเห็น</string>
     <string name="revanced_sanitize_comments_category_bar_title">ลบความปลอดภัยแถบหมวดหมู่</string>
-    <string name="revanced_sanitize_sharing_links_summary">พารามิเตอร์การติดตามจะถูกลบออกจากลิงก์ที่แชร์</string>
-    <string name="revanced_sanitize_sharing_links_title">ล้างข้อมูลลิงก์ที่แชร์</string>
     <string name="revanced_sb_api_url_changed">API URL ถูกเปลื่ยนแล้ว</string>
     <string name="revanced_sb_api_url_invalid">API URL ไม่ถูกต้อง</string>
     <string name="revanced_sb_api_url_reset">API URL เปลื่ยนเป็นค่าเริ่มต้นแล้ว</string>
@@ -828,6 +839,13 @@
     <string name="revanced_sb_new_segment_edit_by_hand_content">คุณต้องการแก้ไขจุดเริ่มต้นและจุดจบของส่วนนี้ไหม?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">ค่าเวลาที่ให้มาผิดพลาด</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">แก้ไขส่วนแบบมือ</string>
+    <string name="revanced_sb_new_segment_highlight_content">"เวลาไฮไลท์ถูกต้องหรือไม่?
+
+%s
+
+หากคุณไม่ได้ส่งไฮไลท์ ให้แตะยกเลิกและทำเครื่องหมายที่ตำแหน่งที่สอง"</string>
+    <string name="revanced_sb_new_segment_highlight_submit">ส่งไฮไลท์</string>
+    <string name="revanced_sb_new_segment_highlight_title">ส่งไฮไลต์</string>
     <string name="revanced_sb_new_segment_mark_end">สิ้นสุด</string>
     <string name="revanced_sb_new_segment_mark_locations_first">ระบุตำแหน่งบนแถบเวลาขั้นแรก</string>
     <string name="revanced_sb_new_segment_mark_start">เริ่มต้น</string>

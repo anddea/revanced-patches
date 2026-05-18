@@ -41,6 +41,8 @@
     <string name="morphe_reload_video_summary_off">לחצן טעינת סרטון אינו מוצג</string>
     <string name="morphe_reload_video_summary_on">לחצן טעינת סרטון מוצג</string>
     <string name="morphe_reload_video_title">הצג לחצן טעינת סרטון</string>
+    <string name="morphe_replace_links_with_shortener_summary">מאפשר לשידורים חיים ול-Shorts להשתמש בפורמט הכתובת המקוצר youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_title">שנה קישורי שיתוף ל-youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">קישורים משותפים משתמשים ב-music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">קישורים משותפים משתמשים ב-youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">שנה קישורי שיתוף ל-youtube.com</string>
@@ -384,6 +386,13 @@
     <string name="revanced_hide_comments_button_summary_off">הלחצן \'תגובות\' מוצג</string>
     <string name="revanced_hide_comments_button_summary_on">הלחצן \'תגובות\' מוסתר</string>
     <string name="revanced_hide_comments_button_title">הסתר לחצן תגובות</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">הזן את שמות קרוסלת התגובות לסנן לפי, המופרדים בשורות חדשות</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">סינון סרגל תגובות</string>
+    <string name="revanced_hide_comments_carousel_title">הפעלת מסנן קרוסלת תגובות</string>
+    <string name="revanced_hide_comments_carousel_user_dialog_message">"שימו לב:
+• הקפידו להזין את השם המדויק של הפריט בסבוב הקרוסלה (לדוגמה, שאל, הצבע על סרטון זה, האזן ב-YouTube Music וכו').
+• הסתרת פריטים בסבוב הקרוסלה עלולה לגרום לתופעות לוואי בלתי צפויות.
+• אם כל הפריטים בסבוב הקרוסלה מוסתרים, גם כל סעיף התגובות יוסתר."</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">לחצן יצירת Short מוצג</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">לחצן יצירת Short מוסתר</string>
     <string name="revanced_hide_comments_create_a_short_button_title">הסתר לחצן \'יצירת Short\'</string>
@@ -420,8 +429,11 @@
     <string name="revanced_hide_end_screen_suggested_video_summary_off">סרטון מוצע של מסך סיום מוצג</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_on">סרטון מוצע של מסך סיום מוסתר</string>
     <string name="revanced_hide_end_screen_suggested_video_title">הסתר סרטון מוצע של מסך סיום</string>
-    <string name="revanced_hide_expandable_card_summary_off">כרטיס הניתן להרחבה מתחת לסרטונים מוצג</string>
-    <string name="revanced_hide_expandable_card_summary_on">כרטיס הניתן להרחבה מתחת לסרטונים מוסתר</string>
+    <string name="revanced_hide_expandable_card_entry_1">הצג הכל</string>
+    <string name="revanced_hide_expandable_card_entry_2">הסתר כרטיס מוצר בלבד</string>
+    <string name="revanced_hide_expandable_card_entry_3">הסתר כרטיס סיכום בלבד</string>
+    <string name="revanced_hide_expandable_card_entry_4">הסתר כרטיסי מוצר וסיכום</string>
+    <string name="revanced_hide_expandable_card_entry_5">הסתר הכל</string>
     <string name="revanced_hide_expandable_card_title">כרטיסים ניתנים להרחבה מתחת לסרטונים</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">מדור \'גלה את הפודקאסט\' מוצג</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">מדור \'גלה את הפודקאסט\' מוסתר</string>
@@ -804,8 +816,6 @@
     <string name="revanced_sanitize_comments_category_bar_summary_off">לחצני קטגוריה מוצגים בסרגל קטגוריות התגובות</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">לחצני קטגוריה מלבד \'למעלה\' ו-\'חדש\' מוסתרים בסרגל קטגוריות התגובות</string>
     <string name="revanced_sanitize_comments_category_bar_title">ניקוי סרגל קטגוריות</string>
-    <string name="revanced_sanitize_sharing_links_summary">מסיר פרמטרים של שאילתות מעקב מקישורי שיתוף</string>
-    <string name="revanced_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
     <string name="revanced_sb_api_url_changed">כתובת API שונתה</string>
     <string name="revanced_sb_api_url_invalid">כתובת ה-URL של ה-API אינה חוקית</string>
     <string name="revanced_sb_api_url_reset">כתובת API אופסה</string>
@@ -881,6 +891,13 @@
     <string name="revanced_sb_new_segment_edit_by_hand_content">האם ברצונך לערוך את התזמון עבור ההתחלה או הסיום של המקטע?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">ניתן זמן לא חוקי</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">ערוך את תזמון המקטע באופן ידני</string>
+    <string name="revanced_sb_new_segment_highlight_content">"האם זמן ההדגשה נכון?
+
+%s
+
+אם אינך שולח הדגשה, הקש על ביטול וסמן את המיקום השני"</string>
+    <string name="revanced_sb_new_segment_highlight_submit">שלח הדגשה</string>
+    <string name="revanced_sb_new_segment_highlight_title">שלח הדגשה</string>
     <string name="revanced_sb_new_segment_mark_end">סיום</string>
     <string name="revanced_sb_new_segment_mark_locations_first">סמן תחילה מיקום על ציר הזמן</string>
     <string name="revanced_sb_new_segment_mark_start">התחלה</string>

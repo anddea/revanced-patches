@@ -35,13 +35,15 @@ Toque no botão continuar e permita as mudanças de otimização. "</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Não é possível entrar na VR, a autenticação do site não foi aprovada</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 temporariamente indisponível</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 temporariamente indisponível (status %d)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Português </string>
+    <string name="morphe_oauth2_connection_failure_status_400">O login do Android VR expirou. Tente fazer login novamente no VR.</string>
     <string name="morphe_oauth2_connection_failure_timeout">\"OAuth2 está temporariamente indisponível (API expirou)\"</string>
     <string name="morphe_oauth2_toast_invalid">Token de login do VR inválido, tente fazer login no VR novamente</string>
     <string name="morphe_oauth2_toast_reset">Deslogado do Android VR</string>
     <string name="morphe_reload_video_summary_off">Botão de recarregar vídeo não está visível</string>
     <string name="morphe_reload_video_summary_on">Botão de recarregar vídeo está visível</string>
     <string name="morphe_reload_video_title">Mostrar botão de recarregar vídeo</string>
+    <string name="morphe_replace_links_with_shortener_summary">Força transmissões ao vivo e Shorts a usar o formato de URL abreviado youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_title">Alterar links de compartilhamento para youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Links compartilhados usam music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Links compartilhados usam youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Alterar links de compartilhamento para youtube.com</string>
@@ -767,6 +769,13 @@ Loja"</string>
     <string name="revanced_hide_comments_by_members_summary_off">O banner de comentários de membros serão exibidos.</string>
     <string name="revanced_hide_comments_by_members_summary_on">O banner de comentários de membros estão ocultos.</string>
     <string name="revanced_hide_comments_by_members_title">Ocultar banner de comentários de membros</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">Insira os nomes do carrossel de comentários para filtrar, separados por novas linhas</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">Filtro de carrossel de comentários</string>
+    <string name="revanced_hide_comments_carousel_title">Habilitar filtro de carrossel de comentários</string>
+    <string name="revanced_hide_comments_carousel_user_dialog_message">"Nota:
+• Certifique-se de inserir o nome exato do item do carrossel (por exemplo, Perguntar, Hype neste vídeo, Ouvir no YouTube Music, etc.).
+• Ocultar itens do carrossel pode ter efeitos colaterais não intencionais.
+• Se todos os itens do carrossel forem ocultados, toda a seção de comentários também será ocultada."</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">O botão Criar um Short é mostrado</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">O botão Criar um Short está oculto</string>
     <string name="revanced_hide_comments_create_a_short_button_title">Ocultar botão \'Criar um Short\'</string>
@@ -823,8 +832,11 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_end_screen_suggested_video_summary_off">O vídeo sugerido na tela final é exibido</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_on">O vídeo sugerido na tela final está oculto</string>
     <string name="revanced_hide_end_screen_suggested_video_title">Ocultar o vídeo sugerido na tela final</string>
-    <string name="revanced_hide_expandable_card_summary_off">Cartão expansível sob vídeos está exibido</string>
-    <string name="revanced_hide_expandable_card_summary_on">Cartão expansível sob vídeos está oculto</string>
+    <string name="revanced_hide_expandable_card_entry_1">Ver tudo</string>
+    <string name="revanced_hide_expandable_card_entry_2">Ocultar apenas o cartão do produto</string>
+    <string name="revanced_hide_expandable_card_entry_3">Ocultar apenas o cartão de resumo</string>
+    <string name="revanced_hide_expandable_card_entry_4">Ocultar cartão de produto e resumo</string>
+    <string name="revanced_hide_expandable_card_entry_5">Ocultar tudo</string>
     <string name="revanced_hide_expandable_card_title">Cartões expansíveis sob vídeos</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Os painéis expansíveis serão exibidos.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Os painéis expansíveis estão ocultos.</string>
@@ -1540,121 +1552,121 @@ Problema conhecido: Quando essa configuração está ativada, não é possível 
     <string name="revanced_keep_landscape_mode_timeout_summary">A quantidade de milissegundos que o modo paisagem é forçado.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Tempo limite para manter o modo paisagem</string>
     <string name="revanced_keep_landscape_mode_title">Manter o modo paisagem</string>
-    <string name="revanced_language_AM">"Amárico
-<small>አማርኛ</small>"</string>
-    <string name="revanced_language_AR">"Árabe
-<small>العربية</small>"</string>
-    <string name="revanced_language_AZ">"Azerbaijano
-<small>Azərbaycan</small>"</string>
-    <string name="revanced_language_BE">"Bielorruso
-<small>беларуская</small>"</string>
-    <string name="revanced_language_BG">"Búlgaro
-<small>Български</small>"</string>
-    <string name="revanced_language_BN">"Bengali
-<small>বাংলা</small>"</string>
-    <string name="revanced_language_CA">"Catalão
-<small>Català</small>"</string>
-    <string name="revanced_language_CS">"Checo
-<small>Čeština</small>"</string>
-    <string name="revanced_language_DA">"Dinamarquês
-<small>Dansk</small>"</string>
-    <string name="revanced_language_DE">"Alemão
-<small>Deutsch</small>"</string>
+    <string name="revanced_language_AM">Amárico\n<small>አማርኛ</small>
+    </string>
+    <string name="revanced_language_AR">Árabe\n<small>العربية</small>
+    </string>
+    <string name="revanced_language_AZ">Azerbaijano\n<small>Azərbaycan</small>
+    </string>
+    <string name="revanced_language_BE">Bielorruso\n<small>беларуская</small>
+    </string>
+    <string name="revanced_language_BG">Búlgaro\n<small>Български</small>
+    </string>
+    <string name="revanced_language_BN">Bengali\n<small>বাংলা</small>
+    </string>
+    <string name="revanced_language_CA">Catalão\n<small>Català</small>
+    </string>
+    <string name="revanced_language_CS">Checo\n<small>Čeština</small>
+    </string>
+    <string name="revanced_language_DA">Dinamarquês\n<small>Dansk</small>
+    </string>
+    <string name="revanced_language_DE">Alemão\n<small>Deutsch</small>
+    </string>
     <string name="revanced_language_DEFAULT">Idioma do aplicativo</string>
-    <string name="revanced_language_EL">"Grego
-<small>Ελληνικά</small>"</string>
-    <string name="revanced_language_EN">"Inglês
-<small>English</small>"</string>
-    <string name="revanced_language_ES">"Espanhol
-<small>Español</small>"</string>
-    <string name="revanced_language_ET">"Estoniano
-<small>Eesti</small>"</string>
-    <string name="revanced_language_FA">"Persa
-<small>Eesti</small>"</string>
-    <string name="revanced_language_FI">"Finlandês
-<small>Suomi</small>"</string>
-    <string name="revanced_language_FR">"Francês
-<small>Français</small>"</string>
-    <string name="revanced_language_GA">"Gaeilge
-<small>Gaeilge</small>"</string>
-    <string name="revanced_language_GU">"Guzerate
-<small>ગુજરાતી</small>"</string>
-    <string name="revanced_language_HE">"Hebraico
-<small>עברי</small>"</string>
-    <string name="revanced_language_HI">"Hindi
-<small>हिन्दी</small>"</string>
-    <string name="revanced_language_HR">"Croata
-<small>Hrvatski</small>"</string>
-    <string name="revanced_language_HU">"Húngaro
-<small>Magyar</small>"</string>
-    <string name="revanced_language_ID">"Indonésio
-<small>Indonesia</small>"</string>
-    <string name="revanced_language_IT">"Italiano
-<small>Italiano</small>"</string>
-    <string name="revanced_language_JA">"Japonês
-<small>日本語</small>"</string>
-    <string name="revanced_language_KK">"Cazaque
-<small>Қазақ тілі</small>"</string>
-    <string name="revanced_language_KO">"Coreano
-<small>한국어</small>"</string>
-    <string name="revanced_language_LT">"Lituano
-<small>Lietuvių</small>"</string>
-    <string name="revanced_language_LV">"Letão
-<small>Latviešu</small>"</string>
-    <string name="revanced_language_MK">"Macedônio
-<small>Македонски</small>"</string>
-    <string name="revanced_language_MN">"Mongol
-<small>Монгол</small>"</string>
-    <string name="revanced_language_MR">"Marata
-<small>मराठी</small>"</string>
-    <string name="revanced_language_MS">"Malaio
-<small>Melayu</small>"</string>
-    <string name="revanced_language_MY">"Birmanês
-<small>ဗမာ</small>"</string>
-    <string name="revanced_language_NL">"Holandês
-<small>Nederlands</small>"</string>
-    <string name="revanced_language_OR">"Oriá
-<small>ଓଡ଼ିଆ</small>"</string>
-    <string name="revanced_language_PA">"Panjabi
-<small>ਪੰਜਾਬੀ</small>"</string>
-    <string name="revanced_language_PL">"Polonês
-<small>Polski</small>"</string>
-    <string name="revanced_language_PT">"Português
-<small>Português</small>"</string>
-    <string name="revanced_language_RO">"Romeno
-<small>Română</small>"</string>
-    <string name="revanced_language_RU">"Russo
-<small>Русский</small>"</string>
-    <string name="revanced_language_SK">"Eslovaco
-<small>Slovenčina</small>"</string>
-    <string name="revanced_language_SL">"Esloveno
-<small>Slovenščina</small>"</string>
-    <string name="revanced_language_SQ">"Albanês
-<small>Shqip</small>"</string>
-    <string name="revanced_language_SR">"Sérvio
-<small>Српски</small>"</string>
-    <string name="revanced_language_SV">"Sueco
-<small>Svenska</small>"</string>
-    <string name="revanced_language_SW">"Suaíli
-<small>Kiswahili</small>"</string>
-    <string name="revanced_language_TA">"Tâmil
-<small>தமிழ்</small>"</string>
-    <string name="revanced_language_TE">"Telugo
-<small>తెలుగు</small>"</string>
-    <string name="revanced_language_TH">"Tailandês
-<small>ไทย</small>"</string>
-    <string name="revanced_language_TL">"Filipino
-<small>Filipino</small>"</string>
-    <string name="revanced_language_TR">"Turco
-<small>Türkçe</small>"</string>
-    <string name="revanced_language_UK">"Ucraniano
-<small>Українська</small>"</string>
-    <string name="revanced_language_UR">"Urdu
-<small>اردو</small>"</string>
-    <string name="revanced_language_VI">"Vietnamita
-<small>Tiếng Việt</small>"</string>
-    <string name="revanced_language_ZH">"Chinês
-<small>中文</small>"</string>
+    <string name="revanced_language_EL">Grego\n<small>Ελληνικά</small>
+    </string>
+    <string name="revanced_language_EN">Inglês\n<small>English</small>
+    </string>
+    <string name="revanced_language_ES">Espanhol\n<small>Español</small>
+    </string>
+    <string name="revanced_language_ET">Estoniano\n<small>Eesti</small>
+    </string>
+    <string name="revanced_language_FA">Persa\n<small>Eesti</small>
+    </string>
+    <string name="revanced_language_FI">Finlandês\n<small>Suomi</small>
+    </string>
+    <string name="revanced_language_FR">Francês\n<small>Français</small>
+    </string>
+    <string name="revanced_language_GA">Gaeilge\n<small>Gaeilge</small>
+    </string>
+    <string name="revanced_language_GU">Guzerate\n<small>ગુજરાતી</small>
+    </string>
+    <string name="revanced_language_HE">Hebraico\n<small>עברי</small>
+    </string>
+    <string name="revanced_language_HI">Hindi\n<small>हिन्दी</small>
+    </string>
+    <string name="revanced_language_HR">Croata\n<small>Hrvatski</small>
+    </string>
+    <string name="revanced_language_HU">Húngaro\n<small>Magyar</small>
+    </string>
+    <string name="revanced_language_ID">Indonésio\n<small>Indonesia</small>
+    </string>
+    <string name="revanced_language_IT">Italiano\n<small>Italiano</small>
+    </string>
+    <string name="revanced_language_JA">Japonês\n<small>日本語</small>
+    </string>
+    <string name="revanced_language_KK">Cazaque\n<small>Қазақ тілі</small>
+    </string>
+    <string name="revanced_language_KO">Coreano\n<small>한국어</small>
+    </string>
+    <string name="revanced_language_LT">Lituano\n<small>Lietuvių</small>
+    </string>
+    <string name="revanced_language_LV">Letão\n<small>Latviešu</small>
+    </string>
+    <string name="revanced_language_MK">Macedônio\n<small>Македонски</small>
+    </string>
+    <string name="revanced_language_MN">Mongol\n<small>Монгол</small>
+    </string>
+    <string name="revanced_language_MR">Marata\n<small>मराठी</small>
+    </string>
+    <string name="revanced_language_MS">Malaio\n<small>Melayu</small>
+    </string>
+    <string name="revanced_language_MY">Birmanês\n<small>ဗမာ</small>
+    </string>
+    <string name="revanced_language_NL">Holandês\n<small>Nederlands</small>
+    </string>
+    <string name="revanced_language_OR">Oriá\n<small>ଓଡ଼ିଆ</small>
+    </string>
+    <string name="revanced_language_PA">Panjabi\n<small>ਪੰਜਾਬੀ</small>
+    </string>
+    <string name="revanced_language_PL">Polonês\n<small>Polski</small>
+    </string>
+    <string name="revanced_language_PT">Português\n<small>Português</small>
+    </string>
+    <string name="revanced_language_RO">Romeno\n<small>Română</small>
+    </string>
+    <string name="revanced_language_RU">Russo\n<small>Русский</small>
+    </string>
+    <string name="revanced_language_SK">Eslovaco\n<small>Slovenčina</small>
+    </string>
+    <string name="revanced_language_SL">Esloveno\n<small>Slovenščina</small>
+    </string>
+    <string name="revanced_language_SQ">Albanês\n<small>Shqip</small>
+    </string>
+    <string name="revanced_language_SR">Sérvio\n<small>Српски</small>
+    </string>
+    <string name="revanced_language_SV">Sueco\n<small>Svenska</small>
+    </string>
+    <string name="revanced_language_SW">Suaíli\n<small>Kiswahili</small>
+    </string>
+    <string name="revanced_language_TA">Tâmil\n<small>தமிழ்</small>
+    </string>
+    <string name="revanced_language_TE">Telugo\n<small>తెలుగు</small>
+    </string>
+    <string name="revanced_language_TH">Tailandês\n<small>ไทย</small>
+    </string>
+    <string name="revanced_language_TL">Filipino\n<small>Filipino</small>
+    </string>
+    <string name="revanced_language_TR">Turco\n<small>Türkçe</small>
+    </string>
+    <string name="revanced_language_UK">Ucraniano\n<small>Українська</small>
+    </string>
+    <string name="revanced_language_UR">Urdu\n<small>اردو</small>
+    </string>
+    <string name="revanced_language_VI">Vietnamita\n<small>Tiếng Việt</small>
+    </string>
+    <string name="revanced_language_ZH">Chinês\n<small>中文</small>
+    </string>
     <string name="revanced_language_title">Idioma do ReVanced</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Toque duplo e pinçar para redimensionar está desativado</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"A ação de toque duplo e beliscar para redimensionar está habilitada
@@ -2072,8 +2084,6 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
     <string name="revanced_sanitize_comments_category_bar_summary_off">Botões de categoria são exibidos na barra de categoria de comentários</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">Botões de categoria, exceto \'Top\' e \'Mais recentes\', são ocultados na barra de categoria de comentários</string>
     <string name="revanced_sanitize_comments_category_bar_title">Limpar barra de categoria</string>
-    <string name="revanced_sanitize_sharing_links_summary">Remove parâmetros de consulta de rastreamento de links compartilhados</string>
-    <string name="revanced_sanitize_sharing_links_title">Higienizar links de compartilhamento</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Frases como '#', 'Arrecadação de fundos', 'Loja' e 'produtos' serão exibidos na legenda do vídeo."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Frases como '#', 'Arrecadação de fundos', 'Loja' e 'produtos' serão ocultadas da legenda do vídeo."</string>
     <string name="revanced_sanitize_video_subtitle_title">Limpar legendas de vídeo</string>
@@ -2163,6 +2173,13 @@ Pronto para enviar?"</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Tempo inserido inválido</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Editar tempo do segmento manualmente</string>
     <string name="revanced_sb_new_segment_forward">Avançar tempo especificado (Padrão: 150ms)</string>
+    <string name="revanced_sb_new_segment_highlight_content">"O tempo do destaque está correto?
+
+%s
+
+Se você não estiver enviando um destaque, toque em Cancelar e marque a segunda localização."</string>
+    <string name="revanced_sb_new_segment_highlight_submit">Enviar destaque</string>
+    <string name="revanced_sb_new_segment_highlight_title">Enviar destaque</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">Definir %s como início ou fim de um novo segmento?</string>
     <string name="revanced_sb_new_segment_mark_end">Fim</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Marque primeiro uma localização na barra de tempo</string>
@@ -2365,6 +2382,8 @@ Isso pode não funcionar se:
     <string name="revanced_share_copy_video_information_success">Informações do vídeo copiadas para a área de transferência.</string>
     <string name="revanced_shorts_autoplay_background_summary">Avança para o próximo Short automaticamente durante a reprodução em segundo plano</string>
     <string name="revanced_shorts_autoplay_background_title">Reprodução automática em segundo plano</string>
+    <string name="revanced_shorts_autoplay_disabled_toast">Reprodução automática dos Shorts desativada</string>
+    <string name="revanced_shorts_autoplay_enabled_toast">Reprodução automática dos Shorts ativada</string>
     <string name="revanced_shorts_autoplay_summary">Avança para o próximo Short automaticamente em vez de repetir o atual</string>
     <string name="revanced_shorts_autoplay_title">Reprodução automática nos Shorts</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Esse recurso ainda é experimental, então não há garantia de que ele funcionará perfeitamente.

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">٨</string>
+    <string name="accessibility_settings_edu_opt_in_text">ن</string>
     <string name="accessibility_settings_edu_opt_out_text">تم تعديل عناصر التحكم الخاصة بك لأن خدمة إمكانية الوصول قيد التشغيل.</string>
     <string name="gms_core_dialog_continue_text">متابعة</string>
     <string name="gms_core_dialog_dismiss_text">لا اريد مشاهدة هذا مجددا</string>
@@ -41,6 +41,8 @@
     <string name="morphe_reload_video_summary_off">لا يتم عرض زر إعادة تحميل الفيديو</string>
     <string name="morphe_reload_video_summary_on">يتم عرض زر إعادة تحميل الفيديو</string>
     <string name="morphe_reload_video_title">عرض زر إعادة تحميل الفيديو</string>
+    <string name="morphe_replace_links_with_shortener_summary">يفرض على البث المباشر و Shorts استخدام تنسيق عنوان URL المختصر youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_title">تغيير روابط المشاركة إلى youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">تستخدم روابط المشاركة music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">تستخدم روابط المشاركة youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">تغيير روابط المشاركة إلى youtube.com</string>
@@ -222,16 +224,16 @@
     <string name="revanced_change_share_sheet_title">تغيير لوح مشاركة</string>
     <string name="revanced_change_start_page_entry_all_subscriptions">كلّ الاشتراكات</string>
     <string name="revanced_change_start_page_entry_browse">تصفح القنوات</string>
-    <string name="revanced_change_start_page_entry_courses">الدورات / التعلم</string>
+    <string name="revanced_change_start_page_entry_courses">محتوى تعليمي</string>
     <string name="revanced_change_start_page_entry_default">الافتراضي</string>
     <string name="revanced_change_start_page_entry_explore">استكشف</string>
-    <string name="revanced_change_start_page_entry_fashion">الموضة &amp; التجميل</string>
-    <string name="revanced_change_start_page_entry_gaming">ألعاب</string>
+    <string name="revanced_change_start_page_entry_fashion">الموضة والجمال</string>
+    <string name="revanced_change_start_page_entry_gaming">Gaming</string>
     <string name="revanced_change_start_page_entry_history">السجلّ</string>
     <string name="revanced_change_start_page_entry_hype">التشجيع</string>
     <string name="revanced_change_start_page_entry_library">المكتبة</string>
-    <string name="revanced_change_start_page_entry_liked_videos">الفيديوهات التي أعجبتني</string>
-    <string name="revanced_change_start_page_entry_live">مباشر</string>
+    <string name="revanced_change_start_page_entry_liked_videos">فيديوهات أعجبتك</string>
+    <string name="revanced_change_start_page_entry_live">بث مباشر</string>
     <string name="revanced_change_start_page_entry_movies">أفلام</string>
     <string name="revanced_change_start_page_entry_music">الموسيقى</string>
     <string name="revanced_change_start_page_entry_news">الأخبار</string>
@@ -239,13 +241,13 @@
     <string name="revanced_change_start_page_entry_playlists">قوائم التشغيل</string>
     <string name="revanced_change_start_page_entry_podcasts">البودكاست</string>
     <string name="revanced_change_start_page_entry_search">البحث</string>
-    <string name="revanced_change_start_page_entry_shopping">تسوق</string>
+    <string name="revanced_change_start_page_entry_shopping">التسوّق</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
-    <string name="revanced_change_start_page_entry_sports">الرياضة</string>
+    <string name="revanced_change_start_page_entry_sports">رياضة</string>
     <string name="revanced_change_start_page_entry_subscriptions">الاشتراكات</string>
     <string name="revanced_change_start_page_entry_trending">المحتوى الرائج</string>
     <string name="revanced_change_start_page_entry_virtual_reality">الواقع الافتراضي</string>
-    <string name="revanced_change_start_page_entry_watch_later">شاهد لاحقًا</string>
+    <string name="revanced_change_start_page_entry_watch_later">المشاهدة لاحقًا</string>
     <string name="revanced_change_start_page_entry_your_clips">فيديوهاتك</string>
     <string name="revanced_change_start_page_title">صفحة البدء</string>
     <string name="revanced_change_start_page_type_summary_off">تتغير صفحة البدء مرة واحدة فقط.</string>
@@ -368,7 +370,7 @@
     <string name="revanced_disable_haptic_feedback_seek_undo_title">تعطيل اهتزاز التراجع عن التمرير</string>
     <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">تم تمكين اهتزازات النقر والنقر المطول</string>
     <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">تم تعطيل اهتزازات النقر والنقر المطول</string>
-    <string name="revanced_disable_haptic_feedback_tap_and_hold_title">تعطيل اهتزازات النقر والنقر المطول</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_title">تعطيل اهتزازات النقر والضغط المطول</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">تم تمكين الاهتزاز عند التكبير</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">تم تعطيل الاهتزاز عند التكبير</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">تعطيل الاهتزاز عند التكبير</string>
@@ -683,7 +685,7 @@
     <string name="revanced_hide_ai_comments_summary_title">إخفاء ملخص تعليقات الذكاء الاصطناعي</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">يتم عرض قسم ملخص الفيديو الذي تم إنشاؤه بواسطة AI</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">تم إخفاء قسم ملخص الفيديو الذي تم إنشاؤه بواسطة AI</string>
-    <string name="revanced_hide_ai_generated_video_summary_section_title">إخفاء قسم \'ملخص فيديو تم إنشاؤه بواسطة الذكاء الاصطناعي\'</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_title">إخفاء قسم \'ملخّص فيديو من إنشاء الذكاء الاصطناعي\'</string>
     <string name="revanced_hide_album_card_summary_off">يتم عرض بطاقات الألبوم.</string>
     <string name="revanced_hide_album_card_summary_on">تم إخفاء بطاقات الألبوم.</string>
     <string name="revanced_hide_album_card_title">إخفاء بطاقات الألبوم</string>
@@ -774,6 +776,13 @@
     <string name="revanced_hide_comments_by_members_summary_off">يتم عرض لافتة تعليقات من الأعضاء.</string>
     <string name="revanced_hide_comments_by_members_summary_on">تم إخفاء لافتة تعليقات من الأعضاء.</string>
     <string name="revanced_hide_comments_by_members_title">إخفاء لافتة تعليقات من الأعضاء</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">أدخل أسماء عناصر شريط التعليقات المراد تصفيتها، بحيث يكون كل اسم في سطر منفصل</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">شريط تصفية التعليقات</string>
+    <string name="revanced_hide_comments_carousel_title">تمكين شريط تصفية التعليقات</string>
+    <string name="revanced_hide_comments_carousel_user_dialog_message">"ملاحظة:
+• تأكد من إدخال الاسم الدقيق لعنصر الشريط (مثل: طرح سؤال، تشجيع هذا الفيديو، الاستماع إلى موسيقى YouTube، الخ.).
+• قد يؤدي إخفاء عناصر الشريط إلى نتائج غير متوقعة.
+• إذا تم إخفاء جميع عناصر الشريط، فسيتم إخفاء قسم التعليقات بالكامل أيضًا."</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">يتم عرض زر إنشاء Short</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">تم إخفاء زر إنشاء Short</string>
     <string name="revanced_hide_comments_create_a_short_button_title">إخفاء زر \'إنشاء Short\'</string>
@@ -830,8 +839,11 @@
     <string name="revanced_hide_end_screen_suggested_video_summary_off">يتم عرض الفيديو المقترح في شاشة النهاية</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_on">تم إخفاء الفيديو المقترح في شاشة النهاية</string>
     <string name="revanced_hide_end_screen_suggested_video_title">إخفاء الفيديو المقترح في شاشة النهاية</string>
-    <string name="revanced_hide_expandable_card_summary_off">يتم عرض البطاقة القابلة للتوسع أسفل مقاطع الفيديو</string>
-    <string name="revanced_hide_expandable_card_summary_on">تم إخفاء البطاقة القابلة للتوسع أسفل مقاطع الفيديو</string>
+    <string name="revanced_hide_expandable_card_entry_1">عرض الكل</string>
+    <string name="revanced_hide_expandable_card_entry_2">إخفاء بطاقة المنتج فقط</string>
+    <string name="revanced_hide_expandable_card_entry_3">إخفاء بطاقة الملخص فقط</string>
+    <string name="revanced_hide_expandable_card_entry_4">إخفاء بطاقتي المنتج والملخص</string>
+    <string name="revanced_hide_expandable_card_entry_5">إخفاء الكل</string>
     <string name="revanced_hide_expandable_card_title">بطاقات قابلة للتوسع أسفل الفيديوهات</string>
     <string name="revanced_hide_expandable_shelf_summary_off">يتم عرض الرفوف القابلة للتوسع.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">تم إخفاء الرفوف القابلة للتوسع.</string>
@@ -955,7 +967,7 @@
     <string name="revanced_hide_like_dislike_button_title">إخفاء زر أعجبني ولم يعجبني</string>
     <string name="revanced_hide_links_preview_summary_off">يتم عرض معاينة الروابط</string>
     <string name="revanced_hide_links_preview_summary_on">تم إخفاء معاينة الروابط</string>
-    <string name="revanced_hide_links_preview_title">إخفاء معاينة الروابط</string>
+    <string name="revanced_hide_links_preview_title">إخفاء عرض الروابط</string>
     <string name="revanced_hide_live_chat_messages_summary_off">يتم عرض رسائل المحادثات المباشرة.</string>
     <string name="revanced_hide_live_chat_messages_summary_on">تم إخفاء رسائل المحادثات المباشرة.\n\nينطبق هذا الإعداد على فيديوهات بث Shorts المباشر أيضًا.</string>
     <string name="revanced_hide_live_chat_messages_title">إخفاء رسائل المحادثات المباشرة</string>
@@ -1560,121 +1572,121 @@
     <string name="revanced_keep_landscape_mode_timeout_summary">مقدار اجزاء الثانية التي يتم فرضها على الوضع الأفقي بعد تشغيل الشاشة.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">مهلة إبقاء الوضع الأفقي</string>
     <string name="revanced_keep_landscape_mode_title">الإبقاء على الوضع الأفقي</string>
-    <string name="revanced_language_AM">"الأمهرية
-<small>አማርኛ</small>"</string>
-    <string name="revanced_language_AR">"العربية
-<small>العربية</small>"</string>
-    <string name="revanced_language_AZ">"الأذربيجانية
-<small>Azərbaycan</small>"</string>
-    <string name="revanced_language_BE">"البيلاروسية
-<small>беларуская</small>"</string>
-    <string name="revanced_language_BG">"البلغارية
-<small>Български</small>"</string>
-    <string name="revanced_language_BN">"البنغالية
-<small>বাংলা</small>"</string>
-    <string name="revanced_language_CA">"الكاتالونية
-<small>Català</small>"</string>
-    <string name="revanced_language_CS">"التشيكية
-<small>Čeština</small>"</string>
-    <string name="revanced_language_DA">"الدانماركية
-<small>Dansk</small>"</string>
-    <string name="revanced_language_DE">"الألمانية
-<small>Deutsch</small>"</string>
+    <string name="revanced_language_AM">الأمهرية\n<small>አማርኛ</small>
+    </string>
+    <string name="revanced_language_AR">العربية\n<small>العربية</small>
+    </string>
+    <string name="revanced_language_AZ">الأذربيجانية\n<small>Azərbaycan</small>
+    </string>
+    <string name="revanced_language_BE">البيلاروسية\n<small>беларуская</small>
+    </string>
+    <string name="revanced_language_BG">البلغارية\n<small>Български</small>
+    </string>
+    <string name="revanced_language_BN">البنغالية\n<small>বাংলা</small>
+    </string>
+    <string name="revanced_language_CA">الكاتالونية\n<small>Català</small>
+    </string>
+    <string name="revanced_language_CS">التشيكية\n<small>Čeština</small>
+    </string>
+    <string name="revanced_language_DA">الدانماركية\n<small>Dansk</small>
+    </string>
+    <string name="revanced_language_DE">الألمانية\n<small>Deutsch</small>
+    </string>
     <string name="revanced_language_DEFAULT">لغة التطبيق</string>
-    <string name="revanced_language_EL">"اليونانية
-<small>Ελληνικά</small>"</string>
-    <string name="revanced_language_EN">"الإنجليزية
-<small>English</small>"</string>
-    <string name="revanced_language_ES">"الأسبانية
-<small>Español</small>"</string>
-    <string name="revanced_language_ET">"الإستونية
-<small>Eesti</small>"</string>
-    <string name="revanced_language_FA">"الفارسية
-<small>فارسی</small>"</string>
-    <string name="revanced_language_FI">"الفنلندية
-<small>Suomi</small>"</string>
-    <string name="revanced_language_FR">"الفرنسية
-<small>Français</small>"</string>
-    <string name="revanced_language_GA">"الأيرلندية
-<small>Gaeilge</small>"</string>
-    <string name="revanced_language_GU">"الغوجاراتية
-<small>ગુજરાતી</small>"</string>
-    <string name="revanced_language_HE">"العبرية
-<small>עברי</small>"</string>
-    <string name="revanced_language_HI">"الهندية
-<small>हिन्दी</small>"</string>
-    <string name="revanced_language_HR">"الكرواتية
-<small>Hrvatski</small>"</string>
-    <string name="revanced_language_HU">"المجرية
-<small>Magyar</small>"</string>
-    <string name="revanced_language_ID">"الإندونيسية
-<small>Indonesia</small>"</string>
-    <string name="revanced_language_IT">"الإيطالية
-<small>Italiano</small>"</string>
-    <string name="revanced_language_JA">"اليابانية
-<small>日本語</small>"</string>
-    <string name="revanced_language_KK">"الكازاخستانية
-<small>Қазақ тілі</small>"</string>
-    <string name="revanced_language_KO">"الكورية
-<small>한국어</small>"</string>
-    <string name="revanced_language_LT">"الليتوانية
-<small>Lietuvių</small>"</string>
-    <string name="revanced_language_LV">"اللاتفية
-<small>Latviešu</small>"</string>
-    <string name="revanced_language_MK">"المقدونية
-<small>Македонски</small>"</string>
-    <string name="revanced_language_MN">"المنغولية
-<small>Монгол</small>"</string>
-    <string name="revanced_language_MR">"الماراثية
-<small>मराठी</small>"</string>
-    <string name="revanced_language_MS">"الملايو
-<small>Melayu</small>"</string>
-    <string name="revanced_language_MY">"البورمية
-<small>ဗမာ</small>"</string>
-    <string name="revanced_language_NL">"الهولندية
-<small>Nederlands</small>"</string>
-    <string name="revanced_language_OR">"أوديا
-<small>ଓଡ଼ିଆ</small>"</string>
-    <string name="revanced_language_PA">"البنجابية
-<small>ਪੰਜਾਬੀ</small>"</string>
-    <string name="revanced_language_PL">"البولندية
-<small>Polski</small>"</string>
-    <string name="revanced_language_PT">"البرتغالية
-<small>Português</small>"</string>
-    <string name="revanced_language_RO">"الرومانية
-<small>Română</small>"</string>
-    <string name="revanced_language_RU">"الروسية
-<small>Русский</small>"</string>
-    <string name="revanced_language_SK">"السلوفاكية
-<small>Slovenčina</small>"</string>
-    <string name="revanced_language_SL">"السلوفينية
-<small>Slovenščina</small>"</string>
-    <string name="revanced_language_SQ">"الألبانية
-<small>Shqip</small>"</string>
-    <string name="revanced_language_SR">"الصربية
-<small>Српски</small>"</string>
-    <string name="revanced_language_SV">"السويدية
-<small>Svenska</small>"</string>
-    <string name="revanced_language_SW">"السواحيلية
-<small>Kiswahili</small>"</string>
-    <string name="revanced_language_TA">"التاميلية
-<small>தமிழ்</small>"</string>
-    <string name="revanced_language_TE">"التيلجو
-<small>తెలుగు</small>"</string>
-    <string name="revanced_language_TH">"التايلاندية
-<small>ไทย</small>"</string>
-    <string name="revanced_language_TL">"الفلبينية
-<small>Filipino</small>"</string>
-    <string name="revanced_language_TR">"التركية
-<small>Türkçe</small>"</string>
-    <string name="revanced_language_UK">"الأوكرانية
-<small>Українська</small>"</string>
-    <string name="revanced_language_UR">"الأردية
-<small>اردو</small>"</string>
-    <string name="revanced_language_VI">"الفيتنامية
-<small>Tiếng Việt</small>"</string>
-    <string name="revanced_language_ZH">"الصينية
-<small>中文</small>"</string>
+    <string name="revanced_language_EL">اليونانية\n<small>Ελληνικά</small>
+    </string>
+    <string name="revanced_language_EN">الإنجليزية\n<small>English</small>
+    </string>
+    <string name="revanced_language_ES">الأسبانية\n<small>Español</small>
+    </string>
+    <string name="revanced_language_ET">الإستونية\n<small>Eesti</small>
+    </string>
+    <string name="revanced_language_FA">الفارسية\n<small>فارسی</small>
+    </string>
+    <string name="revanced_language_FI">الفنلندية\n<small>Suomi</small>
+    </string>
+    <string name="revanced_language_FR">الفرنسية\n<small>Français</small>
+    </string>
+    <string name="revanced_language_GA">الأيرلندية\n<small>Gaeilge</small>
+    </string>
+    <string name="revanced_language_GU">الغوجاراتية\n<small>ગુજરાતી</small>
+    </string>
+    <string name="revanced_language_HE">العبرية\n<small>עברי</small>
+    </string>
+    <string name="revanced_language_HI">الهندية\n<small>हिन्दी</small>
+    </string>
+    <string name="revanced_language_HR">الكرواتية\n<small>Hrvatski</small>
+    </string>
+    <string name="revanced_language_HU">المجرية\n<small>Magyar</small>
+    </string>
+    <string name="revanced_language_ID">الإندونيسية\n<small>Indonesia</small>
+    </string>
+    <string name="revanced_language_IT">الإيطالية\n<small>Italiano</small>
+    </string>
+    <string name="revanced_language_JA">اليابانية\n<small>日本語</small>
+    </string>
+    <string name="revanced_language_KK">الكازاخستانية\n<small>Қазақ тілі</small>
+    </string>
+    <string name="revanced_language_KO">الكورية\n<small>한국어</small>
+    </string>
+    <string name="revanced_language_LT">الليتوانية\n<small>Lietuvių</small>
+    </string>
+    <string name="revanced_language_LV">اللاتفية\n<small>Latviešu</small>
+    </string>
+    <string name="revanced_language_MK">المقدونية\n<small>Македонски</small>
+    </string>
+    <string name="revanced_language_MN">المنغولية\n<small>Монгол</small>
+    </string>
+    <string name="revanced_language_MR">الماراثية\n<small>मराठी</small>
+    </string>
+    <string name="revanced_language_MS">الملايو\n<small>Melayu</small>
+    </string>
+    <string name="revanced_language_MY">البورمية\n<small>ဗမာ</small>
+    </string>
+    <string name="revanced_language_NL">الهولندية\n<small>Nederlands</small>
+    </string>
+    <string name="revanced_language_OR">أوديا\n<small>ଓଡ଼ିଆ</small>
+    </string>
+    <string name="revanced_language_PA">البنجابية\n<small>ਪੰਜਾਬੀ</small>
+    </string>
+    <string name="revanced_language_PL">البولندية\n<small>Polski</small>
+    </string>
+    <string name="revanced_language_PT">البرتغالية\n<small>Português</small>
+    </string>
+    <string name="revanced_language_RO">الرومانية\n<small>Română</small>
+    </string>
+    <string name="revanced_language_RU">الروسية\n<small>Русский</small>
+    </string>
+    <string name="revanced_language_SK">السلوفاكية\n<small>Slovenčina</small>
+    </string>
+    <string name="revanced_language_SL">السلوفينية\n<small>Slovenščina</small>
+    </string>
+    <string name="revanced_language_SQ">الألبانية\n<small>Shqip</small>
+    </string>
+    <string name="revanced_language_SR">الصربية\n<small>Српски</small>
+    </string>
+    <string name="revanced_language_SV">السويدية\n<small>Svenska</small>
+    </string>
+    <string name="revanced_language_SW">السواحيلية\n<small>Kiswahili</small>
+    </string>
+    <string name="revanced_language_TA">التاميلية\n<small>தமிழ்</small>
+    </string>
+    <string name="revanced_language_TE">التيلجو\n<small>తెలుగు</small>
+    </string>
+    <string name="revanced_language_TH">التايلاندية\n<small>ไทย</small>
+    </string>
+    <string name="revanced_language_TL">الفلبينية\n<small>Filipino</small>
+    </string>
+    <string name="revanced_language_TR">التركية\n<small>Türkçe</small>
+    </string>
+    <string name="revanced_language_UK">الأوكرانية\n<small>Українська</small>
+    </string>
+    <string name="revanced_language_UR">الأردية\n<small>اردو</small>
+    </string>
+    <string name="revanced_language_VI">الفيتنامية\n<small>Tiếng Việt</small>
+    </string>
+    <string name="revanced_language_ZH">الصينية\n<small>中文</small>
+    </string>
     <string name="revanced_language_title">لغة ReVanced</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">إجراء النقر المزدوج والضغط لتغيير الحجم معطل</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"تم تمكين إجراء الضغط المزدوج والضغط لتغيير الحجم
@@ -1697,7 +1709,7 @@
     <string name="revanced_miniplayer_hide_overlay_buttons_title">إخفاء أزرار الواجهة</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">يتم عرض تخطي للأمام والخلف</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">تم إخفاء تخطي للأمام والخلف</string>
-    <string name="revanced_miniplayer_hide_rewind_forward_title">إخفاء أزرار التخطي للأمام والخلف</string>
+    <string name="revanced_miniplayer_hide_rewind_forward_title">إخفاء أزرار التخطي إلى التالي والسابق</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">يتم عرض النصوص الفرعية</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">تم إخفاء النصوص الفرعية</string>
     <string name="revanced_miniplayer_hide_subtext_title">إخفاء النصوص الفرعية</string>
@@ -2074,8 +2086,6 @@
     <string name="revanced_sanitize_comments_category_bar_summary_off">يتم عرض أزرار الفئات في شريط فئات التعليقات</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">تم إخفاء أزرار الفئات باستثناء \'الأهم\' و \'أحدث التعليقات\' في شريط فئات التعليقات</string>
     <string name="revanced_sanitize_comments_category_bar_title">تنظيف شريط الفئات</string>
-    <string name="revanced_sanitize_sharing_links_summary">يزيل وسيط التتبع من الروابط المُشاركة</string>
-    <string name="revanced_sanitize_sharing_links_title">تنظيف روابط المشاركة</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"يتم عرض عبارات مثل '#'، 'جمع التبرعات'، 'المتجر' و 'المنتجات' من ترجمات الفيديو."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"تم إخفاء عبارات مثل '#'، 'جمع التبرعات'، 'المتجر' و 'المنتجات' من ترجمات الفيديو."</string>
     <string name="revanced_sanitize_video_subtitle_title">تطهير ترجمة الفيديو</string>
@@ -2165,6 +2175,13 @@
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">الوقت المحدد غير صحيح</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">تعديل توقيت المقطع يدويًا</string>
     <string name="revanced_sb_new_segment_forward">تقديم بمقدار الوقت المحدد (الافتراضي: 150ms)</string>
+    <string name="revanced_sb_new_segment_highlight_content">"هل وقت المقطع الأبرز صحيح؟
+
+%s
+
+إذا لم تكن تريد إرسال المقطع الأبرز، اضغط إلغاء وحدد الموقع الثاني"</string>
+    <string name="revanced_sb_new_segment_highlight_submit">إرسال المقطع الأبرز</string>
+    <string name="revanced_sb_new_segment_highlight_title">إرسال المقطع الأبرز</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">تعيين %s كبداية أو نهاية لمقطع جديد؟</string>
     <string name="revanced_sb_new_segment_mark_end">النهاية</string>
     <string name="revanced_sb_new_segment_mark_locations_first">حدد موقعًا على شريط الوقت أولًا</string>
@@ -2274,7 +2291,7 @@
     <string name="revanced_sb_stats_submissions">لقد أنشأت &lt;b&gt;%s&lt;/b&gt; مقطع</string>
     <string name="revanced_sb_stats_submissions_sum">اضغط هنا لعرض المقاطع الخاصة بك</string>
     <string name="revanced_sb_stats_username">اسم المستخدم الخاص بك: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="revanced_sb_stats_username_change">اضغط هنا لتغيير اسم المستخدم الخاص بك</string>
+    <string name="revanced_sb_stats_username_change">انقر هنا لتغيير اسم المستخدم الخاص بك</string>
     <string name="revanced_sb_stats_username_change_unknown_error">غير قادر على تغيير اسم المستخدم: الحالة: %1$d %2$s</string>
     <string name="revanced_sb_stats_username_changed">تم تغيير اسم المستخدم بنجاح</string>
     <string name="revanced_sb_submit_failed_duplicate">"لا يمكن إرسال هذا المقطع.
@@ -2368,6 +2385,7 @@
     <string name="revanced_share_copy_video_information_success">تم نسخ معلومات الفيديو إلى الحافظة.</string>
     <string name="revanced_shorts_autoplay_background_summary">ينتقل إلى Short التالي تلقائيًا أثناء التشغيل في الخلفية</string>
     <string name="revanced_shorts_autoplay_background_title">التشغيل التلقائي في الخلفية</string>
+    <string name="revanced_shorts_autoplay_disabled_toast">Arabic</string>
     <string name="revanced_shorts_autoplay_summary">ينتقل إلى Short التالي تلقائيًا بدلًا من تكرار Short الحالي</string>
     <string name="revanced_shorts_autoplay_title">التشغيل التلقائي لفيديوهات Shorts</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"لا تزال هذه الميزة تجريبية، لذا لا يوجد ضمان بأنها ستعمل بشكل مثالي.
@@ -2608,12 +2626,12 @@
     <string name="revanced_swipe_overlay_rect_size_title">حجم واجهة إيماءة التمرير</string>
     <string name="revanced_swipe_overlay_style_entry_0">النمط القديم</string>
     <string name="revanced_swipe_overlay_style_entry_1">النمط الافقي</string>
-    <string name="revanced_swipe_overlay_style_entry_2">النمط الأفقي (الأدنى - الأعلى)</string>
-    <string name="revanced_swipe_overlay_style_entry_3">النمط الأفقي (الأدنى - المنتصف)</string>
+    <string name="revanced_swipe_overlay_style_entry_2">النمط الأفقي (أدنى حد - الأعلى)</string>
+    <string name="revanced_swipe_overlay_style_entry_3">النمط الأفقي (بسيط - المنتصف)</string>
     <string name="revanced_swipe_overlay_style_entry_4">النمط الدائري</string>
-    <string name="revanced_swipe_overlay_style_entry_5">النمط الدائري (الأدنى)</string>
+    <string name="revanced_swipe_overlay_style_entry_5">النمط الدائري (بسيط)</string>
     <string name="revanced_swipe_overlay_style_entry_6">النمط العمودي</string>
-    <string name="revanced_swipe_overlay_style_entry_7">النمط العمودي (الأدنى)</string>
+    <string name="revanced_swipe_overlay_style_entry_7">النمط العمودي (بسيط)</string>
     <string name="revanced_swipe_overlay_style_title">نمط واجهة التمرير</string>
     <string name="revanced_swipe_overlay_timeout_summary">مقدار الوقت الذي تظهر فيه واجهة التمرير بعد التغيير بجزء الثانية</string>
     <string name="revanced_swipe_overlay_timeout_title">مهلة واجهة التمرير</string>

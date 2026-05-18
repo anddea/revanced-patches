@@ -2,26 +2,28 @@
 <resources>
     <string name="gms_core_dialog_continue_text">Devam Et</string>
     <string name="gms_core_dialog_dismiss_text">Tekrar gösterme</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore'un arka planda çalışma izni yoktur.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">GmsCore'un arka planda çalışmasına izin verilmiyor.
 
-'Uygulamamı öldürmeyin!' cihazınız için kılavuzu kullanın ve talimatları GmsCore kurulumunuza uygulayın.
+Cihazınız için 'Uygulamamı kapatma!' kılavuzunu izleyin ve talimatları GmsCore kurulumunuza uygulayın.
 
-Uygulamanın çalışması için bu gereklidir."</string>
+Bu, uygulamanın çalışması için gereklidir.</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Sorunları önlemek için GmsCore pil optimizasyonları devre dışı bırakılmalıdır.
 
-Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."</string>
+GmsCore için pil optimizasyonlarını devre dışı bırakmak pil kullanımını olumsuz etkilemez.
+
+Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</string>
     <string name="gms_core_dialog_open_website_text">Web sitesini aç</string>
     <string name="gms_core_dialog_title">Eylem gerekiyor</string>
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin.</string>
-    <string name="gms_core_settings_title">GmsCore\'yi aç</string>
+    <string name="gms_core_settings_title">GmsCore ayarlarını açın</string>
     <string name="gms_core_toast_not_installed_message">GmsCore yüklü değil. Yükleyin.</string>
-    <string name="morphe_disable_drc_audio_summary_off">DRC sesi etkin</string>
-    <string name="morphe_disable_drc_audio_summary_on">DRC sesi devre dışı</string>
-    <string name="morphe_disable_drc_audio_title">DRC sesi devre dışı bırak</string>
-    <string name="morphe_disable_quic_protocol_summary_off">QUIC protokolü etkin</string>
-    <string name="morphe_disable_quic_protocol_summary_on">QUIC protokolü devre dışı</string>
-    <string name="morphe_disable_quic_protocol_title">QUIC protokolünü devre dışı bırak</string>
-    <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için \'Video akışlarını taklit et\' ayarını Android Reel veya TV olarak değiştirin</string>
+    <string name="morphe_disable_drc_audio_summary_off">DRC ( Dinamik Aralık Sıkıştırma ) ses kontrolü etkinleştirildi.</string>
+    <string name="morphe_disable_drc_audio_summary_on">DRC ( Dinamik Aralık Sıkıştırma ) ses kontrolü devre dışı bırakıldı.</string>
+    <string name="morphe_disable_drc_audio_title">DRC ( Dinamik Aralık Sıkıştırma )  sesini devre dışı bırak</string>
+    <string name="morphe_disable_quic_protocol_summary_off">QUIC ( Hızlı Bağlantı ) protokolü etkinleştirildi.</string>
+    <string name="morphe_disable_quic_protocol_summary_on">QUIC  ( Hızlı Bağlantı ) protokolü devre dışı</string>
+    <string name="morphe_disable_quic_protocol_title">QUIC  ( Hızlı Bağlantı ) protokolünü devre dışı bırak</string>
+    <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için 'Video akışlarını taklit et' seçeneğini Android Makarası veya TV olarak değiştirin.</string>
     <string name="morphe_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
     <string name="morphe_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
     <string name="morphe_force_original_audio_title">Orijinal ses dilini zorla</string>
@@ -36,11 +38,12 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan bağlantılar music.youtube.com kullanır</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Paylaşılan bağlantılar youtube.com kullanır</string>
     <string name="morphe_replace_music_with_youtube_title">Paylaşım bağlantılarını youtube.com olarak değiştir</string>
+    <string name="morphe_sanitize_sharing_links_summary">Paylaşılan bağlantılardan izleme sorgu parametrelerini kaldırır</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılır</string>
     <string name="morphe_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
     <string name="morphe_spoof_video_streams_client_type_title">Varsayılan istemci</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Oynatıcı JavaScript'ini yerel bir hash'e kilitler, güncellemeleri almaz
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Oynatıcının JavaScript kodunu güncellemeleri almak yerine bir yerel hash'e kilitler
 
 • Geçerli bir oynatıcı JavaScript hash'i gereklidir
 • Oynatıcı JavaScript hash'i GVS'de geçersiz kılınırsa oynatma başarısız olur"</string>
@@ -84,7 +87,7 @@ Oturum açmak için, devam et butonuna basın."</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Başarıyla oturum açıldı</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Aktivasyon kodu oluşturulamadı</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Kimlik doğrulama anahtarı oluşturulamadı</string>
-    <string name="morphe_spoof_video_streams_summary">"YouTube'u uyumlu bir video akışı göndermeye ikna eder, bu da çoğu kullanıcı için oynatmayı düzeltir
+    <string name="morphe_spoof_video_streams_summary">"YouTube'u uyumlu bir video akışı göndermesi için kandırır, bu da çoğu kullanıcı için oynatmayı düzeltir
 
 YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Video akışları taklit edilmez
@@ -130,6 +133,7 @@ YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonelikler</string>
     <string name="revanced_change_start_page_summary">Uygulamanın başlangıç sayfasını değiştirin.</string>
     <string name="revanced_change_start_page_title">Başlangıç sayfası</string>
+    <string name="revanced_credits_title">Krediler </string>
     <string name="revanced_custom_filter_strings_summary">Yeni satırlarla ayrılmış olarak hangi bileşenlerin filtreleneceğini yapılandırın.</string>
     <string name="revanced_custom_filter_strings_title">Özel filtreyi düzenle</string>
     <string name="revanced_custom_filter_summary">Düzen bileşenlerini gizlemek için özel filtreyi etkinleştirir.</string>
@@ -513,8 +517,6 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Return YouTube Dislike API mevcut değilse uyarı gösterir.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API mevcut değilse bir uyarı göster</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
-    <string name="revanced_sanitize_sharing_links_summary">Paylaşılan bağlantılardan izleme sorgu parametrelerini kaldırır</string>
-    <string name="revanced_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
     <string name="revanced_sb_about">Hakkında</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Veriler, SponsorBlock API tarafından sağlanmaktadır. Daha fazla bilgi edinmek ve diğer platformlar için indirmeleri görmek için buraya dokunun.</string>
@@ -697,7 +699,7 @@ YouTube Premium kullanıcısıysanız bu ayar gerekli olmayabilir."</string>
 • VPN veya DNS kullanırken uygulama zorla kapatılabilir.
 • Uyarlanabilir bit hızı akış istemcilerinde (Android VR 1.43.32 dışındaki tüm istemciler) oynatma sırasında ses aralıklı olarak kesilebilir."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Varsayılan işlemci</string>
-    <string name="revanced_spoof_video_streams_summary">"YouTube'u uyumlu bir video akışı göndermeye ikna eder, bu da çoğu kullanıcı için oynatmayı düzeltir
+    <string name="revanced_spoof_video_streams_summary">"YouTube'u uyumlu bir video akışı göndermesi için kandırır, bu da çoğu kullanıcı için oynatmayı düzeltir
 
 YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="revanced_spoof_video_streams_title">Video akışlarını taklit et</string>

@@ -22,7 +22,7 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="morphe_disable_drc_audio_title">Wyłącz kompresję dźwięku</string>
     <string name="morphe_disable_quic_protocol_summary_off">Włączony</string>
     <string name="morphe_disable_quic_protocol_summary_on">Wyłączony</string>
-    <string name="morphe_disable_quic_protocol_title">Protokół QUIC</string>
+    <string name="morphe_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
     <string name="morphe_force_original_audio_not_available">Aby użyć tej funkcji, zmień \"Fałszowanie strumieni filmów\" na Android Reel lub TV</string>
     <string name="morphe_force_original_audio_summary_off">Wyłączone</string>
     <string name="morphe_force_original_audio_summary_on">Włączone</string>
@@ -38,6 +38,7 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="morphe_replace_music_with_youtube_summary_off">music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Zmień linki udostępniania na youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary">Usuwa parametry śledzące z udostępnianych linków</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Pozostawia parametry śledzące w linkach</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Usuwa parametry śledzące z linków</string>
     <string name="morphe_sanitize_sharing_links_title">Oczyść udostępniane linki</string>
@@ -59,16 +60,16 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash skryptu JS odtwarzacza</string>
     <string name="morphe_spoof_video_streams_screen_summary">Skonfiguruj fałszowanie klienta, aby zapobiec problemom z odtwarzaniem</string>
     <string name="morphe_spoof_video_streams_screen_title">Fałszowanie strumieni filmów</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Nie zalogowano do Android VR. Stuknij tutaj, aby się zalogować</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Nie zalogowano do Android VR. Dotknij tutaj, aby się zalogować</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">By używać tej funkcji, zmień \"Domyślny klient\" na Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Obecnie zalogowano do Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Logowanie Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Kod aktywacyjny: %s
 
-1. Stuknij \"Otwórz stronę\" poniżej, aby przejść do strony \"Połącz urządzenie\"
+1. Dotknij \"Otwórz stronę\" poniżej, aby przejść do strony \"Połącz urządzenie\"
 2. Wklej (lub wpisz) kod aktywacyjny wyświetlony powyżej
 3. Zaloguj się na konto Google, jeśli pojawi się taki komunikat. Jeśli masz wiele kont Google, użyj tego, którego używasz w YouTube
-4. Stuknij \"Zezwól\" na dostęp YouTube VR
+4. Dotknij \"Zezwól\" na dostęp YouTube VR
 5. Wróć do aplikacji po zobaczeniu \"Urządzenie połączone\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Otwórz stronę</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instrukcja</string>
@@ -190,7 +191,7 @@ Ograniczenie: utwory sklasyfikowane dla dzieci mogą nie być przekierowywane."<
     <string name="revanced_disable_player_gesture_summary">Wyłącza gest przesuwania, aby zmienić utwór w odtwarzaczu.</string>
     <string name="revanced_disable_player_gesture_title">Wyłącz gest w odtwarzaczu</string>
     <string name="revanced_disable_quic_protocol_summary">"Wyłącza protokół QUIC od CronetEngine."</string>
-    <string name="revanced_disable_quic_protocol_title">Protokół QUIC</string>
+    <string name="revanced_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
     <string name="revanced_disable_trim_silence_summary">"Wyłącza przycisk pomijania ciszy z menu prędkości odtwarzania.
 
 Informacje:
@@ -330,7 +331,7 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Ukryj odpinanie z menu szybkiego wybierania</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ukryj menu twórców utworu</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Ukrywa reklamy pełnoekranowe."</string>
-    <string name="revanced_hide_fullscreen_ads_title">Pełnoekranowe reklamy</string>
+    <string name="revanced_hide_fullscreen_ads_title">Ukryj reklamy pełnoekranowe</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Ukrywa przycisk udostępniania w trybie pełnoekranowym.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Ukryj przycisk udostępniania w trybie pełnoekranowym</string>
     <string name="revanced_hide_general_ads_summary">Ukrywa ogólne reklamy.</string>
@@ -509,8 +510,6 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Komunikat wyświetlany w momencie, gdy API ReturnYouTubeDislike jest niedostępne.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Pokaż komunikat o niedostępności API</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte</string>
-    <string name="revanced_sanitize_sharing_links_summary">Usuwa parametry śledzące z udostępnianych linków</string>
-    <string name="revanced_sanitize_sharing_links_title">Oczyść udostępniane linki</string>
     <string name="revanced_sb_about">O integracji</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Dane są dostarczane przez API SponsorBlock. Stuknij tutaj, aby dowiedzieć się więcej i pobrać na inne platformy.</string>

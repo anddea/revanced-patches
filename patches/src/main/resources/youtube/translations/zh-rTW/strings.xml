@@ -41,6 +41,8 @@
     <string name="morphe_reload_video_summary_off">不顯示「重新載入影片」按鈕</string>
     <string name="morphe_reload_video_summary_on">已顯示重新載入影片按鈕</string>
     <string name="morphe_reload_video_title">顯示重新載入影片按鈕</string>
+    <string name="morphe_replace_links_with_shortener_summary">強制使用縮短的 youtu.be URL 格式來播放直播和 Shorts</string>
+    <string name="morphe_replace_links_with_shortener_title">將分享連結更改為 youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">分享連結使用 music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">分享連結使用 youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">將分享連結更改為 youtube.com</string>
@@ -772,6 +774,13 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_hide_comments_by_members_summary_off">會員的評論橫幅已顯示。</string>
     <string name="revanced_hide_comments_by_members_summary_on">會員的評論橫幅已隱藏。</string>
     <string name="revanced_hide_comments_by_members_title">隱藏會員評論橫幅</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">輸入要篩選的評論輪播名稱，每行一個</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">啟用評論輪播過濾器</string>
+    <string name="revanced_hide_comments_carousel_title">啟用評論輪播過濾器</string>
+    <string name="revanced_hide_comments_carousel_user_dialog_message">"注意：
+• 請務必輸入輪播項目確切的名稱（例如：詢問、熱門影片、在 YouTube Music 中聆聽等）。
+• 隱藏輪播項目可能會產生意想不到的副作用。
+• 如果所有輪播項目都被隱藏，整個評論區也會被隱藏。"</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">已顯示「建立 Short」按鈕</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">已隱藏「建立 Short」按鈕</string>
     <string name="revanced_hide_comments_create_a_short_button_title">隱藏「建立 Short」按鈕</string>
@@ -828,8 +837,11 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_off">已顯示片尾推薦影片</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_on">已隱藏片尾推薦影片</string>
     <string name="revanced_hide_end_screen_suggested_video_title">隱藏片尾推薦影片</string>
-    <string name="revanced_hide_expandable_card_summary_off">已顯示影片下方可展開的卡片</string>
-    <string name="revanced_hide_expandable_card_summary_on">已隱藏影片下方可展開的卡片</string>
+    <string name="revanced_hide_expandable_card_entry_1">顯示全部</string>
+    <string name="revanced_hide_expandable_card_entry_2">僅隱藏產品卡片</string>
+    <string name="revanced_hide_expandable_card_entry_3">僅隱藏摘要卡片</string>
+    <string name="revanced_hide_expandable_card_entry_4">隱藏產品和摘要卡片</string>
+    <string name="revanced_hide_expandable_card_entry_5">隱藏全部</string>
     <string name="revanced_hide_expandable_card_title">影片下方的可展開卡片</string>
     <string name="revanced_hide_expandable_shelf_summary_off">可展開的選單已顯示。</string>
     <string name="revanced_hide_expandable_shelf_summary_on">可展開的選單已隱藏。</string>
@@ -1556,121 +1568,121 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">已強制橫向模式的毫秒數。</string>
     <string name="revanced_keep_landscape_mode_timeout_title">保持橫向模式的超時時間</string>
     <string name="revanced_keep_landscape_mode_title">保持橫向模式</string>
-    <string name="revanced_language_AM">"阿姆哈拉語
-<small>አማርኛ</small>"</string>
-    <string name="revanced_language_AR">"阿拉伯語
-<small>العربية</small>"</string>
-    <string name="revanced_language_AZ">"亞塞拜然語
-<small>Azərbaycan</small>"</string>
-    <string name="revanced_language_BE">"白俄羅斯語
-<small>беларуская</small>"</string>
-    <string name="revanced_language_BG">"保加利亞語
-<small>Български</small>"</string>
-    <string name="revanced_language_BN">"孟加拉语
-<small>বাংলা</small>"</string>
-    <string name="revanced_language_CA">"加泰隆尼亞語
-<small>Català</small>"</string>
-    <string name="revanced_language_CS">"捷克語
-<small>Čeština</small>"</string>
-    <string name="revanced_language_DA">"丹麥語
-<small>Dansk</small>"</string>
-    <string name="revanced_language_DE">"德語
-<small>Deutsch</small>"</string>
+    <string name="revanced_language_AM">阿姆哈拉語\n<small>አማርኛ</small>
+    </string>
+    <string name="revanced_language_AR">阿拉伯語\n<small>العربية</small>
+    </string>
+    <string name="revanced_language_AZ">亞塞拜然語\n<small>Azərbaycan</small>
+    </string>
+    <string name="revanced_language_BE">白俄羅斯語\n<small>беларуская</small>
+    </string>
+    <string name="revanced_language_BG">保加利亞語\n<small>Български</small>
+    </string>
+    <string name="revanced_language_BN">孟加拉语\n<small>বাংলা</small>
+    </string>
+    <string name="revanced_language_CA">加泰隆尼亞語\n<small>Català</small>
+    </string>
+    <string name="revanced_language_CS">捷克語\n<small>Čeština</small>
+    </string>
+    <string name="revanced_language_DA">丹麥語\n<small>Dansk</small>
+    </string>
+    <string name="revanced_language_DE">德語\n<small>Deutsch</small>
+    </string>
     <string name="revanced_language_DEFAULT">應用程式語言</string>
-    <string name="revanced_language_EL">"希臘語
-<small>Ελληνικά</small>"</string>
-    <string name="revanced_language_EN">"英語
-<small>English</small>"</string>
-    <string name="revanced_language_ES">"西班牙語
-<small>Español</small>"</string>
-    <string name="revanced_language_ET">"愛沙尼亞語
-<small>Eesti</small>"</string>
-    <string name="revanced_language_FA">"波斯語
-<small>فارسی</small>"</string>
-    <string name="revanced_language_FI">"芬蘭語
-<small>Suomi</small>"</string>
-    <string name="revanced_language_FR">"法語
-<small>Français</small>"</string>
-    <string name="revanced_language_GA">"愛爾蘭語
-<small>愛爾蘭語</small>"</string>
-    <string name="revanced_language_GU">"古吉拉特語
-<small>ગુજરાતી</small>"</string>
-    <string name="revanced_language_HE">"希伯來語
-<small>עברי</small>"</string>
-    <string name="revanced_language_HI">"印地語
-<small>हिन्दी</small>"</string>
-    <string name="revanced_language_HR">"克羅埃西亞語
-<small>Hrvatski</small>"</string>
-    <string name="revanced_language_HU">"匈牙利語
-<small>Magyar</small>"</string>
-    <string name="revanced_language_ID">"印尼語
-<small>Indonesia</small>"</string>
-    <string name="revanced_language_IT">"義大利語
-<small>Italiano</small>"</string>
-    <string name="revanced_language_JA">"日語
-<small>日本語</small>"</string>
-    <string name="revanced_language_KK">"哈薩克語
-<small>Қазақ тілі</small>"</string>
-    <string name="revanced_language_KO">"韓語
-<small>한국어</small>"</string>
-    <string name="revanced_language_LT">"立陶宛語
-<small>Lietuvių</small>"</string>
-    <string name="revanced_language_LV">"拉脫維亞語
-<small>Latviešu</small>"</string>
-    <string name="revanced_language_MK">"馬其頓語
-<small>Македонски</small>"</string>
-    <string name="revanced_language_MN">"蒙語
-<small>Монгол</small>"</string>
-    <string name="revanced_language_MR">"馬拉地語
-<small>मराठी</small>"</string>
-    <string name="revanced_language_MS">"馬來語
-<small>Melayu</small>"</string>
-    <string name="revanced_language_MY">"緬甸語
-<small>ဗမာ</small>"</string>
-    <string name="revanced_language_NL">"荷蘭語
-<small>Nederlands</small>"</string>
-    <string name="revanced_language_OR">"奧迪亞語
-<small>ଓଡ଼ିଆ</small>"</string>
-    <string name="revanced_language_PA">"旁遮普語
-<small>ਪੰਜਾਬੀ</small>"</string>
-    <string name="revanced_language_PL">"波蘭語
-<small>Polski</small>"</string>
-    <string name="revanced_language_PT">"葡萄牙語
-<small>Português</small>"</string>
-    <string name="revanced_language_RO">"羅馬尼亞語
-<small>Română</small>"</string>
-    <string name="revanced_language_RU">"俄語
-<small>Русский</small>"</string>
-    <string name="revanced_language_SK">"斯洛伐克語
-<small>Slovenčina</small>"</string>
-    <string name="revanced_language_SL">"斯洛維尼亞語
-<small>Slovenščina</small>"</string>
-    <string name="revanced_language_SQ">"阿爾巴尼亞語
-<small>Shqip</small>"</string>
-    <string name="revanced_language_SR">"塞爾維亞語
-<small>Српски</small>"</string>
-    <string name="revanced_language_SV">"瑞典語
-<small>Svenska</small>"</string>
-    <string name="revanced_language_SW">"斯瓦希里語
-<small>Kiswahili</small>"</string>
-    <string name="revanced_language_TA">"泰米爾語
-<small>தமிழ்</small>"</string>
-    <string name="revanced_language_TE">"泰盧固語
-<small>తెలుగు</small>"</string>
-    <string name="revanced_language_TH">"泰語
-<small>ไทย</small>"</string>
-    <string name="revanced_language_TL">"菲律賓語
-<small>菲律賓語</small>"</string>
-    <string name="revanced_language_TR">"土耳其語
-<small>Türkçe</small>"</string>
-    <string name="revanced_language_UK">"烏克蘭語
-<small>Українська</small>"</string>
-    <string name="revanced_language_UR">"烏爾都語
-<small>اردو</small>"</string>
-    <string name="revanced_language_VI">"越南語
-<small>Tiếng Việt</small>"</string>
-    <string name="revanced_language_ZH">"中文
-<small>中文</small>"</string>
+    <string name="revanced_language_EL">希臘語\n<small>Ελληνικά</small>
+    </string>
+    <string name="revanced_language_EN">英語\n<small>English</small>
+    </string>
+    <string name="revanced_language_ES">西班牙語\n<small>Español</small>
+    </string>
+    <string name="revanced_language_ET">愛沙尼亞語\n<small>Eesti</small>
+    </string>
+    <string name="revanced_language_FA">波斯語\n<small>فارسی</small>
+    </string>
+    <string name="revanced_language_FI">芬蘭語\n<small>Suomi</small>
+    </string>
+    <string name="revanced_language_FR">法語\n<small>Français</small>
+    </string>
+    <string name="revanced_language_GA">愛爾蘭語\n<small>愛爾蘭語</small>
+    </string>
+    <string name="revanced_language_GU">古吉拉特語\n<small>ગુજરાતી</small>
+    </string>
+    <string name="revanced_language_HE">希伯來語\n<small>עברי</small>
+    </string>
+    <string name="revanced_language_HI">印地語\n<small>हिन्दी</small>
+    </string>
+    <string name="revanced_language_HR">克羅埃西亞語\n<small>Hrvatski</small>
+    </string>
+    <string name="revanced_language_HU">匈牙利語\n<small>Magyar</small>
+    </string>
+    <string name="revanced_language_ID">印尼語\n<small>Indonesia</small>
+    </string>
+    <string name="revanced_language_IT">義大利語\n<small>Italiano</small>
+    </string>
+    <string name="revanced_language_JA">日語\n<small>日本語</small>
+    </string>
+    <string name="revanced_language_KK">哈薩克語\n<small>Қазақ тілі</small>
+    </string>
+    <string name="revanced_language_KO">韓語\n<small>한국어</small>
+    </string>
+    <string name="revanced_language_LT">立陶宛語\n<small>Lietuvių</small>
+    </string>
+    <string name="revanced_language_LV">拉脫維亞語\n<small>Latviešu</small>
+    </string>
+    <string name="revanced_language_MK">馬其頓語\n<small>Македонски</small>
+    </string>
+    <string name="revanced_language_MN">蒙語\n<small>Монгол</small>
+    </string>
+    <string name="revanced_language_MR">馬拉地語\n<small>मराठी</small>
+    </string>
+    <string name="revanced_language_MS">馬來語\n<small>Melayu</small>
+    </string>
+    <string name="revanced_language_MY">緬甸語\n<small>ဗမာ</small>
+    </string>
+    <string name="revanced_language_NL">荷蘭語\n<small>Nederlands</small>
+    </string>
+    <string name="revanced_language_OR">奧迪亞語\n<small>ଓଡ଼ିଆ</small>
+    </string>
+    <string name="revanced_language_PA">旁遮普語\n<small>ਪੰਜਾਬੀ</small>
+    </string>
+    <string name="revanced_language_PL">波蘭語\n<small>Polski</small>
+    </string>
+    <string name="revanced_language_PT">葡萄牙語\n<small>Português</small>
+    </string>
+    <string name="revanced_language_RO">羅馬尼亞語\n<small>Română</small>
+    </string>
+    <string name="revanced_language_RU">俄語\n<small>Русский</small>
+    </string>
+    <string name="revanced_language_SK">斯洛伐克語\n<small>Slovenčina</small>
+    </string>
+    <string name="revanced_language_SL">斯洛維尼亞語\n<small>Slovenščina</small>
+    </string>
+    <string name="revanced_language_SQ">阿爾巴尼亞語\n<small>Shqip</small>
+    </string>
+    <string name="revanced_language_SR">塞爾維亞語\n<small>Српски</small>
+    </string>
+    <string name="revanced_language_SV">瑞典語\n<small>Svenska</small>
+    </string>
+    <string name="revanced_language_SW">斯瓦希里語\n<small>Kiswahili</small>
+    </string>
+    <string name="revanced_language_TA">泰米爾語\n<small>தமிழ்</small>
+    </string>
+    <string name="revanced_language_TE">泰盧固語\n<small>తెలుగు</small>
+    </string>
+    <string name="revanced_language_TH">泰語\n<small>ไทย</small>
+    </string>
+    <string name="revanced_language_TL">菲律賓語\n<small>菲律賓語</small>
+    </string>
+    <string name="revanced_language_TR">土耳其語\n<small>Türkçe</small>
+    </string>
+    <string name="revanced_language_UK">烏克蘭語\n<small>Українська</small>
+    </string>
+    <string name="revanced_language_UR">烏爾都語\n<small>اردو</small>
+    </string>
+    <string name="revanced_language_VI">越南語\n<small>Tiếng Việt</small>
+    </string>
+    <string name="revanced_language_ZH">中文\n<small>中文</small>
+    </string>
     <string name="revanced_language_title">ReVanced 語言</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">已停用輕觸兩下動作和雙指撥動調整大小</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"已啟用輕觸兩下動作和雙指撥動調整大小
@@ -2087,8 +2099,6 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sanitize_comments_category_bar_summary_off">類別按鈕會顯示在評論類別欄中</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">除了「頂」和「最新」之外，類別按鈕會隱藏在評論類別欄中</string>
     <string name="revanced_sanitize_comments_category_bar_title">清理類別欄</string>
-    <string name="revanced_sanitize_sharing_links_summary">已從分享連結中移除追蹤查詢參數</string>
-    <string name="revanced_sanitize_sharing_links_title">清理分享連結</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"像這樣的短語 '#', 'Shop' 和 'N products' 被顯示在影片字幕中。"</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"像這樣的短語 '#', 'Shop' 和 'N products' 被隱藏在影片字幕中。"</string>
     <string name="revanced_sanitize_video_subtitle_title">清理影片字幕</string>
@@ -2180,6 +2190,13 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">所選擇的時間無效</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">手動編輯片段的時間</string>
     <string name="revanced_sb_new_segment_forward">按指定時間向前跳轉（預設：150毫秒）</string>
+    <string name="revanced_sb_new_segment_highlight_content">"高光時段是否正確？
+
+%s
+
+如果您未提交高光片段，請點擊「取消」並標記第二個位置。"</string>
+    <string name="revanced_sb_new_segment_highlight_submit">提交高光片段</string>
+    <string name="revanced_sb_new_segment_highlight_title">提交重點</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">將 %s 設定為新片段的開頭或結尾？</string>
     <string name="revanced_sb_new_segment_mark_end">結束</string>
     <string name="revanced_sb_new_segment_mark_locations_first">首先在時間軸上標記一個位置</string>

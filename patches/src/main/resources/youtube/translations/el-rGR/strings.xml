@@ -41,6 +41,8 @@
     <string name="morphe_reload_video_summary_off">Δεν εμφανίζεται το κουμπί επανεξέτασης βίντεο</string>
     <string name="morphe_reload_video_summary_on">Εμφανίζεται το κουμπί επανεξέτασης βίντεο</string>
     <string name="morphe_reload_video_title">Εμφάνιση κουμπιού επανεξέτασης βίντεο</string>
+    <string name="morphe_replace_links_with_shortener_summary">Επιβάλλει στις ζωντανές ροές και στα Shorts να χρησιμοποιούν τη συντομευμένη μορφή URL youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_title">Αλλαγή συνδέσμων κοινοποίησης σε youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Αλλαγή συνδέσμων κοινοποίησης σε youtube.com</string>
@@ -770,6 +772,13 @@ Playlists
     <string name="revanced_hide_comments_by_members_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_comments_by_members_summary_on">Κρυμμένη.</string>
     <string name="revanced_hide_comments_by_members_title">Ετικέτα «Σχόλια από μέλη»</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">Εισαγάγετε τα ονόματα της καρουσέλας σχολίων για να φιλτράρετε, χωρισμένα με νέες γραμμές</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">Φίλτρο περιστροφικού καρουζέλ σχολίων</string>
+    <string name="revanced_hide_comments_carousel_title">Ενεργοποίηση φίλτρου περιφοράς σχολίων</string>
+    <string name="revanced_hide_comments_carousel_user_dialog_message">"Σημείωση:
+• Βεβαιωθείτε ότι καταχωρείτε το ακριβές όνομα του στοιχείου του καρουζέλ (π.χ. Ρώτα, Δημιούργησε δημοσίευση, Άκουσε στο YouTube Music, κ.λπ.).
+• Η απόκρυψη στοιχείων του καρουζέλ ενδέχεται να έχει ακούσιες συνέπειες.
+• Εάν όλα τα στοιχεία του καρουζέλ είναι κρυμμένα, θα κρυφτεί και ολόκληρο το τμήμα των σχολίων."</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Εμφανίζεται</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Κρυμμένο</string>
     <string name="revanced_hide_comments_create_a_short_button_title">Κουμπί «Δημιουργία Short»</string>
@@ -826,8 +835,11 @@ Playlists
     <string name="revanced_hide_end_screen_suggested_video_summary_off">Εμφανίζεται</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_on">Διαφύγεται προτεινόμενο βίντεο στο τέλος οθόνης</string>
     <string name="revanced_hide_end_screen_suggested_video_title">Προτεινόμενο βίντεο τελικής οθόνης</string>
-    <string name="revanced_hide_expandable_card_summary_off">Εμφανίζεται</string>
-    <string name="revanced_hide_expandable_card_summary_on">Κρυμμένο</string>
+    <string name="revanced_hide_expandable_card_entry_1">Προβολή όλων</string>
+    <string name="revanced_hide_expandable_card_entry_2">Απόκρυψη μόνο της κάρτας προϊόντος</string>
+    <string name="revanced_hide_expandable_card_entry_3">Απόκρυψη μόνο της καρτέλας περίληψης</string>
+    <string name="revanced_hide_expandable_card_entry_4">Απόκρυψη καρτών προϊόντος και περίληψης</string>
+    <string name="revanced_hide_expandable_card_entry_5">Απόκρυψη όλων</string>
     <string name="revanced_hide_expandable_card_title">Επεκτάσιμες κάρτες κάτω από τα βίντεο</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Κρυμμένες.</string>
@@ -1560,121 +1572,121 @@ Playlists
     <string name="revanced_keep_landscape_mode_timeout_summary">Ο αριθμός των χιλιοστών του δευτερολέπτου που θα εξαναγκάζεται η οριζόντια λειτουργία μετά την ενεργοποίηση της οθόνης.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Χρονικό όριο οριζόντιας λειτουργίας</string>
     <string name="revanced_keep_landscape_mode_title">Διατήρηση οριζόντιας λειτουργίας</string>
-    <string name="revanced_language_AM">"Αμχαρικά
-<small>አማርኛ</small>"</string>
-    <string name="revanced_language_AR">"Αραβικά
-<small>العربية</small>"</string>
-    <string name="revanced_language_AZ">"Αζερικά
-<small>Azərbaycan</small>"</string>
-    <string name="revanced_language_BE">"Λευκορωσική
-<small>беларуская</small>"</string>
-    <string name="revanced_language_BG">"Βουλγαρικά
-<small>Български</small>"</string>
-    <string name="revanced_language_BN">"Βεγγαλικά
-<small>বাংলা</small>"</string>
-    <string name="revanced_language_CA">"Καταλανικά
-<small>Català</small>"</string>
-    <string name="revanced_language_CS">"Τσέχικα
-<small>Čeština</small>"</string>
-    <string name="revanced_language_DA">"Δανέζικα
-<small>Dansk</small>"</string>
-    <string name="revanced_language_DE">"Γερμανικά
-<small>Deutsch</small>"</string>
+    <string name="revanced_language_AM">Αμχαρικά\n<small>አማርኛ</small>
+    </string>
+    <string name="revanced_language_AR">Αραβικά\n<small>العربية</small>
+    </string>
+    <string name="revanced_language_AZ">Αζερικά\n<small>Azərbaycan</small>
+    </string>
+    <string name="revanced_language_BE">Λευκορωσική\n<small>беларуская</small>
+    </string>
+    <string name="revanced_language_BG">Βουλγαρικά\n<small>Български</small>
+    </string>
+    <string name="revanced_language_BN">Βεγγαλικά\n<small>বাংলা</small>
+    </string>
+    <string name="revanced_language_CA">Καταλανικά\n<small>Català</small>
+    </string>
+    <string name="revanced_language_CS">Τσέχικα\n<small>Čeština</small>
+    </string>
+    <string name="revanced_language_DA">Δανέζικα\n<small>Dansk</small>
+    </string>
+    <string name="revanced_language_DE">Γερμανικά\n<small>Deutsch</small>
+    </string>
     <string name="revanced_language_DEFAULT">Γλώσσα εφαρμογής</string>
-    <string name="revanced_language_EL">"Ελληνικά
-<small>Ελληνικά</small>"</string>
-    <string name="revanced_language_EN">"Αγγλικά
-<small>English</small>"</string>
-    <string name="revanced_language_ES">"Ισπανικά
-<small>Español</small>"</string>
-    <string name="revanced_language_ET">"Εσθονικά
-<small>Eesti</small>"</string>
-    <string name="revanced_language_FA">"Περσικά
-<small>فارسی</small>"</string>
-    <string name="revanced_language_FI">"Φινλανδικά
-<small>Suomi</small>"</string>
-    <string name="revanced_language_FR">"Γαλλικά
-<small>Français</small>"</string>
-    <string name="revanced_language_GA">"Ιρλανδικά
-<small>Ιρλανδικά</small>"</string>
-    <string name="revanced_language_GU">"Γκουτζαρατί
-<small>ગુજરાતી</small>"</string>
-    <string name="revanced_language_HE">"Εβραϊκά
-<small>עברי</small>"</string>
-    <string name="revanced_language_HI">"Ινδικά
-<small>हिन्दी</small>"</string>
-    <string name="revanced_language_HR">"Κροατικά
-<small>Hrvatski</small>"</string>
-    <string name="revanced_language_HU">"Ουγγρικά
-<small>Magyar</small>"</string>
-    <string name="revanced_language_ID">"Ινδονησιακά
-<small>Indonesia</small>"</string>
-    <string name="revanced_language_IT">"Ιταλικά
-<small>Italiano</small>"</string>
-    <string name="revanced_language_JA">"Ιαπωνικά
-<small>日本語</small>"</string>
-    <string name="revanced_language_KK">"Καζακική
-<small>Қазақ тілі</small>"</string>
-    <string name="revanced_language_KO">"Κορεατική
-<small>한국어</small>"</string>
-    <string name="revanced_language_LT">"Λιθουανικά
-<small>Lietuvių</small>"</string>
-    <string name="revanced_language_LV">"Λετονικά
-<small>Latviešu</small>"</string>
-    <string name="revanced_language_MK">"Βορειομακεδονικά
-<small>Македонски</small>"</string>
-    <string name="revanced_language_MN">"Μογγολικά
-<small>Монгол</small>"</string>
-    <string name="revanced_language_MR">"Μαράτι
-<small>मराठी</small>"</string>
-    <string name="revanced_language_MS">"Μαλαϊκά
-<small>Melayu</small>"</string>
-    <string name="revanced_language_MY">"Βιρμανικά
-<small>ဗမာ</small>"</string>
-    <string name="revanced_language_NL">"Ολλανδικά
-<small>Nederlands</small>"</string>
-    <string name="revanced_language_OR">"Οντία
-<small>ଓଡ଼ିଆ</small>"</string>
-    <string name="revanced_language_PA">"Παντζαμικά
-<small>ਪੰਜਾਬੀ</small>"</string>
-    <string name="revanced_language_PL">"Πολωνικά
-<small>Polski</small>"</string>
-    <string name="revanced_language_PT">"Πορτογαλικά
-<small>Português</small>"</string>
-    <string name="revanced_language_RO">"Ρουμανικά
-<small>Română</small>"</string>
-    <string name="revanced_language_RU">"Ρωσικά
-<small>Русский</small>"</string>
-    <string name="revanced_language_SK">"Σλοβακικά
-<small>Slovenčina</small>"</string>
-    <string name="revanced_language_SL">"Σλοβενικά
-<small>Slovenščina</small>"</string>
-    <string name="revanced_language_SQ">"Αλβανικά
-<small>Shqip</small>"</string>
-    <string name="revanced_language_SR">"Σερβικά
-<small>Српски</small>"</string>
-    <string name="revanced_language_SV">"Σουηδικά
-<small>Svenska</small>"</string>
-    <string name="revanced_language_SW">"Σουαχίλι
-<small>Kiswahili</small>"</string>
-    <string name="revanced_language_TA">"Ταμίλ
-<small>தமிழ்</small>"</string>
-    <string name="revanced_language_TE">"Τελούγκου
-<small>తెలుగు</small>"</string>
-    <string name="revanced_language_TH">"Ταϊλανδέζικα
-<small>ไทย</small>"</string>
-    <string name="revanced_language_TL">"Φιλιππινέζικα
-<small>Φιλιππινέζικα</small>"</string>
-    <string name="revanced_language_TR">"Τουρκικά
-<small>Türkçe</small>"</string>
-    <string name="revanced_language_UK">"Ουκρανικά
-<small>Українська</small>"</string>
-    <string name="revanced_language_UR">"Ουρντού
-<small>اردو</small>"</string>
-    <string name="revanced_language_VI">"Βιετναμέζικα
-<small>Tiếng Việt</small>"</string>
-    <string name="revanced_language_ZH">"Κινέζικα
-<small>中文</small>"</string>
+    <string name="revanced_language_EL">Ελληνικά\n<small>Ελληνικά</small>
+    </string>
+    <string name="revanced_language_EN">Αγγλικά\n<small>English</small>
+    </string>
+    <string name="revanced_language_ES">Ισπανικά\n<small>Español</small>
+    </string>
+    <string name="revanced_language_ET">Εσθονικά\n<small>Eesti</small>
+    </string>
+    <string name="revanced_language_FA">Περσικά\n<small>فارسی</small>
+    </string>
+    <string name="revanced_language_FI">Φινλανδικά\n<small>Suomi</small>
+    </string>
+    <string name="revanced_language_FR">Γαλλικά\n<small>Français</small>
+    </string>
+    <string name="revanced_language_GA">Ιρλανδικά\n<small>Ιρλανδικά</small>
+    </string>
+    <string name="revanced_language_GU">Γκουτζαρατί\n<small>ગુજરાતી</small>
+    </string>
+    <string name="revanced_language_HE">Εβραϊκά\n<small>עברי</small>
+    </string>
+    <string name="revanced_language_HI">Ινδικά\n<small>हिन्दी</small>
+    </string>
+    <string name="revanced_language_HR">Κροατικά\n<small>Hrvatski</small>
+    </string>
+    <string name="revanced_language_HU">Ουγγρικά\n<small>Magyar</small>
+    </string>
+    <string name="revanced_language_ID">Ινδονησιακά\n<small>Indonesia</small>
+    </string>
+    <string name="revanced_language_IT">Ιταλικά\n<small>Italiano</small>
+    </string>
+    <string name="revanced_language_JA">Ιαπωνικά\n<small>日本語</small>
+    </string>
+    <string name="revanced_language_KK">Καζακική\n<small>Қазақ тілі</small>
+    </string>
+    <string name="revanced_language_KO">Κορεατική\n<small>한국어</small>
+    </string>
+    <string name="revanced_language_LT">Λιθουανικά\n<small>Lietuvių</small>
+    </string>
+    <string name="revanced_language_LV">Λετονικά\n<small>Latviešu</small>
+    </string>
+    <string name="revanced_language_MK">Βορειομακεδονικά\n<small>Македонски</small>
+    </string>
+    <string name="revanced_language_MN">Μογγολικά\n<small>Монгол</small>
+    </string>
+    <string name="revanced_language_MR">Μαράτι\n<small>मराठी</small>
+    </string>
+    <string name="revanced_language_MS">Μαλαϊκά\n<small>Melayu</small>
+    </string>
+    <string name="revanced_language_MY">Βιρμανικά\n<small>ဗမာ</small>
+    </string>
+    <string name="revanced_language_NL">Ολλανδικά\n<small>Nederlands</small>
+    </string>
+    <string name="revanced_language_OR">Οντία\n<small>ଓଡ଼ିଆ</small>
+    </string>
+    <string name="revanced_language_PA">Παντζαμικά\n<small>ਪੰਜਾਬੀ</small>
+    </string>
+    <string name="revanced_language_PL">Πολωνικά\n<small>Polski</small>
+    </string>
+    <string name="revanced_language_PT">Πορτογαλικά\n<small>Português</small>
+    </string>
+    <string name="revanced_language_RO">Ρουμανικά\n<small>Română</small>
+    </string>
+    <string name="revanced_language_RU">Ρωσικά\n<small>Русский</small>
+    </string>
+    <string name="revanced_language_SK">Σλοβακικά\n<small>Slovenčina</small>
+    </string>
+    <string name="revanced_language_SL">Σλοβενικά\n<small>Slovenščina</small>
+    </string>
+    <string name="revanced_language_SQ">Αλβανικά\n<small>Shqip</small>
+    </string>
+    <string name="revanced_language_SR">Σερβικά\n<small>Српски</small>
+    </string>
+    <string name="revanced_language_SV">Σουηδικά\n<small>Svenska</small>
+    </string>
+    <string name="revanced_language_SW">Σουαχίλι\n<small>Kiswahili</small>
+    </string>
+    <string name="revanced_language_TA">Ταμίλ\n<small>தமிழ்</small>
+    </string>
+    <string name="revanced_language_TE">Τελούγκου\n<small>తెలుగు</small>
+    </string>
+    <string name="revanced_language_TH">Ταϊλανδέζικα\n<small>ไทย</small>
+    </string>
+    <string name="revanced_language_TL">Φιλιππινέζικα\n<small>Φιλιππινέζικα</small>
+    </string>
+    <string name="revanced_language_TR">Τουρκικά\n<small>Türkçe</small>
+    </string>
+    <string name="revanced_language_UK">Ουκρανικά\n<small>Українська</small>
+    </string>
+    <string name="revanced_language_UR">Ουρντού\n<small>اردو</small>
+    </string>
+    <string name="revanced_language_VI">Βιετναμέζικα\n<small>Tiếng Việt</small>
+    </string>
+    <string name="revanced_language_ZH">Κινέζικα\n<small>中文</small>
+    </string>
     <string name="revanced_language_title">Γλώσσα ρυθμίσεων ReVanced</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Η λειτουργία διπλού πατήματος και τσιμπήματος για αλλαγή μεγέθους είναι απενεργοποιημένη</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Η λειτουργία διπλού πατήματος και τσιμπήματος για αλλαγή μεγέθους είναι ενεργοποιημένη
@@ -2089,8 +2101,6 @@ Playlists
     <string name="revanced_sanitize_comments_category_bar_summary_off">Τα κουμπιά κατηγοριών εμφανίζονται στη γραμμή κατηγοριών σχολίων</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">Τα κουμπιά κατηγοριών εκτός από \'Κορυφή\' και \'Νεότερες\' είναι κρυμμένα στη γραμμή κατηγοριών σχολίων</string>
     <string name="revanced_sanitize_comments_category_bar_title">Καθαρισμός γραμμής κατηγοριών</string>
-    <string name="revanced_sanitize_sharing_links_summary">Οι παράμετροι παρακολούθησης αφαιρούνται από τους συνδέσμους κατά την κοινοποίηση</string>
-    <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κατά την κοινοποίηση</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Φράσεις όπως «#», «Έρανος», «Κατάστημα» και «N προϊόντα» εμφανίζονται στους υπότιτλους των βίντεο."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Φράσεις όπως «#», «Έρανος», «Κατάστημα» και «προϊόντα» είναι κρυμμένες από τους υπότιτλους των βίντεο."</string>
     <string name="revanced_sanitize_video_subtitle_title">Καθάρισμα υπότιτλων βίντεο</string>
@@ -2180,6 +2190,13 @@ Playlists
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Δόθηκε μη έγκυρος χρόνος</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Επεξεργασία χρονισμού του τμήματος χειροκίνητα</string>
     <string name="revanced_sb_new_segment_forward">Προώθηση κατά καθορισμένο χρόνο (Προεπιλογή: 150ms)</string>
+    <string name="revanced_sb_new_segment_highlight_content">"Είναι σωστή η ώρα επισήμανσης;
+
+%s
+
+Αν δεν υποβάλλετε μια επισήμανση, πατήστε Ακύρωση και σημειώστε τη δεύτερη τοποθεσία"</string>
+    <string name="revanced_sb_new_segment_highlight_submit">Υποβολή επισήμανσης</string>
+    <string name="revanced_sb_new_segment_highlight_title">Υποβολή επισήμανσης</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">Ορισμός %s ως αρχή ή τέλος ενός νέου τμήματος;</string>
     <string name="revanced_sb_new_segment_mark_end">Τέλος</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Πρώτα, επιλέξτε μια θέση στη χρονογραμμή</string>

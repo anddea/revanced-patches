@@ -39,6 +39,8 @@
     <string name="morphe_reload_video_summary_off">Не се показва бутонът за презареждане на видеото</string>
     <string name="morphe_reload_video_summary_on">Показва се бутонът за презареждане на видеото</string>
     <string name="morphe_reload_video_title">Покажи бутона за презареждане на видеото</string>
+    <string name="morphe_replace_links_with_shortener_summary">Принуждава потоците на живо и Shorts да използват съкратения URL формат youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_title">Сменете споделяните връзки на youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Споделяните връзки използват music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Споделяните връзки използват youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Сменете споделяните връзки на youtube.com</string>
@@ -584,6 +586,13 @@
     <string name="revanced_hide_comments_by_members_summary_off">Банера за коментари от членове се показва.</string>
     <string name="revanced_hide_comments_by_members_summary_on">Банера за коментари от членове е скрит.</string>
     <string name="revanced_hide_comments_by_members_title">Скриване на банер за коментари от членове</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">Въведете имената на каруселите с коментари, за да филтрирате, разделени с нови редове</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">Активиране на филтър за кръгли прегледи на коментари</string>
+    <string name="revanced_hide_comments_carousel_title">Активиране на филтър за кръгли прегледи на коментари</string>
+    <string name="revanced_hide_comments_carousel_user_dialog_message">"Забележка:
+• Уверете се, че въвеждате точното име на елемента на карусела (напр. Попитай, Харесай това видео, Слушай в YouTube Music и т.н.).
+• Скриването на елементи от карусела може да има непредвидени странични ефекти.
+• Ако всички елементи от карусела са скрити, цялата секция с коментари също ще бъде скрита."</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Бутона \'Създай краток видеоклип\' е показан</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Бутона \'Създай краток видеоклип\' е скрит</string>
     <string name="revanced_hide_comments_create_a_short_button_title">Скрийте или покажете бутона \'Създай краток видеоклип\'</string>
@@ -632,8 +641,11 @@
     <string name="revanced_hide_end_screen_suggested_video_summary_off">Скрий дублиране на видеа</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_on">Скрития препоръчваната видеоклип на крайния екран</string>
     <string name="revanced_hide_end_screen_suggested_video_title">Дублирането на видеа е скрито</string>
-    <string name="revanced_hide_expandable_card_summary_off">Разгъсващ се кардинал под видеата е показан</string>
-    <string name="revanced_hide_expandable_card_summary_on">Разгъсващ се кардинал под видеата е скрит</string>
+    <string name="revanced_hide_expandable_card_entry_1">Покажи всички</string>
+    <string name="revanced_hide_expandable_card_entry_2">Скрий само картата на продукта</string>
+    <string name="revanced_hide_expandable_card_entry_3">Скрий само картата с резюме</string>
+    <string name="revanced_hide_expandable_card_entry_4">Скрий картата на продукта и картата с резюме</string>
+    <string name="revanced_hide_expandable_card_entry_5">Скрий всичко</string>
     <string name="revanced_hide_expandable_card_title">Разширяеми карти под видеата</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Показват се разширяеми секции.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Разширяващите се секции са скрити.</string>
@@ -1623,8 +1635,6 @@
     <string name="revanced_sanitize_comments_category_bar_summary_off">Бутоните с категории са показани в лентата с категории на коментарите</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">Бутоните с категории, с изключение на \'Най-горе\' и \'Най-нови\', са скрити в лентата с категории на коментарите</string>
     <string name="revanced_sanitize_comments_category_bar_title">Почистване на лентата с категории</string>
-    <string name="revanced_sanitize_sharing_links_summary">Премахва параметрите за проследяване на заявките от споделени връзки</string>
-    <string name="revanced_sanitize_sharing_links_title">Почистване на споделените връзки</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Фрази като „#“, „Набиране на средства“, „Пазаруване“ и „продукти“ бяха показани от субтитрите на видеоклипа."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Фрази като „#“, „Набиране на средства“, „Пазаруване“ и „продукти“ бяха скрити от субтитрите на видеоклипа."</string>
     <string name="revanced_sanitize_video_subtitle_title">Филтриране на фрази в субтитрите</string>
@@ -1710,6 +1720,13 @@
     <string name="revanced_sb_new_segment_edit_by_hand_content">Искате ли да редактирате времето за началото или края на сегмента?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Невалидно време е въведено</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Редактирайте времето на сегмента ръчно</string>
+    <string name="revanced_sb_new_segment_highlight_content">"Вярно ли е времето на отметката?
+
+%s
+
+Ако не изпращате отметка, натиснете \"Отказ\" и маркирайте втората локация."</string>
+    <string name="revanced_sb_new_segment_highlight_submit">Изпрати отметка</string>
+    <string name="revanced_sb_new_segment_highlight_title">Изпращане на акцент</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">Задаване на %s като начало или край на нов раздел?</string>
     <string name="revanced_sb_new_segment_mark_end">Край</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Първо маркирайте място на времевата лента</string>

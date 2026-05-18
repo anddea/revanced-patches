@@ -41,6 +41,8 @@
     <string name="morphe_reload_video_summary_off">Кнопка перезавантаження відео не показується</string>
     <string name="morphe_reload_video_summary_on">Кнопка перезавантаження відео показується</string>
     <string name="morphe_reload_video_title">Кнопка перезавантаження відео</string>
+    <string name="morphe_replace_links_with_shortener_summary">Примусово використовує скорочений формат URL youtu.be для прямих трансляцій та Shorts</string>
+    <string name="morphe_replace_links_with_shortener_title">Змінити посилання для поширення на youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Під час поширення посилань використовується music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Під час поширення посилань використовується youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Змінити посилання для поширення на youtube.com</string>
@@ -64,7 +66,7 @@
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Увімкнення цього налаштування може призвести до використання програмного декодування AV1.
 
 Відтворення відео з AV1 може заїкатися або мати пропуски кадрів."</string>
-    <string name="morphe_spoof_video_streams_client_type_title">Клієнт за замовчуванням</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Типовий клієнт</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Оновлення JavaScript плеєра увімкнено</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Оновлення JavaScript плеєра вимкнено
 
@@ -80,7 +82,7 @@
     <string name="morphe_spoof_video_streams_screen_summary">Налаштування підміни клієнта для запобігання проблемам з відтворенням</string>
     <string name="morphe_spoof_video_streams_screen_title">Підміна відеопотоків</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Ви не ввійшли в Android VR. Натисніть тут, щоб увійти</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Щоб використовувати цю функцію, змініть \"Клієнт за замовчуванням\" на Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Щоб використовувати цю функцію, змініть \"Типовий клієнт\" на Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Наразі ви ввійшли в Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR з входом</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Код активації: %s
@@ -100,9 +102,9 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Увійти в Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Автентифікацію збережено
 
-• Ваші налаштування Morphe не імпортуватимуть/експортуватимуть автентифікацію Android VR
-• Якщо цей застосунок не використовуватиметься протягом 6 місяців, Google видалить цю автентифікацію
-• Вам потрібно буде знову ввійти, якщо ви зміните пароль Google або скасуєте реєстрацію цього пристрою в налаштуваннях Google"</string>
+• Налаштування Morphe не імпортують/експортують автентифікацію Android VR
+• Якщо застосунок не використовується 6 місяців, Google видалить цю автентифікацію
+• Вам потрібно буде увійти знову, якщо ви зміните пароль Google або скасуєте реєстрацію цього пристрою в налаштуваннях Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Вхід виконано успішно</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Не вдалося створити код активації</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Не вдалося створити токен автентифікації</string>
@@ -260,11 +262,11 @@
     <string name="revanced_copy">Скопіювати</string>
     <string name="revanced_copy_error">Не вдалось скопіювати текст</string>
     <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляху компонента для фільтрації, кожен з нового рядка</string>
-    <string name="revanced_custom_filter_strings_title">Користувацький фільтр</string>
+    <string name="revanced_custom_filter_strings_title">Власний фільтр</string>
     <string name="revanced_custom_filter_summary_off">Користувацький фільтр вимкнено</string>
     <string name="revanced_custom_filter_summary_on">Користувацький фільтр увімкнено</string>
-    <string name="revanced_custom_filter_title">Увімкнути користувацький фільтр</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">Недійсний фільтр: %s</string>
+    <string name="revanced_custom_filter_title">Увімкнути власний фільтр</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Недійсний власний фільтр: %s</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Специфічне (Застаріле)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">Специфічне (Новітнє)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">Специфічне (Без теми)</string>
@@ -272,10 +274,10 @@
     <string name="revanced_custom_playback_speed_menu_type_summary_off">Використовується новітня панель знизу.</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_on">Використовується специфічний діалог.</string>
     <string name="revanced_custom_playback_speed_menu_type_title">Тип меню користувацької швидкості відтворення</string>
-    <string name="revanced_custom_playback_speeds_invalid">Користувацькі швидкості відтворення повинні бути меншими за %s</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">Неправильні користувацькі швидкості відтворення</string>
+    <string name="revanced_custom_playback_speeds_invalid">Власні швидкості відтворення повинні бути меншими за %s</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Неправильні власні швидкості відтворення</string>
     <string name="revanced_custom_playback_speeds_summary">Введіть бажане значення швидкості відтворення</string>
-    <string name="revanced_custom_playback_speeds_title">Користувацькі швидкості відтворення</string>
+    <string name="revanced_custom_playback_speeds_title">Власні швидкості відтворення</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Непрозорість затемнення плеєра має бути в межах 0-100.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Значення непрозорості в межах 0-100, де 0 це прозорий</string>
     <string name="revanced_custom_player_overlay_opacity_title">Користувацька непрозорість затемнення плеєра</string>
@@ -618,7 +620,7 @@
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">Виправити жест керування швидкістю натисканням і утриманням</string>
     <string name="revanced_fix_transcript_summary_off">Транскрипт може бути недоступним через невдалу перевірку передумови</string>
     <string name="revanced_fix_transcript_summary_on">Транскрипт доступний</string>
-    <string name="revanced_fix_transcript_title">Виправити транскрипт</string>
+    <string name="revanced_fix_transcript_title">Виправити транскрипцію</string>
     <string name="revanced_fullscreen_ads_closed_toast">Повноекранну рекламу закрито.</string>
     <string name="revanced_gemini_cancelled">Скасовано</string>
     <string name="revanced_gemini_copy_success">Підсумок скопійовано в буфер обміну.</string>
@@ -771,6 +773,13 @@
     <string name="revanced_hide_comments_by_members_summary_off">Банер \'Коментарі спонсорів\' показується.</string>
     <string name="revanced_hide_comments_by_members_summary_on">Банер \'Коментарі спонсорів\' приховано.</string>
     <string name="revanced_hide_comments_by_members_title">Приховати банер \'Коментарі спонсорів\'</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">Введіть назви елементів каруселі коментарів, які потрібно приховати, кожну з нового рядка</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">Фільтр каруселі коментарів</string>
+    <string name="revanced_hide_comments_carousel_title">Увімкнути фільтр каруселі коментарів</string>
+    <string name="revanced_hide_comments_carousel_user_dialog_message">"Примітка:
+• Обов’язково введіть точну назву елемента каруселі (наприклад, Запитати, Розрекламувати це відео, Слухати на YouTube Music тощо).
+• Приховування елементів каруселі може мати небажані побічні ефекти.
+• Якщо всі елементи каруселі приховані, весь розділ коментарів також буде прихований."</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка \"Створити Short\" показується</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопку \"Створити Short\" приховано</string>
     <string name="revanced_hide_comments_create_a_short_button_title">Приховати кнопку \"Створити Short\"</string>
@@ -793,7 +802,7 @@
     <string name="revanced_hide_comments_section_title">Приховати секцію коментарів</string>
     <string name="revanced_hide_comments_thanks_button_summary_off">Кнопка \"Дякую\" показується</string>
     <string name="revanced_hide_comments_thanks_button_summary_on">Кнопку \"Дякую\" приховано</string>
-    <string name="revanced_hide_comments_thanks_button_title">Приховати \"Дякую\"</string>
+    <string name="revanced_hide_comments_thanks_button_title">Приховати кнопку \"Дякую\"</string>
     <string name="revanced_hide_community_button_summary_off">Кнопка \"Спільнота\" показується</string>
     <string name="revanced_hide_community_button_summary_on">Кнопку \"Спільнота\" приховано</string>
     <string name="revanced_hide_community_button_title">Приховати кнопку \"Спільнота\"</string>
@@ -827,9 +836,12 @@
     <string name="revanced_hide_end_screen_suggested_video_summary_off">Рекомендоване відео наприкінці перегляду показується</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_on">Рекомендоване відео наприкінці перегляду приховано</string>
     <string name="revanced_hide_end_screen_suggested_video_title">Приховати рекомендоване відео наприкінці перегляду</string>
-    <string name="revanced_hide_expandable_card_summary_off">Розширювана картка під відео показується</string>
-    <string name="revanced_hide_expandable_card_summary_on">Розширювану картку під відео приховано</string>
-    <string name="revanced_hide_expandable_card_title">Картки, які можна розгорнути під відео</string>
+    <string name="revanced_hide_expandable_card_entry_1">Показати всі</string>
+    <string name="revanced_hide_expandable_card_entry_2">Приховати лише картку товару</string>
+    <string name="revanced_hide_expandable_card_entry_3">Приховати лише картку підсумку</string>
+    <string name="revanced_hide_expandable_card_entry_4">Приховати картки товару та підсумку</string>
+    <string name="revanced_hide_expandable_card_entry_5">Приховати всі</string>
+    <string name="revanced_hide_expandable_card_title">Розгортувані картки під відео</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Висувні полиці показується.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Висувні полиці приховано.</string>
     <string name="revanced_hide_expandable_shelf_title">Приховати висувні полиці</string>
@@ -906,7 +918,7 @@
     <string name="revanced_hide_join_button_in_channel_page_title">Приховати кнопку Спонсорувати</string>
     <string name="revanced_hide_join_button_summary_off">Кнопка \"Підписатися +\" показується</string>
     <string name="revanced_hide_join_button_summary_on">Кнопку \"Підписатися +\" приховано</string>
-    <string name="revanced_hide_join_button_title">Приховати \"Підписатися +\"</string>
+    <string name="revanced_hide_join_button_title">Приховати кнопку \"Підписатися +\"</string>
     <string name="revanced_hide_key_concepts_section_summary_off">Секція \"Основні поняття\" показується</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Секцію \"Основні поняття\" приховано</string>
     <string name="revanced_hide_key_concepts_section_title">Приховати секцію \"Основні поняття\"</string>
@@ -946,7 +958,7 @@
     <string name="revanced_hide_latest_posts_title">Приховати останні публікації</string>
     <string name="revanced_hide_latest_videos_button_summary_off">Кнопка \"Найновіші відео\" показується</string>
     <string name="revanced_hide_latest_videos_button_summary_on">Кнопку \"Найновіші відео\" приховано</string>
-    <string name="revanced_hide_latest_videos_button_title">Приховати кнопку \"Найновіші відео\"</string>
+    <string name="revanced_hide_latest_videos_button_title">Приховати кнопку \"Останні відео\"</string>
     <string name="revanced_hide_like_dislike_button_summary_off">Кнопки \"Лайк\" та \"Дизлайк\" показуються</string>
     <string name="revanced_hide_like_dislike_button_summary_on">Кнопки \"Лайк\" та \"Дизлайк\" приховано</string>
     <string name="revanced_hide_like_dislike_button_title">Приховати кнопки \"Лайк\" і \"Дизлайк\"</string>
@@ -1006,7 +1018,7 @@
     <string name="revanced_hide_paid_promotion_label_title">Приховати \"Містить пряму рекламу\"</string>
     <string name="revanced_hide_playables_summary_off">Розділ \"ігрові елементи\" показується</string>
     <string name="revanced_hide_playables_summary_on">Розділ \"ігрові елементи\" приховано</string>
-    <string name="revanced_hide_playables_title">Приховати \"ігрові елементи\"</string>
+    <string name="revanced_hide_playables_title">Приховати \"Ігрову кімнату\"</string>
     <string name="revanced_hide_player_autoplay_button_summary_off">Кнопку автовідтворення показується.</string>
     <string name="revanced_hide_player_autoplay_button_summary_on">Кнопку автовідтворення приховано.</string>
     <string name="revanced_hide_player_autoplay_button_title">Приховати кнопку автовідтворення</string>
@@ -1137,7 +1149,7 @@
     <string name="revanced_hide_quick_actions_save_to_playlist_button_title">Приховати кнопку Зберегти в списку відтворення</string>
     <string name="revanced_hide_quick_actions_share_button_summary_off">Кнопку Поділитися показується.</string>
     <string name="revanced_hide_quick_actions_share_button_summary_on">Кнопку Поділитися приховано.</string>
-    <string name="revanced_hide_quick_actions_share_button_title">Приховати \"Поділитися\"</string>
+    <string name="revanced_hide_quick_actions_share_button_title">Приховати кнопку \"Поділитися\"</string>
     <string name="revanced_hide_quick_actions_summary_off">Швидкі дії в повноекранному режимі показуються</string>
     <string name="revanced_hide_quick_actions_summary_on">Швидкі дії в повноекранному режимі приховано</string>
     <string name="revanced_hide_quick_actions_title">Приховати панель дій</string>
@@ -1188,8 +1200,8 @@
     <string name="revanced_hide_seekbar_summary_on">Панель прогресу у відеоплеєрі приховано</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">Панель прогресу у прев\'ю відео показується</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_on">Панель прогресу у прев\'ю відео приховано</string>
-    <string name="revanced_hide_seekbar_thumbnail_title">Приховати панель прогресу прев\'ю відео</string>
-    <string name="revanced_hide_seekbar_title">Приховати панель прогресу відеоплеєра</string>
+    <string name="revanced_hide_seekbar_thumbnail_title">Приховати смугу перегляду на мініатюрах відео</string>
+    <string name="revanced_hide_seekbar_title">Приховати смугу відтворення відеоплеєра</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">Картки само спонсорства показується.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Картки само спонсорства приховано.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Приховати картки само спонсорства</string>
@@ -1269,7 +1281,7 @@
     <string name="revanced_hide_shopping_links_title">Приховати посилання на покупки</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Мітка місцезнаходження показується</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Мітку місцезнаходження приховано</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_title">Приховати \"Автопереклад\"</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_title">Приховати мітку \"Дубляж\"</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_off">Кнопку Купити Суперподяку показується.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_on">Кнопку Купити Суперподяку приховано.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_title">Приховати кнопку Купити Суперподяку</string>
@@ -1278,13 +1290,13 @@
     <string name="revanced_hide_shorts_channel_bar_title">Приховати панель каналу</string>
     <string name="revanced_hide_shorts_comments_button_summary_off">Кнопка \"Коментарі\" показується</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">Кнопку \"Коментарі\" приховано</string>
-    <string name="revanced_hide_shorts_comments_button_title">Приховати  \"Коментарі\"</string>
+    <string name="revanced_hide_shorts_comments_button_title">Приховати кнопку \"Коментарі\"</string>
     <string name="revanced_hide_shorts_comments_panel_summary_off">Панель коментарів показується.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Панель коментарів приховано.</string>
     <string name="revanced_hide_shorts_comments_panel_title">Приховати панель коментарів</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">Кнопка \"Дизлайк\" показується</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Кнопку \"Дизлайк\" приховано</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Приховати \"Дизлайк\"</string>
+    <string name="revanced_hide_shorts_dislike_button_title">Приховати кнопку \"Дизлайк\"</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Плавучі кнопки, такі як \'Використати цей звук\' показується у вкладці YouTube Shorts каналу.</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">Плавучі кнопки, такі як \'Використати цей звук\' приховано у вкладці YouTube Shorts каналу.</string>
     <string name="revanced_hide_shorts_floating_button_title">Приховати плавучу кнопку</string>
@@ -1299,16 +1311,16 @@
     <string name="revanced_hide_shorts_info_panel_title">Приховати панель інформації</string>
     <string name="revanced_hide_shorts_join_button_summary_off">Кнопка \"Підписатися +\" показується</string>
     <string name="revanced_hide_shorts_join_button_summary_on">Кнопку \"Підписатися +\" приховано</string>
-    <string name="revanced_hide_shorts_join_button_title">Приховати \"Підписатися +\"</string>
+    <string name="revanced_hide_shorts_join_button_title">Приховати кнопку \"Підписатися +\"</string>
     <string name="revanced_hide_shorts_like_button_summary_off">Кнопка \"Лайк\" показується</string>
     <string name="revanced_hide_shorts_like_button_summary_on">Кнопку \"Лайк\" приховано</string>
-    <string name="revanced_hide_shorts_like_button_title">Приховати \"Лайк\"</string>
+    <string name="revanced_hide_shorts_like_button_title">Приховати кнопку \"Лайк\"</string>
     <string name="revanced_hide_shorts_live_header_summary_off">Заголовок Чату показується.</string>
     <string name="revanced_hide_shorts_live_header_summary_on">Заголовок Чату приховано.\n\nКнопку назад у заголовку не приховуватиметься.</string>
     <string name="revanced_hide_shorts_live_header_title">Приховати заголовок Чату</string>
     <string name="revanced_hide_shorts_live_preview_summary_off">Попередній перегляд показується</string>
     <string name="revanced_hide_shorts_live_preview_summary_on">Попередній перегляд приховано</string>
-    <string name="revanced_hide_shorts_live_preview_title">Приховати попередній перегляд</string>
+    <string name="revanced_hide_shorts_live_preview_title">Приховати прев\'ю прямої трансляції</string>
     <string name="revanced_hide_shorts_location_button_summary_off">Кнопку місцезнаходження показується.</string>
     <string name="revanced_hide_shorts_location_button_summary_on">Кнопку місцезнаходження приховано.</string>
     <string name="revanced_hide_shorts_location_button_title">Приховати кнопку місцезнаходження</string>
@@ -1317,22 +1329,22 @@
     <string name="revanced_hide_shorts_navigation_bar_title">Приховати панель навігації</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_off">Кнопка \"Нові дописи\" показується</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_on">Кнопку \"Нові дописи\" приховано</string>
-    <string name="revanced_hide_shorts_new_posts_button_title">Приховати кнопку \"Нові пости\"</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">Приховати кнопку \"Нові публікації\"</string>
     <string name="revanced_hide_shorts_paused_header_summary_off">Заголовок при призупиненні показується.</string>
     <string name="revanced_hide_shorts_paused_header_summary_on">Заголовок при призупиненні приховано.</string>
     <string name="revanced_hide_shorts_paused_header_title">Приховати заголовок при призупиненні</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Кнопки \"Підписки\" та \"Наживо\" на паузі показуються</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Кнопки \"Підписки\" та \"Наживо\" на паузі приховано</string>
-    <string name="revanced_hide_shorts_paused_overlay_buttons_title">Приховати кнопки на паузі</string>
+    <string name="revanced_hide_shorts_paused_overlay_buttons_title">Приховати кнопки оверлею паузи</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">Фон кнопки Відтворити-Призупинити показується.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">Фон кнопки Відтворити-Призупинити приховано.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">Приховати фон кнопки Відтворити - Призупинити</string>
     <string name="revanced_hide_shorts_preview_comment_summary_off">Прев\'ю коментар в плеєрі показується</string>
     <string name="revanced_hide_shorts_preview_comment_summary_on">Прев\'ю коментар в плеєрі приховано</string>
-    <string name="revanced_hide_shorts_preview_comment_title">Приховати прев\'ю коментар</string>
+    <string name="revanced_hide_shorts_preview_comment_title">Приховати попередній перегляд коментаря</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">Кнопка \"Реміксувати\" показується</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">Кнопку \"Реміксувати\" приховано</string>
-    <string name="revanced_hide_shorts_remix_button_title">Приховати  \"Реміксувати\"</string>
+    <string name="revanced_hide_shorts_remix_button_title">Приховати кнопку \"Реміксувати\"</string>
     <string name="revanced_hide_shorts_save_music_button_summary_off">Кнопку Зберегти звук показується.</string>
     <string name="revanced_hide_shorts_save_music_button_summary_on">Кнопку Зберегти звук приховано.</string>
     <string name="revanced_hide_shorts_save_music_button_title">Приховати кнопку Зберегти звук</string>
@@ -1341,7 +1353,7 @@
     <string name="revanced_hide_shorts_search_suggestions_button_title">Приховати кнопку пропозицій пошуку</string>
     <string name="revanced_hide_shorts_share_button_summary_off">Кнопка \"Поділитися\" показується</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Кнопку \"Поділитися\" приховано</string>
-    <string name="revanced_hide_shorts_share_button_title">Приховати \"Поділитися\"</string>
+    <string name="revanced_hide_shorts_share_button_title">Приховати кнопку \"Поділитися\"</string>
     <string name="revanced_hide_shorts_shelf_channel_summary_off">Показується в каналі.</string>
     <string name="revanced_hide_shorts_shelf_channel_summary_on">"Приховується в каналі.
 
@@ -1371,13 +1383,13 @@
     <string name="revanced_hide_shorts_shelf_video_description_title">Приховати в описі відео</string>
     <string name="revanced_hide_shorts_shop_button_summary_off">Кнопка магазину показується</string>
     <string name="revanced_hide_shorts_shop_button_summary_on">Кнопку магазину приховано</string>
-    <string name="revanced_hide_shorts_shop_button_title">Приховати кнопку магазину</string>
+    <string name="revanced_hide_shorts_shop_button_title">Приховати кнопку \"Магазин\"</string>
     <string name="revanced_hide_shorts_shopping_button_summary_off">Кнопку Магазин показується.</string>
     <string name="revanced_hide_shorts_shopping_button_summary_on">Кнопку Магазин приховано.</string>
     <string name="revanced_hide_shorts_shopping_button_title">Приховати кнопку Магазин</string>
     <string name="revanced_hide_shorts_sound_button_summary_off">Кнопка \"Зі звуком\" показується</string>
     <string name="revanced_hide_shorts_sound_button_summary_on">Кнопку \"Зі звуком\" приховано</string>
-    <string name="revanced_hide_shorts_sound_button_title">Приховати \"Зі звуком\"</string>
+    <string name="revanced_hide_shorts_sound_button_title">Приховати кнопку \"Зі звуком\"</string>
     <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Мітка метаданих звуку показується</string>
     <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Мітку метаданих звуку приховано</string>
     <string name="revanced_hide_shorts_sound_metadata_label_title">Приховати мітку метаданих звуку</string>
@@ -1386,7 +1398,7 @@
     <string name="revanced_hide_shorts_stickers_title">Приховати стікери</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_off">Кнопка \"Підписатися\" показується</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_on">Кнопку \"Підписатися\" приховано</string>
-    <string name="revanced_hide_shorts_subscribe_button_title">Приховати \"Підписатися\"</string>
+    <string name="revanced_hide_shorts_subscribe_button_title">Приховати кнопку \"Підписатися\"</string>
     <string name="revanced_hide_shorts_tagged_products_summary_off">Позначені товари показуються</string>
     <string name="revanced_hide_shorts_tagged_products_summary_on">Позначені товари приховано</string>
     <string name="revanced_hide_shorts_tagged_products_title">Приховати позначені товари</string>
@@ -1425,10 +1437,10 @@
     <string name="revanced_hide_store_button_title">Приховати кнопку \"Магазин\"</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Кнопка \"Підписатися\" показується</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Кнопку \"Підписатися\" приховано</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_title">Приховати \"Підписатися\"</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_title">Приховати кнопку \"Підписатися\"</string>
     <string name="revanced_hide_subscribe_button_summary_off">Кнопка \"Підписатися\" показується</string>
     <string name="revanced_hide_subscribe_button_summary_on">Кнопку \"Підписатися\" приховано</string>
-    <string name="revanced_hide_subscribe_button_title">Приховати \"Підписатися\"</string>
+    <string name="revanced_hide_subscribe_button_title">Приховати кнопку \"Підписатися\"</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">Панель підписок показується</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">Панель підписок приховано</string>
     <string name="revanced_hide_subscribed_channels_bar_title">Приховати панель підписок</string>
@@ -1509,13 +1521,13 @@
     <string name="revanced_hide_web_search_results_title">Приховати результати вебпошуку</string>
     <string name="revanced_hide_you_may_like_section_summary_off">Розділ \"Вам може сподобатися\" показується</string>
     <string name="revanced_hide_you_may_like_section_summary_on">Розділ \"Вам може сподобатися\" приховано</string>
-    <string name="revanced_hide_you_may_like_section_title">Приховати розділ \"Вам може сподобатися\"</string>
+    <string name="revanced_hide_you_may_like_section_title">Приховати секцію \"Вам може сподобатися\"</string>
     <string name="revanced_hide_youtube_doodles_summary_off">Анімація YouTube Doodles на логотипі показується</string>
     <string name="revanced_hide_youtube_doodles_summary_on">Анімацію YouTube Doodles на логотипі приховано</string>
     <string name="revanced_hide_youtube_doodles_title">Приховати YouTube Doodles</string>
     <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles показуються кілька днів на рік у різних частинах світу.
 
-Показ YouTube Doodles може перешкодити показу користувацьких заголовків."</string>
+Показ YouTube Doodles може перешкодити показу власних заголовків."</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">Рекламу YouTube Premium показується.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"Рекламу YouTube Premium приховано.
 
@@ -1558,121 +1570,121 @@
     <string name="revanced_keep_landscape_mode_timeout_summary">Кількість мілісекунд примусового ландшафтного режиму.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Скільки зберігати ландшафтний режим</string>
     <string name="revanced_keep_landscape_mode_title">Зберігати ландшафтний режим</string>
-    <string name="revanced_language_AM">"Амхарська
-<small>አማርኛ</small>"</string>
-    <string name="revanced_language_AR">"Арабська
-<small>العربية</small>"</string>
-    <string name="revanced_language_AZ">"Азербайджанська
-<small>Azərbaycan</small>"</string>
-    <string name="revanced_language_BE">"Білоруська
-<small>Беларуская</small>"</string>
-    <string name="revanced_language_BG">"Болгарська
-<small>Български</small>"</string>
-    <string name="revanced_language_BN">"Бенгальська
-<small>বাংলা</small>"</string>
-    <string name="revanced_language_CA">"Каталонська
-<small>Català</small>"</string>
-    <string name="revanced_language_CS">"Чеська
-<small>Čeština</small>"</string>
-    <string name="revanced_language_DA">"Данська
-<small>Dansk</small>"</string>
-    <string name="revanced_language_DE">"Німецька
-<small>Deutsch</small>"</string>
+    <string name="revanced_language_AM">Амхарська\n<small>አማርኛ</small>
+    </string>
+    <string name="revanced_language_AR">Арабська\n<small>العربية</small>
+    </string>
+    <string name="revanced_language_AZ">Азербайджанська\n<small>Azərbaycan</small>
+    </string>
+    <string name="revanced_language_BE">Білоруська\n<small>Беларуская</small>
+    </string>
+    <string name="revanced_language_BG">Болгарська\n<small>Български</small>
+    </string>
+    <string name="revanced_language_BN">Бенгальська\n<small>বাংলা</small>
+    </string>
+    <string name="revanced_language_CA">Каталонська\n<small>Català</small>
+    </string>
+    <string name="revanced_language_CS">Чеська\n<small>Čeština</small>
+    </string>
+    <string name="revanced_language_DA">Данська\n<small>Dansk</small>
+    </string>
+    <string name="revanced_language_DE">Німецька\n<small>Deutsch</small>
+    </string>
     <string name="revanced_language_DEFAULT">Мова застосунку</string>
-    <string name="revanced_language_EL">"Грецька
-<small>Ελληνικά</small>"</string>
-    <string name="revanced_language_EN">"Англійська
-<small>English</small>"</string>
-    <string name="revanced_language_ES">"Іспанська
-<small>Español</small>"</string>
-    <string name="revanced_language_ET">"Естонська
-<small>Eesti</small>"</string>
-    <string name="revanced_language_FA">"Перська
-<small>فارسی</small>"</string>
-    <string name="revanced_language_FI">"Фінська
-<small>Suomi</small>"</string>
-    <string name="revanced_language_FR">"Французька
-<small>Français</small>"</string>
-    <string name="revanced_language_GA">"Ґейлґе
-<small>Gaeilge</small>"</string>
-    <string name="revanced_language_GU">"Гуджараті
-<small>ગુજરાતી</small>"</string>
-    <string name="revanced_language_HE">"Іврит
-<small>עברי</small>"</string>
-    <string name="revanced_language_HI">"Хінді
-<small>हिन्दी</small>"</string>
-    <string name="revanced_language_HR">"Хорватська
-<small>Hrvatski</small>"</string>
-    <string name="revanced_language_HU">"Угорська
-<small>Magyar</small>"</string>
-    <string name="revanced_language_ID">"Індонезійська
-<small>Indonesia</small>"</string>
-    <string name="revanced_language_IT">"Італійська
-<small>Italiano</small>"</string>
-    <string name="revanced_language_JA">"Японська
-<small>日本語</small>"</string>
-    <string name="revanced_language_KK">"Казахська
-<small>Қазақ тілі</small>"</string>
-    <string name="revanced_language_KO">"Корейська
-<small>한국어</small>"</string>
-    <string name="revanced_language_LT">"Литовська
-<small>Lietuvių</small>"</string>
-    <string name="revanced_language_LV">"Латвійська
-<small>Latviešu</small>"</string>
-    <string name="revanced_language_MK">"Македонська
-<small>Македонски</small>"</string>
-    <string name="revanced_language_MN">"Монгольська
-<small>Монгол</small>"</string>
-    <string name="revanced_language_MR">"Маратхі
-<small>मराठी</small>"</string>
-    <string name="revanced_language_MS">"Малайська
-<small>Melayu</small>"</string>
-    <string name="revanced_language_MY">"Бірманська
-<small>ဗမာ</small>"</string>
-    <string name="revanced_language_NL">"Нідерландська
-<small>Nederlands</small>"</string>
-    <string name="revanced_language_OR">"Одія
-<small>ଓଡ଼ିଆ</small>"</string>
-    <string name="revanced_language_PA">"Пенджабі
-<small>ਪੰਜਾਬੀ</small>"</string>
-    <string name="revanced_language_PL">"Польська
-<small>Polski</small>"</string>
-    <string name="revanced_language_PT">"Португальська
-<small>Português</small>"</string>
-    <string name="revanced_language_RO">"Румунська
-<small>Română</small>"</string>
-    <string name="revanced_language_RU">"Російська
-<small>Русский</small>"</string>
-    <string name="revanced_language_SK">"Словацька
-<small>Slovenčina</small>"</string>
-    <string name="revanced_language_SL">"Словенська
-<small>Slovenščina</small>"</string>
-    <string name="revanced_language_SQ">"Албанська
-<small>Shqip</small>"</string>
-    <string name="revanced_language_SR">"Сербська
-<small>Српски</small>"</string>
-    <string name="revanced_language_SV">"Шведська
-<small>Svenska</small>"</string>
-    <string name="revanced_language_SW">"Суахілі
-<small>Kiswahili</small>"</string>
-    <string name="revanced_language_TA">"Тамільська
-<small>தமிழ்</small>"</string>
-    <string name="revanced_language_TE">"Телуґу
-<small>తెలుగు</small>"</string>
-    <string name="revanced_language_TH">"Тайська
-<small>ไทย</small>"</string>
-    <string name="revanced_language_TL">"Філіппінська
-<small>Filipino</small>"</string>
-    <string name="revanced_language_TR">"Турецька
-<small>Türkçe</small>"</string>
-    <string name="revanced_language_UK">"Українська
-<small>Українська</small>"</string>
-    <string name="revanced_language_UR">"Урду
-<small>اردو</small>"</string>
-    <string name="revanced_language_VI">"В'єтнамська
-<small>Tiếng Việt</small>"</string>
-    <string name="revanced_language_ZH">"Китайська
-<small>中文</small>"</string>
+    <string name="revanced_language_EL">Грецька\n<small>Ελληνικά</small>
+    </string>
+    <string name="revanced_language_EN">Англійська\n<small>English</small>
+    </string>
+    <string name="revanced_language_ES">Іспанська\n<small>Español</small>
+    </string>
+    <string name="revanced_language_ET">Естонська\n<small>Eesti</small>
+    </string>
+    <string name="revanced_language_FA">Перська\n<small>فارسی</small>
+    </string>
+    <string name="revanced_language_FI">Фінська\n<small>Suomi</small>
+    </string>
+    <string name="revanced_language_FR">Французька\n<small>Français</small>
+    </string>
+    <string name="revanced_language_GA">Ґейлґе\n<small>Gaeilge</small>
+    </string>
+    <string name="revanced_language_GU">Гуджараті\n<small>ગુજરાતી</small>
+    </string>
+    <string name="revanced_language_HE">Іврит\n<small>עברי</small>
+    </string>
+    <string name="revanced_language_HI">Хінді\n<small>हिन्दी</small>
+    </string>
+    <string name="revanced_language_HR">Хорватська\n<small>Hrvatski</small>
+    </string>
+    <string name="revanced_language_HU">Угорська\n<small>Magyar</small>
+    </string>
+    <string name="revanced_language_ID">Індонезійська\n<small>Indonesia</small>
+    </string>
+    <string name="revanced_language_IT">Італійська\n<small>Italiano</small>
+    </string>
+    <string name="revanced_language_JA">Японська\n<small>日本語</small>
+    </string>
+    <string name="revanced_language_KK">Казахська\n<small>Қазақ тілі</small>
+    </string>
+    <string name="revanced_language_KO">Корейська\n<small>한국어</small>
+    </string>
+    <string name="revanced_language_LT">Литовська\n<small>Lietuvių</small>
+    </string>
+    <string name="revanced_language_LV">Латвійська\n<small>Latviešu</small>
+    </string>
+    <string name="revanced_language_MK">Македонська\n<small>Македонски</small>
+    </string>
+    <string name="revanced_language_MN">Монгольська\n<small>Монгол</small>
+    </string>
+    <string name="revanced_language_MR">Маратхі\n<small>मराठी</small>
+    </string>
+    <string name="revanced_language_MS">Малайська\n<small>Melayu</small>
+    </string>
+    <string name="revanced_language_MY">Бірманська\n<small>ဗမာ</small>
+    </string>
+    <string name="revanced_language_NL">Нідерландська\n<small>Nederlands</small>
+    </string>
+    <string name="revanced_language_OR">Одія\n<small>ଓଡ଼ିଆ</small>
+    </string>
+    <string name="revanced_language_PA">Пенджабі\n<small>ਪੰਜਾਬੀ</small>
+    </string>
+    <string name="revanced_language_PL">Польська\n<small>Polski</small>
+    </string>
+    <string name="revanced_language_PT">Португальська\n<small>Português</small>
+    </string>
+    <string name="revanced_language_RO">Румунська\n<small>Română</small>
+    </string>
+    <string name="revanced_language_RU">Російська\n<small>Русский</small>
+    </string>
+    <string name="revanced_language_SK">Словацька\n<small>Slovenčina</small>
+    </string>
+    <string name="revanced_language_SL">Словенська\n<small>Slovenščina</small>
+    </string>
+    <string name="revanced_language_SQ">Албанська\n<small>Shqip</small>
+    </string>
+    <string name="revanced_language_SR">Сербська\n<small>Српски</small>
+    </string>
+    <string name="revanced_language_SV">Шведська\n<small>Svenska</small>
+    </string>
+    <string name="revanced_language_SW">Суахілі\n<small>Kiswahili</small>
+    </string>
+    <string name="revanced_language_TA">Тамільська\n<small>தமிழ்</small>
+    </string>
+    <string name="revanced_language_TE">Телуґу\n<small>తెలుగు</small>
+    </string>
+    <string name="revanced_language_TH">Тайська\n<small>ไทย</small>
+    </string>
+    <string name="revanced_language_TL">Філіппінська\n<small>Filipino</small>
+    </string>
+    <string name="revanced_language_TR">Турецька\n<small>Türkçe</small>
+    </string>
+    <string name="revanced_language_UK">Українська\n<small>Українська</small>
+    </string>
+    <string name="revanced_language_UR">Урду\n<small>اردو</small>
+    </string>
+    <string name="revanced_language_VI">В'єтнамська\n<small>Tiếng Việt</small>
+    </string>
+    <string name="revanced_language_ZH">Китайська\n<small>中文</small>
+    </string>
     <string name="revanced_language_title">Мова налаштувань ReVanced</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Подвійне натискання та зміну розміру щипком вимкнено</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Подвійне натискання та зміну розміру щипком увімкнено
@@ -1979,7 +1991,7 @@
     <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_off">Тост не показуватиметься при зміні типової швидкості відтворення Shorts.</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_on">Тост показуватиметься при зміні типової швидкості відтворення Shorts.</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_toast_title">Показувати тост</string>
-    <string name="revanced_remember_playback_speed_toast">Швидкість відтворення змінено на %s</string>
+    <string name="revanced_remember_playback_speed_toast">Типову швидкість відтворення змінено на %s</string>
     <string name="revanced_remember_playback_speed_toast_shorts">Типову швидкість відтворення Shorts змінено на: %s.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного відео</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео</string>
@@ -1995,7 +2007,7 @@
     <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_off">Тост не показуватиметься при зміні типової якості Shorts.</string>
     <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_on">Тост показуватиметься при зміні типової якості Shorts.</string>
     <string name="revanced_remember_video_quality_shorts_last_selected_toast_title">Показувати тост</string>
-    <string name="revanced_remember_video_quality_toast">Якість %1$s змінено на %2$s</string>
+    <string name="revanced_remember_video_quality_toast">Типову якість %1$s змінено на %2$s</string>
     <string name="revanced_remember_video_quality_toast_shorts">Якість Shorts %1$s змінено на %2$s</string>
     <string name="revanced_remember_video_quality_wifi">в Wi-Fi мережі</string>
     <string name="revanced_remix_button_index_title">Індекс кнопки Ремікс</string>
@@ -2086,8 +2098,6 @@
     <string name="revanced_sanitize_comments_category_bar_summary_off">Кнопки категорій показуються на панелі категорій коментарів</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">Кнопки категорій, окрім \"Найпопулярніші\" та \"Найновіші\", приховано на панелі категорій коментарів</string>
     <string name="revanced_sanitize_comments_category_bar_title">Очистити панель категорій</string>
-    <string name="revanced_sanitize_sharing_links_summary">Видаляє параметри відстеження з посилань при поширенні</string>
-    <string name="revanced_sanitize_sharing_links_title">Очищення посилань для поширення</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Фрази типу '#', 'Збір коштів', 'Магазин' та 'товари' показується в субтитрах відео."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Фрази типу '#', 'Збір коштів', 'Магазин' та 'товари' приховано з субтитрів відео."</string>
     <string name="revanced_sanitize_video_subtitle_title">Обробляти субтитри відео</string>
@@ -2177,6 +2187,13 @@
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Вказано неправильний час</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Редагувати час сегмента вручну</string>
     <string name="revanced_sb_new_segment_forward">Перемотати вперед на вказаний час (Стандартно: 150мс)</string>
+    <string name="revanced_sb_new_segment_highlight_content">"Чи правильний час найцікавішого моменту?
+
+%s
+
+Якщо ви не надсилаєте найцікавіший момент, натисніть Скасувати та позначте друге місце"</string>
+    <string name="revanced_sb_new_segment_highlight_submit">Надіслати найцікавіший момент</string>
+    <string name="revanced_sb_new_segment_highlight_title">Надіслати найцікавіший момент</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">Встановити %s як початок чи кінець нового сегмента?</string>
     <string name="revanced_sb_new_segment_mark_end">Кінець</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Спочатку позначте місце на часовій шкалі</string>
@@ -2243,7 +2260,7 @@
     <string name="revanced_sb_skip_button_sponsor">Пропустити спонсор</string>
     <string name="revanced_sb_skip_button_unsubmitted">Пропустити сегмент</string>
     <string name="revanced_sb_skip_ignore">Вимкнути</string>
-    <string name="revanced_sb_skip_seekbaronly">Показувати в панелі прогресу</string>
+    <string name="revanced_sb_skip_seekbaronly">Показувати на смузі відтворення</string>
     <string name="revanced_sb_skip_showbutton">Показувати кнопку пропуску</string>
     <string name="revanced_sb_skipped_filler">Пропущено дотичну тему</string>
     <string name="revanced_sb_skipped_highlight">Пропущено до найцікавішого моменту</string>

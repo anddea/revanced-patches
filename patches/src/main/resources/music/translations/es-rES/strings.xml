@@ -36,6 +36,7 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="morphe_replace_music_with_youtube_summary_off">Los enlaces compartidos usan music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Los enlaces compartidos usan youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Cambiar enlaces compartidos a youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary">El parámetro de consulta de seguimiento se elimina de los enlaces compartidos</string>
     <string name="morphe_sanitize_sharing_links_summary_off">El parámetro de consulta de seguimiento no se elimina de los enlaces compartidos</string>
     <string name="morphe_sanitize_sharing_links_summary_on">El parámetro de consulta de seguimiento se elimina de los enlaces compartidos</string>
     <string name="morphe_sanitize_sharing_links_title">Limpiar enlaces compartidos</string>
@@ -162,7 +163,7 @@ Preferiblemente colores oscuros, la aplicación no soporta temas claros."</strin
     <string name="revanced_default_app_settings_title">Abrir ajustes predeterminados de la app</string>
     <string name="revanced_disable_auto_audio_tracks_summary">"Deshabilita las pistas de audio automatizadas para podcasts.
 
-Limitación: Si 'Datos de streaming espóa' está habilitado y el cliente por defecto es 'Android VR Auth', esto puede no funcionar."</string>
+Limitación: Si 'Falsificar datos de streaming' está habilitado y el cliente por defecto es 'Android VR Auth', esto puede no funcionar."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Desactivar pistas de audio automáticas forzadas</string>
     <string name="revanced_disable_auto_captions_summary">Desactiva la activación automática de los subtítulos forzados en el reproductor de vídeo.</string>
     <string name="revanced_disable_auto_captions_title">Desactivar subtítulos automáticos</string>
@@ -179,7 +180,7 @@ Limitación: Si 'Datos de streaming espóa' está habilitado y el cliente por de
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Redirigir</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_summary">Especifica cómo redirigir a la canción oficial.</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_title">Tipo de redirección</string>
-    <string name="revanced_disable_music_video_in_album_summary">"Cuando un usuario no-premium reproduce una canción incluida en un álbum,  a veces se reproduce el vídeo musical en lugar de la canción oficial. 
+    <string name="revanced_disable_music_video_in_album_summary">"Cuando un usuario no-premium reproduce una canción incluida en un álbum, a veces se reproduce el vídeo musical en lugar de la canción oficial. 
 
 Si se detecta que se está reproduciendo un vídeo musical de un álbum, se buscará la canción oficial. 
 
@@ -500,8 +501,6 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Se muestra el mensaje si la API de ReturnYouTubeDislike no está disponible.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Mostrar mensaje si la API no está disponible</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
-    <string name="revanced_sanitize_sharing_links_summary">El parámetro de consulta de seguimiento se elimina de los enlaces compartidos</string>
-    <string name="revanced_sanitize_sharing_links_title">Limpiar enlaces compartidos</string>
     <string name="revanced_sb_about">Acerca de</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Los datos son proporcionados por la API de SponsorBlock. Pulsa aquí para aprender más y ver las descargas para otras plataformas.</string>

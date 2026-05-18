@@ -522,7 +522,7 @@ val toolBarComponentsPatch = bytecodePatch(
 
             settingArray += "SETTINGS: HIDE_YOU_MAY_LIKE_SECTION"
         } else if (is_20_15_or_greater) {
-            printWarn("\"Hide You may like section\" is not yet supported in this version. Use YouTube 20.14.43 or earlier.")
+            printWarn("\"Hide You may like section\" is not supported in this version. Use YouTube 20.14.43 or earlier.")
         }
 
         // endregion

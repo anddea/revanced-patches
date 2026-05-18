@@ -41,6 +41,8 @@ Appuyez sur le bouton Continuer et autorisez les modifications."</string>
     <string name="morphe_reload_video_summary_off">Le bouton \'Recharger la vidéo\' n\'est pas affiché</string>
     <string name="morphe_reload_video_summary_on">Le bouton \'Recharger la vidéo\' est affiché</string>
     <string name="morphe_reload_video_title">Afficher un bouton \'Recharger la vidéo\'</string>
+    <string name="morphe_replace_links_with_shortener_summary">Force les diffusions en direct et les Shorts à utiliser le format d’URL raccourci youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_title">Modifier les liens de partage vers youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Les liens partagés utilisent music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Les liens partagés utilisent youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Rediriger les liens de partage vers youtube.com</string>
@@ -768,6 +770,13 @@ Boutique"</string>
     <string name="revanced_hide_comments_by_members_summary_off">Les commentaires des membres sont affichés.</string>
     <string name="revanced_hide_comments_by_members_summary_on">Les commentaires des membres sont cachés.</string>
     <string name="revanced_hide_comments_by_members_title">Masquer les commentaires des membres</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">Entrez les noms des carrousels de commentaires à filtrer, séparés par des sauts de ligne</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">Filtre du carrousel de commentaires</string>
+    <string name="revanced_hide_comments_carousel_title">Activer le filtre du carrousel de commentaires</string>
+    <string name="revanced_hide_comments_carousel_user_dialog_message">"Remarque :
+• Assurez-vous de saisir le nom exact de l’élément du carrousel (par ex. Poser une question, Boostez cette vidéo, Écouter sur YouTube Music, etc.).
+• Masquer des éléments du carrousel peut entraîner des effets secondaires inattendus.
+• Si tous les éléments du carrousel sont masqués, toute la section des commentaires sera également masquée."</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Le bouton \'Créer un Short\' est affiché</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Le bouton \'Créer un Short\' est masqué</string>
     <string name="revanced_hide_comments_create_a_short_button_title">Masquer le bouton \'Créer un Short\'</string>
@@ -824,8 +833,11 @@ Limitation : certains liens de recherche mis en surbrillance qui n'ont pas de st
     <string name="revanced_hide_end_screen_suggested_video_summary_off">L\'écran de fin suggérant une vidéo est affiché</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_on">L\'écran de fin suggérant une vidéo est masqué</string>
     <string name="revanced_hide_end_screen_suggested_video_title">Masquer \'Vidéo suggéréé\' à l\'écran de fin</string>
-    <string name="revanced_hide_expandable_card_summary_off">La carte extensible sous les vidéos est affichée</string>
-    <string name="revanced_hide_expandable_card_summary_on">La carte extensible sous les vidéos est masquée</string>
+    <string name="revanced_hide_expandable_card_entry_1">Tout afficher</string>
+    <string name="revanced_hide_expandable_card_entry_2">Masquer uniquement la carte de produit</string>
+    <string name="revanced_hide_expandable_card_entry_3">Masquer uniquement la carte de résumé</string>
+    <string name="revanced_hide_expandable_card_entry_4">Masquer les cartes de produit et de résumé</string>
+    <string name="revanced_hide_expandable_card_entry_5">Tout masquer</string>
     <string name="revanced_hide_expandable_card_title">Les cartes extensibles sous les vidéos</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Les étagères coulissantes sont affichés.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Les étagères coulissantes sont masqués.</string>
@@ -1555,121 +1567,121 @@ Problème connu : lorsque ce paramètre est activé, les Doodles YouTube ne son
     <string name="revanced_keep_landscape_mode_timeout_summary">Durée en millisecondes pendant lesquelles le mode paysage est forcé après l\'allumage de l\'écran.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Durée du maintien du mode paysage</string>
     <string name="revanced_keep_landscape_mode_title">Maintenir le mode paysage</string>
-    <string name="revanced_language_AM">"Amharique
-<small>አማርኛ</small>"</string>
-    <string name="revanced_language_AR">"Arabe
-<small>العربية</small>"</string>
-    <string name="revanced_language_AZ">"Azerbaïdjanais
-<small>Azərbaycan</small>"</string>
-    <string name="revanced_language_BE">"Biélorusse
-<small>беларуская</small>"</string>
-    <string name="revanced_language_BG">"Bulgare
-<small>Български</small>"</string>
-    <string name="revanced_language_BN">"Bengali
-<small>বাংলা</small>"</string>
-    <string name="revanced_language_CA">"Catalan
-<small>Català</small>"</string>
-    <string name="revanced_language_CS">"Tchèque
-<small>Čeština</small>"</string>
-    <string name="revanced_language_DA">"Danois
-<small>Dansk</small>"</string>
-    <string name="revanced_language_DE">"Allemand
-<small>Deutsch</small>"</string>
+    <string name="revanced_language_AM">Amharique\n<small>አማርኛ</small>
+    </string>
+    <string name="revanced_language_AR">Arabe\n<small>العربية</small>
+    </string>
+    <string name="revanced_language_AZ">Azerbaïdjanais\n<small>Azərbaycan</small>
+    </string>
+    <string name="revanced_language_BE">Biélorusse\n<small>беларуская</small>
+    </string>
+    <string name="revanced_language_BG">Bulgare\n<small>Български</small>
+    </string>
+    <string name="revanced_language_BN">Bengali\n<small>বাংলা</small>
+    </string>
+    <string name="revanced_language_CA">Catalan\n<small>Català</small>
+    </string>
+    <string name="revanced_language_CS">Tchèque\n<small>Čeština</small>
+    </string>
+    <string name="revanced_language_DA">Danois\n<small>Dansk</small>
+    </string>
+    <string name="revanced_language_DE">Allemand\n<small>Deutsch</small>
+    </string>
     <string name="revanced_language_DEFAULT">Langue de l\'application</string>
-    <string name="revanced_language_EL">"Grec
-<small>Ελληνικά</small>"</string>
-    <string name="revanced_language_EN">"Anglais
-<small>English</small>"</string>
-    <string name="revanced_language_ES">"Espagnol
-<small>Español</small>"</string>
-    <string name="revanced_language_ET">"Estonien
-<small>Eesti</small>"</string>
-    <string name="revanced_language_FA">"Persan
-<small>فارسی</small>"</string>
-    <string name="revanced_language_FI">"Finnois
-<small>Suomi</small>"</string>
-    <string name="revanced_language_FR">"Français
-<small>Français</small>"</string>
-    <string name="revanced_language_GA">"Gaélique
-<small>Gaeilge</small>"</string>
-    <string name="revanced_language_GU">"Gujarati
-<small>ગુજરાતી</small>"</string>
-    <string name="revanced_language_HE">"Hébreu
-<small>עברי</small>"</string>
-    <string name="revanced_language_HI">"Hindi
-<small>हिन्दी</small>"</string>
-    <string name="revanced_language_HR">"Croate
-<small>Hrvatski</small>"</string>
-    <string name="revanced_language_HU">"Hongrois
-<small>Magyar</small>"</string>
-    <string name="revanced_language_ID">"Indonésien
-<small>Indonesia</small>"</string>
-    <string name="revanced_language_IT">"Italien
-<small>Italiano</small>"</string>
-    <string name="revanced_language_JA">"Japonais
-<small>日本語</small>"</string>
-    <string name="revanced_language_KK">"Kazakh
-<small>Қазақ тілі</small>"</string>
-    <string name="revanced_language_KO">"Coréen
-<small>한국어</small>"</string>
-    <string name="revanced_language_LT">"Lituanien
-<small>Lietuvių</small>"</string>
-    <string name="revanced_language_LV">"Letton
-<small>Latviešu</small>"</string>
-    <string name="revanced_language_MK">"Macédonien
-<small>Македонски</small>"</string>
-    <string name="revanced_language_MN">"Mongol
-<small>Монгол</small>"</string>
-    <string name="revanced_language_MR">"Marathi
-<small>मराठी</small>"</string>
-    <string name="revanced_language_MS">"Malais
-<small>Melayu</small>"</string>
-    <string name="revanced_language_MY">"Birman
-<small>ဗမာ</small>"</string>
-    <string name="revanced_language_NL">"Néerlandais
-<small>Nederlands</small>"</string>
-    <string name="revanced_language_OR">"Odia
-<small>ଓଡ଼ିଆ</small>"</string>
-    <string name="revanced_language_PA">"Panjabi
-<small>ਪੰਜਾਬੀ</small>"</string>
-    <string name="revanced_language_PL">"Polonais
-<small>Polski</small>"</string>
-    <string name="revanced_language_PT">"Portugais
-<small>Português</small>"</string>
-    <string name="revanced_language_RO">"Roumain
-<small>Română</small>"</string>
-    <string name="revanced_language_RU">"Russe
-<small>Română</small>"</string>
-    <string name="revanced_language_SK">"Slovaque
-<small>Slovenčina</small>"</string>
-    <string name="revanced_language_SL">"Slovène
-<small>Slovenščina</small>"</string>
-    <string name="revanced_language_SQ">"Albanais
-<small>Shqip</small>"</string>
-    <string name="revanced_language_SR">"Serbe
-<small>Српски</small>"</string>
-    <string name="revanced_language_SV">"Suédois 
-<small>Svenska</small>"</string>
-    <string name="revanced_language_SW">"Swahili
-<small>Kiswahili</small>"</string>
-    <string name="revanced_language_TA">"Tamoul
-<small>தமிழ்</small>"</string>
-    <string name="revanced_language_TE">"Télougou
-<small>తెలుగు</small>"</string>
-    <string name="revanced_language_TH">"Siamois
-<small>ไทย</small>"</string>
-    <string name="revanced_language_TL">"Philippin
-<small>Filipino</small>"</string>
-    <string name="revanced_language_TR">"Turc
-<small>Türkçe</small>"</string>
-    <string name="revanced_language_UK">"Ukrainien
-<small>Українська</small>"</string>
-    <string name="revanced_language_UR">"Ourdou
-<small>اردو</small>"</string>
-    <string name="revanced_language_VI">"Vietnamien
-<small>Tiếng Việt</small>"</string>
-    <string name="revanced_language_ZH">"Chinois
-<small>中文</small>"</string>
+    <string name="revanced_language_EL">Grec\n<small>Ελληνικά</small>
+    </string>
+    <string name="revanced_language_EN">Anglais\n<small>English</small>
+    </string>
+    <string name="revanced_language_ES">Espagnol\n<small>Español</small>
+    </string>
+    <string name="revanced_language_ET">Estonien\n<small>Eesti</small>
+    </string>
+    <string name="revanced_language_FA">Persan\n<small>فارسی</small>
+    </string>
+    <string name="revanced_language_FI">Finnois\n<small>Suomi</small>
+    </string>
+    <string name="revanced_language_FR">Français\n<small>Français</small>
+    </string>
+    <string name="revanced_language_GA">Gaélique\n<small>Gaeilge</small>
+    </string>
+    <string name="revanced_language_GU">Gujarati\n<small>ગુજરાતી</small>
+    </string>
+    <string name="revanced_language_HE">Hébreu\n<small>עברי</small>
+    </string>
+    <string name="revanced_language_HI">Hindi\n<small>हिन्दी</small>
+    </string>
+    <string name="revanced_language_HR">Croate\n<small>Hrvatski</small>
+    </string>
+    <string name="revanced_language_HU">Hongrois\n<small>Magyar</small>
+    </string>
+    <string name="revanced_language_ID">Indonésien\n<small>Indonesia</small>
+    </string>
+    <string name="revanced_language_IT">Italien\n<small>Italiano</small>
+    </string>
+    <string name="revanced_language_JA">Japonais\n<small>日本語</small>
+    </string>
+    <string name="revanced_language_KK">Kazakh\n<small>Қазақ тілі</small>
+    </string>
+    <string name="revanced_language_KO">Coréen\n<small>한국어</small>
+    </string>
+    <string name="revanced_language_LT">Lituanien\n<small>Lietuvių</small>
+    </string>
+    <string name="revanced_language_LV">Letton\n<small>Latviešu</small>
+    </string>
+    <string name="revanced_language_MK">Macédonien\n<small>Македонски</small>
+    </string>
+    <string name="revanced_language_MN">Mongol\n<small>Монгол</small>
+    </string>
+    <string name="revanced_language_MR">Marathi\n<small>मराठी</small>
+    </string>
+    <string name="revanced_language_MS">Malais\n<small>Melayu</small>
+    </string>
+    <string name="revanced_language_MY">Birman\n<small>ဗမာ</small>
+    </string>
+    <string name="revanced_language_NL">Néerlandais\n<small>Nederlands</small>
+    </string>
+    <string name="revanced_language_OR">Odia\n<small>ଓଡ଼ିଆ</small>
+    </string>
+    <string name="revanced_language_PA">Panjabi\n<small>ਪੰਜਾਬੀ</small>
+    </string>
+    <string name="revanced_language_PL">Polonais\n<small>Polski</small>
+    </string>
+    <string name="revanced_language_PT">Portugais\n<small>Português</small>
+    </string>
+    <string name="revanced_language_RO">Roumain\n<small>Română</small>
+    </string>
+    <string name="revanced_language_RU">Russe\n<small>Română</small>
+    </string>
+    <string name="revanced_language_SK">Slovaque\n<small>Slovenčina</small>
+    </string>
+    <string name="revanced_language_SL">Slovène\n<small>Slovenščina</small>
+    </string>
+    <string name="revanced_language_SQ">Albanais\n<small>Shqip</small>
+    </string>
+    <string name="revanced_language_SR">Serbe\n<small>Српски</small>
+    </string>
+    <string name="revanced_language_SV">Suédois \n<small>Svenska</small>
+    </string>
+    <string name="revanced_language_SW">Swahili\n<small>Kiswahili</small>
+    </string>
+    <string name="revanced_language_TA">Tamoul\n<small>தமிழ்</small>
+    </string>
+    <string name="revanced_language_TE">Télougou\n<small>తెలుగు</small>
+    </string>
+    <string name="revanced_language_TH">Siamois\n<small>ไทย</small>
+    </string>
+    <string name="revanced_language_TL">Philippin\n<small>Filipino</small>
+    </string>
+    <string name="revanced_language_TR">Turc\n<small>Türkçe</small>
+    </string>
+    <string name="revanced_language_UK">Ukrainien\n<small>Українська</small>
+    </string>
+    <string name="revanced_language_UR">Ourdou\n<small>اردو</small>
+    </string>
+    <string name="revanced_language_VI">Vietnamien\n<small>Tiếng Việt</small>
+    </string>
+    <string name="revanced_language_ZH">Chinois\n<small>中文</small>
+    </string>
     <string name="revanced_language_title">Langue de ReVanced</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">L\'action du double appui et du pincement pour redimensionner est désactivée.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"L'action du double appui et du pincement pour redimensionner est activée.
@@ -2087,8 +2099,6 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
     <string name="revanced_sanitize_comments_category_bar_summary_off">Les boutons de catégorie sont affichés dans la barre de catégories des commentaires</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">Les boutons de catégorie, sauf \'Les plus populaires\' et \'Les plus récents\' sont masqués dans la barre de catégories des commentaires</string>
     <string name="revanced_sanitize_comments_category_bar_title">Nettoyer la barre de catégories</string>
-    <string name="revanced_sanitize_sharing_links_summary">Supprime les paramètres de suivi des liens partagés</string>
-    <string name="revanced_sanitize_sharing_links_title">Nettoyer les liens partagés</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Les phrases telles que '#', 'Financement' 'Magasin' et 'produits' seront affichés sur les sous-titres vidéos."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Les phrases telles que '#', 'Financement' 'Magasin' et 'produits' seront masqués sur les sous-titres vidéos."</string>
     <string name="revanced_sanitize_video_subtitle_title">Nettoyer les sous-titres vidéo</string>
@@ -2178,6 +2188,13 @@ Prêt à le soumettre ?"</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">La durée spécifiée est invalide</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Éditer la durée du segment manuellement</string>
     <string name="revanced_sb_new_segment_forward">Transférer à l\'heure spécifiée (par défaut : 150 ms)</string>
+    <string name="revanced_sb_new_segment_highlight_content">"Le point clé est-il correct ?
+
+%s
+
+Si vous ne soumettez pas de point clé, appuyez sur 'Annuler' et marquez le deuxième point"</string>
+    <string name="revanced_sb_new_segment_highlight_submit">Soumettre le point clé</string>
+    <string name="revanced_sb_new_segment_highlight_title">Soumettre le point clé</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">Définir %s comme début ou fin du nouveau segment ?</string>
     <string name="revanced_sb_new_segment_mark_end">Fin</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Marquez d’abord un point sur la barre de lecture</string>

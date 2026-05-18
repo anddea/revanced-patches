@@ -41,6 +41,8 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
     <string name="morphe_reload_video_summary_off">Videoyu yeniden yükle düğmesi gösterilmiyor</string>
     <string name="morphe_reload_video_summary_on">Videoyu yeniden yükle düğmesi gösteriliyor</string>
     <string name="morphe_reload_video_title">Videoyu yeniden yükle düğmesini göster</string>
+    <string name="morphe_replace_links_with_shortener_summary">Canlı yayınların ve Shorts\'un kısa youtu.be URL formatını kullanmasını zorlar</string>
+    <string name="morphe_replace_links_with_shortener_title">Paylaşım bağlantılarını youtu.be olarak değiştir</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan bağlantılar music.youtube.com kullanır</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Paylaşılan bağlantılar youtube.com kullanır</string>
     <string name="morphe_replace_music_with_youtube_title">Paylaşım bağlantılarını youtube.com olarak değiştir</string>
@@ -757,6 +759,13 @@ Mağaza"</string>
     <string name="revanced_hide_comments_by_members_summary_off">Üyeler tarafından yapılan yorumlar afişi gizlenmiyor.</string>
     <string name="revanced_hide_comments_by_members_summary_on">\'Üyeler tarafından yapılan yorumlar\' afişi gizleniyor.</string>
     <string name="revanced_hide_comments_by_members_title">\'Üyeler tarafından yapılan yorumlar\' afişini gizle</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">Filtrelenecek yorumlar döngüsü adlarını her satıra bir tane olacak şekilde girin</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">Yorumlar döngüsü filtresi</string>
+    <string name="revanced_hide_comments_carousel_title">Yorumlar döngüsü filtresini etkinleştir</string>
+    <string name="revanced_hide_comments_carousel_user_dialog_message">"Not:
+• Kaydırmalı öğenin tam adını girdiğinizden emin olun (Örn: Sor, Bu videoyu hype edin, YouTube Music'te dinleyin, vb.).
+• Kaydırmalı öğeleri gizlemek beklenmedik yan etkilere neden olabilir.
+• Tüm kaydırmalı öğeler gizlenirse yorumlar bölümünün tamamı da gizlenecektir."</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Short oluştur düğmesi görünür</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Short oluştur düğmesi gizli</string>
     <string name="revanced_hide_comments_create_a_short_button_title">\'Short oluştur\' düğmesini gizle</string>
@@ -813,8 +822,11 @@ Sınırlama: Varsayılan metin stiline sahip olmayan bazı vurgulanan arama bağ
     <string name="revanced_hide_end_screen_suggested_video_summary_off">Bitiş ekranı önerilen videosu görünür</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_on">Bitiş ekranı önerilen videosu gizlenmiş</string>
     <string name="revanced_hide_end_screen_suggested_video_title">Bitiş ekranı önerilen videosunu gizle</string>
-    <string name="revanced_hide_expandable_card_summary_off">Videoların altındaki genişletilebilir kart görünür</string>
-    <string name="revanced_hide_expandable_card_summary_on">Videoların altındaki genişletilebilir kart gizli</string>
+    <string name="revanced_hide_expandable_card_entry_1">Her şeyi göster</string>
+    <string name="revanced_hide_expandable_card_entry_2">Sadece ürün kartını gizle</string>
+    <string name="revanced_hide_expandable_card_entry_3">Sadece özet kartını gizle</string>
+    <string name="revanced_hide_expandable_card_entry_4">Ürün ve özet kartlarını gizle</string>
+    <string name="revanced_hide_expandable_card_entry_5">Her şeyi gizle</string>
     <string name="revanced_hide_expandable_card_title">Videoların altındaki genişletilebilir kartlar</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Ürün rafları gösteriliyor.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Genişletilebilir raflar gösterilmiyor.</string>
@@ -1530,106 +1542,109 @@ Bilinen sorun: Bu ayar etkinleştirildiğinde YouTube Doodle'larına tıklanamaz
     <string name="revanced_keep_landscape_mode_timeout_summary">Ekran açıldıktan sonra manzara moduna geçmeye zorlanan milisaniye miktarı.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Manzara modunu tutma zaman aşımı</string>
     <string name="revanced_keep_landscape_mode_title">Manzara modunu tut</string>
-    <string name="revanced_language_AM">"Amharca
-<small>አማርኛ</small>"</string>
-    <string name="revanced_language_AR">"Arapça
-<small>العربية</small>"</string>
-    <string name="revanced_language_AZ">"Azerice
-<small>Azərbaycan</small>"</string>
-    <string name="revanced_language_BE">"Belarusça
-<small>беларуская</small>"</string>
-    <string name="revanced_language_BG">"Bulgarca
-<small>Български</small>"</string>
-    <string name="revanced_language_BN">"Bengalce
-<small>বাংলা</small>"</string>
-    <string name="revanced_language_CA">"Katalanca
-<small>Català</small>"</string>
-    <string name="revanced_language_CS">"Çekçe
-<small>Čeština</small>"</string>
-    <string name="revanced_language_DA">"Danimarkaca
-<small>Dansk</small>"</string>
-    <string name="revanced_language_DE">"Almanca
-<small>Deutsch</small>"</string>
+    <string name="revanced_language_AM">Amharca\n<small>አማርኛ</small>
+    </string>
+    <string name="revanced_language_AR">Arapça\n<small>العربية</small>
+    </string>
+    <string name="revanced_language_AZ">Azerice\n<small>Azərbaycan</small>
+    </string>
+    <string name="revanced_language_BE">Belarusça\n<small>беларуская</small>
+    </string>
+    <string name="revanced_language_BG">Bulgarca\n<small>Български</small>
+    </string>
+    <string name="revanced_language_BN">Bengalce\n<small>বাংলা</small>
+    </string>
+    <string name="revanced_language_CA">Katalanca\n<small>Català</small>
+    </string>
+    <string name="revanced_language_CS">Çekçe\n<small>Čeština</small>
+    </string>
+    <string name="revanced_language_DA">Danimarkaca\n<small>Dansk</small>
+    </string>
+    <string name="revanced_language_DE">Almanca\n<small>Deutsch</small>
+    </string>
     <string name="revanced_language_DEFAULT">Uygulama dili</string>
-    <string name="revanced_language_EL">"Yunanca
-<small>Ελληνικά</small>"</string>
-    <string name="revanced_language_EN">"İngilizce
-<small>English</small>"</string>
-    <string name="revanced_language_ES">"İspanyolca
-<small>Español</small>"</string>
-    <string name="revanced_language_ET">"Estonca
-<small>Eesti</small>"</string>
-    <string name="revanced_language_FA">"Persçe
-<small>فارسی</small>"</string>
-    <string name="revanced_language_FI">"Fince
-<small>Suomi</small>"</string>
-    <string name="revanced_language_FR">"Fransızca
-<small>Français</small>"</string>
-    <string name="revanced_language_GA">"İrlandaca
-<small>Gaeilge</small>"</string>
-    <string name="revanced_language_GU">"Guceratça
-<small>ગુજરાતી</small>"</string>
-    <string name="revanced_language_HE">"İbranice
-<small>עברי</small>"</string>
-    <string name="revanced_language_HI">"Hintçe
-<small>हिन्दी</small>"</string>
-    <string name="revanced_language_HR">"Hırvatça
-<small>Hrvatski</small>"</string>
-    <string name="revanced_language_HU">"Macarca
-<small>Magyar</small>"</string>
-    <string name="revanced_language_ID">"Endonezce
-<small>Indonesia</small>"</string>
-    <string name="revanced_language_IT">"İtalyanca
-<small>Italiano</small>"</string>
-    <string name="revanced_language_JA">"Japonca
-<small>日本語</small>"</string>
-    <string name="revanced_language_KK">"Kazakça
-<small>Қазақ тілі</small>"</string>
-    <string name="revanced_language_KO">"Korece
-<small>한국어</small>"</string>
-    <string name="revanced_language_LT">"Litvanca
-<small>Lietuvių</small>"</string>
-    <string name="revanced_language_LV">"Letonca
-<small>Latviešu</small>"</string>
-    <string name="revanced_language_MK">"Makedonca
-<small>Македонски</small>"</string>
-    <string name="revanced_language_MN">"Moğolca
-<small>Монгол</small>"</string>
-    <string name="revanced_language_MR">"<small>Marathi</small>"</string>
-    <string name="revanced_language_MS">"Malaya dili"</string>
-    <string name="revanced_language_MY">"Burmese
-<small>Burmese</small>"</string>
-    <string name="revanced_language_NL">"Hollanda Dili <small>Hollanda</small>"</string>
-    <string name="revanced_language_OR">"Odia"</string>
-    <string name="revanced_language_PA">"Pencapça"</string>
-    <string name="revanced_language_PL">"Lehçe
-<small>Polski</small>"</string>
-    <string name="revanced_language_PT">"Portekizce
-<small>Português</small>"</string>
-    <string name="revanced_language_RO">"Rumence
-<small>Română</small>"</string>
-    <string name="revanced_language_RU">"Rusça
-<small>Русский</small>"</string>
-    <string name="revanced_language_SK">"Slovakça"</string>
-    <string name="revanced_language_SL">"Slovence"</string>
-    <string name="revanced_language_SQ">"Arnavutça"</string>
-    <string name="revanced_language_SR">"Sırpça
-<small>Српски</small>"</string>
-    <string name="revanced_language_SV">"İsveççe
-<small>Svenska</small>"</string>
-    <string name="revanced_language_SW">"Svahili dili"</string>
-    <string name="revanced_language_TA">"Tamilce"</string>
-    <string name="revanced_language_TE">"Telugu"</string>
-    <string name="revanced_language_TH">"Tayca"</string>
-    <string name="revanced_language_TL">"Filipince
-<small>Filipince</small>"</string>
-    <string name="revanced_language_TR">"Türkçe
-<small>Türkçe</small>"</string>
-    <string name="revanced_language_UK">"Ukraynaca"</string>
-    <string name="revanced_language_UR">"Urdu dili"</string>
-    <string name="revanced_language_VI">"Vietnam dili"</string>
-    <string name="revanced_language_ZH">"Çince
-<small>中文</small>"</string>
+    <string name="revanced_language_EL">Yunanca\n<small>Ελληνικά</small>
+    </string>
+    <string name="revanced_language_EN">İngilizce\n<small>English</small>
+    </string>
+    <string name="revanced_language_ES">İspanyolca\n<small>Español</small>
+    </string>
+    <string name="revanced_language_ET">Estonca\n<small>Eesti</small>
+    </string>
+    <string name="revanced_language_FA">Persçe\n<small>فارسی</small>
+    </string>
+    <string name="revanced_language_FI">Fince\n<small>Suomi</small>
+    </string>
+    <string name="revanced_language_FR">Fransızca\n<small>Français</small>
+    </string>
+    <string name="revanced_language_GA">İrlandaca\n<small>Gaeilge</small>
+    </string>
+    <string name="revanced_language_GU">Guceratça\n<small>ગુજરાતી</small>
+    </string>
+    <string name="revanced_language_HE">İbranice\n<small>עברי</small>
+    </string>
+    <string name="revanced_language_HI">Hintçe\n<small>हिन्दी</small>
+    </string>
+    <string name="revanced_language_HR">Hırvatça\n<small>Hrvatski</small>
+    </string>
+    <string name="revanced_language_HU">Macarca\n<small>Magyar</small>
+    </string>
+    <string name="revanced_language_ID">Endonezce\n<small>Indonesia</small>
+    </string>
+    <string name="revanced_language_IT">İtalyanca\n<small>Italiano</small>
+    </string>
+    <string name="revanced_language_JA">Japonca\n<small>日本語</small>
+    </string>
+    <string name="revanced_language_KK">Kazakça\n<small>Қазақ тілі</small>
+    </string>
+    <string name="revanced_language_KO">Korece\n<small>한국어</small>
+    </string>
+    <string name="revanced_language_LT">Litvanca\n<small>Lietuvių</small>
+    </string>
+    <string name="revanced_language_LV">Letonca\n<small>Latviešu</small>
+    </string>
+    <string name="revanced_language_MK">Makedonca\n<small>Македонски</small>
+    </string>
+    <string name="revanced_language_MN">Moğolca\n<small>Монгол</small>
+    </string>
+    <string name="revanced_language_MR">
+        <small>Marathi</small>
+    </string>
+    <string name="revanced_language_MS">Malaya dili</string>
+    <string name="revanced_language_MY">Burmese\n<small>Burmese</small>
+    </string>
+    <string name="revanced_language_NL">Hollanda Dili <small>Hollanda</small>
+    </string>
+    <string name="revanced_language_OR">Odia</string>
+    <string name="revanced_language_PA">Pencapça</string>
+    <string name="revanced_language_PL">Lehçe\n<small>Polski</small>
+    </string>
+    <string name="revanced_language_PT">Portekizce\n<small>Português</small>
+    </string>
+    <string name="revanced_language_RO">Rumence\n<small>Română</small>
+    </string>
+    <string name="revanced_language_RU">Rusça\n<small>Русский</small>
+    </string>
+    <string name="revanced_language_SK">Slovakça</string>
+    <string name="revanced_language_SL">Slovence</string>
+    <string name="revanced_language_SQ">Arnavutça</string>
+    <string name="revanced_language_SR">Sırpça\n<small>Српски</small>
+    </string>
+    <string name="revanced_language_SV">İsveççe\n<small>Svenska</small>
+    </string>
+    <string name="revanced_language_SW">Svahili dili</string>
+    <string name="revanced_language_TA">Tamilce</string>
+    <string name="revanced_language_TE">Telugu</string>
+    <string name="revanced_language_TH">Tayca</string>
+    <string name="revanced_language_TL">Filipince\n<small>Filipince</small>
+    </string>
+    <string name="revanced_language_TR">Türkçe\n<small>Türkçe</small>
+    </string>
+    <string name="revanced_language_UK">Ukraynaca</string>
+    <string name="revanced_language_UR">Urdu dili</string>
+    <string name="revanced_language_VI">Vietnam dili</string>
+    <string name="revanced_language_ZH">Çince\n<small>中文</small>
+    </string>
     <string name="revanced_language_title">ReVanced dili</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Boyutlandırmak için çift dokunma ve sıkıştırma devre dışı</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Boyutlandırmak için çift dokunma ve sıkıştırma etkin
@@ -2045,8 +2060,6 @@ Kısıtlama: Gizli modda beğenmeme sayıları görünmeyebilir."</string>
     <string name="revanced_sanitize_comments_category_bar_summary_off">Kategori düğmeleri yorum kategorisi çubuğunda gösterilir</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">\'Üst\' ve \'En Yeni\' dışındaki kategori düğmeleri, yorum kategorisi çubuğunda gizlenir</string>
     <string name="revanced_sanitize_comments_category_bar_title">Kategori çubuğunu temizle</string>
-    <string name="revanced_sanitize_sharing_links_summary">Paylaşılan bağlantılardan izleme sorgu parametrelerini kaldırır</string>
-    <string name="revanced_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"'#', 'Bağış Kampanyası', 'Alışveriş Yap' ve 'ürünler' gibi ifadeler video altyazılarında gösterilir."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"'#', 'Bağış Kampanyası', 'Alışveriş Yap' ve 'ürünler' gibi ifadeler video altyazılarından gizlenir."</string>
     <string name="revanced_sanitize_video_subtitle_title">Video altyazısını temizle</string>
@@ -2136,6 +2149,13 @@ Göndermeye hazır mısınız?"</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Geçersiz süre girildi</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Kısmın zamanlamasını el ile ayarlayın</string>
     <string name="revanced_sb_new_segment_forward">Belirtilen süre kadar ileri (Varsayılan: 150ms)</string>
+    <string name="revanced_sb_new_segment_highlight_content">"Vurgu zamanı doğru mu?
+
+%s
+
+Bir vurgu göndermiyorsanız, İptal'e dokunun ve ikinci konumu işaretleyin"</string>
+    <string name="revanced_sb_new_segment_highlight_submit">Vurguyu gönder</string>
+    <string name="revanced_sb_new_segment_highlight_title">Vurguyu gönder</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">%s bu kısmın başlangıcı mı, bitişi mi olarak ayarlansın?</string>
     <string name="revanced_sb_new_segment_mark_end">Bitiş</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Öncelikle zaman çubuğunda bir konum işaretleyin</string>
@@ -2339,6 +2359,8 @@ Aynısı mevcut"</string>
     <string name="revanced_share_copy_video_information_success">Video bilgisi panoya kopyalandı.</string>
     <string name="revanced_shorts_autoplay_background_summary">Arka plan oynatımı sırasında otomatik olarak bir sonraki Short\'a geçer</string>
     <string name="revanced_shorts_autoplay_background_title">Arka planda otomatik oynatma</string>
+    <string name="revanced_shorts_autoplay_disabled_toast">Kısa videoların otomatik oynatımı devre dışı bırakıldı.</string>
+    <string name="revanced_shorts_autoplay_enabled_toast">Kısa videoların otomatik oynatılması etkinleştirildi.</string>
     <string name="revanced_shorts_autoplay_summary">Mevcut olanı tekrarlamak yerine otomatik olarak bir sonraki Short\'a geçer</string>
     <string name="revanced_shorts_autoplay_title">Shorts\'u otomatik oynat</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Bu özellik hala deneyseldir, bu nedenle mükemmel çalışacağının garantisi yoktur.
