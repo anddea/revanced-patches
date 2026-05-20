@@ -970,7 +970,8 @@
         <SwitchPreference android:title="@string/revanced_open_links_externally_title" android:key="revanced_open_links_externally" android:summaryOn="@string/revanced_open_links_externally_summary_on" android:summaryOff="@string/revanced_open_links_externally_summary_off" />SETTINGS: OPEN_LINKS_EXTERNALLY -->
 
         <!-- SETTINGS: SANITIZE_SHARING_LINKS
-        <SwitchPreference android:title="@string/revanced_sanitize_sharing_links_title" android:key="revanced_sanitize_sharing_links" android:summary="@string/revanced_sanitize_sharing_links_summary" />SETTINGS: SANITIZE_SHARING_LINKS -->
+        <SwitchPreference android:title="@string/morphe_sanitize_sharing_links_title" android:key="morphe_sanitize_sharing_links" android:summaryOn="@string/morphe_sanitize_sharing_links_summary_on" android:summaryOff="@string/morphe_sanitize_sharing_links_summary_off" />
+        <SwitchPreference android:title="@string/morphe_replace_links_with_shortener_title" android:key="morphe_replace_links_with_shortener" android:summary="@string/morphe_replace_links_with_shortener_summary" />SETTINGS: SANITIZE_SHARING_LINKS -->
 
         <app.morphe.extension.youtube.settings.preference.OpenDefaultAppSettingsPreference android:title="@string/revanced_default_app_settings_title" android:key="revanced_default_app_settings" android:summary="@string/revanced_default_app_settings_summary" />
 
