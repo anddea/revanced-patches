@@ -13,6 +13,7 @@ import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
@@ -53,34 +54,37 @@ val playlistPatch = bytecodePatch(
             )
 
         // Users deleted videos via YouTube's flyout menu.
-        val setVideoIdReference = with(playlistEndpointFingerprint.methodOrThrow()) {
-            val setVideoIdIndex = indexOfSetVideoIdInstruction(this)
-            getInstruction<ReferenceInstruction>(setVideoIdIndex).reference as FieldReference
-        }
+        if (!is_20_31_or_greater) {
+            val setVideoIdReference = with(playlistEndpointFingerprint.methodOrThrow()) {
+                val setVideoIdIndex = indexOfSetVideoIdInstruction(this)
+                getInstruction<ReferenceInstruction>(setVideoIdIndex).reference as FieldReference
+            }
 
-        editPlaylistFingerprint
-            .matchOrThrow(editPlaylistConstructorFingerprint)
-            .let {
-                it.method.apply {
-                    val castIndex = it.instructionMatches.first().index
-                    val castClass =
-                        getInstruction<ReferenceInstruction>(castIndex).reference.toString()
+            editPlaylistFingerprint
+                .matchOrThrow(editPlaylistConstructorFingerprint)
+                .let {
+                    it.method.apply {
+                        val castIndex = it.instructionMatches.first().index
+                        val castClass =
+                            getInstruction<ReferenceInstruction>(castIndex).reference.toString()
 
-                    if (castClass != setVideoIdReference.definingClass) {
-                        throw PatchException("Method signature parameter did not match: $castClass")
-                    }
-                    val castRegister = getInstruction<OneRegisterInstruction>(castIndex).registerA
-                    val insertIndex = castIndex + 1
-                    val insertRegister =
-                        getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+                        if (castClass != setVideoIdReference.definingClass) {
+                            throw PatchException("Method signature parameter did not match: $castClass")
+                        }
+                        val castRegister =
+                            getInstruction<OneRegisterInstruction>(castIndex).registerA
+                        val insertIndex = castIndex + 1
+                        val insertRegister =
+                            getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
-                    addInstructions(
-                        insertIndex, """
+                        addInstructions(
+                            insertIndex, """
                             iget-object v$insertRegister, v$castRegister, $setVideoIdReference
                             invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->removeFromQueue(Ljava/lang/String;)V
                             """
-                    )
+                        )
+                    }
                 }
-            }
+        }
     }
 }

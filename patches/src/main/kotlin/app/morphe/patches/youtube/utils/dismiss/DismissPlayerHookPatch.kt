@@ -6,6 +6,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
+import app.morphe.patches.youtube.utils.playservice.is_20_30_or_greater
 import app.morphe.util.addStaticFieldToExtension
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
@@ -19,7 +20,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 
 private const val EXTENSION_VIDEO_UTILS_CLASS_DESCRIPTOR =
     "$EXTENSION_PATH/utils/VideoUtils;"
@@ -32,7 +32,7 @@ val dismissPlayerHookPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        if (is_20_31_or_greater) {
+        if (is_20_30_or_greater) {
             dismissPlayerOnClickListener2031Fingerprint.methodOrThrow().apply {
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(DISMISS_PLAYER_2031_LITERAL)
                 val dismissPlayerIndex = indexOfFirstInstructionOrThrow(literalIndex) {
