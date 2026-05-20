@@ -5,6 +5,7 @@
  * https://github.com/anddea/revanced-patches
  *
  * Original author(s):
+ * - anddea (https://github.com/anddea)
  * - Jav1x (https://github.com/Jav1x)
  *
  * Licensed under the GNU General Public License v3.0.
@@ -106,12 +107,20 @@ object VoiceOverTranslationButton {
     }
 
     private fun onClick(view: View) {
+        if (VoiceOverTranslationPatch.isTranslationRequestInProgress()) {
+            showMenu(view)
+            return
+        }
         VoiceOverTranslationPatch.toggleTranslation()
         instance?.imageView()?.isActivated = VoiceOverTranslationPatch.isTranslationActive()
     }
 
     private fun onLongClick(view: View): Boolean {
-        val context = RootView.getContext() ?: return false
+        return showMenu(view)
+    }
+
+    private fun showMenu(view: View): Boolean {
+        val context = RootView.getContext() ?: view.context
         VideoUtils.showVotBottomSheetDialog(context)
         return true
     }

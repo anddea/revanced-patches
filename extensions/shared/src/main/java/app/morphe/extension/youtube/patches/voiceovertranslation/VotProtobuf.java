@@ -5,6 +5,7 @@
  * https://github.com/anddea/revanced-patches
  *
  * Original author(s):
+ * - anddea (https://github.com/anddea)
  * - Jav1x (https://github.com/Jav1x)
  *
  * Licensed under the GNU General Public License v3.0.
@@ -116,29 +117,60 @@ public class VotProtobuf {
         }
     }
 
-    /**
-     * Encode a VideoTranslationAudioRequest with empty audio.
-     *   translationId = 1 (string)
-     *   url = 2 (string)
-     *   audioInfo = 6 (message): { fileId = 1 (string), audioFile = 2 (bytes) }
-     */
-    public static byte[] encodeEmptyAudioRequest(String translationId, String url) {
+    public static byte[] encodeAudioRequest(String translationId, String url, String fileId, byte[] audioData) {
         try {
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             writeString(out, 1, translationId);
             writeString(out, 2, url);
 
-            // audioInfo (field 6) is a nested message: AudioBufferObject { fileId=1, audioFile=2 }
             ByteArrayOutputStream audioInfoOut = new ByteArrayOutputStream();
-            writeString(audioInfoOut, 1, "web_api_get_all_generating_urls_data_from_iframe");
-            // audioFile (field 2) is empty bytes - we skip it
+            writeString(audioInfoOut, 1, fileId);
+            if (audioData != null && audioData.length > 0) {
+                writeBytes(audioInfoOut, audioData);
+            }
 
             byte[] audioInfoBytes = audioInfoOut.toByteArray();
-            writeBytes(out, audioInfoBytes);
+            writeMessage(out, 6, audioInfoBytes);
 
             return out.toByteArray();
         } catch (IOException e) {
             throw new RuntimeException("Failed to encode audio request", e);
+        }
+    }
+
+    public static byte[] encodeEmptyAudioRequest(String translationId, String url) {
+        return encodeAudioRequest(
+                translationId,
+                url,
+                "web_api_get_all_generating_urls_data_from_iframe",
+                new byte[0]
+        );
+    }
+
+    public static byte[] encodePartialAudioRequest(
+            String translationId, String url, String fileId,
+            int audioPartsLength, int version, int chunkId, byte[] audioData
+    ) {
+        try {
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            writeString(out, 1, translationId);
+            writeString(out, 2, url);
+
+            ByteArrayOutputStream partialAudioBufferOut = new ByteArrayOutputStream();
+            writeInt32(partialAudioBufferOut, 1, chunkId);
+            writeBytes(partialAudioBufferOut, audioData);
+
+            ByteArrayOutputStream partialAudioInfoOut = new ByteArrayOutputStream();
+            writeMessage(partialAudioInfoOut, 1, partialAudioBufferOut.toByteArray());
+            writeInt32(partialAudioInfoOut, 2, audioPartsLength);
+            writeString(partialAudioInfoOut, 3, fileId);
+            writeInt32(partialAudioInfoOut, 4, version);
+
+            writeMessage(out, 4, partialAudioInfoOut.toByteArray());
+
+            return out.toByteArray();
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to encode partial audio request", e);
         }
     }
 
@@ -303,10 +335,14 @@ public class VotProtobuf {
         out.write(bytes);
     }
 
-    private static void writeBytes(ByteArrayOutputStream out, byte[] value) throws IOException {
-        writeTag(out, 6, WIRETYPE_LENGTH_DELIMITED);
+    private static void writeMessage(ByteArrayOutputStream out, int fieldNumber, byte[] value) throws IOException {
+        writeTag(out, fieldNumber, WIRETYPE_LENGTH_DELIMITED);
         writeRawVarint(out, value.length);
         out.write(value);
+    }
+
+    private static void writeBytes(ByteArrayOutputStream out, byte[] value) throws IOException {
+        writeMessage(out, 2, value);
     }
 
     private static void writeInt32(ByteArrayOutputStream out, int fieldNumber, int value) throws IOException {

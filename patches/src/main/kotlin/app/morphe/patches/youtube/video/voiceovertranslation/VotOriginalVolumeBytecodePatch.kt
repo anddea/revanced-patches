@@ -4,9 +4,9 @@
  * This file is part of the revanced-patches project:
  * https://github.com/anddea/revanced-patches
  *
- * Original author(s) (based on contributions):
- * - Jav1x (https://github.com/Jav1x)
+ * Original author(s):
  * - anddea (https://github.com/anddea)
+ * - Jav1x (https://github.com/Jav1x)
  *
  * Licensed under the GNU General Public License v3.0.
  *

@@ -4,9 +4,9 @@
  * This file is part of the revanced-patches project:
  * https://github.com/anddea/revanced-patches
  *
- * Original author(s) (based on contributions):
- * - Jav1x (https://github.com/Jav1x)
+ * Original author(s):
  * - anddea (https://github.com/anddea)
+ * - Jav1x (https://github.com/Jav1x)
  *
  * Licensed under the GNU General Public License v3.0.
  *
@@ -223,6 +223,49 @@ public class VotApiClient {
         } catch (Exception e) {
             Logger.printException(() -> "VotApiClient.sendEmptyAudio failed for " + videoUrl, e);
         }
+    }
+
+    public static boolean sendAudio(String videoUrl, String translationId, String fileId, byte[] audioData) {
+        try {
+            ensureSession();
+
+            byte[] body = VotProtobuf.encodeAudioRequest(translationId, videoUrl, fileId, audioData);
+
+            return sendAudioRequestBody(body);
+        } catch (Exception e) {
+            Logger.printException(() -> "VotApiClient.sendAudio failed for " + videoUrl, e);
+            return false;
+        }
+    }
+
+    public static boolean sendPartialAudio(
+            String videoUrl, String translationId, String fileId,
+            int audioPartsLength, int version, int chunkId, byte[] audioData
+    ) {
+        try {
+            ensureSession();
+
+            byte[] body = VotProtobuf.encodePartialAudioRequest(
+                    translationId, videoUrl, fileId,
+                    audioPartsLength, version, chunkId, audioData
+            );
+
+            return sendAudioRequestBody(body);
+        } catch (Exception e) {
+            Logger.printException(() -> "VotApiClient.sendPartialAudio failed for " + videoUrl, e);
+            return false;
+        }
+    }
+
+    private static boolean sendAudioRequestBody(byte[] body) throws IOException {
+        String path = "/video-translation/audio";
+        String bodySignature = computeHmacHex(body);
+
+        String token = sessionUuid + ":" + path + ":" + COMPONENT_VERSION;
+        String tokenSignature = computeHmacHex(token.getBytes(StandardCharsets.UTF_8));
+
+        return sendWorkerRequest(path, body, bodySignature,
+                sessionSecretKey, tokenSignature + ":" + token, "PUT") != null;
     }
 
     private static void ensureSession() throws Exception {
