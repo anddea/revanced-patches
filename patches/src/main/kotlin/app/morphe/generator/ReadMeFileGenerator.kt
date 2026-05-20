@@ -43,7 +43,6 @@ internal class ReadMeFileGenerator : PatchesFileGenerator {
         // add a list of supported versions to a temp file
         mapOf(
             app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE to "\"COMPATIBLE_PACKAGE_MUSIC\"",
-            app.morphe.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE to "\"COMPATIBLE_PACKAGE_REDDIT\"",
             app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE to "\"COMPATIBLE_PACKAGE_YOUTUBE\""
         ).forEach { (compatiblePackage, replaceString) ->
             compatiblePackage.let { (packageName, versions) ->

@@ -43,15 +43,6 @@ Example:
       "com.google.android.apps.youtube.music": "COMPATIBLE_PACKAGE_MUSIC"
     },
     "options": []
-  },
-  {
-    "name": "Hide ads",
-    "description": "Adds options to hide ads.",
-    "use":true,
-    "compatiblePackages": {
-      "com.reddit.frontpage": "COMPATIBLE_PACKAGE_REDDIT"
-    },
-    "options": []
   }
 ]
 ```

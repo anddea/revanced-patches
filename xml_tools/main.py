@@ -79,7 +79,6 @@ class CLIConfig:
 )
 @click.option("--youtube", is_flag=True, help="Process YouTube")
 @click.option("--music", is_flag=True, help="Process Music")
-@click.option("--reddit", is_flag=True, help="Process Reddit")
 @click.option("--debug", is_flag=True, help="Enable debug logging")
 @click.pass_context
 def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
@@ -87,9 +86,9 @@ def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
     log_file = kwargs.get("log_file")
     log_file = log_file if isinstance(log_file, str) else None
 
-    flags = [bool(kwargs.get("youtube")), bool(kwargs.get("music")), bool(kwargs.get("reddit"))]
+    flags = [bool(kwargs.get("youtube")), bool(kwargs.get("music"))]
     if sum(flags) > 1:
-        exc: str = "You can only use one of --youtube, --music, or --reddit at a time."
+        exc: str = "You can only use one of --youtube or --music at a time."
         raise click.UsageError(exc)
 
     app: str = (
@@ -97,8 +96,6 @@ def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
         if kwargs.get("youtube")
         else "music"
         if kwargs.get("music")
-        else "reddit"
-        if kwargs.get("reddit")
         else "youtube"  # The default fallback if nothing is clicked
     )
     debug: bool = bool(kwargs.get("debug", False))
@@ -167,10 +164,8 @@ def process_all(config: CLIConfig) -> None:
         ("Remove Unused Strings (YouTube Music)", remove_unused_strings.process, ["music"]),
         ("Sort Strings (YouTube)", sort_strings.process, ["youtube"]),
         ("Sort Strings (YouTube Music)", sort_strings.process, ["music"]),
-        ("Sort Strings (Reddit)", sort_strings.process, ["reddit"]),
         ("Missing Strings Creation (YouTube)", missing_strings.process, ["youtube"]),
         ("Missing Strings Creation (YouTube Music)", missing_strings.process, ["music"]),
-        ("Missing Strings Creation (Reddit)", missing_strings.process, ["reddit"]),
         ("Remove Unused Resources (YouTube)", remove_unused_resources.process, ["youtube"]),
         ("Remove Unused Resources (YouTube Music)", remove_unused_resources.process, ["music"]),
         ("Missing Prefs Check", check_prefs.process, ["youtube", base_dir]),
