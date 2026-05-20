@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package app.morphe.extension.youtube.innertube;
+
+option optimize_for = LITE_RUNTIME;
+option java_package = "app.morphe.extension.youtube.innertube";
+
+message Icon {
+    YTIconType ytIconType = 1;
+}
+
+enum YTIconType {
+    UNKNOWN = 0;
+    SEARCH = 60;
+    SEARCH_BOLD = 1045;
+    SEARCH_CAIRO = 1160;
+}

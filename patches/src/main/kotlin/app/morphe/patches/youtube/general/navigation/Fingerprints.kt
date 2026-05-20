@@ -1,12 +1,17 @@
 package app.morphe.patches.youtube.general.navigation
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.checkCast
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.literal
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
 import app.morphe.patches.youtube.utils.YOUTUBE_PIVOT_BAR_CLASS_TYPE
 import app.morphe.patches.youtube.utils.resourceid.actionBarSearchResultsViewMic
 import app.morphe.patches.youtube.utils.resourceid.newContentCount
 import app.morphe.patches.youtube.utils.resourceid.newContentDot
-import app.morphe.patches.youtube.utils.resourceid.searchBox
 import app.morphe.patches.youtube.utils.resourceid.searchQuery
-import app.morphe.patches.youtube.utils.resourceid.youTubeLogo
 import app.morphe.patches.youtube.utils.resourceid.ytFillBell
 import app.morphe.patches.youtube.utils.resourceid.ytOutlineLibrary
 import app.morphe.util.fingerprint.legacyFingerprint
@@ -90,22 +95,30 @@ internal val pivotBarStyleFingerprint = legacyFingerprint(
     }
 )
 
-// 19.37 ~
-internal val searchBarOnClickListenerFingerprint = legacyFingerprint(
-    name = "searchBarOnClickListenerFingerprint",
-    returnType = "Landroid/view/View;",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L", "L"),
-    literals = listOf(searchBox, youTubeLogo),
-)
-
-// ~ 19.36
-internal val searchBarOnClickListenerLegacyFingerprint = legacyFingerprint(
-    name = "searchBarOnClickListenerLegacyFingerprint",
+internal object TopBarRendererPrimaryFilterFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("Landroid/view/View;", "L", "Z", "Z"),
-    literals = listOf(searchBox, youTubeLogo),
+    filters = listOf(
+        fieldAccess(opcode = Opcode.SGET_OBJECT),
+        checkCast(
+            type = "Ljava/util/List;",
+            location = MatchAfterWithin(5),
+        ),
+        opcode(
+            opcode = Opcode.CHECK_CAST,
+            location = MatchAfterWithin(3),
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            returnType = "L",
+            location = MatchAfterWithin(3),
+        ),
+        opcode(
+            opcode = Opcode.CHECK_CAST,
+            location = MatchAfterWithin(5),
+        ),
+        literal(120823052L),
+    ),
 )
 
 internal val setEnumMapFingerprint = legacyFingerprint(

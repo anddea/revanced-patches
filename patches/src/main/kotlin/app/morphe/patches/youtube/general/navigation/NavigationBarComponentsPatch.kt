@@ -2,12 +2,10 @@ package app.morphe.patches.youtube.general.navigation
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.spoof.guide.addClientOSVersionHook
 import app.morphe.patches.shared.spoof.guide.spoofClientGuideEndpointPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
@@ -20,13 +18,11 @@ import app.morphe.patches.youtube.utils.navigation.navigationButtonsMethod
 import app.morphe.patches.youtube.utils.patch.PatchList.NAVIGATION_BAR_COMPONENTS
 import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_28_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_19_37_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_06_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.newContentCount
 import app.morphe.patches.youtube.utils.resourceid.newContentDot
-import app.morphe.patches.youtube.utils.resourceid.searchBox
 import app.morphe.patches.youtube.utils.resourceid.searchQuery
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.resourceid.ytOutlineLibrary
@@ -40,7 +36,6 @@ import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
-import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
@@ -50,8 +45,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
@@ -187,107 +180,30 @@ val navigationBarComponentsPatch = bytecodePatch(
             true
         )
 
-        val onClickListenerFingerprint = if (is_19_37_or_greater)
-            searchBarOnClickListenerFingerprint
-        else
-            searchBarOnClickListenerLegacyFingerprint
-
-        onClickListenerFingerprint.methodOrThrow().apply {
-            val searchBoxIdIndex = indexOfFirstLiteralInstructionOrThrow(searchBox)
-
-            val onClickMethodIndex = indexOfFirstInstructionOrThrow(searchBoxIdIndex) {
-                val reference = getReference<MethodReference>()
-                (opcode == Opcode.INVOKE_VIRTUAL || opcode == Opcode.INVOKE_DIRECT) &&
-                        reference?.returnType == "V" &&
-                        reference.parameterTypes.size == 2 &&
-                        reference.parameterTypes.firstOrNull() == "Landroid/view/View;" &&
-                        reference.parameterTypes[1].toString().startsWith("L")
-            }
-
-            with (getWalkerMethod(onClickMethodIndex)) {
-                val onClickListenerIndex =
-                    indexOfFirstInstructionOrThrow(Opcode.NEW_INSTANCE)
+        TopBarRendererPrimaryFilterFingerprint.let {
+            it.method.apply {
+                val onClickListenerIndex = it.instructionMatches[3].index
                 val onClickListenerRegister =
-                    getInstruction<OneRegisterInstruction>(onClickListenerIndex).registerA
+                    getInstruction<FiveRegisterInstruction>(onClickListenerIndex).registerC
 
-                val viewIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            getReference<MethodReference>()?.name == "setOnClickListener"
-                }
-                val viewRegister =
-                    getInstruction<FiveRegisterInstruction>(viewIndex).registerC
+                val copiedButtonRendererIndex = it.instructionMatches[4].index
+                val copiedButtonRendererRegister =
+                    getInstruction<OneRegisterInstruction>(copiedButtonRendererIndex).registerA
 
-                addInstructionsWithLabels(
-                    viewIndex, """
-                        invoke-static {v$onClickListenerRegister}, $EXTENSION_CLASS_DESCRIPTOR->setSearchBarOnClickListener(Landroid/view/View${'$'}OnClickListener;)V
-                        if-eqz v$viewRegister, :ignore
-                        """,
-                    ExternalLabel("ignore", getInstruction(viewIndex + 1))
+                addInstruction(
+                    copiedButtonRendererIndex + 1,
+                    "invoke-static { v$copiedButtonRendererRegister, v$onClickListenerRegister }, " +
+                            "$EXTENSION_CLASS_DESCRIPTOR->setSearchBarOnClickListener" +
+                            "(Lcom/google/protobuf/MessageLite;Landroid/view/View${'$'}OnClickListener;)V"
                 )
             }
-
-            // invoke-direct or invoke-virtual
-            val onClickMethodOpcode = getInstruction(onClickMethodIndex).opcode.name
-            val onClickMethodReference =
-                getInstruction<ReferenceInstruction>(onClickMethodIndex).reference
-
-            val (classRegister, objectRegister) =
-                getInstruction<FiveRegisterInstruction>(
-                    onClickMethodIndex
-                ).let { i -> i.registerC to i.registerE }
-
-            fun getField(register: Int): FieldReference {
-                val index =
-                    indexOfFirstInstructionReversedOrThrow(onClickMethodIndex) {
-                        opcode == Opcode.IGET_OBJECT &&
-                                (this as TwoRegisterInstruction).registerA == register
-                    }
-
-                return getInstruction<ReferenceInstruction>(index).reference as FieldReference
-            }
-
-            fun getParameter(register: Int): Int {
-                val index =
-                    indexOfFirstInstructionReversedOrThrow(onClickMethodIndex) {
-                        opcode.name.startsWith("move-object") &&
-                                (this as TwoRegisterInstruction).registerA == register
-                    }
-
-                return getInstruction<TwoRegisterInstruction>(index).registerB
-            }
-
-            val smaliInstructionsPrefix = if (is_19_37_or_greater) {
-                val classField = getField(classRegister)
-                val objectField = getField(objectRegister)
-
-                """
-                    move-object/from16 v0, p0
-                    iget-object v1, v0, $classField
-                    iget-object v3, v0, $objectField
-                """
-            } else {
-                val classParameter = getParameter(classRegister)
-                val objectParameter = getParameter(objectRegister)
-
-                """
-                    move-object/from16 v1, v$classParameter
-                    move-object/from16 v3, v$objectParameter
-                """
-            }
-
-            addInstructions(
-                0, smaliInstructionsPrefix + """
-                    const/4 v2, 0x0
-                    $onClickMethodOpcode {v1, v2, v3}, $onClickMethodReference
-                    """
-            )
         }
 
         val enumClass = with(imageEnumConstructorFingerprint.methodOrThrow()) {
             arrayOf(
                 SEARCH_STRING to "search",
                 SEARCH_CAIRO_STRING to "searchCairo",
-            ).map { (enumName, fieldName) ->
+            ).forEach { (enumName, fieldName) ->
                 val stringIndex = indexOfFirstStringInstruction(enumName)
 
                 if (stringIndex > -1) {
@@ -478,4 +394,3 @@ val navigationBarComponentsPatch = bytecodePatch(
         // endregion
     }
 }
-
