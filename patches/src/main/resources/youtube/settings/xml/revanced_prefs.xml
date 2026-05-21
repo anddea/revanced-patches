@@ -300,8 +300,15 @@
         <SwitchPreference android:title="@string/revanced_hide_feed_captions_button_title" android:key="revanced_hide_feed_captions_button" android:summaryOn="@string/revanced_hide_feed_captions_button_on" android:summaryOff="@string/revanced_hide_feed_captions_button_off" />
         <SwitchPreference android:title="@string/revanced_hide_floating_button_title" android:key="revanced_hide_floating_button" android:summaryOn="@string/revanced_hide_floating_button_summary_on" android:summaryOff="@string/revanced_hide_floating_button_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_image_shelf_title" android:key="revanced_hide_image_shelf" android:summaryOn="@string/revanced_hide_image_shelf_summary_on" android:summaryOff="@string/revanced_hide_image_shelf_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_chips_shelf_title" android:key="revanced_hide_chips_shelf" android:summaryOn="@string/revanced_hide_chips_shelf_on" android:summaryOff="@string/revanced_hide_chips_shelf_off" />
-        <SwitchPreference android:title="@string/revanced_hide_expandable_card_title" android:key="revanced_hide_expandable_card" android:summaryOn="@string/revanced_hide_expandable_card_summary_on" android:summaryOff="@string/revanced_hide_expandable_card_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_chips_shelf_title" android:key="revanced_hide_chips_shelf" android:summaryOn="@string/revanced_hide_chips_shelf_on" android:summaryOff="@string/revanced_hide_chips_shelf_off" />SETTINGS: HIDE_FEED_COMPONENTS -->
+
+        <!-- SETTINGS: HIDE_EXPANDABLE_CARD
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_hide_expandable_card_entries" android:title="@string/revanced_hide_expandable_card_title" android:key="revanced_hide_expandable_card" android:entryValues="@array/revanced_hide_expandable_card_entry_values" />SETTINGS: HIDE_EXPANDABLE_CARD -->
+
+        <!-- SETTINGS: LEGACY_HIDE_EXPANDABLE_CARD
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_hide_expandable_card_legacy_entries" android:title="@string/revanced_hide_expandable_card_title" android:key="revanced_hide_expandable_card" android:entryValues="@array/revanced_hide_expandable_card_legacy_entry_values" />SETTINGS: LEGACY_HIDE_EXPANDABLE_CARD -->
+
+        <!-- SETTINGS: HIDE_FEED_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_expandable_shelf_title" android:key="revanced_hide_expandable_shelf" android:summaryOn="@string/revanced_hide_expandable_shelf_summary_on" android:summaryOff="@string/revanced_hide_expandable_shelf_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_latest_posts_title" android:key="revanced_hide_latest_posts" android:summaryOn="@string/revanced_hide_latest_posts_summary_on" android:summaryOff="@string/revanced_hide_latest_posts_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_latest_videos_button_title" android:key="revanced_hide_latest_videos_button" android:summaryOn="@string/revanced_hide_latest_videos_button_summary_on" android:summaryOff="@string/revanced_hide_latest_videos_button_summary_off" />

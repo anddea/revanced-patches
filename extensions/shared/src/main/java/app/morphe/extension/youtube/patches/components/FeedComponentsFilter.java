@@ -46,6 +46,8 @@ public final class FeedComponentsFilter extends Filter {
     private final StringFilterGroup chipBar;
     private final StringFilterGroup communityPosts;
     private final StringFilterGroup expandableCard;
+    private final ByteArrayFilterGroup productCardBuffer;
+    private final ByteArrayFilterGroup summaryCardBuffer;
     private final ByteArrayFilterGroup playablesBuffer;
     private final ByteArrayFilterGroup ticketShelfBuffer;
 
@@ -76,6 +78,14 @@ public final class FeedComponentsFilter extends Filter {
             "channel_profile"
     );
     private static final StringTrieSearch mixPlaylistsContextExceptions = new StringTrieSearch();
+
+    public enum ExpandableCardStyle {
+        SHOW_ALL,
+        HIDE_PRODUCT_ONLY,
+        HIDE_SUMMARY_ONLY,
+        HIDE_PRODUCT_AND_SUMMARY,
+        HIDE_ALL
+    }
 
     public FeedComponentsFilter() {
         carouselShelfExceptions.addPattern("library_recent_shelf.");
@@ -190,10 +200,20 @@ public final class FeedComponentsFilter extends Filter {
         );
 
         expandableCard = new StringFilterGroup(
-                Settings.HIDE_EXPANDABLE_CARD,
+                null,
                 INLINE_EXPANSION_PATH,
                 "inline_expander",
                 "expandable_metadata."
+        );
+
+        productCardBuffer = new ByteArrayFilterGroup(
+                null,
+                "gstatic.com/shopping"
+        );
+
+        summaryCardBuffer = new ByteArrayFilterGroup(
+                null,
+                "PAfeedback_genai"
         );
 
         final StringFilterGroup surveys = new StringFilterGroup(
@@ -445,7 +465,19 @@ public final class FeedComponentsFilter extends Filter {
             return Settings.HIDE_COMMUNITY_POSTS_HOME_RELATED_VIDEOS.get();
 
         } else if (matchedGroup == expandableCard) {
-            return path.startsWith(FEED_VIDEO_PATH);
+            if (!path.startsWith(FEED_VIDEO_PATH)) {
+                return false;
+            }
+
+            ExpandableCardStyle style = Settings.HIDE_EXPANDABLE_CARD.get();
+            return switch (style) {
+                case HIDE_ALL -> true;
+                case HIDE_PRODUCT_ONLY -> productCardBuffer.check(buffer).isFiltered();
+                case HIDE_SUMMARY_ONLY -> summaryCardBuffer.check(buffer).isFiltered();
+                case HIDE_PRODUCT_AND_SUMMARY ->
+                        productCardBuffer.check(buffer).isFiltered() || summaryCardBuffer.check(buffer).isFiltered();
+                default -> false;
+            };
 
         } else if (matchedGroup == carouselShelves) {
             if (contentIndex == 0) {

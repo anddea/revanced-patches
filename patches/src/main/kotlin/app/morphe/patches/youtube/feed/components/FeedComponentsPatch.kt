@@ -22,6 +22,7 @@ import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_02_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_10_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_26_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.bar
@@ -412,10 +413,17 @@ val feedComponentsPatch = bytecodePatch(
 
         // region add settings
 
+        val hideExpandableCard = if (is_20_26_or_greater) {
+            "SETTINGS: HIDE_EXPANDABLE_CARD"
+        } else {
+            "SETTINGS: LEGACY_HIDE_EXPANDABLE_CARD"
+        }
+
         addPreference(
             arrayOf(
                 "PREFERENCE_SCREEN: FEED",
-                "SETTINGS: HIDE_FEED_COMPONENTS"
+                "SETTINGS: HIDE_FEED_COMPONENTS",
+                hideExpandableCard
             ),
             HIDE_FEED_COMPONENTS
         )

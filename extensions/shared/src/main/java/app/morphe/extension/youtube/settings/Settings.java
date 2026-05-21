@@ -38,6 +38,7 @@ import app.morphe.extension.youtube.patches.alternativethumbnails.AlternativeThu
 import app.morphe.extension.youtube.patches.alternativethumbnails.AlternativeThumbnailsPatch.StillImagesAvailability;
 import app.morphe.extension.youtube.patches.alternativethumbnails.AlternativeThumbnailsPatch.ThumbnailOption;
 import app.morphe.extension.youtube.patches.alternativethumbnails.AlternativeThumbnailsPatch.ThumbnailStillTime;
+import app.morphe.extension.youtube.patches.components.FeedComponentsFilter;
 import app.morphe.extension.youtube.patches.general.ChangeFormFactorPatch.FormFactor;
 import app.morphe.extension.youtube.patches.general.ChangeStartPagePatch;
 import app.morphe.extension.youtube.patches.general.ChangeStartPagePatch.StartPage;
@@ -111,7 +112,8 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_ALBUM_CARDS = new BooleanSetting("revanced_hide_album_card", FALSE);
     public static final BooleanSetting HIDE_FEED_CAPTIONS_BUTTON = new BooleanSetting("revanced_hide_feed_captions_button", FALSE, true);
     public static final BooleanSetting HIDE_CHIPS_SHELF = new BooleanSetting("revanced_hide_chips_shelf", TRUE);
-    public static final BooleanSetting HIDE_EXPANDABLE_CARD = new BooleanSetting("revanced_hide_expandable_card", FALSE);
+    public static final EnumSetting<FeedComponentsFilter.ExpandableCardStyle> HIDE_EXPANDABLE_CARD =
+            new EnumSetting<>("revanced_hide_expandable_card", FeedComponentsFilter.ExpandableCardStyle.HIDE_ALL);
     public static final BooleanSetting HIDE_EXPANDABLE_SHELF = new BooleanSetting("revanced_hide_expandable_shelf", TRUE);
     public static final BooleanSetting HIDE_FLOATING_BUTTON = new BooleanSetting("revanced_hide_floating_button", FALSE, true);
     public static final BooleanSetting HIDE_IMAGE_SHELF = new BooleanSetting("revanced_hide_image_shelf", TRUE);
