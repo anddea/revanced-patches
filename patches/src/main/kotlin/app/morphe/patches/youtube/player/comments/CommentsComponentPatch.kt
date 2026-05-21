@@ -18,6 +18,8 @@ import app.morphe.patches.youtube.utils.extension.Constants.SPANS_PATH
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_COMMENTS_COMPONENTS
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.morphe.patches.youtube.utils.proto.elementProtoParserHookPatch
+import app.morphe.patches.youtube.utils.proto.hookElement
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
@@ -45,6 +47,7 @@ val commentsComponentPatch = bytecodePatch(
         inclusiveSpanPatch,
         lithoFilterPatch,
         lithoLayoutPatch,
+        elementProtoParserHookPatch,
         lazilyConvertedElementHookPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
@@ -91,6 +94,7 @@ val commentsComponentPatch = bytecodePatch(
 
         addSpanFilter(SEARCH_LINKS_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(COMMENTS_FILTER_CLASS_DESCRIPTOR)
+        hookElement("$COMMENTS_FILTER_CLASS_DESCRIPTOR->onCommentsLoaded([B)[B")
         hookElementList("$PLAYER_CLASS_DESCRIPTOR->sanitizeCommentsCategoryBar")
 
         // region add settings
