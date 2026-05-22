@@ -1,3 +1,18 @@
+# [4.1.0-dev.1](https://github.com/anddea/revanced-patches/compare/v4.0.1-dev.1...v4.1.0-dev.1) (2026-05-22)
+
+
+### Bug Fixes
+
+* **YouTube - Change share sheet:** System share sheet did not work previously ([cfd5406](https://github.com/anddea/revanced-patches/commit/cfd5406bb33bc765bf8027b3cca4f99050230491))
+* **YouTube - Voice Over Translation:** Requesting audio translation did not work ([7fe8ff3](https://github.com/anddea/revanced-patches/commit/7fe8ff3585f3e0d3dc91e63b192cdbe4a520d10e))
+
+
+### Features
+
+* **Reddit:** Drop support, migrated to and updated in [Morphe](https://github.com/MorpheApp/morphe-patches/) ([be90cb1](https://github.com/anddea/revanced-patches/commit/be90cb16cbd17e452a944283c24e26afb9b17efd))
+* **YouTube - Hide comments components:** Add `Enable comments carousel filter` setting ([5f857aa](https://github.com/anddea/revanced-patches/commit/5f857aa9bb393f75517a9c5fb073eafb982b9c22))
+* **YouTube - SponsorBlock:** Add submit `Highlight` segments and fix saved time calculation ([a48c18e](https://github.com/anddea/revanced-patches/commit/a48c18eafca6b5bf41b1f009108d85eff005adc9))
+
 ## [4.0.1-dev.1](https://github.com/anddea/revanced-patches/compare/v4.0.0...v4.0.1-dev.1) (2026-05-15)
 
 
