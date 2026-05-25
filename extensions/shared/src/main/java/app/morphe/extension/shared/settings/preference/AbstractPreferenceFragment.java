@@ -99,9 +99,15 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             }
 
             updatingPreference = true;
-            // Apply 'Setting <- Preference', unless during importing when it needs to be 'Setting -> Preference'.
-            // Updating here can cause a recursive call back into this same method.
-            updatePreference(pref, setting, true, settingImportInProgress);
+            if (settingImportInProgress) {
+                // Apply 'Setting -> Preference'.
+                updatePreferencesWithKey(getPreferenceScreen(), str, setting);
+            } else {
+                // Apply 'Setting <- SharedPreferences -> Preference'. Reading from SharedPreferences
+                // avoids stale in-memory values when the same key appears in multiple Preferences.
+                Setting.privateSyncValueFromPreferences(setting);
+                updatePreferencesWithKey(getPreferenceScreen(), str, setting);
+            }
             // Update any other preference availability that may now be different.
             updateUIAvailability();
             updatingPreference = false;
@@ -236,6 +242,31 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     // Probably a typo in the patches preference declaration.
                     Logger.printException(() -> "Preference key has no setting: " + key);
                 }
+            }
+        }
+    }
+
+    /**
+     * Recursively searches a preference group to update a specific preference matching the given key.
+     * <p>
+     * This method traverses the provided {@link PreferenceGroup}. If a nested {@code PreferenceGroup}
+     * is encountered, it recursively searches that subgroup. When a standard {@link Preference}
+     * with a matching key is found, it updates the preference using the provided setting configuration.
+     * </p>
+     *
+     * @param group   the root preference group or subgroup to search through, cannot be null
+     * @param key     the unique string identifier of the target preference to update, cannot be null
+     * @param setting the new setting configuration to apply to the matching preference, cannot be null
+     */
+    private void updatePreferencesWithKey(@NonNull PreferenceGroup group,
+                                          @NonNull String key,
+                                          @NonNull Setting<?> setting) {
+        for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
+            Preference pref = group.getPreference(i);
+            if (pref instanceof PreferenceGroup subGroup) {
+                updatePreferencesWithKey(subGroup, key, setting);
+            } else if (pref.hasKey() && key.equals(pref.getKey())) {
+                updatePreference(pref, setting, true, true);
             }
         }
     }

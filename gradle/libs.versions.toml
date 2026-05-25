@@ -15,6 +15,8 @@ okhttp3 = "4.12.0"
 protobuf = "0.10.0"
 protoc = "4.34.1"
 preference = "1.2.1"
+junit = "4.13.2"
+robolectric = "4.13"
 
 [libraries]
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
@@ -29,6 +31,8 @@ nanohttpd = { module = "org.nanohttpd:nanohttpd", version.ref = "nanohttpd" }
 preference = { module = "androidx.preference:preference", version.ref = "preference" }
 protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protoc" }
 protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
+junit = { module = "junit:junit", version.ref = "junit" }
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 
 [plugins]
 android-library = { id = "com.android.library" }

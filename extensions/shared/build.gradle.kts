@@ -38,6 +38,9 @@ dependencies {
 
     coreLibraryDesugaring(libs.desugar.jdk.libs)
     compileOnly(project(":extensions:shared:stub"))
+
+    testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
 }
 
 protobuf {
