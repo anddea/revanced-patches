@@ -3,7 +3,7 @@ package app.morphe.extension.youtube.patches.utils;
 import app.morphe.extension.shared.utils.Utils;
 
 public class PatchStatus {
-    public static final String SPOOF_APP_VERSION_TARGET_DEFAULT_VALUE = "19.01.34";
+    public static final String SPOOF_APP_VERSION_TARGET_DEFAULT_VALUE = "20.05.46";
 
     public static boolean ImageSearchButton() {
         // Replace this with true if the 'Hide image search buttons' patch succeeds
