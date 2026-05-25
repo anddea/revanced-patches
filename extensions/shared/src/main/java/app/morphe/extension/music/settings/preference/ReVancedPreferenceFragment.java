@@ -134,12 +134,26 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             if (dataString == null || dataString.isEmpty())
                 return;
 
+            handlePreferenceIntent(baseActivity, mActivity, dataString, this);
+        } catch (Exception ex) {
+            Logger.printException(() -> "onCreate failure", ex);
+        }
+    }
+
+    public static boolean handlePreferenceIntent(@Nullable Activity baseActivity,
+                                                 @Nullable Activity mActivity,
+                                                 @Nullable String dataString,
+                                                 @Nullable ReVancedPreferenceFragment fragment) {
+        try {
+            if (baseActivity == null || mActivity == null || dataString == null || dataString.isEmpty())
+                return false;
+
             if (dataString.startsWith(OPTIONAL_SPONSOR_BLOCK_SETTINGS_PREFIX)) {
                 SponsorBlockCategoryPreference.showDialog(baseActivity, dataString.replaceAll(OPTIONAL_SPONSOR_BLOCK_SETTINGS_PREFIX, ""));
-                return;
+                return true;
             } else if (dataString.equals(OPEN_DEFAULT_APP_SETTINGS)) {
-                openDefaultAppSetting();
-                return;
+                openDefaultAppSetting(baseActivity);
+                return true;
             }
 
             final Setting<?> settings = getSettingFromPath(dataString);
@@ -154,27 +168,38 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                         || settings.equals(RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY)
                         || settings.equals(SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH_VALUE)) {
                     ResettableEditTextPreference.showDialog(mActivity, stringSetting);
+                    return true;
                 } else if (settings.equals(EXTERNAL_DOWNLOADER_PACKAGE_NAME)) {
                     ExternalDownloaderPreference.showDialog(mActivity);
+                    return true;
                 } else if (settings.equals(SB_API_URL)) {
                     SponsorBlockApiUrlPreference.showDialog(mActivity);
+                    return true;
                 } else if (settings.equals(SPOOF_APP_VERSION_TARGET)
                         || settings.equals(SPOOF_APP_VERSION_FOR_LYRICS_TARGET)) {
                     ResettableListPreference.showDialog(mActivity, stringSetting, 0);
+                    return true;
                 } else {
                     Logger.printDebug(() -> "Failed to find the right value: " + dataString);
                 }
             } else if (settings instanceof BooleanSetting) {
                 if (settings.equals(APP_INFO)) {
                     AppInfoDialogBuilder.showDialog(mActivity);
+                    return true;
                 } else if (settings.equals(SETTINGS_IMPORT_EXPORT)) {
-                    importExportListDialogBuilder();
+                    if (fragment != null) {
+                        fragment.importExportListDialogBuilder();
+                        return true;
+                    }
                 } else if (settings.equals(RETURN_YOUTUBE_USERNAME_ABOUT)) {
                     YouTubeDataAPIDialogBuilder.showDialog(mActivity);
+                    return true;
                 } else if (settings.equals(REPLACE_NAVIGATION_BUTTON_ABOUT)) {
                     ResettableListPreference.showDialog(mActivity, CHANGE_START_PAGE, 0);
+                    return true;
                 } else if (settings.equals(SPOOF_VIDEO_STREAMS_SIGN_IN_ANDROID_VR_ABOUT)) {
                     SpoofStreamingDataSignInDialogBuilder.showVRDialog(mActivity);
+                    return true;
                 } else {
                     Logger.printDebug(() -> "Failed to find the right value: " + dataString);
                 }
@@ -186,11 +211,13 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                         || settings.equals(WATCH_HISTORY_TYPE)
                 ) {
                     ResettableListPreference.showDialog(mActivity, enumSetting, 0);
+                    return true;
                 }
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "onCreate failure", ex);
+            Logger.printException(() -> "handlePreferenceIntent failure", ex);
         }
+        return false;
     }
 
     @Override
@@ -198,9 +225,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         super.onDestroy();
     }
 
-    private void openDefaultAppSetting() {
+    private static void openDefaultAppSetting(Context context) {
         try {
-            Context context = getActivity();
             final Uri uri = Uri.parse("package:" + context.getPackageName());
             final Intent intent = isSDKAbove(31)
                     ? new Intent(android.provider.Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS, uri)
