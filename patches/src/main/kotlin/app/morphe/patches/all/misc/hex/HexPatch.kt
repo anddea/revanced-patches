@@ -8,7 +8,7 @@ import app.morphe.util.Utils.trimIndentMultiline
 @Suppress("unused")
 val hexResourcePatch = rawResourcePatch(
     description = "Replaces a hexadecimal patterns of bytes of files in an APK.",
-    use = false,
+    default = false,
 ) {
     val replacements by stringsOption(
         key = "replacements",

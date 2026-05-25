@@ -740,17 +740,19 @@ private val shortsToolBarPatch = bytecodePatch(
     description = "shortsToolBarPatch"
 ) {
     execute {
-        shortsToolBarFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val insertIndex = it.instructionMatches.first().index
-                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+        if (!is_20_40_or_greater) {
+            shortsToolBarFingerprint.matchOrThrow().let {
+                it.method.apply {
+                    val insertIndex = it.instructionMatches.first().index
+                    val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$insertRegister}, $SHORTS_CLASS_DESCRIPTOR->hideShortsToolBar(Z)Z
-                        move-result v$insertRegister
-                        """
-                )
+                    addInstructions(
+                        insertIndex, """
+                            invoke-static {v$insertRegister}, $SHORTS_CLASS_DESCRIPTOR->hideShortsToolBar(Z)Z
+                            move-result v$insertRegister
+                            """
+                    )
+                }
             }
         }
     }
@@ -867,6 +869,8 @@ val shortsComponentPatch = bytecodePatch(
         } else {
             "SETTINGS: SHORTS_PLAY_PAUSE_BUTTON_BACKGROUND"
         }
+
+        if (!is_20_40_or_greater) settingArray += "SETTINGS: SHORTS_HIDE_TOOLBAR"
 
         // region patch for hide comments button (non-litho)
 

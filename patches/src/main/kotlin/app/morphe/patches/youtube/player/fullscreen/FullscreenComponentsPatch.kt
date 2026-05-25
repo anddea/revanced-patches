@@ -238,7 +238,7 @@ val fullscreenComponentsPatch = bytecodePatch(
                     insertIndex, """
                         invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->enableCompactControlsOverlay(Z)Z
                         move-result v$targetRegister
-                        """
+                    """
                 )
             }
         }

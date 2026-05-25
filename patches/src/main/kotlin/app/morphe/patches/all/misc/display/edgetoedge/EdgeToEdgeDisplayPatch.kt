@@ -10,7 +10,7 @@ val edgeToEdgeDisplayPatch = resourcePatch(
     name = "Disable edge-to-edge display",
     description = "Disable forced edge-to-edge display on Android 15+ by changing the app's target SDK version. " +
             "This patch does not work if the app is installed by mounting.",
-    use = false,
+    default = false,
 ) {
     execute {
         document("AndroidManifest.xml").use { document ->

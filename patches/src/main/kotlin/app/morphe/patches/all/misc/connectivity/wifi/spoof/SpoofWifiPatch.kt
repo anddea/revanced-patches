@@ -14,7 +14,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "$EXTENSION_CLASS_DESCRIPTOR_PRE
 val spoofWifiPatch = bytecodePatch(
     name = "Spoof Wi-Fi connection",
     description = "Spoofs an existing Wi-Fi connection.",
-    use = false,
+    default = false,
 ) {
     extendWith("extensions/all/connectivity/wifi/spoof/spoof-wifi.mpe")
 

@@ -16,6 +16,7 @@ import app.morphe.patches.youtube.utils.indexOfGetDrawableInstruction
 import app.morphe.patches.youtube.utils.patch.PatchList.SPOOF_APP_VERSION
 import app.morphe.patches.youtube.utils.playservice.is_19_26_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_40_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.settingsFragment
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -53,30 +54,6 @@ private val spoofAppVersionBytecodePatch = bytecodePatch(
         findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
             name == "SpoofAppVersion"
         }.returnEarly(true)
-
-        /**
-         * When spoofing the app version to YouTube 19.20.xx or earlier via Spoof app version on YouTube 19.23.xx+, the Library tab will crash.
-         * As a temporary workaround, do not set an image in the toolbar when the enum name is UNKNOWN.
-         */
-        toolBarButtonFingerprint.methodOrThrow().apply {
-            val getDrawableIndex = indexOfGetDrawableInstruction(this)
-            val enumOrdinalIndex = indexOfFirstInstructionReversedOrThrow(getDrawableIndex) {
-                opcode == Opcode.INVOKE_INTERFACE &&
-                        getReference<MethodReference>()?.returnType == "I"
-            }
-            val insertIndex = enumOrdinalIndex + 2
-            val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
-            val jumpIndex = indexOfFirstInstructionOrThrow(insertIndex) {
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>()?.name == "setImageDrawable"
-            } + 1
-
-            addInstructionsWithLabels(
-                insertIndex, """
-                    if-eqz v$insertRegister, :ignore
-                    """, ExternalLabel("ignore", getInstruction(jumpIndex))
-            )
-        }
 
         /**
          * RVX does not use CairoFragment, and uses a different method to restore the 'Playback' setting.

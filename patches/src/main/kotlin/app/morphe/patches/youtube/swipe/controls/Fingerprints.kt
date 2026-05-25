@@ -34,7 +34,7 @@ internal const val SWIPE_TO_SWITCH_VIDEO_FEATURE_FLAG = 45631116L
  */
 internal val swipeToSwitchVideoFingerprint = legacyFingerprint(
     name = "swipeToSwitchVideoFingerprint",
-    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     literals = listOf(SWIPE_TO_SWITCH_VIDEO_FEATURE_FLAG),
 )
 
@@ -66,8 +66,7 @@ internal val watchPanelGesturesChannelBarFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Landroid/view/MotionEvent;"),
     customFingerprint = { method, _ ->
-        method.definingClass.endsWith("/NextGenWatchLayout;") &&
-                method.name == "onInterceptTouchEvent" &&
+        method.name == "onInterceptTouchEvent" &&
                 method.containsLiteralInstruction(WATCH_PANEL_GESTURES_SECONDARY_FEATURE_FLAG)
     }
 )

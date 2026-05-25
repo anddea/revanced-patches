@@ -20,6 +20,8 @@ import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_36_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_43_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_03_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_37_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_38_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerClose
 import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerExpand
@@ -170,8 +172,10 @@ val miniplayerPatch = bytecodePatch(
             }
         }
 
-        miniplayerResponseModelSizeCheckFingerprint.matchOrThrow().let {
-            it.method.insertLegacyTabletMiniplayerOverride(it.instructionMatches.last().index)
+        if (!is_20_37_or_greater || is_20_38_or_greater) {
+            miniplayerResponseModelSizeCheckFingerprint.matchOrThrow().let {
+                it.method.insertLegacyTabletMiniplayerOverride(it.instructionMatches.last().index)
+            }
         }
 
         if (isPatchingOldVersion) {

@@ -25,10 +25,7 @@ internal val shortsSeekbarColorFingerprint = legacyFingerprint(
 internal val controlsOverlayStyleFingerprint = legacyFingerprint(
     name = "controlsOverlayStyleFingerprint",
     opcodes = listOf(Opcode.CONST_HIGH16),
-    strings = listOf("YOUTUBE", "PREROLL", "POSTROLL"),
-    customFingerprint = { method, _ ->
-        method.definingClass.endsWith("/ControlsOverlayStyle;")
-    }
+    strings = listOf("YOUTUBE", "PREROLL", "POSTROLL", "REMOTE_LIVE", "AD_LARGE_CONTROLS"),
 )
 
 internal const val PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG = 45617850L

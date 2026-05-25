@@ -14,7 +14,7 @@ private const val GOOGLE_PLAY_STORE_PACKAGE = "com.android.vending"
 val changeInstallerPackageNamePatch = bytecodePatch(
     name = "Change installer package name",
     description = "Spoof the installer package name to make it appear that the app was installed from the Google Play Store.",
-    use = false,
+    default = false,
 ) {
     dependsOn(
         // Remove the restriction of taking screenshots.

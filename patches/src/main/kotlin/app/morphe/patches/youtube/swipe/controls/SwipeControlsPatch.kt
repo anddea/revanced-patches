@@ -19,6 +19,7 @@ import app.morphe.patches.youtube.utils.playservice.is_19_15_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_36_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_46_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_40_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.autoNavScrollCancelPadding
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -73,7 +74,6 @@ val swipeControlsPatch = bytecodePatch(
 
         var settingArray = arrayOf(
             "PREFERENCE_SCREEN: SWIPE_CONTROLS",
-            "SETTINGS: DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER"
         )
 
         // region patch for disable HDR auto brightness
@@ -112,74 +112,81 @@ val swipeControlsPatch = bytecodePatch(
                 "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->enableSwipeToSwitchVideo()Z"
             }
 
-            swipeToSwitchVideoFingerprint.injectLiteralInstructionBooleanCall(
-                SWIPE_TO_SWITCH_VIDEO_FEATURE_FLAG,
-                descriptor
-            )
+            if (!is_20_40_or_greater) {
+                swipeToSwitchVideoFingerprint.injectLiteralInstructionBooleanCall(
+                    SWIPE_TO_SWITCH_VIDEO_FEATURE_FLAG,
+                    descriptor
+                )
+            }
         }
 
         // endregion
 
         // region patch for disable swipe to enter fullscreen mode (below the player)
 
-        if (!is_19_36_or_greater) {
-            watchPanelGesturesFingerprint.injectLiteralInstructionBooleanCall(
-                WATCH_PANEL_GESTURES_PRIMARY_FEATURE_FLAG,
-                "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableSwipeToEnterFullscreenModeBelowThePlayer()Z"
-            )
-        } else {
-            watchPanelGesturesAlternativeFingerprint.methodOrThrow().apply {
-                val literalIndex = indexOfFirstLiteralInstruction(autoNavScrollCancelPadding)
-                val middleIndex = indexOfFirstInstructionOrThrow(literalIndex) {
-                    val reference = getReference<MethodReference>()
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            reference?.returnType == "V" &&
-                            reference.parameterTypes.isEmpty()
-                }
-                val targetIndex = indexOfFirstInstructionOrThrow(middleIndex + 1) {
-                    val reference = getReference<MethodReference>()
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            reference?.returnType == "V" &&
-                            reference.parameterTypes.isEmpty()
-                }
-                if (getInstruction(targetIndex - 1).opcode != Opcode.IGET_OBJECT) {
-                    throw PatchException(
-                        "Previous Opcode pattern does not match: ${
-                            getInstruction(
-                                targetIndex - 1
-                            ).opcode
-                        }"
-                    )
-                }
-                if (getInstruction(targetIndex + 1).opcode != Opcode.IF_EQZ) {
-                    throw PatchException(
-                        "Next Opcode pattern does not match: ${
-                            getInstruction(
-                                targetIndex + 1
-                            ).opcode
-                        }"
-                    )
-                }
-                val fieldReference = getInstruction<ReferenceInstruction>(targetIndex - 1).reference
-                val fieldInstruction = getInstruction<TwoRegisterInstruction>(targetIndex - 1)
+        if (!is_20_40_or_greater) {
+            if (!is_19_36_or_greater) {
+                watchPanelGesturesFingerprint.injectLiteralInstructionBooleanCall(
+                    WATCH_PANEL_GESTURES_PRIMARY_FEATURE_FLAG,
+                    "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableSwipeToEnterFullscreenModeBelowThePlayer()Z"
+                )
+            } else {
+                watchPanelGesturesAlternativeFingerprint.methodOrThrow().apply {
+                    val literalIndex = indexOfFirstLiteralInstruction(autoNavScrollCancelPadding)
+                    val middleIndex = indexOfFirstInstructionOrThrow(literalIndex) {
+                        val reference = getReference<MethodReference>()
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                reference?.returnType == "V" &&
+                                reference.parameterTypes.isEmpty()
+                    }
+                    val targetIndex = indexOfFirstInstructionOrThrow(middleIndex + 1) {
+                        val reference = getReference<MethodReference>()
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                reference?.returnType == "V" &&
+                                reference.parameterTypes.isEmpty()
+                    }
+                    if (getInstruction(targetIndex - 1).opcode != Opcode.IGET_OBJECT) {
+                        throw PatchException(
+                            "Previous Opcode pattern does not match: ${
+                                getInstruction(
+                                    targetIndex - 1
+                                ).opcode
+                            }"
+                        )
+                    }
+                    if (getInstruction(targetIndex + 1).opcode != Opcode.IF_EQZ) {
+                        throw PatchException(
+                            "Next Opcode pattern does not match: ${
+                                getInstruction(
+                                    targetIndex + 1
+                                ).opcode
+                            }"
+                        )
+                    }
+                    val fieldReference = getInstruction<ReferenceInstruction>(targetIndex - 1).reference
+                    val fieldInstruction = getInstruction<TwoRegisterInstruction>(targetIndex - 1)
 
-                addInstructionsWithLabels(
-                    targetIndex, """
+                    addInstructionsWithLabels(
+                        targetIndex, """
                         invoke-static {}, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableSwipeToEnterFullscreenModeBelowThePlayer()Z
                         move-result v${fieldInstruction.registerA}
                         if-eqz v${fieldInstruction.registerA}, :disable
                         iget-object v${fieldInstruction.registerA}, v${fieldInstruction.registerB}, $fieldReference
                         """, ExternalLabel("disable", getInstruction(targetIndex + 1))
-                )
-                removeInstruction(targetIndex - 1)
+                    )
+                    removeInstruction(targetIndex - 1)
+                }
             }
-        }
 
-        if (is_19_15_or_greater) {
-            watchPanelGesturesChannelBarFingerprint.injectLiteralInstructionBooleanCall(
-                WATCH_PANEL_GESTURES_SECONDARY_FEATURE_FLAG,
-                "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableSwipeToEnterFullscreenModeBelowThePlayer()Z"
-            )
+            if (is_19_15_or_greater) {
+                watchPanelGesturesChannelBarFingerprint.injectLiteralInstructionBooleanCall(
+                    WATCH_PANEL_GESTURES_SECONDARY_FEATURE_FLAG,
+                    "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableSwipeToEnterFullscreenModeBelowThePlayer()Z"
+                )
+
+            }
+
+            settingArray += "SETTINGS: DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER"
         }
 
         // endregion

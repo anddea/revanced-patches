@@ -1,5 +1,12 @@
 package app.morphe.patches.youtube.utils.fix.litho
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.checkCast
+import app.morphe.patcher.literal
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
 import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -61,4 +68,26 @@ internal val swipeRefreshLayoutFingerprint = legacyFingerprint(
         Opcode.RETURN
     ),
     customFingerprint = { method, _ -> method.definingClass.endsWith("/SwipeRefreshLayout;") }
+)
+
+internal object recyclerViewTopScrollingFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf(),
+    filters = listOf(
+        methodCall(smali = "Ljava/util/Iterator;->next()Ljava/lang/Object;"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
+        checkCast("Landroid/support/v7/widget/RecyclerView;", MatchAfterImmediately()),
+        literal(0, location = MatchAfterImmediately()),
+        methodCall(definingClass = "Landroid/support/v7/widget/RecyclerView;", location = MatchAfterImmediately()),
+        opcode(Opcode.GOTO, MatchAfterImmediately())
+    )
+)
+
+internal object backToRefreshFeatureFlagFingerprint : Fingerprint(
+    returnType = "Z",
+    parameters = listOf(),
+    filters = listOf(
+        literal(45359221L)
+    )
 )

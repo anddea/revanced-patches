@@ -237,14 +237,17 @@ internal val settingsFragmentSyntheticFingerprint = legacyFingerprint(
     literals = listOf(settingsFragment, settingsFragmentCairo),
 )
 
-internal val toolBarButtonFingerprint = legacyFingerprint(
-    name = "toolBarButtonFingerprint",
+internal val toolBarButtonFingerprint = "toolBarButtonFingerprint" to Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("Landroid/view/MenuItem;"),
-    literals = listOf(menuItemView),
-    customFingerprint = { method, _ ->
-        indexOfGetDrawableInstruction(method) >= 0
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    custom = { method, _ ->
+        val parameters = method.parameterTypes
+
+        parameters.firstOrNull() == "Landroid/view/MenuItem;" &&
+                (parameters.size == 1 ||
+                        (parameters.size == 2 && parameters[1] == "Landroid/content/Context;")) &&
+                method.containsLiteralInstruction(menuItemView) &&
+                indexOfGetDrawableInstruction(method) >= 0
     }
 )
 
@@ -299,9 +302,6 @@ internal val videoIdFingerprintShorts = legacyFingerprint(
  */
 internal val youtubeControlsOverlayFingerprint = legacyFingerprint(
     name = "youtubeControlsOverlayFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    parameters = emptyList(),
     literals = listOf(
         // Removed in YouTube 20.09.40+
         // eduOverlayStub,

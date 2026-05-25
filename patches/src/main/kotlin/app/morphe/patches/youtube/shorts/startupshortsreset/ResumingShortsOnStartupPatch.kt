@@ -9,6 +9,7 @@ import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKA
 import app.morphe.patches.youtube.utils.extension.Constants.SHORTS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.patch.PatchList.DISABLE_RESUMING_SHORTS_ON_STARTUP
 import app.morphe.patches.youtube.utils.playservice.is_20_02_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_39_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
@@ -51,22 +52,40 @@ val resumingShortsOnStartupPatch = bytecodePatch(
             )
 
         if (is_20_02_or_greater) {
-            userWasInShortsAlternativeFingerprint.matchOrThrow().let {
-                it.method.apply {
-                    val stringIndex = it.stringMatches!!.first().index
-                    val booleanValueIndex = indexOfFirstInstructionReversedOrThrow(stringIndex) {
-                        opcode == Opcode.INVOKE_VIRTUAL &&
-                                getReference<MethodReference>()?.name == "booleanValue"
-                    }
-                    val booleanValueRegister =
-                        getInstruction<OneRegisterInstruction>(booleanValueIndex + 1).registerA
+            if (is_20_39_or_greater) {
+                UserWasInShortsListenerFingerprint.let { fingerprint ->
+                    fingerprint.method.apply {
+                        val match = fingerprint.instructionMatches[2]
+                        val insertIndex = match.index + 1
+                        val register = match.getInstruction<OneRegisterInstruction>().registerA
 
-                    addInstructions(
-                        booleanValueIndex + 2, """
-                            invoke-static {v$booleanValueRegister}, $SHORTS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer(Z)Z
-                            move-result v$booleanValueRegister
+                        addInstructions(
+                            insertIndex,
                             """
-                    )
+                                invoke-static { v$register }, $SHORTS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer(Z)Z
+                                move-result v$register
+                            """
+                        )
+                    }
+                }
+            } else {
+                userWasInShortsAlternativeFingerprint.matchOrThrow().let {
+                    it.method.apply {
+                        val stringIndex = it.stringMatches.first().index
+                        val booleanValueIndex = indexOfFirstInstructionReversedOrThrow(stringIndex) {
+                            opcode == Opcode.INVOKE_VIRTUAL &&
+                                    getReference<MethodReference>()?.name == "booleanValue"
+                        }
+                        val booleanValueRegister =
+                            getInstruction<OneRegisterInstruction>(booleanValueIndex + 1).registerA
+
+                        addInstructions(
+                            booleanValueIndex + 2, """
+                                invoke-static {v$booleanValueRegister}, $SHORTS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer(Z)Z
+                                move-result v$booleanValueRegister
+                                """
+                        )
+                    }
                 }
             }
         } else {

@@ -268,7 +268,7 @@ val toolBarComponentsPatch = bytecodePatch(
         hookToolBar("$GENERAL_CLASS_DESCRIPTOR->hideSearchButton")
 
         toolbarSearchButtonFingerprint
-            .methodOrThrow(toolbarSearchButtonLabelFingerprint)
+            .methodOrThrow()
             .apply {
                 val index = indexOfShowAsActionInstruction(this)
                 val instruction = getInstruction<FiveRegisterInstruction>(index)
@@ -579,15 +579,25 @@ val toolBarComponentsPatch = bytecodePatch(
 
         matchedMethods.forEach { method ->
             method.apply {
-                val index = indexOfFirstLiteralInstructionOrThrow(ytOutlineVideoCamera)
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+                val indices = mutableListOf<Int>()
 
-                addInstructions(
-                    index + 1, """
+                val idx1 = indexOfFirstLiteralInstruction(ytOutlineVideoCamera)
+                if (idx1 != -1) indices.add(idx1)
+
+                val idx2 = indexOfFirstLiteralInstruction(ytOutlineExperimentalVideoCamera)
+                if (idx2 != -1) indices.add(idx2)
+
+                // Sort descending so we modify the end of the method first,
+                // preventing index shifting from affecting subsequent inserts
+                indices.sortedDescending().forEach { index ->
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+                    addInstructions(
+                        index + 1, """
                         invoke-static {v$register}, $GENERAL_CLASS_DESCRIPTOR->getCreateButtonDrawableId(I)I
                         move-result v$register
                         """
-                )
+                    )
+                }
             }
         }
 

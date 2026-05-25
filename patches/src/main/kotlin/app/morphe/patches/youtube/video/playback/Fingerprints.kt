@@ -1,36 +1,36 @@
 package app.morphe.patches.youtube.video.playback
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.OpcodesFilter
+import app.morphe.patches.shared.mapping.ResourceType.LAYOUT
+import app.morphe.patches.shared.mapping.ResourceType.STRING
+import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patcher.extensions.InstructionExtensions.instructionsOrNull
-import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.indexOfFirstInstructionReversed
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-internal val deviceDimensionsModelToStringFingerprint = legacyFingerprint(
-    name = "deviceDimensionsModelToStringFingerprint",
+internal object deviceDimensionsModelToStringFingerprint : Fingerprint(
     returnType = "L",
     strings = listOf("minh.", ";maxh.")
 )
 
-internal val playbackSpeedChangedFromRecyclerViewFingerprint = legacyFingerprint(
-    name = "playbackSpeedChangedFromRecyclerViewFingerprint",
+internal object playbackSpeedChangedFromRecyclerViewFingerprint : Fingerprint(
+    classFingerprint = qualityChangedFromRecyclerViewFingerprint,
     returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IGET,
         Opcode.INVOKE_VIRTUAL
     ),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.indexOfFirstInstruction {
             opcode == Opcode.IGET &&
                     getReference<FieldReference>()?.type == "F"
@@ -40,12 +40,11 @@ internal val playbackSpeedChangedFromRecyclerViewFingerprint = legacyFingerprint
 
 // Fingerprint for the METHOD that returns PlayerConfigModel
 private const val PCM_GETTER_FIELD_TYPE = "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;"
-val pcmGetterMethodFingerprint = legacyFingerprint(
-    name = "pcmGetterMethodFingerprint",
+internal object pcmGetterMethodFingerprint : Fingerprint(
     returnType = PCM_GETTER_FIELD_TYPE,
     parameters = listOf(),
-    opcodes = listOf(Opcode.IGET_OBJECT, Opcode.RETURN_OBJECT),
-    customFingerprint = custom@{ method, _ ->
+    filters = OpcodesFilter.opcodesToFilters(Opcode.IGET_OBJECT, Opcode.RETURN_OBJECT),
+    custom = custom@{ method, _ ->
         val instructions = method.instructionsOrNull
         if (instructions == null || instructions.count() != 2) return@custom false
 
@@ -54,12 +53,12 @@ val pcmGetterMethodFingerprint = legacyFingerprint(
     }
 )
 
-internal val loadVideoParamsFingerprint = legacyFingerprint(
-    name = "loadVideoParamsFingerprint",
+internal object loadVideoParamsFingerprint : Fingerprint(
+    classFingerprint = loadVideoParamsParentFingerprint,
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
     parameters = listOf("L"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT,
         Opcode.IPUT,
@@ -67,19 +66,17 @@ internal val loadVideoParamsFingerprint = legacyFingerprint(
     )
 )
 
-internal val loadVideoParamsParentFingerprint = legacyFingerprint(
-    name = "loadVideoParamsParentFingerprint",
+internal object loadVideoParamsParentFingerprint : Fingerprint(
     returnType = "Z",
     parameters = listOf("J"),
     strings = listOf("LoadVideoParams.playerListener = null")
 )
 
-internal val qualityChangedFromRecyclerViewFingerprint = legacyFingerprint(
-    name = "qualityChangedFromRecyclerViewFingerprint",
+internal object qualityChangedFromRecyclerViewFingerprint : Fingerprint(
     returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L"),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.implementation?.instructions?.any { insn ->
             insn.opcode == Opcode.NEW_INSTANCE &&
                     (insn as? ReferenceInstruction)?.reference?.toString() == "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
@@ -91,31 +88,48 @@ internal val qualityChangedFromRecyclerViewFingerprint = legacyFingerprint(
     }
 )
 
-internal val qualityMenuViewInflateOnItemClickFingerprint = legacyFingerprint(
-    name = "qualityMenuViewInflateOnItemClickFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { method, _ ->
-        method.name == "onItemClick" &&
-                indexOfContextInstruction(method) >= 0
-    }
+internal object videoQualityMenuOptionsFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.STATIC),
+    returnType = "[L",
+    parameters = listOf("Landroid/content/Context", "L", "L"),
+    filters = OpcodesFilter.opcodesToFilters(
+        Opcode.CONST_4,
+        Opcode.CONST_4,
+        Opcode.IF_EQZ,
+        Opcode.IGET_BOOLEAN,
+        Opcode.IF_NEZ,
+    ) + resourceLiteral(STRING, "video_quality_quick_menu_advanced_menu_description")
 )
 
-internal fun indexOfContextInstruction(method: Method) =
-    method.indexOfFirstInstructionReversed {
-        opcode == Opcode.IGET_OBJECT &&
-                getReference<FieldReference>()?.type == "Landroid/content/Context;"
-    }
+internal object videoQualityMenuViewInflateFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "L",
+    parameters = listOf("L", "L", "L"),
+    filters = OpcodesFilter.opcodesToFilters(
+        Opcode.INVOKE_SUPER,
+        Opcode.CONST,
+        Opcode.CONST_4,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CONST,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CONST_16,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.CONST,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CHECK_CAST,
+    ) + resourceLiteral(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
+)
 
-
-internal val videoQualityItemOnClickParentFingerprint = legacyFingerprint(
-    name = "videoQualityItemOnClickParentFingerprint",
+internal object videoQualityItemOnClickParentFingerprint : Fingerprint(
     returnType = "V",
     strings = listOf("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT")
 )
 
-internal val videoQualityItemOnClickFingerprint = legacyFingerprint(
-    name = "videoQualityItemOnClickFingerprint",
+internal object videoQualityItemOnClickFingerprint : Fingerprint(
+    classFingerprint = videoQualityItemOnClickParentFingerprint,
     returnType = "V",
     parameters = listOf(
         "Landroid/widget/AdapterView;",
@@ -123,14 +137,13 @@ internal val videoQualityItemOnClickFingerprint = legacyFingerprint(
         "I",
         "J"
     ),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.name == "onItemClick"
     }
 )
 
-internal val vp9CapabilityFingerprint = legacyFingerprint(
-    name = "vp9CapabilityFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal object vp9CapabilityFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Z",
     strings = listOf(
         "vp9_supported",

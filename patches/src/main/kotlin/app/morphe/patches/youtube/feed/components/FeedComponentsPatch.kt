@@ -32,7 +32,6 @@ import app.morphe.patches.youtube.utils.resourceid.contentPill
 import app.morphe.patches.youtube.utils.resourceid.horizontalCardList
 import app.morphe.patches.youtube.utils.resourceid.relatedChipCloudMargin
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.morphe.patches.youtube.utils.scrollTopParentFingerprint
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
@@ -368,7 +367,7 @@ val feedComponentsPatch = bytecodePatch(
         // region patch for hide channel tab
 
         val channelTabBuilderMethod =
-            channelTabBuilderFingerprint.methodOrThrow(scrollTopParentFingerprint)
+            channelTabBuilderFingerprint.methodOrThrow()
 
         channelTabRendererFingerprint.matchOrThrow().let {
             it.method.apply {

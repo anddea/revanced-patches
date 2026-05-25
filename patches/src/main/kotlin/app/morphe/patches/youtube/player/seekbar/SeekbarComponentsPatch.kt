@@ -27,6 +27,7 @@ import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_49_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_30_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_37_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
@@ -268,10 +269,14 @@ val seekbarComponentsPatch = bytecodePatch(
                 "$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
             )
 
-            arrayOf(
-                playerSeekbarHandleColorPrimaryFingerprint,
-                playerSeekbarHandleColorSecondaryFingerprint
-            ).forEach {
+            (if (is_20_37_or_greater) {
+                arrayOf(playerSeekbarHandleColorSecondaryFingerprint)
+            } else {
+                arrayOf(
+                    playerSeekbarHandleColorPrimaryFingerprint,
+                    playerSeekbarHandleColorSecondaryFingerprint
+                )
+            }).forEach {
                 it.methodOrThrow().addColorChangeInstructions(
                     ytStaticBrandRed,
                     "getVideoPlayerSeekbarColorAccent"

@@ -1,6 +1,5 @@
 package app.morphe.extension.youtube.patches.video;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,37 +24,48 @@ public class AdvancedVideoQualityMenuPatch {
     /**
      * Injection point.
      * <p>
-     * Used in the Shorts video quality flyout, but sometimes also in the regular video quality flyout.
+     * Shorts video quality flyout.
      */
-    public static boolean showAdvancedVideoQualityMenu(Context mContext) {
-        if (ADVANCED_VIDEO_QUALITY_MENU) {
-            Utils.runOnMainThreadDelayed(() -> {
-                if (ADVANCED_VIDEO_QUALITY_MENU_TYPE && mContext != null) {
-                    VideoUtils.showCustomVideoQualityFlyoutMenu(mContext);
-                } else {
-                    VideoUtils.showYouTubeLegacyVideoQualityFlyoutMenu();
-                }
-            }, 100);
-        }
+    public static void addVideoQualityListMenuListener(ListView listView) {
+        if (!ADVANCED_VIDEO_QUALITY_MENU) return;
 
-        return ADVANCED_VIDEO_QUALITY_MENU;
+        listView.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() {
+            @Override
+            public void onChildViewAdded(View parent, View child) {
+                try {
+                    parent.setVisibility(View.GONE);
+
+                    final var indexOfAdvancedQualityMenuItem = 4;
+                    if (listView.indexOfChild(child) != indexOfAdvancedQualityMenuItem) return;
+
+                    if (ADVANCED_VIDEO_QUALITY_MENU_TYPE && listView.getContext() != null) {
+                        Utils.runOnMainThreadDelayed(
+                                () -> VideoUtils.showCustomVideoQualityFlyoutMenu(listView.getContext()),
+                                100
+                        );
+                    } else {
+                        final var qualityItemMenuPosition = 4;
+                        listView.setSoundEffectsEnabled(false);
+                        listView.performItemClick(null, qualityItemMenuPosition, 0);
+                    }
+                } catch (Exception ex) {
+                    Logger.printException(() -> "showAdvancedVideoQualityMenu failure", ex);
+                }
+            }
+
+            @Override
+            public void onChildViewRemoved(View parent, View child) {
+            }
+        });
     }
 
     /**
      * Injection point.
      * <p>
-     * Used in the Shorts video quality flyout, but sometimes also in the regular video quality flyout.
+     * Used to force the creation of the advanced menu item for the Shorts quality flyout.
      */
-    public static void showAdvancedVideoQualityMenu(ListView listView) {
-        if (!ADVANCED_VIDEO_QUALITY_MENU) return;
-
-        listView.setVisibility(View.GONE);
-        Utils.runOnMainThreadDelayed(() -> {
-                    listView.setSoundEffectsEnabled(false);
-                    listView.performItemClick(null, 2, 0);
-                },
-                1
-        );
+    public static boolean forceAdvancedVideoQualityMenuCreation(boolean original) {
+        return ADVANCED_VIDEO_QUALITY_MENU || original;
     }
 
     /**

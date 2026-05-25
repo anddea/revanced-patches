@@ -41,7 +41,7 @@ private val overlayFilterBytecodePatch = bytecodePatch(
 val overlayFilterPatch = resourcePatch(
     HIDE_OVERLAY_FILTER.title,
     HIDE_OVERLAY_FILTER.summary,
-    use = false,
+    default = false,
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 

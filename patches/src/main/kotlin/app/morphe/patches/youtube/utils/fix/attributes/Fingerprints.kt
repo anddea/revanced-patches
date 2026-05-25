@@ -12,8 +12,6 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val setSleepTimerDrawableFingerprint = legacyFingerprint(
     name = "setSleepTimerDrawableFingerprint",
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("Z", "Ljava/lang/String;"),
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,      // Context.getResources()
         Opcode.MOVE_RESULT_OBJECT,

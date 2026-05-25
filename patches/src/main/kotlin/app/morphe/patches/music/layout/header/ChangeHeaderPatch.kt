@@ -158,7 +158,7 @@ private val changeHeaderBytecodePatch = bytecodePatch(
 val changeHeaderPatch = resourcePatch(
     CUSTOM_HEADER_FOR_YOUTUBE_MUSIC.title,
     CUSTOM_HEADER_FOR_YOUTUBE_MUSIC.summary,
-    use = false,
+    default = false,
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
@@ -227,4 +227,3 @@ val changeHeaderPatch = resourcePatch(
 
     }
 }
-

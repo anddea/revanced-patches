@@ -412,9 +412,9 @@
 
         <!-- SETTINGS: HIDE_COMMENTS_COMPONENTS
         <PreferenceScreen android:title="@string/revanced_preference_screen_comments_title" android:key="revanced_preference_screen_comments" android:summary="@string/revanced_preference_screen_comments_summary">
-            <SwitchPreference android:title="@string/revanced_enable_comments_scroll_top_title" android:key="revanced_enable_comments_scroll_top" android:summaryOn="@string/revanced_enable_comments_scroll_top_summary_on" android:summaryOff="@string/revanced_enable_comments_scroll_top_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_comments_carousel_title" android:key="revanced_hide_comments_carousel" />
             <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_comments_carousel_filter_strings_title" android:key="revanced_hide_comments_carousel_filter_strings" android:summary="@string/revanced_hide_comments_carousel_filter_strings_summary" android:inputType="textMultiLine" />
+            <SwitchPreference android:title="@string/revanced_enable_comments_scroll_top_title" android:key="revanced_enable_comments_scroll_top" android:summaryOn="@string/revanced_enable_comments_scroll_top_summary_on" android:summaryOff="@string/revanced_enable_comments_scroll_top_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_ai_chat_summary_title" android:key="revanced_hide_ai_chat_summary" android:summaryOn="@string/revanced_hide_ai_chat_summary_summary_on" android:summaryOff="@string/revanced_hide_ai_chat_summary_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_ai_comments_summary_title" android:key="revanced_hide_ai_comments_summary" android:summaryOn="@string/revanced_hide_ai_comments_summary_summary_on" android:summaryOff="@string/revanced_hide_ai_comments_summary_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_channel_guidelines_title" android:key="revanced_hide_channel_guidelines" android:summaryOn="@string/revanced_hide_channel_guidelines_summary_on" android:summaryOff="@string/revanced_hide_channel_guidelines_summary_off" />
@@ -738,8 +738,12 @@
 
             <!-- SETTINGS: SHORTS_COMPONENTS
             <SwitchPreference android:title="@string/revanced_hide_shorts_navigation_bar_title" android:key="revanced_hide_shorts_navigation_bar" android:summaryOn="@string/revanced_hide_shorts_navigation_bar_summary_on" android:summaryOff="@string/revanced_hide_shorts_navigation_bar_summary_off" />
-            <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:hint="45" android:title="@string/revanced_shorts_navigation_bar_height_percentage_title" android:key="revanced_shorts_navigation_bar_height_percentage" android:summary="@string/revanced_shorts_navigation_bar_height_percentage_summary" android:inputType="number" />
-            <SwitchPreference android:title="@string/revanced_hide_shorts_toolbar_title" android:key="revanced_hide_shorts_toolbar" android:summaryOn="@string/revanced_hide_shorts_toolbar_summary_on" android:summaryOff="@string/revanced_hide_shorts_toolbar_summary_off" />
+            <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:hint="45" android:title="@string/revanced_shorts_navigation_bar_height_percentage_title" android:key="revanced_shorts_navigation_bar_height_percentage" android:summary="@string/revanced_shorts_navigation_bar_height_percentage_summary" android:inputType="number" />SETTINGS: SHORTS_COMPONENTS -->
+
+            <!-- SETTINGS: SHORTS_HIDE_TOOLBAR
+            <SwitchPreference android:title="@string/revanced_hide_shorts_toolbar_title" android:key="revanced_hide_shorts_toolbar" android:summaryOn="@string/revanced_hide_shorts_toolbar_summary_on" android:summaryOff="@string/revanced_hide_shorts_toolbar_summary_off" />SETTINGS: SHORTS_HIDE_TOOLBAR -->
+
+            <!-- SETTINGS: SHORTS_COMPONENTS
             <SwitchPreference android:title="@string/revanced_replace_channel_handle_title" android:key="revanced_replace_channel_handle" android:summaryOn="@string/revanced_replace_channel_handle_summary_on" android:summaryOff="@string/revanced_replace_channel_handle_summary_off" />SETTINGS: SHORTS_COMPONENTS -->
 
             <!-- SETTINGS: RESTORE_SHORTS_OLD_PLAYER_LAYOUT

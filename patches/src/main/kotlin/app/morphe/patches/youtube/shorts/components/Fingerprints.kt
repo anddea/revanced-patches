@@ -305,7 +305,6 @@ internal val shortsClearModeFingerprint = legacyFingerprint(
 internal val shortsToolBarFingerprint = legacyFingerprint(
     name = "shortsToolBarFingerprint",
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     opcodes = listOf(Opcode.IPUT_BOOLEAN),
     strings = listOf("Null topBarButtons"),
     customFingerprint = { method, _ ->

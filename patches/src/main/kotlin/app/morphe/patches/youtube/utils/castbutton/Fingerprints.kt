@@ -12,8 +12,12 @@ internal val menuItemInitializeFingerprint = legacyFingerprint(
     name = "menuItemInitializeFingerprint",
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("Landroid/view/MenuItem;"),
     literals = listOf(castMediaRouteButton),
+    customFingerprint = { method, _ ->
+        method.indexOfFirstInstruction {
+            getReference<MethodReference>()?.name == "setShowAsAction"
+        } >= 0
+    }
 )
 
 internal val menuItemVisibilityFingerprint = legacyFingerprint(

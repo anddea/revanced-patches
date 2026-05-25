@@ -16,6 +16,17 @@ internal val arrayGeneratorFingerprint = legacyFingerprint(
     strings = listOf("0.0#")
 )
 
+internal val limiterFingerprint = legacyFingerprint(
+    name = "limiterFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("F", "L"),
+    literals = listOf(
+        0.25f.toRawBits().toLong(),
+        4.0f.toRawBits().toLong(),
+    ),
+    strings = listOf("setPlaybackRate")
+)
+
 internal val limiterFallBackFingerprint = legacyFingerprint(
     name = "limiterFallBackFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
@@ -28,8 +39,8 @@ internal val limiterFallBackFingerprint = legacyFingerprint(
     strings = listOf("Playback rate: %f")
 )
 
-internal val limiterFingerprint = legacyFingerprint(
-    name = "limiterFingerprint",
+internal val limiterLegacyFingerprint = legacyFingerprint(
+    name = "limiterLegacyFingerprint",
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("F"),
