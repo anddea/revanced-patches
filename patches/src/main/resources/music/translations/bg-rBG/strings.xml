@@ -20,6 +20,7 @@
     <string name="morphe_oauth2_connection_failure_timeout">Временно не е възможно OAuth2 (изтекло време на API).</string>
     <string name="morphe_oauth2_toast_invalid">Невалиден токен за VR, опитайте се да се влезете в VR отново</string>
     <string name="morphe_oauth2_toast_reset">Излезли сте от Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary">Заменя music.youtube.com с youtube.com в споделени връзки</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Споделяните връзки използват music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Споделяните връзки използват youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Сменете споделяните връзки на youtube.com</string>
@@ -39,7 +40,6 @@
 • Възпроизвеждането се проваля, ако JavaScript хеш на плейъра е отменен в GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Деактивиране на актуализацията на JavaScript за плейъра</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript хешовете на плейъра са валидни приблизително един месец и остарелите хешове може да бъдат отменени от GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Пробвайте да вкл. Подправяне на видеопотокове &gt; Вход в Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не може да се изтеглят клиентски потоци</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Въведете валиден JavaScript хеш на плейъра</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">JavaScript хеш на играча</string>
@@ -72,9 +72,9 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Успешно се влязохте</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Неуспешно издаване на код за активация</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Неуспешно издаване на код за авторизация</string>
-    <string name="morphe_spoof_video_streams_summary">"Заблуждава YouTube да изпрати съвместим видео поток, което оправя възпроизвеждането за повечето потребители
+    <string name="morphe_spoof_video_streams_summary">"Отстранява проблеми с възпроизвеждането за повечето потребители, като поиска съвместим видео поток.
 
-Ако сте потребител на YouTube Premium, тази настройка може да не е необходима"</string>
+Ако сте потребител на YouTube Premium, тази настройка може да не е необходима."</string>
     <string name="morphe_spoof_video_streams_summary_off">"Видеопотоците не са подправени
 
 Възпроизвеждането може да не работи"</string>
@@ -252,6 +252,7 @@
     <string name="revanced_replace_flyout_menu_report_only_player_title">Запазете доклада в коментарите</string>
     <string name="revanced_replace_flyout_menu_report_summary">Заменя менюто Доклад с менюто Скорост на възпроизвеждане.</string>
     <string name="revanced_replace_flyout_menu_report_title">Заменете менюто „Докладвай“</string>
+    <string name="revanced_restart_dialog_message">Рестартирайте приложението, за да влязат в сила тези промени.</string>
     <string name="revanced_restart_first_run">Рестартирайте, за да завършите настройката</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Възстановява стария стил на рафт \"Библиотека\". (Експериментално)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Възстановете стария стил на рафта „Библиотека“</string>
@@ -269,8 +270,8 @@
     <string name="revanced_spoof_app_version_target_summary">Задайте желаната фалшива версия на приложението.</string>
     <string name="revanced_spoof_app_version_target_title">Подлъгване за версията на приложението</string>
     <string name="revanced_spoof_app_version_title">Подлъгване за версията на приложението</string>
-    <string name="revanced_spoof_video_streams_summary">"Заблуждава YouTube да изпрати съвместим видео поток, което оправя възпроизвеждането за повечето потребители
+    <string name="revanced_spoof_video_streams_summary">"Отстранява проблеми с възпроизвеждането за повечето потребители, като поиска съвместим видео поток.
 
-Ако сте потребител на YouTube Premium, тази настройка може да не е необходима"</string>
+Ако сте потребител на YouTube Premium, тази настройка може да не е необходима."</string>
     <string name="revanced_spoof_video_streams_title">Подправяне на видео потоци</string>
 </resources>

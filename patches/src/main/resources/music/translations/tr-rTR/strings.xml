@@ -35,6 +35,7 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 geçici olarak kullanılamıyor (API zaman aşımına uğradı)</string>
     <string name="morphe_oauth2_toast_invalid">Geçersiz VR oturum açma belirteci, VR\'da tekrar oturum açmayı deneyin</string>
     <string name="morphe_oauth2_toast_reset">Android VR oturumu kapatıldı</string>
+    <string name="morphe_replace_music_with_youtube_summary">Paylaşılan bağlantılarda music.youtube.com adresini youtube.com ile değiştirir</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan bağlantılar music.youtube.com kullanır</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Paylaşılan bağlantılar youtube.com kullanır</string>
     <string name="morphe_replace_music_with_youtube_title">Paylaşım bağlantılarını youtube.com olarak değiştir</string>
@@ -54,7 +55,6 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
 • GVS'de Oynatıcı JavaScript hash'i iptal edilirse oynatma başarısız olur"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Oynatıcı JavaScript güncellemesini devre dışı bırak</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Oynatıcı JavaScript hash\'leri yaklaşık bir ay süreyle geçerlidir ve süresi geçmiş hash\'ler GVS tarafından iptal edilebilir.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Şunu etkinleştirmeyi dene: Video akışlarını taklit et &gt; Android VR oturum açma</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Hiçbir istemci akışı alınamadı</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Geçerli bir oynatıcı JavaScript hash değeri girin</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Oynatıcı JavaScript hash</string>
@@ -87,7 +87,7 @@ Oturum açmak için, devam et butonuna basın."</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Başarıyla oturum açıldı</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Aktivasyon kodu oluşturulamadı</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Kimlik doğrulama anahtarı oluşturulamadı</string>
-    <string name="morphe_spoof_video_streams_summary">"YouTube'u uyumlu bir video akışı göndermesi için kandırır, bu da çoğu kullanıcı için oynatmayı düzeltir
+    <string name="morphe_spoof_video_streams_summary">"Çoğu kullanıcı için oynatma sorunlarını uyumlu bir video akışı isteyerek düzeltir
 
 YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Video akışları taklit edilmez
@@ -463,8 +463,10 @@ Bilinen Sorunlar:
     <string name="revanced_replace_navigation_upgrade_button_summary">Yükselt düğmesini Ayarlar düğmesiyle değiştirir.</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Replace Upgrade button</string>
     <string name="revanced_reset_to_default_toast">Varsayılan değerlere sıfırla.</string>
-    <string name="revanced_restart_first_run">Ayarları tamamlamak için yeniden başlatın</string>
+    <string name="revanced_restart_dialog_message">Değişikliklerin geçerli olması için uygulamayı yeniden başlatın.</string>
+    <string name="revanced_restart_first_run">Kurulumu tamamlamak için yeniden başlatın</string>
     <string name="revanced_restart_message">Yenile ve yeniden başlat</string>
+    <string name="revanced_restart_title">Yeniden başlatma gerekli</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Yorum açılır pencerelerini eski stile döndürür.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Eski yorum açılır panellerini geri getir</string>
     <string name="revanced_restore_old_player_background_summary">Oynatıcı arkaplanını eski stile döndürür.</string>
@@ -699,7 +701,7 @@ YouTube Premium kullanıcısıysanız bu ayar gerekli olmayabilir."</string>
 • VPN veya DNS kullanırken uygulama zorla kapatılabilir.
 • Uyarlanabilir bit hızı akış istemcilerinde (Android VR 1.43.32 dışındaki tüm istemciler) oynatma sırasında ses aralıklı olarak kesilebilir."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Varsayılan işlemci</string>
-    <string name="revanced_spoof_video_streams_summary">"YouTube'u uyumlu bir video akışı göndermesi için kandırır, bu da çoğu kullanıcı için oynatmayı düzeltir
+    <string name="revanced_spoof_video_streams_summary">"Çoğu kullanıcı için oynatma sorunlarını uyumlu bir video akışı isteyerek düzeltir
 
 YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="revanced_spoof_video_streams_title">Video akışlarını taklit et</string>

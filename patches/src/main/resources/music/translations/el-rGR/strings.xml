@@ -35,6 +35,7 @@
     <string name="morphe_oauth2_connection_failure_timeout">Το OAuth2 είναι προσωρινά μη διαθέσιμο (λήξη API)</string>
     <string name="morphe_oauth2_toast_invalid">Άκυρο κλειδί εισόδου VR, συνδεθείτε ξανά στο VR</string>
     <string name="morphe_oauth2_toast_reset">Αποσυνδεθήκατε από το Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary">Αντικαθιστά το music.youtube.com με το youtube.com σε κοινόχρηστους συνδέσμους.</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Αλλαγή συνδέσμων κοινοποίησης σε youtube.com</string>
@@ -54,7 +55,6 @@
 • Η αναπαραγωγή αποτυγχάνει εάν το hash του προγράμματος αναπαραγωγής JavaScript ανακληθεί στο GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Απενεργοποίηση ενημέρωσης του προγράμματος αναπαραγωγής JavaScript</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Τα hashes για το πρόγραμμα αναπαραγωγής JavaScript είναι έγκυρα για περίπου ένα μήνα, και τα απαρχαιωμένα hashes ενδέχεται να ανακληθούν από το GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Δοκιμάστε να ενεργοποιήσετε: Μίμηση ροής βίντεο &gt; Είσοδος με Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Αδυναμία λήψης προγράμματος ροής</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Εισάγετε ένα έγκυρο hash για το πρόγραμμα αναπαραγωγής JavaScript</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash προγράμματος αναπαραγωγής JavaScript</string>
@@ -87,9 +87,9 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Η είσοδος ολοκληρώθηκε με επιτυχία</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Αποτυχία έκδοσης κωδικού ενεργοποίησης</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Αποτυχία έκδοσης κλειδιού ταυτοποίησης</string>
-    <string name="morphe_spoof_video_streams_summary">"Εξαπατά το YouTube ώστε να στείλει μια συμβατή ροή βίντεο, γεγονός που διορθώνει την αναπαραγωγή για τους περισσότερους χρήστες
+    <string name="morphe_spoof_video_streams_summary">"Επιδιορθώνει προβλήματα αναπαραγωγής για τους περισσότερους χρήστες, ζητώντας μια συμβατή ροή βίντεο
 
-Εάν είστε χρήστης του YouTube Premium, αυτή η ρύθμιση ενδέχεται να μην απαιτείται"</string>
+Εάν είστε συνδρομητής του YouTube Premium, αυτή η ρύθμιση ενδέχεται να μην απαιτείται."</string>
     <string name="morphe_spoof_video_streams_summary_off">"Οι ροές βίντεο δεν παραποιούνται
 
 Η αναπαραγωγή ενδέχεται να μη λειτουργεί"</string>
@@ -463,8 +463,10 @@
     <string name="revanced_replace_navigation_upgrade_button_summary">Αντικατάσταση του κουμπιού «Αναβάθμιση» με το κουμπί «Ρυθμίσεις».</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Αντικατάσταση κουμπιού «Αναβάθμιση»</string>
     <string name="revanced_reset_to_default_toast">Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
+    <string name="revanced_restart_dialog_message">Επανεκκινήστε την εφαρμογή για να εφαρμοστεί αυτή η αλλαγή.</string>
     <string name="revanced_restart_first_run">Επανεκκινήστε για να ολοκληρωθεί η διαδικασία</string>
     <string name="revanced_restart_message">Ανανέωση και επανεκκίνηση</string>
+    <string name="revanced_restart_title">Απαιτείται επανεκκίνηση</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Επιστροφή του πίνακα αναδυόμενων σχολίων στο παλιό του στυλ.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Αναδυόμενα σχόλια παλιού στυλ</string>
     <string name="revanced_restore_old_player_background_summary">Επιστροφή του φόντου της οθόνης αναπαραγωγής στο παλιό στυλ.</string>
@@ -685,9 +687,9 @@
 • Η εφαρμογή μπορεί να κλείνει απότομα όταν χρησιμοποιείτε VPN ή εναλλακτικό DNS.
 • Ο ήχος μπορεί περιοδικά να σπάει κατά την αναπαραγωγή σε προγράμματα πελάτες προσαρμοστικού ρυθμού μετάδοσης (Όλα τα προγράμματα πελάτη εκτός από το Android VR 1.43.32)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
-    <string name="revanced_spoof_video_streams_summary">"Εξαπατά το YouTube ώστε να στείλει μια συμβατή ροή βίντεο, γεγονός που διορθώνει την αναπαραγωγή για τους περισσότερους χρήστες
+    <string name="revanced_spoof_video_streams_summary">"Επιδιορθώνει προβλήματα αναπαραγωγής για τους περισσότερους χρήστες, ζητώντας μια συμβατή ροή βίντεο
 
-Εάν είστε χρήστης του YouTube Premium, αυτή η ρύθμιση ενδέχεται να μην απαιτείται"</string>
+Εάν είστε συνδρομητής του YouTube Premium, αυτή η ρύθμιση ενδέχεται να μην απαιτείται."</string>
     <string name="revanced_spoof_video_streams_title">Παραποίηση ροών βίντεο</string>
     <string name="revanced_translations_title">Μεταφράσεις</string>
     <string name="revanced_watch_history_type_entry_1">Αρχικός</string>

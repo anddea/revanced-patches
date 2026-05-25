@@ -35,6 +35,7 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 временно недоступен (время ожидания API истекло)</string>
     <string name="morphe_oauth2_toast_invalid">Недействительный токен входа в VR, попробуйте войти в VR еще раз</string>
     <string name="morphe_oauth2_toast_reset">Вышли из войти Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary">Заменяет music.youtube.com на youtube.com в общих ссылках.</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Общие ссылки используют music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Общие ссылки используют youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Изменить ссылки для обмена на youtube.com</string>
@@ -54,7 +55,6 @@
 • Воспроизведение не удается, если хеш JavaScript проигрывателя отменен в GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Отключить обновление JavaScript плеера</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Хеши JavaScript плеера действительны примерно один месяц, а устаревший хеш может быть отменен GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Попробуйте включить: Поддельные видео потоки &gt; Вход в Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не удалось получить никаких клиентских потоков</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Введите допустимый хеш JavaScript плеера</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Хеш JavaScript плеера</string>
@@ -87,9 +87,9 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Вход выполнен успешно</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Не удалось выдать код активации</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Не удалось выдать токен аутентификации</string>
-    <string name="morphe_spoof_video_streams_summary">"Обманывает YouTube, чтобы он отправлял совместимый видеопоток, что исправляет воспроизведение для большинства пользователей
+    <string name="morphe_spoof_video_streams_summary">"Устраняет проблемы с воспроизведением для большинства пользователей, запрашивая совместимый видеопоток.
 
-Если вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться"</string>
+Если вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться."</string>
     <string name="morphe_spoof_video_streams_summary_off">"Видео потоки не подделаны
 
 Воспроизведение может не работать"</string>
@@ -462,8 +462,10 @@
     <string name="revanced_replace_navigation_upgrade_button_summary">Заменяет кнопку \"Обновить\" на кнопку \"Настройки\".</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Замена кнопки \"Обновить\"</string>
     <string name="revanced_reset_to_default_toast">Сброшены до значений по умолчанию.</string>
+    <string name="revanced_restart_dialog_message">Изменения требуют перезапуск приложения.</string>
     <string name="revanced_restart_first_run">Перезагрузите для завершения настройки</string>
     <string name="revanced_restart_message">Обновите и перезапустите</string>
+    <string name="revanced_restart_title">Требуется перезапуск</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Возвращает всплывающие панели комментариев к старому стилю.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Восстановить старые всплывающие панели комментариев</string>
     <string name="revanced_restore_old_player_background_summary">Возвращает фон проигрывателя к старому стилю.</string>
@@ -677,9 +679,9 @@
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">О Android VR авторизации</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Определяет клиент по умолчанию для подмены."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Клиент по умолчанию</string>
-    <string name="revanced_spoof_video_streams_summary">"Обманывает YouTube, чтобы он отправлял совместимый видеопоток, что исправляет воспроизведение для большинства пользователей
+    <string name="revanced_spoof_video_streams_summary">"Устраняет проблемы с воспроизведением для большинства пользователей, запрашивая совместимый видеопоток.
 
-Если вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться"</string>
+Если вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться."</string>
     <string name="revanced_spoof_video_streams_title">Поддельные видео потоки</string>
     <string name="revanced_translations_title">Переводы</string>
     <string name="revanced_watch_history_type_entry_1">Оригинальный</string>

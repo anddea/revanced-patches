@@ -36,6 +36,7 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 غير متاح مؤقتًا (انتهت مهلة API)</string>
     <string name="morphe_oauth2_toast_invalid">رمز تسجيل الدخول إلى VR غير صالح، حاول تسجيل الدخول مرة أخرى إلى VR</string>
     <string name="morphe_oauth2_toast_reset">تم تسجيل خروج Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary">يستبدل music.youtube.com بـ youtube.com في الروابط المُشاركة</string>
     <string name="morphe_replace_music_with_youtube_summary_off">تستخدم روابط المشاركة music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">تستخدم روابط المشاركة youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">تغيير روابط المشاركة إلى youtube.com</string>
@@ -55,7 +56,6 @@
 • قد يفشل التشغيل إذا تم إلغاء تجزئة مشغل JavaScript في GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">تعطيل تحديث مشغل JavaScript</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">تكون تجزئات مشغل JavaScript صالحة لمدة شهر تقريبًا، وقد يتم إلغاء التجزئات القديمة بواسطة GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">جرب تمكين: Spoof Video Streams &gt; تسجيل الدخول إلى Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">تعذر جلب أي تدفقات عميل</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">أدخل تجزئة مشغل JavaScript صالحة</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">تجزئة مشغل JavaScript</string>
@@ -88,9 +88,9 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">تم تسجيل الدخول بنجاح</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">فشل في إصدار رمز التفعيل</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">فشل في إصدار رمز المصادقة</string>
-    <string name="morphe_spoof_video_streams_summary">"يُجبر هذا الإعداد YouTube على إرسال تدفق فيديو متوافق، مما يُصلح مشكلة التشغيل لدى معظم المستخدمين
+    <string name="morphe_spoof_video_streams_summary">"يُصلح مشاكل التشغيل لدى معظم المستخدمين عبر طلب تدفق فيديو متوافق
 
-إذا كنت مشتركًا في YouTube Premium، فقد لا تحتاج إلى هذا الإعداد"</string>
+إذا كنت من مستخدمي YouTube Premium، فقد لا تحتاج إلى هذا الإعداد"</string>
     <string name="morphe_spoof_video_streams_summary_off">"لا يتم تزييف تدفقات الفيديو
 
 قد لا يعمل تشغيل الفيديو"</string>
@@ -644,9 +644,11 @@
     <string name="revanced_replace_navigation_upgrade_button_title">استبدال زر "الترقية" (Upgrade)
 </string>
     <string name="revanced_reset_to_default_toast">إعادة التعيين إلى القيم الافتراضية.</string>
+    <string name="revanced_restart_dialog_message">أعد تشغيل التطبيق ليصبح هذا التغيير ساري المفعول.</string>
     <string name="revanced_restart_first_run">إعادة التشغيل لإنهاء الإعداد</string>
     <string name="revanced_restart_message">تحديث وإعادة تشغيل
 </string>
+    <string name="revanced_restart_title">يلزم إعادة التشغيل</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">استعادة النمط القديم للوحات التعليقات المنبثقة
 </string>
     <string name="revanced_restore_old_comments_popup_panels_title">استعادة اللوحات المنبثقة القديمة للتعليقات
@@ -910,9 +912,9 @@
 • قد يتم إغلاق التطبيق قسراً عند استخدام VPN أو DNS.
 • قد يتشوش الصوت بشكل متقطع أثناء التشغيل على عملاء البث ذوي معدل البت التكيفي (جميع العملاء باستثناء Android VR 1.43.32).</string>
     <string name="revanced_spoof_video_streams_default_client_title">العميل الافتراضي</string>
-    <string name="revanced_spoof_video_streams_summary">"يُجبر هذا الإعداد YouTube على إرسال تدفق فيديو متوافق، مما يُصلح مشكلة التشغيل لدى معظم المستخدمين
+    <string name="revanced_spoof_video_streams_summary">"يُصلح مشاكل التشغيل لدى معظم المستخدمين عبر طلب تدفق فيديو متوافق
 
-إذا كنت مشتركًا في YouTube Premium، فقد لا تحتاج إلى هذا الإعداد"</string>
+إذا كنت من مستخدمي YouTube Premium، فقد لا تحتاج إلى هذا الإعداد"</string>
     <string name="revanced_spoof_video_streams_title">Spoof Video Streams</string>
     <string name="revanced_translations_title">الترجمات</string>
     <string name="revanced_watch_history_type_entry_1">الأصلي</string>

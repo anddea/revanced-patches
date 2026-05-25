@@ -37,7 +37,7 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
     <string name="morphe_reload_video_summary_off">Videonu təkrar yüklə düyməsi görünmür</string>
     <string name="morphe_reload_video_summary_on">Videonu təkrar yüklə düyməsi görünür</string>
     <string name="morphe_reload_video_title">Videonu təkrar yüklə düyməsini göstər</string>
-    <string name="morphe_replace_links_with_shortener_summary">Canlı yayımları və Shorts-ları qısaldılan youtu.be URL formatın istifadə etməyə zorlayır</string>
+    <string name="morphe_replace_links_with_shortener_summary">Videoları qısaldılan youtu.be URL formatın istifadə etməyə zorlayır</string>
     <string name="morphe_replace_links_with_shortener_title">Paylaşma keçidlərini youtu.be-yə dəyişdir</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan keçidlər music.youtube.com istifadə edir</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Paylaşılan keçidlər youtube.com istifadə edir</string>
@@ -70,7 +70,6 @@ Video oynatma AV1 ilə ilişə bilər və ya kadrlar buraxıla bilər."</string>
 • GVS-də Oynadıcı JavaScript hash-i ləğv edilərsə, oynatma uğursuz olur"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Oynadıcı JavaScript yenilənməsini qapat</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Oynadıcı JavaScript hash-ləri təqribi bir ay müddətində etibarlıdır və köhnələn hash-lər GVS tərəfindən ləğv edilə bilər.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Aktivləşdirməyə cəhd edin: Video yayımların saxtalaşdır &gt; Android VR girişi</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Hər hansı qəbuledici yayımları əldə etmək olmadı</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">İşlək oynadıcı JavaScript hash-i qeyd et</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Oynadıcı JavaScript hash-i</string>
@@ -106,7 +105,7 @@ Daxil olmaq üçün aşağıda davam et-i vurun"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Təsdiqlənmə token-i buraxılış üçün alınmadı</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Qəbuledici nerd üçün Statistikada gizlidir</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Qəbuledici növü İstək üçün statistikada göstərilir</string>
-    <string name="morphe_spoof_video_streams_stats_for_nerds_title">İstək üçün Statistikada göstər</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">İstək üçün Statistikada saxtalaşdırmanı göstər</string>
     <string name="morphe_spoof_video_streams_summary_off">"Video yayımları saxtalaşmayıb
 
 Oynatma işləməyə bilər"</string>
@@ -143,10 +142,11 @@ DeArrow haqqında ətraflı öyrənmək üçün bura toxun"</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">Yüksək keyfiyyətli durğun kadrlar istifadə edilir</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">Orta keyfiyyətli durğun kadrlar istifadə edilir. Miniatürlər, daha sürətli yüklənəcək, ancaq canlı yayımlar, buraxılmayan və ya çox köhnə videolar boş miniatürləri göstərə bilər</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">Sürətli kadr çəkilişləri istifadə et</string>
-    <string name="revanced_alt_thumbnail_stills_time_entry_1">Videonun başlanğıcı</string>
-    <string name="revanced_alt_thumbnail_stills_time_entry_2">Videonun ortası</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_1">Başlanğıc</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_2">Orta</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Bitmə</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Durğun kadrın götürüləcəyi video müddəti</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">Ambient rejimi məhdudiyyətlərini yan keç</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">"Orijinal şəkil təminatçısın işlətmə
 
 Bunu aktivləşdirmə, bəzi regionlarda əngəllənib silinən şəkilləri düzəldə bilər"</string>
@@ -222,6 +222,7 @@ Avtomobil tərtibatı
     <string name="revanced_debug_toast_on_error_summary_off">Xəta baş verərsə ani bildiriş görünmür</string>
     <string name="revanced_debug_toast_on_error_summary_on">Xəta baş verərsə ani bildiriş görünür</string>
     <string name="revanced_debug_toast_on_error_title">ReVanced xətasında ani bildiriş göstər</string>
+    <string name="revanced_disable_ambient_mode_title">Ambient rejimini qapat</string>
     <string name="revanced_disable_auto_captions_summary_off">Avtomatik titrlər aktivdir</string>
     <string name="revanced_disable_auto_captions_summary_on">Avtomatik titrlər qapalıdır</string>
     <string name="revanced_disable_auto_captions_title">Avtomatik titrləri qapat</string>
@@ -321,7 +322,7 @@ Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
     <string name="revanced_hide_chips_shelf_title">Çip bölməsin gizlət</string>
     <string name="revanced_hide_clip_button_summary_off">Kəsmə düyməsi göstərilir</string>
     <string name="revanced_hide_clip_button_summary_on">Kəsmə düyməsi gizlidir</string>
-    <string name="revanced_hide_clip_button_title">Kəsmə/ gizlət</string>
+    <string name="revanced_hide_clip_button_title">Kəsmə düyməsini gizlət</string>
     <string name="revanced_hide_comments_button_summary_off">Şərhlər düyməsi görünür</string>
     <string name="revanced_hide_comments_button_summary_on">Şərhlər düyməsi gizlidir</string>
     <string name="revanced_hide_comments_button_title">Şərhlər düyməsin gizlət</string>
@@ -356,7 +357,7 @@ Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
     <string name="revanced_hide_crowdfunding_box_title">İanə qutusunu gizlət</string>
     <string name="revanced_hide_download_button_summary_off">Yükləmə düyməsi göstərilir</string>
     <string name="revanced_hide_download_button_summary_on">Yükləmə düyməsi gizlidir</string>
-    <string name="revanced_hide_download_button_title">\"Endirin\"i gizlət</string>
+    <string name="revanced_hide_download_button_title">Endirin düyməsini gizlət</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Son ekran kartları göstərilir</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Son ekran kartları gizlidir</string>
     <string name="revanced_hide_end_screen_cards_title">Son ekran kartlarını gizlət</string>
@@ -446,7 +447,7 @@ Məhdudiyyətlər
     <string name="revanced_hide_latest_videos_button_title">Gizlət \'Son videolar\' düyməsini</string>
     <string name="revanced_hide_like_dislike_button_summary_off">Bəyənmə və Bəyənməmə düymələri göstərilir</string>
     <string name="revanced_hide_like_dislike_button_summary_on">Bəyənmə və Bəyənməmə düymələri gizlidir</string>
-    <string name="revanced_hide_like_dislike_button_title">\"Bəyənmə\" və \"Bəyənməmə\"ni gizlət</string>
+    <string name="revanced_hide_like_dislike_button_title">\"Bəyənmə\" və \"Bəyənməmə\" düyməsini gizlət</string>
     <string name="revanced_hide_links_preview_summary_off">Keçidlər önizləməsi görünür</string>
     <string name="revanced_hide_links_preview_summary_on">Keçidlər önizləməsi gizlədilib</string>
     <string name="revanced_hide_links_preview_title">Keçidlərin önizləməsini gizlət</string>
@@ -482,12 +483,14 @@ Məhdudiyyətlər
     <string name="revanced_hide_player_popup_ads_title">Oynadıcı ani açılan reklamlarını gizlət</string>
     <string name="revanced_hide_promote_button_summary_off"> Sponsor düyməsi görünür</string>
     <string name="revanced_hide_promote_button_summary_on">Sponsor düyməsi gizlidir</string>
-    <string name="revanced_hide_promote_button_title">Sponsor-u Gizlət</string>
+    <string name="revanced_hide_promote_button_title">Reklam edin düyməsini gizlət</string>
     <string name="revanced_hide_promotion_alert_banner_summary_off">Reklam bildirişi afişası görünür.</string>
     <string name="revanced_hide_promotion_alert_banner_summary_on">Reklam bildirişi afişası gizlədilib.</string>
     <string name="revanced_hide_promotion_alert_banner_title">Reklam bildirişi afişasın gizlət</string>
     <string name="revanced_hide_quick_actions_dislike_button_title">Bəyənməmə düyməsini gizlət</string>
     <string name="revanced_hide_quick_actions_like_button_title">Bəyənmə düyməsini gizlət</string>
+    <string name="revanced_hide_quick_actions_live_chat_button_title">\"Canlı söhbət\" düyməsin gizlət</string>
+    <string name="revanced_hide_quick_actions_more_button_title">Daha çox düyməsin gizlət</string>
     <string name="revanced_hide_quick_actions_share_button_title">Paylaş düyməsini gizlət</string>
     <string name="revanced_hide_quick_actions_summary_off">Tam ekranda cəld fəaliyyətlər görünür</string>
     <string name="revanced_hide_quick_actions_summary_on">Tam ekranda cəld fəaliyyətlər gizlədilib</string>
@@ -503,7 +506,7 @@ Məhdudiyyətlər
     <string name="revanced_hide_remix_button_title">Remix düyməsini gizlət</string>
     <string name="revanced_hide_report_button_summary_off">Xəbər ver/düyməsi göstərilir</string>
     <string name="revanced_hide_report_button_summary_on">Xəbər ver/düyməsi gizlidir</string>
-    <string name="revanced_hide_report_button_title">\"Xəbər verin\"i gizlət</string>
+    <string name="revanced_hide_report_button_title">Xəbər verin düyməsini gizlət</string>
     <string name="revanced_hide_seekbar_summary_off">Video oynadıcı irəliləyiş cizgisi göstərilir</string>
     <string name="revanced_hide_seekbar_summary_on">Video oynadıcı irəliləyiş cizgisi gizlidir</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">Video miniatür irəliləyiş cizgisi görünür</string>
@@ -627,9 +630,10 @@ Məhdudiyyətlər
     <string name="revanced_hide_toolbar_create_button_title">Yarat düyməsini gizlət</string>
     <string name="revanced_hide_toolbar_notification_button_summary_off">Bildirişlər düyməsi görünür</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">Bildirişlər düyməsi gizlidir</string>
-    <string name="revanced_hide_toolbar_notification_button_title">Bildirişləri Gizlət</string>
+    <string name="revanced_hide_toolbar_notification_button_title">Bildirişlər düyməsin gizlət</string>
     <string name="revanced_hide_toolbar_search_button_summary_off">Axtarış düyməsi görünür</string>
     <string name="revanced_hide_toolbar_search_button_summary_on">Axtarış düyməsi gizlidir</string>
+    <string name="revanced_hide_toolbar_search_button_title">Axtarış düyməsini gizlət</string>
     <string name="revanced_hide_transcript_section_summary_off">Transkripsiya bölməsi göstərilir</string>
     <string name="revanced_hide_transcript_section_summary_on">Transkripsiya bölməsi gizlidir</string>
     <string name="revanced_hide_transcript_section_title">Transkript bölməsini gizlət</string>
@@ -1010,11 +1014,11 @@ Ekranın sol tərəfində dikinə sürüşdürərək parlaqlığı tənzimləyin
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Parlaqlıq ən aşağı dəyərinə sürüşdürüləndə avto-parlaqlıq aktivləşir</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Avto-parlaqlıq jestini aktivləşdir</string>
     <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Sürüşmə qeyri-şəffaflığı 0-100 arası olmalıdır</string>
-    <string name="revanced_swipe_overlay_background_opacity_summary">0-100 arası qeyri-şəffaflıq dəyəri</string>
+    <string name="revanced_swipe_overlay_background_opacity_summary">Şəffaflıq səviyyəsini tənzimlə (0 şəffafdır, 100 qeyri-şəffafdır)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Sürüşdürmə cildi arxa plan qeyri-şəffaflığı</string>
-    <string name="revanced_swipe_overlay_progress_brightness_color_summary">Parlaqlığa nəzarət üçün irəliləyiş zolağının rəngi</string>
+    <string name="revanced_swipe_overlay_progress_brightness_color_summary">Parlaqlıq nizamlayıcılarının çəkmə cizgisinin rəngin təyin et</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Sürüşdürmə örtüyü parlaqlıq rəngi</string>
-    <string name="revanced_swipe_overlay_progress_volume_color_summary">Səs səviyyəsinə nəzarət üçün irəliləyiş zolağının rəngi</string>
+    <string name="revanced_swipe_overlay_progress_volume_color_summary">Səs nizamlayıcılarının çəkmə cizgisinin rəngin təyin et</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Sürüşdürmə örtüyü səs səviyyəsi rəngi</string>
     <string name="revanced_swipe_overlay_style_entry_1">Üfüqi örtük</string>
     <string name="revanced_swipe_overlay_style_entry_2">Üfüqi örtük (ən kiçik- yüksək)</string>
@@ -1033,11 +1037,11 @@ Ekranın sol tərəfində dikinə sürüşdürərək parlaqlığı tənzimləyin
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Tam ekrana keçərkən və ya çıxarkən parlaqlığı saxla və bərpa et</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Parlaqlığı saxla və bərpa et</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">Mətn ölçüsü 1-30 arası olmalıdır</string>
-    <string name="revanced_swipe_text_overlay_size_summary">Sürüşmə üçün mətn ölçüsü 1-30 arasındadır</string>
+    <string name="revanced_swipe_text_overlay_size_summary">Ekrandakı mətnin ölçüsünü nizamla (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Sürüşdürmə örtüyü mətn ölçüsü</string>
-    <string name="revanced_swipe_threshold_summary">Sürüşdürmənin icra edilməsi üçün son dəyər</string>
+    <string name="revanced_swipe_threshold_summary">Nizamlama aktivləşməzdən əvvəl tələb olunan sürüşdürmə məsafəsini təyin et</string>
     <string name="revanced_swipe_threshold_title">Sürüşdürmə böyüklük həddi</string>
-    <string name="revanced_swipe_volume_sensitivity_summary">Hər sürüşdürmədə səs səviyyəsi nə qədər dəyişir</string>
+    <string name="revanced_swipe_volume_sensitivity_summary">Sürüşdürmə əsnasında səs necə dəyişir tənzimlə</string>
     <string name="revanced_swipe_volume_sensitivity_title">Səs səviyyəsin sürüşdürmə təzyiqi</string>
     <string name="revanced_swipe_volume_summary_off">Tam ekran səs sürüşdürməsi qapalıdır</string>
     <string name="revanced_swipe_volume_summary_on">"Tam ekran səs sürüşdürməsi aktivdir

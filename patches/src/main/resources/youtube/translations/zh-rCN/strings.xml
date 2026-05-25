@@ -41,7 +41,7 @@
     <string name="morphe_reload_video_summary_off">不显示重新加载视频按钮</string>
     <string name="morphe_reload_video_summary_on">显示重新加载视频按钮</string>
     <string name="morphe_reload_video_title">显示重新加载视频按钮</string>
-    <string name="morphe_replace_links_with_shortener_summary">强制直播和 Shorts 使用缩短的 youtu.be URL 格式</string>
+    <string name="morphe_replace_links_with_shortener_summary">强制视频使用缩短的 youtu.be URL 格式</string>
     <string name="morphe_replace_links_with_shortener_title">将分享链接更改为 youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">分享链接使用 music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">分享链接使用 youtube.com</string>
@@ -74,7 +74,6 @@
 • 如果 GVS 中撤销了播放器 JavaScript 哈希，则播放失败"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">禁用播放器 JavaScript 更新</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Player JavaScript 哈希有效期约为一个月，过期的哈希可能由 GVS 撤销。</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">请尝试启用：欺骗视频流 &gt; 登录 Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">无法获取任何客户端流</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">输入有效的 Player JavaScript 哈希</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player JavaScript hash</string>
@@ -259,12 +258,12 @@
     <string name="revanced_copy">复制</string>
     <string name="revanced_copy_error">复制文本失败</string>
     <string name="revanced_credits_title">revanced_credits_title</string>
-    <string name="revanced_custom_filter_strings_summary">用于筛选的组件路径生成器字符串列表，按换行符分隔</string>
-    <string name="revanced_custom_filter_strings_title">自定义筛选器</string>
+    <string name="revanced_custom_filter_strings_summary">用于过滤的组件路径生成器字符串列表，按换行符分隔</string>
+    <string name="revanced_custom_filter_strings_title">自定义过滤器</string>
     <string name="revanced_custom_filter_summary_off">自定义筛选器已禁用</string>
     <string name="revanced_custom_filter_summary_on">自定义筛选器已启用</string>
-    <string name="revanced_custom_filter_title">启用自定义筛选器</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">非法自定义筛选器：%s</string>
+    <string name="revanced_custom_filter_title">启用自定义过滤器</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">非法自定义过滤器：%s</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">自定义（传统）</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">自定义（现代）</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">自定义（无主题）</string>
@@ -559,7 +558,7 @@
     <string name="revanced_exit_fullscreen_entry_1">已禁用</string>
     <string name="revanced_exit_fullscreen_entry_2">仅纵向</string>
     <string name="revanced_exit_fullscreen_entry_3">仅横向</string>
-    <string name="revanced_exit_fullscreen_entry_4">两者</string>
+    <string name="revanced_exit_fullscreen_entry_4">纵向和横向显示</string>
     <string name="revanced_exit_fullscreen_title">在视频结束时退出全屏模式</string>
     <string name="revanced_expand_video_description_summary_off">手动展开视频描述</string>
     <string name="revanced_expand_video_description_summary_on">自动展开视频描述</string>
@@ -595,16 +594,6 @@
 若你关闭此设置，热门图标可能不会显示在视频操作栏和视频说明面板中。
 
 ※ 即使关闭此设置，热门按钮也可能不会被隐藏。"</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_off">使用“播放”设置代替“自动播放”设置。</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"使用“自动播放”设置代替“播放”设置。"</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_title">修复伪装应用版本副作用</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"如果应用版本被伪装至 19.30 或更早版本，即使只有一次，“播放”设置也可能已损坏。
-
-这取决于应用从服务器收到的响应。
-
-如果“播放”设置已损坏，启用此设置或许可以解决问题。
-
-如果启用或禁用此设置后，“播放”设置仍然损坏，则应清除应用数据。"</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">即使用户没有点击并按住，有时也可能会激活点击并按住的速度。</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"仅当用户点击并按住时才会激活点击并按住的速度。
 
@@ -739,8 +728,8 @@
     <string name="revanced_hide_channel_tab_filter_strings_hint">"Shorts
 播放列表
 商店"</string>
-    <string name="revanced_hide_channel_tab_filter_strings_summary">输入要筛选的频道选项卡名称，以换行符分隔，每行一个</string>
-    <string name="revanced_hide_channel_tab_filter_strings_title">频道标签过滤</string>
+    <string name="revanced_hide_channel_tab_filter_strings_summary">输入要过滤的频道选项卡名称，以换行符分隔，每行一个</string>
+    <string name="revanced_hide_channel_tab_filter_strings_title">频道标签过滤器</string>
     <string name="revanced_hide_channel_tab_summary_off">频道标签过滤已禁用</string>
     <string name="revanced_hide_channel_tab_summary_on">频道标签过滤已启用</string>
     <string name="revanced_hide_channel_tab_title">启用频道标签过滤</string>
@@ -765,8 +754,8 @@
     <string name="revanced_hide_comments_by_members_summary_off">会员评论中横幅已显示</string>
     <string name="revanced_hide_comments_by_members_summary_on">会员评论中横幅已隐藏</string>
     <string name="revanced_hide_comments_by_members_title">隐藏会员评论横幅</string>
-    <string name="revanced_hide_comments_carousel_filter_strings_summary">输入要筛选的评论轮播图名称，以换行符分隔，每行一个</string>
-    <string name="revanced_hide_comments_carousel_filter_strings_title">启用评论轮播过滤</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">输入要过滤的评论轮播图名称，以换行符分隔，每行一个</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">评论轮播过滤器</string>
     <string name="revanced_hide_comments_carousel_title">启用评论轮播过滤</string>
     <string name="revanced_hide_comments_carousel_user_dialog_message">"注意：
 
@@ -775,7 +764,7 @@
 • 如果隐藏了所有轮播项，则整个评论区也会被隐藏。"</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">“创建Shorts”按钮已显示</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">“创建Shorts”按钮已隐藏</string>
-    <string name="revanced_hide_comments_create_a_short_button_title">隐藏「创建 Short」按钮</string>
+    <string name="revanced_hide_comments_create_a_short_button_title">隐藏“创建 Short”按钮</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">表情符号和时间戳按钮已显示</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">表情符号和时间戳按钮已隐藏</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">隐藏表情符号和时间戳按钮</string>
@@ -798,7 +787,7 @@
     <string name="revanced_hide_comments_thanks_button_title">隐藏感谢按钮</string>
     <string name="revanced_hide_community_button_summary_off">「社区」按钮已显示</string>
     <string name="revanced_hide_community_button_summary_on">「社区」按钮已隐藏</string>
-    <string name="revanced_hide_community_button_title">隐藏「社区」按钮</string>
+    <string name="revanced_hide_community_button_title">隐藏“社区”按钮</string>
     <string name="revanced_hide_community_posts_channel_summary_off">频道中的社区帖子已显示</string>
     <string name="revanced_hide_community_posts_channel_summary_on">频道中的社区帖子隐藏</string>
     <string name="revanced_hide_community_posts_channel_title">隐藏频道中的社区帖子</string>
@@ -819,7 +808,7 @@
     <string name="revanced_hide_double_tap_overlay_filter_title">隐藏双击叠加层过滤器</string>
     <string name="revanced_hide_download_button_summary_off">下载按钮已显示</string>
     <string name="revanced_hide_download_button_summary_on">下载按钮已隐藏</string>
-    <string name="revanced_hide_download_button_title">隐藏“直播聊天”按钮</string>
+    <string name="revanced_hide_download_button_title">隐藏下载按钮</string>
     <string name="revanced_hide_end_screen_cards_summary_off">片尾卡已显示</string>
     <string name="revanced_hide_end_screen_cards_summary_on">片尾卡已隐藏</string>
     <string name="revanced_hide_end_screen_cards_title">隐藏片尾卡</string>
@@ -850,14 +839,14 @@
     <string name="revanced_hide_feed_captions_button_off">显示字幕按钮</string>
     <string name="revanced_hide_feed_captions_button_on">隐藏字幕按钮</string>
     <string name="revanced_hide_feed_captions_button_title">隐藏动态字幕按钮</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">输入要筛选的弹出菜单名称，以换行符分隔，每行一个</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_strings_title">信息流弹出菜单筛选器</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">输入要过滤的弹出菜单名称，以换行符分隔，每行一个</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_title">信息流弹出菜单过滤器</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">如果匹配则进行过滤。&lt;br&gt;&lt;br&gt;要隐藏&lt;b&gt;“播放队列中的下一个”&lt;/b&gt;菜单，你只能使用&lt;b&gt;“播放下一个”&lt;/b&gt;或&lt;b&gt;“播放队列中的下一个”&lt;/b&gt;作为关键字。</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">如果包含则进行过滤。&lt;br&gt;&lt;br&gt;要隐藏&lt;b&gt;“播放队列中的下一个”&lt;/b&gt;菜单，你可以使用&lt;b&gt;“播放下一个”&lt;/b&gt;或&lt;b&gt;“在队列中”&lt;/b&gt;作为关键字。</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">动态弹出菜单过滤类型</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">信息流飞出菜单筛选器已禁用</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">信息流飞出菜单筛选器已启用</string>
-    <string name="revanced_hide_feed_flyout_menu_title">启用信息流弹出菜单筛选器</string>
+    <string name="revanced_hide_feed_flyout_menu_title">启用信息流弹出菜单过滤器</string>
     <string name="revanced_hide_feed_search_bar_summary_off">显示动态搜索栏</string>
     <string name="revanced_hide_feed_search_bar_summary_on">隐藏动态搜索栏</string>
     <string name="revanced_hide_feed_search_bar_title">隐藏新闻源搜索栏</string>
@@ -884,13 +873,13 @@
     <string name="revanced_hide_how_this_was_made_section_title">隐藏“内容制作说明”部分</string>
     <string name="revanced_hide_hype_button_summary_off">热度按钮已显示</string>
     <string name="revanced_hide_hype_button_summary_on">热度按钮已隐藏</string>
-    <string name="revanced_hide_hype_button_title">隐藏混剪按钮</string>
+    <string name="revanced_hide_hype_button_title">隐藏“热推”按钮</string>
     <string name="revanced_hide_hype_points_section_summary_off">Hype 点数版块已显示。</string>
     <string name="revanced_hide_hype_points_section_summary_on">Hype 点数版块已隐藏。</string>
     <string name="revanced_hide_hype_points_section_title">隐藏 Hype 点数版块</string>
     <string name="revanced_hide_hype_points_summary_off">热度积分已显示</string>
     <string name="revanced_hide_hype_points_summary_on">热度积分已隐藏</string>
-    <string name="revanced_hide_hype_points_title">隐藏热度积分</string>
+    <string name="revanced_hide_hype_points_title">隐藏热推积分</string>
     <string name="revanced_hide_image_search_button_summary_off">图片搜索按钮已显示</string>
     <string name="revanced_hide_image_search_button_summary_on">图片搜索按钮已隐藏</string>
     <string name="revanced_hide_image_search_button_title">隐藏图片搜索按钮</string>
@@ -911,7 +900,7 @@
     <string name="revanced_hide_join_button_in_channel_page_title">隐藏「加入」按钮</string>
     <string name="revanced_hide_join_button_summary_off">加入按钮已显示</string>
     <string name="revanced_hide_join_button_summary_on">加入按钮已隐藏</string>
-    <string name="revanced_hide_join_button_title">隐藏「加入」按钮</string>
+    <string name="revanced_hide_join_button_title">隐藏“加入”按钮</string>
     <string name="revanced_hide_key_concepts_section_summary_off">“主要概念”部分已显示</string>
     <string name="revanced_hide_key_concepts_section_summary_on">“主要概念”部分已隐藏</string>
     <string name="revanced_hide_key_concepts_section_title">隐藏“关键概念”部分</string>
@@ -930,7 +919,11 @@
     <string name="revanced_hide_keyword_content_home_summary_off">首页视频不会根据关键字进行过滤</string>
     <string name="revanced_hide_keyword_content_home_summary_on">首页视频将会根据关键字进行过滤</string>
     <string name="revanced_hide_keyword_content_home_title">过滤首页视频</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">输入以换行符分隔的关键词或频道名称。中间有大写字母的单词必须完全匹配（例如：iPhone、TikTok、LeBlanc）</string>
+    <string name="revanced_hide_keyword_content_phrases_summary">"输入要隐藏的关键词和短语，换行分隔
+
+关键词可以是视频标题或频道名称中的任何文本
+
+中间带有大写字母的单词必须按照字母的大小写输入 (例如: iPhone、TikTok、LeBlanc)"</string>
     <string name="revanced_hide_keyword_content_phrases_title">要隐藏的关键字</string>
     <string name="revanced_hide_keyword_content_search_summary_off">搜索结果不会根据关键字过滤</string>
     <string name="revanced_hide_keyword_content_search_summary_on">搜索结果将会根据关键字过滤</string>
@@ -951,10 +944,10 @@
     <string name="revanced_hide_latest_posts_title">隐藏「最新帖子」</string>
     <string name="revanced_hide_latest_videos_button_summary_off">「最新视频」按钮已显示</string>
     <string name="revanced_hide_latest_videos_button_summary_on">「最新视频」按钮已隐藏</string>
-    <string name="revanced_hide_latest_videos_button_title">隐藏「最新视频」按钮</string>
+    <string name="revanced_hide_latest_videos_button_title">隐藏“最新视频”按钮</string>
     <string name="revanced_hide_like_dislike_button_summary_off">点赞与点踩按钮已显示</string>
     <string name="revanced_hide_like_dislike_button_summary_on">点赞与点踩按钮已隐藏</string>
-    <string name="revanced_hide_like_dislike_button_title">隐藏 Hype 按钮</string>
+    <string name="revanced_hide_like_dislike_button_title">隐藏点赞和点踩</string>
     <string name="revanced_hide_links_preview_summary_off">链接预览已显示</string>
     <string name="revanced_hide_links_preview_summary_on">链接预览已隐藏</string>
     <string name="revanced_hide_links_preview_title">隐藏链接预览</string>
@@ -1005,13 +998,13 @@
     <string name="revanced_hide_navigation_subscriptions_button_title">隐藏订阅按钮</string>
     <string name="revanced_hide_notify_me_button_summary_off">通知我按钮已显示</string>
     <string name="revanced_hide_notify_me_button_summary_on">通知我按钮已隐藏</string>
-    <string name="revanced_hide_notify_me_button_title">隐藏「通知我」按钮</string>
+    <string name="revanced_hide_notify_me_button_title">隐藏“通知我”按钮</string>
     <string name="revanced_hide_paid_promotion_label_summary_off">付费推广标签已显示</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">付费推广标签已隐藏</string>
-    <string name="revanced_hide_paid_promotion_label_title">隐藏付费推广标签</string>
+    <string name="revanced_hide_paid_promotion_label_title">隐藏“包含付费推广”标签</string>
     <string name="revanced_hide_playables_summary_off">可播放内容已显示</string>
     <string name="revanced_hide_playables_summary_on">可播放内容已隐藏</string>
-    <string name="revanced_hide_playables_title">隐藏可播放内容</string>
+    <string name="revanced_hide_playables_title">隐藏游戏大本营</string>
     <string name="revanced_hide_player_autoplay_button_summary_off">自动播放按钮已显示</string>
     <string name="revanced_hide_player_autoplay_button_summary_on">自动播放按钮已隐藏</string>
     <string name="revanced_hide_player_autoplay_button_title">隐藏自动播放按钮</string>
@@ -1125,7 +1118,7 @@
     <string name="revanced_hide_quick_actions_like_button_title">隐藏点赞按钮</string>
     <string name="revanced_hide_quick_actions_live_chat_button_summary_off">实时聊天按钮已显示</string>
     <string name="revanced_hide_quick_actions_live_chat_button_summary_on">实时聊天按钮已隐藏</string>
-    <string name="revanced_hide_quick_actions_live_chat_button_title">如果它们有效，则自动获取和保存 Cookie</string>
+    <string name="revanced_hide_quick_actions_live_chat_button_title">隐藏“实时聊天”按钮</string>
     <string name="revanced_hide_quick_actions_more_button_summary_off">更多按钮已显示</string>
     <string name="revanced_hide_quick_actions_more_button_summary_on">更多按钮已隐藏</string>
     <string name="revanced_hide_quick_actions_more_button_title">隐藏更多按钮</string>
@@ -1300,7 +1293,7 @@
     <string name="revanced_hide_shorts_info_panel_title">隐藏信息面板</string>
     <string name="revanced_hide_shorts_join_button_summary_off">加入按钮已显示</string>
     <string name="revanced_hide_shorts_join_button_summary_on">加入按钮已隐藏</string>
-    <string name="revanced_hide_shorts_join_button_title">隐藏「加入」按钮</string>
+    <string name="revanced_hide_shorts_join_button_title">隐藏“加入”按钮</string>
     <string name="revanced_hide_shorts_like_button_summary_off">点赞按钮已显示</string>
     <string name="revanced_hide_shorts_like_button_summary_on">点赞按钮已隐藏</string>
     <string name="revanced_hide_shorts_like_button_title">隐藏点赞按钮</string>
@@ -1385,7 +1378,7 @@
     <string name="revanced_hide_shorts_stickers_title">隐藏贴纸</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_off">订阅按钮已显示</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_on">订阅按钮已隐藏</string>
-    <string name="revanced_hide_shorts_subscribe_button_title">隐藏「订阅」按钮</string>
+    <string name="revanced_hide_shorts_subscribe_button_title">隐藏“订阅”按钮</string>
     <string name="revanced_hide_shorts_tagged_products_summary_off">标记商品已显示</string>
     <string name="revanced_hide_shorts_tagged_products_summary_on">标记商品已隐藏</string>
     <string name="revanced_hide_shorts_tagged_products_title">隐藏标记的商品</string>
@@ -1409,7 +1402,7 @@
     <string name="revanced_hide_shorts_video_title_title">隐藏视频标题</string>
     <string name="revanced_hide_show_more_button_summary_off">搜索结果中的显示更多按钮已显示</string>
     <string name="revanced_hide_show_more_button_summary_on">搜索结果中的显示更多按钮已隐藏</string>
-    <string name="revanced_hide_show_more_button_title">隐藏「显示更多」按钮</string>
+    <string name="revanced_hide_show_more_button_title">隐藏“显示更多”按钮</string>
     <string name="revanced_hide_snack_bar_summary_off">弹出消息已显示</string>
     <string name="revanced_hide_snack_bar_summary_on">弹出消息已隐藏</string>
     <string name="revanced_hide_snack_bar_title">隐藏弹出消息</string>
@@ -1421,13 +1414,13 @@
     <string name="revanced_hide_stop_ads_button_title">隐藏“停止广告”按钮</string>
     <string name="revanced_hide_store_button_summary_off">「分享」按钮已显示</string>
     <string name="revanced_hide_store_button_summary_on">「分享」按钮已隐藏</string>
-    <string name="revanced_hide_store_button_title">隐藏「分享」按钮</string>
+    <string name="revanced_hide_store_button_title">隐藏“商店”按钮</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">订阅按钮已显示</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">订阅按钮已隐藏</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_title">隐藏「订阅」按钮</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_title">隐藏“订阅”按钮</string>
     <string name="revanced_hide_subscribe_button_summary_off">订阅按钮已显示</string>
     <string name="revanced_hide_subscribe_button_summary_on">订阅按钮已隐藏</string>
-    <string name="revanced_hide_subscribe_button_title">隐藏「订阅」按钮</string>
+    <string name="revanced_hide_subscribe_button_title">隐藏“订阅”按钮</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">订阅频道栏已显示</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">订阅频道栏已隐藏</string>
     <string name="revanced_hide_subscribed_channels_bar_title">隐藏订阅频道栏</string>
@@ -1451,7 +1444,7 @@
     <string name="revanced_hide_timed_reactions_title">隐藏限时反应</string>
     <string name="revanced_hide_toolbar_cast_button_summary_off">Cast 按钮已显示</string>
     <string name="revanced_hide_toolbar_cast_button_summary_on">Cast 按钮已隐藏</string>
-    <string name="revanced_hide_toolbar_cast_button_title">隐藏「投屏」按钮</string>
+    <string name="revanced_hide_toolbar_cast_button_title">隐藏“投屏”按钮</string>
     <string name="revanced_hide_toolbar_create_button_summary_off">创作按钮已显示</string>
     <string name="revanced_hide_toolbar_create_button_summary_on">创作按钮已隐藏</string>
     <string name="revanced_hide_toolbar_create_button_title">隐藏创建按钮</string>
@@ -1557,121 +1550,64 @@
     <string name="revanced_keep_landscape_mode_timeout_summary">强制横屏模式的毫秒数</string>
     <string name="revanced_keep_landscape_mode_timeout_title">保持横屏模式超时</string>
     <string name="revanced_keep_landscape_mode_title">保持横屏模式</string>
-    <string name="revanced_language_AM">阿姆哈拉语\n<small>አማርኛ</small>
-    </string>
-    <string name="revanced_language_AR">阿拉伯语\n<small>العربية</small>
-    </string>
-    <string name="revanced_language_AZ">阿塞拜疆语\n<small>Azərbaycan</small>
-    </string>
-    <string name="revanced_language_BE">白俄罗斯语\n<small>беларуская</small>
-    </string>
-    <string name="revanced_language_BG">保加利亚语\n<small>Български</small>
-    </string>
-    <string name="revanced_language_BN">孟加拉语\n<small>বাংলা</small>
-    </string>
-    <string name="revanced_language_CA">加泰罗尼亚语\n<small>Català</small>
-    </string>
-    <string name="revanced_language_CS">捷克语\n<small>Čeština</small>
-    </string>
-    <string name="revanced_language_DA">丹麦语\n<small>Dansk</small>
-    </string>
-    <string name="revanced_language_DE">德语\n<small>Deutsch</small>
-    </string>
+    <string name="revanced_language_AM">阿姆哈拉语\n<small>አማርኛ</small></string>
+    <string name="revanced_language_AR">阿拉伯语\n<small>العربية</small></string>
+    <string name="revanced_language_AZ">阿塞拜疆语\n<small>Azərbaycan</small></string>
+    <string name="revanced_language_BE">白俄罗斯语\n<small>беларуская</small></string>
+    <string name="revanced_language_BG">保加利亚语\n<small>Български</small></string>
+    <string name="revanced_language_BN">孟加拉语\n<small>বাংলা</small></string>
+    <string name="revanced_language_CA">加泰罗尼亚语\n<small>Català</small></string>
+    <string name="revanced_language_CS">捷克语\n<small>Čeština</small></string>
+    <string name="revanced_language_DA">丹麦语\n<small>Dansk</small></string>
+    <string name="revanced_language_DE">德语\n<small>Deutsch</small></string>
     <string name="revanced_language_DEFAULT">应用语言</string>
-    <string name="revanced_language_EL">希腊语\n<small>Ελληνικά</small>
-    </string>
-    <string name="revanced_language_EN">英语\n<small>English</small>
-    </string>
-    <string name="revanced_language_ES">西班牙语\n<small>Español</small>
-    </string>
-    <string name="revanced_language_ET">爱沙尼亚语\n<small>Eesti</small>
-    </string>
-    <string name="revanced_language_FA">波斯语\n<small>فارسی</small>
-    </string>
-    <string name="revanced_language_FI">芬兰语\n<small>Suomi</small>
-    </string>
-    <string name="revanced_language_FR">法语\n<small>Français</small>
-    </string>
-    <string name="revanced_language_GA">爱尔兰语\n<small>Gaeilge</small>
-    </string>
-    <string name="revanced_language_GU">古吉拉特语\n<small>ગુજરાતી</small>
-    </string>
-    <string name="revanced_language_HE">希伯来语\n<small>עברי</small>
-    </string>
-    <string name="revanced_language_HI">印地语\n<small>हिन्दी</small>
-    </string>
-    <string name="revanced_language_HR">克罗地亚语\n<small>Hrvatski</small>
-    </string>
-    <string name="revanced_language_HU">匈牙利语\n<small>Magyar</small>
-    </string>
-    <string name="revanced_language_ID">印度尼西亚语\n<small>Indonesia</small>
-    </string>
-    <string name="revanced_language_IT">意大利语\n<small>Italiano</small>
-    </string>
-    <string name="revanced_language_JA">日语\n<small>日本語</small>
-    </string>
-    <string name="revanced_language_KK">哈萨克语\n<small>Қазақ тілі</small>
-    </string>
-    <string name="revanced_language_KO">韩语\n<small>한국어</small>
-    </string>
-    <string name="revanced_language_LT">立陶宛语\n<small>Lietuvių</small>
-    </string>
-    <string name="revanced_language_LV">拉脱维亚语\n<small>Latviešu</small>
-    </string>
-    <string name="revanced_language_MK">马其顿语\n<small>Македонски</small>
-    </string>
-    <string name="revanced_language_MN">蒙古语\n<small>Монгол</small>
-    </string>
-    <string name="revanced_language_MR">马拉地语\n<small>मराठी</small>
-    </string>
-    <string name="revanced_language_MS">马来语\n<small>Melayu</small>
-    </string>
-    <string name="revanced_language_MY">缅甸语\n<small>ဗမာ</small>
-    </string>
-    <string name="revanced_language_NL">荷兰语\n<small>Nederlands</small>
-    </string>
-    <string name="revanced_language_OR">奥里亚语\n<small>ଓଡ଼ିଆ</small>
-    </string>
-    <string name="revanced_language_PA">旁遮普语\n<small>ਪੰਜਾਬੀ</small>
-    </string>
-    <string name="revanced_language_PL">波兰语\n<small>Polski</small>
-    </string>
-    <string name="revanced_language_PT">葡萄牙语\n<small>Português</small>
-    </string>
-    <string name="revanced_language_RO">罗马尼亚语\n<small>Română</small>
-    </string>
-    <string name="revanced_language_RU">俄语\n<small>Русский</small>
-    </string>
-    <string name="revanced_language_SK">斯洛伐克语\n<small>Slovenčina</small>
-    </string>
-    <string name="revanced_language_SL">斯洛文尼亚语\n<small>Slovenščina</small>
-    </string>
-    <string name="revanced_language_SQ">阿尔巴尼亚语\n<small>Shqip</small>
-    </string>
-    <string name="revanced_language_SR">塞尔维亚语\n<small>Српски</small>
-    </string>
-    <string name="revanced_language_SV">瑞典语\n<small>Svenska</small>
-    </string>
-    <string name="revanced_language_SW">斯瓦希里语\n<small>Kiswahili</small>
-    </string>
-    <string name="revanced_language_TA">泰米尔语\n<small>தமிழ்</small>
-    </string>
-    <string name="revanced_language_TE">泰卢固语\n<small>తెలుగు</small>
-    </string>
-    <string name="revanced_language_TH">泰语\n<small>ไทย</small>
-    </string>
-    <string name="revanced_language_TL">菲律宾语\n<small>菲律宾语</small>
-    </string>
-    <string name="revanced_language_TR">土耳其语\n<small>Türkçe</small>
-    </string>
-    <string name="revanced_language_UK">乌克兰语\n<small>Українська</small>
-    </string>
-    <string name="revanced_language_UR">乌尔都语\n<small>اردو</small>
-    </string>
-    <string name="revanced_language_VI">越南语\n<small>Tiếng Việt</small>
-    </string>
-    <string name="revanced_language_ZH">中文\n<small>中文</small>
-    </string>
+    <string name="revanced_language_EL">希腊语\n<small>Ελληνικά</small></string>
+    <string name="revanced_language_EN">英语\n<small>English</small></string>
+    <string name="revanced_language_ES">西班牙语\n<small>Español</small></string>
+    <string name="revanced_language_ET">爱沙尼亚语\n<small>Eesti</small></string>
+    <string name="revanced_language_FA">波斯语\n<small>فارسی</small></string>
+    <string name="revanced_language_FI">芬兰语\n<small>Suomi</small></string>
+    <string name="revanced_language_FR">法语\n<small>Français</small></string>
+    <string name="revanced_language_GA">爱尔兰语\n<small>Gaeilge</small></string>
+    <string name="revanced_language_GU">古吉拉特语\n<small>ગુજરાતી</small></string>
+    <string name="revanced_language_HE">希伯来语\n<small>עברי</small></string>
+    <string name="revanced_language_HI">印地语\n<small>हिन्दी</small></string>
+    <string name="revanced_language_HR">克罗地亚语\n<small>Hrvatski</small></string>
+    <string name="revanced_language_HU">匈牙利语\n<small>Magyar</small></string>
+    <string name="revanced_language_ID">印度尼西亚语\n<small>Indonesia</small></string>
+    <string name="revanced_language_IT">意大利语\n<small>Italiano</small></string>
+    <string name="revanced_language_JA">日语\n<small>日本語</small></string>
+    <string name="revanced_language_KK">哈萨克语\n<small>Қазақ тілі</small></string>
+    <string name="revanced_language_KO">韩语\n<small>한국어</small></string>
+    <string name="revanced_language_LT">立陶宛语\n<small>Lietuvių</small></string>
+    <string name="revanced_language_LV">拉脱维亚语\n<small>Latviešu</small></string>
+    <string name="revanced_language_MK">马其顿语\n<small>Македонски</small></string>
+    <string name="revanced_language_MN">蒙古语\n<small>Монгол</small></string>
+    <string name="revanced_language_MR">马拉地语\n<small>मराठी</small></string>
+    <string name="revanced_language_MS">马来语\n<small>Melayu</small></string>
+    <string name="revanced_language_MY">缅甸语\n<small>ဗမာ</small></string>
+    <string name="revanced_language_NL">荷兰语\n<small>Nederlands</small></string>
+    <string name="revanced_language_OR">奥里亚语\n<small>ଓଡ଼ିଆ</small></string>
+    <string name="revanced_language_PA">旁遮普语\n<small>ਪੰਜਾਬੀ</small></string>
+    <string name="revanced_language_PL">波兰语\n<small>Polski</small></string>
+    <string name="revanced_language_PT">葡萄牙语\n<small>Português</small></string>
+    <string name="revanced_language_RO">罗马尼亚语\n<small>Română</small></string>
+    <string name="revanced_language_RU">俄语\n<small>Русский</small></string>
+    <string name="revanced_language_SK">斯洛伐克语\n<small>Slovenčina</small></string>
+    <string name="revanced_language_SL">斯洛文尼亚语\n<small>Slovenščina</small></string>
+    <string name="revanced_language_SQ">阿尔巴尼亚语\n<small>Shqip</small></string>
+    <string name="revanced_language_SR">塞尔维亚语\n<small>Српски</small></string>
+    <string name="revanced_language_SV">瑞典语\n<small>Svenska</small></string>
+    <string name="revanced_language_SW">斯瓦希里语\n<small>Kiswahili</small></string>
+    <string name="revanced_language_TA">泰米尔语\n<small>தமிழ்</small></string>
+    <string name="revanced_language_TE">泰卢固语\n<small>తెలుగు</small></string>
+    <string name="revanced_language_TH">泰语\n<small>ไทย</small></string>
+    <string name="revanced_language_TL">菲律宾语\n<small>菲律宾语</small></string>
+    <string name="revanced_language_TR">土耳其语\n<small>Türkçe</small></string>
+    <string name="revanced_language_UK">乌克兰语\n<small>Українська</small></string>
+    <string name="revanced_language_UR">乌尔都语\n<small>اردو</small></string>
+    <string name="revanced_language_VI">越南语\n<small>Tiếng Việt</small></string>
+    <string name="revanced_language_ZH">中文\n<small>中文</small></string>
     <string name="revanced_language_title">RVX 语言</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">已禁用双击操作和捏合缩放</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"已启用双击操作和捏合以调整大小
@@ -1959,8 +1895,8 @@ AI生成的回复可能包含不准确的信息。
 ══════════════
 %3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">快速操作顶部边距必须在 0-32 之间 重置为默认值</string>
-    <string name="revanced_quick_actions_top_margin_summary">配置从进度条到快速操作容器的间距，范围在0-32之间</string>
-    <string name="revanced_quick_actions_top_margin_title">快速操作顶部边距</string>
+    <string name="revanced_quick_actions_top_margin_summary">设置快速操作栏的顶部外边距（0-32 dp）</string>
+    <string name="revanced_quick_actions_top_margin_title">快速操作顶部外边距</string>
     <string name="revanced_related_videos_offset_title">偏移</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">播放速度更改仅适用于当前视频</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">播放速度更改适用于所有视频</string>
@@ -2000,7 +1936,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_remix_button_index_title">混音按钮索引</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"移除查看器的自由裁量对话框
 这不会绕过年龄限制它只会自动同意"</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">移除「观看须知」对话框</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">移除“观看须知”对话框</string>
     <string name="revanced_replace_channel_handle_summary_off">频道标识已使用</string>
     <string name="revanced_replace_channel_handle_summary_on">频道名称已使用</string>
     <string name="revanced_replace_channel_handle_title">替换频道标识</string>
@@ -2027,6 +1963,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">进度条缩略图将显示在全屏</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">进度条缩略图将显示在进度条上方</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">恢复旧的进度条缩略图</string>
+    <string name="revanced_restore_old_settings_menus_title">恢复旧设置菜单</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">未使用旧版播放器布局。</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"使用旧版播放器布局。
 播放器顶部和底部没有边距。"</string>
@@ -2126,7 +2063,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_enable_voting_sum_off">不显示片段投票按钮</string>
     <string name="revanced_sb_enable_voting_sum_on">显示片段投票按钮</string>
     <string name="revanced_sb_general">常规</string>
-    <string name="revanced_sb_general_adjusting">调整新片段步长</string>
+    <string name="revanced_sb_general_adjusting">时间调整步长</string>
     <string name="revanced_sb_general_adjusting_invalid">值必须是正数</string>
     <string name="revanced_sb_general_adjusting_sum">创建新的片段时时间调整按钮移动的毫秒数</string>
     <string name="revanced_sb_general_api_url">更改 API URL</string>
@@ -2147,7 +2084,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_general_uuid_invalid">私人用户 ID 必须至少 30 个字符长</string>
     <string name="revanced_sb_general_uuid_sum">这应该被保密。这就像一个密码，不应该与他人分享。如果有人拥有它，他们就可以冒充您</string>
     <string name="revanced_sb_guidelines_popup_already_read">已读</string>
-    <string name="revanced_sb_guidelines_popup_content">查看创建新片段的规则和提示</string>
+    <string name="revanced_sb_guidelines_popup_content">在创建新片段之前阅读 SponsorBlock 指南</string>
     <string name="revanced_sb_guidelines_popup_open">展示</string>
     <string name="revanced_sb_guidelines_popup_title">遵循指南</string>
     <string name="revanced_sb_guidelines_preference_sum">指南包含创建新片段的规则和提示</string>
@@ -2476,7 +2413,7 @@ AI生成的回复可能包含不准确的信息。
 这会改变应用程序的外观和功能，但可能会出现未知的副作用。
 
 如果稍后关闭，建议清除应用程序数据以防止 UI 错误。"</string>
-    <string name="revanced_spoof_device_dimensions_summary">通过欺骗设备尺寸来强制使用更高质量的选项</string>
+    <string name="revanced_spoof_device_dimensions_summary">启用此功能可以解锁更高的视频质量</string>
     <string name="revanced_spoof_device_dimensions_title">伪装设备尺寸</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">视频编码为 AVC (H.264) 或 VP9。</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"视频编码为 AVC (H.264)、VP9 或 AV1。
@@ -2616,8 +2553,8 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_swipe_overlay_progress_brightness_color_title">滑动提示层亮度颜色</string>
     <string name="revanced_swipe_overlay_progress_seek_color_summary">快进进度控件的颜色</string>
     <string name="revanced_swipe_overlay_progress_seek_color_title">滑动覆盖快进进度颜色</string>
-    <string name="revanced_swipe_overlay_progress_speed_color_summary">速度控制进度条的颜色</string>
-    <string name="revanced_swipe_overlay_progress_speed_color_title">滑动叠加速度颜色</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">设置播放速度控制进度条的颜色</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">滑动提示层速度颜色</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">设置音量控制进度条的颜色</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">滑动提示层音量颜色</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">可滑动区域大小不能超过50 重置为默认值</string>
@@ -2660,12 +2597,12 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_swipe_text_overlay_size_invalid_toast">文字大小必须在 1-30 之间</string>
     <string name="revanced_swipe_text_overlay_size_summary">选择要在工具栏中显示的组件</string>
     <string name="revanced_swipe_text_overlay_size_title">滑动提示层文字大小</string>
-    <string name="revanced_swipe_threshold_summary">防止点赞和订阅按钮在创作者提及它们时发光</string>
+    <string name="revanced_swipe_threshold_summary">设置触发调整所需的滑动距离</string>
     <string name="revanced_swipe_threshold_title">滑动幅度阈值</string>
     <string name="revanced_swipe_volume_distance_summary">滑动以调节音量的像素数量。值越低，音量变化越快，值越高，变化越慢 (1-1000)。</string>
     <string name="revanced_swipe_volume_distance_title">音量距离</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">音量滑动灵敏度必须在1-1000之间。</string>
-    <string name="revanced_swipe_volume_sensitivity_summary">隐藏点赞和不喜欢按钮</string>
+    <string name="revanced_swipe_volume_sensitivity_summary">较高的值会增加每次滑动的音量变化</string>
     <string name="revanced_swipe_volume_sensitivity_title">音量滑动灵敏度</string>
     <string name="revanced_swipe_volume_summary_off">已停用全屏音量滑动</string>
     <string name="revanced_swipe_volume_summary_on">"已启用全屏音量滑动

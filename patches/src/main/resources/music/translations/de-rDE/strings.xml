@@ -35,6 +35,7 @@ Tippen Sie auf die Schaltfläche „Weiter“ und lassen Sie die Optimierungsän
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 ist vorübergehend nicht verfügbar (API Timeout)</string>
     <string name="morphe_oauth2_toast_invalid">Ungültiger VR-Anmelde-Token, melden Sie sich erneut in VR an</string>
     <string name="morphe_oauth2_toast_reset">Von Android VR abgemeldet</string>
+    <string name="morphe_replace_music_with_youtube_summary">Ersetzt music.youtube.com durch youtube.com in geteilten Links</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Freigabe-Links verwenden music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Freigabe-Links verwenden youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Freigabe-Links zu youtube.com ändern</string>
@@ -54,7 +55,6 @@ Tippen Sie auf die Schaltfläche „Weiter“ und lassen Sie die Optimierungsän
 • Die Wiedergabe schlägt fehl, wenn der Player-JavaScript-Hash in GVS widerrufen wird"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">JavaScript-Update des Players deaktivieren</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript-Hashes des Players sind ungefähr einen Monat gültig und veraltete Hashes können von GVS widerrufen werden.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Versuchen Sie folgendes zu aktivieren: Fälsche Video-Streams &gt; Android VR Anmeldung</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Es konnten keine Client-Streams abgerufen werden</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Geben Sie einen gültigen Player-JavaScript-Hash ein</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player-JavaScript-Hash</string>
@@ -87,7 +87,7 @@ Um sich anzumelden, drücken Sie unten auf \"Weiter\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Erfolgreich angemeldet</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Ausgabe eines Aktivierungscodes fehlgeschlagen</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Ausgabe eines Authentifizierungstokens fehlgeschlagen</string>
-    <string name="morphe_spoof_video_streams_summary">"Täuscht YouTube, sodass ein kompatibler Videostream gesendet wird, wodurch die Wiedergabe für die meisten Nutzer behoben wird
+    <string name="morphe_spoof_video_streams_summary">"Behebt Wiedergabeprobleme für die meisten Nutzer, indem ein kompatibler Videostream angefordert wird
 
 Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Video-Streams werden nicht gefälscht
@@ -112,8 +112,11 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_disable_drc_audio_title">DRC-Audio deaktivieren</string>
     <string name="revanced_disable_quic_protocol_title">QUIC-Protokoll deaktivieren </string>
     <string name="revanced_hide_fullscreen_ads_title">Vollbild-Werbung ausblenden</string>
+    <string name="revanced_restart_dialog_message">Starten Sie die App neu, damit die Änderungen wirksam werden.</string>
     <string name="revanced_restart_first_run">Neustart, um die Einrichtung abzuschließen</string>
-    <string name="revanced_spoof_video_streams_summary">"Täuscht YouTube, sodass ein kompatibler Videostream gesendet wird, wodurch die Wiedergabe für die meisten Nutzer behoben wird
+    <string name="revanced_restart_title">Neustart erforderlich</string>
+    <string name="revanced_settings_search_title">Suche %s</string>
+    <string name="revanced_spoof_video_streams_summary">"Behebt Wiedergabeprobleme für die meisten Nutzer, indem ein kompatibler Videostream angefordert wird
 
 Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
     <string name="revanced_spoof_video_streams_title">Fälsche Video-Streams</string>

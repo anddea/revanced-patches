@@ -39,7 +39,7 @@
     <string name="morphe_reload_video_summary_off">Не се показва бутонът за презареждане на видеото</string>
     <string name="morphe_reload_video_summary_on">Показва се бутонът за презареждане на видеото</string>
     <string name="morphe_reload_video_title">Покажи бутона за презареждане на видеото</string>
-    <string name="morphe_replace_links_with_shortener_summary">Принуждава потоците на живо и Shorts да използват съкратения URL формат youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_summary">Принудително използва съкратения URL формат youtu.be за видеа</string>
     <string name="morphe_replace_links_with_shortener_title">Сменете споделяните връзки на youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Споделяните връзки използват music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Споделяните връзки използват youtube.com</string>
@@ -70,7 +70,6 @@
 • Възпроизвеждането се проваля, ако JavaScript хеш на плейъра е отменен в GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Деактивиране на актуализацията на JavaScript за плейъра</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript хешовете на плейъра са валидни приблизително един месец и остарелите хешове може да бъдат отменени от GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Пробвайте да вкл. Подправяне на видеопотокове &gt; Вход в Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не може да се изтеглят клиентски потоци</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Въведете валиден JavaScript хеш на плейъра</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">JavaScript хеш на играча</string>
@@ -480,7 +479,7 @@
     <string name="revanced_exit_fullscreen_entry_1">Дублирането на видеа се показва</string>
     <string name="revanced_exit_fullscreen_entry_2">Само портретна ориентация</string>
     <string name="revanced_exit_fullscreen_entry_3">Само пейзажна ориентация</string>
-    <string name="revanced_exit_fullscreen_entry_4">И двете</string>
+    <string name="revanced_exit_fullscreen_entry_4">Портрет и пейзаж</string>
     <string name="revanced_exit_fullscreen_title">Излиза от режим на цял екран в края на видеото</string>
     <string name="revanced_expand_video_description_summary_off">Описанието на видеоклипа не се отваря автоматично.</string>
     <string name="revanced_expand_video_description_summary_on">Описанието на видеоклипа се отваря автоматично.</string>
@@ -733,7 +732,11 @@
     <string name="revanced_hide_keyword_content_home_summary_off">Видeoклипове в домакинството не са филтрирани по ключови</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Видeoклипове в домакинството са филтрирани по ключови</string>
     <string name="revanced_hide_keyword_content_home_title">Скрийте видеоклипове в домакинството по ключови</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">Въведете ключови думи или имена на канали, разделени с нови редове. Думи с главни букви в средата трябва да съвпадат точно (напр. iPhone, TikTok, LeBlanc)</string>
+    <string name="revanced_hide_keyword_content_phrases_summary">"Въведете ключови думи и фрази за скриване, разделени с нови редове
+
+Ключовите думи могат да бъдат всякакъв текст, показан в заглавията на видеоклиповете или имената на каналите
+
+Думите с главни букви в средата трябва да съвпадат точно (напр. iPhone, TikTok, LeBlanc)"</string>
     <string name="revanced_hide_keyword_content_phrases_title">Ключови за скриване</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Видeoклипове в търсене не са филтрирани по ключови</string>
     <string name="revanced_hide_keyword_content_search_summary_on">Видeoклипове в търсене са филтрирани по ключови</string>
@@ -808,7 +811,7 @@
     <string name="revanced_hide_notify_me_button_title">Скриване на бутона \"Уведоми ме\"</string>
     <string name="revanced_hide_paid_promotion_label_summary_off">Отметката за платна реклама е показана</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">Отметката за платна реклама е скрита</string>
-    <string name="revanced_hide_paid_promotion_label_title">Скрийте отметка за платна реклама</string>
+    <string name="revanced_hide_paid_promotion_label_title">Скрива етикета \"Включва платена промоция\"</string>
     <string name="revanced_hide_playables_summary_off">Игрите в YouTube се показват</string>
     <string name="revanced_hide_playables_summary_on">Игри в YouTube са скрити</string>
     <string name="revanced_hide_playables_title">Игри в YouTube</string>
@@ -1541,8 +1544,8 @@
     <string name="revanced_queue_manager_save_queue">Запиши опашката</string>
     <string name="revanced_queue_manager_video_information_copy">Копирай</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Височината трябва да е между 0-32, нулиране.</string>
-    <string name="revanced_quick_actions_top_margin_summary">Промяна на височината на лентата за прогрес, стойности между 0-32.</string>
-    <string name="revanced_quick_actions_top_margin_title">Височина на лентата за напредък</string>
+    <string name="revanced_quick_actions_top_margin_summary">Задайте горен марж на лентата с бързи действия (0-32 dp)</string>
+    <string name="revanced_quick_actions_top_margin_title">Горен марж на бързи действия</string>
     <string name="revanced_related_videos_offset_title">Компенсиране</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Бутоните за надграждане са скрити</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Скрийте бутоните за надграждане</string>
@@ -1582,6 +1585,7 @@
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Миниатюрите се показват в режим на цял екран</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Над лентата за възпроизвеждане се появяват миниатюри</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Стари миниатюри на времевата линия</string>
+    <string name="revanced_restore_old_settings_menus_title">Възстановяване на старите менюта за настройки</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Старият интерфейс на плейъра е деактивиран.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Старият интерфейс на плейъра е активиран.
 Без полета в горната и долната част на плейъра."</string>
@@ -1678,7 +1682,7 @@
     <string name="revanced_sb_enable_voting_sum_off">Скрий дублиране на видеа</string>
     <string name="revanced_sb_enable_voting_sum_on">Дублирането на видеа се показва</string>
     <string name="revanced_sb_general">Дублирането на видеа е скрито</string>
-    <string name="revanced_sb_general_adjusting">Дублирането на видеа е скрито</string>
+    <string name="revanced_sb_general_adjusting">Стъпка за регулиране на времето</string>
     <string name="revanced_sb_general_adjusting_invalid">Скрий дублиране на видеа</string>
     <string name="revanced_sb_general_adjusting_sum">Дублирането на видеа се показва</string>
     <string name="revanced_sb_general_api_url">Дублирането на видеа се показва</string>
@@ -1699,7 +1703,7 @@
     <string name="revanced_sb_general_uuid_invalid">Личният потребителски ID трябва да бъде минимум 30 знака дълго</string>
     <string name="revanced_sb_general_uuid_sum">Скрий дублиране на видеа</string>
     <string name="revanced_sb_guidelines_popup_already_read">Дублирането на видеа се показва</string>
-    <string name="revanced_sb_guidelines_popup_content">Вижте правилата и съветите за създаване на нови сегменти</string>
+    <string name="revanced_sb_guidelines_popup_content">Прочетете указанията на SponsorBlock, преди да създавате нови сегменти</string>
     <string name="revanced_sb_guidelines_popup_open">Скрий дублиране на видеа</string>
     <string name="revanced_sb_guidelines_popup_title">Скрий дублиране на видеа</string>
     <string name="revanced_sb_guidelines_preference_sum">Дублирането на видеа се показва</string>
@@ -1955,7 +1959,7 @@
 Това ще промени изgleда и функции на приложението, но неизвестни страни ефекти може да се появият.
 
 Ако по-късно бъде изключено, препоръбването на данните на приложението е препоръба"</string>
-    <string name="revanced_spoof_device_dimensions_summary">Заблуждава сървъра, за да осигури опции с по-високо качество, като заблуждава размерите на устройството</string>
+    <string name="revanced_spoof_device_dimensions_summary">Активирането на това може да отключи по-високо качество на видеото</string>
     <string name="revanced_spoof_device_dimensions_title">По подразбиране</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Липсва менюто за аудио запис.
 • Не е наличен стабилен звук.
@@ -1990,6 +1994,8 @@
     <string name="revanced_swipe_overlay_background_opacity_title">Прозорец на свайп</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Скрий бутона „Спри рекламите“</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Цвят на прозореца за яркост</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">Задайте цвета на лентата за напредък на контролите за скорост на възпроизвеждане.</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">Цвят на скоростта на наслагване</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">Скрий бутона „Коментари“</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Цвят на прозореца за volum</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Областта за плъзгане не може да бъде по-голяма от 50. Нулиране на стойността по подразбиране.</string>
@@ -2011,13 +2017,14 @@
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Незапазване и възстановяване на яркост при излизане или влизане в пълноекранен режим</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Запазване и възстановяване на яркост при излизане или влизане в пълноекранен режим</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Запазване и възстановяване на яркост</string>
+    <string name="revanced_swipe_speed_title">Активиране на жест за скорост</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">Размерът на шрифт трябва да е между 1-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">Скрий бутона „Докладвай“</string>
     <string name="revanced_swipe_text_overlay_size_title">Размер на шрифт на свайп</string>
     <string name="revanced_swipe_threshold_summary">Скрий бутона „Remix“</string>
     <string name="revanced_swipe_threshold_title">Порог за свайп</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Чувствителността на силата на звука при плъзгане трябва да бъде между 1-1000 (%).</string>
-    <string name="revanced_swipe_volume_sensitivity_summary">Скрий бутона „Изтегляне“</string>
+    <string name="revanced_swipe_volume_sensitivity_summary">По-високите стойности увеличават промяната в силата на звука при всяко плъзгане.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Чувствителност на свайп за volum</string>
     <string name="revanced_swipe_volume_summary_off">Включи сваляне за да активира свалянето</string>
     <string name="revanced_swipe_volume_summary_on">"Сваляне на volumе е изключено"</string>

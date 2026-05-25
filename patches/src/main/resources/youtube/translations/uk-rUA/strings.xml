@@ -41,7 +41,7 @@
     <string name="morphe_reload_video_summary_off">Кнопка перезавантаження відео не показується</string>
     <string name="morphe_reload_video_summary_on">Кнопка перезавантаження відео показується</string>
     <string name="morphe_reload_video_title">Кнопка перезавантаження відео</string>
-    <string name="morphe_replace_links_with_shortener_summary">Примусово використовує скорочений формат URL youtu.be для прямих трансляцій та Shorts</string>
+    <string name="morphe_replace_links_with_shortener_summary">Примусово використовує скорочений формат URL youtu.be для відео</string>
     <string name="morphe_replace_links_with_shortener_title">Змінити посилання для поширення на youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Під час поширення посилань використовується music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Під час поширення посилань використовується youtube.com</string>
@@ -74,7 +74,6 @@
 • Відтворення не вдається, якщо хеш JavaScript плеєра скасовано у GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Вимкнути оновлення JavaScript плеєра</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Хеші JavaScript плеєра дійсні приблизно один місяць, а застарілі хеші можуть бути скасовані GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Спробуйте увімкнути: Підміна відеопотоків &gt; Android VR з входом</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не вдалося отримати жодних клієнтських потоків</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Введіть дійсний хеш JavaScript плеєра</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Хеш JavaScript плеєра</string>
@@ -393,7 +392,7 @@
 • Компоненти у спливаючому меню плеєра (або пов’язаних налаштуваннях) можуть не працювати.
 • Анімовані лічильники не анімуються.
 • Відображається вкладка \"Бібліотека\".
-• Розділ \"Музика\" в описі відео може не працювати.
+• Секція \"Музика\" в описі відео може не працювати.
 • Елементи спливаючого меню плеєра не можна приховати.
 • Кнопка перемикання облікового запису може не відображатися на вкладці \"Бібліотека\"."</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Кнопки Подобається та Не подобається відблискуватимуть при згадуванні.</string>
@@ -564,7 +563,7 @@
     <string name="revanced_exit_fullscreen_entry_1">Вимкнено</string>
     <string name="revanced_exit_fullscreen_entry_2">Портретний</string>
     <string name="revanced_exit_fullscreen_entry_3">Альбомний</string>
-    <string name="revanced_exit_fullscreen_entry_4">Обидва</string>
+    <string name="revanced_exit_fullscreen_entry_4">Портретний і альбомний</string>
     <string name="revanced_exit_fullscreen_title">Вийти з повноекранного режиму в кінці відео</string>
     <string name="revanced_expand_video_description_summary_off">Опис відео розгортається вручну.</string>
     <string name="revanced_expand_video_description_summary_on">Опис відео розгортається автоматично.</string>
@@ -603,16 +602,6 @@
 Якщо вимкнете це налаштування, іконка Розголос може не зображатись у панелі дій та панелі опису відео.
 
 ※ Навіть якщо це налаштування вимкнене, кнопку Розголос не вдасться приховати."</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_off">Замість параметра \'Автовідтворення\' використовується параметр \'Відтворення\'.</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"Замість параметра 'Відтворення' використовується параметр 'Автовідтворення'."</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_title">Виправити побічний ефект Підробки версії програми</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"Якщо версію програми було підроблена на 19.30 або ранішу хоча б один раз, налаштування 'Відтворення' може бути порушене.
-
-Це залежить від того, яку відповідь додаток отримує від сервера.
-
-Якщо налаштування 'Відтворення' порушене, увімкнення цього налаштування може вирішити проблему.
-
-Якщо налаштування 'Відтворення' не працює навіть після увімкнення або вимкнення цього налаштування, слід очистити дані програми."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">Натискання і утримання для швидкості може іноді активовуватись, навіть якщо користувач не натискав і утримував.</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"Натискання і утримання для швидкості активовується тільки коли користувач натискає і утримує.
 
@@ -623,6 +612,7 @@
     <string name="revanced_fix_transcript_title">Виправити транскрипцію</string>
     <string name="revanced_fullscreen_ads_closed_toast">Повноекранну рекламу закрито.</string>
     <string name="revanced_gemini_cancelled">Скасовано</string>
+    <string name="revanced_gemini_chat_input_hint">Запитати про відео</string>
     <string name="revanced_gemini_copy_success">Підсумок скопійовано в буфер обміну.</string>
     <string name="revanced_gemini_error_already_running_summarize">Виконується підсумування.</string>
     <string name="revanced_gemini_error_already_running_transcribe">Виконується транскрибування.</string>
@@ -779,7 +769,7 @@
     <string name="revanced_hide_comments_carousel_user_dialog_message">"Примітка:
 • Обов’язково введіть точну назву елемента каруселі (наприклад, Запитати, Розрекламувати це відео, Слухати на YouTube Music тощо).
 • Приховування елементів каруселі може мати небажані побічні ефекти.
-• Якщо всі елементи каруселі приховані, весь розділ коментарів також буде прихований."</string>
+• Якщо всі елементи каруселі приховані, вся секція коментарів також буде прихована."</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка \"Створити Short\" показується</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопку \"Створити Short\" приховано</string>
     <string name="revanced_hide_comments_create_a_short_button_title">Приховати кнопку \"Створити Short\"</string>
@@ -796,7 +786,7 @@
     <string name="revanced_hide_comments_information_button_title">Приховати кнопку інформації</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_off">Розділ коментарів під відео у стрічці показується</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_on">Розділ коментарів під відео у стрічці приховано</string>
-    <string name="revanced_hide_comments_section_in_home_feed_title">Приховати розділ коментарів у стрічці</string>
+    <string name="revanced_hide_comments_section_in_home_feed_title">Приховати секцію коментарів у стрічці</string>
     <string name="revanced_hide_comments_section_summary_off">Секція коментарів показується</string>
     <string name="revanced_hide_comments_section_summary_on">Секцію коментарів приховано</string>
     <string name="revanced_hide_comments_section_title">Приховати секцію коментарів</string>
@@ -937,7 +927,11 @@
     <string name="revanced_hide_keyword_content_home_summary_off">Відео на вкладці \"Головна\" не фільтруються за ключовими словами</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Відео на вкладці \"Головна\" фільтруються за ключовими словами</string>
     <string name="revanced_hide_keyword_content_home_title">Приховати відео на головній</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">Введіть ключові слова або назви каналів, кожне з нового рядка. Слова з великими літерами всередині мають точно збігатися (наприклад, iPhone, TikTok, LeBlanc)</string>
+    <string name="revanced_hide_keyword_content_phrases_summary">"Введіть ключові слова та фрази для приховування, розділені новими рядками
+
+Ключові слова можуть бути будь-яким текстом із назв відео або назв каналів
+
+Слова з великими літерами всередині потрібно вводити точно (наприклад: iPhone, TikTok, Івано-Франківськ)"</string>
     <string name="revanced_hide_keyword_content_phrases_title">Ключові слова, які потрібно приховати</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Результати пошуку не фільтруються за ключовими словами</string>
     <string name="revanced_hide_keyword_content_search_summary_on">Результати пошуку фільтруються за ключовими словами</string>
@@ -1015,7 +1009,7 @@
     <string name="revanced_hide_notify_me_button_title">Приховати кнопку \"Сповістити мене\"</string>
     <string name="revanced_hide_paid_promotion_label_summary_off">Мітка \"Містить пряму рекламу\" показується</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">Мітку \"Містить пряму рекламу\" приховано</string>
-    <string name="revanced_hide_paid_promotion_label_title">Приховати \"Містить пряму рекламу\"</string>
+    <string name="revanced_hide_paid_promotion_label_title">Приховати позначку \"Містить пряму рекламу\"</string>
     <string name="revanced_hide_playables_summary_off">Розділ \"ігрові елементи\" показується</string>
     <string name="revanced_hide_playables_summary_on">Розділ \"ігрові елементи\" приховано</string>
     <string name="revanced_hide_playables_title">Приховати \"Ігрову кімнату\"</string>
@@ -1200,7 +1194,7 @@
     <string name="revanced_hide_seekbar_summary_on">Панель прогресу у відеоплеєрі приховано</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">Панель прогресу у прев\'ю відео показується</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_on">Панель прогресу у прев\'ю відео приховано</string>
-    <string name="revanced_hide_seekbar_thumbnail_title">Приховати смугу перегляду на мініатюрах відео</string>
+    <string name="revanced_hide_seekbar_thumbnail_title">Приховати смугу відтворення на мініатюрах відео</string>
     <string name="revanced_hide_seekbar_title">Приховати смугу відтворення відеоплеєра</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">Картки само спонсорства показується.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Картки само спонсорства приховано.</string>
@@ -1570,121 +1564,64 @@
     <string name="revanced_keep_landscape_mode_timeout_summary">Кількість мілісекунд примусового ландшафтного режиму.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Скільки зберігати ландшафтний режим</string>
     <string name="revanced_keep_landscape_mode_title">Зберігати ландшафтний режим</string>
-    <string name="revanced_language_AM">Амхарська\n<small>አማርኛ</small>
-    </string>
-    <string name="revanced_language_AR">Арабська\n<small>العربية</small>
-    </string>
-    <string name="revanced_language_AZ">Азербайджанська\n<small>Azərbaycan</small>
-    </string>
-    <string name="revanced_language_BE">Білоруська\n<small>Беларуская</small>
-    </string>
-    <string name="revanced_language_BG">Болгарська\n<small>Български</small>
-    </string>
-    <string name="revanced_language_BN">Бенгальська\n<small>বাংলা</small>
-    </string>
-    <string name="revanced_language_CA">Каталонська\n<small>Català</small>
-    </string>
-    <string name="revanced_language_CS">Чеська\n<small>Čeština</small>
-    </string>
-    <string name="revanced_language_DA">Данська\n<small>Dansk</small>
-    </string>
-    <string name="revanced_language_DE">Німецька\n<small>Deutsch</small>
-    </string>
+    <string name="revanced_language_AM">Амхарська\n<small>አማርኛ</small></string>
+    <string name="revanced_language_AR">Арабська\n<small>العربية</small></string>
+    <string name="revanced_language_AZ">Азербайджанська\n<small>Azərbaycan</small></string>
+    <string name="revanced_language_BE">Білоруська\n<small>Беларуская</small></string>
+    <string name="revanced_language_BG">Болгарська\n<small>Български</small></string>
+    <string name="revanced_language_BN">Бенгальська\n<small>বাংলা</small></string>
+    <string name="revanced_language_CA">Каталонська\n<small>Català</small></string>
+    <string name="revanced_language_CS">Чеська\n<small>Čeština</small></string>
+    <string name="revanced_language_DA">Данська\n<small>Dansk</small></string>
+    <string name="revanced_language_DE">Німецька\n<small>Deutsch</small></string>
     <string name="revanced_language_DEFAULT">Мова застосунку</string>
-    <string name="revanced_language_EL">Грецька\n<small>Ελληνικά</small>
-    </string>
-    <string name="revanced_language_EN">Англійська\n<small>English</small>
-    </string>
-    <string name="revanced_language_ES">Іспанська\n<small>Español</small>
-    </string>
-    <string name="revanced_language_ET">Естонська\n<small>Eesti</small>
-    </string>
-    <string name="revanced_language_FA">Перська\n<small>فارسی</small>
-    </string>
-    <string name="revanced_language_FI">Фінська\n<small>Suomi</small>
-    </string>
-    <string name="revanced_language_FR">Французька\n<small>Français</small>
-    </string>
-    <string name="revanced_language_GA">Ґейлґе\n<small>Gaeilge</small>
-    </string>
-    <string name="revanced_language_GU">Гуджараті\n<small>ગુજરાતી</small>
-    </string>
-    <string name="revanced_language_HE">Іврит\n<small>עברי</small>
-    </string>
-    <string name="revanced_language_HI">Хінді\n<small>हिन्दी</small>
-    </string>
-    <string name="revanced_language_HR">Хорватська\n<small>Hrvatski</small>
-    </string>
-    <string name="revanced_language_HU">Угорська\n<small>Magyar</small>
-    </string>
-    <string name="revanced_language_ID">Індонезійська\n<small>Indonesia</small>
-    </string>
-    <string name="revanced_language_IT">Італійська\n<small>Italiano</small>
-    </string>
-    <string name="revanced_language_JA">Японська\n<small>日本語</small>
-    </string>
-    <string name="revanced_language_KK">Казахська\n<small>Қазақ тілі</small>
-    </string>
-    <string name="revanced_language_KO">Корейська\n<small>한국어</small>
-    </string>
-    <string name="revanced_language_LT">Литовська\n<small>Lietuvių</small>
-    </string>
-    <string name="revanced_language_LV">Латвійська\n<small>Latviešu</small>
-    </string>
-    <string name="revanced_language_MK">Македонська\n<small>Македонски</small>
-    </string>
-    <string name="revanced_language_MN">Монгольська\n<small>Монгол</small>
-    </string>
-    <string name="revanced_language_MR">Маратхі\n<small>मराठी</small>
-    </string>
-    <string name="revanced_language_MS">Малайська\n<small>Melayu</small>
-    </string>
-    <string name="revanced_language_MY">Бірманська\n<small>ဗမာ</small>
-    </string>
-    <string name="revanced_language_NL">Нідерландська\n<small>Nederlands</small>
-    </string>
-    <string name="revanced_language_OR">Одія\n<small>ଓଡ଼ିଆ</small>
-    </string>
-    <string name="revanced_language_PA">Пенджабі\n<small>ਪੰਜਾਬੀ</small>
-    </string>
-    <string name="revanced_language_PL">Польська\n<small>Polski</small>
-    </string>
-    <string name="revanced_language_PT">Португальська\n<small>Português</small>
-    </string>
-    <string name="revanced_language_RO">Румунська\n<small>Română</small>
-    </string>
-    <string name="revanced_language_RU">Російська\n<small>Русский</small>
-    </string>
-    <string name="revanced_language_SK">Словацька\n<small>Slovenčina</small>
-    </string>
-    <string name="revanced_language_SL">Словенська\n<small>Slovenščina</small>
-    </string>
-    <string name="revanced_language_SQ">Албанська\n<small>Shqip</small>
-    </string>
-    <string name="revanced_language_SR">Сербська\n<small>Српски</small>
-    </string>
-    <string name="revanced_language_SV">Шведська\n<small>Svenska</small>
-    </string>
-    <string name="revanced_language_SW">Суахілі\n<small>Kiswahili</small>
-    </string>
-    <string name="revanced_language_TA">Тамільська\n<small>தமிழ்</small>
-    </string>
-    <string name="revanced_language_TE">Телуґу\n<small>తెలుగు</small>
-    </string>
-    <string name="revanced_language_TH">Тайська\n<small>ไทย</small>
-    </string>
-    <string name="revanced_language_TL">Філіппінська\n<small>Filipino</small>
-    </string>
-    <string name="revanced_language_TR">Турецька\n<small>Türkçe</small>
-    </string>
-    <string name="revanced_language_UK">Українська\n<small>Українська</small>
-    </string>
-    <string name="revanced_language_UR">Урду\n<small>اردو</small>
-    </string>
-    <string name="revanced_language_VI">В'єтнамська\n<small>Tiếng Việt</small>
-    </string>
-    <string name="revanced_language_ZH">Китайська\n<small>中文</small>
-    </string>
+    <string name="revanced_language_EL">Грецька\n<small>Ελληνικά</small></string>
+    <string name="revanced_language_EN">Англійська\n<small>English</small></string>
+    <string name="revanced_language_ES">Іспанська\n<small>Español</small></string>
+    <string name="revanced_language_ET">Естонська\n<small>Eesti</small></string>
+    <string name="revanced_language_FA">Перська\n<small>فارسی</small></string>
+    <string name="revanced_language_FI">Фінська\n<small>Suomi</small></string>
+    <string name="revanced_language_FR">Французька\n<small>Français</small></string>
+    <string name="revanced_language_GA">Ґейлґе\n<small>Gaeilge</small></string>
+    <string name="revanced_language_GU">Гуджараті\n<small>ગુજરાતી</small></string>
+    <string name="revanced_language_HE">Іврит\n<small>עברי</small></string>
+    <string name="revanced_language_HI">Хінді\n<small>हिन्दी</small></string>
+    <string name="revanced_language_HR">Хорватська\n<small>Hrvatski</small></string>
+    <string name="revanced_language_HU">Угорська\n<small>Magyar</small></string>
+    <string name="revanced_language_ID">Індонезійська\n<small>Indonesia</small></string>
+    <string name="revanced_language_IT">Італійська\n<small>Italiano</small></string>
+    <string name="revanced_language_JA">Японська\n<small>日本語</small></string>
+    <string name="revanced_language_KK">Казахська\n<small>Қазақ тілі</small></string>
+    <string name="revanced_language_KO">Корейська\n<small>한국어</small></string>
+    <string name="revanced_language_LT">Литовська\n<small>Lietuvių</small></string>
+    <string name="revanced_language_LV">Латвійська\n<small>Latviešu</small></string>
+    <string name="revanced_language_MK">Македонська\n<small>Македонски</small></string>
+    <string name="revanced_language_MN">Монгольська\n<small>Монгол</small></string>
+    <string name="revanced_language_MR">Маратхі\n<small>मराठी</small></string>
+    <string name="revanced_language_MS">Малайська\n<small>Melayu</small></string>
+    <string name="revanced_language_MY">Бірманська\n<small>ဗမာ</small></string>
+    <string name="revanced_language_NL">Нідерландська\n<small>Nederlands</small></string>
+    <string name="revanced_language_OR">Одія\n<small>ଓଡ଼ିଆ</small></string>
+    <string name="revanced_language_PA">Пенджабі\n<small>ਪੰਜਾਬੀ</small></string>
+    <string name="revanced_language_PL">Польська\n<small>Polski</small></string>
+    <string name="revanced_language_PT">Португальська\n<small>Português</small></string>
+    <string name="revanced_language_RO">Румунська\n<small>Română</small></string>
+    <string name="revanced_language_RU">Російська\n<small>Русский</small></string>
+    <string name="revanced_language_SK">Словацька\n<small>Slovenčina</small></string>
+    <string name="revanced_language_SL">Словенська\n<small>Slovenščina</small></string>
+    <string name="revanced_language_SQ">Албанська\n<small>Shqip</small></string>
+    <string name="revanced_language_SR">Сербська\n<small>Српски</small></string>
+    <string name="revanced_language_SV">Шведська\n<small>Svenska</small></string>
+    <string name="revanced_language_SW">Суахілі\n<small>Kiswahili</small></string>
+    <string name="revanced_language_TA">Тамільська\n<small>தமிழ்</small></string>
+    <string name="revanced_language_TE">Телуґу\n<small>తెలుగు</small></string>
+    <string name="revanced_language_TH">Тайська\n<small>ไทย</small></string>
+    <string name="revanced_language_TL">Філіппінська\n<small>Filipino</small></string>
+    <string name="revanced_language_TR">Турецька\n<small>Türkçe</small></string>
+    <string name="revanced_language_UK">Українська\n<small>Українська</small></string>
+    <string name="revanced_language_UR">Урду\n<small>اردو</small></string>
+    <string name="revanced_language_VI">В'єтнамська\n<small>Tiếng Việt</small></string>
+    <string name="revanced_language_ZH">Китайська\n<small>中文</small></string>
     <string name="revanced_language_title">Мова налаштувань ReVanced</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Подвійне натискання та зміну розміру щипком вимкнено</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Подвійне натискання та зміну розміру щипком увімкнено
@@ -1972,7 +1909,7 @@
 ══════════════
 %3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Верхній відступ швидких дій повинен бути в межах 0-32.</string>
-    <string name="revanced_quick_actions_top_margin_summary">Налаштуйте відстань від панелі прогресу до контейнера швидких дій, діапазон 0-32.</string>
+    <string name="revanced_quick_actions_top_margin_summary">Встановіть верхній відступ панелі швидких дій (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Верхній відступ швидких дій</string>
     <string name="revanced_related_videos_offset_title">Зміщення</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Зміни швидкості відтворення застосовуються лише до поточного відео</string>
@@ -2042,6 +1979,7 @@
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Мініатюри під час перемотування показуються в повноекранному режимі</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Мініатюри під час перемотування показуються у мінівікні над панеллю прогресу</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Відновити старі мініатюри</string>
+    <string name="revanced_restore_old_settings_menus_title">Відновити старий екран налаштувань YouTube</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Старий макет плеєра не використовується.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Старий макет плеєра використовується.
 Немає полів зверху та знизу плеєра."</string>
@@ -2141,7 +2079,7 @@
     <string name="revanced_sb_enable_voting_sum_off">Кнопка голосування за сегмент не показується в відеоплеєрі</string>
     <string name="revanced_sb_enable_voting_sum_on">Кнопка голосування за сегмент показується в відеоплеєрі</string>
     <string name="revanced_sb_general">Загальні налаштування</string>
-    <string name="revanced_sb_general_adjusting">Відрегулювати крок нового сегмента</string>
+    <string name="revanced_sb_general_adjusting">Крок регулювання часу</string>
     <string name="revanced_sb_general_adjusting_invalid">Значення має бути додатним числом</string>
     <string name="revanced_sb_general_adjusting_sum">Кількість мілісекунд, на яку переміщують кнопки регулювання часу при створенні нових сегментів</string>
     <string name="revanced_sb_general_api_url">Змінити адресу API</string>
@@ -2162,7 +2100,7 @@
     <string name="revanced_sb_general_uuid_invalid">Особистий ID користувача повинен мати довжину не менше 30 символів</string>
     <string name="revanced_sb_general_uuid_sum">Це повинно залишатися конфіденційним. Це як пароль, і його не можна нікому передавати. Якщо хтось отримає його, він зможе видавати себе за Вас</string>
     <string name="revanced_sb_guidelines_popup_already_read">Вже прочитано</string>
-    <string name="revanced_sb_guidelines_popup_content">Переглянути правила та поради для створення нових сегментів</string>
+    <string name="revanced_sb_guidelines_popup_content">Ознайомтеся з правилами SponsorBlock перед створенням нових сегментів</string>
     <string name="revanced_sb_guidelines_popup_open">Показати</string>
     <string name="revanced_sb_guidelines_popup_title">Дотримуйтесь інструкцій</string>
     <string name="revanced_sb_guidelines_preference_sum">Інструкція містить правила та поради щодо створення нових сегментів</string>
@@ -2331,6 +2269,7 @@
     <string name="revanced_sb_vote_upvote">Проголосувати \"за\"</string>
     <string name="revanced_search_settings_category_title">Налаштування пошуку</string>
     <string name="revanced_search_title">Шукати</string>
+    <string name="revanced_send">Надіслати</string>
     <string name="revanced_set_transcript_cookies_all_summary_off">Куки встановлено лише для запитів автоперекладених субтитрів.</string>
     <string name="revanced_set_transcript_cookies_all_summary_on">Куки встановлено для всіх запитів API транскрипції.</string>
     <string name="revanced_set_transcript_cookies_all_title">Встановити куки для всіх запитів API транскрипції</string>
@@ -2480,7 +2419,7 @@
 Це змінить вигляд і функції застосунку, але можуть виникнути невідомі побічні ефекти.
 
 Якщо пізніше вимкнути цю опцію, рекомендується очистити дані застосунку, щоб уникнути помилок інтерфейсу."</string>
-    <string name="revanced_spoof_device_dimensions_summary">Змушує сервер надавати варіанти вищої якості, підміняючи розміри пристрою</string>
+    <string name="revanced_spoof_device_dimensions_summary">Увімкнення цього може розблокувати вищі якості відео</string>
     <string name="revanced_spoof_device_dimensions_title">Підміняти розміри пристрою</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">Відеокодек AVC (H.264) або VP9.</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"Відеокодек AVC (H.264), VP9 або AV1.
@@ -2619,14 +2558,14 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Проведення вниз до найнижчого значення яскравості вмикає автоматичну яскравість</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Жест автояскравості</string>
     <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значення затемнення панелі жесту має бути в межах від 0 до 100</string>
-    <string name="revanced_swipe_overlay_background_opacity_summary">Налаштовує рівень прозорості  (0 це прозоро, 100 це непрозоро)</string>
+    <string name="revanced_swipe_overlay_background_opacity_summary">Налаштовує рівень прозорості (0 це прозоро, 100 це непрозоро)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Затемнення фону панелі жесту</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Встановлює колір індикатора яскравості</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Колір смуги прогресу яскравості</string>
     <string name="revanced_swipe_overlay_progress_seek_color_summary">Колір індикатора прогресу при перемотуванні</string>
     <string name="revanced_swipe_overlay_progress_seek_color_title">Колір жесту перемотки</string>
-    <string name="revanced_swipe_overlay_progress_speed_color_summary">Колір індикатора прогресу при зміні швидкості</string>
-    <string name="revanced_swipe_overlay_progress_speed_color_title">Колір жесту швидкості</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">Встановлює колір індикатора швидкості відтворення</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">Колір смуги прогресу швидкості</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">Встановлює колір індикатора гучності</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Колір смуги прогресу гучності</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Розмір площі для проведення не може бути більшим ніж 50.</string>
@@ -2663,14 +2602,14 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">Зона жесту швидкості вверху, а перемотування внизу.</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Поміняти жести швидкості й перемотування</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">Розмір тексту має бути від 1 до 30</string>
-    <string name="revanced_swipe_text_overlay_size_summary">Налаштування розміру тексту на екрані (від 1 до 30)</string>
+    <string name="revanced_swipe_text_overlay_size_summary">Налаштовує розміру тексту на екрані (від 1 до 30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Розмір тексту панелі жесту</string>
     <string name="revanced_swipe_threshold_summary">Встановлює мінімальну дистанцію свайпу для спрацювання</string>
     <string name="revanced_swipe_threshold_title">Поріг величини жесту</string>
     <string name="revanced_swipe_volume_distance_summary">Кількість пікселів для проведення, щоб регулювати гучність. Чим менше значення, тим гучність змінюється швидше, чим більше, тим повільніше (1-1000).</string>
     <string name="revanced_swipe_volume_distance_title">Відстань для гучності</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Чутливість жесту гучності повинна бути в межах 1-1000.</string>
-    <string name="revanced_swipe_volume_sensitivity_summary">Налаштовує чутливість зміни гучності під час свайпу</string>
+    <string name="revanced_swipe_volume_sensitivity_summary">Вищі значення збільшують зміну гучності за один свайп</string>
     <string name="revanced_swipe_volume_sensitivity_title">Чутливість жесту гучності</string>
     <string name="revanced_swipe_volume_summary_off">Зміну гучності жестом в повноекранному режимі вимкнено</string>
     <string name="revanced_swipe_volume_summary_on">"Зміну гучності жестом в повноекранному режимі увімкнено

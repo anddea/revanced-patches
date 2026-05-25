@@ -41,7 +41,7 @@ Naciśnij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
     <string name="morphe_reload_video_summary_off">Ukryty</string>
     <string name="morphe_reload_video_summary_on">Widoczny</string>
     <string name="morphe_reload_video_title">Przycisk Odśwież film</string>
-    <string name="morphe_replace_links_with_shortener_summary">Wymusza używanie skróconego formatu adresu youtu.be dla transmisji na żywo i Shortsów</string>
+    <string name="morphe_replace_links_with_shortener_summary">Wymusza używanie skróconych linków youtu.be dla filmów</string>
     <string name="morphe_replace_links_with_shortener_title">Zmień linki udostępniania na youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">youtube.com</string>
@@ -74,7 +74,6 @@ Odtwarzanie filmu z użyciem AV1 może powodować zacinanie się lub gubienie kl
 • Odtwarzanie nie powiedzie się, jeśli hash skryptu zostanie unieważniony w GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Wyłącz aktualizację JS odtwarzacza</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Hashe skryptu JS odtwarzacza są ważne przez około miesiąc, a nieaktualne hashe mogą zostać unieważnione przez GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Spróbuj włączyć: Fałszowanie strumieni filmów i Logowanie Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nie można przechwycić żadnego ze strumieni klienta</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Wprowadź poprawny hash skryptu JS odtwarzacza</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash skryptu JS odtwarzacza</string>
@@ -117,7 +116,7 @@ Odtwarzanie może nie działać"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Włączone
 
 Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wymagane"</string>
-    <string name="morphe_spoof_video_streams_title">Fałszowanie strumieni filmów</string>
+    <string name="morphe_spoof_video_streams_title">Fałszuj strumienie filmów</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Wyłączenie tego ustawienia może spowodować problemy z odtwarzaniem.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Ukryte</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Widoczne</string>
@@ -445,7 +444,7 @@ Notki:
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Gest wyjścia z trybu pełnoekranowego przesunięciem</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">Włączony</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Wyłączony</string>
-    <string name="revanced_disable_translucent_status_bar_title">Wyłącz półprzezroczysty pasek statusu</string>
+    <string name="revanced_disable_translucent_status_bar_title">Wyłącz półprzezroczysty pasek stanu</string>
     <string name="revanced_disable_video_description_interaction_summary">"Wyłącza następujące interakcje, gdy opis filmu jest otworzony:
 
 • Stuknij, by przewijać
@@ -565,7 +564,7 @@ Ograniczenie: nie działa jeśli odtwarzacz jest zminimalizowany, w trybie PiP l
     <string name="revanced_exit_fullscreen_entry_1">Wyłączone</string>
     <string name="revanced_exit_fullscreen_entry_2">Tylko w trybie pionowym</string>
     <string name="revanced_exit_fullscreen_entry_3">Tylko w trybie poziomym</string>
-    <string name="revanced_exit_fullscreen_entry_4">W obu trybach</string>
+    <string name="revanced_exit_fullscreen_entry_4">W trybie pionowym i poziomym</string>
     <string name="revanced_exit_fullscreen_title">Wyjście z trybu pełnoekranowego po zakończeniu filmu</string>
     <string name="revanced_expand_video_description_summary_off">Ręcznie</string>
     <string name="revanced_expand_video_description_summary_on">Automatycznie</string>
@@ -582,7 +581,7 @@ Notki:
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s nie jest zainstalowany.
 Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Ostrzeżenie</string>
-    <string name="revanced_external_downloader_not_installed_warning">Aplikacja %s nie jest zainstalowana. Zainstaluj ją.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s nie jest zainstalowany. Zainstaluj go.</string>
     <string name="revanced_external_downloader_other_item">Inna</string>
     <string name="revanced_external_downloader_other_item_hint">Wprowadź nazwę pakietu aplikacji</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania.</string>
@@ -591,9 +590,9 @@ Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Nazwa pakietu aplikacji od pobierania (filmy) przy długim przytrzymaniu</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nazwa pakietu aplikacji od pobierania (filmy)</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"Nie znaleziono zainstalowanej aplikacji o nazwie pakietu: %s
+    <string name="revanced_external_downloader_package_not_found_warning">"Nie można znaleźć zainstalowanej aplikacji o nazwie pakietu: %s
 
-Sprawdź, czy nazwa pakietu jest prawidłowa i czy aplikacja jest zainstalowana"</string>
+Upewnij się, że nazwa pakietu jest poprawna, a aplikacja została zainstalowana"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Nie</string>
     <string name="revanced_fix_hype_button_icon_summary_on">Tak</string>
     <string name="revanced_fix_hype_button_icon_title">Napraw widoczność ikony podbijania</string>
@@ -604,16 +603,6 @@ Jako obejście, aplikacja jest oszukiwana do wersji 19.26.42 na punkcie końcowy
 Jeśli wyłączysz to ustawienie, ikona podbijania może się nie pojawiać w pasku akcji filmu oraz w panelu opisu filmu.
 
 ※ Nawet jeśli to ustawienie jest wyłączone, przycisk od podbijania może nie być ukryty."</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_off">\'Odtwarzanie\' zamiast \'Autoodtwarzanie\'</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"'Autoodtwarzanie' zamiast 'Odtwarzanie'"</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_title">Napraw efekty uboczne oszukiwania wersji aplikacji</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"Jeśli wersja aplikacji jest oszukiwana do 19.30 lub wcześniejszych, ustawienie 'Odtwarzanie' może być popsute.
-
-Jest to zależne od odpowiedzi, jaką aplikacja dostanie z serwera.
-
-Jeśli ustawienie 'Odtwarzanie' jest uszkodzone, włączenie tego ustawienia powinno rozwiązać problem.
-
-Jeśli nadal występują problemy z tym ustawieniem nawet po włączeniu/wyłączeniu tego ustawienia, należy wyczyścić dane aplikacji."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">Wyłączona</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"Włączona
 
@@ -884,7 +873,7 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_fullscreen_ads_title">Ukryj reklamy pełnoekranowe</string>
     <string name="revanced_hide_general_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_general_ads_summary_on">Ukryte</string>
-    <string name="revanced_hide_general_ads_title">Ukryj ogólne reklamy</string>
+    <string name="revanced_hide_general_ads_title">Ukryj reklamy ogólne</string>
     <string name="revanced_hide_handle_summary_off">Widoczne</string>
     <string name="revanced_hide_handle_summary_on">Ukryte</string>
     <string name="revanced_hide_handle_title">Nicki</string>
@@ -938,15 +927,19 @@ Ograniczenia:
     <string name="revanced_hide_keyword_content_comments_title">W komentarzach</string>
     <string name="revanced_hide_keyword_content_home_summary_off">Wyłączone</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Włączone</string>
-    <string name="revanced_hide_keyword_content_home_title">Ukryj filmy na stronie głównej według słów</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">Wprowadź słowa lub nazwy kanałów, każde w nowej linii. Słowa z wielkimi literami w środku muszą pasować dokładnie (np. iPhone, TikTok, InPost)</string>
+    <string name="revanced_hide_keyword_content_home_title">Ukryj filmy na stronie głównej</string>
+    <string name="revanced_hide_keyword_content_phrases_summary">"Wpisz słowa i frazy do ukrycia, każda w nowej linii
+
+Słowem może być dowolny tekst wyświetlany w tytułach filmów lub nazwach kanałów
+
+Słowa z wielkimi literami w środku muszą pasować dokładnie (np. iPhone, TikTok, InPost)"</string>
     <string name="revanced_hide_keyword_content_phrases_title">Słowa do ukrycia</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Wyłączone</string>
     <string name="revanced_hide_keyword_content_search_summary_on">Włączone</string>
-    <string name="revanced_hide_keyword_content_search_title">Ukryj wyniki wyszukiwania według słów</string>
+    <string name="revanced_hide_keyword_content_search_title">Ukryj wyniki wyszukiwania</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">Wyłączone</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">Włączone</string>
-    <string name="revanced_hide_keyword_content_subscriptions_title">Ukryj filmy na stronie subskrypcji według słów</string>
+    <string name="revanced_hide_keyword_content_subscriptions_title">Ukryj filmy na stronie subskrypcji</string>
     <string name="revanced_hide_keyword_content_use_and_operator_summary_off">Wyłączone. &lt;br&gt;&lt;br&gt;Kiedy &lt;strong&gt;\"Niebieski\" i \"Czerwony\"&lt;/strong&gt; są używane jako słowa kluczowe, słowa zawierające &lt;strong&gt;\"Niebieski\" i \"Czerwony\"&lt;/strong&gt; będą filtrowane.</string>
     <string name="revanced_hide_keyword_content_use_and_operator_summary_on">Włączone. &lt;br&gt;&lt;br&gt;Kiedy &lt;strong&gt;\"Niebieski\" i \"Czerwony\"&lt;/strong&gt; są używane jako słowa kluczowe, słowa te zawierające &lt;strong&gt;Niebieski&lt;/strong&gt; oraz &lt;strong&gt;Czerwony&lt;/strong&gt; będą filtrowane.</string>
     <string name="revanced_hide_keyword_content_use_and_operator_title">Użyj operatora \'AND\' (\'&amp;\')</string>
@@ -1017,7 +1010,7 @@ Ograniczenia:
     <string name="revanced_hide_notify_me_button_title">Ukryj przycisk \"Powiadom mnie\"</string>
     <string name="revanced_hide_paid_promotion_label_summary_off">Widoczna</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">Ukryta</string>
-    <string name="revanced_hide_paid_promotion_label_title">Ukryj etykietę płatnej promocji</string>
+    <string name="revanced_hide_paid_promotion_label_title">Ukryj etykietę \"Zawiera płatną promocję\"</string>
     <string name="revanced_hide_playables_summary_off">Widoczny</string>
     <string name="revanced_hide_playables_summary_on">Ukryty</string>
     <string name="revanced_hide_playables_title">Ukryj pokój gier</string>
@@ -1479,7 +1472,7 @@ Efekt uboczny: półka z historią oglądania w zakładce Ty może być ukryta."
     <string name="revanced_hide_transcript_section_title">Ukryj sekcję Transkrypcja</string>
     <string name="revanced_hide_video_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_video_ads_summary_on">Ukryte</string>
-    <string name="revanced_hide_video_ads_title">Ukryj reklamy filmu</string>
+    <string name="revanced_hide_video_ads_title">Ukryj reklamy w filmach</string>
     <string name="revanced_hide_video_by_view_counts_about_summary">"Strona główna / subskrypcje / wyniki wyszukiwania są filtrowane, by ukrywać filmy z ilością wyświetleń mniejszą bądź większą od określonej liczby.
 
 Ograniczenia:
@@ -1570,121 +1563,64 @@ Znany problem: gdy opcja jest włączona, YouTube Doodles stają się nieklikaln
     <string name="revanced_keep_landscape_mode_timeout_summary">Ilość milisekund, podczas których tryb poziomy jest wymuszony.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Limit czasu zachowania trybu poziomego</string>
     <string name="revanced_keep_landscape_mode_title">Zachowaj tryb poziomy</string>
-    <string name="revanced_language_AM">Amharski\n<small>አማርኛ</small>
-    </string>
-    <string name="revanced_language_AR">Arabski\n<small>العربية</small>
-    </string>
-    <string name="revanced_language_AZ">Azerbejdżański\n<small>Azərbaycan</small>
-    </string>
-    <string name="revanced_language_BE">Białoruski\n<small>беларуская</small>
-    </string>
-    <string name="revanced_language_BG">Bułgarski\n<small>Български</small>
-    </string>
-    <string name="revanced_language_BN">Bengalski\n<small>বাংলা</small>
-    </string>
-    <string name="revanced_language_CA">Kataloński\n<small>Català</small>
-    </string>
-    <string name="revanced_language_CS">Czeski\n<small>Čeština</small>
-    </string>
-    <string name="revanced_language_DA">Duński\n<small>Dansk</small>
-    </string>
-    <string name="revanced_language_DE">Niemiecki\n<small>Deutsch</small>
-    </string>
+    <string name="revanced_language_AM">Amharski\n<small>አማርኛ</small></string>
+    <string name="revanced_language_AR">Arabski\n<small>العربية</small></string>
+    <string name="revanced_language_AZ">Azerbejdżański\n<small>Azərbaycan</small></string>
+    <string name="revanced_language_BE">Białoruski\n<small>беларуская</small></string>
+    <string name="revanced_language_BG">Bułgarski\n<small>Български</small></string>
+    <string name="revanced_language_BN">Bengalski\n<small>বাংলা</small></string>
+    <string name="revanced_language_CA">Kataloński\n<small>Català</small></string>
+    <string name="revanced_language_CS">Czeski\n<small>Čeština</small></string>
+    <string name="revanced_language_DA">Duński\n<small>Dansk</small></string>
+    <string name="revanced_language_DE">Niemiecki\n<small>Deutsch</small></string>
     <string name="revanced_language_DEFAULT">Język aplikacji</string>
-    <string name="revanced_language_EL">Grecki\n<small>Ελληνικά</small>
-    </string>
-    <string name="revanced_language_EN">Angielski\n<small>English</small>
-    </string>
-    <string name="revanced_language_ES">Hiszpański\n<small>Español</small>
-    </string>
-    <string name="revanced_language_ET">Estoński\n<small>Eesti</small>
-    </string>
-    <string name="revanced_language_FA">Perski\n<small>فارسی</small>
-    </string>
-    <string name="revanced_language_FI">Fiński\n<small>Suomi</small>
-    </string>
-    <string name="revanced_language_FR">Francuski\n<small>Français</small>
-    </string>
-    <string name="revanced_language_GA">Irlandzki\n<small>Gaeilge</small>
-    </string>
-    <string name="revanced_language_GU">Gudżarati\n<small>ગુજરાતી</small>
-    </string>
-    <string name="revanced_language_HE">Hebrajski\n<small>עברי</small>
-    </string>
-    <string name="revanced_language_HI">Hindi\n<small>हिन्दी</small>
-    </string>
-    <string name="revanced_language_HR">Chorwacki\n<small>Hrvatski</small>
-    </string>
-    <string name="revanced_language_HU">Węgierski\n<small>Magyar</small>
-    </string>
-    <string name="revanced_language_ID">Indonezyjski\n<small>Indonesia</small>
-    </string>
-    <string name="revanced_language_IT">Włoski\n<small>Italiano</small>
-    </string>
-    <string name="revanced_language_JA">Japoński\n<small>日本語</small>
-    </string>
-    <string name="revanced_language_KK">Kazachski\n<small>Қазақ тілі</small>
-    </string>
-    <string name="revanced_language_KO">Koreański\n<small>한국어</small>
-    </string>
-    <string name="revanced_language_LT">Litewski\n<small>Lietuvių</small>
-    </string>
-    <string name="revanced_language_LV">Łotewski\n<small>Latviešu</small>
-    </string>
-    <string name="revanced_language_MK">Macedoński\n<small>Македонски</small>
-    </string>
-    <string name="revanced_language_MN">Mongolski\n<small>Монгол</small>
-    </string>
-    <string name="revanced_language_MR">Marathi\n<small>मराठी</small>
-    </string>
-    <string name="revanced_language_MS">Malajski\n<small>Melayu</small>
-    </string>
-    <string name="revanced_language_MY">Birmański\n<small>ဗမာ</small>
-    </string>
-    <string name="revanced_language_NL">Niderlandzki\n<small>Nederlands</small>
-    </string>
-    <string name="revanced_language_OR">Orija\n<small>ଓଡ଼ିଆ</small>
-    </string>
-    <string name="revanced_language_PA">Pendżabski\n<small>ਪੰਜਾਬੀ</small>
-    </string>
-    <string name="revanced_language_PL">Polski\n<small>Polski</small>
-    </string>
-    <string name="revanced_language_PT">Portugalski\n<small>Português</small>
-    </string>
-    <string name="revanced_language_RO">Rumuński\n<small>Română</small>
-    </string>
-    <string name="revanced_language_RU">Rosyjski\n<small>Русский</small>
-    </string>
-    <string name="revanced_language_SK">Słowacki\n<small>Slovenčina</small>
-    </string>
-    <string name="revanced_language_SL">Słoweński\n<small>Slovenščina</small>
-    </string>
-    <string name="revanced_language_SQ">Albański\n<small>Shqip</small>
-    </string>
-    <string name="revanced_language_SR">Serbski\n<small>Српски</small>
-    </string>
-    <string name="revanced_language_SV">Szwedzki\n<small>Svenska</small>
-    </string>
-    <string name="revanced_language_SW">Suahili\n<small>Kiswahili</small>
-    </string>
-    <string name="revanced_language_TA">Tamilski\n<small>தமிழ்</small>
-    </string>
-    <string name="revanced_language_TE">Telugu\n<small>తెలుగు</small>
-    </string>
-    <string name="revanced_language_TH">Tajski\n<small>ไทย</small>
-    </string>
-    <string name="revanced_language_TL">Filipiński\n<small>Filipiński</small>
-    </string>
-    <string name="revanced_language_TR">Turecki\n<small>Türkçe</small>
-    </string>
-    <string name="revanced_language_UK">Ukraiński\n<small>Українська</small>
-    </string>
-    <string name="revanced_language_UR">Urdu\n<small>اردو</small>
-    </string>
-    <string name="revanced_language_VI">Wietnamski\n<small>Tiếng Việt</small>
-    </string>
-    <string name="revanced_language_ZH">Chiński\n<small>中文</small>
-    </string>
+    <string name="revanced_language_EL">Grecki\n<small>Ελληνικά</small></string>
+    <string name="revanced_language_EN">Angielski\n<small>English</small></string>
+    <string name="revanced_language_ES">Hiszpański\n<small>Español</small></string>
+    <string name="revanced_language_ET">Estoński\n<small>Eesti</small></string>
+    <string name="revanced_language_FA">Perski\n<small>فارسی</small></string>
+    <string name="revanced_language_FI">Fiński\n<small>Suomi</small></string>
+    <string name="revanced_language_FR">Francuski\n<small>Français</small></string>
+    <string name="revanced_language_GA">Irlandzki\n<small>Gaeilge</small></string>
+    <string name="revanced_language_GU">Gudżarati\n<small>ગુજરાતી</small></string>
+    <string name="revanced_language_HE">Hebrajski\n<small>עברי</small></string>
+    <string name="revanced_language_HI">Hindi\n<small>हिन्दी</small></string>
+    <string name="revanced_language_HR">Chorwacki\n<small>Hrvatski</small></string>
+    <string name="revanced_language_HU">Węgierski\n<small>Magyar</small></string>
+    <string name="revanced_language_ID">Indonezyjski\n<small>Indonesia</small></string>
+    <string name="revanced_language_IT">Włoski\n<small>Italiano</small></string>
+    <string name="revanced_language_JA">Japoński\n<small>日本語</small></string>
+    <string name="revanced_language_KK">Kazachski\n<small>Қазақ тілі</small></string>
+    <string name="revanced_language_KO">Koreański\n<small>한국어</small></string>
+    <string name="revanced_language_LT">Litewski\n<small>Lietuvių</small></string>
+    <string name="revanced_language_LV">Łotewski\n<small>Latviešu</small></string>
+    <string name="revanced_language_MK">Macedoński\n<small>Македонски</small></string>
+    <string name="revanced_language_MN">Mongolski\n<small>Монгол</small></string>
+    <string name="revanced_language_MR">Marathi\n<small>मराठी</small></string>
+    <string name="revanced_language_MS">Malajski\n<small>Melayu</small></string>
+    <string name="revanced_language_MY">Birmański\n<small>ဗမာ</small></string>
+    <string name="revanced_language_NL">Niderlandzki\n<small>Nederlands</small></string>
+    <string name="revanced_language_OR">Orija\n<small>ଓଡ଼ିଆ</small></string>
+    <string name="revanced_language_PA">Pendżabski\n<small>ਪੰਜਾਬੀ</small></string>
+    <string name="revanced_language_PL">Polski\n<small>Polski</small></string>
+    <string name="revanced_language_PT">Portugalski\n<small>Português</small></string>
+    <string name="revanced_language_RO">Rumuński\n<small>Română</small></string>
+    <string name="revanced_language_RU">Rosyjski\n<small>Русский</small></string>
+    <string name="revanced_language_SK">Słowacki\n<small>Slovenčina</small></string>
+    <string name="revanced_language_SL">Słoweński\n<small>Slovenščina</small></string>
+    <string name="revanced_language_SQ">Albański\n<small>Shqip</small></string>
+    <string name="revanced_language_SR">Serbski\n<small>Српски</small></string>
+    <string name="revanced_language_SV">Szwedzki\n<small>Svenska</small></string>
+    <string name="revanced_language_SW">Suahili\n<small>Kiswahili</small></string>
+    <string name="revanced_language_TA">Tamilski\n<small>தமிழ்</small></string>
+    <string name="revanced_language_TE">Telugu\n<small>తెలుగు</small></string>
+    <string name="revanced_language_TH">Tajski\n<small>ไทย</small></string>
+    <string name="revanced_language_TL">Filipiński\n<small>Filipiński</small></string>
+    <string name="revanced_language_TR">Turecki\n<small>Türkçe</small></string>
+    <string name="revanced_language_UK">Ukraiński\n<small>Українська</small></string>
+    <string name="revanced_language_UR">Urdu\n<small>اردو</small></string>
+    <string name="revanced_language_VI">Wietnamski\n<small>Tiếng Việt</small></string>
+    <string name="revanced_language_ZH">Chiński\n<small>中文</small></string>
     <string name="revanced_language_title">Język ReVanced</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Wyłączone</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Włączone
@@ -1977,8 +1913,8 @@ Opis
 ══════════════
 %3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Górny margines przycisków na dole odtwarzacza musi wynosić między 0 a 32.</string>
-    <string name="revanced_quick_actions_top_margin_summary">Skonfiguruj odstęp od paska postępu filmu do kontenera szybkich akcji, w zakresie od 0 do 32.</string>
-    <string name="revanced_quick_actions_top_margin_title">Górny margines przycisków na dole odtwarzacza</string>
+    <string name="revanced_quick_actions_top_margin_summary">Ustaw górny margines paska akcji (0-32 dp)</string>
+    <string name="revanced_quick_actions_top_margin_title">Górny margines paska akcji</string>
     <string name="revanced_related_videos_offset_title">Przesunięcie</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Dotyczy tylko bieżącego filmu</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Dotyczy wszystkich filmów</string>
@@ -2047,6 +1983,7 @@ Stuknij i przytrzymaj, by otworzyć ustawienia YouTube."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Podgląd filmu pojawia się w trybie pełnoekranowym</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Podgląd filmu pojawia się nad paskiem postępu filmów</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Stare miniatury paska nawigacji</string>
+    <string name="revanced_restore_old_settings_menus_title">Przywróć stary ekran ustawień YouTube</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Wyłączone</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Włączone"</string>
     <string name="revanced_restore_shorts_old_player_layout_title">Przywrócić stary układ odtwarzacza</string>
@@ -2145,7 +2082,7 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_sb_enable_voting_sum_off">Ukryty</string>
     <string name="revanced_sb_enable_voting_sum_on">Widoczny</string>
     <string name="revanced_sb_general">Ogólne</string>
-    <string name="revanced_sb_general_adjusting">Dokładność tworzenia nowego segmentu</string>
+    <string name="revanced_sb_general_adjusting">Poziom regulacji czasu</string>
     <string name="revanced_sb_general_adjusting_invalid">Wartość musi być liczbą dodatnią</string>
     <string name="revanced_sb_general_adjusting_sum">Liczba milisekund, o którą przeskakuje czas podczas używania przycisków przy tworzeniu segmentów</string>
     <string name="revanced_sb_general_api_url">Zmień adres API</string>
@@ -2166,7 +2103,7 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_sb_general_uuid_invalid">Prywatny identyfikator użytkownika musi mieć co najmniej 30 znaków</string>
     <string name="revanced_sb_general_uuid_sum">Nie należy go udostępniać, gdyż działa jak hasło. Jeżeli ktoś go posiada, może korzystać ze SponsorBlocka w Twoim imieniu, np. może wysyłać segmenty</string>
     <string name="revanced_sb_guidelines_popup_already_read">Przeczytano</string>
-    <string name="revanced_sb_guidelines_popup_content">Zobacz zasady i wskazówki dotyczące tworzenia nowych segmentów</string>
+    <string name="revanced_sb_guidelines_popup_content">Przeczytaj wytyczne SponsorBlock przed stworzeniem nowych segmentów</string>
     <string name="revanced_sb_guidelines_popup_open">Pokaż mi</string>
     <string name="revanced_sb_guidelines_popup_title">Postępuj zgodnie z wytycznymi</string>
     <string name="revanced_sb_guidelines_preference_sum">Wytyczne zawierają zasady i wskazówki dotyczące tworzenia segmentów</string>
@@ -2455,10 +2392,10 @@ Większość błędów nie może być naprawiona wskutek ograniczeń po stronie 
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">Wysokość musi wynosić od 0 do 100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Zmienia wysokość pustej przestrzeni po ukryciu paska nawigacyjnego, od 0 do 100 (%)</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Wysokość pustego miejsca (procentowa)</string>
-    <string name="revanced_shorts_player_type_regular_player">Zwykłym odtwarzaczu</string>
-    <string name="revanced_shorts_player_type_regular_player_fullscreen">Zwykłym odtwarzaczu w trybie pełnoekranowym</string>
+    <string name="revanced_shorts_player_type_regular_player">Standardowym odtwarzaczu</string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">Standardowym odtwarzaczu (pełny ekran)</string>
     <string name="revanced_shorts_player_type_shorts">Odtwarzaczu Shortsów</string>
-    <string name="revanced_shorts_player_type_title">Otwórz Shortsy w</string>
+    <string name="revanced_shorts_player_type_title">Otwieraj Shortsy w</string>
     <string name="revanced_show_video_title_section_summary">"Tytuły filmów w trybie pełnoekranowym są widoczne.
 
 Ograniczenie: tytuły filmów znikają po stuknięciu w nie."</string>
@@ -2481,14 +2418,14 @@ Ograniczenie: tytuły filmów znikają po stuknięciu w nie."</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Nieprawidłowa oszukiwana wersja aplikacji: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Wpisz wersję, którą chcesz oszukiwać</string>
     <string name="revanced_spoof_app_version_target_title">Docelowa wersja aplikacji</string>
-    <string name="revanced_spoof_app_version_title">Fałszowanie wersji aplikacji</string>
+    <string name="revanced_spoof_app_version_title">Fałszuj wersję aplikacji</string>
     <string name="revanced_spoof_app_version_user_dialog_message">"Aplikacja będzie przedstawiać się serwerom jako starsza wersja YouTube.
 
 Może to zmienić wygląd i funkcje, ale też powodować nieznane błędy.
 
 Jeśli później zostanie to wyłączone, zalecane jest usunięcie danych aplikacji, aby zapobiec błędom interfejsu."</string>
-    <string name="revanced_spoof_device_dimensions_summary">Oszukuje serwer, wymuszając opcje wyższej jakości poprzez fałszowanie wymiarów urządzenia</string>
-    <string name="revanced_spoof_device_dimensions_title">Fałszowanie rozdzielczości urządzenia</string>
+    <string name="revanced_spoof_device_dimensions_summary">Włączenie tej opcji może odblokować wyższą jakość filmów</string>
+    <string name="revanced_spoof_device_dimensions_title">Fałszuj rozdzielczość urządzenia</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">Wyłączone</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"Włączone
 
@@ -2632,8 +2569,8 @@ Dostosuj jasność, przesuwając pionowo po lewej stronie ekranu"</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Kolor wskaźnika jasności</string>
     <string name="revanced_swipe_overlay_progress_seek_color_summary">Kolor paska postępu dla elementów sterujących przewijaniem</string>
     <string name="revanced_swipe_overlay_progress_seek_color_title">Kolor nakładki gestu przewijania</string>
-    <string name="revanced_swipe_overlay_progress_speed_color_summary">Kolor paska postępu dla elementów sterujących prędkością</string>
-    <string name="revanced_swipe_overlay_progress_speed_color_title">Kolor nakładki gestu prędkości</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">Ustaw kolor paska postępu regulacji prędkości odtwarzania</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">Kolor wskaźnika prędkości</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">Ustaw kolor paska postępu dla regulacji głośności</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Kolor wskaźnika głośności</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Rozmiar obszaru przesuwania nie może być większy niż 50.</string>
@@ -2669,7 +2606,7 @@ Przewiń wideo, przesuwając palcem w poziomie po górnej połowie ekranu."</str
     <string name="revanced_swipe_speed_summary_on">"Włączony
 
 Dostosuj prędkość, przesuwając palcem w poziomie na dolnej połowie ekranu."</string>
-    <string name="revanced_swipe_speed_title">Gest prędkości</string>
+    <string name="revanced_swipe_speed_title">Włącz gest prędkości</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">Strefa gestu przewijania przesunięciem znajduje się na górze, a strefa prędkości na dole.</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">Strefa gestu szybkiego przesuwania znajduje się na górze, a strefa przewijania na dole.</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Gest zmiany prędkości i przewijania</string>
@@ -2681,7 +2618,7 @@ Dostosuj prędkość, przesuwając palcem w poziomie na dolnej połowie ekranu."
     <string name="revanced_swipe_volume_distance_summary">Ilość pikseli do przesunięcia w celu zmiany głośności. Niższe wartości powodują szybszą zmianę głośności, wyższe sprawiają, że zmiana jest wolniejsza (1–1000).</string>
     <string name="revanced_swipe_volume_distance_title">Odległość głośności</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Czułość przesuwania gestu głośności musi być pomiędzy 1 a 1000.</string>
-    <string name="revanced_swipe_volume_sensitivity_summary">Dostosuj, jak szybko zmienia się głośność podczas przesunięcia</string>
+    <string name="revanced_swipe_volume_sensitivity_summary">Wyższe wartości zwiększają zmianę głośności przy przesunięciu palcem</string>
     <string name="revanced_swipe_volume_sensitivity_title">Czułość gestu głośności</string>
     <string name="revanced_swipe_volume_summary_off">Wyłączony w trybie pełnoekranowym</string>
     <string name="revanced_swipe_volume_summary_on">"Włączony w trybie pełnoekranowym

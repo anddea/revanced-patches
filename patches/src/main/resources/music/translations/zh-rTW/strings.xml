@@ -35,6 +35,7 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暫時不可用（API 已逾時）</string>
     <string name="morphe_oauth2_toast_invalid">VR 登入憑證無效，請再次登入 VR</string>
     <string name="morphe_oauth2_toast_reset">已登出 Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary">將分享連結中的 music.youtube.com 取代為 youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_off">分享連結使用 music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">分享連結使用 youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">將分享連結更改為 youtube.com</string>
@@ -54,7 +55,6 @@
 • 如果 GVS 撤銷了播放器 JavaScript 雜湊值，則會無法播放影片"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">停用播放器 JavaScript 更新</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">播放器 JavaScript 雜湊值有效期約一個月，且過期的雜湊值可能被 GVS 撤銷。</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">試試啟用：偽裝視訊串流 &gt; Android VR 登入</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">未能擷取任何用戶端串流</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">請輸入有效的播放器 JavaScript 雜湊值</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">播放器 JavaScript 雜湊值</string>
@@ -87,9 +87,9 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">成功登入</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">無法發出啟動碼</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">無法頒發驗證權杖</string>
-    <string name="morphe_spoof_video_streams_summary">"藉由欺騙 YouTube 傳送相容的影片串流，來修正大多數使用者的播放問題
+    <string name="morphe_spoof_video_streams_summary">"透過要求相容的影片串流，修復大多數使用者的播放問題
 
-如果您是 YouTube Premium 使用者，此設定可能不需要"</string>
+如果您是 YouTube Premium 用戶，則可能不需要此設定"</string>
     <string name="morphe_spoof_video_streams_summary_off">"視訊串流未經偽裝
 
 影片可能無法播放"</string>
@@ -445,7 +445,9 @@
     <string name="revanced_replace_navigation_upgrade_button_summary">替換升級按鈕為設定按鈕。</string>
     <string name="revanced_replace_navigation_upgrade_button_title">替換升級按鈕</string>
     <string name="revanced_reset_to_default_toast">重設為預設值。</string>
+    <string name="revanced_restart_dialog_message">重新啟動應用程式以此變更生效。</string>
     <string name="revanced_restart_first_run">重新啟動以完成設定</string>
+    <string name="revanced_restart_title">需要重新啟動</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">將留言彈出介面恢復為舊樣式</string>
     <string name="revanced_restore_old_comments_popup_panels_title">恢復舊版留言彈出介面</string>
     <string name="revanced_restore_old_player_background_summary">將播放器背景恢復為舊樣式</string>
@@ -633,9 +635,9 @@
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">點擊查看如何取得身份驗證令牌。</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">關於 Android VR 驗證</string>
     <string name="revanced_spoof_video_streams_default_client_title">預設用戶端</string>
-    <string name="revanced_spoof_video_streams_summary">"藉由欺騙 YouTube 傳送相容的影片串流，來修正大多數使用者的播放問題
+    <string name="revanced_spoof_video_streams_summary">"透過要求相容的影片串流，修復大多數使用者的播放問題
 
-如果您是 YouTube Premium 使用者，此設定可能不需要"</string>
+如果您是 YouTube Premium 用戶，則可能不需要此設定"</string>
     <string name="revanced_spoof_video_streams_title">偽裝影片串流</string>
     <string name="revanced_translations_title">翻譯</string>
     <string name="revanced_watch_history_type_entry_1">原始</string>

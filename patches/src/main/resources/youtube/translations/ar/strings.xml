@@ -41,7 +41,7 @@
     <string name="morphe_reload_video_summary_off">لا يتم عرض زر إعادة تحميل الفيديو</string>
     <string name="morphe_reload_video_summary_on">يتم عرض زر إعادة تحميل الفيديو</string>
     <string name="morphe_reload_video_title">عرض زر إعادة تحميل الفيديو</string>
-    <string name="morphe_replace_links_with_shortener_summary">يفرض على البث المباشر و Shorts استخدام تنسيق عنوان URL المختصر youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_summary">يُلزم استخدام تنسيق رابط youtu.be المختصر للفيديوهات</string>
     <string name="morphe_replace_links_with_shortener_title">تغيير روابط المشاركة إلى youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">تستخدم روابط المشاركة music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">تستخدم روابط المشاركة youtube.com</string>
@@ -74,7 +74,6 @@
 • قد يفشل التشغيل إذا تم إلغاء تجزئة مشغل JavaScript في GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">تعطيل تحديث مشغل JavaScript</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">تكون تجزئات مشغل JavaScript صالحة لمدة شهر تقريبًا، وقد يتم إلغاء التجزئات القديمة بواسطة GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">جرب تمكين: Spoof Video Streams &gt; تسجيل الدخول إلى Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">تعذر جلب أي تدفقات عميل</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">أدخل تجزئة مشغل JavaScript صالحة</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">تجزئة مشغل JavaScript</string>
@@ -565,7 +564,7 @@
     <string name="revanced_exit_fullscreen_entry_1">معطل</string>
     <string name="revanced_exit_fullscreen_entry_2">الوضع الطولي فقط</string>
     <string name="revanced_exit_fullscreen_entry_3">وضع بالعرض فقط</string>
-    <string name="revanced_exit_fullscreen_entry_4">كلاهما</string>
+    <string name="revanced_exit_fullscreen_entry_4">بالطول والعرض</string>
     <string name="revanced_exit_fullscreen_title">الخروج من وضع ملء الشاشة عند انتهاء الفيديو</string>
     <string name="revanced_expand_video_description_summary_off">لا يتم توسيع أوصاف الفيديو تلقائيًا.</string>
     <string name="revanced_expand_video_description_summary_on">يتم توسيع أوصاف الفيديو تلقائيًا.</string>
@@ -604,16 +603,6 @@
 إذا أوقفت هذا الإعداد، فقد لا تظهر أيقونة 'التشجيع' في شريط إجراءات الفيديو ولوحة وصف الفيديو.
 
 ※ حتى مع إيقاف هذا الإعداد، قد لا يكون زر 'التشجيع' مخفيًا."</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_off">يتم استخدام إعداد \'التشغيل\' بدلاً من إعداد \'التشغيل التلقائي\'.</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"يتم استخدام إعداد 'التشغيل التلقائي' بدلاً من إعداد 'التشغيل'."</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_title">إصلاح التأثير الجانبي لإصدار التطبيق الوهمي</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"إذا تم تغيير إصدار التطبيق إلى 19.30 أو إصدار أقدم ولو لمرة واحدة، فقد يكون إعداد 'التشغيل' معطوب.
-
-يعتمد هذا على الاستجابة التي يتلقاها التطبيق من الخادم.
-
-إذا كان إعداد 'التشغيل' معطوبًا، فقد يؤدي تشغيل هذا الإعداد إلى حل المشكلة.
-
-إذا استمر إعداد 'التشغيل' معطوبًا حتى بعد تمكينه أو تعطيله، فعليك مسح بيانات التطبيق."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">قد يتم تنشيط سرعة النقر مع الاستمرار أحيانًا حتى إذا لم ينقر المستخدم مع الاستمرار.</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"يتم تنشيط سرعة النقر مع الاستمرار فقط عندما ينقر المستخدم مع الاستمرار.
 
@@ -940,7 +929,11 @@
     <string name="revanced_hide_keyword_content_home_summary_off">لا تتم تصفية الفيديوهات في علامة التبويب \'الصفحة الرئيسية\' حسب الكلمات المفتاحية</string>
     <string name="revanced_hide_keyword_content_home_summary_on">تتم تصفية الفيديوهات في علامة التبويب \'الصفحة الرئيسية\' حسب الكلمات المفتاحية</string>
     <string name="revanced_hide_keyword_content_home_title">إخفاء فيديوهات الصفحة الرئيسية بواسطة الكلمات المفتاحية</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">أدخل الكلمات المفتاحية أو أسماء القنوات، مفصولة بأسطر جديدة. يجب أن تتطابق الكلمات التي تحتوي على أحرف كبيرة في المنتصف تمامًا (على سبيل المثال: iPhone, TikTok, LeBlanc)</string>
+    <string name="revanced_hide_keyword_content_phrases_summary">"الكلمات والعبارات التي تريد إخفاءها، مفصولة بسطور جديدة
+
+يمكن أن تكون الكلمات عبارة عن أسماء قنوات أو أي نص يظهر في عناوين الفيديوهات
+
+يجب إدخال الكلمات التي تحتوي على أحرف كبيرة في المنتصف بنفس الحالة (على سبيل المثال: iPhone, TikTok, LeBlanc)"</string>
     <string name="revanced_hide_keyword_content_phrases_title">الكلمات المفتاحية المراد إخفاؤها</string>
     <string name="revanced_hide_keyword_content_search_summary_off">لا يتم تصفية نتائج البحث حسب الكلمات المفتاحية</string>
     <string name="revanced_hide_keyword_content_search_summary_on">يتم تصفية نتائج البحث حسب الكلمات المفتاحية</string>
@@ -1018,7 +1011,7 @@
     <string name="revanced_hide_notify_me_button_title">إخفاء زر \'إرسال إشعار إليّ\'</string>
     <string name="revanced_hide_paid_promotion_label_summary_off">يتم عرض تسمية الترقية المدفوعة</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">تم إخفاء تسمية الترقية المدفوعة</string>
-    <string name="revanced_hide_paid_promotion_label_title">إخفاء تسمية الترقية المدفوعة</string>
+    <string name="revanced_hide_paid_promotion_label_title">إخفاء علامة \'يتضمن إعلانًا ترويجيًا مدفوعًا\'</string>
     <string name="revanced_hide_playables_summary_off">يتم عرض هيّا نلعب</string>
     <string name="revanced_hide_playables_summary_on">تم إخفاء هيّا نلعب</string>
     <string name="revanced_hide_playables_title">إخفاء هيّا نلعب</string>
@@ -1424,7 +1417,7 @@
     <string name="revanced_hide_shorts_video_title_title">إخفاء عنوان الفيديو</string>
     <string name="revanced_hide_show_more_button_summary_off">يتم إظهار زر عرض المزيد في نتائج البحث</string>
     <string name="revanced_hide_show_more_button_summary_on">تم إخفاء زر عرض المزيد في نتائج البحث</string>
-    <string name="revanced_hide_show_more_button_title">إخفاء زر \'عرض المزيد\'</string>
+    <string name="revanced_hide_show_more_button_title">إخفاء زر \'عرض عناصر أكثر\'</string>
     <string name="revanced_hide_snack_bar_summary_off">يتم عرض شريط Snack Bar.</string>
     <string name="revanced_hide_snack_bar_summary_on">تم إخفاء شريط Snack Bar.</string>
     <string name="revanced_hide_snack_bar_title">إخفاء شريط Snack Bar</string>
@@ -1451,7 +1444,7 @@
     <string name="revanced_hide_suggested_actions_title">إخفاء الإجراءات المقترحة</string>
     <string name="revanced_hide_surveys_summary_off">يتم عرض الاستبيانات</string>
     <string name="revanced_hide_surveys_summary_on">تم إخفاء الاستبيانات</string>
-    <string name="revanced_hide_surveys_title">إخفاء الاستبيانات</string>
+    <string name="revanced_hide_surveys_title">إخفاء الاستطلاعات</string>
     <string name="revanced_hide_thanks_button_summary_off">يتم عرض زر شكرًا</string>
     <string name="revanced_hide_thanks_button_summary_on">تم إخفاء زر شكرًا</string>
     <string name="revanced_hide_thanks_button_title">إخفاء زر شكرًا</string>
@@ -1572,121 +1565,64 @@
     <string name="revanced_keep_landscape_mode_timeout_summary">مقدار اجزاء الثانية التي يتم فرضها على الوضع الأفقي بعد تشغيل الشاشة.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">مهلة إبقاء الوضع الأفقي</string>
     <string name="revanced_keep_landscape_mode_title">الإبقاء على الوضع الأفقي</string>
-    <string name="revanced_language_AM">الأمهرية\n<small>አማርኛ</small>
-    </string>
-    <string name="revanced_language_AR">العربية\n<small>العربية</small>
-    </string>
-    <string name="revanced_language_AZ">الأذربيجانية\n<small>Azərbaycan</small>
-    </string>
-    <string name="revanced_language_BE">البيلاروسية\n<small>беларуская</small>
-    </string>
-    <string name="revanced_language_BG">البلغارية\n<small>Български</small>
-    </string>
-    <string name="revanced_language_BN">البنغالية\n<small>বাংলা</small>
-    </string>
-    <string name="revanced_language_CA">الكاتالونية\n<small>Català</small>
-    </string>
-    <string name="revanced_language_CS">التشيكية\n<small>Čeština</small>
-    </string>
-    <string name="revanced_language_DA">الدانماركية\n<small>Dansk</small>
-    </string>
-    <string name="revanced_language_DE">الألمانية\n<small>Deutsch</small>
-    </string>
+    <string name="revanced_language_AM">الأمهرية\n<small>አማርኛ</small></string>
+    <string name="revanced_language_AR">العربية\n<small>العربية</small></string>
+    <string name="revanced_language_AZ">الأذربيجانية\n<small>Azərbaycan</small></string>
+    <string name="revanced_language_BE">البيلاروسية\n<small>беларуская</small></string>
+    <string name="revanced_language_BG">البلغارية\n<small>Български</small></string>
+    <string name="revanced_language_BN">البنغالية\n<small>বাংলা</small></string>
+    <string name="revanced_language_CA">الكاتالونية\n<small>Català</small></string>
+    <string name="revanced_language_CS">التشيكية\n<small>Čeština</small></string>
+    <string name="revanced_language_DA">الدانماركية\n<small>Dansk</small></string>
+    <string name="revanced_language_DE">الألمانية\n<small>Deutsch</small></string>
     <string name="revanced_language_DEFAULT">لغة التطبيق</string>
-    <string name="revanced_language_EL">اليونانية\n<small>Ελληνικά</small>
-    </string>
-    <string name="revanced_language_EN">الإنجليزية\n<small>English</small>
-    </string>
-    <string name="revanced_language_ES">الأسبانية\n<small>Español</small>
-    </string>
-    <string name="revanced_language_ET">الإستونية\n<small>Eesti</small>
-    </string>
-    <string name="revanced_language_FA">الفارسية\n<small>فارسی</small>
-    </string>
-    <string name="revanced_language_FI">الفنلندية\n<small>Suomi</small>
-    </string>
-    <string name="revanced_language_FR">الفرنسية\n<small>Français</small>
-    </string>
-    <string name="revanced_language_GA">الأيرلندية\n<small>Gaeilge</small>
-    </string>
-    <string name="revanced_language_GU">الغوجاراتية\n<small>ગુજરાતી</small>
-    </string>
-    <string name="revanced_language_HE">العبرية\n<small>עברי</small>
-    </string>
-    <string name="revanced_language_HI">الهندية\n<small>हिन्दी</small>
-    </string>
-    <string name="revanced_language_HR">الكرواتية\n<small>Hrvatski</small>
-    </string>
-    <string name="revanced_language_HU">المجرية\n<small>Magyar</small>
-    </string>
-    <string name="revanced_language_ID">الإندونيسية\n<small>Indonesia</small>
-    </string>
-    <string name="revanced_language_IT">الإيطالية\n<small>Italiano</small>
-    </string>
-    <string name="revanced_language_JA">اليابانية\n<small>日本語</small>
-    </string>
-    <string name="revanced_language_KK">الكازاخستانية\n<small>Қазақ тілі</small>
-    </string>
-    <string name="revanced_language_KO">الكورية\n<small>한국어</small>
-    </string>
-    <string name="revanced_language_LT">الليتوانية\n<small>Lietuvių</small>
-    </string>
-    <string name="revanced_language_LV">اللاتفية\n<small>Latviešu</small>
-    </string>
-    <string name="revanced_language_MK">المقدونية\n<small>Македонски</small>
-    </string>
-    <string name="revanced_language_MN">المنغولية\n<small>Монгол</small>
-    </string>
-    <string name="revanced_language_MR">الماراثية\n<small>मराठी</small>
-    </string>
-    <string name="revanced_language_MS">الملايو\n<small>Melayu</small>
-    </string>
-    <string name="revanced_language_MY">البورمية\n<small>ဗမာ</small>
-    </string>
-    <string name="revanced_language_NL">الهولندية\n<small>Nederlands</small>
-    </string>
-    <string name="revanced_language_OR">أوديا\n<small>ଓଡ଼ିଆ</small>
-    </string>
-    <string name="revanced_language_PA">البنجابية\n<small>ਪੰਜਾਬੀ</small>
-    </string>
-    <string name="revanced_language_PL">البولندية\n<small>Polski</small>
-    </string>
-    <string name="revanced_language_PT">البرتغالية\n<small>Português</small>
-    </string>
-    <string name="revanced_language_RO">الرومانية\n<small>Română</small>
-    </string>
-    <string name="revanced_language_RU">الروسية\n<small>Русский</small>
-    </string>
-    <string name="revanced_language_SK">السلوفاكية\n<small>Slovenčina</small>
-    </string>
-    <string name="revanced_language_SL">السلوفينية\n<small>Slovenščina</small>
-    </string>
-    <string name="revanced_language_SQ">الألبانية\n<small>Shqip</small>
-    </string>
-    <string name="revanced_language_SR">الصربية\n<small>Српски</small>
-    </string>
-    <string name="revanced_language_SV">السويدية\n<small>Svenska</small>
-    </string>
-    <string name="revanced_language_SW">السواحيلية\n<small>Kiswahili</small>
-    </string>
-    <string name="revanced_language_TA">التاميلية\n<small>தமிழ்</small>
-    </string>
-    <string name="revanced_language_TE">التيلجو\n<small>తెలుగు</small>
-    </string>
-    <string name="revanced_language_TH">التايلاندية\n<small>ไทย</small>
-    </string>
-    <string name="revanced_language_TL">الفلبينية\n<small>Filipino</small>
-    </string>
-    <string name="revanced_language_TR">التركية\n<small>Türkçe</small>
-    </string>
-    <string name="revanced_language_UK">الأوكرانية\n<small>Українська</small>
-    </string>
-    <string name="revanced_language_UR">الأردية\n<small>اردو</small>
-    </string>
-    <string name="revanced_language_VI">الفيتنامية\n<small>Tiếng Việt</small>
-    </string>
-    <string name="revanced_language_ZH">الصينية\n<small>中文</small>
-    </string>
+    <string name="revanced_language_EL">اليونانية\n<small>Ελληνικά</small></string>
+    <string name="revanced_language_EN">الإنجليزية\n<small>English</small></string>
+    <string name="revanced_language_ES">الأسبانية\n<small>Español</small></string>
+    <string name="revanced_language_ET">الإستونية\n<small>Eesti</small></string>
+    <string name="revanced_language_FA">الفارسية\n<small>فارسی</small></string>
+    <string name="revanced_language_FI">الفنلندية\n<small>Suomi</small></string>
+    <string name="revanced_language_FR">الفرنسية\n<small>Français</small></string>
+    <string name="revanced_language_GA">الأيرلندية\n<small>Gaeilge</small></string>
+    <string name="revanced_language_GU">الغوجاراتية\n<small>ગુજરાતી</small></string>
+    <string name="revanced_language_HE">العبرية\n<small>עברי</small></string>
+    <string name="revanced_language_HI">الهندية\n<small>हिन्दी</small></string>
+    <string name="revanced_language_HR">الكرواتية\n<small>Hrvatski</small></string>
+    <string name="revanced_language_HU">المجرية\n<small>Magyar</small></string>
+    <string name="revanced_language_ID">الإندونيسية\n<small>Indonesia</small></string>
+    <string name="revanced_language_IT">الإيطالية\n<small>Italiano</small></string>
+    <string name="revanced_language_JA">اليابانية\n<small>日本語</small></string>
+    <string name="revanced_language_KK">الكازاخستانية\n<small>Қазақ тілі</small></string>
+    <string name="revanced_language_KO">الكورية\n<small>한국어</small></string>
+    <string name="revanced_language_LT">الليتوانية\n<small>Lietuvių</small></string>
+    <string name="revanced_language_LV">اللاتفية\n<small>Latviešu</small></string>
+    <string name="revanced_language_MK">المقدونية\n<small>Македонски</small></string>
+    <string name="revanced_language_MN">المنغولية\n<small>Монгол</small></string>
+    <string name="revanced_language_MR">الماراثية\n<small>मराठी</small></string>
+    <string name="revanced_language_MS">الملايو\n<small>Melayu</small></string>
+    <string name="revanced_language_MY">البورمية\n<small>ဗမာ</small></string>
+    <string name="revanced_language_NL">الهولندية\n<small>Nederlands</small></string>
+    <string name="revanced_language_OR">أوديا\n<small>ଓଡ଼ିଆ</small></string>
+    <string name="revanced_language_PA">البنجابية\n<small>ਪੰਜਾਬੀ</small></string>
+    <string name="revanced_language_PL">البولندية\n<small>Polski</small></string>
+    <string name="revanced_language_PT">البرتغالية\n<small>Português</small></string>
+    <string name="revanced_language_RO">الرومانية\n<small>Română</small></string>
+    <string name="revanced_language_RU">الروسية\n<small>Русский</small></string>
+    <string name="revanced_language_SK">السلوفاكية\n<small>Slovenčina</small></string>
+    <string name="revanced_language_SL">السلوفينية\n<small>Slovenščina</small></string>
+    <string name="revanced_language_SQ">الألبانية\n<small>Shqip</small></string>
+    <string name="revanced_language_SR">الصربية\n<small>Српски</small></string>
+    <string name="revanced_language_SV">السويدية\n<small>Svenska</small></string>
+    <string name="revanced_language_SW">السواحيلية\n<small>Kiswahili</small></string>
+    <string name="revanced_language_TA">التاميلية\n<small>தமிழ்</small></string>
+    <string name="revanced_language_TE">التيلجو\n<small>తెలుగు</small></string>
+    <string name="revanced_language_TH">التايلاندية\n<small>ไทย</small></string>
+    <string name="revanced_language_TL">الفلبينية\n<small>Filipino</small></string>
+    <string name="revanced_language_TR">التركية\n<small>Türkçe</small></string>
+    <string name="revanced_language_UK">الأوكرانية\n<small>Українська</small></string>
+    <string name="revanced_language_UR">الأردية\n<small>اردو</small></string>
+    <string name="revanced_language_VI">الفيتنامية\n<small>Tiếng Việt</small></string>
+    <string name="revanced_language_ZH">الصينية\n<small>中文</small></string>
     <string name="revanced_language_title">لغة ReVanced</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">إجراء النقر المزدوج والضغط لتغيير الحجم معطل</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"تم تمكين إجراء الضغط المزدوج والضغط لتغيير الحجم
@@ -1726,7 +1662,7 @@
     <string name="revanced_miniplayer_rounded_corners_title">تمكين الزوايا المستديرة</string>
     <string name="revanced_miniplayer_type_entry_0">معطّل</string>
     <string name="revanced_miniplayer_type_entry_1">إفتراضي</string>
-    <string name="revanced_miniplayer_type_entry_2">الأدنى</string>
+    <string name="revanced_miniplayer_type_entry_2">بسيط</string>
     <string name="revanced_miniplayer_type_entry_3">الجهاز اللوحي</string>
     <string name="revanced_miniplayer_type_entry_4">حديث 1</string>
     <string name="revanced_miniplayer_type_entry_5">حديث 2</string>
@@ -1961,8 +1897,8 @@
     <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"القناة ══════════════ %1$s العنوان ══════════════ %2$s"</string>
     <string name="revanced_queue_manager_video_information_user_dialog_message">"القناة ══════════════ %1$s العنوان ══════════════ %2$s الوصف ══════════════ %3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">يجب أن يكون الهامش العلوي للإجراءات السريعة بين 0-32.</string>
-    <string name="revanced_quick_actions_top_margin_summary">تكوين التباعد من شريط التقدم إلى حاوية الإجراء السريع، بين 0-32.</string>
-    <string name="revanced_quick_actions_top_margin_title">هامش إجراءات سريعة أعلى</string>
+    <string name="revanced_quick_actions_top_margin_summary">ضبط إزاحة شريط الإجراءات السريعة للأعلى (0-32 dp)</string>
+    <string name="revanced_quick_actions_top_margin_title">إزاحة الإجراءات السريعة للأعلى</string>
     <string name="revanced_related_videos_offset_title">الموازن</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">تطبيق تغييرات سرعة التشغيل فقط على الفيديو الحالي</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">تطبيق تغييرات سرعة التشغيل على جميع الفيديوهات</string>
@@ -2030,6 +1966,7 @@
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">مصغرات شريط التقدم ستظهر في ملء الشاشة</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">مصغرات شريط التقدم ستظهر فوق شريط تقدم الفيديو</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">استعادة مصغرات شريط التقدم القديمة</string>
+    <string name="revanced_restore_old_settings_menus_title">استعادة شاشة إعدادات YouTube القديمة</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">لا يتم استخدام تصميم المشغل القديم.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"تم استخدام تصميم المشغل القديم.
 لا توجد هوامش في الجزء العلوي والسفلي من المشغل."</string>
@@ -2129,7 +2066,7 @@
     <string name="revanced_sb_enable_voting_sum_off">لا يتم عرض زر التصويت على المقطع</string>
     <string name="revanced_sb_enable_voting_sum_on">يتم عرض زر التصويت على المقطع</string>
     <string name="revanced_sb_general">عام</string>
-    <string name="revanced_sb_general_adjusting">تعديل تقديم او تأخير المقطع الجديد</string>
+    <string name="revanced_sb_general_adjusting">مقدار تعديل الوقت</string>
     <string name="revanced_sb_general_adjusting_invalid">يجب أن تكون القيمة رقمًا موجبًا</string>
     <string name="revanced_sb_general_adjusting_sum">أجزاء الثانية في الوقت الذي تتحرك فيها أزرار ضبط الوقت عند إنشاء مقاطع جديدة</string>
     <string name="revanced_sb_general_api_url">تغيير عنوان API</string>
@@ -2150,7 +2087,7 @@
     <string name="revanced_sb_general_uuid_invalid">يجب أن يكون معرف المستخدم الخاص 30 حرفًا على الأقل</string>
     <string name="revanced_sb_general_uuid_sum">يجب أن يبقى هذا خاصًا. انه مثل كلمة المرور ولا ينبغي مشاركته مع أي شخص. إذا كان شخص ما يملك هذا، فيمكنه انتحال شخصيتك</string>
     <string name="revanced_sb_guidelines_popup_already_read">تمت قراءتها</string>
-    <string name="revanced_sb_guidelines_popup_content">عرض القواعد والنصائح لإنشاء مقاطع جديدة</string>
+    <string name="revanced_sb_guidelines_popup_content">اقرأ إرشادات SponsorBlock قبل إضافة مقاطع جديدة</string>
     <string name="revanced_sb_guidelines_popup_open">اعرضها لي</string>
     <string name="revanced_sb_guidelines_popup_title">اتبع الإرشادات</string>
     <string name="revanced_sb_guidelines_preference_sum">الإرشادات تتضمن قواعد ونصائح لإنشاء مقاطع جديدة</string>
@@ -2472,7 +2409,7 @@
 سيؤدي هذا إلى تغيير مظهر ومميزات التطبيق، ولكن قد تحدث تأثيرات جانبية غير معروفة.
 
 إذا تم إيقاف تشغيله لاحقًا، من المستحسن مسح بيانات التطبيق لمنع حدوث أخطاء في واجهة المستخدم."</string>
-    <string name="revanced_spoof_device_dimensions_summary">يجعل الخادم يعتقد أن جهازك بأبعاد مختلفة لتوفير خيارات جودة أعلى</string>
+    <string name="revanced_spoof_device_dimensions_summary">تمكين هذا الخيار يمكن أن يفتح جودات فيديو أعلى</string>
     <string name="revanced_spoof_device_dimensions_title">تمويه أبعاد الجهاز</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">ترميز الفيديو هو AVC (H.264) أو VP9.</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"ترميز الفيديو هو AVC (H.264)، أو VP9، أو AV1.
@@ -2617,8 +2554,8 @@
     <string name="revanced_swipe_overlay_progress_brightness_color_title">لون نمط إيماءة السطوع</string>
     <string name="revanced_swipe_overlay_progress_seek_color_summary">لون شريط التقدم لعناصر تحكم التمرير (Seek)</string>
     <string name="revanced_swipe_overlay_progress_seek_color_title">لون تراكب السحب للتمرير</string>
-    <string name="revanced_swipe_overlay_progress_speed_color_summary">لون شريط التقدم لعناصر تحكم السرعة</string>
-    <string name="revanced_swipe_overlay_progress_speed_color_title">لون تراكب السحب للسرعة</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">تعيين لون شريط تقدم عناصر التحكم في السرعة</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">لون نمط إيماءة السرعة</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">تعيين لون شريط تقدم عناصر التحكم في مستوى الصوت</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">لون نمط إيماءة الصوت</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">لا يمكن أن يزيد حجم المنطقة القابلة للتمرير عن 50.</string>
@@ -2626,8 +2563,8 @@
     <string name="revanced_swipe_overlay_rect_size_title">حجم واجهة إيماءة التمرير</string>
     <string name="revanced_swipe_overlay_style_entry_0">النمط القديم</string>
     <string name="revanced_swipe_overlay_style_entry_1">النمط الافقي</string>
-    <string name="revanced_swipe_overlay_style_entry_2">النمط الأفقي (أدنى حد - الأعلى)</string>
-    <string name="revanced_swipe_overlay_style_entry_3">النمط الأفقي (بسيط - المنتصف)</string>
+    <string name="revanced_swipe_overlay_style_entry_2">النمط الأفقي (بسيط - أعلى الشاشة)</string>
+    <string name="revanced_swipe_overlay_style_entry_3">النمط الأفقي (بسيط - منتصف الشاشة)</string>
     <string name="revanced_swipe_overlay_style_entry_4">النمط الدائري</string>
     <string name="revanced_swipe_overlay_style_entry_5">النمط الدائري (بسيط)</string>
     <string name="revanced_swipe_overlay_style_entry_6">النمط العمودي</string>
@@ -2654,7 +2591,7 @@
     <string name="revanced_swipe_speed_summary_on">"سحب تغيير السرعة في وضع ملء الشاشة مفعل.
 
 اضبط السرعة بالسحب أفقياً في النصف السفلي من الشاشة."</string>
-    <string name="revanced_swipe_speed_title">تفعيل إيماءة السرعة</string>
+    <string name="revanced_swipe_speed_title">تمكين إيماءة السرعة</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">منطقة إيماءة سحب التمرير في الأعلى، ومنطقة السرعة في الأسفل.</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">منطقة إيماءة سحب السرعة في الأعلى، ومنطقة التمرير في الأسفل.</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">تبديل أماكن إيماءات السرعة والتمرير</string>
@@ -2666,7 +2603,7 @@
     <string name="revanced_swipe_volume_distance_summary">عدد البكسلات اللازمة للسحب لضبط مستوى الصوت. القيم الأقل تجعل تغيير الصوت أسرع، والقيم الأعلى تجعله أبطأ (1-1000).</string>
     <string name="revanced_swipe_volume_distance_title">مسافة السحب للصوت</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">يجب أن تكون حساسية إيماءة الصوت بين 1-1000.</string>
-    <string name="revanced_swipe_volume_sensitivity_summary">ضبط كيفية تغير مستوى الصوت أثناء التمرير</string>
+    <string name="revanced_swipe_volume_sensitivity_summary">القيم الأعلى تزيد من تغيُّر مستوى الصوت مع كل تمريرة</string>
     <string name="revanced_swipe_volume_sensitivity_title">حساسية تمرير مستوى الصوت</string>
     <string name="revanced_swipe_volume_summary_off">تم تعطيل إيماءة مستوى الصوت في وضع ملء الشاشة</string>
     <string name="revanced_swipe_volume_summary_on">"تم تمكين إيماءة مستوى الصوت في وضع ملء الشاشة

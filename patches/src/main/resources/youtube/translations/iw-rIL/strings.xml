@@ -41,7 +41,7 @@
     <string name="morphe_reload_video_summary_off">לחצן טעינת סרטון אינו מוצג</string>
     <string name="morphe_reload_video_summary_on">לחצן טעינת סרטון מוצג</string>
     <string name="morphe_reload_video_title">הצג לחצן טעינת סרטון</string>
-    <string name="morphe_replace_links_with_shortener_summary">מאפשר לשידורים חיים ול-Shorts להשתמש בפורמט הכתובת המקוצר youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_summary">כופה על סרטונים להשתמש בפורמט הקיצור youtu.be</string>
     <string name="morphe_replace_links_with_shortener_title">שנה קישורי שיתוף ל-youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">קישורים משותפים משתמשים ב-music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">קישורים משותפים משתמשים ב-youtube.com</string>
@@ -74,7 +74,6 @@
 • ההפעלה תיכשל אם ה-hash של JavaScript של הנגן בוטל ב-GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">לשבט את עדכוני JavaScript של הנגן</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript hashes של השחקן תקפים לתקופה של כחודש, ו-hashes מיושנים עשויים להתבטל על ידי GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Попробуйте включить: Фальшивый поток &gt; Войти в Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не удалось получить доступ к потокам клиента</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">\"הזן hash JavaScript תקף של השחקן</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">‌Ԓ԰՞ԑ JavaScript ԲՈԴ</string>
@@ -337,7 +336,7 @@
     <string name="revanced_exit_fullscreen_entry_1">מושבת</string>
     <string name="revanced_exit_fullscreen_entry_2">דיוקן בלבד</string>
     <string name="revanced_exit_fullscreen_entry_3">נוף בלבד</string>
-    <string name="revanced_exit_fullscreen_entry_4">שניהם</string>
+    <string name="revanced_exit_fullscreen_entry_4">לאורך ולרוחב</string>
     <string name="revanced_exit_fullscreen_title">יציאה ממצב מסך מלא בסיום הסרטון</string>
     <string name="revanced_external_downloader_empty_warning">שם החבילה אינו יכול להיות ריק</string>
     <string name="revanced_external_downloader_not_found_title">היישום לא מותקן</string>
@@ -491,7 +490,11 @@
     <string name="revanced_hide_keyword_content_home_summary_off">סרטונים בכרטיסיית הבית אינם מסוננים לפי מילות מפתח</string>
     <string name="revanced_hide_keyword_content_home_summary_on">סרטונים בכרטיסיית הבית מסוננים לפי מילות מפתח</string>
     <string name="revanced_hide_keyword_content_home_title">הסתר סרטוני בית לפי מילות מפתח</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">הזן מילות מפתח או שמות ערוצים, מופרדים בשורות חדשות. מילים עם אותיות רישיות באמצע חייבות להתאים בדיוק (לדוגמה: iPhone, TikTok, LeBlanc)</string>
+    <string name="revanced_hide_keyword_content_phrases_summary">"הזן מילות מפתח וביטויים להסתרה, מופרדים בשורות חדשות
+
+מילות מפתח יכולות להיות כל טקסט המוצג בכותרות סרטונים או בשמות ערוצים
+
+מילים עם אותיות רישיות באמצע חייבות להתאים בדיוק (לדוגמה: iPhone, TikTok, LeBlanc)"</string>
     <string name="revanced_hide_keyword_content_phrases_title">מילות מפתח להסתרה</string>
     <string name="revanced_hide_keyword_content_search_summary_off">תוצאות חיפוש אינם מסוננות לפי מילות מפתח</string>
     <string name="revanced_hide_keyword_content_search_summary_on">תוצאות חיפוש מסוננות לפי מילות מפתח</string>
@@ -533,7 +536,7 @@
     <string name="revanced_hide_notify_me_button_title">הסתר לחצן \'אני רוצה לקבל התראה\'</string>
     <string name="revanced_hide_paid_promotion_label_summary_off">תווית קידום מכירות בתשלום מוצגת</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">תווית קידום מכירות בתשלום מוסתרת</string>
-    <string name="revanced_hide_paid_promotion_label_title">הסתר תווית קידום מכירות בתשלום</string>
+    <string name="revanced_hide_paid_promotion_label_title">הסתר תווית \'כולל קידום ממומן\'</string>
     <string name="revanced_hide_playables_summary_off">המשחקייה מוצגת</string>
     <string name="revanced_hide_playables_summary_on">המשחקייה מוסתרת</string>
     <string name="revanced_hide_playables_title">הסתר משחקייה</string>
@@ -767,6 +770,8 @@
     <string name="revanced_override_youtube_music_button_summary_off">כפתור YouTube Music נפתח את האפליקציה המקורית</string>
     <string name="revanced_override_youtube_music_button_summary_on">כפתור יוטיוב מיוזיק יפתח את אפליקציית המוזיקה שלך</string>
     <string name="revanced_override_youtube_music_button_title">עקוף כפתור יוטיוב מיוזיק</string>
+    <string name="revanced_quick_actions_top_margin_summary">הגדר את השוליים העליונים של סרגל הפעולות המהירות (0-32 dp)</string>
+    <string name="revanced_quick_actions_top_margin_title">שוליים עליונים לפעולות מהירות</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">שינויי מהירות הפעלה חלים רק על הסרטון הנוכחי</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">שינויי מהירות הפעלה חלים על כל הסרטונים</string>
     <string name="revanced_remember_playback_speed_last_selected_title">זכור מהירות הפעלה</string>
@@ -789,6 +794,7 @@
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">תמונות ממוזערות של סרגל דילוג יופיעו במסך מלא</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">תמונות ממוזערות של סרגל דילוג יופיעו מעל סרגל הדילוג</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">שחזר תמונות ממוזערות של סרגל דילוג ישנות</string>
+    <string name="revanced_restore_old_settings_menus_title">שחזר את מסך הגדרות YouTube הישן</string>
     <string name="revanced_ryd_attribution_summary">הנתונים מסופקים על ידי Return YouTube Dislike API. הקש כאן כדי ללמוד עוד</string>
     <string name="revanced_ryd_compact_layout_summary_off">לחצן אהבתי מעוצב למראה הטוב ביותר</string>
     <string name="revanced_ryd_compact_layout_summary_on">לחצן אהבתי מעוצב לרוחב מינימלי</string>
@@ -850,7 +856,7 @@
     <string name="revanced_sb_enable_voting_sum_off">לחצן הצבעה של מקטע אינו מוצג</string>
     <string name="revanced_sb_enable_voting_sum_on">לחצן הצבעה של מקטע מוצג</string>
     <string name="revanced_sb_general">כללי</string>
-    <string name="revanced_sb_general_adjusting">כוונן מדרגת מקטע חדש</string>
+    <string name="revanced_sb_general_adjusting">צעד להתאמת זמן</string>
     <string name="revanced_sb_general_adjusting_invalid">ערך חייב להיות מספר חיובי</string>
     <string name="revanced_sb_general_adjusting_sum">מספר אלפיות השניה שלחצני כוונון הזמן נעים בעת יצירת מקטעים חדשים</string>
     <string name="revanced_sb_general_api_url">שנה כתובת API</string>
@@ -871,7 +877,7 @@
     <string name="revanced_sb_general_uuid_invalid">מזהה משתמש פרטי חייב להיות באורך של לפחות 30 תווים</string>
     <string name="revanced_sb_general_uuid_sum">זה צריך להישמר פרטי. זה כמו סיסמה ולא צריך להיות משותף עם אף אחד. אם למישהו יש את זה, הוא יכול להתחזות אליך</string>
     <string name="revanced_sb_guidelines_popup_already_read">כבר קראתי</string>
-    <string name="revanced_sb_guidelines_popup_content">ראה את הכללים והטיפים ליצירת קטעים חדשים</string>
+    <string name="revanced_sb_guidelines_popup_content">קרא את ההנחיות של SponsorBlock לפני יצירת מקטעים חדשים</string>
     <string name="revanced_sb_guidelines_popup_open">תראה לי</string>
     <string name="revanced_sb_guidelines_popup_title">עקוב אחר ההנחיות</string>
     <string name="revanced_sb_guidelines_preference_sum">הנחיות כוללות חוקים וטיפים ליצירת מקטעים חדשים</string>
@@ -1070,7 +1076,7 @@
 זה ישנה את המראה והתכונות של היישום, אך תופעות לוואי לא ידועות עלולות להתרחש.
 
 אם נכבה מאוחר יותר, מומלץ לנקות את נתוני היישום כדי למנוע באגים של ממשק המשתמש."</string>
-    <string name="revanced_spoof_device_dimensions_summary">מרמה את השרת לספק אפשרויות איכות גבוהות יותר על ידי זיוף מימדי המכשיר</string>
+    <string name="revanced_spoof_device_dimensions_summary">הפעלת אפשרות זו עשויה לאפשר איכויות וידאו גבוהות יותר</string>
     <string name="revanced_spoof_device_dimensions_title">זייף ממדי מכשיר</string>
     <string name="revanced_swipe_brightness_summary_off">החלקת בהירות במסך מלא מושבתת</string>
     <string name="revanced_swipe_brightness_summary_on">"החלקת בהירות במסך מלא מופעלת
@@ -1089,6 +1095,8 @@
     <string name="revanced_swipe_overlay_background_opacity_title">אטימות רקע שכבת-על של החלקה</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">הגדר את הצבע של פס התקדמות בקרת הבהירות</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">צבע שכבת-על של החלקת בהירות</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">הגדר את צבע פס התקדמות בקרות המהירות</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">צבע שכבת-על של החלקת מהירות</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">הסתר כפתור \'דווח\'</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">צבע שכבת-על של החלקת עוצמת קול</string>
     <string name="revanced_swipe_overlay_style_entry_1">שכבת-על אופקית</string>
@@ -1107,12 +1115,13 @@
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">אל תשמור ותשחזר בהירות בעת יציאה או כניסה למסך מלא</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">שמור ושחזר בהירות בעת יציאה או כניסה למסך מלא</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">שמור ושחזר בהירות</string>
+    <string name="revanced_swipe_speed_title">הפעל מחוות מהירות</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">גודל הטקסט חייב להיות בין 1 ל-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">הסתר כפתור \'הורדה\'</string>
     <string name="revanced_swipe_text_overlay_size_title">גודל טקסט שכבת-על של החלקה</string>
     <string name="revanced_swipe_threshold_summary">הסתר כפתור \'הייפ\'</string>
     <string name="revanced_swipe_threshold_title">סף גודל החלקה</string>
-    <string name="revanced_swipe_volume_sensitivity_summary">הסתר כפתור \'קידום\'</string>
+    <string name="revanced_swipe_volume_sensitivity_summary">ערכים גבוהים יותר מגדילים את שינוי עוצמת הקול בכל החלקה</string>
     <string name="revanced_swipe_volume_sensitivity_title">רגישות החלקה בעוצמת הקול</string>
     <string name="revanced_swipe_volume_summary_off">החלקת עוצמת קול במסך מלא מושבתת</string>
     <string name="revanced_swipe_volume_summary_on">"החלקת עוצמת קול במסך מלא מופעלת

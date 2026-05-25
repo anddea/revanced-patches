@@ -41,7 +41,7 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
     <string name="morphe_reload_video_summary_off">Il pulsante ricarica video non è visibile</string>
     <string name="morphe_reload_video_summary_on">Il pulsante ricarica video è visibile</string>
     <string name="morphe_reload_video_title">Mostra il pulsante ricarica video</string>
-    <string name="morphe_replace_links_with_shortener_summary">Forza gli streaming live e Shorts a utilizzare il formato URL abbreviato youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_summary">Forza i video a utilizzare il formato URL abbreviato youtu.be</string>
     <string name="morphe_replace_links_with_shortener_title">Cambia i link di condivisione in youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">I link condivisi usano music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">I link condivisi usano youtube.com</string>
@@ -74,7 +74,6 @@ La riproduzione video con AV1 potrebbe rallentare o perdere fotogrammi."</string
 • La riproduzione non riesce se l'hash JavaScript del Player viene revocato in GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Disabilita l\'aggiornamento del lettore JavaScript</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Gli hash JavaScript del lettore sono validi per circa un mese e gli hash obsoleti potrebbero essere revocati da GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Prova ad abilitare: Falsificazione dei flussi video &gt; Accesso con Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Impossibile recuperare il flusso da qualsiasi client</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Inserisci un hash JavaScript del lettore valido</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash JavaScript del lettore</string>
@@ -564,7 +563,7 @@ Nota: non funziona se il riproduttore è minimizzato, in modalità PiP o in back
     <string name="revanced_exit_fullscreen_entry_1">Disabilitato</string>
     <string name="revanced_exit_fullscreen_entry_2">Solo verticale</string>
     <string name="revanced_exit_fullscreen_entry_3">Solo orizzontale</string>
-    <string name="revanced_exit_fullscreen_entry_4">Entrambi</string>
+    <string name="revanced_exit_fullscreen_entry_4">Verticale e orizzontale</string>
     <string name="revanced_exit_fullscreen_title">Esci dalla modalità a schermo intero alla fine del video</string>
     <string name="revanced_expand_video_description_summary_off">La descrizione dei video non viene espansa automaticamente.</string>
     <string name="revanced_expand_video_description_summary_on">La descrizione dei video viene espansa automaticamente.</string>
@@ -600,12 +599,6 @@ Come soluzione alternativa, la versione dell'app viene camuffata in 19.26.42 neg
 
 Se disattivi questa impostazione, l'icona potrebbe nascosta nella barra delle azioni e nel pannello di descrizione del video.
 Ma anche se questa impostazione è disattivata, il pulsante Dai Hype potrebbe non essere nascosto."</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_off">Al posto dell\'impostazione \"Riproduzione\" viene usata l\'impostazione \"Riproduzione automatica\".</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"Al posto dell'impostazione \"Riproduzione automatica\" viene usata l'impostazione \"Riproduzione\"."</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_title">Correggi l\'effetto collaterale del camuffamento della versione dell\'app</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"Se la versione dell'app è stata cammuffata alla 19.30 o a una versione precedente anche solo una volta, l'impostazione \"Riproduzione\" potrebbe non funzionare. Ciò dipende dalla risposta che l'app riceve dal server.
-
-Se l'impostazione \"Riproduzione\" non funziona, attivarla potrebbe risolvere il problema. Se l'impostazione \"Riproduzione\" continua a non funzionare anche dopo averla attivata o disattivata, è necessario cancellare i dati dell'app."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">Il gesto Tocca e Tieni Premuto della velocità potrebbe attivarsi anche se l\'utente non tocca e non tiene premuto.</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"Il gesto Tocca e Tieni Premuto della velocità si attiva solo quando l'utente tocca e tiene premuto.
 
@@ -940,7 +933,11 @@ Limitazioni:
     <string name="revanced_hide_keyword_content_home_summary_off">I video nella scheda Home non sono filtrati per parole chiave</string>
     <string name="revanced_hide_keyword_content_home_summary_on">I video nella scheda Home sono filtrati per parole chiave</string>
     <string name="revanced_hide_keyword_content_home_title">Nascondi i video della Home in base alle parole chiave</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">Inserisci parole chiave o nomi dei canali, separati da nuove righe. Le parole con lettere maiuscole nel mezzo devono corrispondere esattamente (ad es. iPhone, TikTok, LeBlanc)</string>
+    <string name="revanced_hide_keyword_content_phrases_summary">"Inserisci parole chiave e frasi da nascondere, separate da nuove righe
+
+Le parole chiave possono essere qualsiasi testo visualizzato nei titoli dei video o nei nomi dei canali
+
+Le parole con lettere maiuscole al centro dovranno corrispondere in maniera esatta (ad esempio: iPhone, TikTok, LeBlanc)"</string>
     <string name="revanced_hide_keyword_content_phrases_title">Parole chiave da nascondere</string>
     <string name="revanced_hide_keyword_content_search_summary_off">I risultati della ricerca non sono filtrati per parole chiave</string>
     <string name="revanced_hide_keyword_content_search_summary_on">I risultati della ricerca sono filtrati per parole chiave</string>
@@ -1018,7 +1015,7 @@ Limitazioni:
     <string name="revanced_hide_notify_me_button_title">Nascondi il pulsante \'Avvisami\'</string>
     <string name="revanced_hide_paid_promotion_label_summary_off">L\'etichetta della promozione a pagamento è visibile</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">L\'etichetta della promozione a pagamento è nascosta</string>
-    <string name="revanced_hide_paid_promotion_label_title">Nascondi l\'etichetta della promozione a pagamento</string>
+    <string name="revanced_hide_paid_promotion_label_title">Nascondi l\'etichetta \'Include promozioni a pagamento\'</string>
     <string name="revanced_hide_playables_summary_off">I giochi sono visibili</string>
     <string name="revanced_hide_playables_summary_on">I giochi sono nascosti</string>
     <string name="revanced_hide_playables_title">Nascondi Sala Giochi</string>
@@ -1562,121 +1559,64 @@ Nota: il doodle di YouTube non è toccabile."</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Il tempo in millisecondi per cui viene forzata la modalità orizzontale dopo l\'accensione dello schermo.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Durata della modalità orizzontale forzata</string>
     <string name="revanced_keep_landscape_mode_title">Mantieni la modalità orizzontale</string>
-    <string name="revanced_language_AM">Amarico\n<small>አማርኛ</small>
-    </string>
-    <string name="revanced_language_AR">Arabo\n<small>العربية</small>
-    </string>
-    <string name="revanced_language_AZ">Azero\n<small>Azərbaycan</small>
-    </string>
-    <string name="revanced_language_BE">Bielorusso\n<small>беларуская</small>
-    </string>
-    <string name="revanced_language_BG">Bulgaro\n<small>Български</small>
-    </string>
-    <string name="revanced_language_BN">Bengalese\n<small>বাংলা</small>
-    </string>
-    <string name="revanced_language_CA">Catalano\n<small>Català</small>
-    </string>
-    <string name="revanced_language_CS">Ceco\n<small>Čeština</small>
-    </string>
-    <string name="revanced_language_DA">Danese\n<small>Dansk</small>
-    </string>
-    <string name="revanced_language_DE">Tedesco\n<small>Deutsch</small>
-    </string>
+    <string name="revanced_language_AM">Amarico\n<small>አማርኛ</small></string>
+    <string name="revanced_language_AR">Arabo\n<small>العربية</small></string>
+    <string name="revanced_language_AZ">Azero\n<small>Azərbaycan</small></string>
+    <string name="revanced_language_BE">Bielorusso\n<small>беларуская</small></string>
+    <string name="revanced_language_BG">Bulgaro\n<small>Български</small></string>
+    <string name="revanced_language_BN">Bengalese\n<small>বাংলা</small></string>
+    <string name="revanced_language_CA">Catalano\n<small>Català</small></string>
+    <string name="revanced_language_CS">Ceco\n<small>Čeština</small></string>
+    <string name="revanced_language_DA">Danese\n<small>Dansk</small></string>
+    <string name="revanced_language_DE">Tedesco\n<small>Deutsch</small></string>
     <string name="revanced_language_DEFAULT">Lingua dell\'app</string>
-    <string name="revanced_language_EL">Greco\n<small>Ελληνικά</small>
-    </string>
-    <string name="revanced_language_EN">Inglese\n<small>English</small>
-    </string>
-    <string name="revanced_language_ES">Spagnolo\n<small>Español</small>
-    </string>
-    <string name="revanced_language_ET">Estone\n<small>Eesti</small>
-    </string>
-    <string name="revanced_language_FA">Persiano\n<small>فارسی</small>
-    </string>
-    <string name="revanced_language_FI">Finlandese\n<small>Suomi</small>
-    </string>
-    <string name="revanced_language_FR">Francese\n<small>Français</small>
-    </string>
-    <string name="revanced_language_GA">Irlandese\n<small>Gaeilge</small>
-    </string>
-    <string name="revanced_language_GU">Gugiarati\n<small>ગુજરાતી</small>
-    </string>
-    <string name="revanced_language_HE">Ebraico\n<small>עברי</small>
-    </string>
-    <string name="revanced_language_HI">Hindi\n<small>हिन्दी</small>
-    </string>
-    <string name="revanced_language_HR">Croato\n<small>Hrvatski</small>
-    </string>
-    <string name="revanced_language_HU">Ungherese\n<small>Magyar</small>
-    </string>
-    <string name="revanced_language_ID">Indonesiano\n<small>Indonesia</small>
-    </string>
-    <string name="revanced_language_IT">Italiano\n<small>Italiano</small>
-    </string>
-    <string name="revanced_language_JA">Giapponese\n<small>日本語</small>
-    </string>
-    <string name="revanced_language_KK">Cazaco\n<small>Қазақ тілі</small>
-    </string>
-    <string name="revanced_language_KO">Coreano\n<small>한국어</small>
-    </string>
-    <string name="revanced_language_LT">Lituano\n<small>Lietuvių</small>
-    </string>
-    <string name="revanced_language_LV">Lettone\n<small>Latviešu</small>
-    </string>
-    <string name="revanced_language_MK">Macedone\n<small>Македонски</small>
-    </string>
-    <string name="revanced_language_MN">Mongolo\n<small>Монгол</small>
-    </string>
-    <string name="revanced_language_MR">Maratti\n<small>मराठी</small>
-    </string>
-    <string name="revanced_language_MS">Malese\n<small>Melayu</small>
-    </string>
-    <string name="revanced_language_MY">Birmano\n<small>ဗမာ</small>
-    </string>
-    <string name="revanced_language_NL">Olandese\n<small>Nederlands</small>
-    </string>
-    <string name="revanced_language_OR">Oriya\n<small>ଓଡ଼ିଆ</small>
-    </string>
-    <string name="revanced_language_PA">Pangiabi\n<small>ਪੰਜਾਬੀ</small>
-    </string>
-    <string name="revanced_language_PL">Polacco\n<small>Polski</small>
-    </string>
-    <string name="revanced_language_PT">Portoghese\n<small>Português</small>
-    </string>
-    <string name="revanced_language_RO">Rumeno\n<small>Română</small>
-    </string>
-    <string name="revanced_language_RU">Russo\n<small>Русский</small>
-    </string>
-    <string name="revanced_language_SK">Slovacco\n<small>Slovenčina</small>
-    </string>
-    <string name="revanced_language_SL">Sloveno\n<small>Slovenščina</small>
-    </string>
-    <string name="revanced_language_SQ">Albanese\n<small>Shqip</small>
-    </string>
-    <string name="revanced_language_SR">Serbo\n<small>Српски</small>
-    </string>
-    <string name="revanced_language_SV">Svedese\n<small>Svenska</small>
-    </string>
-    <string name="revanced_language_SW">Suahili\n<small>Kiswahili</small>
-    </string>
-    <string name="revanced_language_TA">Tàmil\n<small>தமிழ்</small>
-    </string>
-    <string name="revanced_language_TE">Tèlugu\n<small>తెలుగు</small>
-    </string>
-    <string name="revanced_language_TH">Tailandese\n<small>ไทย</small>
-    </string>
-    <string name="revanced_language_TL">Filippino\n<small>Filippino</small>
-    </string>
-    <string name="revanced_language_TR">Turco\n<small>Türkçe</small>
-    </string>
-    <string name="revanced_language_UK">Ucraino\n<small>Українська</small>
-    </string>
-    <string name="revanced_language_UR">Urdù\n<small>اردو</small>
-    </string>
-    <string name="revanced_language_VI">Vietnamese\n<small>Tiếng Việt</small>
-    </string>
-    <string name="revanced_language_ZH">Cinese\n<small>中文</small>
-    </string>
+    <string name="revanced_language_EL">Greco\n<small>Ελληνικά</small></string>
+    <string name="revanced_language_EN">Inglese\n<small>English</small></string>
+    <string name="revanced_language_ES">Spagnolo\n<small>Español</small></string>
+    <string name="revanced_language_ET">Estone\n<small>Eesti</small></string>
+    <string name="revanced_language_FA">Persiano\n<small>فارسی</small></string>
+    <string name="revanced_language_FI">Finlandese\n<small>Suomi</small></string>
+    <string name="revanced_language_FR">Francese\n<small>Français</small></string>
+    <string name="revanced_language_GA">Irlandese\n<small>Gaeilge</small></string>
+    <string name="revanced_language_GU">Gugiarati\n<small>ગુજરાતી</small></string>
+    <string name="revanced_language_HE">Ebraico\n<small>עברי</small></string>
+    <string name="revanced_language_HI">Hindi\n<small>हिन्दी</small></string>
+    <string name="revanced_language_HR">Croato\n<small>Hrvatski</small></string>
+    <string name="revanced_language_HU">Ungherese\n<small>Magyar</small></string>
+    <string name="revanced_language_ID">Indonesiano\n<small>Indonesia</small></string>
+    <string name="revanced_language_IT">Italiano\n<small>Italiano</small></string>
+    <string name="revanced_language_JA">Giapponese\n<small>日本語</small></string>
+    <string name="revanced_language_KK">Cazaco\n<small>Қазақ тілі</small></string>
+    <string name="revanced_language_KO">Coreano\n<small>한국어</small></string>
+    <string name="revanced_language_LT">Lituano\n<small>Lietuvių</small></string>
+    <string name="revanced_language_LV">Lettone\n<small>Latviešu</small></string>
+    <string name="revanced_language_MK">Macedone\n<small>Македонски</small></string>
+    <string name="revanced_language_MN">Mongolo\n<small>Монгол</small></string>
+    <string name="revanced_language_MR">Maratti\n<small>मराठी</small></string>
+    <string name="revanced_language_MS">Malese\n<small>Melayu</small></string>
+    <string name="revanced_language_MY">Birmano\n<small>ဗမာ</small></string>
+    <string name="revanced_language_NL">Olandese\n<small>Nederlands</small></string>
+    <string name="revanced_language_OR">Oriya\n<small>ଓଡ଼ିଆ</small></string>
+    <string name="revanced_language_PA">Pangiabi\n<small>ਪੰਜਾਬੀ</small></string>
+    <string name="revanced_language_PL">Polacco\n<small>Polski</small></string>
+    <string name="revanced_language_PT">Portoghese\n<small>Português</small></string>
+    <string name="revanced_language_RO">Rumeno\n<small>Română</small></string>
+    <string name="revanced_language_RU">Russo\n<small>Русский</small></string>
+    <string name="revanced_language_SK">Slovacco\n<small>Slovenčina</small></string>
+    <string name="revanced_language_SL">Sloveno\n<small>Slovenščina</small></string>
+    <string name="revanced_language_SQ">Albanese\n<small>Shqip</small></string>
+    <string name="revanced_language_SR">Serbo\n<small>Српски</small></string>
+    <string name="revanced_language_SV">Svedese\n<small>Svenska</small></string>
+    <string name="revanced_language_SW">Suahili\n<small>Kiswahili</small></string>
+    <string name="revanced_language_TA">Tàmil\n<small>தமிழ்</small></string>
+    <string name="revanced_language_TE">Tèlugu\n<small>తెలుగు</small></string>
+    <string name="revanced_language_TH">Tailandese\n<small>ไทย</small></string>
+    <string name="revanced_language_TL">Filippino\n<small>Filippino</small></string>
+    <string name="revanced_language_TR">Turco\n<small>Türkçe</small></string>
+    <string name="revanced_language_UK">Ucraino\n<small>Українська</small></string>
+    <string name="revanced_language_UR">Urdù\n<small>اردو</small></string>
+    <string name="revanced_language_VI">Vietnamese\n<small>Tiếng Việt</small></string>
+    <string name="revanced_language_ZH">Cinese\n<small>中文</small></string>
     <string name="revanced_language_title">Lingua di ReVanced</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">L\'azione a doppio tocco e il pizzico da ridimensionare è disabilitato</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"I gesti Doppio Tocco e Pizzico per ridimensionare sono abilitati
@@ -1968,7 +1908,7 @@ Descrizione
 ══════════════
 %3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Il margine superiore delle azioni rapide deve essere tra 0 e 32</string>
-    <string name="revanced_quick_actions_top_margin_summary">Configura lo spazio tra la barra di ricerca e il contenitore delle azioni rapide, tra 0 e 32.</string>
+    <string name="revanced_quick_actions_top_margin_summary">Imposta il margine superiore della barra delle azioni rapide (da 0 a 32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Margine superiore delle azioni rapide</string>
     <string name="revanced_related_videos_offset_title">Numero massimo di interfacce</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Le modifiche della velocità di riproduzione si applicano solo al video corrente</string>
@@ -2038,6 +1978,7 @@ Tocca e tieni premuto per aprire le impostazioni di YouTube."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Le miniature della barra di avanzamento appariranno a schermo intero</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Le miniature della barra di avanzamento appariranno sopra la barra di avanzamento</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Ripristina vecchie miniature della barra di avanzamento</string>
+    <string name="revanced_restore_old_settings_menus_title">Ripristina la vecchia schermata delle impostazioni di YouTube</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">La vecchia interfaccia è disattivata.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"La vecchia interfaccia è attivata.
 (Nessun margine in alto e in basso del riproduttore.)"</string>
@@ -2137,7 +2078,7 @@ Nota: i non mi piace potrebbero non apparire se l'utente non ha effettuato l'acc
     <string name="revanced_sb_enable_voting_sum_off">Il pulsante di voto del segmento è nascosto</string>
     <string name="revanced_sb_enable_voting_sum_on">Il pulsante di voto del segmento è visibile</string>
     <string name="revanced_sb_general">Generale</string>
-    <string name="revanced_sb_general_adjusting">Regola passo del nuovo segmento</string>
+    <string name="revanced_sb_general_adjusting">Passo di regolazione del tempo</string>
     <string name="revanced_sb_general_adjusting_invalid">Il valore deve essere un numero positivo</string>
     <string name="revanced_sb_general_adjusting_sum">Il tempo in millisecondi che spostano i pulsanti quando si creano nuovi segmenti</string>
     <string name="revanced_sb_general_api_url">Modifica l\'URL dell\'API</string>
@@ -2158,7 +2099,7 @@ Nota: i non mi piace potrebbero non apparire se l'utente non ha effettuato l'acc
     <string name="revanced_sb_general_uuid_invalid">L\'ID utente privato deve essere lungo almeno 30 caratteri</string>
     <string name="revanced_sb_general_uuid_sum">Questo dovrebbe essere tenuto privato. Questo è come una password e non dovrebbe essere condiviso con nessuno. Se qualcuno possiede questo ID, ti può impersonare</string>
     <string name="revanced_sb_guidelines_popup_already_read">Già lette</string>
-    <string name="revanced_sb_guidelines_popup_content">Visualizza le regole e i suggerimenti per la creazione di nuovi segmenti</string>
+    <string name="revanced_sb_guidelines_popup_content">Leggi le linee guida di SponsorBlock prima di creare nuovi segmenti</string>
     <string name="revanced_sb_guidelines_popup_open">Mostramele</string>
     <string name="revanced_sb_guidelines_popup_title">Segui le linee guida</string>
     <string name="revanced_sb_guidelines_preference_sum">Le linee guida contengono regole e suggerimenti per la creazione di nuovi segmenti</string>
@@ -2387,7 +2328,7 @@ Note:
     <string name="revanced_shorts_autoplay_background_title">Riproduzione automatica in background</string>
     <string name="revanced_shorts_autoplay_disabled_toast">Shorts player automatico disattivato</string>
     <string name="revanced_shorts_autoplay_enabled_toast">Shorts autoplayer disattivato</string>
-    <string name="revanced_shorts_autoplay_summary">Passa automaticamente al prossimo Short invece di ripetere quello corrente</string>
+    <string name="revanced_shorts_autoplay_summary">Passa automaticamente al prossimo Short anziché ripetere quello corrente</string>
     <string name="revanced_shorts_autoplay_title">Riproduci automaticamente gli Short</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Questa impostazione è ancora sperimentale, quindi non c'è garanzia che funzionerà perfettamente.
 
@@ -2473,7 +2414,7 @@ Nota: il titolo scompare quando lo si tocca."</string>
 Questo cambierà l'aspetto e le funzionalità dell'app, ma potrebbero verificarsi effetti collaterali sconosciuti.
 
 Se in seguito verrà disattivata, si consiglia di cancellare i dati dell'app per evitare bug dell'interfaccia."</string>
-    <string name="revanced_spoof_device_dimensions_summary">Inganna il server per restituire opzioni di qualità superiore alterando le dimensioni del dispositivo</string>
+    <string name="revanced_spoof_device_dimensions_summary">Abilitare questa opzione può sbloccare qualità video più elevate</string>
     <string name="revanced_spoof_device_dimensions_title">Simula le dimensioni del dispositivo</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">Il codec è AVC (H.264) o VP9.</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"Il codec è AVC (H.264), VP9 o AV1.
@@ -2615,8 +2556,8 @@ Regola la luminosità scorrendo verticalmente sul lato sinistro dello schermo"</
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Colore overlay durante scorrimento della luminosità</string>
     <string name="revanced_swipe_overlay_progress_seek_color_summary">Il colore della barra di avanzamento per i controlli di ricerca</string>
     <string name="revanced_swipe_overlay_progress_seek_color_title">Colore sovrapposizione ricerca</string>
-    <string name="revanced_swipe_overlay_progress_speed_color_summary">Il colore della barra di avanzamento per i controlli di velocità</string>
-    <string name="revanced_swipe_overlay_progress_speed_color_title">Colore sovrapposizione velocità</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">Imposta il colore della barra di avanzamento dei controlli della velocità di riproduzione</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">Colore sovrapposizione durante lo scorrimento della velocità</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">Imposta il colore della barra di avanzamento dei controlli del volume</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Colore sovrapposizione durante scorrimento del volume</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">La dimensione dell\'area non può essere superiore a 50</string>
@@ -2652,7 +2593,7 @@ Cerca nel video scorrendo orizzontalmente nella metà superiore dello schermo."<
     <string name="revanced_swipe_speed_summary_on">"Lo scorrimento per la velocità a schermo intero è abilitato.
 
 Regola la velocità scorrendo orizzontalmente nella metà inferiore dello schermo."</string>
-    <string name="revanced_swipe_speed_title">Abilita il gesto di velocità</string>
+    <string name="revanced_swipe_speed_title">Attiva il gesto per la velocità</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">La zona del gesto di ricerca è in alto, la zona della velocità è in basso.</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">La zona del gesto della velocità è in alto, la zona della ricerca è in basso.</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Cambia velocità e gesti di scorrimento</string>
@@ -2664,7 +2605,7 @@ Regola la velocità scorrendo orizzontalmente nella metà inferiore dello scherm
     <string name="revanced_swipe_volume_distance_summary">La quantità di pixel da scorrere per regolare il volume. I valori più bassi rendono la variazione del volume più veloce, i valori più alti lo rendono più lento (1-1000).</string>
     <string name="revanced_swipe_volume_distance_title">Distanza del volume</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">La sensibilità del trascinamento deve essere tra 1 e 1000</string>
-    <string name="revanced_swipe_volume_sensitivity_summary">Regola la modalità di variazione del volume durante lo scorrimento</string>
+    <string name="revanced_swipe_volume_sensitivity_summary">Valori più alti aumentano la variazione di volume per scorrimento</string>
     <string name="revanced_swipe_volume_sensitivity_title">Sensibilità allo scorrimento del volume</string>
     <string name="revanced_swipe_volume_summary_off">Lo scorrimento del volume a schermo intero è disabilitato</string>
     <string name="revanced_swipe_volume_summary_on">"Lo scorrimento del volume a schermo intero è abilitato
@@ -2731,6 +2672,8 @@ Nota: i cookie generati senza effettuare l'accesso potrebbero non essere validi 
     <string name="revanced_vot_original_audio_volume_summary">Volume della traccia video originale quando la traduzione è in esecuzione (0-100). Default: 50</string>
     <string name="revanced_vot_original_audio_volume_title">Volume dell'audio originale</string>
     <string name="revanced_vot_playback_error">Riproduzione della traduzione audio fallita</string>
+    <string name="revanced_vot_proxy_url_summary">Host proxy worker VOT. Predefinito: vot-worker.toil.cc</string>
+    <string name="revanced_vot_proxy_url_title">Server proxy</string>
     <string name="revanced_vot_source_language_summary">Seleziona la lingua dell'audio del video</string>
     <string name="revanced_vot_source_language_title">Lingua sorgente</string>
     <string name="revanced_vot_started">Traduzione iniziata</string>
@@ -2746,7 +2689,11 @@ Nota: i cookie generati senza effettuare l'accesso potrebbero non essere validi 
     <string name="revanced_vot_unavailable_live">La traduzione non è disponibile per le live streams</string>
     <string name="revanced_vot_unavailable_same_language">L'audio del video è già nella lingua target</string>
     <string name="revanced_vot_unavailable_too_long">Il video è troppo lungo per essere tradotto (max 4 hours)</string>
+    <string name="revanced_vot_voice_style_live">Voci dal vivo</string>
+    <string name="revanced_vot_voice_style_live_summary_off">Voci TTS standard</string>
     <string name="revanced_vot_voice_style_live_summary_on">Voci con intonazione naturale da Yandex</string>
+    <string name="revanced_vot_voice_style_live_title">Voci dal vivo</string>
+    <string name="revanced_vot_voice_style_standard">Voci standard</string>
     <string name="revanced_watch_history_about_status_blocked">La cronologia è bloccata.</string>
     <string name="revanced_watch_history_about_status_original">"• Segue le impostazioni di cronologia dell'account Google.
 • La cronologia potrebbe non funzionare a causa di DNS o VPN."</string>

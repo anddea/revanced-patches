@@ -41,7 +41,7 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
     <string name="morphe_reload_video_summary_off">Tombol muat ulang video tidak ditampilkan</string>
     <string name="morphe_reload_video_summary_on">Tombol muat ulang video ditampilkan</string>
     <string name="morphe_reload_video_title">Tampilkan tombol muat ulang video</string>
-    <string name="morphe_replace_links_with_shortener_summary">Memaksa siaran langsung dan Shorts untuk menggunakan format URL pendek youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_summary">Memaksa video untuk menggunakan format pemendek URL youtu.be</string>
     <string name="morphe_replace_links_with_shortener_title">Ubah tautan berbagi ke youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Tautan yang dibagikan menggunakan music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Tautan yang dibagikan menggunakan youtube.com</string>
@@ -74,7 +74,6 @@ Pemutaran video dengan AV1 mungkin tersendat atau kehilangan bingkai."</string>
 • Pemutaran gagal jika hash pemutar JavaScript dicabut di GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Nonaktifkan pembaruan pemutar JavaScript</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Pemutar hash JavaScript berlaku selama kurang lebih satu bulan, dan hash yang kedaluwarsa mungkin dicabut oleh GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Cobalah mengaktifkan: Palsukan aliran video &gt; Masuk Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Tidak dapat mengambil aliran klien apa pun</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Masukkan hash pemutar JavaScript yang sah</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash pemutar JavaScript</string>
@@ -442,14 +441,27 @@ Catatan:
     <string name="revanced_disable_translucent_status_bar_summary_off">Bilah status buram atau tembus pandang</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Bilah status buram</string>
     <string name="revanced_disable_translucent_status_bar_title">Nonaktifkan bilah status tembus cahaya</string>
+    <string name="revanced_disable_video_description_interaction_summary">"Disables the following interactions when the video description is expanded:
+
+• Sentuh untuk scroll.
+• Sentuh dan tahan untuk memilih teks."</string>
+    <string name="revanced_disable_vp9_codec_summary_off">VP9 codec diaktifkan.</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"VP9 codec dimatikan.
+
+Info:
+• Maximum resolution is 1080p.
+• Video playback will use more internet data than VP9.
+• VP9 codec is still used for HDR video."</string>
+    <string name="revanced_disable_vp9_codec_title">Matikan VP9 codec</string>
     <string name="revanced_dismiss_player_not_available_toast">ID video tidak tersedia. Silakan muat ulang video secara manual</string>
+    <string name="revanced_enable_opus_codec_title">Aktifkan OPUS codec</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">Penundaan pemrosesan berikutnya dinonaktifkan.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">Tonton penundaan pemrosesan berikutnya diaktifkan.</string>
     <string name="revanced_enable_watch_next_processing_delay_title">Aktifkan penundaan pemrosesan tontonan berikutnya</string>
     <string name="revanced_exit_fullscreen_entry_1">Dinonaktifkan</string>
     <string name="revanced_exit_fullscreen_entry_2">Potret saja</string>
     <string name="revanced_exit_fullscreen_entry_3">Lanskap saja</string>
-    <string name="revanced_exit_fullscreen_entry_4">Keduanya</string>
+    <string name="revanced_exit_fullscreen_entry_4">Potret dan lanskap</string>
     <string name="revanced_exit_fullscreen_title">Keluar dari mode layar penuh di akhir video</string>
     <string name="revanced_external_downloader_dialog_title">Pengunduh eksternal</string>
     <string name="revanced_external_downloader_empty_warning">Nama paket tidak boleh kosong</string>
@@ -681,7 +693,11 @@ Keterbatasan
     <string name="revanced_hide_keyword_content_home_summary_off">Video di tab beranda tidak disaring berdasarkan kata kunci</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Video di tab beranda disaring berdasarkan kata kunci</string>
     <string name="revanced_hide_keyword_content_home_title">Sembunyikan video beranda dengan kata kunci</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">Masukkan kata kunci atau nama saluran, dipisahkan oleh baris baru. Kata-kata dengan huruf besar di tengah harus sama persis (misalnya: iPhone, TikTok, LeBlanc)</string>
+    <string name="revanced_hide_keyword_content_phrases_summary">"Masukkan kata kunci dan frasa yang akan disembunyikan, dipisahkan dengan baris baru
+
+Kata kunci dapat berupa teks apa pun yang muncul dalam judul video atau nama saluran
+
+Kata-kata yang mengandung huruf besar di tengah harus sama persis (misalnya: iPhone, TikTok, LeBlanc)"</string>
     <string name="revanced_hide_keyword_content_phrases_title">Kata kunci yang ingin disembunyikan</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Hasil pencarian tidak disaring berdasarkan kata kunci</string>
     <string name="revanced_hide_keyword_content_search_summary_on">Hasil pencarian disaring berdasarkan kata kunci</string>
@@ -735,7 +751,7 @@ Keterbatasan
     <string name="revanced_hide_notify_me_button_title">Sembunyikan \'Beri tahu saya\'</string>
     <string name="revanced_hide_paid_promotion_label_summary_off">Label promosi berbayar ditampilkan</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">Label promosi berbayar disembunyikan</string>
-    <string name="revanced_hide_paid_promotion_label_title">Sembunyikan label promosi berbayar</string>
+    <string name="revanced_hide_paid_promotion_label_title">Sembunyikan label \'Termasuk promosi berbayar\'</string>
     <string name="revanced_hide_playables_summary_off">Permainan ditampilkan</string>
     <string name="revanced_hide_playables_summary_on">Permainan disembunyikan</string>
     <string name="revanced_hide_playables_title">Sembunyikan Permainan</string>
@@ -962,22 +978,15 @@ Keterbatasan:
     <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles ditampilkan beberapa hari setiap tahun di berbagai belahan dunia.
 
 Menampilkan YouTube Doodles mungkin mencegah menampilkan header khusus."</string>
-    <string name="revanced_language_AM">Amharik\n<small>አማርኛ</small>
-    </string>
-    <string name="revanced_language_AR">Arab\n<small>العربية</small>
-    </string>
-    <string name="revanced_language_AZ">Azerbaijan\n<small>Azərbaycan</small>
-    </string>
-    <string name="revanced_language_BE">Belarusia\n<small>беларуская</small>
-    </string>
-    <string name="revanced_language_BG">Bulgaria\n<small>Български</small>
-    </string>
-    <string name="revanced_language_BN">Bengali\n<small>বাংলা</small>
-    </string>
+    <string name="revanced_language_AM">Amharik\n<small>አማርኛ</small></string>
+    <string name="revanced_language_AR">Arab\n<small>العربية</small></string>
+    <string name="revanced_language_AZ">Azerbaijan\n<small>Azərbaycan</small></string>
+    <string name="revanced_language_BE">Belarusia\n<small>беларуская</small></string>
+    <string name="revanced_language_BG">Bulgaria\n<small>Български</small></string>
+    <string name="revanced_language_BN">Bengali\n<small>বাংলা</small></string>
     <string name="revanced_language_CA">Catalan</string>
     <string name="revanced_language_DEFAULT">Bahasa aplikasi</string>
-    <string name="revanced_language_ID">Indonesian\n<small>Indonesia</small>
-    </string>
+    <string name="revanced_language_ID">Indonesian\n<small>Indonesia</small></string>
     <string name="revanced_language_title">Bahasa ReVanced</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Tindakan ketuk dua kali dan cubit untuk mengubah ukuran dinonaktifkan</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Tindakan ketuk dua kali dan cubit untuk mengubah ukuran diaktifkan
@@ -1107,6 +1116,8 @@ Judul
 Deskripsi
 ══════════════
 %3$s"</string>
+    <string name="revanced_quick_actions_top_margin_summary">Tetapkan batas atas bilah tindakan cepat (0-32 dp)</string>
+    <string name="revanced_quick_actions_top_margin_title">Batas atas tindakan cepat</string>
     <string name="revanced_related_videos_offset_title">Offset</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Perubahan kecepatan pemutaran berlaku untuk video saat ini</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Perubahan kecepatan pemutaran berlaku untuk semua video</string>
@@ -1136,6 +1147,7 @@ Ini tidak melewati batasan usia. Itu hanya menerimanya secara otomatis."</string
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Thumbnail seekbar akan muncul di layar penuh</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Thumbnail seekbar akan muncul di atas seekbar</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Pulihkan thumbnail seekbar yang lama</string>
+    <string name="revanced_restore_old_settings_menus_title">Pulihkan menu pengaturan lama YouTube</string>
     <string name="revanced_ryd_attribution_summary">Data disediakan oleh API Return YouTube Dislike. Tekan di sini untuk mempelajari lebih lanjut</string>
     <string name="revanced_ryd_compact_layout_summary_off">Tombol suka ditata untuk tampilan terbaik</string>
     <string name="revanced_ryd_compact_layout_summary_on">Tombol suka ditata untuk lebar minimum</string>
@@ -1197,7 +1209,7 @@ Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
     <string name="revanced_sb_enable_voting_sum_off">Tombol segmen voting tidak ditampilkan</string>
     <string name="revanced_sb_enable_voting_sum_on">Tombol segmen voting ditampilkan</string>
     <string name="revanced_sb_general">Umum</string>
-    <string name="revanced_sb_general_adjusting">Sesuaikan langkah segmen baru</string>
+    <string name="revanced_sb_general_adjusting">Langkah penyesuaian waktu</string>
     <string name="revanced_sb_general_adjusting_invalid">Nilainya harus berupa angka positif</string>
     <string name="revanced_sb_general_adjusting_sum">Jumlah milidetik tombol penyesuaian waktu bergerak saat membuat segmen baru</string>
     <string name="revanced_sb_general_api_url">Ubah URL API</string>
@@ -1218,7 +1230,7 @@ Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
     <string name="revanced_sb_general_uuid_invalid">ID pengguna tidak boleh lebih dari 30 karakter</string>
     <string name="revanced_sb_general_uuid_sum">Ini harus dijaga kerahasiaannya. Seperti kata sandi dan tidak disarankan untuk dibagikan dengan siapa pun. Jika seseorang mendapatkan ini, mereka dapat menyamar sebagai Anda</string>
     <string name="revanced_sb_guidelines_popup_already_read">Sudah dibaca</string>
-    <string name="revanced_sb_guidelines_popup_content">Lihat aturan dan tips untuk membuat segmen baru</string>
+    <string name="revanced_sb_guidelines_popup_content">Bacalah panduan SponsorBlock sebelum membuat segmen baru</string>
     <string name="revanced_sb_guidelines_popup_open">Tunjukkan</string>
     <string name="revanced_sb_guidelines_popup_title">Ikuti pedoman</string>
     <string name="revanced_sb_guidelines_preference_sum">Pedoman berisi aturan dan saran untuk membuat segmen baru</string>
@@ -1421,7 +1433,7 @@ Sudah ada"</string>
 Ini akan mengubah tampilan dan fitur aplikasi, tetapi efek samping yang tidak diketahui dapat terjadi.
 
 Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah bug UI."</string>
-    <string name="revanced_spoof_device_dimensions_summary">Menipu server agar menampilkan pilihan dengan kualitas lebih tinggi dengan memalsukan dimensi perangkat</string>
+    <string name="revanced_spoof_device_dimensions_summary">Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi</string>
     <string name="revanced_spoof_device_dimensions_title">Palsukan dimensi perangkat</string>
     <string name="revanced_swipe_brightness_summary_off">Pengusapan kecerahan layar penuh dinonaktifkan</string>
     <string name="revanced_swipe_brightness_summary_on">"Pengusapan kecerahan layar penuh diaktifkan
@@ -1435,11 +1447,13 @@ Sesuaikan kecerahan dengan mengusap secara vertikal pada sisi kiri layar"</strin
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Mengusap ke bawah ke nilai terendah tidak mengaktifkan kecerahan otomatis</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Mengusap ke bawah ke nilai terendah dari gerakan kecerahan akan menyalakan kecerahan otomatis</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Aktifkan gerakan kecerahan otomatis</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opasitas geser harus antara 0-100</string>
+    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opasitas usap harus antara 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Sesuaikan level transparansi (0 transparan, 100 buram)</string>
-    <string name="revanced_swipe_overlay_background_opacity_title">Opasitas latar belakang hamparan geser</string>
+    <string name="revanced_swipe_overlay_background_opacity_title">Opasitas latar belakang hamparan usap</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Atur warna bilah kemajuan kontrol kecerahan</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Warna kecerahan lapisan usap</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">Atur warna bilah kemajuan pada kontrol kecepatan pemutaran</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">Kecepatan geser hamparan warna</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">Atur warna bilah kemajuan kontrol volume</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Warna volume lapisan usap</string>
     <string name="revanced_swipe_overlay_style_entry_1">Hamparan horizontal</string>
@@ -1454,16 +1468,17 @@ Sesuaikan kecerahan dengan mengusap secara vertikal pada sisi kiri layar"</strin
     <string name="revanced_swipe_overlay_timeout_title">Batas waktu hamparan usap</string>
     <string name="revanced_swipe_press_to_engage_summary_off">Tekan untuk menggeser dinonaktifkan</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Tekan untuk menggeser diaktifkan</string>
-    <string name="revanced_swipe_press_to_engage_title">Aktifkan tekan untuk gerakan geser</string>
+    <string name="revanced_swipe_press_to_engage_title">Aktifkan tekan untuk gerakan usap</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Jangan simpan dan pulihkan kecerahan saat keluar atau memasuki layar penuh</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Simpan dan pulihkan kecerahan saat keluar atau memasuki layar penuh</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Simpan dan pulihkan kecerahan</string>
+    <string name="revanced_swipe_speed_title">Aktifkan gerakan kecepatan</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">Ukuran teks harus antara 1-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">Sesuaikan ukuran teks di layar (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Ukuran teks lapisan usap</string>
-    <string name="revanced_swipe_threshold_summary">Atur jarak geser yang diperlukan agar penyesuaian dimulai</string>
+    <string name="revanced_swipe_threshold_summary">Atur jarak usap yang diperlukan agar penyesuaian dimulai</string>
     <string name="revanced_swipe_threshold_title">Ambang batas magnitudo usap</string>
-    <string name="revanced_swipe_volume_sensitivity_summary">Sesuaikan cara perubahan volume saat menggeser</string>
+    <string name="revanced_swipe_volume_sensitivity_summary">Nilai yang lebih tinggi meningkatkan perubahan volume per usapan</string>
     <string name="revanced_swipe_volume_sensitivity_title">Sensitivitas volume usap</string>
     <string name="revanced_swipe_volume_summary_off">Pengusapan volume layar penuh dinonaktifkan</string>
     <string name="revanced_swipe_volume_summary_on">"Pengusapan volume layar penuh diaktifkan

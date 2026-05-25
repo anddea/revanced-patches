@@ -33,6 +33,7 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 no está disponible temporalmente (la API no responde)</string>
     <string name="morphe_oauth2_toast_invalid">Token de inicio de sesión de VR no válido, intenta iniciar sesión en VR de nuevo</string>
     <string name="morphe_oauth2_toast_reset">Desconectado de Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary">Reemplaza music.youtube.com con youtube.com en los enlaces compartidos</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Los enlaces compartidos usan music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Los enlaces compartidos usan youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Cambiar enlaces compartidos a youtube.com</string>
@@ -52,7 +53,6 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
 • La reproducción fallará si el hash JavaScript del reproductor es revocado por GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Desactivar la actualización de JavaScript del reproductor</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Los hashes JavaScript del reproductor son válidos aproximadamente un mes, y los hashes obsoletos pueden ser revocados por GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Prueba a activar: Falsificar transmisiones de vídeo &gt; Inicio de sesión de Android VR</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">No se ha podido obtener ninguna transmisión del cliente</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Introduzca un hash JavaScript del reproductor válido</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash JavaScript del reproductor</string>
@@ -85,9 +85,9 @@ Para iniciar sesión, pulsa en \"Continuar\" a continuación"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Sesión iniciada correctamente</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">No se pudo emitir un código de activación</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">No se pudo emitir un token de autenticación</string>
-    <string name="morphe_spoof_video_streams_summary">"Engaña a YouTube para que envíe una transmisión de vídeo compatible, lo que soluciona la reproducción para la mayoría de los usuarios
+    <string name="morphe_spoof_video_streams_summary">"Corrige los problemas de reproducción para la mayoría de los usuarios solicitando una transmisión de video compatible
 
-Si eres usuario de YouTube Premium, es posible que esta configuración no sea necesaria"</string>
+Si eres usuario de YouTube Premium, esta configuración puede no ser necesaria"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Las transmisiones de video no están suplantadas
 
 La reproducción podría no funcionar"</string>
@@ -455,8 +455,10 @@ Hay limitaciones estructurales en el parcheo, actividades tales como Buscar y Aj
     <string name="revanced_replace_navigation_upgrade_button_summary">Reemplaza el botón \"Actualizar\" con el botón \"Configuración\".</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Reemplazar botón \"Actualizar\"</string>
     <string name="revanced_reset_to_default_toast">Restaurar valores predeterminados.</string>
+    <string name="revanced_restart_dialog_message">Reinicie la app para que este cambio surta efecto.</string>
     <string name="revanced_restart_first_run">Reiniciar para finalizar la configuración</string>
     <string name="revanced_restart_message">Actualizar y reiniciar</string>
+    <string name="revanced_restart_title">Reinicio requerido</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Devuelve los paneles emergentes de comentarios al estilo antiguo.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Restaurar paneles emergentes de comentarios antiguos</string>
     <string name="revanced_restore_old_player_background_summary">Devuelve el fondo del reproductor al estilo antiguo.</string>
@@ -588,7 +590,7 @@ Toca para ver cómo crear una clave de API."</string>
 • La búsqueda ignora las mayúsculas y minúsculas y la puntuación.
 • Los ajustes principales aparecen por encima de los ajustes secundarios desactivados."</string>
     <string name="revanced_settings_search_tips_title">Consejos de búsqueda</string>
-    <string name="revanced_settings_search_title">Buscar %s</string>
+    <string name="revanced_settings_search_title">Buscar en %s</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Ajustes copiados en el portapapeles.</string>
     <string name="revanced_spoof_app_version_for_lyrics_summary">Simula una versión anterior del cliente para las letras de las canciones.</string>
@@ -671,9 +673,9 @@ Si eres un usuario de YouTube Premium, esta opción puede ser necesaria."</strin
 • La aplicación puede verse forzada a cerrarse al usar una VPN o DNS.
 • El audio puede entrecortarse de forma intermitente durante la reproducción en clientes de transmisión con tasa de bits adaptable (todos los clientes excepto Android VR 1.43.32).</string>
     <string name="revanced_spoof_video_streams_default_client_title">Cliente predeterminado</string>
-    <string name="revanced_spoof_video_streams_summary">"Engaña a YouTube para que envíe una transmisión de vídeo compatible, lo que soluciona la reproducción para la mayoría de los usuarios
+    <string name="revanced_spoof_video_streams_summary">"Corrige los problemas de reproducción para la mayoría de los usuarios solicitando una transmisión de video compatible
 
-Si eres usuario de YouTube Premium, es posible que esta configuración no sea necesaria"</string>
+Si eres usuario de YouTube Premium, esta configuración puede no ser necesaria"</string>
     <string name="revanced_spoof_video_streams_title">Falsificar transmisiones de vídeo</string>
     <string name="revanced_translations_title">Traducciones</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
