@@ -71,7 +71,7 @@ val visualPreferencesIconsPatch = resourcePatch(
             preferenceKey.putAll(rvxPreferenceKey)
         }
 
-        // region copy shared resources.
+        // region copy shared resources
 
         copyResourcesWithRename("youtube/visual/icons", preferenceKey)
 
@@ -84,9 +84,9 @@ val visualPreferencesIconsPatch = resourcePatch(
             copyResources("youtube/visual/icons", resourceGroup)
         }
 
-        // endregion.
+        // endregion
 
-        // region copy RVX settings menu icon.
+        // region copy RVX settings menu icon
 
         val fallbackIconPath = "youtube/visual/icons/extension"
         val iconPath = when (selectedIconType) {
@@ -111,36 +111,124 @@ val visualPreferencesIconsPatch = resourcePatch(
             copyResources(fallbackIconPath, resourceGroup)
         }
 
-        // endregion.
+        // Cairo icon for RVX
+        val visualScaleAdjustment = 1.15f
+
+        get("res/drawable/revanced_settings_key_icon.xml")
+            .copyTo(get("res/drawable/revanced_settings_cairo_key_icon.xml"), overwrite = true)
+
+        document("res/drawable/revanced_settings_cairo_key_icon.xml").use { document ->
+            document.documentElement.apply {
+                setAttribute("android:width", "24dp")
+                setAttribute("android:height", "24dp")
+            }
+
+            document.doRecursively loop@{ node ->
+                if (node !is Element || node.tagName != "group") return@loop
+
+                val scaleX = node.getAttribute("android:scaleX").toFloatOrNull()
+                val scaleY = node.getAttribute("android:scaleY").toFloatOrNull()
+
+                if (scaleX == 0.5f) {
+                    node.setAttribute("android:scaleX", (1.0f * visualScaleAdjustment).toString())
+                }
+
+                if (scaleY == 0.5f) {
+                    node.setAttribute("android:scaleY", (1.0f * visualScaleAdjustment).toString())
+                }
+            }
+        }
+
+        // endregion
+
+        // region create custom preference layout for Cairo menu to prevent white tint and crop to circle
+
+        val maskXml = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <shape xmlns:android="http://schemas.android.com/apk/res/android"
+                android:shape="oval">
+                <solid android:color="#00000000" />
+            </shape>
+        """.trimIndent()
+
+        get("res/drawable/revanced_circle_mask.xml").writeText(maskXml)
+
+        val customLayoutXml = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="54.0dp">
+                <ImageView
+                    android:id="@+id/revanced_custom_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center|end"
+                    android:layout_marginHorizontal="18.0dp"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/revanced_circle_mask"
+                    android:clipToOutline="true"
+                    android:src="@drawable/revanced_settings_cairo_key_icon" />
+                <TextView
+                    android:id="@android:id/title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:textAlignment="viewStart"
+                    android:textColor="?attr/ytTextPrimary"
+                    android:textSize="@dimen/medium_font_size" />
+            </LinearLayout>
+        """.trimIndent()
+
+        get("res/layout/revanced_preference_with_icon.xml").writeText(customLayoutXml)
+
+        // endregion
 
         addPreference(VISUAL_PREFERENCES_ICONS_FOR_YOUTUBE)
 
     }
 
     finalize {
-        // region set visual preferences icon.
+        // region set visual preferences icon
 
         arrayOf(
             "res/xml/revanced_prefs.xml",
-            "res/xml/settings_fragment.xml"
+            "res/xml/settings_fragment.xml",
+            "res/xml/settings_fragment_cairo.xml",
+            "res/xml/settings_fragment_legacy.xml"
         ).forEach { xmlFile ->
+            if (!get(xmlFile).exists()) {
+                return@forEach
+            }
+
+            val isCairoSettingsFragment = xmlFile == "res/xml/settings_fragment_cairo.xml"
+
             document(xmlFile).use { document ->
                 document.doRecursively loop@{ node ->
                     if (node !is Element) return@loop
-
-                    node.getAttributeNode("android:key")
+                    val key = node.getAttributeNode("android:key")
                         ?.textContent
                         ?.removePrefix("@string/")
-                        ?.let { title ->
-                            val drawableName = when (title) {
+
+                    val isCairoSettingsMenu = isCairoSettingsFragment &&
+                            key == "revanced_settings_key"
+
+                    key?.let { title ->
+                        val drawableName = if (isCairoSettingsFragment && title != "revanced_settings_key") {
+                            null
+                        } else {
+                            when (title) {
                                 in preferenceKey.keys -> {
                                     val pathData = preferenceKey[title]
 
                                     // If pathData is another title then use it as an icon title
                                     if (preferenceKey.containsKey(pathData)) {
-                                        pathData
+                                        "${pathData}_icon"
                                     } else {
-                                        title
+                                        "${title}_icon"
                                     }
                                 }
 
@@ -149,19 +237,36 @@ val visualPreferencesIconsPatch = resourcePatch(
                                 in emptyTitles -> EMPTY_ICON
                                 else -> null
                             }
-                            if (drawableName == EMPTY_ICON &&
-                                applyToAll == false
-                            ) return@loop
+                        }
 
-                            drawableName?.let {
-                                node.setAttribute("android:icon", "@drawable/$it")
+                        if (drawableName == EMPTY_ICON &&
+                            applyToAll == false
+                        ) return@loop
+
+                        drawableName?.let {
+                            val iconName = if (isCairoSettingsMenu) {
+                                "revanced_settings_cairo_key_icon"
+                            } else {
+                                it
+                            }
+
+                            if (isCairoSettingsMenu) {
+                                // Remove dynamic icon binding to prevent programmatic tinting
+                                node.removeAttribute("android:icon")
+                                node.removeAttribute("android:iconTint")
+                                node.removeAttribute("app:iconTint")
+                                node.setAttribute("android:layout", "@layout/revanced_preference_with_icon")
+                                node.setAttribute("app:iconSpaceReserved", "true")
+                            } else {
+                                node.setAttribute("android:icon", "@drawable/$iconName")
                             }
                         }
+                    }
                 }
             }
         }
 
-        // endregion.
+        // endregion
     }
 }
 
@@ -170,6 +275,7 @@ private var preferenceKey = mutableMapOf(
     "parent_tools_key" to "M 677.462 535.154 Q 645.289 535.154 622.645 512.509 Q 600 489.865 600 457.692 Q 600 425.52 622.768 402.875 Q 645.535 380.231 677.077 380.231 Q 709.634 380.231 731.894 402.999 Q 754.154 425.766 754.154 457.308 Q 754.154 489.865 731.894 512.509 Q 709.634 535.154 677.462 535.154 Z M 498.769 744.616 L 498.769 710.539 Q 498.769 691.462 507.333 677.169 Q 515.897 662.877 532.308 656 Q 566.333 640.077 602.359 632.231 Q 638.385 624.385 677.462 624.385 Q 714.98 624.385 751.067 632.115 Q 787.154 639.846 822.615 656 Q 838.192 662.923 846.789 677.192 Q 855.385 691.462 855.385 710.539 L 855.385 744.616 L 498.769 744.616 Z M 384.615 455.154 Q 335.115 455.154 302.173 422.212 Q 269.231 389.269 269.231 339.385 Q 269.231 289.5 302.173 256.942 Q 335.115 224.384 384.615 224.384 Q 434.116 224.384 467.058 256.942 Q 500 289.5 500 339.385 Q 500 389.269 467.058 422.212 Q 434.116 455.154 384.615 455.154 Z M 384.615 339.769 Z M 104.615 744.616 L 104.615 686.769 Q 104.615 660.817 118.923 639.062 Q 133.231 617.308 159.205 606.923 Q 216.538 580.769 271.851 567.308 Q 327.164 553.846 384.315 553.846 Q 407.385 553.846 427 554.923 Q 446.616 556 467.923 559.692 Q 461.327 565.904 454.731 573.269 Q 448.135 580.635 441.539 586.846 Q 428.539 586 414.308 585.308 Q 400.077 584.615 384.615 584.615 Q 331.042 584.615 278.79 595.346 Q 226.539 606.077 173.538 634 Q 158.769 641.769 147.077 655.616 Q 135.385 669.462 135.385 686.769 L 135.385 713.846 L 397.231 713.846 L 397.231 744.616 L 104.615 744.616 Z M 397.231 713.846 Z M 384.615 424.385 Q 420.539 424.385 444.885 400.038 Q 469.231 375.692 469.231 339.769 Q 469.231 303.846 444.885 279.5 Q 420.539 255.154 384.615 255.154 Q 348.692 255.154 324.346 279.5 Q 300 303.846 300 339.769 Q 300 375.692 324.346 400.038 Q 348.692 424.385 384.615 424.385 Z",
     "general_key" to "M 702.308 766.923 Q 652.877 766.923 618.746 732.793 Q 584.615 698.662 584.615 649.231 Q 584.615 599.8 618.746 565.669 Q 652.877 531.538 702.308 531.538 Q 751.739 531.538 785.869 565.669 Q 820 599.8 820 649.231 Q 820 698.662 785.869 732.793 Q 751.739 766.923 702.308 766.923 Z M 702.121 736.154 Q 738.769 736.154 764 711.11 Q 789.231 686.065 789.231 649.417 Q 789.231 612.769 764.187 587.539 Q 739.142 562.308 702.494 562.308 Q 665.846 562.308 640.615 587.352 Q 615.385 612.396 615.385 649.044 Q 615.385 685.692 640.429 710.923 Q 665.473 736.154 702.121 736.154 Z M 181.538 664.616 L 181.538 633.846 L 489.231 633.846 L 489.231 664.616 L 181.538 664.616 Z M 257.692 428.462 Q 208.261 428.462 174.131 394.331 Q 140 360.2 140 310.769 Q 140 261.338 174.131 227.207 Q 208.261 193.077 257.692 193.077 Q 307.123 193.077 341.254 227.207 Q 375.385 261.338 375.385 310.769 Q 375.385 360.2 341.254 394.331 Q 307.123 428.462 257.692 428.462 Z M 257.506 397.692 Q 294.154 397.692 319.385 372.648 Q 344.615 347.604 344.615 310.956 Q 344.615 274.308 319.571 249.077 Q 294.527 223.846 257.879 223.846 Q 221.231 223.846 196 248.89 Q 170.769 273.935 170.769 310.583 Q 170.769 347.231 195.813 372.461 Q 220.858 397.692 257.506 397.692 Z M 470.769 326.154 L 470.769 295.384 L 778.462 295.384 L 778.462 326.154 L 470.769 326.154 Z M 702.308 649.231 Z M 257.692 310.769 Z",
     "account_switcher_key" to "M 480 455.154 Q 430.5 455.154 397.558 422.212 Q 364.615 389.269 364.615 339.385 Q 364.615 289.5 397.558 256.942 Q 430.5 224.384 480 224.384 Q 529.5 224.384 562.443 256.942 Q 595.385 289.5 595.385 339.385 Q 595.385 389.269 562.443 422.212 Q 529.5 455.154 480 455.154 Z M 200 744.616 L 200 686.769 Q 200 660.308 215.154 639.462 Q 230.307 618.615 254.923 606.923 Q 314.231 580.769 369.938 567.308 Q 425.645 553.846 479.976 553.846 Q 534.308 553.846 589.923 567.423 Q 645.539 581 704.425 607.274 Q 729.872 618.771 744.936 639.54 Q 760 660.308 760 686.769 L 760 744.616 L 200 744.616 Z M 230.769 713.846 L 729.231 713.846 L 729.231 686.769 Q 729.231 671.539 718.962 657.423 Q 708.692 643.308 690.846 634 Q 636.846 607.615 585.241 596.115 Q 533.636 584.615 480 584.615 Q 426.364 584.615 374.144 596.115 Q 321.923 607.615 268.923 634 Q 251.077 643.308 240.923 657.423 Q 230.769 671.539 230.769 686.769 L 230.769 713.846 Z M 480 424.385 Q 515.923 424.385 540.269 400.038 Q 564.615 375.692 564.615 339.769 Q 564.615 303.846 540.269 279.5 Q 515.923 255.154 480 255.154 Q 444.077 255.154 419.731 279.5 Q 395.385 303.846 395.385 339.769 Q 395.385 375.692 419.731 400.038 Q 444.077 424.385 480 424.385 Z M 480 339.769 Z M 480 713.846 Z",
+    "time_management_key" to "M 190.572 830 C 173.764 830 159.466 824.108 147.675 812.325 C 135.892 800.534 130 786.236 130 769.428 L 130 190.572 C 130 173.764 135.892 159.466 147.675 147.675 C 159.466 135.892 173.764 130 190.572 130 L 769.428 130 C 786.236 130 800.534 135.892 812.325 147.675 C 824.108 159.466 830 173.764 830 190.572 L 830 769.428 C 830 786.236 824.108 800.534 812.325 812.325 C 800.534 824.108 786.236 830 769.428 830 L 190.572 830 Z M 190.572 796.345 L 769.428 796.345 C 776.158 796.345 782.327 793.542 787.934 787.934 C 793.542 782.327 796.345 776.158 796.345 769.428 L 796.345 190.572 C 796.345 183.842 793.542 177.673 787.934 172.066 C 782.327 166.458 776.158 163.655 769.428 163.655 L 190.572 163.655 C 183.842 163.655 177.673 166.458 172.066 172.066 C 166.458 177.673 163.655 183.842 163.655 190.572 L 163.655 769.428 C 163.655 776.158 166.458 782.327 172.066 787.934 C 177.673 793.542 183.842 796.345 190.572 796.345 Z M 163.655 163.655 L 163.655 796.345 L 163.655 163.655 Z M 299.739 422.895 C 296.625 426.103 295.069 430.106 295.069 434.905 L 295.069 661.65 C 295.069 666.441 296.695 670.444 299.947 673.659 C 303.199 676.867 307.253 678.472 312.109 678.472 C 316.958 678.472 320.939 676.867 324.053 673.659 C 327.167 670.444 328.723 666.441 328.723 661.65 L 328.723 434.905 C 328.723 430.106 327.097 426.103 323.845 422.895 C 320.6 419.68 316.55 418.072 311.694 418.072 C 306.837 418.072 302.853 419.68 299.739 422.895 Z M 467.837 286.341 C 464.731 289.556 463.178 293.559 463.178 298.35 L 463.178 661.65 C 463.178 666.441 464.8 670.444 468.045 673.659 C 471.297 676.867 475.352 678.472 480.208 678.472 C 485.064 678.472 489.049 676.867 492.163 673.659 C 495.269 670.444 496.822 666.441 496.822 661.65 L 496.822 298.35 C 496.822 293.559 495.2 289.556 491.955 286.341 C 488.703 283.133 484.648 281.528 479.792 281.528 C 474.936 281.528 470.951 283.133 467.837 286.341 Z M 635.947 558.006 C 632.833 561.492 631.277 565.356 631.277 569.6 L 631.277 661.65 C 631.277 666.441 632.903 670.444 636.155 673.659 C 639.4 676.867 643.45 678.472 648.306 678.472 C 653.163 678.472 657.147 676.867 660.261 673.659 C 663.375 670.444 664.931 666.441 664.931 661.65 L 664.931 569.6 C 664.931 565.356 663.305 561.492 660.053 558.006 C 656.801 554.52 652.747 552.778 647.891 552.778 C 643.042 552.778 639.061 554.52 635.947 558.006 Z",
     "data_saving_settings_key" to "M 120 840 L 840 120 L 840 840 L 120 840 Z M 374.462 809.231 L 809.231 809.231 L 809.231 194 L 374.462 628.769 L 374.462 809.231 Z",
     "auto_play_key" to "M 404.615 615.077 L 404.615 344.923 L 615.077 480 L 404.615 615.077 Z M 483.154 880 Q 360.615 880 264.077 816.962 Q 167.538 753.923 110.769 637.616 L 110.769 799.769 L 79.999 799.769 L 79.999 584.615 L 293.385 584.615 L 293.385 615.385 L 134.769 615.385 Q 183.308 724.231 276 786.731 Q 368.692 849.231 483.154 849.231 Q 604.923 849.231 701.154 776.423 Q 797.385 703.615 832.308 586.308 L 862.846 592.385 Q 826 721.462 721.346 800.731 Q 616.692 880.001 483.154 880.001 Z M 82 440 Q 89.769 377.385 110.154 328.423 Q 130.538 279.461 169.692 227.461 L 192.692 248.923 Q 159.231 293.154 140.923 336.615 Q 122.615 380.077 112.769 440 L 81.999 440 Z M 248.692 193.692 L 227.461 170.461 Q 276.077 132.615 330.154 111.077 Q 384.231 89.538 441.231 83.538 L 441.231 114.308 Q 392.308 119.308 343.308 139.038 Q 294.308 158.769 248.692 193.692 Z M 709.769 193.692 Q 671.692 161.538 619.769 140.038 Q 567.846 118.538 520 114.308 L 520 83.538 Q 578 88.769 631.192 111.077 Q 684.385 133.384 731.769 171.231 L 709.769 193.692 Z M 845.692 440 Q 839.154 385.154 818.462 336.615 Q 797.769 288.077 763.308 248.461 L 785.308 226 Q 824.385 273.077 847.539 327.115 Q 870.693 381.154 876.462 440 L 845.692 440 Z",
     "playback_key" to "auto_play_key",
@@ -211,6 +317,7 @@ private val rvxPreferenceKey = mapOf(
     "revanced_hide_settings_menu_parent_tools" to "parent_tools_key",
     "revanced_hide_settings_menu_general" to "general_key",
     "revanced_hide_settings_menu_account" to "account_switcher_key",
+    "revanced_hide_settings_menu_time_management" to "time_management_key",
     "revanced_hide_settings_menu_data_saving" to "data_saving_settings_key",
     "revanced_hide_settings_menu_autoplay_playback" to "auto_play_key",
     "revanced_hide_settings_menu_video_quality" to "video_quality_settings_key",

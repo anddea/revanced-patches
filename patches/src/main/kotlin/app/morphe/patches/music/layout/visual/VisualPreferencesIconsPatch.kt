@@ -134,9 +134,9 @@ val visualPreferencesIconsPatch = resourcePatch(
 
                                 // If pathData is another title then use it as an icon title
                                 if (preferenceKey.containsKey(pathData)) {
-                                    pathData
+                                    "${pathData}_icon"
                                 } else {
-                                    title
+                                    "${title}_icon"
                                 }
                             }
 

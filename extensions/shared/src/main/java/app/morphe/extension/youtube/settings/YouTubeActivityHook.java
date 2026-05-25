@@ -13,9 +13,6 @@ import app.morphe.extension.youtube.settings.preference.YouTubePreferenceFragmen
 import app.morphe.extension.youtube.settings.search.YouTubeSearchViewController;
 import app.morphe.extension.youtube.utils.ThemeUtils;
 
-import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_34_OR_GREATER;
-import static app.morphe.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
-
 /**
  * Hooks LicenseActivity to inject a custom {@link YouTubePreferenceFragment}
  * with a toolbar and search functionality.
@@ -112,21 +109,10 @@ public class YouTubeActivityHook extends BaseActivityHook {
      * Injection point.
      */
     @SuppressWarnings("unused")
-    public static boolean useCairoSettingsFragment(boolean original) {
-        // Early targets have layout issues and it's better to always force off.
-        if (!IS_19_34_OR_GREATER) {
-            return false;
-        }
-        // Spoofing can cause half broken settings menus of old and new settings.
-        if (isSpoofingToLessThan("19.35.36")) {
-            return false;
-        }
-
-        // On the first launch of a clean install, forcing the cairo menu can give a
-        // half broken appearance because all the preference icons may not be available yet.
-        // 19.34+ cairo settings are always on, so it doesn't need to be forced anyway.
-        // Cairo setting will show on the next launch of the app.
-        return original;
+    public static boolean disableCairoSettingsFragment(boolean original) {
+        return Settings.RESTORE_OLD_SETTINGS_MENUS.get()
+                ? false
+                : original;
     }
 
     /**

@@ -594,16 +594,6 @@ As a workaround, the app version is spoofed to 19.26.42 in the '/get_watch' endp
 If you turn off this setting, the Hype icon may not show in the video action bar and video description panel.
 
 ※ Even if this setting is turned off, the Hype button may not be hidden."</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_off">"The 'Playback' setting is used instead of the 'Autoplay' setting.</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"The 'Autoplay' setting is used instead of the 'Playback' setting."</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_title">Fix Spoof app version side effect</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"If the app version has been spoofed to 19.30 or earlier even once, the 'Playback' setting may be broken.
-
-This depends on what response the app receives from the server.
-
-If the 'Playback' setting is broken, turning on this setting may resolve the issue.
-
-If the 'Playback' setting is still broken even after enabling or disabling this setting, then you should clear the app data."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">Tap and hold speed may sometimes be activated even if the user does not tap and hold.</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"Tap and hold speed is only activated when the user taps and holds.
 
@@ -1262,6 +1252,9 @@ Info:
     <string name="revanced_hide_settings_menu_subscription_product_summary_on">Purchases and memberships menu is hidden.</string>
     <string name="revanced_hide_settings_menu_subscription_product_title">Hide Purchases and memberships menu</string>
     <string name="revanced_hide_settings_menu_summary">Hide elements of the YouTube settings menu.</string>
+    <string name="revanced_hide_settings_menu_time_management_summary_off">Time management menu is shown.</string>
+    <string name="revanced_hide_settings_menu_time_management_summary_on">Time management menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_time_management_title">Hide Time management menu</string>
     <string name="revanced_hide_settings_menu_title">Hide YouTube settings menu</string>
     <string name="revanced_hide_settings_menu_video_quality_summary_off">Video quality preferences menu is shown.</string>
     <string name="revanced_hide_settings_menu_video_quality_summary_on">Video quality preferences menu is hidden.</string>
@@ -1988,6 +1981,7 @@ Tap and hold to open YouTube settings."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear in fullscreen.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar thumbnails will appear above the seekbar.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Restore old seekbar thumbnails</string>
+    <string name="revanced_restore_old_settings_menus_title">Restore old YouTube settings screen</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Old player layout is not used.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Old player layout is used.
 No margins on top and bottom of player."</string>

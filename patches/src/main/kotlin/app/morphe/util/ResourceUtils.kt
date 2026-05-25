@@ -362,7 +362,7 @@ fun ResourcePatchContext.copyResourcesWithRename(
 
         val resourceFile = "drawable/icon.xml"
         val inputStream = inputStreamFromBundledResource(sourceResourceDirectory, resourceFile)!!
-        val targetFile = targetResourceDirectory.resolve("drawable/$title.xml").toPath()
+        val targetFile = targetResourceDirectory.resolve("drawable/${title}_icon.xml").toPath()
 
         Files.copy(inputStream, targetFile, StandardCopyOption.REPLACE_EXISTING)
 

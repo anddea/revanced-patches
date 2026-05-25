@@ -3,7 +3,6 @@ package app.morphe.patches.youtube.utils.settings
 import app.morphe.patcher.Fingerprint
 import app.morphe.patches.youtube.utils.resourceid.appearance
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val licenseActivityOnCreateFingerprint = Fingerprint(
@@ -15,10 +14,9 @@ internal val licenseActivityOnCreateFingerprint = Fingerprint(
     }
 )
 
-internal val settingsFragmentStylePrimaryFingerprint = legacyFingerprint(
-    name = "settingsFragmentStylePrimaryFingerprint",
+internal val settingsFragmentStylePrimaryFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(
         "Ljava/lang/String;",
         "Ljava/util/List;",
@@ -28,10 +26,9 @@ internal val settingsFragmentStylePrimaryFingerprint = legacyFingerprint(
     ),
 )
 
-internal val settingsFragmentStyleSecondaryFingerprint = legacyFingerprint(
-    name = "settingsFragmentStyleSecondaryFingerprint",
+internal val settingsFragmentStyleSecondaryFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(
         "Ljava/util/List;",
         "Landroidx/preference/Preference;",

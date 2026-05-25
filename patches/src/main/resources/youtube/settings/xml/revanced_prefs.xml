@@ -64,10 +64,16 @@
         </PreferenceScreen>SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
-        <PreferenceScreen android:title="@string/revanced_preference_screen_settings_menu_title" android:key="revanced_preference_screen_settings_menu" android:summary="@string/revanced_preference_screen_settings_menu_summary">
+        <PreferenceScreen android:title="@string/revanced_preference_screen_settings_menu_title" android:key="revanced_preference_screen_settings_menu" android:summary="@string/revanced_preference_screen_settings_menu_summary">SETTINGS: HIDE_LAYOUT_COMPONENTS -->
+
+            <!-- SETTINGS: RESTORE_OLD_SETTINGS_MENUS
+            <SwitchPreference android:title="@string/revanced_restore_old_settings_menus_title" android:key="revanced_restore_old_settings_menus" />SETTINGS: RESTORE_OLD_SETTINGS_MENUS -->
+
+            <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
             <SwitchPreference android:title="@string/revanced_hide_settings_menu_parent_tools_title" android:key="revanced_hide_settings_menu_parent_tools" android:summaryOn="@string/revanced_hide_settings_menu_parent_tools_summary_on" android:summaryOff="@string/revanced_hide_settings_menu_parent_tools_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_settings_menu_general_title" android:key="revanced_hide_settings_menu_general" android:summaryOn="@string/revanced_hide_settings_menu_general_summary_on" android:summaryOff="@string/revanced_hide_settings_menu_general_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_settings_menu_account_title" android:key="revanced_hide_settings_menu_account" android:summaryOn="@string/revanced_hide_settings_menu_account_summary_on" android:summaryOff="@string/revanced_hide_settings_menu_account_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_settings_menu_time_management_title" android:key="revanced_hide_settings_menu_time_management" android:summaryOn="@string/revanced_hide_settings_menu_time_management_summary_on" android:summaryOff="@string/revanced_hide_settings_menu_time_management_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_settings_menu_data_saving_title" android:key="revanced_hide_settings_menu_data_saving" android:summaryOn="@string/revanced_hide_settings_menu_data_saving_summary_on" android:summaryOff="@string/revanced_hide_settings_menu_data_saving_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_settings_menu_autoplay_playback_title" android:key="revanced_hide_settings_menu_autoplay_playback" android:summaryOn="@string/revanced_hide_settings_menu_autoplay_playback_summary_on" android:summaryOff="@string/revanced_hide_settings_menu_autoplay_playback_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_settings_menu_video_quality_title" android:key="revanced_hide_settings_menu_video_quality" android:summaryOn="@string/revanced_hide_settings_menu_video_quality_summary_on" android:summaryOff="@string/revanced_hide_settings_menu_video_quality_summary_off" />
@@ -183,9 +189,6 @@
         <!-- SETTINGS: SPOOF_APP_VERSION
         <SwitchPreference android:title="@string/revanced_spoof_app_version_title" android:key="revanced_spoof_app_version" android:summaryOn="@string/revanced_spoof_app_version_summary_on" android:summaryOff="@string/revanced_spoof_app_version_summary_off" />
         <app.morphe.extension.youtube.settings.preference.SpoofAppVersionPreference android:title="@string/revanced_spoof_app_version_target_title" android:key="revanced_spoof_app_version_target" />SETTINGS: SPOOF_APP_VERSION -->
-
-        <!-- SETTINGS: FIX_SPOOF_APP_VERSION_SIDE_EFFECT
-        <SwitchPreference android:title="@string/revanced_fix_spoof_app_version_side_effect_title" android:key="revanced_fix_spoof_app_version_side_effect" android:summaryOn="@string/revanced_fix_spoof_app_version_side_effect_summary_on" android:summaryOff="@string/revanced_fix_spoof_app_version_side_effect_summary_off" />SETTINGS: FIX_SPOOF_APP_VERSION_SIDE_EFFECT -->
 
     <!-- PREFERENCE_SCREEN: GENERAL
     </PreferenceScreen>PREFERENCE_SCREEN: GENERAL -->

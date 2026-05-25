@@ -32,6 +32,7 @@ public final class SettingsMenuPatch extends BaseSettingsMenuPatch {
         PRE_PURCHASE("yt_unlimited_pre_purchase_key", Settings.HIDE_SETTINGS_MENU_PRE_PURCHASE),
         GENERAL("general_key", Settings.HIDE_SETTINGS_MENU_GENERAL),
         ACCOUNT("account_switcher_key", Settings.HIDE_SETTINGS_MENU_ACCOUNT),
+        TIME_MANAGEMENT("time_management_key", Settings.HIDE_SETTINGS_MENU_TIME_MANAGEMENT),
         DATA_SAVING("data_saving_settings_key", Settings.HIDE_SETTINGS_MENU_DATA_SAVING),
         AUTOPLAY("auto_play_key", Settings.HIDE_SETTINGS_MENU_AUTOPLAY_PLAYBACK),
         PLAYBACK("playback_key", Settings.HIDE_SETTINGS_MENU_AUTOPLAY_PLAYBACK),

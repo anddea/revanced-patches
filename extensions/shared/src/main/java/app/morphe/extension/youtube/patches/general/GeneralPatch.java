@@ -33,6 +33,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.function.IntSupplier;
 
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
@@ -259,11 +260,7 @@ public class GeneralPatch {
 
     // region [Spoof app version] patch
 
-    private static int legacyFragmentId = 0;
-
-    public static boolean disableCairoFragment(boolean original) {
-        return !Settings.FIX_SPOOF_APP_VERSION_SIDE_EFFECT.get() && original;
-    }
+    private static int legacySettingsFragmentId;
 
     public static String getVersionOverride(String appVersion) {
         return Settings.SPOOF_APP_VERSION.get()
@@ -271,11 +268,22 @@ public class GeneralPatch {
                 : appVersion;
     }
 
-    public static int useLegacyFragment(int original) {
-        if (Settings.FIX_SPOOF_APP_VERSION_SIDE_EFFECT.get()) {
-            if (legacyFragmentId == 0) {
-                legacyFragmentId = getXmlIdentifier("settings_fragment_legacy");
+    /**
+     * Injection point.
+     */
+    public static int useLegacySettingsFragment(int original) {
+        return useLegacySettingsFragment(original, () -> {
+            if (legacySettingsFragmentId == 0) {
+                legacySettingsFragmentId = getXmlIdentifier("settings_fragment_legacy");
             }
+            return legacySettingsFragmentId;
+        });
+    }
+
+    static int useLegacySettingsFragment(int original, IntSupplier legacyFragmentIdSupplier) {
+        if (Settings.RESTORE_OLD_SETTINGS_MENUS.get()
+                || ExtendedUtils.isSpoofingToLessThan("19.35.36")) {
+            final int legacyFragmentId = legacyFragmentIdSupplier.getAsInt();
             if (legacyFragmentId != 0) {
                 return legacyFragmentId;
             }

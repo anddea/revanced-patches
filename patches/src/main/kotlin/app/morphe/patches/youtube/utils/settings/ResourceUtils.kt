@@ -5,21 +5,21 @@ import app.morphe.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_
 import app.morphe.patches.youtube.utils.patch.PatchList
 import app.morphe.util.doRecursively
 import app.morphe.util.findElementByAttributeValueOrThrow
-import app.morphe.util.insertNode
+import org.w3c.dom.Document
 import org.w3c.dom.Element
 import java.io.File
 
 internal object ResourceUtils {
     internal const val RVX_PREFERENCE_PATH = "res/xml/revanced_prefs.xml"
     internal const val YOUTUBE_SETTINGS_PATH = "res/xml/settings_fragment.xml"
+    internal const val YOUTUBE_CAIRO_SETTINGS_PATH = "res/xml/settings_fragment_cairo.xml"
+    internal const val YOUTUBE_LEGACY_SETTINGS_PATH = "res/xml/settings_fragment_legacy.xml"
 
     private lateinit var context: ResourcePatchContext
-    private lateinit var youtubeSettingFile: File
     private lateinit var rvxSettingFile: File
 
     fun setContext(context: ResourcePatchContext) {
         this.context = context
-        this.youtubeSettingFile = context[YOUTUBE_SETTINGS_PATH]
         this.rvxSettingFile = context[RVX_PREFERENCE_PATH]
     }
 
@@ -31,13 +31,24 @@ internal object ResourceUtils {
     fun getIconType() = iconType
 
     fun updatePackageName(newPackageName: String) {
-        youtubeSettingFile.writeText(
-            youtubeSettingFile.readText()
-                .replace(
-                    "android:targetPackage=\"$YOUTUBE_PACKAGE_NAME",
-                    "android:targetPackage=\"$newPackageName"
+        listOf(
+            YOUTUBE_SETTINGS_PATH,
+            YOUTUBE_CAIRO_SETTINGS_PATH,
+            YOUTUBE_LEGACY_SETTINGS_PATH
+        ).forEach { settingsPath ->
+            val settingsFile = context[settingsPath]
+            if (!settingsFile.exists()) {
+                return@forEach
+            }
+
+            settingsFile.writeText(
+                settingsFile.readText()
+                    .replace(
+                        "android:targetPackage=\"$YOUTUBE_PACKAGE_NAME",
+                        "android:targetPackage=\"$newPackageName"
+                    )
                 )
-        )
+        }
     }
 
     fun updateGmsCorePackageName(
@@ -104,51 +115,45 @@ internal object ResourceUtils {
 
     fun addPreferenceFragment(
         key: String,
-        insertKey: String,
         targetClass: String,
     ) = context.apply {
-        document(YOUTUBE_SETTINGS_PATH).use { document ->
-            with(document) {
-                val processedKeys = mutableSetOf<String>() // To track processed keys
+        fun Document.createSettingsPreference() =
+            createElement("Preference").apply {
+                setAttribute("android:key", "${key}_key")
+                setAttribute("android:title", "@string/${key}_title")
+                appendChild(
+                    createElement("intent").also { intentNode ->
+                        intentNode.setAttribute(
+                            "android:targetPackage",
+                            YOUTUBE_PACKAGE_NAME
+                        )
+                        intentNode.setAttribute("android:data", key + "_intent")
+                        intentNode.setAttribute("android:targetClass", targetClass)
+                    }
+                )
+            }
 
-                doRecursively loop@{ node ->
-                    if (node !is Element) return@loop // Skip if not an element
+        listOf(YOUTUBE_SETTINGS_PATH, YOUTUBE_CAIRO_SETTINGS_PATH).forEach { settingsPath ->
+            if (!get(settingsPath).exists()) {
+                return@forEach
+            }
+
+            document(settingsPath).use { document ->
+                document.doRecursively loop@{ node ->
+                    if (node !is Element) return@loop
 
                     val attributeNode = node.getAttributeNode("android:key")
-                        ?: return@loop // Skip if no key attribute
-                    val currentKey = attributeNode.textContent
+                        ?: return@loop
 
-                    // Check if the current key has already been processed
-                    if (processedKeys.contains(currentKey)) {
-                        return@loop // Skip if already processed
-                    } else {
-                        processedKeys.add(currentKey) // Add the current key to processedKeys
-                    }
-
-                    when (currentKey) {
-                        insertKey -> {
-                            node.insertNode("Preference", node) {
-                                setAttribute("android:key", "${key}_key")
-                                setAttribute("android:title", "@string/${key}_title")
-                                this.appendChild(
-                                    ownerDocument.createElement("intent").also { intentNode ->
-                                        intentNode.setAttribute(
-                                            "android:targetPackage",
-                                            YOUTUBE_PACKAGE_NAME
-                                        )
-                                        intentNode.setAttribute("android:data", key + "_intent")
-                                        intentNode.setAttribute("android:targetClass", targetClass)
-                                    }
-                                )
-                            }
-                            node.setAttribute("app:iconSpaceReserved", "true")
-                        }
-
-                        "true" -> {
-                            attributeNode.textContent = "false"
-                        }
+                    if (attributeNode.textContent == "true") {
+                        attributeNode.textContent = "false"
                     }
                 }
+
+                document.documentElement.insertBefore(
+                    document.createSettingsPreference(),
+                    document.documentElement.firstChild
+                )
             }
         }
 

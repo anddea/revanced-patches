@@ -3,6 +3,7 @@ package app.morphe.patches.youtube.utils
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.fingerprint
 import app.morphe.patcher.literal
+import app.morphe.patcher.opcode
 import app.morphe.patches.youtube.player.components.playerComponentsPatch
 import app.morphe.patches.youtube.utils.resourceid.fadeDurationFast
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
@@ -229,12 +230,16 @@ internal fun indexOfGetDrawableInstruction(method: Method) =
                 getReference<MethodReference>()?.toString() == "Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;"
     }
 
-internal val settingsFragmentSyntheticFingerprint = legacyFingerprint(
-    name = "settingsFragmentSyntheticFingerprint",
+internal val settingsFragmentSyntheticFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(Opcode.INVOKE_VIRTUAL_RANGE),
-    literals = listOf(settingsFragment, settingsFragmentCairo),
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    filters = listOf(
+        opcode(Opcode.INVOKE_VIRTUAL_RANGE),
+    ),
+    custom = { method, _ ->
+        method.containsLiteralInstruction(settingsFragment) &&
+                method.containsLiteralInstruction(settingsFragmentCairo)
+    },
 )
 
 internal val toolBarButtonFingerprint = "toolBarButtonFingerprint" to Fingerprint(
