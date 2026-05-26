@@ -1003,6 +1003,9 @@
 
         <app.morphe.extension.shared.settings.preference.SortedListPreference android:entries="@array/revanced_language_entries" android:title="@string/revanced_language_title" android:key="revanced_language" android:entryValues="@array/revanced_language_entry_values" />
 
+        <!-- PREFERENCE_SCREEN: TRANSLATIONS
+        <app.morphe.extension.youtube.settings.preference.TranslationsPreference android:title="@string/revanced_translations_title" android:key="revanced_translations" />PREFERENCE_SCREEN: TRANSLATIONS -->
+
         <PreferenceCategory android:title="@string/revanced_search_settings_category_title">
             <SwitchPreference android:title="@string/revanced_settings_search_history_title" android:key="revanced_settings_search_history" android:summaryOn="@string/revanced_settings_search_history_summary_on" android:summaryOff="@string/revanced_settings_search_history_summary_off" />
         </PreferenceCategory>
@@ -1113,7 +1116,5 @@
             </PreferenceCategory>
         </PreferenceScreen>
     </PreferenceScreen>
-    <!-- PREFERENCE_SCREEN: TRANSLATIONS
-    <app.morphe.extension.youtube.settings.preference.TranslationsPreference android:title="@string/revanced_translations_title" android:key="revanced_translations" />PREFERENCE_SCREEN: TRANSLATIONS -->
 
 </PreferenceScreen>
