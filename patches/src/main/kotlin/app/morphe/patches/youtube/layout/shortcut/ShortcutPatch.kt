@@ -2,7 +2,7 @@ package app.morphe.patches.youtube.layout.shortcut
 
 import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_SHORTCUTS
 import app.morphe.patches.youtube.utils.playservice.is_19_44_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
@@ -17,7 +17,7 @@ val shortcutPatch = resourcePatch(
     HIDE_SHORTCUTS.summary,
     false,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,

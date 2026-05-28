@@ -2,7 +2,7 @@ package app.morphe.patches.youtube.general.updates
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.patch.PatchList.DISABLE_LAYOUT_UPDATES
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -14,7 +14,7 @@ val layoutUpdatesPatch = bytecodePatch(
     DISABLE_LAYOUT_UPDATES.title,
     DISABLE_LAYOUT_UPDATES.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(settingsPatch)
 

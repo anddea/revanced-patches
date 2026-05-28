@@ -4,7 +4,7 @@ import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
 import app.morphe.patches.music.layout.branding.icon.customBrandingIconPatch
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.patch.PatchList.VISUAL_PREFERENCES_ICONS_FOR_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.settings.ResourceUtils.SETTINGS_HEADER_PATH
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
@@ -21,7 +21,7 @@ val visualPreferencesIconsPatch = resourcePatch(
     VISUAL_PREFERENCES_ICONS_FOR_YOUTUBE_MUSIC.title,
     VISUAL_PREFERENCES_ICONS_FOR_YOUTUBE_MUSIC.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(settingsPatch)
 
@@ -72,7 +72,7 @@ val visualPreferencesIconsPatch = resourcePatch(
             preferenceKey.putAll(rvxPreferenceKey)
         }
 
-        // region copy shared resources.
+        // region copy shared resources
 
         copyResourcesWithRename("music/visual/icons", preferenceKey)
 
@@ -85,9 +85,9 @@ val visualPreferencesIconsPatch = resourcePatch(
             copyResources("music/visual/icons", resourceGroup)
         }
 
-        // endregion.
+        // endregion
 
-        // region copy RVX settings menu icon.
+        // region copy RVX settings menu icon
 
         val fallbackIconPath = "music/visual/icons/extension"
         val iconPath = when (selectedIconType) {
@@ -112,13 +112,13 @@ val visualPreferencesIconsPatch = resourcePatch(
             copyResources(fallbackIconPath, resourceGroup)
         }
 
-        // endregion.
+        // endregion
 
         updatePatchStatus(VISUAL_PREFERENCES_ICONS_FOR_YOUTUBE_MUSIC)
     }
 
     finalize {
-        // region set visual preferences icon.
+        // region set visual preferences icon
 
         document(SETTINGS_HEADER_PATH).use { document ->
             document.doRecursively loop@{ node ->
@@ -156,7 +156,7 @@ val visualPreferencesIconsPatch = resourcePatch(
             }
         }
 
-        // endregion.
+        // endregion
     }
 }
 

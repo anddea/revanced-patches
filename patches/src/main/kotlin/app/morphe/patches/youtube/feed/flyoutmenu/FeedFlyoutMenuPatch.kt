@@ -6,7 +6,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.youtube.utils.bottomSheetMenuItemBuilderFingerprint
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.FEED_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.indexOfSpannedCharSequenceInstruction
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_FEED_FLYOUT_MENU
@@ -24,7 +24,7 @@ val feedFlyoutMenuPatch = bytecodePatch(
     HIDE_FEED_FLYOUT_MENU.title,
     HIDE_FEED_FLYOUT_MENU.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         sharedResourceIdPatch,

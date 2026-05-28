@@ -3,7 +3,7 @@ package app.morphe.patches.youtube.player.miniplayer.startup
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.DISABLE_RESUMING_MINIPLAYER_ON_STARTUP
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -20,7 +20,7 @@ val resumingMiniplayerOnStartupPatch = bytecodePatch(
     DISABLE_RESUMING_MINIPLAYER_ON_STARTUP.title,
     DISABLE_RESUMING_MINIPLAYER_ON_STARTUP.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(settingsPatch)
 

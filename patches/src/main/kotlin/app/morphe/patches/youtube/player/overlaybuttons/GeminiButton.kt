@@ -41,12 +41,12 @@
 package app.morphe.patches.youtube.player.overlaybuttons
 
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.util.ResourceGroup
 import app.morphe.util.copyResources
 
 val geminiButton = resourcePatch {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     execute {
         arrayOf(

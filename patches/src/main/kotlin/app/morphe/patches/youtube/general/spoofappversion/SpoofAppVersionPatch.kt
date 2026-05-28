@@ -1,29 +1,20 @@
 package app.morphe.patches.youtube.general.spoofappversion
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.spoof.appversion.baseSpoofAppVersionPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_SPOOF_APP_VERSION
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
-import app.morphe.patches.youtube.utils.indexOfGetDrawableInstruction
 import app.morphe.patches.youtube.utils.patch.PatchList.SPOOF_APP_VERSION
 import app.morphe.patches.youtube.utils.playservice.is_19_26_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_20_40_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_00_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
-import app.morphe.patches.youtube.utils.toolBarButtonFingerprint
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.findMethodOrThrow
-import app.morphe.util.getReference
-import app.morphe.util.indexOfFirstInstructionOrThrow
-import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.returnEarly
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private val spoofAppVersionBytecodePatch = bytecodePatch(
     description = "spoofAppVersionBytecodePatch"
@@ -42,6 +33,12 @@ private val spoofAppVersionBytecodePatch = bytecodePatch(
         findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
             name == "SpoofAppVersion"
         }.returnEarly(true)
+
+        if (!is_20_00_or_greater) {
+            findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
+                name == "SpoofAppVersionDefaultBoolean"
+            }.returnEarly(true)
+        }
     }
 
 }
@@ -51,14 +48,7 @@ val spoofAppVersionPatch = resourcePatch(
     SPOOF_APP_VERSION.title,
     SPOOF_APP_VERSION.summary,
 ) {
-    compatibleWith(
-        YOUTUBE_PACKAGE_NAME(
-            "19.43.41",
-            "19.44.39",
-            "19.47.53",
-            "20.05.46",
-        ),
-    )
+    compatibleWith(COMPATIBILITY_YOUTUBE_SPOOF_APP_VERSION)
 
     dependsOn(
         baseSpoofAppVersionPatch("$GENERAL_CLASS_DESCRIPTOR->getVersionOverride(Ljava/lang/String;)Ljava/lang/String;"),

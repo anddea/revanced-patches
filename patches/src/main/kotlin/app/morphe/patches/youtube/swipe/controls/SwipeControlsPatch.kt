@@ -8,7 +8,7 @@ import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.mainactivity.mainActivityMutableClass
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.SWIPE_PATH
 import app.morphe.patches.youtube.utils.lockmodestate.lockModeStateHookPatch
 import app.morphe.patches.youtube.utils.mainactivity.mainActivityResolvePatch
@@ -50,7 +50,7 @@ val swipeControlsPatch = bytecodePatch(
     SWIPE_CONTROLS.title,
     SWIPE_CONTROLS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         lockModeStateHookPatch,

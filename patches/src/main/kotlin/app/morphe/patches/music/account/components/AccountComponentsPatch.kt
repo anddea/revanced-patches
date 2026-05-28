@@ -6,7 +6,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.ACCOUNT_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.patch.PatchList.HIDE_ACCOUNT_COMPONENTS
 import app.morphe.patches.music.utils.resourceid.channelHandle
@@ -32,7 +32,7 @@ val accountComponentsPatch = bytecodePatch(
     HIDE_ACCOUNT_COMPONENTS.title,
     HIDE_ACCOUNT_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         sharedResourceIdPatch,

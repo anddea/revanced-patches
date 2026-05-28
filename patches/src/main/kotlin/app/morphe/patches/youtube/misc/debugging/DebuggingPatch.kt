@@ -7,7 +7,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.shared.WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING
 import app.morphe.patches.shared.playbackStartParametersConstructorFingerprint
 import app.morphe.patches.shared.playbackStartParametersToStringFingerprint
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.MISC_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.ENABLE_DEBUG_LOGGING
 import app.morphe.patches.youtube.utils.playservice.is_19_16_or_greater
@@ -32,7 +32,7 @@ val debuggingPatch = bytecodePatch(
     ENABLE_DEBUG_LOGGING.title,
     ENABLE_DEBUG_LOGGING.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,

@@ -53,7 +53,7 @@ import java.util.Locale;
 
 import app.morphe.extension.shared.innertube.utils.PlayerResponseOuterClass.Format;
 import app.morphe.extension.shared.innertube.utils.PlayerResponseOuterClass.PlayerResponse;
-import app.morphe.extension.shared.spoof.requests.StreamingDataRequest;
+import app.morphe.extension.shared.spoof.requests.StreamOrDetailsDataRequest;
 import app.morphe.extension.shared.utils.Logger;
 
 final class VotAudioDownloader {
@@ -63,7 +63,7 @@ final class VotAudioDownloader {
     private static final String AUDIO_DOWNLOAD_TYPE = "web_api_steal_sig_and_n";
     private static final String USER_AGENT =
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
-            "(KHTML, like Gecko) Chrome/134.0.0.0 YaBrowser/25.4.0.0 Safari/537.36";
+                    "(KHTML, like Gecko) Chrome/134.0.0.0 YaBrowser/25.4.0.0 Safari/537.36";
 
     private VotAudioDownloader() {
     }
@@ -110,11 +110,13 @@ final class VotAudioDownloader {
 
     @Nullable
     private static Format fetchAudioFormat(String videoId) throws IOException {
-        StreamingDataRequest.fetchRequest(videoId, Collections.emptyMap());
-        StreamingDataRequest request = StreamingDataRequest.getRequestForVideoId(videoId);
+        // Updated to use StreamOrDetailsDataRequest
+        StreamOrDetailsDataRequest.fetchStreamRequest(videoId, Collections.emptyMap());
+        StreamOrDetailsDataRequest request = StreamOrDetailsDataRequest.getStreamRequestForVideoId(videoId);
         if (request == null) return null;
 
-        byte[] playerResponseBytes = request.getStream();
+        // Cast StreamDetails response object to byte[]
+        byte[] playerResponseBytes = (byte[]) request.getStreamDetails();
         if (playerResponseBytes == null || playerResponseBytes.length == 0) return null;
 
         PlayerResponse playerResponse = PlayerResponse.parseFrom(playerResponseBytes);
@@ -145,22 +147,10 @@ final class VotAudioDownloader {
         String mimeType = format.getMimeType();
         if (mimeType != null && mimeType.startsWith("audio/")) return true;
 
-        switch (format.getItag()) {
-            case 139:
-            case 140:
-            case 141:
-            case 171:
-            case 172:
-            case 249:
-            case 250:
-            case 251:
-            case 599:
-            case 600:
-            case 774:
-                return true;
-            default:
-                return false;
-        }
+        return switch (format.getItag()) {
+            case 139, 140, 141, 171, 172, 249, 250, 251, 599, 600, 774 -> true;
+            default -> false;
+        };
     }
 
     private static long resolveFileSize(String audioUrl) throws IOException {

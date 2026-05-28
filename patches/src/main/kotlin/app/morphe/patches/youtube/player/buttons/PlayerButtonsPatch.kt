@@ -6,7 +6,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLa
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
@@ -46,7 +46,7 @@ val playerButtonsPatch = bytecodePatch(
     HIDE_PLAYER_BUTTONS.title,
     HIDE_PLAYER_BUTTONS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         cfBottomUIPatch,
@@ -217,7 +217,7 @@ val playerButtonsPatch = bytecodePatch(
 
         // endregion
 
-        // region Hide player control buttons background.
+        // region Hide player control buttons background
 
         inflateControlsGroupLayoutStubFingerprint.method.apply {
             val controlsButtonGroupLayoutStubResIdConstIndex =

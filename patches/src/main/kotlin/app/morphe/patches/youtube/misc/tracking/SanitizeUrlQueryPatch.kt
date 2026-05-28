@@ -1,7 +1,7 @@
 package app.morphe.patches.youtube.misc.tracking
 
 import app.morphe.patches.shared.misc.privacy.sanitizeSharingLinksPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.SANITIZE_SHARING_LINKS
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
@@ -11,7 +11,7 @@ val sanitizeUrlQueryPatch = sanitizeSharingLinksPatch(
     SANITIZE_SHARING_LINKS.title,
     SANITIZE_SHARING_LINKS.summary,
     block = {
-        compatibleWith(COMPATIBLE_PACKAGE)
+        compatibleWith(COMPATIBILITY_YOUTUBE)
 
         dependsOn(settingsPatch)
     },

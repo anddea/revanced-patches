@@ -16,7 +16,7 @@ import app.morphe.patches.shared.spoof.guide.addClientOSVersionHook
 import app.morphe.patches.shared.spoof.guide.spoofClientGuideEndpointPatch
 import app.morphe.patches.youtube.utils.engagement.addEngagementPanelIdHook
 import app.morphe.patches.youtube.utils.engagement.engagementPanelHookPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.ADS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
@@ -45,7 +45,7 @@ private const val ADS_FILTER_CLASS_DESCRIPTOR =
 @Suppress("unused")
 val adsPatch = adsPatch(
     block = {
-        compatibleWith(COMPATIBLE_PACKAGE)
+        compatibleWith(COMPATIBILITY_YOUTUBE)
 
         dependsOn(
             settingsPatch,

@@ -9,19 +9,20 @@ package app.morphe.patches.youtube.interaction.reload
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_RELOAD_VIDEO
 import app.morphe.patches.youtube.utils.mainactivity.mainActivityFingerprint
 import app.morphe.patches.youtube.utils.playercontrols.addTopControl
 import app.morphe.patches.youtube.utils.playercontrols.injectControl
 import app.morphe.patches.youtube.utils.playercontrols.playerControlsPatch
+import app.morphe.patches.youtube.utils.playservice.is_20_00_or_greater
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.ResourceGroup
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.copyResources
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
@@ -41,21 +42,23 @@ private val reloadVideoResourcePatch = resourcePatch {
     )
 
     execute {
-        addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: PLAYER",
-                "PREFERENCE_SCREENS: PLAYER_BUTTONS",
-                "SETTINGS: RELOAD_VIDEO",
+        if (is_20_00_or_greater) {
+            addPreference(
+                arrayOf(
+                    "PREFERENCE_SCREEN: PLAYER",
+                    "PREFERENCE_SCREENS: PLAYER_BUTTONS",
+                    "SETTINGS: RELOAD_VIDEO",
+                )
             )
-        )
 
-        copyResources(
-            "youtube/reloadbutton/default",
-            ResourceGroup(
-                resourceDirectoryName = "drawable",
-                "morphe_reload_video.xml",
-            ),
-        )
+            copyResources(
+                "youtube/reloadbutton/default",
+                ResourceGroup(
+                    resourceDirectoryName = "drawable",
+                    "morphe_reload_video.xml",
+                ),
+            )
+        }
     }
 }
 
@@ -66,7 +69,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/morphe/extension/youtube/patches/ReloadVideoPatch;"
 
 private const val EXTENSION_PLAYER_INTERFACE =
-    "Lapp/morphe/extension/youtube/patches/ReloadVideoPatch\$PlayerInterface;"
+    $$"Lapp/morphe/extension/youtube/patches/ReloadVideoPatch$PlayerInterface;"
 
 @Suppress("unused")
 val reloadVideoPatch = bytecodePatch(
@@ -79,65 +82,71 @@ val reloadVideoPatch = bytecodePatch(
         videoInformationPatch,
     )
 
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_RELOAD_VIDEO)
 
     execute {
-        injectControl(EXTENSION_BUTTON_DESCRIPTOR)
+        if (is_20_00_or_greater) {
+            injectControl(EXTENSION_BUTTON_DESCRIPTOR)
 
-        // Main activity is used to launch downloader intent.
-        mainActivityFingerprint.methodOrThrow().addInstruction(
-            0,
-            "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->setMainActivity(Landroid/app/Activity;)V"
-        )
+            // Main activity is used to launch downloader intent.
+            mainActivityFingerprint.methodOrThrow().addInstruction(
+                0,
+                "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->setMainActivity(Landroid/app/Activity;)V"
+            )
 
-        val dismissPlayerInnerMethod = MiniAppOpenYtContentCommandEndpointFingerprint
-            .instructionMatches[2]
-            .getInstruction<ReferenceInstruction>()
-            .getReference<MethodReference>()!!
+            val dismissPlayerInnerMethod = MiniAppOpenYtContentCommandEndpointFingerprint
+                .instructionMatches[2]
+                .getInstruction<ReferenceInstruction>()
+                .getReference<MethodReference>()!!
 
-        mutableClassDefBy(dismissPlayerInnerMethod.definingClass).apply {
-            // Add interface and helper methods to allow extension code to call obfuscated methods.
-            interfaces.add(EXTENSION_PLAYER_INTERFACE)
-            // Add methods to access obfuscated player methods.
-            methods.add(
-                ImmutableMethod(
-                    type,
-                    "patch_dismissPlayer",
-                    listOf(),
-                    "V",
-                    AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
-                    null,
-                    null,
-                    MutableMethodImplementation(2),
-                ).toMutable().apply {
-                    addInstructions(
-                        0,
-                        """
+            mutableClassDefBy(dismissPlayerInnerMethod.definingClass).apply {
+                // Add interface and helper methods to allow extension code to call obfuscated methods.
+                interfaces.add(EXTENSION_PLAYER_INTERFACE)
+                // Add methods to access obfuscated player methods.
+                methods.add(
+                    ImmutableMethod(
+                        type,
+                        "patch_dismissPlayer",
+                        listOf(),
+                        "V",
+                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(2),
+                    ).toMutable().apply {
+                        addInstructions(
+                            0,
+                            """
                             invoke-virtual { p0 }, $dismissPlayerInnerMethod
                             return-void
                         """
+                        )
+                    }
+                )
+
+                methods.single { method ->
+                    MethodUtil.isConstructor(method)
+                }.apply {
+                    val index = indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
+
+                    addInstruction(
+                        index,
+                        "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->initialize($EXTENSION_PLAYER_INTERFACE)V"
                     )
                 }
-            )
-
-            methods.single { method ->
-                MethodUtil.isConstructor(method)
-            }.apply {
-                val index = indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
-
-                addInstruction(
-                    index,
-                    "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->initialize($EXTENSION_PLAYER_INTERFACE)V"
-                )
             }
+        } else {
+            printWarn("\"Reload video\" is not supported in this version. Use YouTube 20.00 or greater.")
         }
     }
 
     finalize {
-        addTopControl(
-            "youtube/reloadbutton/shared",
-            "@+id/morphe_reload_video_button",
-            "@+id/morphe_reload_video_button"
-        )
+        if (is_20_00_or_greater) {
+            addTopControl(
+                "youtube/reloadbutton/shared",
+                "@+id/morphe_reload_video_button",
+                "@+id/morphe_reload_video_button"
+            )
+        }
     }
 }

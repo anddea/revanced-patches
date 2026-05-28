@@ -36,7 +36,7 @@ public class VideoQualityPatch {
     }
 
     /**
-     * Video resolution of the automatic quality option..
+     * Video resolution of the automatic quality option.
      */
     public static final int AUTOMATIC_VIDEO_QUALITY_VALUE = -2;
 
@@ -177,7 +177,7 @@ public class VideoQualityPatch {
      * Overrides the initial video quality to not follow the 'Video quality preferences' in YouTube settings.
      * (e.g. 'Auto (recommended)' - 360p/480p, 'Higher picture quality' - 720p/1080p...)
      * If the maximum video quality available is 1080p and the default video quality is 2160p,
-     * 1080p is used as a initial video quality.
+     * 1080p is used as an initial video quality.
      * <p>
      * Called before {@link #newVideoStarted()}.
      */

@@ -3,7 +3,7 @@ package app.morphe.patches.youtube.misc.watchhistory
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.shared.trackingurlhook.hookWatchHistory
 import app.morphe.patches.shared.trackingurlhook.trackingUrlHookPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.WATCH_HISTORY
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
@@ -13,7 +13,7 @@ val watchHistoryPatch = bytecodePatch(
     WATCH_HISTORY.title,
     WATCH_HISTORY.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,

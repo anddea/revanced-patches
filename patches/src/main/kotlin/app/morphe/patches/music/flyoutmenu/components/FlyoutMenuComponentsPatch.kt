@@ -7,7 +7,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.music.utils.extension.Constants.FLYOUT_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.flyoutmenu.flyoutMenuHookPatch
@@ -74,7 +74,7 @@ val flyoutMenuComponentsPatch = bytecodePatch(
     FLYOUT_MENU_COMPONENTS.title,
     FLYOUT_MENU_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         settingsPatch,

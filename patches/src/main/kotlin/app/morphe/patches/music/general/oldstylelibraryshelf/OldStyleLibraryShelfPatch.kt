@@ -3,7 +3,7 @@ package app.morphe.patches.music.general.oldstylelibraryshelf
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.patch.PatchList.RESTORE_OLD_STYLE_LIBRARY_SHELF
 import app.morphe.patches.music.utils.settings.CategoryType
@@ -21,7 +21,7 @@ val oldStyleLibraryShelfPatch = bytecodePatch(
     RESTORE_OLD_STYLE_LIBRARY_SHELF.title,
     RESTORE_OLD_STYLE_LIBRARY_SHELF.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(settingsPatch)
 

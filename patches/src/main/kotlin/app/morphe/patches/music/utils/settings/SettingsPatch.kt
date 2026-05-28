@@ -10,7 +10,7 @@ import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.music.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.music.utils.extension.sharedExtensionPatch
@@ -210,7 +210,7 @@ val settingsPatch = resourcePatch(
     SETTINGS_FOR_YOUTUBE_MUSIC.title,
     SETTINGS_FOR_YOUTUBE_MUSIC.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         settingsBytecodePatch,

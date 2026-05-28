@@ -3,7 +3,7 @@ package app.morphe.patches.youtube.player.ambientmode
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.patch.PatchList.AMBIENT_MODE_CONTROL
 import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
@@ -29,7 +29,7 @@ val ambientModeSwitchPatch = bytecodePatch(
     AMBIENT_MODE_CONTROL.title,
     AMBIENT_MODE_CONTROL.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,

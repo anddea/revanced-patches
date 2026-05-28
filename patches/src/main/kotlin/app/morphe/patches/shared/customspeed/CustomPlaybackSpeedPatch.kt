@@ -5,8 +5,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.youtube.utils.playservice.is_20_34_or_greater
-import app.morphe.util.fingerprint.matchOrThrow
-import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
@@ -23,14 +22,16 @@ fun customPlaybackSpeedPatch(
 ) = bytecodePatch(
     description = "customPlaybackSpeedPatch"
 ) {
+    dependsOn(versionCheckPatch)
+
     execute {
         if (patchIncluded) {
             return@execute
         }
 
-        arrayGeneratorFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val targetIndex = it.instructionMatches.first().index
+        ArrayGeneratorFingerprint.apply {
+            method.apply {
+                val targetIndex = instructionMatches.first().index
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
@@ -66,12 +67,13 @@ fun customPlaybackSpeedPatch(
             }
         }
 
-        val limiterMethods = if (is_20_34_or_greater) {
-            setOf(limiterFingerprint.methodOrThrow())
+        val useNewLimiter = is_20_34_or_greater
+        val limiterMethods = if (useNewLimiter) {
+            setOf(LimiterFingerprint.method)
         } else {
             setOf(
-                limiterFallBackFingerprint.methodOrThrow(),
-                limiterLegacyFingerprint.methodOrThrow(limiterFallBackFingerprint)
+                LimiterFallBackFingerprint.method,
+                LimiterLegacyFingerprint.match(LimiterFallBackFingerprint.classDef).method
             )
         }
 
@@ -79,7 +81,7 @@ fun customPlaybackSpeedPatch(
             method.apply {
                 val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f.toRawBits().toLong())
 
-                val limitMaxIndex = if (is_20_34_or_greater) {
+                val limitMaxIndex = if (useNewLimiter) {
                     indexOfFirstLiteralInstructionOrThrow(4.0f.toRawBits().toLong())
                 } else {
                     indexOfFirstInstructionOrThrow(limitMinIndex + 1, Opcode.CONST_HIGH16)

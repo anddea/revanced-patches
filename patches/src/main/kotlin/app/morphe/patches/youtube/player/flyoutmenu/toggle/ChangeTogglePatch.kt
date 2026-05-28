@@ -7,7 +7,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.patch.PatchList.CHANGE_PLAYER_FLYOUT_MENU_TOGGLES
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -31,7 +31,7 @@ val changeTogglePatch = bytecodePatch(
     CHANGE_PLAYER_FLYOUT_MENU_TOGGLES.title,
     CHANGE_PLAYER_FLYOUT_MENU_TOGGLES.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(settingsPatch)
 

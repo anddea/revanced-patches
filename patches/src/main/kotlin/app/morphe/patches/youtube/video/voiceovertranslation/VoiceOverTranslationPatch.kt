@@ -42,7 +42,7 @@ package app.morphe.patches.youtube.video.voiceovertranslation
 
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.VOICE_OVER_TRANSLATION
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -96,7 +96,7 @@ val voiceOverTranslationPatch = resourcePatch(
     VOICE_OVER_TRANSLATION.title,
     VOICE_OVER_TRANSLATION.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         overlayButtonsPatch,

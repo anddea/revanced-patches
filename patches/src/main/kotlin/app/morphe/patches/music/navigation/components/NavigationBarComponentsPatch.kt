@@ -7,7 +7,7 @@ import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.music.general.startpage.changeStartPagePatch
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.NAVIGATION_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.patch.PatchList.NAVIGATION_BAR_COMPONENTS
 import app.morphe.patches.music.utils.playservice.is_6_27_or_greater
@@ -67,7 +67,7 @@ val navigationBarComponentsPatch = bytecodePatch(
     NAVIGATION_BAR_COMPONENTS.title,
     NAVIGATION_BAR_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         changeStartPagePatch,

@@ -13,15 +13,16 @@ import java.util.Map;
 import java.util.Objects;
 
 import app.morphe.extension.shared.Logger;
-import app.morphe.extension.shared.Utils;
+import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.AppLanguage;
-import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
-import app.morphe.extension.shared.spoof.requests.StreamingDataRequest;
+import app.morphe.extension.shared.spoof.requests.StreamOrDetailsDataRequest;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
+    public static volatile Map<String, String> currentVideoRequestHeader;
+    public static String pageIDHeaderValue = "";
 
     public static final class JavaScriptClientAvailability implements Setting.Availability {
         @Override
@@ -51,18 +52,6 @@ public class SpoofVideoStreamsPatch {
         }
     }
 
-    /**
-     * Domain used for internet connectivity verification.
-     * It has an empty response body and is only used to check for a 204 response code.
-     * <p>
-     * If an unreachable IP address (127.0.0.1) is used, no response code is provided.
-     * <p>
-     * YouTube handles unreachable IP addresses without issue.
-     * YouTube Music has an issue with waiting for the Cronet connect timeout of 30s on mobile networks.
-     * <p>
-     * Using a VPN or DNS can temporarily resolve this issue,
-     * But the ideal workaround is to avoid using an unreachable IP address.
-     */
     private static final String INTERNET_CONNECTION_CHECK_URI_STRING = "https://www.google.com/gen_204";
     private static final Uri INTERNET_CONNECTION_CHECK_URI = Uri.parse(INTERNET_CONNECTION_CHECK_URI_STRING);
 
@@ -71,13 +60,10 @@ public class SpoofVideoStreamsPatch {
     @Nullable
     private static volatile AppLanguage languageOverride;
 
-    private static volatile ClientType preferredClient = ClientType.ANDROID_REEL;
+    private static volatile ClientType preferredClient = ClientType.ANDROID_REEL_AUTH;
 
     private static WeakReference<Application> mainActivityRef = new WeakReference<>(null);
 
-    /**
-     * Injection point.
-     */
     public static void setMainActivity(Activity activity) {
         mainActivityRef = new WeakReference<>(activity.getApplication());
     }
@@ -86,11 +72,8 @@ public class SpoofVideoStreamsPatch {
         return mainActivityRef.get();
     }
 
-    /**
-     * @return If this patch was included during patching.
-     */
     public static boolean isPatchIncluded() {
-        return false;  // Modified during patching.
+        return false;
     }
 
     @Nullable
@@ -98,16 +81,13 @@ public class SpoofVideoStreamsPatch {
         return languageOverride;
     }
 
-    /**
-     * @param language Language override for non-authenticated requests.
-     */
     public static void setLanguageOverride(@Nullable AppLanguage language) {
         languageOverride = language;
     }
 
     public static void setClientsToUse(List<ClientType> availableClients, ClientType client) {
         preferredClient = Objects.requireNonNull(client);
-        StreamingDataRequest.setClientOrderToUse(availableClients, client);
+        StreamOrDetailsDataRequest.setClientOrderToUse(availableClients, client);
     }
 
     public static ClientType getPreferredClient() {
@@ -120,13 +100,6 @@ public class SpoofVideoStreamsPatch {
                 && !preferredClient.supportsMultiAudioTracks;
     }
 
-    /**
-     * Injection point.
-     * Blocks /get_watch requests by returning an unreachable URI.
-     *
-     * @param playerRequestUri The URI of the player request.
-     * @return An unreachable URI if the request is a /get_watch request, otherwise the original URI.
-     */
     public static Uri blockGetWatchRequest(Uri playerRequestUri) {
         if (SPOOF_VIDEO_STREAMS) {
             try {
@@ -134,27 +107,31 @@ public class SpoofVideoStreamsPatch {
 
                 if (path != null && path.contains("get_watch")) {
                     Logger.printDebug(() -> "Blocking 'get_watch' by returning internet connection check URI");
-
                     return INTERNET_CONNECTION_CHECK_URI;
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "blockGetWatchRequest failure", ex);
             }
         }
-
         return playerRequestUri;
     }
 
-    /**
-     * Injection point.
-     * <p>
-     * Blocks /get_watch requests by returning an unreachable URI.
-     * /att/get requests are used to obtain a PoToken challenge.
-     * See: <a href="https://github.com/FreeTubeApp/FreeTube/blob/4b7208430bc1032019a35a35eb7c8a84987ddbd7/src/botGuardScript.js#L15">botGuardScript.js#L15</a>
-     * <p>
-     * Since the Spoof streaming data patch was implemented because a valid PoToken cannot be obtained,
-     * Blocking /att/get requests are not a problem.
-     */
+    public static Uri.Builder blockGetWatchRequest(Uri.Builder playerRequestBuilder) {
+        if (SPOOF_VIDEO_STREAMS) {
+            try {
+                String path = playerRequestBuilder.build().getPath();
+
+                if (path != null && path.contains("get_watch")) {
+                    Logger.printDebug(() -> "Blocking 'get_watch' by returning internet connection check URI");
+                    return INTERNET_CONNECTION_CHECK_URI.buildUpon();
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "blockGetWatchRequest failure", ex);
+            }
+        }
+        return playerRequestBuilder;
+    }
+
     public static String blockGetAttRequest(String originalUrlString) {
         if (SPOOF_VIDEO_STREAMS) {
             try {
@@ -163,22 +140,15 @@ public class SpoofVideoStreamsPatch {
 
                 if (path != null && path.contains("att/get")) {
                     Logger.printDebug(() -> "Blocking 'att/get' by returning internet connection check URI");
-
                     return INTERNET_CONNECTION_CHECK_URI_STRING;
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "blockGetAttRequest failure", ex);
             }
         }
-
         return originalUrlString;
     }
 
-    /**
-     * Injection point.
-     * <p>
-     * Blocks /initplayback requests.
-     */
     public static String blockInitPlaybackRequest(String originalUrlString) {
         if (SPOOF_VIDEO_STREAMS) {
             try {
@@ -187,28 +157,19 @@ public class SpoofVideoStreamsPatch {
 
                 if (path != null && path.contains("initplayback")) {
                     Logger.printDebug(() -> "Blocking 'initplayback' by returning internet connection check URI");
-
                     return INTERNET_CONNECTION_CHECK_URI_STRING;
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "blockInitPlaybackRequest failure", ex);
             }
         }
-
         return originalUrlString;
     }
 
-    /**
-     * Injection point.
-     */
     public static boolean isSpoofingEnabled() {
         return SPOOF_VIDEO_STREAMS;
     }
 
-    /**
-     * Injection point.
-     * Only invoked when playing a livestream on an Apple client.
-     */
     public static boolean fixHLSCurrentTime(boolean original) {
         if (!SPOOF_VIDEO_STREAMS) {
             return original;
@@ -216,62 +177,50 @@ public class SpoofVideoStreamsPatch {
         return false;
     }
 
-    /**
-     * Injection point.
-     * Fix audio stuttering in YouTube Music.
-     */
     public static boolean disableSABR() {
         return SPOOF_VIDEO_STREAMS;
     }
 
-    /**
-     * Injection point.
-     * Turns off a feature flag that interferes with spoofing.
-     */
     public static boolean useMediaFetchHotConfigReplacement(boolean original) {
         if (original) {
             Logger.printDebug(() -> "useMediaFetchHotConfigReplacement is set on");
         }
-
         if (!SPOOF_VIDEO_STREAMS) {
             return original;
         }
         return false;
     }
 
-    /**
-     * Injection point.
-     * Turns off a feature flag that interferes with video playback.
-     */
     public static boolean usePlaybackStartFeatureFlag(boolean original) {
         if (original) {
             Logger.printDebug(() -> "usePlaybackStartFeatureFlag is set on");
         }
-
         if (!SPOOF_VIDEO_STREAMS) {
             return original;
         }
         return false;
     }
 
-    /**
-     * Injection point.
-     * Turns off a feature flag that interferes with video playback.
-     */
+    public static boolean useReelItemWatchResponseFeatureFlag(boolean original) {
+        if (original) {
+            Logger.printDebug(() -> "useReelItemWatchResponse is set on");
+        }
+        if (!SPOOF_VIDEO_STREAMS) {
+            return original;
+        }
+        return false;
+    }
+
     public static boolean useMediaSessionFeatureFlag(boolean original) {
         if (original) {
             Logger.printDebug(() -> "useMediaSessionFeatureFlag is set on");
         }
-
         if (!SPOOF_VIDEO_STREAMS) {
             return original;
         }
         return false;
     }
 
-    /**
-     * Injection point.
-     */
     public static void fetchStreams(String url, Map<String, String> requestHeaders) {
         if (SPOOF_VIDEO_STREAMS) {
             try {
@@ -281,69 +230,47 @@ public class SpoofVideoStreamsPatch {
                     return;
                 }
 
-                // 'get_drm_license' has no video ID and appears to happen when waiting for a paid video to start.
-                // 'heartbeat' has no video  and appears to be only after playback has started.
-                // 'refresh' has no video ID and appears to happen when waiting for a livestream to start.
-                // 'ad_break' has no video ID.
                 if (path.contains("get_drm_license") || path.contains("heartbeat")
                         || path.contains("refresh") || path.contains("ad_break")) {
-                    Logger.printDebug(() -> "Ignoring path: " + path);
                     return;
                 }
 
                 String id = uri.getQueryParameter("id");
                 if (id == null) {
-                    Logger.printException(() -> "Ignoring request with no ID: " + url);
                     return;
                 }
 
-                StreamingDataRequest.fetchRequest(id, requestHeaders);
+                currentVideoRequestHeader = requestHeaders;
+                StreamOrDetailsDataRequest.fetchStreamRequest(id, currentVideoRequestHeader);
             } catch (Exception ex) {
                 Logger.printException(() -> "buildRequest failure", ex);
             }
         }
     }
 
-    /**
-     * Injection point.
-     * Fix playback by replace the streaming data.
-     * Called after {@link #fetchStreams(String, Map)}.
-     */
     @Nullable
     public static byte[] getStreamingData(String videoId) {
         if (SPOOF_VIDEO_STREAMS) {
             try {
-                StreamingDataRequest request = StreamingDataRequest.getRequestForVideoId(videoId);
+                StreamOrDetailsDataRequest request = StreamOrDetailsDataRequest.getStreamRequestForVideoId(videoId);
                 if (request != null) {
-                    // This hook is always called off the main thread,
-                    // but this can later be called for the same video ID from the main thread.
-                    // This is not a concern, since the fetch will always be finished
-                    // and never block the main thread.
-                    // But if debugging, then still verify this is the situation.
-                    if (BaseSettings.DEBUG.get() && !request.fetchCompleted() && Utils.isCurrentlyOnMainThread()) {
-                        Logger.printException(() -> "Error: Blocking main thread");
-                    }
-
-                    var stream = request.getStream();
+                    var stream = (byte[]) request.getStreamDetails();
                     if (stream != null) {
                         Logger.printDebug(() -> "Overriding video stream: " + videoId);
                         return stream;
                     }
                 }
-
-                Logger.printDebug(() -> "Not overriding streaming data (video stream is null): " + videoId);
             } catch (Exception ex) {
                 Logger.printException(() -> "getStreamingData failure", ex);
             }
         }
-
         return null;
     }
 
-    /**
-     * Injection point.
-     * Called after {@link #getStreamingData(String)}.
-     */
+    public static StreamOrDetailsDataRequest fetchDetails(Route.CompiledRoute videoDetailsEndpoint, String videoId) {
+        return StreamOrDetailsDataRequest.getDetailsRequest(videoDetailsEndpoint, videoId, currentVideoRequestHeader);
+    }
+
     @Nullable
     public static byte[] removeVideoPlaybackPostBody(Uri uri, int method, byte[] postData) {
         if (SPOOF_VIDEO_STREAMS) {
@@ -359,25 +286,29 @@ public class SpoofVideoStreamsPatch {
                 Logger.printException(() -> "removeVideoPlaybackPostBody failure", ex);
             }
         }
-
         return postData;
     }
 
-    /**
-     * Injection point.
-     */
     public static String appendSpoofedClient(String videoFormat) {
         try {
             if (SPOOF_VIDEO_STREAMS && SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_STATS_FOR_NERDS.get()
                     && !TextUtils.isEmpty(videoFormat)) {
-                // Force LTR layout, to match the same LTR video time/length layout YouTube uses for all languages.
-                return "\u202D" + videoFormat + "\u2009(" // u202D = left to right override
-                        + StreamingDataRequest.getLastSpoofedClientName() + ")";
+                return "\u202D" + videoFormat + "\u2009("
+                        + StreamOrDetailsDataRequest.getLastSpoofedClientName() + ")";
             }
         } catch (Exception ex) {
             Logger.printException(() -> "appendSpoofedClient failure", ex);
         }
-
         return videoFormat;
+    }
+
+    public static void setAccountIdentity(@Nullable String newlyPageIDHeaderValue, boolean newlyLoadedIncognitoStatus) {
+        if (newlyPageIDHeaderValue != null) {
+            var newlyPageIDHeaderEmpty = newlyPageIDHeaderValue.isEmpty();
+            pageIDHeaderValue = newlyPageIDHeaderEmpty ? "" : newlyPageIDHeaderValue;
+            if (!newlyPageIDHeaderEmpty) {
+                Logger.printDebug(() -> "new PageID Header value loaded: " + newlyPageIDHeaderValue);
+            }
+        }
     }
 }

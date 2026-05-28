@@ -1,7 +1,7 @@
 package app.morphe.patches.music.layout.playeroverlay
 
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.patch.PatchList.HIDE_PLAYER_OVERLAY_FILTER
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.util.removeOverlayBackground
@@ -12,7 +12,7 @@ val playerOverlayFilterPatch = resourcePatch(
     HIDE_PLAYER_OVERLAY_FILTER.summary,
     default = false,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     execute {
         removeOverlayBackground(

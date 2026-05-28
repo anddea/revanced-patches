@@ -1,6 +1,6 @@
 package app.morphe.patches.music.misc.tracking
 
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.patch.PatchList.SANITIZE_SHARING_LINKS
 import app.morphe.patches.music.utils.playservice.is_8_05_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
@@ -22,7 +22,7 @@ val sanitizeUrlQueryPatch = sanitizeSharingLinksPatch(
     SANITIZE_SHARING_LINKS.title,
     SANITIZE_SHARING_LINKS.summary,
     block = {
-        compatibleWith(COMPATIBLE_PACKAGE)
+        compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
         dependsOn(
             settingsPatch,

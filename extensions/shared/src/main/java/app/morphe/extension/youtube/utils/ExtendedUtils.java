@@ -59,6 +59,7 @@ public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_20_09_OR_GREATER = isVersionOrGreater("20.09.00");
     public static final boolean IS_20_10_OR_GREATER = isVersionOrGreater("20.10.00");
     public static final boolean IS_20_22_OR_GREATER = isVersionOrGreater("20.22.00");
+    public static final boolean IS_20_31_OR_GREATER = isVersionOrGreater("20.31.00");
 
     public static final boolean IS_ARC = hasSystemFeature("org.chromium.arc");
     public static final boolean IS_AUTOMOTIVE = hasSystemFeature("android.hardware.type.automotive");

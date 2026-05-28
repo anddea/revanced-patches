@@ -109,7 +109,7 @@ val lithoFilterPatch = bytecodePatch(
                 }
             }
 
-            // region Pass the buffer into extension.
+            // region Pass the buffer into extension
 
             if (is_20_22_or_greater) {
                 // Hook method that bridges between UPB buffer native code and FB Litho.
@@ -277,7 +277,7 @@ val lithoFilterPatch = bytecodePatch(
             // endregion
 
 
-            // region Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube.
+            // region Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube
 
             LithoThreadExecutorFingerprint.method.addInstructions(
                 0,
@@ -292,7 +292,7 @@ val lithoFilterPatch = bytecodePatch(
             // endregion
 
 
-            // region A/B test of new Litho native code.
+            // region A/B test of new Litho native code
 
             // Turn off native code that handles litho component names.  If this feature is on then nearly
             // all litho components have a null name and identifier/path filtering is completely broken.
@@ -315,7 +315,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // endregion
         } else {
-            // region Pass the buffer into extension.
+            // region Pass the buffer into extension
 
             byteBufferFingerprint.methodOrThrow().addInstruction(
                 0,
@@ -324,7 +324,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // endregion
 
-            // region Hook the method that parses bytes into a ComponentContext.
+            // region Hook the method that parses bytes into a ComponentContext
 
             // Allow the method to run to completion, and override the
             // return value with an empty component if it should be filtered.
@@ -418,7 +418,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // endregion
 
-            // region Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube.
+            // region Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube
 
             lithoThreadExecutorFingerprint.methodOrThrow().addInstructions(
                 0, """
@@ -431,7 +431,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // endregion
 
-            // region A/B test of new Litho native code.
+            // region A/B test of new Litho native code
 
             // Turn off native code that handles litho component names.  If this feature is on then nearly
             // all litho components have a null name and identifier/path filtering is completely broken.

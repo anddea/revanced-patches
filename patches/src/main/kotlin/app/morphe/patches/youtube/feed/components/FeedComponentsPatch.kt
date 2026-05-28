@@ -11,7 +11,7 @@ import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.emptyComponentLabel
 import app.morphe.patches.shared.mainactivity.onCreateMethod
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.FEED_CLASS_DESCRIPTOR
@@ -63,7 +63,7 @@ val feedComponentsPatch = bytecodePatch(
     HIDE_FEED_COMPONENTS.title,
     HIDE_FEED_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         mainActivityResolvePatch,

@@ -2,7 +2,7 @@ package app.morphe.patches.youtube.layout.actionbuttons
 
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.CUSTOM_SHORTS_ACTION_BUTTONS
 import app.morphe.patches.youtube.utils.playservice.is_19_36_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
@@ -34,7 +34,7 @@ val shortsActionButtonsPatch = resourcePatch(
     CUSTOM_SHORTS_ACTION_BUTTONS.title,
     CUSTOM_SHORTS_ACTION_BUTTONS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,

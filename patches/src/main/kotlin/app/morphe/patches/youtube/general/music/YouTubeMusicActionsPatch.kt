@@ -3,7 +3,7 @@ package app.morphe.patches.youtube.general.music
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.HOOK_YOUTUBE_MUSIC_ACTIONS
 import app.morphe.patches.youtube.utils.playservice.is_20_30_or_greater
@@ -25,7 +25,7 @@ val youtubeMusicActionsPatch = bytecodePatch(
     HOOK_YOUTUBE_MUSIC_ACTIONS.title,
     HOOK_YOUTUBE_MUSIC_ACTIONS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(settingsPatch)
 

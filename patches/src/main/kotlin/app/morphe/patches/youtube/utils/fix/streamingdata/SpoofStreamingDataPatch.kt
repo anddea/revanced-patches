@@ -15,7 +15,8 @@ import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
 
 val spoofStreamingDataPatch = spoofVideoStreamsPatch(
-    extensionClassDescriptor = "Lapp/morphe/extension/youtube/patches/spoof/SpoofVideoStreamsPatch;",
+    // Updated parameter name: extensionClassDescriptor -> extensionClass
+    extensionClass = "Lapp/morphe/extension/youtube/patches/spoof/SpoofVideoStreamsPatch;",
     mainActivityOnCreateFingerprint = mainActivityFingerprint.second,
     fixMediaFetchHotConfig = {
         is_19_34_or_greater
@@ -26,6 +27,20 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
     },
     fixParsePlaybackResponseFeatureFlag = {
         is_19_50_or_greater
+    },
+    // Parameters added to match the updated spoofVideoStreamsPatch signature
+    fixMediaSessionFeatureFlag = {
+        is_20_14_or_greater
+    },
+    fixReelItemWatchResponseFeatureFlag = {
+        // Essential to fix Shorts freezing/failing to load after scrolling
+        is_20_14_or_greater
+    },
+    hookAccountIdentity = {
+        true
+    },
+    useNewRequestBuilderFingerprint = {
+        false
     },
     block = {
         dependsOn(

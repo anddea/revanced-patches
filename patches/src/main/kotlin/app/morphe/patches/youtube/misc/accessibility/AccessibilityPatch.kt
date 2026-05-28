@@ -2,7 +2,7 @@ package app.morphe.patches.youtube.misc.accessibility
 
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_ACCESSIBILITY_CONTROLS_DIALOG
 import app.morphe.patches.youtube.utils.playservice.is_20_46_or_greater
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -24,7 +24,7 @@ val accessibilityPatch = bytecodePatch(
     HIDE_ACCESSIBILITY_CONTROLS_DIALOG.summary,
     default = false
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(settingsPatch)
 

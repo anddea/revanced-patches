@@ -1,7 +1,7 @@
 package app.morphe.patches.music.misc.bitrate
 
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.patch.PatchList.BITRATE_DEFAULT_VALUE
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.settingsPatch
@@ -11,7 +11,7 @@ val bitrateDefaultValuePatch = resourcePatch(
     BITRATE_DEFAULT_VALUE.title,
     BITRATE_DEFAULT_VALUE.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(settingsPatch)
 

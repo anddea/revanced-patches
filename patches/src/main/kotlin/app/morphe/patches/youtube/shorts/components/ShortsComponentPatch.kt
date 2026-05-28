@@ -20,7 +20,7 @@ import app.morphe.patches.shared.textcomponent.textComponentPatch
 import app.morphe.patches.youtube.player.overlaybuttons.geminiButton
 import app.morphe.patches.youtube.player.fullscreen.openVideosFullscreenHookPatch
 import app.morphe.patches.youtube.utils.bottomSheetMenuItemBuilderFingerprint
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.SHORTS_CLASS_DESCRIPTOR
@@ -773,7 +773,7 @@ val shortsComponentPatch = bytecodePatch(
     SHORTS_COMPONENTS.title,
     SHORTS_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,
@@ -1108,7 +1108,7 @@ val shortsComponentPatch = bytecodePatch(
 
         // endregion
 
-        // region Disable experimental Shorts flags.
+        // region Disable experimental Shorts flags
 
         // Flags might be present in earlier targets, but they are not found in 19.47.53.
         // If these flags are forced on, the experimental layout is still not used, and

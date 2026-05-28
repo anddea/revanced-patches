@@ -6,7 +6,6 @@ import static app.morphe.extension.shared.settings.Setting.parent;
 
 import app.morphe.extension.shared.patches.ReturnYouTubeUsernamePatch.DisplayFormat;
 import app.morphe.extension.shared.patches.WatchHistoryPatch.WatchHistoryType;
-import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch;
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientAndroidVRAvailability;
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.J2V8Availability;
 
@@ -57,10 +56,6 @@ public class BaseSettings {
     public static final BooleanSetting SETTINGS_SEARCH_HISTORY = new BooleanSetting("revanced_settings_search_history", TRUE, true);
     public static final StringSetting SETTINGS_SEARCH_ENTRIES = new StringSetting("revanced_settings_search_entries", "", true);
 
-    /**
-     * @noinspection DeprecatedIsStillUsed
-     */
-    @Deprecated
     // The official ReVanced does not offer this, so it has been removed from the settings only. Users can still access settings through import / export settings.
     public static final StringSetting BYPASS_IMAGE_REGION_RESTRICTIONS_DOMAIN = new StringSetting("revanced_bypass_image_region_restrictions_domain", "yt4.ggpht.com", true);
 

@@ -3,7 +3,7 @@ package app.morphe.patches.music.layout.translations
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.patch.PatchList.TRANSLATIONS_FOR_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
@@ -35,7 +35,7 @@ val translationsPatch = resourcePatch(
     TRANSLATIONS_FOR_YOUTUBE_MUSIC.title,
     TRANSLATIONS_FOR_YOUTUBE_MUSIC.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
     dependsOn(translationsBytecodePatch, settingsPatch)
 
     val customTranslations by stringOption(

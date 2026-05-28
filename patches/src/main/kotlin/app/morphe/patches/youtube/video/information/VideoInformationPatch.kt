@@ -25,6 +25,7 @@ import app.morphe.patches.youtube.utils.YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
 import app.morphe.patches.youtube.utils.extension.Constants.SHARED_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.VIDEO_PATH
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.morphe.patches.youtube.utils.playservice.is_20_49_or_greater
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.videoEndFingerprint
 import app.morphe.patches.youtube.utils.videoIdFingerprintShorts
@@ -55,6 +56,7 @@ import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -72,7 +74,7 @@ private const val EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR =
     "$VIDEO_PATH/VideoQualityPatch;"
 
 private const val EXTENSION_VIDEO_QUALITY_MENU_INTERFACE =
-    "$VIDEO_PATH/VideoQualityPatch\$VideoQualityMenuInterface;"
+    $$"$$VIDEO_PATH/VideoQualityPatch$VideoQualityMenuInterface;"
 
 private const val REGISTER_PLAYER_RESPONSE_MODEL = 8
 
@@ -218,7 +220,7 @@ val videoInformationPatch = bytecodePatch(
         ): String {
             methodOrThrow().apply {
                 val startIndex = if (fromString == true)
-                    matchOrThrow().stringMatches!!.first().index
+                    matchOrThrow().stringMatches.first().index
                 else
                     0
                 val targetReference = getInstruction<ReferenceInstruction>(
@@ -421,20 +423,42 @@ val videoInformationPatch = bytecodePatch(
                 val speedSelectionValueInstructionIndex =
                     indexOfFirstInstructionOrThrow(Opcode.IGET)
 
-                val setPlaybackSpeedContainerClassFieldIndex =
-                    indexOfFirstInstructionReversedOrThrow(
-                        speedSelectionValueInstructionIndex,
-                        Opcode.IGET_OBJECT
-                    )
+                val setPlaybackSpeedMethodReferenceIndex =
+                    indexOfFirstInstructionOrThrow(speedSelectionValueInstructionIndex) {
+                        val reference = getReference<MethodReference>()
+                        reference?.parameterTypes?.size == 1 && reference.parameterTypes.first() == "F"
+                    }
+                setPlaybackSpeedMethodReference =
+                    getInstruction<ReferenceInstruction>(setPlaybackSpeedMethodReferenceIndex).reference as MethodReference
+
                 val setPlaybackSpeedContainerClassFieldReference =
-                    getInstruction<ReferenceInstruction>(setPlaybackSpeedContainerClassFieldIndex).reference
+                    getInstruction<ReferenceInstruction>(
+                        indexOfFirstInstructionOrThrow(Opcode.IF_EQZ) - 1
+                    ).reference as FieldReference
+
+                val setPlaybackSpeedContainerClassFieldReferenceClassType: ClassDef =
+                    if (is_20_49_or_greater) {
+                        var fieldReferenceType: ClassDef? = null
+                        classDefForEach { def ->
+                            if (def.interfaces.contains(setPlaybackSpeedContainerClassFieldReference.type)) {
+                                if (fieldReferenceType != null) {
+                                    throw PatchException("Found more than one playback speed interface: $def")
+                                }
+                                fieldReferenceType = def
+                            }
+                        }
+                        fieldReferenceType
+                            ?: throw PatchException("Failed to find playback speed interface implementation")
+                    } else {
+                        classDefBy(setPlaybackSpeedContainerClassFieldReference.type)
+                    }
 
                 val setPlaybackSpeedClassFieldReference =
-                    getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 1).reference
-
-                setPlaybackSpeedMethodReference =
-                    getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 2).reference as MethodReference
-
+                    getInstruction<ReferenceInstruction>(
+                        indexOfFirstInstructionOrThrow(speedSelectionValueInstructionIndex) {
+                            getReference<FieldReference>()?.type?.startsWith("L") == true
+                        }
+                    ).reference as FieldReference
                 // add override playback speed method
                 it.classDef.methods.add(
                     ImmutableMethod(
@@ -458,6 +482,9 @@ val videoInformationPatch = bytecodePatch(
                                 # For some reason, in YouTube 19.44.39 this value is sometimes null.
                                 if-eqz v0, :ignore
 
+                                # Required cast for 20.49+
+                                check-cast v0, $setPlaybackSpeedContainerClassFieldReferenceClassType
+
                                 # Get the field from its class.
                                 iget-object v1, v0, $setPlaybackSpeedClassFieldReference
                                 
@@ -472,7 +499,7 @@ val videoInformationPatch = bytecodePatch(
                 )
 
                 // set current playback speed
-                val walkerMethod = getWalkerMethod(speedSelectionValueInstructionIndex + 2)
+                val walkerMethod = getWalkerMethod(setPlaybackSpeedMethodReferenceIndex)
                 walkerMethod.apply {
                     addInstruction(
                         this.implementation!!.instructions.size - 1,
@@ -481,7 +508,6 @@ val videoInformationPatch = bytecodePatch(
                 }
             }
         }
-
         videoIdFingerprintShorts.matchOrThrow().let {
             it.method.apply {
                 val shortsPlaybackSpeedClassField = it.classDef.fields.find { field ->
@@ -661,7 +687,7 @@ val videoInformationPatch = bytecodePatch(
             .matchOrThrow()
             .let {
                 with(it.method) {
-                    val stringIndex = it.stringMatches!!.first().index
+                    val stringIndex = it.stringMatches.first().index
                     val formatStreamIndex = indexOfFirstInstructionReversedOrThrow(stringIndex) {
                         val reference = getReference<MethodReference>()
                         opcode == Opcode.INVOKE_VIRTUAL &&
@@ -776,9 +802,9 @@ val videoInformationPatch = bytecodePatch(
                 val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
                 addInstructions(
-                    index, """
-                        invoke-static {v$register}, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->getInitialVideoQuality(Lj${'$'}/util/Optional;)Lj${'$'}/util/Optional;
-                        move-result-object v$register
+                    index, $$"""
+                        invoke-static {v$$register}, $$EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->getInitialVideoQuality(Lj$/util/Optional;)Lj$/util/Optional;
+                        move-result-object v$$register
                         """
                 )
             }

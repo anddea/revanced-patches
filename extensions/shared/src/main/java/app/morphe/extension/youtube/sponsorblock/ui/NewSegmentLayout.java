@@ -4,7 +4,6 @@ import static app.morphe.extension.shared.utils.ResourceUtils.getColor;
 import static app.morphe.extension.shared.utils.ResourceUtils.getIdentifier;
 import static app.morphe.extension.shared.utils.ResourceUtils.getLayoutIdentifier;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.GradientDrawable;
@@ -12,11 +11,11 @@ import android.graphics.drawable.RippleDrawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
-import android.widget.ImageView;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.youtube.settings.Settings;
@@ -29,9 +28,11 @@ public final class NewSegmentLayout extends FrameLayout {
             new int[]{0x33ffffff} // Ripple effect color (semi-transparent white)
     );
 
-    private float dX, dY;
-    private boolean isDragging = false;
-    private ImageView dragHandle;
+    private float dragStartX, dragStartY;
+    private float initialTransX, initialTransY;
+    private boolean isDragging;
+    // Stored squared to compare against squared distance, avoiding sqrt() in the hot path.
+    private final int touchSlopSquare;
 
     public NewSegmentLayout(final Context context) {
         this(context, null);
@@ -48,6 +49,9 @@ public final class NewSegmentLayout extends FrameLayout {
     public NewSegmentLayout(final Context context, final AttributeSet attributeSet,
                             final int defStyleAttr, final int defStyleRes) {
         super(context, attributeSet, defStyleAttr, defStyleRes);
+
+        final int touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+        touchSlopSquare = touchSlop * touchSlop;
 
         LayoutInflater.from(context).inflate(getLayoutIdentifier("revanced_sb_new_segment"), this, true);
 
@@ -94,37 +98,6 @@ public final class NewSegmentLayout extends FrameLayout {
         );
     }
 
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        dragHandle = findViewById(getIdentifier("revanced_sb_new_segment_drag_handle", ResourceUtils.ResourceType.ID, getContext()));
-        setupDragHandle();
-    }
-
-    @SuppressLint("ClickableViewAccessibility")
-    private void setupDragHandle() {
-        dragHandle.setOnTouchListener((v, event) -> {
-            switch (event.getActionMasked()) {
-                case MotionEvent.ACTION_DOWN:
-                    dX = getX() - event.getRawX();
-                    dY = getY() - event.getRawY();
-                    isDragging = true;
-                    break;
-                case MotionEvent.ACTION_MOVE:
-                    if (isDragging) {
-                        setY(event.getRawY() + dY);
-                        setX(event.getRawX() + dX);
-                    }
-                    break;
-                case MotionEvent.ACTION_UP:
-                case MotionEvent.ACTION_CANCEL:
-                    isDragging = false;
-                    break;
-            }
-            return true;
-        });
-    }
-
     /**
      * Initializes a segment button with the given resource identifier name with the given handler and a ripple effect.
      *
@@ -168,6 +141,102 @@ public final class NewSegmentLayout extends FrameLayout {
                 : 16 * getResources().getDisplayMetrics().density;
         backgroundDrawable.setCornerRadius(cornerRadius);
         setBackground(backgroundDrawable);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+
+        if (changed && !isDragging && getWidth() > 0 && getHeight() > 0) {
+            ViewGroup parent = (ViewGroup) getParent();
+            if (parent != null && parent.getWidth() > 0 && parent.getHeight() > 0) {
+                final long saved = Settings.SB_NEW_SEGMENT_PANEL_POSITION.get();
+                setTranslationX(Float.intBitsToFloat((int) (saved >> 32)) * parent.getWidth());
+                setTranslationY(Float.intBitsToFloat((int) saved) * parent.getHeight());
+                clampTranslationToBounds();
+            }
+        }
+    }
+
+    @Override
+    public boolean performClick() {
+        return super.performClick();
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        switch (ev.getActionMasked()) {
+            case MotionEvent.ACTION_DOWN:
+                dragStartX = ev.getRawX();
+                dragStartY = ev.getRawY();
+                initialTransX = getTranslationX();
+                initialTransY = getTranslationY();
+                isDragging = false;
+                return false;
+            case MotionEvent.ACTION_MOVE:
+                if (!isDragging) {
+                    float dx = ev.getRawX() - dragStartX;
+                    float dy = ev.getRawY() - dragStartY;
+                    if (dx * dx + dy * dy > touchSlopSquare) {
+                        isDragging = true;
+                        if (getParent() != null) {
+                            getParent().requestDisallowInterceptTouchEvent(true);
+                        }
+                        return true;
+                    }
+                }
+                return isDragging;
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+                isDragging = false;
+                return false;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        switch (ev.getActionMasked()) {
+            case MotionEvent.ACTION_MOVE:
+                setTranslationX(initialTransX + (ev.getRawX() - dragStartX));
+                setTranslationY(initialTransY + (ev.getRawY() - dragStartY));
+                return true;
+            case MotionEvent.ACTION_UP:
+                isDragging = false;
+                clampTranslationToBounds();
+                saveRelativePosition();
+                performClick();
+                return true;
+            case MotionEvent.ACTION_CANCEL:
+                isDragging = false;
+                return true;
+        }
+        return false;
+    }
+
+    private void clampTranslationToBounds() {
+        ViewGroup parent = (ViewGroup) getParent();
+        if (parent == null) return;
+
+        final int height = getHeight();
+        final int width = getWidth();
+        if (width == 0 || height == 0) return;
+
+        final int top = getTop();
+        final int left = getLeft();
+        final float transX = Math.max(-left, Math.min(getTranslationX(), parent.getWidth() - left - width));
+        final float transY = Math.max(-top, Math.min(getTranslationY(), parent.getHeight() - top - height));
+        setTranslationX(transX);
+        setTranslationY(transY);
+    }
+
+    private void saveRelativePosition() {
+        ViewGroup parent = (ViewGroup) getParent();
+        if (parent == null || parent.getWidth() == 0 || parent.getHeight() == 0) return;
+
+        Settings.SB_NEW_SEGMENT_PANEL_POSITION.save(
+                (long) Float.floatToIntBits(getTranslationX() / parent.getWidth()) << 32
+                        | (Float.floatToIntBits(getTranslationY() / parent.getHeight()) & 0xFFFFFFFFL));
     }
 
     @FunctionalInterface

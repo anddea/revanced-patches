@@ -15,7 +15,7 @@ import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.morphe.patches.shared.settings.baseSettingsPatch
 import app.morphe.patches.youtube.utils.CAIRO_FRAGMENT_FEATURE_FLAG
 import app.morphe.patches.youtube.utils.cairoFragmentConfigFingerprint
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
@@ -85,7 +85,7 @@ private val settingsBytecodePatch = bytecodePatch(
     execute {
         bytecodeContext = this
 
-        // region fix cairo fragment.
+        // region fix cairo fragment
 
         // Cairo fragments have been widely rolled out in YouTube 19.34+.
         if (is_19_34_or_greater) {
@@ -151,7 +151,7 @@ private val settingsBytecodePatch = bytecodePatch(
             }
         }
 
-        // endregion.
+        // endregion
 
         // apply the current theme of the settings page
         themeSetterSystemFingerprint.methodOrThrow().apply {
@@ -255,7 +255,7 @@ val settingsPatch = resourcePatch(
     SETTINGS_FOR_YOUTUBE.title,
     SETTINGS_FOR_YOUTUBE.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsBytecodePatch,

@@ -17,7 +17,8 @@ import app.morphe.patches.shared.misc.spoof.spoofVideoStreamsPatch
 import app.morphe.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
 
 val spoofStreamingDataPatch = spoofVideoStreamsPatch(
-    extensionClassDescriptor = "Lapp/morphe/extension/music/patches/spoof/SpoofVideoStreamsPatch;",
+    // Updated parameter name: extensionClassDescriptor -> extensionClass
+    extensionClass = "Lapp/morphe/extension/music/patches/spoof/SpoofVideoStreamsPatch;",
     mainActivityOnCreateFingerprint = mainActivityFingerprint.second,
     fixMediaFetchHotConfig = {
         is_7_16_or_greater
@@ -28,6 +29,19 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
     },
     fixParsePlaybackResponseFeatureFlag = {
         is_7_33_or_greater
+    },
+    // New parameters added to match the updated spoofVideoStreamsPatch signature
+    fixMediaSessionFeatureFlag = {
+        false
+    },
+    fixReelItemWatchResponseFeatureFlag = {
+        false
+    },
+    hookAccountIdentity = {
+        false
+    },
+    useNewRequestBuilderFingerprint = {
+        false
     },
     block = {
         dependsOn(

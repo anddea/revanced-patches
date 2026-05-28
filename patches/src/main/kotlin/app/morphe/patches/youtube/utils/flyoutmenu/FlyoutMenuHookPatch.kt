@@ -1,7 +1,7 @@
 package app.morphe.patches.youtube.utils.flyoutmenu
 
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.youtube.utils.playbackRateBottomSheetBuilderFingerprint
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -14,7 +14,7 @@ private const val EXTENSION_VIDEO_UTILS_CLASS_DESCRIPTOR =
 val flyoutMenuHookPatch = bytecodePatch(
     description = "flyoutMenuHookPatch",
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(sharedResourceIdPatch)
 

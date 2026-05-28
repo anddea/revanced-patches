@@ -1,5 +1,6 @@
 package app.morphe.patches.music.actionbar.components
 
+import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -9,7 +10,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.music.utils.ACTION_BAR_POSITION_FEATURE_FLAG
 import app.morphe.patches.music.utils.actionBarPositionFeatureFlagFingerprint
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.ACTIONBAR_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.music.utils.patch.PatchList.HIDE_ACTION_BAR_COMPONENTS
@@ -31,14 +32,12 @@ import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.textcomponent.hookSpannableString
 import app.morphe.patches.shared.textcomponent.textComponentPatch
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
-import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -56,7 +55,7 @@ val actionBarComponentsPatch = bytecodePatch(
     HIDE_ACTION_BAR_COMPONENTS.title,
     HIDE_ACTION_BAR_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         settingsPatch,
@@ -223,12 +222,11 @@ val actionBarComponentsPatch = bytecodePatch(
                 )
             }
 
-        val lottieAnimationUrlFingerprint = legacyFingerprint(
-            name = "lottieAnimationUrlFingerprint",
+        val lottieAnimationUrlFingerprint = "lottieAnimationUrlFingerprint" to Fingerprint(
             returnType = "Ljava/lang/String;",
-            accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+            accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
             parameters = emptyList(),
-            customFingerprint = { method, classDef ->
+            custom = { method, classDef ->
                 classDef.interfaces.contains(abstractClass) &&
                         method.name == lottieAnimationUrlMethodName &&
                         classDef.fields.find { it.type.endsWith("Lcom/google/android/libraries/elements/adl/UpbMiniTable;") } == null

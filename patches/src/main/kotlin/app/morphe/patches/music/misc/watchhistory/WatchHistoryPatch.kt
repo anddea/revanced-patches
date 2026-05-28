@@ -1,7 +1,7 @@
 package app.morphe.patches.music.misc.watchhistory
 
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.patch.PatchList.WATCH_HISTORY
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.addPreferenceWithIntent
@@ -14,7 +14,7 @@ val watchHistoryPatch = bytecodePatch(
     WATCH_HISTORY.title,
     WATCH_HISTORY.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         settingsPatch,

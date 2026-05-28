@@ -6,6 +6,8 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.shared.mainactivity.injectOnBackPressedMethodCall
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
+import app.morphe.patches.youtube.utils.playservice.is_20_16_or_greater
+import app.morphe.patches.youtube.utils.scrollTopParentFingerprint
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.getWalkerMethod
@@ -45,17 +47,26 @@ val lithoLayoutPatch = bytecodePatch(
             walkerMethod.injectScrollView(insertIndex, "onStartScrollView")
         }
 
-        recyclerViewTopScrollingFingerprint.let {
-            it.method.addInstructionsAtControlFlowLabel(
-                it.instructionMatches.last().index + 1,
-                "invoke-static {}, $EXTENSION_DOUBLE_BACK_TO_CLOSE_CLASS_DESCRIPTOR->onStopScrollView()V"
+        // Inject the methods which stop of ScrollView
+        if (!is_20_16_or_greater) {
+            scrollTopFingerprint.matchOrThrow(scrollTopParentFingerprint).let {
+                val insertIndex = it.instructionMatches.last().index
+
+                it.method.injectScrollView(insertIndex, "onStopScrollView")
+            }
+        } else {
+            recyclerViewTopScrollingFingerprint.let {
+                it.method.addInstructionsAtControlFlowLabel(
+                    it.instructionMatches.last().index + 1,
+                    "invoke-static {}, $EXTENSION_DOUBLE_BACK_TO_CLOSE_CLASS_DESCRIPTOR->onStopScrollView()V"
+                )
+            }
+
+            backToRefreshFeatureFlagFingerprint.method.insertLiteralOverride(
+                backToRefreshFeatureFlagFingerprint.instructionMatches.first().index,
+                false
             )
         }
-
-        backToRefreshFeatureFlagFingerprint.method.insertLiteralOverride(
-            backToRefreshFeatureFlagFingerprint.instructionMatches.first().index,
-            false
-        )
 
         // endregion
 

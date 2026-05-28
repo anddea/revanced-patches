@@ -2,7 +2,7 @@ package app.morphe.patches.youtube.general.signintotvpopup
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.patch.PatchList.DISABLE_SIGN_IN_TO_TV_POPUP
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -15,7 +15,7 @@ val signInToTvPopupPatch = bytecodePatch(
     DISABLE_SIGN_IN_TO_TV_POPUP.title,
     DISABLE_SIGN_IN_TO_TV_POPUP.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,

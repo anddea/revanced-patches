@@ -3,7 +3,7 @@ package app.morphe.patches.music.misc.share
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.music.utils.extension.Constants.MISC_PATH
 import app.morphe.patches.music.utils.patch.PatchList.CHANGE_SHARE_SHEET
@@ -32,7 +32,7 @@ val shareSheetPatch = bytecodePatch(
     CHANGE_SHARE_SHEET.title,
     CHANGE_SHARE_SHEET.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         settingsPatch,

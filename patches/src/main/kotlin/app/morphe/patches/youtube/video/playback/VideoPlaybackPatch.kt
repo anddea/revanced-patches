@@ -13,7 +13,7 @@ import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.opus.baseOpusCodecsPatch
 import app.morphe.patches.youtube.utils.auth.authHookPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.VIDEO_PATH
@@ -22,8 +22,8 @@ import app.morphe.patches.youtube.utils.fix.shortsplayback.shortsPlaybackPatch
 import app.morphe.patches.youtube.utils.flyoutmenu.flyoutMenuHookPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.VIDEO_PLAYBACK
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
-import app.morphe.patches.youtube.utils.playservice.is_20_14_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_30_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_14_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
 import app.morphe.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
@@ -68,7 +68,7 @@ val videoPlaybackPatch = bytecodePatch(
     VIDEO_PLAYBACK.title,
     VIDEO_PLAYBACK.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,

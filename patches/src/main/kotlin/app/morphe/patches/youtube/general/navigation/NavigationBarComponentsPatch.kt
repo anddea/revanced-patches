@@ -8,7 +8,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.shared.spoof.guide.addClientOSVersionHook
 import app.morphe.patches.shared.spoof.guide.spoofClientGuideEndpointPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.navigation.NavigationHook
 import app.morphe.patches.youtube.utils.navigation.addBottomBarContainerHook
@@ -110,7 +110,7 @@ val navigationBarComponentsPatch = bytecodePatch(
     NAVIGATION_BAR_COMPONENTS.title,
     NAVIGATION_BAR_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         navigationBarComponentsResourcePatch,
@@ -194,7 +194,7 @@ val navigationBarComponentsPatch = bytecodePatch(
                     copiedButtonRendererIndex + 1,
                     "invoke-static { v$copiedButtonRendererRegister, v$onClickListenerRegister }, " +
                             "$EXTENSION_CLASS_DESCRIPTOR->setSearchBarOnClickListener" +
-                            "(Lcom/google/protobuf/MessageLite;Landroid/view/View${'$'}OnClickListener;)V"
+                            $$"(Lcom/google/protobuf/MessageLite;Landroid/view/View$OnClickListener;)V"
                 )
             }
         }

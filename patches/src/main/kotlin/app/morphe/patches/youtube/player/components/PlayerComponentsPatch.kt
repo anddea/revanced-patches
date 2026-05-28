@@ -17,7 +17,7 @@ import app.morphe.patches.shared.startVideoInformerFingerprint
 import app.morphe.patches.shared.textcomponent.hookSpannableString
 import app.morphe.patches.shared.textcomponent.textComponentPatch
 import app.morphe.patches.youtube.utils.bottomsheet.bottomSheetHookPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.dismiss.dismissPlayerHookPatch
 import app.morphe.patches.youtube.utils.dismiss.hookDismissObserver
 import app.morphe.patches.youtube.utils.engagement.engagementPanelBuilderMethod
@@ -339,7 +339,7 @@ val playerComponentsPatch = bytecodePatch(
     PLAYER_COMPONENTS.title,
     PLAYER_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,
@@ -758,7 +758,7 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for hide seek message (Removed in YouTube 20.03+)
+        // region patch for hide seek message (Removed in YouTube 2003+)
 
         if (!is_20_03_or_greater) {
             seekEduContainerFingerprint.methodOrThrow().apply {

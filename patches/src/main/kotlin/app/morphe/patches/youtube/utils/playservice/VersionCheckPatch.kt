@@ -1,6 +1,7 @@
 package app.morphe.patches.youtube.utils.playservice
 
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import kotlin.properties.Delegates
 
 var is_18_31_or_greater : Boolean by Delegates.notNull()
@@ -66,6 +67,8 @@ var is_19_46_or_greater : Boolean by Delegates.notNull()
 var is_19_49_or_greater : Boolean by Delegates.notNull()
     private set
 var is_19_50_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_00_or_greater : Boolean by Delegates.notNull()
     private set
 var is_20_02_or_greater : Boolean by Delegates.notNull()
     private set
@@ -177,8 +180,9 @@ val versionCheckPatch = resourcePatch(
 ) {
     execute {
         val versionName = packageMetadata.versionName
+        val isYouTube = packageMetadata.packageName == YOUTUBE_PACKAGE_NAME
         fun isEqualsOrGreaterThan(version: String): Boolean {
-            return versionName >= version
+            return isYouTube && versionName >= version
         }
 
         // All bug fix releases always seem to use the same play store version as the minor version.
@@ -214,6 +218,7 @@ val versionCheckPatch = resourcePatch(
         is_19_46_or_greater = isEqualsOrGreaterThan("19.46.00")
         is_19_49_or_greater = isEqualsOrGreaterThan("19.49.00")
         is_19_50_or_greater = isEqualsOrGreaterThan("19.50.00")
+        is_20_00_or_greater = isEqualsOrGreaterThan("20.00.00")
         is_20_02_or_greater = isEqualsOrGreaterThan("20.02.00")
         is_20_03_or_greater = isEqualsOrGreaterThan("20.03.00")
         is_20_04_or_greater = isEqualsOrGreaterThan("20.04.00")

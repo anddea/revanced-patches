@@ -5,7 +5,7 @@ import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
 import app.morphe.patches.shared.translations.APP_LANGUAGES
 import app.morphe.patches.shared.translations.baseTranslationsPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.TRANSLATIONS_FOR_YOUTUBE
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
@@ -70,7 +70,7 @@ val translationsPatch = resourcePatch(
     TRANSLATIONS_FOR_YOUTUBE.title,
     TRANSLATIONS_FOR_YOUTUBE.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
     dependsOn(translationsBytecodePatch, settingsPatch)
 
     val customTranslations by stringOption(

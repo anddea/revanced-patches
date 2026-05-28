@@ -94,7 +94,7 @@ fun spoofAppVersionWatchNextPatch(
                     """
             }
 
-            // region patch for spoof client body for the '/get_watch' endpoint.
+            // region patch for spoof client body for the '/get_watch' endpoint
 
             createPlayerRequestBodyFingerprint.matchOrThrow().let {
                 it.method.apply {
@@ -141,9 +141,9 @@ fun spoofAppVersionWatchNextPatch(
                 }
             }
 
-            // endregion.
+            // endregion
 
-            // region patch for spoof client body for the '/next' endpoint.
+            // region patch for spoof client body for the '/next' endpoint
 
             val watchNextResponseModelClass =
                 with(watchNextResponseModelClassResolverFingerprint.methodOrThrow()) {
@@ -277,7 +277,7 @@ fun spoofAppVersionWatchNextPatch(
                 }
             }
 
-            // endregion.
+            // endregion
 
         }
 

@@ -1,6 +1,7 @@
 package app.morphe.patches.music.utils.playservice
 
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
 import kotlin.properties.Delegates
 
 var is_6_27_or_greater : Boolean by Delegates.notNull()
@@ -65,8 +66,9 @@ val versionCheckPatch = resourcePatch(
 ) {
     execute {
         val versionName = packageMetadata.versionName
+        val isYouTubeMusic = packageMetadata.packageName == YOUTUBE_MUSIC_PACKAGE_NAME
         fun isEqualsOrGreaterThan(version: String): Boolean {
-            return versionName >= version
+            return isYouTubeMusic && versionName >= version
         }
 
         // All bug fix releases always seem to use the same play store version as the minor version.
