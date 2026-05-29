@@ -1,3 +1,11 @@
+# [4.1.0-dev.2](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.1...v4.1.0-dev.2) (2026-05-29)
+
+
+### Features
+
+* **YouTube Music - Settings:** Add search to preferences ([b0fa388](https://github.com/anddea/revanced-patches/commit/b0fa388b0c67f298c7c603a21ad211bf20e3c6b6))
+* **YouTube:** Add support for `v20.51.39` ([cb37d72](https://github.com/anddea/revanced-patches/commit/cb37d72a434d96daabccb7d3ebdac324b50d2777))
+
 # [4.1.0-dev.1](https://github.com/anddea/revanced-patches/compare/v4.0.1-dev.1...v4.1.0-dev.1) (2026-05-22)
 
 
