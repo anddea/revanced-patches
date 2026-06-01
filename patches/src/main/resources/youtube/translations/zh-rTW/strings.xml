@@ -20,6 +20,8 @@
     <string name="gms_core_settings_summary">啟用雲端訊息傳遞以接收通知。</string>
     <string name="gms_core_settings_title">開啟 GmsCore 設定</string>
     <string name="gms_core_toast_not_installed_message">GmsCore 未安裝。請安裝。</string>
+    <string name="morphe_disable_auto_hide_navigation_bar_summary">在捲動時，保持導覽列可見</string>
+    <string name="morphe_disable_auto_hide_navigation_bar_title">停用自動隱藏導航欄</string>
     <string name="morphe_disable_drc_audio_summary_off">已啟用 DRC 音效</string>
     <string name="morphe_disable_drc_audio_summary_on">已停用 DRC 音效</string>
     <string name="morphe_disable_drc_audio_title">停用 DRC 音效</string>
@@ -264,6 +266,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_confirm_user_dialog_title">您確定要繼續嗎？</string>
     <string name="revanced_copy">複製</string>
     <string name="revanced_copy_error">複製文字失敗</string>
+    <string name="revanced_credits_title">感謝名單</string>
     <string name="revanced_custom_filter_strings_summary">列出要篩選的元件路徑建構器字串，使用換行符號進行分隔</string>
     <string name="revanced_custom_filter_strings_title">自訂篩選器</string>
     <string name="revanced_custom_filter_summary_off">已停用自訂篩選器</string>
@@ -613,6 +616,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_fix_transcript_title">修正轉錄稿</string>
     <string name="revanced_fullscreen_ads_closed_toast">全螢幕廣告已關閉。</string>
     <string name="revanced_gemini_cancelled">已取消</string>
+    <string name="revanced_gemini_chat_input_hint">關於這部影片</string>
     <string name="revanced_gemini_copy_success">摘要已複製到剪貼簿。</string>
     <string name="revanced_gemini_error_already_running_summarize">摘要生成已在進行中。</string>
     <string name="revanced_gemini_error_already_running_transcribe">轉錄已在進行中。</string>
@@ -1088,6 +1092,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_summary_off">在 VR 中觀看選單已顯示。</string>
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_summary_on">在 VR 中觀看選單已隱藏。</string>
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_title">隱藏在 VR 中觀看選單</string>
+    <string name="revanced_hide_player_flyout_quality_title">隱藏「影片畫質」選單</string>
     <string name="revanced_hide_player_fullscreen_button_summary_off">全螢幕按鈕已顯示。</string>
     <string name="revanced_hide_player_fullscreen_button_summary_on">"全螢幕按鈕已隱藏。
 
@@ -1255,6 +1260,9 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_hide_settings_menu_subscription_product_summary_on">購買和會員選單已隱藏。</string>
     <string name="revanced_hide_settings_menu_subscription_product_title">隱藏購買和會員選單</string>
     <string name="revanced_hide_settings_menu_summary">隱藏 YouTube 設定選單中的元素</string>
+    <string name="revanced_hide_settings_menu_time_management_summary_off">已顯示時間管理選單</string>
+    <string name="revanced_hide_settings_menu_time_management_summary_on">已隱藏時間管理選單</string>
+    <string name="revanced_hide_settings_menu_time_management_title">隱藏時間管理選單</string>
     <string name="revanced_hide_settings_menu_title">YouTube 設定選單</string>
     <string name="revanced_hide_settings_menu_video_quality_summary_off">影片畫質選項選單已顯示。</string>
     <string name="revanced_hide_settings_menu_video_quality_summary_on">影片畫質選項選單已隱藏。</string>
@@ -2269,6 +2277,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_vote_upvote">按讚</string>
     <string name="revanced_search_settings_category_title">搜尋設定</string>
     <string name="revanced_search_title">搜尋</string>
+    <string name="revanced_send">送出</string>
     <string name="revanced_set_transcript_cookies_all_summary_off">僅為自動翻譯字幕請求設定 Cookie。</string>
     <string name="revanced_set_transcript_cookies_all_summary_on">為所有 Transcript API 請求設定 Cookie。</string>
     <string name="revanced_set_transcript_cookies_all_title">為所有 Transcript API 請求設定 Cookies</string>
@@ -2333,6 +2342,8 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_share_copy_video_information_success">影片資訊已複製到剪貼簿。</string>
     <string name="revanced_shorts_autoplay_background_summary">在背景播放期間自動到 Shorts</string>
     <string name="revanced_shorts_autoplay_background_title">背景自動播放</string>
+    <string name="revanced_shorts_autoplay_disabled_toast">停用 Shorts 自動播放</string>
+    <string name="revanced_shorts_autoplay_enabled_toast">啟用 Shorts 自動播放</string>
     <string name="revanced_shorts_autoplay_summary">自動進到下一個 Shorts</string>
     <string name="revanced_shorts_autoplay_title">自動播放 Shorts</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"此功能仍處於實驗階段，因此不能保證它能完美運作。
@@ -2408,6 +2419,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_spoof_app_version_summary_on">已偽裝版本</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - 恢復逐字稿功能</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - 恢復未折疊的影片操作欄</string>
+    <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - 恢復成舊的過濾方式</string>
     <string name="revanced_spoof_app_version_target_entry_title">偽裝應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">無效的偽裝應用程式版本: %s。</string>
     <string name="revanced_spoof_app_version_target_summary">輸入偽裝的應用程式版本目標。</string>
@@ -2490,6 +2502,7 @@ AI 生成的回應可能包含不準確的資訊。
 3. 出現提示時登入。如果您有多個 Google 帳戶，請選擇您用於 YouTube 的帳戶。如果您已登錄，請跳至下一步。
 4. 登入後，返回 RVX 並再次點擊「關於 Android VR 驗證」。
 5. 點選「取得授權令牌」以取得授權令牌。"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website">開啟網站</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">打開網站</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">啟動碼</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">啟動碼已複製到剪貼簿: %s。</string>
