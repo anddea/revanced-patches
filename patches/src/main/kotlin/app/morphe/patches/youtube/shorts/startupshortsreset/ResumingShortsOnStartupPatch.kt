@@ -9,14 +9,17 @@ import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YO
 import app.morphe.patches.youtube.utils.extension.Constants.SHORTS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.DISABLE_RESUMING_SHORTS_ON_STARTUP
-import app.morphe.patches.youtube.utils.playservice.is_20_00_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_02_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_39_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_03_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
+import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -37,24 +40,25 @@ val resumingShortsOnStartupPatch = bytecodePatch(
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
     execute {
-        if (is_21_03_or_greater) {
-            UserWasInShortsEvaluateFingerprint.let { fingerprint ->
-                fingerprint.method.apply {
-                    val match = fingerprint.instructionMatches.first()
-                    val instruction = match.instruction as RegisterRangeInstruction
-                    val zMRegister = instruction.startRegister + 2
+        when {
+            is_21_03_or_greater -> {
+                UserWasInShortsEvaluateFingerprint.let { fingerprint ->
+                    fingerprint.method.apply {
+                        val match = fingerprint.instructionMatches.first()
+                        val instruction = match.instruction as RegisterRangeInstruction
+                        val zMRegister = instruction.startRegister + 2
 
-                    addInstructions(
-                        match.index,
-                        """
+                        addInstructions(
+                            match.index,
+                            """
                             invoke-static { v$zMRegister }, $SHORTS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer(Z)Z
                             move-result v$zMRegister
-                        """
-                    )
+                            """
+                        )
+                    }
                 }
             }
-        } else {
-            if (is_20_00_or_greater) {
+            is_20_39_or_greater -> {
                 UserWasInShortsListenerFingerprint.let { fingerprint ->
                     fingerprint.method.apply {
                         val match = fingerprint.instructionMatches[2]
@@ -70,7 +74,28 @@ val resumingShortsOnStartupPatch = bytecodePatch(
                         )
                     }
                 }
-            } else {
+            }
+            is_20_02_or_greater -> {
+                userWasInShortsAlternativeFingerprint.matchOrThrow().let {
+                    it.method.apply {
+                        val stringIndex = it.stringMatches.first().index
+                        val booleanValueIndex = indexOfFirstInstructionReversedOrThrow(stringIndex) {
+                            opcode == Opcode.INVOKE_VIRTUAL &&
+                                    getReference<MethodReference>()?.name == "booleanValue"
+                        }
+                        val booleanValueRegister =
+                            getInstruction<OneRegisterInstruction>(booleanValueIndex + 1).registerA
+
+                        addInstructions(
+                            booleanValueIndex + 2, """
+                                invoke-static {v$booleanValueRegister}, $SHORTS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer(Z)Z
+                                move-result v$booleanValueRegister
+                                """
+                        )
+                    }
+                }
+            }
+            else -> {
                 userWasInShortsFingerprint.methodOrThrow().apply {
                     val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                         val reference = getReference<MethodReference>()

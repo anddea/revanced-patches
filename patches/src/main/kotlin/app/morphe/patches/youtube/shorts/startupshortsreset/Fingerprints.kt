@@ -44,6 +44,13 @@ internal object UserWasInShortsListenerFingerprint : Fingerprint(
     )
 )
 
+internal val userWasInShortsAlternativeFingerprint = "userWasInShortsAlternativeFingerprint" to Fingerprint(
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = listOf("Ljava/lang/Object;"),
+    strings = listOf("userIsInShorts: ")
+)
+
 /**
  * 18.15.40+
  */
