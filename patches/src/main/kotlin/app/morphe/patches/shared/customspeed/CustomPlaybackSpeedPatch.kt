@@ -9,6 +9,7 @@ import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+import app.morphe.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -99,6 +100,10 @@ fun customPlaybackSpeedPatch(
                     "const/high16 v$limitMaxRegister, ${maxSpeed.toRawBits()}"
                 )
             }
+        }
+
+        if (is_20_34_or_greater) {
+            ServerSideMaxSpeedFeatureFlagFingerprint.method.returnEarly(false)
         }
 
         patchIncluded = true

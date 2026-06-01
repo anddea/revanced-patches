@@ -2,6 +2,7 @@ package app.morphe.patches.shared.customspeed
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.literal
 import app.morphe.util.containsLiteralInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -24,6 +25,14 @@ internal object LimiterFingerprint : Fingerprint(
         method.containsLiteralInstruction(0.25f.toRawBits().toLong()) &&
                 method.containsLiteralInstruction(4.0f.toRawBits().toLong())
     }
+)
+
+internal object ServerSideMaxSpeedFeatureFlagFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    filters = listOf(
+        literal(45719140L)
+    )
 )
 
 internal object LimiterFallBackFingerprint : Fingerprint(
