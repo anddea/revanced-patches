@@ -129,6 +129,8 @@ val lithoFilterPatch = bytecodePatch(
                 "invoke-static { p2 }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
             )
 
+            val protoBufferEncodeMethod = ProtobufBufferEncodeFingerprint.method
+
             // endregion
 
 
@@ -205,11 +207,12 @@ val lithoFilterPatch = bytecodePatch(
                 )
 
                 val registerProvider = getFreeRegisterProvider(
-                    insertIndex, 3, buttonViewModelRegister
+                    insertIndex, 4, buttonViewModelRegister
                 )
                 val freeRegister = registerProvider.getFreeRegister()
                 val identifierRegister = registerProvider.getFreeRegister()
                 val pathRegister = registerProvider.getFreeRegister()
+                val bufferRegister = registerProvider.getFreeRegister()
 
                 // We need to find a free register to store the accessibilityId and accessibilityText.
                 // This is before the insertion index.
@@ -224,6 +227,25 @@ val lithoFilterPatch = bytecodePatch(
                 addInstructionsAtControlFlowLabel(
                     insertIndex,
                     """
+                    move-object/from16 v$bufferRegister, p3
+
+                    # Use the current component buffer directly. Reusing buffers by identifier can
+                    # collide for repeated components such as fullscreen quick action buttons.
+                    instance-of v$freeRegister, v$bufferRegister, ${protoBufferEncodeMethod.definingClass}
+                    if-eqz v$freeRegister, :empty_buffer
+
+                    check-cast v$bufferRegister, ${protoBufferEncodeMethod.definingClass}
+                    invoke-virtual { v$bufferRegister }, $protoBufferEncodeMethod
+                    move-result-object v$bufferRegister
+                    goto :hook
+
+                    :empty_buffer
+                    const/4 v$freeRegister, 0x0
+                    new-array v$bufferRegister, v$freeRegister, [B
+
+                    :hook
+                    invoke-static { v$bufferRegister }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->setDirectProtoBuffer([B)V
+
                     move-object/from16 v$freeRegister, p2
                     
                     # 20.41 field is the abstract superclass.

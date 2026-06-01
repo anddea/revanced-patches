@@ -129,6 +129,7 @@ public final class LithoFilterPatch {
      * Used for 20.21 and lower.
      */
     private static final ThreadLocal<byte[]> bufferThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<byte[]> directBufferThreadLocal = new ThreadLocal<>();
 
     /**
      * Identifier to protocol buffer mapping.  Only used for 20.22+.
@@ -331,6 +332,13 @@ public final class LithoFilterPatch {
     /**
      * Injection point.
      */
+    public static void setDirectProtoBuffer(@Nullable byte[] buffer) {
+        directBufferThreadLocal.set(buffer == null ? EMPTY_BYTE_ARRAY : buffer);
+    }
+
+    /**
+     * Injection point.
+     */
     public static boolean isFiltered(String identifier, @Nullable String accessibilityId,
                                      @Nullable String accessibilityText, StringBuilder pathBuilder,
                                      Object contextSource) {
@@ -339,36 +347,39 @@ public final class LithoFilterPatch {
                 return false;
             }
 
-            byte[] buffer = null;
-            if (EXTRACT_IDENTIFIER_FROM_BUFFER) {
-                final int pipeIndex = identifier.indexOf('|');
-                if (pipeIndex >= 0) {
-                    // If the identifier contains no pipe, then it's not an ".eml" identifier
-                    // and the buffer is not uniquely identified. Typically this only happens
-                    // for subcomponents where buffer filtering is not used.
-                    String identifierKey = identifier.substring(0, pipeIndex);
+            byte[] buffer = directBufferThreadLocal.get();
+            directBufferThreadLocal.remove();
+            if (buffer == null) {
+                if (EXTRACT_IDENTIFIER_FROM_BUFFER) {
+                    final int pipeIndex = identifier.indexOf('|');
+                    if (pipeIndex >= 0) {
+                        // If the identifier contains no pipe, then it's not an ".eml" identifier
+                        // and the buffer is not uniquely identified. Typically this only happens
+                        // for subcomponents where buffer filtering is not used.
+                        String identifierKey = identifier.substring(0, pipeIndex);
 
-                    var map = identifierToBufferThread.get();
-                    if (map != null) {
-                        buffer = map.get(identifierKey);
-                    }
+                        var map = identifierToBufferThread.get();
+                        if (map != null) {
+                            buffer = map.get(identifierKey);
+                        }
 
-                    if (buffer == null) {
-                        // Buffer for thread local not found. Use the last buffer found from any thread.
-                        buffer = identifierToBufferGlobal.get(identifierKey);
+                        if (buffer == null) {
+                            // Buffer for thread local not found. Use the last buffer found from any thread.
+                            buffer = identifierToBufferGlobal.get(identifierKey);
 
-                        if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER && buffer == null) {
-                            // No buffer is found for some components, such as
-                            // shorts_lockup_cell.eml on channel profiles.
-                            // For now, just ignore this and filter without a buffer.
-                            if (BaseSettings.DEBUG.get()) {
-                                Logger.printException(() -> "Debug: Could not find buffer for identifier: " + identifier);
+                            if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER && buffer == null) {
+                                // No buffer is found for some components, such as
+                                // shorts_lockup_cell.eml on channel profiles.
+                                // For now, just ignore this and filter without a buffer.
+                                if (BaseSettings.DEBUG.get()) {
+                                    Logger.printException(() -> "Debug: Could not find buffer for identifier: " + identifier);
+                                }
                             }
                         }
                     }
+                } else {
+                    buffer = bufferThreadLocal.get();
                 }
-            } else {
-                buffer = bufferThreadLocal.get();
             }
 
             // Potentially the buffer may have been null or never set up until now.
