@@ -17,6 +17,11 @@ internal class ReadMeFileGenerator : PatchesFileGenerator {
         "| \uD83D\uDC8A Patch | \uD83D\uDCDC Description | \uD83C\uDFF9 Target Version |\n" +
                 "|:--------:|:--------------:|:-----------------:|"
 
+    private val appNames = mapOf(
+        "com.google.android.apps.youtube.music" to "YouTube Music",
+        "com.google.android.youtube" to "YouTube"
+    )
+
     override fun generate(version: String, patches: Set<Patch<*>>) {
         val rootPath = Paths.get("").toAbsolutePath().parent!!
         val readMeFilePath = "$rootPath/README.md"
@@ -77,7 +82,7 @@ internal class ReadMeFileGenerator : PatchesFileGenerator {
                 .sortedByDescending { it.value.size }
                 .forEach { (pkg, patches) ->
                     output.apply {
-                        appendLine("### [\uD83D\uDCE6 `$pkg`](https://play.google.com/store/apps/details?id=$pkg)")
+                        appendLine("### [\uD83D\uDCE6 ${appNames[pkg] ?: pkg}](https://play.google.com/store/apps/details?id=$pkg)")
                         appendLine("<details>\n")
                         appendLine(tableHeader)
                         patches.sortedBy { it.name }.forEach { patch ->

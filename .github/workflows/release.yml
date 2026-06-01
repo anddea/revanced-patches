@@ -33,7 +33,7 @@ jobs:
       - name: Build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # To update `README.md` and `patches.json`, the command `./gradlew generatePatchesFiles clean` should be used instead of the command `./gradlew build clean`
+        # To update `README.md`, the command `./gradlew generatePatchesList clean` should be used instead of the command `./gradlew build clean`
         run: ./gradlew :patches:buildAndroid generatePatchesList clean
 
       - name: Setup Node.js
