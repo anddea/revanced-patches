@@ -54,9 +54,14 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -68,6 +73,12 @@ import app.morphe.extension.youtube.settings.Settings;
 public class VotApiClient {
 
     private static final String DEFAULT_WORKER_HOST = "vot-worker.toil.cc";
+    private static final String VOT_USER_SCRIPT_URL =
+            "https://raw.githubusercontent.com/ilyhalight/voice-over-translation/master/dist/vot.user.js";
+    private static final Pattern PROXY_WORKER_HOST_PATTERN =
+            Pattern.compile("\\bproxyWorkerHost\\s*=\\s*[\"']([^\"']+)[\"']");
+    private static final Pattern PROXY_WORKER_HOST_MODE_1_PATTERN =
+            Pattern.compile("\\bproxyWorkerHostMode1\\s*=\\s*[\"']([^\"']+)[\"']");
 
     private static final String HMAC_KEY = "bt8xH3VOlb4mqf0nqAibnDOoiPlXsisf";
     private static final String COMPONENT_VERSION = "25.6.0.2259";
@@ -89,6 +100,9 @@ public class VotApiClient {
                                     String translationId, String message) {
     }
 
+    private record ProxyWorkerRetryResult(TranslationResult result, boolean workerHostsFound) {
+    }
+
     /**
      * Converts a direct audio URL (S3/Yandex) to a proxied URL.
      * Format: https://{proxyHost}/video-translation/audio-proxy/{path}?{query}
@@ -103,11 +117,7 @@ public class VotApiClient {
         if (originalUrl.isEmpty()) {
             return originalUrl;
         }
-        String proxyHost = Settings.VOT_PROXY_URL.get();
-        if (proxyHost.isEmpty()) {
-            proxyHost = DEFAULT_WORKER_HOST;
-        }
-        proxyHost = proxyHost.replaceFirst("^https?://", "").replaceAll("/+$", "");
+        String proxyHost = getWorkerHost();
         try {
             URI uri = new URI(originalUrl);
             String path = uri.getRawPath();
@@ -147,49 +157,105 @@ public class VotApiClient {
             String videoTitle
     ) {
         try {
-            ensureSession();
-
-            if (duration <= 0) {
-                duration = DEFAULT_DURATION;
+            TranslationResult result = requestTranslationInternal(videoUrl, duration, sourceLang, targetLang, videoTitle);
+            if (result != null) {
+                return result;
             }
 
-            String apiSourceLang = (sourceLang == null || sourceLang.isEmpty() || "auto".equalsIgnoreCase(sourceLang))
-                    ? "" : sourceLang;
-
-            byte[] body = VotProtobuf.encodeTranslationRequest(
-                    videoUrl, true, duration,
-                    apiSourceLang, targetLang, videoTitle,
-                    Settings.VOT_USE_LIVE_VOICES.get()
-            );
-
-            String path = "/video-translation/translate";
-            String bodySignature = computeHmacHex(body);
-
-            String token = sessionUuid + ":" + path + ":" + COMPONENT_VERSION;
-            String tokenSignature = computeHmacHex(token.getBytes(StandardCharsets.UTF_8));
-
-            byte[] responseBytes = sendWorkerRequest(path, body, bodySignature,
-                    sessionSecretKey, tokenSignature + ":" + token, "POST");
-
-            if (responseBytes == null || responseBytes.length == 0) {
-
-                return null;
-            }
-
-            VotProtobuf.TranslationResponse response = VotProtobuf.decodeTranslationResponse(responseBytes);
-
-            return new TranslationResult(
-                    response.status,
-                    response.url,
-                    response.remainingTime,
-                    response.translationId,
-                    response.message
-            );
-
+            return requestTranslationUsingFreshProxyWorkers(
+                    videoUrl, duration, sourceLang, targetLang, videoTitle, null).result();
         } catch (Exception e) {
+            ProxyWorkerRetryResult retryResult = requestTranslationUsingFreshProxyWorkers(
+                    videoUrl, duration, sourceLang, targetLang, videoTitle, e);
+
+            if (retryResult.result() != null || retryResult.workerHostsFound()) {
+                return retryResult.result();
+            }
+
             Logger.printException(() -> "VotApiClient.requestTranslation failed for " + videoUrl, e);
             return null;
         }
+    }
+
+    private static TranslationResult requestTranslationInternal(
+            String videoUrl, double duration,
+            String sourceLang, String targetLang,
+            String videoTitle
+    ) throws Exception {
+        ensureSession();
+
+        if (duration <= 0) {
+            duration = DEFAULT_DURATION;
+        }
+
+        String apiSourceLang = (sourceLang == null || sourceLang.isEmpty() || "auto".equalsIgnoreCase(sourceLang))
+                ? "" : sourceLang;
+
+        byte[] body = VotProtobuf.encodeTranslationRequest(
+                videoUrl, true, duration,
+                apiSourceLang, targetLang, videoTitle,
+                Settings.VOT_USE_LIVE_VOICES.get()
+        );
+
+        String path = "/video-translation/translate";
+        String bodySignature = computeHmacHex(body);
+
+        String token = sessionUuid + ":" + path + ":" + COMPONENT_VERSION;
+        String tokenSignature = computeHmacHex(token.getBytes(StandardCharsets.UTF_8));
+
+        byte[] responseBytes = sendWorkerRequest(path, body, bodySignature,
+                sessionSecretKey, tokenSignature + ":" + token, "POST");
+
+        if (responseBytes == null || responseBytes.length == 0) {
+
+            return null;
+        }
+
+        VotProtobuf.TranslationResponse response = VotProtobuf.decodeTranslationResponse(responseBytes);
+
+        return new TranslationResult(
+                response.status,
+                response.url,
+                response.remainingTime,
+                response.translationId,
+                response.message
+        );
+    }
+
+    private static ProxyWorkerRetryResult requestTranslationUsingFreshProxyWorkers(
+            String videoUrl, double duration,
+            String sourceLang, String targetLang,
+            String videoTitle,
+            Exception originalException
+    ) {
+        String[] workerHosts = fetchProxyWorkerHosts();
+        if (workerHosts.length == 0) {
+            if (originalException != null) {
+                Logger.printDebug(() -> "VOT proxy worker refresh found no workers");
+            }
+            return new ProxyWorkerRetryResult(null, false);
+        }
+
+        Exception retryException = originalException;
+        for (String workerHost : workerHosts) {
+            Settings.VOT_PROXY_URL.save(workerHost);
+            resetSession();
+
+            try {
+                TranslationResult result = requestTranslationInternal(videoUrl, duration, sourceLang, targetLang, videoTitle);
+                if (result != null) {
+                    return new ProxyWorkerRetryResult(result, true);
+                }
+            } catch (Exception e) {
+                retryException = e;
+            }
+        }
+
+        if (retryException != null) {
+            Exception exception = retryException;
+            Logger.printDebug(() -> "VOT proxy worker retry failed: " + exception.getMessage());
+        }
+        return new ProxyWorkerRetryResult(null, true);
     }
 
     public static void sendFailedAudio(String videoUrl) {
@@ -298,15 +364,23 @@ public class VotApiClient {
         }
     }
 
+    private static void resetSession() {
+        sessionLock.lock();
+        try {
+            sessionUuid = null;
+            sessionSecretKey = null;
+            sessionExpires = 0;
+        } finally {
+            sessionLock.unlock();
+        }
+    }
+
     private static byte[] sendWorkerRequest(
             String path, byte[] body,
             String vtransSignature, String secretKey, String vtransToken,
             String method
     ) throws IOException {
-        String workerHost = Settings.VOT_PROXY_URL.get();
-        if (workerHost.isEmpty()) {
-            workerHost = DEFAULT_WORKER_HOST;
-        }
+        String workerHost = getWorkerHost();
 
         String workerUrl = "https://" + workerHost + path;
 
@@ -374,10 +448,7 @@ public class VotApiClient {
     }
 
     private static void sendWorkerJsonRequest(String path, String jsonBody) throws IOException {
-        String workerHost = Settings.VOT_PROXY_URL.get();
-        if (workerHost.isEmpty()) {
-            workerHost = DEFAULT_WORKER_HOST;
-        }
+        String workerHost = getWorkerHost();
 
         String workerUrl = "https://" + workerHost + path;
 
@@ -406,6 +477,75 @@ public class VotApiClient {
             }
         } finally {
             connection.disconnect();
+        }
+    }
+
+    @NonNull
+    private static String getWorkerHost() {
+        String workerHost = Settings.VOT_PROXY_URL.get();
+        if (workerHost.isEmpty()) {
+            workerHost = DEFAULT_WORKER_HOST;
+        }
+
+        return normalizeWorkerHost(workerHost);
+    }
+
+    @NonNull
+    private static String normalizeWorkerHost(@NonNull String workerHost) {
+        workerHost = workerHost.trim()
+                .replaceFirst("^https?://", "")
+                .replaceAll("/+$", "");
+
+        int slashIndex = workerHost.indexOf('/');
+        if (slashIndex >= 0) {
+            workerHost = workerHost.substring(0, slashIndex);
+        }
+
+        return workerHost;
+    }
+
+    @NonNull
+    private static String[] fetchProxyWorkerHosts() {
+        HttpURLConnection connection = null;
+        try {
+            connection = (HttpURLConnection) new URL(VOT_USER_SCRIPT_URL).openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("User-Agent", USER_AGENT);
+            connection.setConnectTimeout(CONNECT_TIMEOUT_MS);
+            connection.setReadTimeout(READ_TIMEOUT_MS);
+
+            if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                return new String[0];
+            }
+
+            String script = new String(readBytes(connection.getInputStream()), StandardCharsets.UTF_8);
+            return parseProxyWorkerHosts(script);
+        } catch (Exception e) {
+            Logger.printDebug(() -> "VOT proxy worker refresh failed: " + e.getMessage());
+            return new String[0];
+        } finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
+    }
+
+    @NonNull
+    private static String[] parseProxyWorkerHosts(@NonNull String script) {
+        List<String> workerHosts = new ArrayList<>(2);
+        addProxyWorkerHost(workerHosts, script, PROXY_WORKER_HOST_PATTERN);
+        addProxyWorkerHost(workerHosts, script, PROXY_WORKER_HOST_MODE_1_PATTERN);
+
+        return workerHosts.toArray(new String[0]);
+    }
+
+    private static void addProxyWorkerHost(List<String> workerHosts, String script, Pattern pattern) {
+        Matcher matcher = pattern.matcher(script);
+        if (matcher.find()) {
+            String workerHost = normalizeWorkerHost(Objects.requireNonNull(matcher.group(1)));
+            if (!workerHost.isEmpty() && !workerHosts.contains(workerHost)) {
+                workerHosts.add(workerHost);
+            }
         }
     }
 
