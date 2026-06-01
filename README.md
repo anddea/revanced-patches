@@ -1,24 +1,15 @@
 <div align="center"> 
 <img src="assets/rvx-logo.png" alt="RVX logo" width="128">
 
-    
 ## 🧩 ReVanced Extended Patches
-[![Static Badge](https://img.shields.io/badge/RVX_Wiki-gray?logo=github)](https://github.com/anddea/revanced-patches/wiki)   [![Static Badge](https://img.shields.io/badge/Translations-gray?logo=crowdin)](https://rvxtranslate.netlify.app/)
+[![Static Badge](https://img.shields.io/badge/RVX_Wiki-gray?logo=github)](https://github.com/anddea/revanced-patches/wiki)   [![Static Badge](https://img.shields.io/badge/Translations-gray?logo=crowdin)](https://rvxtranslate.vercel.app/)
 <br>
-[![Static Badge](https://img.shields.io/badge/Telegram-Community-gray?logo=telegram&color=%2326A5E4)](https://t.me/AnddeaChat)   [![Static Badge](https://img.shields.io/badge/Reddit-RVX-gray?logo=reddit&color=red)](https://reddit.com/r/revancedextended)   [![Static Badge](https://img.shields.io/badge/Reddit-YTAdvanced-gray?logo=reddit&color=yellow)](https://www.reddit.com/r/YTadvanced)
+[![Static Badge](https://img.shields.io/badge/Telegram-Community-gray?logo=telegram&color=%2326A5E4)](https://t.me/AnddeaChat)   [![Static Badge](https://img.shields.io/badge/Reddit-YTAdvanced-gray?logo=reddit&color=red)](https://www.reddit.com/r/YTadvanced)
 </div>
-
-## Documentation
-
-Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources on patching, customization, and debugging.
-
-Report issues [here](https://github.com/inotia00/ReVanced_Extended).
-
-[Credits](https://github.com/anddea/revanced-patches/wiki/Credits)
 
 ## 📋 List of patches in this repository
 
-### [📦 `com.google.android.youtube`](https://play.google.com/store/apps/details?id=com.google.android.youtube)
+### [📦 YouTube](https://play.google.com/store/apps/details?id=com.google.android.youtube)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -93,7 +84,7 @@ Report issues [here](https://github.com/inotia00/ReVanced_Extended).
 | `Voice Over Translation` | Adds an option to enable Yandex voice-over translation of video audio tracks. | 19.05.36 ~ 20.51.39 |
 </details>
 
-### [📦 `com.google.android.apps.youtube.music`](https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music)
+### [📦 YouTube Music](https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -141,51 +132,3 @@ Report issues [here](https://github.com/inotia00/ReVanced_Extended).
 </details>
 
 
-
-## 📝 JSON Format
-
-Example:
-
-```json
-[
-  {
-    "name": "Alternative thumbnails",
-    "description": "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
-    "use":true,
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53",
-        "20.05.46",
-        "20.21.37",
-        "20.31.42",
-        "20.47.62",
-        "20.51.39"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Bitrate default value",
-    "description": "Sets the audio quality to 'Always High' when you first install the app.",
-    "use":true,
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53",
-        "8.12.54",
-        "8.28.54",
-        "8.30.54"
-      ]
-    },
-    "options": []
-  }
-]
-```

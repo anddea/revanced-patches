@@ -1,3 +1,18 @@
+# [4.1.0-dev.3](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.2...v4.1.0-dev.3) (2026-06-01)
+
+
+### Bug Fixes
+
+* **YouTube - Disable resuming Shorts on startup:** Failed on `v20.05.46` ([dcf233e](https://github.com/anddea/revanced-patches/commit/dcf233e2961c6b43e21f721948a7d5b5512c1419))
+* **YouTube - Video playback:** Speed was capped at 2x for `v20.34+` ([3cb6a25](https://github.com/anddea/revanced-patches/commit/3cb6a25b2b43eed5c4aae8f054f32e5a0cdaa814))
+* **YouTube Music - Settings:** Import/Export settings did not work ([46e0b15](https://github.com/anddea/revanced-patches/commit/46e0b1592ec09e489bb2ee9d6560e60f04a10f92))
+
+
+### Features
+
+* **YouTube - Navigation bar components:** Add `Disable auto-hiding navigation bar` setting ([812ca4b](https://github.com/anddea/revanced-patches/commit/812ca4b2c1781618aa77d9317b2a733ee6373b27))
+* **YouTube - Voice Over Translation:** Automatically retrieve latest VOT host ([71c8919](https://github.com/anddea/revanced-patches/commit/71c8919b74e86efaff3b7676399ceeb2a009e8b9))
+
 # [4.1.0-dev.2](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.1...v4.1.0-dev.2) (2026-05-29)
 
 
