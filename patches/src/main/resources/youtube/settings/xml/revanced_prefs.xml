@@ -54,6 +54,9 @@
 
             <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
 
+            <!-- SETTINGS: DISABLE_AUTO_HIDE_NAVIGATION_BAR
+            <SwitchPreference android:title="@string/morphe_disable_auto_hide_navigation_bar_title" android:key="morphe_disable_auto_hide_navigation_bar" android:summary="@string/morphe_disable_auto_hide_navigation_bar_summary" />SETTINGS: DISABLE_AUTO_HIDE_NAVIGATION_BAR -->
+
             <!-- SETTINGS: TRANSLUCENT_NAVIGATION_BAR
             <SwitchPreference android:title="@string/revanced_enable_translucent_navigation_bar_title" android:key="revanced_enable_translucent_navigation_bar" android:summaryOn="@string/revanced_enable_translucent_navigation_bar_summary_on" android:summaryOff="@string/revanced_enable_translucent_navigation_bar_summary_off" />SETTINGS: TRANSLUCENT_NAVIGATION_BAR -->
 

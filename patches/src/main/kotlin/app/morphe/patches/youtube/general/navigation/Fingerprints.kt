@@ -2,6 +2,7 @@ package app.morphe.patches.youtube.general.navigation
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.checkCast
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
@@ -14,8 +15,7 @@ import app.morphe.patches.youtube.utils.resourceid.newContentDot
 import app.morphe.patches.youtube.utils.resourceid.searchQuery
 import app.morphe.patches.youtube.utils.resourceid.ytFillBell
 import app.morphe.patches.youtube.utils.resourceid.ytOutlineLibrary
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.or
+import app.morphe.util.containsLiteralInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -25,15 +25,16 @@ internal const val SEARCH_CAIRO_STRING = "SEARCH_CAIRO"
 internal const val TAB_ACTIVITY_STRING = "TAB_ACTIVITY"
 internal const val TAB_ACTIVITY_CAIRO_STRING = "TAB_ACTIVITY_CAIRO"
 
-internal val actionBarSearchResultsFingerprint = legacyFingerprint(
-    name = "actionBarSearchResultsFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal object ActionBarSearchResultsFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Landroid/view/View;",
-    literals = listOf(actionBarSearchResultsViewMic, searchQuery),
+    custom = { method, _ ->
+        method.containsLiteralInstruction(actionBarSearchResultsViewMic) &&
+                method.containsLiteralInstruction(searchQuery)
+    }
 )
 
-internal val imageEnumConstructorFingerprint = legacyFingerprint(
-    name = "imageEnumConstructorFingerprint",
+internal object ImageEnumConstructorFingerprint : Fingerprint(
     returnType = "V",
     strings = listOf(
         UNKNOWN_STRING,
@@ -42,55 +43,52 @@ internal val imageEnumConstructorFingerprint = legacyFingerprint(
     )
 )
 
-internal val pivotBarBuilderFingerprint = legacyFingerprint(
-    name = "pivotBarBuilderFingerprint",
+internal object PivotBarBuilderFingerprint : Fingerprint(
     returnType = "V",
-    literals = listOf(newContentCount, newContentDot),
-    customFingerprint = { method, classDef ->
+    custom = { method, classDef ->
         method.name == "<init>" &&
+                method.containsLiteralInstruction(newContentCount) &&
+                method.containsLiteralInstruction(newContentDot) &&
                 classDef.fields.find { it.type.endsWith("/PivotBar;") } != null
     }
 )
 
-internal val pivotBarChangedFingerprint = legacyFingerprint(
-    name = "pivotBarChangedFingerprint",
+internal object PivotBarChangedFingerprint : Fingerprint(
+    name = "onConfigurationChanged",
     returnType = "V",
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.definingClass.endsWith("/PivotBar;")
-                && method.name == "onConfigurationChanged"
     }
 )
 
-internal val pivotBarSetTextFingerprint = legacyFingerprint(
-    name = "pivotBarSetTextFingerprint",
+internal object PivotBarSetTextFingerprint : Fingerprint(
+    name = "<init>",
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
     parameters = listOf(
         YOUTUBE_PIVOT_BAR_CLASS_TYPE,
         "Landroid/widget/TextView;",
         "Ljava/lang/CharSequence;"
     ),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
-    ),
-    customFingerprint = { method, _ -> method.name == "<init>" }
+    )
 )
 
-internal val pivotBarStyleFingerprint = legacyFingerprint(
-    name = "pivotBarStyleFingerprint",
+internal object PivotBarStyleFingerprint : Fingerprint(
     returnType = "V",
     parameters = listOf("L"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
         Opcode.XOR_INT_2ADDR
     ),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.definingClass.endsWith("/PivotBar;")
     }
 )
@@ -121,19 +119,32 @@ internal object TopBarRendererPrimaryFilterFingerprint : Fingerprint(
     ),
 )
 
-internal val setEnumMapFingerprint = legacyFingerprint(
-    name = "setEnumMapFingerprint",
-    literals = listOf(ytFillBell),
+internal object SetEnumMapFingerprint : Fingerprint(
+    custom = { method, _ ->
+        method.containsLiteralInstruction(ytFillBell)
+    }
 )
 
-internal val setEnumMapSecondaryFingerprint = legacyFingerprint(
-    name = "setEnumMapSecondaryFingerprint",
-    literals = listOf(ytOutlineLibrary),
+internal object SetEnumMapSecondaryFingerprint : Fingerprint(
+    custom = { method, _ ->
+        method.containsLiteralInstruction(ytOutlineLibrary)
+    }
 )
 
 internal const val TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAG = 45630927L
 
-internal val translucentNavigationBarFingerprint = legacyFingerprint(
-    name = "translucentNavigationBarFingerprint",
-    literals = listOf(TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAG),
+internal object TranslucentNavigationBarFingerprint : Fingerprint(
+    custom = { method, _ ->
+        method.containsLiteralInstruction(TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAG)
+    }
+)
+
+internal object AutoHideNavigationBarFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Landroid/support/v7/widget/RecyclerView;", "I", "I"),
+    filters = listOf(
+        methodCall("Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;"),
+        methodCall("Landroid/view/ViewConfiguration;->getScaledTouchSlop()I", location = MatchAfterWithin(5))
+    )
 )

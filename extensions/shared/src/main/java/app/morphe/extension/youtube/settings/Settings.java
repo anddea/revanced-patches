@@ -230,6 +230,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_NAVIGATION_LABEL = new BooleanSetting("revanced_hide_navigation_label", FALSE, true);
     public static final BooleanSetting ENABLE_TRANSLUCENT_NAVIGATION_BAR = new BooleanSetting("revanced_enable_translucent_navigation_bar", TRUE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR = new BooleanSetting("revanced_hide_navigation_bar", FALSE, true);
+    public static final BooleanSetting DISABLE_AUTO_HIDE_NAVIGATION_BAR = new BooleanSetting("morphe_disable_auto_hide_navigation_bar", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));
     public static final BooleanSetting REPLACE_NAVIGATION_BUTTON = new BooleanSetting("revanced_replace_navigation_button", FALSE, true);
     public static final EnumSetting<NavigationButton> REPLACE_NAVIGATION_BUTTON_TARGET = new EnumSetting<>("revanced_replace_navigation_button_target", NavigationButton.SHORTS, true, parent(REPLACE_NAVIGATION_BUTTON));
 

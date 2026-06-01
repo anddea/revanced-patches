@@ -2,6 +2,7 @@ package app.morphe.patches.youtube.general.navigation
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
@@ -20,6 +21,7 @@ import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_06_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.newContentCount
 import app.morphe.patches.youtube.utils.resourceid.newContentDot
@@ -32,9 +34,6 @@ import app.morphe.util.ResourceGroup
 import app.morphe.util.copyResources
 import app.morphe.util.copyXmlNode
 import app.morphe.util.findInstructionIndicesReversedOrThrow
-import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
-import app.morphe.util.fingerprint.matchOrThrow
-import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
@@ -131,10 +130,19 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for enable translucent navigation bar
 
         if (is_19_25_or_greater) {
-            translucentNavigationBarFingerprint.injectLiteralInstructionBooleanCall(
-                TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->enableTranslucentNavigationBar()Z"
-            )
+            TranslucentNavigationBarFingerprint.method.apply {
+                val literalIndex =
+                    indexOfFirstLiteralInstructionOrThrow(TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAG)
+                val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+                val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
+
+                addInstructions(
+                    resultIndex + 1, """
+                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->enableTranslucentNavigationBar()Z
+                        move-result v$register
+                        """
+                )
+            }
 
             settingArray += "SETTINGS: TRANSLUCENT_NAVIGATION_BAR"
         }
@@ -144,21 +152,19 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for enable narrow navigation buttons
 
         arrayOf(
-            pivotBarChangedFingerprint,
-            pivotBarStyleFingerprint
+            PivotBarChangedFingerprint,
+            PivotBarStyleFingerprint
         ).forEach { fingerprint ->
-            fingerprint.matchOrThrow().let {
-                it.method.apply {
-                    val targetIndex = it.instructionMatches.first().index + 1
-                    val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+            fingerprint.method.apply {
+                val targetIndex = fingerprint.instructionMatches.first().index + 1
+                val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                    addInstructions(
-                        targetIndex + 1, """
-                            invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->enableNarrowNavigationButton(Z)Z
-                            move-result v$register
-                            """
-                    )
-                }
+                addInstructions(
+                    targetIndex + 1, """
+                        invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->enableNarrowNavigationButton(Z)Z
+                        move-result v$register
+                        """
+                )
             }
         }
 
@@ -167,6 +173,22 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for hide navigation bar
 
         addBottomBarContainerHook("$EXTENSION_CLASS_DESCRIPTOR->hideNavigationBar(Landroid/view/View;)V")
+
+        if (is_20_31_or_greater) {
+            AutoHideNavigationBarFingerprint.method.addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disableAutoHidingNavigationBar()Z
+                    move-result v0
+                    if-eqz v0, :show
+                    return-void
+                    :show
+                    nop
+                """
+            )
+
+            settingArray += "SETTINGS: DISABLE_AUTO_HIDE_NAVIGATION_BAR"
+        }
 
         // endregion
 
@@ -199,7 +221,7 @@ val navigationBarComponentsPatch = bytecodePatch(
             }
         }
 
-        val enumClass = with(imageEnumConstructorFingerprint.methodOrThrow()) {
+        val enumClass = with(ImageEnumConstructorFingerprint.method) {
             arrayOf(
                 SEARCH_STRING to "search",
                 SEARCH_CAIRO_STRING to "searchCairo",
@@ -265,7 +287,7 @@ val navigationBarComponentsPatch = bytecodePatch(
             }
         }
 
-        pivotBarBuilderFingerprint.methodOrThrow().apply {
+        PivotBarBuilderFingerprint.method.apply {
             mapOf(
                 newContentCount to "getContentCountId",
                 newContentDot to "getContentDotId"
@@ -285,7 +307,7 @@ val navigationBarComponentsPatch = bytecodePatch(
             }
         }
 
-        actionBarSearchResultsFingerprint.methodOrThrow().apply {
+        ActionBarSearchResultsFingerprint.method.apply {
             val searchQueryId = indexOfFirstLiteralInstructionOrThrow(searchQuery)
 
             val castIndex = indexOfFirstInstructionOrThrow(searchQueryId) {
@@ -306,19 +328,17 @@ val navigationBarComponentsPatch = bytecodePatch(
 
         // region patch for hide navigation label
 
-        pivotBarSetTextFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val targetIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            getReference<MethodReference>()?.name == "setText"
-                }
-                val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
-
-                addInstruction(
-                    targetIndex,
-                    "invoke-static {v$targetRegister}, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationLabel(Landroid/widget/TextView;)V"
-                )
+        PivotBarSetTextFingerprint.method.apply {
+            val targetIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        getReference<MethodReference>()?.name == "setText"
             }
+            val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
+
+            addInstruction(
+                targetIndex,
+                "invoke-static {v$targetRegister}, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationLabel(Landroid/widget/TextView;)V"
+            )
         }
 
         // endregion
@@ -338,7 +358,7 @@ val navigationBarComponentsPatch = bytecodePatch(
          */
         if (is_19_28_or_greater && !is_20_28_or_greater) {
             val cairoNotificationEnumReference =
-                with(imageEnumConstructorFingerprint.methodOrThrow()) {
+                with(ImageEnumConstructorFingerprint.method) {
                     val stringIndex =
                         indexOfFirstStringInstructionOrThrow(TAB_ACTIVITY_CAIRO_STRING)
                     val cairoNotificationEnumIndex = indexOfFirstInstructionOrThrow(stringIndex) {
@@ -347,7 +367,7 @@ val navigationBarComponentsPatch = bytecodePatch(
                     getInstruction<ReferenceInstruction>(cairoNotificationEnumIndex).reference
                 }
 
-            setEnumMapFingerprint.methodOrThrow().apply {
+            SetEnumMapFingerprint.method.apply {
                 val enumMapIndex = indexOfFirstInstructionReversedOrThrow {
                     val reference = getReference<MethodReference>()
                     opcode == Opcode.INVOKE_VIRTUAL &&
@@ -369,7 +389,7 @@ val navigationBarComponentsPatch = bytecodePatch(
                 )
             }
 
-            setEnumMapSecondaryFingerprint.methodOrThrow().apply {
+            SetEnumMapSecondaryFingerprint.method.apply {
                 val index = indexOfFirstLiteralInstructionOrThrow(ytOutlineLibrary)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 

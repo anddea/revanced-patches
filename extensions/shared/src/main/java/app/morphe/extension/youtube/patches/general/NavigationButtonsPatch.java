@@ -44,6 +44,9 @@ public final class NavigationButtonsPatch {
     private static final boolean HIDE_NAVIGATION_BAR
             = Settings.HIDE_NAVIGATION_BAR.get();
 
+    private static final boolean DISABLE_AUTO_HIDE_NAVIGATION_BAR
+            = Settings.DISABLE_AUTO_HIDE_NAVIGATION_BAR.get();
+
     private static final boolean SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON
             = Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON.get();
 
@@ -322,6 +325,13 @@ public final class NavigationButtonsPatch {
      */
     public static void hideNavigationBar(View view) {
         hideViewUnderCondition(HIDE_NAVIGATION_BAR, view);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean disableAutoHidingNavigationBar() {
+        return DISABLE_AUTO_HIDE_NAVIGATION_BAR;
     }
 
 }
