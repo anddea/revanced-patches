@@ -18,9 +18,10 @@ public final class ShortsButtonFilter extends Filter {
     /**
      * For paid promotion label and subscribe button that appears in the channel bar.
      */
-    private static final String REEL_METAPANEL_PATH = "reel_metapanel.";
+    private static final String REEL_METAPANEL_PATH = "reel_metapanel.e";
+    private static final String REEL_PLAYER_OVERLAY_PATH = "reel_player_overlay.e";
 
-    private static final String SHORTS_PAUSED_STATE_BUTTON_PATH = "|ScrollableContainerType|ContainerType|button.";
+    private static final String SHORTS_PAUSED_STATE_BUTTON_PATH = "|ScrollableContainerType|ContainerType|button.e";
 
     private final StringFilterGroup autoDubbedLabel;
     private final StringFilterGroup subscribeButton;
@@ -40,6 +41,7 @@ public final class ShortsButtonFilter extends Filter {
 
     private final ByteArrayFilterGroup useThisSoundButton = new ByteArrayFilterGroup(
             Settings.HIDE_SHORTS_USE_THIS_SOUND_BUTTON,
+            "yt_outline_experimental_camera_",
             "yt_outline_camera"
     );
 
@@ -179,6 +181,7 @@ public final class ShortsButtonFilter extends Filter {
 
         suggestedAction = new StringFilterGroup(
                 null,
+                "suggested_action.e",
                 "suggested_action_inner."
         );
 
@@ -277,27 +280,33 @@ public final class ShortsButtonFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SHOP_BUTTON,
+                        "yt_outline_experimental_bag_",
                         "yt_outline_bag_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_LOCATION_BUTTON,
+                        "yt_outline_experimental_location_point_",
                         "yt_outline_location_point_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SAVE_MUSIC_BUTTON,
+                        "yt_outline_experimental_list_add_",
                         "yt_outline_list_add_",
                         "yt_outline_bookmark_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SEARCH_SUGGESTIONS_BUTTON,
+                        "yt_outline_experimental_search_",
                         "yt_outline_search_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_BUY_SUPER_THANKS_BUTTON,
+                        "yt_outline_experimental_dollar_sign_heart_",
                         "yt_outline_dollar_sign_heart_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_USE_THIS_TEMPLATE_BUTTON,
+                        "yt_outline_experimental_template_add",
                         "yt_outline_template_add"
                 ),
                 new ByteArrayFilterGroup(
@@ -307,10 +316,12 @@ public final class ShortsButtonFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_HASHTAG_BUTTON,
+                        "yt_outline_experimental_hashtag_",
                         "yt_outline_hashtag"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_NEW_POSTS_BUTTON,
+                        "yt_outline_experimental_box_pencil",
                         "yt_outline_box_pencil"
                 ),
                 useThisSoundButton
@@ -334,11 +345,18 @@ public final class ShortsButtonFilter extends Filter {
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == subscribeButton || matchedGroup == joinButton || matchedGroup == autoDubbedLabel) {
             // Selectively filter to avoid false positive filtering of other subscribe/join buttons.
-            return StringUtils.startsWithAny(path, REEL_CHANNEL_BAR_PATH, REEL_LIVE_HEADER_PATH, REEL_METAPANEL_PATH);
+            return StringUtils.startsWithAny(
+                    path,
+                    REEL_CHANNEL_BAR_PATH,
+                    REEL_LIVE_HEADER_PATH,
+                    REEL_METAPANEL_PATH,
+                    REEL_PLAYER_OVERLAY_PATH
+            );
         }
 
         if (matchedGroup == metaPanelButton) {
-            return path.startsWith(REEL_METAPANEL_PATH) && useThisSoundButton.check(buffer).isFiltered();
+            return StringUtils.startsWithAny(path, REEL_METAPANEL_PATH, REEL_PLAYER_OVERLAY_PATH)
+                    && useThisSoundButton.check(buffer).isFiltered();
         }
 
         // Video action buttons (like, dislike, comment, share, remix) have the same path.
@@ -375,11 +393,18 @@ public final class ShortsButtonFilter extends Filter {
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == subscribeButton || matchedGroup == joinButton || matchedGroup == autoDubbedLabel) {
             // Selectively filter to avoid false positive filtering of other subscribe/join buttons.
-            return StringUtils.startsWithAny(path, REEL_CHANNEL_BAR_PATH, REEL_LIVE_HEADER_PATH, REEL_METAPANEL_PATH);
+            return StringUtils.startsWithAny(
+                    path,
+                    REEL_CHANNEL_BAR_PATH,
+                    REEL_LIVE_HEADER_PATH,
+                    REEL_METAPANEL_PATH,
+                    REEL_PLAYER_OVERLAY_PATH
+            );
         }
 
         if (matchedGroup == metaPanelButton) {
-            return path.startsWith(REEL_METAPANEL_PATH) && useThisSoundButton.check(buffer).isFiltered();
+            return StringUtils.startsWithAny(path, REEL_METAPANEL_PATH, REEL_PLAYER_OVERLAY_PATH)
+                    && useThisSoundButton.check(buffer).isFiltered();
         }
 
         if (matchedGroup == shortsActionBar) {
