@@ -3,6 +3,8 @@
  * https://github.com/MorpheApp/morphe-patches
  *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ *
+ * Copyright (C) 2026 anddea (https://github.com/anddea)
  */
 
 package app.morphe.extension.shared.spoof.requests;
@@ -116,14 +118,32 @@ public class StreamOrDetailsDataRequest {
 
     private StreamOrDetailsDataRequest(@Nullable Route.CompiledRoute endpoint,
                                        String videoId, Map<String, String> playerHeaders) {
+        this(endpoint, videoId, playerHeaders, null);
+    }
+
+    private StreamOrDetailsDataRequest(@Nullable Route.CompiledRoute endpoint,
+                                       String videoId, Map<String, String> playerHeaders,
+                                       @Nullable ClientType[] clientStreamOrderOverride) {
         if (endpoint == null) {
             Objects.requireNonNull(playerHeaders);
         }
-        this.future = submitOnBackgroundThread(() -> fetch(endpoint, videoId, playerHeaders));
+
+        this.future = submitOnBackgroundThread(() ->
+                fetch(endpoint, videoId, playerHeaders, clientStreamOrderOverride));
     }
 
     public static void fetchStreamRequest(String videoId, Map<String, String> fetchHeaders) {
         streamCache.put(videoId, new StreamOrDetailsDataRequest(null, videoId, fetchHeaders));
+    }
+
+    public static void fetchStreamRequest(String videoId, Map<String, String> fetchHeaders,
+                                          ClientType... clientStreamOrderOverride) {
+        streamCache.put(videoId, new StreamOrDetailsDataRequest(
+                null,
+                videoId,
+                fetchHeaders,
+                clientStreamOrderOverride
+        ));
     }
 
     @Nullable
@@ -289,11 +309,20 @@ public class StreamOrDetailsDataRequest {
 
     private static Object fetch(@Nullable Route.CompiledRoute videoDetailsEndpoint,
                                 String videoId, Map<String, String> playerHeaders) {
+        return fetch(videoDetailsEndpoint, videoId, playerHeaders, null);
+    }
+
+    private static Object fetch(@Nullable Route.CompiledRoute videoDetailsEndpoint,
+                                String videoId, Map<String, String> playerHeaders,
+                                @Nullable ClientType[] clientStreamOrderOverride) {
         if (videoDetailsEndpoint == null) {
             final boolean debugEnabled = BaseSettings.DEBUG.get();
+            ClientType[] clientOrderToUse = clientStreamOrderOverride == null || clientStreamOrderOverride.length == 0
+                    ? clientStreamOrderToUse
+                    : clientStreamOrderOverride;
             int i = 0;
-            for (ClientType clientTypeStream : clientStreamOrderToUse) {
-                final boolean showErrorToast = (++i == clientStreamOrderToUse.length) || debugEnabled;
+            for (ClientType clientTypeStream : clientOrderToUse) {
+                final boolean showErrorToast = (++i == clientOrderToUse.length) || debugEnabled;
                 HttpURLConnection connection = send(clientTypeStream, videoId, playerHeaders, showErrorToast);
                 if (connection != null) {
                     Object playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, connection);

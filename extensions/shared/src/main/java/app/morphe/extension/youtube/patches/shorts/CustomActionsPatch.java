@@ -1,3 +1,44 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Attribution Notice
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Attribution (Section 7(b)): This specific copyright notice and the
+ *    list of original authors above must be preserved in any copy or
+ *    derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin (Section 7(c)): Modified versions must be clearly marked as
+ *    such (e.g., by adding a "Modified by" line or a new copyright notice).
+ *    They must not be misrepresented as the original work.
+ *
+ * ------------------------------------------------------------------------
+ * Version Control Acknowledgement (Non-binding Request)
+ * ------------------------------------------------------------------------
+ *
+ * While not a legal requirement of the GPLv3, the original author(s)
+ * respectfully request that ports or substantial modifications retain
+ * historical authorship credit in version control systems (e.g., Git),
+ * listing original author(s) appropriately and modifiers as committers
+ * or co-authors.
+ */
+
 package app.morphe.extension.youtube.patches.shorts;
 
 import static app.morphe.extension.shared.utils.ResourceUtils.getString;
@@ -32,6 +73,8 @@ import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.components.ShortsCustomActionsFilter;
+import app.morphe.extension.youtube.patches.utils.PatchStatus;
+import app.morphe.extension.youtube.patches.voiceovertranslation.VoiceOverTranslationPatch;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.utils.ExtendedUtils;
 import app.morphe.extension.youtube.utils.VideoUtils;
@@ -166,7 +209,7 @@ public final class CustomActionsPatch {
                             if (onLongClick != null) {
                                 view.setOnLongClickListener(onLongClick);
                             }
-                            customAction.getOnClickAction().run();
+                            customAction.getOnClickActionWithFlyoutMenuDismiss().run();
                             return true;
                         }
                     }
@@ -195,11 +238,13 @@ public final class CustomActionsPatch {
                 if (!isShortsFlyoutMenuVisible) {
                     return;
                 }
+                recyclerViewRef = new WeakReference<>(recyclerView);
                 int childCount = recyclerView.getChildCount();
-                if (childCount < arrSize + 1) {
+                int enabledCustomActionsCount = getEnabledCustomActionsCount();
+                if (childCount < enabledCustomActionsCount + 1) {
                     return;
                 }
-                for (int i = 0; i < arrSize; i++) {
+                for (int i = 0; i < enabledCustomActionsCount; i++) {
                     if (recyclerView.getChildAt(childCount - i - 1) instanceof ViewGroup parentViewGroup) {
                         childCount = recyclerView.getChildCount();
                         if (childCount > 3 && parentViewGroup.getChildAt(1) instanceof TextView textView) {
@@ -243,6 +288,16 @@ public final class CustomActionsPatch {
         });
     }
 
+    private static int getEnabledCustomActionsCount() {
+        int count = 0;
+        for (CustomAction customAction : CustomAction.values()) {
+            if (customAction.settings.get()) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     private static void hideFlyoutMenu() {
         if (!SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU_ENABLED) {
             return;
@@ -250,6 +305,19 @@ public final class CustomActionsPatch {
         RecyclerView recyclerView = recyclerViewRef.get();
         if (recyclerView == null) {
             return;
+        }
+
+        final int touchOutsideId = ResourceUtils.getIdentifier(
+                "touch_outside",
+                ResourceUtils.ResourceType.ID,
+                recyclerView.getContext()
+        );
+        if (touchOutsideId != 0) {
+            View touchOutsideView = recyclerView.getRootView().findViewById(touchOutsideId);
+            if (touchOutsideView != null) {
+                Utils.clickView(touchOutsideView);
+                return;
+            }
         }
 
         if (!(Utils.getParentView(recyclerView, 3) instanceof ViewGroup parentView3rd)) {
@@ -350,6 +418,25 @@ public final class CustomActionsPatch {
                     GeminiManager.getInstance().startSummarization(context, videoUrl);
                 }
         ),
+        VOICE_OVER_TRANSLATION(
+                Settings.SHORTS_CUSTOM_ACTIONS_VOICE_OVER_TRANSLATION,
+                "revanced_vot_button_icon",
+                () -> {
+                    if (!PatchStatus.VoiceOverTranslation()) {
+                        return;
+                    }
+                    Utils.runOnMainThreadDelayed(VoiceOverTranslationPatch::toggleTranslation, 300);
+                },
+                () -> {
+                    if (!PatchStatus.VoiceOverTranslation()) {
+                        return;
+                    }
+                    Context context = contextRef.get();
+                    if (context != null) {
+                        VideoUtils.showVotBottomSheetDialog(context);
+                    }
+                }
+        ),
         REPEAT_STATE(
                 Settings.SHORTS_CUSTOM_ACTIONS_REPEAT_STATE,
                 "yt_outline_arrow_repeat_1_black_24",
@@ -419,11 +506,16 @@ public final class CustomActionsPatch {
         }
 
         @NonNull
-        public View.OnClickListener getOnClickListener() {
-            return v -> {
+        public Runnable getOnClickActionWithFlyoutMenuDismiss() {
+            return () -> {
                 hideFlyoutMenu();
                 onClickAction.run();
             };
+        }
+
+        @NonNull
+        public View.OnClickListener getOnClickListener() {
+            return v -> getOnClickActionWithFlyoutMenuDismiss().run();
         }
 
         @Nullable

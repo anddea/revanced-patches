@@ -50,11 +50,15 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import app.morphe.extension.shared.innertube.utils.PlayerResponseOuterClass.Format;
 import app.morphe.extension.shared.innertube.utils.PlayerResponseOuterClass.PlayerResponse;
+import app.morphe.extension.shared.spoof.ClientType;
+import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.requests.StreamOrDetailsDataRequest;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.youtube.shared.VideoInformation;
 
 final class VotAudioDownloader {
     private static final int CHUNK_SIZE_BYTES = 5_295_308;
@@ -110,12 +114,33 @@ final class VotAudioDownloader {
 
     @Nullable
     private static Format fetchAudioFormat(String videoId) throws IOException {
-        // Updated to use StreamOrDetailsDataRequest
-        StreamOrDetailsDataRequest.fetchStreamRequest(videoId, Collections.emptyMap());
-        StreamOrDetailsDataRequest request = StreamOrDetailsDataRequest.getStreamRequestForVideoId(videoId);
+        Format cachedFormat = getAudioFormat(
+                StreamOrDetailsDataRequest.getStreamRequestForVideoId(videoId)
+        );
+        if (cachedFormat != null) return cachedFormat;
+
+        Map<String, String> requestHeaders = SpoofVideoStreamsPatch.currentVideoRequestHeader;
+        if (VideoInformation.lastVideoIdIsShort()) {
+            StreamOrDetailsDataRequest.fetchStreamRequest(
+                    videoId,
+                    requestHeaders != null ? requestHeaders : Collections.emptyMap(),
+                    ClientType.ANDROID_REEL_AUTH,
+                    ClientType.ANDROID_REEL_NO_AUTH
+            );
+        } else {
+            StreamOrDetailsDataRequest.fetchStreamRequest(
+                    videoId,
+                    requestHeaders != null ? requestHeaders : Collections.emptyMap()
+            );
+        }
+
+        return getAudioFormat(StreamOrDetailsDataRequest.getStreamRequestForVideoId(videoId));
+    }
+
+    @Nullable
+    private static Format getAudioFormat(@Nullable StreamOrDetailsDataRequest request) throws IOException {
         if (request == null) return null;
 
-        // Cast StreamDetails response object to byte[]
         byte[] playerResponseBytes = (byte[]) request.getStreamDetails();
         if (playerResponseBytes == null || playerResponseBytes.length == 0) return null;
 

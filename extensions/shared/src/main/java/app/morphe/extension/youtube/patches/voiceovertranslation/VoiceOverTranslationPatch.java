@@ -95,12 +95,16 @@ public class VoiceOverTranslationPatch {
     private static volatile String lastEmptyAudioFallbackKey = "";
     private static volatile String lastAudioDownloadAttemptKey = "";
     private static volatile boolean isPaused = false;
+    private static volatile boolean shortsPlaybackPaused = false;
     private static float lastAppliedPlaybackSpeed = 1.0f;
     private static volatile long lastVideoTimeMs = -1;
     private static final long SEEK_DRIFT_THRESHOLD_MS = 20000;
     private static final long USER_SEEK_JUMP_MS = 3000;
 
     private static final Runnable pauseCheckRunnable = () -> {
+        if (RootView.isShortsActive()) {
+            shortsPlaybackPaused = true;
+        }
         if (!isPaused) {
             pauseAudio();
         }
@@ -128,15 +132,17 @@ public class VoiceOverTranslationPatch {
 
     public static void initialize() {
         VideoState.addOnPlayingListener(() -> mainHandler.post(() -> {
-            if (VideoState.getCurrent() != VideoState.PLAYING) return;
+            if (RootView.isShortsActive()) return;
+            if (!shouldPlayTranslationAudio()) return;
             resumeAudio(-1);
         }));
         VideoState.addOnNotPlayingListener(() -> mainHandler.post(() -> {
+            if (RootView.isShortsActive()) return;
             mainHandler.removeCallbacks(pauseCheckRunnable);
             pauseAudio();
         }));
         VideoInformation.addOnPlaybackSpeedChangeListener(() -> mainHandler.post(() -> {
-            if (VideoState.getCurrent() != VideoState.PLAYING) return;
+            if (!shouldPlayTranslationAudio()) return;
             MediaPlayer p = mediaPlayer.get();
             if (p != null) applyPlaybackSpeedToPlayer(p);
         }));
@@ -151,6 +157,9 @@ public class VoiceOverTranslationPatch {
         String newId = videoId != null ? videoId : "";
         if (!newId.equals(currentTranslatedVideoId.get())) {
             stopAudioPlayback();
+        }
+        if (RootView.isShortsActive() && !newId.equals(pendingVideoId)) {
+            shortsPlaybackPaused = false;
         }
         pendingVideoId = newId;
         pendingVideoTitle = videoTitle != null ? videoTitle : "";
@@ -190,6 +199,24 @@ public class VoiceOverTranslationPatch {
         final double durationSeconds = pendingVideoLength / 1000.0;
         if (!startTranslationRequest(videoId, videoTitle, sourceLang, targetLang, durationSeconds)) return;
         showToastShort(str("revanced_vot_started"));
+    }
+
+    public static void onShortsPlaybackStarted() {
+        mainHandler.post(() -> {
+            if (!RootView.isShortsActive()) return;
+            shortsPlaybackPaused = false;
+            mainHandler.removeCallbacks(pauseCheckRunnable);
+            resumeAudio(-1);
+        });
+    }
+
+    public static void onShortsPlaybackPaused() {
+        mainHandler.post(() -> {
+            if (!RootView.isShortsActive()) return;
+            shortsPlaybackPaused = true;
+            mainHandler.removeCallbacks(pauseCheckRunnable);
+            pauseAudio();
+        });
     }
 
     public static boolean isTranslationActive() {
@@ -607,7 +634,7 @@ public class VoiceOverTranslationPatch {
                 player.setVolume(vol, vol);
                 long videoTime = VideoInformation.getVideoTime();
                 if (videoTime > 0) player.seekTo((int) videoTime);
-                if (VideoState.getCurrent() == VideoState.PLAYING) {
+                if (shouldPlayTranslationAudio()) {
                     applyPlaybackSpeedToPlayer(player);
                     player.start();
                 } else {
@@ -666,7 +693,7 @@ public class VoiceOverTranslationPatch {
                 long videoTime = VideoInformation.getVideoTime();
                 if (videoTime > 0) player.seekTo((int) videoTime);
 
-                if (VideoState.getCurrent() == VideoState.PLAYING) {
+                if (shouldPlayTranslationAudio()) {
                     applyPlaybackSpeedToPlayer(player);
                     player.start();
                 } else {
@@ -748,7 +775,7 @@ public class VoiceOverTranslationPatch {
     }
 
     public static void resumeAudio(long videoTimeMillis) {
-        if (VideoState.getCurrent() != VideoState.PLAYING) return;
+        if (!shouldPlayTranslationAudio()) return;
         MediaPlayer mp = mediaPlayer.get();
         if (mp == null || !isPaused) return;
         try {
@@ -758,6 +785,13 @@ public class VoiceOverTranslationPatch {
             mp.start();
             isPaused = false;
         } catch (Exception ignored) { }
+    }
+
+    private static boolean shouldPlayTranslationAudio() {
+        if (RootView.isShortsActive()) {
+            return !shortsPlaybackPaused;
+        }
+        return VideoState.getCurrent() == VideoState.PLAYING;
     }
 
     /**
