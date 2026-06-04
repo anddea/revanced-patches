@@ -20,6 +20,7 @@ import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRI
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.fix.attributes.themeAttributesPatch
+import app.morphe.patches.youtube.utils.fix.contentprovider.fixContentProviderPatch
 import app.morphe.patches.youtube.utils.fix.playbackspeed.playbackSpeedWhilePlayingPatch
 import app.morphe.patches.youtube.utils.fix.preference.fixPreferenceIconPatch
 import app.morphe.patches.youtube.utils.fix.splash.darkModeSplashScreenPatch
@@ -263,6 +264,14 @@ val settingsPatch = resourcePatch(
         fixPreferenceIconPatch,
         playbackSpeedWhilePlayingPatch,
         themeAttributesPatch,
+
+        /* contentProviderNullMapEntryReproPatch is for crash reproduction,
+        can be left uncommented if fixContentProviderPatch is enabled.
+        Uncomment contentProviderNullMapEntryReproPatch and
+        comment fixContentProviderPatch below to reproduce crash.
+        */
+        // contentProviderNullMapEntryReproPatch,
+        fixContentProviderPatch,
     )
 
     val rvxSettingsLabel = stringOption(
