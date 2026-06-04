@@ -43,7 +43,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="morphe_reload_video_summary_off">動画を再読み込みするボタンを表示します。</string>
     <string name="morphe_reload_video_summary_on">動画を再読み込みするボタンを表示します。</string>
     <string name="morphe_reload_video_title">リロードボタンを表示</string>
-    <string name="morphe_replace_links_with_shortener_summary">ショートとライブ配信に、短縮された youtu.be URL 形式の使用を強制します。</string>
+    <string name="morphe_replace_links_with_shortener_summary">ショート動画とライブ配信に、短縮 youtu.be URL 形式の使用を強制します。</string>
     <string name="morphe_replace_links_with_shortener_title">共有リンクを youtu.be に変更</string>
     <string name="morphe_replace_music_with_youtube_summary_off">共有リンクを music.youtube.com に変更します。</string>
     <string name="morphe_replace_music_with_youtube_summary_on">共有リンクを youtube.com に変更します。</string>
@@ -117,7 +117,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="revanced_advanced_video_quality_menu_title">画質の詳細設定メニューを表示</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">現在の設定: 昔のスタイルのフライアウトパネルが使用されます。</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">現在の設定: カスタムダイアログが使用されます。</string>
-    <string name="revanced_advanced_video_quality_menu_type_title">ショートの画質の詳細設定メニュー</string>
+    <string name="revanced_advanced_video_quality_menu_type_title">ショート動画の画質の詳細設定メニュー</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow は YouTube の動画のサムネイルをクラウドソーシングで提供しています。これらのサムネイルは、YouTube が提供するサムネイルよりも関連性の高いものが多いです。
 
 有効にすると、動画の URL のみが API サーバーに送信され、その他のデータは送信されません。動画に DeArrow サムネイルがない場合は、オリジナルまたは静止画サムネイルが表示されます。
@@ -190,7 +190,7 @@ DeArrow について詳しく知るには、ここをタップしてください
 ・コミュニティ投稿は非表示になります。
 
 「Android Auto」レイアウトを選択した場合:
-・ショートは通常のプレーヤーで開きます。
+・ショート動画は通常のプレーヤーで開きます。
 ・フィードはトピックとチャンネルごとに整理されます。
 ・「ストリーミングデータを偽装」がオフの場合、動画の概要欄を開くことができません。"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">現在の設定: スイッチのトグル</string>
@@ -227,7 +227,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_change_start_page_entry_podcasts">ポッドキャスト</string>
     <string name="revanced_change_start_page_entry_search">検索</string>
     <string name="revanced_change_start_page_entry_shopping">ショッピング</string>
-    <string name="revanced_change_start_page_entry_shorts">ショート</string>
+    <string name="revanced_change_start_page_entry_shorts">ショート動画</string>
     <string name="revanced_change_start_page_entry_sports">スポーツ</string>
     <string name="revanced_change_start_page_entry_subscriptions">登録チャンネル</string>
     <string name="revanced_change_start_page_entry_trending">急上昇</string>
@@ -299,11 +299,11 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_debug_toast_on_error_title">Revanced Extended のエラー時にトーストを表示</string>
     <string name="revanced_default_app_settings_summary">外部ブラウザから ReVanced Extended を開くには、[デフォルトで開く] → [対応リンクを開く] → [対応リンクを開くことをアプリに許可する] を選択してください。</string>
     <string name="revanced_default_app_settings_title">「デフォルトで開く」の設定を開く</string>
-    <string name="revanced_default_playback_speed_shorts_title">デフォルトの再生速度 (ショート)</string>
+    <string name="revanced_default_playback_speed_shorts_title">デフォルトの再生速度 (ショート動画)</string>
     <string name="revanced_default_playback_speed_title">デフォルトの再生速度 (通常の動画)</string>
-    <string name="revanced_default_video_quality_mobile_shorts_title">モバイルデータ通信使用時のデフォルト画質 (ショート)</string>
+    <string name="revanced_default_video_quality_mobile_shorts_title">モバイルデータ通信使用時のデフォルト画質 (ショート動画)</string>
     <string name="revanced_default_video_quality_mobile_title">モバイルデータ通信使用時のデフォルト画質 (通常の動画)</string>
-    <string name="revanced_default_video_quality_wifi_shorts_title">Wi-Fi 使用時のデフォルト画質 (ショート)</string>
+    <string name="revanced_default_video_quality_wifi_shorts_title">Wi-Fi 使用時のデフォルト画質 (ショート動画)</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi 使用時のデフォルト画質 (通常の動画)</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_summary">全画面表示時のアンビエントモードを無効化します。</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_summary_off">全画面表示時にアンビエントモードを無効にします。</string>
@@ -389,8 +389,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;ミニプレーヤー (続きを見る)&lt;/b&gt; をアプリ起動時に再開しないようにします。&lt;br&gt;&lt;br&gt;注意: &lt;br&gt;・&lt;b&gt;ミニプレーヤーの再開 (続きを見る)&lt;/b&gt; は YouTube Premium 加入者専用の機能です。&lt;br&gt;・これを有効にすることにより、&lt;b&gt;ミニプレーヤーの再開(続きを見る)&lt;/b&gt; が強制的に有効になるわけではありません。</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;ミニプレーヤー (続きを見る)&lt;/b&gt; をアプリ起動時に再開しないようにします。&lt;br&gt;&lt;br&gt;注意: &lt;br&gt;・&lt;b&gt;ミニプレーヤーの再開 (続きを見る)&lt;/b&gt; は YouTube Premium 加入者専用の機能です。&lt;br&gt;・これを有効にすることにより、&lt;b&gt;ミニプレーヤーの再開 (続きを見る)&lt;/b&gt; が強制的に有効になるわけではありません。</string>
     <string name="revanced_disable_resuming_miniplayer_title">ミニプレーヤーの再開を無効化</string>
-    <string name="revanced_disable_resuming_shorts_player_summary_off">アプリを閉じる前に視聴していたショート動画をアプリ起動時に再開しないようにします。</string>
-    <string name="revanced_disable_resuming_shorts_player_summary_on">アプリを閉じる前に視聴していたショート動画をアプリ起動時に再開しないようにします。</string>
+    <string name="revanced_disable_resuming_shorts_player_summary_off">アプリを閉じる前に視聴していたショート動画動画をアプリ起動時に再開しないようにします。</string>
+    <string name="revanced_disable_resuming_shorts_player_summary_on">アプリを閉じる前に視聴していたショート動画動画をアプリ起動時に再開しないようにします。</string>
     <string name="revanced_disable_resuming_shorts_player_title">プレーヤーの再開を無効化</string>
     <string name="revanced_disable_rolling_number_animations_summary_off">高評価数と再生回数の回転アニメーションを無効にします。</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">高評価数と再生回数の回転アニメーションを無効にします。</string>
@@ -398,9 +398,9 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_disable_seekbar_chapters_summary_off">シークバーからチャプターを非表示にします。</string>
     <string name="revanced_disable_seekbar_chapters_summary_on">シークバーからチャプターを非表示にします。</string>
     <string name="revanced_disable_seekbar_chapters_title">シークバーのチャプターを非表示</string>
-    <string name="revanced_disable_shorts_background_playback_summary_off">"ショートのバックグラウンド再生を無効にします。"</string>
-    <string name="revanced_disable_shorts_background_playback_summary_on">ショートのバックグラウンド再生を無効にします。</string>
-    <string name="revanced_disable_shorts_background_playback_title">ショートのバックグラウンド再生を無効化</string>
+    <string name="revanced_disable_shorts_background_playback_summary_off">"ショート動画のバックグラウンド再生を無効にします。"</string>
+    <string name="revanced_disable_shorts_background_playback_summary_on">ショート動画のバックグラウンド再生を無効にします。</string>
+    <string name="revanced_disable_shorts_background_playback_title">ショート動画のバックグラウンド再生を無効化</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">[高評価] ボタンの上部に表示されるアニメーションを無効にします。</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">[高評価] ボタンの上部に表示されるアニメーションを無効にします。</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">[高評価] ボタンのアニメーションを無効化</string>
@@ -716,7 +716,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_channel_guidelines_summary_off">チャンネルのガイドラインを非表示にします。</string>
     <string name="revanced_hide_channel_guidelines_summary_on">チャンネルのガイドラインを非表示にします。</string>
     <string name="revanced_hide_channel_guidelines_title">コミュニティガイドラインを非表示</string>
-    <string name="revanced_hide_channel_tab_filter_strings_hint">"ショート
+    <string name="revanced_hide_channel_tab_filter_strings_hint">"ショート動画
 再生リスト
 ストア"</string>
     <string name="revanced_hide_channel_tab_filter_strings_summary">[登録チャンネル] タブから非表示にする項目を入力してください。(改行区切り)</string>
@@ -746,7 +746,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_comments_by_members_summary_on">「メンバーからのコメント」バナーを非表示にします。</string>
     <string name="revanced_hide_comments_by_members_title">「メンバーからのコメント」バナーを非表示</string>
     <string name="revanced_hide_comments_carousel_filter_strings_summary">コメント欄を左右にスクロールした際のカルーセル (「質問する」、「YouTube Music で聴く」など) を非表示にします。</string>
-    <string name="revanced_hide_comments_carousel_filter_strings_title">コメント欄カルーセルのフィルター</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">改行で区切って入力してください。</string>
     <string name="revanced_hide_comments_carousel_title">コメント欄カルーセルのフィルターを有効化</string>
     <string name="revanced_hide_comments_carousel_user_dialog_message">"注意: 
 ・カルーセルの正確な名前を入力してください (例:「質問する」、「この動画をハイプする」、「YouTube Music で聴く」など)。
@@ -900,7 +900,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_keyword_content_about_summary">"ホーム/登録チャンネル/検索結果から、キーワードフレーズに一致するコンテンツが非表示になるようにフィルタリングします。
 
 注意:
-・ショートはチャンネル名で非表示にすることはできません。
+・ショート動画はチャンネル名で非表示にすることはできません。
 ・一部の UI コンポーネントは非表示にならない可能性があります。
 ・キーワードで検索しても結果が表示されない可能性があります。"</string>
     <string name="revanced_hide_keyword_content_about_title">キーワードフィルタリングについて</string>
@@ -944,8 +944,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_links_preview_summary_off">リンク集を非表示にします。</string>
     <string name="revanced_hide_links_preview_summary_on">リンク集を非表示にします。</string>
     <string name="revanced_hide_links_preview_title">リンク集を非表示</string>
-    <string name="revanced_hide_live_chat_messages_summary_off">ライブチャットのコメントを非表示にします。\n\nこの設定はショートのライブ配信にも適用されます。</string>
-    <string name="revanced_hide_live_chat_messages_summary_on">ライブチャットのコメントを非表示にします。\n\nこの設定はショートのライブ配信にも適用されます。</string>
+    <string name="revanced_hide_live_chat_messages_summary_off">ライブチャットのコメントを非表示にします。\n\nこの設定はショート動画のライブ配信にも適用されます。</string>
+    <string name="revanced_hide_live_chat_messages_summary_on">ライブチャットのコメントを非表示にします。\n\nこの設定はショート動画のライブ配信にも適用されます。</string>
     <string name="revanced_hide_live_chat_messages_title">ライブチャットのコメントを非表示</string>
     <string name="revanced_hide_live_chat_replay_button_summary_off">ライブ配信で全画面表示時に右下に表示される [チャットのリプレイ] ボタンを非表示にします。\n\nライブチャットを終了すると全画面表示になります。</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">ライブ配信で全画面表示時に右下に表示される [チャットのリプレイ] ボタンを非表示にします。\n\nライブチャットを終了すると全画面表示になります。</string>
@@ -983,9 +983,9 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_navigation_notifications_button_summary_off">[通知] ボタンを非表示にします。</string>
     <string name="revanced_hide_navigation_notifications_button_summary_on">[通知] ボタンを非表示にします。</string>
     <string name="revanced_hide_navigation_notifications_button_title">[通知] ボタンを非表示</string>
-    <string name="revanced_hide_navigation_shorts_button_summary_off">[ショート] ボタンを非表示にします。</string>
-    <string name="revanced_hide_navigation_shorts_button_summary_on">[ショート] ボタンを非表示にします。</string>
-    <string name="revanced_hide_navigation_shorts_button_title">[ショート] ボタンを非表示</string>
+    <string name="revanced_hide_navigation_shorts_button_summary_off">[ショート動画] ボタンを非表示にします。</string>
+    <string name="revanced_hide_navigation_shorts_button_summary_on">[ショート動画] ボタンを非表示にします。</string>
+    <string name="revanced_hide_navigation_shorts_button_title">[ショート動画] ボタンを非表示</string>
     <string name="revanced_hide_navigation_subscriptions_button_summary_off">[登録チャンネル] ボタンを非表示にします。</string>
     <string name="revanced_hide_navigation_subscriptions_button_summary_on">[登録チャンネル] ボタンを非表示にします。</string>
     <string name="revanced_hide_navigation_subscriptions_button_title">[登録チャンネル] ボタンを非表示</string>
@@ -1280,8 +1280,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_shorts_dislike_button_summary_off">[低評価] ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">[低評価] ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_dislike_button_title">[低評価] ボタンを非表示</string>
-    <string name="revanced_hide_shorts_floating_button_summary_off">[このサウンドを使用する] のようなフローティングボタンを、[ショート] タブから非表示にします。</string>
-    <string name="revanced_hide_shorts_floating_button_summary_on">[このサウンドを使用する] のようなフローティングボタンを、[ショート] タブから非表示にします。</string>
+    <string name="revanced_hide_shorts_floating_button_summary_off">[このサウンドを使用する] のようなフローティングボタンを、[ショート動画] タブから非表示にします。</string>
+    <string name="revanced_hide_shorts_floating_button_summary_on">[このサウンドを使用する] のようなフローティングボタンを、[ショート動画] タブから非表示にします。</string>
     <string name="revanced_hide_shorts_floating_button_title">フローティングボタンを非表示</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_off">プレーヤーの下部にある [グリーンスクリーン] ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">プレーヤーの下部にある [グリーンスクリーン] ボタンを非表示にします。</string>
@@ -1301,8 +1301,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_shorts_live_header_summary_off">縦型のライブ配信のプレーヤー内で上部に表示されるチャンネル名などを非表示にします。\n\nヘッダーの戻るボタンは非表示になりません。</string>
     <string name="revanced_hide_shorts_live_header_summary_on">縦型のライブ配信のプレーヤー内で上部に表示されるチャンネル名などを非表示にします。\n\nヘッダーの戻るボタンは非表示になりません。</string>
     <string name="revanced_hide_shorts_live_header_title">ライブチャットのヘッダーを非表示</string>
-    <string name="revanced_hide_shorts_live_preview_summary_off">ライブのプレビューを非表示にします。\n\n注意: これを有効にしても、ショートのライブ配信はショートシーケンスから完全に削除されません。</string>
-    <string name="revanced_hide_shorts_live_preview_summary_on">ライブのプレビューを非表示にします。\n\n注意: これを有効にしても、ショートのライブ配信はショートシーケンスから完全に削除されません。</string>
+    <string name="revanced_hide_shorts_live_preview_summary_off">ライブのプレビューを非表示にします。\n\n注意: これを有効にしても、ショート動画のライブ配信はショート動画シーケンスから完全に削除されません。</string>
+    <string name="revanced_hide_shorts_live_preview_summary_on">ライブのプレビューを非表示にします。\n\n注意: これを有効にしても、ショート動画のライブ配信はショート動画シーケンスから完全に削除されません。</string>
     <string name="revanced_hide_shorts_live_preview_title">ライブのプレビューを非表示</string>
     <string name="revanced_hide_shorts_location_button_summary_off">位置情報のボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_location_button_summary_on">位置情報のボタンを非表示にします。</string>
@@ -1313,8 +1313,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_shorts_new_posts_button_summary_off">「新しい投稿」ボタンは表示されます</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_on">「新しい投稿」ボタンは表示されません</string>
     <string name="revanced_hide_shorts_new_posts_button_title">「新しい投稿」ボタンを非表示</string>
-    <string name="revanced_hide_shorts_paused_header_summary_off">一時停止中に左上に表示される「ショート」を非表示にします。</string>
-    <string name="revanced_hide_shorts_paused_header_summary_on">一時停止中に左上に表示される「ショート」を非表示にします。</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">一時停止中に左上に表示される「ショート動画」を非表示にします。</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">一時停止中に左上に表示される「ショート動画」を非表示にします。</string>
     <string name="revanced_hide_shorts_paused_header_title">一時停止中のヘッダーを非表示</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">一時停止中に表示されるオーバーレイボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">一時停止中に表示されるオーバーレイボタンを非表示にします。</string>
@@ -1337,10 +1337,10 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_shorts_share_button_summary_off">[共有] ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_share_button_summary_on">[共有] ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_share_button_title">[共有] ボタンを非表示</string>
-    <string name="revanced_hide_shorts_shelf_channel_summary_off">チャンネルページの [ホーム] からショート欄を非表示にします。\n\n注意: 「ショート」ヘッダーがあるショート欄のみが非表示になります。</string>
-    <string name="revanced_hide_shorts_shelf_channel_summary_on">"チャンネルページの [ホーム] からショート欄を非表示にします。
+    <string name="revanced_hide_shorts_shelf_channel_summary_off">チャンネルページの [ホーム] からショート動画欄を非表示にします。\n\n注意: 「ショート動画」ヘッダーがあるショート動画欄のみが非表示になります。</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_on">"チャンネルページの [ホーム] からショート動画欄を非表示にします。
 
-注意: 「ショート」ヘッダーがあるショート欄のみが非表示になります。"</string>
+注意: 「ショート動画」ヘッダーがあるショート動画欄のみが非表示になります。"</string>
     <string name="revanced_hide_shorts_shelf_channel_title">チャンネルページから非表示</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">再生履歴から非表示にします。\n\n注意: [マイページ] タブから [履歴] 欄が非表示になる可能性があります。</string>
     <string name="revanced_hide_shorts_shelf_history_summary_on">"再生履歴から非表示にします。
@@ -1356,8 +1356,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_shorts_shelf_subscriptions_summary_off">登録チャンネルフィードから非表示にします。</string>
     <string name="revanced_hide_shorts_shelf_subscriptions_summary_on">登録チャンネルフィードから非表示にします。</string>
     <string name="revanced_hide_shorts_shelf_subscriptions_title">登録チャンネルフィードから非表示</string>
-    <string name="revanced_hide_shorts_shelf_summary">ショート欄を非表示にします。</string>
-    <string name="revanced_hide_shorts_shelf_title">ショート欄を非表示</string>
+    <string name="revanced_hide_shorts_shelf_summary">ショート動画欄を非表示にします。</string>
+    <string name="revanced_hide_shorts_shelf_title">ショート動画欄を非表示</string>
     <string name="revanced_hide_shorts_shelf_video_description_summary_off">概要欄から非表示にします。</string>
     <string name="revanced_hide_shorts_shelf_video_description_summary_on">概要欄から非表示にします。</string>
     <string name="revanced_hide_shorts_shelf_video_description_title">概要欄から非表示</string>
@@ -1465,7 +1465,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_video_by_view_counts_about_summary">"ホーム/登録チャンネル/検索結果はフィルタリングされ、設定した値よりも少ないまたは多い再生回数の動画を非表示にします。
 
 注意: 
-・ライブ配信やショートは非表示にできません。
+・ライブ配信やショート動画は非表示にできません。
 ・再生回数が 0 の動画はフィルタリングされません。"</string>
     <string name="revanced_hide_video_by_view_counts_about_title">再生回数のフィルタリングについて</string>
     <string name="revanced_hide_video_by_view_counts_home_summary_off">ホームフィード内の動画を再生回数でフィルタリングします。</string>
@@ -1701,13 +1701,13 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_overlay_button_play_all_type_entry_0">すべてのコンテンツ (時間順、昇順)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">すべてのコンテンツ (時間順)</string>
     <string name="revanced_overlay_button_play_all_type_entry_10">「メンバーのみ」の動画</string>
-    <string name="revanced_overlay_button_play_all_type_entry_11">「メンバーのみ」のショート</string>
+    <string name="revanced_overlay_button_play_all_type_entry_11">「メンバーのみ」のショート動画</string>
     <string name="revanced_overlay_button_play_all_type_entry_12">「メンバーのみ」のライブ配信</string>
     <string name="revanced_overlay_button_play_all_type_entry_2">すべてのコンテンツ (人気順)</string>
     <string name="revanced_overlay_button_play_all_type_entry_3">動画のみ (時間順)</string>
     <string name="revanced_overlay_button_play_all_type_entry_4">動画のみ (人気順)</string>
-    <string name="revanced_overlay_button_play_all_type_entry_5">ショートのみ (時間順)</string>
-    <string name="revanced_overlay_button_play_all_type_entry_6">ショートのみ (人気順)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_5">ショート動画のみ (時間順)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_6">ショート動画のみ (人気順)</string>
     <string name="revanced_overlay_button_play_all_type_entry_7">アーカイブ動画のみ (時間順)</string>
     <string name="revanced_overlay_button_play_all_type_entry_8">アーカイブ動画のみ (人気順)</string>
     <string name="revanced_overlay_button_play_all_type_entry_9">全員が閲覧可能なコンテンツのみ</string>
@@ -1765,7 +1765,7 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_preference_category_patch_information">パッチ情報</string>
     <string name="revanced_preference_category_playback_speed">再生速度</string>
     <string name="revanced_preference_category_quick_actions">クイックアクション</string>
-    <string name="revanced_preference_category_shorts_shelf">ショート欄</string>
+    <string name="revanced_preference_category_shorts_shelf">ショート動画欄</string>
     <string name="revanced_preference_category_suggested_actions">推奨されるアクション</string>
     <string name="revanced_preference_category_video_quality">画質</string>
     <string name="revanced_preference_category_view_counts_filter">再生回数フィルター</string>
@@ -1825,9 +1825,9 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_preference_screen_seekbar_title">シークバー</string>
     <string name="revanced_preference_screen_settings_menu_summary">YouTube 設定メニューの要素を非表示にします。</string>
     <string name="revanced_preference_screen_settings_menu_title">設定メニュー</string>
-    <string name="revanced_preference_screen_shorts_player_summary">ショートプレーヤー内のコンポーネントを非表示または表示します。</string>
+    <string name="revanced_preference_screen_shorts_player_summary">ショート動画プレーヤー内のコンポーネントを非表示または表示します。</string>
     <string name="revanced_preference_screen_shorts_player_title">プレーヤー</string>
-    <string name="revanced_preference_screen_shorts_title">ショート</string>
+    <string name="revanced_preference_screen_shorts_title">ショート動画</string>
     <string name="revanced_preference_screen_snack_bar_summary">スナックバー (画質を変更した時などに下部に表示される白いバー) に関連するコンポーネントを非表示または変更します。</string>
     <string name="revanced_preference_screen_snack_bar_title">スナックバー</string>
     <string name="revanced_preference_screen_swipe_controls_title">スワイプコントロール</string>
@@ -1907,18 +1907,18 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">デフォルトの再生速度を変更した際にトーストを表示します。</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">デフォルトの再生速度を変更した際にトーストを表示します。</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_title">トーストを表示 (通常の動画)</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_summary_off">現在の設定: 再生速度の変更は現在のショートにのみ適用されます。</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_summary_on">"現在の設定: 再生速度の変更はすべてのショートに適用されます。
+    <string name="revanced_remember_playback_speed_shorts_last_selected_summary_off">現在の設定: 再生速度の変更は現在のショート動画にのみ適用されます。</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_summary_on">"現在の設定: 再生速度の変更はすべてのショート動画に適用されます。
 
 注意:
-・ショートのプレーヤーで再生速度を変更する唯一の方法は、[カスタムアクション] の [再生速度ダイアログ] を使用することです。
+・ショート動画のプレーヤーで再生速度を変更する唯一の方法は、[カスタムアクション] の [再生速度ダイアログ] を使用することです。
 ・「Shorts components」パッチを含めていない場合、この機能は利用できません。"</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_title">再生速度の変更を記憶 (ショート)</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_off">ショートでデフォルトの再生速度を変更した際にトーストを表示します。</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_on">ショートでデフォルトの再生速度を変更した際にトーストを表示します。</string>
-    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_title">トーストを表示 (ショート)</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_title">再生速度の変更を記憶 (ショート動画)</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_off">ショート動画でデフォルトの再生速度を変更した際にトーストを表示します。</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_on">ショート動画でデフォルトの再生速度を変更した際にトーストを表示します。</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_title">トーストを表示 (ショート動画)</string>
     <string name="revanced_remember_playback_speed_toast">デフォルトの再生速度を %s に変更しました。</string>
-    <string name="revanced_remember_playback_speed_toast_shorts">デフォルトのショートの再生速度を %s に変更しました。</string>
+    <string name="revanced_remember_playback_speed_toast_shorts">デフォルトのショート動画の再生速度を %s に変更しました。</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">現在の設定: 画質の変更は視聴している時の動画にのみ適用されます。</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">現在の設定: 画質の変更はすべての動画に適用されます。</string>
     <string name="revanced_remember_video_quality_last_selected_title">画質の変更を記憶</string>
@@ -1927,14 +1927,14 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_remember_video_quality_last_selected_toast_title">トーストを表示 (通常の動画)</string>
     <string name="revanced_remember_video_quality_mobile">モバイルデータ通信</string>
     <string name="revanced_remember_video_quality_none">画質を設定できませんでした。</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_summary_off">現在の設定: 画質の変更は現在のショートにのみ適用されます。</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_summary_on">現在の設定: 画質の変更はすべてのショートに適用されます。</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_title">画質の変更を記憶 (ショート)</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_off">ショートの画質を変更した際にトーストを表示します。</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_on">ショートの画質を変更した際にトーストを表示します。</string>
-    <string name="revanced_remember_video_quality_shorts_last_selected_toast_title">トーストを表示 (ショート)</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_summary_off">現在の設定: 画質の変更は現在のショート動画にのみ適用されます。</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_summary_on">現在の設定: 画質の変更はすべてのショート動画に適用されます。</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_title">画質の変更を記憶 (ショート動画)</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_off">ショート動画の画質を変更した際にトーストを表示します。</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_on">ショート動画の画質を変更した際にトーストを表示します。</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_toast_title">トーストを表示 (ショート動画)</string>
     <string name="revanced_remember_video_quality_toast">デフォルトの画質 (%1$s) を %2$s に変更しました。</string>
-    <string name="revanced_remember_video_quality_toast_shorts">現在のショートの画質 (%1$s) を %2$s に変更しました。</string>
+    <string name="revanced_remember_video_quality_toast_shorts">現在のショート動画の画質 (%1$s) を %2$s に変更しました。</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
     <string name="revanced_remix_button_index_title">[リミックス] ボタンのインデックス</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"年齢制限ダイアログを削除します。 
@@ -1943,11 +1943,11 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_remove_viewer_discretion_dialog_title">年齢制限ダイアログを削除</string>
     <string name="revanced_replace_channel_handle_summary_off">現在の設定: チャンネルのハンドル名が表示されます。</string>
     <string name="revanced_replace_channel_handle_summary_on">現在の設定: チャンネル名が表示されます。</string>
-    <string name="revanced_replace_channel_handle_title">ショートのチャンネル名を復元</string>
+    <string name="revanced_replace_channel_handle_title">ショート動画のチャンネル名を復元</string>
     <string name="revanced_replace_navigation_button_summary">ナビゲーションボタンを [検索] ボタンに置​​き換えます。</string>
     <string name="revanced_replace_navigation_button_target_entry_home">ホーム</string>
     <string name="revanced_replace_navigation_button_target_entry_notifications">通知</string>
-    <string name="revanced_replace_navigation_button_target_entry_shorts">ショート</string>
+    <string name="revanced_replace_navigation_button_target_entry_shorts">ショート動画</string>
     <string name="revanced_replace_navigation_button_target_entry_subscriptions">登録チャンネル</string>
     <string name="revanced_replace_navigation_button_target_title">ナビゲーションボタンを置換</string>
     <string name="revanced_replace_navigation_button_title">ナビゲーションボタンを置換</string>
@@ -2011,12 +2011,12 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_ryd_failure_connection_timeout">低評価数は一時的に利用できません (API がタイムアウトしました)。</string>
     <string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません (%s)。</string>
     <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">投票するために Return YouTube Dislike を使用するため、動画を再読み込みします</string>
-    <string name="revanced_ryd_shorts_summary_off">ショートで低評価数を表示します。\n\n注意: ログインしていない場合や、シークレットモードでは低評価数が表示されないことがあります。</string>
-    <string name="revanced_ryd_shorts_summary_on">ショートで低評価数を表示します。\n\n注意: ログインしていない場合やシークレットモードでは、低評価数が表示されないことがあります。</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"ショートで低評価数を表示します。
+    <string name="revanced_ryd_shorts_summary_off">ショート動画で低評価数を表示します。\n\n注意: ログインしていない場合や、シークレットモードでは低評価数が表示されないことがあります。</string>
+    <string name="revanced_ryd_shorts_summary_on">ショート動画で低評価数を表示します。\n\n注意: ログインしていない場合やシークレットモードでは、低評価数が表示されないことがあります。</string>
+    <string name="revanced_ryd_shorts_summary_on_disclaimer">"ショート動画で低評価数を表示します。
 
 注意: ログインしていない場合やシークレットモードでは、低評価数が表示されない可能性があります。"</string>
-    <string name="revanced_ryd_shorts_title">ショートで低評価数を表示</string>
+    <string name="revanced_ryd_shorts_title">ショート動画で低評価数を表示</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike が利用できない場合にトーストを表示します。</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike が利用できない場合にトーストを表示します。</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API が利用できない場合にトーストを表示</string>
@@ -2309,12 +2309,12 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました。</string>
     <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL をクリップボードにコピーしました。</string>
     <string name="revanced_share_copy_video_information_success">動画情報をクリップボードにコピーしました。</string>
-    <string name="revanced_shorts_autoplay_background_summary">バックグラウンド再生中に自動的に次のショートに進みます。</string>
+    <string name="revanced_shorts_autoplay_background_summary">バックグラウンド再生中に自動的に次のショート動画に遷移します。</string>
     <string name="revanced_shorts_autoplay_background_title">バックグラウンドで自動再生</string>
-    <string name="revanced_shorts_autoplay_disabled_toast">ショートの自動再生は無効になっています</string>
-    <string name="revanced_shorts_autoplay_enabled_toast">ショートの自動再生は有効になっています</string>
-    <string name="revanced_shorts_autoplay_summary">現在のショートをリピートするのではなく自動的に次のショートを再生します。</string>
-    <string name="revanced_shorts_autoplay_title">ショートの自動再生</string>
+    <string name="revanced_shorts_autoplay_disabled_toast">ショート動画の自動再生は無効になっています</string>
+    <string name="revanced_shorts_autoplay_enabled_toast">ショート動画の自動再生は有効になっています</string>
+    <string name="revanced_shorts_autoplay_summary">現在のショート動画をリピートするのではなく自動的に次のショート動画を再生します。</string>
+    <string name="revanced_shorts_autoplay_title">ショート動画の自動再生</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"この機能はまだ実験段階であるため、完全に動作する保証はありません。
 
 ほとんどのバグはクライアント側の制限により修正できないため、テスト目的でのみ使用してください。"</string>
@@ -2342,10 +2342,10 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_shorts_custom_actions_open_video_summary_off">動画を開くメニューを表示します。</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">動画を開くメニューを表示します。</string>
     <string name="revanced_shorts_custom_actions_open_video_title">動画を開くメニューを表示</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_label">ショートの自動再生</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">[ショートの自動再生] のトグルを表示します。</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">[ショートの自動再生] のトグルを表示します。</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_title">[ショートの自動再生] のトグルを表示</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_label">ショート動画の自動再生</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">[ショート動画の自動再生] のトグルを表示します。</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">[ショート動画の自動再生] のトグルを表示します。</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_title">[ショート動画の自動再生] のトグルを表示</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_label">再生速度ダイアログ</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_summary_off">再生速度のダイアログメニューを表示します。</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_summary_on">再生速度のダイアログメニューを表示します。</string>
@@ -2353,8 +2353,8 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_shorts_custom_actions_speed_dialog_type_title">再生速度ダイアログの種類</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message">新しい再生速度ダイアログは YouTube バージョン 19.01.x ~ 19.34.x では機能しない可能性があります。</string>
     <string name="revanced_shorts_custom_actions_speed_label">再生速度</string>
-    <string name="revanced_shorts_custom_actions_speed_summary_off">再生速度メニューが表示されます。\n\n注意:\n・「デフォルトの再生速度(ショート)」を有効にする必要があります。\n・選択した速度は次の動画から適用されます。</string>
-    <string name="revanced_shorts_custom_actions_speed_summary_on">再生速度メニューが表示されます。\n\n注意:\n・「デフォルトの再生速度(ショート)」を有効にする必要があります。\n・選択した速度は次の動画から適用されます。</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_off">再生速度メニューが表示されます。\n\n注意:\n・「デフォルトの再生速度(ショート動画)」を有効にする必要があります。\n・選択した速度は次の動画から適用されます。</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_on">再生速度メニューが表示されます。\n\n注意:\n・「デフォルトの再生速度(ショート動画)」を有効にする必要があります。\n・選択した速度は次の動画から適用されます。</string>
     <string name="revanced_shorts_custom_actions_speed_title">再生速度メニューを表示</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">カスタムアクション</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">オリジナル</string>
@@ -2369,8 +2369,8 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_shorts_navigation_bar_height_percentage_title">スペースの高さを調整</string>
     <string name="revanced_shorts_player_type_regular_player">通常のプレーヤー</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">通常のプレーヤー (全画面)</string>
-    <string name="revanced_shorts_player_type_shorts">ショートプレーヤー</string>
-    <string name="revanced_shorts_player_type_title">ショートを開くプレーヤーを選択</string>
+    <string name="revanced_shorts_player_type_shorts">ショート動画プレーヤー</string>
+    <string name="revanced_shorts_player_type_title">ショート動画を開くプレーヤーを選択</string>
     <string name="revanced_show_video_title_section_summary">"全画面表示時にタイトルを表示します。
 
 注意: 動画のタイトルをタップすると消えます。"</string>
