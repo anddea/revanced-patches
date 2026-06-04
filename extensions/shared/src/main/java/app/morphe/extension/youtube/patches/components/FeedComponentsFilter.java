@@ -40,7 +40,6 @@ public final class FeedComponentsFilter extends Filter {
     private final String FEED_VIDEO_PATH = "video_lockup_with_attachment";
 
     private final StringFilterGroup channelProfile;
-    private final ByteArrayFilterGroupList channelProfileBufferFilterGroup = new ByteArrayFilterGroupList();
     private final StringFilterGroupList channelProfileStringFilterGroup = new StringFilterGroupList();
     private final StringFilterGroup carouselShelves;
     private final StringFilterGroup chipBar;
@@ -162,26 +161,23 @@ public final class FeedComponentsFilter extends Filter {
 
         channelProfile = new StringFilterGroup(
                 null,
-                "channel_profile.",
-                "page_header." // new layout
-        );
-
-        channelProfileBufferFilterGroup.addAll(
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_COMMUNITY_BUTTON,
-                        "community_button"
-                ),
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_STORE_BUTTON,
-                        "header_store_button"
-                ),
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_JOIN_BUTTON_IN_CHANNEL_PAGE,
-                        "sponsor_button"
-                )
+                "channel_profile.e",
+                "page_header.e" // new layout
         );
 
         channelProfileStringFilterGroup.addAll(
+                new StringFilterGroup(
+                        Settings.HIDE_COMMUNITY_BUTTON,
+                        "community_button"
+                ),
+                new StringFilterGroup(
+                        Settings.HIDE_STORE_BUTTON,
+                        "header_store_button"
+                ),
+                new StringFilterGroup(
+                        Settings.HIDE_JOIN_BUTTON_IN_CHANNEL_PAGE,
+                        "sponsor_button"
+                ),
                 new StringFilterGroup(
                         Settings.HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE,
                         "subscribe_button"
@@ -196,7 +192,7 @@ public final class FeedComponentsFilter extends Filter {
         final StringFilterGroup linksPreview = new StringFilterGroup(
                 Settings.HIDE_LINKS_PREVIEW,
                 "channel_header_links",
-                "attribution." // new layout
+                "attribution.e" // new layout
         );
 
         expandableCard = new StringFilterGroup(
@@ -428,14 +424,13 @@ public final class FeedComponentsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
+    public boolean isFiltered(String path, String accessibility, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == channelProfile) {
             if (contentIndex != 0) {
                 return false;
             }
-            return channelProfileBufferFilterGroup.check(buffer).isFiltered()
-                    || channelProfileStringFilterGroup.check(path).isFiltered();
+            return channelProfileStringFilterGroup.check(accessibility).isFiltered();
 
         } else if (matchedGroup == chipBar) {
             return hideCategoryBar(contentIndex);
