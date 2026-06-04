@@ -162,8 +162,7 @@ public final class PlayerFlyoutMenuFilter extends Filter {
                 return false;
             }
 
-            if ((Settings.HIDE_PLAYER_FLYOUT_MENU_QUALITY.get()
-                    || Settings.HIDE_PLAYER_FLYOUT_MENU_PREMIUM_CONTROLS.get())
+            if (Settings.HIDE_PLAYER_FLYOUT_MENU_QUALITY.get()
                     && qualityMenuButton.check(buffer).isFiltered()) {
                 return true;
             }
