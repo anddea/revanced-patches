@@ -20,7 +20,8 @@ class SwipeControlsConfigurationProvider {
      * Returns true if either volume or brightness controls are enabled and the video is in fullscreen mode.
      */
     val enableSwipeControls: Boolean
-        get() = (enableVolumeControls || enableBrightnessControl || enableSpeedControl || enableSeekControl) && isFullscreenVideo
+        get() = (enableVolumeControls || enableBrightnessControl || enableSpeedControl || enableSeekControl) &&
+                isFullscreenVideo
 
     /**
      * Indicates whether swipe controls for adjusting volume are enabled.
