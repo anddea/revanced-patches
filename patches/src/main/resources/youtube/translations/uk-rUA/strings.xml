@@ -262,7 +262,7 @@
     <string name="revanced_confirm_user_dialog_title">Впевнені, що бажаєте продовжити?</string>
     <string name="revanced_copy">Скопіювати</string>
     <string name="revanced_copy_error">Не вдалось скопіювати текст</string>
-    <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляху компонента для фільтрації, кожен з нового рядка</string>
+    <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляху компонента, які потрібно приховати, кожен з нового рядка</string>
     <string name="revanced_custom_filter_strings_title">Власний фільтр</string>
     <string name="revanced_custom_filter_summary_off">Користувацький фільтр вимкнено</string>
     <string name="revanced_custom_filter_summary_on">Користувацький фільтр увімкнено</string>
@@ -645,14 +645,14 @@
     <string name="revanced_gms_show_dialog_title">Показувати діалог оптимізації для GMSCore</string>
     <string name="revanced_gradient_seekbar_positions_summary">Позиції початку та кінця градієнта з 0 до 1 розділені комою.</string>
     <string name="revanced_gradient_seekbar_positions_title">Межі градієнта смуги прогресу</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">Список назв меню облікового запису для фільтрування, розділених новим рядком.</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">Фільтр меню облікового запису</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Введіть назви елементів нижнього меню \"Бібліотека\" / \"Ви\", які потрібно приховати, кожен з нового рядка</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Фільтр нижнього меню \"Бібліотека\" / \"Ви\"</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">Фільтрується, якщо збігаються.&lt;br&gt;&lt;br&gt;Щоб приховати меню &lt;b&gt;\'Оформити підписку YouTube Premium\'&lt;/b&gt;, можете використати лише &lt;b&gt;\'Оформити підписку YouTube Premium\'&lt;/b&gt; як ключові слова.</string>
     <string name="revanced_hide_account_menu_filter_type_summary_on">Фільтрується, якщо містять.&lt;br&gt;&lt;br&gt;Щоб приховати меню &lt;b&gt;\'Оформити підписку YouTube Premium\'&lt;/b&gt;, можете використати &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; або &lt;b&gt;\'Premium\'&lt;/b&gt; як ключові слова.</string>
     <string name="revanced_hide_account_menu_filter_type_title">Тип фільтра меню облікового запису</string>
     <string name="revanced_hide_account_menu_summary">"Приховуються елементи меню облікового запису і вкладки Ви.
 Деякі компоненти не можуть бути приховані."</string>
-    <string name="revanced_hide_account_menu_title">Приховати меню акаунту</string>
+    <string name="revanced_hide_account_menu_title">Увімкнути фільтр нижнього меню \"Бібліотека\" / \"Ви\"</string>
     <string name="revanced_hide_action_bar_summary_off">Панель дій показується</string>
     <string name="revanced_hide_action_bar_summary_on">Панель дій приховано</string>
     <string name="revanced_hide_action_bar_title">Приховати панель дій</string>
@@ -739,7 +739,7 @@
     <string name="revanced_hide_channel_tab_filter_strings_hint">"YouTube Shorts
 Списки відтворення
 Магазин"</string>
-    <string name="revanced_hide_channel_tab_filter_strings_summary">Введіть назви вкладок каналу, які потрібно приховати, кожну з нового рядка</string>
+    <string name="revanced_hide_channel_tab_filter_strings_summary">Введіть назви вкладок каналу, які потрібно приховати, кожна з нового рядка</string>
     <string name="revanced_hide_channel_tab_filter_strings_title">Фільтр вкладок каналу</string>
     <string name="revanced_hide_channel_tab_summary_off">Фільтр вкладок каналу вимкнено</string>
     <string name="revanced_hide_channel_tab_summary_on">Фільтр вкладок каналу увімкнено</string>
@@ -765,7 +765,7 @@
     <string name="revanced_hide_comments_by_members_summary_off">Банер \'Коментарі спонсорів\' показується.</string>
     <string name="revanced_hide_comments_by_members_summary_on">Банер \'Коментарі спонсорів\' приховано.</string>
     <string name="revanced_hide_comments_by_members_title">Приховати банер \'Коментарі спонсорів\'</string>
-    <string name="revanced_hide_comments_carousel_filter_strings_summary">Введіть назви елементів каруселі коментарів, які потрібно приховати, кожну з нового рядка</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">Введіть назви елементів каруселі коментарів, які потрібно приховати, кожен з нового рядка</string>
     <string name="revanced_hide_comments_carousel_filter_strings_title">Фільтр каруселі коментарів</string>
     <string name="revanced_hide_comments_carousel_title">Увімкнути фільтр каруселі коментарів</string>
     <string name="revanced_hide_comments_carousel_user_dialog_message">"Примітка:
@@ -929,7 +929,7 @@
     <string name="revanced_hide_keyword_content_home_summary_off">Відео на вкладці \"Головна\" не фільтруються за ключовими словами</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Відео на вкладці \"Головна\" фільтруються за ключовими словами</string>
     <string name="revanced_hide_keyword_content_home_title">Приховати відео на головній</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"Введіть ключові слова та фрази для приховування, розділені новими рядками
+    <string name="revanced_hide_keyword_content_phrases_summary">"Введіть ключові слова та фрази, які потрібно приховати, кожне з нового рядка
 
 Ключові слова можуть бути будь-яким текстом із назв відео або назв каналів
 
