@@ -26,20 +26,13 @@
     ],
     "gradle-semantic-release-plugin",
     [
-      "@semantic-release/exec",
-      {
-        "prepareCmd": "jq '.version=\"${nextRelease.version}\"' patches-list.json > patches-list.json.tmp && mv patches-list.json.tmp patches-list.json"
-      }
-    ],
-    [
       "@semantic-release/git",
       {
         "assets": [
           "README.md",
           "CHANGELOG.md",
           "gradle.properties",
-          "patches-bundle.json",
-          "patches-list.json"
+          "patches-bundle.json"
         ],
         "message": "chore: Release v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
