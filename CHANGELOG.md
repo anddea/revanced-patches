@@ -1,3 +1,16 @@
+# [4.1.0-dev.4](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.3...v4.1.0-dev.4) (2026-06-04)
+
+
+### Bug Fixes
+
+* **YouTube - Flyout menu components:** Quality menu was always hidden ([f92e67e](https://github.com/anddea/revanced-patches/commit/f92e67e5325a86d872d539155229c8ae64a0ec7e))
+* **YouTube - Settings:** Crashed upon launch in some cases ([42f97f3](https://github.com/anddea/revanced-patches/commit/42f97f336aba8e3888d34faf8640ab950f8d5f94))
+
+
+### Features
+
+* **YouTube - Shorts components:** Add Yandex VOT to custom flyout actions, fix custom actions flyout menu ([84e91ed](https://github.com/anddea/revanced-patches/commit/84e91edb3d6afb3cbb058cb9dd56e375ac2bd62c))
+
 # [4.1.0-dev.3](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.2...v4.1.0-dev.3) (2026-06-01)
 
 
