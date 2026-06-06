@@ -1,5 +1,7 @@
 package app.morphe.patches.shared
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.literal
 import app.morphe.patches.shared.extension.Constants.EXTENSION_SETTING_CLASS_DESCRIPTOR
 import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.getReference
@@ -64,6 +66,15 @@ internal val buildRequestFingerprint = legacyFingerprint(
                         // Later targets
                         method.parameters[1].type == "Ljava/util/Map;")
     }
+)
+
+internal const val BOLD_ICONS_FEATURE_FLAG = 45685201L
+
+internal val boldIconsFeatureFlagMethodFingerprint = Fingerprint(
+    returnType = "Z",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = emptyList(),
+    filters = listOf(literal(BOLD_ICONS_FEATURE_FLAG))
 )
 
 internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) =

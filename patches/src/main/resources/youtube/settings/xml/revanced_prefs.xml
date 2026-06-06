@@ -177,6 +177,9 @@
         <!-- PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS
         <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS -->
 
+        <!-- SETTINGS: DISABLE_BOLD_ICONS
+        <SwitchPreference android:title="@string/revanced_settings_disable_bold_icons_title" android:key="revanced_settings_disable_bold_icons" android:summaryOn="@string/revanced_settings_disable_bold_icons_summary_on" android:summaryOff="@string/revanced_settings_disable_bold_icons_summary_off" />SETTINGS: DISABLE_BOLD_ICONS -->
+
         <!-- SETTINGS: DISABLE_LAYOUT_UPDATES
         <SwitchPreference android:title="@string/revanced_disable_layout_updates_title" android:key="revanced_disable_layout_updates" android:summaryOn="@string/revanced_disable_layout_updates_summary_on" android:summaryOff="@string/revanced_disable_layout_updates_summary_off" />SETTINGS: DISABLE_LAYOUT_UPDATES -->
 

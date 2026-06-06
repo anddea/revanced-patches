@@ -8,6 +8,8 @@ import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.morphe.patches.shared.BOLD_ICONS_FEATURE_FLAG
+import app.morphe.patches.shared.boldIconsFeatureFlagMethodFingerprint
 import app.morphe.patches.shared.extension.Constants.EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.mainactivity.injectConstructorMethodCall
@@ -27,6 +29,7 @@ import app.morphe.patches.youtube.utils.fix.splash.darkModeSplashScreenPatch
 import app.morphe.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.morphe.patches.youtube.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE
 import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.settingsFragment
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -150,6 +153,13 @@ private val settingsBytecodePatch = bytecodePatch(
             }.onFailure {
                 printWarn("Failed to hook legacy settings fragment. 'Restore old settings menu' may not restore the old settings XML.")
             }
+        }
+
+        if (is_20_31_or_greater) {
+            boldIconsFeatureFlagMethodFingerprint.method.insertLiteralOverride(
+                BOLD_ICONS_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->useBoldIcons(Z)Z"
+            )
         }
 
         // endregion
@@ -382,12 +392,16 @@ val settingsPatch = resourcePatch(
             "com.google.android.libraries.social.licenses.LicenseActivity"
         )
 
+        val generalExperimentalSettings = mutableListOf(
+            "PREFERENCE_SCREEN: GENERAL",
+            "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS",
+            "SETTINGS: RESTORE_OLD_SETTINGS_MENUS",
+        )
+        if (is_20_31_or_greater) {
+            generalExperimentalSettings += "SETTINGS: DISABLE_BOLD_ICONS"
+        }
         ResourceUtils.addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: GENERAL",
-                "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS",
-                "SETTINGS: RESTORE_OLD_SETTINGS_MENUS"
-            )
+            generalExperimentalSettings.toTypedArray()
         )
 
         document(ResourceUtils.YOUTUBE_SETTINGS_PATH).use { document ->

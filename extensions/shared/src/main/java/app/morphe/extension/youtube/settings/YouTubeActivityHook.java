@@ -1,5 +1,7 @@
 package app.morphe.extension.youtube.settings;
 
+import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_31_OR_GREATER;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
@@ -17,10 +19,19 @@ import app.morphe.extension.youtube.utils.ThemeUtils;
  * Hooks LicenseActivity to inject a custom {@link YouTubePreferenceFragment}
  * with a toolbar and search functionality.
  */
-@SuppressWarnings("deprecation")
 public class YouTubeActivityHook extends BaseActivityHook {
 
+    private static final long MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS = 30 * 1000;
+    private static final boolean USE_BOLD_ICONS = IS_20_31_OR_GREATER
+            && !Settings.SETTINGS_DISABLE_BOLD_ICONS.get()
+            && !Settings.RESTORE_OLD_SETTINGS_MENUS.get()
+            && (System.currentTimeMillis() - Settings.FIRST_TIME_APP_LAUNCHED.get())
+            > MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS;
     private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
+
+    static {
+        Utils.setAppIsUsingBoldIcons(USE_BOLD_ICONS);
+    }
 
     /**
      * Controller for managing search view components in the toolbar.
@@ -110,9 +121,15 @@ public class YouTubeActivityHook extends BaseActivityHook {
      */
     @SuppressWarnings("unused")
     public static boolean disableCairoSettingsFragment(boolean original) {
-        return Settings.RESTORE_OLD_SETTINGS_MENUS.get()
-                ? false
-                : original;
+        return !Settings.RESTORE_OLD_SETTINGS_MENUS.get() && original;
+    }
+
+    /**
+     * Injection point.
+     */
+    @SuppressWarnings("unused")
+    public static boolean useBoldIcons(boolean original) {
+        return USE_BOLD_ICONS;
     }
 
     /**
