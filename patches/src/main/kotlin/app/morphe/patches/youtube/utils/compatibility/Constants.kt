@@ -10,8 +10,6 @@ internal object Constants {
         name = "YouTube",
         packageName = YOUTUBE_PACKAGE_NAME,
         targets = listOf(
-            AppTarget(version = "19.05.36", minSdk = 26), // This is the last version with the least YouTube experimental flag.
-            AppTarget(version = "19.16.39", minSdk = 26), // This is the last version where the 'Restore old seekbar thumbnails' setting works.
             AppTarget(version = "19.43.41", minSdk = 26), // This is the latest version where edge-to-edge display is not enforced on Android 15+.
             AppTarget(version = "19.44.39", minSdk = 26), // This is the only version that has experimental shortcut icons.
             AppTarget(version = "19.47.53", minSdk = 26),
@@ -23,14 +21,7 @@ internal object Constants {
         )
     )
 
-    val COMPATIBILITY_YOUTUBE_SPOOF_APP_VERSION = COMPATIBILITY_YOUTUBE.excluding(
-        "19.05.36",
-        "19.16.39",
-    )
-
     val COMPATIBILITY_YOUTUBE_RELOAD_VIDEO = COMPATIBILITY_YOUTUBE.excluding(
-        "19.05.36",
-        "19.16.39",
         "19.43.41",
         "19.44.39",
         "19.47.53",

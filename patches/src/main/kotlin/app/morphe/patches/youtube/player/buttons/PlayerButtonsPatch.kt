@@ -7,18 +7,24 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
+import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
-import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.fix.bottomui.cfBottomUIPatch
 import app.morphe.patches.youtube.utils.inflateControlsGroupLayoutStubFingerprint
 import app.morphe.patches.youtube.utils.layoutConstructorFingerprint
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_PLAYER_BUTTONS
 import app.morphe.patches.youtube.utils.playservice.is_18_31_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_19_26_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
-import app.morphe.patches.youtube.utils.resourceid.*
+import app.morphe.patches.youtube.utils.resourceid.autoNavToggle
+import app.morphe.patches.youtube.utils.resourceid.fullScreenButton
+import app.morphe.patches.youtube.utils.resourceid.playerCollapseButton
+import app.morphe.patches.youtube.utils.resourceid.playerControlPreviousButtonTouchArea
+import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
+import app.morphe.patches.youtube.utils.resourceid.titleAnchor
+import app.morphe.patches.youtube.utils.resourceid.youTubeControlsButtonGroupLayoutStub
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.findFreeRegister
@@ -178,7 +184,7 @@ val playerButtonsPatch = bytecodePatch(
 
         // region patch for hide previous and next button
 
-        if (is_19_34_or_greater) {
+        if (is_19_26_or_greater) {
             layoutConstructorFingerprint.methodOrThrow().apply {
                 val resourceIndex =
                     indexOfFirstLiteralInstructionOrThrow(playerControlPreviousButtonTouchArea)
@@ -244,7 +250,7 @@ val playerButtonsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for hide youtube music button
+        // region patch for hide YouTube music button
 
         MusicAppDeeplinkButtonFingerprint.match(MusicAppDeeplinkButtonParentFingerprint.classDef)
             .method.apply {

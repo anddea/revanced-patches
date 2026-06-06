@@ -3,7 +3,7 @@ package app.morphe.patches.youtube.general.spoofappversion
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.shared.spoof.appversion.baseSpoofAppVersionPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_SPOOF_APP_VERSION
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.patch.PatchList.SPOOF_APP_VERSION
@@ -48,7 +48,7 @@ val spoofAppVersionPatch = resourcePatch(
     SPOOF_APP_VERSION.title,
     SPOOF_APP_VERSION.summary,
 ) {
-    compatibleWith(COMPATIBILITY_YOUTUBE_SPOOF_APP_VERSION)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         baseSpoofAppVersionPatch("$GENERAL_CLASS_DESCRIPTOR->getVersionOverride(Ljava/lang/String;)Ljava/lang/String;"),
