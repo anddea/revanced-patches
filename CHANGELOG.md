@@ -1,3 +1,16 @@
+# [4.1.0-dev.5](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.4...v4.1.0-dev.5) (2026-06-06)
+
+
+### Bug Fixes
+
+* **YouTube - Shorts components:** Quality menu had a background blackbox visual bug ([d07e875](https://github.com/anddea/revanced-patches/commit/d07e875f8f42481d621f547ebd4dd3b6b4bc358c))
+* **YouTube - Visual preferences icons:** Custom branding icons scaling issues fixed ([376fd4e](https://github.com/anddea/revanced-patches/commit/376fd4e929441a4ce0133dc8ecbe431db8f48639))
+
+
+### Features
+
+* **YouTube - Settings:** Add `Disable bold icons` setting ([52e022c](https://github.com/anddea/revanced-patches/commit/52e022c36b75f9d0ea0e8bea23fab844f6c66d75))
+
 # [4.1.0-dev.4](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.3...v4.1.0-dev.4) (2026-06-04)
 
 
