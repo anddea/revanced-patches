@@ -8,11 +8,13 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
@@ -23,6 +25,7 @@ import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.sponsorblock.SponsorBlockUtils;
 
 public final class NewSegmentLayout extends FrameLayout {
+    private static final float SURFACE_Z = 1001f;
     private static final ColorStateList rippleColorStateList = new ColorStateList(
             new int[][]{new int[]{android.R.attr.state_enabled}},
             new int[]{0x33ffffff} // Ripple effect color (semi-transparent white)
@@ -52,6 +55,9 @@ public final class NewSegmentLayout extends FrameLayout {
 
         final int touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         touchSlopSquare = touchSlop * touchSlop;
+        setClickable(true);
+        setFocusable(true);
+        keepOnTop();
 
         LayoutInflater.from(context).inflate(getLayoutIdentifier("revanced_sb_new_segment"), this, true);
 
@@ -141,6 +147,7 @@ public final class NewSegmentLayout extends FrameLayout {
                 : 16 * getResources().getDisplayMetrics().density;
         backgroundDrawable.setCornerRadius(cornerRadius);
         setBackground(backgroundDrawable);
+        keepOnTop();
     }
 
     @Override
@@ -167,11 +174,9 @@ public final class NewSegmentLayout extends FrameLayout {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         switch (ev.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
-                dragStartX = ev.getRawX();
-                dragStartY = ev.getRawY();
-                initialTransX = getTranslationX();
-                initialTransY = getTranslationY();
-                isDragging = false;
+                keepOnTop();
+                startDragTracking(ev);
+                requestParentsDisallowInterceptTouchEvent(true);
                 return false;
             case MotionEvent.ACTION_MOVE:
                 if (!isDragging) {
@@ -179,9 +184,7 @@ public final class NewSegmentLayout extends FrameLayout {
                     float dy = ev.getRawY() - dragStartY;
                     if (dx * dx + dy * dy > touchSlopSquare) {
                         isDragging = true;
-                        if (getParent() != null) {
-                            getParent().requestDisallowInterceptTouchEvent(true);
-                        }
+                        requestParentsDisallowInterceptTouchEvent(true);
                         return true;
                     }
                 }
@@ -189,26 +192,58 @@ public final class NewSegmentLayout extends FrameLayout {
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 isDragging = false;
+                requestParentsDisallowInterceptTouchEvent(false);
                 return false;
         }
         return false;
     }
 
+    private void startDragTracking(MotionEvent ev) {
+        dragStartX = ev.getRawX();
+        dragStartY = ev.getRawY();
+        initialTransX = getTranslationX();
+        initialTransY = getTranslationY();
+        isDragging = false;
+    }
+
+    private void keepOnTop() {
+        bringToFront();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            setElevation(SURFACE_Z);
+            setTranslationZ(SURFACE_Z);
+        }
+    }
+
+    private void requestParentsDisallowInterceptTouchEvent(boolean disallowIntercept) {
+        ViewParent parent = getParent();
+        while (parent != null) {
+            parent.requestDisallowInterceptTouchEvent(disallowIntercept);
+            parent = parent.getParent();
+        }
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         switch (ev.getActionMasked()) {
+            case MotionEvent.ACTION_DOWN:
+                keepOnTop();
+                startDragTracking(ev);
+                requestParentsDisallowInterceptTouchEvent(true);
+                return true;
             case MotionEvent.ACTION_MOVE:
                 setTranslationX(initialTransX + (ev.getRawX() - dragStartX));
                 setTranslationY(initialTransY + (ev.getRawY() - dragStartY));
                 return true;
             case MotionEvent.ACTION_UP:
                 isDragging = false;
+                requestParentsDisallowInterceptTouchEvent(false);
                 clampTranslationToBounds();
                 saveRelativePosition();
                 performClick();
                 return true;
             case MotionEvent.ACTION_CANCEL:
                 isDragging = false;
+                requestParentsDisallowInterceptTouchEvent(false);
                 return true;
         }
         return false;

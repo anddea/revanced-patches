@@ -75,6 +75,12 @@ public class SponsorBlockViewController {
             Context context = Utils.getContext();
             RelativeLayout layout = new RelativeLayout(context);
             layout.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
+            layout.setClipChildren(false);
+            layout.setClipToPadding(false);
+            layout.setClickable(false);
+            layout.setFocusable(false);
+            layout.setElevation(1000f);
+            layout.setTranslationZ(1000f);
             LayoutInflater.from(context).inflate(getLayoutIdentifier("revanced_sb_inline_sponsor_overlay"), layout);
             inlineSponsorOverlayRef = new WeakReference<>(layout);
 
@@ -180,11 +186,34 @@ public class SponsorBlockViewController {
             setViewVisibility(skipHighlightButtonRef.get(), !newSegmentLayoutVisible);
         }
         setViewVisibility(newSegmentLayout, newSegmentLayoutVisible);
+        if (newSegmentLayoutVisible) {
+            RelativeLayout layout = inlineSponsorOverlayRef.get();
+            if (layout != null) {
+                layout.bringToFront();
+            }
+            newSegmentLayout.bringToFront();
+        }
     }
 
     public static void hideNewSegmentLayout() {
         newSegmentLayoutVisible = false;
         setViewVisibility(newSegmentLayoutRef.get(), false);
+    }
+
+    public static boolean isNewSegmentLayoutVisibleAndContains(float rawX, float rawY) {
+        NewSegmentLayout newSegmentLayout = newSegmentLayoutRef.get();
+        if (newSegmentLayout == null ||
+                newSegmentLayout.getVisibility() != View.VISIBLE ||
+                !newSegmentLayout.isShown()) {
+            return false;
+        }
+
+        int[] location = new int[2];
+        newSegmentLayout.getLocationOnScreen(location);
+        return rawX >= location[0] &&
+                rawX <= location[0] + newSegmentLayout.getWidth() &&
+                rawY >= location[1] &&
+                rawY <= location[1] + newSegmentLayout.getHeight();
     }
 
     private static void setViewVisibility(@Nullable View view, boolean visible) {
