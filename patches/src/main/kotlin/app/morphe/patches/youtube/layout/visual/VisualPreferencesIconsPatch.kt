@@ -14,6 +14,7 @@ import org.w3c.dom.Element
 
 private const val DEFAULT_ICON = "extension"
 private const val EMPTY_ICON = "empty_icon"
+private const val CAIRO_VISUAL_ICON_SCALE = 1.2f
 
 @Suppress("unused")
 val visualPreferencesIconsPatch = resourcePatch(
@@ -60,6 +61,7 @@ val visualPreferencesIconsPatch = resourcePatch(
         // Check patch options first.
         val selectedIconType = settingsMenuIconOption
             .underBarOrThrow()
+        val isCustomBrandingSettingsIcon = selectedIconType == "custom_branding_icon"
 
         val appIconOption = customBrandingIconPatch
             .getStringOptionValue("appIcon")
@@ -112,29 +114,21 @@ val visualPreferencesIconsPatch = resourcePatch(
         }
 
         // Cairo icon for RVX
-        val visualScaleAdjustment = 1.15f
-
         get("res/drawable/revanced_settings_key_icon.xml")
             .copyTo(get("res/drawable/revanced_settings_cairo_key_icon.xml"), overwrite = true)
 
         document("res/drawable/revanced_settings_cairo_key_icon.xml").use { document ->
-            document.documentElement.apply {
-                setAttribute("android:width", "24dp")
-                setAttribute("android:height", "24dp")
-            }
+            if (!isCustomBrandingSettingsIcon) {
+                document.doRecursively loop@{ node ->
+                    if (node !is Element || node.tagName != "group") return@loop
 
-            document.doRecursively loop@{ node ->
-                if (node !is Element || node.tagName != "group") return@loop
+                    node.getAttribute("android:scaleX").toFloatOrNull()?.let { scale ->
+                        node.setAttribute("android:scaleX", (scale * CAIRO_VISUAL_ICON_SCALE).toString())
+                    }
 
-                val scaleX = node.getAttribute("android:scaleX").toFloatOrNull()
-                val scaleY = node.getAttribute("android:scaleY").toFloatOrNull()
-
-                if (scaleX == 0.5f) {
-                    node.setAttribute("android:scaleX", (1.0f * visualScaleAdjustment).toString())
-                }
-
-                if (scaleY == 0.5f) {
-                    node.setAttribute("android:scaleY", (1.0f * visualScaleAdjustment).toString())
+                    node.getAttribute("android:scaleY").toFloatOrNull()?.let { scale ->
+                        node.setAttribute("android:scaleY", (scale * CAIRO_VISUAL_ICON_SCALE).toString())
+                    }
                 }
             }
         }
@@ -162,12 +156,12 @@ val visualPreferencesIconsPatch = resourcePatch(
                 android:minHeight="54.0dp">
                 <ImageView
                     android:id="@+id/revanced_custom_icon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="center|end"
-                    android:layout_marginHorizontal="18.0dp"
+                    android:layout_marginHorizontal="6.0dp"
                     android:contentDescription="@null"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitCenter"
                     android:background="@drawable/revanced_circle_mask"
                     android:clipToOutline="true"
                     android:src="@drawable/revanced_settings_cairo_key_icon" />
