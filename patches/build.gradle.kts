@@ -12,6 +12,11 @@ patches {
     }
 }
 
+dependencies {
+    // Used by JsonGenerator.
+    implementation(libs.gson)
+}
+
 tasks {
     jar {
         exclude("app/morphe/generator")

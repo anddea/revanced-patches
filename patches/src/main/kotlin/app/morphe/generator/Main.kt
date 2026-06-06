@@ -24,7 +24,10 @@ internal fun main() =
                 .mainAttributes
                 .getValue("Version")
                 ?.let {
-                    ReadMeFileGenerator().generate(it, loadedPatches)
+                    arrayOf(
+                        JsonPatchesFileGenerator(),
+                        ReadMeFileGenerator()
+                    ).forEach { generator -> generator.generate(it, loadedPatches) }
                 }
         }
 }
