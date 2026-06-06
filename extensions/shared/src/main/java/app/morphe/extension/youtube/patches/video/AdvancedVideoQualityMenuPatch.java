@@ -1,9 +1,13 @@
 package app.morphe.extension.youtube.patches.video;
 
 import android.support.v7.widget.RecyclerView;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import java.lang.ref.WeakReference;
+import java.lang.reflect.Method;
 
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -20,6 +24,16 @@ public class AdvancedVideoQualityMenuPatch {
             Settings.ADVANCED_VIDEO_QUALITY_MENU.get();
     private static final boolean ADVANCED_VIDEO_QUALITY_MENU_TYPE =
             ADVANCED_VIDEO_QUALITY_MENU && Settings.ADVANCED_VIDEO_QUALITY_MENU_TYPE.get();
+    private static WeakReference<Object> videoQualityBottomSheetRef = new WeakReference<>(null);
+
+    /**
+     * Injection point.
+     * <p>
+     * Shorts video quality bottom sheet.
+     */
+    public static void setVideoQualityBottomSheet(Object bottomSheet) {
+        videoQualityBottomSheetRef = new WeakReference<>(bottomSheet);
+    }
 
     /**
      * Injection point.
@@ -33,14 +47,16 @@ public class AdvancedVideoQualityMenuPatch {
             @Override
             public void onChildViewAdded(View parent, View child) {
                 try {
-                    parent.setVisibility(View.GONE);
-
                     final var indexOfAdvancedQualityMenuItem = 4;
                     if (listView.indexOfChild(child) != indexOfAdvancedQualityMenuItem) return;
 
+                    parent.setVisibility(View.GONE);
+
                     if (ADVANCED_VIDEO_QUALITY_MENU_TYPE && listView.getContext() != null) {
+                        final Context context = listView.getContext();
+                        dismissVideoQualityBottomSheet();
                         Utils.runOnMainThreadDelayed(
-                                () -> VideoUtils.showCustomVideoQualityFlyoutMenu(listView.getContext()),
+                                () -> VideoUtils.showCustomVideoQualityFlyoutMenu(context),
                                 100
                         );
                     } else {
@@ -57,6 +73,19 @@ public class AdvancedVideoQualityMenuPatch {
             public void onChildViewRemoved(View parent, View child) {
             }
         });
+    }
+
+    private static void dismissVideoQualityBottomSheet() {
+        final Object bottomSheet = videoQualityBottomSheetRef.get();
+        videoQualityBottomSheetRef.clear();
+        if (bottomSheet == null) return;
+
+        try {
+            final Method dismissMethod = bottomSheet.getClass().getMethod("dismiss");
+            dismissMethod.invoke(bottomSheet);
+        } catch (Exception ex) {
+            Logger.printException(() -> "dismissVideoQualityBottomSheet failure", ex);
+        }
     }
 
     /**

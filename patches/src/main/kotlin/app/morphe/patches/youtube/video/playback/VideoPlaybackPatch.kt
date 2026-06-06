@@ -219,10 +219,12 @@ val videoPlaybackPatch = bytecodePatch(
                 val insertIndex = matches[matches.lastIndex - 1].index
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                addInstruction(
+                addInstructions(
                     insertIndex + 1,
-                    "invoke-static { v$insertRegister }, " +
-                            "$EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->addVideoQualityListMenuListener(Landroid/widget/ListView;)V"
+                    """
+                        invoke-static/range { p0 .. p0 }, $EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->setVideoQualityBottomSheet(Ljava/lang/Object;)V
+                        invoke-static { v$insertRegister }, $EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->addVideoQualityListMenuListener(Landroid/widget/ListView;)V
+                        """
                 )
             }
         }
