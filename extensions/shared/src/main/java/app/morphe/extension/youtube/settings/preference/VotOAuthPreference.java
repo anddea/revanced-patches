@@ -54,6 +54,7 @@ import android.view.Gravity;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -67,6 +68,7 @@ import java.net.URL;
 import org.json.JSONObject;
 
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient;
@@ -205,14 +207,15 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
     private void showAccountManagementDialog() {
         Context context = getContext();
 
-        String message = cachedDisplayName != null
+        String displayName = cachedDisplayName != null
                 ? cachedDisplayName
-                : str("revanced_vot_oauth_signed_in_summary", "Yandex");
+                : "Yandex";
 
+        // Pass null as message — we add our own account layout below.
         Pair<Dialog, LinearLayout> pair = CustomDialog.create(
                 context,
                 str("revanced_vot_oauth_account_management_title"),
-                message,
+                null,
                 null,
                 str("revanced_vot_oauth_sign_out_button"),
                 () -> signOut(),
@@ -224,24 +227,60 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
         Dialog dialog = pair.first;
         LinearLayout mainLayout = pair.second;
 
-        // Add avatar ImageView between title and message
-        if (cachedAvatarUrl != null && !cachedAvatarUrl.isEmpty()) {
-            ImageView avatarView = new ImageView(context);
-            int size = Utils.dipToPixels(64);
-            LinearLayout.LayoutParams avatarParams = new LinearLayout.LayoutParams(size, size);
-            avatarParams.gravity = Gravity.CENTER;
-            avatarParams.setMargins(0, 0, 0, Utils.dipToPixels(12));
-            avatarView.setLayoutParams(avatarParams);
+        // Build horizontal account row: circular avatar (left) + display name (right)
+        LinearLayout accountLayout = new LinearLayout(context);
+        accountLayout.setOrientation(LinearLayout.HORIZONTAL);
+        accountLayout.setGravity(Gravity.CENTER_VERTICAL);
+        LinearLayout.LayoutParams accountParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        accountParams.setMargins(0, Utils.dipToPixels(8), 0, Utils.dipToPixels(12));
+        accountLayout.setLayoutParams(accountParams);
 
-            // Insert at position 1 (after title, before content)
-            mainLayout.addView(avatarView, 1);
+        boolean hasAvatar = cachedAvatarUrl != null && !cachedAvatarUrl.isEmpty();
+
+        // Circular avatar on the left
+        if (hasAvatar) {
+            int avatarSize = Utils.dipToPixels(48);
+            ImageView avatarView = new ImageView(context);
+            avatarView.setLayoutParams(new LinearLayout.LayoutParams(avatarSize, avatarSize));
+            avatarView.setOutlineProvider(new android.view.ViewOutlineProvider() {
+                @Override
+                public void getOutline(android.view.View view, android.graphics.Outline outline) {
+                    int s = Math.min(view.getWidth(), view.getHeight());
+                    outline.setOval(0, 0, s, s);
+                }
+            });
+            avatarView.setClipToOutline(true);
+            avatarView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
             if (cachedAvatarBitmap != null) {
                 avatarView.setImageBitmap(cachedAvatarBitmap);
             } else {
                 loadAvatarAsync(avatarView);
             }
+            accountLayout.addView(avatarView);
         }
+
+        // Display name on the right
+        TextView nameView = new TextView(context);
+        nameView.setText(displayName);
+        nameView.setTextSize(16);
+        nameView.setTextColor(BaseThemeUtils.getAppForegroundColor());
+        LinearLayout.LayoutParams nameParams = hasAvatar
+                ? new LinearLayout.LayoutParams(
+                        0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+                : new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT);
+        if (hasAvatar) {
+            nameParams.setMargins(Utils.dipToPixels(16), 0, 0, 0);
+        }
+        nameView.setLayoutParams(nameParams);
+        accountLayout.addView(nameView);
+
+        // Insert at position 1 (after title, before buttons)
+        mainLayout.addView(accountLayout, 1);
 
         dialog.show();
     }
