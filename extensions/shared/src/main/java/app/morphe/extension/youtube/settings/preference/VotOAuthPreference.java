@@ -62,6 +62,7 @@ import androidx.annotation.Nullable;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -492,6 +493,8 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
         final String avatarUrl = cachedAvatarUrl;
         if (avatarUrl == null || avatarUrl.isEmpty()) return;
 
+        final WeakReference<ImageView> avatarRef = new WeakReference<>(avatarView);
+
         Utils.runOnBackgroundThread(() -> {
             try {
                 URL url = new URL(avatarUrl);
@@ -509,7 +512,12 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
 
                     if (bitmap != null) {
                         cachedAvatarBitmap = bitmap;
-                        Utils.runOnMainThread(() -> avatarView.setImageBitmap(bitmap));
+                        Utils.runOnMainThread(() -> {
+                            ImageView target = avatarRef.get();
+                            if (target != null) {
+                                target.setImageBitmap(bitmap);
+                            }
+                        });
                     }
                 } finally {
                     conn.disconnect();

@@ -620,7 +620,7 @@ public class VotApiClient {
      * @param token the OAuth token to validate
      * @return true if the token is valid, false otherwise
      */
-    public static boolean isValidOAuthToken(String token) {
+    public static synchronized boolean isValidOAuthToken(String token) {
         if (token == null || token.isEmpty()) return false;
         // Return cached result if we already validated this exact token.
         if (token.equals(lastValidatedToken)) return tokenIsValid;
@@ -654,7 +654,7 @@ public class VotApiClient {
      * Clears the OAuth token validation cache.
      * Call when the user signs out so that a new token can be re-validated.
      */
-    public static void clearTokenValidationCache() {
+    public static synchronized void clearTokenValidationCache() {
         lastValidatedToken = null;
         tokenIsValid = false;
     }
