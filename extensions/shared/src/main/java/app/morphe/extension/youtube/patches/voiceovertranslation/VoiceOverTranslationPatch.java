@@ -79,6 +79,7 @@ public class VoiceOverTranslationPatch {
     private static final int STATUS_LONG_WAITING = 3;
     private static final int STATUS_PART_CONTENT = 5;
     private static final int STATUS_AUDIO_REQUESTED = 6;
+    private static final int STATUS_SESSION_REQUIRED = 7;
     private static final long PAUSE_DETECTION_TIMEOUT_MS = 1500;
     private static final long PROXY_PREPARE_TIMEOUT_MS = 15000;
     private static final int AUDIO_REQUESTED_RETRY_DELAY_SECONDS = 3;
@@ -401,6 +402,9 @@ public class VoiceOverTranslationPatch {
                     Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting", formatRemainingTime(audioWaitTime))));
                     handleAudioRequested(videoId, youtubeUrl, result.translationId(), durationSeconds, sourceLang, targetLang, videoTitle, audioWaitTime);
                     break;
+                case STATUS_SESSION_REQUIRED:
+                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_auth_required")));
+                    break;
                 case STATUS_FAILED:
                 default:
                     if (Settings.VOT_USE_LIVE_VOICES.get()) {
@@ -466,6 +470,9 @@ public class VoiceOverTranslationPatch {
                     }
                     Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
                     return;
+                } else if (result.status() == STATUS_SESSION_REQUIRED) {
+                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_auth_required")));
+                    return;
                 }
                 waitSeconds = result.remainingTime() > 0 ? result.remainingTime() : 5;
                 setTranslationRequestWaiting(waitSeconds);
@@ -516,7 +523,8 @@ public class VoiceOverTranslationPatch {
         if (translationId != null && !translationId.isEmpty()) {
             String fallbackKey = url + "#" + translationId;
             if (!fallbackKey.equals(lastEmptyAudioFallbackKey)) {
-                VotApiClient.sendEmptyAudio(url, translationId);
+                VotApiClient.sendEmptyAudio(url, translationId,
+                        Settings.VOT_USE_LIVE_VOICES.get() ? Settings.VOT_OAUTH_TOKEN.get() : null);
                 lastEmptyAudioFallbackKey = fallbackKey;
             }
         }

@@ -2372,6 +2372,8 @@ Shorts
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Пользовательские действия</string>
     <string name="revanced_shorts_custom_actions_voice_over_translation_label">Закадровый перевод</string>
     <string name="revanced_shorts_custom_actions_voice_over_translation_title">Закадровый перевод в Shorts</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_off">Меню закадрового перевода скрыто. Пользовательские действия в настройках Shorts должны быть включены.</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_on">Меню закадрового перевода показывается. Пользовательские действия в настройках Shorts должны быть включены.</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Обычная</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Палец вверх</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Каир</string>
@@ -2654,7 +2656,7 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_vot_original_audio_volume_summary">Громкость оригинальной дорожки при воспроизведении перевода (0-100). По умолчанию: 20</string>
     <string name="revanced_vot_original_audio_volume_title">Громкость оригинала</string>
     <string name="revanced_vot_playback_error">Не удалось воспроизвести аудио перевода</string>
-    <string name="revanced_vot_proxy_url_summary">Хост прокси-сервера VOT worker. По умолчанию: vot-new.toil-dump.workers.dev</string>
+    <string name="revanced_vot_proxy_url_summary">Хост прокси-сервера VOT worker. По умолчанию: подставляется автоматически</string>
     <string name="revanced_vot_proxy_url_title">Прокси-сервер</string>
     <string name="revanced_vot_source_language_summary">Выберите язык аудио видео</string>
     <string name="revanced_vot_source_language_title">Язык оригинала</string>
@@ -2679,6 +2681,23 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_vot_voice_style_live_title">Живые голоса</string>
     <string name="revanced_vot_voice_style_standard">Обычные голоса</string>
     <string name="revanced_vot_voice_style_title">Вид озвучки</string>
+    <string name="revanced_vot_oauth_token_title">Яндекс OAuth токен</string>
+    <string name="revanced_vot_oauth_token_summary">Необходим для живых голосов.</string>
+    <string name="revanced_vot_auth_required">Требуется авторизация. Добавьте Яндекс OAuth токен в настройках.</string>
+    <string name="revanced_vot_oauth_not_signed_in_summary">Не авторизован</string>
+    <string name="revanced_vot_oauth_signed_in_summary">Вошли как %s</string>
+    <string name="revanced_vot_oauth_auth_method_title">Авторизация Яндекс</string>
+    <string name="revanced_vot_oauth_auth_method_message">Выберите способ авторизации</string>
+    <string name="revanced_vot_oauth_sign_in_button">Войти через Яндекс</string>
+    <string name="revanced_vot_oauth_enter_manually_button">Ввести токен вручную</string>
+    <string name="revanced_vot_oauth_sign_out_button">Выйти</string>
+    <string name="revanced_vot_oauth_switch_token_button">Ввести другой токен</string>
+    <string name="revanced_vot_oauth_enter_token_title">Ввести токен вручную</string>
+    <string name="revanced_vot_oauth_webview_title">Авторизация Яндекс</string>
+    <string name="revanced_vot_oauth_auth_declined">Авторизация отклонена</string>
+    <string name="revanced_vot_oauth_invalid_token">Недействительный токен</string>
+    <string name="revanced_vot_oauth_no_network">Нет подключения к интернету</string>
+    <string name="revanced_vot_oauth_account_management_title">Яндекс OAuth токен</string>
     <string name="revanced_watch_history_about_status_blocked">• История просмотра не работает.</string>
     <string name="revanced_watch_history_about_status_original">"• Статус истории просмотров обычный.
 • История просмотров может не работать с DNS или VPN."</string>

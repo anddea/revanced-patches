@@ -96,9 +96,15 @@ public class VotApiClient {
     private static long sessionExpires = 0;
     private static final ReentrantLock sessionLock = new ReentrantLock();
 
+    /** OAuth token validation cache — skip re-checking once passed during process lifetime. */
+    private static volatile String lastValidatedToken = null;
+    private static volatile boolean tokenIsValid = false;
+
     public record TranslationResult(int status, String audioUrl, int remainingTime,
                                     String translationId, String message) {
     }
+
+    public static final int STATUS_SESSION_REQUIRED = 7;
 
     private record ProxyWorkerRetryResult(TranslationResult result, boolean workerHostsFound) {
     }
@@ -156,17 +162,33 @@ public class VotApiClient {
             String sourceLang, String targetLang,
             String videoTitle
     ) {
+        // Read OAuth token once (may be null if not configured)
+        boolean useLiveVoices = Settings.VOT_USE_LIVE_VOICES.get();
+        String oauthToken = useLiveVoices ? Settings.VOT_OAUTH_TOKEN.get() : null;
+        if (oauthToken != null && oauthToken.isEmpty()) {
+            oauthToken = null;
+        }
+
+        // Validate OAuth token before using it (lightweight API call, cached per process)
+        if (oauthToken != null && !isValidOAuthToken(oauthToken)) {
+            Logger.printDebug(() -> "VOT OAuth token is invalid, clearing and falling back");
+            Settings.VOT_OAUTH_TOKEN.save("");
+            return new TranslationResult(STATUS_SESSION_REQUIRED, null, 0, null, null);
+        }
+
+        final String finalOauthToken = oauthToken;
+
         try {
-            TranslationResult result = requestTranslationInternal(videoUrl, duration, sourceLang, targetLang, videoTitle);
+            TranslationResult result = requestTranslationInternal(videoUrl, duration, sourceLang, targetLang, videoTitle, finalOauthToken);
             if (result != null) {
                 return result;
             }
 
             return requestTranslationUsingFreshProxyWorkers(
-                    videoUrl, duration, sourceLang, targetLang, videoTitle, null).result();
+                    videoUrl, duration, sourceLang, targetLang, videoTitle, finalOauthToken, null).result();
         } catch (Exception e) {
             ProxyWorkerRetryResult retryResult = requestTranslationUsingFreshProxyWorkers(
-                    videoUrl, duration, sourceLang, targetLang, videoTitle, e);
+                    videoUrl, duration, sourceLang, targetLang, videoTitle, finalOauthToken, e);
 
             if (retryResult.result() != null || retryResult.workerHostsFound()) {
                 return retryResult.result();
@@ -180,7 +202,7 @@ public class VotApiClient {
     private static TranslationResult requestTranslationInternal(
             String videoUrl, double duration,
             String sourceLang, String targetLang,
-            String videoTitle
+            String videoTitle, String oauthToken
     ) throws Exception {
         ensureSession();
 
@@ -204,7 +226,7 @@ public class VotApiClient {
         String tokenSignature = computeHmacHex(token.getBytes(StandardCharsets.UTF_8));
 
         byte[] responseBytes = sendWorkerRequest(path, body, bodySignature,
-                sessionSecretKey, tokenSignature + ":" + token, "POST");
+                sessionSecretKey, tokenSignature + ":" + token, "POST", oauthToken);
 
         if (responseBytes == null || responseBytes.length == 0) {
 
@@ -225,7 +247,7 @@ public class VotApiClient {
     private static ProxyWorkerRetryResult requestTranslationUsingFreshProxyWorkers(
             String videoUrl, double duration,
             String sourceLang, String targetLang,
-            String videoTitle,
+            String videoTitle, String oauthToken,
             Exception originalException
     ) {
         String[] workerHosts = fetchProxyWorkerHosts();
@@ -242,7 +264,7 @@ public class VotApiClient {
             resetSession();
 
             try {
-                TranslationResult result = requestTranslationInternal(videoUrl, duration, sourceLang, targetLang, videoTitle);
+                TranslationResult result = requestTranslationInternal(videoUrl, duration, sourceLang, targetLang, videoTitle, oauthToken);
                 if (result != null) {
                     return new ProxyWorkerRetryResult(result, true);
                 }
@@ -271,7 +293,7 @@ public class VotApiClient {
         }
     }
 
-    public static void sendEmptyAudio(String videoUrl, String translationId) {
+    public static void sendEmptyAudio(String videoUrl, String translationId, String oauthToken) {
         try {
             ensureSession();
 
@@ -284,7 +306,7 @@ public class VotApiClient {
             String tokenSignature = computeHmacHex(token.getBytes(StandardCharsets.UTF_8));
 
             sendWorkerRequest(path, body, bodySignature,
-                    sessionSecretKey, tokenSignature + ":" + token, "PUT");
+                    sessionSecretKey, tokenSignature + ":" + token, "PUT", oauthToken);
 
         } catch (Exception e) {
             Logger.printException(() -> "VotApiClient.sendEmptyAudio failed for " + videoUrl, e);
@@ -331,7 +353,7 @@ public class VotApiClient {
         String tokenSignature = computeHmacHex(token.getBytes(StandardCharsets.UTF_8));
 
         return sendWorkerRequest(path, body, bodySignature,
-                sessionSecretKey, tokenSignature + ":" + token, "PUT") != null;
+                sessionSecretKey, tokenSignature + ":" + token, "PUT", null) != null;
     }
 
     private static void ensureSession() throws Exception {
@@ -348,7 +370,7 @@ public class VotApiClient {
             String signature = computeHmacHex(body);
 
             byte[] responseBytes = sendWorkerRequest("/session/create", body, signature,
-                    null, null, "POST");
+                    null, null, "POST", null);
 
             if (responseBytes == null || responseBytes.length == 0) {
                 throw new IOException("Empty session response");
@@ -378,13 +400,13 @@ public class VotApiClient {
     private static byte[] sendWorkerRequest(
             String path, byte[] body,
             String vtransSignature, String secretKey, String vtransToken,
-            String method
+            String method, String oauthToken
     ) throws IOException {
         String workerHost = getWorkerHost();
 
         String workerUrl = "https://" + workerHost + path;
 
-        StringBuilder headersJson = getStringBuilder(vtransSignature, secretKey, vtransToken);
+        StringBuilder headersJson = getStringBuilder(vtransSignature, secretKey, vtransToken, oauthToken);
 
         StringBuilder bodyArrayJson = new StringBuilder("[");
         for (int i = 0; i < body.length; i++) {
@@ -423,7 +445,7 @@ public class VotApiClient {
     }
 
     @NonNull
-    private static StringBuilder getStringBuilder(String vtransSignature, String secretKey, String vtransToken) {
+    private static StringBuilder getStringBuilder(String vtransSignature, String secretKey, String vtransToken, String oauthToken) {
         StringBuilder headersJson = new StringBuilder();
         headersJson.append("{");
         headersJson.append("\"User-Agent\":\"").append(USER_AGENT).append("\",");
@@ -441,6 +463,9 @@ public class VotApiClient {
         }
         if (vtransToken != null) {
             headersJson.append(",\"Sec-Vtrans-Token\":\"").append(vtransToken).append("\"");
+        }
+        if (oauthToken != null && !oauthToken.isEmpty()) {
+            headersJson.append(",\"Authorization\":\"OAuth ").append(oauthToken).append("\"");
         }
 
         headersJson.append("}");
@@ -586,5 +611,51 @@ public class VotApiClient {
             buffer.write(chunk, 0, bytesRead);
         }
         return buffer.toByteArray();
+    }
+
+    /**
+     * Validates a Yandex OAuth token by calling login.yandex.ru/info.
+     * Caches the result so we only call it once per token per process lifetime.
+     *
+     * @param token the OAuth token to validate
+     * @return true if the token is valid, false otherwise
+     */
+    public static boolean isValidOAuthToken(String token) {
+        if (token == null || token.isEmpty()) return false;
+        // Return cached result if we already validated this exact token.
+        if (token.equals(lastValidatedToken)) return tokenIsValid;
+        try {
+            String url = "https://login.yandex.ru/info?format=json";
+            HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+            try {
+                conn.setRequestMethod("GET");
+                conn.setRequestProperty("Authorization", "OAuth " + token);
+                conn.setConnectTimeout(CONNECT_TIMEOUT_MS);
+                conn.setReadTimeout(READ_TIMEOUT_MS);
+                int code = conn.getResponseCode();
+                lastValidatedToken = token;
+                tokenIsValid = (code == 200);
+                Logger.printDebug(() -> "VOT OAuth token validation: HTTP " + code
+                        + " -> " + (tokenIsValid ? "valid" : "invalid"));
+                return tokenIsValid;
+            } finally {
+                conn.disconnect();
+            }
+        } catch (Exception e) {
+            Logger.printDebug(() -> "VOT OAuth token validation failed: " + e.getMessage());
+            // On network error, assume valid so we don't block the user.
+            lastValidatedToken = token;
+            tokenIsValid = true;
+            return true;
+        }
+    }
+
+    /**
+     * Clears the OAuth token validation cache.
+     * Call when the user signs out so that a new token can be re-validated.
+     */
+    public static void clearTokenValidationCache() {
+        lastValidatedToken = null;
+        tokenIsValid = false;
     }
 }
