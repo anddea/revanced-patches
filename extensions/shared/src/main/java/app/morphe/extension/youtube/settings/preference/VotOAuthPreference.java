@@ -1,8 +1,8 @@
 /*
- * Copyright (C) 2026 Morphe
+ * Copyright (C) 2026 anddea
  *
- * This file is part of the morphe-patches project:
- * https://github.com/MorpheApp/morphe-patches
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
  *
  * Original author(s):
  * - Jav1x (https://github.com/Jav1x)
@@ -65,6 +65,7 @@ import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 import org.json.JSONObject;
 
@@ -439,14 +440,14 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
                     return null;
                 }
 
-                BufferedReader reader = new BufferedReader(
-                        new InputStreamReader(conn.getInputStream(), "UTF-8"));
                 StringBuilder sb = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    sb.append(line);
+                try (BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line);
+                    }
                 }
-                reader.close();
 
                 JSONObject json = new JSONObject(sb.toString());
 

@@ -1,8 +1,8 @@
 /*
- * Copyright (C) 2026 Morphe
+* Copyright (C) 2026 anddea
  *
- * This file is part of the morphe-patches project:
- * https://github.com/MorpheApp/morphe-patches
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
  *
  * Original author(s):
  * - Jav1x (https://github.com/Jav1x)

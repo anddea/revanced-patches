@@ -644,8 +644,7 @@ public class VotApiClient {
         } catch (Exception e) {
             Logger.printDebug(() -> "VOT OAuth token validation failed: " + e.getMessage());
             // On network error, assume valid so we don't block the user.
-            lastValidatedToken = token;
-            tokenIsValid = true;
+            // Do NOT update the cache — the next request will re-validate properly.
             return true;
         }
     }
