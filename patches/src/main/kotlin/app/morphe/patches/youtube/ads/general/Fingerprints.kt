@@ -1,5 +1,7 @@
 package app.morphe.patches.youtube.ads.general
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.string
 import app.morphe.patches.youtube.utils.resourceid.badgeLabel
 import app.morphe.patches.youtube.utils.resourceid.fullScreenEngagementAdContainer
 import app.morphe.util.fingerprint.legacyFingerprint
@@ -53,4 +55,16 @@ internal fun indexOfAddListInstruction(method: Method) =
 internal val shortsPaidPromotionFingerprint = legacyFingerprint(
     name = "shortsPaidPromotionFingerprint",
     literals = listOf(badgeLabel),
+)
+
+internal object PlayerOverlayTimelyShelfFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Ljava/lang/Object;"),
+    filters = listOf(
+        string("player_overlay_timely_shelf"),
+        string("innertube_cue_range"),
+        string("Null id"),
+        string("Null onExitActions")
+    )
 )

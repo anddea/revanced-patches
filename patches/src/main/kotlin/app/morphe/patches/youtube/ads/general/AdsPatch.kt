@@ -22,6 +22,7 @@ import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_ADS
 import app.morphe.patches.youtube.utils.playservice.is_20_06_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.adAttribution
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -122,6 +123,24 @@ val adsPatch = adsPatch(
                         """, ExternalLabel("show", getInstruction(startIndex + 2))
                 )
             }
+        }
+
+        // endregion
+
+        // region patch for hide player overlay ad
+
+        // This can be hidden with a regular Litho filter, but an empty space remains.
+        if (is_20_21_or_greater) {
+            PlayerOverlayTimelyShelfFingerprint.method.addInstructionsWithLabels(
+                0, """
+                invoke-static {}, $ADS_CLASS_DESCRIPTOR->hideAds()Z
+                move-result v0
+                if-eqz v0, :show
+                return-void
+                :show
+                nop
+                """
+            )
         }
 
         // endregion
