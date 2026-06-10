@@ -75,7 +75,9 @@ La riproduzione video con AV1 potrebbe rallentare o perdere fotogrammi."</string
 • È richiesto un hash JavaScript del player valido
 • La riproduzione non riesce se l'hash JavaScript del Player viene revocato in GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Disabilita l\'aggiornamento del lettore JavaScript</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Gli hash JavaScript del lettore sono validi per circa un mese e gli hash obsoleti potrebbero essere revocati da GVS.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"È necessario fornire un hash JavaScript del player valido.
+
+La riproduzione fallirà se l'hash JavaScript del player è obsoleto."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Impossibile recuperare il flusso da qualsiasi client</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Inserisci un hash JavaScript del lettore valido</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash JavaScript del lettore</string>
@@ -1517,9 +1519,7 @@ Nota: i video live, con 0 visualizzazioni e gli Shorts non possono essere nascos
     <string name="revanced_hide_youtube_doodles_summary_off">L\'animazione di YouTube Doodles sul logo è mostrata</string>
     <string name="revanced_hide_youtube_doodles_summary_on">L\'animazione YouTube Doodles sul logo è nascosta</string>
     <string name="revanced_hide_youtube_doodles_title">Nascondi Doodles di YouTube</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"I Doodle di YouTube vengono mostrati per pochi giorni ogni anno in varie parti del mondo.
-
-La visualizzazione dei Doodle di YouTube potrebbe impedire la visualizzazione delle intestazioni personalizzate."</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">Mostrare i Doodle di YouTube potrebbe impedire la visualizzazione degli header personalizzati.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">La promozione di YouTube Premium è visibile.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"La promozione di YouTube Premium è nascosta.
 
@@ -1950,8 +1950,7 @@ Note:
     <string name="revanced_remember_video_quality_toast_shorts">Qualità Shorts %1$s modificata in: %2$s</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
     <string name="revanced_remix_button_index_title">Indice del pulsante Remix</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"Rimuove la finestra sulla discrezione dello spettatore.
-Nota: questo non bypassa la restrizione di età, ma la accetta automaticamente."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">Questo non aggira la restrizione di età. Le accetta solo automaticamente</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Rimuovi la finestra di dialogo sulla discrezione dello spettatore</string>
     <string name="revanced_replace_channel_handle_summary_off">L\'handle è visibile.</string>
     <string name="revanced_replace_channel_handle_summary_on">Il nome del canale è visibile.</string>

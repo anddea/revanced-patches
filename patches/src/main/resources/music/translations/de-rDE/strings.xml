@@ -44,17 +44,20 @@ Tippen Sie auf die Schaltfläche „Weiter“ und lassen Sie die Optimierungsän
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_title">Freigabe-Links säubern</string>
     <string name="morphe_spoof_video_streams_client_type_title">Standard-Client</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"JavaScript-Update des Players ist deaktiviert
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Sperrt das Player JavaScript auf eine bestimmte Version fest.
 
-• Ein gültiger Player-JavaScript-Hash ist erforderlich
-• Die Wiedergabe schlägt fehl, wenn der Player-JavaScript-Hash in GVS widerrufen wird"</string>
+• Es ist ein gültiger Hash des Player JavaScript erforderlich.
+• Player JavaScript Hashes sind etwa einen Monat gültig. Veraltete Hashes werden von GVS widerrufen.
+• Die Wiedergabe schlägt fehl, wenn der Hash widerrufen wurde."</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">JavaScript-Update des Players ist aktiviert</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"JavaScript-Update des Players ist deaktiviert
 
 • Ein gültiger Player-JavaScript-Hash ist erforderlich
 • Die Wiedergabe schlägt fehl, wenn der Player-JavaScript-Hash in GVS widerrufen wird"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">JavaScript-Update des Players deaktivieren</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript-Hashes des Players sind ungefähr einen Monat gültig und veraltete Hashes können von GVS widerrufen werden.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Sie müssen einen gültigen Player JavaScript Hash angeben.
+
+Die Wiedergabe schlägt fehl, wenn der Player JavaScript Hash veraltet ist."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Es konnten keine Client-Streams abgerufen werden</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Geben Sie einen gültigen Player-JavaScript-Hash ein</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player-JavaScript-Hash</string>

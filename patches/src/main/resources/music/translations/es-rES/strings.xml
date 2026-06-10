@@ -42,17 +42,20 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="morphe_sanitize_sharing_links_summary_on">El parámetro de consulta de seguimiento se elimina de los enlaces compartidos</string>
     <string name="morphe_sanitize_sharing_links_title">Limpiar enlaces compartidos</string>
     <string name="morphe_spoof_video_streams_client_type_title">Cliente predeterminado</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"La actualización del hash JavaScript del reproductor está desactivada
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Bloquea el JavaScript del reproductor a una versión específica
 
-• Se requiere un hash JavaScript del reproductor válido
-• La reproducción fallará si el hash JavaScript del reproductor es revocado por GVS"</string>
+• Se requiere un hash de JavaScript del reproductor válido
+• Los hashes de JavaScript del reproductor son válidos por aproximadamente un mes, y GVS revocará los hashes obsoletos
+• La reproducción fallará si el hash es revocado"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">La actualización de JavaScript del reproductor está activada</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"La actualización de JavaScript del reproductor está desactivada
 
 • Se requiere un hash JavaScript del reproductor válido
 • La reproducción fallará si el hash JavaScript del reproductor es revocado por GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Desactivar la actualización de JavaScript del reproductor</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Los hashes JavaScript del reproductor son válidos aproximadamente un mes, y los hashes obsoletos pueden ser revocados por GVS.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Debes proporcionar un hash de JavaScript del reproductor válido.
+
+La reproducción fallará si el hash de JavaScript del reproductor está desactualizado."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">No se ha podido obtener ninguna transmisión del cliente</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Introduzca un hash JavaScript del reproductor válido</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash JavaScript del reproductor</string>

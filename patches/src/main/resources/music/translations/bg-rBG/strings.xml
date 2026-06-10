@@ -29,17 +29,20 @@
     <string name="morphe_sanitize_sharing_links_summary_on">Параметърът за следене е премахнат от споделяни връзки</string>
     <string name="morphe_sanitize_sharing_links_title">Почистване на споделените връзки</string>
     <string name="morphe_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Заключва JavaScript на плейъра към локален хеш вместо да извлича актуализации
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Заключва JavaScript на плейъра към конкретна версия
 
 • Необходим е валиден хеш на JavaScript на плейъра
-• Възпроизвеждането ще се провали, ако хешът на JavaScript на плейъра бъде отменен в GVS"</string>
+• Хешовете на JavaScript на плейъра са валидни приблизително един месец, а остарелите хешове ще бъдат отменени от GVS
+• Възпроизвеждането ще се провали, ако хешът бъде отменен."</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Актуализацията на JavaScript за плейъра е активирана</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Актуализацията на JavaScript за плейъра е деактивирана
 
 • Необходим е валиден JavaScript хеш на плейъра.
 • Възпроизвеждането се проваля, ако JavaScript хеш на плейъра е отменен в GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Деактивиране на актуализацията на JavaScript за плейъра</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript хешовете на плейъра са валидни приблизително един месец и остарелите хешове може да бъдат отменени от GVS.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Трябва да предоставите валиден хеш на JavaScript на плейъра.
+
+Възпроизвеждането ще се провали, ако хешът на JavaScript на плейъра е остарял."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не може да се изтеглят клиентски потоци</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Въведете валиден JavaScript хеш на плейъра</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">JavaScript хеш на играча</string>

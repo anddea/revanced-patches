@@ -2675,14 +2675,37 @@ Disclaimer: Cookies issued without signing in may be invalid or may take time to
     <string name="revanced_transcript_cookies_summary">Cookies to use in Transcript API requests.</string>
     <string name="revanced_transcript_cookies_title">Transcript Cookies</string>
     <string name="revanced_translations_title">Translations</string>
+    <string name="revanced_vot_about_summary">"Voice-Over Translation provides translated audio tracks for YouTube videos using Yandex VoT.
+
+If Yandex servers are unavailable in your region, use the «Proxy audio stream» option.
+
+Authorization is required to request translation with live voices for videos that do not yet have one."</string>
+    <string name="revanced_vot_about_title">About Voice-Over Translation</string>
     <string name="revanced_vot_audio_proxy_summary_off">Audio stream uses direct URL</string>
     <string name="revanced_vot_audio_proxy_summary_on">Audio stream is proxied through the worker</string>
     <string name="revanced_vot_audio_proxy_title">Proxy audio stream</string>
+    <string name="revanced_vot_auth_required">Authorization required. Add Yandex OAuth token in settings.</string>
     <string name="revanced_vot_enabled_summary_off">Yandex voice-over translation is disabled</string>
     <string name="revanced_vot_enabled_summary_on">Yandex voice-over translation is enabled</string>
     <string name="revanced_vot_enabled_title">Enable voice-over translation</string>
     <string name="revanced_vot_lang_auto">Auto-detect</string>
     <string name="revanced_vot_live_voices_unavailable">Live voices unavailable, using standard</string>
+    <string name="revanced_vot_oauth_account_management_title">Yandex OAuth token</string>
+    <string name="revanced_vot_oauth_auth_method_message">Choose authorization method</string>
+    <string name="revanced_vot_oauth_auth_method_title">Yandex authorization</string>
+    <string name="revanced_vot_oauth_enter_manually_button">Enter token manually</string>
+    <string name="revanced_vot_oauth_enter_token_title">Enter token manually</string>
+    <string name="revanced_vot_oauth_expired_summary">Token expired. Sign in again.</string>
+    <string name="revanced_vot_oauth_invalid_token">Invalid token</string>
+    <string name="revanced_vot_oauth_no_network">No network connection</string>
+    <string name="revanced_vot_oauth_not_signed_in_summary">Not authorized</string>
+    <string name="revanced_vot_oauth_sign_in_button">Sign in with Yandex</string>
+    <string name="revanced_vot_oauth_sign_out_button">Sign out</string>
+    <string name="revanced_vot_oauth_signed_in_expires">Signed in as %1$s (expires in %2$d days)</string>
+    <string name="revanced_vot_oauth_signed_in_summary">Signed in as %s</string>
+    <string name="revanced_vot_oauth_switch_token_button">Enter another token</string>
+    <string name="revanced_vot_oauth_token_summary">Required for live voices.</string>
+    <string name="revanced_vot_oauth_token_title">Yandex OAuth token</string>
     <string name="revanced_vot_original_audio_volume_summary">Volume of the original video track when translation is playing (0-100). Default: 20</string>
     <string name="revanced_vot_original_audio_volume_title">Original audio volume</string>
     <string name="revanced_vot_percent_value">%d%%</string>
@@ -2712,31 +2735,6 @@ Disclaimer: Cookies issued without signing in may be invalid or may take time to
     <string name="revanced_vot_voice_style_live_title">Live voices</string>
     <string name="revanced_vot_voice_style_standard">Standard voices</string>
     <string name="revanced_vot_voice_style_title">Voice-over style</string>
-    <string name="revanced_vot_oauth_token_title">Yandex OAuth token</string>
-    <string name="revanced_vot_oauth_token_summary">Required for live voices.</string>
-    <string name="revanced_vot_auth_required">Authorization required. Add Yandex OAuth token in settings.</string>
-    <string name="revanced_vot_oauth_not_signed_in_summary">Not authorized</string>
-    <string name="revanced_vot_oauth_signed_in_summary">Signed in as %s</string>
-    <string name="revanced_vot_oauth_auth_method_title">Yandex authorization</string>
-    <string name="revanced_vot_oauth_auth_method_message">Choose authorization method</string>
-    <string name="revanced_vot_oauth_sign_in_button">Sign in with Yandex</string>
-    <string name="revanced_vot_oauth_enter_manually_button">Enter token manually</string>
-    <string name="revanced_vot_oauth_sign_out_button">Sign out</string>
-    <string name="revanced_vot_oauth_switch_token_button">Enter another token</string>
-    <string name="revanced_vot_oauth_enter_token_title">Enter token manually</string>
-    <string name="revanced_vot_oauth_webview_title">Yandex authorization</string>
-    <string name="revanced_vot_oauth_auth_declined">Authorization declined</string>
-    <string name="revanced_vot_oauth_invalid_token">Invalid token</string>
-    <string name="revanced_vot_oauth_no_network">No network connection</string>
-    <string name="revanced_vot_oauth_account_management_title">Yandex OAuth token</string>
-    <string name="revanced_vot_oauth_expired_summary">Token expired. Sign in again.</string>
-    <string name="revanced_vot_oauth_signed_in_expires">Signed in as %1$s (expires in %2$d days)</string>
-    <string name="revanced_vot_about_title">About Voice-Over Translation</string>
-    <string name="revanced_vot_about_summary">"Voice-Over Translation provides translated audio tracks for YouTube videos using Yandex VoT.
-
-If Yandex servers are unavailable in your region, use the «Proxy audio stream» option.
-
-Authorization is required to request translation with live voices for videos that do not yet have one."</string>
     <string name="revanced_watch_history_about_status_blocked">• Watch history is blocked.</string>
     <string name="revanced_watch_history_about_status_original">"• Follows the watch history settings of Google account.
 • Watch history may not work due to DNS or VPN."</string>

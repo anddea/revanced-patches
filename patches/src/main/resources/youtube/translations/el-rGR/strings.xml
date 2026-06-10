@@ -75,7 +75,9 @@
 • Απαιτείται έγκυρο hash του προγράμματος αναπαραγωγής JavaScript
 • Η αναπαραγωγή αποτυγχάνει εάν το hash του προγράμματος αναπαραγωγής JavaScript ανακληθεί στο GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Απενεργοποίηση ενημέρωσης του προγράμματος αναπαραγωγής JavaScript</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Τα hashes για το πρόγραμμα αναπαραγωγής JavaScript είναι έγκυρα για περίπου ένα μήνα, και τα απαρχαιωμένα hashes ενδέχεται να ανακληθούν από το GVS.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Πρέπει να παρέχετε ένα έγκυρο hash JavaScript του player.
+
+Η αναπαραγωγή θα αποτύχει εάν το hash JavaScript του player είναι παρωχημένο."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Αδυναμία λήψης προγράμματος ροής</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Εισάγετε ένα έγκυρο hash για το πρόγραμμα αναπαραγωγής JavaScript</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash προγράμματος αναπαραγωγής JavaScript</string>
@@ -1523,9 +1525,7 @@ Playlists
     <string name="revanced_hide_youtube_doodles_summary_off">Εμφανίζεται\n\nΑφορά τις κινούμενες εικόνες YouTube Doodles στο λογότυπο</string>
     <string name="revanced_hide_youtube_doodles_summary_on">Κρυμμένα\n\nΑφορά τις κινούμενες εικόνες YouTube Doodles στο λογότυπο</string>
     <string name="revanced_hide_youtube_doodles_title">YouTube Doodles</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"Τα Doodle της YouTube εμφανίζονται λίγες μέρες κάθε χρόνο σε διάφορα μέρη του κόσμου.
-
-Η εμφάνιση των Doodle της YouTube ενδέχεται να αποτρέψει την εμφάνιση προσαρμοσμένων επικεφαλίδων."</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">Η εμφάνιση των Doodles της YouTube ενδέχεται να εμποδίσει την εμφάνιση προσαρμοσμένων κεφαλίδων.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"Κρυμμένες.
 
@@ -1953,8 +1953,7 @@ Playlists
     <string name="revanced_remember_video_quality_toast_shorts">Η ποιότητα Shorts με %1$s άλλαξε σε: %2$s</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
     <string name="revanced_remix_button_index_title">Ευρετήριο κουμπιού Remix</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"Αφαίρεση του παραθύρου προειδοποίησης ηλικιακού περιορισμού.
-Αυτό δεν παρακάμπτει τον ηλικιακό περιορισμό, απλά τον αποδέχεται αυτόματα."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">Αυτό δεν παρακάμπτει τον ηλικιακό περιορισμό. Απλώς τον αποδέχεται αυτόματα</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Παράθυρο ηλικιακού περιορισμού</string>
     <string name="revanced_replace_channel_handle_summary_off">Εμφανίζεται το ψευδώνυμο καναλιού.</string>
     <string name="revanced_replace_channel_handle_summary_on">Εμφανίζεται το όνομα καναλιού.</string>

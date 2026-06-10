@@ -75,7 +75,9 @@ Odtwarzanie filmu z użyciem AV1 może powodować zacinanie się lub gubienie kl
 • Wymagany jest prawidłowy hash skryptu JS odtwarzacza
 • Odtwarzanie nie powiedzie się, jeśli hash skryptu zostanie unieważniony w GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Wyłącz aktualizację JS odtwarzacza</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Hashe skryptu JS odtwarzacza są ważne przez około miesiąc, a nieaktualne hashe mogą zostać unieważnione przez GVS.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Musisz podać prawidłowy hash JS odtwarzacza.
+
+​Jeśli hash będzie nieaktualny, odtwarzanie przestanie działać."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nie można przechwycić żadnego ze strumieni klienta</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Wprowadź poprawny hash skryptu JS odtwarzacza</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash skryptu JS odtwarzacza</string>
@@ -1261,6 +1263,9 @@ Informacje:
     <string name="revanced_hide_settings_menu_subscription_product_summary_on">Ukryte</string>
     <string name="revanced_hide_settings_menu_subscription_product_title">Zakupy i subskrypcje</string>
     <string name="revanced_hide_settings_menu_summary">Ukryj elementy menu ustawień YouTube</string>
+    <string name="revanced_hide_settings_menu_time_management_summary_off">Menu zarządzania czasem widoczne.</string>
+    <string name="revanced_hide_settings_menu_time_management_summary_on">Menu zarządzania czasem ukryte.</string>
+    <string name="revanced_hide_settings_menu_time_management_title">Ukryj menu zarządzania czasem.</string>
     <string name="revanced_hide_settings_menu_title">Menu ustawień YouTube</string>
     <string name="revanced_hide_settings_menu_video_quality_summary_off">Widoczne</string>
     <string name="revanced_hide_settings_menu_video_quality_summary_on">Ukryte</string>
@@ -1521,9 +1526,7 @@ Ograniczenia:
     <string name="revanced_hide_youtube_doodles_summary_off">Widoczne</string>
     <string name="revanced_hide_youtube_doodles_summary_on">Ukryte</string>
     <string name="revanced_hide_youtube_doodles_title">Ukryj YouTube Doodles</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles pojawiają się przez kilka dni w roku w różnych częściach świata.
-
-Ich obecność może blokować widoczność własnych logo w nagłówku."</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">Wyświetlanie YouTube Doodles może blokować własne logo w nagłówku.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">Widoczne</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"Ukryte
 
@@ -1861,13 +1864,13 @@ Stuknij tutaj, by pobrać YouTube Music.</string>
     <string name="revanced_preference_screen_watch_history_title">Historia oglądania</string>
     <string name="revanced_queue_manager_add_to_queue">Dodaj do kolejki</string>
     <string name="revanced_queue_manager_add_to_queue_and_open_queue">Dodaj do kolejki i otwórz</string>
-    <string name="revanced_queue_manager_add_to_queue_and_play_video">Dodaj do kolejki i odtwarzaj</string>
-    <string name="revanced_queue_manager_add_to_queue_and_reload_video">Dodaj i przeładuj wideo</string>
+    <string name="revanced_queue_manager_add_to_queue_and_play_video">Dodaj do kolejki i odtwórz</string>
+    <string name="revanced_queue_manager_add_to_queue_and_reload_video">Dodaj i odśwież film</string>
     <string name="revanced_queue_manager_check_failed_auth">Nie zalogowano</string>
-    <string name="revanced_queue_manager_check_failed_generic">Niepowodzenie: %s</string>
+    <string name="revanced_queue_manager_check_failed_generic">Błąd: %s</string>
     <string name="revanced_queue_manager_check_failed_playlist_id">Brak identyfikatora playlisty</string>
     <string name="revanced_queue_manager_check_failed_queue">Kolejka jest pusta</string>
-    <string name="revanced_queue_manager_check_failed_video_id">Brak identyfikatora wideo</string>
+    <string name="revanced_queue_manager_check_failed_video_id">Brak identyfikatora filmu</string>
     <string name="revanced_queue_manager_external_downloader">Zewnętrzna aplikacja od pobierania</string>
     <string name="revanced_queue_manager_fetch_failed_add">Nie udało się dodać do kolejki</string>
     <string name="revanced_queue_manager_fetch_failed_create">Nie udało się utworzyć kolejki</string>
@@ -1876,17 +1879,17 @@ Stuknij tutaj, by pobrać YouTube Music.</string>
     <string name="revanced_queue_manager_fetch_failed_save">Nie udało się zapisać kolejki</string>
     <string name="revanced_queue_manager_fetch_failed_video_information">Nie udało się zdobyć informacji o filmie.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">Dodano do kolejki</string>
-    <string name="revanced_queue_manager_fetch_succeeded_create">Kolejka została utworzona</string>
+    <string name="revanced_queue_manager_fetch_succeeded_create">Utworzono kolejkę</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">Pomyślnie usunięto kolejkę.</string>
     <string name="revanced_queue_manager_fetch_succeeded_remove">Usunięto z kolejki</string>
-    <string name="revanced_queue_manager_fetch_succeeded_save">Kolejka została zapisana do %s</string>
+    <string name="revanced_queue_manager_fetch_succeeded_save">Zapisano kolejkę na playliście %s</string>
     <string name="revanced_queue_manager_open_queue">Otwórz kolejkę</string>
     <string name="revanced_queue_manager_queue">Kolejka</string>
     <string name="revanced_queue_manager_remove_from_queue">Usuń z kolejki</string>
     <string name="revanced_queue_manager_remove_from_queue_and_open_queue">Usuń i otwórz kolejkę</string>
-    <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Usuń i przeładuj wideo</string>
+    <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Usuń i odśwież film</string>
     <string name="revanced_queue_manager_remove_queue">Usuń kolejkę</string>
-    <string name="revanced_queue_manager_save_queue">Zapisz kolejkę do playlisty</string>
+    <string name="revanced_queue_manager_save_queue">Zapisz kolejkę na playliście</string>
     <string name="revanced_queue_manager_show_original_video_information">Pokaż oryginalne informacje o filmie</string>
     <string name="revanced_queue_manager_user_dialog_message">"Zamiast otwierać zewnętrzną aplikację od pobierania, otwiera okno menedżera kolejki.
 
@@ -1955,8 +1958,7 @@ Informacje:
     <string name="revanced_remember_video_quality_toast_shorts">Zmieniono jakość Shortsów %1$s na: %2$s</string>
     <string name="revanced_remember_video_quality_wifi">wi-fi</string>
     <string name="revanced_remix_button_index_title">Indeks przycisku od remiksowania</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"Usuwa okno dialogowe treści ograniczonej do oglądania.
-Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">Nie omija to ograniczeń wiekowych, lecz akceptuje je automatycznie</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Usuń komunikat z ostrzeżeniem dla widzów</string>
     <string name="revanced_replace_channel_handle_summary_off">Po nicku</string>
     <string name="revanced_replace_channel_handle_summary_on">Po nazwie</string>
@@ -2344,6 +2346,8 @@ Może to nie działać, jeśli:
     <string name="revanced_share_copy_video_information_success">Skopiowano informacje o filmie.</string>
     <string name="revanced_shorts_autoplay_background_summary">Automatycznie przechodzi do następnego Shortsa podczas odtwarzania w tle</string>
     <string name="revanced_shorts_autoplay_background_title">Włącz autoodtwarzanie w tle</string>
+    <string name="revanced_shorts_autoplay_disabled_toast">Automatyczne odtwarzanie filmów Short wyłączone</string>
+    <string name="revanced_shorts_autoplay_enabled_toast">Automatyczne odtwarzanie filmów Short włączone</string>
     <string name="revanced_shorts_autoplay_summary">Automatycznie przechodzi do następnego Shortsa, zamiast powtarzać bieżący</string>
     <string name="revanced_shorts_autoplay_title">Włącz autoodtwarzanie Shortsów</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Funkcja ta jest nadal eksperymentalna, więc nie ma gwarancji, że będzie działać perfekcyjnie.
@@ -2388,6 +2392,10 @@ Większość błędów nie może być naprawiona wskutek ograniczeń po stronie 
     <string name="revanced_shorts_custom_actions_speed_summary_on">Widoczne.\n\nInformacja:\n• Domyślna prędkość odtwarzania w Shortsach powinna być włączona.\n• Wybrana prędkość zostanie zastosowana do następnego filmu.</string>
     <string name="revanced_shorts_custom_actions_speed_title">Menu od prędkości odtwarzania</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Własne akcje</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_label">Tłumaczenie głosowe</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_off">Menu tłumaczenia lektorskiego jest ukryte. Akcje niestandardowe w ustawieniach filmów Short powinny być włączone.</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_on">Wyświetla się menu tłumaczenia lektorskiego. Akcje niestandardowe w ustawieniach filmów Short powinny być włączone.</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_title">Tłumaczenie głosowe w Shorts</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Oryginalna</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Łapka w górę</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Łapka w górę (Cairo)</string>

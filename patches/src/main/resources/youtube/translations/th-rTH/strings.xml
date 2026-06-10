@@ -73,7 +73,9 @@
 • จำเป็นต้องมีแฮช JavaScript ของผู้เล่นที่ถูกต้อง
 • การเล่นวิดีโอจะล้มเหลวหากแฮช JavaScript ของผู้เล่นถูกเพิกถอนใน GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">ปิดการอัปเดต JavaScript ของผู้เล่น</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript hash ของผู้เล่นมีความถูกต้องประมาณหนึ่งเดือน และ JavaScript hash ที่หมดอายุอาจถูกเพิกถอนโดย GVS</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"คุณต้องระบุแฮช JavaScript ของโปรแกรมเล่นที่ถูกต้อง
+
+การเล่นวิดีโอจะล้มเหลวหากแฮช JavaScript ของโปรแกรมเล่นหมดอายุ"</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">ไม่สามารถดึงข้อมูล clinets ทั้งหมดได้</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">ป้อนค่าแฮช JavaScript ของผู้เล่นที่ถูกต้อง</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">ค่าแฮช JavaScript ของผู้เล่น</string>
@@ -680,9 +682,7 @@
     <string name="revanced_hide_youtube_doodles_summary_off">แสดงแอนิเมชัน Doodles ของ YouTube บนโลโก้</string>
     <string name="revanced_hide_youtube_doodles_summary_on">ภาพเคลื่อนไหว YouTube Doodles บนโลโก้ถูกซ่อนไว้</string>
     <string name="revanced_hide_youtube_doodles_title">ซ่อน Doodles ของ YouTube</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles แสดงให้เห็นในช่วงไม่กี่วันของทุกปีในส่วนต่างๆ ของโลก
-
-การแสดง YouTube Doodles อาจป้องกันไม่ให้ส่วนหัวแบบกำหนดเองแสดงผล"</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">การแสดง Doodles ของ YouTube อาจทำให้เฮดเดอร์ที่กำหนดเองไม่แสดงผล</string>
     <string name="revanced_language_DEFAULT">ภาษาของแอป</string>
     <string name="revanced_language_TH">Thai\n<small>ไทย</small></string>
     <string name="revanced_language_title">ภาษา ReVanced</string>
@@ -767,6 +767,7 @@
     <string name="revanced_remember_video_quality_toast">เปลี่ยนคุณภาพ %1$s เริ่มต้นเป็น: %2$s</string>
     <string name="revanced_remember_video_quality_toast_shorts">เปลี่ยนคุณภาพ Shorts %1$s เป็น: %2$s</string>
     <string name="revanced_remember_video_quality_wifi">wifi</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">ไม่ได้หลีกเลี่ยงข้อจำกัดอายุ เพียงแต่ยอมรับโดยอัตโนมัติ</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">ลบกล่องโต้ตอบการพิจารณาของผู้ชม</string>
     <string name="revanced_restart_first_run">รีสตาร์ทเพื่อดำเนินการตั้งค่าให้เสร็จสิ้น</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">ภาพขนาดย่อสำหรับแถบเลื่อนจะปรากฏในโหมดเต็มจอ</string>

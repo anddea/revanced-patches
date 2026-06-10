@@ -44,17 +44,20 @@
     <string name="morphe_sanitize_sharing_links_summary_on">已從分享連結中移除追蹤查詢參數</string>
     <string name="morphe_sanitize_sharing_links_title">清理分享連結</string>
     <string name="morphe_spoof_video_streams_client_type_title">預設用戶端</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"鎖定播放器 JavaScript 至本機雜湊值，而非取得更新
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"鎖定播放器 JavaScript 到特定版本
 
 • 需要有效的播放器 JavaScript 雜湊值
-• 如果 GVS 撤銷了播放器 JavaScript 雜湊值，則會無法播放影片"</string>
+• 播放器 JavaScript 雜湊值有效約一個月，過時的雜湊值將被 GVS 撤銷
+• 如果雜湊值被撤銷，播放將會失敗"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">已啟用播放器 JavaScript 更新</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"播放器 JavaScript 更新已停用
 
 • 需要有效的播放器 JavaScript 雜湊值
 • 如果 GVS 撤銷了播放器 JavaScript 雜湊值，則會無法播放影片"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">停用播放器 JavaScript 更新</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">播放器 JavaScript 雜湊值有效期約一個月，且過期的雜湊值可能被 GVS 撤銷。</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"您需要提供有效的播放器 JavaScript 雜湊值。
+
+如果播放器 JavaScript 雜湊值已過時，播放將會失敗。"</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">未能擷取任何用戶端串流</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">請輸入有效的播放器 JavaScript 雜湊值</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">播放器 JavaScript 雜湊值</string>

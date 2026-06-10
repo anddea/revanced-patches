@@ -75,7 +75,9 @@ Az AV1-es videólejátszás akadozhat vagy képkockákat ejthet."</string>
 • Érvényes lejátszó JavaScript hash szükséges
 • A lejátszó JavaScript hash visszavonása a GVS-ben lejátszási hibákhoz vezet"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Kapcsold ki a lejátszó JavaScript frissítését</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">A lejátszó JavaScript hash-ai kb. egy hónapig érvényesek, és a GVS visszavonhatja a lejárt hash-okat.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Érvényes lejátszó JavaScript hash-t kell megadnia.
+
+A lejátszás meghiúsul, ha a lejátszó JavaScript hash elavult."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nem találtunk ügyfelek által megosztott folyamokat</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Adjon meg egy érvényes játékos JavaScript hasht</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Játékos JavaScript hash</string>
@@ -1515,9 +1517,7 @@ Korlátozások:
     <string name="revanced_hide_youtube_doodles_summary_off">YouTube Doodles animáció látható a logón</string>
     <string name="revanced_hide_youtube_doodles_summary_on">A YouTube Doodles animáció a logón elrejtve</string>
     <string name="revanced_hide_youtube_doodles_title">Alkalmi YouTube-logók elrejtése</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"Az alkalmi YouTube-logók évente csak néhány napig jelennek meg a világ különböző pontjain.
-
-A logóanimációk miatt előfordulhat, hogy a saját fejlécek nem látszódnak."</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">A YouTube Doodles megjelenítése megakadályozhatja az egyéni fejlécek megjelenítését.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">A YouTube Prémium promóció látható.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"A YouTube Premium promóció rejtett.
 
@@ -1944,8 +1944,7 @@ Infó:
     <string name="revanced_remember_video_quality_toast_shorts">A Shorts %1$s minősége megváltozott: %2$s</string>
     <string name="revanced_remember_video_quality_wifi">wi-fi</string>
     <string name="revanced_remix_button_index_title">Gomb index megkeverése</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"Eltávolítja a nézői belátás párbeszédpanelt.
-Ez nem kerüli meg a korhatárt. Csak automatikusan fogadja el."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">Ez nem kerüli meg a korhatárt, csak automatikusan elfogadja</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Távolítsa el a nézői diszkréciós párbeszédpanelt</string>
     <string name="revanced_replace_channel_handle_summary_off">A csatorna kezelő van használatban.</string>
     <string name="revanced_replace_channel_handle_summary_on">A csatorna név van használatban.</string>

@@ -74,12 +74,14 @@
 
 • تتطلب تجزئة مشغل JavaScript صالحة.
 • قد يفشل التشغيل إذا تم إلغاء تجزئة مشغل JavaScript في GVS"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_title">تعطيل تحديث مشغل JavaScript</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">تكون تجزئات مشغل JavaScript صالحة لمدة شهر تقريبًا، وقد يتم إلغاء التجزئات القديمة بواسطة GVS.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_title">تعطيل تحديث JavaScript الخاص بالمشغل</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"يجب عليك توفير تجزئة JavaScript صالحة للمشغل.
+
+سيفشل التشغيل إذا كانت تجزئة JavaScript للمشغل قديمة."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">تعذر جلب أي تدفقات عميل</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">أدخل تجزئة مشغل JavaScript صالحة</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">تجزئة مشغل JavaScript</string>
-    <string name="morphe_spoof_video_streams_player_js_variant_title">مشغل JavaScript المتغير</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">أدخل تجزئة JavaScript للمشغل صالحة</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">تجزئة JavaScript الخاصة بالمشغل</string>
+    <string name="morphe_spoof_video_streams_player_js_variant_title">متغير JavaScript الخاص بالمشغل</string>
     <string name="morphe_spoof_video_streams_screen_summary">ضبط خاصية تمويه هوية العميل لمنع مشاكل التشغيل</string>
     <string name="morphe_spoof_video_streams_screen_title">Spoof Video Streams</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">لم يتم تسجيل الدخول إلى Android VR. انقر هنا لتسجيل الدخول</string>
@@ -1526,9 +1528,7 @@
     <string name="revanced_hide_youtube_doodles_summary_off">يتم عرض رسوم Doodles المتحركة على شعار YouTube</string>
     <string name="revanced_hide_youtube_doodles_summary_on">تم إخفاء رسوم Doodles المتحركة على شعار YouTube</string>
     <string name="revanced_hide_youtube_doodles_title">إخفاء رسومات YouTube</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"يتم عرض رسومات YouTube لبضعة أيام كل عام في أجزاء مختلفة من العالم.
-
-قد يؤدي عرض رسومات YouTube إلى منع ظهور علامات الشعار المخصصة."</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">قد يؤدي عرض رسومات YouTube المتحركة الموسمية إلى منع ظهور علامات الشعار المخصصة.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">يتم عرض الترقية لـ YouTube Premium.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"تم إخفاء الترقية لـ YouTube Premium.
 
@@ -1942,7 +1942,7 @@
     <string name="revanced_remember_video_quality_toast_shorts">تم تغيير جودة Shorts %1$s إلى: %2$s</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
     <string name="revanced_remix_button_index_title">فهرس زر ريمكس</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"يزيل مربع حوار تقدير المشاهد. هذا لا يتجاوز القيود العمرية. إنه يقبل ذلك تلقائيًا."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">هذا لا يتجاوز شرط العمر. بل يقبله تلقائيًا</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">إزالة نافذة تحذير تقدير المشاهد</string>
     <string name="revanced_replace_channel_handle_summary_off">يتم استخدام الاسم المعرِّف.</string>
     <string name="revanced_replace_channel_handle_summary_on">يتم استخدام اسم القناة.</string>

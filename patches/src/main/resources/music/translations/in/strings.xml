@@ -44,17 +44,20 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Parameter kueri pelacakan dihapus dari tautan yang dibagikan</string>
     <string name="morphe_sanitize_sharing_links_title">Bersihkan tautan berbagi</string>
     <string name="morphe_spoof_video_streams_client_type_title">Klien bawaan</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Mengunci JavaScript pemutar ke hash lokal daripada mengambil pembaruan
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Mengunci JavaScript pemain ke versi tertentu
 
-• Diperlukan hash JavaScript pemutar yang sah
-• Pemutaran gagal jika hash JavaScript pemutar dicabut di GVS"</string>
+• Hash JavaScript pemain yang valid diperlukan
+• Hash JavaScript pemain berlaku selama sekitar satu bulan, dan hash yang kedaluwarsa akan dicabut oleh GVS
+• Pemutaran gagal jika hash dicabut"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Pembaruan pemutar JavaScript diaktifkan</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Pembaruan pemutar JavaScript dinonaktifkan
 
 • Diperlukan hash player JavaScript yang sah
 • Pemutaran gagal jika hash pemutar JavaScript dicabut di GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Nonaktifkan pembaruan pemutar JavaScript</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Pemutar hash JavaScript berlaku selama kurang lebih satu bulan, dan hash yang kedaluwarsa mungkin dicabut oleh GVS.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Anda harus memberikan hash pemutar JavaScript yang sah.
+
+Pemutaran akan gagal jika hash pemutar JavaScript sudah kedaluwarsa."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Tidak dapat mengambil aliran klien apa pun</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Masukkan hash pemutar JavaScript yang sah</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash pemutar JavaScript</string>

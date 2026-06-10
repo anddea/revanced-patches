@@ -43,17 +43,20 @@ Cliquez sur le bouton Continuer et autorisez les modifications d'optimisations."
     <string name="morphe_sanitize_sharing_links_summary_on">Le paramètre de suivi est supprimé des liens partagés</string>
     <string name="morphe_sanitize_sharing_links_title">Nettoyer les liens partagés</string>
     <string name="morphe_spoof_video_streams_client_type_title">Client par défaut</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Verrouille le JavaScript du lecteur sur un hachage local au lieu de récupérer des mises à jour
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Verrouille le JavaScript du lecteur sur une version spécifique
 
-• Un hachage JavaScript de lecteur valide est requis
-• La lecture échoue si le hachage JavaScript du lecteur est révoqué dans GVS"</string>
+• Un hachage JavaScript valide du lecteur est nécessaire
+• Les hachages JavaScript du lecteur sont valides pendant environ un mois, et les hachages obsolètes sont révoqués par GVS
+• La lecture échoue si le hachage est révoqué"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">La mise à jour JavaScript du lecteur est activée</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"La mise à jour JavaScript du lecteur est désactivée
 
 • Un hachage JavaScript valide du lecteur est nécessaire
 • La lecture échoue si le hachage JavaScript du lecteur est révoqué dans GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Désactiver la mise à jour JavaScript du lecteur</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Les hachages JavaScript du lecteur sont valides pendant environ un mois, et les hachages obsolètes peuvent être révoqués par GVS.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Vous devez fournir un hachage JavaScript valide du lecteur.
+
+La lecture échouera si le hachage JavaScript du lecteur est obsolète."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Impossible de récupérer les flux du client</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Entrez un hachage JavaScript valide du lecteur</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hachage JavaScript du lecteur</string>

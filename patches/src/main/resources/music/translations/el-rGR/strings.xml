@@ -44,17 +44,20 @@
     <string name="morphe_sanitize_sharing_links_summary_on">Οι παράμετροι παρακολούθησης αφαιρούνται από τους συνδέσμους κατά την κοινοποίηση</string>
     <string name="morphe_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κατά την κοινοποίηση</string>
     <string name="morphe_spoof_video_streams_client_type_title">Προεπιλεγμένο πρόγραμμα αναπαραγωγής</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Κλειδώνει το JavaScript του προγράμματος αναπαραγωγής σε μια τοπική κατακερματισμένη τιμή αντί να ανακτά ενημερώσεις
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Κλειδώνει το JavaScript του player σε μια συγκεκριμένη έκδοση
 
-• Απαιτείται έγκυρη κατακερματισμένη τιμή JavaScript του προγράμματος αναπαραγωγής
-• Η αναπαραγωγή αποτυγχάνει εάν η κατακερματισμένη τιμή JavaScript του προγράμματος αναπαραγωγής ανακληθεί στο GVS"</string>
+• Απαιτείται ένα έγκυρο hash JavaScript του player
+• Τα hash JavaScript του player είναι έγκυρα για περίπου ένα μήνα, και τα παρωχημένα hash θα ανακληθούν από το GVS
+• Η αναπαραγωγή αποτυγχάνει εάν το hash έχει ανακληθεί"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Η ενημέρωση JavaScript του προγράμματος αναπαραγωγής είναι ενεργοποιημένη</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Η ενημέρωση του προγράμματος αναπαραγωγής JavaScript είναι απενεργοποιημένη
 
 • Απαιτείται έγκυρο hash του προγράμματος αναπαραγωγής JavaScript
 • Η αναπαραγωγή αποτυγχάνει εάν το hash του προγράμματος αναπαραγωγής JavaScript ανακληθεί στο GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Απενεργοποίηση ενημέρωσης του προγράμματος αναπαραγωγής JavaScript</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Τα hashes για το πρόγραμμα αναπαραγωγής JavaScript είναι έγκυρα για περίπου ένα μήνα, και τα απαρχαιωμένα hashes ενδέχεται να ανακληθούν από το GVS.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Πρέπει να παρέχετε ένα έγκυρο hash JavaScript του player.
+
+Η αναπαραγωγή θα αποτύχει εάν το hash JavaScript του player είναι παρωχημένο."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Αδυναμία λήψης προγράμματος ροής</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Εισάγετε ένα έγκυρο hash για το πρόγραμμα αναπαραγωγής JavaScript</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash προγράμματος αναπαραγωγής JavaScript</string>

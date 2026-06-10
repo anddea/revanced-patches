@@ -44,17 +44,20 @@
     <string name="morphe_sanitize_sharing_links_summary_on">Параметри запиту відстеження вилучаються з поширених посилань</string>
     <string name="morphe_sanitize_sharing_links_title">Очищення посилань для поширення</string>
     <string name="morphe_spoof_video_streams_client_type_title">Типовий клієнт</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Закріплює JavaScript плеєра за локальним хешем замість отримання оновлень
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Фіксує JavaScript плеєра на певній версії
 
 • Потрібен дійсний хеш JavaScript плеєра
-• Відтворення не працюватиме, якщо хеш JavaScript плеєра буде відкликано у GVS"</string>
+• Хеші JavaScript плеєра дійсні приблизно один місяць, застарілі хеші буде відкликано GVS
+• Відтворення не вдасться, якщо хеш відкликано"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Оновлення JavaScript плеєра увімкнено</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Оновлення JavaScript плеєра вимкнено
 
 • Потрібен дійсний хеш JavaScript плеєра
 • Відтворення не вдається, якщо хеш JavaScript плеєра скасовано у GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Вимкнути оновлення JavaScript плеєра</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Хеші JavaScript плеєра дійсні приблизно один місяць, а застарілі хеші можуть бути скасовані GVS.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Необхідно вказати дійсний хеш JavaScript плеєра.
+
+Відтворення не вдасться, якщо хеш JavaScript плеєра застарів."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не вдалося отримати жодних клієнтських потоків</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Введіть дійсний хеш JavaScript плеєра</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Хеш JavaScript плеєра</string>

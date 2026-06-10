@@ -75,7 +75,9 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
 • 需要有效的播放器 JavaScript 雜湊值
 • 如果 GVS 撤銷了播放器 JavaScript 雜湊值，則會無法播放影片"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">停用播放器 JavaScript 更新</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">播放器 JavaScript 雜湊值有效期約一個月，且過期的雜湊值可能被 GVS 撤銷。</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"您需要提供有效的播放器 JavaScript 雜湊值。
+
+如果播放器 JavaScript 雜湊值已過時，播放將會失敗。"</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">未能擷取任何用戶端串流</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">請輸入有效的播放器 JavaScript 雜湊值</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">播放器 JavaScript 雜湊值</string>
@@ -1524,9 +1526,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_hide_youtube_doodles_summary_off">已顯示 YouTube 標誌上的 Doodles 動畫</string>
     <string name="revanced_hide_youtube_doodles_summary_on">已隱藏 YouTube 標誌上的 Doodles 動畫</string>
     <string name="revanced_hide_youtube_doodles_title">隱藏 YouTube Doodles</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles 在一年中的幾天內會在世界各地的不同地區顯示。
-
-顯示 YouTube Doodles 可能會阻止自訂標題顯示。"</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">顯示 YouTube 短影音可能會妨礙自訂標題的顯示。</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">YouTube Premium 推廣已顯示。</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"YouTube Premium推廣活動已隱藏。
 
@@ -1956,8 +1956,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_remember_video_quality_toast_shorts">已將 Shorts %1$s 畫質變更為：%2$s</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
     <string name="revanced_remix_button_index_title">混音按鈕索引</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"移除觀眾酌情觀看對話方塊。
-這項選項不會繞過年齡限制，它只會自動接受。"</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">這不會繞過年齡限制，只會自動按下同意。</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">移除觀眾謹慎觀看對話方塊</string>
     <string name="revanced_replace_channel_handle_summary_off">頻道代號已使用。</string>
     <string name="revanced_replace_channel_handle_summary_on">頻道名稱已使用。</string>

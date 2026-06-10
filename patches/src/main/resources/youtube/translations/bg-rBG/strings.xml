@@ -71,7 +71,9 @@
 • Необходим е валиден JavaScript хеш на плейъра.
 • Възпроизвеждането се проваля, ако JavaScript хеш на плейъра е отменен в GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Деактивиране на актуализацията на JavaScript за плейъра</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">JavaScript хешовете на плейъра са валидни приблизително един месец и остарелите хешове може да бъдат отменени от GVS.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Трябва да предоставите валиден хеш на JavaScript на плейъра.
+
+Възпроизвеждането ще се провали, ако хешът на JavaScript на плейъра е остарял."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не може да се изтеглят клиентски потоци</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Въведете валиден JavaScript хеш на плейъра</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">JavaScript хеш на играча</string>
@@ -1285,9 +1287,7 @@
     <string name="revanced_hide_youtube_doodles_summary_off">YouTube Doodles се показват няколко дни на година.</string>
     <string name="revanced_hide_youtube_doodles_summary_on">Анимацията \"Doodles\" на логото на YouTube е скрита</string>
     <string name="revanced_hide_youtube_doodles_title">YouTube Doodles</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles се показват няколко дни всяка година в различни части на света.
-
-Показването на YouTube Doodles може да попречи на показването на потребителски заглавки."</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">Показването на Doodles от YouTube може да попречи на показването на персонализирани заглавки.</string>
     <string name="revanced_hide_zoom_overlay_summary_off">Интерфейс за мащабиране се показва.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">Интерфейс за мащабиране ескрит.</string>
     <string name="revanced_hide_zoom_overlay_title">Интерфейс за мащабиране</string>
@@ -1586,7 +1586,7 @@
     <string name="revanced_remember_video_quality_toast">Променяване на стила на вграденния плеер</string>
     <string name="revanced_remember_video_quality_toast_shorts">Тип на миниплеера</string>
     <string name="revanced_remember_video_quality_wifi">Миниплеер</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"Премахва диалоговите прозорци. Това не заобикаля възрастовите ограничения, но ги приема автоматично."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">Това не заобикаля възрастовите ограничения. Просто ги приема автоматично</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Скриване на диалог за възраст</string>
     <string name="revanced_replace_channel_handle_summary_off">Използва се псевдонимът на канала.</string>
     <string name="revanced_replace_channel_handle_summary_on">Използва се името на канала.</string>

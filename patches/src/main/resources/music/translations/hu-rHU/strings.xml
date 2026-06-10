@@ -44,17 +44,20 @@ Nyomj a folytatás gombra, és engedélyezd az optimalizálási módosításokat
     <string name="morphe_sanitize_sharing_links_summary_on">A követési lekérdezési paraméter eltávolításra kerül a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
     <string name="morphe_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Rögzíti a lejátszó JavaScript kódját egy helyi hash-hez a frissítések letöltése helyett
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Rögzíti a lejátszó JavaScript verzióját egy adott változatra
 
 • Érvényes lejátszó JavaScript hash szükséges
-• A lejátszás hibás lesz, ha a lejátszó JavaScript hash-ét visszavonják a GVS-ben"</string>
+• A lejátszó JavaScript hash körülbelül egy hónapig érvényes, a lejárt hash-eket a GVS visszavonja
+• A lejátszás meghiúsul, ha a hash érvénytelen."</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">A lejátszó JavaScript frissítése engedélyezve van</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"A lejátszó JavaScript frissítése ki van kapcsolva
 
 • Érvényes lejátszó JavaScript hash szükséges
 • A lejátszó JavaScript hash visszavonása a GVS-ben lejátszási hibákhoz vezet"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Kapcsold ki a lejátszó JavaScript frissítését</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">A lejátszó JavaScript hash-ai kb. egy hónapig érvényesek, és a GVS visszavonhatja a lejárt hash-okat.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Érvényes lejátszó JavaScript hash-t kell megadnia.
+
+A lejátszás meghiúsul, ha a lejátszó JavaScript hash elavult."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nem találtunk ügyfelek által megosztott folyamokat</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Adjon meg egy érvényes játékos JavaScript hasht</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Játékos JavaScript hash</string>

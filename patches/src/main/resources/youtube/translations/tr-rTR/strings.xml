@@ -75,7 +75,9 @@ AV1 ile video oynatma takılabilir veya kare atlayabilir."</string>
 • Geçerli bir oynatıcı JavaScript hash'i gereklidir
 • GVS'de Oynatıcı JavaScript hash'i iptal edilirse oynatma başarısız olur"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Oynatıcı JavaScript güncellemesini devre dışı bırak</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Oynatıcı JavaScript hash\'leri yaklaşık bir ay süreyle geçerlidir ve süresi geçmiş hash\'ler GVS tarafından iptal edilebilir.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Geçerli bir oynatıcı JavaScript hash'i sağlamanız gerekir.
+
+Oynatıcı JavaScript hash'i güncel değilse oynatma başarısız olur."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Hiçbir istemci akışı alınamadı</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Geçerli bir oynatıcı JavaScript hash değeri girin</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Oynatıcı JavaScript hash</string>
@@ -1496,9 +1498,7 @@ Sınırlamalar:
     <string name="revanced_hide_youtube_doodles_summary_off">Logodaki YouTube Doodles animasyonu görünür</string>
     <string name="revanced_hide_youtube_doodles_summary_on">Logodaki YouTube Doodles animasyonu gizli</string>
     <string name="revanced_hide_youtube_doodles_title">YouTube Doodles\'ı gizle</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles, yılın çeşitli günlerinde dünyanın çeşitli yerlerinde gösterilir.
-
-YouTube Doodles göstermek, özel başlıkların görüntülenmesini engelleyebilir."</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">YouTube Doodles\'ın gösterilmesi, özel başlıkların görüntülenmesini engelleyebilir.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">YouTube Premium tanıtımı gösteriliyor.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"YouTube Premium tanıtımı gizlendi.
 
@@ -1929,7 +1929,7 @@ Bilgi:
     <string name="revanced_remember_video_quality_toast_shorts">Shorts %1$s kalitesi, %2$s olarak ayarlandı</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
     <string name="revanced_remix_button_index_title">Remix düğmesi dizini</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"Görüntüleyicinin takdirine ilişkin iletişim kutusunu kaldırır. Bu yaş sınırlamasını atlamaz. Sadece otomatik olarak kabul ediyor."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">Bu, yaş kısıtlamasını kaldırmaz. Sadece otomatik olarak kabul eder</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">İzleyici takdiri iletişim kutusunu kaldır</string>
     <string name="revanced_replace_channel_handle_summary_off">Kanal etiketi kullanılıyor.</string>
     <string name="revanced_replace_channel_handle_summary_on">Kanal ismi kullanılıyor.</string>

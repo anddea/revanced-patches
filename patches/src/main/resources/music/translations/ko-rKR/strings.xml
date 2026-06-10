@@ -42,17 +42,20 @@
     <string name="morphe_sanitize_sharing_links_summary_on">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거합니다</string>
     <string name="morphe_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
     <string name="morphe_spoof_video_streams_client_type_title">기본 클라이언트</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"업데이트를 가져오는 대신 플레이어 자바스크립트를 로컬 해시로 고정합니다
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"플레이어 자바스크립트 버전을 특정 버전으로 고정합니다.
 
 • 유효한 플레이어 자바스크립트 해시가 필요합니다
-• 플레이어 자바스크립트 해시가 GVS에서 취소되면 재생이 실패합니다"</string>
+• 플레이어 자바스크립트 해시는 대략 한 달 동안 유효하며, 오래된 해시는 GVS에서 취소됩니다
+• 해시가 취소된 경우에는 재생이 실패합니다"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">플레이어 자바스크립트 업데이트를 활성화합니다</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"플레이어 자바스크립트 업데이트를 비활성화합니다
 
 • 유효한 플레이어 자바스크립트 해시가 필요합니다
 • 플레이어 자바스크립트 해시가 GVS에서 취소되면 재생이 실패합니다"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">플레이어 자바스크립트 업데이트 비활성화하기</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">플레이어 자바스크립트 해시는 약 한 달 동안 유효하며, 오래된 해시는 GVS에 의해 취소될 수 있습니다.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"유효한 플레이어 자바스크립트 해시를 설정해야 합니다
+
+플레이어 자바스크립트 해시가 오래되면 재생이 실패합니다"</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">클라이언트 스트림을 가져올 수 없습니다</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">유효한 플레이어 자바스크립트 해시를 입력하세요</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">플레이어 자바스크립트 해시</string>

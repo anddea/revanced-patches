@@ -44,17 +44,20 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="morphe_sanitize_sharing_links_summary_on">Tham số truy vấn theo dõi bị loại bỏ khỏi các liên kết được chia sẻ</string>
     <string name="morphe_sanitize_sharing_links_title">Rút gọn liên kết chia sẻ</string>
     <string name="morphe_spoof_video_streams_client_type_title">Client mặc định</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Cố định JavaScript của trình phát bằng hash cục bộ thay vì cập nhật
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Cố định phiên bản JavaScript của trình phát
 
-• Cần hash JavaScript của trình phát hợp lệ
-• Nếu hash bị thu hồi trong GVS, video sẽ không phát được"</string>
+• Yêu cầu mã băm JavaScript hợp lệ
+• Mỗi mã băm thường chỉ có hiệu lực trong khoảng một tháng và bị GVS thu hồi khi hết hạn
+• Khi bị thu hồi, video sẽ không còn phát được nữa"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Cập nhật JavaScript của trình phát đã bật</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Cập nhật JavaScript của trình phát đã bị tắt
 
 • Cần có mã băm JavaScript hợp lệ
 • Video sẽ không phát được nếu mã băm này bị GVS thu hồi"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Tắt cập nhật JavaScript của trình phát</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Mã băm JavaScript của trình phát thường có hiệu lực khoảng một tháng, và các mã băm quá hạn có thể bị GVS thu hồi.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Bạn cần cung cấp một mã băm JavaScript của trình phát còn hiệu lực.
+
+Bạn sẽ không còn xem được video nếu mã băm hết hạn."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Không thể lấy bất kỳ luồng phát nào</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Nhập mã băm JavaScript hợp lệ của trình phát</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Mã băm JavaScript của trình phát</string>

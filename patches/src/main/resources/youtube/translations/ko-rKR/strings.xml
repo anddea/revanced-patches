@@ -75,7 +75,9 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
 • 유효한 플레이어 자바스크립트 해시가 필요합니다
 • 플레이어 자바스크립트 해시가 GVS에서 취소되면 재생이 실패합니다"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">플레이어 자바스크립트 업데이트 비활성화하기</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">플레이어 자바스크립트 해시는 약 한 달 동안 유효하며, 오래된 해시는 GVS에 의해 취소될 수 있습니다.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"유효한 플레이어 자바스크립트 해시를 설정해야 합니다
+
+플레이어 자바스크립트 해시가 오래되면 재생이 실패합니다"</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">클라이언트 스트림을 가져올 수 없습니다</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">유효한 플레이어 자바스크립트 해시를 입력하세요</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">플레이어 자바스크립트 해시</string>
@@ -1546,9 +1548,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_youtube_doodles_summary_off">헤더 로고에서 YouTube Doodles 애니메이션이 표시됩니다</string>
     <string name="revanced_hide_youtube_doodles_summary_on">해더 로고에서 YouTube Doodles 애니메이션이 숨겨집니다</string>
     <string name="revanced_hide_youtube_doodles_title">YouTube Doodles 숨기기</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles는 공휴일이나 기념일 등, 그 날에 맞춘 디자인으로 변경되는 왼쪽 상단의 YouTube 헤더를 말합니다.
-
-YouTube Doodles를 표시하면 사용자 정의 헤더가 표시되지 않을 수 있습니다."</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">YouTube Doodles을 표시하면 사용자 정의 헤더가 표시되지 않을 수 있습니다</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">YouTube Premium 프로모션이 표시됩니다.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"YouTube Premium 프로모션이 숨겨집니다.
 
@@ -1887,7 +1887,7 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
     <string name="revanced_queue_manager_add_to_queue_and_play_video">현재 재생목록에 추가하고 동영상 재생</string>
     <string name="revanced_queue_manager_add_to_queue_and_reload_video">현재 재생목록에 추가하고 동영상 새로고침</string>
     <string name="revanced_queue_manager_check_failed_auth">로그인하지 않았습니다</string>
-    <string name="revanced_queue_manager_check_failed_generic">실패하였습니다: %s</string>
+    <string name="revanced_queue_manager_check_failed_generic">실패: %s</string>
     <string name="revanced_queue_manager_check_failed_playlist_id">재생목록 ID가 없습니다</string>
     <string name="revanced_queue_manager_check_failed_queue">현재 재생목록이 비어 있습니다</string>
     <string name="revanced_queue_manager_check_failed_video_id">동영상 ID가 없습니다</string>
@@ -1978,7 +1978,7 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
     <string name="revanced_remember_video_quality_toast_shorts">%1$s 이용 시 기본 Shorts 화질 값을 %2$s 로 변경하였습니다</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
     <string name="revanced_remix_button_index_title">리믹스 버튼 인덱스</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"일부 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다.\n\n이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
     <string name="revanced_replace_channel_handle_summary_off">채널 핸들(@채널 아이디)을 사용합니다.</string>
     <string name="revanced_replace_channel_handle_summary_on">채널 이름을 사용합니다.</string>
@@ -2415,8 +2415,8 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_shorts_custom_actions_speed_title">재생 속도 메뉴 표시하기</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">사용자 정의 동작</string>
     <string name="revanced_shorts_custom_actions_voice_over_translation_label">음성 번역</string>
-    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_off">음성 번역 메뉴가 숨겨집니다.\n사용하려면 Shorts 설정에서 사용자 정의 동작이 활성화되어 있어야 합니다.</string>
-    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_on">음성 번역 메뉴가 표시됩니다.\n사용하려면 Shorts 설정에서 사용자 정의 동작이 활성화되어 있어야 합니다.</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_off">음성 번역 메뉴가 숨겨집니다.\n이 기능을 사용하려면, Shorts 설정에서 사용자 정의 동작이 활성화되어 있어야 합니다.</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_on">음성 번역 메뉴가 표시됩니다.\n이 기능을 사용하려면, Shorts 설정에서 사용자 정의 동작이 활성화되어 있어야 합니다.</string>
     <string name="revanced_shorts_custom_actions_voice_over_translation_title">Shorts 음성 번역</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">기본값</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">엄지척</string>
