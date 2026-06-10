@@ -1,3 +1,10 @@
+# [4.1.0-dev.6](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.5...v4.1.0-dev.6) (2026-06-10)
+
+
+### Features
+
+* **YouTube - Voice Over Translation:** Add authorization support for requesting live voice translation ([#1555](https://github.com/anddea/revanced-patches/issues/1555)) ([1999294](https://github.com/anddea/revanced-patches/commit/19992946b872a3a9c8bb61506f576c8653c89cdd))
+
 # [4.1.0-dev.5](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.4...v4.1.0-dev.5) (2026-06-06)
 
 
