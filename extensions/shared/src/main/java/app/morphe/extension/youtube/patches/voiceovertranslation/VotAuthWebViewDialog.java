@@ -44,7 +44,6 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
-import android.net.Uri;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,7 +75,6 @@ import app.morphe.extension.shared.utils.Logger;
  *   <li>WebViewClient intercepts the callback URL, extracts the token, and closes</li>
  * </ol>
  */
-@SuppressWarnings("deprecation")
 public class VotAuthWebViewDialog extends Dialog {
 
     private static final String AUTH_HANDLE_URL = "https://rust-server-531j.onrender.com/v1/auth/handle";
@@ -273,7 +271,7 @@ public class VotAuthWebViewDialog extends Dialog {
         // Clean up WebView to prevent memory leaks
         if (webView != null) {
             webView.stopLoading();
-            webView.setWebViewClient(null);
+            webView.setWebViewClient(new WebViewClient());
             webView.destroy();
             webView = null;
         }

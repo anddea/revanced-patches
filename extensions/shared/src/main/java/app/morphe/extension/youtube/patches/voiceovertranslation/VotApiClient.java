@@ -120,7 +120,7 @@ public class VotApiClient {
      * Implementations handle the per-caller differences in polling behavior.
      */
     public interface PollHandler {
-        /** @return true if polling should be cancelled (e.g. video changed, deadline passed) */
+        /** @return true if polling should be canceled (e.g. video changed, deadline passed) */
         boolean isCancelled();
 
         /**
@@ -131,7 +131,7 @@ public class VotApiClient {
 
         /**
          * Called on STATUS_AUDIO_REQUESTED to allow sending audio data to the server.
-         * May be a no-op if the caller does not support audio upload.
+         * It may be a no-op if the caller does not support audio upload.
          */
         void onAudioRequested(String videoUrl, String translationId);
 
@@ -160,7 +160,7 @@ public class VotApiClient {
     private static final int AUDIO_REQUESTED_RETRY_DELAY_SECONDS = 3;
 
     /**
-     * Polls the translation API until the result is ready, failed, or cancelled.
+     * Polls the translation API until the result is ready, failed, or canceled.
      * Centralizes the polling loop shared by VoiceOverTranslationPatch and VotStreamReplacer.
      *
      * @param videoUrl         the YouTube video URL
@@ -170,7 +170,7 @@ public class VotApiClient {
      * @param videoTitle       video title for the API request
      * @param initialWaitSeconds seconds to sleep before the first API call (0 to skip)
      * @param handler          callback for status-specific handling
-     * @return the final TranslationResult, or null if polling was cancelled/failed
+     * @return the final TranslationResult, or null if polling was canceled/failed
      */
     public static TranslationResult pollUntilReady(
             String videoUrl, double duration,
@@ -185,13 +185,11 @@ public class VotApiClient {
         for (int retry = 0; retry < DEFAULT_POLL_MAX_RETRIES; retry++) {
             if (handler.isCancelled()) return null;
 
-            if (waitSeconds > 0) {
-                try {
-                    Thread.sleep(waitSeconds * 1000L);
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                    return null;
-                }
+            try {
+                Thread.sleep(waitSeconds * 1000L);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return null;
             }
 
             if (handler.isCancelled()) return null;
@@ -232,15 +230,16 @@ public class VotApiClient {
                 return null;
             }
 
+            int waitSeconds1 = result.remainingTime() > 0 ? result.remainingTime() : 5;
             if (status == STATUS_WAITING || status == STATUS_LONG_WAITING) {
-                waitSeconds = result.remainingTime() > 0 ? result.remainingTime() : 5;
+                waitSeconds = waitSeconds1;
                 handler.onWaiting(waitSeconds, isFirstWait);
                 isFirstWait = false;
                 continue;
             }
 
             if (status == STATUS_AUDIO_REQUESTED) {
-                waitSeconds = result.remainingTime() > 0 ? result.remainingTime() : 5;
+                waitSeconds = waitSeconds1;
                 handler.onWaiting(waitSeconds, isFirstWait);
                 isFirstWait = false;
                 handler.onAudioRequested(videoUrl, result.translationId());
@@ -765,6 +764,7 @@ public class VotApiClient {
      * @param token the OAuth token to validate
      * @return true if the token is valid, false otherwise
      */
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public static synchronized boolean isValidOAuthToken(String token) {
         if (token == null || token.isEmpty()) return false;
 

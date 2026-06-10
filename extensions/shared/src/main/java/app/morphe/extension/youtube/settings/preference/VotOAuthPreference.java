@@ -84,7 +84,7 @@ import app.morphe.extension.youtube.settings.Settings;
  * "Sign in with Yandex" (opens a WebView OAuth flow) or "Enter token manually".
  * When signed in, clicking shows account info with options to sign out or switch token.
  */
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "unused"})
 public class VotOAuthPreference extends Preference implements Preference.OnPreferenceClickListener {
 
     /** Cached profile display name (static to survive preference recreation). */
@@ -148,7 +148,7 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
      */
     private boolean isSignedIn() {
         String token = Settings.VOT_OAUTH_TOKEN.get();
-        return token != null && !token.isEmpty();
+        return !token.isEmpty();
     }
 
     /**
@@ -242,10 +242,10 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
                 null,
                 null,
                 str("revanced_vot_oauth_sign_out_button"),
-                () -> signOut(),
+                this::signOut,
                 () -> { /* Cancel — do nothing */ },
                 str("revanced_vot_oauth_switch_token_button"),
-                () -> showAuthMethodDialog(),
+                this::showAuthMethodDialog,
                 false
         );
         Dialog dialog = pair.first;
@@ -318,7 +318,7 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
         editText.setHint("y0_AgAAAAB...");
         // Pre-fill with current token if any
         String currentToken = Settings.VOT_OAUTH_TOKEN.get();
-        if (currentToken != null && !currentToken.isEmpty()) {
+        if (!currentToken.isEmpty()) {
             editText.setText(currentToken);
             editText.setSelection(currentToken.length());
         }
@@ -380,14 +380,10 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
      * Validates the token, loads profile info, saves it, and updates UI.
      */
     private void onTokenObtained(@NonNull String token, long expiresIn) {
-        Context context = getContext();
-
         Utils.runOnBackgroundThread(() -> {
             // Validate the token first
             if (!VotApiClient.isValidOAuthToken(token)) {
-                Utils.runOnMainThread(() -> {
-                    Utils.showToastLong(str("revanced_vot_oauth_invalid_token"));
-                });
+                Utils.runOnMainThread(() -> Utils.showToastLong(str("revanced_vot_oauth_invalid_token")));
                 return;
             }
 
@@ -435,7 +431,7 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
      */
     private void loadProfileAsync() {
         String token = Settings.VOT_OAUTH_TOKEN.get();
-        if (token == null || token.isEmpty()) return;
+        if (token.isEmpty()) return;
 
         Utils.runOnBackgroundThread(() -> {
             String displayName = fetchDisplayName(token);
@@ -484,8 +480,8 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
 
                 // Parse avatar
                 if (!json.optBoolean("is_avatar_empty", true)) {
-                    String avatarId = json.optString("default_avatar_id", null);
-                    if (avatarId != null && !avatarId.isEmpty()) {
+                    String avatarId = json.optString("default_avatar_id", "");
+                    if (!avatarId.isEmpty()) {
                         cachedAvatarUrl = "https://avatars.yandex.net/get-yapic/"
                                 + avatarId + "/islands-200";
                     } else {
@@ -495,12 +491,12 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
                     cachedAvatarUrl = null;
                 }
 
-                String displayName = json.optString("login", null);
-                if (displayName == null || displayName.isEmpty()) {
-                    displayName = json.optString("display_name", null);
+                String displayName = json.optString("login", "");
+                if (displayName.isEmpty()) {
+                    displayName = json.optString("display_name", "");
                 }
-                if (displayName == null || displayName.isEmpty()) {
-                    displayName = json.optString("real_name", null);
+                if (displayName.isEmpty()) {
+                    displayName = json.optString("real_name", "");
                 }
                 final String finalDisplayName = displayName;
                 final String finalAvatarUrl = cachedAvatarUrl;
