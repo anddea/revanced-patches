@@ -104,9 +104,154 @@ public class VotApiClient {
                                     String translationId, String message) {
     }
 
+    public static final int STATUS_FAILED = 0;
+    public static final int STATUS_FINISHED = 1;
+    public static final int STATUS_WAITING = 2;
+    public static final int STATUS_LONG_WAITING = 3;
+    public static final int STATUS_PART_CONTENT = 5;
+    public static final int STATUS_AUDIO_REQUESTED = 6;
     public static final int STATUS_SESSION_REQUIRED = 7;
 
     private record ProxyWorkerRetryResult(TranslationResult result, boolean workerHostsFound) {
+    }
+
+    /**
+     * Callback interface for {@link #pollUntilReady}.
+     * Implementations handle the per-caller differences in polling behavior.
+     */
+    public interface PollHandler {
+        /** @return true if polling should be cancelled (e.g. video changed, deadline passed) */
+        boolean isCancelled();
+
+        /**
+         * Called when translation audio is ready (STATUS_FINISHED or STATUS_PART_CONTENT
+         * with a non-empty audioUrl).
+         */
+        void onAudioReady(TranslationResult result);
+
+        /**
+         * Called on STATUS_AUDIO_REQUESTED to allow sending audio data to the server.
+         * May be a no-op if the caller does not support audio upload.
+         */
+        void onAudioRequested(String videoUrl, String translationId);
+
+        /**
+         * Called on STATUS_FAILED.
+         *
+         * @return true if the handler took recovery action and polling should continue
+         *         (e.g. disabled live voices), false to stop polling.
+         */
+        boolean onFailed();
+
+        /** Called on STATUS_SESSION_REQUIRED. */
+        void onSessionRequired();
+
+        /**
+         * Called when status indicates waiting. Allows the handler to observe or react
+         * to the wait (e.g. show a toast).
+         *
+         * @param waitSeconds suggested wait time from the API
+         * @param isFirstWait true if this is the first waiting response in this poll session
+         */
+        void onWaiting(int waitSeconds, boolean isFirstWait);
+    }
+
+    private static final int DEFAULT_POLL_MAX_RETRIES = 30;
+    private static final int AUDIO_REQUESTED_RETRY_DELAY_SECONDS = 3;
+
+    /**
+     * Polls the translation API until the result is ready, failed, or cancelled.
+     * Centralizes the polling loop shared by VoiceOverTranslationPatch and VotStreamReplacer.
+     *
+     * @param videoUrl         the YouTube video URL
+     * @param duration         video duration in seconds
+     * @param sourceLang       source language code (or "auto"/"")
+     * @param targetLang       target language code
+     * @param videoTitle       video title for the API request
+     * @param initialWaitSeconds seconds to sleep before the first API call (0 to skip)
+     * @param handler          callback for status-specific handling
+     * @return the final TranslationResult, or null if polling was cancelled/failed
+     */
+    public static TranslationResult pollUntilReady(
+            String videoUrl, double duration,
+            String sourceLang, String targetLang,
+            String videoTitle,
+            int initialWaitSeconds,
+            PollHandler handler
+    ) {
+        int waitSeconds = Math.max(1, initialWaitSeconds);
+        boolean isFirstWait = true;
+
+        for (int retry = 0; retry < DEFAULT_POLL_MAX_RETRIES; retry++) {
+            if (handler.isCancelled()) return null;
+
+            if (waitSeconds > 0) {
+                try {
+                    Thread.sleep(waitSeconds * 1000L);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    return null;
+                }
+            }
+
+            if (handler.isCancelled()) return null;
+
+            TranslationResult result;
+            try {
+                result = requestTranslation(videoUrl, duration, sourceLang, targetLang, videoTitle);
+            } catch (Exception e) {
+                Logger.printException(() -> "pollUntilReady: requestTranslation failure", e);
+                continue;
+            }
+
+            if (result == null) {
+                waitSeconds = 5;
+                continue;
+            }
+
+            int status = result.status();
+
+            if (status == STATUS_FINISHED || status == STATUS_PART_CONTENT) {
+                if (result.audioUrl() != null && !result.audioUrl().isEmpty()) {
+                    handler.onAudioReady(result);
+                    return result;
+                }
+                return null;
+            }
+
+            if (status == STATUS_FAILED) {
+                if (handler.onFailed()) {
+                    waitSeconds = 3;
+                    continue;
+                }
+                return null;
+            }
+
+            if (status == STATUS_SESSION_REQUIRED) {
+                handler.onSessionRequired();
+                return null;
+            }
+
+            if (status == STATUS_WAITING || status == STATUS_LONG_WAITING) {
+                waitSeconds = result.remainingTime() > 0 ? result.remainingTime() : 5;
+                handler.onWaiting(waitSeconds, isFirstWait);
+                isFirstWait = false;
+                continue;
+            }
+
+            if (status == STATUS_AUDIO_REQUESTED) {
+                waitSeconds = result.remainingTime() > 0 ? result.remainingTime() : 5;
+                handler.onWaiting(waitSeconds, isFirstWait);
+                isFirstWait = false;
+                handler.onAudioRequested(videoUrl, result.translationId());
+                waitSeconds = Math.min(waitSeconds, AUDIO_REQUESTED_RETRY_DELAY_SECONDS);
+                continue;
+            }
+
+            waitSeconds = 5;
+        }
+
+        return null;
     }
 
     /**
@@ -622,6 +767,15 @@ public class VotApiClient {
      */
     public static synchronized boolean isValidOAuthToken(String token) {
         if (token == null || token.isEmpty()) return false;
+
+        long expiresAt = Settings.VOT_OAUTH_TOKEN_EXPIRES_AT.get();
+        if (expiresAt > 0 && System.currentTimeMillis() > expiresAt) {
+            Logger.printDebug(() -> "VOT OAuth token has expired (expiresAt=" + expiresAt + ")");
+            lastValidatedToken = null;
+            tokenIsValid = false;
+            return false;
+        }
+
         // Return cached result if we already validated this exact token.
         if (token.equals(lastValidatedToken)) return tokenIsValid;
         try {

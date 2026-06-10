@@ -135,6 +135,12 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
         updateUI();
     }
 
+    @Override
+    protected void onBindView(android.view.View view) {
+        updateUI();
+        super.onBindView(view);
+    }
+
     //region UI update ------------------------------------------------------------------
 
     /**
@@ -150,7 +156,23 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
      */
     private void updateUI() {
         if (isSignedIn()) {
-            if (cachedDisplayName != null && !cachedDisplayName.isEmpty()) {
+            long expiresAt = Settings.VOT_OAUTH_TOKEN_EXPIRES_AT.get();
+            boolean expired = expiresAt > 0 && System.currentTimeMillis() > expiresAt;
+
+            if (expired) {
+                setSummary(str("revanced_vot_oauth_expired_summary"));
+                return;
+            }
+
+            String name = cachedDisplayName != null && !cachedDisplayName.isEmpty()
+                    ? cachedDisplayName
+                    : "Yandex";
+
+            if (expiresAt > 0) {
+                long remainingMs = expiresAt - System.currentTimeMillis();
+                int daysRemaining = (int) Math.max(1, (remainingMs + 86_399_999L) / 86_400_000L);
+                setSummary(str("revanced_vot_oauth_signed_in_expires", name, daysRemaining));
+            } else if (cachedDisplayName != null && !cachedDisplayName.isEmpty()) {
                 setSummary(str("revanced_vot_oauth_signed_in_summary", cachedDisplayName));
             } else {
                 setSummary(str("revanced_vot_oauth_signed_in_summary", "Yandex"));
@@ -372,6 +394,14 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
             // Save the token
             Settings.VOT_OAUTH_TOKEN.save(token);
 
+            // Save expiry timestamp
+            if (expiresIn > 0) {
+                long expiresAt = System.currentTimeMillis() + Math.max(0, expiresIn - 60) * 1000L;
+                Settings.VOT_OAUTH_TOKEN_EXPIRES_AT.save(expiresAt);
+            } else {
+                Settings.VOT_OAUTH_TOKEN_EXPIRES_AT.save(0L);
+            }
+
             // Load profile info
             String displayName = fetchDisplayName(token);
 
@@ -387,6 +417,7 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
      */
     private void signOut() {
         Settings.VOT_OAUTH_TOKEN.save("");
+        Settings.VOT_OAUTH_TOKEN_EXPIRES_AT.save(0L);
         VotApiClient.clearTokenValidationCache();
         cachedDisplayName = null;
         cachedAvatarUrl = null;
