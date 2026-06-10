@@ -154,7 +154,7 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
     /**
      * Updates the summary text and appearance based on sign-in state.
      */
-    private void updateUI() {
+    void updateUI() {
         if (isSignedIn()) {
             long expiresAt = Settings.VOT_OAUTH_TOKEN_EXPIRES_AT.get();
             boolean expired = expiresAt > 0 && System.currentTimeMillis() > expiresAt;
