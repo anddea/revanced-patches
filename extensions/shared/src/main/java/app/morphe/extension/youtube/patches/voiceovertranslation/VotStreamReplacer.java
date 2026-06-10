@@ -69,12 +69,6 @@ public final class VotStreamReplacer {
     private static volatile String skipReplacementForVideoId = null;
     private static volatile String replaceOnlyForVideoId = null;
     private static final int TRANSLATION_TIMEOUT_SEC = 60;
-    private static final int STATUS_FAILED = 0;
-    private static final int STATUS_FINISHED = 1;
-    private static final int STATUS_WAITING = 2;
-    private static final int STATUS_LONG_WAITING = 3;
-    private static final int STATUS_PART_CONTENT = 5;
-    private static final int MAX_POLL_RETRIES = 30;
     private static final ExecutorService executor = Executors.newSingleThreadExecutor(r -> {
         Thread t = new Thread(r, "vot-stream-replacer");
         t.setDaemon(true);
@@ -119,62 +113,60 @@ public final class VotStreamReplacer {
 
         Callable<StreamingData> task = () -> {
             long deadline = System.currentTimeMillis() + TRANSLATION_TIMEOUT_SEC * 1000L;
-            int waitSeconds = 5;
-            VotApiClient.TranslationResult result = null;
-            boolean hadWaiting = false;
+            boolean[] hadWaiting = {false};
 
-            for (int retry = 0; retry < MAX_POLL_RETRIES && System.currentTimeMillis() < deadline; retry++) {
-                result = VotApiClient.requestTranslation(
-                        youtubeUrlFinal, durationSecFinal, sourceLang, targetLang, titleFinal);
-                if (result == null) {
-                    try { Thread.sleep(1000L * Math.min(waitSeconds, 10)); } catch (InterruptedException e) { Thread.currentThread().interrupt(); return stream; }
-                    continue;
-                }
-                if (result.status() == STATUS_FINISHED || result.status() == STATUS_PART_CONTENT) {
-                    break;
-                }
-                if (result.status() == STATUS_FAILED) {
-                    if (Settings.VOT_USE_LIVE_VOICES.get()) {
-                        Settings.VOT_USE_LIVE_VOICES.save(false);
-                        Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_live_voices_unavailable")));
-                        continue; // retry with standard TTS
+            VotApiClient.TranslationResult result = VotApiClient.pollUntilReady(
+                    youtubeUrlFinal, durationSecFinal, sourceLang, targetLang, titleFinal,
+                    0,
+                    new VotApiClient.PollHandler() {
+                        @Override
+                        public boolean isCancelled() {
+                            return System.currentTimeMillis() >= deadline;
+                        }
+
+                        @Override
+                        public void onAudioReady(VotApiClient.TranslationResult res) {
+                        }
+
+                        @Override
+                        public void onAudioRequested(String videoUrl, String translationId) {
+                        }
+
+                        @Override
+                        public boolean onFailed() {
+                            if (Settings.VOT_USE_LIVE_VOICES.get()) {
+                                Settings.VOT_USE_LIVE_VOICES.save(false);
+                                Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_live_voices_unavailable")));
+                                return true;
+                            }
+                            if (hadWaiting[0]) {
+                                Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_not_ready")));
+                            }
+                            return false;
+                        }
+
+                        @Override
+                        public void onSessionRequired() {
+                        }
+
+                        @Override
+                        public void onWaiting(int waitSeconds, boolean isFirstWait) {
+                            hadWaiting[0] = true;
+                            if (isFirstWait) {
+                                String timeStr = VoiceOverTranslationPatch.formatRemainingTime(waitSeconds);
+                                Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_waiting", timeStr)));
+                            }
+                        }
                     }
-                    if (hadWaiting) {
-                        Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_not_ready")));
-                    }
-                    return stream;
-                }
-                if (result.status() == STATUS_WAITING || result.status() == STATUS_LONG_WAITING) {
-                    hadWaiting = true;
-                    if (retry == 0) {
-                        int waitSecs = result.remainingTime() > 0 ? result.remainingTime() : 5;
-                        String timeStr = VoiceOverTranslationPatch.formatRemainingTime(waitSecs);
-                        Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_waiting", timeStr)));
-                    }
-                    waitSeconds = result.remainingTime() > 0 ? result.remainingTime() : 5;
-                    waitSeconds = Math.min(waitSeconds, (int) ((deadline - System.currentTimeMillis()) / 1000));
-                    if (waitSeconds <= 0) break;
-                    try {
-                        Thread.sleep(1000L * waitSeconds);
-                    } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
-                        return stream;
-                    }
-                }
-            }
+            );
 
             if (result == null || result.audioUrl() == null || result.audioUrl().isEmpty()) {
-                if (hadWaiting) {
+                if (hadWaiting[0]) {
                     Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_not_ready")));
                 }
                 return stream;
             }
-            if (result.status() != STATUS_FINISHED && result.status() != STATUS_PART_CONTENT) {
-                if (hadWaiting) {
-                    Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_not_ready")));
-                }
-                return stream;
-            }
+
             List<?> formatList = StreamingDataOuterClassUtils.getAdaptiveFormats(stream);
             if (formatList == null || formatList.isEmpty()) {
                 return stream;

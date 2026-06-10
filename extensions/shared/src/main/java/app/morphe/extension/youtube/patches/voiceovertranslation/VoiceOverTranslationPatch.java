@@ -73,15 +73,8 @@ public class VoiceOverTranslationPatch {
 
     private static final String TAG = "VOT";
 
-    private static final int STATUS_FAILED = 0;
-    private static final int STATUS_FINISHED = 1;
-    private static final int STATUS_WAITING = 2;
-    private static final int STATUS_LONG_WAITING = 3;
-    private static final int STATUS_PART_CONTENT = 5;
-    private static final int STATUS_AUDIO_REQUESTED = 6;
     private static final long PAUSE_DETECTION_TIMEOUT_MS = 1500;
     private static final long PROXY_PREPARE_TIMEOUT_MS = 15000;
-    private static final int AUDIO_REQUESTED_RETRY_DELAY_SECONDS = 3;
     private static final String PROXY_USER_AGENT =
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
             "(KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36";
@@ -371,8 +364,8 @@ public class VoiceOverTranslationPatch {
                 return;
             }
             switch (result.status()) {
-                case STATUS_FINISHED:
-                case STATUS_PART_CONTENT:
+                case VotApiClient.STATUS_FINISHED:
+                case VotApiClient.STATUS_PART_CONTENT:
                     if (result.audioUrl() != null && !result.audioUrl().isEmpty()) {
                         String directUrl = result.audioUrl();
                         String url = directUrl;
@@ -388,20 +381,23 @@ public class VoiceOverTranslationPatch {
                         Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
                     }
                     break;
-                case STATUS_WAITING:
-                case STATUS_LONG_WAITING:
+                case VotApiClient.STATUS_WAITING:
+                case VotApiClient.STATUS_LONG_WAITING:
                     int waitTime = result.remainingTime() > 0 ? result.remainingTime() : 5;
                     setTranslationRequestWaiting(waitTime);
                     Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting", formatRemainingTime(waitTime))));
                     pollTranslation(videoId, videoTitle, youtubeUrl, durationSeconds, sourceLang, targetLang, waitTime);
                     break;
-                case STATUS_AUDIO_REQUESTED:
+                case VotApiClient.STATUS_AUDIO_REQUESTED:
                     int audioWaitTime = result.remainingTime() > 0 ? result.remainingTime() : 10;
                     setTranslationRequestWaiting(audioWaitTime);
                     Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting", formatRemainingTime(audioWaitTime))));
                     handleAudioRequested(videoId, youtubeUrl, result.translationId(), durationSeconds, sourceLang, targetLang, videoTitle, audioWaitTime);
                     break;
-                case STATUS_FAILED:
+                case VotApiClient.STATUS_SESSION_REQUIRED:
+                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_auth_required")));
+                    break;
+                case VotApiClient.STATUS_FAILED:
                 default:
                     if (Settings.VOT_USE_LIVE_VOICES.get()) {
                         Settings.VOT_USE_LIVE_VOICES.save(false);
@@ -427,23 +423,18 @@ public class VoiceOverTranslationPatch {
             String sourceLang, String targetLang,
             int waitSeconds
     ) {
-        int maxRetries = 30;
-        for (int retryCount = 0; retryCount < maxRetries; retryCount++) {
-            try {
-                Thread.sleep(waitSeconds * 1000L);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                return;
-            }
-            String currentVideoId = VideoInformation.getVideoId();
-            if (!videoId.equals(currentVideoId)) return;
-            try {
-                VotApiClient.TranslationResult result = VotApiClient.requestTranslation(
-                        url, duration, sourceLang, targetLang, videoTitle);
-                if (result == null) continue;
-                if (result.status() == STATUS_FINISHED || result.status() == STATUS_PART_CONTENT) {
-                    if (result.audioUrl() != null && !result.audioUrl().isEmpty()) {
-                        String directUrl = result.audioUrl();
+        VotApiClient.TranslationResult result = VotApiClient.pollUntilReady(
+                url, duration, sourceLang, targetLang, videoTitle,
+                waitSeconds,
+                new VotApiClient.PollHandler() {
+                    @Override
+                    public boolean isCancelled() {
+                        return !videoId.equals(VideoInformation.getVideoId());
+                    }
+
+                    @Override
+                    public void onAudioReady(VotApiClient.TranslationResult res) {
+                        String directUrl = res.audioUrl();
                         String audioUrl = directUrl;
                         String fallback = null;
                         if (Settings.VOT_AUDIO_PROXY_ENABLED.get()) {
@@ -453,31 +444,38 @@ public class VoiceOverTranslationPatch {
                         final String audioUrlFinal = audioUrl;
                         final String fallbackFinal = fallback;
                         Utils.runOnMainThread(() -> startAudioPlayback(videoId, audioUrlFinal, fallbackFinal));
-                        return;
                     }
-                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
-                    return;
-                } else if (result.status() == STATUS_FAILED) {
-                    if (Settings.VOT_USE_LIVE_VOICES.get()) {
-                        Settings.VOT_USE_LIVE_VOICES.save(false);
-                        Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_live_voices_unavailable")));
-                        requestTranslation(videoId, videoTitle, sourceLang, targetLang, duration);
-                        return;
+
+                    @Override
+                    public void onAudioRequested(String videoUrl, String translationId) {
+                        sendAudioRequestedAudio(videoId, videoUrl, translationId);
                     }
-                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
-                    return;
+
+                    @Override
+                    public boolean onFailed() {
+                        if (Settings.VOT_USE_LIVE_VOICES.get()) {
+                            Settings.VOT_USE_LIVE_VOICES.save(false);
+                            Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_live_voices_unavailable")));
+                            return true;
+                        }
+                        Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
+                        return false;
+                    }
+
+                    @Override
+                    public void onSessionRequired() {
+                        Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_auth_required")));
+                    }
+
+                    @Override
+                    public void onWaiting(int wait, boolean isFirstWait) {
+                        setTranslationRequestWaiting(wait);
+                    }
                 }
-                waitSeconds = result.remainingTime() > 0 ? result.remainingTime() : 5;
-                setTranslationRequestWaiting(waitSeconds);
-                if (result.status() == STATUS_AUDIO_REQUESTED) {
-                    sendAudioRequestedAudio(videoId, url, result.translationId());
-                    waitSeconds = Math.min(waitSeconds, AUDIO_REQUESTED_RETRY_DELAY_SECONDS);
-                }
-            } catch (Exception e) {
-                Logger.printException(() -> "pollTranslation failure", e);
-            }
+        );
+        if (result == null) {
+            Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_not_ready")));
         }
-        Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_not_ready")));
     }
 
     private static void handleAudioRequested(
@@ -487,8 +485,7 @@ public class VoiceOverTranslationPatch {
     ) {
         try {
             sendAudioRequestedAudio(videoId, url, translationId);
-            int retryDelaySeconds = Math.min(waitSeconds, AUDIO_REQUESTED_RETRY_DELAY_SECONDS);
-            pollTranslation(videoId, videoTitle, url, duration, sourceLang, targetLang, retryDelaySeconds);
+            pollTranslation(videoId, videoTitle, url, duration, sourceLang, targetLang, waitSeconds);
         } catch (Exception e) {
             Logger.printException(() -> "handleAudioRequested failed", e);
             Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
@@ -516,7 +513,8 @@ public class VoiceOverTranslationPatch {
         if (translationId != null && !translationId.isEmpty()) {
             String fallbackKey = url + "#" + translationId;
             if (!fallbackKey.equals(lastEmptyAudioFallbackKey)) {
-                VotApiClient.sendEmptyAudio(url, translationId);
+                VotApiClient.sendEmptyAudio(url, translationId,
+                        Settings.VOT_USE_LIVE_VOICES.get() ? Settings.VOT_OAUTH_TOKEN.get() : null);
                 lastEmptyAudioFallbackKey = fallbackKey;
             }
         }

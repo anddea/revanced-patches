@@ -930,6 +930,8 @@
         <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_vot_proxy_url_title" android:key="vot_proxy_url" android:summary="@string/revanced_vot_proxy_url_summary" android:dependency="vot_enabled" />
         <SwitchPreference android:title="@string/revanced_vot_voice_style_live_title" android:key="vot_use_live_voices" android:summaryOn="@string/revanced_vot_voice_style_live_summary_on" android:summaryOff="@string/revanced_vot_voice_style_live_summary_off" android:dependency="vot_enabled" />
         <SwitchPreference android:title="@string/revanced_vot_audio_proxy_title" android:key="vot_audio_proxy_enabled" android:summaryOn="@string/revanced_vot_audio_proxy_summary_on" android:summaryOff="@string/revanced_vot_audio_proxy_summary_off" android:dependency="vot_enabled" />
+        <app.morphe.extension.youtube.settings.preference.VotOAuthPreference android:title="@string/revanced_vot_oauth_token_title" android:key="vot_oauth_token" android:summary="@string/revanced_vot_oauth_token_summary" android:dependency="vot_enabled" />
+        <Preference android:title="@string/revanced_vot_about_title" android:selectable="false" android:summary="@string/revanced_vot_about_summary" />
     </PreferenceScreen>PREFERENCE_SCREEN: VOICE_OVER_TRANSLATION -->
 
 

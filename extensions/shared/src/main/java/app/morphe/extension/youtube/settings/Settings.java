@@ -748,6 +748,9 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting VOT_USE_LIVE_VOICES = new BooleanSetting("vot_use_live_voices", TRUE, parent(VOT_ENABLED));
     public static final StringSetting VOT_PROXY_URL = new StringSetting("vot_proxy_url", "vot-worker.eu.cc", parent(VOT_ENABLED));
     public static final BooleanSetting VOT_AUDIO_PROXY_ENABLED = new BooleanSetting("vot_audio_proxy_enabled", FALSE, parent(VOT_ENABLED));
+    public static final StringSetting VOT_OAUTH_TOKEN = new StringSetting("vot_oauth_token", "", parent(VOT_ENABLED));
+    public static final StringSetting VOT_OAUTH_DISPLAY_NAME = new StringSetting("vot_oauth_display_name", "", false, parent(VOT_ENABLED));
+    public static final LongSetting VOT_OAUTH_TOKEN_EXPIRES_AT = new LongSetting("vot_oauth_token_expires_at", 0L, false, false, null, parent(VOT_ENABLED));
 
     // PreferenceScreen: SponsorBlock
     public static final BooleanSetting SB_ENABLED = new BooleanSetting("sb_enabled", TRUE);
