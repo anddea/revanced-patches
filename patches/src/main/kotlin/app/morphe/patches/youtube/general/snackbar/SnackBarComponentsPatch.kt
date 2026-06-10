@@ -66,17 +66,6 @@ private val snackBarComponentsBytecodePatch = bytecodePatch(
             )
         }
 
-        bottomUiContainerPreFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val insertIndex = it.instructionMatches.first().index + 1
-
-                addInstruction(
-                    insertIndex,
-                    "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->lithoSnackBarLoaded()V"
-                )
-            }
-        }
-
         bottomUiContainerThemeFingerprint.matchOrThrow().let {
             it.method.apply {
                 val darkThemeIndex = it.instructionMatches.first().index + 2
@@ -116,6 +105,11 @@ private val snackBarComponentsBytecodePatch = bytecodePatch(
             )
 
         lithoSnackBarFingerprint.methodOrThrow().apply {
+            addInstruction(
+                0,
+                "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->lithoSnackBarLoaded()V"
+            )
+
             val backGroundColorIndex = indexOfBackGroundColor(this)
             val viewRegister =
                 getInstruction<FiveRegisterInstruction>(backGroundColorIndex).registerC
@@ -171,6 +165,18 @@ private val snackBarComponentsBytecodePatch = bytecodePatch(
                     "invoke-static {v$viewRegister}, $EXTENSION_CLASS_DESCRIPTOR->hideLithoSnackBar(Landroid/widget/FrameLayout;)V"
                 )
             }
+        }
+
+        listOf(
+            LegacySnackBarConstructorFingerprint,
+            YouTubeSnackBarConstructorFingerprint
+        ).forEach { fingerprint ->
+            fingerprint.method.addInstructions(
+                1, """
+                    invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->invertSnackBarTheme(Landroid/content/Context;)Landroid/content/Context;
+                    move-result-object p1
+                    """
+            )
         }
 
         addDrawableColorHook("$EXTENSION_CLASS_DESCRIPTOR->getLithoColor(I)I", true)
