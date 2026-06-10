@@ -921,7 +921,6 @@
 
     <!-- PREFERENCE_SCREEN: VOICE_OVER_TRANSLATION
     <PreferenceScreen android:title="@string/revanced_preference_screen_vot_title" android:key="revanced_preference_screen_vot">
-        <Preference android:title="@string/revanced_vot_about_title" android:selectable="false" android:summary="@string/revanced_vot_about_summary" />
         <SwitchPreference android:title="@string/revanced_vot_enabled_title" android:key="vot_enabled" android:summaryOn="@string/revanced_vot_enabled_summary_on" android:summaryOff="@string/revanced_vot_enabled_summary_off" />
         <SwitchPreference android:title="@string/revanced_shorts_custom_actions_voice_over_translation_title" android:key="revanced_shorts_custom_actions_voice_over_translation" android:summaryOn="@string/revanced_shorts_custom_actions_voice_over_translation_summary_on" android:summaryOff="@string/revanced_shorts_custom_actions_voice_over_translation_summary_off" />
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_vot_source_language_entries" android:title="@string/revanced_vot_source_language_title" android:key="vot_source_language" android:summary="@string/revanced_vot_source_language_summary" android:dependency="vot_enabled" android:entryValues="@array/revanced_vot_source_language_entry_values" android:defaultValue="auto" />
@@ -932,6 +931,7 @@
         <SwitchPreference android:title="@string/revanced_vot_voice_style_live_title" android:key="vot_use_live_voices" android:summaryOn="@string/revanced_vot_voice_style_live_summary_on" android:summaryOff="@string/revanced_vot_voice_style_live_summary_off" android:dependency="vot_enabled" />
         <SwitchPreference android:title="@string/revanced_vot_audio_proxy_title" android:key="vot_audio_proxy_enabled" android:summaryOn="@string/revanced_vot_audio_proxy_summary_on" android:summaryOff="@string/revanced_vot_audio_proxy_summary_off" android:dependency="vot_enabled" />
         <app.morphe.extension.youtube.settings.preference.VotOAuthPreference android:title="@string/revanced_vot_oauth_token_title" android:key="vot_oauth_token" android:summary="@string/revanced_vot_oauth_token_summary" android:dependency="vot_enabled" />
+        <Preference android:title="@string/revanced_vot_about_title" android:selectable="false" android:summary="@string/revanced_vot_about_summary" />
     </PreferenceScreen>PREFERENCE_SCREEN: VOICE_OVER_TRANSLATION -->
 
 
