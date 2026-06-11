@@ -58,6 +58,100 @@ val shortsActionButtonsPatch = resourcePatch(
     )
 
     execute {
+        fun existingDrawableNames(): MutableSet<String> {
+            val names = mutableSetOf<String>()
+
+            document("res/values/drawables.xml").use { document ->
+                val drawableNodes = document.getElementsByTagName("drawable")
+                for (i in 0 until drawableNodes.length) {
+                    val node = drawableNodes.item(i)
+                    if (node.attributes?.getNamedItem("name") != null) {
+                        names.add(node.attributes.getNamedItem("name").nodeValue)
+                    }
+                }
+            }
+
+            get("res").listFiles()
+                ?.filter { it.isDirectory && it.name.startsWith("drawable") }
+                ?.forEach { directory ->
+                    directory.listFiles()
+                        ?.filter { it.isFile }
+                        ?.forEach { file ->
+                            names.add(file.name.substringBeforeLast(".").removeSuffix(".9"))
+                        }
+                }
+
+            return names
+        }
+
+        fun addDrawableAliases(aliases: Map<String, String>): Pair<Int, Int> {
+            var addedAliases = 0
+            var skippedAliases = 0
+            val existingDrawableNames = existingDrawableNames()
+
+            document("res/values/drawables.xml").use { document ->
+                val rootNode = document.documentElement
+
+                aliases.forEach { (name, value) ->
+                    val targetName = value.removePrefix("@drawable/")
+                    if (name in existingDrawableNames || targetName !in existingDrawableNames) {
+                        skippedAliases++
+                        return@forEach
+                    }
+
+                    val element = document.createElement("drawable")
+                    element.setAttribute("name", name)
+                    element.textContent = value
+                    rootNode.appendChild(element)
+                    existingDrawableNames.add(name)
+                    addedAliases++
+                }
+            }
+
+            return addedAliases to skippedAliases
+        }
+
+        val (addedAliases, skippedAliases) = addDrawableAliases(
+            mapOf(
+                // Modern Shorts action button names requested by server-side layouts.
+                // YouTube 19.16.39 already has the original white shadowed buttons, so
+                // keep the legacy look and only add missing aliases.
+                "youtube_shorts_like_outline_32dp" to "@drawable/ic_right_like_off_shadowed",
+                "youtube_shorts_like_fill_32dp" to "@drawable/ic_right_like_on_shadowed",
+                "youtube_shorts_thumbs_up_outline_28dp" to "@drawable/ic_right_like_off_shadowed",
+                "youtube_shorts_thumbs_up_fill_28dp" to "@drawable/ic_right_like_on_shadowed",
+                "youtube_shorts_dislike_outline_32dp" to "@drawable/ic_right_dislike_off_shadowed",
+                "youtube_shorts_dislike_fill_32dp" to "@drawable/ic_right_dislike_on_shadowed",
+                "youtube_shorts_thumbs_down_outline_28dp" to "@drawable/ic_right_dislike_off_shadowed",
+                "youtube_shorts_thumbs_down_fill_28dp" to "@drawable/ic_right_dislike_on_shadowed",
+                "youtube_shorts_comment_outline_28dp" to "@drawable/ic_right_comment_shadowed",
+                "youtube_shorts_comment_outline_32dp" to "@drawable/ic_right_comment_shadowed",
+                "youtube_shorts_share_outline_28dp" to "@drawable/ic_right_share_shadowed",
+                "youtube_shorts_share_outline_32dp" to "@drawable/ic_right_share_shadowed",
+                "youtube_shorts_remix_outline_28dp" to "@drawable/ic_remix_filled_white_shadowed",
+                "youtube_shorts_remix_outline_32dp" to "@drawable/ic_remix_filled_white_shadowed",
+                "youtube_shorts_heart_outline_28dp" to "@drawable/youtube_shorts_heart_off_32dp",
+                "youtube_shorts_heart_outline_32dp" to "@drawable/youtube_shorts_heart_off_32dp",
+                "youtube_shorts_heart_fill_28dp" to "@drawable/youtube_shorts_heart_on_32dp",
+                "youtube_shorts_heart_fill_32dp" to "@drawable/youtube_shorts_heart_on_32dp",
+                "youtube_shorts_save_outline_28dp" to "@drawable/yt_outline_bookmark_black_24",
+                "youtube_shorts_save_outline_32dp" to "@drawable/yt_outline_bookmark_black_24",
+                "youtube_shorts_save_fill_28dp" to "@drawable/yt_fill_bookmark_black_24",
+                "youtube_shorts_save_fill_32dp" to "@drawable/yt_fill_bookmark_black_24",
+                "youtube_shorts_save_fill_selected_32dp" to "@drawable/yt_fill_bookmark_black_24",
+                "youtube_shorts_save_fill_unselected_32dp" to "@drawable/yt_outline_bookmark_black_24",
+                "youtube_shorts_original_sound_16dp" to "@drawable/quantum_ic_music_note_white_24",
+                "youtube_shorts_pivot_fab" to "@drawable/ic_youtube_shorts_24",
+
+                // Other small Shorts resources introduced after 19.16.39.
+                "ic_youtube_shorts_24_cairo" to "@drawable/ic_youtube_shorts_24",
+                "shorts_creation_secondary_rounded_button_background" to "@drawable/shorts_creation_rounded_button_background",
+            )
+        )
+        printInfo(
+            "Custom Shorts action buttons: added $addedAliases drawable aliases, " +
+                    "skipped $skippedAliases existing aliases."
+        )
 
         // Check patch options first.
         val iconType = iconTypeOption
