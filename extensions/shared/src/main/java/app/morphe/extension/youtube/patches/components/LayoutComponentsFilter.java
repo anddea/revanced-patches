@@ -2,7 +2,10 @@ package app.morphe.extension.youtube.patches.components;
 
 import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
+import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
+
+import android.view.View;
 
 @SuppressWarnings("unused")
 public final class LayoutComponentsFilter extends Filter {
@@ -29,5 +32,12 @@ public final class LayoutComponentsFilter extends Filter {
     public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         return contentType != FilterContentType.PATH || (contentIndex == 0 && path.contains(HANDLE_PATH));
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void hideSyncButton(View view) {
+        Utils.hideViewBy0dpUnderCondition(Settings.HIDE_SYNC_BUTTON, view);
     }
 }

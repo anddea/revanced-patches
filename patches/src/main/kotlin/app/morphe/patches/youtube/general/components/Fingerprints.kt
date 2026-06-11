@@ -1,5 +1,11 @@
 package app.morphe.patches.youtube.general.components
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.youtube.utils.resourceid.accountSwitcherAccessibility
 import app.morphe.patches.youtube.utils.resourceid.compactLink
 import app.morphe.patches.youtube.utils.resourceid.compactListItem
@@ -130,6 +136,19 @@ internal val tooltipContentViewFingerprint = legacyFingerprint(
     literals = listOf(toolTipContentView),
 )
 
+internal object SyncButtonFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PROTECTED, AccessFlags.FINAL),
+    filters = listOf(
+        resourceLiteral(ResourceType.LAYOUT, "sync_button"),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "inflate",
+            returnType = "Landroid/view/View;",
+        ),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately())
+    )
+)
+
 internal const val TRANSLUCENT_STATUS_BAR_PRIMARY_FEATURE_FLAG = 45400535L
 internal const val TRANSLUCENT_STATUS_BAR_SECONDARY_FEATURE_FLAG = 45632194L
 
@@ -146,4 +165,3 @@ internal val translucentStatusBarSecondaryFeatureFlagFingerprint = legacyFingerp
     returnType = "Z",
     literals = listOf(TRANSLUCENT_STATUS_BAR_SECONDARY_FEATURE_FLAG)
 )
-

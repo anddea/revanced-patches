@@ -32,6 +32,7 @@ import app.morphe.util.fingerprint.mutableClassOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+import app.morphe.util.injectHideViewCall
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -267,6 +268,22 @@ val layoutComponentsPatch = bytecodePatch(
             0,
             "return-void"
         )
+
+        // endregion
+
+        // region hide sync button
+
+        SyncButtonFingerprint.let {
+            val syncButtonIndex = it.instructionMatches.last().index
+            val viewRegister = it.method.getInstruction<OneRegisterInstruction>(syncButtonIndex).registerA
+
+            it.method.injectHideViewCall(
+                syncButtonIndex + 1,
+                viewRegister,
+                LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR,
+                "hideSyncButton"
+            )
+        }
 
         // endregion
 
