@@ -1,3 +1,16 @@
+# [4.1.0-dev.7](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.6...v4.1.0-dev.7) (2026-06-11)
+
+
+### Bug Fixes
+
+* **YouTube - Shorts components:** Action buttons were missing in older versions ([4d0d982](https://github.com/anddea/revanced-patches/commit/4d0d9824945d9ff8798427bbff1df32910896dda))
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add `Hide 'Sync to video' button` setting ([9ed1bf6](https://github.com/anddea/revanced-patches/commit/9ed1bf62425731016485b34e566338ddc2dc00e0))
+* **YouTube - Toolbar components:** Add channel search ([970fb5b](https://github.com/anddea/revanced-patches/commit/970fb5b22b8f025477c33e2b53a20efc1fb0a377))
+
 # [4.1.0-dev.6](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.5...v4.1.0-dev.6) (2026-06-10)
 
 

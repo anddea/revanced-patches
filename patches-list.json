@@ -1,5 +1,5 @@
 {
-  "version": "4.1.0-dev.6",
+  "version": "4.1.0-dev.7",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -3065,6 +3065,7 @@
       "description": "Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons.",
       "use": true,
       "dependencies": [
+        "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch",
