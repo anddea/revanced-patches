@@ -32,6 +32,7 @@ Naciśnij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
     <string name="morphe_force_original_audio_summary_off">Wyłączone</string>
     <string name="morphe_force_original_audio_summary_on">Włączone</string>
     <string name="morphe_force_original_audio_title">Wymuś oryginalny język dźwięku</string>
+    <string name="morphe_hide_sync_button_title">Ukryj przycisk \"Zsynchronizuj z filmem\"</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Nie można zalogować się do VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nie można zalogować się do VR, autoryzacja na stronie nie została zatwierdzona</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 jest tymczasowo niedostępny</string>
@@ -2276,6 +2277,14 @@ Już istnieje"</string>
     <string name="revanced_sb_vote_no_segments">Brak segmentów, które można ocenić</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s do %2$s</string>
     <string name="revanced_sb_vote_upvote">Głos za</string>
+    <string name="revanced_search_in_channel_query_hint">Wyszukaj ten kanał</string>
+    <string name="revanced_search_in_channel_search">Szukaj</string>
+    <string name="revanced_search_in_channel_search_youtube">Wyszukaj w YouTube</string>
+    <string name="revanced_search_in_channel_title">Wyszukaj kanał</string>
+    <string name="revanced_search_in_channel_use_webview_summary_off">Wyszukiwanie kanałów korzysta z wbudowanej wyszukiwarki YouTube i filtruje wyniki według kanału. Spowoduje to spowolnienie działania aplikacji.</string>
+    <string name="revanced_search_in_channel_use_webview_summary_on">Wyszukiwanie kanałów otwiera stronę wyszukiwania kanałów w wersji mobilnej.</string>
+    <string name="revanced_search_in_channel_use_webview_title">Użyj WebView do wyszukiwania kanałów</string>
+    <string name="revanced_search_in_channel_webview_unavailable">WebView jest niedostępny. Używam natywnego wyszukiwania kanałów.</string>
     <string name="revanced_search_settings_category_title">Ustawienia wyszukiwania</string>
     <string name="revanced_search_title">Wyszukaj</string>
     <string name="revanced_send">Wyślij </string>
@@ -2683,14 +2692,37 @@ Zastrzeżenie: Pliki cookie wydane bez logowania mogą być nieprawidłowe lub i
     <string name="revanced_transcript_cookies_summary">Pliki cookie używane w żądaniach transkrypcyjnego API.</string>
     <string name="revanced_transcript_cookies_title">Transkrypcyjne pliki cookie</string>
     <string name="revanced_translations_title">Tłumaczenia</string>
+    <string name="revanced_vot_about_summary">„Tłumaczenie głosowe zapewnia przetłumaczone ścieżki dźwiękowe do filmów z YouTube za pomocą Yandex VoT.
+
+Jeśli serwery Yandex są niedostępne w Twoim regionie, skorzystaj z opcji „Przesyłanie strumieniowe audio przez proxy”.
+
+Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przypadku filmów, które jeszcze go nie mają”.</string>
+    <string name="revanced_vot_about_title">O Tłumaczeniu Głosowym</string>
     <string name="revanced_vot_audio_proxy_summary_off">Strumień audio wykorzystuje bezpośredni adres URL </string>
     <string name="revanced_vot_audio_proxy_summary_on">Strumień audio jest przesyłany</string>
     <string name="revanced_vot_audio_proxy_title">Proxy strumień audio </string>
+    <string name="revanced_vot_auth_required">Wymagana autoryzacja. Dodaj token Yandex OAuth w ustawieniach.</string>
     <string name="revanced_vot_enabled_summary_off">Wyłączone</string>
     <string name="revanced_vot_enabled_summary_on">Włączone</string>
     <string name="revanced_vot_enabled_title">Tłumaczenie lektorskie</string>
     <string name="revanced_vot_lang_auto">Wykryj automatycznie</string>
     <string name="revanced_vot_live_voices_unavailable">Głosy na żywo niedostępne, przy użyciu standardu </string>
+    <string name="revanced_vot_oauth_account_management_title">Token OAuth Yandex</string>
+    <string name="revanced_vot_oauth_auth_method_message">Wybierz metodę autoryzacji</string>
+    <string name="revanced_vot_oauth_auth_method_title">Autoryzacja Yandex</string>
+    <string name="revanced_vot_oauth_enter_manually_button">Wprowadź token ręcznie</string>
+    <string name="revanced_vot_oauth_enter_token_title">Wprowadź token ręcznie</string>
+    <string name="revanced_vot_oauth_expired_summary">Token wygasł. Zaloguj się ponownie.</string>
+    <string name="revanced_vot_oauth_invalid_token">Nieprawidłowy token</string>
+    <string name="revanced_vot_oauth_no_network">Brak połączenia sieciowego</string>
+    <string name="revanced_vot_oauth_not_signed_in_summary">Nieautoryzowany</string>
+    <string name="revanced_vot_oauth_sign_in_button">Zaloguj się za pomocą Yandex</string>
+    <string name="revanced_vot_oauth_sign_out_button">Wyloguj się</string>
+    <string name="revanced_vot_oauth_signed_in_expires">Zalogowałem się jako %1$s (wygasa w %2$d dni)</string>
+    <string name="revanced_vot_oauth_signed_in_summary">Zalogowałem się jako %s</string>
+    <string name="revanced_vot_oauth_switch_token_button">Wprowadź kolejny token</string>
+    <string name="revanced_vot_oauth_token_summary">Wymagane w przypadku głosów na żywo.</string>
+    <string name="revanced_vot_oauth_token_title">Token OAuth Yandex</string>
     <string name="revanced_vot_original_audio_volume_summary">Głośność oryginalnej ścieżki wideo podczas odtwarzania tłumaczenia (0-100). Domyślnie: 50 </string>
     <string name="revanced_vot_original_audio_volume_title">Oryginalna głośność audio </string>
     <string name="revanced_vot_playback_error">Nie udało się odtworzyć tłumaczenia audio </string>

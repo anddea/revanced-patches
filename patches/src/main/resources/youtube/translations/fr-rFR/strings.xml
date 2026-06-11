@@ -32,12 +32,13 @@ Appuyez sur le bouton Continuer et autorisez les modifications."</string>
     <string name="morphe_force_original_audio_summary_off">Utilisation de l\'audio par défaut</string>
     <string name="morphe_force_original_audio_summary_on">Utilisation de la langue audio d\'origine</string>
     <string name="morphe_force_original_audio_title">Forcer la langue audio d\'origine</string>
+    <string name="morphe_hide_sync_button_title">Masquer le bouton \'Synchroniser avec la vidéo\'</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Impossible de se connecter à VR : %s</string>
-    <string name="morphe_oauth2_connection_failure_auth_not_approved">Impossible de se connecter à la VR, l’authentification sur le site web n’a pas été approuvée</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Impossible de se connecter à la VR, l\'authentification sur le site web n\'a pas été approuvée</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 est temporairement indisponible</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 est temporairement indisponible (statut %d)</string>
     <string name="morphe_oauth2_connection_failure_status_400">La connexion à Android VR a expiré, réessayez de vous connecter à VR</string>
-    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 est temporairement indisponible (délai d’attente de l’API dépassé)</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 est temporairement indisponible (délai d\'attente de l\'API dépassé)</string>
     <string name="morphe_oauth2_toast_invalid">Jeton de connexion à VR invalide, veuillez réessayer la connexion à VR</string>
     <string name="morphe_oauth2_toast_reset">Déconnexion de Android VR</string>
     <string name="morphe_reload_video_summary_off">Le bouton \'Recharger la vidéo\' n\'est pas affiché</string>
@@ -94,7 +95,7 @@ La lecture échouera si le hachage JavaScript du lecteur est obsolète."</string
 1. Appuyez sur 'Ouvrir le site web' ci-dessous pour ouvrir la page 'Connecter un appareil'
 2. Collez depuis le presse-papiers (ou saisissez manuellement) le code d’activation affiché ci-dessus
 3. Connectez-vous à Google si demandé. Si vous avez plusieurs comptes, choisissez celui associé à ce compte YouTube
-4. Appuyez sur 'Autoriser l’accès YouTube VR'
+4. Appuyez sur 'Autoriser l'accès YouTube VR'
 5. Revenez à cette application une fois que le message 'Appareil connecté' apparaît"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Ouvrir le site web</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instructions</string>
@@ -110,8 +111,8 @@ Pour vous connecter, appuyez sur 'Continuer' ci-dessous."</string>
 • Si cette application reste inutilisée pendant 6 mois, Google supprimera cette authentification
 • Vous devrez vous reconnecter si vous changez votre mot de passe Google ou si vous dissociez cet appareil de vos paramètres Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Connecté avec succès</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Échec de l’obtention du code d’activation</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Échec de l’obtention d\'un jeton d\'authentification</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Échec de l\'obtention du code d\'activation</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Échec de l\'obtention d\'un jeton d\'authentification</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Le client est masqué dans \'Statistiques avancées\'</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Le type de client est affiché dans \'Statistiques avancées\'</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">Afficher la falsification dans les \'Statistiques avancées\'</string>
@@ -589,9 +590,9 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Appuyez longuement sur le nom du package du téléchargeur de vidéos</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nom du package de votre application de téléchargement externe installée.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nom du paquet du téléchargeur vidéo</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"Impossible de trouver l’application installée avec le nom de paquet : %s
+    <string name="revanced_external_downloader_package_not_found_warning">"Impossible de trouver l'application installée avec le nom de paquet : %s
 
-Vérifiez que le nom de paquet est correct et que l’application est bien installée."</string>
+Vérifiez que le nom de paquet est correct et que l'application est bien installée"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">L\'icône du bouton \'Booster\' est masquée.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">L\'icône du bouton \'Booster\' est affichée.</string>
     <string name="revanced_fix_hype_button_icon_title">Corriger l\'icône du bouton \'Booster\'</string>
@@ -741,7 +742,7 @@ Boutique"</string>
     <string name="revanced_hide_channel_tab_filter_strings_title">Filtre de l\'onglet de chaîne</string>
     <string name="revanced_hide_channel_tab_summary_off">Le filtre d\'onglets de chaîne est désactivé</string>
     <string name="revanced_hide_channel_tab_summary_on">Le filtre d\'onglets de chaîne est activé</string>
-    <string name="revanced_hide_channel_tab_title">Activer le filtre de l’onglet de chaîne</string>
+    <string name="revanced_hide_channel_tab_title">Activer le filtre de l\'onglet de chaîne</string>
     <string name="revanced_hide_channel_watermark_summary_off">Le filigrane est affiché</string>
     <string name="revanced_hide_channel_watermark_summary_on">Le filigrane est masqué</string>
     <string name="revanced_hide_channel_watermark_title">Masquer le filigrane de la chaîne</string>
@@ -916,8 +917,8 @@ Limitation : certains liens de recherche mis en surbrillance qui n'ont pas de st
 
 Limitations :
 • Les Shorts ne peuvent pas être masqués par nom de chaîne
-• Certains composants de l’interface peuvent ne pas être masqués
-• La recherche d’un mot-clé peut n’afficher aucun résultat"</string>
+• Certains composants de l'interface peuvent ne pas être masqués
+• La recherche d'un mot-clé peut n'afficher aucun résultat"</string>
     <string name="revanced_hide_keyword_content_about_title">À propos du filtrage par mot-clé</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Mettre un mot-clé ou une expression entre guillemets permet d’éviter les correspondances partielles avec le titre des vidéos et le nom des chaîne&lt;br&gt;&lt;br&gt;Par exemple,&lt;br&gt;&lt;b&gt;\"ia\"&lt;/b&gt; masquera la vidéo : &lt;b&gt;Comment fonctionnent les IA ?&lt;/b&gt;&lt;br&gt;mais ne masquera pas : &lt;b&gt;Quelles études pour devenir commercial ?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Correspondance aux mots entiers</string>
@@ -1520,7 +1521,7 @@ Limitations :
     <string name="revanced_hide_youtube_doodles_summary_off">L\'animation YouTube Doodles sur le logo est affichée</string>
     <string name="revanced_hide_youtube_doodles_summary_on">L\'animation YouTube Doodles sur le logo est masquée</string>
     <string name="revanced_hide_youtube_doodles_title">Masquer les YouTube Doodles</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">L’affichage des YouTube Doodles peut empêcher l’affichage des en-têtes personnalisés. </string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">L\'affichage des YouTube Doodles peut empêcher l\'affichage des en-têtes personnalisés. </string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">La promotion YouTube Premium est affichée.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"La promotion YouTube Premium est masquée.
 
@@ -1868,7 +1869,7 @@ Pour afficher le bouton de téléchargement de playlist natif, activez l'option 
     <string name="revanced_queue_manager_fetch_failed_create">Échec de la création de la file d\'attente</string>
     <string name="revanced_queue_manager_fetch_failed_delete">Échec de la suppression de la file d\'attente.</string>
     <string name="revanced_queue_manager_fetch_failed_remove">Échec de la suppression de la file d\'attente</string>
-    <string name="revanced_queue_manager_fetch_failed_save">Échec de l’enregistrement de la file d’attente</string>
+    <string name="revanced_queue_manager_fetch_failed_save">Échec de l\'enregistrement de la file d\'attente</string>
     <string name="revanced_queue_manager_fetch_failed_video_information">Impossible d\'obtenir les informations de la vidéo.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">Ajouté à la file d\'attente</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">File d\'attente créée</string>
@@ -2099,7 +2100,7 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
     <string name="revanced_sb_general_time_without_sum_off">La durée totale de la vidéo est affichée</string>
     <string name="revanced_sb_general_time_without_sum_on">La durée de la vidéo moins tous les segments est affichée sur la barre de progression</string>
     <string name="revanced_sb_general_uuid">Votre ID utilisateur privé</string>
-    <string name="revanced_sb_general_uuid_invalid">L’ID utilisateur privé doit comporter au moins 30 caractères</string>
+    <string name="revanced_sb_general_uuid_invalid">L\'ID utilisateur privé doit comporter au moins 30 caractères</string>
     <string name="revanced_sb_general_uuid_sum">Cet identifiant doit rester confidentiel. Cet identifiant est comme un mot de passe et ne doit être partagé avec qui que ce soit. Si quelqu\'un venait à mettre la main dessus, il pourrait usurper votre identité.</string>
     <string name="revanced_sb_guidelines_popup_already_read">Déjà lues</string>
     <string name="revanced_sb_guidelines_popup_content">Lisez les consignes de SponsorBlock avant de créer de nouveaux segments</string>
@@ -2264,7 +2265,7 @@ Il existe déjà"</string>
     <string name="revanced_sb_vote_category">Modifier la catégorie</string>
     <string name="revanced_sb_vote_downvote">Voter contre</string>
     <string name="revanced_sb_vote_failed_forbidden">Impossible de voter pour le segment : %s</string>
-    <string name="revanced_sb_vote_failed_timeout">Impossible de voter pour le segment (délai d’attente de l’API dépassé)</string>
+    <string name="revanced_sb_vote_failed_timeout">Impossible de voter pour le segment (délai d’attente de l\'API dépassé)</string>
     <string name="revanced_sb_vote_failed_unknown_error">Impossible de voter pour le segment (statut : %1$d %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Il n\'y a aucun segments pour lesquels voter</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s à %2$s</string>
@@ -2410,7 +2411,7 @@ Limitation : Le titre de la vidéo disparaît lorsque vous cliquez dessus."</str
     <string name="revanced_speed_overlay_value_title">Valeur de \'Vitesse de lecture\'</string>
     <string name="revanced_spoof_app_version_other_item">Autres</string>
     <string name="revanced_spoof_app_version_other_item_hint">Entrez la version de l\'application</string>
-    <string name="revanced_spoof_app_version_summary">Fait croire au serveur que vous utilisez une ancienne version de l’application afin de restaurer des fonctionnalités d’interface héritées</string>
+    <string name="revanced_spoof_app_version_summary">Fait croire au serveur que vous utilisez une ancienne version de l\'application afin de restaurer des fonctionnalités d\'interface héritées</string>
     <string name="revanced_spoof_app_version_summary_off">Version non falsifiée</string>
     <string name="revanced_spoof_app_version_summary_on">Version falsifiée</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restaure la fonctionnalité de transcription</string>
@@ -2425,8 +2426,8 @@ Limitation : Le titre de la vidéo disparaît lorsque vous cliquez dessus."</str
 
 Cela modifie l'apparence et les fonctionnalités de l'application, mais des effets inconnus peuvent se produire.
 
-Si cette option est désactivée ultérieurement, il est recommandé de vider les données de l’application pour éviter des bugs d’interface."</string>
-    <string name="revanced_spoof_device_dimensions_summary">L’activation de cette option peut débloquer des qualités vidéo plus élevées</string>
+Si cette option est désactivée ultérieurement, il est recommandé de vider les données de l'application pour éviter des bugs d'interface."</string>
+    <string name="revanced_spoof_device_dimensions_summary">L\'activation de cette option peut débloquer des qualités vidéo plus élevées</string>
     <string name="revanced_spoof_device_dimensions_title">Falsifier les dimensions de l\'appareil</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">Le codec vidéo est AVC (H.264) ou VP9.</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_on">"Le codec vidéo est AVC (H.264), VP9 ou AV1.
@@ -2566,15 +2567,15 @@ Réglez la luminosité en faisant glisser verticalement sur le côté gauche de 
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Activer le geste de luminosité automatique</string>
     <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacité du balayage doit être entre 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Ajustez le niveau de transparence (0 est transparent, 100 est opaque)</string>
-    <string name="revanced_swipe_overlay_background_opacity_title">Opacité de l\'arrière-plan de l’overlay de balayage</string>
+    <string name="revanced_swipe_overlay_background_opacity_title">Opacité de l\'arrière-plan de l\'overlay de balayage</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Définissez la couleur de la barre de progression des contrôles de luminosité</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Couleur de l\'overlay du balayage de luminosité</string>
     <string name="revanced_swipe_overlay_progress_seek_color_summary">La couleur de la barre de progression pour les commandes de balayage de celle-ci</string>
     <string name="revanced_swipe_overlay_progress_seek_color_title">Couleur de superposition des gestes de la barre de progression</string>
     <string name="revanced_swipe_overlay_progress_speed_color_summary">Définissez la couleur de la barre de progression des contrôles de vitesse de lecture</string>
-    <string name="revanced_swipe_overlay_progress_speed_color_title">Couleur de l’overlay de la vitesse de balayage</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">Couleur de l\'overlay de la vitesse de balayage</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">Définissez la couleur de la barre de progression des contrôles de volume</string>
-    <string name="revanced_swipe_overlay_progress_volume_color_title">Couleur de l’overlay du balayage du volume</string>
+    <string name="revanced_swipe_overlay_progress_volume_color_title">Couleur de l\'overlay du balayage du volume</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">La zone glissable ne peut pas être supérieure à 50.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Pourcentage de la zone de l\'écran pouvant être glissée.\n\nNote : Cela affecte également la zone du double appui pour avancer/reculer dans la vidéo.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Taille de la zone de gestes</string>
@@ -2586,9 +2587,9 @@ Réglez la luminosité en faisant glisser verticalement sur le côté gauche de 
     <string name="revanced_swipe_overlay_style_entry_5">Overlay circulaire (minimal)</string>
     <string name="revanced_swipe_overlay_style_entry_6">Overlay vertical</string>
     <string name="revanced_swipe_overlay_style_entry_7">Overlay vertical (minimal)</string>
-    <string name="revanced_swipe_overlay_style_title">Style de l’overlay de balayage</string>
+    <string name="revanced_swipe_overlay_style_title">Style de l\'overlay de balayage</string>
     <string name="revanced_swipe_overlay_timeout_summary">La durée en millisecondes pendant laquelle l\'overlay est visible</string>
-    <string name="revanced_swipe_overlay_timeout_title">Délai d’affichage de l’overlay de balayage</string>
+    <string name="revanced_swipe_overlay_timeout_title">Délai d\'affichage de l\'overlay de balayage</string>
     <string name="revanced_swipe_press_to_engage_summary_off">Appuyer puis balayer est désactivé</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Appuyer puis balayer est activé</string>
     <string name="revanced_swipe_press_to_engage_title">Activer les gestes de balayage</string>
@@ -2614,8 +2615,8 @@ Ajustez la vitesse en balayant horizontalement la moitié inférieure de l'écra
 </string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Échanger les gestes de vitesse et de la barre de progression</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">La taille du texte doit être comprise entre 1-30</string>
-    <string name="revanced_swipe_text_overlay_size_summary">Ajustez la taille du texte à l’écran (1-30)</string>
-    <string name="revanced_swipe_text_overlay_size_title">Taille du texte de l’overlay de balayage</string>
+    <string name="revanced_swipe_text_overlay_size_summary">Ajustez la taille du texte à l\'écran (1-30)</string>
+    <string name="revanced_swipe_text_overlay_size_title">Taille du texte de l\'overlay de balayage</string>
     <string name="revanced_swipe_threshold_summary">Définissez la distance de balayage nécessaire avant qu\'un ajustement ne soit déclenché</string>
     <string name="revanced_swipe_threshold_title">Seuil de magnitude du balayage</string>
     <string name="revanced_swipe_volume_distance_summary">Nombre de pixels à balayer pour régler le volume. Plus la valeur est faible, plus le volume change rapidement, plus la valeur est élevée, plus le volume change lentement (1-1000).</string>
