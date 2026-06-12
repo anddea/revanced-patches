@@ -90,7 +90,8 @@ public final class ShortsButtonFilter extends Filter {
 
         StringFilterGroup stickers = new StringFilterGroup(
                 Settings.HIDE_SHORTS_STICKERS,
-                "stickers_layer."
+                "stickers_layer.",
+                "product_sticker."
         );
 
         StringFilterGroup liveHeader = new StringFilterGroup(
