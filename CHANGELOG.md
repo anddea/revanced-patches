@@ -1,3 +1,15 @@
+# [4.1.0-dev.8](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.7...v4.1.0-dev.8) (2026-06-12)
+
+
+### Bug Fixes
+
+* **YouTube - Toolbar components:** Channel search rendered blank screen under specific network conditions ([34f74b0](https://github.com/anddea/revanced-patches/commit/34f74b09b72f6b604c1dc3224e1e5f483c048080))
+
+
+### Features
+
+* **YouTube - Toolbar components:** Add `Hide search bar back button` setting ([fb378b1](https://github.com/anddea/revanced-patches/commit/fb378b15f07761a5390c4f5dd379f67ae841d84d))
+
 # [4.1.0-dev.7](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.6...v4.1.0-dev.7) (2026-06-11)
 
 
