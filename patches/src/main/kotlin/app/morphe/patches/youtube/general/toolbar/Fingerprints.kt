@@ -271,6 +271,40 @@ internal val searchBarParentFingerprint = legacyFingerprint(
     literals = listOf(voiceSearch),
 )
 
+internal object SearchBarBackButtonOnExitFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = emptyList(),
+    strings = listOf("voz-target-id", "search-lens-button")
+)
+
+internal object SearchBarBackButtonOnResumeFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = emptyList(),
+    custom = { method, _ ->
+        method.indexOfFirstInstruction {
+            opcode == Opcode.INVOKE_VIRTUAL &&
+                    getReference<MethodReference>()?.toString() ==
+                    "Landroid/widget/EditText;->setImeOptions(I)V"
+        } >= 0
+    }
+)
+
+internal object AppCompatToolbarNavigationIconSetterFingerprint : Fingerprint(
+    definingClass = "Landroid/support/v7/widget/Toolbar;",
+    accessFlags = listOf(AccessFlags.PUBLIC),
+    returnType = "V",
+    parameters = listOf("Landroid/graphics/drawable/Drawable;"),
+    custom = { method, _ ->
+        method.indexOfFirstInstruction {
+            opcode == Opcode.INVOKE_VIRTUAL &&
+                    getReference<MethodReference>()?.toString() ==
+                    "Landroid/widget/ImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V"
+        } >= 0
+    }
+)
+
 internal val toolbarSearchButtonFingerprint = legacyFingerprint(
     name = "toolbarSearchButtonFingerprint",
     returnType = "V",

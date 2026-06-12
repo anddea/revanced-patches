@@ -74,6 +74,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -86,9 +87,13 @@ import com.google.android.apps.youtube.app.settings.SettingsActivity;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.lang.ref.WeakReference;
 import java.net.URLEncoder;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
 import java.util.Objects;
+import java.util.WeakHashMap;
 import java.util.function.IntSupplier;
 
 import app.morphe.extension.shared.ui.CustomDialog;
@@ -1066,7 +1071,59 @@ public class GeneralPatch {
     }
 
     private static final boolean hideImageSearchButton = Settings.HIDE_IMAGE_SEARCH_BUTTON.get();
+    private static final boolean hideSearchBarBackButton = Settings.HIDE_SEARCH_BAR_BACK_BUTTON.get();
     private static final boolean hideVoiceSearchButton = Settings.HIDE_VOICE_SEARCH_BUTTON.get();
+    private static final int SEARCH_BAR_BACK_BUTTON_SPACER_WIDTH_DIP = 8;
+    private static final Map<View, SearchBarBackButtonState> searchBarBackButtonStates =
+            Collections.synchronizedMap(new WeakHashMap<>());
+    private static volatile WeakReference<ViewGroup> searchBarBackButtonToolbarRef = new WeakReference<>(null);
+    private static volatile WeakReference<View> searchBarBackButtonViewRef = new WeakReference<>(null);
+    private static volatile boolean searchBarBackButtonActive;
+
+    private static class SearchBarBackButtonState {
+        private final int width;
+        private final int height;
+        private final int minWidth;
+        private final int visibility;
+        private final int paddingLeft;
+        private final int paddingTop;
+        private final int paddingRight;
+        private final int paddingBottom;
+        private final int importantForAccessibility;
+        private final boolean clickable;
+        private final boolean enabled;
+        private final boolean focusable;
+
+        private SearchBarBackButtonState(ImageButton button) {
+            LayoutParams layoutParams = button.getLayoutParams();
+            width = layoutParams.width;
+            height = layoutParams.height;
+            minWidth = button.getMinimumWidth();
+            visibility = button.getVisibility();
+            paddingLeft = button.getPaddingLeft();
+            paddingTop = button.getPaddingTop();
+            paddingRight = button.getPaddingRight();
+            paddingBottom = button.getPaddingBottom();
+            importantForAccessibility = button.getImportantForAccessibility();
+            clickable = button.isClickable();
+            enabled = button.isEnabled();
+            focusable = button.isFocusable();
+        }
+
+        private void restore(ImageButton button) {
+            LayoutParams layoutParams = button.getLayoutParams();
+            layoutParams.width = width;
+            layoutParams.height = height;
+            button.setLayoutParams(layoutParams);
+            button.setMinimumWidth(minWidth);
+            button.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            button.setVisibility(visibility);
+            button.setClickable(clickable);
+            button.setEnabled(enabled);
+            button.setFocusable(focusable);
+            button.setImportantForAccessibility(importantForAccessibility);
+        }
+    }
 
     /**
      * If the user does not hide the Image search button but only the Voice search button,
@@ -1079,6 +1136,99 @@ public class GeneralPatch {
 
     public static boolean hideImageSearchButton(boolean original) {
         return !hideImageSearchButton && original;
+    }
+
+    public static void setSearchBarBackButtonActive() {
+        searchBarBackButtonActive = true;
+        applySearchBarBackButtonSpacing(searchBarBackButtonToolbarRef.get(), null);
+    }
+
+    public static void setSearchBarBackButtonView(View view) {
+        searchBarBackButtonViewRef = new WeakReference<>(view);
+        searchBarBackButtonActive = true;
+        applySearchBarBackButtonSpacing(searchBarBackButtonToolbarRef.get(), null);
+    }
+
+    public static void clearSearchBarBackButtonView() {
+        searchBarBackButtonActive = false;
+        searchBarBackButtonViewRef = new WeakReference<>(null);
+        restoreSearchBarBackButtonSpacing(searchBarBackButtonToolbarRef.get());
+    }
+
+    private static boolean isSearchBarBackButtonActive() {
+        if (!searchBarBackButtonActive) {
+            return false;
+        }
+
+        View view = searchBarBackButtonViewRef.get();
+        return view == null || view.isShown() || view.getWindowToken() != null;
+    }
+
+    private static ImageButton getToolbarNavigationButton(ViewGroup toolbar, Drawable navigationIcon) {
+        ImageButton fallback = null;
+
+        for (int i = 0, childCount = toolbar.getChildCount(); i < childCount; i++) {
+            View child = toolbar.getChildAt(i);
+            if (child instanceof ImageButton imageButton) {
+                if (fallback == null) {
+                    fallback = imageButton;
+                }
+                if (navigationIcon != null && imageButton.getDrawable() == navigationIcon) {
+                    return imageButton;
+                }
+            }
+        }
+
+        return fallback;
+    }
+
+    private static void restoreSearchBarBackButtonSpacing(ViewGroup toolbar) {
+        if (toolbar == null) {
+            return;
+        }
+
+        ImageButton button = getToolbarNavigationButton(toolbar, null);
+        if (button == null) {
+            return;
+        }
+
+        SearchBarBackButtonState state = searchBarBackButtonStates.remove(button);
+        if (state != null) {
+            state.restore(button);
+        }
+    }
+
+    public static void applySearchBarBackButtonSpacing(ViewGroup toolbar, Drawable navigationIcon) {
+        if (toolbar == null) {
+            return;
+        }
+
+        searchBarBackButtonToolbarRef = new WeakReference<>(toolbar);
+
+        ImageButton button = getToolbarNavigationButton(toolbar, navigationIcon);
+        if (button == null) {
+            return;
+        }
+
+        if (!hideSearchBarBackButton || !isSearchBarBackButtonActive()) {
+            restoreSearchBarBackButtonSpacing(toolbar);
+            return;
+        }
+
+        if (!searchBarBackButtonStates.containsKey(button)) {
+            searchBarBackButtonStates.put(button, new SearchBarBackButtonState(button));
+        }
+
+        LayoutParams layoutParams = button.getLayoutParams();
+        layoutParams.width = Utils.dipToPixels(SEARCH_BAR_BACK_BUTTON_SPACER_WIDTH_DIP);
+        button.setLayoutParams(layoutParams);
+        button.setMinimumWidth(0);
+        button.setPadding(0, 0, 0, 0);
+        button.setVisibility(View.INVISIBLE);
+        button.setClickable(false);
+        button.setEnabled(false);
+        button.setFocusable(false);
+        button.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
     }
 
     public static void hideVoiceSearchButton(View view) {

@@ -325,6 +325,53 @@ val toolBarComponentsPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for hide search bar back button
+
+        searchBarParentFingerprint.methodOrThrow().apply {
+            addInstruction(
+                0,
+                "invoke-static {}, $GENERAL_CLASS_DESCRIPTOR->setSearchBarBackButtonActive()V"
+            )
+
+            findInstructionIndicesReversedOrThrow {
+                opcode == Opcode.RETURN_OBJECT
+            }.forEach { returnIndex ->
+                val viewRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
+
+                addInstruction(
+                    returnIndex,
+                    "invoke-static {v$viewRegister}, $GENERAL_CLASS_DESCRIPTOR->setSearchBarBackButtonView(Landroid/view/View;)V"
+                )
+            }
+        }
+
+        SearchBarBackButtonOnExitFingerprint.method.addInstruction(
+            0,
+            "invoke-static {}, $GENERAL_CLASS_DESCRIPTOR->clearSearchBarBackButtonView()V"
+        )
+
+        SearchBarBackButtonOnResumeFingerprint.match(
+            searchBarParentFingerprint.mutableClassOrThrow()
+        ).method.apply {
+            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_SUPER) + 1
+
+            addInstruction(
+                insertIndex,
+                "invoke-static {}, $GENERAL_CLASS_DESCRIPTOR->setSearchBarBackButtonActive()V"
+            )
+        }
+
+        AppCompatToolbarNavigationIconSetterFingerprint.method.apply {
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN_VOID).forEach { returnIndex ->
+                addInstruction(
+                    returnIndex,
+                    "invoke-static {p0, p1}, $GENERAL_CLASS_DESCRIPTOR->applySearchBarBackButtonSpacing(Landroid/view/ViewGroup;Landroid/graphics/drawable/Drawable;)V"
+                )
+            }
+        }
+
+        // endregion
+
         // region patch for search in channel
 
         hookToolBar("$GENERAL_CLASS_DESCRIPTOR->openSearchInChannel")
