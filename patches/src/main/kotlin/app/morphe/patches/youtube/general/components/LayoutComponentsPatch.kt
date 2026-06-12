@@ -17,6 +17,7 @@ import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
 import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.accountSwitcherAccessibility
 import app.morphe.patches.youtube.utils.resourceid.fab
@@ -273,16 +274,18 @@ val layoutComponentsPatch = bytecodePatch(
 
         // region hide sync button
 
-        SyncButtonFingerprint.let {
-            val syncButtonIndex = it.instructionMatches.last().index
-            val viewRegister = it.method.getInstruction<OneRegisterInstruction>(syncButtonIndex).registerA
+        if (is_20_21_or_greater) {
+            SyncButtonFingerprint.let {
+                val syncButtonIndex = it.instructionMatches.last().index
+                val viewRegister = it.method.getInstruction<OneRegisterInstruction>(syncButtonIndex).registerA
 
-            it.method.injectHideViewCall(
-                syncButtonIndex + 1,
-                viewRegister,
-                LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR,
-                "hideSyncButton"
-            )
+                it.method.injectHideViewCall(
+                    syncButtonIndex + 1,
+                    viewRegister,
+                    LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR,
+                    "hideSyncButton"
+                )
+            }
         }
 
         // endregion
