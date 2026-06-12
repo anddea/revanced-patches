@@ -66,7 +66,6 @@ import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.StringTrieSearch;
 import app.morphe.extension.shared.utils.TrieSearch;
 import app.morphe.extension.shared.utils.Utils;
-import app.morphe.extension.youtube.patches.general.GeneralPatch;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.RootView;
 
@@ -731,10 +730,6 @@ public final class KeywordContentFilter extends Filter {
 
         if (exceptions.matches(path)) {
             return false; // Do not update statistics.
-        }
-
-        if (matchedGroup != commentsFilter && GeneralPatch.hideSearchInChannelResult(buffer)) {
-            return true;
         }
 
         // Field is intentionally compared using reference equality.

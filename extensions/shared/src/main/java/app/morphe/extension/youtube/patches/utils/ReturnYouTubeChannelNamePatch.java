@@ -108,6 +108,13 @@ public class ReturnYouTubeChannelNamePatch {
         return cachedChannelName == null ? "" : cachedChannelName;
     }
 
+    public static void setCachedChannelName(@NonNull String channelId, @NonNull String channelName) {
+        if (channelId.isEmpty() || channelName.isEmpty() || channelIdMap.get(channelId) != null) {
+            return;
+        }
+        channelIdMap.put(channelId, channelName);
+    }
+
     /**
      * Injection point.
      */

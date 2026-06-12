@@ -56,6 +56,7 @@ import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.text.InputType;
@@ -76,6 +77,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
@@ -85,7 +87,6 @@ import com.google.android.apps.youtube.app.settings.SettingsActivity;
 import org.apache.commons.lang3.StringUtils;
 
 import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.function.IntSupplier;
@@ -110,12 +111,12 @@ public class GeneralPatch {
     private static final int SEARCH_INTENT_FLAGS =
             Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP;
     private static final String CHANNEL_BROWSE_ID_PREFIX = "UC";
-    private static final long PENDING_SEARCH_EXTERNAL_CHANNEL_ID_TIMEOUT_MILLISECONDS = 10_000L;
-    private static final long SEARCH_IN_CHANNEL_FILTER_TIMEOUT_MILLISECONDS = 10 * 60 * 1000L;
     private static final int YOUTUBE_VIDEO_ID_LENGTH = 11;
     private static final String CHANNEL_SEARCH_WEBVIEW_USER_AGENT =
             "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 " +
                     "(KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36";
+    private static final String CHANNEL_SEARCH_WEBVIEW_HOST = "m.youtube.com";
+    private static final String CHANNEL_SEARCH_WEBVIEW_CONSENT_HOST = "consent.youtube.com";
     private static final String CHANNEL_SEARCH_WEBVIEW_BRIDGE_SCHEME = "revanced-channel-search";
     private static final String YOUTUBE_VIDEO_SCHEME_URL = "vnd.youtube://";
     private static final String CHANNEL_SEARCH_WEBVIEW_JAVASCRIPT = """
@@ -175,12 +176,8 @@ public class GeneralPatch {
             """;
 
     private static volatile String lastSearchInChannelQuery = "";
-    private static volatile String pendingSearchExternalChannelId = "";
-    private static volatile long pendingSearchExternalChannelIdTimeMilliseconds;
-    private static volatile String searchInChannelFilterChannelId = "";
-    private static volatile String searchInChannelFilterChannelName = "";
-    private static volatile String searchInChannelFilterQuery = "";
-    private static volatile long searchInChannelFilterTimeMilliseconds;
+    private static volatile String pendingSearchInChannelVisibleQuery = "";
+    private static volatile String pendingSearchInChannelRequestQuery = "";
 
     // region [Disable layout updates] patch
 
@@ -613,22 +610,23 @@ public class GeneralPatch {
                 imageView.setOnClickListener(GeneralPatch::openSearchInChannel), 0);
     }
 
-    public static String overrideSearchExternalChannelId(String original) {
-        String externalChannelId = pendingSearchExternalChannelId;
-        long externalChannelIdTimeMilliseconds = pendingSearchExternalChannelIdTimeMilliseconds;
+    public static String overrideSearchInChannelRequestQuery(String original) {
+        String visibleQuery = pendingSearchInChannelVisibleQuery;
+        String requestQuery = pendingSearchInChannelRequestQuery;
 
-        if (!StringUtils.isEmpty(original))
-            return original;
-
-        if (StringUtils.isEmpty(externalChannelId)
-                || System.currentTimeMillis() - externalChannelIdTimeMilliseconds
-                > PENDING_SEARCH_EXTERNAL_CHANNEL_ID_TIMEOUT_MILLISECONDS) {
-            clearPendingSearchExternalChannelId();
+        if (StringUtils.isEmpty(requestQuery)) {
             return original;
         }
 
-        clearPendingSearchExternalChannelId();
-        return externalChannelId;
+        if (StringUtils.isBlank(original)
+                || StringUtils.equals(original, visibleQuery)
+                || StringUtils.equals(original, requestQuery)) {
+            clearPendingSearchInChannelQuery();
+            return requestQuery;
+        }
+
+        clearPendingSearchInChannelQuery();
+        return original;
     }
 
     private static void openSearchInChannel(View view) {
@@ -639,6 +637,7 @@ public class GeneralPatch {
         }
 
         Context context = view.getContext();
+        String channelName = getChannelName(channelId, view);
         EditText editText = new EditText(context);
         editText.setSingleLine(true);
         editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
@@ -658,7 +657,7 @@ public class GeneralPatch {
                     String query = editText.getText().toString().trim();
                     if (!query.isEmpty()) {
                         cacheSearchInChannelQuery(query);
-                        openSearchInChannel(context, channelId, query);
+                        openSearchInChannel(context, channelId, channelName, query);
                     }
                 },
                 () -> {
@@ -670,7 +669,6 @@ public class GeneralPatch {
                         openSearchBar(view);
                     } else {
                         cacheSearchInChannelQuery(query);
-                        clearSearchInChannelFilter();
                         openSearch(context, query);
                     }
                 },
@@ -695,27 +693,24 @@ public class GeneralPatch {
 
     private static void openSearchBar(View view) {
         Context context = view.getContext();
-        clearPendingSearchExternalChannelId();
-        clearSearchInChannelFilter();
+        clearPendingSearchInChannelQuery();
         Intent intent = new Intent(OPEN_SEARCH_ACTION);
         intent.setClassName(context.getPackageName(), YOUTUBE_MAIN_ACTIVITY_CLASS_NAME);
         intent.addFlags(SEARCH_INTENT_FLAGS);
         context.startActivity(intent);
     }
 
-    private static void openSearchInChannel(Context context, String channelId, String query) {
+    private static void openSearchInChannel(Context context, String channelId, String channelName, String query) {
         if (Settings.SEARCH_IN_CHANNEL_USE_WEBVIEW.get()) {
-            openSearchInChannelWebView(context, channelId, query);
+            openSearchInChannelWebView(context, channelId, channelName, query);
             return;
         }
 
-        openSearchInChannelNative(context, channelId, query);
+        openSearchInChannelNative(context, channelName, query);
     }
 
-    private static void openSearchInChannelNative(Context context, String channelId, String query) {
-        pendingSearchExternalChannelId = channelId;
-        pendingSearchExternalChannelIdTimeMilliseconds = System.currentTimeMillis();
-        setSearchInChannelFilter(channelId, getChannelName(channelId), query);
+    private static void openSearchInChannelNative(Context context, String channelName, String query) {
+        setPendingSearchInChannelQuery(query, getSearchInChannelNativeQuery(channelName, query));
         openSearch(context, query, true);
     }
 
@@ -723,10 +718,9 @@ public class GeneralPatch {
         openSearch(context, query, false);
     }
 
-    private static void openSearch(Context context, String query, boolean preservePendingSearchExternalChannelId) {
-        if (!preservePendingSearchExternalChannelId) {
-            clearPendingSearchExternalChannelId();
-            clearSearchInChannelFilter();
+    private static void openSearch(Context context, String query, boolean preservePendingSearchInChannelQuery) {
+        if (!preservePendingSearchInChannelQuery) {
+            clearPendingSearchInChannelQuery();
         }
         Intent intent = new Intent(Intent.ACTION_SEARCH);
         intent.setClassName(context.getPackageName(), YOUTUBE_MAIN_ACTIVITY_CLASS_NAME);
@@ -740,23 +734,14 @@ public class GeneralPatch {
         lastSearchInChannelQuery = query;
     }
 
-    private static void clearPendingSearchExternalChannelId() {
-        pendingSearchExternalChannelId = "";
-        pendingSearchExternalChannelIdTimeMilliseconds = 0L;
+    private static void setPendingSearchInChannelQuery(String visibleQuery, String requestQuery) {
+        pendingSearchInChannelVisibleQuery = visibleQuery;
+        pendingSearchInChannelRequestQuery = requestQuery;
     }
 
-    private static void setSearchInChannelFilter(String channelId, String channelName, String query) {
-        searchInChannelFilterChannelId = channelId;
-        searchInChannelFilterChannelName = channelName;
-        searchInChannelFilterQuery = query;
-        searchInChannelFilterTimeMilliseconds = System.currentTimeMillis();
-    }
-
-    private static void clearSearchInChannelFilter() {
-        searchInChannelFilterChannelId = "";
-        searchInChannelFilterChannelName = "";
-        searchInChannelFilterQuery = "";
-        searchInChannelFilterTimeMilliseconds = 0L;
+    private static void clearPendingSearchInChannelQuery() {
+        pendingSearchInChannelVisibleQuery = "";
+        pendingSearchInChannelRequestQuery = "";
     }
 
     private static String getChannelName(String channelId) {
@@ -768,46 +753,95 @@ public class GeneralPatch {
         return ReturnYouTubeChannelNamePatch.getCachedChannelName(channelId);
     }
 
-    public static boolean hideSearchInChannelResult(byte[] buffer) {
-        String channelId = searchInChannelFilterChannelId;
-        String query = searchInChannelFilterQuery;
-        long filterTimeMilliseconds = searchInChannelFilterTimeMilliseconds;
-
-        if (StringUtils.isEmpty(channelId) || StringUtils.isEmpty(query)) {
-            return false;
-        }
-        if (System.currentTimeMillis() - filterTimeMilliseconds > SEARCH_IN_CHANNEL_FILTER_TIMEOUT_MILLISECONDS) {
-            clearSearchInChannelFilter();
-            return false;
-        }
-        if (!RootView.isSearchBarActive()) {
-            return false;
-        }
-        if (!StringUtils.equals(query, RootView.getSearchQuery())) {
-            clearSearchInChannelFilter();
-            return false;
-        }
-        if (buffer == null || buffer.length == 0) {
-            return true;
+    private static String getChannelName(String channelId, View anchorView) {
+        String channelName = getChannelName(channelId);
+        if (StringUtils.isNotBlank(channelName)) {
+            return channelName;
         }
 
-        String bufferString = new String(buffer, StandardCharsets.UTF_8);
-        if (bufferString.contains(channelId)) {
-            return false;
+        channelName = getVisibleChannelName(anchorView);
+        if (StringUtils.isNotBlank(channelName)) {
+            ReturnYouTubeChannelNamePatch.setCachedChannelName(channelId, channelName);
         }
 
-        String channelName = searchInChannelFilterChannelName;
-        return StringUtils.isBlank(channelName) || !StringUtils.containsIgnoreCase(bufferString, channelName);
+        return channelName;
+    }
+
+    private static String getVisibleChannelName(View anchorView) {
+        try {
+            Activity activity = Utils.getActivity();
+            View rootView = activity == null
+                    ? anchorView.getRootView()
+                    : activity.findViewById(android.R.id.content);
+            String[] bestText = {""};
+            float[] bestTextSize = {0.0f};
+            float minimumTextSize = anchorView.getResources().getDisplayMetrics().scaledDensity * 16.0f;
+            findVisibleChannelName(rootView, minimumTextSize, bestText, bestTextSize);
+            return bestText[0];
+        } catch (Exception ex) {
+            Logger.printException(() -> "getVisibleChannelName failed", ex);
+            return "";
+        }
+    }
+
+    private static void findVisibleChannelName(View view, float minimumTextSize, String[] bestText, float[] bestTextSize) {
+        if (view == null || !view.isShown()) {
+            return;
+        }
+
+        if (view instanceof TextView textView) {
+            String text = StringUtils.trimToEmpty(textView.getText().toString());
+            Rect visibleRect = new Rect();
+            if (isVisibleChannelNameCandidate(text)
+                    && textView.getTextSize() >= minimumTextSize
+                    && textView.getTextSize() > bestTextSize[0]
+                    && textView.getGlobalVisibleRect(visibleRect)) {
+                bestText[0] = text;
+                bestTextSize[0] = textView.getTextSize();
+            }
+        }
+
+        if (view instanceof ViewGroup viewGroup) {
+            for (int i = 0, childCount = viewGroup.getChildCount(); i < childCount; i++) {
+                findVisibleChannelName(viewGroup.getChildAt(i), minimumTextSize, bestText, bestTextSize);
+            }
+        }
+    }
+
+    private static boolean isVisibleChannelNameCandidate(String text) {
+        return StringUtils.isNotBlank(text)
+                && text.length() <= 100
+                && !StringUtils.contains(text, "\n")
+                && !StringUtils.startsWith(text, "@")
+                && !StringUtils.equalsAnyIgnoreCase(
+                text,
+                "Home",
+                "Videos",
+                "Shorts",
+                "Live",
+                "Playlists",
+                "Community",
+                "Channels",
+                "About",
+                "Subscribe",
+                "Subscribed"
+        );
+    }
+
+    private static String getSearchInChannelNativeQuery(String channelName, String query) {
+        channelName = StringUtils.trimToEmpty(channelName);
+        return StringUtils.isBlank(channelName) || StringUtils.containsIgnoreCase(query, channelName)
+                ? query
+                : query + " " + channelName;
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    private static void openSearchInChannelWebView(Context context, String channelId, String query) {
-        clearPendingSearchExternalChannelId();
-        clearSearchInChannelFilter();
+    private static void openSearchInChannelWebView(Context context, String channelId, String channelName, String query) {
+        clearPendingSearchInChannelQuery();
 
         if (!Utils.isWebViewSupported()) {
             Utils.showToastLong(str("revanced_search_in_channel_webview_unavailable"));
-            openSearchInChannelNative(context, channelId, query);
+            openSearchInChannelNative(context, channelName, query);
             return;
         }
 
@@ -824,6 +858,7 @@ public class GeneralPatch {
             progressParams.gravity = android.view.Gravity.CENTER;
             progressBar.setLayoutParams(progressParams);
 
+            String webViewUrl = getChannelSearchWebViewUrl(channelId, query);
             WebView webView = getWebView(context, dialog, progressBar);
             webView.setVisibility(View.INVISIBLE);
 
@@ -843,10 +878,10 @@ public class GeneralPatch {
                 window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
             }
 
-            webView.loadUrl(getChannelSearchWebViewUrl(channelId, query));
+            webView.loadUrl(webViewUrl);
         } catch (Exception ex) {
             Logger.printException(() -> "openSearchInChannelWebView failed", ex);
-            openSearchInChannelNative(context, channelId, query);
+            openSearchInChannelNative(context, channelName, query);
         }
     }
 
@@ -879,10 +914,11 @@ public class GeneralPatch {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                view.evaluateJavascript(CHANNEL_SEARCH_WEBVIEW_JAVASCRIPT, value -> {
-                    progressBar.setVisibility(View.GONE);
-                    view.setVisibility(View.VISIBLE);
-                });
+                progressBar.setVisibility(View.GONE);
+                view.setVisibility(View.VISIBLE);
+                if (isChannelSearchWebViewSearchUrl(url)) {
+                    view.evaluateJavascript(CHANNEL_SEARCH_WEBVIEW_JAVASCRIPT, null);
+                }
             }
         });
         return webView;
@@ -912,7 +948,26 @@ public class GeneralPatch {
 
     private static boolean isAllowedChannelSearchWebViewUrl(Uri uri) {
         return StringUtils.equalsIgnoreCase(uri.getScheme(), "https")
-                && StringUtils.equalsAnyIgnoreCase(uri.getHost(), "m.youtube.com", "www.youtube.com", "youtube.com");
+                && StringUtils.equalsAnyIgnoreCase(
+                uri.getHost(),
+                CHANNEL_SEARCH_WEBVIEW_HOST,
+                CHANNEL_SEARCH_WEBVIEW_CONSENT_HOST,
+                "www.youtube.com",
+                "youtube.com"
+        );
+    }
+
+    private static boolean isChannelSearchWebViewSearchUrl(String url) {
+        try {
+            Uri uri = Uri.parse(url);
+            return StringUtils.equalsIgnoreCase(uri.getScheme(), "https")
+                    && StringUtils.equalsIgnoreCase(uri.getHost(), CHANNEL_SEARCH_WEBVIEW_HOST)
+                    && StringUtils.contains(uri.getPath(), "/channel/")
+                    && StringUtils.endsWith(uri.getPath(), "/search");
+        } catch (Exception ex) {
+            Logger.printException(() -> "isChannelSearchWebViewSearchUrl failed", ex);
+            return false;
+        }
     }
 
     private static boolean openYouTubeUrlInApp(Context context, Dialog dialog, String url) {
@@ -988,7 +1043,8 @@ public class GeneralPatch {
     }
 
     private static String getChannelSearchWebViewUrl(String channelId, String query) {
-        return "https://m.youtube.com/channel/" + channelId + "/search?query=" + encodeUrl(query) + "&ra=m";
+        return "https://" + CHANNEL_SEARCH_WEBVIEW_HOST + "/channel/" + channelId + "/search?query="
+                + encodeUrl(query);
     }
 
     @SuppressWarnings("CharsetObjectCanBeUsed")

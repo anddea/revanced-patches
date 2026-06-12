@@ -52,11 +52,9 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.youtube.utils.castbutton.castButtonPatch
 import app.morphe.patches.youtube.utils.castbutton.hookToolBarCastButton
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
-import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.patch.PatchList.TOOLBAR_COMPONENTS
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
@@ -87,9 +85,6 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
-
-private const val KEYWORD_FILTER_CLASS_DESCRIPTOR =
-    "$COMPONENTS_PATH/KeywordContentFilter;"
 
 @Suppress("unused")
 val toolBarComponentsPatch = bytecodePatch(
@@ -274,7 +269,7 @@ val toolBarComponentsPatch = bytecodePatch(
                 }
             }
 
-            // This attribution cannot be changed in extension, so change it in the xml file.
+            // This attribution cannot be changed in extension, so change it in the XML file.
 
             getContext().document("res/layout/action_bar_ringo_background.xml").use { document ->
                 document.doRecursively { node ->
@@ -333,19 +328,13 @@ val toolBarComponentsPatch = bytecodePatch(
         // region patch for search in channel
 
         hookToolBar("$GENERAL_CLASS_DESCRIPTOR->openSearchInChannel")
-        addLithoFilter(KEYWORD_FILTER_CLASS_DESCRIPTOR)
 
-        SearchResultsPaneDescriptorFingerprint.method.apply {
-            if (containsStringInstruction(SEARCH_EXTERNAL_CHANNEL_ID_BUNDLE_KEY)) {
-                val externalChannelIdParameterRegister = parameters.size
-                addInstructions(
-                    0, """
-                        invoke-static/range {p$externalChannelIdParameterRegister .. p$externalChannelIdParameterRegister}, $GENERAL_CLASS_DESCRIPTOR->overrideSearchExternalChannelId(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object p$externalChannelIdParameterRegister
-                        """
-                )
-            }
-        }
+        SearchRequestLoaderFingerprint.method.addInstructions(
+            0, """
+                invoke-static {p1}, $GENERAL_CLASS_DESCRIPTOR->overrideSearchInChannelRequestQuery(Ljava/lang/String;)Ljava/lang/String;
+                move-result-object p1
+                """
+        )
 
         // endregion
 

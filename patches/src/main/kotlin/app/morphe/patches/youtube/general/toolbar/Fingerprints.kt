@@ -51,7 +51,6 @@ import app.morphe.patches.youtube.utils.resourceid.seeMoreProceedingHeader
 import app.morphe.patches.youtube.utils.resourceid.voiceSearch
 import app.morphe.patches.youtube.utils.resourceid.youTubeLogo
 import app.morphe.patches.youtube.utils.resourceid.ytOutlineVideoCamera
-import app.morphe.util.containsStringInstruction
 import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
@@ -61,6 +60,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 internal val actionBarRingoBackgroundFingerprint = legacyFingerprint(
@@ -285,34 +285,32 @@ internal fun indexOfShowAsActionInstruction(method: Method) =
         getReference<MethodReference>()?.name == "setShowAsAction"
     }
 
-internal const val SEARCH_EXTERNAL_CHANNEL_ID_BUNDLE_KEY = "search_external_channel_id"
-
-internal object SearchResultsPaneDescriptorFingerprint : Fingerprint(
-    returnType = "Lcom/google/android/apps/youtube/app/common/ui/navigation/PaneDescriptor;",
-    strings = listOf(
-        "search_cache_key",
-        "search_original_chip_query",
-        "search_query",
-        "from_sound_search",
-    ),
+internal object SearchRequestLoaderFingerprint : Fingerprint(
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
     custom = { method, _ ->
         val parameterTypes = method.parameterTypes
-        val parameterSize = parameterTypes.size
 
-        (parameterSize == 16 || parameterSize == 18) &&
-                parameterTypes[2] == "[B" &&
-                parameterTypes[3] == "Z" &&
-                parameterTypes[7] == "I" &&
-                parameterTypes[8] == "I" &&
-                parameterTypes[9] == "Ljava/lang/String;" &&
-                parameterTypes[12] == "Z" &&
-                parameterTypes[13] == "Ljava/lang/String;" &&
-                parameterTypes[14] == "Ljava/lang/String;" &&
-                parameterTypes[15] == "Z" &&
-                (parameterSize == 16 ||
-                        parameterTypes[16] == "Ljava/lang/String;" &&
-                        parameterTypes[17] == "Ljava/lang/String;" &&
-                        method.containsStringInstruction(SEARCH_EXTERNAL_CHANNEL_ID_BUNDLE_KEY))
+        parameterTypes.size == 4 &&
+                parameterTypes[0] == "Ljava/lang/String;" &&
+                parameterTypes[1] == "Z" &&
+                parameterTypes[2].startsWith("L") &&
+                parameterTypes[3].startsWith("L") &&
+                method.indexOfFirstInstruction {
+                    opcode == Opcode.NEW_INSTANCE &&
+                            getReference<TypeReference>()?.type ==
+                            "Lcom/google/android/libraries/youtube/innertube/model/SearchResponseModel;"
+                } >= 0 &&
+                method.indexOfFirstInstruction {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.toString() ==
+                            "Lcom/google/android/libraries/youtube/rendering/ui/widget/loadingframe/LoadingFrameLayout;->c()V"
+                } >= 0 &&
+                method.indexOfFirstInstruction {
+                    opcode == Opcode.INVOKE_INTERFACE &&
+                            getReference<MethodReference>()?.toString() ==
+                            "Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V"
+                } >= 0
     },
 )
 
