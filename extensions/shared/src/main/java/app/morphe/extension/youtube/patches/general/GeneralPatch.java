@@ -56,6 +56,7 @@ import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -68,7 +69,11 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.ConsoleMessage;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -121,8 +126,8 @@ public class GeneralPatch {
             "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 " +
                     "(KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36";
     private static final String CHANNEL_SEARCH_WEBVIEW_HOST = "m.youtube.com";
-    private static final String CHANNEL_SEARCH_WEBVIEW_CONSENT_HOST = "consent.youtube.com";
     private static final String CHANNEL_SEARCH_WEBVIEW_BRIDGE_SCHEME = "revanced-channel-search";
+    private static final String CHANNEL_SEARCH_WEBVIEW_LOG_PREFIX = "revanced-channel-search:";
     private static final String YOUTUBE_VIDEO_SCHEME_URL = "vnd.youtube://";
     private static final String CHANNEL_SEARCH_WEBVIEW_JAVASCRIPT = """
             (function() {
@@ -144,26 +149,94 @@ public class GeneralPatch {
                     window.location.href = 'revanced-channel-search://open?url=' + encodeURIComponent(target.href);
                 }
             
+                function recordResult(result) {
+                    if (window.revancedChannelSearchLastFilterResult !== result) {
+                        try {
+                            console.log('revanced-channel-search:filter-result='
+                                    + result + ', url=' + window.location.href);
+                        } catch (error) {
+                        }
+                    }
+                    window.revancedChannelSearchLastFilterResult = result;
+                    return result;
+                }
+
+                function renderUnfiltered(reason) {
+                    window.revancedChannelSearchRenderUnfiltered = true;
+                    if (window.revancedChannelSearchMissingTabFallback) {
+                        window.clearTimeout(window.revancedChannelSearchMissingTabFallback);
+                        window.revancedChannelSearchMissingTabFallback = null;
+                    }
+                    var style = document.getElementById('revanced-channel-search-style');
+                    if (style && style.parentElement) {
+                        style.parentElement.removeChild(style);
+                    }
+                    if (window.revancedChannelSearchObserver) {
+                        window.revancedChannelSearchObserver.disconnect();
+                        window.revancedChannelSearchObserver = null;
+                    }
+                    return recordResult('unfiltered:' + reason);
+                }
+
+                function getSearchTitle() {
+                    var searchTab = document.querySelector('yt-tab-shape.ytTabShapeLastTab');
+                    if (searchTab) {
+                        return searchTab.getAttribute('tab-title');
+                    }
+                    var activeTab = document.querySelector('yt-tab-shape[aria-selected="true"]');
+                    if (activeTab) {
+                        return activeTab.getAttribute('tab-title');
+                    }
+                    return null;
+                }
+
                 function trim() {
+                    if (window.revancedChannelSearchRenderUnfiltered) {
+                        return recordResult('unfiltered:cached');
+                    }
+
+                    var searchTitle = getSearchTitle();
+                    var search = null;
+                    if (searchTitle) {
+                        search = document.querySelector('.tab-content[tab-title="' + searchTitle + '"]');
+                    }
+
+                    if (!search || !search.parentElement) {
+                        if (!window.revancedChannelSearchMissingTabFallback) {
+                            window.revancedChannelSearchMissingTabFallback = window.setTimeout(function() {
+                                var fallbackTitle = getSearchTitle();
+                                var fallbackSearch = fallbackTitle ? document.querySelector('.tab-content[tab-title="' + fallbackTitle + '"]') : null;
+                                if (!fallbackSearch) {
+                                    renderUnfiltered('missing-search-tab-timeout');
+                                }
+                            }, 5000);
+                        }
+                        return recordResult('waiting:missing-search-tab');
+                    }
+
+                    if (window.revancedChannelSearchMissingTabFallback) {
+                        window.clearTimeout(window.revancedChannelSearchMissingTabFallback);
+                        window.revancedChannelSearchMissingTabFallback = null;
+                    }
+
                     var style = document.getElementById('revanced-channel-search-style');
                     if (!style) {
                         style = document.createElement('style');
                         style.id = 'revanced-channel-search-style';
-                        style.textContent = 'ytm-mobile-topbar-renderer, ytm-pivot-bar-renderer, yt-page-header-renderer, .single-column-browse-results-tab-bar, #player-container-id, ytm-tabs-renderer, ytm-channel-header-renderer, ytm-browse-header-renderer, ytm-app-header, ytm-bottom-sheet-renderer { display: none !important; } html, body, ytm-app, .page-container, ytm-browse, ytm-single-column-browse-results-renderer { margin: 0 !important; padding: 0 !important; } body { overflow: auto !important; } .tab-content:not([tab-title="Search"]) { display: none !important; } .tab-content[tab-title="Search"] { display: block !important; margin: 0 !important; padding: 0 !important; } ytm-section-list-renderer { margin-top: 0 !important; }';
+                        var escapedTitle = searchTitle.replace(/'/g, "\\\\'");
+                        style.textContent = 'ytm-mobile-topbar-renderer, ytm-pivot-bar-renderer, yt-page-header-renderer, .single-column-browse-results-tab-bar, #player-container-id, ytm-tabs-renderer, ytm-channel-header-renderer, ytm-browse-header-renderer, ytm-app-header, ytm-bottom-sheet-renderer { display: none !important; } html, body, ytm-app, .page-container, ytm-browse, ytm-single-column-browse-results-renderer { margin: 0 !important; padding: 0 !important; } body { overflow: auto !important; } .tab-content:not([tab-title="' + escapedTitle + '"]) { display: none !important; } .tab-content[tab-title="' + escapedTitle + '"] { display: block !important; margin: 0 !important; padding: 0 !important; } ytm-section-list-renderer { margin-top: 0 !important; } ytm-item-section-renderer { border-bottom: 0 !important; }';
                         (document.head || document.documentElement).appendChild(style);
                     }
             
-                    var search = document.querySelector('.tab-content[tab-title="Search"]');
-                    if (search && search.parentElement) {
-                        Array.prototype.forEach.call(search.parentElement.children, function(child) {
-                            if (child !== search) {
-                                child.style.display = 'none';
-                            }
-                        });
-                    }
+                    Array.prototype.forEach.call(search.parentElement.children, function(child) {
+                        if (child !== search) {
+                            child.style.display = 'none';
+                        }
+                    });
+                    return recordResult('filtered');
                 }
             
-                trim();
+                var result = trim();
             
                 if (!window.revancedChannelSearchClickBridge) {
                     window.addEventListener('click', openInApp, true);
@@ -173,10 +246,12 @@ public class GeneralPatch {
                     window.revancedChannelSearchClickBridge = true;
                 }
             
-                if (!window.revancedChannelSearchObserver) {
+                if (result.indexOf('unfiltered:') !== 0 && !window.revancedChannelSearchObserver) {
                     window.revancedChannelSearchObserver = new MutationObserver(trim);
                     window.revancedChannelSearchObserver.observe(document.documentElement, { childList: true, subtree: true });
                 }
+
+                return result;
             })();
             """;
 
@@ -864,6 +939,7 @@ public class GeneralPatch {
             progressBar.setLayoutParams(progressParams);
 
             String webViewUrl = getChannelSearchWebViewUrl(channelId, query);
+            Logger.printDebug(() -> "Channel search WebView load URL: " + webViewUrl);
             WebView webView = getWebView(context, dialog, progressBar);
             webView.setVisibility(View.INVISIBLE);
 
@@ -905,6 +981,18 @@ public class GeneralPatch {
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
         settings.setUserAgentString(CHANNEL_SEARCH_WEBVIEW_USER_AGENT);
 
+        webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+                String message = consoleMessage.message();
+                if (StringUtils.startsWith(message, CHANNEL_SEARCH_WEBVIEW_LOG_PREFIX)) {
+                    Logger.printDebug(() -> "Channel search WebView JS " + message);
+                    return true;
+                }
+                return super.onConsoleMessage(consoleMessage);
+            }
+        });
+
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
@@ -917,12 +1005,49 @@ public class GeneralPatch {
             }
 
             @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                Logger.printDebug(() -> "Channel search WebView page started: " + url);
+            }
+
+            @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 progressBar.setVisibility(View.GONE);
                 view.setVisibility(View.VISIBLE);
-                if (isChannelSearchWebViewSearchUrl(url)) {
-                    view.evaluateJavascript(CHANNEL_SEARCH_WEBVIEW_JAVASCRIPT, null);
+                boolean searchUrl = isChannelSearchWebViewSearchUrl(url);
+                Logger.printDebug(() -> "Channel search WebView page finished: "
+                        + url + ", searchUrl: " + searchUrl);
+                if (searchUrl) {
+                    view.evaluateJavascript(CHANNEL_SEARCH_WEBVIEW_JAVASCRIPT, result ->
+                            Logger.printDebug(() -> "Channel search WebView filter result: "
+                                    + result + ", url: " + url));
+                }
+            }
+
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                super.onReceivedError(view, request, error);
+                if (request.isForMainFrame()) {
+                    Logger.printDebug(() -> "Channel search WebView page error: "
+                            + request.getUrl()
+                            + ", code: " + error.getErrorCode()
+                            + ", description: " + error.getDescription());
+                }
+            }
+
+            @Override
+            public void onReceivedHttpError(
+                    WebView view,
+                    WebResourceRequest request,
+                    WebResourceResponse errorResponse
+            ) {
+                super.onReceivedHttpError(view, request, errorResponse);
+                if (request.isForMainFrame()) {
+                    Logger.printDebug(() -> "Channel search WebView HTTP error: "
+                            + request.getUrl()
+                            + ", status: " + errorResponse.getStatusCode()
+                            + ", reason: " + errorResponse.getReasonPhrase());
                 }
             }
         });
@@ -932,8 +1057,10 @@ public class GeneralPatch {
     private static boolean handleChannelSearchWebViewNavigation(Context context, Dialog dialog, String url) {
         try {
             Uri uri = Uri.parse(url);
+            Logger.printDebug(() -> "Channel search WebView navigation requested: " + url);
             if (StringUtils.equalsIgnoreCase(uri.getScheme(), CHANNEL_SEARCH_WEBVIEW_BRIDGE_SCHEME)) {
                 String targetUrl = uri.getQueryParameter("url");
+                Logger.printDebug(() -> "Channel search WebView bridge target URL: " + targetUrl);
                 if (StringUtils.isNotBlank(targetUrl)) {
                     openYouTubeUrlInApp(context, dialog, targetUrl);
                 }
@@ -941,10 +1068,14 @@ public class GeneralPatch {
             }
 
             if (openYouTubeUrlInApp(context, dialog, url)) {
+                Logger.printDebug(() -> "Channel search WebView opened in app: " + url);
                 return true;
             }
 
-            return !isAllowedChannelSearchWebViewUrl(uri);
+            boolean allowed = isAllowedChannelSearchWebViewUrl(uri);
+            Logger.printDebug(() -> "Channel search WebView navigation "
+                    + (allowed ? "allowed: " : "blocked: ") + url);
+            return !allowed;
         } catch (Exception ex) {
             Logger.printException(() -> "handleChannelSearchWebViewNavigation failed", ex);
             return true;
@@ -952,23 +1083,17 @@ public class GeneralPatch {
     }
 
     private static boolean isAllowedChannelSearchWebViewUrl(Uri uri) {
-        return StringUtils.equalsIgnoreCase(uri.getScheme(), "https")
-                && StringUtils.equalsAnyIgnoreCase(
-                uri.getHost(),
-                CHANNEL_SEARCH_WEBVIEW_HOST,
-                CHANNEL_SEARCH_WEBVIEW_CONSENT_HOST,
-                "www.youtube.com",
-                "youtube.com"
-        );
+        return StringUtils.equalsAnyIgnoreCase(uri.getScheme(), "https", "http");
     }
 
     private static boolean isChannelSearchWebViewSearchUrl(String url) {
         try {
             Uri uri = Uri.parse(url);
+            String path = StringUtils.stripEnd(uri.getPath(), "/");
             return StringUtils.equalsIgnoreCase(uri.getScheme(), "https")
                     && StringUtils.equalsIgnoreCase(uri.getHost(), CHANNEL_SEARCH_WEBVIEW_HOST)
-                    && StringUtils.contains(uri.getPath(), "/channel/")
-                    && StringUtils.endsWith(uri.getPath(), "/search");
+                    && StringUtils.endsWith(path, "/search")
+                    && StringUtils.startsWithAny(path, "/channel/", "/@", "/c/", "/user/");
         } catch (Exception ex) {
             Logger.printException(() -> "isChannelSearchWebViewSearchUrl failed", ex);
             return false;
