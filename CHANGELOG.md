@@ -1,3 +1,10 @@
+# [4.1.0-dev.9](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.8...v4.1.0-dev.9) (2026-06-15)
+
+
+### Bug Fixes
+
+* **YouTube - Toolbar components:** Channel search rendered a blank screen for specific locales ([62d624d](https://github.com/anddea/revanced-patches/commit/62d624d5caf34b2d3b389aceb117159d6d7ac333))
+
 # [4.1.0-dev.8](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.7...v4.1.0-dev.8) (2026-06-12)
 
 
