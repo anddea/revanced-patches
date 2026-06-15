@@ -1162,6 +1162,7 @@ Se o layout da tela do reprodutor mudar devido a alterações no lado do servido
     <string name="revanced_hide_rewards_button_summary_off">O botão recompensas será exibido.</string>
     <string name="revanced_hide_rewards_button_summary_on">O botão recompensas está oculto.</string>
     <string name="revanced_hide_rewards_button_title">Ocultar botão recompensas</string>
+    <string name="revanced_hide_search_bar_back_button_title">Ocultar botão Voltar da barra de pesquisa</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">As miniaturas do histórico de pesquisa serão exibidas.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">As miniaturas do histórico de pesquisa estão ocultas.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Ocultar miniatura do termo de pesquisa</string>
@@ -2256,6 +2257,14 @@ Já existe"</string>
     <string name="revanced_sb_vote_no_segments">Não há segmentos para votar</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s para %2$s</string>
     <string name="revanced_sb_vote_upvote">Aprovar</string>
+    <string name="revanced_search_in_channel_query_hint">Pesquise neste canal</string>
+    <string name="revanced_search_in_channel_search">Pesquisar</string>
+    <string name="revanced_search_in_channel_search_youtube">Pesquisar no YouTube </string>
+    <string name="revanced_search_in_channel_title">Pesquisar no canal</string>
+    <string name="revanced_search_in_channel_use_webview_summary_off">A busca de canais utiliza a busca nativa do YouTube. Isso exibirá alguns resultados irrelevantes.</string>
+    <string name="revanced_search_in_channel_use_webview_summary_on">A busca de canais abre a página de busca de canais da web móvel.</string>
+    <string name="revanced_search_in_channel_use_webview_title">Utilize o WebView para pesquisa de canais</string>
+    <string name="revanced_search_in_channel_webview_unavailable">O WebView não está disponível. Usando a pesquisa de canal nativa.</string>
     <string name="revanced_search_settings_category_title">Pesquisar configurações</string>
     <string name="revanced_search_title">Buscar</string>
     <string name="revanced_send">Envio</string>
@@ -2318,7 +2327,6 @@ Isso pode não funcionar se:
 • As configurações pai aparecem acima das configurações filhas desabilitadas"</string>
     <string name="revanced_settings_search_tips_title">Dicas de Pesquisa</string>
     <string name="revanced_settings_search_title">Pesquisar %s</string>
-    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Configurações copiadas para a área de transferência.</string>
     <string name="revanced_share_copy_timestamp_success">Marcador de Tempo copiado para área de transferência. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiada para a área de transferência</string>
@@ -2372,6 +2380,10 @@ A maioria dos bugs não podem ser corrigidos devido a limitações no lado do cl
     <string name="revanced_shorts_custom_actions_speed_summary_on">O menu de velocidade de reprodução é exibido.\n\nInfo:\n• A velocidade de reprodução padrão dos Shorts deve estar ativada.\n• A velocidade selecionada será aplicada ao próximo vídeo.</string>
     <string name="revanced_shorts_custom_actions_speed_title">Exibir menu de velocidade de reprodução</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Ações personalizadas</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_label">Tradução de voz</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_off">O menu de tradução de narração está oculto. As ações personalizadas nas configurações do Shorts devem ser ativadas.</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_on">O menu de tradução de voz é exibido. As ações personalizadas nas configurações do Shorts devem estar ativadas.</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_title">Tradução de narração nos Shorts</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Original</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Gostei</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Gostei (Cairo)</string>
@@ -2665,16 +2677,24 @@ Aviso: Cookies emitidos sem login podem ser inválidos ou levar algum tempo para
     <string name="revanced_transcript_cookies_summary">Cookies para uso em solicitações da API de transcrição.</string>
     <string name="revanced_transcript_cookies_title">Cookies de transcrição</string>
     <string name="revanced_translations_title">Traduções</string>
+    <string name="revanced_vot_about_summary">A tradução por voz fornece faixas de áudio traduzidas para vídeos do YouTube usando o Yandex VoT.
+
+Se os servidores do Yandex não estiverem disponíveis na sua região, use a opção "Fluxo de áudio proxy".
+
+É necessária autorização para solicitar tradução com vozes ao vivo para vídeos que ainda não a possuem.</string>
+    <string name="revanced_vot_about_title">Sobre tradução de voz</string>
     <string name="revanced_vot_audio_proxy_summary_off">revanced_vot_audio_proxy_summary_off</string>
     <string name="revanced_vot_audio_proxy_summary_on">Audio stream is proxied through the worker
 O fluxo de áudio é encaminhado por meio do worker.m</string>
     <string name="revanced_vot_audio_proxy_title">Proxy audio stream
 Fluxo de áudio proxy</string>
+    <string name="revanced_vot_auth_required">É necessária autorização. Adicione o token OAuth do Yandex nas configurações.</string>
     <string name="revanced_vot_enabled_summary_off">A tradução de voz do Yandex está desativada</string>
     <string name="revanced_vot_enabled_summary_on">A tradução por voz do Yandex está ativada.</string>
     <string name="revanced_vot_enabled_title">Ativar tradução por voz</string>
     <string name="revanced_vot_lang_auto">Detecção automática</string>
     <string name="revanced_vot_live_voices_unavailable">revanced_vot_live_voices_unavailable</string>
+    <string name="revanced_vot_oauth_account_management_title">Token OAuth do Yandex</string>
     <string name="revanced_vot_original_audio_volume_summary">Volume do áudio original do video quando a tradução está sendo reproduzida (0-100). Padrão: 50</string>
     <string name="revanced_vot_original_audio_volume_title">Volume do áudio original</string>
     <string name="revanced_vot_playback_error">Falha ao reproduzir áudio traduzido.</string>
