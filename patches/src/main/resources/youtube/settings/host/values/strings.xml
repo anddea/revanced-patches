@@ -20,6 +20,8 @@ Tap the continue button and allow optimization changes."</string>
     <string name="gms_core_settings_summary">To receive notifications in RVX, enable Cloud Messaging.</string>
     <string name="gms_core_settings_title">Open GmsCore settings</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
+    <string name="morphe_disable_auto_hide_navigation_bar_summary">Keeps the navigation bar visible while scrolling</string>
+    <string name="morphe_disable_auto_hide_navigation_bar_title">Disable auto-hiding navigation bar</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC audio is enabled</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC audio is disabled</string>
     <string name="morphe_disable_drc_audio_title">Disable DRC audio</string>
@@ -30,6 +32,7 @@ Tap the continue button and allow optimization changes."</string>
     <string name="morphe_force_original_audio_summary_off">Using default audio</string>
     <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
     <string name="morphe_force_original_audio_title">Force original audio language</string>
+    <string name="morphe_hide_sync_button_title">Hide \'Sync to video\' button</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Cannot sign in to VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Cannot sign in to VR, website authentication was not approved</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 is temporarily not available</string>
@@ -41,6 +44,8 @@ Tap the continue button and allow optimization changes."</string>
     <string name="morphe_reload_video_summary_off">Reload video button is hidden.</string>
     <string name="morphe_reload_video_summary_on">Reload video button is shown.</string>
     <string name="morphe_reload_video_title">Show reload video button</string>
+    <string name="morphe_replace_links_with_shortener_summary">Forces live streams and Shorts to use the shortened youtu.be URL format</string>
+    <string name="morphe_replace_links_with_shortener_title">Change share links to youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Change share links to youtube.com</string>
@@ -72,7 +77,6 @@ Video playback with AV1 may stutter or drop frames."</string>
 • Playback fails if the Player JavaScript hash is revoked in GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Disable player JavaScript update</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Player JavaScript hashes are valid for approximately one month, and outdated hashes may be revoked by GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Try enabling: Spoof video streams &gt; Android VR sign in</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Could not fetch any client streams</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Enter a valid player JavaScript hash</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player JavaScript hash</string>
@@ -213,12 +217,6 @@ If there are server-side changes, the background color of the snack bar may not 
     <string name="revanced_change_share_sheet_summary_off">In-app share sheet is used.</string>
     <string name="revanced_change_share_sheet_summary_on">System share sheet is used.</string>
     <string name="revanced_change_share_sheet_title">Change share sheet</string>
-    <string name="revanced_change_shorts_background_repeat_state_title">Change Shorts background repeat state</string>
-    <string name="revanced_change_shorts_repeat_state_entry_auto_play">Autoplay</string>
-    <string name="revanced_change_shorts_repeat_state_entry_default">Default</string>
-    <string name="revanced_change_shorts_repeat_state_entry_pause">Pause</string>
-    <string name="revanced_change_shorts_repeat_state_entry_repeat">Repeat</string>
-    <string name="revanced_change_shorts_repeat_state_title">Change Shorts repeat state</string>
     <string name="revanced_change_start_page_entry_all_subscriptions">All subscriptions</string>
     <string name="revanced_change_start_page_entry_browse">Browse channels</string>
     <string name="revanced_change_start_page_entry_courses">Courses / Learning</string>
@@ -599,16 +597,6 @@ As a workaround, the app version is spoofed to 19.26.42 in the '/get_watch' endp
 If you turn off this setting, the Hype icon may not show in the video action bar and video description panel.
 
 ※ Even if this setting is turned off, the Hype button may not be hidden."</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_off">"The 'Playback' setting is used instead of the 'Autoplay' setting.</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_summary_on">"The 'Autoplay' setting is used instead of the 'Playback' setting."</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_title">Fix Spoof app version side effect</string>
-    <string name="revanced_fix_spoof_app_version_side_effect_user_dialog_message">"If the app version has been spoofed to 19.30 or earlier even once, the 'Playback' setting may be broken.
-
-This depends on what response the app receives from the server.
-
-If the 'Playback' setting is broken, turning on this setting may resolve the issue.
-
-If the 'Playback' setting is still broken even after enabling or disabling this setting, then you should clear the app data."</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">Tap and hold speed may sometimes be activated even if the user does not tap and hold.</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"Tap and hold speed is only activated when the user taps and holds.
 
@@ -770,6 +758,13 @@ Store"</string>
     <string name="revanced_hide_comments_by_members_summary_off">Comments by members banner is shown.</string>
     <string name="revanced_hide_comments_by_members_summary_on">Comments by members banner is hidden.</string>
     <string name="revanced_hide_comments_by_members_title">Hide Comments by members banner</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_summary">Enter the comments carousel names to filter by, separated by new lines</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">Comments carousel filter</string>
+    <string name="revanced_hide_comments_carousel_title">Enable comments carousel filter</string>
+    <string name="revanced_hide_comments_carousel_user_dialog_message">"Note:
+• Make sure to enter the exact name of the carousel item (e.g. Ask, Hype this video, Listen on YouTube Music, etc.).
+• Hiding carousel items may have unintended side effects.
+• If all carousel items are hidden, the entire comments section will also be hidden."</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Create a Short button is shown.</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Create a Short button is hidden.</string>
     <string name="revanced_hide_comments_create_a_short_button_title">Hide Create a Short button</string>
@@ -829,9 +824,12 @@ Limitation: Some highlighted search links that do not have a default text style 
 Autoplay can be changed in YouTube settings:
 Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_hide_end_screen_suggested_video_title">Hide end screen suggested video</string>
-    <string name="revanced_hide_expandable_card_summary_off">Expandable card under videos is shown.</string>
-    <string name="revanced_hide_expandable_card_summary_on">Expandable card under videos is hidden.</string>
-    <string name="revanced_hide_expandable_card_title">Hide expandable card</string>
+    <string name="revanced_hide_expandable_card_entry_1">Show all</string>
+    <string name="revanced_hide_expandable_card_entry_2">Hide product card only</string>
+    <string name="revanced_hide_expandable_card_entry_3">Hide summary card only</string>
+    <string name="revanced_hide_expandable_card_entry_4">Hide product and summary cards</string>
+    <string name="revanced_hide_expandable_card_entry_5">Hide all</string>
+    <string name="revanced_hide_expandable_card_title">Expandable cards under videos</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Expandable shelves are shown.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Expandable shelves are hidden.</string>
     <string name="revanced_hide_expandable_shelf_title">Hide expandable shelves</string>
@@ -1088,6 +1086,7 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_summary_off">Watch in VR menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_summary_on">Watch in VR menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_title">Hide Watch in VR menu</string>
+    <string name="revanced_hide_player_flyout_quality_title">Hide quality menu</string>
     <string name="revanced_hide_player_fullscreen_button_summary_off">Fullscreen button is shown.</string>
     <string name="revanced_hide_player_fullscreen_button_summary_on">"Fullscreen button is hidden.
 
@@ -1167,6 +1166,9 @@ If the layout of the player screen changes due to server-side changes, unintende
     <string name="revanced_hide_rewards_button_summary_off">Rewards button is shown.</string>
     <string name="revanced_hide_rewards_button_summary_on">Rewards button is hidden.</string>
     <string name="revanced_hide_rewards_button_title">Hide Rewards button</string>
+    <string name="revanced_hide_search_bar_back_button_summary_off">Search bar back button is shown.</string>
+    <string name="revanced_hide_search_bar_back_button_summary_on">Search bar back button is hidden.</string>
+    <string name="revanced_hide_search_bar_back_button_title">Hide search bar back button</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">Thumbnails in search term history are shown.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Thumbnails in search term history are hidden.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Hide search term thumbnails</string>
@@ -1257,6 +1259,9 @@ Info:
     <string name="revanced_hide_settings_menu_subscription_product_summary_on">Purchases and memberships menu is hidden.</string>
     <string name="revanced_hide_settings_menu_subscription_product_title">Hide Purchases and memberships menu</string>
     <string name="revanced_hide_settings_menu_summary">Hide elements of the YouTube settings menu.</string>
+    <string name="revanced_hide_settings_menu_time_management_summary_off">Time management menu is shown.</string>
+    <string name="revanced_hide_settings_menu_time_management_summary_on">Time management menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_time_management_title">Hide Time management menu</string>
     <string name="revanced_hide_settings_menu_title">Hide YouTube settings menu</string>
     <string name="revanced_hide_settings_menu_video_quality_summary_off">Video quality preferences menu is shown.</string>
     <string name="revanced_hide_settings_menu_video_quality_summary_on">Video quality preferences menu is hidden.</string>
@@ -1565,121 +1570,64 @@ Known issue: When this setting is enabled, YouTube Doodles are not clickable."</
     <string name="revanced_keep_landscape_mode_timeout_summary">The amount of milliseconds the landscape mode is forced after the screen in turned on.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Keep landscape mode timeout</string>
     <string name="revanced_keep_landscape_mode_title">Keep landscape mode</string>
-    <string name="revanced_language_AM">"Amharic
-<small>አማርኛ</small>"</string>
-    <string name="revanced_language_AR">"Arabic
-<small>العربية</small>"</string>
-    <string name="revanced_language_AZ">"Azerbaijani
-<small>Azərbaycan</small>"</string>
-    <string name="revanced_language_BE">"Belarusian
-<small>беларуская</small>"</string>
-    <string name="revanced_language_BG">"Bulgarian
-<small>Български</small>"</string>
-    <string name="revanced_language_BN">"Bengali
-<small>বাংলা</small>"</string>
-    <string name="revanced_language_CA">"Catalan
-<small>Català</small>"</string>
-    <string name="revanced_language_CS">"Czech
-<small>Čeština</small>"</string>
-    <string name="revanced_language_DA">"Danish
-<small>Dansk</small>"</string>
-    <string name="revanced_language_DE">"German
-<small>Deutsch</small>"</string>
+    <string name="revanced_language_AM">Amharic\n<small>አማርኛ</small></string>
+    <string name="revanced_language_AR">Arabic\n<small>العربية</small></string>
+    <string name="revanced_language_AZ">Azerbaijani\n<small>Azərbaycan</small></string>
+    <string name="revanced_language_BE">Belarusian\n<small>беларуская</small></string>
+    <string name="revanced_language_BG">Bulgarian\n<small>Български</small></string>
+    <string name="revanced_language_BN">Bengali\n<small>বাংলা</small></string>
+    <string name="revanced_language_CA">Catalan\n<small>Català</small></string>
+    <string name="revanced_language_CS">Czech\n<small>Čeština</small></string>
+    <string name="revanced_language_DA">Danish\n<small>Dansk</small></string>
+    <string name="revanced_language_DE">German\n<small>Deutsch</small></string>
     <string name="revanced_language_DEFAULT">App language</string>
-    <string name="revanced_language_EL">"Greek
-<small>Ελληνικά</small>"</string>
-    <string name="revanced_language_EN">"English
-<small>English</small>"</string>
-    <string name="revanced_language_ES">"Spanish
-<small>Español</small>"</string>
-    <string name="revanced_language_ET">"Estonian
-<small>Eesti</small>"</string>
-    <string name="revanced_language_FA">"Persian
-<small>فارسی</small>"</string>
-    <string name="revanced_language_FI">"Finnish
-<small>Suomi</small>"</string>
-    <string name="revanced_language_FR">"French
-<small>Français</small>"</string>
-    <string name="revanced_language_GA">"Gaeilge
-<small>Gaeilge</small>"</string>
-    <string name="revanced_language_GU">"Gujarati
-<small>ગુજરાતી</small>"</string>
-    <string name="revanced_language_HE">"Hebrew
-<small>עברי</small>"</string>
-    <string name="revanced_language_HI">"Hindi
-<small>हिन्दी</small>"</string>
-    <string name="revanced_language_HR">"Croatian
-<small>Hrvatski</small>"</string>
-    <string name="revanced_language_HU">"Hungarian
-<small>Magyar</small>"</string>
-    <string name="revanced_language_ID">"Indonesian
-<small>Indonesia</small>"</string>
-    <string name="revanced_language_IT">"Italian
-<small>Italiano</small>"</string>
-    <string name="revanced_language_JA">"Japanese
-<small>日本語</small>"</string>
-    <string name="revanced_language_KK">"Kazakh
-<small>Қазақ тілі</small>"</string>
-    <string name="revanced_language_KO">"Korean
-<small>한국어</small>"</string>
-    <string name="revanced_language_LT">"Lithuanian
-<small>Lietuvių</small>"</string>
-    <string name="revanced_language_LV">"Latvian
-<small>Latviešu</small>"</string>
-    <string name="revanced_language_MK">"Macedonian
-<small>Македонски</small>"</string>
-    <string name="revanced_language_MN">"Mongolian
-<small>Монгол</small>"</string>
-    <string name="revanced_language_MR">"Marathi
-<small>मराठी</small>"</string>
-    <string name="revanced_language_MS">"Malay
-<small>Melayu</small>"</string>
-    <string name="revanced_language_MY">"Burmese
-<small>ဗမာ</small>"</string>
-    <string name="revanced_language_NL">"Dutch
-<small>Nederlands</small>"</string>
-    <string name="revanced_language_OR">"Odia
-<small>ଓଡ଼ିଆ</small>"</string>
-    <string name="revanced_language_PA">"Punjabi
-<small>ਪੰਜਾਬੀ</small>"</string>
-    <string name="revanced_language_PL">"Polish
-<small>Polski</small>"</string>
-    <string name="revanced_language_PT">"Portuguese
-<small>Português</small>"</string>
-    <string name="revanced_language_RO">"Romanian
-<small>Română</small>"</string>
-    <string name="revanced_language_RU">"Russian
-<small>Русский</small>"</string>
-    <string name="revanced_language_SK">"Slovak
-<small>Slovenčina</small>"</string>
-    <string name="revanced_language_SL">"Slovene
-<small>Slovenščina</small>"</string>
-    <string name="revanced_language_SQ">"Albanian
-<small>Shqip</small>"</string>
-    <string name="revanced_language_SR">"Serbian
-<small>Српски</small>"</string>
-    <string name="revanced_language_SV">"Swedish
-<small>Svenska</small>"</string>
-    <string name="revanced_language_SW">"Swahili
-<small>Kiswahili</small>"</string>
-    <string name="revanced_language_TA">"Tamil
-<small>தமிழ்</small>"</string>
-    <string name="revanced_language_TE">"Telugu
-<small>తెలుగు</small>"</string>
-    <string name="revanced_language_TH">"Thai
-<small>ไทย</small>"</string>
-    <string name="revanced_language_TL">"Filipino
-<small>Filipino</small>"</string>
-    <string name="revanced_language_TR">"Turkish
-<small>Türkçe</small>"</string>
-    <string name="revanced_language_UK">"Ukrainian
-<small>Українська</small>"</string>
-    <string name="revanced_language_UR">"Urdu
-<small>اردو</small>"</string>
-    <string name="revanced_language_VI">"Vietnamese
-<small>Tiếng Việt</small>"</string>
-    <string name="revanced_language_ZH">"Chinese
-<small>中文</small>"</string>
+    <string name="revanced_language_EL">Greek\n<small>Ελληνικά</small></string>
+    <string name="revanced_language_EN">English\n<small>English</small></string>
+    <string name="revanced_language_ES">Spanish\n<small>Español</small></string>
+    <string name="revanced_language_ET">Estonian\n<small>Eesti</small></string>
+    <string name="revanced_language_FA">Persian\n<small>فارسی</small></string>
+    <string name="revanced_language_FI">Finnish\n<small>Suomi</small></string>
+    <string name="revanced_language_FR">French\n<small>Français</small></string>
+    <string name="revanced_language_GA">Gaeilge\n<small>Gaeilge</small></string>
+    <string name="revanced_language_GU">Gujarati\n<small>ગુજરાતી</small></string>
+    <string name="revanced_language_HE">Hebrew\n<small>עברי</small></string>
+    <string name="revanced_language_HI">Hindi\n<small>हिन्दी</small></string>
+    <string name="revanced_language_HR">Croatian\n<small>Hrvatski</small></string>
+    <string name="revanced_language_HU">Hungarian\n<small>Magyar</small></string>
+    <string name="revanced_language_ID">Indonesian\n<small>Indonesia</small></string>
+    <string name="revanced_language_IT">Italian\n<small>Italiano</small></string>
+    <string name="revanced_language_JA">Japanese\n<small>日本語</small></string>
+    <string name="revanced_language_KK">Kazakh\n<small>Қазақ тілі</small></string>
+    <string name="revanced_language_KO">Korean\n<small>한국어</small></string>
+    <string name="revanced_language_LT">Lithuanian\n<small>Lietuvių</small></string>
+    <string name="revanced_language_LV">Latvian\n<small>Latviešu</small></string>
+    <string name="revanced_language_MK">Macedonian\n<small>Македонски</small></string>
+    <string name="revanced_language_MN">Mongolian\n<small>Монгол</small></string>
+    <string name="revanced_language_MR">Marathi\n<small>मराठी</small></string>
+    <string name="revanced_language_MS">Malay\n<small>Melayu</small></string>
+    <string name="revanced_language_MY">Burmese\n<small>ဗမာ</small></string>
+    <string name="revanced_language_NL">Dutch\n<small>Nederlands</small></string>
+    <string name="revanced_language_OR">Odia\n<small>ଓଡ଼ିଆ</small></string>
+    <string name="revanced_language_PA">Punjabi\n<small>ਪੰਜਾਬੀ</small></string>
+    <string name="revanced_language_PL">Polish\n<small>Polski</small></string>
+    <string name="revanced_language_PT">Portuguese\n<small>Português</small></string>
+    <string name="revanced_language_RO">Romanian\n<small>Română</small></string>
+    <string name="revanced_language_RU">Russian\n<small>Русский</small></string>
+    <string name="revanced_language_SK">Slovak\n<small>Slovenčina</small></string>
+    <string name="revanced_language_SL">Slovene\n<small>Slovenščina</small></string>
+    <string name="revanced_language_SQ">Albanian\n<small>Shqip</small></string>
+    <string name="revanced_language_SR">Serbian\n<small>Српски</small></string>
+    <string name="revanced_language_SV">Swedish\n<small>Svenska</small></string>
+    <string name="revanced_language_SW">Swahili\n<small>Kiswahili</small></string>
+    <string name="revanced_language_TA">Tamil\n<small>தமிழ்</small></string>
+    <string name="revanced_language_TE">Telugu\n<small>తెలుగు</small></string>
+    <string name="revanced_language_TH">Thai\n<small>ไทย</small></string>
+    <string name="revanced_language_TL">Filipino\n<small>Filipino</small></string>
+    <string name="revanced_language_TR">Turkish\n<small>Türkçe</small></string>
+    <string name="revanced_language_UK">Ukrainian\n<small>Українська</small></string>
+    <string name="revanced_language_UR">Urdu\n<small>اردو</small></string>
+    <string name="revanced_language_VI">Vietnamese\n<small>Tiếng Việt</small></string>
+    <string name="revanced_language_ZH">Chinese\n<small>中文</small></string>
     <string name="revanced_language_title">RVX language</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Double-tap action and pinch to resize is enabled.
@@ -2040,6 +1988,7 @@ Tap and hold to open YouTube settings."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear in fullscreen.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar thumbnails will appear above the seekbar.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Restore old seekbar thumbnails</string>
+    <string name="revanced_restore_old_settings_menus_title">Restore old YouTube settings screen</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Old player layout is not used.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Old player layout is used.
 No margins on top and bottom of player."</string>
@@ -2094,8 +2043,6 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sanitize_comments_category_bar_summary_off">Category buttons are shown in the comment category bar.</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">"Category buttons except 'Top' and 'Newest' are hidden in the comment category bar."</string>
     <string name="revanced_sanitize_comments_category_bar_title">Sanitize category bar</string>
-    <string name="revanced_sanitize_sharing_links_summary">Sanitizes sharing links by removing tracking query parameters.</string>
-    <string name="revanced_sanitize_sharing_links_title">Sanitize sharing links</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' are shown from the video subtitles."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' are hidden from the video subtitles."</string>
     <string name="revanced_sanitize_video_subtitle_title">Sanitize video subtitle</string>
@@ -2177,9 +2124,16 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Invalid time given.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Edit timing of segment manually</string>
     <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
+    <string name="revanced_sb_new_segment_highlight_content">"Is the highlight time correct?
+
+%s
+
+If you\'re not submitting a highlight, tap Cancel and mark the second location."</string>
+    <string name="revanced_sb_new_segment_highlight_submit">Submit highlight</string>
+    <string name="revanced_sb_new_segment_highlight_title">Submit highlight</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">Set %s as the start or end of a new segment?</string>
     <string name="revanced_sb_new_segment_mark_end">End</string>
-    <string name="revanced_sb_new_segment_mark_locations_first">Mark two locations on the time bar first.</string>
+    <string name="revanced_sb_new_segment_mark_locations_first">First mark a location on the time bar.</string>
     <string name="revanced_sb_new_segment_mark_start">Start</string>
     <string name="revanced_sb_new_segment_now">Now</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Preview the segment, and ensure it skips smoothly.</string>
@@ -2309,6 +2263,14 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_vote_no_segments">There are no segments to vote for.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s to %2$s</string>
     <string name="revanced_sb_vote_upvote">Upvote</string>
+    <string name="revanced_search_in_channel_query_hint">Search this channel</string>
+    <string name="revanced_search_in_channel_search">Search</string>
+    <string name="revanced_search_in_channel_search_youtube">Search YouTube</string>
+    <string name="revanced_search_in_channel_title">Search channel</string>
+    <string name="revanced_search_in_channel_use_webview_summary_off">Channel search uses native YouTube search. This will show some irrelevant results.</string>
+    <string name="revanced_search_in_channel_use_webview_summary_on">Channel search opens the mobile web channel search page.</string>
+    <string name="revanced_search_in_channel_use_webview_title">Use WebView for channel search</string>
+    <string name="revanced_search_in_channel_webview_unavailable">WebView is not available. Using native channel search.</string>
     <string name="revanced_search_settings_category_title">Search settings</string>
     <string name="revanced_search_title">Search</string>
     <string name="revanced_send">Send</string>
@@ -2334,6 +2296,9 @@ This may not work if:
 • YouTube Transcript API no longer validates Cookies."</string>
     <string name="revanced_settings_color_invalid">Invalid color.</string>
     <string name="revanced_settings_color_picker">Color picker</string>
+    <string name="revanced_settings_disable_bold_icons_summary_off">Icons are bold.</string>
+    <string name="revanced_settings_disable_bold_icons_summary_on">Icons are not bold.</string>
+    <string name="revanced_settings_disable_bold_icons_title">Disable bold icons</string>
     <string name="revanced_settings_export_failed">Failed to export settings.</string>
     <string name="revanced_settings_export_success">Settings were successfully exported.</string>
     <string name="revanced_settings_export_summary">Export settings to a file.</string>
@@ -2374,6 +2339,12 @@ This may not work if:
     <string name="revanced_share_copy_url_success">URL copied to clipboard.</string>
     <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied to clipboard.</string>
     <string name="revanced_share_copy_video_information_success">Video information copied to clipboard.</string>
+    <string name="revanced_shorts_autoplay_background_summary">Automatically advance to the next Short during background playback.</string>
+    <string name="revanced_shorts_autoplay_background_title">Autoplay in background</string>
+    <string name="revanced_shorts_autoplay_disabled_toast">Shorts autoplay disabled</string>
+    <string name="revanced_shorts_autoplay_enabled_toast">Shorts autoplay enabled</string>
+    <string name="revanced_shorts_autoplay_summary">Automatically advance to the next Short instead of repeating the current Short.</string>
+    <string name="revanced_shorts_autoplay_title">Autoplay Shorts</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"This feature is still experimental, so there is no guarantee that it will work perfectly.
 
 Most bugs cannot be fixed due to client-side limitations, so use it only for testing purposes."</string>
@@ -2401,10 +2372,10 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_shorts_custom_actions_open_video_summary_off">Open video menu is hidden.</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">Open video menu is shown.</string>
     <string name="revanced_shorts_custom_actions_open_video_title">Show open video menu</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_label">Repeat state</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">Repeat state menu is hidden.</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">Repeat state menu is shown.</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_title">Show repeat state menu</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_label">Autoplay Shorts</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">Autoplay Shorts toggle is hidden.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">Autoplay Shorts toggle is shown.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_title">Show Autoplay Shorts toggle</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_label">Speed dialog</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_summary_off">Speed dialog menu is hidden.</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_summary_on">Speed dialog menu is shown.</string>
@@ -2416,6 +2387,10 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_shorts_custom_actions_speed_summary_on">Playback speed menu is shown.\n\nInfo:\n• Shorts default playback speed should be enabled.\n• The selected speed will be applied to the next video.</string>
     <string name="revanced_shorts_custom_actions_speed_title">Show playback speed menu</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Custom actions</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_label">Voice-over translation</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_off">Voice-over translation menu is hidden. Custom actions in Shorts settings should be enabled.</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_on">Voice-over translation menu is shown. Custom actions in Shorts settings should be enabled.</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_title">Voice-over translation in Shorts</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Original</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Thumbs up</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Thumbs up (Cairo)</string>
@@ -2712,19 +2687,42 @@ Disclaimer: Cookies issued without signing in may be invalid or may take time to
     <string name="revanced_transcript_cookies_summary">Cookies to use in Transcript API requests.</string>
     <string name="revanced_transcript_cookies_title">Transcript Cookies</string>
     <string name="revanced_translations_title">Translations</string>
+    <string name="revanced_vot_about_summary">"Voice-Over Translation provides translated audio tracks for YouTube videos using Yandex VoT.
+
+If Yandex servers are unavailable in your region, use the «Proxy audio stream» option.
+
+Authorization is required to request translation with live voices for videos that do not yet have one."</string>
+    <string name="revanced_vot_about_title">About Voice-Over Translation</string>
     <string name="revanced_vot_audio_proxy_summary_off">Audio stream uses direct URL</string>
     <string name="revanced_vot_audio_proxy_summary_on">Audio stream is proxied through the worker</string>
     <string name="revanced_vot_audio_proxy_title">Proxy audio stream</string>
+    <string name="revanced_vot_auth_required">Authorization required. Add Yandex OAuth token in settings.</string>
     <string name="revanced_vot_enabled_summary_off">Yandex voice-over translation is disabled</string>
     <string name="revanced_vot_enabled_summary_on">Yandex voice-over translation is enabled</string>
-    <string name="revanced_vot_enabled_title">Enable Voice Over Translation</string>
+    <string name="revanced_vot_enabled_title">Enable voice-over translation</string>
     <string name="revanced_vot_lang_auto">Auto-detect</string>
     <string name="revanced_vot_live_voices_unavailable">Live voices unavailable, using standard</string>
-    <string name="revanced_vot_original_audio_volume_summary">Volume of the original video track when translation is playing (0-100). Default: 50</string>
+    <string name="revanced_vot_oauth_account_management_title">Yandex OAuth token</string>
+    <string name="revanced_vot_oauth_auth_method_message">Choose authorization method</string>
+    <string name="revanced_vot_oauth_auth_method_title">Yandex authorization</string>
+    <string name="revanced_vot_oauth_enter_manually_button">Enter token manually</string>
+    <string name="revanced_vot_oauth_enter_token_title">Enter token manually</string>
+    <string name="revanced_vot_oauth_expired_summary">Token expired. Sign in again.</string>
+    <string name="revanced_vot_oauth_invalid_token">Invalid token</string>
+    <string name="revanced_vot_oauth_no_network">No network connection</string>
+    <string name="revanced_vot_oauth_not_signed_in_summary">Not authorized</string>
+    <string name="revanced_vot_oauth_sign_in_button">Sign in with Yandex</string>
+    <string name="revanced_vot_oauth_sign_out_button">Sign out</string>
+    <string name="revanced_vot_oauth_signed_in_expires">Signed in as %1$s (expires in %2$d days)</string>
+    <string name="revanced_vot_oauth_signed_in_summary">Signed in as %s</string>
+    <string name="revanced_vot_oauth_switch_token_button">Enter another token</string>
+    <string name="revanced_vot_oauth_token_summary">Required for live voices.</string>
+    <string name="revanced_vot_oauth_token_title">Yandex OAuth token</string>
+    <string name="revanced_vot_original_audio_volume_summary">Volume of the original video track when translation is playing (0-100). Default: 20</string>
     <string name="revanced_vot_original_audio_volume_title">Original audio volume</string>
     <string name="revanced_vot_percent_value">%d%%</string>
     <string name="revanced_vot_playback_error">Failed to play translation audio</string>
-    <string name="revanced_vot_proxy_url_summary">VOT worker proxy host. Default: vot-worker.toil.cc</string>
+    <string name="revanced_vot_proxy_url_summary">VOT worker proxy host. Default: auto-detected</string>
     <string name="revanced_vot_proxy_url_title">Proxy server</string>
     <string name="revanced_vot_source_language_summary">Select the language of the video audio</string>
     <string name="revanced_vot_source_language_title">Source language</string>

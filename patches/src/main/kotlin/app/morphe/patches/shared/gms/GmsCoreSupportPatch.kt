@@ -223,7 +223,7 @@ fun gmsCoreSupportPatch(
             }
         }
 
-        // region Collection of transformations that are applied to all strings.
+        // region Collection of transformations that are applied to all strings
 
         fun commonTransform(referencedString: String): String? =
             when (referencedString) {

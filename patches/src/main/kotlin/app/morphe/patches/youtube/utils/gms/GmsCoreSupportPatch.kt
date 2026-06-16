@@ -3,7 +3,7 @@ package app.morphe.patches.youtube.utils.gms
 import app.morphe.patcher.patch.Option
 import app.morphe.patches.shared.gms.gmsCoreSupportPatch
 import app.morphe.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.fix.streamingdata.spoofStreamingDataPatch
@@ -22,7 +22,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 }
 
 private fun gmsCoreSupportResourcePatch(

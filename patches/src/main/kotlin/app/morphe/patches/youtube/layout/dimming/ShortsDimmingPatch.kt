@@ -1,7 +1,7 @@
 package app.morphe.patches.youtube.layout.dimming
 
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_SHORTS_DIMMING
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
@@ -13,7 +13,7 @@ val shortsDimmingPatch = resourcePatch(
     HIDE_SHORTS_DIMMING.summary,
     false,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(settingsPatch)
 

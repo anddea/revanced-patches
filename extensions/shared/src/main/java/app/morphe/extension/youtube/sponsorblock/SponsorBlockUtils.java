@@ -34,6 +34,7 @@ import app.morphe.extension.youtube.sponsorblock.objects.SegmentCategory;
 import app.morphe.extension.youtube.sponsorblock.objects.SponsorSegment;
 import app.morphe.extension.youtube.sponsorblock.objects.SponsorSegment.SegmentVote;
 import app.morphe.extension.youtube.sponsorblock.requests.SBRequester;
+import app.morphe.extension.youtube.sponsorblock.requests.SBRequester.SegmentSubmitAction;
 import app.morphe.extension.youtube.sponsorblock.ui.SponsorBlockViewController;
 
 /**
@@ -70,7 +71,7 @@ public class SponsorBlockUtils {
         @Override
         public void onClick(DialogInterface dialog, int which) {
             try {
-                SegmentCategory category = SegmentCategory.categoriesWithoutHighlights()[which];
+                SegmentCategory category = SegmentCategory.categoriesWithoutUnsubmitted()[which];
                 final boolean enableButton;
                 if (category.behaviour == CategoryBehaviour.IGNORE) {
                     Utils.showToastLong(str("revanced_sb_new_segment_disabled_category"));
@@ -96,7 +97,7 @@ public class SponsorBlockUtils {
                 Context context = ((AlertDialog) dialog).getContext();
                 dialog.dismiss();
 
-                SegmentCategory[] categories = SegmentCategory.categoriesWithoutHighlights();
+                SegmentCategory[] categories = SegmentCategory.categoriesWithoutUnsubmitted();
                 CharSequence[] titles = new CharSequence[categories.length];
                 for (int i = 0, length = categories.length; i < length; i++) {
                     titles[i] = categories[i].getTitleWithColorDot();
@@ -225,18 +226,24 @@ public class SponsorBlockUtils {
         try {
             Utils.verifyOnMainThread();
             final long start = newSponsorSegmentStartMillis;
-            final long end = newSponsorSegmentEndMillis;
             final String videoId = SegmentPlaybackController.getVideoId();
             final long videoLength = SegmentPlaybackController.getVideoLength();
             final SegmentCategory segmentCategory = newUserCreatedSegmentCategory;
-            if (start < 0 || end < 0 || start >= end || videoLength <= 0 || videoId.isEmpty() || segmentCategory == null) {
+            if (start < 0 || videoLength <= 0 || videoId.isEmpty() || segmentCategory == null) {
                 Logger.printException(() -> "invalid parameters");
                 return;
             }
+            final boolean isHighlight = segmentCategory == SegmentCategory.HIGHLIGHT;
+            final long end = isHighlight ? start : newSponsorSegmentEndMillis;
+            if (!isHighlight && (end < 0 || start >= end)) {
+                Logger.printException(() -> "invalid parameters");
+                return;
+            }
+            SegmentSubmitAction submitAction = isHighlight ? SegmentSubmitAction.HIGHLIGHT : SegmentSubmitAction.SKIP;
             clearUnsubmittedSegmentTimes();
             Utils.runOnBackgroundThread(() -> {
                 try {
-                    SBRequester.submitSegments(videoId, segmentCategory.keyValue, start, end, videoLength);
+                    SBRequester.submitSegments(videoId, segmentCategory, submitAction, start, end, videoLength);
                     SegmentPlaybackController.executeDownloadSegments(videoId);
                 } catch (Exception ex) {
                     Logger.printException(() -> "submitNewSegment failure", ex);
@@ -268,11 +275,27 @@ public class SponsorBlockUtils {
     public static void onPublishClicked() {
         try {
             Utils.verifyOnMainThread();
-            if (newSponsorSegmentStartMillis < 0 || newSponsorSegmentEndMillis < 0) {
+            final boolean hasStart = newSponsorSegmentStartMillis >= 0;
+            final boolean hasEnd = newSponsorSegmentEndMillis >= 0;
+            if (!hasStart && !hasEnd) {
+                Utils.showToastShort(str("revanced_sb_new_segment_mark_locations_first"));
+            } else if (hasStart && !hasEnd) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
+                        .setTitle(str("revanced_sb_new_segment_highlight_title"))
+                        .setMessage(str("revanced_sb_new_segment_highlight_content",
+                                formatSegmentTime(newSponsorSegmentStartMillis)))
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .setPositiveButton(str("revanced_sb_new_segment_highlight_submit"), (dialog, which) -> {
+                            newUserCreatedSegmentCategory = SegmentCategory.HIGHLIGHT;
+                            newSponsorSegmentEndMillis = newSponsorSegmentStartMillis;
+                            submitNewSegment();
+                        });
+                setAlertDialogThemeAndShow(builder);
+            } else if (!hasStart) {
                 Utils.showToastShort(str("revanced_sb_new_segment_mark_locations_first"));
             } else if (newSponsorSegmentStartMillis >= newSponsorSegmentEndMillis) {
                 Utils.showToastShort(str("revanced_sb_new_segment_start_is_before_end"));
-            } else if (!newSponsorSegmentPreviewed && newSponsorSegmentStartMillis != 0) {
+            } else if (!newSponsorSegmentPreviewed) {
                 Utils.showToastLong(str("revanced_sb_new_segment_preview_segment_first"));
             } else {
                 final long segmentLength = (newSponsorSegmentEndMillis - newSponsorSegmentStartMillis) / 1000;
@@ -488,17 +511,15 @@ public class SponsorBlockUtils {
         long seconds;
 
         if (Utils.isSDKAbove(26)) {
-            final Duration duration = Duration.ofMillis(totalSecondsSaved);
+            final Duration duration = Duration.ofSeconds(totalSecondsSaved);
 
             hours = duration.toHours();
             minutes = duration.toMinutes() % 60;
             seconds = duration.getSeconds() % 60;
         } else {
-            final long currentVideoTimeInSeconds = totalSecondsSaved / 1000;
-
-            hours = currentVideoTimeInSeconds / (60 * 60);
-            minutes = (currentVideoTimeInSeconds / 60) % 60;
-            seconds = currentVideoTimeInSeconds % 60;
+            hours = totalSecondsSaved / (60 * 60);
+            minutes = (totalSecondsSaved / 60) % 60;
+            seconds = totalSecondsSaved % 60;
         }
 
         // Format all numbers so non-western numbers use a consistent appearance.

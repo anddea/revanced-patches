@@ -2,7 +2,7 @@ package app.morphe.patches.youtube.general.autocaptions
 
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.shared.captions.baseAutoCaptionsPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.DISABLE_FORCED_AUTO_CAPTIONS
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
@@ -12,7 +12,7 @@ val autoCaptionsPatch = bytecodePatch(
     DISABLE_FORCED_AUTO_CAPTIONS.title,
     DISABLE_FORCED_AUTO_CAPTIONS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         baseAutoCaptionsPatch,

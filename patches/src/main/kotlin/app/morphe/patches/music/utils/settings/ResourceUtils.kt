@@ -9,6 +9,11 @@ import app.morphe.util.doRecursively
 import app.morphe.util.findElementByAttributeValueOrThrow
 import app.morphe.util.insertNode
 import org.w3c.dom.Element
+import javax.xml.parsers.DocumentBuilderFactory
+import javax.xml.transform.OutputKeys
+import javax.xml.transform.TransformerFactory
+import javax.xml.transform.dom.DOMSource
+import javax.xml.transform.stream.StreamResult
 
 internal object ResourceUtils {
     private lateinit var context: ResourcePatchContext
@@ -18,8 +23,10 @@ internal object ResourceUtils {
     }
 
     private const val RVX_SETTINGS_KEY = "revanced_settings"
+    private const val REVANCED_SETTINGS_INTENT = "revanced_settings_intent"
 
     const val SETTINGS_HEADER_PATH = "res/xml/settings_headers.xml"
+    const val RVX_PREFERENCE_PATH = "res/xml/revanced_prefs.xml"
 
     const val PREFERENCE_SCREEN_TAG_NAME =
         "PreferenceScreen"
@@ -323,6 +330,14 @@ internal object ResourceUtils {
                             )
                             setAttribute("android:key", "revanced_settings")
                             setAttribute("app:allowDividerAbove", "false")
+                            this.adoptChild("intent") {
+                                setAttribute("android:targetPackage", musicPackageName)
+                                setAttribute("android:data", REVANCED_SETTINGS_INTENT)
+                                setAttribute(
+                                    "android:targetClass",
+                                    ACTIVITY_HOOK_TARGET_CLASS
+                                )
+                            }
                         }
                         it.getAttributeNode("app:allowDividerBelow").textContent = "true"
                         return@node
@@ -339,6 +354,73 @@ internal object ResourceUtils {
                     }
                 }
             }
+        }
+    }
+
+    fun writeSearchPreferenceFile() {
+        context.document(SETTINGS_HEADER_PATH).use { document ->
+            var rvxSettingsElement: Element? = null
+            document.doRecursively node@{
+                if (rvxSettingsElement != null || it !is Element) return@node
+
+                if (it.getAttribute("android:key") == RVX_SETTINGS_KEY) {
+                    rvxSettingsElement = it
+                }
+            }
+
+            val sourceElement = rvxSettingsElement ?: return
+            val searchDocument = DocumentBuilderFactory.newInstance()
+                .newDocumentBuilder()
+                .newDocument()
+            val searchRoot = searchDocument.importNode(sourceElement, true) as Element
+            searchRoot.setAttribute("xmlns:android", "http://schemas.android.com/apk/res/android")
+            searchRoot.setAttribute("xmlns:app", "http://schemas.android.com/apk/res-auto")
+            searchDocument.appendChild(searchRoot)
+
+            removeRootIntent(searchRoot)
+            normalizeSearchPreferenceTags(searchRoot)
+
+            TransformerFactory.newInstance()
+                .newTransformer()
+                .apply {
+                    setOutputProperty(OutputKeys.INDENT, "yes")
+                    setOutputProperty(OutputKeys.ENCODING, "utf-8")
+                }
+                .transform(
+                    DOMSource(searchDocument),
+                    StreamResult(context.get(RVX_PREFERENCE_PATH))
+                )
+        }
+    }
+
+    private fun removeRootIntent(root: Element) {
+        val children = root.childNodes
+        for (i in children.length - 1 downTo 0) {
+            val child = children.item(i) as? Element ?: continue
+            if (child.tagName == "intent") {
+                root.removeChild(child)
+            }
+        }
+    }
+
+    private fun normalizeSearchPreferenceTags(element: Element) {
+        val normalizedElement = when (element.tagName) {
+            PREFERENCE_CATEGORY_TAG_NAME ->
+                element.ownerDocument.renameNode(element, null, "PreferenceCategory") as Element
+
+            SWITCH_PREFERENCE_TAG_NAME ->
+                element.ownerDocument.renameNode(element, null, "SwitchPreference") as Element
+
+            else -> element
+        }
+
+        normalizedElement.removeAttribute("app:allowDividerAbove")
+        normalizedElement.removeAttribute("app:allowDividerBelow")
+
+        val children = normalizedElement.childNodes
+        for (i in 0 until children.length) {
+            val child = children.item(i) as? Element ?: continue
+            normalizeSearchPreferenceTags(child)
         }
     }
 

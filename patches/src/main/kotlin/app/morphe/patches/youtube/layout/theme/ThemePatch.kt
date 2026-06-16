@@ -2,7 +2,7 @@ package app.morphe.patches.youtube.layout.theme
 
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.MATERIALYOU
 import app.morphe.patches.youtube.utils.patch.PatchList.THEME
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusTheme
@@ -16,7 +16,7 @@ val themePatch = resourcePatch(
     THEME.summary,
     false,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         sharedThemePatch,

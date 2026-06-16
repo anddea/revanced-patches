@@ -13,7 +13,6 @@ import app.morphe.extension.music.patches.general.ChangeStartPagePatch.StartPage
 import app.morphe.extension.music.patches.misc.AlbumMusicVideoPatch.RedirectType;
 import app.morphe.extension.music.patches.utils.PatchStatus;
 import app.morphe.extension.music.sponsorblock.SponsorBlockSettings;
-import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.settings.EnumSetting;
 import app.morphe.extension.shared.settings.FloatSetting;
@@ -31,7 +30,7 @@ import app.morphe.extension.shared.utils.Utils;
 public class Settings extends SharedYouTubeSettings {
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE =
             new EnumSetting<>("morphe_spoof_video_streams_client_type",
-                    ClientType.ANDROID_REEL, true, parent(SPOOF_VIDEO_STREAMS));
+                    ClientType.ANDROID_REEL_NO_AUTH, true, parent(SPOOF_VIDEO_STREAMS));
 
     // PreferenceScreen: Account
     public static final BooleanSetting HIDE_ACCOUNT_MENU = new BooleanSetting("revanced_hide_account_menu", FALSE);
@@ -273,12 +272,6 @@ public class Settings extends SharedYouTubeSettings {
             Utils.showToastShort(str("revanced_reset_to_default_toast"));
             Logger.printInfo(() -> "Resetting spoof app version for lyrics target");
             SPOOF_APP_VERSION_FOR_LYRICS_TARGET.resetToDefault();
-        }
-
-        // TV Simply may require PoToken
-        if (SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.TV_SIMPLY) {
-            Logger.printInfo(() -> "Migrating from TV Simply to TV");
-            SPOOF_VIDEO_STREAMS_CLIENT_TYPE.save(ClientType.TV);
         }
 
         // endregion

@@ -61,7 +61,7 @@ public final class SnackBarPatch {
     }
 
     public static Context invertSnackBarTheme(Context mContext) {
-        if (INVERT_SERVER_SIDE_SNACK_BAR_THEME) {
+        if (INVERT_SNACK_BAR_THEME) {
             String styleId = ThemeUtils.isDarkModeEnabled()
                     ? "Base.Theme.YouTube.Light"
                     : "Base.Theme.YouTube.Dark";

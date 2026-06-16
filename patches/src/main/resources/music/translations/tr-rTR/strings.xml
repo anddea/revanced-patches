@@ -2,26 +2,28 @@
 <resources>
     <string name="gms_core_dialog_continue_text">Devam Et</string>
     <string name="gms_core_dialog_dismiss_text">Tekrar gösterme</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore'un arka planda çalışma izni yoktur.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">GmsCore'un arka planda çalışmasına izin verilmiyor.
 
-'Uygulamamı öldürmeyin!' cihazınız için kılavuzu kullanın ve talimatları GmsCore kurulumunuza uygulayın.
+Cihazınız için 'Uygulamamı kapatma!' kılavuzunu izleyin ve talimatları GmsCore kurulumunuza uygulayın.
 
-Uygulamanın çalışması için bu gereklidir."</string>
+Bu, uygulamanın çalışması için gereklidir.</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Sorunları önlemek için GmsCore pil optimizasyonları devre dışı bırakılmalıdır.
 
-Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."</string>
+GmsCore için pil optimizasyonlarını devre dışı bırakmak pil kullanımını olumsuz etkilemez.
+
+Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</string>
     <string name="gms_core_dialog_open_website_text">Web sitesini aç</string>
     <string name="gms_core_dialog_title">Eylem gerekiyor</string>
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin.</string>
-    <string name="gms_core_settings_title">GmsCore\'yi aç</string>
+    <string name="gms_core_settings_title">GmsCore ayarlarını açın</string>
     <string name="gms_core_toast_not_installed_message">GmsCore yüklü değil. Yükleyin.</string>
-    <string name="morphe_disable_drc_audio_summary_off">DRC sesi etkin</string>
-    <string name="morphe_disable_drc_audio_summary_on">DRC sesi devre dışı</string>
-    <string name="morphe_disable_drc_audio_title">DRC sesi devre dışı bırak</string>
-    <string name="morphe_disable_quic_protocol_summary_off">QUIC protokolü etkin</string>
-    <string name="morphe_disable_quic_protocol_summary_on">QUIC protokolü devre dışı</string>
-    <string name="morphe_disable_quic_protocol_title">QUIC protokolünü devre dışı bırak</string>
-    <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için \'Video akışlarını taklit et\' ayarını Android Reel veya TV olarak değiştirin</string>
+    <string name="morphe_disable_drc_audio_summary_off">DRC ( Dinamik Aralık Sıkıştırma ) ses kontrolü etkinleştirildi.</string>
+    <string name="morphe_disable_drc_audio_summary_on">DRC ( Dinamik Aralık Sıkıştırma ) ses kontrolü devre dışı bırakıldı.</string>
+    <string name="morphe_disable_drc_audio_title">DRC ( Dinamik Aralık Sıkıştırma )  sesini devre dışı bırak</string>
+    <string name="morphe_disable_quic_protocol_summary_off">QUIC ( Hızlı Bağlantı ) protokolü etkinleştirildi.</string>
+    <string name="morphe_disable_quic_protocol_summary_on">QUIC  ( Hızlı Bağlantı ) protokolü devre dışı</string>
+    <string name="morphe_disable_quic_protocol_title">QUIC  ( Hızlı Bağlantı ) protokolünü devre dışı bırak</string>
+    <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için 'Video akışlarını taklit et' seçeneğini Android Makarası veya TV olarak değiştirin.</string>
     <string name="morphe_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
     <string name="morphe_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
     <string name="morphe_force_original_audio_title">Orijinal ses dilini zorla</string>
@@ -33,30 +35,37 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 geçici olarak kullanılamıyor (API zaman aşımına uğradı)</string>
     <string name="morphe_oauth2_toast_invalid">Geçersiz VR oturum açma belirteci, VR\'da tekrar oturum açmayı deneyin</string>
     <string name="morphe_oauth2_toast_reset">Android VR oturumu kapatıldı</string>
+    <string name="morphe_replace_music_with_youtube_summary">Paylaşılan bağlantılarda music.youtube.com adresini youtube.com ile değiştirir</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan bağlantılar music.youtube.com kullanır</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Paylaşılan bağlantılar youtube.com kullanır</string>
     <string name="morphe_replace_music_with_youtube_title">Paylaşım bağlantılarını youtube.com olarak değiştir</string>
+    <string name="morphe_sanitize_sharing_links_summary">Paylaşılan bağlantılardan izleme sorgu parametrelerini kaldırır</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılır</string>
     <string name="morphe_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
     <string name="morphe_spoof_video_streams_client_type_title">Varsayılan istemci</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">Oynatıcı JavaScript güncellemesini devre dışı bırak</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Oynatıcı JavaScript'ini belirli bir sürüme kilitler
+
+• Geçerli bir oynatıcı JavaScript hash'i gereklidir
+• Oynatıcı JavaScript hash'leri yaklaşık bir ay geçerlidir ve eski hash'ler GVS tarafından iptal edilir
+• Hash iptal edilirse oynatma başarısız olur"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Oynatıcı JavaScript güncellemesi etkin</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Oynatıcı JavaScript güncellemesi devre dışı
 
 • Geçerli bir oynatıcı JavaScript hash'i gereklidir
 • GVS'de Oynatıcı JavaScript hash'i iptal edilirse oynatma başarısız olur"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Oynatıcı JavaScript güncellemesini devre dışı bırak</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Oynatıcı JavaScript hash\'leri yaklaşık bir ay süreyle geçerlidir ve süresi geçmiş hash\'ler GVS tarafından iptal edilebilir.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Şunu etkinleştirmeyi dene: Video akışlarını taklit et (Spoof) &gt; Android VR oturum açma</string>
-    <string name="morphe_spoof_video_streams_no_clients_toast">Hiçbir istemci akışı alınamadı.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Geçerli bir oynatıcı JavaScript hash'i sağlamanız gerekir.
+
+Oynatıcı JavaScript hash'i güncel değilse oynatma başarısız olur."</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Hiçbir istemci akışı alınamadı</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Geçerli bir oynatıcı JavaScript hash değeri girin</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Oynatıcı JavaScript hash</string>
     <string name="morphe_spoof_video_streams_screen_summary">Oynatma sorunlarını önlemek için istemci video akışlarını taklit et</string>
     <string name="morphe_spoof_video_streams_screen_title">Video akışlarını taklit et</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR oturumu açılmadı. Oturum açmak için buraya dokunun.</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Bu özelliği kullanmak için \'Varsayılan istemci\'yi Android VR olarak değiştirin.</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Şu anda Android VR oturumu açık.</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR oturumu açılmadı. Oturum açmak için buraya dokunun</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Bu özelliği kullanmak için \'Varsayılan istemci\'yi Android VR olarak değiştirin</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Şu anda Android VR oturumu açık</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR oturum açma</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Etkinleştirme kodu: %s
 
@@ -81,7 +90,9 @@ Oturum açmak için, devam et butonuna basın."</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Başarıyla oturum açıldı</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Aktivasyon kodu oluşturulamadı</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Kimlik doğrulama anahtarı oluşturulamadı</string>
-    <string name="morphe_spoof_video_streams_summary">Oynatma sorunlarını önlemek için istemci video akışlarını taklit et.</string>
+    <string name="morphe_spoof_video_streams_summary">"Çoğu kullanıcı için oynatma sorunlarını uyumlu bir video akışı isteyerek düzeltir
+
+YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Video akışları taklit edilmez
 
 Oynatma çalışmayabilir"</string>
@@ -124,7 +135,8 @@ YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="revanced_change_start_page_entry_subscription">Abonelikler</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonelikler</string>
     <string name="revanced_change_start_page_summary">Uygulamanın başlangıç sayfasını değiştirin.</string>
-    <string name="revanced_change_start_page_title">Başlangıç sayfasını değiştir</string>
+    <string name="revanced_change_start_page_title">Başlangıç sayfası</string>
+    <string name="revanced_credits_title">Krediler </string>
     <string name="revanced_custom_filter_strings_summary">Yeni satırlarla ayrılmış olarak hangi bileşenlerin filtreleneceğini yapılandırın.</string>
     <string name="revanced_custom_filter_strings_title">Özel filtreyi düzenle</string>
     <string name="revanced_custom_filter_summary">Düzen bileşenlerini gizlemek için özel filtreyi etkinleştirir.</string>
@@ -322,7 +334,7 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Hızlı erişim menüsünden sabitlemeyi gizle</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Şarkı kredileri menüsünü görüntüle</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Tam ekran reklamları gizler."</string>
-    <string name="revanced_hide_fullscreen_ads_title">Tam ekran reklamlarını gizle</string>
+    <string name="revanced_hide_fullscreen_ads_title">Tam ekran reklamları gizle</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Tam ekran oynatıcısındaki paylaş butonunu gizler.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Tam ekran\'daki paylaş butonunu gizle</string>
     <string name="revanced_hide_general_ads_summary">Genel reklamları gizler.</string>
@@ -390,7 +402,7 @@ Bu, yalnızca YT Music ayarlar menüsünü değil aynı zamanda ReVanced Extende
     <string name="revanced_hide_voice_search_button_summary">Arama çubuğundaki sesli arama düğmesini gizler.</string>
     <string name="revanced_hide_voice_search_button_title">Sesli arama düğmesini gizle</string>
     <string name="revanced_preference_screen_account_title">Hesap</string>
-    <string name="revanced_preference_screen_action_bar_title">Görev Çubuğu</string>
+    <string name="revanced_preference_screen_action_bar_title">Görev çubuğu</string>
     <string name="revanced_preference_screen_ads_title">Reklamlar</string>
     <string name="revanced_preference_screen_flyout_title">Açılır menü</string>
     <string name="revanced_preference_screen_general_title">Genel</string>
@@ -454,8 +466,10 @@ Bilinen Sorunlar:
     <string name="revanced_replace_navigation_upgrade_button_summary">Yükselt düğmesini Ayarlar düğmesiyle değiştirir.</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Replace Upgrade button</string>
     <string name="revanced_reset_to_default_toast">Varsayılan değerlere sıfırla.</string>
-    <string name="revanced_restart_first_run">Ayarları tamamlamak için yeniden başlatın</string>
+    <string name="revanced_restart_dialog_message">Değişikliklerin geçerli olması için uygulamayı yeniden başlatın.</string>
+    <string name="revanced_restart_first_run">Kurulumu tamamlamak için yeniden başlatın</string>
     <string name="revanced_restart_message">Yenile ve yeniden başlat</string>
+    <string name="revanced_restart_title">Yeniden başlatma gerekli</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Yorum açılır pencerelerini eski stile döndürür.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Eski yorum açılır panellerini geri getir</string>
     <string name="revanced_restore_old_player_background_summary">Oynatıcı arkaplanını eski stile döndürür.</string>
@@ -508,8 +522,6 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Return YouTube Dislike API mevcut değilse uyarı gösterir.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API mevcut değilse bir uyarı göster</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
-    <string name="revanced_sanitize_sharing_links_summary">Bağlantıları paylaşırken, tracking query parametrelerini URL\'lerden kaldırır.</string>
-    <string name="revanced_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
     <string name="revanced_sb_about">Hakkında</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Veriler, SponsorBlock API tarafından sağlanmaktadır. Daha fazla bilgi edinmek ve diğer platformlar için indirmeleri görmek için buraya dokunun.</string>
@@ -602,7 +614,6 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
 • Üst ayarlar, devre dışı bırakılmış alt ayarların üzerinde görünür."</string>
     <string name="revanced_settings_search_tips_title">Arama İpuçları</string>
     <string name="revanced_settings_search_title">Ara %s</string>
-    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Ayarlar panoya kopyalandı</string>
     <string name="revanced_spoof_app_version_for_lyrics_summary">Şarkı sözlerinde kullanılan istemci sürümünü eski bir sürümle değiştirir (taklit eder).</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Gerçek zamanlı şarkı sözü yok</string>
@@ -692,7 +703,9 @@ YouTube Premium kullanıcısıysanız bu ayar gerekli olmayabilir."</string>
 • VPN veya DNS kullanırken uygulama zorla kapatılabilir.
 • Uyarlanabilir bit hızı akış istemcilerinde (Android VR 1.43.32 dışındaki tüm istemciler) oynatma sırasında ses aralıklı olarak kesilebilir."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Varsayılan işlemci</string>
-    <string name="revanced_spoof_video_streams_summary">Oynatma sorunlarını önlemek için istemci video akışlarını taklit edin.</string>
+    <string name="revanced_spoof_video_streams_summary">"Çoğu kullanıcı için oynatma sorunlarını uyumlu bir video akışı isteyerek düzeltir
+
+YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="revanced_spoof_video_streams_title">Video akışlarını taklit et</string>
     <string name="revanced_translations_title">Çeviriler</string>
     <string name="revanced_watch_history_type_entry_1">Orijinal</string>

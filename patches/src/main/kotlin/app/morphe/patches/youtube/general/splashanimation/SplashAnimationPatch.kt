@@ -3,7 +3,7 @@ package app.morphe.patches.youtube.general.splashanimation
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.patch.PatchList.DISABLE_SPLASH_ANIMATION
 import app.morphe.patches.youtube.utils.playservice.is_20_02_or_greater
@@ -26,7 +26,7 @@ val splashAnimationPatch = bytecodePatch(
     DISABLE_SPLASH_ANIMATION.title,
     DISABLE_SPLASH_ANIMATION.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         sharedResourceIdPatch,

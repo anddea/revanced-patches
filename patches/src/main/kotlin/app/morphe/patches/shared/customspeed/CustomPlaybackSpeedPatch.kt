@@ -4,11 +4,12 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.util.fingerprint.matchOrThrow
-import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.patches.youtube.utils.playservice.is_20_34_or_greater
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+import app.morphe.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -22,14 +23,16 @@ fun customPlaybackSpeedPatch(
 ) = bytecodePatch(
     description = "customPlaybackSpeedPatch"
 ) {
+    dependsOn(versionCheckPatch)
+
     execute {
         if (patchIncluded) {
             return@execute
         }
 
-        arrayGeneratorFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val targetIndex = it.instructionMatches.first().index
+        ArrayGeneratorFingerprint.apply {
+            method.apply {
+                val targetIndex = instructionMatches.first().index
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
@@ -65,20 +68,28 @@ fun customPlaybackSpeedPatch(
             }
         }
 
-        setOf(
-            limiterFallBackFingerprint.methodOrThrow(),
-            limiterFingerprint.methodOrThrow(limiterFallBackFingerprint)
-        ).forEach { method ->
-            method.apply {
-                val limitMinIndex =
-                    indexOfFirstLiteralInstructionOrThrow(0.25f.toRawBits().toLong())
-                val limitMaxIndex =
-                    indexOfFirstInstructionOrThrow(limitMinIndex + 1, Opcode.CONST_HIGH16)
+        val useNewLimiter = is_20_34_or_greater
+        val limiterMethods = if (useNewLimiter) {
+            setOf(LimiterFingerprint.method)
+        } else {
+            setOf(
+                LimiterFallBackFingerprint.method,
+                LimiterLegacyFingerprint.match(LimiterFallBackFingerprint.classDef).method
+            )
+        }
 
-                val limitMinRegister =
-                    getInstruction<OneRegisterInstruction>(limitMinIndex).registerA
-                val limitMaxRegister =
-                    getInstruction<OneRegisterInstruction>(limitMaxIndex).registerA
+        limiterMethods.forEach { method ->
+            method.apply {
+                val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f.toRawBits().toLong())
+
+                val limitMaxIndex = if (useNewLimiter) {
+                    indexOfFirstLiteralInstructionOrThrow(4.0f.toRawBits().toLong())
+                } else {
+                    indexOfFirstInstructionOrThrow(limitMinIndex + 1, Opcode.CONST_HIGH16)
+                }
+
+                val limitMinRegister = getInstruction<OneRegisterInstruction>(limitMinIndex).registerA
+                val limitMaxRegister = getInstruction<OneRegisterInstruction>(limitMaxIndex).registerA
 
                 replaceInstruction(
                     limitMinIndex,
@@ -91,8 +102,11 @@ fun customPlaybackSpeedPatch(
             }
         }
 
+        if (is_20_34_or_greater) {
+            ServerSideMaxSpeedFeatureFlagFingerprint.method.returnEarly(false)
+        }
+
         patchIncluded = true
 
     }
 }
-

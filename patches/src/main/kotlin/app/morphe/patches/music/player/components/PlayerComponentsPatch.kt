@@ -1,5 +1,6 @@
 package app.morphe.patches.music.player.components
 
+import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -14,7 +15,7 @@ import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.music.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.music.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
@@ -58,7 +59,6 @@ import app.morphe.util.findInstructionIndicesReversed
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.injectLiteralInstructionViewCall
-import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.fingerprint.matchOrNull
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodCall
@@ -195,7 +195,7 @@ val playerComponentsPatch = bytecodePatch(
     PLAYER_COMPONENTS.title,
     PLAYER_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         settingsPatch,
@@ -414,7 +414,7 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for color match player, change player background and enable zen mode (6.35+)
+        // region patch for color match player, change player background and enable zen mode (635+)
 
         val (
             colorMathPlayerMethodParameter,
@@ -645,15 +645,15 @@ val playerComponentsPatch = bytecodePatch(
                             getReference<MethodReference>()?.toString() == smoothTransitionAnimationMethod
                 }
 
-            val smoothTransitionAnimationInvertedFingerprint = legacyFingerprint(
-                name = "smoothTransitionAnimationInvertedFingerprint",
-                returnType = "V",
-                accessFlags = AccessFlags.PUBLIC.value,
-                parameters = emptyList(),
-                customFingerprint = { method, _ ->
-                    indexOfSmoothTransitionAnimation(method) >= 0
-                }
-            )
+            val smoothTransitionAnimationInvertedFingerprint =
+                "smoothTransitionAnimationInvertedFingerprint" to Fingerprint(
+                    returnType = "V",
+                    accessFlags = listOf(AccessFlags.PUBLIC),
+                    parameters = emptyList(),
+                    custom = { method, _ ->
+                        indexOfSmoothTransitionAnimation(method) >= 0
+                    }
+                )
 
             smoothTransitionAnimationInvertedFingerprint
                 .methodOrThrow(smoothTransitionAnimationInvertedParentFingerprint)
@@ -864,7 +864,7 @@ val playerComponentsPatch = bytecodePatch(
             )
         }
 
-        // region patch for enable zen mode (~ 6.34)
+        // region patch for enable zen mode (~ 634)
 
         // this method is used for old player background (deprecated since YT Music v6.34.51)
         zenModeFingerprint.matchOrNull(miniPlayerConstructorFingerprint)?.let {

@@ -4,7 +4,7 @@ import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.patch.PatchList.CUSTOM_BRANDING_ICON_FOR_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.playservice.is_7_23_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
@@ -96,7 +96,7 @@ val customBrandingIconPatch = resourcePatch(
     CUSTOM_BRANDING_ICON_FOR_YOUTUBE_MUSIC.summary,
     false,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         settingsPatch,

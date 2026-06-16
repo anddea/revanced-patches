@@ -51,7 +51,7 @@ val darkModeSplashScreenPatch = resourcePatch(
                 }
             }
         } else {
-            document("res/values-night-v27/styles.xml").use { document ->
+            document("res/values-night/styles.xml").use { document ->
                 // Create a night mode specific override for the splash screen background.
                 val style = document.createElement("style")
                 style.setAttribute("name", "Theme.YouTube.Home")

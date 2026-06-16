@@ -1,3 +1,113 @@
+# [4.1.0-dev.9](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.8...v4.1.0-dev.9) (2026-06-15)
+
+
+### Bug Fixes
+
+* **YouTube - Toolbar components:** Channel search rendered a blank screen for specific locales ([62d624d](https://github.com/anddea/revanced-patches/commit/62d624d5caf34b2d3b389aceb117159d6d7ac333))
+
+# [4.1.0-dev.8](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.7...v4.1.0-dev.8) (2026-06-12)
+
+
+### Bug Fixes
+
+* **YouTube - Toolbar components:** Channel search rendered blank screen under specific network conditions ([34f74b0](https://github.com/anddea/revanced-patches/commit/34f74b09b72f6b604c1dc3224e1e5f483c048080))
+
+
+### Features
+
+* **YouTube - Toolbar components:** Add `Hide search bar back button` setting ([fb378b1](https://github.com/anddea/revanced-patches/commit/fb378b15f07761a5390c4f5dd379f67ae841d84d))
+
+# [4.1.0-dev.7](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.6...v4.1.0-dev.7) (2026-06-11)
+
+
+### Bug Fixes
+
+* **YouTube - Shorts components:** Action buttons were missing in older versions ([4d0d982](https://github.com/anddea/revanced-patches/commit/4d0d9824945d9ff8798427bbff1df32910896dda))
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add `Hide 'Sync to video' button` setting ([9ed1bf6](https://github.com/anddea/revanced-patches/commit/9ed1bf62425731016485b34e566338ddc2dc00e0))
+* **YouTube - Toolbar components:** Add channel search ([970fb5b](https://github.com/anddea/revanced-patches/commit/970fb5b22b8f025477c33e2b53a20efc1fb0a377))
+
+# [4.1.0-dev.6](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.5...v4.1.0-dev.6) (2026-06-10)
+
+
+### Features
+
+* **YouTube - Voice Over Translation:** Add authorization support for requesting live voice translation ([#1555](https://github.com/anddea/revanced-patches/issues/1555)) ([1999294](https://github.com/anddea/revanced-patches/commit/19992946b872a3a9c8bb61506f576c8653c89cdd))
+
+# [4.1.0-dev.5](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.4...v4.1.0-dev.5) (2026-06-06)
+
+
+### Bug Fixes
+
+* **YouTube - Shorts components:** Quality menu had a background blackbox visual bug ([d07e875](https://github.com/anddea/revanced-patches/commit/d07e875f8f42481d621f547ebd4dd3b6b4bc358c))
+* **YouTube - Visual preferences icons:** Custom branding icons scaling issues fixed ([376fd4e](https://github.com/anddea/revanced-patches/commit/376fd4e929441a4ce0133dc8ecbe431db8f48639))
+
+
+### Features
+
+* **YouTube - Settings:** Add `Disable bold icons` setting ([52e022c](https://github.com/anddea/revanced-patches/commit/52e022c36b75f9d0ea0e8bea23fab844f6c66d75))
+
+# [4.1.0-dev.4](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.3...v4.1.0-dev.4) (2026-06-04)
+
+
+### Bug Fixes
+
+* **YouTube - Flyout menu components:** Quality menu was always hidden ([f92e67e](https://github.com/anddea/revanced-patches/commit/f92e67e5325a86d872d539155229c8ae64a0ec7e))
+* **YouTube - Settings:** Crashed upon launch in some cases ([42f97f3](https://github.com/anddea/revanced-patches/commit/42f97f336aba8e3888d34faf8640ab950f8d5f94))
+
+
+### Features
+
+* **YouTube - Shorts components:** Add Yandex VOT to custom flyout actions, fix custom actions flyout menu ([84e91ed](https://github.com/anddea/revanced-patches/commit/84e91edb3d6afb3cbb058cb9dd56e375ac2bd62c))
+
+# [4.1.0-dev.3](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.2...v4.1.0-dev.3) (2026-06-01)
+
+
+### Bug Fixes
+
+* **YouTube - Disable resuming Shorts on startup:** Failed on `v20.05.46` ([dcf233e](https://github.com/anddea/revanced-patches/commit/dcf233e2961c6b43e21f721948a7d5b5512c1419))
+* **YouTube - Video playback:** Speed was capped at 2x for `v20.34+` ([3cb6a25](https://github.com/anddea/revanced-patches/commit/3cb6a25b2b43eed5c4aae8f054f32e5a0cdaa814))
+* **YouTube Music - Settings:** Import/Export settings did not work ([46e0b15](https://github.com/anddea/revanced-patches/commit/46e0b1592ec09e489bb2ee9d6560e60f04a10f92))
+
+
+### Features
+
+* **YouTube - Navigation bar components:** Add `Disable auto-hiding navigation bar` setting ([812ca4b](https://github.com/anddea/revanced-patches/commit/812ca4b2c1781618aa77d9317b2a733ee6373b27))
+* **YouTube - Voice Over Translation:** Automatically retrieve latest VOT host ([71c8919](https://github.com/anddea/revanced-patches/commit/71c8919b74e86efaff3b7676399ceeb2a009e8b9))
+
+# [4.1.0-dev.2](https://github.com/anddea/revanced-patches/compare/v4.1.0-dev.1...v4.1.0-dev.2) (2026-05-29)
+
+
+### Features
+
+* **YouTube Music - Settings:** Add search to preferences ([b0fa388](https://github.com/anddea/revanced-patches/commit/b0fa388b0c67f298c7c603a21ad211bf20e3c6b6))
+* **YouTube:** Add support for `v20.51.39` ([cb37d72](https://github.com/anddea/revanced-patches/commit/cb37d72a434d96daabccb7d3ebdac324b50d2777))
+
+# [4.1.0-dev.1](https://github.com/anddea/revanced-patches/compare/v4.0.1-dev.1...v4.1.0-dev.1) (2026-05-22)
+
+
+### Bug Fixes
+
+* **YouTube - Change share sheet:** System share sheet did not work previously ([cfd5406](https://github.com/anddea/revanced-patches/commit/cfd5406bb33bc765bf8027b3cca4f99050230491))
+* **YouTube - Voice Over Translation:** Requesting audio translation did not work ([7fe8ff3](https://github.com/anddea/revanced-patches/commit/7fe8ff3585f3e0d3dc91e63b192cdbe4a520d10e))
+
+
+### Features
+
+* **Reddit:** Drop support, migrated to and updated in [Morphe](https://github.com/MorpheApp/morphe-patches/) ([be90cb1](https://github.com/anddea/revanced-patches/commit/be90cb16cbd17e452a944283c24e26afb9b17efd))
+* **YouTube - Hide comments components:** Add `Enable comments carousel filter` setting ([5f857aa](https://github.com/anddea/revanced-patches/commit/5f857aa9bb393f75517a9c5fb073eafb982b9c22))
+* **YouTube - SponsorBlock:** Add submit `Highlight` segments and fix saved time calculation ([a48c18e](https://github.com/anddea/revanced-patches/commit/a48c18eafca6b5bf41b1f009108d85eff005adc9))
+
+## [4.0.1-dev.1](https://github.com/anddea/revanced-patches/compare/v4.0.0...v4.0.1-dev.1) (2026-05-15)
+
+
+### Bug Fixes
+
+* **YouTube Music:** `v6.2x.xx` failed to patch ([541263e](https://github.com/anddea/revanced-patches/commit/541263e74d6b8be88e6dd1007feb80c6077dbd77))
+
 # [4.0.0](https://github.com/anddea/revanced-patches/compare/v3.16.0...v4.0.0) (2026-03-27)
 
 

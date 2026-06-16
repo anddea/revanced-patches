@@ -14,7 +14,7 @@ import app.morphe.patches.shared.removeLikeFingerprint
 import app.morphe.patches.shared.textcomponent.hookSpannableString
 import app.morphe.patches.shared.textcomponent.hookTextComponent
 import app.morphe.patches.shared.textcomponent.textComponentPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
@@ -179,44 +179,6 @@ private val returnYouTubeDislikeShortsPatch = bytecodePatch(
     )
 
     execute {
-        shortsTextViewFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val startIndex = it.instructionMatches.first().index
-
-                val isDisLikesBooleanIndex =
-                    indexOfFirstInstructionReversedOrThrow(startIndex, Opcode.IGET_BOOLEAN)
-                val textViewFieldIndex =
-                    indexOfFirstInstructionReversedOrThrow(startIndex, Opcode.IGET_OBJECT)
-
-                // If the field is true, the TextView is for a dislike button.
-                val isDisLikesBooleanReference =
-                    getInstruction<ReferenceInstruction>(isDisLikesBooleanIndex).reference
-
-                val textViewFieldReference = // Like/Dislike button TextView field
-                    getInstruction<ReferenceInstruction>(textViewFieldIndex).reference
-
-                // Check if the hooked TextView object is that of the dislike button.
-                // If RYD is disabled, or the TextView object is not that of the dislike button, the execution flow is not interrupted.
-                // Otherwise, the TextView object is modified, and the execution flow is interrupted to prevent it from being changed afterward.
-                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.CHECK_CAST) + 1
-
-                addInstructionsWithLabels(
-                    insertIndex, """
-                    # Check, if the TextView is for a dislike button
-                    iget-boolean v0, p0, $isDisLikesBooleanReference
-                    if-eqz v0, :ryd_disabled
-                    
-                    # Hook the TextView, if it is for the dislike button
-                    iget-object v0, p0, $textViewFieldReference
-                    invoke-static {v0}, $EXTENSION_RYD_CLASS_DESCRIPTOR->setShortsDislikes(Landroid/view/View;)Z
-                    move-result v0
-                    if-eqz v0, :ryd_disabled
-                    return-void
-                    """, ExternalLabel("ryd_disabled", getInstruction(insertIndex))
-                )
-            }
-        }
-
         if (is_18_34_or_greater) {
             hookSpannableString(
                 EXTENSION_RYD_CLASS_DESCRIPTOR,
@@ -234,7 +196,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
     RETURN_YOUTUBE_DISLIKE.title,
     RETURN_YOUTUBE_DISLIKE.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,
@@ -262,7 +224,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         hookTextComponent(EXTENSION_RYD_CLASS_DESCRIPTOR)
 
-        // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.
+        // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded
         hookVideoId("$EXTENSION_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
 
         // Hook the player response video id, to start loading RYD sooner in the background.

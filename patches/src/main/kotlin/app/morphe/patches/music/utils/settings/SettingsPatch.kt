@@ -1,14 +1,16 @@
 package app.morphe.patches.music.utils.settings
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.music.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.music.utils.extension.sharedExtensionPatch
@@ -37,9 +39,13 @@ import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.removeStringsElements
 import app.morphe.util.valueOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import org.w3c.dom.Element
 
 private const val EXTENSION_ACTIVITY_CLASS_DESCRIPTOR =
@@ -111,17 +117,46 @@ private val settingsBytecodePatch = bytecodePatch(
 
         // region patch for hook dummy Activity for intent
 
-        googleApiActivityFingerprint.methodOrThrow().apply {
-            addInstructionsWithLabels(
-                1,
-                """
-                    invoke-static {p0}, $EXTENSION_ACTIVITY_CLASS_DESCRIPTOR->initialize(Landroid/app/Activity;)Z
-                    move-result v0
-                    if-eqz v0, :show
-                    return-void
-                    """,
-                ExternalLabel("show", getInstruction(1)),
-            )
+        googleApiActivityFingerprint.matchOrThrow().let {
+            it.method.apply {
+                addInstructionsWithLabels(
+                    1,
+                    """
+                        invoke-static {p0}, $EXTENSION_ACTIVITY_CLASS_DESCRIPTOR->initialize(Landroid/app/Activity;)Z
+                        move-result v0
+                        if-eqz v0, :show
+                        return-void
+                        """,
+                    ExternalLabel("show", getInstruction(1)),
+                )
+            }
+
+            it.classDef.apply {
+                if (methods.none { method -> method.name == "finish" && method.parameters.isEmpty() }) {
+                    ImmutableMethod(
+                        type,
+                        "finish",
+                        emptyList<ImmutableMethodParameter>(),
+                        "V",
+                        AccessFlags.PUBLIC.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(3),
+                    ).toMutable().apply {
+                        addInstructions(
+                            0,
+                            """
+                                invoke-static {}, $EXTENSION_ACTIVITY_CLASS_DESCRIPTOR->handleFinish()Z
+                                move-result v0
+                                if-nez v0, :search_handled
+                                invoke-super { p0 }, $superclass->finish()V
+                                :search_handled
+                                return-void
+                                """
+                        )
+                    }.let(methods::add)
+                }
+            }
         }
 
         // endregion
@@ -175,7 +210,7 @@ val settingsPatch = resourcePatch(
     SETTINGS_FOR_YOUTUBE_MUSIC.title,
     SETTINGS_FOR_YOUTUBE_MUSIC.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         settingsBytecodePatch,
@@ -221,11 +256,12 @@ val settingsPatch = resourcePatch(
         }
 
         /**
-         * copy arrays, colors and strings
+         * copy arrays, colors, styles and strings
          */
         arrayOf(
             "arrays.xml",
             "colors.xml",
+            "styles.xml",
             "strings.xml"
         ).forEach { xmlFile ->
             copyXmlNode("music/settings/host", "values/$xmlFile", "resources")
@@ -234,8 +270,46 @@ val settingsPatch = resourcePatch(
         arrayOf(
             ResourceGroup(
                 "drawable",
+                "revanced_settings_arrow_time.xml",
+                "revanced_settings_cursor.xml",
+                "revanced_settings_custom_checkmark.xml",
+                "revanced_settings_rounded_corners_background.xml",
+                "revanced_settings_search_icon.xml",
+                "revanced_settings_search_remove.xml",
+            ),
+            ResourceGroup(
+                "layout",
+                "revanced_color_dot_widget.xml",
+                "revanced_color_picker.xml",
+                "revanced_custom_list_item_checked.xml",
+                "revanced_preference_search_history_item.xml",
+                "revanced_preference_search_history_screen.xml",
+                "revanced_preference_search_no_result.xml",
+                "revanced_preference_search_result_color.xml",
+                "revanced_preference_search_result_group_header.xml",
+                "revanced_preference_search_result_list.xml",
+                "revanced_preference_search_result_regular.xml",
+                "revanced_preference_search_result_switch.xml",
+                "revanced_settings_preferences_category.xml",
+                "revanced_settings_with_toolbar.xml",
+            ),
+            ResourceGroup(
+                "menu",
+                "revanced_search_menu.xml",
+            ),
+        ).forEach { resourceGroup ->
+            copyResources("youtube/settings", resourceGroup)
+        }
+
+        arrayOf(
+            ResourceGroup(
+                "drawable",
                 "revanced_settings_toolbar_arrow_left.xml",
             ),
+            ResourceGroup(
+                "xml",
+                "revanced_prefs.xml",
+            )
         ).forEach { resourceGroup ->
             copyResources("music/settings", resourceGroup)
         }
@@ -353,6 +427,8 @@ val settingsPatch = resourcePatch(
         CategoryType.entries.sorted().forEach {
             ResourceUtils.sortPreferenceCategory(it.value)
         }
+
+        ResourceUtils.writeSearchPreferenceFile()
     }
 }
 

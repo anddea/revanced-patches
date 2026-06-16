@@ -7,7 +7,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.MINIPLAYER
 import app.morphe.patches.youtube.utils.playservice.is_19_15_or_greater
@@ -20,6 +20,8 @@ import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_36_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_43_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_03_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_37_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_38_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerClose
 import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerExpand
@@ -65,7 +67,7 @@ val miniplayerPatch = bytecodePatch(
     MINIPLAYER.title,
     MINIPLAYER.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         sharedResourceIdPatch,
@@ -133,7 +135,7 @@ val miniplayerPatch = bytecodePatch(
         // From 19.15 to 19.34 swipe to dismiss miniplayer is not working.
         val shouldFixSwipeToDismiss = is_19_15_or_greater && !is_19_34_or_greater
 
-        // region Enable tablet miniplayer.
+        // region Enable tablet miniplayer
 
         miniplayerOverrideNoContextFingerprint.methodOrThrow(
             miniplayerDimensionsCalculatorParentFingerprint
@@ -147,7 +149,7 @@ val miniplayerPatch = bytecodePatch(
 
         // endregion
 
-        // region Legacy tablet Miniplayer hooks.
+        // region Legacy tablet Miniplayer hooks
 
         miniplayerOverrideFingerprint.matchOrThrow().let {
             it.method.apply {
@@ -170,8 +172,10 @@ val miniplayerPatch = bytecodePatch(
             }
         }
 
-        miniplayerResponseModelSizeCheckFingerprint.matchOrThrow().let {
-            it.method.insertLegacyTabletMiniplayerOverride(it.instructionMatches.last().index)
+        if (!is_20_37_or_greater || is_20_38_or_greater) {
+            miniplayerResponseModelSizeCheckFingerprint.matchOrThrow().let {
+                it.method.insertLegacyTabletMiniplayerOverride(it.instructionMatches.last().index)
+            }
         }
 
         if (isPatchingOldVersion) {
@@ -184,7 +188,7 @@ val miniplayerPatch = bytecodePatch(
 
         // endregion
 
-        // region Enable modern miniplayer.
+        // region Enable modern miniplayer
 
         miniplayerModernConstructorFingerprint.mutableClassOrThrow().methods.forEach {
             it.apply {
@@ -310,7 +314,7 @@ val miniplayerPatch = bytecodePatch(
 
         // endregion
 
-        // region Fix 19.16 using mixed up drawables for tablet modern.
+        // region Fix 19.16 using mixed up drawables for tablet modern
         // YT fixed this mistake in 19.17.
         // Fix this, by swapping the drawable resource values with each other.
         if (shouldFixMixedUpDrawables) {
@@ -333,7 +337,7 @@ val miniplayerPatch = bytecodePatch(
 
         // endregion
 
-        // region Fix 19.16 swiping down miniplayer does not dismiss.
+        // region Fix 19.16 swiping down miniplayer does not dismiss
 
         if (shouldFixSwipeToDismiss) {
             miniplayerModernSwipeToDismissFingerprint.injectLiteralInstructionBooleanCall(
@@ -344,7 +348,7 @@ val miniplayerPatch = bytecodePatch(
 
         // endregion
 
-        // region Add hooks to hide tablet modern miniplayer buttons.
+        // region Add hooks to hide tablet modern miniplayer buttons
 
         listOf(
             Triple(

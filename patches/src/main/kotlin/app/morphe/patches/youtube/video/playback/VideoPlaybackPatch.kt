@@ -13,7 +13,7 @@ import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.opus.baseOpusCodecsPatch
 import app.morphe.patches.youtube.utils.auth.authHookPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.VIDEO_PATH
@@ -22,10 +22,9 @@ import app.morphe.patches.youtube.utils.fix.shortsplayback.shortsPlaybackPatch
 import app.morphe.patches.youtube.utils.flyoutmenu.flyoutMenuHookPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.VIDEO_PLAYBACK
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
-import app.morphe.patches.youtube.utils.playservice.is_20_14_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_30_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_14_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
-import app.morphe.patches.youtube.utils.qualityMenuViewInflateFingerprint
 import app.morphe.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
 import app.morphe.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -37,14 +36,8 @@ import app.morphe.patches.youtube.video.information.speedSelectionInsertMethod
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
-import app.morphe.util.fingerprint.*
 import app.morphe.util.findMethodOrThrow
-import app.morphe.util.fingerprint.definingClassOrThrow
-import app.morphe.util.fingerprint.matchOrThrow
-import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
-import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -52,7 +45,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 private const val PLAYBACK_SPEED_MENU_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/PlaybackSpeedMenuFilter;"
@@ -76,7 +68,7 @@ val videoPlaybackPatch = bytecodePatch(
     VIDEO_PLAYBACK.title,
     VIDEO_PLAYBACK.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,
@@ -115,10 +107,7 @@ val videoPlaybackPatch = bytecodePatch(
 
         // region patch for default playback speed
 
-        val newMethod =
-            playbackSpeedChangedFromRecyclerViewFingerprint.methodOrThrow(
-                qualityChangedFromRecyclerViewFingerprint
-            )
+        val newMethod = playbackSpeedChangedFromRecyclerViewFingerprint.method
 
         arrayOf(
             newMethod,
@@ -139,7 +128,7 @@ val videoPlaybackPatch = bytecodePatch(
         }
 
         if (is_20_14_or_greater) {
-            pcmGetterMethodFingerprint.mutableClassOrThrow().let {
+            pcmGetterMethodFingerprint.classDef.let {
                 val targetMethod =
                     it.methods.find { method -> method.returnType == "F" && method.parameters.isEmpty() }
                         ?: throw PatchException("Method returning playback speed not found in class $it.") as Throwable
@@ -157,7 +146,7 @@ val videoPlaybackPatch = bytecodePatch(
                 }
             }
         } else {
-            loadVideoParamsFingerprint.matchOrThrow(loadVideoParamsParentFingerprint).let {
+            loadVideoParamsFingerprint.let {
                 it.method.apply {
                     val targetIndex = it.instructionMatches.last().index
                     val targetReference =
@@ -191,7 +180,7 @@ val videoPlaybackPatch = bytecodePatch(
 
         // region patch for default video quality
 
-        qualityChangedFromRecyclerViewFingerprint.matchOrThrow().let {
+        qualityChangedFromRecyclerViewFingerprint.let {
             it.method.apply {
                 val instructions = implementation?.instructions ?: throw IllegalStateException("Method implementation not found")
                 val newInstanceIndex = instructions.indexOfFirst { instruction ->
@@ -215,9 +204,7 @@ val videoPlaybackPatch = bytecodePatch(
             }
         }
 
-        videoQualityItemOnClickFingerprint.methodOrThrow(
-            videoQualityItemOnClickParentFingerprint
-        ).addInstruction(
+        videoQualityItemOnClickFingerprint.method.addInstruction(
             0,
             "invoke-static { p3 }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQualityInOldFlyout(I)V"
         )
@@ -226,46 +213,39 @@ val videoPlaybackPatch = bytecodePatch(
 
         // region patch for show advanced video quality menu
 
-        qualityMenuViewInflateFingerprint.methodOrThrow().apply {
-            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.CHECK_CAST)
-            val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+        videoQualityMenuViewInflateFingerprint.let {
+            it.method.apply {
+                val matches = it.instructionMatches
+                val insertIndex = matches[matches.lastIndex - 1].index
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-            addInstruction(
-                insertIndex + 1,
-                "invoke-static { v$insertRegister }, " +
-                        "$EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->showAdvancedVideoQualityMenu(Landroid/widget/ListView;)V"
-            )
-        }
-
-        qualityMenuViewInflateOnItemClickFingerprint
-            .methodOrThrow(qualityMenuViewInflateFingerprint)
-            .apply {
-                val contextIndex = indexOfContextInstruction(this)
-                val contextField =
-                    getInstruction<ReferenceInstruction>(contextIndex).reference as FieldReference
-                val castIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.CHECK_CAST &&
-                            getReference<TypeReference>()?.type == contextField.definingClass
-                }
-                val castRegister = getInstruction<OneRegisterInstruction>(castIndex).registerA
-
-                val insertIndex = indexOfFirstInstructionOrThrow(castIndex, Opcode.IGET_OBJECT)
-                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-
-                val jumpIndex = indexOfFirstInstructionReversedOrThrow {
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            getReference<MethodReference>()?.name == "dismiss"
-                }
-
-                addInstructionsWithLabels(
-                    insertIndex, """
-                        iget-object v$insertRegister, v$castRegister, $contextField
-                        invoke-static {v$insertRegister}, $EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->showAdvancedVideoQualityMenu(Landroid/content/Context;)Z
-                        move-result v$insertRegister
-                        if-nez v$insertRegister, :dismiss
-                        """, ExternalLabel("dismiss", getInstruction(jumpIndex))
+                addInstructions(
+                    insertIndex + 1,
+                    """
+                        invoke-static/range { p0 .. p0 }, $EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->setVideoQualityBottomSheet(Ljava/lang/Object;)V
+                        invoke-static { v$insertRegister }, $EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->addVideoQualityListMenuListener(Landroid/widget/ListView;)V
+                        """
                 )
             }
+        }
+
+        videoQualityMenuOptionsFingerprint.let {
+            val matches = it.instructionMatches
+            val startIndex = matches.first().index
+            val insertIndex = matches[matches.lastIndex - 1].index
+            if (startIndex != 0) throw PatchException("Unexpected opcode start index: $startIndex")
+
+            it.method.apply {
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                addInstructions(
+                    insertIndex, """
+                        invoke-static { v$insertRegister }, $EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->forceAdvancedVideoQualityMenuCreation(Z)Z
+                        move-result v$insertRegister
+                        """
+                )
+            }
+        }
 
 
         recyclerViewTreeObserverHook("$EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
@@ -276,7 +256,7 @@ val videoPlaybackPatch = bytecodePatch(
         // region patch for spoof device dimensions
 
         findMethodOrThrow(
-            deviceDimensionsModelToStringFingerprint.definingClassOrThrow()
+            deviceDimensionsModelToStringFingerprint.classDef.type
         ).addInstructions(
             1, // Add after super call.
             mapOf(
@@ -296,7 +276,7 @@ val videoPlaybackPatch = bytecodePatch(
 
         // region patch for disable VP9 codec
 
-        vp9CapabilityFingerprint.methodOrThrow().apply {
+        vp9CapabilityFingerprint.method.apply {
             addInstructionsWithLabels(
                 0, """
                     invoke-static {}, $EXTENSION_VP9_CODEC_CLASS_DESCRIPTOR->disableVP9Codec()Z

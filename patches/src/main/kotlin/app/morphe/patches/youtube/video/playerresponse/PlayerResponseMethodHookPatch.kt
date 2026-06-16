@@ -1,11 +1,14 @@
 package app.morphe.patches.youtube.video.playerresponse
 
+import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
-import app.morphe.util.fingerprint.methodOrThrow
-import kotlin.properties.Delegates
+import app.morphe.patches.youtube.utils.playservice.is_20_26_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_46_or_greater
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
+import java.lang.ref.WeakReference
 
 private val hooks = mutableSetOf<Hook>()
 
@@ -14,10 +17,10 @@ fun addPlayerResponseMethodHook(hook: Hook) {
 }
 
 // Parameter numbers of the patched method.
-private var parameterVideoId = 1
-private var parameterPlayerParameter = 3
-private var parameterPlaylistId = 4
-private var parameterIsShortAndOpeningOrPlaying by Delegates.notNull<Int>()
+private const val PARAMETER_VIDEO_ID = 1
+private const val PARAMETER_PLAYER_PARAMETER = 3
+private const val PARAMETER_PLAYLIST_ID = 4
+private var parameterIsShortAndOpeningOrPlaying = -1
 
 // Registers used to pass the parameters to the extension.
 private var playerResponseMethodCopyRegisters = false
@@ -26,15 +29,26 @@ private lateinit var registerPlayerParameter: String
 private lateinit var registerPlaylistId: String
 private lateinit var registerIsShortAndOpeningOrPlaying: String
 
-private lateinit var playerResponseMethod: MutableMethod
+private lateinit var playerResponseMethodRef: WeakReference<MutableMethod>
 private var numberOfInstructionsAdded = 0
 
 val playerResponseMethodHookPatch = bytecodePatch(
-    description = "playerResponseMethodHookPatch"
+    description = "playerResponseMethodHookPatch",
 ) {
+    dependsOn(versionCheckPatch)
+
     execute {
-        playerResponseMethod = playerParameterBuilderFingerprint.second.methodOrNull
-            ?: playerParameterBuilderLegacyFingerprint.methodOrThrow()
+        val fingerprint: Fingerprint = when {
+            is_20_46_or_greater -> PlayerParameterBuilder2046Fingerprint
+            is_20_26_or_greater -> PlayerParameterBuilder2026Fingerprint
+            else -> PlayerParameterBuilder2010Fingerprint.takeIf { it.methodOrNull != null }
+                ?: PlayerParameterBuilder1923Fingerprint.takeIf { it.methodOrNull != null }
+                ?: PlayerParameterBuilderFallbackFingerprint.takeIf { it.methodOrNull != null }
+                ?: PlayerParameterBuilderLegacyFingerprint
+        }
+
+        val playerResponseMethod = fingerprint.method
+        playerResponseMethodRef = WeakReference(playerResponseMethod)
 
         playerResponseMethod.apply {
             val setIndex = parameterTypes.indexOfFirst { it == "Ljava/util/Set;" }
@@ -46,10 +60,11 @@ val playerResponseMethodHookPatch = bytecodePatch(
             // YouTube 19.23 ~ 20.09 : p12
             // YouTube 20.10 ~ : p13
             parameterIsShortAndOpeningOrPlaying = setIndex + relativeIndex + 1
+
             // On some app targets the method has too many registers pushing the parameters past v15.
             // If needed, move the parameters to 4-bit registers so they can be passed to extension.
-            playerResponseMethodCopyRegisters = implementation!!.registerCount -
-                    parameterSize + parameterIsShortAndOpeningOrPlaying > 15
+            playerResponseMethodCopyRegisters =
+                implementation!!.registerCount - parameterSize + parameterIsShortAndOpeningOrPlaying > 15
         }
 
         if (playerResponseMethodCopyRegisters) {
@@ -58,29 +73,29 @@ val playerResponseMethodHookPatch = bytecodePatch(
             registerPlaylistId = "v2"
             registerIsShortAndOpeningOrPlaying = "v3"
         } else {
-            registerVideoId = "p$parameterVideoId"
-            registerPlayerParameter = "p$parameterPlayerParameter"
-            registerPlaylistId = "p$parameterPlaylistId"
+            registerVideoId = "p$PARAMETER_VIDEO_ID"
+            registerPlayerParameter = "p$PARAMETER_PLAYER_PARAMETER"
+            registerPlaylistId = "p$PARAMETER_PLAYLIST_ID"
             registerIsShortAndOpeningOrPlaying = "p$parameterIsShortAndOpeningOrPlaying"
         }
     }
 
     finalize {
         fun hookVideoId(hook: Hook) {
-            playerResponseMethod.addInstruction(
+            playerResponseMethodRef.get()!!.addInstruction(
                 0,
-                "invoke-static {$registerVideoId, $registerIsShortAndOpeningOrPlaying}, $hook",
+                "invoke-static { $registerVideoId, $registerIsShortAndOpeningOrPlaying }, $hook",
             )
             numberOfInstructionsAdded++
         }
 
         fun hookPlayerParameter(hook: Hook) {
-            playerResponseMethod.addInstructions(
+            playerResponseMethodRef.get()!!.addInstructions(
                 0,
                 """
-                    invoke-static {$registerVideoId, $registerPlayerParameter, $registerPlaylistId, $registerIsShortAndOpeningOrPlaying}, $hook
+                    invoke-static { $registerVideoId, $registerPlayerParameter, $registerPlaylistId, $registerIsShortAndOpeningOrPlaying }, $hook
                     move-result-object $registerPlayerParameter
-                    """,
+                """,
             )
             numberOfInstructionsAdded += 2
         }
@@ -97,15 +112,15 @@ val playerResponseMethodHookPatch = bytecodePatch(
         beforeVideoIdHooks.forEach(::hookPlayerParameter)
 
         if (playerResponseMethodCopyRegisters) {
-            playerResponseMethod.apply {
+            playerResponseMethodRef.get()!!.apply {
                 addInstructions(
                     0,
                     """
-                        move-object/from16 $registerVideoId, p$parameterVideoId
-                        move-object/from16 $registerPlayerParameter, p$parameterPlayerParameter
-                        move-object/from16 $registerPlaylistId, p$parameterPlaylistId
+                        move-object/from16 $registerVideoId, p$PARAMETER_VIDEO_ID
+                        move-object/from16 $registerPlayerParameter, p$PARAMETER_PLAYER_PARAMETER
+                        move-object/from16 $registerPlaylistId, p$PARAMETER_PLAYLIST_ID
                         move/from16        $registerIsShortAndOpeningOrPlaying, p$parameterIsShortAndOpeningOrPlaying
-                        """,
+                    """,
                 )
 
                 numberOfInstructionsAdded += 4
@@ -113,10 +128,12 @@ val playerResponseMethodHookPatch = bytecodePatch(
                 // Move the modified register back.
                 addInstruction(
                     numberOfInstructionsAdded,
-                    "move-object/from16 p$parameterPlayerParameter, $registerPlayerParameter"
+                    "move-object/from16 p$PARAMETER_PLAYER_PARAMETER, $registerPlayerParameter",
                 )
             }
         }
+
+        hooks.clear()
     }
 }
 

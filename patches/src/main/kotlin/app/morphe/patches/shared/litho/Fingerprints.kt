@@ -229,6 +229,23 @@ internal object ProtobufBufferReferenceFingerprint : Fingerprint(
     )
 )
 
+internal object ProtobufBufferEncodeFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "[B",
+    parameters = listOf(),
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            type = "Lcom/google/android/libraries/elements/adl/UpbMessage;"
+        ),
+        methodCall(
+            definingClass = "Lcom/google/android/libraries/elements/adl/UpbMessage;",
+            name = "jniEncode"
+        )
+    )
+)
+
 internal object ProtobufBufferReferenceLegacyFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",

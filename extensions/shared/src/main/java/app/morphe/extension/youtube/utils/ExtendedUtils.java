@@ -17,6 +17,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -59,6 +60,7 @@ public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_20_09_OR_GREATER = isVersionOrGreater("20.09.00");
     public static final boolean IS_20_10_OR_GREATER = isVersionOrGreater("20.10.00");
     public static final boolean IS_20_22_OR_GREATER = isVersionOrGreater("20.22.00");
+    public static final boolean IS_20_31_OR_GREATER = isVersionOrGreater("20.31.00");
 
     public static final boolean IS_ARC = hasSystemFeature("org.chromium.arc");
     public static final boolean IS_AUTOMOTIVE = hasSystemFeature("android.hardware.type.automotive");
@@ -267,51 +269,9 @@ public class ExtendedUtils extends PackageUtils {
             }
         });
 
-        // Set touch listener on mainLayout to enable drag-to-dismiss.
         //noinspection ClickableViewAccessibility
-        mainLayout.setOnTouchListener(new View.OnTouchListener() {
-            /** Threshold for dismissing the dialog. */
-            final float dismissThreshold = dipToPixels(100); // Distance to drag to dismiss.
-            /** Store initial Y position of touch. */
-            float touchY;
-            /** Track current translation. */
-            float translationY;
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        // Capture initial Y position of touch.
-                        touchY = event.getRawY();
-                        translationY = mainLayout.getTranslationY();
-                        return true;
-                    case MotionEvent.ACTION_MOVE:
-                        // Calculate drag distance and apply translation downwards only.
-                        final float deltaY = event.getRawY() - touchY;
-                        // Only allow downward drag (positive deltaY).
-                        if (deltaY >= 0) {
-                            mainLayout.setTranslationY(translationY + deltaY);
-                        }
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                    case MotionEvent.ACTION_CANCEL:
-                        // Check if dialog should be dismissed based on drag distance.
-                        if (mainLayout.getTranslationY() > dismissThreshold) {
-                            mainLayout.startAnimation(slideOut);
-                        } else {
-                            // Animate back to original position if not dragged far enough.
-                            TranslateAnimation slideBack = new TranslateAnimation(
-                                    0, 0, mainLayout.getTranslationY(), 0);
-                            slideBack.setDuration(fadeDurationFast);
-                            mainLayout.startAnimation(slideBack);
-                            mainLayout.setTranslationY(0);
-                        }
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-        });
+        mainLayout.setOnTouchListener(new BottomSheetDragToDismissListener(
+                mContext, mainLayout, slideOut, fadeDurationFast, true));
 
         // Store the dialog reference.
         Function1<PlayerType, Unit> playerTypeObserver = getPlayerTypeUnitFunction(dialog);
@@ -321,13 +281,16 @@ public class ExtendedUtils extends PackageUtils {
 
         // Remove observer when dialog is dismissed.
         if (actionsMap != null) {
-            dialog.setOnShowListener(d -> actionsMap.forEach((view, action) ->
+            dialog.setOnShowListener(d -> actionsMap.forEach((view, action) -> {
+                    //noinspection ClickableViewAccessibility
+                    view.setOnTouchListener(new BottomSheetDragToDismissListener(
+                            mContext, mainLayout, slideOut, fadeDurationFast, false));
                     view.setOnClickListener(v -> {
                         PlayerType.getOnChange().removeObserver(playerTypeObserver);
                         mainLayout.startAnimation(slideOut);
                         action.run();
-                    })
-            ));
+                    });
+            }));
         }
 
         // Remove observer when dialog is dismissed.
@@ -410,6 +373,68 @@ public class ExtendedUtils extends PackageUtils {
         itemLayout.addView(textContainer);
 
         return itemLayout;
+    }
+
+    private static final class BottomSheetDragToDismissListener implements View.OnTouchListener {
+        private final View mainLayout;
+        private final Animation slideOut;
+        private final int fadeDurationFast;
+        private final boolean consumeActionDown;
+        private final float dismissThreshold = dipToPixels(100);
+        private final float touchSlop;
+
+        private boolean isDragging;
+        private float touchY;
+        private float translationY;
+
+        BottomSheetDragToDismissListener(@NonNull Context context, @NonNull View mainLayout,
+                                         @NonNull Animation slideOut, int fadeDurationFast,
+                                         boolean consumeActionDown) {
+            this.mainLayout = mainLayout;
+            this.slideOut = slideOut;
+            this.fadeDurationFast = fadeDurationFast;
+            this.consumeActionDown = consumeActionDown;
+            touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+        }
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    touchY = event.getRawY();
+                    translationY = mainLayout.getTranslationY();
+                    isDragging = false;
+                    return consumeActionDown;
+                case MotionEvent.ACTION_MOVE:
+                    final float deltaY = event.getRawY() - touchY;
+                    if (!isDragging && deltaY <= touchSlop) {
+                        return false;
+                    }
+                    isDragging = true;
+                    if (deltaY >= 0) {
+                        mainLayout.setTranslationY(translationY + deltaY);
+                    }
+                    return true;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    if (!isDragging) {
+                        return consumeActionDown;
+                    }
+                    if (mainLayout.getTranslationY() > dismissThreshold) {
+                        mainLayout.startAnimation(slideOut);
+                    } else {
+                        TranslateAnimation slideBack = new TranslateAnimation(
+                                0, 0, mainLayout.getTranslationY(), 0);
+                        slideBack.setDuration(fadeDurationFast);
+                        mainLayout.startAnimation(slideBack);
+                        mainLayout.setTranslationY(0);
+                    }
+                    isDragging = false;
+                    return true;
+                default:
+                    return false;
+            }
+        }
     }
 
     public static class CustomAdapter extends ArrayAdapter<String> {

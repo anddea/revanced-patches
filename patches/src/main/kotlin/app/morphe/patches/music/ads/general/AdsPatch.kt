@@ -4,7 +4,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patches.music.navigation.components.navigationBarComponentsPatch
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.ADS_PATH
 import app.morphe.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.music.utils.mainactivity.mainActivityResolvePatch
@@ -50,7 +50,7 @@ private const val PREMIUM_PROMOTION_BANNER_CLASS_DESCRIPTOR =
 @Suppress("unused")
 val adsPatch = adsPatch(
     block = {
-        compatibleWith(COMPATIBLE_PACKAGE)
+        compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
         dependsOn(
             settingsPatch,

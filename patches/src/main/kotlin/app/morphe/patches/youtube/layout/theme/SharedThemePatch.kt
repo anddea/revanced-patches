@@ -4,7 +4,7 @@ import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.shared.drawable.addDrawableColorHook
 import app.morphe.patches.shared.drawable.drawableColorHookPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import org.w3c.dom.Element
 
@@ -14,7 +14,7 @@ private const val SPLASH_SCREEN_COLOR_ATTRIBUTE = "?attr/$SPLASH_SCREEN_COLOR_NA
 val sharedThemePatch = resourcePatch(
     description = "sharedThemePatch"
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(drawableColorHookPatch)
 

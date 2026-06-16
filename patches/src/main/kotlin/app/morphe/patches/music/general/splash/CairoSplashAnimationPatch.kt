@@ -5,7 +5,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.morphe.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC_CAIRO_SPLASH_ANIMATION
 import app.morphe.patches.music.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.music.utils.patch.PatchList.DISABLE_CAIRO_SPLASH_ANIMATION
 import app.morphe.patches.music.utils.playservice.is_7_16_or_greater
@@ -37,15 +37,7 @@ val cairoSplashAnimationPatch = bytecodePatch(
     DISABLE_CAIRO_SPLASH_ANIMATION.title,
     DISABLE_CAIRO_SPLASH_ANIMATION.summary,
 ) {
-    compatibleWith(
-        YOUTUBE_MUSIC_PACKAGE_NAME(
-            "7.16.53",
-            "7.25.53",
-            "8.12.54",
-            "8.28.54",
-            "8.30.54",
-        ),
-    )
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC_CAIRO_SPLASH_ANIMATION)
 
     dependsOn(
         settingsPatch,

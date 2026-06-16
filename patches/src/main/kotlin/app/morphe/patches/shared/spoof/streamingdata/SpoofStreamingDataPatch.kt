@@ -90,7 +90,7 @@ fun spoofStreamingDataPatch(
 
     execute {
 
-        // region Block /initplayback requests to fall back to /get_watch requests.
+        // region Block /initplayback requests to fall back to /get_watch requests
 
         buildInitPlaybackRequestFingerprint.methodOrThrow().apply {
             val index = indexOfUriToStringInstruction(this) + 1
@@ -108,7 +108,7 @@ fun spoofStreamingDataPatch(
 
         // endregion
 
-        // region Block /get_watch requests to fall back to /player requests.
+        // region Block /get_watch requests to fall back to /player requests
 
         buildPlayerRequestURIFingerprint.methodOrThrow().apply {
             val invokeToStringIndex = indexOfUriToStringInstruction(this)
@@ -126,7 +126,7 @@ fun spoofStreamingDataPatch(
 
         // endregion
 
-        // region Remove /videoplayback request body to fix playback.
+        // region Remove /videoplayback request body to fix playback
 
         buildMediaDataSourceFingerprint.methodOrThrow().apply {
             val targetIndex = instructions.lastIndex
@@ -150,7 +150,7 @@ fun spoofStreamingDataPatch(
 
         // endregion
 
-        // region Replace the streaming data.
+        // region Replace the streaming data
 
         createStreamingDataFingerprint.matchOrThrow(createStreamingDataParentFingerprint)
             .let { result ->
@@ -489,7 +489,7 @@ fun spoofStreamingDataPatch(
 
         // endregion
 
-        // region Append spoof info.
+        // region Append spoof info
 
         nerdsStatsFormatBuilderFingerprint.methodOrThrow().apply {
             findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
@@ -506,7 +506,7 @@ fun spoofStreamingDataPatch(
 
         // endregion
 
-        // region Disable SABR playback.
+        // region Disable SABR playback
         // If SABR is disabled, it seems 'MediaFetchHotConfig' may no longer need to be overridden, but I'm not sure.
 
         val (mediaFetchEnumClass, sabrFieldReference) =
@@ -555,7 +555,7 @@ fun spoofStreamingDataPatch(
 
         // endregion
 
-        // region Fix iOS livestream current time.
+        // region Fix iOS livestream current time
 
         hlsCurrentTimeFingerprint.injectLiteralInstructionBooleanCall(
             HLS_CURRENT_TIME_FEATURE_FLAG,

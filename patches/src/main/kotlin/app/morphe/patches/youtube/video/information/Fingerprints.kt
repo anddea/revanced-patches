@@ -378,9 +378,9 @@ internal val videoIdFingerprint = legacyFingerprint(
 internal val videoIdFingerprintBackgroundPlay = legacyFingerprint(
     name = "videoIdFingerprintBackgroundPlay",
     returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.DECLARED_SYNCHRONIZED,
     parameters = listOf("L"),
     opcodes = listOf(
-        Opcode.IF_EQZ,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IPUT_OBJECT,
@@ -390,9 +390,8 @@ internal val videoIdFingerprintBackgroundPlay = legacyFingerprint(
         Opcode.RETURN_VOID
     ),
     customFingerprint = { method, classDef ->
-        method.name == "l" &&
-                classDef.methods.count() == 17 &&
-                method.implementation != null &&
+        method.implementation != null &&
+                (classDef.methods.count() == 17 || classDef.methods.count() == 16) &&
                 indexOfPlayerResponseModelInterfaceInstruction(method) >= 0
     }
 )

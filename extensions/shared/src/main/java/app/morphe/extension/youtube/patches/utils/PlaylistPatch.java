@@ -63,7 +63,7 @@ public class PlaylistPatch {
     private static String fetchFailedDelete;
     private static String fetchFailedRemove;
     private static String fetchFailedSave;
-    private static String fetchFailedVideoIndormation;
+    private static String fetchFailedVideoInformation;
 
     private static String fetchSucceededAdd;
     private static String fetchSucceededCreate;
@@ -85,7 +85,7 @@ public class PlaylistPatch {
             fetchFailedDelete = str("revanced_queue_manager_fetch_failed_delete");
             fetchFailedRemove = str("revanced_queue_manager_fetch_failed_remove");
             fetchFailedSave = str("revanced_queue_manager_fetch_failed_save");
-            fetchFailedVideoIndormation =
+            fetchFailedVideoInformation =
                     str("revanced_queue_manager_fetch_failed_video_information");
 
             fetchSucceededAdd = str("revanced_queue_manager_fetch_succeeded_add");
@@ -308,7 +308,7 @@ public class PlaylistPatch {
                         return;
                     }
                 }
-                showToast(fetchFailedVideoIndormation);
+                showToast(fetchFailedVideoInformation);
             }, DELAY_MILLISECONDS);
         } catch (Exception ex) {
             Logger.printException(() -> "fetchVideoDetails failure", ex);
@@ -512,7 +512,7 @@ public class PlaylistPatch {
         ),
         SHOW_ORIGINAL_VIDEO_INFORMATION(
                 "revanced_queue_manager_show_original_video_information",
-                "quantum_gm_ic_g_translate_black_24",
+                "yt_outline_info_circle_black_24",
                 PlaylistPatch::fetchVideoDetails
         ),
         EXTERNAL_DOWNLOADER(

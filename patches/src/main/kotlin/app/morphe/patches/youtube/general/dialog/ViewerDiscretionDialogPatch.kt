@@ -2,7 +2,7 @@ package app.morphe.patches.youtube.general.dialog
 
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.shared.dialog.baseViewerDiscretionDialogPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.patch.PatchList.REMOVE_VIEWER_DISCRETION_DIALOG
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -13,7 +13,7 @@ val viewerDiscretionDialogPatch = bytecodePatch(
     REMOVE_VIEWER_DISCRETION_DIALOG.title,
     REMOVE_VIEWER_DISCRETION_DIALOG.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         baseViewerDiscretionDialogPatch(

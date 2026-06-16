@@ -8,7 +8,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.extension.Constants.GENERAL_PATH
@@ -54,7 +54,7 @@ val layoutComponentsPatch = bytecodePatch(
     HIDE_LAYOUT_COMPONENTS.title,
     HIDE_LAYOUT_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         settingsPatch,

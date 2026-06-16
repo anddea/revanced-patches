@@ -368,8 +368,19 @@ public abstract class Setting<T> {
         setting.setValueFromString(newValue);
 
         // Clear the preference value since default is used, to allow changing
-        // the changing the default for a future release.  Without this after upgrading
+        // the default for a future release. Without this after upgrading
         // the saved value will be whatever was the default when the app was first installed.
+        if (setting.isSetToDefault()) {
+            setting.removeFromPreferences();
+        }
+    }
+
+    /**
+     * Reloads the value from preferences for the Settings preference code.
+     */
+    public static void privateSyncValueFromPreferences(Setting<?> setting) {
+        setting.load();
+
         if (setting.isSetToDefault()) {
             setting.removeFromPreferences();
         }

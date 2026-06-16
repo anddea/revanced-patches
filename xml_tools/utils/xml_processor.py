@@ -60,12 +60,30 @@ class XMLProcessor:
         return ET.tostring(element, encoding="unicode", method="xml")
 
     @staticmethod
+    def _indent_root_only(root: ET.Element, space: str = "    ") -> None:
+        """Indent only the immediate children of the root element.
+
+        This prevents recursive indentation from adding newlines and spaces
+        inside individual string resources containing child elements (e.g., <small>).
+        """
+        children = list(root)
+        if not children:
+            return
+
+        root.text = f"\n{space}"
+        for i, child in enumerate(children):
+            if i < len(children) - 1:
+                child.tail = f"\n{space}"
+            else:
+                child.tail = "\n"
+
+    @staticmethod
     def write_file(path: Path, root: ET.Element) -> None:
         """Write an XML element tree to a file."""
         try:
             path.parent.mkdir(parents=True, exist_ok=True)
             tree = ET.ElementTree(root)
-            ET.indent(tree, space="    ")
+            XMLProcessor._indent_root_only(root, space="    ")
             with path.open("wb") as f:
                 f.write(b'<?xml version="1.0" encoding="utf-8"?>\n')
                 tree.write(f, encoding="utf-8", xml_declaration=False)

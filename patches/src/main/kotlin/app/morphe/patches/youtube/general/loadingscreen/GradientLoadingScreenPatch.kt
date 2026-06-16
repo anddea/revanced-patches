@@ -1,7 +1,7 @@
 package app.morphe.patches.youtube.general.loadingscreen
 
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.patch.PatchList.ENABLE_GRADIENT_LOADING_SCREEN
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -13,7 +13,7 @@ val gradientLoadingScreenPatch = bytecodePatch(
     ENABLE_GRADIENT_LOADING_SCREEN.title,
     ENABLE_GRADIENT_LOADING_SCREEN.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(settingsPatch)
 

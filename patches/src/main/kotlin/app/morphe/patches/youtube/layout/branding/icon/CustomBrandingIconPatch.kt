@@ -3,7 +3,7 @@ package app.morphe.patches.youtube.layout.branding.icon
 import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_ICON_FOR_YOUTUBE
 import app.morphe.patches.youtube.utils.playservice.is_19_17_or_greater
@@ -108,7 +108,7 @@ val customBrandingIconPatch = resourcePatch(
     CUSTOM_BRANDING_ICON_FOR_YOUTUBE.summary,
     false,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,

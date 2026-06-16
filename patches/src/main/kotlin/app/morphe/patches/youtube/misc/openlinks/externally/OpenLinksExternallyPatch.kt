@@ -3,7 +3,7 @@ package app.morphe.patches.youtube.misc.openlinks.externally
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.all.misc.transformation.transformInstructionsPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.MISC_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.OPEN_LINKS_EXTERNALLY
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -17,7 +17,7 @@ val openLinksExternallyPatch = bytecodePatch(
     OPEN_LINKS_EXTERNALLY.title,
     OPEN_LINKS_EXTERNALLY.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         transformInstructionsPatch(

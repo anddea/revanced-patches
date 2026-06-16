@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.google.protobuf.MessageLite;
+
 import org.apache.commons.lang3.BooleanUtils;
 
 import java.lang.ref.WeakReference;
@@ -18,8 +20,10 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
+import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.ButtonRenderer;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.NavigationBar;
 import app.morphe.extension.youtube.shared.RootView;
@@ -39,6 +43,9 @@ public final class NavigationButtonsPatch {
 
     private static final boolean HIDE_NAVIGATION_BAR
             = Settings.HIDE_NAVIGATION_BAR.get();
+
+    private static final boolean DISABLE_AUTO_HIDE_NAVIGATION_BAR
+            = Settings.DISABLE_AUTO_HIDE_NAVIGATION_BAR.get();
 
     private static final boolean SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON
             = Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON.get();
@@ -203,6 +210,26 @@ public final class NavigationButtonsPatch {
         }
     }
 
+    /**
+     * Injection point.
+     */
+    public static void setSearchBarOnClickListener(MessageLite messageLite, View.OnClickListener listener) {
+        if (REPLACE_NAVIGATION_BUTTON) {
+            try {
+                var buttonRenderer = ButtonRenderer.parseFrom(messageLite.toByteArray());
+                if (buttonRenderer.hasIcon()) {
+                    var iconName = buttonRenderer.getIcon().getYtIconType().name();
+
+                    if (NavigationButton.SEARCH.ytEnumNames.contains(iconName)) {
+                        openSearchBar = listener;
+                    }
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "Failed to set search bar OnClickListener", ex);
+            }
+        }
+    }
+
     private static boolean shouldReplace() {
         return shouldReplace(NavigationBar.getLastAppNavigationEnum());
     }
@@ -298,6 +325,13 @@ public final class NavigationButtonsPatch {
      */
     public static void hideNavigationBar(View view) {
         hideViewUnderCondition(HIDE_NAVIGATION_BAR, view);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean disableAutoHidingNavigationBar() {
+        return DISABLE_AUTO_HIDE_NAVIGATION_BAR;
     }
 
 }

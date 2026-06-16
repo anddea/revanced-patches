@@ -1,6 +1,6 @@
 package app.morphe.patches.music.general.audiotracks
 
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.patch.PatchList.DISABLE_FORCED_AUTO_AUDIO_TRACKS
 import app.morphe.patches.music.utils.playservice.is_8_12_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
@@ -13,7 +13,7 @@ import app.morphe.patches.shared.audiotracks.audioTracksPatch
 @Suppress("unused")
 val audioTracksPatch = audioTracksPatch(
     block = {
-        compatibleWith(COMPATIBLE_PACKAGE)
+        compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
         dependsOn(
             settingsPatch,

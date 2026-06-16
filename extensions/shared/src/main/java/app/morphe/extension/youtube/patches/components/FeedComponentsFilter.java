@@ -1,5 +1,7 @@
 package app.morphe.extension.youtube.patches.components;
 
+import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_22_OR_GREATER;
+
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
@@ -46,6 +48,8 @@ public final class FeedComponentsFilter extends Filter {
     private final StringFilterGroup chipBar;
     private final StringFilterGroup communityPosts;
     private final StringFilterGroup expandableCard;
+    private final ByteArrayFilterGroup productCardBuffer;
+    private final ByteArrayFilterGroup summaryCardBuffer;
     private final ByteArrayFilterGroup playablesBuffer;
     private final ByteArrayFilterGroup ticketShelfBuffer;
 
@@ -76,6 +80,14 @@ public final class FeedComponentsFilter extends Filter {
             "channel_profile"
     );
     private static final StringTrieSearch mixPlaylistsContextExceptions = new StringTrieSearch();
+
+    public enum ExpandableCardStyle {
+        SHOW_ALL,
+        HIDE_PRODUCT_ONLY,
+        HIDE_SUMMARY_ONLY,
+        HIDE_PRODUCT_AND_SUMMARY,
+        HIDE_ALL
+    }
 
     public FeedComponentsFilter() {
         carouselShelfExceptions.addPattern("library_recent_shelf.");
@@ -152,10 +164,28 @@ public final class FeedComponentsFilter extends Filter {
 
         channelProfile = new StringFilterGroup(
                 null,
-                "channel_profile.",
-                "page_header." // new layout
+                "channel_profile.e",
+                "page_header.e" // new layout
         );
 
+        channelProfileStringFilterGroup.addAll(
+                new StringFilterGroup(
+                        Settings.HIDE_COMMUNITY_BUTTON,
+                        "community_button"
+                ),
+                new StringFilterGroup(
+                        Settings.HIDE_STORE_BUTTON,
+                        "header_store_button"
+                ),
+                new StringFilterGroup(
+                        Settings.HIDE_JOIN_BUTTON_IN_CHANNEL_PAGE,
+                        "sponsor_button"
+                ),
+                new StringFilterGroup(
+                        Settings.HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE,
+                        "subscribe_button"
+                )
+        );
         channelProfileBufferFilterGroup.addAll(
                 new ByteArrayFilterGroup(
                         Settings.HIDE_COMMUNITY_BUTTON,
@@ -171,13 +201,6 @@ public final class FeedComponentsFilter extends Filter {
                 )
         );
 
-        channelProfileStringFilterGroup.addAll(
-                new StringFilterGroup(
-                        Settings.HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE,
-                        "subscribe_button"
-                )
-        );
-
         final StringFilterGroup membersShelf = new StringFilterGroup(
                 Settings.HIDE_MEMBERS_SHELF,
                 "member_recognition_shelf"
@@ -186,14 +209,24 @@ public final class FeedComponentsFilter extends Filter {
         final StringFilterGroup linksPreview = new StringFilterGroup(
                 Settings.HIDE_LINKS_PREVIEW,
                 "channel_header_links",
-                "attribution." // new layout
+                "attribution.e" // new layout
         );
 
         expandableCard = new StringFilterGroup(
-                Settings.HIDE_EXPANDABLE_CARD,
+                null,
                 INLINE_EXPANSION_PATH,
                 "inline_expander",
                 "expandable_metadata."
+        );
+
+        productCardBuffer = new ByteArrayFilterGroup(
+                null,
+                "gstatic.com/shopping"
+        );
+
+        summaryCardBuffer = new ByteArrayFilterGroup(
+                null,
+                "PAfeedback_genai"
         );
 
         final StringFilterGroup surveys = new StringFilterGroup(
@@ -408,15 +441,19 @@ public final class FeedComponentsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
+    public boolean isFiltered(String path, String accessibility, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == channelProfile) {
             if (contentIndex != 0) {
                 return false;
             }
-            return channelProfileBufferFilterGroup.check(buffer).isFiltered()
-                    || channelProfileStringFilterGroup.check(path).isFiltered();
-
+            if (IS_20_22_OR_GREATER) {
+                return channelProfileStringFilterGroup.check(accessibility).isFiltered();
+            } else {
+                return channelProfileBufferFilterGroup.check(buffer).isFiltered()
+                        || channelProfileStringFilterGroup.check(accessibility).isFiltered()
+                        || channelProfileStringFilterGroup.check(path).isFiltered();
+            }
         } else if (matchedGroup == chipBar) {
             return hideCategoryBar(contentIndex);
 
@@ -445,7 +482,19 @@ public final class FeedComponentsFilter extends Filter {
             return Settings.HIDE_COMMUNITY_POSTS_HOME_RELATED_VIDEOS.get();
 
         } else if (matchedGroup == expandableCard) {
-            return path.startsWith(FEED_VIDEO_PATH);
+            if (!path.startsWith(FEED_VIDEO_PATH)) {
+                return false;
+            }
+
+            ExpandableCardStyle style = Settings.HIDE_EXPANDABLE_CARD.get();
+            return switch (style) {
+                case HIDE_ALL -> true;
+                case HIDE_PRODUCT_ONLY -> productCardBuffer.check(buffer).isFiltered();
+                case HIDE_SUMMARY_ONLY -> summaryCardBuffer.check(buffer).isFiltered();
+                case HIDE_PRODUCT_AND_SUMMARY ->
+                        productCardBuffer.check(buffer).isFiltered() || summaryCardBuffer.check(buffer).isFiltered();
+                default -> false;
+            };
 
         } else if (matchedGroup == carouselShelves) {
             if (contentIndex == 0) {

@@ -5,7 +5,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.music.utils.patch.PatchList.SPONSORBLOCK
 import app.morphe.patches.music.utils.resourceid.sharedResourceIdPatch
@@ -161,7 +161,7 @@ val sponsorBlockPatch = resourcePatch(
     SPONSORBLOCK.title,
     SPONSORBLOCK.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         sponsorBlockBytecodePatch,

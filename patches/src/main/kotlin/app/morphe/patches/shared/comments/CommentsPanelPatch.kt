@@ -12,11 +12,9 @@ import app.morphe.patches.shared.mapping.getResourceId
 import app.morphe.patches.shared.mapping.resourceMappingPatch
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.morphe.util.addInstructionsAtControlFlowLabel
-import app.morphe.util.findFreeRegister
+import app.morphe.util.getFreeRegisterProvider
 import app.morphe.util.findMethodOrThrow
-import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodCall
-import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.injectLiteralInstructionViewCall
@@ -58,37 +56,48 @@ val commentsPanelPatch = bytecodePatch(
     execute {
         // Method to find the engagement panel id.
         val (engagementPanelIdMethodCall, engagementPanelMessageClass) =
-            with(engagementPanelIdFingerprint.methodOrThrow()) {
+            with(engagementPanelIdFingerprint.method) {
                 Pair(methodCall(), parameterTypes.first().toString())
             }
 
         // Method that finds the RecyclerView to which comments will be bound.
         val recyclerViewOptionalMethodCall = recyclerViewOptionalFingerprint
-            .methodOrThrow(engagementPanelRecyclerViewFingerprint)
+            .match(engagementPanelRecyclerViewFingerprint.classDef)
+            .method
             .methodCall()
 
-        engagementPanelRecyclerViewFingerprint.matchOrThrow().let { result ->
+        engagementPanelRecyclerViewFingerprint.match().let { result ->
             result.method.apply {
                 val setRecyclerViewMethodName = "patch_setRecyclerView"
                 val insertIndex = indexOfIfPresentInstruction(this) + 1
 
-                // Find the index of the class required to get the engagement panel id.
-                val engagementPanelMessageIndex = indexOfFirstInstructionOrThrow(insertIndex) {
-                    getReference<MethodReference>()?.parameterTypes?.firstOrNull() == engagementPanelMessageClass
-                }
-                val engagementPanelMessageRegister =
-                    getInstruction<FiveRegisterInstruction>(engagementPanelMessageIndex).let { instruction ->
-                        if (getInstruction(engagementPanelMessageIndex).opcode == Opcode.INVOKE_STATIC)
-                            instruction.registerC
-                        else // YouTube Music 6.20.51
-                            instruction.registerD
+                val engagementPanelMessageRegister = parameterTypes
+                    .indexOfFirst { it.toString() == engagementPanelMessageClass }
+                    .takeIf { it >= 0 }
+                    ?.let { "p${it + 1}" }
+                    ?: run {
+                        // Older versions keep the engagement panel message in a local register.
+                        val engagementPanelMessageIndex = indexOfFirstInstructionOrThrow(insertIndex) {
+                            getReference<MethodReference>()?.parameterTypes?.firstOrNull() == engagementPanelMessageClass
+                        }
+                        getInstruction<FiveRegisterInstruction>(engagementPanelMessageIndex).let { instruction ->
+                            val register = if (getInstruction(engagementPanelMessageIndex).opcode == Opcode.INVOKE_STATIC)
+                                instruction.registerC
+                            else // YouTube Music 6.20.51
+                                instruction.registerD
+
+                            "v$register"
+                        }
                     }
-                val freeRegister = findFreeRegister(insertIndex)
+                val freeRegisters = getFreeRegisterProvider(insertIndex, 2)
+                val thisRegister = freeRegisters.getFreeRegister()
+                val engagementPanelMessageFreeRegister = freeRegisters.getFreeRegister()
 
                 addInstructionsAtControlFlowLabel(
                     insertIndex, """
-                        move-object/from16 v$freeRegister, p0
-                        invoke-direct { v$freeRegister, v$engagementPanelMessageRegister }, $definingClass->$setRecyclerViewMethodName($engagementPanelMessageClass)V
+                        move-object/from16 v$thisRegister, p0
+                        move-object/from16 v$engagementPanelMessageFreeRegister, $engagementPanelMessageRegister
+                        invoke-direct { v$thisRegister, v$engagementPanelMessageFreeRegister }, $definingClass->$setRecyclerViewMethodName($engagementPanelMessageClass)V
                         """
                 )
 
@@ -157,7 +166,8 @@ val commentsPanelPatch = bytecodePatch(
             title to "setContentHeader"
         ).forEach { (literal, methodName) ->
             engagementPanelTitleFingerprint
-                .methodOrThrow(engagementPanelTitleParentFingerprint)
+                .match(engagementPanelTitleParentFingerprint.classDef)
+                .method
                 .injectLiteralInstructionViewCall(
                     literal,
                     "invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V"
@@ -168,8 +178,7 @@ val commentsPanelPatch = bytecodePatch(
             name == "smoothScrollToPosition"
         }.addInstruction(
             0,
-            "invoke-virtual {p0, p1}, ${recyclerViewSmoothScrollToPositionFingerprint.methodCall()}"
+            "invoke-virtual {p0, p1}, ${recyclerViewSmoothScrollToPositionFingerprint.method.methodCall()}"
         )
     }
 }
-

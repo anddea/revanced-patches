@@ -1,3 +1,40 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.patches.shared.litho
 
 import app.morphe.patcher.Fingerprint
@@ -56,6 +93,7 @@ val lithoFilterPatch = bytecodePatch(
     var filterCount = 0
     var isYouTube = false
     var filterArrayMethod: MutableMethod? = null
+    val filterClassDescriptors = mutableSetOf<String>()
 
     execute {
         // `componentContextSubParserFingerprint` is specific to the YouTube app.
@@ -63,7 +101,7 @@ val lithoFilterPatch = bytecodePatch(
         // print("isYouTube: $isYouTube\n")
 
         if (isYouTube) {
-            // Remove dummy filter from extenion static field
+            // Remove dummy filter from extension static field
             // and add the filters included during patching.
             LithoFilterFingerprint.match(classDefBy(EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR)).let {
                 it.method.apply {
@@ -83,15 +121,17 @@ val lithoFilterPatch = bytecodePatch(
                         MutableMethodImplementation(3),
                     ).toMutable().apply {
                         addLithoFilter = { classDescriptor ->
-                            addInstructions(
-                                0,
+                            if (filterClassDescriptors.add(classDescriptor)) {
+                                addInstructions(
+                                    0,
+                                    """
+                                    new-instance v$REGISTER_FILTER_CLASS, $classDescriptor
+                                    invoke-direct { v$REGISTER_FILTER_CLASS }, $classDescriptor-><init>()V
+                                    const/16 v$REGISTER_FILTER_COUNT, ${filterCount++}
+                                    aput-object v$REGISTER_FILTER_CLASS, v$REGISTER_FILTER_ARRAY, v$REGISTER_FILTER_COUNT
                                 """
-                                new-instance v$REGISTER_FILTER_CLASS, $classDescriptor
-                                invoke-direct { v$REGISTER_FILTER_CLASS }, $classDescriptor-><init>()V
-                                const/16 v$REGISTER_FILTER_COUNT, ${filterCount++}
-                                aput-object v$REGISTER_FILTER_CLASS, v$REGISTER_FILTER_ARRAY, v$REGISTER_FILTER_COUNT
-                            """
-                            )
+                                )
+                            }
                         }
                     }
                     it.classDef.methods.add(helperMethod)
@@ -109,7 +149,7 @@ val lithoFilterPatch = bytecodePatch(
                 }
             }
 
-            // region Pass the buffer into extension.
+            // region Pass the buffer into extension
 
             if (is_20_22_or_greater) {
                 // Hook method that bridges between UPB buffer native code and FB Litho.
@@ -128,6 +168,8 @@ val lithoFilterPatch = bytecodePatch(
                 0,
                 "invoke-static { p2 }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
             )
+
+            val protoBufferEncodeMethod = ProtobufBufferEncodeFingerprint.method
 
             // endregion
 
@@ -205,11 +247,12 @@ val lithoFilterPatch = bytecodePatch(
                 )
 
                 val registerProvider = getFreeRegisterProvider(
-                    insertIndex, 3, buttonViewModelRegister
+                    insertIndex, 4, buttonViewModelRegister
                 )
                 val freeRegister = registerProvider.getFreeRegister()
                 val identifierRegister = registerProvider.getFreeRegister()
                 val pathRegister = registerProvider.getFreeRegister()
+                val bufferRegister = registerProvider.getFreeRegister()
 
                 // We need to find a free register to store the accessibilityId and accessibilityText.
                 // This is before the insertion index.
@@ -224,6 +267,25 @@ val lithoFilterPatch = bytecodePatch(
                 addInstructionsAtControlFlowLabel(
                     insertIndex,
                     """
+                    move-object/from16 v$bufferRegister, p3
+
+                    # Use the current component buffer directly. Reusing buffers by identifier can
+                    # collide for repeated components such as fullscreen quick action buttons.
+                    instance-of v$freeRegister, v$bufferRegister, ${protoBufferEncodeMethod.definingClass}
+                    if-eqz v$freeRegister, :empty_buffer
+
+                    check-cast v$bufferRegister, ${protoBufferEncodeMethod.definingClass}
+                    invoke-virtual { v$bufferRegister }, $protoBufferEncodeMethod
+                    move-result-object v$bufferRegister
+                    goto :hook
+
+                    :empty_buffer
+                    const/4 v$freeRegister, 0x0
+                    new-array v$bufferRegister, v$freeRegister, [B
+
+                    :hook
+                    invoke-static { v$bufferRegister }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->setDirectProtoBuffer([B)V
+
                     move-object/from16 v$freeRegister, p2
                     
                     # 20.41 field is the abstract superclass.
@@ -233,7 +295,7 @@ val lithoFilterPatch = bytecodePatch(
                     
                     iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
                     iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
-                    invoke-static { v$identifierRegister, v$accessibilityIdRegister, v$accessibilityTextRegister, v$pathRegister }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->isFiltered(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;)Z
+                    invoke-static { v$identifierRegister, v$accessibilityIdRegister, v$accessibilityTextRegister, v$pathRegister, v$freeRegister }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->isFiltered(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;Ljava/lang/Object;)Z
                     move-result v$freeRegister
                     if-eqz v$freeRegister, :unfiltered
                     
@@ -277,7 +339,7 @@ val lithoFilterPatch = bytecodePatch(
             // endregion
 
 
-            // region Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube.
+            // region Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube
 
             LithoThreadExecutorFingerprint.method.addInstructions(
                 0,
@@ -292,7 +354,7 @@ val lithoFilterPatch = bytecodePatch(
             // endregion
 
 
-            // region A/B test of new Litho native code.
+            // region A/B test of new Litho native code
 
             // Turn off native code that handles litho component names.  If this feature is on then nearly
             // all litho components have a null name and identifier/path filtering is completely broken.
@@ -315,7 +377,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // endregion
         } else {
-            // region Pass the buffer into extension.
+            // region Pass the buffer into extension
 
             byteBufferFingerprint.methodOrThrow().addInstruction(
                 0,
@@ -324,7 +386,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // endregion
 
-            // region Hook the method that parses bytes into a ComponentContext.
+            // region Hook the method that parses bytes into a ComponentContext
 
             // Allow the method to run to completion, and override the
             // return value with an empty component if it should be filtered.
@@ -418,7 +480,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // endregion
 
-            // region Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube.
+            // region Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube
 
             lithoThreadExecutorFingerprint.methodOrThrow().addInstructions(
                 0, """
@@ -431,7 +493,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // endregion
 
-            // region A/B test of new Litho native code.
+            // region A/B test of new Litho native code
 
             // Turn off native code that handles litho component names.  If this feature is on then nearly
             // all litho components have a null name and identifier/path filtering is completely broken.
@@ -493,15 +555,17 @@ val lithoFilterPatch = bytecodePatch(
                 }
 
             addLithoFilter = { classDescriptor ->
-                filterArrayMethod!!.addInstructions(
-                    0,
-                    """
-                    new-instance v0, $classDescriptor
-                    invoke-direct {v0}, $classDescriptor-><init>()V
-                    const/16 v1, ${filterCount++}
-                    aput-object v0, v2, v1
-                    """
-                )
+                if (filterClassDescriptors.add(classDescriptor)) {
+                    filterArrayMethod!!.addInstructions(
+                        0,
+                        """
+                        new-instance v0, $classDescriptor
+                        invoke-direct {v0}, $classDescriptor-><init>()V
+                        const/16 v1, ${filterCount++}
+                        aput-object v0, v2, v1
+                        """
+                    )
+                }
             }
         }
     }

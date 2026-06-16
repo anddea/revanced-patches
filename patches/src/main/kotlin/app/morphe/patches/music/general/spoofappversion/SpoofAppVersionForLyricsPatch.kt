@@ -3,7 +3,7 @@ package app.morphe.patches.music.general.spoofappversion
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC_SPOOF_APP_VERSION_FOR_LYRICS
 import app.morphe.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.patch.PatchList.SPOOF_APP_VERSION_FOR_LYRICS
 import app.morphe.patches.music.utils.playservice.is_6_43_or_greater
@@ -69,16 +69,7 @@ val spoofAppVersionForLyricsPatch = resourcePatch(
     SPOOF_APP_VERSION_FOR_LYRICS.title,
     SPOOF_APP_VERSION_FOR_LYRICS.summary,
 ) {
-    compatibleWith(
-        YOUTUBE_MUSIC_PACKAGE_NAME(
-            "6.51.53",
-            "7.16.53",
-            "7.25.53",
-            "8.12.54",
-            "8.28.54",
-            "8.30.54",
-        ),
-    )
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC_SPOOF_APP_VERSION_FOR_LYRICS)
 
     dependsOn(
         spoofAppVersionForLyricsBytecodePatch,

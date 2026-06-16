@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Enable accessibility controls for the video player?</string>
+    <string name="accessibility_settings_edu_opt_out_text">کنترل‌های شما به دلیل فعال بودن یک سرویس دسترسی تغییر کرده‌اند.</string>
     <string name="gms_core_dialog_continue_text">ادامه</string>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore اجازه اجرا در پس‌زمینه را ندارد.
+
+راهنمای «برنامه من را نکش!» را برای دستگاه خود دنبال کنید و دستورالعمل‌ها را در نصب GmsCore خود اعمال کنید.
+
+این برای کار کردن برنامه لازم است."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"برای جلوگیری از مشکلات، بهینه‌سازی باتری GmsCore باید غیرفعال شود.
+
+غیرفعال کردن بهینه‌سازی باتری برای GmsCore تأثیر منفی بر مصرف باتری نخواهد داشت.
+
+روی دکمه ادامه ضربه بزنید و تغییرات بهینه‌سازی را مجاز کنید.."</string>
     <string name="gms_core_dialog_open_website_text">باز کردن تارنما</string>
     <string name="gms_core_dialog_title">اقدام لازم است</string>
     <string name="gms_core_offline_account_login_error">If you recently changed your account login details, then uninstall and reinstall GmsCore.</string>
+    <string name="gms_core_settings_summary">برای دریافت اعلان‌ها در RVX، پیام‌رسانی ابری را فعال کنید.</string>
+    <string name="gms_core_settings_title">تنظیمات GmsCore را باز کنید</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore نصب نشده است. آنرا نصب کنید.</string>
+    <string name="morphe_disable_auto_hide_navigation_bar_summary">نوار ناوبری را هنگام پیمایش قابل مشاهده نگه می‌دارد</string>
+    <string name="morphe_disable_auto_hide_navigation_bar_title">غیرفعال کردن پنهان شدن خودکار نوار ناوبری</string>
+    <string name="morphe_disable_drc_audio_summary_off">صدای DRC فعال است</string>
+    <string name="morphe_disable_drc_audio_summary_on">صدای DRC غیرفعال است</string>
+    <string name="morphe_disable_drc_audio_title">غیرفعال کردن صدای DRC</string>
+    <string name="morphe_disable_quic_protocol_summary_off">پروتکل QUIC فعال شده است</string>
+    <string name="morphe_disable_quic_protocol_summary_on">پروتکل QUIC غیرفعال است</string>
+    <string name="morphe_disable_quic_protocol_title">غیرفعال کردن پروتکل QUIC</string>
+    <string name="morphe_force_original_audio_not_available">برای استفاده از این ویژگی، گزینه‌ی «Spoof video streams» را به Android Reel یا TV تغییر دهید.</string>
+    <string name="morphe_force_original_audio_summary_off">استفاده از صدای پیش‌فرض</string>
+    <string name="morphe_force_original_audio_summary_on">استفاده از زبان صوتی اصلی</string>
+    <string name="morphe_force_original_audio_title">زبان صوتی اصلی را اجباری کنید</string>
+    <string name="morphe_hide_sync_button_title">دکمه‌ی «همگام‌سازی با ویدیو» را پنهان کنید</string>
+    <string name="morphe_oauth2_connection_failure_auth_error">نمی‌توانم وارد واقعیت مجازی شوم</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">نمی‌توانم وارد VR شوم، احراز هویت وب‌سایت تأیید نشده است</string>
+    <string name="morphe_oauth2_connection_failure_generic">OAuth2 موقتاً در دسترس نیست</string>
+    <string name="morphe_oauth2_connection_failure_status">وضعیت خرابی اتصال morphe_oauth2</string>
+    <string name="morphe_oauth2_connection_failure_status_400">ورود به سیستم واقعیت مجازی اندروید منقضی شده است، دوباره سعی کنید وارد واقعیت مجازی شوید</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 موقتاً در دسترس نیست (زمان API به پایان رسیده است)</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_player_title">Player playlists &amp; recommendations</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Append video quality.</string>
@@ -15,12 +47,84 @@
     <string name="revanced_debug_summary_off">لاگ عیب غیرفعال است</string>
     <string name="revanced_debug_summary_on">لاگ عیب فعال است</string>
     <string name="revanced_debug_title">گزارش عیب</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">بازخورد لمسی (haptics) با ضربه و نگه داشتن فعال است</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">بازخورد لمسی (haptics) با ضربه و نگه داشتن غیرفعال است</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_title">غیرفعال کردن بازخورد لمسی (haptics) با ضربه و نگه داشتن</string>
+    <string name="revanced_disable_translucent_status_bar_summary_off">نوار وضعیت مات یا شفاف است</string>
+    <string name="revanced_disable_translucent_status_bar_summary_on">نوار وضعیت مات است</string>
+    <string name="revanced_disable_translucent_status_bar_title">غیرفعال کردن نوار وضعیت شفاف</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">پیش‌نمایش پخش خودکار نمایش داده می‌شود</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">پیش‌نمایش پخش خودکار پنهان است</string>
+    <string name="revanced_hide_autoplay_preview_title">پیش‌نمایش پخش خودکار را پنهان کنید</string>
+    <string name="revanced_hide_channel_tab_filter_strings_summary">نام‌های برگه‌های کانال را برای فیلتر کردن، هر یک در یک خط، وارد کنید</string>
+    <string name="revanced_hide_channel_tab_filter_strings_title">فیلتر برگه‌ی کانال</string>
+    <string name="revanced_hide_channel_tab_summary_off">فیلتر برگه‌ی کانال غیرفعال است</string>
+    <string name="revanced_hide_channel_tab_summary_on">فیلتر برگه‌ی کانال فعال است</string>
+    <string name="revanced_hide_channel_tab_title">فیلتر برگه‌ی کانال را فعال کنید</string>
+    <string name="revanced_hide_comments_section_in_home_feed_summary_off">بخش نظرات زیر ویدئوها در صفحه اصلی نمایش داده می‌شود</string>
+    <string name="revanced_hide_comments_section_in_home_feed_summary_on">بخش نظرات زیر ویدئوها در صفحه اصلی پنهان است</string>
+    <string name="revanced_hide_comments_section_in_home_feed_title">بخش نظرات زیر ویدئوها در صفحه اصلی را پنهان کنید</string>
+    <string name="revanced_hide_creator_store_shelf_summary_off">قفسه فروشگاه سازنده زیر پخش‌کننده ویدئو نمایش داده می‌شود</string>
+    <string name="revanced_hide_creator_store_shelf_summary_on">قفسه فروشگاه سازنده زیر پخش‌کننده ویدئو پنهان است</string>
+    <string name="revanced_hide_creator_store_shelf_title">قفسه فروشگاه سازنده را پنهان کنید</string>
+    <string name="revanced_hide_end_screen_cards_summary_off">کارت‌های پایان ویدئو نمایش داده می‌شوند</string>
+    <string name="revanced_hide_end_screen_cards_summary_on">کارت‌های پایان ویدئو پنهان هستند</string>
+    <string name="revanced_hide_end_screen_cards_title">کارت‌های پایان ویدئو را پنهان کنید</string>
+    <string name="revanced_hide_explore_podcast_section_summary_off">بخش «پادکست را کاوش کنید» نمایش داده می‌شود</string>
+    <string name="revanced_hide_explore_podcast_section_summary_on">بخش «پادکست را کاوش کنید» پنهان است</string>
+    <string name="revanced_hide_explore_podcast_section_title">«پادکست را کاوش کنید» را پنهان کنید</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">نام‌های منوی بازشو را برای فیلتر کردن، هر یک در یک خط، وارد کنید</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_title">فیلتر منوی بازشوی فید</string>
+    <string name="revanced_hide_feed_flyout_menu_summary_off">فیلتر منوی بازشوی فید غیرفعال است</string>
+    <string name="revanced_hide_feed_flyout_menu_summary_on">فیلتر منوی بازشوی فید فعال است</string>
+    <string name="revanced_hide_feed_flyout_menu_title">فیلتر منوی بازشوی فید را فعال کنید</string>
+    <string name="revanced_hide_fullscreen_ads_summary_on">تبلیغات تمام‌صفحه پنهان هستند</string>
+    <string name="revanced_hide_keyword_content_about_summary">"صفحه اصلی/اشتراک‌ها/نتایج جستجو فیلتر شده‌اند تا محتوایی که با عبارات کلیدی مطابقت دارد پنهان شود
+
+محدودیت‌ها:
+• Shorts را نمی‌توان با نام کانال پنهان کرد
+• برخی از مؤلفه‌های رابط کاربری ممکن است پنهان نشوند
+• جستجو برای یک کلمه کلیدی ممکن است نتیجه‌ای نشان ندهد"</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">دکمه آخرین ویدئوها نمایش داده می‌شود</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">دکمه آخرین ویدئوها پنهان است</string>
+    <string name="revanced_hide_latest_videos_button_title">دکمه «آخرین ویدئوها» را پنهان کنید</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_off">دکمه پخش مجدد گفتگوی زنده در پوشش پخش‌کننده نمایش داده می‌شود</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_on">دکمه پخش مجدد گفتگوی زنده در پوشش پخش‌کننده پنهان است</string>
+    <string name="revanced_hide_live_chat_replay_button_title">دکمه «پخش مجدد گفتگوی زنده» را پنهان کنید</string>
+    <string name="revanced_hide_player_popup_ads_summary_off">تبلیغات پاپ‌آپ پخش‌کننده نمایش داده می‌شوند</string>
+    <string name="revanced_hide_player_popup_ads_summary_on">تبلیغات پاپ‌آپ پخش‌کننده پنهان هستند</string>
+    <string name="revanced_hide_player_popup_ads_title">پنهان کردن تبلیغات پاپ‌آپ پخش‌کننده</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">برچسب دوبله خودکار نمایش داده می‌شود</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">برچسب دوبله خودکار پنهان است</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_title">برچسب «دوبله خودکار» را پنهان کنید</string>
     <string name="revanced_hide_show_more_button_title">پنهان سازی دکمه \'نمایش بیشتر\'</string>
     <string name="revanced_hide_ticket_shelf_title">پنهان سازی قفسه بلیط</string>
+    <string name="revanced_hide_toolbar_create_button_summary_off">دکمه ساخت نمایش داده می‌شود</string>
+    <string name="revanced_hide_toolbar_create_button_summary_on">دکمه ساخت پنهان است</string>
+    <string name="revanced_hide_toolbar_create_button_title">دکمه ساخت را پنهان کنید</string>
+    <string name="revanced_hide_toolbar_notification_button_summary_off">دکمه اعلان‌ها نمایش داده می‌شود</string>
+    <string name="revanced_hide_toolbar_notification_button_summary_on">دکمه اعلان‌ها پنهان است</string>
+    <string name="revanced_hide_toolbar_notification_button_title">دکمه اعلان‌ها را پنهان کنید</string>
+    <string name="revanced_hide_toolbar_search_button_summary_off">دکمه جستجو نمایش داده می‌شود.</string>
+    <string name="revanced_hide_toolbar_search_button_summary_on">دکمه جستجو پنهان است</string>
+    <string name="revanced_hide_toolbar_search_button_title">دکمه جستجو را پنهان کنید</string>
+    <string name="revanced_hide_web_search_results_summary_off">نتایج جستجوی وب نمایش داده می‌شوند</string>
+    <string name="revanced_hide_web_search_results_summary_on">نتایج جستجوی وب پنهان هستند</string>
+    <string name="revanced_hide_web_search_results_title">نتایج جستجوی وب را پنهان کنید</string>
+    <string name="revanced_hide_you_may_like_section_summary_off">بخش «ممکن است دوست داشته باشید» نمایش داده می‌شود</string>
+    <string name="revanced_hide_you_may_like_section_summary_on">بخش «ممکن است دوست داشته باشید» پنهان است</string>
+    <string name="revanced_hide_you_may_like_section_title">بخش «ممکن است دوست داشته باشید» را پنهان کنید</string>
     <string name="revanced_language_DEFAULT">زبان برنامه</string>
     <string name="revanced_language_title">زبان ReVanced</string>
     <string name="revanced_sb_general">عمومی</string>
+    <string name="revanced_sb_segments_nomusic_sum">فقط برای استفاده در موزیک ویدئوها. بخش‌هایی از موزیک ویدئوها بدون موسیقی، که هنوز تحت پوشش دسته‌بندی دیگری نیستند</string>
     <string name="revanced_sb_settings_copy">رونوشت‌</string>
+    <string name="revanced_sb_submit_failed_duplicate">"نمی‌توان قطعه را ارسال کرد.
+از قبل موجود است"</string>
+    <string name="revanced_sb_submit_failed_forbidden">نمی‌توان قطعه را ارسال کرد: %s</string>
+    <string name="revanced_settings_disable_bold_icons_summary_off">آیکون‌ها پررنگ هستند</string>
+    <string name="revanced_settings_disable_bold_icons_summary_on">آیکون‌ها پررنگ نیستند</string>
+    <string name="revanced_settings_disable_bold_icons_title">غیرفعال کردن آیکون‌های پررنگ</string>
     <string name="revanced_settings_import">واردکردن</string>
     <string name="revanced_settings_import_copy">رونوشت‌</string>
     <string name="revanced_settings_import_reset">بازگرداندن تنظیمات ReVanced به پیش‌فرض</string>
@@ -31,4 +135,10 @@
     <string name="revanced_settings_search_no_results_summary">کلیدواژه دیگری را امتحان کنید</string>
     <string name="revanced_settings_search_no_results_title">نتایجی برای %s یافت نشد</string>
     <string name="revanced_settings_search_remove_message">حذف از تاریخچه جستجو؟</string>
+    <string name="revanced_share_copy_url_success">URL در کلیپ‌بورد کپی شد</string>
+    <string name="revanced_share_copy_url_timestamp_success">URL به همراه برچسب زمانی کپی شد</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">دکمه ساخت با دکمه اعلان‌ها جابجا نشده است</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">دکمه ساخت با دکمه اعلان‌ها جابجا شده است</string>
+    <string name="revanced_switch_create_with_notifications_button_title">ساخت را با اعلان‌ها جابجا کنید</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">اگر تغییر این تنظیمات اعمال نمی‌شود، حالت ناشناس را امتحان کنید.</string>
 </resources>

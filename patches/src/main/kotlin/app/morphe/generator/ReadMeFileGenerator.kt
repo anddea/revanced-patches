@@ -8,7 +8,7 @@ import java.nio.file.Paths
 
 internal class ReadMeFileGenerator : PatchesFileGenerator {
     // For this exception to apply to [README.md],
-    // Supported version of [app.morphe.patches.music.utils.integrations.Constants.COMPATIBLE_PACKAGE] should be empty.
+    // supported versions should be empty.
     private val exception = mapOf(
         "com.google.android.apps.youtube.music" to "6.29.59"
     )
@@ -16,6 +16,11 @@ internal class ReadMeFileGenerator : PatchesFileGenerator {
     private val tableHeader =
         "| \uD83D\uDC8A Patch | \uD83D\uDCDC Description | \uD83C\uDFF9 Target Version |\n" +
                 "|:--------:|:--------------:|:-----------------:|"
+
+    private val appNames = mapOf(
+        "com.google.android.apps.youtube.music" to "YouTube Music",
+        "com.google.android.youtube" to "YouTube"
+    )
 
     override fun generate(version: String, patches: Set<Patch<*>>) {
         val rootPath = Paths.get("").toAbsolutePath().parent!!
@@ -42,32 +47,32 @@ internal class ReadMeFileGenerator : PatchesFileGenerator {
 
         // add a list of supported versions to a temp file
         mapOf(
-            app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE to "\"COMPATIBLE_PACKAGE_MUSIC\"",
-            app.morphe.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE to "\"COMPATIBLE_PACKAGE_REDDIT\"",
-            app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE to "\"COMPATIBLE_PACKAGE_YOUTUBE\""
-        ).forEach { (compatiblePackage, replaceString) ->
-            compatiblePackage.let { (packageName, versions) ->
-                val supportedVersion =
-                    if (versions == null && exception.containsKey(packageName)) {
-                        exception[packageName] + "+"
-                    } else {
-                        versions
-                            ?.toString()
-                            ?.replace("[", "[\n        \"")
-                            ?.replace("]", "\"\n      ]")
-                            ?.replace(", ", "\",\n        \"")
-                            ?: "\"ALL\""
-                    }
+            app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC to "\"COMPATIBLE_PACKAGE_MUSIC\"",
+            app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE to "\"COMPATIBLE_PACKAGE_YOUTUBE\""
+        ).forEach { (compatibility, replaceString) ->
+            val packageName = compatibility.packageName ?: return@forEach
+            val versions = compatibility.targets.mapNotNullTo(linkedSetOf()) { it.version }
+            val supportedVersion =
+                if (versions.isEmpty() && exception.containsKey(packageName)) {
+                    exception[packageName] + "+"
+                } else if (versions.isNotEmpty()) {
+                    versions
+                        .toString()
+                        .replace("[", "[\n        \"")
+                        .replace("]", "\"\n      ]")
+                        .replace(", ", "\",\n        \"")
+                } else {
+                    "\"ALL\""
+                }
 
-                StringBuilder(readMeFile.readText())
-                    .replace(Regex(replaceString), supportedVersion)
-                    .let(readMeFile::writeText)
-            }
+            StringBuilder(readMeFile.readText())
+                .replace(Regex(replaceString), supportedVersion)
+                .let(readMeFile::writeText)
 
             mutableMapOf<String, MutableSet<Patch<*>>>()
                 .apply {
                     for (patch in patches) {
-                        patch.compatiblePackages?.forEach { (packageName, _) ->
+                        patch.compatibility?.mapNotNull { it.packageName }?.forEach { packageName ->
                             if (!contains(packageName)) put(packageName, mutableSetOf())
                             this[packageName]!!.add(patch)
                         }
@@ -77,17 +82,16 @@ internal class ReadMeFileGenerator : PatchesFileGenerator {
                 .sortedByDescending { it.value.size }
                 .forEach { (pkg, patches) ->
                     output.apply {
-                        appendLine("### [\uD83D\uDCE6 `$pkg`](https://play.google.com/store/apps/details?id=$pkg)")
+                        appendLine("### [\uD83D\uDCE6 ${appNames[pkg] ?: pkg}](https://play.google.com/store/apps/details?id=$pkg)")
                         appendLine("<details>\n")
                         appendLine(tableHeader)
                         patches.sortedBy { it.name }.forEach { patch ->
                             val supportedVersionArray =
-                                patch.compatiblePackages?.lastOrNull()?.second
+                                patch.compatibility?.lastOrNull()?.targets?.mapNotNull { it.version }
                             val supportedVersion =
-                                if (supportedVersionArray?.isNotEmpty() == true) {
-                                    val minVersion = supportedVersionArray.elementAt(0)
-                                    val maxVersion =
-                                        supportedVersionArray.elementAt(supportedVersionArray.size - 1)
+                                if (!supportedVersionArray.isNullOrEmpty()) {
+                                    val minVersion = supportedVersionArray.first()
+                                    val maxVersion = supportedVersionArray.last()
                                     if (minVersion == maxVersion)
                                         maxVersion
                                     else

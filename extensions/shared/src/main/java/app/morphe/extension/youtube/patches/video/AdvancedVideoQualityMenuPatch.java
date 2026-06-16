@@ -1,10 +1,13 @@
 package app.morphe.extension.youtube.patches.video;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import java.lang.ref.WeakReference;
+import java.lang.reflect.Method;
 
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -21,41 +24,77 @@ public class AdvancedVideoQualityMenuPatch {
             Settings.ADVANCED_VIDEO_QUALITY_MENU.get();
     private static final boolean ADVANCED_VIDEO_QUALITY_MENU_TYPE =
             ADVANCED_VIDEO_QUALITY_MENU && Settings.ADVANCED_VIDEO_QUALITY_MENU_TYPE.get();
+    private static WeakReference<Object> videoQualityBottomSheetRef = new WeakReference<>(null);
 
     /**
      * Injection point.
      * <p>
-     * Used in the Shorts video quality flyout, but sometimes also in the regular video quality flyout.
+     * Shorts video quality bottom sheet.
      */
-    public static boolean showAdvancedVideoQualityMenu(Context mContext) {
-        if (ADVANCED_VIDEO_QUALITY_MENU) {
-            Utils.runOnMainThreadDelayed(() -> {
-                if (ADVANCED_VIDEO_QUALITY_MENU_TYPE && mContext != null) {
-                    VideoUtils.showCustomVideoQualityFlyoutMenu(mContext);
-                } else {
-                    VideoUtils.showYouTubeLegacyVideoQualityFlyoutMenu();
-                }
-            }, 100);
-        }
-
-        return ADVANCED_VIDEO_QUALITY_MENU;
+    public static void setVideoQualityBottomSheet(Object bottomSheet) {
+        videoQualityBottomSheetRef = new WeakReference<>(bottomSheet);
     }
 
     /**
      * Injection point.
      * <p>
-     * Used in the Shorts video quality flyout, but sometimes also in the regular video quality flyout.
+     * Shorts video quality flyout.
      */
-    public static void showAdvancedVideoQualityMenu(ListView listView) {
+    public static void addVideoQualityListMenuListener(ListView listView) {
         if (!ADVANCED_VIDEO_QUALITY_MENU) return;
 
-        listView.setVisibility(View.GONE);
-        Utils.runOnMainThreadDelayed(() -> {
-                    listView.setSoundEffectsEnabled(false);
-                    listView.performItemClick(null, 2, 0);
-                },
-                1
-        );
+        listView.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() {
+            @Override
+            public void onChildViewAdded(View parent, View child) {
+                try {
+                    final var indexOfAdvancedQualityMenuItem = 4;
+                    if (listView.indexOfChild(child) != indexOfAdvancedQualityMenuItem) return;
+
+                    parent.setVisibility(View.GONE);
+
+                    if (ADVANCED_VIDEO_QUALITY_MENU_TYPE && listView.getContext() != null) {
+                        final Context context = listView.getContext();
+                        dismissVideoQualityBottomSheet();
+                        Utils.runOnMainThreadDelayed(
+                                () -> VideoUtils.showCustomVideoQualityFlyoutMenu(context),
+                                100
+                        );
+                    } else {
+                        final var qualityItemMenuPosition = 4;
+                        listView.setSoundEffectsEnabled(false);
+                        listView.performItemClick(null, qualityItemMenuPosition, 0);
+                    }
+                } catch (Exception ex) {
+                    Logger.printException(() -> "showAdvancedVideoQualityMenu failure", ex);
+                }
+            }
+
+            @Override
+            public void onChildViewRemoved(View parent, View child) {
+            }
+        });
+    }
+
+    private static void dismissVideoQualityBottomSheet() {
+        final Object bottomSheet = videoQualityBottomSheetRef.get();
+        videoQualityBottomSheetRef.clear();
+        if (bottomSheet == null) return;
+
+        try {
+            final Method dismissMethod = bottomSheet.getClass().getMethod("dismiss");
+            dismissMethod.invoke(bottomSheet);
+        } catch (Exception ex) {
+            Logger.printException(() -> "dismissVideoQualityBottomSheet failure", ex);
+        }
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Used to force the creation of the advanced menu item for the Shorts quality flyout.
+     */
+    public static boolean forceAdvancedVideoQualityMenuCreation(boolean original) {
+        return ADVANCED_VIDEO_QUALITY_MENU || original;
     }
 
     /**

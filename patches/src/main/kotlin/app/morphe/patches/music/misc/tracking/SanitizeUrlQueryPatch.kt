@@ -1,7 +1,6 @@
 package app.morphe.patches.music.misc.tracking
 
-import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.patch.PatchList.SANITIZE_SHARING_LINKS
 import app.morphe.patches.music.utils.playservice.is_8_05_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
@@ -9,8 +8,8 @@ import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
-import app.morphe.patches.shared.tracking.baseSanitizeUrlQueryPatch
-import app.morphe.patches.shared.tracking.hookQueryParameters
+import app.morphe.patches.shared.misc.privacy.hookQueryParameters
+import app.morphe.patches.shared.misc.privacy.sanitizeSharingLinksPatch
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -19,20 +18,18 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
-val sanitizeUrlQueryPatch = bytecodePatch(
+val sanitizeUrlQueryPatch = sanitizeSharingLinksPatch(
     SANITIZE_SHARING_LINKS.title,
     SANITIZE_SHARING_LINKS.summary,
-) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    block = {
+        compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
-    dependsOn(
-        baseSanitizeUrlQueryPatch,
-        settingsPatch,
-        versionCheckPatch,
-    )
-
-    execute {
-
+        dependsOn(
+            settingsPatch,
+            versionCheckPatch,
+        )
+    },
+    executeBlock = {
         if (is_8_05_or_greater) {
             imageShareLinkFormatterFingerprint.methodOrThrow().apply {
                 val stringIndex = indexOfFirstStringInstructionOrThrow("android.intent.extra.TEXT")
@@ -49,11 +46,16 @@ val sanitizeUrlQueryPatch = bytecodePatch(
 
         addSwitchPreference(
             CategoryType.MISC,
-            "revanced_sanitize_sharing_links",
+            "morphe_sanitize_sharing_links",
             "true"
         )
 
-        updatePatchStatus(SANITIZE_SHARING_LINKS)
+        addSwitchPreference(
+            CategoryType.MISC,
+            "morphe_replace_music_with_youtube",
+            "false"
+        )
 
+        updatePatchStatus(SANITIZE_SHARING_LINKS)
     }
-}
+)

@@ -1,3 +1,40 @@
+/*
+ * Copyright (C) 2025-2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.extension.shared.ui;
 
 import static app.morphe.extension.shared.utils.BaseThemeUtils.getAppForegroundColor;
@@ -29,8 +66,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-
-import android.view.View;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -75,10 +110,24 @@ public class CustomDialog {
                                                     @Nullable String neutralButtonText,
                                                     @Nullable Runnable onNeutralClick,
                                                     boolean dismissDialogOnNeutralClick) {
+        return create(context, title, message, editText, okButtonText, onOkClick, onCancelClick,
+                neutralButtonText, onNeutralClick, true, dismissDialogOnNeutralClick);
+    }
+
+    /**
+     * Creates a custom dialog with independently configurable OK and Neutral button dismissal.
+     */
+    public static Pair<Dialog, LinearLayout> create(Context context, String title, CharSequence message,
+                                                    @Nullable EditText editText, String okButtonText,
+                                                    Runnable onOkClick, Runnable onCancelClick,
+                                                    @Nullable String neutralButtonText,
+                                                    @Nullable Runnable onNeutralClick,
+                                                    boolean dismissDialogOnOkClick,
+                                                    boolean dismissDialogOnNeutralClick) {
         Logger.printDebug(() -> "Creating custom dialog with title: " + title);
         CustomDialog customDialog = new CustomDialog(context, title, message, editText,
                 okButtonText, onOkClick, onCancelClick,
-                neutralButtonText, onNeutralClick, dismissDialogOnNeutralClick);
+                neutralButtonText, onNeutralClick, dismissDialogOnOkClick, dismissDialogOnNeutralClick);
         return new Pair<>(customDialog.dialog, customDialog.mainLayout);
     }
 
@@ -94,12 +143,13 @@ public class CustomDialog {
      * @param onCancelClick               Action to perform when the Cancel button is clicked, or null if no Cancel button is needed.
      * @param neutralButtonText           Neutral button text, or null if no Neutral button is needed.
      * @param onNeutralClick              Action to perform when the Neutral button is clicked, or null if no Neutral button is needed.
+     * @param dismissDialogOnOkClick      If the dialog should be dismissed when the OK button is clicked.
      * @param dismissDialogOnNeutralClick If the dialog should be dismissed when the Neutral button is clicked.
      */
     private CustomDialog(Context context, String title, CharSequence message, @Nullable EditText editText,
                          String okButtonText, Runnable onOkClick, Runnable onCancelClick,
                          @Nullable String neutralButtonText, @Nullable Runnable onNeutralClick,
-                         boolean dismissDialogOnNeutralClick) {
+                         boolean dismissDialogOnOkClick, boolean dismissDialogOnNeutralClick) {
         this.context = context;
         this.dialog = new Dialog(context);
         this.dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
@@ -115,7 +165,8 @@ public class CustomDialog {
         mainLayout = createMainLayout();
         addTitle(title);
         addContent(message, editText);
-        addButtons(okButtonText, onOkClick, onCancelClick, neutralButtonText, onNeutralClick, dismissDialogOnNeutralClick);
+        addButtons(okButtonText, onOkClick, onCancelClick, neutralButtonText, onNeutralClick,
+                dismissDialogOnOkClick, dismissDialogOnNeutralClick);
 
         // Set dialog content and window attributes.
         dialog.setContentView(mainLayout);
@@ -241,11 +292,12 @@ public class CustomDialog {
      * @param onCancelClick               Action for the Cancel button click, or null if no Cancel button.
      * @param neutralButtonText           Neutral button text, or null if no Neutral button.
      * @param onNeutralClick              Action for the Neutral button click, or null if no Neutral button.
+     * @param dismissDialogOnOkClick      If the dialog should dismiss on OK button click.
      * @param dismissDialogOnNeutralClick If the dialog should dismiss on Neutral button click.
      */
     private void addButtons(String okButtonText, Runnable onOkClick, Runnable onCancelClick,
                             @Nullable String neutralButtonText, @Nullable Runnable onNeutralClick,
-                            boolean dismissDialogOnNeutralClick) {
+                            boolean dismissDialogOnOkClick, boolean dismissDialogOnNeutralClick) {
         // Button container.
         LinearLayout buttonContainer = new LinearLayout(context);
         buttonContainer.setOrientation(LinearLayout.VERTICAL);
@@ -272,7 +324,7 @@ public class CustomDialog {
         if (onOkClick != null) {
             Button okButton = createButton(
                     okButtonText != null ? okButtonText : context.getString(android.R.string.ok),
-                    onOkClick, true, true);
+                    onOkClick, true, dismissDialogOnOkClick);
             buttons.add(okButton);
             buttonWidths.add(measureButtonWidth(okButton));
         }

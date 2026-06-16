@@ -1,3 +1,5 @@
+@file:Suppress("CONTEXT_RECEIVERS_DEPRECATED")
+
 package app.morphe.patches.shared.spoof.guide
 
 import app.morphe.patcher.Match
@@ -7,20 +9,13 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.morphe.patches.shared.ANDROID_AUTOMOTIVE_STRING
-import app.morphe.patches.shared.CLIENT_INFO_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.authenticationChangeListenerFingerprint
-import app.morphe.patches.shared.autoMotiveFingerprint
 import app.morphe.patches.shared.clientTypeFingerprint
-import app.morphe.patches.shared.createPlayerRequestBodyWithModelFingerprint
 import app.morphe.patches.shared.indexOfClientInfoInstruction
 import app.morphe.patches.shared.indexOfMessageLiteBuilderReference
-import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
-import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
-import app.morphe.util.indexOfFirstStringInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -60,8 +55,7 @@ val spoofClientGuideEndpointPatch = bytecodePatch(
                 getInstruction<ReferenceInstruction>(messageLiteBuilderIndex).reference as MethodReference
         }
 
-        insertMatch = guideEndpointRequestBodyFingerprint
-            .matchOrThrow(guideEndpointConstructorFingerprint)
+        insertMatch = GuideEndpointRequestBodyFingerprint.match(GuideEndpointConstructorFingerprint.classDef)
     }
 }
 
@@ -109,46 +103,21 @@ context(BytecodePatchContext)
 internal fun addClientOSVersionHook(
     helperMethodName: String,
     descriptor: String,
+    @Suppress("UNUSED_PARAMETER")
     isObject: Boolean = false,
     insertLast: Boolean = true,
 ) {
-    val osNameLocalField = with (autoMotiveFingerprint.methodOrThrow()) {
-        val stringIndex = indexOfFirstStringInstructionOrThrow(ANDROID_AUTOMOTIVE_STRING)
-        val fieldType = if (isObject) "Ljava/lang/Object;" else "Ljava/lang/String;"
-        val osNameFieldIndex = indexOfFirstInstructionOrThrow(stringIndex) {
-            val reference = getReference<FieldReference>()
-            opcode == Opcode.IPUT_OBJECT &&
-                    reference?.type == fieldType &&
-                    reference.definingClass == definingClass
-        }
+    val osNameIndex = BuildClientContextBodyFingerprint.instructionMatches[1].index
+    val osNameReference = BuildClientContextBodyFingerprint.method
+        .getInstruction<ReferenceInstruction>(osNameIndex).reference
 
-        getInstruction<ReferenceInstruction>(osNameFieldIndex).reference as FieldReference
-    }
-
-    createPlayerRequestBodyWithModelFingerprint.methodOrThrow().apply {
-        val osNameLocalFieldIndex = indexOfFirstInstructionOrThrow {
-            opcode == Opcode.IGET_OBJECT &&
-                    getReference<FieldReference>() == osNameLocalField
-        }
-        val osNameIndex =
-            indexOfFirstInstructionOrThrow(osNameLocalFieldIndex - 1) {
-                val reference = getReference<FieldReference>()
-                opcode == Opcode.IPUT_OBJECT &&
-                        reference?.type == "Ljava/lang/String;" &&
-                        reference.definingClass == CLIENT_INFO_CLASS_DESCRIPTOR
-            }
-        val osNameReference =
-            getInstruction<ReferenceInstruction>(osNameIndex).reference
-
-        addClientInfoHook(
-            helperMethodName,
-            """
-                invoke-static {}, $descriptor
-                move-result-object v2
-                iput-object v2, v1, $osNameReference
-                """,
-            insertLast
-        )
-    }
+    addClientInfoHook(
+        helperMethodName,
+        """
+            invoke-static {}, $descriptor
+            move-result-object v2
+            iput-object v2, v1, $osNameReference
+            """,
+        insertLast,
+    )
 }
-

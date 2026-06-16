@@ -33,7 +33,7 @@ jobs:
       - name: Build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # To update `README.md` and `patches.json`, the command `./gradlew generatePatchesFiles clean` should be used instead of the command `./gradlew build clean`
+        # To update `README.md`, the command `./gradlew generatePatchesList clean` should be used instead of the command `./gradlew build clean`
         run: ./gradlew :patches:buildAndroid generatePatchesList clean
 
       - name: Setup Node.js
@@ -46,7 +46,7 @@ jobs:
         run: npm install
 
       - name: Import GPG key
-        uses: crazy-max/ghaction-import-gpg@v6
+        uses: crazy-max/ghaction-import-gpg@v7
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.GPG_PASSPHRASE }}

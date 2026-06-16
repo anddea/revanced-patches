@@ -2,7 +2,7 @@ package app.morphe.patches.youtube.misc.quic
 
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.shared.quic.baseQuicProtocolPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.DISABLE_QUIC_PROTOCOL
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
@@ -12,7 +12,7 @@ val quicProtocolPatch = bytecodePatch(
     DISABLE_QUIC_PROTOCOL.title,
     DISABLE_QUIC_PROTOCOL.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,

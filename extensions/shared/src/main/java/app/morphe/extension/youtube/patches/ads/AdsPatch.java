@@ -69,6 +69,13 @@ public class AdsPatch {
     /**
      * Injection point.
      */
+    public static boolean hideAds() {
+        return HIDE_GENERAL_ADS;
+    }
+
+    /**
+     * Injection point.
+     */
     public static boolean hideShortsAds(boolean original) {
         return HIDE_VIDEO_ADS || original;
     }

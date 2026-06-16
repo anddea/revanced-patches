@@ -691,6 +691,10 @@ public final class KeywordContentFilter extends Filter {
             return false;
         }
 
+        if (exceptions.matches(path)) {
+            return false; // Do not update statistics.
+        }
+
         // Field is intentionally compared using reference equality.
         if (Settings.HIDE_KEYWORD_CONTENT_PHRASES.get() != lastKeywordPhrasesParsed) {
             // User changed the keywords or whole word setting.
@@ -699,10 +703,6 @@ public final class KeywordContentFilter extends Filter {
 
         if (matchedGroup != commentsFilter && !hideKeywordSettingIsActive()) {
             return false;
-        }
-
-        if (exceptions.matches(path)) {
-            return false; // Do not update statistics.
         }
 
         MutableReference<String> matchRef = new MutableReference<>();

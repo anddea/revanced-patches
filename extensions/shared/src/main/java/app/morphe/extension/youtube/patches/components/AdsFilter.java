@@ -128,6 +128,7 @@ public final class AdsFilter extends Filter {
                 "lumiere_promo_carousel",
                 "primetime_promo",
                 "product_details",
+                "shopping_timely_shelf.", // Injection point in AdsPatch hides the empty space.
                 "text_image_button_layout",
                 "video_display_carousel_button",
                 "watch_metadata_app_promo"

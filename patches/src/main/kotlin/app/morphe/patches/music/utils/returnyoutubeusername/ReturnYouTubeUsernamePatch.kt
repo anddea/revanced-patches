@@ -1,7 +1,7 @@
 package app.morphe.patches.music.utils.returnyoutubeusername
 
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.patch.PatchList.RETURN_YOUTUBE_USERNAME
 import app.morphe.patches.music.utils.playservice.is_6_42_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
@@ -17,7 +17,7 @@ val returnYouTubeUsernamePatch = resourcePatch(
     RETURN_YOUTUBE_USERNAME.title,
     RETURN_YOUTUBE_USERNAME.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         baseReturnYouTubeUsernamePatch,

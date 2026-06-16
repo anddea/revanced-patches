@@ -6,11 +6,12 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.string
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.emptyComponentLabel
 import app.morphe.patches.shared.mainactivity.onCreateMethod
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.FEED_CLASS_DESCRIPTOR
@@ -21,6 +22,8 @@ import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_02_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_10_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_26_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.bar
 import app.morphe.patches.youtube.utils.resourceid.captionToggleContainer
@@ -29,7 +32,6 @@ import app.morphe.patches.youtube.utils.resourceid.contentPill
 import app.morphe.patches.youtube.utils.resourceid.horizontalCardList
 import app.morphe.patches.youtube.utils.resourceid.relatedChipCloudMargin
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.morphe.patches.youtube.utils.scrollTopParentFingerprint
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
@@ -40,6 +42,7 @@ import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -60,7 +63,7 @@ val feedComponentsPatch = bytecodePatch(
     HIDE_FEED_COMPONENTS.title,
     HIDE_FEED_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         mainActivityResolvePatch,
@@ -138,25 +141,62 @@ val feedComponentsPatch = bytecodePatch(
 
         // region patch for hide floating button
 
-        onCreateMethod.apply {
-            val stringIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.CONST_STRING &&
-                        getReference<StringReference>()?.string == "fab"
-            }
-            val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
-            val insertIndex = indexOfFirstInstructionOrThrow(stringIndex) {
-                opcode == Opcode.INVOKE_DIRECT &&
-                        getReference<MethodReference>()?.name == "<init>"
-            }
-            val jumpIndex = indexOfFirstInstructionOrThrow(insertIndex, Opcode.CONST_STRING)
+        if (!is_20_28_or_greater) {
+            onCreateMethod.apply {
+                val stringIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.CONST_STRING &&
+                            getReference<StringReference>()?.string == "fab"
+                }
+                val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
+                val insertIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                    opcode == Opcode.INVOKE_DIRECT &&
+                            getReference<MethodReference>()?.name == "<init>"
+                }
+                val jumpIndex = indexOfFirstInstructionOrThrow(insertIndex, Opcode.CONST_STRING)
 
-            addInstructionsWithLabels(
-                insertIndex, """
-                    invoke-static {v$stringRegister}, $FEED_CLASS_DESCRIPTOR->hideFloatingButton(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$stringRegister
-                    if-eqz v$stringRegister, :hide
-                    """, ExternalLabel("hide", getInstruction(jumpIndex))
+                addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {v$stringRegister}, $FEED_CLASS_DESCRIPTOR->hideFloatingButton(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$stringRegister
+                        if-eqz v$stringRegister, :hide
+                        """, ExternalLabel("hide", getInstruction(jumpIndex))
+                )
+            }
+        }
+
+        if (is_20_28_or_greater) {
+            val hideFloatingButtonFingerprint = Fingerprint(
+                accessFlags = listOf(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR),
+                returnType = "V",
+                parameters = listOf(),
+                filters = listOf(
+                    string("fab"),
+                ),
+                custom = { method, _ ->
+                    method.name == "<clinit>"
+                }
             )
+
+            hideFloatingButtonFingerprint.let {
+                it.method.apply {
+                    val stringIndex = indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.CONST_STRING &&
+                                getReference<StringReference>()?.string == "fab"
+                    }
+                    val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
+                    val insertIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                        opcode == Opcode.CONST_STRING &&
+                                getReference<StringReference>()?.string == "initFloatingActionButton"
+                    }
+
+                    addInstructions(
+                        insertIndex, """
+                            invoke-static {v$stringRegister}, $FEED_CLASS_DESCRIPTOR->hideFloatingButton(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v$stringRegister
+                            """
+                    )
+                }
+            }
         }
 
         // endregion
@@ -327,7 +367,7 @@ val feedComponentsPatch = bytecodePatch(
         // region patch for hide channel tab
 
         val channelTabBuilderMethod =
-            channelTabBuilderFingerprint.methodOrThrow(scrollTopParentFingerprint)
+            channelTabBuilderFingerprint.methodOrThrow()
 
         channelTabRendererFingerprint.matchOrThrow().let {
             it.method.apply {
@@ -372,10 +412,17 @@ val feedComponentsPatch = bytecodePatch(
 
         // region add settings
 
+        val hideExpandableCard = if (is_20_26_or_greater) {
+            "SETTINGS: HIDE_EXPANDABLE_CARD"
+        } else {
+            "SETTINGS: LEGACY_HIDE_EXPANDABLE_CARD"
+        }
+
         addPreference(
             arrayOf(
                 "PREFERENCE_SCREEN: FEED",
-                "SETTINGS: HIDE_FEED_COMPONENTS"
+                "SETTINGS: HIDE_FEED_COMPONENTS",
+                hideExpandableCard
             ),
             HIDE_FEED_COMPONENTS
         )

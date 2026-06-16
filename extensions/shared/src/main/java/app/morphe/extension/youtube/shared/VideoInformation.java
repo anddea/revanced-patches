@@ -4,7 +4,7 @@
  * This file is part of the revanced-patches project:
  * https://github.com/anddea/revanced-patches
  *
- * Original author(s) (alphabetical order):
+ * Original author(s):
  * - anddea (https://github.com/anddea)
  * - inotia00 (https://github.com/inotia00)
  * - Jav1x (https://github.com/Jav1x)

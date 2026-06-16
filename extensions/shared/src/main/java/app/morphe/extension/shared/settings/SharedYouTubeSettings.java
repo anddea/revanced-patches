@@ -37,16 +37,19 @@ public class SharedYouTubeSettings extends BaseSettings {
 
     public static final BooleanSetting SANITIZE_SHARING_LINKS = new BooleanSetting("morphe_sanitize_sharing_links", TRUE);
     public static final BooleanSetting REPLACE_MUSIC_LINKS_WITH_YOUTUBE = new BooleanSetting("morphe_replace_music_with_youtube", FALSE);
+    public static final BooleanSetting REPLACE_LINKS_WITH_SHORTENER = new BooleanSetting("morphe_replace_links_with_shortener", FALSE);
 
     public static final BooleanSetting CHECK_WATCH_HISTORY_DOMAIN_NAME = new BooleanSetting("morphe_check_watch_history_domain_name", TRUE, false, false);
 
     public static final StringSetting DISABLED_FEATURE_FLAGS = new StringSetting("morphe_disabled_feature_flags", "", true, parent(DEBUG));
 
     // Renamed settings
+    private static final BooleanSetting DEPRECATED_REVANCED_SANITIZE_SHARING_LINKS = BaseSettings.SANITIZE_SHARING_LINKS;
     private static final BooleanSetting DEPRECATED_SANITIZE_URL_QUERY = new BooleanSetting("morphe_sanitize_url_query", TRUE);
 
     static {
         // TODO: Eventually remove these migrations
+        migrateOldSettingToNew(DEPRECATED_REVANCED_SANITIZE_SHARING_LINKS, SANITIZE_SHARING_LINKS);
         migrateOldSettingToNew(DEPRECATED_SANITIZE_URL_QUERY, SANITIZE_SHARING_LINKS);
     }
 }

@@ -6,6 +6,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_04_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_32_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
@@ -36,32 +37,34 @@ val themeAttributesPatch = bytecodePatch(
          * According to [stackoverflow](https://stackoverflow.com/questions/28932306/logcat-says-resource-has-unresolved-theme-attributes),
          * Replace [Resources.getDrawable(int)] with [Context.getDrawable(int)].
          */
-        setSleepTimerDrawableFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val getResourcesIndex = it.instructionMatches.first().index
-                val getDrawableIndex = it.instructionMatches.last().index
+        if (!is_20_32_or_greater) {
+            setSleepTimerDrawableFingerprint.matchOrThrow().let {
+                it.method.apply {
+                    val getResourcesIndex = it.instructionMatches.first().index
+                    val getDrawableIndex = it.instructionMatches.last().index
 
-                // Verify that the correct pattern has been found.
-                referenceMatchesOrThrow(
-                    getResourcesIndex,
-                    "Landroid/content/Context;->getResources()Landroid/content/res/Resources;"
-                )
-                referenceMatchesOrThrow(
-                    getDrawableIndex,
-                    "Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;"
-                )
+                    // Verify that the correct pattern has been found.
+                    referenceMatchesOrThrow(
+                        getResourcesIndex,
+                        "Landroid/content/Context;->getResources()Landroid/content/res/Resources;"
+                    )
+                    referenceMatchesOrThrow(
+                        getDrawableIndex,
+                        "Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;"
+                    )
 
-                val contextRegister =
-                    getInstruction<FiveRegisterInstruction>(getResourcesIndex).registerC
-                val identifierRegister =
-                    getInstruction<FiveRegisterInstruction>(getDrawableIndex).registerD
+                    val contextRegister =
+                        getInstruction<FiveRegisterInstruction>(getResourcesIndex).registerC
+                    val identifierRegister =
+                        getInstruction<FiveRegisterInstruction>(getDrawableIndex).registerD
 
-                replaceInstruction(
-                    getDrawableIndex,
-                    "invoke-virtual {v$contextRegister, v$identifierRegister}, " +
-                            "Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;"
-                )
-                removeInstructions(getResourcesIndex, 2)
+                    replaceInstruction(
+                        getDrawableIndex,
+                        "invoke-virtual {v$contextRegister, v$identifierRegister}, " +
+                                "Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;"
+                    )
+                    removeInstructions(getResourcesIndex, 2)
+                }
             }
         }
 

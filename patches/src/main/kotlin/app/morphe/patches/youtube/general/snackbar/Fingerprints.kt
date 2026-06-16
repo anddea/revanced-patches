@@ -1,5 +1,6 @@
 package app.morphe.patches.youtube.general.snackbar
 
+import app.morphe.patcher.Fingerprint
 import app.morphe.patches.youtube.utils.resourceid.insetElementsWrapper
 import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.getReference
@@ -18,21 +19,6 @@ internal val bottomUiContainerFingerprint = legacyFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "L"),
-    customFingerprint = { _, classDef ->
-        classDef.type == BOTTOM_UI_CONTAINER_CLASS_DESCRIPTOR
-    }
-)
-
-internal val bottomUiContainerPreFingerprint = legacyFingerprint(
-    name = "bottomUiContainerPreFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L", "L", "L"),
-    opcodes = listOf(
-        Opcode.IF_NEZ,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID
-    ),
     customFingerprint = { _, classDef ->
         classDef.type == BOTTOM_UI_CONTAINER_CLASS_DESCRIPTOR
     }
@@ -66,3 +52,27 @@ internal fun indexOfBackGroundColor(method: Method) =
         opcode == Opcode.INVOKE_VIRTUAL &&
                 getReference<MethodReference>()?.name == "setBackgroundColor"
     }
+
+internal object LegacySnackBarConstructorFingerprint : Fingerprint(
+    definingClass = "Lcom/google/android/libraries/quantum/snackbar/Snackbar;",
+    name = "<init>",
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    parameters = listOf(
+        "Landroid/content/Context;",
+        "Landroid/util/AttributeSet;",
+        "I"
+    )
+)
+
+internal object YouTubeSnackBarConstructorFingerprint : Fingerprint(
+    definingClass = "Lcom/google/android/apps/youtube/app/common/ui/bottomui/YouTubeSnackbar;",
+    name = "<init>",
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    parameters = listOf(
+        "Landroid/content/Context;",
+        "Landroid/util/AttributeSet;",
+        "I"
+    )
+)

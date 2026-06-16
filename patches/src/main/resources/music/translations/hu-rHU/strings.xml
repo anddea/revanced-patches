@@ -35,21 +35,29 @@ Nyomj a folytatás gombra, és engedélyezd az optimalizálási módosításokat
     <string name="morphe_oauth2_connection_failure_timeout">Az OAuth2 átmenetileg nem elérhető (az API időtúllépés miatt)</string>
     <string name="morphe_oauth2_toast_invalid">Érvénytelen VR bejelentkezési token, próbálja meg újra a bejelentkezést a VR-ba</string>
     <string name="morphe_oauth2_toast_reset">Kijelentkezett az Android VR-ből</string>
+    <string name="morphe_replace_music_with_youtube_summary">A megosztott linkekben lecseréli a music.youtube.com-ot a youtube.com-ra</string>
     <string name="morphe_replace_music_with_youtube_summary_off">A megosztott linkek a music.youtube.com-ot használják</string>
     <string name="morphe_replace_music_with_youtube_summary_on">A megosztott linkek a youtube.com-ot használják</string>
     <string name="morphe_replace_music_with_youtube_title">Módosítsa a megosztási linkeket youtube.com-ra</string>
+    <string name="morphe_sanitize_sharing_links_summary">Eltávolítja a követési paramétereket a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_summary_off">A követési lekérdezési paraméter nem kerül eltávolításra a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_summary_on">A követési lekérdezési paraméter eltávolításra kerül a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
     <string name="morphe_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Rögzíti a lejátszó JavaScript verzióját egy adott változatra
+
+• Érvényes lejátszó JavaScript hash szükséges
+• A lejátszó JavaScript hash körülbelül egy hónapig érvényes, a lejárt hash-eket a GVS visszavonja
+• A lejátszás meghiúsul, ha a hash érvénytelen."</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">A lejátszó JavaScript frissítése engedélyezve van</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"A lejátszó JavaScript frissítése ki van kapcsolva
 
 • Érvényes lejátszó JavaScript hash szükséges
 • A lejátszó JavaScript hash visszavonása a GVS-ben lejátszási hibákhoz vezet"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Kapcsold ki a lejátszó JavaScript frissítését</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">A lejátszó JavaScript hash-ai kb. egy hónapig érvényesek, és a GVS visszavonhatja a lejárt hash-okat.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Próbálja meg a következők engedélyezését: Spoof video streams &gt; Android VR bejelentkezés</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Érvényes lejátszó JavaScript hash-t kell megadnia.
+
+A lejátszás meghiúsul, ha a lejátszó JavaScript hash elavult."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nem találtunk ügyfelek által megosztott folyamokat</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Adjon meg egy érvényes játékos JavaScript hasht</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Játékos JavaScript hash</string>
@@ -82,6 +90,9 @@ Belépéshez nyomd meg a folytatást alul"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Sikeresen bejelentkezett</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Sikertelen volt az engedélykód kiállítása</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Sikertelen volt az elérési jogkivonat kiállítása</string>
+    <string name="morphe_spoof_video_streams_summary">"Javítja a lejátszási problémákat a legtöbb felhasználó számára azáltal, hogy kompatibilis videostreamet kér
+
+Ha YouTube Premium-felhasználó vagy, ez a beállítás nem feltétlenül szükséges."</string>
     <string name="morphe_spoof_video_streams_summary_off">"A videó streamek nincsenek hamisítva
 
 A lejátszás nem működhet"</string>
@@ -111,20 +122,20 @@ Ha Ön YouTube Premium felhasználó, ez a beállítás nem feltétlenül szüks
     <string name="revanced_change_share_sheet_summary">Az alkalmazáson belüli megosztási lapot a rendszer megosztási lapjára változtatja.</string>
     <string name="revanced_change_share_sheet_title">Megosztási lap megváltoztatása</string>
     <string name="revanced_change_start_page_entry_chart">Diagramok</string>
-    <string name="revanced_change_start_page_entry_charts">Grafikonok</string>
+    <string name="revanced_change_start_page_entry_charts">Sikerlisták</string>
     <string name="revanced_change_start_page_entry_default">Alapértelmezett</string>
-    <string name="revanced_change_start_page_entry_episodes_for_later">Később nézendő epizódok</string>
+    <string name="revanced_change_start_page_entry_episodes_for_later">Epizódok későbbre</string>
     <string name="revanced_change_start_page_entry_explore">Felfedezés</string>
     <string name="revanced_change_start_page_entry_history">Előzmények</string>
     <string name="revanced_change_start_page_entry_library">Könyvtár</string>
-    <string name="revanced_change_start_page_entry_liked_music">Szeretett zene</string>
+    <string name="revanced_change_start_page_entry_liked_music">Kedvelt dalok</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcastek</string>
     <string name="revanced_change_start_page_entry_samples">Minták</string>
     <string name="revanced_change_start_page_entry_search">Keresés</string>
     <string name="revanced_change_start_page_entry_subscription">Feliratkozások</string>
     <string name="revanced_change_start_page_entry_subscriptions">Feliratkozások</string>
     <string name="revanced_change_start_page_summary">Kiválaszthatod, hogy milyen oldalon nyíljon meg az alkalmazás.</string>
-    <string name="revanced_change_start_page_title">Kezdőlap módosítása</string>
+    <string name="revanced_change_start_page_title">Kezdőlap</string>
     <string name="revanced_custom_filter_strings_summary">A szűrendő elemek útvonal-építő stringjeinek listája, új sorokkal elválasztva.</string>
     <string name="revanced_custom_filter_strings_title">Egyéni szűrő</string>
     <string name="revanced_custom_filter_summary">Engedélyezi, hogy saját menüket is elrejts.</string>
@@ -323,7 +334,7 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Kitűzés a Gyorshívóba menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Dalkredit menü elrejtése</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Teljes képernyős hirdetések elrejtése."</string>
-    <string name="revanced_hide_fullscreen_ads_title">Teljes képernyős hirdetések elrejtése</string>
+    <string name="revanced_hide_fullscreen_ads_title">Teljesképernyős-hirdetések elrejtése</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Elrejti a megosztás gombot a teljes képernyős lejátszóban.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Teljes képernyős megosztás gomb elrejtése</string>
     <string name="revanced_hide_general_ads_summary">Elrejti az általános hirdetéseket.</string>
@@ -456,8 +467,10 @@ Kattintson a 'Kezdőlap módosítása' beállítások megnyitásához."</string>
     <string name="revanced_replace_navigation_upgrade_button_summary">A létrehozás gombot beállítások gombra cseréli.</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Előfizetés gomb kicserélése</string>
     <string name="revanced_reset_to_default_toast">Visszaállítás az alapértelmezett értékekre.</string>
+    <string name="revanced_restart_dialog_message">Indítsa újra az alkalmazást, hogy a módosítás érvénybe lépjen.</string>
     <string name="revanced_restart_first_run">Indíts újra a beállítások befejezéséhez</string>
     <string name="revanced_restart_message">Frissítés és újraindítás</string>
+    <string name="revanced_restart_title">Újraindítás szükséges</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Visszaállítja a megjegyzések felugró paneljeit a régi megjelenésére.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Régi komment felugró menü visszaállítása</string>
     <string name="revanced_restore_old_player_background_summary">Visszaállítja a lejátszó hátterét a régi stílusára.</string>
@@ -502,8 +515,6 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Megjelenik egy üzenet, ha a YouTube nem tetszések visszaállítása API nem érhető el.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Köszöntő megjelenítése, ha az API nem elérhető</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Rejtett</string>
-    <string name="revanced_sanitize_sharing_links_summary">A megosztási linkeket a nyomkövető lekérdezési paraméterek eltávolításával tisztítja.</string>
-    <string name="revanced_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
     <string name="revanced_sb_about">Névjegy</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Az adatokat a SponsorBlock API biztosítja. Nyomj ide, ha többet szeretnél megtudni és megtekintenéd a letöltéseket más platformokra.</string>
@@ -592,7 +603,6 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
 • A szülőbeállítások a letiltott gyermekbeállítások felett jelennek meg."</string>
     <string name="revanced_settings_search_tips_title">Keresési tanácsok</string>
     <string name="revanced_settings_search_title">%s keresése</string>
-    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">A beállítások vágólapra másolva.</string>
     <string name="revanced_spoof_app_version_for_lyrics_summary">A dalszövegekhez használt kliensverziót egy régebbi verzióra cseréli (szimulálja).</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Nincs valós idejű dalszöveg</string>
@@ -673,7 +683,9 @@ Ha YouTube Premium felhasználó vagy, akkor ez a beállítás nem feltétlenül
 • Az alkalmazás kényszerbezáródhat VPN vagy DNS használatakor.
 • A hang időnként akadozhat lejátszás közben adaptív bitrátájú streaming klienseken (Minden kliens, kivéve az Android VR 1.43.32-t)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Alapértelmezett kliens</string>
-    <string name="revanced_spoof_video_streams_summary">A kliens videófolyamainak hamisítása a lejátszási problémák elkerülése érdekében.</string>
+    <string name="revanced_spoof_video_streams_summary">"Javítja a lejátszási problémákat a legtöbb felhasználó számára azáltal, hogy kompatibilis videostreamet kér
+
+Ha YouTube Premium-felhasználó vagy, ez a beállítás nem feltétlenül szükséges."</string>
     <string name="revanced_spoof_video_streams_title">Hamis videó stream</string>
     <string name="revanced_translations_title">Fordítások</string>
     <string name="revanced_watch_history_type_entry_1">Eredeti</string>

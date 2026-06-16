@@ -65,47 +65,6 @@ internal val rollingNumberSetterFingerprint = legacyFingerprint(
     }
 )
 
-internal val shortsTextViewFingerprint = legacyFingerprint(
-    name = "shortsTextViewFingerprint",
-    returnType = "V",
-    parameters = listOf("L", "L"),
-    opcodes = listOf(
-        Opcode.IF_EQZ,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.GOTO,
-        Opcode.IGET,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IF_NEZ,
-        Opcode.SGET_OBJECT,
-        Opcode.SGET_OBJECT,
-        Opcode.IF_NE,
-        Opcode.IGET,
-        Opcode.AND_INT_LIT8,
-        Opcode.IF_EQZ,
-        Opcode.IGET_OBJECT,
-        Opcode.IF_NEZ,
-        Opcode.SGET_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.GOTO,
-        Opcode.IGET,
-        Opcode.AND_INT_LIT8,
-        Opcode.IF_EQZ,
-        Opcode.IGET_OBJECT,
-        Opcode.IF_NEZ,
-        Opcode.SGET_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID
-    ),
-    customFingerprint = { _, classDef ->
-        classDef.methods.count() == 3
-    }
-)
-
 internal const val LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG = 45675738L
 
 internal val textComponentFeatureFlagFingerprint = legacyFingerprint(
@@ -115,4 +74,3 @@ internal val textComponentFeatureFlagFingerprint = legacyFingerprint(
     parameters = emptyList(),
     literals = listOf(LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG)
 )
-

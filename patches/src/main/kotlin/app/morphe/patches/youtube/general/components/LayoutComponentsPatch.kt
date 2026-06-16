@@ -10,13 +10,14 @@ import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.settingmenu.settingsMenuPatch
 import app.morphe.patches.shared.viewgroup.viewGroupMarginLayoutParamsHookPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
 import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.accountSwitcherAccessibility
 import app.morphe.patches.youtube.utils.resourceid.fab
@@ -32,6 +33,7 @@ import app.morphe.util.fingerprint.mutableClassOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+import app.morphe.util.injectHideViewCall
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -53,7 +55,7 @@ val layoutComponentsPatch = bytecodePatch(
     HIDE_LAYOUT_COMPONENTS.title,
     HIDE_LAYOUT_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,
@@ -267,6 +269,24 @@ val layoutComponentsPatch = bytecodePatch(
             0,
             "return-void"
         )
+
+        // endregion
+
+        // region hide sync button
+
+        if (is_20_21_or_greater) {
+            SyncButtonFingerprint.let {
+                val syncButtonIndex = it.instructionMatches.last().index
+                val viewRegister = it.method.getInstruction<OneRegisterInstruction>(syncButtonIndex).registerA
+
+                it.method.injectHideViewCall(
+                    syncButtonIndex + 1,
+                    viewRegister,
+                    LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR,
+                    "hideSyncButton"
+                )
+            }
+        }
 
         // endregion
 

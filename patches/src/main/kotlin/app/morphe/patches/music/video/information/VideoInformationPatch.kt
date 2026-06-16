@@ -16,7 +16,7 @@ import app.morphe.patches.music.video.playerresponse.Hook
 import app.morphe.patches.music.video.playerresponse.addPlayerResponseMethodHook
 import app.morphe.patches.music.video.playerresponse.playerResponseMethodHookPatch
 import app.morphe.patches.shared.mdxPlayerDirectorSetVideoStageFingerprint
-import app.morphe.patches.shared.videoLengthFingerprint
+import app.morphe.patches.shared.videoLengthFingerprintLegacy
 import app.morphe.util.addStaticFieldToExtension
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.matchOrThrow
@@ -207,7 +207,7 @@ val videoInformationPatch = bytecodePatch(
                 videoIdMethodCall =
                     videoIdFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
                 videoLengthMethodCall =
-                    videoLengthFingerprint.getPlayerResponseInstruction("J")
+                    videoLengthFingerprintLegacy.getPlayerResponseInstruction("J")
 
                 videoInformationMethod = getVideoInformationMethod()
                 it.classDef.methods.add(videoInformationMethod)

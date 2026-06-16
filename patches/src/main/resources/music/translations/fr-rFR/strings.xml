@@ -27,32 +27,40 @@ Cliquez sur le bouton Continuer et autorisez les modifications d'optimisations."
     <string name="morphe_force_original_audio_summary_on">Utilisation de la langue audio d\'origine</string>
     <string name="morphe_force_original_audio_title">Forcer la langue audio d\'origine</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Impossible de se connecter à VR : %s</string>
-    <string name="morphe_oauth2_connection_failure_auth_not_approved">Impossible de se connecter à la VR, l’authentification sur le site web n’a pas été approuvée</string>
+    <string name="morphe_oauth2_connection_failure_auth_not_approved">Impossible de se connecter à la VR, l\'authentification sur le site web n\'a pas été approuvée</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 est temporairement indisponible</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 est temporairement indisponible (statut %d)</string>
     <string name="morphe_oauth2_connection_failure_status_400">La connexion à Android VR a expiré, réessayez de vous connecter à VR</string>
-    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 est temporairement indisponible (délai d’attente de l’API dépassé)</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 est temporairement indisponible (délai d\'attente de l\'API dépassé)</string>
     <string name="morphe_oauth2_toast_invalid">Jeton de connexion à VR invalide, veuillez réessayer la connexion à VR</string>
     <string name="morphe_oauth2_toast_reset">Déconnexion de Android VR</string>
+    <string name="morphe_replace_music_with_youtube_summary">Remplace music.youtube.com par youtube.com dans les liens partagés</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Les liens partagés utilisent music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Les liens partagés utilisent youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Rediriger les liens de partage vers youtube.com</string>
+    <string name="morphe_sanitize_sharing_links_summary">Supprime les paramètres de suivi des liens partagés</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Le paramètre de suivi n\'est pas supprimé des liens partagés</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Le paramètre de suivi est supprimé des liens partagés</string>
     <string name="morphe_sanitize_sharing_links_title">Nettoyer les liens partagés</string>
     <string name="morphe_spoof_video_streams_client_type_title">Client par défaut</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Verrouille le JavaScript du lecteur sur une version spécifique
+
+• Un hachage JavaScript valide du lecteur est nécessaire
+• Les hachages JavaScript du lecteur sont valides pendant environ un mois, et les hachages obsolètes sont révoqués par GVS
+• La lecture échoue si le hachage est révoqué"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">La mise à jour JavaScript du lecteur est activée</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"La mise à jour JavaScript du lecteur est désactivée
 
 • Un hachage JavaScript valide du lecteur est nécessaire
 • La lecture échoue si le hachage JavaScript du lecteur est révoqué dans GVS"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_title">Désactiver la mise à jour JavaScript du lecteur</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">Les hachages JavaScript du lecteur sont valides pendant environ un mois, et les hachages obsolètes peuvent être révoqués par GVS.</string>
-    <string name="morphe_spoof_video_streams_no_clients_suggest_vr_toast">Essayez d\'activer : Falsifier les flux vidéo &gt; Connexion à Android VR</string>
-    <string name="morphe_spoof_video_streams_no_clients_toast">Impossible de récupérer les flux du client.</string>
+    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Vous devez fournir un hachage JavaScript valide du lecteur.
+
+La lecture échouera si le hachage JavaScript du lecteur est obsolète."</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Impossible de récupérer les flux du client</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Entrez un hachage JavaScript valide du lecteur</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hachage JavaScript du lecteur</string>
-    <string name="morphe_spoof_video_streams_screen_summary">Falsifiez les flux vidéo du client afin d’éviter les problèmes de lecture</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Configurer la falsification du client afin d’éviter les problèmes de lecture</string>
     <string name="morphe_spoof_video_streams_screen_title">Falsifier les flux vidéo</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Non connecté à Android VR. Appuyez pour vous connecter</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Pour utiliser cette fonction, changez le \'Client par défaut\' en Android VR</string>
@@ -63,7 +71,7 @@ Cliquez sur le bouton Continuer et autorisez les modifications d'optimisations."
 1. Appuyez sur 'Ouvrir le site web' ci-dessous pour ouvrir la page 'Connecter un appareil'
 2. Collez depuis le presse-papiers (ou saisissez manuellement) le code d’activation affiché ci-dessus
 3. Connectez-vous à Google si demandé. Si vous avez plusieurs comptes, choisissez celui associé à ce compte YouTube
-4. Appuyez sur 'Autoriser l’accès YouTube VR'
+4. Appuyez sur 'Autoriser l'accès YouTube VR'
 5. Revenez à cette application une fois que le message 'Appareil connecté' apparaît"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Ouvrir le site web</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instructions</string>
@@ -75,12 +83,15 @@ Pour vous connecter, appuyez sur 'Continuer' ci-dessous."</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Se connecter à Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Authentification enregistrée
 
-• Vos paramètres Morphe n’importeront/exportent pas l’authentification Android VR
+• Vos paramètres Morphe n’importeront/exportent pas l'authentification Android VR
 • Si cette application reste inutilisée pendant 6 mois, Google supprimera cette authentification
 • Vous devrez vous reconnecter si vous changez votre mot de passe Google ou si vous dissociez cet appareil de vos paramètres Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Connecté avec succès</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Échec de l’obtention du code d’activation</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Échec de l’obtention d\'un jeton d\'authentification</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Échec de l\'obtention du code d\'activation</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Échec de l\'obtention d\'un jeton d\'authentification</string>
+    <string name="morphe_spoof_video_streams_summary">"Corrige les problèmes de lecture pour la plupart des utilisateurs en demandant un flux vidéo compatible
+
+Si vous êtes un utilisateur YouTube Premium, ce paramètre peut ne pas être nécessaire"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Les flux vidéo ne sont pas falsifiés
 
 La lecture peut ne pas fonctionner"</string>
@@ -123,7 +134,7 @@ Si vous êtes abonné à YouTube Premium, ce paramètre n'est peut-être pas né
     <string name="revanced_change_start_page_entry_subscription">Abonnements</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
     <string name="revanced_change_start_page_summary">Sélectionnez la page de démarrage de l\'appli.</string>
-    <string name="revanced_change_start_page_title">Changer la page de démarrage</string>
+    <string name="revanced_change_start_page_title">Page de démarrage</string>
     <string name="revanced_custom_filter_strings_summary">Filtrer la liste des noms du composant séparés par un saut de ligne.</string>
     <string name="revanced_custom_filter_strings_title">Filtre personnalisé</string>
     <string name="revanced_custom_filter_summary">Active les filtres personnalisés pour masquer des éléments de l’interface.</string>
@@ -454,8 +465,10 @@ Cliquez pour ouvrir les paramètres 'Modifier la page de démarrage'."</string>
     <string name="revanced_replace_navigation_upgrade_button_summary">Remplace le bouton \'S\'abonner\' par le bouton \'Paramètres\'.</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Masquer le bouton \'S\'abonner\'</string>
     <string name="revanced_reset_to_default_toast">Réinitialiser les valeurs par défaut.</string>
+    <string name="revanced_restart_dialog_message">Redémarrez l'application pour que cette modification prenne effet.</string>
     <string name="revanced_restart_first_run">Redémarrez pour terminer la configuration</string>
     <string name="revanced_restart_message">Actualiser et redémarrer</string>
+    <string name="revanced_restart_title">Redémarrage requis</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Restaure l\'ancien style de la section commentaire.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Restaurer l\'ancienne interface des commentaires</string>
     <string name="revanced_restore_old_player_background_summary">Restaure l\'ancien style de l\'arrière-plan du lecteur.</string>
@@ -500,8 +513,6 @@ Cliquez ici pour découvrir comment créer une clé API."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Affiche un message si l\'API de Return YouTube Dislike n\'est pas disponible.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Afficher un message si l\'API est indisponible</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Masqué</string>
-    <string name="revanced_sanitize_sharing_links_summary">Nettoies les liens de partage en supprimant les paramètres de suivi (tracking).</string>
-    <string name="revanced_sanitize_sharing_links_title">Nettoyer les liens partagés</string>
     <string name="revanced_sb_about">À propos</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Les données sont fournies par l\'API SponsorBlock. Cliquez ici pour en savoir plus et voir les téléchargements pour d\'autres plateformes.</string>
@@ -590,7 +601,6 @@ Cliquez ici pour découvrir comment créer une clé API."</string>
 • Les paramètres principaux s'affichent au-dessus des sous-paramètres désactivés."</string>
     <string name="revanced_settings_search_tips_title">Conseils de recherche</string>
     <string name="revanced_settings_search_title">Rechercher %s</string>
-    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Paramètres copiés dans le presse-papier.</string>
     <string name="revanced_spoof_app_version_for_lyrics_summary">Falsifie la version client utilisée dans les paroles pour une version plus ancienne.</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Pas de paroles en temps réel</string>
@@ -672,7 +682,9 @@ Si vous êtes un utilisateur YouTube Premium, ce paramètre n'est peut-être pas
 • L'application peut être fermée de manière forcée lors de l'utilisation d'un VPN ou d'un DNS.
 • Le son peut être saccadé de manière intermittente lors de la lecture sur des clients en direct à débit adaptatif (tous les clients autres qu'Android VR 1.43.32)."</string>
     <string name="revanced_spoof_video_streams_default_client_title">Client par défaut</string>
-    <string name="revanced_spoof_video_streams_summary">Modifiez le flux vidéo du client pour éviter les problèmes de lecture.</string>
+    <string name="revanced_spoof_video_streams_summary">"Corrige les problèmes de lecture pour la plupart des utilisateurs en demandant un flux vidéo compatible
+
+Si vous êtes un utilisateur YouTube Premium, ce paramètre peut ne pas être nécessaire"</string>
     <string name="revanced_spoof_video_streams_title">Falsifier les flux vidéo</string>
     <string name="revanced_translations_title">Traductions</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>

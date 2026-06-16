@@ -91,6 +91,7 @@ public class Utils {
     @SuppressLint("StaticFieldLeak")
     static volatile Context context;
     private static Locale contextLocale;
+    private static boolean appIsUsingBoldIcons;
 
     // Cached Collator instance with its locale.
     @Nullable
@@ -319,6 +320,14 @@ public class Utils {
             Logger.printException(() -> "Context is not set by extension hook, returning null", null);
         }
         return context;
+    }
+
+    public static boolean appIsUsingBoldIcons() {
+        return appIsUsingBoldIcons;
+    }
+
+    public static void setAppIsUsingBoldIcons(boolean boldIcons) {
+        appIsUsingBoldIcons = boldIcons;
     }
 
     public static Resources getResources() {

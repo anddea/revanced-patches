@@ -2,10 +2,12 @@ package app.morphe.patches.youtube.misc.accessibility
 
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_ACCESSIBILITY_CONTROLS_DIALOG
+import app.morphe.patches.youtube.utils.playservice.is_20_46_or_greater
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
 import app.morphe.util.indexOfFirstInstruction
@@ -20,31 +22,34 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 val accessibilityPatch = bytecodePatch(
     HIDE_ACCESSIBILITY_CONTROLS_DIALOG.title,
     HIDE_ACCESSIBILITY_CONTROLS_DIALOG.summary,
+    default = false
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(settingsPatch)
 
     execute {
+        if (!is_20_46_or_greater) {
+            playerAccessibilitySettingsEduControllerParentFingerprint
+                .mutableClassOrThrow()
+                .methods
+                .first { method -> method.name == "<init>" }
+                .apply {
+                    val lifecycleObserverIndex =
+                        indexOfFirstInstructionReversedOrThrow(Opcode.NEW_INSTANCE)
+                    val lifecycleObserverClass =
+                        getInstruction<ReferenceInstruction>(lifecycleObserverIndex).reference.toString()
 
-        playerAccessibilitySettingsEduControllerParentFingerprint
-            .mutableClassOrThrow()
-            .methods
-            .first { method -> method.name == "<init>" }
-            .apply {
-                val lifecycleObserverIndex =
-                    indexOfFirstInstructionReversedOrThrow(Opcode.NEW_INSTANCE)
-                val lifecycleObserverClass =
-                    getInstruction<ReferenceInstruction>(lifecycleObserverIndex).reference.toString()
+                    findMethodOrThrow(lifecycleObserverClass) {
+                        accessFlags == AccessFlags.PUBLIC or AccessFlags.FINAL &&
+                                parameterTypes.size == 1 &&
+                                indexOfFirstInstruction(Opcode.INVOKE_DIRECT) >= 0
+                    }.returnEarly()
+                }
 
-                findMethodOrThrow(lifecycleObserverClass) {
-                    accessFlags == AccessFlags.PUBLIC or AccessFlags.FINAL &&
-                            parameterTypes.size == 1 &&
-                            indexOfFirstInstruction(Opcode.INVOKE_DIRECT) >= 0
-                }.returnEarly()
-            }
-
-        addPreference(HIDE_ACCESSIBILITY_CONTROLS_DIALOG)
-
+            addPreference(HIDE_ACCESSIBILITY_CONTROLS_DIALOG)
+        } else {
+            printWarn("\"${HIDE_ACCESSIBILITY_CONTROLS_DIALOG.title}\" is not supported in this version. Use YouTube 20.45 or earlier.")
+        }
     }
 }

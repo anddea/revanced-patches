@@ -5,12 +5,13 @@
  * https://github.com/anddea/revanced-patches
  *
  * Original author(s):
+ * - anddea (https://github.com/anddea)
  * - Jav1x (https://github.com/Jav1x)
  *
  * Licensed under the GNU General Public License v3.0.
  *
  * ------------------------------------------------------------------------
- * GPLv3 Section 7 – Attribution Notice
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
  * ------------------------------------------------------------------------
  *
  * This file contains substantial original work by the author(s) listed above.
@@ -18,24 +19,24 @@
  * In accordance with Section 7 of the GNU General Public License v3.0,
  * the following additional terms apply to this file:
  *
- * 1. Attribution (Section 7(b)): This specific copyright notice and the
- *    list of original authors above must be preserved in any copy or
- *    derivative work. You may add your own copyright notice below it,
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
  *    but you may not remove the original one.
  *
- * 2. Origin (Section 7(c)): Modified versions must be clearly marked as
- *    such (e.g., by adding a "Modified by" line or a new copyright notice).
- *    They must not be misrepresented as the original work.
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
  *
- * ------------------------------------------------------------------------
- * Version Control Acknowledgement (Non-binding Request)
- * ------------------------------------------------------------------------
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
  *
- * While not a legal requirement of the GPLv3, the original author(s)
- * respectfully request that ports or substantial modifications retain
- * historical authorship credit in version control systems (e.g., Git),
- * listing original author(s) appropriately and modifiers as committers
- * or co-authors.
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
  */
 
 package app.morphe.extension.youtube.patches.voiceovertranslation;
@@ -116,29 +117,60 @@ public class VotProtobuf {
         }
     }
 
-    /**
-     * Encode a VideoTranslationAudioRequest with empty audio.
-     *   translationId = 1 (string)
-     *   url = 2 (string)
-     *   audioInfo = 6 (message): { fileId = 1 (string), audioFile = 2 (bytes) }
-     */
-    public static byte[] encodeEmptyAudioRequest(String translationId, String url) {
+    public static byte[] encodeAudioRequest(String translationId, String url, String fileId, byte[] audioData) {
         try {
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             writeString(out, 1, translationId);
             writeString(out, 2, url);
 
-            // audioInfo (field 6) is a nested message: AudioBufferObject { fileId=1, audioFile=2 }
             ByteArrayOutputStream audioInfoOut = new ByteArrayOutputStream();
-            writeString(audioInfoOut, 1, "web_api_get_all_generating_urls_data_from_iframe");
-            // audioFile (field 2) is empty bytes - we skip it
+            writeString(audioInfoOut, 1, fileId);
+            if (audioData != null && audioData.length > 0) {
+                writeBytes(audioInfoOut, audioData);
+            }
 
             byte[] audioInfoBytes = audioInfoOut.toByteArray();
-            writeBytes(out, audioInfoBytes);
+            writeMessage(out, 6, audioInfoBytes);
 
             return out.toByteArray();
         } catch (IOException e) {
             throw new RuntimeException("Failed to encode audio request", e);
+        }
+    }
+
+    public static byte[] encodeEmptyAudioRequest(String translationId, String url) {
+        return encodeAudioRequest(
+                translationId,
+                url,
+                "web_api_get_all_generating_urls_data_from_iframe",
+                new byte[0]
+        );
+    }
+
+    public static byte[] encodePartialAudioRequest(
+            String translationId, String url, String fileId,
+            int audioPartsLength, int version, int chunkId, byte[] audioData
+    ) {
+        try {
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            writeString(out, 1, translationId);
+            writeString(out, 2, url);
+
+            ByteArrayOutputStream partialAudioBufferOut = new ByteArrayOutputStream();
+            writeInt32(partialAudioBufferOut, 1, chunkId);
+            writeBytes(partialAudioBufferOut, audioData);
+
+            ByteArrayOutputStream partialAudioInfoOut = new ByteArrayOutputStream();
+            writeMessage(partialAudioInfoOut, 1, partialAudioBufferOut.toByteArray());
+            writeInt32(partialAudioInfoOut, 2, audioPartsLength);
+            writeString(partialAudioInfoOut, 3, fileId);
+            writeInt32(partialAudioInfoOut, 4, version);
+
+            writeMessage(out, 4, partialAudioInfoOut.toByteArray());
+
+            return out.toByteArray();
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to encode partial audio request", e);
         }
     }
 
@@ -303,10 +335,14 @@ public class VotProtobuf {
         out.write(bytes);
     }
 
-    private static void writeBytes(ByteArrayOutputStream out, byte[] value) throws IOException {
-        writeTag(out, 6, WIRETYPE_LENGTH_DELIMITED);
+    private static void writeMessage(ByteArrayOutputStream out, int fieldNumber, byte[] value) throws IOException {
+        writeTag(out, fieldNumber, WIRETYPE_LENGTH_DELIMITED);
         writeRawVarint(out, value.length);
         out.write(value);
+    }
+
+    private static void writeBytes(ByteArrayOutputStream out, byte[] value) throws IOException {
+        writeMessage(out, 2, value);
     }
 
     private static void writeInt32(ByteArrayOutputStream out, int fieldNumber, int value) throws IOException {

@@ -15,7 +15,7 @@ import app.morphe.patches.shared.drawable.addDrawableColorHook
 import app.morphe.patches.shared.drawable.drawableColorHookPatch
 import app.morphe.patches.shared.spans.addSpanFilter
 import app.morphe.patches.shared.spans.inclusiveSpanPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.SPANS_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.SNACK_BAR_COMPONENTS
@@ -66,17 +66,6 @@ private val snackBarComponentsBytecodePatch = bytecodePatch(
             )
         }
 
-        bottomUiContainerPreFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val insertIndex = it.instructionMatches.first().index + 1
-
-                addInstruction(
-                    insertIndex,
-                    "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->lithoSnackBarLoaded()V"
-                )
-            }
-        }
-
         bottomUiContainerThemeFingerprint.matchOrThrow().let {
             it.method.apply {
                 val darkThemeIndex = it.instructionMatches.first().index + 2
@@ -116,6 +105,11 @@ private val snackBarComponentsBytecodePatch = bytecodePatch(
             )
 
         lithoSnackBarFingerprint.methodOrThrow().apply {
+            addInstruction(
+                0,
+                "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->lithoSnackBarLoaded()V"
+            )
+
             val backGroundColorIndex = indexOfBackGroundColor(this)
             val viewRegister =
                 getInstruction<FiveRegisterInstruction>(backGroundColorIndex).registerC
@@ -173,6 +167,18 @@ private val snackBarComponentsBytecodePatch = bytecodePatch(
             }
         }
 
+        listOf(
+            LegacySnackBarConstructorFingerprint,
+            YouTubeSnackBarConstructorFingerprint
+        ).forEach { fingerprint ->
+            fingerprint.method.addInstructions(
+                1, """
+                    invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->invertSnackBarTheme(Landroid/content/Context;)Landroid/content/Context;
+                    move-result-object p1
+                    """
+            )
+        }
+
         addDrawableColorHook("$EXTENSION_CLASS_DESCRIPTOR->getLithoColor(I)I", true)
         addSpanFilter(FILTER_CLASS_DESCRIPTOR)
     }
@@ -183,7 +189,7 @@ val snackBarComponentsPatch = resourcePatch(
     SNACK_BAR_COMPONENTS.title,
     SNACK_BAR_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,

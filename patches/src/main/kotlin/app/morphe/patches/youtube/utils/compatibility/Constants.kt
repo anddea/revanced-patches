@@ -1,20 +1,29 @@
 package app.morphe.patches.youtube.utils.compatibility
 
-import app.morphe.patcher.patch.PackageName
-import app.morphe.patcher.patch.VersionName
+import app.morphe.patcher.patch.AppTarget
+import app.morphe.patcher.patch.Compatibility
 
 internal object Constants {
     internal const val YOUTUBE_PACKAGE_NAME = "com.google.android.youtube"
 
-    val COMPATIBLE_PACKAGE: Pair<PackageName, Set<VersionName>?> = Pair(
-        YOUTUBE_PACKAGE_NAME,
-        setOf(
-            "19.05.36", // This is the last version with the least YouTube experimental flag.
-            "19.16.39", // This is the last version where the 'Restore old seekbar thumbnails' setting works.
-            "19.43.41", // This is the latest version where edge-to-edge display is not enforced on Android 15+.
-            "19.44.39", // This is the only version that has experimental shortcut icons.
-            "19.47.53", // This was the latest version supported by the previous RVX patch.
-            "20.05.46", // This is the latest version supported by the RVX patch.
+    val COMPATIBILITY_YOUTUBE = Compatibility(
+        name = "YouTube",
+        packageName = YOUTUBE_PACKAGE_NAME,
+        targets = listOf(
+            AppTarget(version = "19.43.41", minSdk = 26), // This is the latest version where edge-to-edge display is not enforced on Android 15+.
+            AppTarget(version = "19.44.39", minSdk = 26), // This is the only version that has experimental shortcut icons.
+            AppTarget(version = "19.47.53", minSdk = 26),
+            AppTarget(version = "20.05.46", minSdk = 26),
+            AppTarget(version = "20.21.37", minSdk = 26),
+            AppTarget(version = "20.31.42", minSdk = 28),
+            AppTarget(version = "20.47.62", minSdk = 28),
+            AppTarget(version = "20.51.39", minSdk = 28),
         )
+    )
+
+    val COMPATIBILITY_YOUTUBE_RELOAD_VIDEO = COMPATIBILITY_YOUTUBE.excluding(
+        "19.43.41",
+        "19.44.39",
+        "19.47.53",
     )
 }

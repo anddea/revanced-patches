@@ -6,9 +6,9 @@ import static app.morphe.extension.shared.settings.Setting.parent;
 
 import app.morphe.extension.shared.patches.ReturnYouTubeUsernamePatch.DisplayFormat;
 import app.morphe.extension.shared.patches.WatchHistoryPatch.WatchHistoryType;
-import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch;
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientAndroidVRAvailability;
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.J2V8Availability;
+import app.morphe.extension.shared.utils.Logger;
 
 /**
  * Settings shared across multiple apps.
@@ -56,13 +56,19 @@ public class BaseSettings {
 
     public static final BooleanSetting SETTINGS_SEARCH_HISTORY = new BooleanSetting("revanced_settings_search_history", TRUE, true);
     public static final StringSetting SETTINGS_SEARCH_ENTRIES = new StringSetting("revanced_settings_search_entries", "", true);
+    public static final BooleanSetting SETTINGS_DISABLE_BOLD_ICONS = new BooleanSetting("revanced_settings_disable_bold_icons", FALSE, true);
+    public static final LongSetting FIRST_TIME_APP_LAUNCHED = new LongSetting("revanced_last_time_app_was_launched", -1L, false, false);
 
-    /**
-     * @noinspection DeprecatedIsStillUsed
-     */
-    @Deprecated
     // The official ReVanced does not offer this, so it has been removed from the settings only. Users can still access settings through import / export settings.
     public static final StringSetting BYPASS_IMAGE_REGION_RESTRICTIONS_DOMAIN = new StringSetting("revanced_bypass_image_region_restrictions_domain", "yt4.ggpht.com", true);
 
     public static final BooleanSetting SANITIZE_SHARING_LINKS = new BooleanSetting("revanced_sanitize_sharing_links", TRUE, true);
+
+    static {
+        if (FIRST_TIME_APP_LAUNCHED.get() < 0) {
+            final long currentTime = System.currentTimeMillis();
+            Logger.printInfo(() -> "Using current time as first install: " + currentTime);
+            FIRST_TIME_APP_LAUNCHED.save(currentTime);
+        }
+    }
 }

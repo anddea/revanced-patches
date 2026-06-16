@@ -1,25 +1,102 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.shared;
 
 import static app.morphe.extension.youtube.shared.NavigationBar.NavigationButton.CREATE;
+import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_31_OR_GREATER;
+import static app.morphe.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
 
+import java.lang.ref.WeakReference;
 import java.util.Arrays;
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.shared.Logger;
+import app.morphe.extension.shared.utils.ResourceUtils.ResourceType;
+import app.morphe.extension.shared.utils.ResourceUtils;
+import app.morphe.extension.shared.Utils;
+import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public final class NavigationBar {
+
+    /**
+     * Interface to call obfuscated methods in AppCompat Toolbar class.
+     */
+    public interface AppCompatToolbarPatchInterface {
+        Drawable patch_getNavigationIcon();
+    }
+
+    //
+    // Search and toolbar.
+    //
+
+    private static volatile WeakReference<View> searchBarResultsRef = new WeakReference<>(null);
+
+    private static volatile WeakReference<AppCompatToolbarPatchInterface> toolbarResultsRef
+            = new WeakReference<>(null);
+
+    /**
+     * Injection point.
+     */
+    public static void searchBarResultsViewLoaded(View searchbarResults) {
+        searchBarResultsRef = new WeakReference<>(searchbarResults);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setToolbar(FrameLayout layout) {
+        AppCompatToolbarPatchInterface toolbar = Utils.getChildView(layout, false, (view) ->
+                view instanceof AppCompatToolbarPatchInterface
+        );
+
+        if (toolbar == null) {
+            Logger.printException(() -> "Could not find navigation toolbar");
+            return;
+        }
+
+        toolbarResultsRef = new WeakReference<>(toolbar);
+    }
+
+    /**
+     * @return If the search bar is on screen.  This includes if the player
+     *         is on screen and the search results are behind the player (and not visible).
+     *         Detecting the search is covered by the player can be done by checking {@link PlayerType#isMaximizedOrFullscreen()}.
+     */
+    public static boolean isSearchBarActive() {
+        View searchbarResults = searchBarResultsRef.get();
+        return searchbarResults != null && searchbarResults.isShown();
+    }
+
+    public static boolean isBackButtonVisible() {
+        AppCompatToolbarPatchInterface toolbar = toolbarResultsRef.get();
+        return toolbar != null && toolbar.patch_getNavigationIcon() != null;
+    }
+
+    //
+    // Navigation bar buttons.
+    //
 
     /**
      * How long to wait for the set nav button latch to be released.  Maximum wait time must
@@ -82,7 +159,7 @@ public final class NavigationBar {
         }
 
         if (Utils.isCurrentlyOnMainThread()) {
-            // The latch is released from the main thread, and waiting from the main thread will always timeout.
+            // The latch is released from the main thread, and waiting from the main thread will always time out.
             // This situation has only been observed when navigating out of a submenu and not changing tabs.
             // and for that use case the nav bar does not change so it's safe to return here.
             Logger.printDebug(() -> "Cannot block main thread waiting for nav button. " +
@@ -186,7 +263,7 @@ public final class NavigationBar {
 
             if (button == null) { // An unknown tab was selected.
                 // Show a toast only if debug mode is enabled.
-                if (Settings.DEBUG.get()) {
+                if (BaseSettings.DEBUG.get()) {
                     Logger.printException(() -> "Unknown navigation view selected: " + navButtonImageView);
                 }
 
@@ -212,11 +289,32 @@ public final class NavigationBar {
         createNavButtonLatch();
     }
 
-    /**
-     * @noinspection EmptyMethod
-     */
+    /** @noinspection EmptyMethod*/
     private static void navigationTabCreatedCallback(NavigationButton button, View tabView) {
         // Code is added during patching.
+    }
+
+    /**
+     * Custom Cairo notification filled icon to fix unpatched app missing resource.
+     */
+    private static final int fillBellCairoBlack = ResourceUtils.getIdentifier(
+            IS_20_31_OR_GREATER && !isSpoofingToLessThan("20.31.00")
+                    ? "yt_fill_experimental_bell_vd_theme_24"
+                    : "morphe_fill_bell_cairo_black_24", ResourceType.DRAWABLE
+    );
+
+    /**
+     * Injection point.
+     * Fixes missing drawable.
+     */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static void setCairoNotificationFilledIcon(EnumMap enumMap, Enum tabActivityCairo) {
+        // Show a popup informing this fix is no longer needed to those who might care.
+        if (BaseSettings.DEBUG.get() && enumMap.containsKey(tabActivityCairo)) {
+            Logger.printException(() -> "YouTube fixed the notification icons");
+        }
+
+        enumMap.putIfAbsent(tabActivityCairo, fillBellCairoBlack);
     }
 
     public enum NavigationButton {
@@ -224,13 +322,21 @@ public final class NavigationBar {
         SHORTS("TAB_SHORTS", "TAB_SHORTS_CAIRO"),
         /**
          * Create new video tab.
-         * This tab will never be in a selected state, even if the create video UI is on screen.
+         * This tab will never be in a selected state, even if the Create video UI is on screen.
          */
         CREATE("CREATION_TAB_LARGE", "CREATION_TAB_LARGE_CAIRO"),
         /**
          * Only shown to automotive layout.
          */
         EXPLORE("TAB_EXPLORE"),
+        /**
+         * Only shown when 'Show Search' is turned on.
+         */
+        SEARCH("SEARCH", "SEARCH_BOLD", "SEARCH_CAIRO"),
+        /**
+         * Only shown when 'Show Settings' is turned on.
+         */
+        SETTINGS("SETTINGS", "SETTINGS_CAIRO"),
         SUBSCRIPTIONS("PIVOT_SUBSCRIPTIONS", "TAB_SUBSCRIPTIONS_CAIRO"),
         /**
          * Notifications tab.  Only present when

@@ -7,7 +7,7 @@ import app.morphe.patches.shared.CLIENT_INFO_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.createPlayerRequestBodyWithModelFingerprint
 import app.morphe.patches.shared.spoof.guide.addClientInfoHook
 import app.morphe.patches.shared.spoof.guide.spoofClientGuideEndpointPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.CHANGE_FORM_FACTOR
@@ -33,7 +33,7 @@ val changeFormFactorPatch = bytecodePatch(
     CHANGE_FORM_FACTOR.title,
     CHANGE_FORM_FACTOR.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         settingsPatch,

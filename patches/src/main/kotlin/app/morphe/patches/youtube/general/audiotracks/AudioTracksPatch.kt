@@ -1,7 +1,7 @@
 package app.morphe.patches.youtube.general.audiotracks
 
 import app.morphe.patches.shared.audiotracks.audioTracksPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.DISABLE_FORCED_AUTO_AUDIO_TRACKS
 import app.morphe.patches.youtube.utils.playservice.is_20_07_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
@@ -11,7 +11,7 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 @Suppress("unused")
 val audioTracksPatch = audioTracksPatch(
     block = {
-        compatibleWith(COMPATIBLE_PACKAGE)
+        compatibleWith(COMPATIBILITY_YOUTUBE)
 
         dependsOn(
             settingsPatch,

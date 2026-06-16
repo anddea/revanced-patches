@@ -7,7 +7,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.dismiss.dismissPlayerHookPatch
 import app.morphe.patches.youtube.utils.extension.Constants.OVERLAY_BUTTONS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
@@ -69,7 +69,7 @@ val overlayButtonsPatch = resourcePatch(
     OVERLAY_BUTTONS.title,
     OVERLAY_BUTTONS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         overlayButtonsBytecodePatch,

@@ -1,7 +1,7 @@
 package app.morphe.patches.music.misc.debugging
 
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.patch.PatchList.ENABLE_DEBUG_LOGGING
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
@@ -16,7 +16,7 @@ val debuggingPatch = resourcePatch(
     // That's why it seems better to selectively include patches for only those users who need them.
     false,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(settingsPatch)
 

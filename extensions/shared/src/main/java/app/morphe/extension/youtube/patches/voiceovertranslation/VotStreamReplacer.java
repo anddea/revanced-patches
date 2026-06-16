@@ -10,7 +10,7 @@
  * Licensed under the GNU General Public License v3.0.
  *
  * ------------------------------------------------------------------------
- * GPLv3 Section 7 – Attribution Notice
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
  * ------------------------------------------------------------------------
  *
  * This file contains substantial original work by the author(s) listed above.
@@ -18,24 +18,24 @@
  * In accordance with Section 7 of the GNU General Public License v3.0,
  * the following additional terms apply to this file:
  *
- * 1. Attribution (Section 7(b)): This specific copyright notice and the
- *    list of original authors above must be preserved in any copy or
- *    derivative work. You may add your own copyright notice below it,
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
  *    but you may not remove the original one.
  *
- * 2. Origin (Section 7(c)): Modified versions must be clearly marked as
- *    such (e.g., by adding a "Modified by" line or a new copyright notice).
- *    They must not be misrepresented as the original work.
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
  *
- * ------------------------------------------------------------------------
- * Version Control Acknowledgement (Non-binding Request)
- * ------------------------------------------------------------------------
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
  *
- * While not a legal requirement of the GPLv3, the original author(s)
- * respectfully request that ports or substantial modifications retain
- * historical authorship credit in version control systems (e.g., Git),
- * listing original author(s) appropriately and modifiers as committers
- * or co-authors.
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
  */
 
 package app.morphe.extension.youtube.patches.voiceovertranslation;
@@ -69,12 +69,6 @@ public final class VotStreamReplacer {
     private static volatile String skipReplacementForVideoId = null;
     private static volatile String replaceOnlyForVideoId = null;
     private static final int TRANSLATION_TIMEOUT_SEC = 60;
-    private static final int STATUS_FAILED = 0;
-    private static final int STATUS_FINISHED = 1;
-    private static final int STATUS_WAITING = 2;
-    private static final int STATUS_LONG_WAITING = 3;
-    private static final int STATUS_PART_CONTENT = 5;
-    private static final int MAX_POLL_RETRIES = 30;
     private static final ExecutorService executor = Executors.newSingleThreadExecutor(r -> {
         Thread t = new Thread(r, "vot-stream-replacer");
         t.setDaemon(true);
@@ -119,62 +113,60 @@ public final class VotStreamReplacer {
 
         Callable<StreamingData> task = () -> {
             long deadline = System.currentTimeMillis() + TRANSLATION_TIMEOUT_SEC * 1000L;
-            int waitSeconds = 5;
-            VotApiClient.TranslationResult result = null;
-            boolean hadWaiting = false;
+            boolean[] hadWaiting = {false};
 
-            for (int retry = 0; retry < MAX_POLL_RETRIES && System.currentTimeMillis() < deadline; retry++) {
-                result = VotApiClient.requestTranslation(
-                        youtubeUrlFinal, durationSecFinal, sourceLang, targetLang, titleFinal);
-                if (result == null) {
-                    try { Thread.sleep(1000L * Math.min(waitSeconds, 10)); } catch (InterruptedException e) { Thread.currentThread().interrupt(); return stream; }
-                    continue;
-                }
-                if (result.status() == STATUS_FINISHED || result.status() == STATUS_PART_CONTENT) {
-                    break;
-                }
-                if (result.status() == STATUS_FAILED) {
-                    if (Settings.VOT_USE_LIVE_VOICES.get()) {
-                        Settings.VOT_USE_LIVE_VOICES.save(false);
-                        Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_live_voices_unavailable")));
-                        continue; // retry with standard TTS
+            VotApiClient.TranslationResult result = VotApiClient.pollUntilReady(
+                    youtubeUrlFinal, durationSecFinal, sourceLang, targetLang, titleFinal,
+                    0,
+                    new VotApiClient.PollHandler() {
+                        @Override
+                        public boolean isCancelled() {
+                            return System.currentTimeMillis() >= deadline;
+                        }
+
+                        @Override
+                        public void onAudioReady(VotApiClient.TranslationResult res) {
+                        }
+
+                        @Override
+                        public void onAudioRequested(String videoUrl, String translationId) {
+                        }
+
+                        @Override
+                        public boolean onFailed() {
+                            if (Settings.VOT_USE_LIVE_VOICES.get()) {
+                                Settings.VOT_USE_LIVE_VOICES.save(false);
+                                Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_live_voices_unavailable")));
+                                return true;
+                            }
+                            if (hadWaiting[0]) {
+                                Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_not_ready")));
+                            }
+                            return false;
+                        }
+
+                        @Override
+                        public void onSessionRequired() {
+                        }
+
+                        @Override
+                        public void onWaiting(int waitSeconds, boolean isFirstWait) {
+                            hadWaiting[0] = true;
+                            if (isFirstWait) {
+                                String timeStr = VoiceOverTranslationPatch.formatRemainingTime(waitSeconds);
+                                Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_waiting", timeStr)));
+                            }
+                        }
                     }
-                    if (hadWaiting) {
-                        Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_not_ready")));
-                    }
-                    return stream;
-                }
-                if (result.status() == STATUS_WAITING || result.status() == STATUS_LONG_WAITING) {
-                    hadWaiting = true;
-                    if (retry == 0) {
-                        int waitSecs = result.remainingTime() > 0 ? result.remainingTime() : 5;
-                        String timeStr = VoiceOverTranslationPatch.formatRemainingTime(waitSecs);
-                        Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_waiting", timeStr)));
-                    }
-                    waitSeconds = result.remainingTime() > 0 ? result.remainingTime() : 5;
-                    waitSeconds = Math.min(waitSeconds, (int) ((deadline - System.currentTimeMillis()) / 1000));
-                    if (waitSeconds <= 0) break;
-                    try {
-                        Thread.sleep(1000L * waitSeconds);
-                    } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
-                        return stream;
-                    }
-                }
-            }
+            );
 
             if (result == null || result.audioUrl() == null || result.audioUrl().isEmpty()) {
-                if (hadWaiting) {
+                if (hadWaiting[0]) {
                     Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_not_ready")));
                 }
                 return stream;
             }
-            if (result.status() != STATUS_FINISHED && result.status() != STATUS_PART_CONTENT) {
-                if (hadWaiting) {
-                    Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_not_ready")));
-                }
-                return stream;
-            }
+
             List<?> formatList = StreamingDataOuterClassUtils.getAdaptiveFormats(stream);
             if (formatList == null || formatList.isEmpty()) {
                 return stream;

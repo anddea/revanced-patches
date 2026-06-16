@@ -5,7 +5,9 @@ import java.util.regex.Pattern;
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
+import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.StringTrieSearch;
+import app.morphe.extension.youtube.innertube.NextResponseOuterClass.NewElement;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerType;
 
@@ -144,5 +146,74 @@ public final class CommentsFilter extends Filter {
         }
 
         return true;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static byte[] onCommentsLoaded(byte[] bytes) {
+        if (!Settings.HIDE_COMMENTS_CAROUSEL.get()) {
+            return bytes;
+        }
+
+        String rawFilterText = Settings.HIDE_COMMENTS_CAROUSEL_FILTER_STRINGS.get();
+        if (rawFilterText.isBlank()) {
+            return bytes;
+        }
+
+        String[] commentsCarouselFilterStrings = rawFilterText.split("\\n");
+
+        try {
+            var newElement = NewElement.parseFrom(bytes).toBuilder();
+            var identifier = newElement.getProperties().getIdentifierProperties().getIdentifier();
+            if (!identifier.contains(VIDEO_METADATA_CAROUSEL_PATH)) {
+                return bytes;
+            }
+
+            var type = newElement.getType().toBuilder();
+            var componentType = type.getComponentType().toBuilder();
+            var model = componentType.getModel().toBuilder();
+            var videoMetadataCarouselModel = model.getVideoMetadataCarouselModel().toBuilder();
+            var data = videoMetadataCarouselModel.getData().toBuilder();
+            var carouselTitleDatasList = data.getCarouselTitleDatasList();
+            boolean modified = false;
+
+            for (int i = carouselTitleDatasList.size() - 1; i > -1; i--) {
+                String title = carouselTitleDatasList.get(i).getTitle();
+                Logger.printDebug(() -> "comments title: " + title);
+
+                for (String filter : commentsCarouselFilterStrings) {
+                    if (!filter.isEmpty() && title.contains(filter)) {
+                        data.removeCarouselItemDatas(i);
+                        data.removeCarouselTitleDatas(i);
+                        modified = true;
+                        break;
+                    }
+                }
+            }
+
+            if (modified) {
+                videoMetadataCarouselModel.clearData();
+                videoMetadataCarouselModel.setData(data.build());
+
+                model.clearVideoMetadataCarouselModel();
+                model.setVideoMetadataCarouselModel(videoMetadataCarouselModel.build());
+
+                componentType.clearModel();
+                componentType.setModel(model.build());
+
+                type.clearComponentType();
+                type.setComponentType(componentType.build());
+
+                newElement.clearType();
+                newElement.setType(type.build());
+
+                return newElement.build().toByteArray();
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to parse newElement", ex);
+        }
+
+        return bytes;
     }
 }

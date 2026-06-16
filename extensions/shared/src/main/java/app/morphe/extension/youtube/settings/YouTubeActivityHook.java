@@ -1,5 +1,7 @@
 package app.morphe.extension.youtube.settings;
 
+import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_31_OR_GREATER;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
@@ -13,17 +15,23 @@ import app.morphe.extension.youtube.settings.preference.YouTubePreferenceFragmen
 import app.morphe.extension.youtube.settings.search.YouTubeSearchViewController;
 import app.morphe.extension.youtube.utils.ThemeUtils;
 
-import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_34_OR_GREATER;
-import static app.morphe.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
-
 /**
  * Hooks LicenseActivity to inject a custom {@link YouTubePreferenceFragment}
  * with a toolbar and search functionality.
  */
-@SuppressWarnings("deprecation")
 public class YouTubeActivityHook extends BaseActivityHook {
 
+    private static final long MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS = 30 * 1000;
+    private static final boolean USE_BOLD_ICONS = IS_20_31_OR_GREATER
+            && !Settings.SETTINGS_DISABLE_BOLD_ICONS.get()
+            && !Settings.RESTORE_OLD_SETTINGS_MENUS.get()
+            && (System.currentTimeMillis() - Settings.FIRST_TIME_APP_LAUNCHED.get())
+            > MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS;
     private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
+
+    static {
+        Utils.setAppIsUsingBoldIcons(USE_BOLD_ICONS);
+    }
 
     /**
      * Controller for managing search view components in the toolbar.
@@ -112,21 +120,16 @@ public class YouTubeActivityHook extends BaseActivityHook {
      * Injection point.
      */
     @SuppressWarnings("unused")
-    public static boolean useCairoSettingsFragment(boolean original) {
-        // Early targets have layout issues and it's better to always force off.
-        if (!IS_19_34_OR_GREATER) {
-            return false;
-        }
-        // Spoofing can cause half broken settings menus of old and new settings.
-        if (isSpoofingToLessThan("19.35.36")) {
-            return false;
-        }
+    public static boolean disableCairoSettingsFragment(boolean original) {
+        return !Settings.RESTORE_OLD_SETTINGS_MENUS.get() && original;
+    }
 
-        // On the first launch of a clean install, forcing the cairo menu can give a
-        // half broken appearance because all the preference icons may not be available yet.
-        // 19.34+ cairo settings are always on, so it doesn't need to be forced anyway.
-        // Cairo setting will show on the next launch of the app.
-        return original;
+    /**
+     * Injection point.
+     */
+    @SuppressWarnings("unused")
+    public static boolean useBoldIcons(boolean original) {
+        return USE_BOLD_ICONS;
     }
 
     /**

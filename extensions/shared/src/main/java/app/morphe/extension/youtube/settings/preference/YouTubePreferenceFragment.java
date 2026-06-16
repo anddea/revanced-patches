@@ -14,6 +14,8 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.widget.Toolbar;
 
+import androidx.annotation.NonNull;
+
 import java.util.Date;
 
 import app.morphe.extension.shared.settings.Setting;
@@ -92,6 +94,20 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
         }
+    }
+
+    @Override
+    protected void syncSettingWithPreference(@NonNull Preference pref,
+                                             @NonNull Setting<?> setting,
+                                             boolean applySettingToPreference) {
+        if (pref instanceof VotOAuthPreference votOAuthPreference && setting == Settings.VOT_OAUTH_TOKEN) {
+            if (applySettingToPreference) {
+                votOAuthPreference.updateUI();
+            }
+            return;
+        }
+
+        super.syncSettingWithPreference(pref, setting, applySettingToPreference);
     }
 
     /**

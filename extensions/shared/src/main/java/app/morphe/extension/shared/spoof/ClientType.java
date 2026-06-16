@@ -2,8 +2,7 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
- * Original hard forked code:
- * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
  */
 
 package app.morphe.extension.shared.spoof;
@@ -19,17 +18,13 @@ import androidx.annotation.Nullable;
 import java.util.Locale;
 import java.util.Objects;
 
-import app.morphe.extension.shared.Logger;
-import app.morphe.extension.shared.Utils;
+import app.morphe.extension.shared.requests.Route;
+import app.morphe.extension.shared.spoof.requests.PlayerRoutes;
 
 @SuppressWarnings("ConstantLocale")
 public enum ClientType {
-    /**
-     * Video not playable: Paid, Movie, Private, Age-restricted.
-     * Uses non-adaptive bitrate.
-     * AV1 codec available.
-     */
-    ANDROID_REEL(
+
+    ANDROID_REEL_AUTH(
             3,
             "ANDROID",
             "com.google.android.youtube",
@@ -39,33 +34,43 @@ public enum ClientType {
             Build.VERSION.RELEASE,
             String.valueOf(Build.VERSION.SDK_INT),
             Build.ID,
-            // A hardcoded client version is used for YouTube Music.
-            IS_YOUTUBE ? Utils.getAppVersionName() : "20.26.46",
+            "20.26.46",
             null,
-            // This client has been used by most open-source YouTube stream extraction tools since 2024, including NewPipe Extractor, SmartTube, and Grayjay.
-            // This client can log in, but if an access token is used in the request, GVS can more easily identify the request as coming from Morphe.
-            // This means that the GVS server can strengthen its validation of the ANDROID_REEL client.
-            // For this reason, ANDROID_REEL is used as a logout client.
-            false,
-            false,
+            IS_YOUTUBE,
+            IS_YOUTUBE,
             true,
             false,
             false,
-            false,
-            "Android Reel"
+            PlayerRoutes.GET_REEL_STREAMING_DATA,
+            "Android Reel auth"
     ),
-    /**
-     * Video not playable in YouTube: All videos (This client requires login, but cannot log in with YouTube's access token).
-     * Video not playable in YouTube Music: None.
-     * Uses non-adaptive bitrate.
-     */
+    ANDROID_REEL_NO_AUTH(
+            ANDROID_REEL_AUTH.id,
+            ANDROID_REEL_AUTH.clientName,
+            Objects.requireNonNull(ANDROID_REEL_AUTH.packageName),
+            ANDROID_REEL_AUTH.deviceMake,
+            ANDROID_REEL_AUTH.deviceModel,
+            ANDROID_REEL_AUTH.osName,
+            ANDROID_REEL_AUTH.osVersion,
+            Objects.requireNonNull(ANDROID_REEL_AUTH.androidSdkVersion),
+            ANDROID_REEL_AUTH.buildID,
+            ANDROID_REEL_AUTH.clientVersion,
+            ANDROID_REEL_AUTH.clientPlatform,
+            false,
+            false,
+            ANDROID_REEL_AUTH.supportsMultiAudioTracks,
+            ANDROID_REEL_AUTH.supportsOAuth2,
+            ANDROID_REEL_AUTH.requireJS,
+            ANDROID_REEL_AUTH.endpoint,
+            "Android Reel no auth"
+    ),
     ANDROID_MUSIC_NO_SDK(
             21,
             "ANDROID_MUSIC",
-            ANDROID_REEL.deviceMake,
-            ANDROID_REEL.deviceModel,
-            ANDROID_REEL.osName,
-            ANDROID_REEL.osVersion,
+            ANDROID_REEL_AUTH.deviceMake,
+            ANDROID_REEL_AUTH.deviceModel,
+            ANDROID_REEL_AUTH.osName,
+            ANDROID_REEL_AUTH.osVersion,
             "7.12.52",
             null,
             "com.google.android.apps.youtube.music/7.12.52 (Linux; U; Android " + Build.VERSION.RELEASE + ") gzip",
@@ -74,15 +79,9 @@ public enum ClientType {
             false,
             false,
             false,
-            true,
+            PlayerRoutes.GET_PLAYER_STREAMING_DATA,
             "Android Music No SDK"
     ),
-    /**
-     * Video not playable: Kids, Paid, Movie, Private, Age-restricted.
-     * Uses non-adaptive bitrate.
-     * AV1 codec available.
-     */
-    // https://dumps.tadiphone.dev/dumps/oculus/eureka
     ANDROID_VR_1_65(
             28,
             "ANDROID_VR",
@@ -100,14 +99,9 @@ public enum ClientType {
             false,
             true,
             false,
-            true,
+            PlayerRoutes.GET_PLAYER_STREAMING_DATA,
             "Android VR 1.65"
     ),
-    /**
-     * Uses non adaptive bitrate.
-     * AV1 codec not available.
-     */
-    // https://dumps.tadiphone.dev/dumps/oculus/monterey
     ANDROID_VR_1_64(
             ANDROID_VR_1_65.id,
             ANDROID_VR_1_65.clientName,
@@ -125,15 +119,9 @@ public enum ClientType {
             ANDROID_VR_1_65.supportsMultiAudioTracks,
             ANDROID_VR_1_65.supportsOAuth2,
             ANDROID_VR_1_65.requireJS,
-            ANDROID_VR_1_65.usePlayerEndpoint,
+            ANDROID_VR_1_65.endpoint,
             "Android VR 1.64"
     ),
-    /**
-     * Video not playable: Livestream.
-     * Uses non-adaptive bitrate.
-     * AV1 codec and HDR codec are not available, and the maximum resolution is 720p.
-     */
-    // https://dumps.tadiphone.dev/dumps/google/mustang
     ANDROID_CREATOR(
             14,
             "ANDROID_CREATOR",
@@ -151,14 +139,9 @@ public enum ClientType {
             false,
             false,
             false,
-            true,
+            PlayerRoutes.GET_PLAYER_STREAMING_DATA,
             "Android Studio"
     ),
-    /**
-     * Video not playable: None.
-     * Uses non adaptive bitrate.
-     * AV1 codec available.
-     */
     TV(7,
             "TVHTML5",
             "Samsung",
@@ -167,19 +150,15 @@ public enum ClientType {
             "2.4.0",
             "5.20150304",
             "TV",
-            // Currently, it is the only User-Agent available for signed out among TV clients, but sign in is still required for certain IP bands or countries.
             "Mozilla/5.0 (SMART-TV; Linux; Tizen 2.4.0) AppleWebKit/538.1 (KHTML, like Gecko) Version/2.4.0 TV Safari/538.1",
             true,
             false,
             true,
             false,
             true,
-            true,
+            PlayerRoutes.GET_PLAYER_STREAMING_DATA,
             "TV"
     ),
-    /**
-     * May stop working at any time.
-     */
     VISIONOS(101,
             "VISIONOS",
             "Apple",
@@ -194,127 +173,70 @@ public enum ClientType {
             false,
             false,
             false,
-            true,
+            PlayerRoutes.GET_PLAYER_STREAMING_DATA,
             "visionOS"
     ),
-    /**
-     * Here only to migrate data.
-     */
-    @Deprecated
-    TV_SIMPLY(75,
-            "TVHTML5_SIMPLY",
-            "Microsoft",
-            "Xbox 360",
-            "Xbox",
-            "6.1",
-            "1.0",
-            "GAME_CONSOLE",
-            "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)",
-            true,
-            // PoToken is required to play videos while signed out.
+    GET_CHANNEL_FROM_ID(
+            ANDROID_REEL_AUTH.id,
+            ANDROID_REEL_AUTH.clientName,
+            Objects.requireNonNull(ANDROID_REEL_AUTH.packageName),
+            ANDROID_REEL_AUTH.deviceMake,
+            ANDROID_REEL_AUTH.deviceModel,
+            ANDROID_REEL_AUTH.osName,
+            ANDROID_REEL_AUTH.osVersion,
+            Objects.requireNonNull(ANDROID_REEL_AUTH.androidSdkVersion),
+            ANDROID_REEL_AUTH.buildID,
+            ANDROID_REEL_AUTH.clientVersion,
+            ANDROID_REEL_AUTH.clientPlatform,
+            false,
+            false,
+            false,
+            ANDROID_REEL_AUTH.supportsOAuth2,
+            ANDROID_REEL_AUTH.requireJS,
+            PlayerRoutes.GET_CHANNEL_FROM_ID,
+            "Get Channel From ID"
+    ),
+    SAVE_TO_WATCH_LATER(
+            ANDROID_REEL_AUTH.id,
+            ANDROID_REEL_AUTH.clientName,
+            Objects.requireNonNull(ANDROID_REEL_AUTH.packageName),
+            ANDROID_REEL_AUTH.deviceMake,
+            ANDROID_REEL_AUTH.deviceModel,
+            ANDROID_REEL_AUTH.osName,
+            ANDROID_REEL_AUTH.osVersion,
+            Objects.requireNonNull(ANDROID_REEL_AUTH.androidSdkVersion),
+            ANDROID_REEL_AUTH.buildID,
+            ANDROID_REEL_AUTH.clientVersion,
+            ANDROID_REEL_AUTH.clientPlatform,
             true,
             true,
             false,
-            true,
-            true,
-            "TV Simply"
+            ANDROID_REEL_AUTH.supportsOAuth2,
+            ANDROID_REEL_AUTH.requireJS,
+            PlayerRoutes.SEND_SAVE_VIDEO_TO_WATCH_LATER,
+            "Save To Watch Later"
     );
 
-    /**
-     * YouTube
-     * <a href="https://github.com/zerodytrash/YouTube-Internal-Clients?tab=readme-ov-file#clients">client type</a>
-     */
     public final int id;
-
     public final String clientName;
-
-    /**
-     * App package name.
-     */
-    @Nullable
-    private final String packageName;
-
-    /**
-     * Player user-agent.
-     */
+    @Nullable public final String packageName;
     public final String userAgent;
-
-    /**
-     * Device model, equivalent to {@link Build#MANUFACTURER} (System property: ro.product.vendor.manufacturer)
-     */
     public final String deviceMake;
-
-    /**
-     * Device model, equivalent to {@link Build#MODEL} (System property: ro.product.vendor.model)
-     */
     public final String deviceModel;
-
-    /**
-     * Device OS name.
-     */
     public final String osName;
-
-    /**
-     * Device OS version.
-     */
     public final String osVersion;
-
-    /**
-     * Android SDK version, equivalent to {@link Build.VERSION#SDK} (System property: ro.build.version.sdk)
-     * Field is null if not applicable.
-     */
-    @Nullable
-    public final String androidSdkVersion;
-
-    /**
-     * App version.
-     */
+    @Nullable public final String androidSdkVersion;
+    public final String buildID;
     public final String clientVersion;
-
-    /**
-     * Client platform enum.
-     */
     public final String clientPlatform;
-
-    /**
-     * If the client can access the API logged in.
-     */
     public final boolean canLogin;
-
-    /**
-     * If the client should use authentication if available.
-     */
     public final boolean requireLogin;
-
-    /**
-     * If the client supports oauth2.0 for limited-input device.
-     */
     public final boolean supportsOAuth2;
-
-    /**
-     * If the client supports multiple audio tracks.
-     */
     public final boolean supportsMultiAudioTracks;
-
-    /**
-     * The streaming url has an obfuscated 'n' parameter.
-     * If true, JavaScript must be fetched to decrypt the 'n' parameter.
-     */
     public final boolean requireJS;
-
-    /**
-     * Whether to use the '/player' endpoint.
-     */
-    public final boolean usePlayerEndpoint;
-
-    /**
-     * Friendly name displayed in stats for nerds.
-     */
+    public final Route.CompiledRoute endpoint;
     public final String friendlyName;
 
-    /**
-     * Android constructor.
-     */
     ClientType(int id,
                String clientName,
                @NonNull String packageName,
@@ -331,7 +253,7 @@ public enum ClientType {
                boolean supportsMultiAudioTracks,
                boolean supportsOAuth2,
                boolean requireJS,
-               boolean usePlayerEndpoint,
+               Route.CompiledRoute endpoint,
                String friendlyName) {
         this.id = id;
         this.clientName = clientName;
@@ -341,6 +263,7 @@ public enum ClientType {
         this.osName = osName;
         this.osVersion = osVersion;
         this.androidSdkVersion = androidSdkVersion;
+        this.buildID = buildId;
         this.clientVersion = clientVersion;
         this.clientPlatform = clientPlatform;
         this.canLogin = canLogin;
@@ -348,7 +271,7 @@ public enum ClientType {
         this.supportsMultiAudioTracks = supportsMultiAudioTracks;
         this.supportsOAuth2 = supportsOAuth2;
         this.requireJS = requireJS;
-        this.usePlayerEndpoint = usePlayerEndpoint;
+        this.endpoint = endpoint;
         this.friendlyName = friendlyName;
 
         Locale defaultLocale = Locale.getDefault();
@@ -361,7 +284,6 @@ public enum ClientType {
                 deviceModel,
                 buildId
         );
-        Logger.printDebug(() -> "userAgent: " + this.userAgent);
     }
 
     ClientType(int id,
@@ -378,7 +300,7 @@ public enum ClientType {
                boolean supportsMultiAudioTracks,
                boolean supportsOAuth2,
                boolean requireJS,
-               boolean usePlayerEndpoint,
+               Route.CompiledRoute endpoint,
                String friendlyName) {
         this.id = id;
         this.clientName = clientName;
@@ -386,6 +308,7 @@ public enum ClientType {
         this.deviceModel = deviceModel;
         this.osName = osName;
         this.osVersion = osVersion;
+        this.buildID = null;
         this.clientVersion = clientVersion;
         this.clientPlatform = clientPlatform;
         this.userAgent = userAgent;
@@ -394,8 +317,9 @@ public enum ClientType {
         this.supportsMultiAudioTracks = supportsMultiAudioTracks;
         this.supportsOAuth2 = supportsOAuth2;
         this.requireJS = requireJS;
-        this.usePlayerEndpoint = usePlayerEndpoint;
+        this.endpoint = endpoint;
         this.friendlyName = friendlyName;
+
         this.packageName = null;
         this.androidSdkVersion = null;
     }

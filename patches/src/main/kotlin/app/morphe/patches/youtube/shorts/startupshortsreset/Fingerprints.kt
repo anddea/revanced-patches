@@ -1,37 +1,71 @@
 package app.morphe.patches.youtube.shorts.startupshortsreset
 
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.or
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation
+import app.morphe.patcher.StringComparisonType
+import app.morphe.patcher.checkCast
+import app.morphe.patcher.literal
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 /**
- * YouTube v18.15.40+
+ * 21.03+
  */
-internal val userWasInShortsConfigFingerprint = legacyFingerprint(
-    name = "userWasInShortsABConfigFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "Z",
-    literals = listOf(45358360L)
+internal object UserWasInShortsEvaluateFingerprint : Fingerprint(
+    filters = listOf(
+        methodCall(
+            opcode = Opcode.INVOKE_DIRECT_RANGE,
+            name = "<init>",
+            parameters = listOf("L", "Z", "Z", "L", "Z")
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_DIRECT_RANGE,
+            name = "<init>",
+            parameters = listOf("L", "L", "L", "L", "L", "I"),
+            location = InstructionLocation.MatchAfterWithin(50)
+        )
+    )
 )
 
 /**
- * ~ YouTube 19.50.42
+ * 20.02+
  */
-internal val userWasInShortsFingerprint = legacyFingerprint(
-    name = "userWasInShortsFingerprint",
+internal object UserWasInShortsListenerFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/lang/Object;"),
-    strings = listOf("Failed to read user_was_in_shorts proto after successful warmup")
+    filters = listOf(
+        checkCast("Ljava/lang/Boolean;"),
+        methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z", location = InstructionLocation.MatchAfterImmediately()),
+        opcode(Opcode.MOVE_RESULT, InstructionLocation.MatchAfterImmediately()),
+        string("ShortsStartup SetUserWasInShortsListener", StringComparisonType.CONTAINS, InstructionLocation.MatchAfterWithin(30))
+    )
 )
 
-/**
- * YouTube 20.02.08 ~
- */
-internal val userWasInShortsAlternativeFingerprint = legacyFingerprint(
-    name = "userWasInShortsAlternativeFingerprint",
+internal val userWasInShortsAlternativeFingerprint = "userWasInShortsAlternativeFingerprint" to Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Ljava/lang/Object;"),
     strings = listOf("userIsInShorts: ")
+)
+
+/**
+ * 18.15.40+
+ */
+internal object UserWasInShortsConfigFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = listOf(),
+    filters = listOf(
+        literal(45358360L)
+    )
+)
+
+internal val userWasInShortsFingerprint = "userWasInShortsFingerprint" to Fingerprint(
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = listOf("Ljava/lang/Object;"),
+    strings = listOf("Failed to read user_was_in_shorts proto after successful warmup")
 )

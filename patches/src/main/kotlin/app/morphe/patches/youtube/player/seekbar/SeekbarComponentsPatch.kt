@@ -12,7 +12,7 @@ import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.drawable.addDrawableColorHook
 import app.morphe.patches.shared.drawable.drawableColorHookPatch
 import app.morphe.patches.shared.mainactivity.onCreateMethod
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
@@ -27,6 +27,7 @@ import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_49_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_30_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_37_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
@@ -103,7 +104,7 @@ val seekbarComponentsPatch = bytecodePatch(
     SEEKBAR_COMPONENTS.title,
     SEEKBAR_COMPONENTS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         drawableColorHookPatch,
@@ -268,10 +269,14 @@ val seekbarComponentsPatch = bytecodePatch(
                 "$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
             )
 
-            arrayOf(
-                playerSeekbarHandleColorPrimaryFingerprint,
-                playerSeekbarHandleColorSecondaryFingerprint
-            ).forEach {
+            (if (is_20_37_or_greater) {
+                arrayOf(playerSeekbarHandleColorSecondaryFingerprint)
+            } else {
+                arrayOf(
+                    playerSeekbarHandleColorPrimaryFingerprint,
+                    playerSeekbarHandleColorSecondaryFingerprint
+                )
+            }).forEach {
                 it.methodOrThrow().addColorChangeInstructions(
                     ytStaticBrandRed,
                     "getVideoPlayerSeekbarColorAccent"

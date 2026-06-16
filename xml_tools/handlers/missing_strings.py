@@ -12,6 +12,7 @@ from utils.xml_processor import XMLProcessor
 logger = logging.getLogger("xml_tools")
 
 BLACKLIST = {
+    "revanced_settings_title",
     "revanced_vot_percent_value",
 }
 

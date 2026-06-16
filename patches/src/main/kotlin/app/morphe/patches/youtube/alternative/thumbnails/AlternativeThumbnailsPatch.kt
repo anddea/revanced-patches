@@ -5,7 +5,7 @@ import app.morphe.patches.shared.imageurl.addImageUrlErrorCallbackHook
 import app.morphe.patches.shared.imageurl.addImageUrlHook
 import app.morphe.patches.shared.imageurl.addImageUrlSuccessCallbackHook
 import app.morphe.patches.shared.imageurl.cronetImageUrlHookPatch
-import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.ALTERNATIVE_THUMBNAILS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.ALTERNATIVE_THUMBNAILS
@@ -18,7 +18,7 @@ val alternativeThumbnailsPatch = bytecodePatch(
     ALTERNATIVE_THUMBNAILS.title,
     ALTERNATIVE_THUMBNAILS.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
         cronetImageUrlHookPatch(true),
