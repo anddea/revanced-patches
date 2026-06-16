@@ -1,5 +1,7 @@
 package app.morphe.extension.youtube.patches.components;
 
+import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_22_OR_GREATER;
+
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
@@ -40,6 +42,7 @@ public final class FeedComponentsFilter extends Filter {
     private final String FEED_VIDEO_PATH = "video_lockup_with_attachment";
 
     private final StringFilterGroup channelProfile;
+    private final ByteArrayFilterGroupList channelProfileBufferFilterGroup = new ByteArrayFilterGroupList();
     private final StringFilterGroupList channelProfileStringFilterGroup = new StringFilterGroupList();
     private final StringFilterGroup carouselShelves;
     private final StringFilterGroup chipBar;
@@ -181,6 +184,20 @@ public final class FeedComponentsFilter extends Filter {
                 new StringFilterGroup(
                         Settings.HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE,
                         "subscribe_button"
+                )
+        );
+        channelProfileBufferFilterGroup.addAll(
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_COMMUNITY_BUTTON,
+                        "community_button"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_STORE_BUTTON,
+                        "header_store_button"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_JOIN_BUTTON_IN_CHANNEL_PAGE,
+                        "sponsor_button"
                 )
         );
 
@@ -430,8 +447,13 @@ public final class FeedComponentsFilter extends Filter {
             if (contentIndex != 0) {
                 return false;
             }
-            return channelProfileStringFilterGroup.check(accessibility).isFiltered();
-
+            if (IS_20_22_OR_GREATER) {
+                return channelProfileStringFilterGroup.check(accessibility).isFiltered();
+            } else {
+                return channelProfileBufferFilterGroup.check(buffer).isFiltered()
+                        || channelProfileStringFilterGroup.check(accessibility).isFiltered()
+                        || channelProfileStringFilterGroup.check(path).isFiltered();
+            }
         } else if (matchedGroup == chipBar) {
             return hideCategoryBar(contentIndex);
 
