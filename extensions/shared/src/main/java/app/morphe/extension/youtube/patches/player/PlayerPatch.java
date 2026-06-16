@@ -616,9 +616,7 @@ public class PlayerPatch {
     }
 
     public static float speedOverlayRelativeValue(float original) {
-        return SPEED_OVERLAY_VALUE != 2.0f
-                ? 0f
-                : original;
+        return Settings.DISABLE_SPEED_OVERLAY.get() ? original : 0f;
     }
 
     public static boolean hideChannelWatermark(boolean original) {
