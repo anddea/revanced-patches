@@ -237,10 +237,7 @@ val overlayButtonsPatch = resourcePatch(
             )
         )
 
-        // Merge XML nodes from the host to their respective XML files.
-        copyXmlNode(
-            "youtube/overlaybuttons/shared/host",
-            "layout/youtube_controls_bottom_ui_containe        // Merge XML nodes from the host to their respective XML files.
+                // Merge XML nodes from the host to their respective XML files.
         copyXmlNode(
             "youtube/overlaybuttons/shared/host",
             "layout/youtube_controls_bottom_ui_container.xml",
@@ -253,10 +250,7 @@ val overlayButtonsPatch = resourcePatch(
             "layout/youtube_controls_top_ui_container.xml",
             "android.widget.RelativeLayout"
         )
-r.xml",
-            "android.support.constraint.ConstraintLayout"
-        )
-
+        
         document("res/layout/youtube_controls_bottom_ui_container.xml").use { document ->
             document.doRecursively loop@{ node ->
                 if (node !is Element) return@loop
@@ -354,7 +348,7 @@ r.xml",
             }
         }
 
-        if (changeTopButtons == true) && iconType != "original" {
+        if (changeTopButtons == true && iconType != "original") {
             // Apply the selected icon type to the top buttons.
             arrayOf(
                 "xxxhdpi",
