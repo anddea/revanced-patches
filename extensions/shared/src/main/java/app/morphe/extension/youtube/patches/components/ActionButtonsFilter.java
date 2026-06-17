@@ -4,6 +4,8 @@
  *
  * Original hard forked code:
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * Copyright (C) 2026 anddea (https://github.com/anddea)
  */
 
 package app.morphe.extension.youtube.patches.components;
@@ -305,6 +307,9 @@ public final class ActionButtonsFilter extends Filter {
                         actionButton = ActionButton.CHANNEL_PROFILE;
                     } else if (primaryButtonViewModel.hasDownloadButtonViewModel()) {
                         actionButton = ActionButton.DOWNLOAD;
+                    } else if (primaryButtonViewModel.hasLikeButtonViewModel()
+                            || primaryButtonViewModel.hasDislikeButtonViewModel()) {
+                        actionButton = ActionButton.LIKE_DISLIKE;
                     } else if (primaryButtonViewModel.hasSegmentedLikeDislikeButtonViewModel()) {
                         actionButton = ActionButton.LIKE_DISLIKE;
                     } else {

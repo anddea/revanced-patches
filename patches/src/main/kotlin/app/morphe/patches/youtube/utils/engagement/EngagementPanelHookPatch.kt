@@ -32,7 +32,7 @@ val engagementPanelHookPatch = bytecodePatch(
     )
 
     execute {
-        engagementPanelControllerFingerprint.let {
+        EngagementPanelControllerFingerprint.let {
             it.method.apply {
                 val panelIdField =
                     it.instructionMatches.last().instruction.getReference<FieldReference>()!!
@@ -61,7 +61,7 @@ val engagementPanelHookPatch = bytecodePatch(
             }
         }
 
-        engagementPanelUpdateFingerprint.method.addInstruction(
+        EngagementPanelUpdateFingerprint.method.addInstruction(
             0,
             "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hide()V"
         )

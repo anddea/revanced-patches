@@ -170,6 +170,8 @@ message PrimaryButtonViewModel {
         ClipButtonViewModel clipButtonViewModel = 490025863;
         CompactChannelBarViewModel compactChannelBarViewModel = 1107;
         DownloadButtonViewModel downloadButtonViewModel = 33561776;
+        LikeButtonViewModel likeButtonViewModel = 484585818;
+        DislikeButtonViewModel dislikeButtonViewModel = 484590786;
         SegmentedLikeDislikeButtonViewModel segmentedLikeDislikeButtonViewModel = 484586709;
     }
 }
@@ -193,6 +195,14 @@ message CompactChannelBarViewModel {
 
 message DownloadButtonViewModel {
     string videoId = 1;
+}
+
+message LikeButtonViewModel {
+    PrimaryButtonViewModel likeButton = 1;
+}
+
+message DislikeButtonViewModel {
+    PrimaryButtonViewModel dislikeButton = 1;
 }
 
 message SegmentedLikeDislikeButtonViewModel {

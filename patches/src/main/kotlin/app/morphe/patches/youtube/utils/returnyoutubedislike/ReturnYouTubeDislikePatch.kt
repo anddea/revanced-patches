@@ -1,3 +1,44 @@
+/*
+ * Copyright (C) 2022-2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.patches.youtube.utils.returnyoutubedislike
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -6,15 +47,14 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.morphe.patches.shared.dislikeFingerprint
-import app.morphe.patches.shared.likeFingerprint
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
-import app.morphe.patches.shared.removeLikeFingerprint
 import app.morphe.patches.shared.textcomponent.hookSpannableString
 import app.morphe.patches.shared.textcomponent.hookTextComponent
 import app.morphe.patches.shared.textcomponent.textComponentPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
+import app.morphe.patches.youtube.utils.componentlist.hookElementList
+import app.morphe.patches.youtube.utils.componentlist.lazilyConvertedElementHookPatch
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
@@ -33,17 +73,17 @@ import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.hookVideoId
 import app.morphe.util.findFreeRegister
 import app.morphe.util.findMethodOrThrow
-import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
-import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.util.getFreeRegisterProvider
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
-import app.morphe.util.indexOfFirstInstructionReversedOrThrow
+import app.morphe.util.indexOfFirstLiteralInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_RYD_CLASS_DESCRIPTOR =
@@ -59,7 +99,7 @@ private val returnYouTubeDislikeRollingNumberPatch = bytecodePatch(
             return@execute
         }
 
-        rollingNumberSetterFingerprint.matchOrThrow().let {
+        RollingNumberSetterFingerprint.let {
             it.method.apply {
                 val rollingNumberClassIndex = it.instructionMatches.first().index
                 val rollingNumberClassReference =
@@ -96,7 +136,7 @@ private val returnYouTubeDislikeRollingNumberPatch = bytecodePatch(
 
         // Rolling Number text views use the measured width of the raw string for layout.
         // Modify the measure text calculation to include the left drawable separator if needed.
-        rollingNumberMeasureAnimatedTextFingerprint.matchOrThrow().let {
+        RollingNumberMeasureAnimatedTextFingerprint.let {
             it.method.apply {
                 val endIndex = it.instructionMatches.last().index
                 val measuredTextWidthIndex = endIndex - 2
@@ -122,9 +162,8 @@ private val returnYouTubeDislikeRollingNumberPatch = bytecodePatch(
             }
         }
 
-        rollingNumberMeasureStaticLabelFingerprint.matchOrThrow(
-            rollingNumberMeasureTextParentFingerprint
-        ).let {
+        val rollingNumberMeasureTextClass = RollingNumberMeasureTextParentFingerprint.match().classDef
+        RollingNumberMeasureStaticLabelFingerprint.match(rollingNumberMeasureTextClass).let {
             it.method.apply {
                 val measureTextIndex = it.instructionMatches.first().index + 1
                 val freeRegister = getInstruction<TwoRegisterInstruction>(0).registerA
@@ -205,24 +244,45 @@ val returnYouTubeDislikePatch = bytecodePatch(
         lithoFilterPatch,
         lithoLayoutPatch,
         videoInformationPatch,
+        lazilyConvertedElementHookPatch,
     )
 
     execute {
-        mapOf(
-            likeFingerprint to Vote.LIKE,
-            dislikeFingerprint to Vote.DISLIKE,
-            removeLikeFingerprint to Vote.REMOVE_LIKE,
-        ).forEach { (fingerprint, vote) ->
-            fingerprint.methodOrThrow().addInstructions(
-                0,
-                """
-                    const/4 v0, ${vote.value}
-                    invoke-static {v0}, $EXTENSION_RYD_CLASS_DESCRIPTOR->sendVote(I)V
+        // Hook the endpoint parser instead of three endpoint methods. Playlist actions use the
+        // same endpoint names but omit the video ID, so passing both values lets the extension
+        // reject them without generating incorrect RYD requests.
+        val endpointServiceNameField = EndpointServiceNameFingerprint
+            .instructionMatches.last().instruction.getReference<FieldReference>()!!
+        val likeEndpointParserClass = DislikeFingerprint.classDef.superclass!!
+        val videoIdField = requestParameterCheckFingerprint(likeEndpointParserClass)
+            .instructionMatches.last().instruction.getReference<FieldReference>()!!
+
+        likeEndpointParserFingerprint(likeEndpointParserClass).let {
+            it.method.apply {
+                val insertIndex = it.instructionMatches[1].index + 1
+                val likeEndpointTargetClassRegister =
+                    getInstruction<TwoRegisterInstruction>(insertIndex - 1).registerA
+                val registerProvider = getFreeRegisterProvider(
+                    insertIndex,
+                    2,
+                    likeEndpointTargetClassRegister,
+                )
+                val endpointServiceNameRegister = registerProvider.getFreeRegister()
+                val videoIdRegister = registerProvider.getFreeRegister()
+
+                addInstructions(
+                    insertIndex,
+                    """
+                        iget-object v$endpointServiceNameRegister, p0, $endpointServiceNameField
+                        iget-object v$videoIdRegister, v$likeEndpointTargetClassRegister, $videoIdField
+                        invoke-static {v$endpointServiceNameRegister, v$videoIdRegister}, $EXTENSION_RYD_CLASS_DESCRIPTOR->sendVote(Ljava/lang/String;Ljava/lang/String;)V
                     """,
-            )
+                )
+            }
         }
 
         hookTextComponent(EXTENSION_RYD_CLASS_DESCRIPTOR)
+        hookElementList("$EXTENSION_RYD_CLASS_DESCRIPTOR->onLazilyConvertedElementLoaded")
 
         // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded
         hookVideoId("$EXTENSION_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
@@ -246,10 +306,15 @@ val returnYouTubeDislikePatch = bytecodePatch(
             // If enabled then the litho text span hook is never called.
             // Target code is very obfuscated and exactly what the code does is not clear.
             // Return late so debug patch logs if the flag is enabled.
-            textComponentFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
-                LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG,
-                "0x0"
-            )
+            TextComponentFeatureFlagFingerprint.method.apply {
+                val literalIndex = indexOfFirstLiteralInstruction(LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG)
+                val moveResultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+                val register = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
+                addInstructions(
+                    moveResultIndex + 1,
+                    "const/16 v$register, 0x0",
+                )
+            }
         }
 
         // region add settings
@@ -263,10 +328,4 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // endregion
     }
-}
-
-enum class Vote(val value: Int) {
-    LIKE(1),
-    DISLIKE(-1),
-    REMOVE_LIKE(0),
 }
