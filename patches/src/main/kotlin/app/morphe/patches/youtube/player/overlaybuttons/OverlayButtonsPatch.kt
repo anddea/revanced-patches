@@ -247,7 +247,7 @@ val overlayButtonsPatch = resourcePatch(
         // Inject custom buttons into the top relative layout
         copyXmlNode(
             "youtube/overlaybuttons/shared/host",
-            "layout/youtube_controls_top_ui_container.xml",
+            "layout/youtube_controls_layout.xml",
             "android.widget.RelativeLayout"
         )
         
