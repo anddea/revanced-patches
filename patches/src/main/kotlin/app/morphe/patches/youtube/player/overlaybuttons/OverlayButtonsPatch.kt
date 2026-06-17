@@ -148,9 +148,8 @@ val overlayButtonsPatch = resourcePatch(
 
         val useWiderButtonsSpace = widerButtonsSpace == true
 
-        // Inject hooks for overlay buttons.
+        // Inject hooks for bottom overlay buttons.
         setOf(
-            "AlwaysRepeatButton",
             "CopyVideoUrlButton",
             "CopyVideoUrlTimestampButton",
             "ExternalDownloadButton",
@@ -158,12 +157,18 @@ val overlayButtonsPatch = resourcePatch(
             "MuteVolumeButton",
             "PlayAllButton",
             "PlaybackSpeedDialogButton",
-            "VoiceOverTranslationButton",
-            "WhitelistButton",
         ).forEach { className ->
             injectControl("$OVERLAY_BUTTONS_PATH/${className};", false)
         }
 
+        // Inject hooks for top overlay buttons.
+        setOf(
+            "AlwaysRepeatButton",
+            "VoiceOverTranslationButton",
+            "WhitelistButton",
+        ).forEach { className ->
+            injectControl("$OVERLAY_BUTTONS_PATH/${className};", true)
+        }
         
         // Copy necessary resources for the overlay buttons.
         copyResources(
