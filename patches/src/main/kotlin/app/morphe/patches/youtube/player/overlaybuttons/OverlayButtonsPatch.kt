@@ -185,15 +185,18 @@ val overlayButtonsPatch = resourcePatch(
             )
         )
 
-        // Apply the selected icon type to the overlay buttons.
         arrayOf(
-            "xxxhdpi",
-            "xxhdpi",
-            "xhdpi",
-            "hdpi",
-            "mdpi"
-        ).forEach { dpi ->
-            val drawables = mutableListOf(
+    "xxxhdpi",
+    "xxhdpi",
+    "xhdpi",
+    "hdpi",
+    "mdpi"
+).forEach { dpi ->
+    if (iconType == "original") {
+        copyResources(
+            "youtube/overlaybuttons/$iconType",
+            ResourceGroup(
+                "drawable-$dpi",
                 "revanced_copy_button.png",
                 "revanced_copy_timestamp_button.png",
                 "revanced_external_download_button.png",
@@ -201,41 +204,56 @@ val overlayButtonsPatch = resourcePatch(
                 "revanced_playback_speed_dialog_button.png",
                 "revanced_volume_muted_button.png",
                 "revanced_volume_unmuted_button.png",
-                "revanced_whitelist_button.png"
+                "revanced_whitelist_button.png",
+                "yt_fill_arrow_repeat_white_24.png",
+                "yt_outline_arrow_repeat_1_white_24.png",
+                "yt_outline_arrow_shuffle_1_white_24.png"
+            ),
+            ResourceGroup(
+                "drawable",
+                "revanced_vot_button_icon.xml",
+                "revanced_vot_button_activated_icon.xml",
+                "revanced_bottom_bg.xml"
             )
-            val xmlDrawables = mutableListOf(
+        )
+    } else {
+        copyResources(
+            "youtube/overlaybuttons/$iconType",
+            ResourceGroup(
+                "drawable-$dpi",
+                "ic_vr.png",
+                "quantum_ic_fullscreen_exit_grey600_24.png",
+                "quantum_ic_fullscreen_exit_white_24.png",
+                "quantum_ic_fullscreen_grey600_24.png",
+                "quantum_ic_fullscreen_white_24.png",
+                "yt_outline_arrow_shuffle_black_24.png",
+                "yt_outline_list_play_arrow_black_24.png",
+                "yt_outline_list_play_arrow_white_24.png",
+                "yt_outline_screen_full_exit_white_24.png",
+                "yt_outline_screen_full_vd_theme_24.png",
+                "yt_outline_screen_full_white_24.png",
+                "yt_outline_screen_vertical_vd_theme_24.png",
+                "revanced_copy_button.png",
+                "revanced_copy_timestamp_button.png",
+                "revanced_external_download_button.png",
+                "revanced_play_all_button.png",
+                "revanced_playback_speed_dialog_button.png",
+                "revanced_volume_muted_button.png",
+                "revanced_volume_unmuted_button.png",
+                "revanced_whitelist_button.png",
+                "yt_fill_arrow_repeat_white_24.png",
+                "yt_outline_arrow_repeat_1_white_24.png",
+                "yt_outline_arrow_shuffle_1_white_24.png"
+            ),
+            ResourceGroup(
+                "drawable",
+                "yt_outline_screen_vertical_vd_theme_24.xml",
                 "revanced_vot_button_icon.xml",
                 "revanced_vot_button_activated_icon.xml"
             )
-
-            if (iconType != "original") {
-                drawables.addAll(
-                    listOf(
-                        "ic_vr.png",
-                        "quantum_ic_fullscreen_exit_grey600_24.png",
-                        "quantum_ic_fullscreen_exit_white_24.png",
-                        "quantum_ic_fullscreen_grey600_24.png",
-                        "quantum_ic_fullscreen_white_24.png",
-                        "yt_fill_arrow_repeat_white_24.png",
-                        "yt_outline_arrow_repeat_1_white_24.png",
-                        "yt_outline_arrow_shuffle_1_white_24.png",
-                        "yt_outline_arrow_shuffle_black_24.png",
-                        "yt_outline_list_play_arrow_black_24.png",
-                        "yt_outline_list_play_arrow_white_24.png",
-                        "yt_outline_screen_full_exit_white_24.png",
-                        "yt_outline_screen_full_vd_theme_24.png",
-                        "yt_outline_screen_full_white_24.png",
-                        "yt_outline_screen_vertical_vd_theme_24.png"
-                    )
-                )
-                xmlDrawables.add("yt_outline_screen_vertical_vd_theme_24.xml")
-            }
-
-            copyResources(
-                "youtube/overlaybuttons/$iconType",
-                ResourceGroup("drawable-$dpi", *drawables.toTypedArray()),
-                ResourceGroup("drawable", *xmlDrawables.toTypedArray())
-            )
+        )
+    }
+}
 
         // Subtitle overlay layout for Gemini and Yandex transcription
         copyResources(
