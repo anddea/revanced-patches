@@ -1,5 +1,9 @@
 package app.morphe.patches.youtube.swipe.controls
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.fieldAccess
 import app.morphe.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.youtube.utils.resourceid.autoNavScrollCancelPadding
 import app.morphe.util.containsLiteralInstruction
@@ -69,6 +73,37 @@ internal val watchPanelGesturesChannelBarFingerprint = legacyFingerprint(
         method.name == "onInterceptTouchEvent" &&
                 method.containsLiteralInstruction(WATCH_PANEL_GESTURES_SECONDARY_FEATURE_FLAG)
     }
+)
+
+internal object PlayerDragGestureTypeFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.STATIC),
+    returnType = "Ljava/lang/String;",
+    parameters = listOf("I"),
+    strings = listOf(
+        "FULLSCREEN_DRAGGED_DOWN",
+        "MAXIMIZED_PULLED_UP"
+    )
+)
+
+internal object PlayerDragGestureInitFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "I",
+    parameters = listOf("I", "I", "I", "I"),
+    filters = OpcodesFilter.opcodesToFilters(
+        Opcode.IGET_OBJECT,
+        Opcode.IF_EQZ,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.IGET,
+        Opcode.IF_NE,
+        Opcode.IGET,
+        Opcode.IF_NE,
+        Opcode.CONST_4,
+        Opcode.RETURN
+    ) + fieldAccess(
+        opcode = Opcode.IGET_OBJECT,
+        type = "/NextGenWatchLayout;",
+        location = MatchAfterImmediately()
+    )
 )
 
 internal val playerGestureConfigSyntheticFingerprint = legacyFingerprint(
