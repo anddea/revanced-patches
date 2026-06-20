@@ -67,7 +67,7 @@ class PlayerControlButton(
         // when switching between states like minimized, maximized, or fullscreen, preventing
         // "stuck" animations or incorrect visibility.  Without this fix the issue is most noticable
         // when maximizing type 3 miniplayer.
-        PlayerType.Companion.onChange.addObserver { type: PlayerType ->
+        PlayerType.onChange.addObserver { type: PlayerType ->
             playerTypeChanged(type)
         }
     }
@@ -81,8 +81,7 @@ class PlayerControlButton(
 
         val shouldBeShown = visibilityCheck.shouldBeShown()
         if (!shouldBeShown) return
-        val button = buttonRef.get()
-        if (button == null) return
+        val button = buttonRef.get() ?: return
         isVisible = false
 
         button.clearAnimation()
