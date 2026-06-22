@@ -71,6 +71,7 @@ import app.morphe.patches.youtube.video.information.hookShortsVideoInformation
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.hookVideoId
+import app.morphe.patches.youtube.player.action.restoreOldVideoActionBarPatch
 import app.morphe.util.findFreeRegister
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
@@ -243,6 +244,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         returnYouTubeDislikeShortsPatch,
         lithoFilterPatch,
         lithoLayoutPatch,
+        restoreOldVideoActionBarPatch,
         videoInformationPatch,
         lazilyConvertedElementHookPatch,
     )
