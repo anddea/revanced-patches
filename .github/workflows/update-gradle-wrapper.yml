@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   update:
-    if: github.repository_owner == 'anddea'
+    if: github.repository_owner == 'imPratyoosh'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
