@@ -249,15 +249,17 @@ val playerControlsPatch = bytecodePatch(
         visibilityImmediateCallbacksExistMethod =
             playerControlsExtensionHookListenersExistFingerprint.methodOrThrow()
         visibilityImmediateMethod = playerControlsExtensionHookFingerprint.methodOrThrow()
+        
+        val playerBottomControlsExploderLayoutOverride =
+            "$EXTENSION_CLASS_DESCRIPTOR->usePlayerBottomControlsExploderLayout(Z)Z"
 
         // A/B test for a slightly different bottom overlay controls,
         // that uses layout file youtube_video_exploder_controls_bottom_ui_container.xml
-        // The change to support this is simple and only requires adding buttons to both layout files,
-        // but for now force this different layout off since it's still an experimental test.
+        // Use this layout when bold icons are enabled, otherwise keep the old layout.
         if (is_19_36_or_greater) {
             playerBottomControlsExploderFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
                 PLAYER_BOTTOM_CONTROLS_EXPLODER_FEATURE_FLAG,
-                "0x0"
+playerBottomControlsExploderLayoutOverride
             )
         }
 
@@ -279,22 +281,22 @@ val playerControlsPatch = bytecodePatch(
                         """,
                 )
             }
-        } else if (is_20_20_or_greater) { // Turn off a/b tests of ugly player buttons that don't match the style of custom player buttons.
+} else if (is_20_20_or_greater) { // Use the bold player button style when bold icons are enabled.
             playerControlsFullscreenLargeButtonsFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
                 PLAYER_CONTROLS_FULLSCREEN_LARGE_BUTTON_FEATURE_FLAG,
-                "0x0"
+playerBottomControlsExploderLayoutOverride
             )
 
             if (is_20_28_or_greater) {
                 playerControlsLargeOverlayButtonsFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
                     PLAYER_CONTROLS_FULLSCREEN_LARGE_OVERLAY_BUTTON_FEATURE_FLAG,
-                    "0x0"
+playerBottomControlsExploderLayoutOverride
                 )
 
                 if (is_20_30_or_greater) {
                     playerControlsButtonStrokeFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
                         PLAYER_CONTROLS_BUTTON_STROKE_FEATURE_FLAG,
-                        "0x0"
+playerBottomControlsExploderLayoutOverride
                     )
                 }
             }

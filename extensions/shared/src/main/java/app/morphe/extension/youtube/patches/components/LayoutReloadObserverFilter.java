@@ -30,6 +30,9 @@ import app.morphe.extension.youtube.shared.PlayerType;
  */
 @SuppressWarnings("unused")
 public final class LayoutReloadObserverFilter extends Filter {
+	private static final String COMPACTIFY_VIDEO_ACTION_BAR_PREFIX = "compactify_video_action_bar.e";
+    private static final String VIDEO_ACTION_BAR_PREFIX = "video_action_bar.e";
+    
     // Must be volatile or synchronized, as litho filtering runs off main thread and this field is then access from the main thread.
     public static final AtomicBoolean isActionBarVisible = new AtomicBoolean(false);
 
@@ -37,7 +40,8 @@ public final class LayoutReloadObserverFilter extends Filter {
         addIdentifierCallbacks(
                 new StringFilterGroup(
                         null,
-                        "video_action_bar."
+COMPACTIFY_VIDEO_ACTION_BAR_PREFIX,
+                        VIDEO_ACTION_BAR_PREFIX
                 )
         );
     }
@@ -45,9 +49,11 @@ public final class LayoutReloadObserverFilter extends Filter {
     @Override
     public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (PlayerType.getCurrent() == PlayerType.WATCH_WHILE_MINIMIZED &&
+PlayerType playerType = PlayerType.getCurrent();
+        if ((playerType == PlayerType.WATCH_WHILE_MINIMIZED
+                || playerType == PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE) &&
                 isActionBarVisible.compareAndSet(false, true)) {
-            Utils.runOnMainThreadDelayed(() -> isActionBarVisible.compareAndSet(true, false), 1000);
+             Utils.runOnMainThreadDelayed(() -> isActionBarVisible.compareAndSet(true, false), 250);
         }
 
         return false;

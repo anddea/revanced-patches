@@ -45,6 +45,7 @@ import app.morphe.extension.youtube.innertube.NextResponseOuterClass.NewElement;
 import app.morphe.extension.youtube.patches.utils.InitializationPatch;
 import app.morphe.extension.youtube.patches.utils.PatchStatus;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.settings.YouTubeActivityHook;
 import app.morphe.extension.youtube.shared.EngagementPanel;
 import app.morphe.extension.youtube.shared.PlayerType;
 import app.morphe.extension.youtube.shared.RootView;
@@ -53,6 +54,8 @@ import app.morphe.extension.youtube.utils.VideoUtils;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class PlayerPatch {
+	public static final int FULLSCREEN_HIDDEN_Y_OFFSET = 100000;
+	
     private static final IntegerSetting quickActionsMarginTopSetting = Settings.QUICK_ACTIONS_TOP_MARGIN;
 
     private static final int PLAYER_OVERLAY_OPACITY_LEVEL;
@@ -422,9 +425,20 @@ public class PlayerPatch {
     public static ImageView hideFullscreenButton(ImageView imageView) {
         final boolean hideView = Settings.HIDE_PLAYER_FULLSCREEN_BUTTON.get();
 
-        Utils.hideViewUnderCondition(hideView, imageView);
-        return hideView ? null : imageView;
-    }
+		if (!hideView) {
+			return imageView;
+		}
+		
+		if (!YouTubeActivityHook.useBoldIcons(true)) {
+			imageView.setVisibility(View.GONE);
+			return null;
+		}
+		
+		// Cannot remove the button beacuse the bold overlay player buttons
+		// rely on draw updates to control fade in/out. Move it offscreen instead.
+		imageView.setY(imageView.getY() - FULLSCREEN_HIDDEN_Y_OFFSET);
+		return imageView;
+	}
 
     public static boolean hidePreviousNextButton(boolean previousOrNextButtonVisible) {
         return !Settings.HIDE_PLAYER_PREVIOUS_NEXT_BUTTON.get() && previousOrNextButtonVisible;
@@ -1021,4 +1035,4 @@ public class PlayerPatch {
         return QUICK_ACTIONS_MARGIN_TOP;
     }
 
-}
+	}

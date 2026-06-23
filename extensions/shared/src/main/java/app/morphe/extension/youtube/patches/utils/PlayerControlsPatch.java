@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import java.lang.ref.WeakReference;
 
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.youtube.settings.YouTubeActivityHook;
 
 @SuppressWarnings("unused")
 public class PlayerControlsPatch {
@@ -64,4 +65,11 @@ public class PlayerControlsPatch {
     public static String getPlayerTopControlsLayoutResourceName(String original) {
         return "default";
     }
-}
+    
+    /**
+     * Injection point.
+     */
+    public static boolean usePlayerBottomControlsExploderLayout(boolean original) {
+        return YouTubeActivityHook.useBoldIcons(original);
+    }
+                                                }
