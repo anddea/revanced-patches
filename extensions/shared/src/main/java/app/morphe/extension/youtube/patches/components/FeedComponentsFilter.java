@@ -106,15 +106,20 @@ public final class FeedComponentsFilter extends Filter {
 
         communityPosts = new StringFilterGroup(
                 null,
-                "post_base_wrapper",
                 "images_post_responsive",
                 "images_post_root",
                 "images_post_slim",
+                "options_post_root",
+                "poll_post_responsive_root",
                 "poll_post_root",
+                "post_base_wrapper",
                 "post_responsive_root",
                 "post_shelf_slim",
+                "shared_post_responsive_root",
                 "shared_post_root",
+                "text_post_responsive_root",
                 "text_post_root",
+                "videos_post_responsive_root",
                 "videos_post_root"
         );
 
