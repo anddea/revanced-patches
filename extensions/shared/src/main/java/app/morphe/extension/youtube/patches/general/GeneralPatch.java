@@ -1771,7 +1771,7 @@ public class GeneralPatch {
         }, 0);
     }
 
-    private static void openYouTubeSettings(View view) {
+    public static void openYouTubeSettings(View view) {
         Context context = view.getContext();
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.setPackage(context.getPackageName());
@@ -1780,7 +1780,7 @@ public class GeneralPatch {
         context.startActivity(intent);
     }
 
-    private static void openRVXSettings(View view) {
+    public static void openRVXSettings(View view) {
         Context context = view.getContext();
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.setPackage(context.getPackageName());

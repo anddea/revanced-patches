@@ -42,7 +42,12 @@
 
         <!-- SETTINGS: HIDE_NAVIGATION_COMPONENTS
         <PreferenceScreen android:title="@string/revanced_preference_screen_navigation_bar_title" android:key="revanced_preference_screen_navigation_bar" android:summary="@string/revanced_preference_screen_navigation_bar_summary">
-            <SwitchPreference android:title="@string/revanced_enable_narrow_navigation_buttons_title" android:key="revanced_enable_narrow_navigation_buttons" android:summaryOn="@string/revanced_enable_narrow_navigation_buttons_summary_on" android:summaryOff="@string/revanced_enable_narrow_navigation_buttons_summary_off" />
+            <SwitchPreference android:title="@string/revanced_enable_narrow_navigation_buttons_title" android:key="revanced_enable_narrow_navigation_buttons" android:summaryOn="@string/revanced_enable_narrow_navigation_buttons_summary_on" android:summaryOff="@string/revanced_enable_narrow_navigation_buttons_summary_off" />SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
+
+            <!-- SETTINGS: ANIMATED_NAVIGATION_BAR
+            <SwitchPreference android:title="@string/revanced_navigation_bar_animations_title" android:key="revanced_navigation_bar_animations" android:summary="@string/revanced_navigation_bar_animations_summary" />SETTINGS: ANIMATED_NAVIGATION_BAR -->
+
+            <!-- SETTINGS: HIDE_NAVIGATION_COMPONENTS
             <SwitchPreference android:title="@string/revanced_hide_navigation_label_title" android:key="revanced_hide_navigation_label" android:summaryOn="@string/revanced_hide_navigation_label_summary_on" android:summaryOff="@string/revanced_hide_navigation_label_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_navigation_home_button_title" android:key="revanced_hide_navigation_home_button" android:summaryOn="@string/revanced_hide_navigation_home_button_summary_on" android:summaryOff="@string/revanced_hide_navigation_home_button_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_navigation_shorts_button_title" android:key="revanced_hide_navigation_shorts_button" android:summaryOn="@string/revanced_hide_navigation_shorts_button_summary_on" android:summaryOff="@string/revanced_hide_navigation_shorts_button_summary_off" />
@@ -50,8 +55,14 @@
             <SwitchPreference android:title="@string/revanced_hide_navigation_subscriptions_button_title" android:key="revanced_hide_navigation_subscriptions_button" android:summaryOn="@string/revanced_hide_navigation_subscriptions_button_summary_on" android:summaryOff="@string/revanced_hide_navigation_subscriptions_button_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_navigation_library_button_title" android:key="revanced_hide_navigation_library_button" android:summaryOn="@string/revanced_hide_navigation_library_button_summary_on" android:summaryOff="@string/revanced_hide_navigation_library_button_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_navigation_notifications_button_title" android:key="revanced_hide_navigation_notifications_button" android:summaryOn="@string/revanced_hide_navigation_notifications_button_summary_on" android:summaryOff="@string/revanced_hide_navigation_notifications_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_switch_create_with_notifications_button_title" android:key="revanced_switch_create_with_notifications_button" android:summaryOn="@string/revanced_switch_create_with_notifications_button_summary_on" android:summaryOff="@string/revanced_switch_create_with_notifications_button_summary_off" />
+            <SwitchPreference android:title="@string/revanced_switch_create_with_notifications_button_title" android:key="revanced_switch_create_with_notifications_button" android:summaryOn="@string/revanced_switch_create_with_notifications_button_summary_on" android:summaryOff="@string/revanced_switch_create_with_notifications_button_summary_off" />SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
 
+            <!-- SETTINGS: ANIMATED_NAVIGATION_BAR
+            <SwitchPreference android:title="@string/revanced_show_settings_button_title" android:key="revanced_show_settings_button" android:summaryOn="@string/revanced_show_settings_button_summary_on" android:summaryOff="@string/revanced_show_settings_button_summary_off" />
+            <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_show_settings_button_index_entries" android:title="@string/revanced_show_settings_button_index_title" android:key="revanced_show_settings_button_index" android:entryValues="@array/revanced_show_settings_button_index_entry_values" />
+            <SwitchPreference android:title="@string/revanced_show_settings_button_type_title" android:key="revanced_show_settings_button_type" android:summaryOn="@string/revanced_show_settings_button_type_summary_on" android:summaryOff="@string/revanced_show_settings_button_type_summary_off" />SETTINGS: ANIMATED_NAVIGATION_BAR -->
+
+            <!-- SETTINGS: HIDE_NAVIGATION_COMPONENTS
             <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
 
             <!-- SETTINGS: DISABLE_AUTO_HIDE_NAVIGATION_BAR

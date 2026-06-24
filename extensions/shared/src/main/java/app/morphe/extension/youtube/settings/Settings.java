@@ -232,6 +232,10 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting ENABLE_TRANSLUCENT_NAVIGATION_BAR = new BooleanSetting("revanced_enable_translucent_navigation_bar", TRUE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR = new BooleanSetting("revanced_hide_navigation_bar", FALSE, true);
     public static final BooleanSetting DISABLE_AUTO_HIDE_NAVIGATION_BAR = new BooleanSetting("morphe_disable_auto_hide_navigation_bar", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));
+    public static final BooleanSetting NAVIGATION_BAR_ANIMATIONS = new BooleanSetting("revanced_navigation_bar_animations", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));
+    public static final BooleanSetting SHOW_SETTINGS_BUTTON = new BooleanSetting("revanced_show_settings_button", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));
+    public static final IntegerSetting SHOW_SETTINGS_BUTTON_INDEX = new IntegerSetting("revanced_show_settings_button_index", 5, true, parent(SHOW_SETTINGS_BUTTON));
+    public static final BooleanSetting SHOW_SETTINGS_BUTTON_TYPE = new BooleanSetting("revanced_show_settings_button_type", FALSE, true, parent(SHOW_SETTINGS_BUTTON));
     public static final BooleanSetting REPLACE_NAVIGATION_BUTTON = new BooleanSetting("revanced_replace_navigation_button", FALSE, true);
     public static final EnumSetting<NavigationButton> REPLACE_NAVIGATION_BUTTON_TARGET = new EnumSetting<>("revanced_replace_navigation_button_target", NavigationButton.SHORTS, true, parent(REPLACE_NAVIGATION_BUTTON));
 

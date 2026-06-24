@@ -1,3 +1,14 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.general;
 
 import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
@@ -16,6 +27,7 @@ import com.google.protobuf.MessageLite;
 import org.apache.commons.lang3.BooleanUtils;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +35,13 @@ import java.util.Map;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.shared.settings.IntegerSetting;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.Accessibility;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.AccessibilityData;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.ButtonRenderer;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.PivotBarItemRenderer;
+import app.morphe.extension.youtube.innertube.IconOuterClass.Icon;
+import app.morphe.extension.youtube.innertube.IconOuterClass.YTIconType;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.NavigationBar;
 import app.morphe.extension.youtube.shared.RootView;
@@ -66,6 +84,12 @@ public final class NavigationButtonsPatch {
 
     private static View.OnClickListener openSearchBar;
 
+    private static final boolean SHOW_SETTINGS_BUTTON = Settings.SHOW_SETTINGS_BUTTON.get();
+    private static final IntegerSetting SHOW_SETTINGS_BUTTON_INDEX = Settings.SHOW_SETTINGS_BUTTON_INDEX;
+    private static final boolean SHOW_SETTINGS_BUTTON_TYPE = Settings.SHOW_SETTINGS_BUTTON_TYPE.get();
+
+    private static Object pivotBarSettingsRenderer;
+
     private static final View.OnClickListener openSearchBarOnClickListener = v -> {
         if (RootView.isSearchBarActive() && searchQueryRef.get() != null) {
             searchQueryRef.get().callOnClick();
@@ -90,6 +114,13 @@ public final class NavigationButtonsPatch {
      */
     public static boolean enableNarrowNavigationButton(boolean original) {
         return ENABLE_NARROW_NAVIGATION_BUTTONS || original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean useAnimatedNavigationButtons(boolean original) {
+        return Settings.NAVIGATION_BAR_ANIMATIONS.get();
     }
 
     /**
@@ -230,6 +261,63 @@ public final class NavigationButtonsPatch {
         }
     }
 
+    /**
+     * Clones the Home tab renderer as a Settings tab while preserving YouTube's unknown proto
+     * fields and layout metadata.
+     */
+    @Nullable
+    public static byte[] parseSettingsPivotBarItemRenderer(MessageLite messageLite) {
+        if (!SHOW_SETTINGS_BUTTON) {
+            return null;
+        }
+
+        try {
+            var builder = PivotBarItemRenderer.parseFrom(messageLite.toByteArray()).toBuilder();
+            String iconName = builder.getIcon().getYtIconType().name();
+            if (NavigationButton.HOME.ytEnumNames.contains(iconName)) {
+                var accessibilityData = AccessibilityData.newBuilder()
+                        .setLabel(ResourceUtils.getString("menu_settings"))
+                        .build();
+                var accessibility = Accessibility.newBuilder()
+                        .setAccessibilityData(accessibilityData)
+                        .build();
+                var icon = Icon.newBuilder().setYtIconType(YTIconType.SETTINGS_CAIRO).build();
+
+                builder.clearAccessibility();
+                builder.setAccessibility(accessibility);
+                builder.clearIcon();
+                builder.setIcon(icon);
+                return builder.build().toByteArray();
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to parse Settings PivotBarItemRenderer", ex);
+        }
+        return null;
+    }
+
+    /**
+     * Injection point. Stores the cloned renderer until YouTube builds the pivot-bar list.
+     */
+    public static void setPivotBarSettingsRenderer(Object renderer) {
+        if (SHOW_SETTINGS_BUTTON) {
+            pivotBarSettingsRenderer = renderer;
+        }
+    }
+
+    /**
+     * Injection point. Adds the Settings renderer without mutating YouTube's immutable proto list.
+     */
+    public static List<Object> getPivotBarRendererList(List<Object> list) {
+        if (!SHOW_SETTINGS_BUTTON || pivotBarSettingsRenderer == null || list == null || list.isEmpty()) {
+            return list;
+        }
+
+        List<Object> newList = new ArrayList<>(list);
+        int preferredIndex = Math.max(0, Math.min(SHOW_SETTINGS_BUTTON_INDEX.get(), newList.size()));
+        newList.add(preferredIndex, pivotBarSettingsRenderer);
+        return newList;
+    }
+
     private static boolean shouldReplace() {
         return shouldReplace(NavigationBar.getLastAppNavigationEnum());
     }
@@ -301,6 +389,17 @@ public final class NavigationButtonsPatch {
      * Injection point.
      */
     public static void navigationTabCreated(NavigationButton button, View tabView) {
+        if (SHOW_SETTINGS_BUTTON && button == NavigationButton.SETTINGS) {
+            Utils.runOnMainThread(() -> tabView.setOnClickListener(v -> {
+                if (SHOW_SETTINGS_BUTTON_TYPE) {
+                    GeneralPatch.openRVXSettings(v);
+                } else {
+                    GeneralPatch.openYouTubeSettings(v);
+                }
+            }));
+            return;
+        }
+
         if (REPLACE_NAVIGATION_BUTTON && button == REPLACE_NAVIGATION_BUTTON_TARGET) {
             tabView.setOnClickListener(openSearchBarOnClickListener);
             Utils.runOnMainThread(() -> tabView.setOnClickListener(openSearchBarOnClickListener));

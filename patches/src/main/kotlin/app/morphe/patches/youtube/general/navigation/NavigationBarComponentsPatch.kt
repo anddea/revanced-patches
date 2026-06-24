@@ -1,5 +1,17 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.general.navigation
 
+import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -7,6 +19,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
+import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethod
 import app.morphe.patches.shared.spoof.guide.addClientOSVersionHook
 import app.morphe.patches.shared.spoof.guide.spoofClientGuideEndpointPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -20,6 +34,7 @@ import app.morphe.patches.youtube.utils.patch.PatchList.NAVIGATION_BAR_COMPONENT
 import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_06_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
@@ -31,19 +46,26 @@ import app.morphe.patches.youtube.utils.resourceid.ytOutlineLibrary
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.ResourceGroup
+import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.copyResources
 import app.morphe.util.copyXmlNode
 import app.morphe.util.findInstructionIndicesReversedOrThrow
+import app.morphe.util.getFreeRegisterProvider
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.indexOfFirstStringInstruction
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
+import app.morphe.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
@@ -117,6 +139,7 @@ val navigationBarComponentsPatch = bytecodePatch(
         sharedResourceIdPatch,
         navigationBarHookPatch,
         spoofClientGuideEndpointPatch,
+        fixProtoLibraryPatch,
         versionCheckPatch,
     )
 
@@ -145,6 +168,19 @@ val navigationBarComponentsPatch = bytecodePatch(
             }
 
             settingArray += "SETTINGS: TRANSLUCENT_NAVIGATION_BAR"
+        }
+
+        // endregion
+
+        // region patch for enable animations for navigation bar
+
+        if (is_20_21_or_greater) {
+            AnimatedNavigationTabsFeatureFlagFingerprint.method.insertLiteralOverride(
+                AnimatedNavigationTabsFeatureFlagFingerprint.instructionMatches.first().index,
+                "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z"
+            )
+
+            settingArray += "SETTINGS: ANIMATED_NAVIGATION_BAR"
         }
 
         // endregion
@@ -188,6 +224,86 @@ val navigationBarComponentsPatch = bytecodePatch(
             )
 
             settingArray += "SETTINGS: DISABLE_AUTO_HIDE_NAVIGATION_BAR"
+        }
+
+        // endregion
+
+        // region add settings navigation button
+
+        if (is_20_21_or_greater) {
+            PivotBarRendererFingerprint.let {
+                it.method.apply {
+                    val pivotBarItemRendererType =
+                        it.instructionMatches[2].instruction.getReference<TypeReference>()!!.type
+                    val constructorIndex = it.instructionMatches[3].index
+                    val constructorReference =
+                        getInstruction<ReferenceInstruction>(constructorIndex).reference as MethodReference
+                    val constructorInstruction =
+                        getInstruction<RegisterRangeInstruction>(constructorIndex)
+                    val constructorStartRegister = constructorInstruction.startRegister
+                    val constructorEndRegister =
+                        constructorStartRegister + constructorInstruction.registerCount - 1
+                    val messageLiteIndex = constructorReference.parameterTypes.indexOfFirst { parameterType ->
+                        parameterType == "Lcom/google/protobuf/MessageLite;"
+                    }
+                    val messageLiteRegister = constructorStartRegister + messageLiteIndex + 1
+                    val insertIndex = it.instructionMatches.last().index
+                    val backupRegister =
+                        getFreeRegisterProvider(insertIndex, 1).getFreeRegister()
+
+                    addInstructionsAtControlFlowLabel(
+                        insertIndex,
+                        """
+                        # Preserve the original renderer while cloning Home into a Settings tab.
+                        move-object/16 v$backupRegister, v$messageLiteRegister
+                        invoke-static { v$messageLiteRegister }, $EXTENSION_CLASS_DESCRIPTOR->parseSettingsPivotBarItemRenderer(Lcom/google/protobuf/MessageLite;)[B
+                        move-result-object v$constructorStartRegister
+                        if-eqz v$constructorStartRegister, :ignore_settings
+
+                        sget-object v$messageLiteRegister, $pivotBarItemRendererType->a:$pivotBarItemRendererType
+                        invoke-static { v$messageLiteRegister, v$constructorStartRegister }, $parseByteArrayMethod
+                        move-result-object v$messageLiteRegister
+                        check-cast v$messageLiteRegister, $pivotBarItemRendererType
+
+                        new-instance v$constructorStartRegister, ${constructorReference.definingClass}
+                        invoke-direct/range { v$constructorStartRegister .. v$constructorEndRegister }, $constructorReference
+                        invoke-static { v$constructorStartRegister }, $EXTENSION_CLASS_DESCRIPTOR->setPivotBarSettingsRenderer(Ljava/lang/Object;)V
+                        :ignore_settings
+
+                        move-object/16 v$messageLiteRegister, v$backupRegister
+                        nop
+                    """
+                    )
+                }
+            }
+
+            PivotBarRendererListFingerprint.let {
+                it.method.apply {
+                    val insertMatch = it.instructionMatches[2]
+                    val insertIndex = insertMatch.index
+                    val insertRegister =
+                        getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+
+                    val protoListBuilderFingerprint = Fingerprint(
+                        accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
+                        returnType = insertMatch.instruction.getReference<FieldReference>()!!.type,
+                        parameters = listOf("Ljava/util/Collection;")
+                    )
+                    val protoListBuilderMethod = protoListBuilderFingerprint.method
+
+                    addInstructions(
+                        insertIndex,
+                        """
+                        invoke-static { v$insertRegister }, $EXTENSION_CLASS_DESCRIPTOR->getPivotBarRendererList(Ljava/util/List;)Ljava/util/List;
+                        move-result-object v$insertRegister
+                        invoke-static { v$insertRegister }, $protoListBuilderMethod
+                        move-result-object v$insertRegister
+                    """
+                    )
+                }
+            }
+
+            settingArray += "SETTINGS: ANIMATED_NAVIGATION_BAR"
         }
 
         // endregion
