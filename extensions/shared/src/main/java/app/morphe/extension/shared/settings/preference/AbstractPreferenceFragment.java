@@ -351,6 +351,10 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     }
 
     public static void showRestartDialog(@NonNull Context context, String message, long delay) {
+        showRestartDialog(context, message, delay, true);
+    }
+
+    public static void showRestartDialog(@NonNull Context context, String message, long delay, boolean cancelable) {
         Utils.verifyOnMainThread();
         if (showingRestartDialog) {
             Logger.printDebug(() -> "Ignoring show restart dialog as restart dialog is already shown");
@@ -382,8 +386,8 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     // OK button action.
                     () -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay),
                     // Cancel button action.
-                    () -> {
-                    },
+                    cancelable ? () -> {
+                    } : null,
                     // Neutral button text.
                     null,
                     // Neutral button action.
@@ -393,17 +397,25 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             );
 
             dialogPair.first.setOnDismissListener(d -> showingRestartDialog = false);
+            if (!cancelable) {
+                dialogPair.first.setCancelable(false);
+                dialogPair.first.setCanceledOnTouchOutside(false);
+            }
 
             // Show the dialog.
             dialogPair.first.show();
         } else {
-            new AlertDialog.Builder(context)
+            AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setTitle(restartDialogTitle)
                     .setMessage(message == null ? restartDialogMessage : message)
                     .setPositiveButton(android.R.string.ok, (dialog, id)
-                            -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay))
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .setOnDismissListener(d -> showingRestartDialog = false)
+                            -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay));
+            if (cancelable) {
+                builder.setNegativeButton(android.R.string.cancel, null);
+            } else {
+                builder.setCancelable(false);
+            }
+            builder.setOnDismissListener(d -> showingRestartDialog = false)
                     .show();
         }
     }

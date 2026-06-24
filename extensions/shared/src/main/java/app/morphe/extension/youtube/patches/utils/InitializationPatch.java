@@ -6,25 +6,34 @@ import static app.morphe.extension.shared.utils.Utils.runOnMainThreadDelayed;
 
 import android.app.Activity;
 
-import androidx.annotation.NonNull;
-
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class InitializationPatch {
     private static final BooleanSetting SETTINGS_INITIALIZED = BaseSettings.SETTINGS_INITIALIZED;
 
     /**
-     * Some layouts that depend on litho do not load when the app is first installed.
-     * (Also reproduced on unPatched YouTube)
+     * Some layouts do not load until YouTube fetches its global configuration.
      * <p>
-     * To fix this, show the restart dialog when the app is installed for the first time.
+     * Show the first-run restart prompt only after that update, then allow another second for
+     * YouTube to persist it before the user can restart.
      */
-    public static void onCreate(@NonNull Activity mActivity) {
-        if (!SETTINGS_INITIALIZED.get()) {
-            runOnMainThreadDelayed(() -> showRestartDialog(mActivity, str("revanced_restart_first_run"), 3500), 500);
-            runOnMainThreadDelayed(() -> SETTINGS_INITIALIZED.save(true), 1000);
+    public static void onGlobalConfigUpdated() {
+        if (SETTINGS_INITIALIZED.get()) {
+            return;
         }
+        SETTINGS_INITIALIZED.save(true);
+
+        runOnMainThreadDelayed(() -> {
+            Activity activity = Utils.getActivity();
+            if (activity == null || activity.isFinishing()) {
+                Logger.printInfo(() -> "Activity is unavailable, skipping first-run restart dialog");
+                return;
+            }
+            showRestartDialog(activity, str("revanced_restart_first_run"), 500, false);
+        }, 1000);
     }
 }

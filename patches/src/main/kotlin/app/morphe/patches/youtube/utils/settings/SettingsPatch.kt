@@ -1,5 +1,6 @@
 package app.morphe.patches.youtube.utils.settings
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.BytecodePatchContext
@@ -13,7 +14,6 @@ import app.morphe.patches.shared.boldIconsFeatureFlagMethodFingerprint
 import app.morphe.patches.shared.extension.Constants.EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.mainactivity.injectConstructorMethodCall
-import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.morphe.patches.shared.settings.baseSettingsPatch
 import app.morphe.patches.youtube.utils.CAIRO_FRAGMENT_FEATURE_FLAG
 import app.morphe.patches.youtube.utils.cairoFragmentConfigFingerprint
@@ -176,9 +176,9 @@ private val settingsBytecodePatch = bytecodePatch(
             }
         }
 
-        injectOnCreateMethodCall(
-            EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR,
-            "onCreate"
+        GlobalConfigGroupFingerprint.method.addInstruction(
+            GlobalConfigGroupFingerprint.instructionMatches.last().index,
+            "invoke-static { }, $EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR->onGlobalConfigUpdated()V"
         )
         injectConstructorMethodCall(
             EXTENSION_UTILS_CLASS_DESCRIPTOR,
