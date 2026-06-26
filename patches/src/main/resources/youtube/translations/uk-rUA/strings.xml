@@ -133,7 +133,7 @@
 
 Якщо увімкнено, серверу API надсилатимуться лише посилання на відео, і більше жодних інших даних. Якщо відео не має прев'ю DeArrow, то відображаються оригінальні прев'ю або стоп-кадри
 
-Натисніть тут, щоб дізнатися більше про DeArrow"</string>
+Торкніться тут, щоб відкрити DeArrow.ajay.app"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">Некоректна URL API DeArrow.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL-адреса кінцевої точки кешу прев\'ю DeArrow</string>
@@ -200,18 +200,18 @@
     <string name="revanced_change_form_factor_title">Макет пристрою</string>
     <string name="revanced_change_form_factor_user_dialog_message">"Зміни включають:
 
-Планшетний макет
+Макет для планшетів
 • Публікації спільноти приховані
 • Налаштування відтворення у стрічках недоступне
 • Кнопки \"Ремікс\" та \"Звук\" недоступні в Short
-• Панель дій відео не згорнуто
+• Панель дій відео не згорнута
 
 Автомобільний макет
 • Стрічка організована за темами та каналами
 • Налаштування відтворення у стрічках недоступне
 • Кнопки \"Ремікс\" та \"Звук\" недоступні в Short
 • Short відкриваються у звичайному плеєрі
-• Панель дій відео не згорнуто"</string>
+• Панель дій відео не згорнута"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Використовується змінні перемикачі.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Використовується текстові перемикачі.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Тип перемикача змін</string>
@@ -566,8 +566,8 @@
 Застереження: Не працюватиме якщо плеєр мінімізовано, у режимі PiP, чи у фоні."</string>
     <string name="revanced_enter_fullscreen_title">Переходити у повноекранний режим при запуску відео</string>
     <string name="revanced_exit_fullscreen_entry_1">Вимкнено</string>
-    <string name="revanced_exit_fullscreen_entry_2">Портретний</string>
-    <string name="revanced_exit_fullscreen_entry_3">Альбомний</string>
+    <string name="revanced_exit_fullscreen_entry_2">Лише портретний</string>
+    <string name="revanced_exit_fullscreen_entry_3">Лише альбомний</string>
     <string name="revanced_exit_fullscreen_entry_4">Портретний і альбомний</string>
     <string name="revanced_exit_fullscreen_title">Вийти з повноекранного режиму в кінці відео</string>
     <string name="revanced_expand_video_description_summary_off">Опис відео розгортається вручну.</string>
@@ -810,9 +810,10 @@
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Показується в стрічці підписок.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Приховано в стрічці підписок.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Приховати у стрічці підписок</string>
+    <string name="revanced_hide_connect_button_title">Приховати кнопку \"Підключити\"</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Полиця магазину автора під відеоплеєром показується</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Полицю магазину автора під відеоплеєром приховано</string>
-    <string name="revanced_hide_creator_store_shelf_title">Приховати полицю магазину автора</string>
+    <string name="revanced_hide_creator_store_shelf_title">Приховати панель магазину автора</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Скринька фінансування показується</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Скриньку фінансування приховано</string>
     <string name="revanced_hide_crowdfunding_box_title">Приховати скриню фінансування</string>
@@ -898,7 +899,7 @@
     <string name="revanced_hide_image_search_button_title">Приховати кнопку пошуку за зображенням</string>
     <string name="revanced_hide_image_shelf_summary_off">Полиця із зображеннями в результатах пошуку показується</string>
     <string name="revanced_hide_image_shelf_summary_on">Полицю із зображеннями в результатах пошуку приховано</string>
-    <string name="revanced_hide_image_shelf_title">Приховати полицю із зображеннями</string>
+    <string name="revanced_hide_image_shelf_title">Приховати панель із зображеннями</string>
     <string name="revanced_hide_info_cards_section_summary_off">Секція інформаційних карток показується</string>
     <string name="revanced_hide_info_cards_section_summary_on">Секцію інформаційних карток приховано</string>
     <string name="revanced_hide_info_cards_section_title">Приховати секцію \"Інфокарти\"</string>
@@ -917,7 +918,7 @@
     <string name="revanced_hide_key_concepts_section_summary_off">Секція \"Основні поняття\" показується</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Секцію \"Основні поняття\" приховано</string>
     <string name="revanced_hide_key_concepts_section_title">Приховати секцію \"Основні поняття\"</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Головна / Підписки / Результати пошуку фільтруються, щоб приховати вміст, який відповідає ключовим фразам
+    <string name="revanced_hide_keyword_content_about_summary">"Головна / Підписки / Пошук / Коментарі фільтруються, щоб приховати вміст, який відповідає ключовим фразам
 
 Обмеження:
 • Shorts неможливо приховати за назвою каналу
@@ -975,13 +976,14 @@
     <string name="revanced_hide_medical_panel_title">Приховати медичні панелі</string>
     <string name="revanced_hide_members_shelf_summary_off">Полиця учасників відображається</string>
     <string name="revanced_hide_members_shelf_summary_on">Полицю учасників приховано</string>
-    <string name="revanced_hide_members_shelf_title">Приховати полицю учасників</string>
+    <string name="revanced_hide_members_shelf_title">Приховати панель учасників</string>
     <string name="revanced_hide_merchandise_shelf_summary_off">Товарні полиці показується.</string>
     <string name="revanced_hide_merchandise_shelf_summary_on">Товарні полиці приховано.</string>
     <string name="revanced_hide_merchandise_shelf_title">Приховати товарну полицю</string>
     <string name="revanced_hide_mix_playlists_summary_off">\"Мікс плейлисти\" показуються</string>
     <string name="revanced_hide_mix_playlists_summary_on">\"Мікс плейлисти\" приховано</string>
     <string name="revanced_hide_mix_playlists_title">Приховати \"Мікс плейлисти\"</string>
+    <string name="revanced_hide_more_button_title">Приховати кнопку \"Більше\"</string>
     <string name="revanced_hide_movie_shelf_summary_off">Полиці фільмів показується.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Полиці фільмів приховано.</string>
     <string name="revanced_hide_movie_shelf_title">Приховати полицю фільмів</string>
@@ -1455,7 +1457,7 @@
     <string name="revanced_hide_thanks_button_title">Приховати кнопку \"Дякую\"</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Полиця квитків показується</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Полицю квитків приховано</string>
-    <string name="revanced_hide_ticket_shelf_title">Приховати полицю квитків</string>
+    <string name="revanced_hide_ticket_shelf_title">Приховати панель квитків</string>
     <string name="revanced_hide_time_stamp_summary_off">Мітку часу показується.</string>
     <string name="revanced_hide_time_stamp_summary_on">Мітку часу приховано.</string>
     <string name="revanced_hide_time_stamp_title">Приховати мітку часу</string>
@@ -1675,6 +1677,8 @@
     <string name="revanced_miniplayer_width_dip_invalid_toast">Розмір у пікселях повинен бути від %1$s до %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">Встановлює початковий розмір на екрані в пікселях</string>
     <string name="revanced_miniplayer_width_dip_title">Розмір за замовчуванням</string>
+    <string name="revanced_navigation_bar_animations_summary">Анімує переходи між вкладками</string>
+    <string name="revanced_navigation_bar_animations_title">Увімкнути анімації панелі навігації</string>
     <string name="revanced_open_links_externally_summary_off">Посилання відкриваються у браузері додатка.</string>
     <string name="revanced_open_links_externally_summary_on">Посилання відкриваються у зовнішньому браузері.</string>
     <string name="revanced_open_links_externally_title">Відкривати посилання ззовні</string>
@@ -1983,6 +1987,10 @@
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Мініатюри під час перемотування показуються у мінівікні над панеллю прогресу</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Відновити старі мініатюри</string>
     <string name="revanced_restore_old_settings_menus_title">Відновити старий екран налаштувань YouTube</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"Виправляє відсутність лайків/дизлайків та неможливість приховати кнопки дій відео
+
+Обмеження: повертає старий стиль накладки \"Інші відео\""</string>
+    <string name="revanced_restore_old_video_action_bar_title">Відновити стару панель дій відео</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Старий макет плеєра не використовується.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Старий макет плеєра використовується.
 Немає полів зверху та знизу плеєра."</string>
@@ -2005,7 +2013,9 @@
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Перейдіть до &lt;a href=%1$s&gt;Створення нового проекту&lt;/a&gt;.&lt;br&gt;2. Натисніть кнопку &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Перейдіть до &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Натисніть кнопку &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Натисніть кнопку &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Виберіть опцію &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Натисніть кнопку &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Скопіюйте ключ API.&lt;br&gt;&lt;br&gt;※ Ключ API не можна поширювати, тому він не включений у Імпорт / Експорт налаштувань.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Створення ключа розробника YouTube Data API v3</string>
     <string name="revanced_ryd_about">Про Повернення дизлайків</string>
-    <string name="revanced_ryd_attribution_summary">Дані надаються через API Return YouTube Dislike. Натисніть тут, щоб дізнатися більше</string>
+    <string name="revanced_ryd_attribution_summary">"Дані надаються API Return YouTube Dislike.
+
+Торкніться тут, щоб відкрити ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Кнопку \"Лайк\" стилізовано для кращого вигляду</string>
     <string name="revanced_ryd_compact_layout_summary_on">Кнопку \"Лайк\" стилізовано під мінімальну ширину</string>
@@ -2339,6 +2349,7 @@
     <string name="revanced_share_copy_video_information_success">Інформацію про відео скопійовано в буфер обміну.</string>
     <string name="revanced_shorts_autoplay_background_summary">Автоматично переходить до наступного Short під час фонового відтворення</string>
     <string name="revanced_shorts_autoplay_background_title">Автоматичне відтворення у фоновому режимі</string>
+    <string name="revanced_shorts_autoplay_disabled_toast">Автовідтворення Shorts вимкнено</string>
     <string name="revanced_shorts_autoplay_summary">Автоматично переходить до наступного Short замість повторення поточного</string>
     <string name="revanced_shorts_autoplay_title">Автовідтворення Shorts</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Ця функція все ще експериментальна, тому немає гарантії, що буде працювати.
@@ -2397,6 +2408,9 @@
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Звичайний плеєр на весь екран</string>
     <string name="revanced_shorts_player_type_shorts">Плеєр Shorts</string>
     <string name="revanced_shorts_player_type_title">Відкривати Shorts через</string>
+    <string name="revanced_show_settings_button_index_title">Позиція кнопки налаштувань</string>
+    <string name="revanced_show_settings_button_title">Показати кнопку \"Налаштування\"</string>
+    <string name="revanced_show_settings_button_type_title">Дія кнопки \"Налаштування\"</string>
     <string name="revanced_show_video_title_section_summary">"Показується секцію назви відео в повноекранному режимі.
 
 Застереження: Назва відео зникає при натисканні."</string>
@@ -2670,11 +2684,14 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_vot_audio_proxy_title">Проксі-аудіопотік</string>
     <string name="revanced_vot_enabled_summary_off">Закадровий переклад Яндекса вимкнено</string>
     <string name="revanced_vot_enabled_summary_on">Яндекс автопереклад звукової доріжки ввімкнено</string>
-    <string name="revanced_vot_enabled_title">Ввімкнути автопереклад звукової доріжки </string>
+    <string name="revanced_vot_enabled_title">Голосовий переклад</string>
     <string name="revanced_vot_lang_auto">Автоматичне розпізнавання </string>
-    <string name="revanced_vot_original_audio_volume_summary">Гучність оригінальної звукової доріжки коли автопереклад увімкнено (0-100). Стандартна: 50</string>
-    <string name="revanced_vot_original_audio_volume_title">Гучність звукової доріжки оригіналу </string>
+    <string name="revanced_vot_original_audio_volume_summary">Гучність оригінального звуку YouTube під час озвучення перекладу</string>
+    <string name="revanced_vot_original_audio_volume_title">Гучність оригінального звуку</string>
     <string name="revanced_vot_playback_error">Не вдалося програти аудіо доріжку з дубляжом </string>
+    <string name="revanced_vot_stream_waiting">Зачекайте… ~%s</string>
+    <string name="revanced_vot_translation_volume_summary">Гучність озвученого перекладу</string>
+    <string name="revanced_vot_translation_volume_title">Гучність перекладу</string>
     <string name="revanced_vot_unavailable_live">Переклад недоступний для прямих трансляцій</string>
     <string name="revanced_vot_unavailable_same_language">Аудіо відео вже перекладено обраною мовою перекладу</string>
     <string name="revanced_vot_unavailable_too_long">Відео занадто довге для перекладу (максимум 4 години)</string>

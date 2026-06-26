@@ -199,16 +199,16 @@
 
 平板电脑布局
 • 社区帖子已隐藏
-• 订阅源中的播放设置不可用
-• Shorts 中未提供 Remix 按钮和 Sound 按钮
-• 视频操作栏未折叠
+• 消息流中播放不可用
+• Shorts 中没有混音按钮和声音按钮
+• 显示未折叠的旧视频操作栏
 
-车载布局
-• 订阅源按主题和频道组织
-• 订阅源中的播放设置不可用
-• Shorts 中未提供 Remix 按钮和 Sound 按钮
+汽车布局
+• 消息流按主题和频道组织
+• 消息流中播放不可用
+• Shorts 中没有混音按钮和声音按钮
 • Shorts 在常规播放器中打开
-• 视频操作栏未折叠"</string>
+• 显示未折叠的旧视频操作栏"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">使用开关切换</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">使用文本切换</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">更改切换类型</string>
@@ -802,6 +802,7 @@
     <string name="revanced_hide_community_posts_subscriptions_summary_off">订阅内容中的社区帖子已显示</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">订阅内容中的社区帖子已隐藏</string>
     <string name="revanced_hide_community_posts_subscriptions_title">隐藏订阅内容中的社区帖子</string>
+    <string name="revanced_hide_connect_button_title">隐藏关联按钮</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">视频播放器下方的创作者商店货架已显示</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">视频播放器下方的创作者商店内容架已隐藏</string>
     <string name="revanced_hide_creator_store_shelf_title">隐藏创作者商店专区</string>
@@ -909,10 +910,10 @@
     <string name="revanced_hide_key_concepts_section_summary_off">“主要概念”部分已显示</string>
     <string name="revanced_hide_key_concepts_section_summary_on">“主要概念”部分已隐藏</string>
     <string name="revanced_hide_key_concepts_section_title">隐藏“关键概念”部分</string>
-    <string name="revanced_hide_keyword_content_about_summary">"首页/订阅/搜索结果过滤掉与关键词短语匹配的内容
+    <string name="revanced_hide_keyword_content_about_summary">"首页/订阅/搜索/评论会过滤掉与关键词短语匹配的内容
 
 限制：
-• 短视频无法通过频道名称隐藏
+• Shorts 无法通过频道名称隐藏
 • 某些 UI 组件可能不会隐藏
 • 搜索关键词可能没有结果"</string>
     <string name="revanced_hide_keyword_content_about_title">关于关键字过滤</string>
@@ -920,7 +921,7 @@
     <string name="revanced_hide_keyword_content_about_whole_words_title">匹配整个词语</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">评论关键字过滤器已禁用</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">评论关键字过滤器已启用</string>
-    <string name="revanced_hide_keyword_content_comments_title">评论关键字过滤</string>
+    <string name="revanced_hide_keyword_content_comments_title">隐藏关键词评论</string>
     <string name="revanced_hide_keyword_content_home_summary_off">首页视频不会根据关键字进行过滤</string>
     <string name="revanced_hide_keyword_content_home_summary_on">首页视频将会根据关键字进行过滤</string>
     <string name="revanced_hide_keyword_content_home_title">过滤首页视频</string>
@@ -974,6 +975,7 @@
     <string name="revanced_hide_mix_playlists_summary_off">合辑播放列表已显示</string>
     <string name="revanced_hide_mix_playlists_summary_on">合辑播放列表已隐藏</string>
     <string name="revanced_hide_mix_playlists_title">隐藏合辑播放列表</string>
+    <string name="revanced_hide_more_button_title">隐藏更多按钮</string>
     <string name="revanced_hide_movie_shelf_summary_off">电影面板已显示</string>
     <string name="revanced_hide_movie_shelf_summary_on">电影面板已隐藏</string>
     <string name="revanced_hide_movie_shelf_title">隐藏电影栏</string>
@@ -1661,6 +1663,8 @@
     <string name="revanced_miniplayer_width_dip_invalid_toast">像素大小必须介于 %1$s 和 %2$s 之间</string>
     <string name="revanced_miniplayer_width_dip_summary">设置启动时屏幕上的大小，以像素为单位</string>
     <string name="revanced_miniplayer_width_dip_title">默认大小</string>
+    <string name="revanced_navigation_bar_animations_summary">软光上子检查些“通过”软光浩通的新闻</string>
+    <string name="revanced_navigation_bar_animations_title">启用导航栏动画</string>
     <string name="revanced_open_links_externally_summary_off">在应用内浏览器中打开链接。</string>
     <string name="revanced_open_links_externally_summary_on">在外部浏览器中打开链接。</string>
     <string name="revanced_open_links_externally_title">外部打开链接</string>
@@ -1967,6 +1971,10 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">进度条缩略图将显示在进度条上方</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">恢复旧的进度条缩略图</string>
     <string name="revanced_restore_old_settings_menus_title">恢复旧设置菜单</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"修复无法显示不喜欢次数以及无法隐藏视频操作按钮的问题。
+
+限制：恢复到旧版“更多视频”叠加层"</string>
+    <string name="revanced_restore_old_video_action_bar_title">恢复旧版视频操作栏</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">未使用旧版播放器布局。</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"使用旧版播放器布局。
 播放器顶部和底部没有边距。"</string>
@@ -1989,7 +1997,9 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. 前往 &lt;a href=%1$s&gt; 创建一个新项目 &lt;/a&gt;.&lt;br&gt;2. 点击 &lt;b&gt; 创建 &lt;/b&gt; 按钮 &lt;br&gt;3. 前往 &lt;a href=%2$s&gt; YouTube Data API v3 &lt;/a&gt;.&lt;br&gt;4. 点击 &lt;b&gt; 启用 &lt;/b&gt; 按钮 &lt;br&gt;5. 点击 &lt;b&gt; 创建凭据 &lt;/b&gt; 按钮 &lt;br&gt;6. 选择 &lt;b&gt; 公共数据 &lt;/b&gt; 选项 &lt;br&gt;7. 点击 &lt;b&gt; 下一步 &lt;/b&gt; 按钮 &lt;br&gt;8. 复制 API 密钥 &lt;br&gt;&lt;br&gt;※ API 密钥绝不可与他人分享，因此不包含在导入 / 导出设置中</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">获取 YouTube Data API v3 开发者密钥</string>
     <string name="revanced_ryd_about">关于</string>
-    <string name="revanced_ryd_attribution_summary">数据由 Return YouTube Dislike API 提供。点击此处了解更多</string>
+    <string name="revanced_ryd_attribution_summary">"数据由 Return YouTube Dislike API 提供。
+
+点击此处打开 ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">点赞按钮设置为最佳外观</string>
     <string name="revanced_ryd_compact_layout_summary_on">点赞按钮设置为最小宽度</string>
@@ -2391,6 +2401,9 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_shorts_player_type_regular_player_fullscreen">普通播放器全屏</string>
     <string name="revanced_shorts_player_type_shorts">Shorts 播放器</string>
     <string name="revanced_shorts_player_type_title">使用 Shorts 播放器打开</string>
+    <string name="revanced_show_settings_button_index_title">设置按钮位置</string>
+    <string name="revanced_show_settings_button_title">显示设置按钮</string>
+    <string name="revanced_show_settings_button_type_title">设置按钮操作</string>
     <string name="revanced_show_video_title_section_summary">"在全屏模式下显示视频标题部分
 
 限制：点击后视频标题消失"</string>
@@ -2658,6 +2671,11 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_transcript_cookies_summary">在转写文稿 API 请求中使用的 Cookie。</string>
     <string name="revanced_transcript_cookies_title">转写文稿 Cookie</string>
     <string name="revanced_translations_title">翻译</string>
+    <string name="revanced_vot_enabled_title">语音旁白翻译</string>
+    <string name="revanced_vot_original_audio_volume_summary">翻译语音播放时原始 YouTube 音频的音量</string>
+    <string name="revanced_vot_original_audio_volume_title">原始音频音量</string>
+    <string name="revanced_vot_translation_volume_summary">配音翻译语音的音量</string>
+    <string name="revanced_vot_translation_volume_title">翻译音量</string>
     <string name="revanced_watch_history_about_status_blocked">• 历史记录不可用</string>
     <string name="revanced_watch_history_about_status_original">"• 遵循谷歌帐户的观看历史设置
 • 由于 DNS 或 VPN 的原因，观看历史可能无法工作"</string>

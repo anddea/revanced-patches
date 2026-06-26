@@ -129,9 +129,9 @@ Si eres un usuario de YouTube Premium, esta configuración podría no ser necesa
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Se utiliza el menú desplegable de estilo antiguo.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Se utiliza un cuadro de diálogo personalizado.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Tipo de menú de calidad de vídeo avanzado en Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow proporciona miniaturas de origen colectivo para los vídeos de YouTube. Estas miniaturas son a menudo más relevantes que las proporcionadas por YouTube
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow proporciona miniaturas de la comunidad para los vídeos de YouTube. Estas miniaturas son a menudo más relevantes que las proporcionadas por YouTube
 
-Si se activa, las URL de vídeo se enviarán al servidor de la API y no se enviará ningún otro dato. Si un video no tiene miniaturas de DeArrow, entonces se muestran las capturas originales o fijas
+Si se activa, las URL de vídeo se enviarán al servidor de la API y no se enviará ningún otro dato. Si un vídeo no tiene miniaturas de DeArrow, entonces se muestran las capturas originales o fijas
 
 Pulsa aquí para saber más sobre DeArrow"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
@@ -195,20 +195,20 @@ Habilitar esto puede solucionar las imágenes que faltan que están bloqueadas e
     <string name="revanced_change_form_factor_entry_5">Tablet (min. 600 dp)</string>
     <string name="revanced_change_form_factor_entry_6">Automóvil</string>
     <string name="revanced_change_form_factor_title">Diseño del dispositivo</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"Cambios incluyen:
+    <string name="revanced_change_form_factor_user_dialog_message">"Los cambios incluyen:
 
-Diseño para tabletas
+Diseño para tablet
 • Las publicaciones de la comunidad están ocultas
-• La configuración de reproducción en los feeds no está disponible
-• El botón de Remix y el botón de Sonido no están disponibles en Shorts
-• La barra de acción del video no se contrae
+• La configuración de reproducción en feeds no está disponible
+• El botón Remix y el botón Sonido no están disponibles en Shorts
+• Se muestra la barra de acciones de video antiguo sin cerrar
 
 Diseño para automóviles
 • El feed está organizado por temas y canales
-• La configuración de reproducción en los feeds no está disponible
-• El botón de Remix y el botón de Sonido no están disponibles en Shorts
+• La configuración de reproducción en feeds no está disponible
+• El botón Remix y el botón Sonido no están disponibles en Shorts
 • Shorts se abre en el reproductor regular
-• La barra de acción del video no se contrae"</string>
+• Se muestra la barra de acciones de video antiguo sin cerrar"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Se utilizan interruptores cambiables.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Se utilizan interruptores de texto.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Cambiar tipo de interruptores</string>
@@ -803,6 +803,7 @@ Limitación: Es posible que algunos enlaces de búsqueda resaltados que no tenga
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Visible en el feed de suscripciones.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Oculto en el feed de suscripciones.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Ocultar en feed de suscripciones</string>
+    <string name="revanced_hide_connect_button_title">Ocultar botón \"Conectar\"</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">La estantería de la tienda del creador debajo del reproductor de vídeo es visible</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">La estantería de la tienda del creador debajo del reproductor de vídeo está oculta</string>
     <string name="revanced_hide_creator_store_shelf_title">Ocultar estantería de tienda del creador</string>
@@ -910,7 +911,7 @@ Limitación: Es posible que algunos enlaces de búsqueda resaltados que no tenga
     <string name="revanced_hide_key_concepts_section_summary_off">Se muestra la sección Conceptos clave</string>
     <string name="revanced_hide_key_concepts_section_summary_on">La sección Conceptos clave está oculta</string>
     <string name="revanced_hide_key_concepts_section_title">Ocultar sección \"Conceptos clave\"</string>
-    <string name="revanced_hide_keyword_content_about_summary">"El inicio / las suscripciones / los resultados de búsqueda se filtran para ocultar los contenidos que coinciden con frases de palabras clave
+    <string name="revanced_hide_keyword_content_about_summary">"El inicio / las suscripciones / la búsqueda / los comentarios se filtran para ocultar el contenido que coincide con frases de palabras clave
 
 Limitaciones:
 • Los Shorts no se pueden ocultar por nombre de canal
@@ -975,6 +976,7 @@ Las palabras con letras mayúsculas en el medio deben introducirse con la mayús
     <string name="revanced_hide_mix_playlists_summary_off">La lista de reproducción Mix es visible</string>
     <string name="revanced_hide_mix_playlists_summary_on">Las listas de reproducción Mix están ocultas</string>
     <string name="revanced_hide_mix_playlists_title">Ocultar listas de reproducción Mix</string>
+    <string name="revanced_hide_more_button_title">Ocultar botón \"Más\"</string>
     <string name="revanced_hide_movie_shelf_summary_off">Los estantes de películas están visibles.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Los estantes de películas están ocultos.</string>
     <string name="revanced_hide_movie_shelf_title">Ocultar estantes de películas</string>
@@ -1460,7 +1462,7 @@ Limitación: las cabeceras oficiales en los resultados de búsqueda estarán ocu
     <string name="revanced_hide_toolbar_create_button_title">Ocultar botón \"Crear\"</string>
     <string name="revanced_hide_toolbar_notification_button_summary_off">Se muestra el botón de Notificaciones</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">El botón de Notificaciones está oculto</string>
-    <string name="revanced_hide_toolbar_notification_button_title">Solo horizontal</string>
+    <string name="revanced_hide_toolbar_notification_button_title">Ocultar botón de Notificaciones</string>
     <string name="revanced_hide_toolbar_search_button_summary_off">Se muestra el botón de búsqueda.</string>
     <string name="revanced_hide_toolbar_search_button_summary_on">El botón de búsqueda está oculto</string>
     <string name="revanced_hide_toolbar_search_button_title">Ocultar botón \"Buscar\"</string>
@@ -1665,6 +1667,8 @@ El mini reproductor puede ser arrastrado de la pantalla a la izquierda o derecha
     <string name="revanced_miniplayer_width_dip_invalid_toast">El tamaño del píxel debe ser entre %1$s y %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">Establece el tamaño inicial en pantalla, en píxeles</string>
     <string name="revanced_miniplayer_width_dip_title">Tamaño predeterminado</string>
+    <string name="revanced_navigation_bar_animations_summary">Ocultar en la página del canal</string>
+    <string name="revanced_navigation_bar_animations_title">Activar animaciones de barra de navegación</string>
     <string name="revanced_open_links_externally_summary_off">Abre enlaces en el navegador de la app.</string>
     <string name="revanced_open_links_externally_summary_on">Abre enlaces en el navegador externo.</string>
     <string name="revanced_open_links_externally_title">Abrir enlaces en el navegador</string>
@@ -1977,6 +1981,10 @@ Mantén pulsado para abrir la configuración de YouTube."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Las miniaturas de la barra de búsqueda aparecerán por encima de la barra de búsqueda</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurar antiguas miniaturas de la barra de búsqueda</string>
     <string name="revanced_restore_old_settings_menus_title">Restaurar antigua pantalla de configuración de YouTube</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"Corrige que no se muestren los \"No me gusta\" y que no se puedan ocultar los botones de acción de vídeo
+
+Limitaciones: Vuelve al antiguo estilo de superposición de \"Más vídeos\""</string>
+    <string name="revanced_restore_old_video_action_bar_title">Restaurar antigua barra de acciones de vídeo</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">No se utiliza el antiguo diseño del reproductor.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Se utiliza el antiguo diseño del reproductor.
 No hay márgenes en la parte superior e inferior del reproductor."</string>
@@ -1999,7 +2007,9 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Ve a &lt;a href=%1$s&gt;Crear un nuevo proyecto&lt;/a&gt;.&lt;br&gt;2. Pulsa en el botón &lt;b&gt;CREAR&lt;/b&gt;.&lt;br&gt;3. 3. Ve a &lt;a href=%2$s&gt;API v3 de datos de YouTube&lt;/a&gt;.&lt;br&gt;4. Pulsa en el botón &lt;b&gt;HABILITAR&lt;/b&gt;.&lt;br&gt;5. Pulsa en &lt;b&gt;CREAR&lt;/b&gt;. Pulsa en el botón &lt;b&gt;CREAR CREDENCIALES&lt;/b&gt;.&lt;br&gt;6. Selecciona la opción &lt;b&gt;Datos públicos&lt;/b&gt;.&lt;br&gt;7. Pulsa en el botón &lt;b&gt; SIGUIENTE&lt;/b&gt;.&lt;br&gt;8. Copia la clave API.&lt;br&gt;&lt;br&gt;※ La clave API nunca debe ser compartida con otros, por lo que no se incluye en los ajustes de Importar / Exportar.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Crear clave de desarrollador de API v3 de datos de YouTube</string>
     <string name="revanced_ryd_about">Información</string>
-    <string name="revanced_ryd_attribution_summary">Los datos son proporcionados por la API de Return YouTube Dislike. Pulsa aquí para obtener más información</string>
+    <string name="revanced_ryd_attribution_summary">"Los datos son proporcionados por la API de Return YouTube Dislike.
+
+Toca aquí para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Botón \"Me gusta\" para una mejor apariencia</string>
     <string name="revanced_ryd_compact_layout_summary_on">Botón \"Me gusta\" para el ancho mínimo</string>
@@ -2391,6 +2401,9 @@ La mayoría de los errores no pueden solucionarse debido a las limitaciones del 
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Reproductor normal en pantalla completa</string>
     <string name="revanced_shorts_player_type_shorts">Reproductor de Shorts</string>
     <string name="revanced_shorts_player_type_title">Abrir Shorts con</string>
+    <string name="revanced_show_settings_button_index_title">Detiene la animación de conteo en los conteos de \'Me gusta\' y de visitas</string>
+    <string name="revanced_show_settings_button_title">Permite que el modo Ambiente permanezca activo en el modo de ahorro de batería</string>
+    <string name="revanced_show_settings_button_type_title">Acción del botón de ajustes</string>
     <string name="revanced_show_video_title_section_summary">"Muestra la sección de título de vídeo en pantalla completa.
 
 Limitación: el título de vídeo desaparece cuando se pulsa."</string>
@@ -2664,10 +2677,10 @@ Descargo de responsabilidad: las cookies emitidas sin iniciar sesión pueden no 
     <string name="revanced_vot_audio_proxy_title">Proxy de transmisión de audio</string>
     <string name="revanced_vot_enabled_summary_off">La traducción de voz de Yandex está deshabilitada</string>
     <string name="revanced_vot_enabled_summary_on">La traducción de voz de Yandex está habilitada</string>
-    <string name="revanced_vot_enabled_title">Habilitar traducción de voz </string>
+    <string name="revanced_vot_enabled_title">Traducción con voz en off</string>
     <string name="revanced_vot_lang_auto">Detección automática</string>
     <string name="revanced_vot_live_voices_unavailable">Voces en vivo no disponibles, usando estándar</string>
-    <string name="revanced_vot_original_audio_volume_summary">Volumen de la pista de vídeo original cuando se reproduce la traducción (0-100). Predeterminado: 50</string>
+    <string name="revanced_vot_original_audio_volume_summary">Volumen del audio original de YouTube mientras se reproduce la traducción</string>
     <string name="revanced_vot_original_audio_volume_title">Volumen de audio original</string>
     <string name="revanced_vot_playback_error">No se pudo reproducir el audio de traducción</string>
     <string name="revanced_vot_proxy_url_summary">Host del servidor proxy VOT. Valor predeterminado: vot-worker.toil.cc</string>
@@ -2684,7 +2697,7 @@ Descargo de responsabilidad: las cookies emitidas sin iniciar sesión pueden no 
     <string name="revanced_vot_target_language_title">Lenguaje de inicio</string>
     <string name="revanced_vot_time_min">%d minimo</string>
     <string name="revanced_vot_time_sec">%d Segundo</string>
-    <string name="revanced_vot_translation_volume_summary">Volumen de la pista de audio traducida (0-100). Predeterminado: 100</string>
+    <string name="revanced_vot_translation_volume_summary">Volumen de la voz de la traducción doblada</string>
     <string name="revanced_vot_translation_volume_title">Volumen de traducción</string>
     <string name="revanced_vot_unavailable_live">La traducción no está disponible para transmisiones en vivo.</string>
     <string name="revanced_vot_unavailable_same_language">El audio del vídeo ya está en el idioma de destino.</string>

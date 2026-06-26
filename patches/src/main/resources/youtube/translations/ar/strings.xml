@@ -129,11 +129,11 @@
     <string name="revanced_advanced_video_quality_menu_type_summary_off">يتم استخدام القائمة المنبثقة على الطراز القديم.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">يتم استخدام مربع حوار مخصص.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">نوع قائمة جودة الفيديو المتقدمة في Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"يوفر DeArrow مصغرات فيديو من مصادر جماعية لفيديوهات YouTube. هذه المصغرات غالبًا ما تكون أكثر صلة من تلك المقدمة من YouTube
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"يقدّم DeArrow مصغرات من إعداد المستخدمين لفيديوهات YouTube. وغالبًا ما تكون أكثر ارتباطًا بالمحتوى من مصغرات YouTube الأصلية
 
-إذا تم تفعيلها، سيتم إرسال روابط الفيديو إلى خادم API ولن يتم إرسال أي بيانات أخرى. إذا كان الفيديو لا يحتوي على مصغرات DeArrow، سيتم عرض المقاطع الأصلية أو اللقطات الثابتة
+إذا تم تمكينها، سيتم إرسال عناوين URL للفيديو إلى خادم API ولن يتم إرسال أي بيانات أخرى. إذا لم يكن للفيديو مصغرات DeArrow، فسيتم عرض المصغرات الأصلية أو اللقطات الثابتة
 
-اضغط هنا لمعرفة المزيد عن DeArrow"</string>
+انقر هنا لمعرفة المزيد عن DeArrow"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">URL الخاص بـ DeArrow API غير صالح.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">عنوان URL لنقطة نهاية ذاكرة التخزين المؤقت لمصغرات DeArrow</string>
@@ -203,13 +203,13 @@
 تصميم الجهاز اللوحي
 • يتم إخفاء مشاركات المجتمع
 • إعداد التشغيل في الخلاصات غير متوفر
-• زر ريمكس و زر الصوت غير متوفرين في Shorts
+• زر ريمكس وزر الصوت غير متوفرين في Shorts
 • شريط إجراءات الفيديو غير مطوي
 
 تصميم Automotive
 • الخلاصة مُنظمة حسب المواضيع والقنوات
 • إعداد التشغيل في الخلاصات غير متوفر
-• زر ريمكس و زر الصوت غير متوفرين في Shorts
+• زر ريمكس وزر الصوت غير متوفرين في Shorts
 • فيديوهات Shorts تفتح في المشغل العادي
 • شريط إجراءات الفيديو غير مطوي"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">يتم استخدام مفتاح التبديل.</string>
@@ -812,6 +812,7 @@
     <string name="revanced_hide_community_posts_subscriptions_summary_off">يُعرض في موجز الاشتراكات.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">مخفي في موجز الاشتراكات.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">إخفاء في موجز الاشتراكات</string>
+    <string name="revanced_hide_connect_button_title">إخفاء زر الاتصال</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">يتم عرض رف متجر المنشئ أسفل مشغل الفيديو</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">تم إخفاء رف متجر المنشئ أسفل مشغل الفيديو</string>
     <string name="revanced_hide_creator_store_shelf_title">إخفاء رف متجر المنشئ</string>
@@ -919,12 +920,12 @@
     <string name="revanced_hide_key_concepts_section_summary_off">يتم عرض قسم المفاهيم الأساسية</string>
     <string name="revanced_hide_key_concepts_section_summary_on">تم إخفاء قسم المفاهيم الأساسية</string>
     <string name="revanced_hide_key_concepts_section_title">إخفاء قسم \'المفاهيم الرئيسية\'</string>
-    <string name="revanced_hide_keyword_content_about_summary">"الصفحة الرئيسية / الاشتراكات / نتائج البحث يتم تصفيتها لإخفاء المحتوى الذي يطابق عبارات الكلمات المفتاحية
+    <string name="revanced_hide_keyword_content_about_summary">"الصفحة الرئيسية / الاشتراكات / البحث / التعليقات تتم تصفيتها لإخفاء المحتوى الذي يطابق عبارات الكلمات المفتاحية
 
 القيود:
-• فيديوهات Shorts لا يمكن إخفاؤها بواسطة اسم القناة
-• بعض مكونات واجهة المستخدم قد لا يتم إخفاؤها
-• البحث عن كلمة ما قد لا يعطي نتائج"</string>
+• لا يمكن إخفاء فيديوهات Shorts باسم القناة
+• قد لا يتم إخفاء بعض مكونات واجهة المستخدم
+• قد لا يعطي البحث عن كلمة ما نتائج"</string>
     <string name="revanced_hide_keyword_content_about_title">لمحة عن تصفية الكلمات المفتاحية</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">سيؤدي وضع علامة اقتباس مزدوجة حول كلمة رئيسية/عبارة إلى منع التطابقات الجزئية لعناوين الفيديو وأسماء القنوات&lt;br&gt;&lt;br&gt;على سبيل المثال،&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; سيخفي الفيديو: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;ولكن لن يخفي: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">مطابقة الكلمات بأكملها</string>
@@ -984,6 +985,7 @@
     <string name="revanced_hide_mix_playlists_summary_off">يتم عرض قوائم تشغيل التشكيلة</string>
     <string name="revanced_hide_mix_playlists_summary_on">تم إخفاء قوائم تشغيل التشكيلة</string>
     <string name="revanced_hide_mix_playlists_title">إخفاء قوائم تشغيل التشكيلة</string>
+    <string name="revanced_hide_more_button_title">إخفاء زر المزيد</string>
     <string name="revanced_hide_movie_shelf_summary_off">يتم عرض رفوف الأفلام.</string>
     <string name="revanced_hide_movie_shelf_summary_on">تم إخفاء رفوف الأفلام.</string>
     <string name="revanced_hide_movie_shelf_title">إخفاء رفوف الأفلام</string>
@@ -1679,6 +1681,8 @@
     <string name="revanced_miniplayer_width_dip_invalid_toast">حجم البكسل يجب أن يكون بين %1$s و %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">تعيين الحجم الأولي على الشاشة، بالبكسل</string>
     <string name="revanced_miniplayer_width_dip_title">الحجم الافتراضي</string>
+    <string name="revanced_navigation_bar_animations_summary">يُفعّل الانتقالات المتحركة عند التبديل بين علامات التبويب</string>
+    <string name="revanced_navigation_bar_animations_title">تمكين تأثير حركة التنقل في شريط التنقل</string>
     <string name="revanced_open_links_externally_summary_off">يفتح الروابط في المتصفح داخل التطبيق.</string>
     <string name="revanced_open_links_externally_summary_on">يفتح الروابط في المتصفح الخارجي.</string>
     <string name="revanced_open_links_externally_title">فتح الروابط خارجيًا</string>
@@ -1974,6 +1978,10 @@
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">مصغرات شريط التقدم ستظهر فوق شريط تقدم الفيديو</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">استعادة مصغرات شريط التقدم القديمة</string>
     <string name="revanced_restore_old_settings_menus_title">استعادة شاشة إعدادات YouTube القديمة</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"إصلاح عدم ظهور الإعجابات وعدم القدرة على إخفاء أزرار إجراءات الفيديو
+
+القيود: يعود إلى نمط 'المزيد من الفيديوهات' القديم"</string>
+    <string name="revanced_restore_old_video_action_bar_title">استعادة شريط إجراءات الفيديو القديم</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">لا يتم استخدام تصميم المشغل القديم.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"تم استخدام تصميم المشغل القديم.
 لا توجد هوامش في الجزء العلوي والسفلي من المشغل."</string>
@@ -1996,7 +2004,9 @@
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Go to &lt;a href=%1$s&gt;Create a new project&lt;/a&gt;.&lt;br&gt;2. Click the &lt;b&gt;CREATE&lt;/b&gt; button.&lt;br&gt;3. Go to &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Click the &lt;b&gt;ENABLE&lt;/b&gt; button.&lt;br&gt;5. Click the &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt; button.&lt;br&gt;6. Select the &lt;b&gt;Public data&lt;/b&gt; option.&lt;br&gt;7. Click the &lt;b&gt;NEXT&lt;/b&gt; button.&lt;br&gt;8. Copy the API key.&lt;br&gt;&lt;br&gt;※ لا ينبغي مشاركة مفتاح API مع الآخرين مطلقًا، لذا فهو غير مدرج في إعدادات الاستيراد / التصدير.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">إصدار مفتاح مطور YouTube Data API v3</string>
     <string name="revanced_ryd_about">لمحة</string>
-    <string name="revanced_ryd_attribution_summary">يتم توفير البيانات بواسطة the Return YouTube Dislike API. اضغط هنا لمعرفة المزيد</string>
+    <string name="revanced_ryd_attribution_summary">"يتم توفير البيانات بواسطة Return YouTube Dislike API.
+
+انقر هنا لفتح ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">زر أعجبني مصمم لأفضل مظهر</string>
     <string name="revanced_ryd_compact_layout_summary_on">زر أعجبني مصمم لأدنى عرض</string>
@@ -2397,6 +2407,9 @@
     <string name="revanced_shorts_player_type_regular_player_fullscreen">المشغل العادي في وضع ملء الشاشة</string>
     <string name="revanced_shorts_player_type_shorts">مشغل Shorts</string>
     <string name="revanced_shorts_player_type_title">فتح فيديوهات Shorts باستخدام</string>
+    <string name="revanced_show_settings_button_index_title">موضع زر الإعدادات</string>
+    <string name="revanced_show_settings_button_title">عرض زر الإعدادات</string>
+    <string name="revanced_show_settings_button_type_title">إجراء زر الإعدادات</string>
     <string name="revanced_show_video_title_section_summary">"يعرض قسم عنوان الفيديو في وضع ملء الشاشة.
 
 التقييد: يختفي عنوان الفيديو عند النقر عليه."</string>
@@ -2675,12 +2688,12 @@
     <string name="revanced_vot_audio_proxy_title">بث الصوت عبر الوكيل</string>
     <string name="revanced_vot_enabled_summary_off">الترجمة الصوتية من Yandex معطلة</string>
     <string name="revanced_vot_enabled_summary_on">الترجمة الصوتية من Yandex ممكنة</string>
-    <string name="revanced_vot_enabled_title">تمكين الترجمة الصوتية</string>
+    <string name="revanced_vot_enabled_title">الترجمة الصوتية</string>
     <string name="revanced_vot_lang_auto">الكشف التلقائي</string>
     <string name="revanced_vot_live_voices_unavailable">الأصوات الحية غير متاحة، باستخدام المعيار</string>
     <string name="revanced_vot_oauth_sign_out_button">تسجيل الخروج</string>
-    <string name="revanced_vot_original_audio_volume_summary">مستوى الصوت في مسار الفيديو الأصلي عند تشغيل الترجمة (من 0 إلى 100). الافتراضي: 50</string>
-    <string name="revanced_vot_original_audio_volume_title">حجم الصوت الاصلي</string>
+    <string name="revanced_vot_original_audio_volume_summary">مستوى صوت الصوت الأصلي في YouTube أثناء نطق الترجمة</string>
+    <string name="revanced_vot_original_audio_volume_title">مستوى صوت الصوت الأصلي</string>
     <string name="revanced_vot_playback_error">تعذر تشغيل الترجمة الصوتية</string>
     <string name="revanced_vot_proxy_url_summary">مضيف بروكسي عامل VOT. الافتراضي: vot-worker.toil.cc</string>
     <string name="revanced_vot_proxy_url_title">خادم بروكسي</string>
@@ -2696,9 +2709,8 @@
     <string name="revanced_vot_target_language_title">اللغه الهدف</string>
     <string name="revanced_vot_time_min">الحد الأدنى %d</string>
     <string name="revanced_vot_time_sec">ث %d</string>
-    <string name="revanced_vot_translation_volume_summary">مستوى صوت مسار الصوت المترجم (٠ - ١٠٠).
-الافتراضي: ١٠٠</string>
-    <string name="revanced_vot_translation_volume_title">صوت الترجمة</string>
+    <string name="revanced_vot_translation_volume_summary">مستوى صوت الترجمة المدبلجة</string>
+    <string name="revanced_vot_translation_volume_title">مستوى صوت الترجمة</string>
     <string name="revanced_vot_unavailable_live">الترجمة غير متاحه للبثوث المباشرة.</string>
     <string name="revanced_vot_unavailable_same_language">صوت الفيديو بالفعل باللغة المطلوبه.</string>
     <string name="revanced_vot_unavailable_too_long">هذا الفيديو طويل للغاية لذا لايمكن ترجمة (اقصى حد ٤ ساعات).</string>

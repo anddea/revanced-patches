@@ -131,7 +131,7 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_advanced_video_quality_menu_type_title">Advanced video quality menu type in Shorts</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow bietet von der Community bereitgestellte Vorschaubilder für YouTube-Videos. Diese Vorschaubilder sind oft relevanter als die von YouTube bereitgestellten.
 
-Wenn diese Option aktiviert ist, werden Video-URLs an den API-Server gesendet und keine anderen Daten werden gesendet. Wenn ein Video keine DeArrow-Vorschaubilder hat, wird das originale Vorschaubild oder ein Standbild angezeigt.
+Wenn diese Option aktiviert ist, werden Video-URLs an den API-Server gesendet und keine anderen Daten werden gesendet. Wenn ein Video keine DeArrow-Vorschaubilder hat, wird das originale oder ein Standbild angezeigt.
 
 Tippen Sie hier, um mehr über DeArrow zu erfahren"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">Über DeArrow</string>
@@ -198,17 +198,17 @@ Durch Aktivieren dieser Option können fehlende Bilder behoben werden, die in ei
     <string name="revanced_change_form_factor_user_dialog_message">"Änderungen umfassen:
 
 Tablet-Layout
-• Community-Beiträge sind ausgeblendet
-• Wiedergabe in Feeds-Einstellungen ist nicht verfügbar
-• Remix-Taste und Sound-Taste sind in Shorts nicht verfügbar
-• Video-Aktionenleiste ist nicht zusammengeklappt
+• Community-Beiträge werden ausgeblendet
+• Wiedergabe in Feeds-Einstellung ist nicht verfügbar
+• Remix-Button und Sound-Button sind in Shorts nicht verfügbar
+• Nicht zusammengeklappte alte Video-Aktionsleiste wird angezeigt
 
 Automobil-Layout
 • Feed ist nach Themen und Kanälen organisiert
-• Wiedergabe in Feeds-Einstellungen ist nicht verfügbar
-• Remix-Taste und Sound-Taste sind in Shorts nicht verfügbar
-• Shorts öffnen im regulären Player
-• Video-Aktionenleiste ist nicht zusammengeklappt"</string>
+• Wiedergabe in Feeds-Einstellung ist nicht verfügbar
+• Remix-Button und Sound-Button sind in Shorts nicht verfügbar
+• Shorts werden im regulären Player geöffnet
+• Nicht zusammengeklappte alte Video-Aktionsleiste wird angezeigt"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Schalter werden verwendet.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Textschalter werden verwendet.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Umschalttyp ändern</string>
@@ -797,6 +797,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Im \'Abonnement-Feed\' angezeigt.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Im \'Abonnement-Feed\' ausgeblendet.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Im \'Abonnement-Feed\' ausblenden</string>
+    <string name="revanced_hide_connect_button_title">Verstecke Connect-Button</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Creator Store-Regal unter dem Videoplayer wird angezeigt</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Creator Store-Regal unter dem Videoplayer ist ausgeblendet</string>
     <string name="revanced_hide_creator_store_shelf_title">Creator-Shop-Regal ausblenden</string>
@@ -902,12 +903,12 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_key_concepts_section_summary_off">Abschnitt \"Schlüsselkonzepte\" wird angezeigt</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Abschnitt \"Schlüsselkonzepte\" ist ausgeblendet</string>
     <string name="revanced_hide_key_concepts_section_title">Schlüsselkonzepte-Bereich ausblenden</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Startseite / Abonnements / Suchergebnisse werden gefiltert, um Inhalte auszublenden, die mit Stichwortphrasen übereinstimmen
+    <string name="revanced_hide_keyword_content_about_summary">"Startseite / Abonnements / Suche / Kommentare werden gefiltert, um Inhalte auszublenden, die mit Schlüsselwortphrasen übereinstimmen
 
 Einschränkungen:
 • Shorts können nicht nach Kanalnamen ausgeblendet werden
 • Einige UI-Komponenten können nicht ausgeblendet werden
-• Die Suche nach einem Stichwort kann zu keinen Ergebnissen führen"</string>
+• Die Suche nach einem Schlüsselwort kann zu keinen Ergebnissen führen"</string>
     <string name="revanced_hide_keyword_content_about_title">Über Keyword-Filterung</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Durch das Umschließen mit doppelten Anführungszeichen wird verhindert, dass teilweise Videotitel und Kanalnamen&lt;br&gt;&lt;br&gt;Zum Beispiel&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; wird folgendes Video ausblenden: &lt;b&gt;Wie funktioniert AI?&lt;/b&gt;&lt;br&gt;aber folgendes nicht: &lt;b&gt;Was bedeutet Fair Use?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Ganze Wörter abgleichen</string>
@@ -967,6 +968,7 @@ Wörter mit Großbuchstaben in der Mitte müssen exakt übereinstimmen (z. B. iP
     <string name="revanced_hide_mix_playlists_summary_off">Mix-Wiedergabelisten werden angezeigt</string>
     <string name="revanced_hide_mix_playlists_summary_on">Mix-Wiedergabelisten werden ausgeblendet</string>
     <string name="revanced_hide_mix_playlists_title">Mix-Wiedergabelisten ausblenden</string>
+    <string name="revanced_hide_more_button_title">Mehr-Button ausblenden</string>
     <string name="revanced_hide_movie_shelf_summary_off">Filmabschnitte werden angezeigt.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Filmabschnitte sind versteckt.</string>
     <string name="revanced_hide_movie_shelf_title">Verstecke Filmabschnitt</string>
@@ -1631,6 +1633,8 @@ Der Mini-Player kann mit einer Wischgeste vom Bildschirm nach links oder rechts 
     <string name="revanced_miniplayer_width_dip_invalid_toast">Pixelgröße muss zwischen %1$s und %2$s liegen</string>
     <string name="revanced_miniplayer_width_dip_summary">Legen Sie die Anfangsgröße auf dem Bildschirm in Pixeln fest</string>
     <string name="revanced_miniplayer_width_dip_title">Standardgröße</string>
+    <string name="revanced_navigation_bar_animations_summary">Audio Track-Menü-Fußzeile ausblenden</string>
+    <string name="revanced_navigation_bar_animations_title">Navigation bar animations aktivieren</string>
     <string name="revanced_open_links_externally_summary_off">Öffnet Links im In-App-Browser.</string>
     <string name="revanced_open_links_externally_summary_on">Öffnet Links im externen Browser.</string>
     <string name="revanced_open_links_externally_title">Öffne Links extern</string>
@@ -1927,6 +1931,10 @@ Tippe und halte zum Öffnen der YouTube-Einstellungen."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Suchleisten-Thumbnails werden über der Suchleiste angezeigt</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Alte Suchleisten-Thumbnails wiederherstellen</string>
     <string name="revanced_restore_old_settings_menus_title">Alte YouTube-Einstellungen wiederherstellen</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"Behebt Probleme mit nicht angezeigten Dislikes und nicht ausblendbaren Video-Aktionsschaltflächen
+
+Einschränkungen: Kehrt zum alten Stil der \"Weitere Videos\"-Überlagerung zurück"</string>
+    <string name="revanced_restore_old_video_action_bar_title">Alte Video-Aktionsleiste wiederherstellen</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Altes Player-Layout wird nicht verwendet.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Altes Spielerlayout wird verwendet.
 Keine Ränder oben und unten des Spielers."</string>
@@ -1949,7 +1957,9 @@ Klicken Sie hier, um zu sehen, wie Sie einen API-Schlüssel ausgeben."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Gehen Sie zu &lt;a href=%1$s&gt;Erstellen Sie ein neues Projekt&lt;/a&gt;.&lt;br&gt;. Klicken Sie auf die &lt;b&gt;Erstelle&lt;/b&gt; Schaltfläche.&lt;br&gt;3. Gehen Sie zu &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Klicken Sie auf &lt;b&gt;&lt;/b&gt; Knopf.&lt;br&gt;5. Klicken Sie auf &lt;b&gt;CREDENTIALS&lt;/b&gt; Schaltfläche.&lt;br&gt;6. Wählen Sie die Option &lt;b&gt;Öffentliche Daten&lt;/b&gt; aus.&lt;br&gt;7. Klicken Sie auf die &lt;b&gt;NEXT&lt;/b&gt; Schaltfläche.&lt;br&gt;8. API-Schlüssel kopieren.&lt;br&gt;&lt;br&gt; ※ API-Schlüssel sollte niemals mit anderen geteilt werden, daher ist er nicht in den Einstellungen Import / Export enthalten.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 Entwicklerschlüssel ausgeben</string>
     <string name="revanced_ryd_about">Über</string>
-    <string name="revanced_ryd_attribution_summary">Daten werden von der YouTube Dislike API zurückgegeben. Tippe hier, um mehr zu erfahren</string>
+    <string name="revanced_ryd_attribution_summary">"Daten werden von der Return YouTube Dislike API bereitgestellt.
+
+Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">\"Gefällt mir\" Button für das beste Aussehen</string>
     <string name="revanced_ryd_compact_layout_summary_on">\"Gefällt mir\" Button für minimale Breite</string>
@@ -2323,6 +2333,9 @@ Die meisten Fehler können aufgrund von Client-seitigen Einschränkungen nicht b
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Normaler Spieler im Vollbildmodus</string>
     <string name="revanced_shorts_player_type_shorts">Shorts Spieler</string>
     <string name="revanced_shorts_player_type_title">Shorts mit</string>
+    <string name="revanced_show_settings_button_index_title">Macht die Navigationsleiste im dunklen Modus vollständig opak</string>
+    <string name="revanced_show_settings_button_title">Macht die Navigationsleiste im hellen Modus vollständig opak</string>
+    <string name="revanced_show_settings_button_type_title">Einstellungen-Schaltfläche Aktion</string>
     <string name="revanced_show_video_title_section_summary">"Zeigt den Video-Titelbereich im Vollbild.
 
 Einschränkung: Videotitel verschwindet beim Klicken auf den Bildschirm."</string>
@@ -2520,6 +2533,11 @@ Haftungsausschluss: Cookies, die ohne Anmeldung ausgestellt werden, können ung�
     <string name="revanced_transcript_cookies_summary">Cookies zur Verwendung in Transkript-API-Anfragen.</string>
     <string name="revanced_transcript_cookies_title">Transkript-Cookies</string>
     <string name="revanced_translations_title">Übersetzungen</string>
+    <string name="revanced_vot_enabled_title">Sprachausgabe-Übersetzung</string>
+    <string name="revanced_vot_original_audio_volume_summary">Lautstärke des Original-YouTube-Audios, während die Übersetzung spricht</string>
+    <string name="revanced_vot_original_audio_volume_title">Lautstärke des Originaltons</string>
+    <string name="revanced_vot_translation_volume_summary">Lautstärke der synchronisierten Übersetzungsstimme</string>
+    <string name="revanced_vot_translation_volume_title">Übersetzungslautstärke</string>
     <string name="revanced_watch_history_about_status_blocked">• Überwachungsverlauf blockiert.</string>
     <string name="revanced_watch_history_about_status_original">"• Folgt den Einstellungen des Beobachtungsverlaufs von Google-Konto.
 • Überwachungsverlauf kann aufgrund von DNS oder VPN nicht funktionieren."</string>

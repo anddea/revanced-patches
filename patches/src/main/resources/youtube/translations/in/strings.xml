@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Nyalakan kontrol aksesibilitas untuk pemutar video?</string>
-    <string name="accessibility_settings_edu_opt_out_text">Kontrol anda telah dimodifikasi karena layanan aksesibilitas menyala.</string>
+    <string name="accessibility_settings_edu_opt_out_text">Kontrol Anda telah dimodifikasi karena layanan aksesibilitas menyala.</string>
     <string name="gms_core_dialog_continue_text">Lanjutkan</string>
-    <string name="gms_core_dialog_dismiss_text">दोबारा न दिखाएं</string>
+    <string name="gms_core_dialog_dismiss_text">Jangan tampilkan lagi</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore tidak memiliki izin untuk berjalan di latar belakang.
 
 Ikuti panduan \"Jangan bunuh aplikasi saya\" untuk ponsel Anda, dan terapkan instruksi ke instalasi MicroG Anda.
@@ -16,8 +16,8 @@ Menonaktifkan pengoptimalan baterai MicroG tidak akan berdampak buruk pada pengg
 Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
     <string name="gms_core_dialog_open_website_text">Buka situs</string>
     <string name="gms_core_dialog_title">Tindakan diperlukan</string>
-    <string name="gms_core_offline_account_login_error">Jika Anda baru saja mengubah detail login akun Anda, maka uninstall dan instal ulang GmsCore.</string>
-    <string name="gms_core_settings_summary">To receive notifications in RVX, enable Cloud Messaging.</string>
+    <string name="gms_core_offline_account_login_error">Jika Anda baru saja mengubah detail login akun Anda, maka uninstal dan instal ulang GmsCore.</string>
+    <string name="gms_core_settings_summary">Untuk menerima notifikasi di RVX, aktifkan Cloud Messaging.</string>
     <string name="gms_core_settings_title">Buka Setelan GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore belum dipasang. Pasang dulu.</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Menjaga bilah navigasi tetap terlihat saat menggulir</string>
@@ -114,7 +114,7 @@ Untuk masuk, tekan lanjutkan di bawah ini"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Gagal dalam menghasilkan token autentikasi</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Klien disembunyikan di Statistik untuk nerds</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Jenis klien ditampilkan di Statistik untuk nerds</string>
-    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Tampilkan pemalsuan dalam Statistik untuk nerds</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Tampilkan pemalsuan dalam Informasi statistik</string>
     <string name="morphe_spoof_video_streams_summary_off">"Aliran video tidak dipalsukan
 
 Pemutaran mungkin tidak berfungsi"</string>
@@ -129,11 +129,11 @@ Jika Anda adalah pengguna YouTube Premium, setelan ini mungkin tidak diperlukan"
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Menu flyout gaya lama digunakan.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Dialog khusus digunakan.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Menu jenis kualitas video lanjutan di Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow menyediakan gambar mini crowdsourced untuk video YouTube. Gambar mini ini seringkali lebih relevan daripada yang disediakan oleh YouTube
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow menyediakan thumbnail yang dikumpulkan dari pengguna untuk video YouTube. Thumbnail ini seringkali lebih relevan daripada yang disediakan oleh YouTube
 
-Jika diaktifkan, URL video akan dikirim ke server API dan tidak ada data lain yang dikirim. Jika video tidak memiliki gambar mini DeArrow, maka gambar asli atau tangkapan statis yang ditampilkan
+Jika diaktifkan, URL video akan dikirim ke server API dan tidak ada data lain yang dikirim. Jika sebuah video tidak memiliki thumbnail dari DeArrow, maka gambar asli atau tangkapan layar akan ditampilkan
 
-Ketuk di sini untuk mempelajari lebih lanjut tentang DeArrow"</string>
+Ketuk di sini untuk membuka DeArrow.ajay.app"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">URL APIK DeArrow tidak valid.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL titik akhir cache thumbnail DeArrow</string>
@@ -221,7 +221,7 @@ Jika ada perubahan di sisi server, warna latar belakang bilah camilan mungkin ti
     <string name="revanced_change_share_sheet_summary_off">Lembar berbagi dalam aplikasi digunakan.</string>
     <string name="revanced_change_share_sheet_summary_on">Lembar berbagi sistem digunakan.</string>
     <string name="revanced_change_share_sheet_title">Ubah lembar berbagi</string>
-    <string name="revanced_change_start_page_entry_all_subscriptions">Semua langganan</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">Semua Langganan</string>
     <string name="revanced_change_start_page_entry_browse">Jelajahi saluran</string>
     <string name="revanced_change_start_page_entry_courses">Kursus / Pembelajaran</string>
     <string name="revanced_change_start_page_entry_default">Bawaan</string>
@@ -232,18 +232,18 @@ Jika ada perubahan di sisi server, warna latar belakang bilah camilan mungkin ti
     <string name="revanced_change_start_page_entry_hype">Hype</string>
     <string name="revanced_change_start_page_entry_library">Pustaka</string>
     <string name="revanced_change_start_page_entry_liked_videos">Video yang disukai</string>
-    <string name="revanced_change_start_page_entry_live">Siaran langsunng</string>
+    <string name="revanced_change_start_page_entry_live">Siaran langsung</string>
     <string name="revanced_change_start_page_entry_movies">Film</string>
     <string name="revanced_change_start_page_entry_music">Musik</string>
     <string name="revanced_change_start_page_entry_news">Berita</string>
-    <string name="revanced_change_start_page_entry_notifications">Pemberitahuan</string>
+    <string name="revanced_change_start_page_entry_notifications">Notifikasi</string>
     <string name="revanced_change_start_page_entry_playlists">Daftar Putar</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
     <string name="revanced_change_start_page_entry_search">Pencarian</string>
     <string name="revanced_change_start_page_entry_shopping">Belanja</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Olahraga</string>
-    <string name="revanced_change_start_page_entry_subscriptions">Langganan</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Subscription</string>
     <string name="revanced_change_start_page_entry_trending">Sedang tren</string>
     <string name="revanced_change_start_page_entry_virtual_reality">Realitas Virtual</string>
     <string name="revanced_change_start_page_entry_watch_later">Tonton nanti</string>
@@ -709,6 +709,7 @@ Toko"</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Ditampilkan di feed langganan.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Disembunyikan di feed langganan.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Sembunyikan di feed langganan</string>
+    <string name="revanced_hide_connect_button_title">Sembunyikan tombol Sambungkan</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Rak toko kreator di bawah pemutar video ditampilkan</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Rak toko kreator di bawah pemutar video disembunyikan</string>
     <string name="revanced_hide_creator_store_shelf_title">Sembunyikan rak toko kreator</string>
@@ -795,9 +796,9 @@ Toko"</string>
     <string name="revanced_hide_key_concepts_section_summary_off">Bagian Konsep utama ditampilkan</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Bagian Konsep utama disembunyikan</string>
     <string name="revanced_hide_key_concepts_section_title">Sembunyikan bagian \'Konsep utama\'</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Beranda / Berlangganan / Hasil pencarian disaring untuk menyembunyikan konten yang cocok dengan frasa kata kunci
+    <string name="revanced_hide_keyword_content_about_summary">"Beranda / Berlangganan / Pencarian / Komentar disaring untuk menyembunyikan konten yang cocok dengan frasa kata kunci
 
-Keterbatasan
+Batasan:
 • Shorts tidak dapat disembunyikan berdasarkan nama saluran
 • Beberapa komponen UI mungkin tidak disembunyikan
 • Pencarian kata kunci mungkin tidak menampilkan hasil"</string>
@@ -851,6 +852,7 @@ Kata-kata yang mengandung huruf besar di tengah harus sama persis (misalnya: iPh
     <string name="revanced_hide_mix_playlists_summary_off">Daftar putar campuran ditampilkan</string>
     <string name="revanced_hide_mix_playlists_summary_on">Daftar putar campuran disembunyikan</string>
     <string name="revanced_hide_mix_playlists_title">Sembunyikan daftar putar campuran</string>
+    <string name="revanced_hide_more_button_title">Sembunyikan tombol Lainnya</string>
     <string name="revanced_hide_movie_shelf_summary_off">Rak film ditampilkan.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Rak film disembunyikan.</string>
     <string name="revanced_hide_movie_shelf_title">Sembunyikan rak film</string>
@@ -1000,7 +1002,7 @@ Jika tata letak layar pemutar berubah karena perubahan di sisi server, tata leta
     <string name="revanced_hide_shorts_stickers_title">Sembunyikan stiker</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_off">Tombol berlangganan ditampilkan</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_on">Tombol berlangganan disembunyikan</string>
-    <string name="revanced_hide_shorts_subscribe_button_title">Sembunyikan tombol Berlangganan</string>
+    <string name="revanced_hide_shorts_subscribe_button_title">Sembunyikan tombol Subscribe</string>
     <string name="revanced_hide_shorts_tagged_products_summary_off">Produk yang ditandai ditampilkan</string>
     <string name="revanced_hide_shorts_tagged_products_summary_on">Produk yang ditandai disembunyikan</string>
     <string name="revanced_hide_shorts_tagged_products_title">Sembunyikan produk yang ditandai</string>
@@ -1018,13 +1020,13 @@ Jika tata letak layar pemutar berubah karena perubahan di sisi server, tata leta
     <string name="revanced_hide_store_button_title">Sembunyikan tombol Toko</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Tombol Langganan ditampilkan</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Tombol Langganan disembunyikan</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_title">Sembunyikan tombol Berlangganan</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_title">Sembunyikan tombol Subscribe</string>
     <string name="revanced_hide_subscribe_button_summary_off">Tombol Langganan ditampilkan</string>
     <string name="revanced_hide_subscribe_button_summary_on">Tombol Langganan disembunyikan</string>
-    <string name="revanced_hide_subscribe_button_title">Sembunyikan tombol Berlangganan</string>
+    <string name="revanced_hide_subscribe_button_title">Sembunyikan tombol Subscribe</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">Bilah saluran yang telah berlangganan ditampilkan</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">Bilah saluran yang telah berlangganan disembunyikan</string>
-    <string name="revanced_hide_subscribed_channels_bar_title">Sembunyikan bilah saluran yang telah berlangganan</string>
+    <string name="revanced_hide_subscribed_channels_bar_title">Sembunyikan bilah saluran yang telah disubscribe</string>
     <string name="revanced_hide_surveys_summary_off">Survei ditampilkan</string>
     <string name="revanced_hide_surveys_summary_on">Survei disembunyikan</string>
     <string name="revanced_hide_surveys_title">Sembunyikan survei</string>
@@ -1043,7 +1045,7 @@ Jika tata letak layar pemutar berubah karena perubahan di sisi server, tata leta
     <string name="revanced_hide_toolbar_create_button_title">Sembunyikan tombol Buat</string>
     <string name="revanced_hide_toolbar_notification_button_summary_off">Tombol pemberitahuan ditampilkan</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">Tombol notifikasi disembunyikan</string>
-    <string name="revanced_hide_toolbar_notification_button_title">Sembunyikan tombol Pemberitahuan</string>
+    <string name="revanced_hide_toolbar_notification_button_title">Sembunyikan tombol Notifikasi</string>
     <string name="revanced_hide_toolbar_search_button_summary_off">Tombol pencarian ditampilkan.</string>
     <string name="revanced_hide_toolbar_search_button_summary_on">Tombol pencarian disembunyikan</string>
     <string name="revanced_hide_toolbar_search_button_title">Sembunyikan tombol Pencarian</string>
@@ -1152,6 +1154,8 @@ Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Ukuran piksel harus antara %1$s dan %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">Atur ukuran awal di layar, dalam piksel</string>
     <string name="revanced_miniplayer_width_dip_title">Ukuran default</string>
+    <string name="revanced_navigation_bar_animations_summary">Menganimasikan transisi saat beralih antar tab</string>
+    <string name="revanced_navigation_bar_animations_title">Aktifkan animasi bilah navigasi</string>
     <string name="revanced_override_youtube_music_button_summary_off">Tombol YouTube Music membuka aplikasi asli</string>
     <string name="revanced_override_youtube_music_button_summary_on">Tombol YouTube Music membuka aplikasi musik target Anda</string>
     <string name="revanced_override_youtube_music_button_title">Gantikan tombol tindakan YouTube Music</string>
@@ -1263,7 +1267,13 @@ Deskripsi
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Thumbnail seekbar akan muncul di atas seekbar</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Pulihkan thumbnail seekbar yang lama</string>
     <string name="revanced_restore_old_settings_menus_title">Pulihkan menu setelan lama YouTube</string>
-    <string name="revanced_ryd_attribution_summary">Data disediakan oleh API Return YouTube Dislike. Tekan di sini untuk mempelajari lebih lanjut</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"Memperbaiki masalah tombol Tidak Suka tidak ditampilkan dan tombol tindakan video tidak dapat disembunyikan
+
+Keterbatasan: Mengembalikan tampilan hamparan 'Video Lainnya' ke gaya lama"</string>
+    <string name="revanced_restore_old_video_action_bar_title">Kembalikan bilah tindakan video lama</string>
+    <string name="revanced_ryd_attribution_summary">"Data disediakan oleh Return YouTube Dislike API.
+
+Ketuk di sini untuk membuka ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Tombol suka ditata untuk tampilan terbaik</string>
     <string name="revanced_ryd_compact_layout_summary_on">Tombol suka ditata untuk lebar minimum</string>
@@ -1336,7 +1346,7 @@ Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
     <string name="revanced_sb_general_skipcount">Aktifkan pelacakan melewati hitungan</string>
     <string name="revanced_sb_general_skipcount_sum_off">Lewati pelacakan jumlah tidak diaktifkan </string>
     <string name="revanced_sb_general_skipcount_sum_on">Mengizinkan papan peringkat SponsorBlock mengetahui berapa banyak waktu yang dihemat. Pesan dikirim ke papan peringkat setiap kali sebuah segmen dilewati</string>
-    <string name="revanced_sb_general_skiptoast">Tampilkan pembatalan lewati pemberitahuan</string>
+    <string name="revanced_sb_general_skiptoast">Tampilkan lewati pembatalan pemberitahuan</string>
     <string name="revanced_sb_general_skiptoast_sum_off">Pesan timbul tidak ditampilkan</string>
     <string name="revanced_sb_general_skiptoast_sum_on">Pesan timbul ditampilkan saat segmen dilewati secara otomatis. Ketuk notifikasi pesan timbul untuk membatalkan lewati</string>
     <string name="revanced_sb_general_time_without">Tampilkan durasi video tanpa segmen</string>
@@ -1388,7 +1398,7 @@ Jika Anda tidak mengirimkan sorotan, ketuk Batal dan tandai lokasi kedua"</strin
     <string name="revanced_sb_segments_highlight_sum">Bagian video yang paling dilihat oleh orang</string>
     <string name="revanced_sb_segments_hook">Pengantar / Sapaan</string>
     <string name="revanced_sb_segments_hook_sum">Trailer yang dinarasikan untuk video mendatang, sapaan, dan perpisahan. Tidak termasuk bagian yang menambahkan konten tambahan</string>
-    <string name="revanced_sb_segments_interaction">Pengingat Interaksi (Berlangganan)</string>
+    <string name="revanced_sb_segments_interaction">Pengingat Interaksi (Subscribe)</string>
     <string name="revanced_sb_segments_interaction_sum">Pengingat singkat untuk menyukai, berlangganan, atau mengikuti mereka di tengah-tengah konten. Jika berdurasi panjang atau tentang sesuatu yang spesifik, sebaiknya berada di bawah promosi diri sendiri</string>
     <string name="revanced_sb_segments_intro">Jeda/Animasi Intro</string>
     <string name="revanced_sb_segments_intro_sum">Interval tanpa konten yang sebenarnya. Bisa berupa jeda, bingkai statis, atau animasi berulang. Tidak termasuk transisi yang berisi informasi</string>
@@ -1541,6 +1551,9 @@ Sudah ada"</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Pemutar biasa layar penuh</string>
     <string name="revanced_shorts_player_type_shorts">Pemutar Shorts</string>
     <string name="revanced_shorts_player_type_title">Buka Shorts dengan</string>
+    <string name="revanced_show_settings_button_index_title">Posisi tombol Pengaturan</string>
+    <string name="revanced_show_settings_button_title">Tampilkan tombol Pengaturan</string>
+    <string name="revanced_show_settings_button_type_title">Tindakan tombol pengaturan</string>
     <string name="revanced_spoof_app_version_summary">Menipu server agar menganggap Anda menggunakan versi aplikasi yang lebih lama untuk memulihkan fitur UI lama</string>
     <string name="revanced_spoof_app_version_summary_off">Versi asli</string>
     <string name="revanced_spoof_app_version_summary_on">Versi yang dipalsukan</string>
@@ -1589,7 +1602,7 @@ Sesuaikan kecerahan dengan mengusap secara vertikal pada sisi kiri layar"</strin
     <string name="revanced_swipe_press_to_engage_title">Aktifkan tekan untuk gerakan usap</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Jangan simpan dan pulihkan kecerahan saat keluar atau memasuki layar penuh</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Simpan dan pulihkan kecerahan saat keluar atau memasuki layar penuh</string>
-    <string name="revanced_swipe_save_and_restore_brightness_title">Simpan dan pulihkan kecerahan</string>
+    <string name="revanced_swipe_save_and_restore_brightness_title">Simpan dan kembalikan kecerahan</string>
     <string name="revanced_swipe_speed_title">Aktifkan gerakan kecepatan</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">Ukuran teks harus antara 1-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">Sesuaikan ukuran teks di layar (1-30)</string>
@@ -1609,6 +1622,11 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Menonaktifkan setelan ini juga akan menonaktifkan pemblokiran iklan di Shorts.
 
 Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</string>
+    <string name="revanced_vot_enabled_title">Terjemahan sulih suara</string>
+    <string name="revanced_vot_original_audio_volume_summary">Volume audio YouTube asli saat terjemahan sedang berbicara</string>
+    <string name="revanced_vot_original_audio_volume_title">Volume audio asli</string>
+    <string name="revanced_vot_translation_volume_summary">Volume suara terjemahan yang telah disulihsuara</string>
+    <string name="revanced_vot_translation_volume_title">Volume terjemahan</string>
     <string name="revanced_watch_history_type_title">Jenis riwayat tontonan</string>
     <string name="revanced_watch_next_processing_delay_summary">Jumlah penundaan milidetik dalam memproses respons jam tangan berikutnya.</string>
     <string name="revanced_webview_cookies">Cookies</string>
