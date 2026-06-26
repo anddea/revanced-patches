@@ -1,3 +1,15 @@
+# [4.2.0-dev.1](https://github.com/anddea/revanced-patches/compare/v4.1.0...v4.2.0-dev.1) (2026-06-26)
+
+
+### Features
+
+* **YouTube - Hide action buttons:** Hide new action buttons ([9fe72eb](https://github.com/anddea/revanced-patches/commit/9fe72eb235c2aa1a685c9b7f93fe5612542a6967))
+* **YouTube - Hide actions buttons:** Add `Restore old video action bar` setting (`v20.21+`) ([aff0856](https://github.com/anddea/revanced-patches/commit/aff085608c3f50686351d1fc2db1dbbd2da864e8))
+* **YouTube - Navigation bar components:** Add `Enable navigation bar animations`, and `Show Settings` settings (`v20.21+`) ([90cae4a](https://github.com/anddea/revanced-patches/commit/90cae4afdf7a006ce2ea1d549590cf0eb9f3bd51))
+* **YouTube - Overlay buttons:** Add loop segment button ([bef4820](https://github.com/anddea/revanced-patches/commit/bef4820e98ee6d275e29daa769c12a73e555051f))
+* **YouTube - Overlay buttons:** Make overlay buttons scrollable, add `Max buttons in landscape` and `Max buttons in portrait` settings ([5d46119](https://github.com/anddea/revanced-patches/commit/5d46119e2865e59c33e8f5f0937571bd7e694f3e))
+* **YouTube - Return YouTube Dislike:** Add like and dislike count to new layout action buttons ([e69522c](https://github.com/anddea/revanced-patches/commit/e69522c48fadfda51d870e01b3f91144de1fc809))
+
 # [4.1.0](https://github.com/anddea/revanced-patches/compare/v4.0.0...v4.1.0) (2026-06-16)
 
 

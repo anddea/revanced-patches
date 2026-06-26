@@ -1,5 +1,5 @@
 {
-  "version": "4.1.0",
+  "version": "4.2.0-dev.1",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -1582,6 +1582,7 @@
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
+        "BytecodePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": {
@@ -2068,6 +2069,7 @@
         "ResourcePatch",
         "BytecodePatch",
         "BytecodePatch",
+        "BytecodePatch",
         "ResourcePatch"
       ],
       "compatiblePackages": {
@@ -2420,6 +2422,8 @@
       "use": true,
       "dependencies": [
         "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
