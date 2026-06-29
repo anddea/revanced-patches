@@ -347,7 +347,9 @@ val overlayButtonsPatch = resourcePatch(
                     ),
                     document("res/layout/$xmlFile"),
                 ).close()
-
+            }
+        }
+        
         document("res/layout/youtube_controls_bottom_ui_container.xml").use { document ->
             document.doRecursively loop@{ node ->
                 if (node !is Element) return@loop
