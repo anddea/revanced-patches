@@ -133,7 +133,7 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
 
 Jeśli opcja ta jest włączona, do serwera API wysyłane są wyłącznie adresy filmów. W przypadku braku miniaturek DeArrow, wyświetlana jest miniaturka oryginalna lub kadr z filmu
 
-Dotknij tutaj, aby dowiedzieć się więcej o DeArrow"</string>
+Dotknij tutaj, aby otworzyć DeArrow.ajay.app"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">Nieprawidłowy adres URL API DeArrow.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Adres punktu końcowego do miniaturek DeArrow</string>
@@ -204,14 +204,14 @@ Układ tabletowy
 • Posty są ukryte
 • Ustawienie odtwarzania na stronie głównej nie jest dostępne
 • Przyciski Remiks i Dźwięk nie są dostępne w Shortsach
-• Pasek akcji filmu nie jest zwinięty
+• Stary pasek akcji filmu nie jest zwinięty
 
 Układ samochodowy
 • Strona główna jest uporządkowana według tematów i kanałów
 • Ustawienie odtwarzania na stronie głównej nie jest dostępne
 • Przyciski Remiks i Dźwięk nie są dostępne w Shortsach
 • Shortsy otwierają się w zwykłym odtwarzaczu
-• Pasek akcji filmu nie jest zwinięty"</string>
+• Stary pasek akcji filmu nie jest zwinięty"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Przełączniki</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Tekst</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Wygląd przełączników</string>
@@ -811,6 +811,7 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Widoczne</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Ukryte</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Na stronie subskrypcji</string>
+    <string name="revanced_hide_connect_button_title">Ukryj przycisk Połącz</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Półka sklepu twórców pod odtwarzaczem wideo jest widoczna</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Półka sklepu twórcy pod odtwarzaczem wideo jest ukryta</string>
     <string name="revanced_hide_creator_store_shelf_title">Ukryj sekcję sklepu twórcy</string>
@@ -918,7 +919,7 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_key_concepts_section_summary_off">Sekcja „Kluczowe koncepcje” jest widoczna</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Sekcja „Kluczowe koncepcje” jest ukryta</string>
     <string name="revanced_hide_key_concepts_section_title">Ukryj sekcję \"Kluczowe pojęcia\"</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Strona główna / subskrypcji / wyniki wyszukiwania są filtrowane, aby ukryć treści, które zawierają słowa z filtra
+    <string name="revanced_hide_keyword_content_about_summary">"Strona główna / Subskrypcje / Wyniki wyszukiwania / Komentarze są filtrowane, aby ukryć treści, które zawierają słowa z filtra
 
 Ograniczenia:
 • Shortsy nie mogą być ukryte po nazwie kanału
@@ -929,7 +930,7 @@ Ograniczenia:
     <string name="revanced_hide_keyword_content_about_whole_words_title">Dopasuj całe wyrazy</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">Wyłączone</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Włączone</string>
-    <string name="revanced_hide_keyword_content_comments_title">W komentarzach</string>
+    <string name="revanced_hide_keyword_content_comments_title">Ukryj komentarze</string>
     <string name="revanced_hide_keyword_content_home_summary_off">Filmy na stronie głównej nie są filtrowane przez słowa</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Filmy na stronie głównej są filtrowane przez słowa</string>
     <string name="revanced_hide_keyword_content_home_title">Ukryj filmy na stronie głównej</string>
@@ -983,6 +984,7 @@ Słowa z wielkimi literami w środku muszą pasować dokładnie (np. iPhone, Tik
     <string name="revanced_hide_mix_playlists_summary_off">Składanki są widoczne</string>
     <string name="revanced_hide_mix_playlists_summary_on">Składanki są ukryte</string>
     <string name="revanced_hide_mix_playlists_title">Ukryj składanki</string>
+    <string name="revanced_hide_more_button_title">Ukryj przycisk Więcej</string>
     <string name="revanced_hide_movie_shelf_summary_off">Widoczne</string>
     <string name="revanced_hide_movie_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_movie_shelf_title">Półki z filmami kinowymi</string>
@@ -1680,6 +1682,8 @@ Miniodtwarzacz można przeciągnąć poza ekran w lewo lub prawo."</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Rozmiar musi mieścić się w przedziale od %1$s do %2$s pikseli</string>
     <string name="revanced_miniplayer_width_dip_summary">Ustaw początkowy rozmiar na ekranie w pikselach</string>
     <string name="revanced_miniplayer_width_dip_title">Domyślny rozmiar</string>
+    <string name="revanced_navigation_bar_animations_summary">Animuje przejścia podczas przełączania między kartami</string>
+    <string name="revanced_navigation_bar_animations_title">Włącz animacje paska nawigacji</string>
     <string name="revanced_open_links_externally_summary_off">Wyłączona</string>
     <string name="revanced_open_links_externally_summary_on">Włączona</string>
     <string name="revanced_open_links_externally_title">Zewnętrzna przeglądarka</string>
@@ -1993,6 +1997,10 @@ Stuknij i przytrzymaj, by otworzyć ustawienia YouTube."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Podgląd filmu pojawia się nad paskiem postępu filmów</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Stare miniatury paska nawigacji</string>
     <string name="revanced_restore_old_settings_menus_title">Przywróć stary ekran ustawień YouTube</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"Naprawia problem z niewidocznymi łapkami w dół i brakiem możliwości ukrycia przycisków akcji
+
+​Ograniczenia: Przywraca stary wygląd nakładki \"Więcej filmów\""</string>
+    <string name="revanced_restore_old_video_action_bar_title">Przywróć stary pasek akcji filmu</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Wyłączone</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Włączone"</string>
     <string name="revanced_restore_shorts_old_player_layout_title">Przywrócić stary układ odtwarzacza</string>
@@ -2014,7 +2022,9 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Przejdź do &lt;a href=%1$s&gt;Utwórz nowy projekt&lt;/a&gt;.&lt;br&gt;2. Kliknij przycisk &lt;b&gt;UTWÓRZ&lt;/b&gt;&lt;br&gt;3. Przejdź do &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Kliknij przycisk &lt;b&gt;WŁĄCZ&lt;/b&gt;&lt;br&gt;5. Kliknij przycisk &lt;b&gt;UTWÓRZ DANE LOGOWANIA&lt;/b&gt;&lt;br&gt;6. Wybierz opcję &lt;b&gt;Dane publiczne&lt;/b&gt;&lt;br&gt;7. Kliknij przycisk &lt;b&gt;DALEJ&lt;/b&gt;&lt;br&gt;8. Skopiuj klucz API&lt;br&gt;&lt;br&gt;※ Klucz API nie powinien być współdzielony z innymi, dlatego nie jest zawarty w ustawieniach importu/eksportu</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Zgłoś klucz deweloperski YouTube Data API</string>
     <string name="revanced_ryd_about">O integracji</string>
-    <string name="revanced_ryd_attribution_summary">Dane są dostarczane przez API Return YouTube Dislike. Dotknij tutaj, aby dowiedzieć się więcej</string>
+    <string name="revanced_ryd_attribution_summary">"Dane są dostarczane przez API Return YouTube Dislike.
+
+Dotknij tutaj, aby otworzyć ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Przycisk łapki stylizowany dla najlepszego wyglądu</string>
     <string name="revanced_ryd_compact_layout_summary_on">Przycisk łapki stylizowany dla minimalnej szerokości</string>
@@ -2421,6 +2431,9 @@ Większość błędów nie może być naprawiona wskutek ograniczeń po stronie 
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Standardowym odtwarzaczu (pełny ekran)</string>
     <string name="revanced_shorts_player_type_shorts">Odtwarzaczu Shortsów</string>
     <string name="revanced_shorts_player_type_title">Otwieraj Shortsy w</string>
+    <string name="revanced_show_settings_button_index_title">Pozycja przycisku Ustawienia</string>
+    <string name="revanced_show_settings_button_title">Pokaż przycisk Ustawienia</string>
+    <string name="revanced_show_settings_button_type_title">Działanie przycisku Ustawienia</string>
     <string name="revanced_show_video_title_section_summary">"Tytuły filmów w trybie pełnoekranowym są widoczne.
 
 Ograniczenie: tytuły filmów znikają po stuknięciu w nie."</string>
@@ -2706,7 +2719,7 @@ Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przyp
     <string name="revanced_vot_auth_required">Wymagana autoryzacja. Dodaj token Yandex OAuth w ustawieniach.</string>
     <string name="revanced_vot_enabled_summary_off">Wyłączone</string>
     <string name="revanced_vot_enabled_summary_on">Włączone</string>
-    <string name="revanced_vot_enabled_title">Tłumaczenie lektorskie</string>
+    <string name="revanced_vot_enabled_title">Tłumaczenie głosowe</string>
     <string name="revanced_vot_lang_auto">Wykryj automatycznie</string>
     <string name="revanced_vot_live_voices_unavailable">Głosy na żywo niedostępne, przy użyciu standardu </string>
     <string name="revanced_vot_oauth_account_management_title">Token OAuth Yandex</string>
@@ -2725,8 +2738,8 @@ Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przyp
     <string name="revanced_vot_oauth_switch_token_button">Wprowadź kolejny token</string>
     <string name="revanced_vot_oauth_token_summary">Wymagane w przypadku głosów na żywo.</string>
     <string name="revanced_vot_oauth_token_title">Token OAuth Yandex</string>
-    <string name="revanced_vot_original_audio_volume_summary">Głośność oryginalnej ścieżki wideo podczas odtwarzania tłumaczenia (0-100). Domyślnie: 50 </string>
-    <string name="revanced_vot_original_audio_volume_title">Oryginalna głośność audio </string>
+    <string name="revanced_vot_original_audio_volume_summary">Głośność oryginalnego dźwięku z YouTube podczas odtwarzania tłumaczenia</string>
+    <string name="revanced_vot_original_audio_volume_title">Głośność oryginalnego dźwięku</string>
     <string name="revanced_vot_playback_error">Nie udało się odtworzyć tłumaczenia audio </string>
     <string name="revanced_vot_proxy_url_summary">Host proxy VOT. Domyślnie: wykrywany automatycznie</string>
     <string name="revanced_vot_proxy_url_title">Serwer proxy</string>
@@ -2742,7 +2755,7 @@ Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przyp
     <string name="revanced_vot_target_language_title">Język docelowy</string>
     <string name="revanced_vot_time_min">%d minut</string>
     <string name="revanced_vot_time_sec">%d sekund</string>
-    <string name="revanced_vot_translation_volume_summary">Głośność przetłumaczonej ścieżki dźwiękowej (0-100). Domyślnie: 100</string>
+    <string name="revanced_vot_translation_volume_summary">Głośność nałożonego głosu tłumaczenia</string>
     <string name="revanced_vot_translation_volume_title">Głośność tłumaczenia</string>
     <string name="revanced_vot_unavailable_live">Tłumaczenie nie jest dostępne dla transmisji na żywo</string>
     <string name="revanced_vot_unavailable_same_language">Ścieżka dźwiękowa jest już w języku docelowym</string>

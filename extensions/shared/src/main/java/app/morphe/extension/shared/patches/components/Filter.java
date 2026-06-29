@@ -95,4 +95,15 @@ public abstract class Filter {
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         return isFiltered(path, accessibility, "", buffer, matchedGroup, contentType, contentIndex);
     }
+
+    /**
+     * Whether the v20.21 legacy bridge should provide this filter with per-component accessibility
+     * and buffer data through the modern {@link #isFiltered(Object, String, String, String, byte[],
+     * StringFilterGroup, FilterContentType, int)} callback.
+     *
+     * @return {@code true} only for filters that require the modern per-component data.
+     */
+    public boolean useModernFilterDataInLegacyBridge() {
+        return false;
+    }
 }

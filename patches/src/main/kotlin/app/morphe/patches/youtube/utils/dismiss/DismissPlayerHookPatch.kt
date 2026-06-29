@@ -7,6 +7,7 @@ import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.playservice.is_20_30_or_greater
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.addStaticFieldToExtension
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
@@ -29,7 +30,10 @@ private lateinit var dismissMethod: MutableMethod
 val dismissPlayerHookPatch = bytecodePatch(
     description = "dismissPlayerHookPatch"
 ) {
-    dependsOn(sharedExtensionPatch)
+    dependsOn(
+        sharedExtensionPatch,
+        versionCheckPatch,
+    )
 
     execute {
         if (is_20_30_or_greater) {

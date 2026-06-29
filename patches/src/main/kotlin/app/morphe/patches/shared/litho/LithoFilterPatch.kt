@@ -97,7 +97,11 @@ val lithoFilterPatch = bytecodePatch(
 
     execute {
         // `componentContextSubParserFingerprint` is specific to the YouTube app.
-        isYouTube = ConversionContextFingerprintToString.originalClassDefOrNull != null && is_20_22_or_greater
+        val hasModernYouTubeComponentCreate =
+            ConversionContextFingerprintToString.originalClassDefOrNull != null
+        val useModernFilterDataInLegacyBridge = hasModernYouTubeComponentCreate &&
+                is_20_21_or_greater && !is_20_22_or_greater
+        isYouTube = hasModernYouTubeComponentCreate && is_20_22_or_greater
         // print("isYouTube: $isYouTube\n")
 
         if (isYouTube) {
@@ -163,7 +167,7 @@ val lithoFilterPatch = bytecodePatch(
                 }
             }
 
-            // Legacy Non native buffer.
+            // Legacy non-native buffer.
             ProtobufBufferReferenceLegacyFingerprint.method.addInstruction(
                 0,
                 "invoke-static { p2 }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
@@ -436,46 +440,164 @@ val lithoFilterPatch = bytecodePatch(
             return-object v0
             """
 
-            var isLegacyMethod = false
-
-            try {
-                isLegacyMethod = MethodUtil.methodSignaturesMatch(
-                    componentContextParserLegacyFingerprint.methodOrThrow(),
-                    componentContextSubParserFingerprint2.methodOrThrow()
-                )
-            } catch (_: Exception) {
-            }
-
             componentCreateFingerprint.methodOrThrow().apply {
-                val insertIndex = if (isLegacyMethod) {
-                    // YT 19.16 and YTM 6.51 clobbers p2 so must check at start of the method and not at the return index.
-                    0
+                if (useModernFilterDataInLegacyBridge) {
+                    // v20.21 still needs the legacy filter engine, but new button filters require
+                    // accessibility and the direct buffer available at this component-create hook.
+                    val accessibilityIdMethod = with(AccessibilityIdFingerprint) {
+                        val index = instructionMatches.first().index
+                        method.getInstruction<ReferenceInstruction>(index).reference as MethodReference
+                    }
+                    val accessibilityTextFingerprint = Fingerprint(
+                        returnType = "V",
+                        filters = listOf(
+                            methodCall(
+                                opcode = Opcode.INVOKE_INTERFACE,
+                                parameters = listOf(),
+                                returnType = "Ljava/lang/String;"
+                            ),
+                            methodCall(
+                                reference = accessibilityIdMethod,
+                                location = MatchAfterWithin(5)
+                            )
+                        ),
+                        custom = { method, _ ->
+                            AccessFlags.SYNTHETIC.isSet(method.accessFlags)
+                        }
+                    )
+                    val accessibilityTextMethod = with(accessibilityTextFingerprint) {
+                        val index = instructionMatches.first().index
+                        method.getInstruction<ReferenceInstruction>(index).reference as MethodReference
+                    }
+                    val protoBufferEncodeMethod = ProtobufBufferEncodeFingerprint.method
+                    val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
+                    val buttonViewModelIndex = indexOfFirstInstructionReversedOrThrow(insertIndex) {
+                        opcode == Opcode.CHECK_CAST &&
+                                getReference<TypeReference>()?.type == accessibilityIdMethod.definingClass
+                    }
+                    val buttonViewModelRegister =
+                        getInstruction<OneRegisterInstruction>(buttonViewModelIndex).registerA
+                    val accessibilityIdIndex = buttonViewModelIndex + 2
+                    val nullCheckIndex = indexOfFirstInstructionReversedOrThrow(
+                        buttonViewModelIndex,
+                        Opcode.IF_EQZ
+                    )
+
+                    val registerProvider = getFreeRegisterProvider(
+                        insertIndex,
+                        4,
+                        buttonViewModelRegister
+                    )
+                    val freeRegister = registerProvider.getFreeRegister()
+                    val identifierRegister = registerProvider.getFreeRegister()
+                    val pathRegister = registerProvider.getFreeRegister()
+                    val bufferRegister = registerProvider.getFreeRegister()
+                    val accessibilityRegisterProvider = getFreeRegisterProvider(
+                        nullCheckIndex,
+                        2,
+                        registerProvider.getUsedAndUnAvailableRegisters()
+                    )
+                    val accessibilityIdRegister = accessibilityRegisterProvider.getFreeRegister()
+                    val accessibilityTextRegister = accessibilityRegisterProvider.getFreeRegister()
+
+                    addInstructionsAtControlFlowLabel(
+                        insertIndex,
+                        """
+                        move-object/from16 v$bufferRegister, p3
+                        instance-of v$freeRegister, v$bufferRegister, ${protoBufferEncodeMethod.definingClass}
+                        if-eqz v$freeRegister, :empty_buffer
+
+                        check-cast v$bufferRegister, ${protoBufferEncodeMethod.definingClass}
+                        invoke-virtual { v$bufferRegister }, $protoBufferEncodeMethod
+                        move-result-object v$bufferRegister
+                        goto :set_buffer
+
+                        :empty_buffer
+                        const/4 v$freeRegister, 0x0
+                        new-array v$bufferRegister, v$freeRegister, [B
+
+                        :set_buffer
+                        invoke-static { v$bufferRegister }, $EXTENSION_LEGACY_LITHO_FILTER_CLASS_DESCRIPTOR->setDirectProtoBuffer([B)V
+
+                        move-object/from16 v$freeRegister, p2
+                        instance-of v$identifierRegister, v$freeRegister, ${conversionContextClass.type}
+                        if-eqz v$identifierRegister, :unfiltered
+
+                        iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
+                        iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
+                        invoke-static { v$identifierRegister, v$accessibilityIdRegister, v$accessibilityTextRegister, v$pathRegister, v$freeRegister }, $EXTENSION_LEGACY_LITHO_FILTER_CLASS_DESCRIPTOR->isFiltered(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;Ljava/lang/Object;)Z
+                        move-result v$freeRegister
+                        if-eqz v$freeRegister, :unfiltered
+
+                        move-object/from16 v$freeRegister, p1
+                        invoke-static { v$freeRegister }, $builderMethodDescriptor
+                        move-result-object v$freeRegister
+                        iget-object v$freeRegister, v$freeRegister, $emptyComponentField
+                        return-object v$freeRegister
+
+                        :unfiltered
+                        nop
+                        """
+                    )
+
+                    addInstructions(
+                        accessibilityIdIndex,
+                        """
+                        invoke-interface { v$buttonViewModelRegister }, $accessibilityIdMethod
+                        move-result-object v$accessibilityIdRegister
+                        invoke-interface { v$buttonViewModelRegister }, $accessibilityTextMethod
+                        move-result-object v$accessibilityTextRegister
+                        """
+                    )
+
+                    addInstructions(
+                        nullCheckIndex,
+                        """
+                        const-string v$accessibilityIdRegister, ""
+                        const-string v$accessibilityTextRegister, ""
+                        """
+                    )
                 } else {
-                    indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
+                    var isLegacyMethod = false
+
+                    try {
+                        isLegacyMethod = MethodUtil.methodSignaturesMatch(
+                            componentContextParserLegacyFingerprint.methodOrThrow(),
+                            componentContextSubParserFingerprint2.methodOrThrow()
+                        )
+                    } catch (_: Exception) {
+                    }
+
+                    val insertIndex = if (isLegacyMethod) {
+                        // YT 19.16 and YTM 6.51 clobbers p2 so must check at start of the method and not at the return index.
+                        0
+                    } else {
+                        indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
+                    }
+
+                    val freeRegister = findFreeRegister(insertIndex)
+                    val identifierRegister = findFreeRegister(insertIndex, freeRegister)
+                    val pathRegister = findFreeRegister(insertIndex, freeRegister, identifierRegister)
+
+                    addInstructionsAtControlFlowLabel(
+                        insertIndex,
+                        """
+                        move-object/from16 v$freeRegister, p2
+
+                        # Required for YouTube Music.
+                        check-cast v$freeRegister, ${conversionContextIdentifierField.definingClass}
+
+                        iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
+                        iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
+                        invoke-static {v$pathRegister, v$identifierRegister, v$freeRegister}, $EXTENSION_LEGACY_LITHO_FILTER_CLASS_DESCRIPTOR->isFiltered(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
+                        move-result v$freeRegister
+                        if-eqz v$freeRegister, :unfiltered
+                        """ + emptyComponentLabel + """
+                        :unfiltered
+                        nop
+                        """
+                    )
                 }
-
-                val freeRegister = findFreeRegister(insertIndex)
-                val identifierRegister = findFreeRegister(insertIndex, freeRegister)
-                val pathRegister = findFreeRegister(insertIndex, freeRegister, identifierRegister)
-
-                addInstructionsAtControlFlowLabel(
-                    insertIndex,
-                    """
-                    move-object/from16 v$freeRegister, p2
-
-                    # Required for YouTube Music.
-                    check-cast v$freeRegister, ${conversionContextIdentifierField.definingClass}
-
-                    iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
-                    iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
-                    invoke-static {v$pathRegister, v$identifierRegister, v$freeRegister}, $EXTENSION_LEGACY_LITHO_FILTER_CLASS_DESCRIPTOR->isFiltered(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
-                    move-result v$freeRegister
-                    if-eqz v$freeRegister, :unfiltered
-                    """ + emptyComponentLabel + """
-                    :unfiltered
-                    nop
-                    """
-                )
             }
 
             // endregion

@@ -27,7 +27,9 @@ import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.getContext
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.ResourceGroup
+import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.copyResources
+import app.morphe.util.findFreeRegister
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
@@ -37,6 +39,7 @@ import app.morphe.util.hookClassHierarchy
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstruction
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -186,8 +189,46 @@ val swipeControlsPatch = bytecodePatch(
 
             }
 
-            settingArray += "SETTINGS: DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER"
+        } else {
+            val playerDragGestureTypeMethod = PlayerDragGestureTypeFingerprint.method
+
+            PlayerDragGestureTypeFingerprint.classDef.methods.apply {
+                removeIf {
+                    it != playerDragGestureTypeMethod &&
+                            it.accessFlags == playerDragGestureTypeMethod.accessFlags &&
+                            it.name == playerDragGestureTypeMethod.name &&
+                            it.parameters == playerDragGestureTypeMethod.parameters
+                }
+
+                val nonPublicAccessFlags =
+                    AccessFlags.PRIVATE.value or AccessFlags.PROTECTED.value
+                playerDragGestureTypeMethod.accessFlags =
+                    (playerDragGestureTypeMethod.accessFlags and nonPublicAccessFlags.inv()) or
+                            AccessFlags.PUBLIC.value
+            }
+
+            PlayerDragGestureInitFingerprint.method.apply {
+                val index = PlayerDragGestureInitFingerprint.instructionMatches.last().index
+                val free = findFreeRegister(index)
+
+                addInstructionsAtControlFlowLabel(
+                    index,
+                    """
+                        invoke-static { p4 }, ${playerDragGestureTypeMethod.definingClass}->${playerDragGestureTypeMethod.name}(I)Ljava/lang/String;
+                        move-result-object v$free
+                        invoke-static { v$free }, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableSwipeToEnterFullscreenModeBelowThePlayer(Ljava/lang/String;)Z
+                        move-result v$free
+                        if-eqz v$free, :disable_swipe_to_enter_fullscreen_mode_below_the_player
+                        const/4 v$free, 0x0
+                        return v$free
+                        :disable_swipe_to_enter_fullscreen_mode_below_the_player
+                        nop
+                    """
+                )
+            }
         }
+
+        settingArray += "SETTINGS: DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER"
 
         // endregion
 

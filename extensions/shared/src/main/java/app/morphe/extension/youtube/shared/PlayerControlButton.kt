@@ -1,7 +1,6 @@
 package app.morphe.extension.youtube.shared
 
 import android.view.View
-import android.view.animation.Animation
 import android.widget.ImageView
 import app.morphe.extension.shared.utils.Logger
 import app.morphe.extension.shared.utils.ResourceUtils
@@ -35,6 +34,7 @@ class PlayerControlButton(
     private val placeHolderRef: WeakReference<View?>
     private val visibilityCheck: PlayerControlButtonVisibility
     private var isVisible: Boolean
+    private var lastTimeSetVisible: Long = 0L
 
     init {
         val imageView =
@@ -44,7 +44,7 @@ class PlayerControlButton(
         var tempPlaceholder: View? = null
         if (hasPlaceholder) {
             tempPlaceholder =
-                Utils.getChildViewByResourceName<View>(
+                Utils.getChildViewByResourceName(
                     controlsViewGroup,
                     "${imageViewButtonId}_placeholder"
                 )
@@ -65,9 +65,9 @@ class PlayerControlButton(
         // Update the visibility after the player type changes.
         // This ensures that button animations are cleared and their states are updated correctly
         // when switching between states like minimized, maximized, or fullscreen, preventing
-        // "stuck" animations or incorrect visibility.  Without this fix the issue is most noticable
+        // "stuck" animations or incorrect visibility.  Without this fix the issue is most noticeable
         // when maximizing type 3 miniplayer.
-        PlayerType.Companion.onChange.addObserver { type: PlayerType ->
+        PlayerType.onChange.addObserver { type: PlayerType ->
             playerTypeChanged(type)
         }
     }
@@ -75,34 +75,50 @@ class PlayerControlButton(
     fun imageView() = buttonRef.get()
 
     fun setVisibilityNegatedImmediate() {
-        if (PlayerControlsVisibility.current != PlayerControlsVisibility.PLAYER_CONTROLS_VISIBILITY_HIDDEN) {
-            return
+        try {
+            Utils.verifyOnMainThread()
+            if (PlayerControlsVisibility.current != PlayerControlsVisibility.PLAYER_CONTROLS_VISIBILITY_HIDDEN) {
+                return
+            }
+
+            val shouldBeShown = visibilityCheck.shouldBeShown()
+            if (!shouldBeShown) return
+            val button = buttonRef.get() ?: return
+            isVisible = false
+
+            val placeholder = placeHolderRef.get()
+
+            val animate = button.animate()
+            animate.cancel()
+
+            // If the overlay is tapped to display then immediately tapped to dismiss
+            // before the fade in animation finishes, then the fade out animation is
+            // the time between when the fade in started and now.
+            val animationDuration =
+                fadeInDuration.toLong().coerceAtMost(System.currentTimeMillis() - lastTimeSetVisible)
+            if (animationDuration <= 0) {
+                button.visibility = View.GONE
+                placeholder?.visibility = View.VISIBLE
+                return
+            }
+
+            animate.alpha(0f)
+                .setDuration(animationDuration)
+                .withEndAction {
+                    button.visibility = View.GONE
+                    placeholder?.visibility = View.VISIBLE
+                }
+                .start()
+        } catch (ex: Exception) {
+            Logger.printException({ "setVisibilityNegatedImmediate failure" }, ex)
         }
-
-        val shouldBeShown = visibilityCheck.shouldBeShown()
-        if (!shouldBeShown) return
-        val button = buttonRef.get()
-        if (button == null) return
-        isVisible = false
-
-        button.clearAnimation()
-        button.startAnimation(fadeOutImmediate)
-        button.visibility = View.GONE
-
-        val placeholder = placeHolderRef.get()
-        placeholder?.visibility = View.VISIBLE
     }
 
     fun setVisibilityImmediate(visible: Boolean) {
         if (visible) {
-            if (placeholderExists) {
-                // Fix button flickering, by pushing this call to the back of
-                // the main thread and letting other layout code run first.
-                Utils.runOnMainThread { privateSetVisibility(visible = true, animated = false) }
-            } else {
-                // Top buttons do not overlap with chapter titles.
-                privateSetVisibility(visible = true, animated = false)
-            }
+            // Fix button flickering, by pushing this call to the back of
+            // the main thread and letting other layout code run first.
+            Utils.runOnMainThread { privateSetVisibility(visible = true, animated = false) }
         } else {
             privateSetVisibility(visible = false, animated = false)
         }
@@ -120,33 +136,48 @@ class PlayerControlButton(
             if (isVisible == visible) return
             isVisible = visible
 
-            val button = buttonRef.get()
-            if (button == null) return
-
+            val button = buttonRef.get() ?: return
             val placeholder = placeHolderRef.get()
             val shouldBeShown = visibilityCheck.shouldBeShown()
 
+            if (visible) {
+                lastTimeSetVisible = System.currentTimeMillis()
+            }
+
             if (visible && shouldBeShown) {
-                button.clearAnimation()
-                if (animated) {
-                    button.startAnimation(fadeInAnimation)
-                }
+                val animate = button.animate()
+                animate.cancel()
                 button.visibility = View.VISIBLE
+
+                if (animated) {
+                    button.alpha = 0f
+                    animate.alpha(1f)
+                        .setDuration(fadeInDuration.toLong())
+                        .start()
+                } else {
+                    button.alpha = 1f
+                }
 
                 placeholder?.visibility = View.GONE
             } else {
-                if (button.visibility == View.VISIBLE) {
-                    button.clearAnimation()
-                    if (animated) {
-                        button.startAnimation(fadeOutAnimation)
-                    }
-                    button.visibility = View.GONE
-                }
+                val animate = button.animate()
+                animate.cancel()
 
-                placeholder?.visibility = if (shouldBeShown)
-                    View.VISIBLE
-                else
-                    View.GONE
+                val placeholderVisibility = if (shouldBeShown) View.VISIBLE else View.GONE
+
+                if (animated && button.visibility == View.VISIBLE) {
+                    placeholder?.visibility = View.GONE
+                    animate.alpha(0f)
+                        .setDuration(fadeOutDuration.toLong())
+                        .withEndAction {
+                            button.visibility = View.GONE
+                            placeholder?.visibility = placeholderVisibility
+                        }
+                        .start()
+                } else {
+                    button.visibility = View.GONE
+                    placeholder?.visibility = placeholderVisibility
+                }
             }
         } catch (ex: Exception) {
             Logger.printException({ "privateSetVisibility failure" }, ex)
@@ -161,15 +192,15 @@ class PlayerControlButton(
             return
         }
 
-        val button = buttonRef.get()
-        if (button == null) return
+        val button = buttonRef.get() ?: return
 
-        button.clearAnimation()
+        button.animate().cancel()
         val placeholder = placeHolderRef.get()
 
         if (visibilityCheck.shouldBeShown()) {
             if (isVisible) {
                 button.visibility = View.VISIBLE
+                button.alpha = 1f
                 placeholder?.visibility = View.GONE
             } else {
                 button.visibility = View.GONE
@@ -186,31 +217,17 @@ class PlayerControlButton(
         if (!isVisible) return
 
         Utils.verifyOnMainThread()
-        var view: View? = buttonRef.get()
-        if (view == null) return
+        val view = buttonRef.get() ?: return
+        view.animate().cancel()
         view.visibility = View.GONE
 
-        view = placeHolderRef.get()
-        view?.visibility = View.GONE
+        val placeholder = placeHolderRef.get()
+        placeholder?.visibility = View.GONE
         isVisible = false
     }
 
     companion object {
         private val fadeInDuration: Int = ResourceUtils.getInteger("fade_duration_fast")
         private val fadeOutDuration: Int = ResourceUtils.getInteger("fade_duration_scheduled")
-
-        private val fadeInAnimation = ResourceUtils.getAnimation("fade_in")
-        private val fadeOutAnimation: Animation?
-        private val fadeOutImmediate: Animation?
-
-        init {
-            fadeInAnimation?.duration = fadeInDuration.toLong()
-
-            fadeOutAnimation = ResourceUtils.getAnimation("fade_out")
-            fadeOutAnimation?.duration = fadeOutDuration.toLong()
-
-            fadeOutImmediate = ResourceUtils.getAnimation("abc_fade_out")
-            fadeOutImmediate?.duration = ResourceUtils.getInteger("fade_duration_fast").toLong()
-        }
     }
 }

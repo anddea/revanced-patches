@@ -208,7 +208,7 @@ Layout per tablet
 Layout per auto
 • Il feed è organizzato per argomenti e canali
 • L'impostazione di riproduzione nei feed non è disponibile
-• Il pulsante Remix e il pulsante Audio non sono disponibili sugli Shorts
+• Il pulsante Remix e il pulsante Audio non sono disponibili in Shorts
 • Gli Shorts si aprono nel lettore video normale
 • La barra delle azioni video non è collassata"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Levette</string>
@@ -816,6 +816,7 @@ Nota: alcuni link di ricerca evidenziati che non hanno uno stile di testo predef
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Sono visibili nella scheda Iscrizioni.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Sono nascosti nella scheda Iscrizioni.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Nascondi nella scheda Iscrizioni</string>
+    <string name="revanced_hide_connect_button_title">Nascondi il pulsante Connect</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">La mensola del negozio del creatore sotto il riproduttore video è mostrata</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">La sezione del negozio del creator sotto il riproduttore video è nascosta</string>
     <string name="revanced_hide_creator_store_shelf_title">Nascondi sezione negozio del creatore</string>
@@ -923,7 +924,7 @@ Nota: alcuni link di ricerca evidenziati che non hanno uno stile di testo predef
     <string name="revanced_hide_key_concepts_section_summary_off">La sezione Concetti chiave è visibile</string>
     <string name="revanced_hide_key_concepts_section_summary_on">La sezione Concetti chiave è nascosta</string>
     <string name="revanced_hide_key_concepts_section_title">Nascondi la sezione \'Concetti chiave\'</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Home/Iscrizioni/Risultati di ricerca sono filtrati per nascondere i contenuti che corrispondono alle parole chiave
+    <string name="revanced_hide_keyword_content_about_summary">"Home / Iscrizioni / Ricerca / Commenti sono filtrati per nascondere i contenuti che corrispondono a frasi con parole chiave
 
 Limitazioni:
 • Gli Shorts non possono essere nascosti in base al nome del canale
@@ -934,7 +935,7 @@ Limitazioni:
     <string name="revanced_hide_keyword_content_about_whole_words_title">Solo parole intere</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">I commenti non sono filtrati.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">I commenti sono filtrati.</string>
-    <string name="revanced_hide_keyword_content_comments_title">Nascondi i commenti in base a parole chiave</string>
+    <string name="revanced_hide_keyword_content_comments_title">Nascondi commenti per parole chiave</string>
     <string name="revanced_hide_keyword_content_home_summary_off">I video nella scheda Home non sono filtrati per parole chiave</string>
     <string name="revanced_hide_keyword_content_home_summary_on">I video nella scheda Home sono filtrati per parole chiave</string>
     <string name="revanced_hide_keyword_content_home_title">Nascondi i video della Home in base alle parole chiave</string>
@@ -988,6 +989,7 @@ Le parole con lettere maiuscole al centro dovranno corrispondere in maniera esat
     <string name="revanced_hide_mix_playlists_summary_off">Le playlist miste sono visibili</string>
     <string name="revanced_hide_mix_playlists_summary_on">Le playlist miste sono nascoste</string>
     <string name="revanced_hide_mix_playlists_title">Nascondi le playlist miste</string>
+    <string name="revanced_hide_more_button_title">Nascondi il pulsante Altro</string>
     <string name="revanced_hide_movie_shelf_summary_off">La sezione dei film è visibile.</string>
     <string name="revanced_hide_movie_shelf_summary_on">La sezione dei film è nascosta.</string>
     <string name="revanced_hide_movie_shelf_title">Nascondi la sezione dei film</string>
@@ -1670,6 +1672,8 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
     <string name="revanced_miniplayer_width_dip_invalid_toast">La dimensione del pixel deve essere compresa tra %1$s e %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">Imposta la dimensione sullo schermo iniziale, in pixel</string>
     <string name="revanced_miniplayer_width_dip_title">Dimensione predefinita</string>
+    <string name="revanced_navigation_bar_animations_summary">Anima le transizioni quando si passa tra le schede</string>
+    <string name="revanced_navigation_bar_animations_title">Abilita animazioni della barra di navigazione</string>
     <string name="revanced_open_links_externally_summary_off">Browser dell\'app</string>
     <string name="revanced_open_links_externally_summary_on">Browser esterno</string>
     <string name="revanced_open_links_externally_title">Cambia il modo di aprire i link</string>
@@ -1982,6 +1986,10 @@ Tocca e tieni premuto per aprire le impostazioni di YouTube."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Le miniature della barra di avanzamento appariranno sopra la barra di avanzamento</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Ripristina vecchie miniature della barra di avanzamento</string>
     <string name="revanced_restore_old_settings_menus_title">Ripristina la vecchia schermata delle impostazioni di YouTube</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"Corregge la mancata visualizzazione dei \"Mi piace non mi piace\" e l'impossibilità di nascondere i pulsanti delle azioni video
+
+Limitazioni: ritorna alla vecchia visualizzazione \"Altri video\""</string>
+    <string name="revanced_restore_old_video_action_bar_title">Ripristina la barra delle azioni video precedente</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">La vecchia interfaccia è disattivata.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"La vecchia interfaccia è attivata.
 (Nessun margine in alto e in basso del riproduttore.)"</string>
@@ -2004,7 +2012,9 @@ Tocca qui per vedere come emettere una chiave API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Vai su &lt;a href=%1$s&gt;Crea un nuovo progetto&lt;/a&gt;.&lt;br&gt;. Clicca il pulsante &lt;b&gt;CREA&lt;/b&gt;.&lt;br&gt;3. Vai su &lt;a href=%2$s&gt;dati YouTube API v3&lt;/a&gt;.&lt;br&gt;4. Fare clic sul pulsante &lt;b&gt;ABILITA&lt;/b&gt;.&lt;br&gt;5. Fare clic sul pulsante &lt;b&gt;CREA CREDENZIALI&lt;/b&gt;.&lt;br&gt;6. Selezionare l\'opzione &lt;b&gt;Dati pubblici&lt;/b&gt;.&lt;br&gt;7. Fare clic sul pulsante &lt;b&gt;AVANTI&lt;/b&gt;&lt;br&gt;8. Copia la chiave API.&lt;br&gt;&lt;br&gt;※ La chiave API non dovrebbe mai essere condivisa con gli altri, quindi non è inclusa nelle impostazioni di Esportazione / Importazione.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Inserimento della chiave sviluppatore YouTube Data API v3</string>
     <string name="revanced_ryd_about">Informazioni</string>
-    <string name="revanced_ryd_attribution_summary">I dati vengono forniti dall\'API Return YouTube Dislike. Tocca qui per saperne di più</string>
+    <string name="revanced_ryd_attribution_summary">"I dati sono forniti dall'API Return YouTube Dislike.
+
+Tocca qui per aprire ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Pulsante Mi Piace riadattato per la migliore visualizzazione</string>
     <string name="revanced_ryd_compact_layout_summary_on">Pulsante Mi Piace riadattato per una larghezza minima</string>
@@ -2391,6 +2401,9 @@ La maggior parte dei bug non può essere risolta a causa di limitazioni lato cli
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Lettore normale a schermo intero</string>
     <string name="revanced_shorts_player_type_shorts">Lettore Shorts</string>
     <string name="revanced_shorts_player_type_title">Apri Shorts con</string>
+    <string name="revanced_show_settings_button_index_title">Posizione del pulsante Impostazioni</string>
+    <string name="revanced_show_settings_button_title">Mostra il pulsante Impostazioni</string>
+    <string name="revanced_show_settings_button_type_title">Azione pulsante Impostazioni</string>
     <string name="revanced_show_video_title_section_summary">"Mostra il titolo dei video a schermo intero.
 
 Nota: il titolo scompare quando lo si tocca."</string>
@@ -2666,12 +2679,12 @@ Nota: i cookie generati senza effettuare l'accesso potrebbero non essere validi 
     <string name="revanced_vot_audio_proxy_title">Riproduzione proxy dell'audio </string>
     <string name="revanced_vot_enabled_summary_off">La traduzione vocale di Yandex è disabilitata</string>
     <string name="revanced_vot_enabled_summary_on">La traduzione vocale di Yandex è abilitata</string>
-    <string name="revanced_vot_enabled_title">Attiva Voice Over Translation</string>
+    <string name="revanced_vot_enabled_title">Traduzione voice over</string>
     <string name="revanced_vot_lang_auto">Riconoscimento automatico
 </string>
     <string name="revanced_vot_live_voices_unavailable">Live voices non disponibile, verrà usata la modalità standard</string>
-    <string name="revanced_vot_original_audio_volume_summary">Volume della traccia video originale quando la traduzione è in esecuzione (0-100). Default: 50</string>
-    <string name="revanced_vot_original_audio_volume_title">Volume dell'audio originale</string>
+    <string name="revanced_vot_original_audio_volume_summary">Volume dell\'audio originale di YouTube durante la riproduzione della traduzione</string>
+    <string name="revanced_vot_original_audio_volume_title">Volume audio originale</string>
     <string name="revanced_vot_playback_error">Riproduzione della traduzione audio fallita</string>
     <string name="revanced_vot_proxy_url_summary">Host proxy worker VOT. Predefinito: vot-worker.toil.cc</string>
     <string name="revanced_vot_proxy_url_title">Server proxy</string>
@@ -2685,7 +2698,7 @@ Nota: i cookie generati senza effettuare l'accesso potrebbero non essere validi 
     <string name="revanced_vot_stream_waiting">Attendi... ~%s</string>
     <string name="revanced_vot_target_language_summary">Seleziona la lingua in cui tradurre</string>
     <string name="revanced_vot_target_language_title">Lingua target</string>
-    <string name="revanced_vot_translation_volume_summary">Volume della traccia audio della traduzione (0-100). Default: 100</string>
+    <string name="revanced_vot_translation_volume_summary">Volume della voce doppiata della traduzione</string>
     <string name="revanced_vot_translation_volume_title">Volume della traduzione</string>
     <string name="revanced_vot_unavailable_live">La traduzione non è disponibile per le live streams</string>
     <string name="revanced_vot_unavailable_same_language">L'audio del video è già nella lingua target</string>

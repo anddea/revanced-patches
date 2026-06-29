@@ -128,11 +128,11 @@ Se você é um usuário do YouTube Premium, esta configuração pode não ser ne
     <string name="revanced_advanced_video_quality_menu_type_summary_off">O menu flutuante antigo é usado.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">O diálogo personalizado é usado.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Tipo de menu avançado de qualidade de vídeo nos Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fornece miniaturas de crowdsourcing para vídeos do YouTube. Essas miniaturas costumam ser mais relevantes do que as fornecidas pelo YouTube
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fornece miniaturas de crowdsourcing para vídeos do YouTube. Essas miniaturas são frequentemente mais relevantes do que as fornecidas pelo YouTube
 
-Se ativado, os URLs dos vídeos serão enviados ao servidor API e nenhum outro dado será enviado. Se um vídeo não tiver miniaturas DeArrow, as originais ou capturas fixas serão exibidas 
+Se ativado, os URLs dos vídeos serão enviados ao servidor API e nenhum outro dado será enviado. Se um vídeo não tiver miniaturas DeArrow, as originais ou capturas fixas serão exibidas
 
-Toque aqui para saber mais sobre DeArrow"</string>
+Toque aqui para abrir DeArrow.ajay.app"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">URL da API DeArrow inválida.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Cache endpoint da URL das miniaturas DeArrow</string>
@@ -197,20 +197,20 @@ Habilitar isso pode corrigir imagens ausentes que estão bloqueadas em algumas r
     <string name="revanced_change_form_factor_entry_5">Tablet (Min 600 dp)</string>
     <string name="revanced_change_form_factor_entry_6">Automotivo</string>
     <string name="revanced_change_form_factor_title">Fator de forma do layout </string>
-    <string name="revanced_change_form_factor_user_dialog_message">"Alterações incluem:
+    <string name="revanced_change_form_factor_user_dialog_message">"As mudanças incluem:
 
 Layout para tablet
 • Publicações da comunidade estão ocultas
-• Configuração de reprodução em feeds não está disponível
-• Botão Remix e Botão de Som não estão disponíveis em Shorts
-• Barra de ações de vídeo não está recolhida
+• A configuração de reprodução em feeds não está disponível
+• O botão Remixar e o botão Som não estão disponíveis no Shorts
+• A barra de ações antiga não recolhida é mostrada
 
-Layout para automóvel
-• Feed é organizado por tópicos e canais
-• Configuração de reprodução em feeds não está disponível
-• Botão Remix e Botão de Som não estão disponíveis em Shorts
-• Shorts abrem no player normal
-• Barra de ações de vídeo não está recolhida"</string>
+Layout automotivo
+• O feed é organizado por tópicos e canais
+• A configuração de reprodução em feeds não está disponível
+• O botão Remixar e o botão Som não estão disponíveis no Shorts
+• Shorts abrem no reprodutor normal
+• A barra de ações antiga não recolhida é mostrada"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Alternadores serão usados.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Alternadores de texto são usados.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Modificar tipo de alternância</string>
@@ -803,6 +803,7 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Exibido no feed de inscrições.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Oculto no feed de inscrições.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Ocultar no feed de inscrições</string>
+    <string name="revanced_hide_connect_button_title">Ocultar botão Conectar</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Prateleira da loja do criador sob o reprodutor de vídeo é exibida</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">A prateleira da loja do criador sob o player de vídeo está oculta</string>
     <string name="revanced_hide_creator_store_shelf_title">Ocultar prateleira da loja do criador</string>
@@ -910,10 +911,10 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_key_concepts_section_summary_off">A seção Conceitos-chave é mostrada</string>
     <string name="revanced_hide_key_concepts_section_summary_on">A seção Conceitos-chave está oculta</string>
     <string name="revanced_hide_key_concepts_section_title">Ocultar seção \'Conceitos-chave\'</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Início / Assinaturas / Os resultados da pesquisa são filtrados para ocultar o conteúdo que corresponde às frases de palavras-chave
+    <string name="revanced_hide_keyword_content_about_summary">"Página inicial / Assinaturas / Pesquisa / Comentários são filtrados para ocultar conteúdo que corresponde a frases de palavras-chave
 
 Limitações:
-• Os Shorts não podem ser ocultados pelo nome do canal
+• Shorts não podem ser ocultados pelo nome do canal
 • Alguns componentes da IU podem não ser ocultados
 • A pesquisa por uma palavra-chave pode não mostrar resultados"</string>
     <string name="revanced_hide_keyword_content_about_title">Sobre a filtragem com palavra-chave</string>
@@ -975,6 +976,7 @@ Palavras com letras maiúsculas no meio devem corresponder exatamente (por exemp
     <string name="revanced_hide_mix_playlists_summary_off">As playlists de mix são mostradas</string>
     <string name="revanced_hide_mix_playlists_summary_on">Playlists de mix estão ocultas</string>
     <string name="revanced_hide_mix_playlists_title">Ocultar playlists de mix</string>
+    <string name="revanced_hide_more_button_title">Ocultar botão Mais</string>
     <string name="revanced_hide_movie_shelf_summary_off">Os painéis de filmes serão exibidos.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Os painéis de filmes estão ocultos.</string>
     <string name="revanced_hide_movie_shelf_title">Ocultar painel de filmes</string>
@@ -1163,6 +1165,7 @@ Se o layout da tela do reprodutor mudar devido a alterações no lado do servido
     <string name="revanced_hide_rewards_button_summary_on">O botão recompensas está oculto.</string>
     <string name="revanced_hide_rewards_button_title">Ocultar botão recompensas</string>
     <string name="revanced_hide_search_bar_back_button_summary_off">O botão Voltar da barra de pesquisa é exibido.</string>
+    <string name="revanced_hide_search_bar_back_button_summary_on">Português BR </string>
     <string name="revanced_hide_search_bar_back_button_title">Ocultar botão Voltar da barra de pesquisa</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">As miniaturas do histórico de pesquisa serão exibidas.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">As miniaturas do histórico de pesquisa estão ocultas.</string>
@@ -1659,6 +1662,8 @@ O mini reprodutor pode ser arrastado para fora da tela para a esquerda ou direit
     <string name="revanced_miniplayer_width_dip_invalid_toast">O tamanho do pixel deve estar entre %1$s e %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">Defina o tamanho inicial na tela, em pixels</string>
     <string name="revanced_miniplayer_width_dip_title">Tamanho padrão</string>
+    <string name="revanced_navigation_bar_animations_summary">Anima as transições ao alternar entre as abas</string>
+    <string name="revanced_navigation_bar_animations_title">Habilitar animações da barra de navegação</string>
     <string name="revanced_open_links_externally_summary_off">Abre links no navegador do aplicativo.</string>
     <string name="revanced_open_links_externally_summary_on">Abre links no navegador externo.</string>
     <string name="revanced_open_links_externally_title">Abrir links no navegador</string>
@@ -1971,6 +1976,10 @@ Toque e segure para abrir as Configurações do YouTube."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">As miniaturas vão aparecer acima da barra de busca</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurar as miniaturas antigas da barra de busca</string>
     <string name="revanced_restore_old_settings_menus_title">Restaurar menus de configurações antigos</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"Corrige a não exibição de dislikes e a impossibilidade de ocultar os botões de ação do vídeo
+
+Limitações: Retorna à sobreposição 'Mais vídeos' no estilo antigo"</string>
+    <string name="revanced_restore_old_video_action_bar_title">Restaurar barra de ações de vídeo antiga</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">O layout antigo do reprodutor não é utilizado.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"O layout antigo do reprodutor é utilizado.
 Sem margens na parte superior e inferior do reprodutor."</string>
@@ -1993,14 +2002,16 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Vá para &lt;a href=%1$s&gt;Criar um novo projeto&lt;/a&gt;.&lt;br&gt;2. Clique no botão &lt;b&gt;CRIAR&lt;/b&gt;.&lt;br&gt;3. Vá para &lt;a href=%2$s&gt;API de dados do YouTube v3&lt;/a&gt;.&lt;br&gt;4. Clique no botão &lt;b&gt;ATIVAR&lt;/b&gt;.&lt;br&gt;5. Clique no botão &lt;b&gt;CRIAR CREDENCIAIS&lt;/b&gt;.&lt;br&gt;6. Selecione a opção &lt;b&gt;Dados públicos&lt;/b&gt;.&lt;br&gt;7. Clique no botão &lt;b&gt;PRÓXIMO&lt;/b&gt;.&lt;br&gt;8. Copie a chave da API.&lt;br&gt;&lt;br&gt;※ A chave da API nunca deve ser compartilhada com outras pessoas, portanto, ela não é incluída nas configurações de Importação/Exportação.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Emitir chave de desenvolvedor da API de dados do YouTube v3</string>
     <string name="revanced_ryd_about">Sobre</string>
-    <string name="revanced_ryd_attribution_summary">Os dados são fornecidos pela API do Return Dislike YouTube. Toque aqui para saber mais</string>
+    <string name="revanced_ryd_attribution_summary">"Os dados são fornecidos pela API Return YouTube Dislike.
+
+Toque aqui para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Botão gostei estilizado para melhor aparência</string>
     <string name="revanced_ryd_compact_layout_summary_on">Botão gostei estilizado para largura mínima</string>
     <string name="revanced_ryd_compact_layout_title">Reduz a largura do botão Curtir para economizar espaço</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">\"Não gostei\" são mostrados como um número</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">\"Não gostei\" são mostrados como uma porcentagem</string>
-    <string name="revanced_ryd_dislike_percentage_title">Mostra as curtidas como uma porcentagem de curtidas em vez de um número</string>
+    <string name="revanced_ryd_dislike_percentage_title">Mostrar não gostei como porcentagem</string>
     <string name="revanced_ryd_enable_summary_off">Os dislikes não serão exibidos.</string>
     <string name="revanced_ryd_enable_summary_on">Os dislikes serão exibidos.</string>
     <string name="revanced_ryd_enable_title">Ativar Return YouTube Dislike</string>
@@ -2137,7 +2148,7 @@ Se você não estiver enviando um destaque, toque em Cancelar e marque a segunda
     <string name="revanced_sb_new_segment_title">Novo segmento SponsorBlock</string>
     <string name="revanced_sb_reset">Redefinir</string>
     <string name="revanced_sb_reset_color">Redefinir cor</string>
-    <string name="revanced_sb_segments_filler">Divagação / Piadas</string>
+    <string name="revanced_sb_segments_filler">Desvios / Piadas</string>
     <string name="revanced_sb_segments_filler_sum">Cenas tangenciais ou piadas que não são necessárias para entender o conteúdo principal do vídeo. Não inclui seções que fornecem contexto ou detalhes de fundo</string>
     <string name="revanced_sb_segments_highlight">Destaque</string>
     <string name="revanced_sb_segments_highlight_sum">A parte do vídeo que a maioria das pessoas está procurando</string>
@@ -2399,6 +2410,9 @@ A maioria dos bugs não podem ser corrigidos devido a limitações no lado do cl
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Tela cheia do player regular</string>
     <string name="revanced_shorts_player_type_shorts">Reprodutor do Shorts</string>
     <string name="revanced_shorts_player_type_title">Abrir Shorts com</string>
+    <string name="revanced_show_settings_button_index_title">Ocultar rodapé do menu \'Legendas\'</string>
+    <string name="revanced_show_settings_button_title">Ocultar menu \'Legendas\'</string>
+    <string name="revanced_show_settings_button_type_title">Ação do botão Configurações</string>
     <string name="revanced_show_video_title_section_summary">"Exibe a seção de título do vídeo em tela cheia.
 
 Limitação: Título do vídeo desaparece quando clicado."</string>
@@ -2571,15 +2585,15 @@ Ajuste o brilho deslizando verticalmente no lado esquerdo da tela"</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Deslizar para baixo até o menor valor do gesto de brilho, ativa o brilho automático</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Ativar gesto de brilho automático</string>
     <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A opacidade do deslizar deve estar entre 0-100</string>
-    <string name="revanced_swipe_overlay_background_opacity_summary">Ocultar botão \'Parar anúncios\'</string>
+    <string name="revanced_swipe_overlay_background_opacity_summary">Ajuste o nível de transparência (0 é transparente, 100 é opaco)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Opacidade do plano de fundo de sobreposição de deslize</string>
-    <string name="revanced_swipe_overlay_progress_brightness_color_summary">Ocultar botão \'Denunciar\'</string>
+    <string name="revanced_swipe_overlay_progress_brightness_color_summary">Definir a cor da barra de progresso dos controles de brilho</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Cor da barra de brilho da sobreposição de deslize</string>
     <string name="revanced_swipe_overlay_progress_seek_color_summary">A cor da barra de progresso para os controles de busca</string>
     <string name="revanced_swipe_overlay_progress_seek_color_title">Cor de busca na sobreposição de deslizamento</string>
     <string name="revanced_swipe_overlay_progress_speed_color_summary">Defina a cor da barra de progresso dos controles de velocidade de reprodução</string>
     <string name="revanced_swipe_overlay_progress_speed_color_title">Cor da barra de progresso da velocidade da sobreposição de deslize</string>
-    <string name="revanced_swipe_overlay_progress_volume_color_summary">Ocultar botão \'Download\'</string>
+    <string name="revanced_swipe_overlay_progress_volume_color_summary">Definir a cor da barra de progresso dos controles de volume</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Cor da barra de volume da sobreposição de deslize</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">O tamanho da área deslizável não pode ser maior que 50. Redefinir ao valor padrão.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Porcentagem de área deslizável da tela.\n\nNota: isto também altera o tamanho da área da tela para o gesto de toque duplo na tela.</string>
@@ -2619,9 +2633,9 @@ Ajuste a velocidade deslizando horizontalmente na metade inferior da tela."</str
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">A zona do gesto de velocidade fica na parte superior, a zona de busca fica na parte inferior.</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Inverter gestos de velocidade e busca</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">O tamanho do texto deve estar entre 1 e 30</string>
-    <string name="revanced_swipe_text_overlay_size_summary">Ocultar botão \'Hype\'</string>
+    <string name="revanced_swipe_text_overlay_size_summary">Ajuste o tamanho do texto na tela (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Tamanho do texto da sobreposição de deslize</string>
-    <string name="revanced_swipe_threshold_summary">Ocultar botão \'Promover\'</string>
+    <string name="revanced_swipe_threshold_summary">Defina a distância de deslize necessária antes que um ajuste seja acionado</string>
     <string name="revanced_swipe_threshold_title">Limiar distância no gesto</string>
     <string name="revanced_swipe_volume_distance_summary">A quantidade de pixels para deslizar para ajustar o volume. Valores mais baixos tornam a mudança de volume mais rápida, valores mais altos a tornam mais lenta (1-1000).</string>
     <string name="revanced_swipe_volume_distance_title">Distância do volume</string>
@@ -2692,11 +2706,12 @@ Fluxo de áudio proxy</string>
     <string name="revanced_vot_auth_required">É necessária autorização. Adicione o token OAuth do Yandex nas configurações.</string>
     <string name="revanced_vot_enabled_summary_off">A tradução de voz do Yandex está desativada</string>
     <string name="revanced_vot_enabled_summary_on">A tradução por voz do Yandex está ativada.</string>
-    <string name="revanced_vot_enabled_title">Ativar tradução por voz</string>
+    <string name="revanced_vot_enabled_title">Tradução por voz</string>
     <string name="revanced_vot_lang_auto">Detecção automática</string>
     <string name="revanced_vot_live_voices_unavailable">revanced_vot_live_voices_unavailable</string>
     <string name="revanced_vot_oauth_account_management_title">Token OAuth do Yandex</string>
-    <string name="revanced_vot_original_audio_volume_summary">Volume do áudio original do video quando a tradução está sendo reproduzida (0-100). Padrão: 50</string>
+    <string name="revanced_vot_oauth_auth_method_message">Português brasileiro </string>
+    <string name="revanced_vot_original_audio_volume_summary">Volume do áudio original do YouTube enquanto a tradução está sendo reproduzida</string>
     <string name="revanced_vot_original_audio_volume_title">Volume do áudio original</string>
     <string name="revanced_vot_playback_error">Falha ao reproduzir áudio traduzido.</string>
     <string name="revanced_vot_proxy_url_summary">Host proxy do servidor VOT. Padrão: vot-worker.toil.cc</string>
@@ -2713,8 +2728,8 @@ Fluxo de áudio proxy</string>
     <string name="revanced_vot_target_language_title">Língua de destino</string>
     <string name="revanced_vot_time_min">%d min </string>
     <string name="revanced_vot_time_sec">%d seg</string>
-    <string name="revanced_vot_translation_volume_summary">Volume da faixa de áudio traduzida (0-100). Padrão: 100</string>
-    <string name="revanced_vot_translation_volume_title">Volume de tradução</string>
+    <string name="revanced_vot_translation_volume_summary">Volume da voz dublada da tradução</string>
+    <string name="revanced_vot_translation_volume_title">Volume da tradução</string>
     <string name="revanced_vot_unavailable_live">A tradução não está disponível para transmissões ao vivo</string>
     <string name="revanced_vot_unavailable_same_language">O áudio do vídeo já está no idioma de destino</string>
     <string name="revanced_vot_unavailable_too_long">O vídeo é muito longo para ser traduzido (máximo de 4 horas)</string>

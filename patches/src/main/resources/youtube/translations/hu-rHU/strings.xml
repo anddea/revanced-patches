@@ -198,20 +198,20 @@ Ez a beállítás megoldhatja a hiányzó képek problémáját, amelyek blokkol
     <string name="revanced_change_form_factor_entry_5">Tablet (min 600 dpi)</string>
     <string name="revanced_change_form_factor_entry_6">Autóipari</string>
     <string name="revanced_change_form_factor_title">Eszköz elrendezés</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"A módosítások a következők:
+    <string name="revanced_change_form_factor_user_dialog_message">"A változtatások a következők:
 
 Táblagépes elrendezés
-• A közösségi bejegyzések el vannak rejtve
-• A feed-ben történő lejátszás beállítás nem érhető el
-• A Remix gomb és a Hang gomb nem érhető el a Shortsban
-• A videó műveleti sáv nem omlik össze
+• A közösségi bejegyzések rejtve vannak
+• A hírcsatornában történő lejátszás beállítás nem érhető el
+• A Keverés gomb és a Hang gomb nem érhető el a Shortoknál
+• A régi videósáv nem összecsukott formában jelenik meg
 
-Autóelrendezés
-• A feed témák és csatornák szerint van szervezve
-• A feed-ben történő lejátszás beállítás nem érhető el
-• A Remix gomb és a Hang gomb nem érhető el a Shortsban
-• A Shorts a hagyományos lejátszóban nyílnak meg
-• A videó műveleti sáv nem omlik össze"</string>
+Autós elrendezés
+• A hírcsatorna témák és csatornák szerint van rendezve
+• A hírcsatornában történő lejátszás beállítás nem érhető el
+• A Keverés gomb és a Hang gomb nem érhető el a Shortoknál
+• A Shortok a szokásos lejátszóban nyílnak meg
+• A régi videósáv nem összecsukott formában jelenik meg"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Kapcsolók használata.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Szövegkapcsolók használata.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Kapcsolótípus megváltoztatása</string>
@@ -806,6 +806,7 @@ Ha a sáv összes elemét elrejted, a teljes megjegyzések szakasz is rejtve mar
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Látható a feliratkozások között.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Elrejtve a feliratkozások között.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Elrejtés a feliratkozások között</string>
+    <string name="revanced_hide_connect_button_title">Rejtse el a Csatlakozás gombot</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Alkotói bolti polc látható a videólejátszó alatt</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Az alkotói bolt polc a videólejátszó alatt elrejtve</string>
     <string name="revanced_hide_creator_store_shelf_title">Alkotói termékpolc elrejtése</string>
@@ -913,18 +914,18 @@ Ha a sáv összes elemét elrejted, a teljes megjegyzések szakasz is rejtve mar
     <string name="revanced_hide_key_concepts_section_summary_off">A Főbb fogalmak szakasz látható</string>
     <string name="revanced_hide_key_concepts_section_summary_on">A Főbb fogalmak szakasz rejtett</string>
     <string name="revanced_hide_key_concepts_section_title">Kulcsfogalmak szekció elrejtése</string>
-    <string name="revanced_hide_keyword_content_about_summary">"​A Főoldal, a Feliratkozások és a keresési találatok szűrve vannak a kulcsszavas kifejezésekkel egyező tartalmak elrejtéséhez
+    <string name="revanced_hide_keyword_content_about_summary">"A Főoldal, a Feliratkozások, a Keresés és a megjegyzések szűrése kulcsszavas kifejezésekkel egyező tartalmak elrejtéséhez
 
-Korlátok:
-• A Shorts-videók elrejtése csatornanév alapján nem működik.
+Korlátozások:
+• A Shorts-videók nem rejthetők el csatornanév alapján.
 • Egyes felületi elemek láthatóak maradhatnak.
-• Egy-egy kulcsszó keresésekor előfordulhat, hogy nincs találat."</string>
+• Egy kulcsszó keresésekor előfordulhat, hogy nincs találat."</string>
     <string name="revanced_hide_keyword_content_about_title">Tudnivalók a kulcsszószűrőről</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Kulcsszavak vagy kifejezések idézőjelbe tételével elkerülhetők a részleges egyezések a videócímeknél és csatornaneveknél&lt;br&gt;&lt;br&gt; Például,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; el fogja rejteni ezt a videót: &lt;b&gt;Hogyan működik az AI?&lt;/b&gt;&lt;br&gt;de nem fogja elrejteni ezt: &lt;b&gt;Mit jelent a méltányos használat?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Teljes szavas egyezés</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">A kommentek nincsenek szűrve.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">A kommentek szűrve vannak.</string>
-    <string name="revanced_hide_keyword_content_comments_title">Kommentek elrejtése kulcsszavak alapján</string>
+    <string name="revanced_hide_keyword_content_comments_title">Kulcsszavak szerinti megjegyzések elrejtése</string>
     <string name="revanced_hide_keyword_content_home_summary_off">A videók a kezdőlapon nincsenek szűrve</string>
     <string name="revanced_hide_keyword_content_home_summary_on">A videók a kezdőlapon kulcsszavak alapján szűrve</string>
     <string name="revanced_hide_keyword_content_home_title">Főoldali videók elrejtése kulcsszavak alapján</string>
@@ -978,6 +979,7 @@ A közepén nagybetűvel kezdődő szavakat pontosan úgy kell megadni, ahogy í
     <string name="revanced_hide_mix_playlists_summary_off">Az egyveleg lejátszási listák megjelennek</string>
     <string name="revanced_hide_mix_playlists_summary_on">Az egyveleg lejátszási listák el vannak rejtve</string>
     <string name="revanced_hide_mix_playlists_title">Egyveleg lejátszási listák elrejtése</string>
+    <string name="revanced_hide_more_button_title">Rejtse el a Továbbiak gombot</string>
     <string name="revanced_hide_movie_shelf_summary_off">A filmek polcai láthatóak.</string>
     <string name="revanced_hide_movie_shelf_summary_on">A filmek polcai el vannak rejtve.</string>
     <string name="revanced_hide_movie_shelf_title">Film polcok elrejtése</string>
@@ -1668,6 +1670,8 @@ A minilejátszó jobbra vagy balra húzható a képernyőn."</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">A képpont méretének %1$s és %2$s között kell lennie</string>
     <string name="revanced_miniplayer_width_dip_summary">Beállítja a kezdeti képernyőméretet, pixelben</string>
     <string name="revanced_miniplayer_width_dip_title">Alapértelmezett méret</string>
+    <string name="revanced_navigation_bar_animations_summary">Animálja az átmeneteket a lapok között váltáskor</string>
+    <string name="revanced_navigation_bar_animations_title">Navigációs sáv animációinak engedélyezése</string>
     <string name="revanced_open_links_externally_summary_off">A linkek az app böngészőjében nyílnak meg.</string>
     <string name="revanced_open_links_externally_summary_on">A linkek a külső böngészőben nyílnak meg.</string>
     <string name="revanced_open_links_externally_title">Linkek külső megnyitása</string>
@@ -1976,6 +1980,10 @@ Infó:
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">A keresősáv bélyegképei megjelennek a keresősáv felett</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Régi keresősáv bélyegképek visszaállítása</string>
     <string name="revanced_restore_old_settings_menus_title">Régi YouTube beállításképernyő visszaállítása</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"Javítja a negatív értékelések megjelenítésének problémáját és lehetővé teszi a videós gombok elrejtését.
+
+Korlátozások: Visszatér a régi stílusú \"További videók\" átfedéshez."</string>
+    <string name="revanced_restore_old_video_action_bar_title">Régi videós eszköztár visszaállítása</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">A régi lejátszó felülete nincs használatban.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"A régi lejátszó felület van használva.
 Nincs margó a lejátszó tetején és alján."</string>
@@ -1998,7 +2006,9 @@ Kattintson az API-kulcs kiadás folyamatának megtekintéséhez."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Nyissa meg a(z) &lt;a href=%1$s&gt;Új projekt létrehozását&lt;/a&gt;.&lt;br&gt;2. Kattintson a &lt;b&gt;LÉTREHOZÁS&lt;/b&gt; gomb.&lt;br&gt;3. Lépj a &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; oldalára.&lt;br&gt;4. Kattintson az &lt;b&gt;Engedélyezés&lt;/b&gt; gombra.&lt;br&gt;5. Kattintson a &lt;b&gt;HITELESÍTÉSI ADATOK LÉTREHOZÁSA&lt;/b&gt; gombra.&lt;br&gt;6. Válassza ki a &lt;b&gt;Nyilvános adatok&lt;/b&gt; lehetőség.&lt;br&gt;7. Kattintson a &lt;b&gt;KÖVETKEZŐ&lt;/b&gt; gombra.&lt;br&gt;8. Másolja ki az API-kulcsot.&lt;br&gt;&lt;br&gt;※ Az API-kulcsot soha ne ossza meg másokkal, így az nem szerepel az importálási/exportálási beállításokban.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 fejlesztői kulcs kiadás</string>
     <string name="revanced_ryd_about">Névjegy</string>
-    <string name="revanced_ryd_attribution_summary">Az adatokat a Return YouTube Dislike API biztosítja. További információért koppintson ide</string>
+    <string name="revanced_ryd_attribution_summary">"Az adatokat a Return YouTube Dislike API biztosítja.
+
+Érintse meg ide a ReturnYouTubeDislike.com megnyitásához"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">A tetszik gomb a legjobb megjelenésre formázva</string>
     <string name="revanced_ryd_compact_layout_summary_on">A tetszik gomb minimális szélességre formázva</string>
@@ -2389,6 +2399,9 @@ A legtöbb hiba nem javítható az ügyféloldali korlátozások miatt, ezért c
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Teljes képernyős normál lejátszó</string>
     <string name="revanced_shorts_player_type_shorts">Shorts lejátszó</string>
     <string name="revanced_shorts_player_type_title">Shorts megnyitása ezzel:</string>
+    <string name="revanced_show_settings_button_index_title">Beállítások gomb pozíciója</string>
+    <string name="revanced_show_settings_button_title">Beállítások gomb megjelenítése</string>
+    <string name="revanced_show_settings_button_type_title">Beállítások gomb művelete</string>
     <string name="revanced_show_video_title_section_summary">"Megjeleníti a videócím részt teljes képernyős módban.
 
 Korlátozás: A videó címe eltűnik, ha rákattint."</string>
@@ -2667,6 +2680,11 @@ Jogi nyilatkozat: A bejelentkezés nélkül kibocsátott sütik érvénytelenek 
     <string name="revanced_transcript_cookies_summary">Az Átirat API kérésekben használandó sütik.</string>
     <string name="revanced_transcript_cookies_title">Átirati sütik</string>
     <string name="revanced_translations_title">Fordítások</string>
+    <string name="revanced_vot_enabled_title">Hangfelirat hangos felolvasása</string>
+    <string name="revanced_vot_original_audio_volume_summary">Az eredeti YouTube hang hangereje a fordítás közben</string>
+    <string name="revanced_vot_original_audio_volume_title">Az eredeti hang hangereje</string>
+    <string name="revanced_vot_translation_volume_summary">A szinkronizált fordítás hangjának hangereje</string>
+    <string name="revanced_vot_translation_volume_title">A fordítás hangereje</string>
     <string name="revanced_watch_history_about_status_blocked">• A megtekintési előzmények le vannak tiltva.</string>
     <string name="revanced_watch_history_about_status_original">"• Követi a Google-fiók megtekintési előzményeinek beállításait.
 • Előfordulhat, hogy a megtekintési előzmények nem működik a DNS vagy a VPN miatt."</string>

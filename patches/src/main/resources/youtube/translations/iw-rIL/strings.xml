@@ -129,9 +129,9 @@
     <string name="revanced_advanced_video_quality_menu_type_summary_off">נעשה שימוש בתפריט נשלף בסגנון ישן.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">נעשה שימוש בדיאלוג מותאם אישית. </string>
     <string name="revanced_advanced_video_quality_menu_type_title">סוג תפריט איכות וידאו מתקדמת ב-Shorts </string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"השירות DeArrow מספק תמונות ממוזערות של מיקור המונים עבור סרטוני YouTube. תמונות ממוזערות אלה הן לעתים קרובות רלוונטיות יותר מאלה שסופקו על ידי YouTube
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow מספק תמונות ממוזערות שנאספו בהמונים לסרטוני YouTube. תמונות ממוזערות אלה רלוונטיות לרוב מאלו שסיפק YouTube
 
-אם מופעל, כתובות URL של סרטונים יישלחו לשרת ה-API ושום נתונים אחרים לא יישלחו. אם לסרטון אין תמונות ממוזערות של DeArrow, אז מוצגות התמונות המקוריות או לכידות דוממות
+אם מופעל, כתובות URL של סרטונים יישלחו לשרת ה-API ושום נתונים אחרים לא יישלחו. אם לסרטון אין תמונות ממוזערות של DeArrow, יוצגו התמונות המקוריות או הצילומים המצולמים
 
 הקש כאן כדי ללמוד עוד על DeArrow"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
@@ -196,16 +196,16 @@
 
 פריסת טאבלט
 • פוסטים קהילתיים מוסתרים
-• הגדרת השמעה במקורות אינה זמינה
-• כפתור 'מיזוג' וכפתור 'סאונד' אינם זמינים ב-Shorts
-• שורת הפעולות של הווידאו אינה מקופלת
+• הגדרת השמעה בפידים אינה זמינה
+• לחצן רמיקס ולחצן סאונד אינם זמינים ב-Shorts
+• סרגל הפעולות הישן שאינו מקופל מוצג
 
 פריסת רכב
-• המקורות מאורגנים לפי נושאים וערוצים
-• הגדרת השמעה במקורות אינה זמינה
-• כפתור 'מיזוג' וכפתור 'סאונד' אינם זמינים ב-Shorts
+• הפיד מאורגן לפי נושאים וערוצים
+• הגדרת השמעה בפידים אינה זמינה
+• לחצן רמיקס ולחצן סאונד אינם זמינים ב-Shorts
 • Shorts נפתחים בנגן הרגיל
-• שורת הפעולות של הווידאו אינה מקופלת"</string>
+• סרגל הפעולות הישן שאינו מקופל מוצג"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">נעשה שימוש במתגים.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">נעשה שימוש בלחצני טקסט.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">שנה את סוג החלפת המצב</string>
@@ -418,6 +418,7 @@
     <string name="revanced_hide_community_button_summary_off">הלחצן \'קהילה\' מוצג</string>
     <string name="revanced_hide_community_button_summary_on">הלחצן \'קהילה\' מוסתר</string>
     <string name="revanced_hide_community_button_title">הסתר לחצן תגובות</string>
+    <string name="revanced_hide_connect_button_title">הסתר לחצן חיבור</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">מדף חנות היוצר מתחת לנגן הוידאו מוצג</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">מדף חנות היוצר מתחת לנגן הוידאו מוסתר</string>
     <string name="revanced_hide_creator_store_shelf_title">הסתר מדף חנות היוצר</string>
@@ -486,7 +487,7 @@
     <string name="revanced_hide_key_concepts_section_summary_off">מדור מושגי מפתח מוצג</string>
     <string name="revanced_hide_key_concepts_section_summary_on">מדור מושגי מפתח מוסתר</string>
     <string name="revanced_hide_key_concepts_section_title">הסתר את סעיף \'מושגי מפתח\'</string>
-    <string name="revanced_hide_keyword_content_about_summary">"דף הבית/מינויים/תוצאות החיפוש מסוננות כדי להסתיר תוכן שתואם ביטויי מילות מפתח
+    <string name="revanced_hide_keyword_content_about_summary">"דף הבית/מינויים/חיפוש/תגובות מסוננים כדי להסתיר תוכן שתואם ביטויי מילות מפתח
 
 מגבלות:
 • סרטוני Shorts אינם ניתנים להסתרה לפי שם ערוץ
@@ -495,6 +496,7 @@
     <string name="revanced_hide_keyword_content_about_title">אודות סינון מילות מפתח</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">הקפת מילת מפתח/ביטוי עם מרכאות כפולות תמנע התאמות חלקיות של כותרות סרטונים ושמות ערוצים&lt;br&gt;&lt;br&gt;לדוגמא,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; יסתיר את הסרטון: &lt;b&gt;כיצד פועלת AI?&lt;/b&gt;&lt;br&gt;אבל אינו יסתיר את: &lt;b&gt;איך נשמעות ה-AirPods החדשות?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">התאם מילים שלמות</string>
+    <string name="revanced_hide_keyword_content_comments_title">הסתר תגובות לפי מילות מפתח</string>
     <string name="revanced_hide_keyword_content_home_summary_off">סרטונים בכרטיסיית הבית אינם מסוננים לפי מילות מפתח</string>
     <string name="revanced_hide_keyword_content_home_summary_on">סרטונים בכרטיסיית הבית מסוננים לפי מילות מפתח</string>
     <string name="revanced_hide_keyword_content_home_title">הסתר סרטוני בית לפי מילות מפתח</string>
@@ -536,6 +538,7 @@
     <string name="revanced_hide_mix_playlists_summary_off">פלייליסטים של מיקס מוצגים</string>
     <string name="revanced_hide_mix_playlists_summary_on">פלייליסטים של מיקס מוסתרים</string>
     <string name="revanced_hide_mix_playlists_title">הסתר פלייליסטים של מיקס</string>
+    <string name="revanced_hide_more_button_title">הסתר לחצן נוסף</string>
     <string name="revanced_hide_navigation_bar_summary_off">סרגל ניווט מוצג</string>
     <string name="revanced_hide_navigation_bar_summary_on">סרגל ניווט מוסתר</string>
     <string name="revanced_hide_navigation_bar_title">הסתר סרגל ניווט</string>
@@ -774,6 +777,8 @@
     <string name="revanced_miniplayer_width_dip_invalid_toast">גודל פיקסל חייב להיות בין %1$s ו-%2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">הגדר את הגודל הראשוני על המסך, בפיקסלים</string>
     <string name="revanced_miniplayer_width_dip_title">גודל ברירת מחדל</string>
+    <string name="revanced_navigation_bar_animations_summary">מבצע אנימציות מעברים בעת מעבר בין כרטיסיות</string>
+    <string name="revanced_navigation_bar_animations_title">הפעלת אנימציות של שורת הניווט</string>
     <string name="revanced_override_youtube_music_button_summary_off">כפתור YouTube Music נפתח את האפליקציה המקורית</string>
     <string name="revanced_override_youtube_music_button_summary_on">כפתור יוטיוב מיוזיק יפתח את אפליקציית המוזיקה שלך</string>
     <string name="revanced_override_youtube_music_button_title">עקוף כפתור יוטיוב מיוזיק</string>
@@ -825,7 +830,13 @@
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">תמונות ממוזערות של סרגל דילוג יופיעו מעל סרגל הדילוג</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">שחזר תמונות ממוזערות של סרגל דילוג ישנות</string>
     <string name="revanced_restore_old_settings_menus_title">שחזר את מסך הגדרות YouTube הישן</string>
-    <string name="revanced_ryd_attribution_summary">הנתונים מסופקים על ידי Return YouTube Dislike API. הקש כאן כדי ללמוד עוד</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"מתקן בעיות בתצוגת 'לא אהבתי' ואי אפשרות להסתיר כפתורי פעולות וידאו.
+
+מגבלות: חוזר לסגנון ישן של שכבת 'עוד סרטונים'"</string>
+    <string name="revanced_restore_old_video_action_bar_title">שחזור סרגל פעולות וידאו ישן</string>
+    <string name="revanced_ryd_attribution_summary">"הנתונים מסופקים על ידי ה-Return YouTube Dislike API.
+
+הקש כאן כדי לפתוח את ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_compact_layout_summary_off">לחצן אהבתי מעוצב למראה הטוב ביותר</string>
     <string name="revanced_ryd_compact_layout_summary_on">לחצן אהבתי מעוצב לרוחב מינימלי</string>
     <string name="revanced_ryd_compact_layout_title">השתמש בלחצן לייק קומפקטי</string>
@@ -1099,6 +1110,9 @@
     <string name="revanced_shorts_player_type_regular_player_fullscreen">נגן רגיל במסך מלא</string>
     <string name="revanced_shorts_player_type_shorts">נגן Shorts</string>
     <string name="revanced_shorts_player_type_title">פתח Shorts עם</string>
+    <string name="revanced_show_settings_button_index_title">מיקום כפתור ההגדרות</string>
+    <string name="revanced_show_settings_button_title">הצג כפתור הגדרות</string>
+    <string name="revanced_show_settings_button_type_title">פעולה של כפתור הגדרות</string>
     <string name="revanced_spoof_app_version_summary">מרמה את השרת לחשוב שאתה משתמש בגרסת אפליקציה ישנה יותר כדי לשחזר תכונות ממשק משתמש מדור קודם</string>
     <string name="revanced_spoof_app_version_summary_off">גרסה לא מזויפת</string>
     <string name="revanced_spoof_app_version_summary_on">גרסה מזויפת</string>
@@ -1165,5 +1179,10 @@
     <string name="revanced_switch_create_with_notifications_button_summary_on">לחצן יצירה מוחלף עם לחצן עדכונים</string>
     <string name="revanced_switch_create_with_notifications_button_title">החלף יצירה עם עדכונים</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">אם שינוי הגדרה זו אינו נכנס לתוקף, נסה לעבור למצב פרטי.</string>
+    <string name="revanced_vot_enabled_title">תרגום דיבוב</string>
+    <string name="revanced_vot_original_audio_volume_summary">עוצמת השמע המקורית של YouTube בזמן שהתרגום מדבר</string>
+    <string name="revanced_vot_original_audio_volume_title">עוצמת שמע מקורית</string>
+    <string name="revanced_vot_translation_volume_summary">עוצמת הקול של התרגום המדובב</string>
+    <string name="revanced_vot_translation_volume_title">עוצמת תרגום</string>
     <string name="revanced_yandex_transcribe_subtitles_title">תמלול Yandex</string>
 </resources>

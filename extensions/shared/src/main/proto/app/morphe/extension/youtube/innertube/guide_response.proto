@@ -11,3 +11,18 @@ option java_outer_classname = "GuideResponseOuterClass";
 message ButtonRenderer {
     optional Icon icon = 8;
 }
+
+message PivotBarItemRenderer {
+    Accessibility accessibility = 3;
+    Icon icon = 5;
+}
+
+message Accessibility {
+    oneof data {
+        AccessibilityData accessibilityData = 1;
+    }
+}
+
+message AccessibilityData {
+    string label = 1;
+}

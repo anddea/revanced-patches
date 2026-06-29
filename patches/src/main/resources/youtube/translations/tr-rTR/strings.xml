@@ -129,9 +129,9 @@ YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Eski stil açılır menü kullanılıyor.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Özel iletişim kutusu kullanılıyor.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Shorts\'ta gelişmiş video kalitesi menü türü</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow, YouTube videoları için topluluk kaynaklı kapak resimleri sağlar. Bu kapak resimleri, YouTube tarafından sağlananlardan genellikle daha alakalıdır.
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow, YouTube videoları için topluluk kaynaklı küçük resimler sağlar. Bu küçük resimler genellikle YouTube tarafından sağlananlardan daha alakalıdır
 
-Etkinleştirilirse, video URL'leri API sunucusuna gönderilecek ve başka hiçbir veri gönderilmeyecektir. Bir videoda DeArrow kapak resmi yoksa, orijinal kapak resmi veya hareketsiz yakalamalar gösterilir
+Etkinleştirilirse, video URL'leri API sunucusuna gönderilir ve başka hiçbir veri gönderilmez. Bir videoda DeArrow küçük resmi yoksa, orijinal veya hareketsiz yakalamalar gösterilir
 
 DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
@@ -201,14 +201,14 @@ Tablet düzeni
 • Topluluk gönderileri gizlenmiştir
 • Akış ayarlarında oynatma mevcut değildir
 • Remix düğmesi ve Ses düğmesi Shorts'ta mevcut değildir
-• Video eylem çubuğu daraltılmamıştır
+• Daraltılmamış, eski video eylem çubuğu gösterilir
 
 Otomotiv düzeni
 • Akış konulara ve kanallara göre düzenlenmiştir
 • Akış ayarlarında oynatma mevcut değildir
 • Remix düğmesi ve Ses düğmesi Shorts'ta mevcut değildir
 • Shorts normal oynatıcıda açılır
-• Video eylem çubuğu daraltılmamıştır"</string>
+• Daraltılmamış, eski video eylem çubuğu gösterilir"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Anahtar geçişleri kullanılıyor.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Yazı geçişleri kullanılıryor.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Geçiş anahtarı tipini değiştir</string>
@@ -795,6 +795,7 @@ Sınırlama: Varsayılan metin stiline sahip olmayan bazı vurgulanan arama bağ
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Abonelikler sayfasında topluluk gönderileri gösteriliyor</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Abonelikler sayfasında topluluk gönderileri gizleniyor</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Abonelikler kısmında topluluk gönderilerini gizle</string>
+    <string name="revanced_hide_connect_button_title">Bağlan düğmesini gizle</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Video oynatıcısının altındaki içerik üreticisi mağazası rafı görünür</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Video oynatıcısının altındaki içerik üreticisi mağazası rafı gizli</string>
     <string name="revanced_hide_creator_store_shelf_title">İçerik üretici mağazası rafını gizle</string>
@@ -902,18 +903,18 @@ Sınırlama: Varsayılan metin stiline sahip olmayan bazı vurgulanan arama bağ
     <string name="revanced_hide_key_concepts_section_summary_off">Anahtar kavramlar kısmı görünür</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Anahtar kavramlar kısmı gizli</string>
     <string name="revanced_hide_key_concepts_section_title">\'Anahtar kavramlar\' bölümünü gizle</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Ana Sayfa/Abonelikler/Arama sonuçları, anahtar kelime ifadeleriyle eşleşen içeriği gizlemek için filtrelenir
+    <string name="revanced_hide_keyword_content_about_summary">"Ana Sayfa / Abonelikler / Arama / Yorumlar anahtar kelime öbekleriyle eşleşen içeriği gizlemek için filtrelenir
 
-Sınırlamalar
-• Shorts, kanal adı ile gizlenemez
-• Bazı kullanıcı arayüzü bileşenleri gizlenemeyebilir
-• Bir anahtar kelime aranması sonuç göstermeyebilir"</string>
+Sınırlamalar:
+• Shorts, kanal adına göre gizlenemez
+• Bazı arayüz bileşenleri gizlenemeyebilir
+• Bir anahtar kelime araması sonuç göstermeyebilir"</string>
     <string name="revanced_hide_keyword_content_about_title">Anahtar kelimeyle filtreleme hakkında</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Bir anahtar kelimeyi veya ifadeyi tırnak işareti içine almak, video başlıkları ve kanal adlarının kısmi eşleşmelerini önleyecektir&lt;br&gt;&lt;br&gt;Örneğin,&lt;br&gt;&lt;b&gt;\"ağustos\"&lt;/b&gt;, &lt;b&gt;Ağustos ayında kardan adam yapmak!&lt;/b&gt; başlıklı videoyu gizleyecektir&lt;br&gt;ancak &lt;b&gt;Ağustosböcekleri hakkında bilgiler&lt;/b&gt; başlıklı videoyu gizlemeyecektir</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Tam kelimeleri eşleştir</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">Yorumlar anahtar kelimelerle filtrelenmiyor.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Yorumlar anahtar kelimelerle filtreleniyor.</string>
-    <string name="revanced_hide_keyword_content_comments_title">Anahtar kelimeler ile yorumları gizle</string>
+    <string name="revanced_hide_keyword_content_comments_title">Yorumları anahtar kelimelerle gizle</string>
     <string name="revanced_hide_keyword_content_home_summary_off">Ana sayfa sekmesindeki videolar anahtar kelimelerle filtrelenmez</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Ana sayfa sekmesindeki videolar anahtar kelimelerle filtrelenir</string>
     <string name="revanced_hide_keyword_content_home_title">Ana sayfadaki videoları anahtar kelimelerle gizle</string>
@@ -967,6 +968,7 @@ Ortasında büyük harf bulunan kelimeler tam olarak eşleşmelidir (örneğin: 
     <string name="revanced_hide_mix_playlists_summary_off">Mix oynatma listeleri görünür</string>
     <string name="revanced_hide_mix_playlists_summary_on">Mix oynatma listeleri gizli</string>
     <string name="revanced_hide_mix_playlists_title">Mix oynatma listelerini gizle</string>
+    <string name="revanced_hide_more_button_title">Daha fazla düğmesini gizle</string>
     <string name="revanced_hide_movie_shelf_summary_off">Filmler rafı gizlenmiyor.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Filmler rafı gizleniyor.</string>
     <string name="revanced_hide_movie_shelf_title">Filmler rafını gizle</string>
@@ -1650,6 +1652,8 @@ Mini oynatıcı, ekranın dışına sağa veya sola sürüklenebilir"</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Piksel boyutu %1$s ve %2$s arasında olmalıdır</string>
     <string name="revanced_miniplayer_width_dip_summary">Başlangıç ekran boyutunu piksel cinsinden ayarlayın</string>
     <string name="revanced_miniplayer_width_dip_title">Varsayılan boyut</string>
+    <string name="revanced_navigation_bar_animations_summary">Sekmeler arasında animasyonlu geçişler yapar</string>
+    <string name="revanced_navigation_bar_animations_title">Gezinme çubuğu animasyonlarını etkinleştir</string>
     <string name="revanced_open_links_externally_summary_off">Bağlantıları uygulama içi tarayıcıda açar.</string>
     <string name="revanced_open_links_externally_summary_on">Bağlantıları harici tarayıcıda açar.</string>
     <string name="revanced_open_links_externally_title">Bağlantıları harici olarak aç</string>
@@ -1961,6 +1965,10 @@ Tıklayıp basılı tutarak YouTube ayarlarını aç."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Zaman çubuğu küçük resimleri zaman çubuğunun üzerinde görünecek</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Eski zaman çubuğu küçük resimlerini geri getir</string>
     <string name="revanced_restore_old_settings_menus_title">Eski YouTube ayarlar ekranını geri yükle</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"Beğenmemelerin görünmemesi ve video eylem düğmelerinin gizlenememesi sorunlarını düzeltir
+
+Sınırlamalar: Eski 'Daha fazla video' katmanı görünümüne geri döner"</string>
+    <string name="revanced_restore_old_video_action_bar_title">Eski video eylem çubuğunu geri yükle</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Eski oynatıcı düzeni kullanılmıyor.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Eski oynatıcı düzeni kullanılıyor.
 Oynatıcının üstünde ve altında boşluk yok."</string>
@@ -1983,7 +1991,9 @@ Bir API anahtarının nasıl alınacağını görmek için tıklayın."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;Yeni bir proje oluştur&lt;/a&gt; adresine gidin.&lt;br&gt;2. &lt;b&gt;OLUŞTUR&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;3. &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; adresine gidin.&lt;br&gt;4. &lt;b&gt;ETKİNLEŞTİR&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;5. &lt;b&gt;KİMLİK BİLGİLERİ OLUŞTUR&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;6. &lt;b&gt;Herkese açık veri&lt;/b&gt; seçeneğini seçin.&lt;br&gt;7. &lt;b&gt;İLERİ&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;8. API anahtarını kopyalayın.&lt;br&gt;&lt;br&gt;※ API anahtarı asla başkalarıyla paylaşılmamalıdır, bu nedenle İçe/Dışa Aktarma ayarlarına dahil edilmemiştir.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 geliştirici anahtarı al</string>
     <string name="revanced_ryd_about">Hakkında</string>
-    <string name="revanced_ryd_attribution_summary">Veri, Return YouTube Dislike API\'sinden sağlanır. Daha fazla bilgi için dokunun</string>
+    <string name="revanced_ryd_attribution_summary">"Veriler, Return YouTube Dislike API tarafından sağlanır.
+
+ReturnYouTubeDislike.com'u açmak için buraya dokunun"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Beğenme düğmesi en iyi görünüm için biçimlendirilir</string>
     <string name="revanced_ryd_compact_layout_summary_on">Beğenme düğmesi en az genişlik için biçimlendirilir</string>
@@ -2378,6 +2388,9 @@ Aynısı mevcut"</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Normal oynatıcı tam ekran</string>
     <string name="revanced_shorts_player_type_shorts">Shorts oynatıcı</string>
     <string name="revanced_shorts_player_type_title">Shorts\'u şununla aç</string>
+    <string name="revanced_show_settings_button_index_title">Ayarlar düğmesi konumu</string>
+    <string name="revanced_show_settings_button_title">Ayarlar düğmesini göster</string>
+    <string name="revanced_show_settings_button_type_title">Ayarlar düğmesi işlevi</string>
     <string name="revanced_show_video_title_section_summary">"Video başlığı bölümünü tam ekranda gösterir.
 
 Sınırlama: Tıklandığında video başlığı kayboluyor."</string>
@@ -2656,11 +2669,11 @@ Sorumluluk Reddi: Oturum açmadan gönderilen çerezler geçersiz olabilir veya 
     <string name="revanced_vot_audio_proxy_title">Proxy ses yayını</string>
     <string name="revanced_vot_enabled_summary_off">Yandex sesli çeviri devre dışı bırakıldı.</string>
     <string name="revanced_vot_enabled_summary_on">Yandex sesli çeviri özelliği etkinleştirildi.</string>
-    <string name="revanced_vot_enabled_title">Sesli Çeviriyi aç</string>
+    <string name="revanced_vot_enabled_title">Seslendirme çevirisi</string>
     <string name="revanced_vot_lang_auto">Oto algılama</string>
     <string name="revanced_vot_live_voices_unavailable">Canlı çeviri kullanılamıyor, normal ses kullanılıyor</string>
-    <string name="revanced_vot_original_audio_volume_summary">Çeviri oynatılırken orijinal video parçasının ses seviyesi (0-100). Varsayılan: 50</string>
-    <string name="revanced_vot_original_audio_volume_title">Orjinal ses yüksekliği</string>
+    <string name="revanced_vot_original_audio_volume_summary">Çeviri konuşurken orijinal YouTube sesi seviyesi</string>
+    <string name="revanced_vot_original_audio_volume_title">Orijinal ses seviyesi</string>
     <string name="revanced_vot_playback_error">Çevrili sesi oynatırken hata oldu</string>
     <string name="revanced_vot_proxy_url_summary">VOT çalışan proxy sunucusu. Varsayılan: vot-worker.toil.cc</string>
     <string name="revanced_vot_proxy_url_title">Proxy sunucusu</string>
@@ -2677,8 +2690,8 @@ Sorumluluk Reddi: Oturum açmadan gönderilen çerezler geçersiz olabilir veya 
     <string name="revanced_vot_time_min">https://youtu.be/JQatRG3Tx18
 </string>
     <string name="revanced_vot_time_sec">%d saniye</string>
-    <string name="revanced_vot_translation_volume_summary">Çevrilen ses parçasının ses seviyesi (0-100). Varsayılan: 100</string>
-    <string name="revanced_vot_translation_volume_title">Çeviri sesi ayarla</string>
+    <string name="revanced_vot_translation_volume_summary">Dublaj yapılan çeviri sesinin seviyesi</string>
+    <string name="revanced_vot_translation_volume_title">Çeviri ses seviyesi</string>
     <string name="revanced_vot_unavailable_live">Canlı yayınlarda çeviri kullanılamaz</string>
     <string name="revanced_vot_unavailable_same_language">Video sesi zaten hedef dile hazır</string>
     <string name="revanced_vot_unavailable_too_long">Video çeviri için fazla uzun(maks 4 saat)</string>
