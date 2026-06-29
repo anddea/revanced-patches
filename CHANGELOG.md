@@ -1,3 +1,5 @@
+## [4.2.1-dev.1](https://github.com/imPratyoosh/revanced-patches/compare/v4.2.0...v4.2.1-dev.1) (2026-06-29)
+
 # [4.2.0](https://github.com/imPratyoosh/revanced-patches/compare/v4.1.1...v4.2.0) (2026-06-29)
 
 
