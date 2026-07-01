@@ -61,12 +61,17 @@ val commentsPanelPatch = bytecodePatch(
             }
 
         // Method that finds the RecyclerView to which comments will be bound.
-        val recyclerViewOptionalMethodCall = recyclerViewOptionalFingerprint
-            .match(engagementPanelRecyclerViewFingerprint.classDef)
-            .method
+        // Resolve from the matched engagement-panel class. A second global fingerprint match can
+        // select a sibling class in YouTube Music 9.15.
+        val recyclerViewOptionalMethodCall = engagementPanelRecyclerViewFingerprint.classDef.methods
+            .first { method ->
+                method.returnType == "Lj$/util/Optional;" &&
+                        method.parameters.isEmpty() &&
+                        indexOfRecyclerViewInstruction(method) >= 0
+            }
             .methodCall()
 
-        engagementPanelRecyclerViewFingerprint.match().let { result ->
+        engagementPanelRecyclerViewFingerprint.let { result ->
             result.method.apply {
                 val setRecyclerViewMethodName = "patch_setRecyclerView"
                 val insertIndex = indexOfIfPresentInstruction(this) + 1
@@ -120,37 +125,37 @@ val commentsPanelPatch = bytecodePatch(
                     ).toMutable().apply {
                         addInstructionsWithLabels(
                             0,
-                            """
-                                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->isCommentsScrollTopEnabled()Z
+                            $$"""
+                                    invoke-static { }, $$EXTENSION_CLASS_DESCRIPTOR->isCommentsScrollTopEnabled()Z
                                     move-result v0
                                     if-eqz v0, :ignore
-                                    
+
                                     # Get engagement panel id.
-                                    invoke-static { p1 }, $engagementPanelIdMethodCall
+                                    invoke-static { p1 }, $$engagementPanelIdMethodCall
                                     move-result-object v0
-                                    
+
                                     # Check if engagement panel id is not null.
                                     if-eqz v0, :ignore
 
                                     const-string v1, "comment"
                                     invoke-virtual { v0, v1 }, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
                                     move-result v0
-                                    
+
                                     # Check if engagement panel id is a comment.
                                     if-eqz v0, :ignore
-                                    
-                                    invoke-virtual { p0 }, $recyclerViewOptionalMethodCall
+
+                                    invoke-virtual { p0 }, $$recyclerViewOptionalMethodCall
                                     move-result-object v0
-                                    invoke-virtual { v0 }, Lj${'$'}/util/Optional;->isPresent()Z
+                                    invoke-virtual { v0 }, Lj$/util/Optional;->isPresent()Z
                                     move-result v1
-                                    
+
                                     # Check if recycler view is not null.
                                     if-eqz v1, :ignore
-                                    invoke-virtual { v0 }, Lj${'$'}/util/Optional;->get()Ljava/lang/Object;
+                                    invoke-virtual { v0 }, Lj$/util/Optional;->get()Ljava/lang/Object;
                                     move-result-object v0
                                     check-cast v0, Landroid/support/v7/widget/RecyclerView;
-                                    invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->onCommentsCreate(Landroid/support/v7/widget/RecyclerView;)V
-                                    
+                                    invoke-static { v0 }, $$EXTENSION_CLASS_DESCRIPTOR->onCommentsCreate(Landroid/support/v7/widget/RecyclerView;)V
+
                                     :ignore
                                     return-void
                                     """,
@@ -159,7 +164,6 @@ val commentsPanelPatch = bytecodePatch(
                 )
             }
         }
-
         mapOf(
             informationButton to "hideInformationButton",
             modernTitle to "setContentHeader",

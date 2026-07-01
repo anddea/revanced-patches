@@ -41,7 +41,7 @@ public class ResettableListPreference {
                     .setNegativeButton(android.R.string.cancel, null)
                     .setNeutralButton(str("revanced_settings_reset"), (dialog, which) -> {
                         setting.resetToDefault();
-                        ReVancedPreferenceFragment.showRebootDialog();
+                        if (setting.rebootApp) ReVancedPreferenceFragment.showRebootDialog();
                     })
                     .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                         String value = mEntryValues[mClickedDialogEntryIndex];
@@ -52,7 +52,7 @@ public class ResettableListPreference {
                         } else if (setting instanceof LongSetting longSetting) {
                             longSetting.save(Long.parseLong(value));
                         }
-                        ReVancedPreferenceFragment.showRebootDialog();
+                        if (setting.rebootApp) ReVancedPreferenceFragment.showRebootDialog();
                     })
                     .show();
         } catch (Exception ex) {
@@ -79,11 +79,11 @@ public class ResettableListPreference {
                     .setNegativeButton(android.R.string.cancel, null)
                     .setNeutralButton(str("revanced_settings_reset"), (dialog, which) -> {
                         setting.resetToDefault();
-                        ReVancedPreferenceFragment.showRebootDialog();
+                        if (setting.rebootApp) ReVancedPreferenceFragment.showRebootDialog();
                     })
                     .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                         setting.saveValueFromString(mEntryValues[mClickedDialogEntryIndex]);
-                        ReVancedPreferenceFragment.showRebootDialog();
+                        if (setting.rebootApp) ReVancedPreferenceFragment.showRebootDialog();
                     })
                     .show();
         } catch (Exception ex) {

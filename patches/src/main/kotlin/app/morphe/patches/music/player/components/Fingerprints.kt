@@ -1,5 +1,12 @@
 package app.morphe.patches.music.player.components
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import app.morphe.patches.music.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.playservice.is_7_18_or_greater
 import app.morphe.patches.music.utils.resourceid.colorGrey
@@ -12,6 +19,8 @@ import app.morphe.patches.music.utils.resourceid.miniPlayerViewPager
 import app.morphe.patches.music.utils.resourceid.playerViewPager
 import app.morphe.patches.music.utils.resourceid.remixGenericButtonSize
 import app.morphe.patches.music.utils.resourceid.tapBloomView
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.util.containsLiteralInstruction
 import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.getReference
@@ -130,6 +139,48 @@ internal val minimizedPlayerFingerprint = legacyFingerprint(
     strings = listOf("w_st")
 )
 
+internal object ModernMinimizedPlayerFingerprint : Fingerprint(
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = listOf("L", "L"),
+    filters = listOf(string("w_st"))
+)
+
+internal object ModernMiniPlayerConstructorFingerprint : Fingerprint(
+    name = "<init>",
+    filters = listOf(
+        resourceLiteral(ResourceType.ID, "mini_player_play_pause_replay_button"),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "findViewById",
+            location = MatchAfterWithin(5)
+        ),
+        string("sharedToggleMenuItemMutations")
+    )
+)
+
+internal object ModernSwitchToggleColorFingerprint : Fingerprint(
+    classFingerprint = ModernMiniPlayerConstructorFingerprint,
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L", "J"),
+    filters = listOf(
+        methodCall(opcode = Opcode.INVOKE_VIRTUAL, parameters = emptyList(), returnType = "L"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
+        opcode(Opcode.CHECK_CAST, MatchAfterImmediately()),
+        opcode(Opcode.GOTO, MatchAfterWithin(5)),
+        fieldAccess(opcode = Opcode.IGET, type = "I"),
+        opcode(Opcode.INVOKE_VIRTUAL, MatchAfterImmediately())
+    )
+)
+
+internal object ModernMiniPlayerDefaultTextFingerprint : Fingerprint(
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = emptyList(),
+    filters = listOf(resourceLiteral(ResourceType.STRING, "mini_player_default_text"))
+)
+
 internal val miniPlayerConstructorFingerprint = legacyFingerprint(
     name = "miniPlayerConstructorFingerprint",
     returnType = "V",
@@ -191,6 +242,20 @@ internal val mppWatchWhileLayoutFingerprint = legacyFingerprint(
 
         indexOfCallableInstruction(method) >= 0
     }
+)
+
+internal object ModernMppWatchWhileLayoutFingerprint : Fingerprint(
+    definingClass = "WatchWhileLayout;",
+    returnType = "V",
+    parameters = emptyList(),
+    filters = listOf(
+        opcode(Opcode.NEW_ARRAY),
+        methodCall(
+            opcode = Opcode.INVOKE_STATIC,
+            parameters = listOf("[Landroid/view/View;"),
+            returnType = "V"
+        )
+    )
 )
 
 internal fun indexOfCallableInstruction(method: Method) =

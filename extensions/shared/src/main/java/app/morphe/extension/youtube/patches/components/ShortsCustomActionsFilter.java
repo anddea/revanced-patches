@@ -30,7 +30,7 @@ public final class ShortsCustomActionsFilter extends Filter {
 
     /**
      * Last unique video id's loaded.
-     * Key is a String represeting the video id.
+     * Key is a String representing the video id.
      * Value is a ByteArrayFilterGroup used for performing KMP pattern searching.
      */
     @GuardedBy("itself")

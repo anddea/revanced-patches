@@ -17,6 +17,7 @@ import app.morphe.patches.music.utils.patch.PatchList.HIDE_ACTION_BAR_COMPONENTS
 import app.morphe.patches.music.utils.playservice.is_7_17_or_greater
 import app.morphe.patches.music.utils.playservice.is_7_25_or_greater
 import app.morphe.patches.music.utils.playservice.is_7_33_or_greater
+import app.morphe.patches.music.utils.playservice.is_9_15_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.resourceid.elementsLottieAnimationViewTagId
 import app.morphe.patches.music.utils.resourceid.likeDislikeContainer
@@ -250,6 +251,13 @@ val actionBarComponentsPatch = bytecodePatch(
             "revanced_hide_action_button_like_dislike",
             "false"
         )
+        if (is_9_15_or_greater) {
+            addSwitchPreference(
+                CategoryType.ACTION_BAR,
+                "revanced_hide_action_button_lyrics",
+                "false"
+            )
+        }
         addSwitchPreference(
             CategoryType.ACTION_BAR,
             "revanced_hide_action_button_comment",
@@ -262,17 +270,17 @@ val actionBarComponentsPatch = bytecodePatch(
         )
         addSwitchPreference(
             CategoryType.ACTION_BAR,
+            "revanced_hide_action_button_share",
+            "false"
+        )
+        addSwitchPreference(
+            CategoryType.ACTION_BAR,
             "revanced_hide_action_button_download",
             "false"
         )
         addSwitchPreference(
             CategoryType.ACTION_BAR,
             "revanced_hide_action_button_radio",
-            "false"
-        )
-        addSwitchPreference(
-            CategoryType.ACTION_BAR,
-            "revanced_hide_action_button_share",
             "false"
         )
         if (is_7_33_or_greater) {

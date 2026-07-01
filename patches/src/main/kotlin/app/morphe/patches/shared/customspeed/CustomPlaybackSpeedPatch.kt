@@ -4,8 +4,10 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
+import app.morphe.patches.music.utils.playservice.versionCheckPatch as musicVersionCheckPatch
 import app.morphe.patches.youtube.utils.playservice.is_20_34_or_greater
-import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch as youtubeVersionCheckPatch
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
@@ -23,7 +25,7 @@ fun customPlaybackSpeedPatch(
 ) = bytecodePatch(
     description = "customPlaybackSpeedPatch"
 ) {
-    dependsOn(versionCheckPatch)
+    dependsOn(youtubeVersionCheckPatch, musicVersionCheckPatch)
 
     execute {
         if (patchIncluded) {
@@ -68,7 +70,8 @@ fun customPlaybackSpeedPatch(
             }
         }
 
-        val useNewLimiter = is_20_34_or_greater
+        // YouTube Music 8.51+ uses the same modern limiter contract as YouTube 20.34+.
+        val useNewLimiter = is_20_34_or_greater || is_8_51_or_greater
         val limiterMethods = if (useNewLimiter) {
             setOf(LimiterFingerprint.method)
         } else {

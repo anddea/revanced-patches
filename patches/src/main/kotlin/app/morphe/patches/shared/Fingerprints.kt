@@ -2,7 +2,6 @@ package app.morphe.patches.shared
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.literal
-import app.morphe.patches.shared.extension.Constants.EXTENSION_SETTING_CLASS_DESCRIPTOR
 import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
@@ -212,15 +211,6 @@ internal val formatStreamModelToStringFingerprint = legacyFingerprint(
 internal val mdxPlayerDirectorSetVideoStageFingerprint = legacyFingerprint(
     name = "mdxPlayerDirectorSetVideoStageFingerprint",
     strings = listOf("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state ")
-)
-
-internal val sharedSettingFingerprint = legacyFingerprint(
-    name = "sharedSettingFingerprint",
-    returnType = "V",
-    customFingerprint = { method, _ ->
-        method.definingClass == EXTENSION_SETTING_CLASS_DESCRIPTOR &&
-                method.name == "<clinit>"
-    }
 )
 
 internal val spannableStringBuilderFingerprint = legacyFingerprint(

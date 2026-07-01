@@ -130,6 +130,12 @@ public final class LithoFilterPatch {
      */
     private static final ThreadLocal<byte[]> bufferThreadLocal = new ThreadLocal<>();
     private static final ThreadLocal<byte[]> directBufferThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<DirectByteBufferCache> directByteBufferCacheThreadLocal = new ThreadLocal<>();
+
+    /**
+     * Retains a copied direct buffer while the same Elements FlatBuffer is used for subcomponents.
+     */
+    private record DirectByteBufferCache(ByteBuffer source, byte[] copy) { }
 
     /**
      * Identifier to protocol buffer mapping.  Only used for 20.22+.
@@ -334,6 +340,34 @@ public final class LithoFilterPatch {
      */
     public static void setDirectProtoBuffer(@Nullable byte[] buffer) {
         directBufferThreadLocal.set(buffer == null ? EMPTY_BYTE_ARRAY : buffer);
+    }
+
+    /**
+     * Injection point for Elements components backed by a FlatBuffer instead of UPB.
+     *
+     * <p>Direct buffers cannot expose an array. Copy them once per backing buffer and reuse the
+     * copy while its subcomponents are converted.</p>
+     */
+    public static void setDirectProtoBuffer(@Nullable ByteBuffer buffer) {
+        if (buffer == null) {
+            setDirectProtoBuffer(EMPTY_BYTE_ARRAY);
+            return;
+        }
+        if (buffer.hasArray()) {
+            setDirectProtoBuffer(buffer.array());
+            return;
+        }
+
+        DirectByteBufferCache cache = directByteBufferCacheThreadLocal.get();
+        if (cache == null || cache.source() != buffer) {
+            ByteBuffer duplicate = buffer.duplicate();
+            duplicate.clear();
+            byte[] copy = new byte[duplicate.remaining()];
+            duplicate.get(copy);
+            cache = new DirectByteBufferCache(buffer, copy);
+            directByteBufferCacheThreadLocal.set(cache);
+        }
+        setDirectProtoBuffer(cache.copy());
     }
 
     /**

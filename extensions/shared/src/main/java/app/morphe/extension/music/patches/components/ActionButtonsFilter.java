@@ -13,8 +13,10 @@ public final class ActionButtonsFilter extends Filter {
 
     private final StringFilterGroup actionBarRule;
     private final StringFilterGroup bufferFilterPathRule;
-    private final ByteArrayFilterGroup sharedIconRegistryStart = new ByteArrayFilterGroup(
+    private final ByteArrayFilterGroup buttonContentEnd = new ByteArrayFilterGroup(
             null,
+            "capabilities|",
+            "sans-serif-regular",
             "yt_outline_overflow_vertical_white_24"
     );
     private final ByteArrayFilterGroupList bufferButtonsGroupList = new ByteArrayFilterGroupList();
@@ -52,18 +54,26 @@ public final class ActionButtonsFilter extends Filter {
         bufferButtonsGroupList.addAll(
                 new ByteArrayFilterGroup(
                         Settings.HIDE_ACTION_BUTTON_COMMENT,
+                        "yt_outline_experimental_text_bubble_vd_theme_24",
                         "yt_outline_message_bubble"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_ACTION_BUTTON_ADD_TO_PLAYLIST,
+                        "yt_outline_experimental_playlist_add_vd_theme_24",
                         "yt_outline_list_add"
                 ),
                 new ByteArrayFilterGroup(
+                        Settings.HIDE_ACTION_BUTTON_LYRICS,
+                        "yt_outline_experimental_quote_vd_theme_24"
+                ),
+                new ByteArrayFilterGroup(
                         Settings.HIDE_ACTION_BUTTON_SHARE,
+                        "yt_outline_experimental_share_vd_theme_24",
                         "yt_outline_share"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_ACTION_BUTTON_RADIO,
+                        "yt_outline_experimental_mix_vd_theme_24",
                         "yt_outline_youtube_mix"
                 ),
                 new ByteArrayFilterGroup(
@@ -86,8 +96,8 @@ public final class ActionButtonsFilter extends Filter {
     /**
      * Checks only the button-local portion of the component buffer.
      *
-     * <p>Music 8.30 appends a shared icon registry to every action button buffer. Matching past
-     * the first registry icon would make one enabled hide setting match every button.</p>
+     * <p>Music appends shared component data after the button-local data. Matching an icon in the
+     * shared data would make one enabled hide setting match unrelated buttons.</p>
      */
     private boolean matchesButtonContent(byte[] buffer) {
         final FilterGroupResult buttonMatch = bufferButtonsGroupList.check(buffer);
@@ -95,8 +105,16 @@ public final class ActionButtonsFilter extends Filter {
             return false;
         }
 
-        final int registryStart = sharedIconRegistryStart.check(buffer).getMatchedIndex();
-        return registryStart < 0 || buttonMatch.getMatchedIndex() < registryStart;
+        final int contentEnd = buttonContentEnd.check(buffer).getMatchedIndex();
+        return contentEnd < 0 || buttonMatch.getMatchedIndex() < contentEnd;
+    }
+
+    /**
+     * New Litho action buttons are direct collection children. Removing the child prevents the
+     * empty replacement component from retaining its horizontal layout slot.
+     */
+    public boolean removeFromComponentList() {
+        return true;
     }
 
     @Override

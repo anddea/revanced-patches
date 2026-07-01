@@ -13,11 +13,10 @@ import app.morphe.patches.shared.spannableStringBuilderFingerprint
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -53,13 +52,8 @@ val textComponentPatch = bytecodePatch(
             )
         }
 
-        textComponentContextFingerprint.methodOrThrow(textComponentConstructorFingerprint).apply {
+        TextComponentContextFingerprint.method.apply {
             textComponentMethod = this
-            val conversionContextFieldIndex = indexOfFirstInstructionOrThrow {
-                getReference<FieldReference>()?.type == "Ljava/util/Map;"
-            } - 1
-            val conversionContextFieldReference =
-                getInstruction<ReferenceInstruction>(conversionContextFieldIndex).reference
 
             // ~ YouTube 19.32.xx
             val legacyCharSequenceIndex = indexOfFirstInstruction {
@@ -86,17 +80,15 @@ val textComponentPatch = bytecodePatch(
                 throw PatchException("Could not find insert index")
             }
 
-            textComponentContextRegister = getInstruction<TwoRegisterInstruction>(
-                indexOfFirstInstructionOrThrow(insertIndex, Opcode.IGET_OBJECT)
+            val conversionContextFieldIndex = indexOfFirstInstructionReversedOrThrow(insertIndex) {
+                getReference<FieldReference>()?.type == "Ljava/util/Map;"
+            }
+            val conversionContextRegister = getInstruction<TwoRegisterInstruction>(
+                conversionContextFieldIndex
             ).registerA
 
-            addInstructions(
-                insertIndex, """
-                    move-object/from16 v$textComponentContextRegister, p0
-                    iget-object v$textComponentContextRegister, v$textComponentContextRegister, $conversionContextFieldReference
-                    """
-            )
-            textComponentIndex = insertIndex + 2
+            textComponentContextRegister = conversionContextRegister
+            textComponentIndex = insertIndex
         }
     }
 }
@@ -123,4 +115,3 @@ internal fun hookTextComponent(
     )
     textComponentIndex += 2
 }
-

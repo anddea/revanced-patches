@@ -4,7 +4,6 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
-import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -19,7 +18,7 @@ val drawableColorHookPatch = bytecodePatch(
     description = "drawableColorHookPatch"
 ) {
     execute {
-        drawableColorFingerprint.methodOrThrow().apply {
+        DrawableColorFingerprint.method.apply {
             insertMethod = this
             insertIndex = indexOfFirstInstructionReversedOrThrow {
                 getReference<MethodReference>()?.name == "setColor"
@@ -42,4 +41,3 @@ internal fun addDrawableColorHook(
     )
     offset += 2
 }
-

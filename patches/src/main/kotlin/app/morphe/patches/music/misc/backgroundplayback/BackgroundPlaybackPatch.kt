@@ -46,12 +46,12 @@ val backgroundPlaybackPatch = bytecodePatch(
         // don't play music video
         musicBrowserServiceFingerprint.matchOrThrow().let {
             it.method.apply {
-                val stringIndex = it.stringMatches!!.first().index
+                val stringIndex = it.stringMatches.first().index
                 val targetIndex = indexOfFirstInstructionOrThrow(stringIndex) {
                     val reference = getReference<MethodReference>()
                     opcode == Opcode.INVOKE_VIRTUAL &&
                             reference?.returnType == "Z" &&
-                            reference.parameterTypes.size == 0
+                            reference.parameterTypes.isEmpty()
                 }
 
                 getWalkerMethod(targetIndex).addInstructions(
@@ -95,7 +95,7 @@ val backgroundPlaybackPatch = bytecodePatch(
 
         // region patch for minimized playback
 
-        kidsBackgroundPlaybackPolicyControllerFingerprint.methodOrThrow().addInstruction(
+        KidsBackgroundPlaybackPolicyControllerFingerprint.method.addInstruction(
             0, "return-void"
         )
 
