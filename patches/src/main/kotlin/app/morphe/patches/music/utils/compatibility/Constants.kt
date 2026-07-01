@@ -18,7 +18,8 @@ internal object Constants {
             AppTarget(version = "7.25.53", minSdk = 26), // This is the last supported version for 2024.
             AppTarget(version = "8.12.54", minSdk = 26), // This was the latest version supported by the previous RVX patch.
             AppTarget(version = "8.28.54", minSdk = 26), // This is the latest version that supports the 'Replace Samples button' setting.
-            AppTarget(version = "8.30.54", minSdk = 26), // This is the latest version supported by the RVX patch.
+            AppTarget(version = "8.30.54", minSdk = 26),
+            AppTarget(version = "9.15.51", minSdk = 26),
         )
     )
 

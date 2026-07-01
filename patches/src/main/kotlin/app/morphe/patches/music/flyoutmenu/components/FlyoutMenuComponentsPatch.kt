@@ -13,6 +13,7 @@ import app.morphe.patches.music.utils.extension.Constants.FLYOUT_CLASS_DESCRIPTO
 import app.morphe.patches.music.utils.flyoutmenu.flyoutMenuHookPatch
 import app.morphe.patches.music.utils.patch.PatchList.FLYOUT_MENU_COMPONENTS
 import app.morphe.patches.music.utils.playservice.is_6_36_or_greater
+import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.resourceid.endButtonsContainer
 import app.morphe.patches.music.utils.resourceid.sharedResourceIdPatch
@@ -21,6 +22,7 @@ import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
+import app.morphe.util.Utils.printWarn
 import app.morphe.patches.music.utils.videotype.videoTypeHookPatch
 import app.morphe.patches.music.video.information.videoInformationPatch
 import app.morphe.patches.shared.litho.addLithoFilter
@@ -141,17 +143,19 @@ val flyoutMenuComponentsPatch = bytecodePatch(
 
         // region patch for enable compact dialog
 
-        screenWidthFingerprint.matchOrThrow(screenWidthParentFingerprint).let {
-            it.method.apply {
-                val index = it.instructionMatches.first().index
-                val register = getInstruction<TwoRegisterInstruction>(index).registerA
+        if (!is_8_51_or_greater) {
+            screenWidthFingerprint.matchOrThrow(screenWidthParentFingerprint).let {
+                it.method.apply {
+                    val index = it.instructionMatches.first().index
+                    val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
-                addInstructions(
-                    index, """
-                        invoke-static {v$register}, $FLYOUT_CLASS_DESCRIPTOR->enableCompactDialog(I)I
-                        move-result v$register
-                        """
-                )
+                    addInstructions(
+                        index, """
+                            invoke-static {v$register}, $FLYOUT_CLASS_DESCRIPTOR->enableCompactDialog(I)I
+                            move-result v$register
+                            """
+                    )
+                }
             }
         }
 
@@ -243,11 +247,15 @@ val flyoutMenuComponentsPatch = bytecodePatch(
 
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
-        addSwitchPreference(
-            CategoryType.FLYOUT,
-            "revanced_enable_compact_dialog",
-            "false"
-        )
+        if (!is_8_51_or_greater) {
+            addSwitchPreference(
+                CategoryType.FLYOUT,
+                "revanced_enable_compact_dialog",
+                "false"
+            )
+        } else {
+            printWarn("\"Enable compact dialog\" is not supported in this version. Use YouTube Music 8.30.54 or earlier.")
+        }
         if (trimSilenceIncluded) {
             addSwitchPreference(
                 CategoryType.FLYOUT,

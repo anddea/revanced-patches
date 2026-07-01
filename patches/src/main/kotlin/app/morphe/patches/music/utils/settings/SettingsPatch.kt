@@ -4,7 +4,6 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
-import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
@@ -28,7 +27,6 @@ import app.morphe.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCR
 import app.morphe.patches.shared.mainactivity.injectConstructorMethodCall
 import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.morphe.patches.shared.settings.baseSettingsPatch
-import app.morphe.patches.shared.sharedSettingFingerprint
 import app.morphe.util.ResourceGroup
 import app.morphe.util.Utils.printInfo
 import app.morphe.util.copyResources
@@ -36,16 +34,14 @@ import app.morphe.util.copyXmlNode
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.removeStringsElements
 import app.morphe.util.valueOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
-import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import org.w3c.dom.Element
 
 private const val EXTENSION_ACTIVITY_CLASS_DESCRIPTOR =
@@ -67,20 +63,6 @@ private val settingsBytecodePatch = bytecodePatch(
     )
 
     execute {
-
-        // region patch for set SharedPrefCategory
-
-        sharedSettingFingerprint.methodOrThrow().apply {
-            val stringIndex = indexOfFirstInstructionOrThrow(Opcode.CONST_STRING)
-            val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
-
-            replaceInstruction(
-                stringIndex,
-                "const-string v$stringRegister, \"youtube\""
-            )
-        }
-
-        // endregion
 
         // region patch for hook activity
 

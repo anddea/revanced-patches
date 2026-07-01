@@ -19,4 +19,3 @@ val baseReturnYouTubeUsernamePatch = bytecodePatch(
         hookTextComponent(EXTENSION_CLASS_DESCRIPTOR)
     }
 }
-

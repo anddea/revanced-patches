@@ -9,6 +9,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.ACCOUNT_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.patch.PatchList.HIDE_ACCOUNT_COMPONENTS
+import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
 import app.morphe.patches.music.utils.resourceid.channelHandle
 import app.morphe.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.music.utils.settings.CategoryType
@@ -16,6 +17,7 @@ import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.addPreferenceWithIntent
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -101,37 +103,39 @@ val accountComponentsPatch = bytecodePatch(
             ).getReference<FieldReference>()
         }
 
-        namesInactiveAccountThumbnailSizeFingerprint.methodOrThrow().apply {
-            var hook = false
+        if (!is_8_51_or_greater) {
+            namesInactiveAccountThumbnailSizeFingerprint.methodOrThrow().apply {
+                var hook = false
 
-            implementation!!.instructions
-                .withIndex()
-                .filter { (_, instruction) ->
-                    val reference =
-                        (instruction as? ReferenceInstruction)?.reference
-                    instruction.opcode == Opcode.IGET_OBJECT &&
-                            reference is FieldReference &&
-                            reference == textViewField
-                }
-                .map { (index, _) -> index }
-                .forEach { index ->
-                    val insertIndex = index - 1
-                    if (!hook && getInstruction(insertIndex).opcode == Opcode.IF_NEZ) {
-                        val insertRegister =
-                            getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                        addInstructions(
-                            insertIndex, """
-                                invoke-static {v$insertRegister}, $ACCOUNT_CLASS_DESCRIPTOR->hideHandle(Z)Z
-                                move-result v$insertRegister
-                                """
-                        )
-                        hook = true
+                implementation!!.instructions
+                    .withIndex()
+                    .filter { (_, instruction) ->
+                        val reference =
+                            (instruction as? ReferenceInstruction)?.reference
+                        instruction.opcode == Opcode.IGET_OBJECT &&
+                                reference is FieldReference &&
+                                reference == textViewField
                     }
-                }
+                    .map { (index, _) -> index }
+                    .forEach { index ->
+                        val insertIndex = index - 1
+                        if (!hook && getInstruction(insertIndex).opcode == Opcode.IF_NEZ) {
+                            val insertRegister =
+                                getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-            if (!hook) {
-                throw PatchException("Could not find TextUtils.isEmpty() index")
+                            addInstructions(
+                                insertIndex, """
+                                    invoke-static {v$insertRegister}, $ACCOUNT_CLASS_DESCRIPTOR->hideHandle(Z)Z
+                                    move-result v$insertRegister
+                                    """
+                            )
+                            hook = true
+                        }
+                    }
+
+                if (!hook) {
+                    throw PatchException("Could not find TextUtils.isEmpty() index")
+                }
             }
         }
 
@@ -180,11 +184,15 @@ val accountComponentsPatch = bytecodePatch(
             "false",
             "revanced_hide_account_menu"
         )
-        addSwitchPreference(
-            CategoryType.ACCOUNT,
-            "revanced_hide_handle",
-            "true"
-        )
+        if (!is_8_51_or_greater) {
+            addSwitchPreference(
+                CategoryType.ACCOUNT,
+                "revanced_hide_handle",
+                "true"
+            )
+        } else {
+            printWarn("\"Hide handle\" is not supported in this version. Use YouTube Music 8.30.54 or earlier.")
+        }
         addSwitchPreference(
             CategoryType.ACCOUNT,
             "revanced_hide_terms_container",

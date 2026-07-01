@@ -36,11 +36,14 @@ import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
+import app.morphe.util.getFreeRegisterProvider
+import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_SETTINGS_MENU_DESCRIPTOR =
     "$GENERAL_PATH/SettingsMenuPatch;"
@@ -128,23 +131,21 @@ val layoutComponentsPatch = bytecodePatch(
 
         // region patch for hide history button
 
-        setOf(
-            historyMenuItemFingerprint,
-            historyMenuItemOfflineTabFingerprint
-        ).forEach { fingerprint ->
-            fingerprint.matchOrThrow().let {
-                it.method.apply {
-                    val insertIndex = it.instructionMatches.first().index
-                    val insertRegister =
-                        getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+        arrayOf(
+            HistoryMenuItemFingerprint to 1,
+            HistoryMenuItemOfflineTabFingerprint to 2
+        ).forEach { (fingerprint, matchIndex) ->
+            fingerprint.method.apply {
+                val insertIndex = fingerprint.instructionMatches[matchIndex].index
+                val insertRegister =
+                    getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
-                    addInstructions(
-                        insertIndex, """
-                            invoke-static {v$insertRegister}, $GENERAL_CLASS_DESCRIPTOR->hideHistoryButton(Z)Z
-                            move-result v$insertRegister
-                            """
-                    )
-                }
+                addInstructions(
+                    insertIndex, """
+                        invoke-static {v$insertRegister}, $GENERAL_CLASS_DESCRIPTOR->hideHistoryButton(Z)Z
+                        move-result v$insertRegister
+                        """
+                )
             }
         }
 
@@ -173,8 +174,8 @@ val layoutComponentsPatch = bytecodePatch(
 
         preferenceScreenFingerprint.methodOrThrow().apply {
             addInstructions(
-                implementation!!.instructions.lastIndex, """
-                    invoke-virtual/range {p0 .. p0}, Lcom/google/android/apps/youtube/music/settings/fragment/SettingsHeadersFragment;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
+                0, """
+                    invoke-virtual {p0}, Lcom/google/android/apps/youtube/music/settings/fragment/SettingsHeadersFragment;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
                     move-result-object v0
                     invoke-static {v0}, $EXTENSION_SETTINGS_MENU_DESCRIPTOR->hideSettingsMenu(Landroidx/preference/PreferenceScreen;)V
                     """

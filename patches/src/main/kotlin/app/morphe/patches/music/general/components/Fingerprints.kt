@@ -1,13 +1,17 @@
 package app.morphe.patches.music.general.components
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
 import app.morphe.patches.music.utils.resourceid.chipCloud
-import app.morphe.patches.music.utils.resourceid.historyMenuItem
 import app.morphe.patches.music.utils.resourceid.musicTasteBuilderShelf
-import app.morphe.patches.music.utils.resourceid.offlineSettingsMenuItem
 import app.morphe.patches.music.utils.resourceid.playerOverlayChip
 import app.morphe.patches.music.utils.resourceid.searchButton
 import app.morphe.patches.music.utils.resourceid.toolTipContentView
 import app.morphe.patches.music.utils.resourceid.topBarMenuItemImageView
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
@@ -51,31 +55,31 @@ internal val floatingButtonParentFingerprint = legacyFingerprint(
     literals = listOf(259982244L),
 )
 
-internal val historyMenuItemFingerprint = legacyFingerprint(
-    name = "historyMenuItemFingerprint",
+/** Matches the history menu item before and after the 9.x menu-class split. */
+internal object HistoryMenuItemFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Landroid/view/Menu;"),
-    opcodes = listOf(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
+    filters = listOf(
+        resourceLiteral(ResourceType.ID, "history_menu_item"),
+        methodCall(smali = "Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;"),
+        opcode(Opcode.RETURN_VOID, MatchAfterImmediately())
     ),
-    literals = listOf(historyMenuItem),
-    customFingerprint = { _, classDef ->
-        classDef.methods.count() == 5
+    custom = { _, classDef ->
+        classDef.methods.count() == 4 || classDef.methods.count() == 5
     }
 )
 
-internal val historyMenuItemOfflineTabFingerprint = legacyFingerprint(
-    name = "historyMenuItemOfflineTabFingerprint",
+internal object HistoryMenuItemOfflineTabFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Landroid/view/Menu;"),
-    opcodes = listOf(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
-    ),
-    literals = listOf(historyMenuItem, offlineSettingsMenuItem),
+    filters = listOf(
+        resourceLiteral(ResourceType.ID, "offline_settings_menu_item"),
+        resourceLiteral(ResourceType.ID, "history_menu_item"),
+        methodCall(smali = "Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;"),
+        opcode(Opcode.RETURN_VOID, MatchAfterImmediately())
+    )
 )
 
 internal val mediaRouteButtonFingerprint = legacyFingerprint(
@@ -112,10 +116,10 @@ internal val playerOverlayChipFingerprint = legacyFingerprint(
 
 internal val preferenceScreenFingerprint = legacyFingerprint(
     name = "preferenceScreenFingerprint",
-    returnType = "V",
+    returnType = "Landroid/view/View;",
     customFingerprint = { method, _ ->
         method.definingClass == "Lcom/google/android/apps/youtube/music/settings/fragment/SettingsHeadersFragment;" &&
-                method.name == "onCreatePreferences"
+                method.name == "onCreateView"
     }
 )
 
@@ -218,4 +222,3 @@ internal val topBarMenuItemImageViewFingerprint = legacyFingerprint(
     parameters = emptyList(),
     literals = listOf(topBarMenuItemImageView),
 )
-

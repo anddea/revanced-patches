@@ -12,6 +12,7 @@ import app.morphe.patches.music.utils.extension.Constants.NAVIGATION_CLASS_DESCR
 import app.morphe.patches.music.utils.patch.PatchList.NAVIGATION_BAR_COMPONENTS
 import app.morphe.patches.music.utils.playservice.is_6_27_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_29_or_greater
+import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.resourceid.colorGrey
 import app.morphe.patches.music.utils.resourceid.sharedResourceIdPatch
@@ -100,91 +101,122 @@ val navigationBarComponentsPatch = bytecodePatch(
         /**
          * Hide navigation labels
          */
-        tabLayoutTextFingerprint.methodOrThrow().apply {
-            val constIndex =
-                indexOfFirstLiteralInstructionOrThrow(text1)
-            val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
-            val targetParameter = getInstruction<ReferenceInstruction>(targetIndex).reference
-            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+        if (!is_8_51_or_greater) {
+            legacyTabLayoutTextFingerprint.methodOrThrow().apply {
+                val constIndex =
+                    indexOfFirstLiteralInstructionOrThrow(text1)
+                val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
+                val targetParameter = getInstruction<ReferenceInstruction>(targetIndex).reference
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            if (!targetParameter.toString().endsWith("Landroid/widget/TextView;"))
-                throw PatchException("Method signature parameter did not match: $targetParameter")
+                if (!targetParameter.toString().endsWith("Landroid/widget/TextView;"))
+                    throw PatchException("Method signature parameter did not match: $targetParameter")
 
-            addInstruction(
-                targetIndex + 1,
-                "invoke-static {v$targetRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationLabel(Landroid/widget/TextView;)V"
-            )
+                addInstruction(
+                    targetIndex + 1,
+                    "invoke-static {v$targetRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationLabel(Landroid/widget/TextView;)V"
+                )
+            }
+        } else {
+            TabLayoutTextFingerprint.let { fingerprint ->
+                fingerprint.method.apply {
+                    // Apply in reverse order so the fingerprint match indices remain valid.
+                    val pivotTabIndex = fingerprint.instructionMatches.last().index
+                    val pivotTabRegister =
+                        getInstruction<FiveRegisterInstruction>(pivotTabIndex).registerC
+                    addInstruction(
+                        pivotTabIndex,
+                        "invoke-static {v$pivotTabRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V"
+                    )
+
+                    val enumIndex = fingerprint.instructionMatches[7].index
+                    val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
+                    addInstruction(
+                        enumIndex + 1,
+                        "invoke-static {v$enumRegister}, $NAVIGATION_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
+                    )
+
+                    val labelIndex = fingerprint.instructionMatches[3].index
+                    val labelRegister = getInstruction<OneRegisterInstruction>(labelIndex).registerA
+                    addInstruction(
+                        labelIndex + 1,
+                        "invoke-static {v$labelRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationLabel(Landroid/widget/TextView;)V"
+                    )
+                }
+            }
         }
 
         /**
          * Hide navigation bar & buttons
          */
-        tabLayoutTextFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val mapIndex = indexOfMapInstruction(this)
-                val browseIdRegister =
-                    getInstruction<FiveRegisterInstruction>(mapIndex).registerD
-                val browseIdIndex = indexOfFirstInstructionReversedOrThrow(mapIndex + 1) {
-                    opcode == Opcode.IGET_OBJECT &&
-                            getReference<FieldReference>()?.type == "Ljava/lang/String;" &&
-                            (this as TwoRegisterInstruction).registerA == browseIdRegister
+        if (!is_8_51_or_greater) {
+            legacyTabLayoutTextFingerprint.matchOrThrow().let {
+                it.method.apply {
+                    val mapIndex = indexOfMapInstruction(this)
+                    val browseIdRegister =
+                        getInstruction<FiveRegisterInstruction>(mapIndex).registerD
+                    val browseIdIndex = indexOfFirstInstructionReversedOrThrow(mapIndex + 1) {
+                        opcode == Opcode.IGET_OBJECT &&
+                                getReference<FieldReference>()?.type == "Ljava/lang/String;" &&
+                                (this as TwoRegisterInstruction).registerA == browseIdRegister
+                    }
+                    val browseIdClassRegister =
+                        getInstruction<TwoRegisterInstruction>(browseIdIndex).registerB
+                    val browseIdFieldName =
+                        (getInstruction<ReferenceInstruction>(browseIdIndex).reference as FieldReference).name
+
+                    val enumIndex = it.instructionMatches.first().index + 3
+                    val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
+                    val insertEnumIndex = indexOfFirstInstructionOrThrow(Opcode.AND_INT_LIT8) - 2
+
+                    val pivotTabIndex = indexOfGetVisibilityInstruction(this)
+                    val pivotTabRegister =
+                        getInstruction<FiveRegisterInstruction>(pivotTabIndex).registerC
+
+                    val spannedIndex = indexOfSetTextInstruction(this)
+                    val spannedRegister =
+                        getInstruction<FiveRegisterInstruction>(spannedIndex).registerD
+
+                    addInstruction(
+                        pivotTabIndex,
+                        "invoke-static {v$pivotTabRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V"
+                    )
+
+                    addInstructions(
+                        mapIndex, """
+                            const-string v$enumRegister, "$browseIdFieldName"
+                            invoke-static {v$browseIdClassRegister, v$browseIdRegister, v$enumRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceBrowseId(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v$browseIdRegister
+                            """
+                    )
+
+                    addInstructions(
+                        spannedIndex, """
+                            invoke-static {v$spannedRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceNavigationLabel(Landroid/text/Spanned;)Landroid/text/Spanned;
+                            move-result-object v$spannedRegister
+                            """
+                    )
+
+                    addInstruction(
+                        insertEnumIndex,
+                        "invoke-static {v$enumRegister}, $NAVIGATION_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
+                    )
                 }
-                val browseIdClassRegister =
-                    getInstruction<TwoRegisterInstruction>(browseIdIndex).registerB
-                val browseIdFieldName =
-                    (getInstruction<ReferenceInstruction>(browseIdIndex).reference as FieldReference).name
-
-                val enumIndex = it.instructionMatches.first().index + 3
-                val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
-                val insertEnumIndex = indexOfFirstInstructionOrThrow(Opcode.AND_INT_LIT8) - 2
-
-                val pivotTabIndex = indexOfGetVisibilityInstruction(this)
-                val pivotTabRegister =
-                    getInstruction<FiveRegisterInstruction>(pivotTabIndex).registerC
-
-                val spannedIndex = indexOfSetTextInstruction(this)
-                val spannedRegister =
-                    getInstruction<FiveRegisterInstruction>(spannedIndex).registerD
-
-                addInstruction(
-                    pivotTabIndex,
-                    "invoke-static {v$pivotTabRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V"
-                )
-
-                addInstructions(
-                    mapIndex, """
-                        const-string v$enumRegister, "$browseIdFieldName"
-                        invoke-static {v$browseIdClassRegister, v$browseIdRegister, v$enumRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceBrowseId(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$browseIdRegister
-                        """
-                )
-
-                addInstructions(
-                    spannedIndex, """
-                        invoke-static {v$spannedRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceNavigationLabel(Landroid/text/Spanned;)Landroid/text/Spanned;
-                        move-result-object v$spannedRegister
-                        """
-                )
-
-                addInstruction(
-                    insertEnumIndex,
-                    "invoke-static {v$enumRegister}, $NAVIGATION_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
-                )
             }
-        }
 
-        val smaliInstruction = """
-            invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $NAVIGATION_CLASS_DESCRIPTOR->replaceNavigationIcon(I)I
-            move-result v$REGISTER_TEMPLATE_REPLACEMENT
-            """
+            val smaliInstruction = """
+                invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $NAVIGATION_CLASS_DESCRIPTOR->replaceNavigationIcon(I)I
+                move-result v$REGISTER_TEMPLATE_REPLACEMENT
+                """
 
-        arrayOf(
-            ytFillSamples,
-            ytFillYouTubeMusic,
-            ytOutlineSamples,
-            ytOutlineYouTubeMusic,
-        ).forEach { literal ->
-            replaceLiteralInstructionCall(literal, smaliInstruction)
+            arrayOf(
+                ytFillSamples,
+                ytFillYouTubeMusic,
+                ytOutlineSamples,
+                ytOutlineYouTubeMusic,
+            ).forEach { literal ->
+                replaceLiteralInstructionCall(literal, smaliInstruction)
+            }
         }
 
         addSwitchPreference(
@@ -231,11 +263,15 @@ val navigationBarComponentsPatch = bytecodePatch(
         } else {
             printWarn("\"Replace Samples button\" is not supported in this version. Use YouTube Music 6.29.59 - 8.28.54.")
         }
-        addSwitchPreference(
-            CategoryType.NAVIGATION,
-            "revanced_replace_navigation_upgrade_button",
-            "false"
-        )
+        if (!is_8_51_or_greater) {
+            addSwitchPreference(
+                CategoryType.NAVIGATION,
+                "revanced_replace_navigation_upgrade_button",
+                "false"
+            )
+        } else {
+            printWarn("\"Replace Upgrade button\" is not supported in this version. Use YouTube Music 8.30.54 or earlier.")
+        }
         addSwitchPreference(
             CategoryType.NAVIGATION,
             "revanced_hide_navigation_bar",

@@ -1,26 +1,31 @@
 package app.morphe.patches.shared.textcomponent
 
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.or
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val textComponentConstructorFingerprint = legacyFingerprint(
-    name = "textComponentConstructorFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.CONSTRUCTOR,
-    strings = listOf("TextComponent")
-)
-
-internal val textComponentContextFingerprint = legacyFingerprint(
-    name = "textComponentContextFingerprint",
+/**
+ * Matches the TextComponent render method through its constructor class.
+ *
+ * The constructor became public in YouTube Music 9.15, so access flags are intentionally omitted.
+ */
+internal object TextComponentContextFingerprint : Fingerprint(
+    classFingerprint = Fingerprint(
+        returnType = "V",
+        parameters = emptyList(),
+        filters = listOf(
+            string("TextComponent"),
+            opcode(Opcode.SGET_OBJECT),
+            opcode(Opcode.IPUT_OBJECT)
+        )
+    ),
     returnType = "L",
-    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PROTECTED, AccessFlags.FINAL),
     parameters = listOf("L"),
-    opcodes = listOf(
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_BOOLEAN
+    filters = listOf(
+        fieldAccess(type = "Ljava/util/Map;")
     )
 )

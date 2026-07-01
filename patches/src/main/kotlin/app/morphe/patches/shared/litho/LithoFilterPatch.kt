@@ -46,6 +46,8 @@ import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.morphe.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
+import app.morphe.patches.music.utils.playservice.is_9_15_or_greater
 import app.morphe.patches.shared.conversionContextFingerprintToString2
 import app.morphe.patches.shared.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
@@ -81,6 +83,12 @@ private const val REGISTER_FILTER_ARRAY = 2
 
 private lateinit var helperMethod: MutableMethod
 
+private data class FlatBufferElementReferences(
+    val elementClass: String,
+    val elementField: FieldReference,
+    val byteBufferField: FieldReference,
+)
+
 // For now, we'll use hybrid implementation, LithoFilter for YouTube based on ReVanced, for YTM based on RVX
 val lithoFilterPatch = bytecodePatch(
     description = "Hooks the method which parses the bytes into a ComponentContext to filter components.",
@@ -91,20 +99,21 @@ val lithoFilterPatch = bytecodePatch(
     )
 
     var filterCount = 0
-    var isYouTube = false
+    var isNewLitho = false
     var filterArrayMethod: MutableMethod? = null
     val filterClassDescriptors = mutableSetOf<String>()
 
     execute {
-        // `componentContextSubParserFingerprint` is specific to the YouTube app.
-        val hasModernYouTubeComponentCreate =
-            ConversionContextFingerprintToString.originalClassDefOrNull != null
-        val useModernFilterDataInLegacyBridge = hasModernYouTubeComponentCreate &&
+        val isYouTubeMusic = packageMetadata.packageName == YOUTUBE_MUSIC_PACKAGE_NAME
+        val useModernFilterDataInLegacyBridge = !isYouTubeMusic &&
                 is_20_21_or_greater && !is_20_22_or_greater
-        isYouTube = hasModernYouTubeComponentCreate && is_20_22_or_greater
-        // print("isYouTube: $isYouTube\n")
+        isNewLitho = if (isYouTubeMusic) {
+            is_9_15_or_greater
+        } else {
+            is_20_22_or_greater
+        }
 
-        if (isYouTube) {
+        if (isNewLitho) {
             // Remove dummy filter from extension static field
             // and add the filters included during patching.
             LithoFilterFingerprint.match(classDefBy(EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR)).let {
@@ -174,6 +183,51 @@ val lithoFilterPatch = bytecodePatch(
             )
 
             val protoBufferEncodeMethod = ProtobufBufferEncodeFingerprint.method
+
+            val flatBufferElementReferences = if (isYouTubeMusic && is_9_15_or_greater) {
+                val elementInterface = ComponentCreateFingerprint.method.parameterTypes[2].toString()
+                val flatBufferBaseClass = ProtobufBufferReferenceLegacyFingerprint.classDef
+                val byteBufferField = flatBufferBaseClass.fields.single {
+                    it.type == "Ljava/nio/ByteBuffer;"
+                }
+
+                fun inheritsFrom(type: String, expectedSuperclass: String): Boolean {
+                    var current: String? = type
+                    while (current != null && current != "Ljava/lang/Object;") {
+                        if (current == expectedSuperclass) return true
+                        current = try {
+                            classDefBy(current).superclass
+                        } catch (_: Exception) {
+                            null
+                        }
+                    }
+                    return false
+                }
+
+                var references: FlatBufferElementReferences? = null
+                classDefForEach { classDef ->
+                    if (!classDef.interfaces.contains(elementInterface)) return@classDefForEach
+
+                    val elementFields = classDef.fields.filter {
+                        inheritsFrom(it.type, flatBufferBaseClass.type)
+                    }
+                    if (elementFields.size == 1) {
+                        check(references == null) {
+                            "Found multiple FlatBuffer implementations of $elementInterface"
+                        }
+                        references = FlatBufferElementReferences(
+                            classDef.type,
+                            elementFields.single(),
+                            byteBufferField,
+                        )
+                    }
+                }
+                checkNotNull(references) {
+                    "Could not find the FlatBuffer implementation of $elementInterface"
+                }
+            } else {
+                null
+            }
 
             // endregion
 
@@ -268,6 +322,32 @@ val lithoFilterPatch = bytecodePatch(
                 val accessibilityIdRegister = accessibilityRegisterProvider.getFreeRegister()
                 val accessibilityTextRegister = accessibilityRegisterProvider.getFreeRegister()
 
+                // YouTube Music 9.15 can pass either an UPB or FlatBuffer-backed element. Read the
+                // current FlatBuffer directly because the generic parser hook can run on another
+                // thread and direct ByteBuffers do not expose their backing bytes.
+                val unsupportedDirectBufferInstructions = if (flatBufferElementReferences != null) {
+                    with(flatBufferElementReferences) {
+                        """
+                        instance-of v$freeRegister, v$bufferRegister, $elementClass
+                        if-eqz v$freeRegister, :missing_buffer
+                        check-cast v$bufferRegister, $elementClass
+                        iget-object v$bufferRegister, v$bufferRegister, $elementField
+                        iget-object v$bufferRegister, v$bufferRegister, $byteBufferField
+                        invoke-static { v$bufferRegister }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->setDirectProtoBuffer(Ljava/nio/ByteBuffer;)V
+                        goto :filter
+
+                        :missing_buffer
+                        const/4 v$freeRegister, 0x0
+                        new-array v$bufferRegister, v$freeRegister, [B
+                        """.trimIndent()
+                    }
+                } else {
+                    """
+                    const/4 v$freeRegister, 0x0
+                    new-array v$bufferRegister, v$freeRegister, [B
+                    """.trimIndent()
+                }
+
                 addInstructionsAtControlFlowLabel(
                     insertIndex,
                     """
@@ -281,15 +361,15 @@ val lithoFilterPatch = bytecodePatch(
                     check-cast v$bufferRegister, ${protoBufferEncodeMethod.definingClass}
                     invoke-virtual { v$bufferRegister }, $protoBufferEncodeMethod
                     move-result-object v$bufferRegister
-                    goto :hook
+                    goto :set_direct_buffer
 
                     :empty_buffer
-                    const/4 v$freeRegister, 0x0
-                    new-array v$bufferRegister, v$freeRegister, [B
+                    $unsupportedDirectBufferInstructions
 
-                    :hook
+                    :set_direct_buffer
                     invoke-static { v$bufferRegister }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->setDirectProtoBuffer([B)V
 
+                    :filter
                     move-object/from16 v$freeRegister, p2
                     
                     # 20.41 field is the abstract superclass.
@@ -693,7 +773,7 @@ val lithoFilterPatch = bytecodePatch(
     }
 
     finalize {
-        if (isYouTube) {
+        if (isNewLitho) {
             helperMethod.apply {
                 addInstruction(
                     implementation!!.instructions.size,

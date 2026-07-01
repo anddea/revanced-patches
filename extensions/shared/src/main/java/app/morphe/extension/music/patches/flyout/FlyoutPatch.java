@@ -61,11 +61,15 @@ public class FlyoutPatch {
     public static boolean hideComponents(@Nullable Enum<?> flyoutMenuEnum) {
         if (flyoutMenuEnum != null) {
             final String flyoutMenuName = flyoutMenuEnum.name();
-            Logger.printDebug(() -> "flyoutMenu loaded: " + flyoutMenuName);
-
-            for (FlyoutPanelComponent component : FlyoutPanelComponent.values())
-                if (component.name().equals(flyoutMenuName) && component.setting.get())
-                    return true;
+            for (FlyoutPanelComponent component : FlyoutPanelComponent.values()) {
+                if (component.name().equals(flyoutMenuName)) {
+                    final boolean hidden = component.shouldHide();
+                    Logger.printDebug(() -> "flyoutMenu loaded: " + flyoutMenuName +
+                            ", hidden: " + hidden);
+                    return hidden;
+                }
+            }
+            Logger.printDebug(() -> "flyoutMenu loaded: " + flyoutMenuName + ", unmapped");
         }
 
         return false;
@@ -136,6 +140,7 @@ public class FlyoutPatch {
         ADD_TO_PLAYLIST(Settings.HIDE_FLYOUT_MENU_SAVE_TO_PLAYLIST),
         ALBUM(Settings.HIDE_FLYOUT_MENU_GO_TO_ALBUM),
         ARTIST(Settings.HIDE_FLYOUT_MENU_GO_TO_ARTIST),
+        BOOKMARK(Settings.HIDE_FLYOUT_MENU_REMOVE_FROM_LIBRARY),
         BOOKMARK_BORDER(Settings.HIDE_FLYOUT_MENU_SAVE_EPISODE_FOR_LATER_SAVE_TO_LIBRARY),
         BROADCAST(Settings.HIDE_FLYOUT_MENU_GO_TO_PODCAST),
         CAPTIONS(Settings.HIDE_FLYOUT_MENU_CAPTIONS),
@@ -154,6 +159,8 @@ public class FlyoutPatch {
         MOON_Z(Settings.HIDE_FLYOUT_MENU_SLEEP_TIMER),
         OFFLINE_DOWNLOAD(Settings.HIDE_FLYOUT_MENU_DOWNLOAD),
         PEOPLE_GROUP(Settings.HIDE_FLYOUT_MENU_VIEW_SONG_CREDIT),
+        PIN_OFF_OUTLINE(Settings.HIDE_FLYOUT_MENU_UNPIN_FROM_SPEED_DIAL),
+        PIN_OUTLINE(Settings.HIDE_FLYOUT_MENU_PIN_TO_SPEED_DIAL),
         PLANNER_REVIEW(Settings.HIDE_FLYOUT_MENU_STATS_FOR_NERDS),
         QUEUE_MUSIC(Settings.HIDE_FLYOUT_MENU_ADD_TO_QUEUE),
         QUEUE_PLAY_NEXT(Settings.HIDE_FLYOUT_MENU_PLAY_NEXT),
@@ -163,10 +170,19 @@ public class FlyoutPatch {
         SHUFFLE(Settings.HIDE_FLYOUT_MENU_SHUFFLE_PLAY),
         SUBSCRIBE(Settings.HIDE_FLYOUT_MENU_SUBSCRIBE);
 
-        private final BooleanSetting setting;
+        private final BooleanSetting[] settings;
 
-        FlyoutPanelComponent(BooleanSetting setting) {
-            this.setting = setting;
+        FlyoutPanelComponent(BooleanSetting... settings) {
+            this.settings = settings;
+        }
+
+        boolean shouldHide() {
+            for (BooleanSetting setting : settings) {
+                if (setting.get()) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

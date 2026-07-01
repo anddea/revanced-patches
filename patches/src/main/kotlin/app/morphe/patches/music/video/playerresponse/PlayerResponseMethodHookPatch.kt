@@ -6,6 +6,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.music.utils.extension.sharedExtensionPatch
 import app.morphe.patches.music.utils.playservice.is_7_03_or_greater
+import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.util.fingerprint.methodOrThrow
 
@@ -32,6 +33,8 @@ val playerResponseMethodHookPatch = bytecodePatch(
     )
 
     execute {
+        if (is_8_51_or_greater) return@execute
+
         playerResponseMethod = if (is_7_03_or_greater) {
             playerParameterBuilderFingerprint
         } else {
@@ -40,6 +43,8 @@ val playerResponseMethodHookPatch = bytecodePatch(
     }
 
     finalize {
+        if (is_8_51_or_greater) return@finalize
+
         fun hookVideoId(hook: Hook) {
             playerResponseMethod.addInstruction(
                 0,
@@ -62,7 +67,7 @@ val playerResponseMethodHookPatch = bytecodePatch(
                 """
                     invoke-static {$REGISTER_VIDEO_ID, v0}, $hook
                     move-result-object v0
-                    """,
+                """,
             )
             numberOfInstructionsAdded += 2
         }

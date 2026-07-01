@@ -34,19 +34,11 @@ internal val engagementPanelRecyclerViewFingerprint = Fingerprint(
         !AccessFlags.STATIC.isSet(method.accessFlags) &&
                 method.containsLiteralInstruction(49399797L) &&
                 classDef.fields.find { field -> field.type == "Lcom/google/android/libraries/youtube/rendering/ui/widget/loadingframe/LoadingFrameLayout;" } != null &&
-                classDef.fields.find { field -> field.type == "Lj\$/util/Optional;" } != null &&
+                classDef.fields.find { field -> field.type == "Lj$/util/Optional;" } != null &&
                 indexOfRecyclerViewInstruction(method) >= 0 &&
                 indexOfIfPresentInstruction(method) >= 0
 
     },
-)
-
-internal val recyclerViewOptionalFingerprint = Fingerprint(
-    returnType = "Lj\$/util/Optional;",
-    parameters = emptyList(),
-    custom = { method, _ ->
-        indexOfRecyclerViewInstruction(method) >= 0
-    }
 )
 
 internal fun indexOfRecyclerViewInstruction(method: Method) =
@@ -58,7 +50,7 @@ internal fun indexOfRecyclerViewInstruction(method: Method) =
 internal fun indexOfIfPresentInstruction(method: Method) =
     method.indexOfFirstInstructionReversed {
         opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>()?.name == "ifPresent"
+                getReference<MethodReference>()?.name?.startsWith("ifPresent") == true
     }
 
 internal val engagementPanelTitleFingerprint = Fingerprint(

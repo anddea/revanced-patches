@@ -1,9 +1,10 @@
 package app.morphe.patches.music.misc.backgroundplayback
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.literal
 import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
 
 internal val backgroundPlaybackManagerFingerprint = legacyFingerprint(
     name = "backgroundPlaybackManagerFingerprint",
@@ -24,24 +25,18 @@ internal val dataSavingSettingsFragmentFingerprint = legacyFingerprint(
     }
 )
 
-internal val kidsBackgroundPlaybackPolicyControllerFingerprint = legacyFingerprint(
-    name = "kidsBackgroundPlaybackPolicyControllerFingerprint",
+/**
+ * Matches the kids playback policy by its stable feature flag.
+ *
+ * The surrounding opcode sequence changed in YouTube Music 8.51, while the flag and method
+ * contract remained stable.
+ */
+internal object KidsBackgroundPlaybackPolicyControllerFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("I", "L", "Z"),
-    opcodes = listOf(
-        Opcode.IGET,
-        Opcode.IF_NE,
-        Opcode.IGET_OBJECT,
-        Opcode.IF_NE,
-        Opcode.IGET_BOOLEAN,
-        Opcode.IF_EQ,
-        Opcode.GOTO,
-        Opcode.RETURN_VOID,
-        Opcode.SGET_OBJECT,
-        Opcode.CONST_4,
-        Opcode.IF_NE,
-        Opcode.IPUT_BOOLEAN
+    filters = listOf(
+        literal(45638079L)
     )
 )
 

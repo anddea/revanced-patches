@@ -196,9 +196,9 @@ val videoPlaybackPatch = bytecodePatch(
                 val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
                 addInstructions(
-                    index, """
-                        invoke-static {v$register}, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->getInitialVideoQuality(Lj${'$'}/util/Optional;)Lj${'$'}/util/Optional;
-                        move-result-object v$register
+                    index, $$"""
+                        invoke-static {v$$register}, $$EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->getInitialVideoQuality(Lj$/util/Optional;)Lj$/util/Optional;
+                        move-result-object v$$register
                         """
                 )
             }

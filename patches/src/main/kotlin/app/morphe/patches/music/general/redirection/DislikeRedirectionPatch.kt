@@ -9,11 +9,13 @@ import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUT
 import app.morphe.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.patch.PatchList.DISABLE_DISLIKE_REDIRECTION
 import app.morphe.patches.music.utils.playservice.is_7_29_or_greater
+import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -38,6 +40,11 @@ val dislikeRedirectionPatch = bytecodePatch(
     )
 
     execute {
+
+        if (is_8_51_or_greater) {
+            printWarn("\"${DISABLE_DISLIKE_REDIRECTION.title}\" is not supported in this version. Use YouTube Music 8.30.54 or earlier.")
+            return@execute
+        }
 
         notificationLikeButtonOnClickListenerFingerprint
             .methodOrThrow(notificationLikeButtonControllerFingerprint)
