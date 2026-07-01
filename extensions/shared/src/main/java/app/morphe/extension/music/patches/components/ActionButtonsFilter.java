@@ -4,6 +4,7 @@ import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.morphe.extension.shared.patches.components.Filter;
+import app.morphe.extension.shared.patches.components.FilterGroup.FilterGroupResult;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
 
 @SuppressWarnings("unused")
@@ -12,6 +13,10 @@ public final class ActionButtonsFilter extends Filter {
 
     private final StringFilterGroup actionBarRule;
     private final StringFilterGroup bufferFilterPathRule;
+    private final ByteArrayFilterGroup sharedIconRegistryStart = new ByteArrayFilterGroup(
+            null,
+            "yt_outline_overflow_vertical_white_24"
+    );
     private final ByteArrayFilterGroupList bufferButtonsGroupList = new ByteArrayFilterGroupList();
 
     public ActionButtonsFilter() {
@@ -78,6 +83,22 @@ public final class ActionButtonsFilter extends Filter {
         return true;
     }
 
+    /**
+     * Checks only the button-local portion of the component buffer.
+     *
+     * <p>Music 8.30 appends a shared icon registry to every action button buffer. Matching past
+     * the first registry icon would make one enabled hide setting match every button.</p>
+     */
+    private boolean matchesButtonContent(byte[] buffer) {
+        final FilterGroupResult buttonMatch = bufferButtonsGroupList.check(buffer);
+        if (!buttonMatch.isFiltered()) {
+            return false;
+        }
+
+        final int registryStart = sharedIconRegistryStart.check(buffer).getMatchedIndex();
+        return registryStart < 0 || buttonMatch.getMatchedIndex() < registryStart;
+    }
+
     @Override
     public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
@@ -87,6 +108,6 @@ public final class ActionButtonsFilter extends Filter {
         if (matchedGroup == actionBarRule && !isEveryFilterGroupEnabled()) {
             return false;
         }
-        return matchedGroup != bufferFilterPathRule || bufferButtonsGroupList.check(buffer).isFiltered();
+        return matchedGroup != bufferFilterPathRule || matchesButtonContent(buffer);
     }
 }
