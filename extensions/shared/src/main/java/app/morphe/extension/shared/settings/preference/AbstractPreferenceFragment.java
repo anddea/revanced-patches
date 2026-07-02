@@ -224,7 +224,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     private void updatePreferenceScreen(@NonNull PreferenceGroup group,
                                         boolean syncSettingValue,
                                         boolean applySettingToPreference) {
-        // Alternatively this could iterate thru all Settings and check for any matching Preferences,
+        // Alternatively this could iterate through all Settings and check for any matching Preferences,
         // but there are many more Settings than UI preferences so it's more efficient to only check
         // the Preferences.
         for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
@@ -301,7 +301,9 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 Setting.privateSetValueFromString(setting, listPref.getValue());
             }
             updateListPreferenceSummary(listPref, setting);
-        } else if (!pref.getClass().equals(Preference.class)) {
+        } else if (pref.getClass().equals(Preference.class)) {
+            updatePreferenceSummary(pref, setting);
+        } else {
             // Ignore root preference class because there is no data to sync.
             Logger.printException(() -> "Setting cannot be handled: " + pref.getClass() + ": " + pref);
         }
@@ -340,6 +342,25 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             listPreference.setValue(objectStringValue);
             listPreference.setSummary(listPreference.getEntries()[entryIndex]);
         }
+    }
+
+    public static void updatePreferenceSummary(Preference preference, Setting<?> setting) {
+        try {
+            final String settingsKey = setting.key;
+            final String entryKey = settingsKey + "_entries";
+            final String entryValueKey = settingsKey + "_entry_values";
+            final String[] mEntries = app.morphe.extension.shared.utils.ResourceUtils.getStringArray(entryKey);
+            final String[] mEntryValues = app.morphe.extension.shared.utils.ResourceUtils.getStringArray(entryValueKey);
+
+            final String valueStr = setting.get().toString();
+            int index = org.apache.commons.lang3.ArrayUtils.indexOf(mEntryValues, valueStr);
+            if (index < 0) {
+                index = org.apache.commons.lang3.ArrayUtils.indexOf(mEntryValues, valueStr.toUpperCase(java.util.Locale.ENGLISH));
+            }
+            if (index >= 0 && index < mEntries.length) {
+                preference.setSummary(mEntries[index]);
+            }
+        } catch (Exception ignored) {}
     }
 
     public static void showRestartDialog(@NonNull Context context) {
