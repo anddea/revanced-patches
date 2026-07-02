@@ -110,6 +110,21 @@ internal object ResourceUtils {
         }
     }
 
+    /**
+     * Applies a DOM mutation to every generated RVX Music preference screen for a category.
+     * This keeps nested custom screens in the same XML flow as the existing settings helpers.
+     */
+    fun editPreferenceCategory(category: String, action: Element.() -> Unit) {
+        context.document(SETTINGS_HEADER_PATH).use { document ->
+            val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
+            List(tags.length) { tags.item(it) as Element }
+                .filter {
+                    it.getAttribute("android:key").contains("revanced_preference_screen_$category")
+                }
+                .forEach { it.action() }
+        }
+    }
+
     fun addPreferenceCategoryUnderPreferenceScreen(
         preferenceScreenKey: String,
         category: String
@@ -390,6 +405,14 @@ internal object ResourceUtils {
                     DOMSource(searchDocument),
                     StreamResult(context.get(RVX_PREFERENCE_PATH))
                 )
+
+            // Clear child elements of sourceElement in settings_headers.xml to prevent AndroidX preference inflation crash.
+            val childrenList = List(sourceElement.childNodes.length) { sourceElement.childNodes.item(it) }
+            for (child in childrenList) {
+                if (child is Element && child.tagName != "intent") {
+                    sourceElement.removeChild(child)
+                }
+            }
         }
     }
 

@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 
 import app.morphe.extension.music.patches.general.ChangeStartPagePatch.StartPage;
 import app.morphe.extension.music.patches.misc.AlbumMusicVideoPatch.RedirectType;
+import app.morphe.extension.music.patches.CrossfadeManager.CrossFadeDuration;
+import app.morphe.extension.music.patches.CrossfadeManager.FadeCurve;
 import app.morphe.extension.music.patches.utils.PatchStatus;
 import app.morphe.extension.music.sponsorblock.SponsorBlockSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
@@ -156,6 +158,12 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting ADD_MINIPLAYER_PREVIOUS_BUTTON = new BooleanSetting("revanced_add_miniplayer_previous_button", TRUE, true);
     public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_change_miniplayer_color", TRUE);
     public static final BooleanSetting CHANGE_PLAYER_BACKGROUND_COLOR = new BooleanSetting("revanced_change_player_background_color", FALSE, true);
+    public static final BooleanSetting CROSSFADE_ENABLED = new BooleanSetting("morphe_music_crossfade_enabled", FALSE, true);
+    public static final EnumSetting<FadeCurve> CROSSFADE_CURVE = new EnumSetting<>("morphe_music_crossfade_curve", FadeCurve.EQUAL_POWER);
+    public static final EnumSetting<CrossFadeDuration> CROSSFADE_DURATION = new EnumSetting<>("morphe_music_crossfade_duration", CrossFadeDuration.MILLISECONDS_3000);
+    public static final BooleanSetting CROSSFADE_ON_SKIP = new BooleanSetting("morphe_music_crossfade_on_skip", TRUE);
+    public static final BooleanSetting CROSSFADE_ON_AUTO_ADVANCE = new BooleanSetting("morphe_music_crossfade_on_auto_advance", TRUE);
+    public static final BooleanSetting CROSSFADE_SESSION_CONTROL = new BooleanSetting("morphe_music_crossfade_session_control", TRUE);
     public static final StringSetting CUSTOM_PLAYER_BACKGROUND_COLOR_PRIMARY = new StringSetting("revanced_custom_player_background_color_primary", "#000000", true);
     public static final StringSetting CUSTOM_PLAYER_BACKGROUND_COLOR_SECONDARY = new StringSetting("revanced_custom_player_background_color_secondary", "#000000", true);
     public static final BooleanSetting CHANGE_SEEK_BAR_POSITION = new BooleanSetting("revanced_change_seekbar_position", FALSE, true);
@@ -298,6 +306,8 @@ public class Settings extends SharedYouTubeSettings {
             APP_INFO.key,
             BYPASS_IMAGE_REGION_RESTRICTIONS_DOMAIN.key,
             CHANGE_START_PAGE.key,
+            CROSSFADE_CURVE.key,
+            CROSSFADE_DURATION.key,
             CUSTOM_FILTER_STRINGS.key,
             CUSTOM_PLAYBACK_SPEEDS.key,
             CUSTOM_PLAYER_BACKGROUND_COLOR_PRIMARY.key,

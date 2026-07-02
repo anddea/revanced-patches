@@ -3,6 +3,8 @@ package app.morphe.extension.music.settings.preference;
 import static app.morphe.extension.music.settings.Settings.APP_INFO;
 import static app.morphe.extension.music.settings.Settings.BYPASS_IMAGE_REGION_RESTRICTIONS_DOMAIN;
 import static app.morphe.extension.music.settings.Settings.CHANGE_START_PAGE;
+import static app.morphe.extension.music.settings.Settings.CROSSFADE_CURVE;
+import static app.morphe.extension.music.settings.Settings.CROSSFADE_DURATION;
 import static app.morphe.extension.music.settings.Settings.CUSTOM_FILTER_STRINGS;
 import static app.morphe.extension.music.settings.Settings.CUSTOM_PLAYBACK_SPEEDS;
 import static app.morphe.extension.music.settings.Settings.CUSTOM_PLAYER_BACKGROUND_COLOR_PRIMARY;
@@ -205,6 +207,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 }
             } else if (settings instanceof EnumSetting<?> enumSetting) {
                 if (settings.equals(CHANGE_START_PAGE)
+                        || settings.equals(CROSSFADE_CURVE)
+                        || settings.equals(CROSSFADE_DURATION)
                         || settings.equals(DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE)
                         || settings.equals(RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT)
                         || settings.equals(SPOOF_VIDEO_STREAMS_CLIENT_TYPE)
