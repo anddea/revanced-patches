@@ -63,10 +63,14 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
+import app.morphe.patches.shared.misc.fix.proto.immutableMethodRef
+import app.morphe.patches.shared.misc.fix.proto.mutableCopyMethodRef
+import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethod
 import app.morphe.patches.youtube.utils.castbutton.castButtonPatch
 import app.morphe.patches.youtube.utils.castbutton.hookToolBarCastButton
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
+import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.TOOLBAR_COMPONENTS
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_19_16_or_greater
@@ -86,7 +90,6 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.toolbar.hookToolBar
 import app.morphe.patches.youtube.utils.toolbar.toolBarHookPatch
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
-import app.morphe.util.Utils.printWarn
 import app.morphe.util.containsLiteralInstruction
 import app.morphe.util.doRecursively
 import app.morphe.util.findInstructionIndicesReversedOrThrow
@@ -97,6 +100,7 @@ import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodCall
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
+import app.morphe.util.getFreeRegisterProvider
 import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstruction
@@ -118,6 +122,9 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
+
+private const val NAVIGATION_CLASS_DESCRIPTOR =
+    "$GENERAL_PATH/NavigationButtonsPatch;"
 
 @Suppress("unused")
 val toolBarComponentsPatch = bytecodePatch(
@@ -743,6 +750,57 @@ val toolBarComponentsPatch = bytecodePatch(
 
             settingArray += "SETTINGS: HIDE_YOU_MAY_LIKE_SECTION"
         }
+
+        hookToolBar("$NAVIGATION_CLASS_DESCRIPTOR->setToolbarSettingsOnClickListener")
+
+        TopBarRendererSecondaryFilterFingerprint.let {
+            it.method.apply {
+                var buttonsClass: String? = null
+                val protoListIndex = it.instructionMatches.first().index
+                for (index in protoListIndex until implementation!!.instructions.size) {
+                    val instruction = getInstruction(index)
+                    if (instruction.opcode == Opcode.CHECK_CAST) {
+                        buttonsClass =
+                            (instruction as ReferenceInstruction).reference.toString()
+                        break
+                    }
+                }
+
+                val protoListRegister =
+                    getInstruction<FiveRegisterInstruction>(protoListIndex).registerC
+                val freeRegisters = getFreeRegisterProvider(protoListIndex, 2)
+                val protoListFreeRegister = freeRegisters.getFreeRegister()
+                val byteRegister = freeRegisters.getFreeRegister()
+
+                addInstructionsWithLabels(
+                    protoListIndex,
+                    """
+                            invoke-interface {v$protoListRegister}, ${immutableMethodRef.get()}
+                            move-result v$protoListFreeRegister
+                            if-nez v$protoListFreeRegister, :immutable
+
+                            invoke-static {v$protoListRegister}, ${mutableCopyMethodRef.get()}
+                            move-result-object v$protoListRegister
+
+                            invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->createToolbarSettingsButton(Ljava/util/List;)[B
+                            move-result-object v$byteRegister
+                            if-eqz v$byteRegister, :immutable
+
+                            sget-object v$protoListFreeRegister, $buttonsClass->a:$buttonsClass
+                            invoke-static {v$protoListFreeRegister, v$byteRegister}, $parseByteArrayMethod
+                            move-result-object v$protoListFreeRegister
+                            check-cast v$protoListFreeRegister, $buttonsClass
+                            invoke-interface {v$protoListRegister, v$protoListFreeRegister}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+                            invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->applyToolbarSettingsButtonIndex(Ljava/util/List;)V
+
+                            :immutable
+                            nop
+                        """,
+                )
+            }
+        }
+
+        settingArray += "SETTINGS: SHOW_TOOLBAR_SETTINGS_BUTTON"
 
         // endregion
 

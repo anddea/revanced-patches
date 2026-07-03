@@ -55,6 +55,7 @@ package app.morphe.patches.youtube.general.toolbar
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
@@ -474,4 +475,16 @@ internal val youActionBarFingerprint = legacyFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
     )
+)
+
+internal object TopBarRendererSecondaryFilterFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    filters = listOf(
+        methodCall(
+            opcode = Opcode.INVOKE_INTERFACE,
+            smali = "Ljava/util/List;->iterator()Ljava/util/Iterator;",
+        ),
+        literal(120823052L),
+    ),
 )

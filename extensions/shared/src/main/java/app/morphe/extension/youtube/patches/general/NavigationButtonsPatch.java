@@ -18,6 +18,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.Spanned;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -39,6 +41,7 @@ import app.morphe.extension.shared.settings.IntegerSetting;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.Accessibility;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.AccessibilityData;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.ButtonRenderer;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.Buttons;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.PivotBarItemRenderer;
 import app.morphe.extension.youtube.innertube.IconOuterClass.Icon;
 import app.morphe.extension.youtube.innertube.IconOuterClass.YTIconType;
@@ -87,6 +90,15 @@ public final class NavigationButtonsPatch {
     private static final boolean SHOW_SETTINGS_BUTTON = Settings.SHOW_SETTINGS_BUTTON.get();
     private static final IntegerSetting SHOW_SETTINGS_BUTTON_INDEX = Settings.SHOW_SETTINGS_BUTTON_INDEX;
     private static final boolean SHOW_SETTINGS_BUTTON_TYPE = Settings.SHOW_SETTINGS_BUTTON_TYPE.get();
+
+    private static final boolean SHOW_TOOLBAR_SETTINGS_BUTTON =
+            Settings.SHOW_TOOLBAR_SETTINGS_BUTTON.get();
+    private static final IntegerSetting SHOW_TOOLBAR_SETTINGS_BUTTON_INDEX =
+            Settings.SHOW_TOOLBAR_SETTINGS_BUTTON_INDEX;
+    private static final boolean SHOW_TOOLBAR_SETTINGS_BUTTON_TYPE =
+            Settings.SHOW_TOOLBAR_SETTINGS_BUTTON_TYPE.get();
+
+    private static final String SETTINGS_BUTTON_ENUM_NAME = "SETTINGS_CAIRO";
 
     private static Object pivotBarSettingsRenderer;
 
@@ -316,6 +328,89 @@ public final class NavigationButtonsPatch {
         int preferredIndex = Math.max(0, Math.min(SHOW_SETTINGS_BUTTON_INDEX.get(), newList.size()));
         newList.add(preferredIndex, pivotBarSettingsRenderer);
         return newList;
+    }
+
+    /**
+     * Clones a native toolbar button and changes only its icon and accessibility metadata.
+     * Unknown proto fields are retained so the button remains compatible across versions.
+     */
+    @Nullable
+    public static byte[] createToolbarSettingsButton(List<MessageLite> rawButtonList) {
+        if (!SHOW_TOOLBAR_SETTINGS_BUTTON || rawButtonList == null || rawButtonList.isEmpty()) {
+            return null;
+        }
+
+        try {
+            for (MessageLite message : rawButtonList) {
+                Buttons buttons = Buttons.parseFrom(message.toByteArray());
+                if (buttons.hasButtonRenderer() && buttons.getButtonRenderer().hasIcon()) {
+                    ButtonRenderer.Builder renderer = buttons.getButtonRenderer().toBuilder();
+                    renderer.clearButtonRendererAccessibilityData();
+                    renderer.clearRendererAccessibilityData();
+                    renderer.setIcon(
+                            Icon.newBuilder()
+                                    .setYtIconType(YTIconType.SETTINGS_CAIRO)
+                                    .build()
+                    );
+
+                    return buttons.toBuilder()
+                            .setButtonRenderer(renderer.build())
+                            .build()
+                            .toByteArray();
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to create toolbar Settings button", ex);
+        }
+
+        return null;
+    }
+
+    /**
+     * Moves the newly appended Settings button to the configured one-based toolbar index.
+     */
+    public static void applyToolbarSettingsButtonIndex(List<MessageLite> rawButtonList) {
+        if (!SHOW_TOOLBAR_SETTINGS_BUTTON || rawButtonList == null || rawButtonList.isEmpty()) {
+            return;
+        }
+
+        int targetIndex = SHOW_TOOLBAR_SETTINGS_BUTTON_INDEX.get() - 1;
+        targetIndex = Math.max(0, Math.min(targetIndex, rawButtonList.size() - 1));
+
+        MessageLite settingsButton = rawButtonList.remove(rawButtonList.size() - 1);
+        rawButtonList.add(targetIndex, settingsButton);
+    }
+
+    /**
+     * Replaces the cloned native listener after YouTube finishes binding the toolbar button.
+     */
+    public static void setToolbarSettingsOnClickListener(String enumName, View toolbarView) {
+        if (!SHOW_TOOLBAR_SETTINGS_BUTTON || !SETTINGS_BUTTON_ENUM_NAME.equals(enumName)
+                || !(toolbarView instanceof ViewGroup viewGroup)) {
+            return;
+        }
+
+        ImageView imageView = Utils.getChildView(viewGroup, view -> view instanceof ImageView);
+        if (imageView == null) {
+            return;
+        }
+
+        Utils.runOnMainThreadDelayed(() -> {
+            imageView.setClickable(true);
+            if (SHOW_TOOLBAR_SETTINGS_BUTTON_TYPE) {
+                imageView.setOnClickListener(GeneralPatch::openRVXSettings);
+                imageView.setOnLongClickListener(button -> {
+                    GeneralPatch.openYouTubeSettings(button);
+                    return true;
+                });
+            } else {
+                imageView.setOnClickListener(GeneralPatch::openYouTubeSettings);
+                imageView.setOnLongClickListener(button -> {
+                    GeneralPatch.openRVXSettings(button);
+                    return true;
+                });
+            }
+        }, 100);
     }
 
     private static boolean shouldReplace() {
