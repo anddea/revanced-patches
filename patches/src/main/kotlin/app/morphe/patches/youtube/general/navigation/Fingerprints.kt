@@ -194,9 +194,9 @@ internal object SetEnumMapSecondaryFingerprint : Fingerprint(
 internal const val TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAG = 45630927L
 
 internal object TranslucentNavigationBarFingerprint : Fingerprint(
-    custom = { method, _ ->
-        method.containsLiteralInstruction(TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAG)
-    }
+    filters = listOf(
+        literal(TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAG)
+    )
 )
 
 internal object AutoHideNavigationBarFingerprint : Fingerprint(

@@ -47,16 +47,30 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
-import app.morphe.patches.music.utils.playservice.is_9_15_or_greater
+import app.morphe.patches.music.utils.playservice.is_7_25_or_greater
 import app.morphe.patches.shared.conversionContextFingerprintToString2
 import app.morphe.patches.shared.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
-import app.morphe.patches.youtube.utils.playservice.*
-import app.morphe.util.*
+import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_05_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_22_or_greater
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
+import app.morphe.util.addInstructionsAtControlFlowLabel
+import app.morphe.util.findFieldFromToString
+import app.morphe.util.findFreeRegister
+import app.morphe.util.findMethodsOrThrow
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
+import app.morphe.util.getFreeRegisterProvider
+import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
+import app.morphe.util.insertLiteralOverride
+import app.morphe.util.or
+import app.morphe.util.returnLate
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -89,7 +103,6 @@ private data class FlatBufferElementReferences(
     val byteBufferField: FieldReference,
 )
 
-// For now, we'll use hybrid implementation, LithoFilter for YouTube based on ReVanced, for YTM based on RVX
 val lithoFilterPatch = bytecodePatch(
     description = "Hooks the method which parses the bytes into a ComponentContext to filter components.",
 ) {
@@ -108,7 +121,7 @@ val lithoFilterPatch = bytecodePatch(
         val useModernFilterDataInLegacyBridge = !isYouTubeMusic &&
                 is_20_21_or_greater && !is_20_22_or_greater
         isNewLitho = if (isYouTubeMusic) {
-            is_9_15_or_greater
+            is_7_25_or_greater
         } else {
             is_20_22_or_greater
         }
@@ -176,15 +189,19 @@ val lithoFilterPatch = bytecodePatch(
                 }
             }
 
-            // Legacy non-native buffer.
-            ProtobufBufferReferenceLegacyFingerprint.method.addInstruction(
-                0,
-                "invoke-static { p2 }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
-            )
+            if (!isYouTubeMusic) {
+                // Legacy non-native buffer. Supported YT Music versions use the native Upb encode
+                // path exposed at component creation, so the old ByteBuffer hook is only needed
+                // for YouTube's hybrid runtime.
+                ProtobufBufferReferenceLegacyFingerprint.method.addInstruction(
+                    0,
+                    "invoke-static { p2 }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
+                )
+            }
 
             val protoBufferEncodeMethod = ProtobufBufferEncodeFingerprint.method
 
-            val flatBufferElementReferences = if (isYouTubeMusic && is_9_15_or_greater) {
+            val flatBufferElementReferences = if (isYouTubeMusic) {
                 val elementInterface = ComponentCreateFingerprint.method.parameterTypes[2].toString()
                 val flatBufferBaseClass = ProtobufBufferReferenceLegacyFingerprint.classDef
                 val byteBufferField = flatBufferBaseClass.fields.single {
@@ -237,10 +254,12 @@ val lithoFilterPatch = bytecodePatch(
 
             // Find the identifier/path fields of the conversion context.
 
-            val conversionContextIdentifierField = ConversionContextFingerprintToString.method
+            val conversionContextMatch = conversionContextFingerprintToString2.matchOrThrow()
+            val conversionContextClass = conversionContextMatch.originalClassDef
+            val conversionContextIdentifierField = conversionContextMatch.method
                 .findFieldFromToString("identifierProperty=")
 
-            val conversionContextPathBuilderField = ConversionContextFingerprintToString.originalClassDef
+            val conversionContextPathBuilderField = conversionContextClass
                 .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
 
             // Find class and methods to create an empty component.
@@ -374,7 +393,7 @@ val lithoFilterPatch = bytecodePatch(
                     
                     # 20.41 field is the abstract superclass.
                     # Verify it's the expected subclass just in case. 
-                    instance-of v$identifierRegister, v$freeRegister, ${ConversionContextFingerprintToString.classDef.type}
+                    instance-of v$identifierRegister, v$freeRegister, ${conversionContextClass.type}
                     if-eqz v$identifierRegister, :unfiltered
                     
                     iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
@@ -450,13 +469,18 @@ val lithoFilterPatch = bytecodePatch(
             }
 
             // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
-            LithoConverterBufferUpbFeatureFlagFingerprint.let {
-                // 20.22 the flag is still enabled in one location, but what it does is not known.
-                // Disable it anyway.
-                it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
-                    false
-                )
+            // This override is specific to YouTube. YouTube Music 9.15 switches between UPB and
+            // FlatBuffer-backed elements at runtime, and forcing the FlatBuffer converter can
+            // recreate stateful components such as the timed lyrics background during updates.
+            if (!isYouTubeMusic) {
+                LithoConverterBufferUpbFeatureFlagFingerprint.let {
+                    // 20.22 the flag is still enabled in one location, but what it does is not known.
+                    // Disable it anyway.
+                    it.method.insertLiteralOverride(
+                        it.instructionMatches.first().index,
+                        false
+                    )
+                }
             }
 
             // endregion
