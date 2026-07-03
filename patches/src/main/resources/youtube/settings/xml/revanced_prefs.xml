@@ -29,6 +29,9 @@
             <app.morphe.extension.youtube.settings.preference.ExternalDownloaderVideoPreference android:title="@string/revanced_external_downloader_package_name_video_title" android:key="revanced_external_downloader_package_name_video" android:summary="@string/revanced_external_downloader_package_name_video_summary" />
             <SwitchPreference android:title="@string/revanced_override_video_download_button_queue_manager_title" android:key="revanced_override_video_download_button_queue_manager" android:summaryOn="@string/revanced_override_video_download_button_queue_manager_summary_on" android:summaryOff="@string/revanced_override_video_download_button_queue_manager_summary_off" />SETTINGS: HOOK_DOWNLOAD_ACTIONS -->
 
+            <!-- SETTINGS: OVERRIDE_PLAY_NEXT_IN_QUEUE
+            <SwitchPreference android:title="@string/revanced_override_play_next_in_queue_title" android:key="revanced_override_play_next_in_queue" android:summaryOn="@string/revanced_override_play_next_in_queue_summary_on" android:summaryOff="@string/revanced_override_play_next_in_queue_summary_off" />SETTINGS: OVERRIDE_PLAY_NEXT_IN_QUEUE -->
+
             <!-- SETTINGS: HOOK_YOUTUBE_MUSIC_ACTIONS
             <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category" />
             <SwitchPreference android:title="@string/revanced_override_youtube_music_button_title" android:key="revanced_override_youtube_music_button" android:summaryOn="@string/revanced_override_youtube_music_button_summary_on" android:summaryOff="@string/revanced_override_youtube_music_button_summary_off" />

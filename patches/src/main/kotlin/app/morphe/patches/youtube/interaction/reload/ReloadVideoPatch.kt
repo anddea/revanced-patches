@@ -135,6 +135,11 @@ val reloadVideoPatch = bytecodePatch(
                     )
                 }
             }
+
+            BackButtonFinishActivityOnNewVideoIntentFingerprint.method.addInstruction(
+                0,
+                "return-void"
+            )
         } else {
             printWarn("\"Reload video\" is not supported in this version. Use YouTube 20.00 or greater.")
         }
