@@ -1,7 +1,22 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ */
+
 @file:Suppress("SpellCheckingInspection")
 
 package app.morphe.patches.youtube.player.components
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import app.morphe.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.resourceid.componentLongClickListener
 import app.morphe.patches.youtube.utils.resourceid.darkBackground
@@ -301,19 +316,52 @@ internal val infoCardsIncognitoFingerprint = legacyFingerprint(
     strings = listOf("vibrator")
 )
 
-internal val linearLayoutManagerItemCountsFingerprint = legacyFingerprint(
-    name = "linearLayoutManagerItemCountsFingerprint",
+internal object LinearLayoutManagerItemCountsFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.FINAL),
     returnType = "I",
-    accessFlags = AccessFlags.FINAL.value,
     parameters = listOf("L", "L", "L", "Z"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.IF_NEZ,
         Opcode.IF_LEZ,
         Opcode.INVOKE_VIRTUAL,
     ),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.definingClass == "Landroid/support/v7/widget/LinearLayoutManager;"
-    }
+    },
+)
+
+internal object RelatedItemSectionFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
+    returnType = "Z",
+    parameters = listOf("L"),
+    filters = listOf(
+        opcode(Opcode.AND_INT_LIT8),
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            type = "Ljava/lang/String;",
+        ),
+        string(
+            string = "related-items",
+            location = MatchAfterWithin(3),
+        ),
+    ),
+)
+
+internal object WatchNextResponseModelClassResolverFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = emptyList(),
+    filters = listOf(
+        string("Request being made from non-critical thread"),
+        methodCall(
+            opcode = Opcode.INVOKE_INTERFACE,
+            smali = "Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;",
+        ),
+        opcode(
+            opcode = Opcode.CHECK_CAST,
+            location = MatchAfterWithin(3),
+        ),
+    ),
 )
 
 internal val lithoComponentOnClickListenerFingerprint = legacyFingerprint(
