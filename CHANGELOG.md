@@ -1,3 +1,17 @@
+# [4.2.0-dev.2](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.1...v4.2.0-dev.2) (2026-07-03)
+
+
+### Bug Fixes
+
+* **YouTube Music - Hide action bar components:** Action bar buttons disappeared with specific settings ([885aa9a](https://github.com/anddea/revanced-patches/commit/885aa9adb75ab97eef9ef8ffe3908662d3e7df02))
+
+
+### Features
+
+* **YouTube - Hook download actions:** Add `Override Play next in queue` setting (`v20.21+`) ([8f4674c](https://github.com/anddea/revanced-patches/commit/8f4674c705a773965d8ef06b6e0eaf03a2472e87))
+* **YouTube - Toolbar components:** Add `Show Settings in toolbar` setting ([fcf93bf](https://github.com/anddea/revanced-patches/commit/fcf93bf025ebfaa582206a1c5b9a3c6c1ca37854))
+* **YouTube Music:** Add `Track crossfade` patch (`v9.15`) ([3474ed5](https://github.com/anddea/revanced-patches/commit/3474ed554a9fa103d4dd030aacbb139efa501f84))
+
 # [4.2.0-dev.1](https://github.com/anddea/revanced-patches/compare/v4.1.0...v4.2.0-dev.1) (2026-06-26)
 
 
