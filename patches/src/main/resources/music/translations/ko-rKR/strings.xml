@@ -15,6 +15,21 @@
     <string name="gms_core_settings_summary">RVX Music 알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
     <string name="gms_core_settings_title">GmsCore 설정 열기</string>
     <string name="gms_core_toast_not_installed_message">GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
+    <string name="morphe_crossfade_duration_10000ms">10 초</string>
+    <string name="morphe_crossfade_duration_1000ms">1 초</string>
+    <string name="morphe_crossfade_duration_11000ms">11 초</string>
+    <string name="morphe_crossfade_duration_12000ms">12 초</string>
+    <string name="morphe_crossfade_duration_2000ms">2 초</string>
+    <string name="morphe_crossfade_duration_250ms">250 밀리초</string>
+    <string name="morphe_crossfade_duration_3000ms">3 초</string>
+    <string name="morphe_crossfade_duration_4000ms">4 초</string>
+    <string name="morphe_crossfade_duration_5000ms">5 초</string>
+    <string name="morphe_crossfade_duration_500ms">500 밀리초</string>
+    <string name="morphe_crossfade_duration_6000ms">6 초</string>
+    <string name="morphe_crossfade_duration_7000ms">7 초</string>
+    <string name="morphe_crossfade_duration_750ms">750 밀리초</string>
+    <string name="morphe_crossfade_duration_8000ms">8 초</string>
+    <string name="morphe_crossfade_duration_9000ms">9 초</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC 오디오를 활성화합니다</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC 오디오를 비활성화합니다</string>
     <string name="morphe_disable_drc_audio_title">DRC 오디오 비활성화하기</string>
@@ -25,6 +40,53 @@
     <string name="morphe_force_original_audio_summary_off">기본 오디오 언어를 활성화합니다</string>
     <string name="morphe_force_original_audio_summary_on">원본 오디오 언어를 활성화합니다</string>
     <string name="morphe_force_original_audio_title">원본 오디오 언어 강제로 활성화하기</string>
+    <string name="morphe_music_crossfade_about_best_summary">일반적인 트랙 간 재생 및 자동 다음 트랙 재생, 한 트랙 반복(트랙이 자기 자신으로 크로스페이드됨), 그리고 휴대폰 스피커, 유선 이어폰/헤드폰, Bluetooth, USB 등 로컬 오디오 환경에서 가장 잘 작동합니다</string>
+    <string name="morphe_music_crossfade_about_best_title">가장 잘 작동하는 경우</string>
+    <string name="morphe_music_crossfade_about_credit_summary">VazerOG의 크로스페이드 기능</string>
+    <string name="morphe_music_crossfade_about_credit_title">크레딧</string>
+    <string name="morphe_music_crossfade_about_how_summary">"크로스페이드는 한 트랙이 끝날 때 다음 트랙의 시작 부분을 겹쳐 재생하며, 설정한 지속 시간과 곡선에 따라 한 트랙의 음량은 줄이고 다른 트랙의 음량은 높입니다
+
+자동으로 다음 트랙이 재생될 때(트랙이 자연스럽게 끝난 경우)와 수동으로 트랙을 건너뛸 때 모두 작동하며, 각각은 위에서 개별적으로 설정할 수 있습니다. 자동 전환 시에는 트랙이 끝나기 몇 초 전부터 크로스페이드가 시작됩니다
+
+이 기능을 사용하려면 YouTube Music 9.x 이상이 필요합니다"</string>
+    <string name="morphe_music_crossfade_about_how_title">작동 방식</string>
+    <string name="morphe_music_crossfade_about_known_summary">"첫 번째 트랙으로 설정된 뮤직 비디오나 현재 재생목록 외부에서 시작된 뮤직 비디오는 오디오 전용 모드가 적용되기 전까지 잠시 동영상으로 표시될 수 있습니다
+
+뮤직 비디오를 시청하기 위해 크로스페이드를 일시 중지하면 일부 동영상(자체 오디오를 사용하는 동영상)이 검은 화면으로 표시될 수 있습니다. 이를 방지하려면 트랙을 선택하기 전에 크로스페이드를 일시 중지하세요"</string>
+    <string name="morphe_music_crossfade_about_known_title">알려진 문제점</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"크로스페이드가 활성화되어 있는 동안에는 뮤직 비디오가 오디오 전용으로 재생됩니다 (동영상을 시청하려면 셔플 버튼을 길게 탭하여 크로스페이드를 일시 중지하세요)
+
+트랙의 길이가 설정한 크로스페이드 시간보다 짧은 경우 크로스페이드가 적용되지 않을 수 있습니다
+
+트랙 전환 중에는 잠금 화면이나 알림에 이전 재생 상태가 잠시 표시될 수 있습니다"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">제대로 작동하지 않는 경우</string>
+    <string name="morphe_music_crossfade_about_summary">크로스페이드 작동 방식과 제한 사항</string>
+    <string name="morphe_music_crossfade_about_title">정보</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"오디오를 캐스팅하거나 미러링하는 동안에는 크로스페이드가 일시 중지됩니다. 캐스트/미러링 환경에서의 크로스페이드는 불안정하며, 영구적으로 해결되지 않을 수도 있습니다
+
+YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크로스페이드는 YouTube Music 9.x 이상에서만 지원됩니다"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">전혀 작동하지 않는 경우</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">오디오를 캐스팅하거나 미러링하는 동안에는 크로스페이드가 일시 중지됩니다. 캐스팅/미러링 환경에서의 크로스페이드는 불안정하며, 영구적으로 해결되지 않을 수도 있습니다</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">미묘한 홀드</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">부드러운 완화</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">동일한 음량</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">부드러운 S-곡선</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">다음 트랙</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">현재 트랙</string>
+    <string name="morphe_music_crossfade_curve_title">페이드 곡선</string>
+    <string name="morphe_music_crossfade_duration_title">크로스페이드 지속 시간</string>
+    <string name="morphe_music_crossfade_enabled_title">크로스페이드 활성화하기</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">트랙이 자연스럽게 종료될 경우에 크로스페이드 효과를 적용합니다</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">자동 트랙 넘김 시 크로스페이드</string>
+    <string name="morphe_music_crossfade_on_skip_summary">다음 트랙으로 수동으로 넘길 경우에 크로스페이드 효과를 적용합니다</string>
+    <string name="morphe_music_crossfade_on_skip_title">수동 트랙 넘김 시 크로스페이드</string>
+    <string name="morphe_music_crossfade_paused_toast">이 세션에서 크로스페이드를 일시 중지하였습니다</string>
+    <string name="morphe_music_crossfade_resumed_toast">크로스페이드를 다시 시작하였습니다</string>
+    <string name="morphe_music_crossfade_screen_summary">트랙을 서로 부드럽게 이어지도록 재생할 수 있습니다</string>
+    <string name="morphe_music_crossfade_screen_title">크로스페이드</string>
+    <string name="morphe_music_crossfade_session_control_summary">셔플 버튼을 길게 탭하여 크로스페이드를 일시 중지하거나 다시 실행할 수 있습니다</string>
+    <string name="morphe_music_crossfade_session_control_title">세션 제어</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">크로스페이드가 활성화된 동안에는 동영상 모드를 사용할 수 없습니다</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR에 로그인할 수 없습니다: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR에 로그인할 수 없습니다. 웹사이트 인증이 승인되지 않았습니다</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2를 일시적으로 사용할 수 없습니다</string>
@@ -156,8 +218,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 앱이 밝은 테마를 지원하지 않으므로 가능하면 어두운 색상을 사용하세요."</string>
     <string name="revanced_custom_player_background_color_secondary_title">플레이어 배경 보조 색상</string>
     <string name="revanced_custom_player_background_invalid_toast">잘못된 플레이어 배경 색상입니다.</string>
-    <string name="revanced_debug_protobuffer_summary">디버그 로그에 프로토콜 버퍼를 포함합니다.</string>
-    <string name="revanced_debug_protobuffer_title">로그 프로토콜 버퍼</string>
+    <string name="revanced_debug_protobuffer_summary">개발자가 앱 구성 요소를 식별할 수 있도록 추가 로그 정보를 추가합니다</string>
+    <string name="revanced_debug_protobuffer_title">디버그 로그 프로토콜 버퍼</string>
     <string name="revanced_debug_spannable_summary">디버그 로그에 스패너블을 포함합니다.</string>
     <string name="revanced_debug_spannable_title">로그 스패너블</string>
     <string name="revanced_debug_summary">디버그 로그를 출력합니다.</string>

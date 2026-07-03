@@ -17,6 +17,21 @@ Toque no botão continuar e permita as alterações de otimização."</string>
     <string name="gms_core_settings_summary">Para receber notificações no RVX Music, ative as mensagens na nuvem.</string>
     <string name="gms_core_settings_title">Abrir configurações do GmsCore</string>
     <string name="gms_core_toast_not_installed_message">O GmsCore não está instalado. Instale-o.</string>
+    <string name="morphe_crossfade_duration_10000ms">10 segundos</string>
+    <string name="morphe_crossfade_duration_1000ms">1 segundo</string>
+    <string name="morphe_crossfade_duration_11000ms">11 segundos</string>
+    <string name="morphe_crossfade_duration_12000ms">12 segundos</string>
+    <string name="morphe_crossfade_duration_2000ms">2 segundos</string>
+    <string name="morphe_crossfade_duration_250ms">250 milisegundos</string>
+    <string name="morphe_crossfade_duration_3000ms">3 segundos</string>
+    <string name="morphe_crossfade_duration_4000ms">4 segundos</string>
+    <string name="morphe_crossfade_duration_5000ms">5 segundos</string>
+    <string name="morphe_crossfade_duration_500ms">500 milisegundos</string>
+    <string name="morphe_crossfade_duration_6000ms">6 segundos</string>
+    <string name="morphe_crossfade_duration_7000ms">7 segundos</string>
+    <string name="morphe_crossfade_duration_750ms">750 milisegundos</string>
+    <string name="morphe_crossfade_duration_8000ms">8 segundos</string>
+    <string name="morphe_crossfade_duration_9000ms">9 segundos</string>
     <string name="morphe_disable_drc_audio_summary_off">Áudio DRC ativado</string>
     <string name="morphe_disable_drc_audio_summary_on">Áudio DRC desativado</string>
     <string name="morphe_disable_drc_audio_title">Desativar áudio DRC</string>
@@ -27,6 +42,53 @@ Toque no botão continuar e permita as alterações de otimização."</string>
     <string name="morphe_force_original_audio_summary_off">Usando áudio padrão</string>
     <string name="morphe_force_original_audio_summary_on">Usar o idioma original do áudio</string>
     <string name="morphe_force_original_audio_title">Forçar idioma do áudio original</string>
+    <string name="morphe_music_crossfade_about_best_summary">Reprodução normal de música, avanço automático, repetição de uma música (a música faz crossfade para si mesma) e áudio local — alto-falante do telefone, fones de ouvido com fio, Bluetooth ou USB.</string>
+    <string name="morphe_music_crossfade_about_best_title">Funciona melhor com</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Recurso de crossfade por VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">Créditos</string>
+    <string name="morphe_music_crossfade_about_how_summary">"O crossfade sobrepõe o final de uma música ao início da próxima, diminuindo o volume de uma enquanto a outra aumenta gradualmente durante a duração e curva escolhidas.
+
+Ele funciona no avanço automático (quando uma música termina sozinha) e em saltos manuais — cada um tem seu próprio botão acima. No avanço automático, a transição começa alguns segundos antes do final da música.
+
+Requer o YouTube Music 9.x ou mais recente."</string>
+    <string name="morphe_music_crossfade_about_how_title">Como funciona</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Um vídeo de música definido como a primeira música — ou um iniciado fora da fila atual — pode aparecer como vídeo brevemente antes que o modo somente áudio entre em vigor
+
+Pausar o crossfade para assistir a um videoclipe pode deixar alguns vídeos pretos (aqueles cujo áudio vem do próprio vídeo). Pausar o crossfade antes de selecionar a música evita isso"</string>
+    <string name="morphe_music_crossfade_about_known_title">Problemas conhecidos</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"Vídeos de música são reproduzidos apenas com áudio quando o crossfade está ativado (pressione e segure o botão de aleatoriedade para pausar, se quiser o vídeo)
+
+As músicas com duração menor que a duração do fade podem pular o fade
+
+A tela de bloqueio ou a notificação podem exibir brevemente um estado desatualizado durante a transição"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Não funciona muito bem</string>
+    <string name="morphe_music_crossfade_about_summary">Como o crossfade funciona — e quando não funciona</string>
+    <string name="morphe_music_crossfade_about_title">Sobre</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Transmitir ou espelhar áudio (Chromecast, espelhamento de tela ou áudio) — o crossfade é pausado porque é instável ali e pode nunca ser corrigido.
+
+YouTube Music 8.x — o crossfade só funciona na versão 9.x e mais recentes"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Não funciona</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">O crossfade é pausado durante a transmissão ou espelhamento de áudio. O crossfade em transmissão/espelhamento é instável e pode nunca ser corrigido.</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Pausa sutil</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Facilidade suave</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Igual potência</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Curva S suave</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Entrada</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Saída</string>
+    <string name="morphe_music_crossfade_curve_title">Curva de desvanecimento</string>
+    <string name="morphe_music_crossfade_duration_title">Duração do desvanecimento</string>
+    <string name="morphe_music_crossfade_enabled_title">Ativar crossfade</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Aplica o efeito de crossfade quando uma faixa termina naturalmente</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Desvanecimento em avanço automático</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Aplica o efeito de crossfade quando você pula manualmente para a próxima faixa</string>
+    <string name="morphe_music_crossfade_on_skip_title">Desvanecimento em pulo manual</string>
+    <string name="morphe_music_crossfade_paused_toast">Crossfade pausado para esta sessão</string>
+    <string name="morphe_music_crossfade_resumed_toast">Crossfade retomado</string>
+    <string name="morphe_music_crossfade_screen_summary">Misture as faixas de forma suave</string>
+    <string name="morphe_music_crossfade_screen_title">Crossfade</string>
+    <string name="morphe_music_crossfade_session_control_summary">Pressione e segure o botão de aleatorizar para pausar ou retomar o crossfade</string>
+    <string name="morphe_music_crossfade_session_control_title">Controles de sessão</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">O modo de vídeo não está disponível enquanto o crossfade estiver habilitado</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Não é possível fazer login no VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Não é possível entrar na VR, a autenticação do site não foi aprovada</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 temporariamente indisponível</string>
@@ -158,8 +220,8 @@ Use cores escuras se possível, pois o aplicativo não suporta temas claros."</s
 Use cores escuras se possível, pois o aplicativo não suporta temas claros."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Cor secundária do fundo do reprodutor</string>
     <string name="revanced_custom_player_background_invalid_toast">Cor de fundo do reprodutor inválida.</string>
-    <string name="revanced_debug_protobuffer_summary">Inclui o buffer do protocolo no registro de depuração.</string>
-    <string name="revanced_debug_protobuffer_title">Registro do buffer do protocolo</string>
+    <string name="revanced_debug_protobuffer_summary">Adiciona informações de registro adicionais para que os desenvolvedores identifiquem os componentes do app</string>
+    <string name="revanced_debug_protobuffer_title">Registro de buffer de protocolo</string>
     <string name="revanced_debug_spannable_summary">Inclui expansíveis no registro de depuração.</string>
     <string name="revanced_debug_spannable_title">Registro expansível</string>
     <string name="revanced_debug_summary">Captura o registro de depuração.</string>

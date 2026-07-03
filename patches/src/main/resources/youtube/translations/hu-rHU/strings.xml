@@ -177,6 +177,11 @@ Ha engedélyezve van, akkor a videók URL-jeit elküldjük az API kiszolgálóna
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">A régi stílusú előugró menüt használja.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">Az egyéni párbeszédpanel van használatban.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Videó minőség menü típusa</string>
+    <string name="revanced_auto_captions_style_entry_1">Mindig megjelenítés</string>
+    <string name="revanced_auto_captions_style_entry_2">Soha ne mutassa</string>
+    <string name="revanced_auto_captions_style_entry_3">Megjelenítés, ha a hang ki van némítva</string>
+    <string name="revanced_auto_captions_style_entry_4">Mutoltáskor mutat</string>
+    <string name="revanced_auto_captions_style_title">Automatik feliratok láthatóság</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Az áramfogyasztáshoz kapcsolódó mozgáskorlátozások nem kerülnek elkerülésre.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Az áramfogyasztáshoz kapcsolódó mozgáskorlátozások a mozgáskorlátozások elkerülésére kerülnek mellőzésre.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Mozifilmes mód korlátozásainak elkerülése</string>
@@ -305,7 +310,7 @@ Korlátozás: Előfordulhat, hogy az eszköztár Vissza gombja nem működik."</
     <string name="revanced_debug_logs_none_found">Nem találhatók naplók</string>
     <string name="revanced_debug_protobuffer_summary_off">A hibakeresési naplók nem tartalmaznak protobuffert</string>
     <string name="revanced_debug_protobuffer_summary_on">A hibakeresési naplók protobuffert tartalmaznak</string>
-    <string name="revanced_debug_protobuffer_title">Hibakeresési napló protokollpuffer</string>
+    <string name="revanced_debug_protobuffer_title">Naplózási protokoll puffer</string>
     <string name="revanced_debug_spannable_summary_off">A hibakeresési naplók nem terjeszthetők ki.</string>
     <string name="revanced_debug_spannable_summary_on">A hibakeresési naplók kiterjeszthetők.</string>
     <string name="revanced_debug_spannable_title">Napló kiterjesztése</string>
@@ -2006,7 +2011,7 @@ Kattintson az API-kulcs kiadás folyamatának megtekintéséhez."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Nyissa meg a(z) &lt;a href=%1$s&gt;Új projekt létrehozását&lt;/a&gt;.&lt;br&gt;2. Kattintson a &lt;b&gt;LÉTREHOZÁS&lt;/b&gt; gomb.&lt;br&gt;3. Lépj a &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; oldalára.&lt;br&gt;4. Kattintson az &lt;b&gt;Engedélyezés&lt;/b&gt; gombra.&lt;br&gt;5. Kattintson a &lt;b&gt;HITELESÍTÉSI ADATOK LÉTREHOZÁSA&lt;/b&gt; gombra.&lt;br&gt;6. Válassza ki a &lt;b&gt;Nyilvános adatok&lt;/b&gt; lehetőség.&lt;br&gt;7. Kattintson a &lt;b&gt;KÖVETKEZŐ&lt;/b&gt; gombra.&lt;br&gt;8. Másolja ki az API-kulcsot.&lt;br&gt;&lt;br&gt;※ Az API-kulcsot soha ne ossza meg másokkal, így az nem szerepel az importálási/exportálási beállításokban.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 fejlesztői kulcs kiadás</string>
     <string name="revanced_ryd_about">Névjegy</string>
-    <string name="revanced_ryd_attribution_summary">"Az adatokat a Return YouTube Dislike API biztosítja.
+    <string name="revanced_ryd_attribution_summary">"Az adatokat a Return YouTube Dislike API szolgáltatja
 
 Érintse meg ide a ReturnYouTubeDislike.com megnyitásához"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -2044,7 +2049,7 @@ Korlátozás: A nem tetszések lehet nem jelennek meg kijelentkezett felhasznál
     <string name="revanced_sanitize_comments_category_bar_title">Kategóriasáv tisztítása</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Az olyan kifejezések, mint a „#”, „Adománygyűjtés”, „Üzlet” és „termékek”, láthatóak a videófeliratokban."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Az olyan kifejezések, mint a „#”, „Adománygyűjtés”, „Üzlet” és „termékek”, el lettek rejtve a videófeliratokban."</string>
-    <string name="revanced_sanitize_video_subtitle_title">Videó feliratának tisztítása</string>
+    <string name="revanced_sanitize_video_subtitle_title">Videofeliratok ellenőrzése</string>
     <string name="revanced_sb_about">Névjegy</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Az adatokat a SponsorBlock API biztosítja. Koppintson további infóért és a más platformokra való letöltések megtekintéséhez.</string>
@@ -2402,6 +2407,9 @@ A legtöbb hiba nem javítható az ügyféloldali korlátozások miatt, ezért c
     <string name="revanced_show_settings_button_index_title">Beállítások gomb pozíciója</string>
     <string name="revanced_show_settings_button_title">Beállítások gomb megjelenítése</string>
     <string name="revanced_show_settings_button_type_title">Beállítások gomb művelete</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Beállítások gomb pozíciója</string>
+    <string name="revanced_show_toolbar_settings_button_title">Beállítások gomb megjelenítése</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">Beállítások gomb művelet</string>
     <string name="revanced_show_video_title_section_summary">"Megjeleníti a videócím részt teljes képernyős módban.
 
 Korlátozás: A videó címe eltűnik, ha rákattint."</string>

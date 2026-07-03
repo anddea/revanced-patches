@@ -176,6 +176,11 @@ Toque e segure para trocar o tipo de informação adicionada."</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">Menu suspenso antigo está sendo usado.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">Diálogo personalizado está sendo usado.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Configuração de qualidade de vídeo</string>
+    <string name="revanced_auto_captions_style_entry_1">Mantém a barra de navegação visível durante a rolagem</string>
+    <string name="revanced_auto_captions_style_entry_2">Não mostrar nunca</string>
+    <string name="revanced_auto_captions_style_entry_3">Torna a barra de status totalmente opaca</string>
+    <string name="revanced_auto_captions_style_entry_4">Mostrar quando mudo</string>
+    <string name="revanced_auto_captions_style_title">Visibilidade de legendas automáticas</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Restrições de modo ambiente para economia de energia não são ignoradas</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Restrições de modo ambiente para economia de energia são ignoradas</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ignorar restrições do Modo ambiente</string>
@@ -306,7 +311,7 @@ Limitação: O botão voltar na barra de ferramentas pode não funcionar."</stri
     <string name="revanced_debug_logs_none_found">Nenhum registro encontrado</string>
     <string name="revanced_debug_protobuffer_summary_off">Os registros de depuração não incluem buffers de protocolo</string>
     <string name="revanced_debug_protobuffer_summary_on">Os registros de depuração incluem buffers de protocolo</string>
-    <string name="revanced_debug_protobuffer_title">Protocolo de buffer de depuração</string>
+    <string name="revanced_debug_protobuffer_title">Registro de buffer de protocolo</string>
     <string name="revanced_debug_spannable_summary_off">Os registros de depuração não incluem expansíveis.</string>
     <string name="revanced_debug_spannable_summary_on">Os registros de depuração incluem expansíveis.</string>
     <string name="revanced_debug_spannable_title">Registro expansível</string>
@@ -389,7 +394,7 @@ Configurações → Reprodução automática → Reprodução automática do pr�
     <string name="revanced_disable_landscape_mode_title">Desativar modo paisagem</string>
     <string name="revanced_disable_layout_updates_summary_off">O layout será atualizado pelo servidor</string>
     <string name="revanced_disable_layout_updates_summary_on">O layout não será atualizado pelo servidor</string>
-    <string name="revanced_disable_layout_updates_title">Desativar atualizações de layout</string>
+    <string name="revanced_disable_layout_updates_title">Desativar atualizações de interface</string>
     <string name="revanced_disable_layout_updates_user_dialog_message">"O layout do app volta para o layout utilizado quando foi instalado pela primeira vez.
 
 Alguns layouts controlados pelo servidor podem não voltar.
@@ -683,7 +688,7 @@ Informação:
     <string name="revanced_hide_ask_section_title">Ocultar seção \'Pergunte\'</string>
     <string name="revanced_hide_attributes_section_summary_off">As seções de lugares em destaque, jogos, música e pessoas mencionadas são mostradas</string>
     <string name="revanced_hide_attributes_section_summary_on">As seções de lugares em destaque, jogos, música e pessoas mencionadas estão ocultas</string>
-    <string name="revanced_hide_attributes_section_title">Ocultar seção \'Atributos\'</string>
+    <string name="revanced_hide_attributes_section_title">Ocultar seção \"Atributos\"</string>
     <string name="revanced_hide_autoplay_preview_summary_off">A prévia de reprodução automática é exibida</string>
     <string name="revanced_hide_autoplay_preview_summary_on">A prévia de reprodução automática está oculta</string>
     <string name="revanced_hide_autoplay_preview_title">Ocultar visualização automática</string>
@@ -745,7 +750,7 @@ Loja"</string>
     <string name="revanced_hide_channel_watermark_title">Ocultar marca d\'água do canal</string>
     <string name="revanced_hide_chapters_section_summary_off">Seção de capítulos é mostrada</string>
     <string name="revanced_hide_chapters_section_summary_on">Seção de capítulos está oculta</string>
-    <string name="revanced_hide_chapters_section_title">Ocultar seção \'Capítulos\'</string>
+    <string name="revanced_hide_chapters_section_title">Ocultar seção \"Capítulos\"</string>
     <string name="revanced_hide_chips_shelf_off">O painel de chips será exibido.</string>
     <string name="revanced_hide_chips_shelf_on">O painel de chips está oculto.</string>
     <string name="revanced_hide_chips_shelf_title">Ocultar prateleira de cartões</string>
@@ -836,7 +841,7 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_expandable_shelf_title">Ocultar painéis expansíveis</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">A seção Explore o podcast é mostrada</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">A seção Explore o podcast está oculta</string>
-    <string name="revanced_hide_explore_podcast_section_title">Ocultar seção \'Explorar o podcast\'</string>
+    <string name="revanced_hide_explore_podcast_section_title">Ocultar seção \"Conheça mais sobre o podcast\"</string>
     <string name="revanced_hide_featured_links_section_summary_off">A seção de links em destaque está visível</string>
     <string name="revanced_hide_featured_links_section_summary_on">A seção de links em destaque está oculta</string>
     <string name="revanced_hide_featured_links_section_title">Ocultar seção \'Links em destaque\'</string>
@@ -847,13 +852,13 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_feed_captions_button_on">O botão de legendas está oculto.</string>
     <string name="revanced_hide_feed_captions_button_title">Ocultar botão de legendas no feed</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Insira os nomes do menu flyout para filtrar, separados por novas linhas</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Filtro do menu de voo do feed</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Filtros no menu flutuante do feed</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Filtrar se coincide.&lt;br&gt;&lt;br&gt;Para ocultar o menu &lt;b&gt;\'Reproduzir o seguinte da fila\'&lt;/b&gt;, somente pode utilizar &lt;b&gt;\'Reproduzir o seguinte da fila\'&lt;/b&gt; como palavras-chave.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filtrar se contém.&lt;br&gt;&lt;br&gt;Para ocultar o menu &lt;b&gt;\'Reproduzir o seguinte da fila\'&lt;/b&gt;, pode utilizar &lt;b&gt;\'Reproduzir o seguinte\'&lt;/b&gt; o &lt;b&gt;\'da fila\'&lt;/b&gt; como palavras-chave.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Tipo de filtro de menu de flutuante do feed</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">O filtro de menu flutuante do feed está desativado</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">O filtro de menu flutuante do feed está ativado</string>
-    <string name="revanced_hide_feed_flyout_menu_title">Habilitar filtro do menu de voo do feed</string>
+    <string name="revanced_hide_feed_flyout_menu_title">Ativar filtros no menu flutuante do feed</string>
     <string name="revanced_hide_feed_search_bar_summary_off">A barra de pesquisa no feed será exibida.</string>
     <string name="revanced_hide_feed_search_bar_summary_on">A barra de pesquisa no feed está oculta.</string>
     <string name="revanced_hide_feed_search_bar_title">Ocultar barra de pesquisa no feed</string>
@@ -877,7 +882,7 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_handle_title">Ocultar identificador</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">A seção Como este conteúdo foi feito é mostrada</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">A seção Como este conteúdo foi feito está oculta</string>
-    <string name="revanced_hide_how_this_was_made_section_title">Ocultar seção \'Como este conteúdo foi feito\'</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Ocultar seção \"Como este conteúdo foi criado\"</string>
     <string name="revanced_hide_hype_button_summary_off">O botão Hype é exibido</string>
     <string name="revanced_hide_hype_button_summary_on">Botão Hype está oculto</string>
     <string name="revanced_hide_hype_button_title">Sempre mostrar</string>
@@ -886,7 +891,7 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_hype_points_section_title">Ocultar seção de pontos de hype</string>
     <string name="revanced_hide_hype_points_summary_off">Pontos de Hype estão visíveis</string>
     <string name="revanced_hide_hype_points_summary_on">Pontos de Hype estão ocultos</string>
-    <string name="revanced_hide_hype_points_title">Ocultar pontos de Hype</string>
+    <string name="revanced_hide_hype_points_title">Ocultar botão \"Pontos de hype\"</string>
     <string name="revanced_hide_image_search_button_summary_off">O botão de busca de imagens será exibido.</string>
     <string name="revanced_hide_image_search_button_summary_on">O botão de busca de imagens está oculto.</string>
     <string name="revanced_hide_image_search_button_title">Ocultar botão de busca de imagem</string>
@@ -1012,7 +1017,7 @@ Palavras com letras maiúsculas no meio devem corresponder exatamente (por exemp
     <string name="revanced_hide_paid_promotion_label_title">Ocultar o rótulo \'Inclui promoção paga\'</string>
     <string name="revanced_hide_playables_summary_off">Os Playables são mostrados</string>
     <string name="revanced_hide_playables_summary_on">Os Playables estão ocultos</string>
-    <string name="revanced_hide_playables_title">Ocultar Playables</string>
+    <string name="revanced_hide_playables_title">Ocultar seção Sala de Jogos</string>
     <string name="revanced_hide_player_autoplay_button_summary_off">O botão de reprodução automática será exibido.</string>
     <string name="revanced_hide_player_autoplay_button_summary_on">O botão de reprodução automática está oculto.</string>
     <string name="revanced_hide_player_autoplay_button_title">Ocultar botão de reprodução automática</string>
@@ -1463,7 +1468,7 @@ Limitação: Os cabeçalhos oficiais nos resultados da pesquisa serão ocultados
     <string name="revanced_hide_toolbar_search_button_title">Ocultar o botão Pesquisar</string>
     <string name="revanced_hide_transcript_section_summary_off">A seção de transcrição é mostrada</string>
     <string name="revanced_hide_transcript_section_summary_on">Seção de transcrição está oculta</string>
-    <string name="revanced_hide_transcript_section_title">Ocultar seção \'Transcrição\'</string>
+    <string name="revanced_hide_transcript_section_title">Ocultar seção \"Transcrição\"</string>
     <string name="revanced_hide_video_ads_summary_off">Anúncios do vídeo não estão ocultos</string>
     <string name="revanced_hide_video_ads_summary_on">Anúncios do vídeo estão ocultos</string>
     <string name="revanced_hide_video_ads_title">Ocultar anúncios do vídeo</string>
@@ -1856,7 +1861,7 @@ Para exibir o botão nativo para baixar a lista de reprodução, ative 'Falsific
     <string name="revanced_queue_manager_check_failed_auth">Não conectado(a)</string>
     <string name="revanced_queue_manager_check_failed_generic">Falha: %s</string>
     <string name="revanced_queue_manager_check_failed_playlist_id">Nenhum ID de playlist</string>
-    <string name="revanced_queue_manager_check_failed_queue">Fila vazia</string>
+    <string name="revanced_queue_manager_check_failed_queue">Fila está vazia</string>
     <string name="revanced_queue_manager_check_failed_video_id">Nenhum ID de vídeo</string>
     <string name="revanced_queue_manager_external_downloader">Download externo</string>
     <string name="revanced_queue_manager_fetch_failed_add">Falha ao adicionar à fila</string>
@@ -1865,7 +1870,7 @@ Para exibir o botão nativo para baixar a lista de reprodução, ative 'Falsific
     <string name="revanced_queue_manager_fetch_failed_remove">Falha ao remover da fila</string>
     <string name="revanced_queue_manager_fetch_failed_save">Falha ao salvar fila</string>
     <string name="revanced_queue_manager_fetch_failed_video_information">Falha ao obter informações do vídeo.</string>
-    <string name="revanced_queue_manager_fetch_succeeded_add">Adicionado(a) à fila</string>
+    <string name="revanced_queue_manager_fetch_succeeded_add">Adicionado à fila</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">Fila criada</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">Fila excluída com sucesso.</string>
     <string name="revanced_queue_manager_fetch_succeeded_remove">Removido(a) da fila</string>
@@ -2002,13 +2007,13 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Vá para &lt;a href=%1$s&gt;Criar um novo projeto&lt;/a&gt;.&lt;br&gt;2. Clique no botão &lt;b&gt;CRIAR&lt;/b&gt;.&lt;br&gt;3. Vá para &lt;a href=%2$s&gt;API de dados do YouTube v3&lt;/a&gt;.&lt;br&gt;4. Clique no botão &lt;b&gt;ATIVAR&lt;/b&gt;.&lt;br&gt;5. Clique no botão &lt;b&gt;CRIAR CREDENCIAIS&lt;/b&gt;.&lt;br&gt;6. Selecione a opção &lt;b&gt;Dados públicos&lt;/b&gt;.&lt;br&gt;7. Clique no botão &lt;b&gt;PRÓXIMO&lt;/b&gt;.&lt;br&gt;8. Copie a chave da API.&lt;br&gt;&lt;br&gt;※ A chave da API nunca deve ser compartilhada com outras pessoas, portanto, ela não é incluída nas configurações de Importação/Exportação.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Emitir chave de desenvolvedor da API de dados do YouTube v3</string>
     <string name="revanced_ryd_about">Sobre</string>
-    <string name="revanced_ryd_attribution_summary">"Os dados são fornecidos pela API Return YouTube Dislike.
+    <string name="revanced_ryd_attribution_summary">"Dados fornecidos pela API Return YouTube Dislike
 
 Toque aqui para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Botão gostei estilizado para melhor aparência</string>
     <string name="revanced_ryd_compact_layout_summary_on">Botão gostei estilizado para largura mínima</string>
-    <string name="revanced_ryd_compact_layout_title">Reduz a largura do botão Curtir para economizar espaço</string>
+    <string name="revanced_ryd_compact_layout_title">Usar botão Curtir compacto</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">\"Não gostei\" são mostrados como um número</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">\"Não gostei\" são mostrados como uma porcentagem</string>
     <string name="revanced_ryd_dislike_percentage_title">Mostrar não gostei como porcentagem</string>
@@ -2040,7 +2045,7 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
     <string name="revanced_sanitize_comments_category_bar_title">Limpar barra de categoria</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Frases como '#', 'Arrecadação de fundos', 'Loja' e 'produtos' serão exibidos na legenda do vídeo."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Frases como '#', 'Arrecadação de fundos', 'Loja' e 'produtos' serão ocultadas da legenda do vídeo."</string>
-    <string name="revanced_sanitize_video_subtitle_title">Limpar legendas de vídeo</string>
+    <string name="revanced_sanitize_video_subtitle_title">Sanitizar legenda do vídeo</string>
     <string name="revanced_sb_about">Sobre</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Os dados são fornecidos pela API do SponsorBlock. Toque aqui para aprender mais e ver downloads para outras plataformas.</string>
@@ -2413,6 +2418,9 @@ A maioria dos bugs não podem ser corrigidos devido a limitações no lado do cl
     <string name="revanced_show_settings_button_index_title">Ocultar rodapé do menu \'Legendas\'</string>
     <string name="revanced_show_settings_button_title">Ocultar menu \'Legendas\'</string>
     <string name="revanced_show_settings_button_type_title">Ação do botão Configurações</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Posição do botão de Configurações</string>
+    <string name="revanced_show_toolbar_settings_button_title">Mostrar botão de Configurações</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">Ação do botão Configurações</string>
     <string name="revanced_show_video_title_section_summary">"Exibe a seção de título do vídeo em tela cheia.
 
 Limitação: Título do vídeo desaparece quando clicado."</string>

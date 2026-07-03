@@ -177,6 +177,11 @@
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">يتم استخدام القائمة المنبثقة على الطراز القديم.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">يتم استخدام مربع حوار مخصص.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">نوع قائمة جودة الفيديو</string>
+    <string name="revanced_auto_captions_style_entry_1">العرض دائمًا</string>
+    <string name="revanced_auto_captions_style_entry_2">عدم عرضها أبدًا</string>
+    <string name="revanced_auto_captions_style_entry_3">عرضها عندما يكون الصوت غير مكتوم</string>
+    <string name="revanced_auto_captions_style_entry_4">عرضها عند كتم الصوت</string>
+    <string name="revanced_auto_captions_style_title">إمكانية رؤية الترجمة التلقائية</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">لم يتم تجاوز قيود وضع الإضاءة السينمائية لتوفير الطاقة</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">تم تجاوز قيود وضع الإضاءة السينمائية لتوفير الطاقة</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">تجاوز قيود وضع الإضاءة السينمائية</string>
@@ -306,7 +311,7 @@
     <string name="revanced_debug_logs_none_found">لم يتم العثور على سجلات</string>
     <string name="revanced_debug_protobuffer_summary_off">لا تتضمن سجلات التصحيح التخزين المؤقت</string>
     <string name="revanced_debug_protobuffer_summary_on">تتضمن سجلات التصحيح التخزين المؤقت</string>
-    <string name="revanced_debug_protobuffer_title">ذاكرة بروتوكول سجل التصحيح</string>
+    <string name="revanced_debug_protobuffer_title">سجل تصحيح الأخطاء لـ Protocol Buffer</string>
     <string name="revanced_debug_spannable_summary_off">لا تتضمن سجلات التصحيح Spannable.</string>
     <string name="revanced_debug_spannable_summary_on">تتضمن سجلات التصحيح Spannable.</string>
     <string name="revanced_debug_spannable_title">سجل قابل للامتداد</string>
@@ -2004,7 +2009,7 @@
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Go to &lt;a href=%1$s&gt;Create a new project&lt;/a&gt;.&lt;br&gt;2. Click the &lt;b&gt;CREATE&lt;/b&gt; button.&lt;br&gt;3. Go to &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Click the &lt;b&gt;ENABLE&lt;/b&gt; button.&lt;br&gt;5. Click the &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt; button.&lt;br&gt;6. Select the &lt;b&gt;Public data&lt;/b&gt; option.&lt;br&gt;7. Click the &lt;b&gt;NEXT&lt;/b&gt; button.&lt;br&gt;8. Copy the API key.&lt;br&gt;&lt;br&gt;※ لا ينبغي مشاركة مفتاح API مع الآخرين مطلقًا، لذا فهو غير مدرج في إعدادات الاستيراد / التصدير.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">إصدار مفتاح مطور YouTube Data API v3</string>
     <string name="revanced_ryd_about">لمحة</string>
-    <string name="revanced_ryd_attribution_summary">"يتم توفير البيانات بواسطة Return YouTube Dislike API.
+    <string name="revanced_ryd_attribution_summary">"يتم توفير البيانات بواسطة Return YouTube Dislike API
 
 انقر هنا لفتح ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -2042,7 +2047,7 @@
     <string name="revanced_sanitize_comments_category_bar_title">تنظيف شريط الفئات</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"يتم عرض عبارات مثل '#'، 'جمع التبرعات'، 'المتجر' و 'المنتجات' من ترجمات الفيديو."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"تم إخفاء عبارات مثل '#'، 'جمع التبرعات'، 'المتجر' و 'المنتجات' من ترجمات الفيديو."</string>
-    <string name="revanced_sanitize_video_subtitle_title">تطهير ترجمة الفيديو</string>
+    <string name="revanced_sanitize_video_subtitle_title">تنظيف النص الفرعي للفيديو</string>
     <string name="revanced_sb_about">لمحة</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">يتم توفير البيانات بواسطة SponsorBlock API. اضغط هنا لمعرفة المزيد والتنزيل لمنصات أخرى.</string>
@@ -2410,6 +2415,9 @@
     <string name="revanced_show_settings_button_index_title">موضع زر الإعدادات</string>
     <string name="revanced_show_settings_button_title">عرض زر الإعدادات</string>
     <string name="revanced_show_settings_button_type_title">إجراء زر الإعدادات</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">موضع زر الإعدادات</string>
+    <string name="revanced_show_toolbar_settings_button_title">عرض زر الإعدادات</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">إجراء زر الإعدادات</string>
     <string name="revanced_show_video_title_section_summary">"يعرض قسم عنوان الفيديو في وضع ملء الشاشة.
 
 التقييد: يختفي عنوان الفيديو عند النقر عليه."</string>

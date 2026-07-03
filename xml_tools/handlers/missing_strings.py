@@ -12,6 +12,8 @@ from utils.xml_processor import XMLProcessor
 logger = logging.getLogger("xml_tools")
 
 BLACKLIST = {
+    "morphe_music_crossfade_about_banner_title",
+    "morphe_music_crossfade_curve_preview_title",
     "revanced_settings_title",
     "revanced_vot_percent_value",
 }

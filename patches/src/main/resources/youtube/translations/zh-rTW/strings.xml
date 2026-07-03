@@ -177,6 +177,11 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">使用舊版彈出式選單。</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">使用自訂對話框。</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">影片畫質選單類型</string>
+    <string name="revanced_auto_captions_style_entry_1">總是顯示</string>
+    <string name="revanced_auto_captions_style_entry_2">永不顯示</string>
+    <string name="revanced_auto_captions_style_entry_3">在取消靜音時顯示</string>
+    <string name="revanced_auto_captions_style_entry_4">靜音時顯示</string>
+    <string name="revanced_auto_captions_style_title">自動字幕可見度</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">為了省電，已啟用微光效果限制</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">為了省電，已忽略微光效果限制</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">繞過微光模式限制</string>
@@ -308,7 +313,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_debug_logs_none_found">找不到記錄</string>
     <string name="revanced_debug_protobuffer_summary_off">除錯記錄檔不會包含協定緩衝資訊</string>
     <string name="revanced_debug_protobuffer_summary_on">除錯記錄檔會包含協定緩衝資訊</string>
-    <string name="revanced_debug_protobuffer_title">除錯記錄檔協定緩衝區</string>
+    <string name="revanced_debug_protobuffer_title">偵錯日誌協定緩衝區</string>
     <string name="revanced_debug_spannable_summary_off">偵錯紀錄不包含可擴充文字。</string>
     <string name="revanced_debug_spannable_summary_on">偵錯紀錄包含可擴充文字。</string>
     <string name="revanced_debug_spannable_title">紀錄可擴充文字</string>
@@ -2016,9 +2021,9 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. 前往 &lt;a href=%1$s&gt;建立新專案&amp;p;.&lt;br&gt;2.點擊&lt;b&gt;創建&lt;/b&gt; 按鈕。&lt;br&gt;3.&lt;br&gt;轉到 &lt;a href=%2$s&gt;YouTube 資料 API v3&lt;/a&gt;.&lt;br&gt;4.點選&lt;b&gt;啟用&lt;/b&gt; 按鈕。&lt;br&gt;5.點選&lt;b&gt;建立憑證&lt;b&gt; 按鈕。 &lt;br&gt;6.選擇&lt;b&gt;公共資料&lt;/b&gt; 選項。&lt;br&gt;7.點選&lt;b&gt;下一步&lt;/b&gt; 按鈕。&lt;br&gt;8.複製 API 金鑰。&lt;br&gt;&lt;br&gt;※ API 金鑰不應與其他人共用，因此它不包含在匯入/匯出設定中。</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">取得 YouTube 資料 API v3 開發人員金鑰</string>
     <string name="revanced_ryd_about">關於</string>
-    <string name="revanced_ryd_attribution_summary">"資料由 Return YouTube Dislike API 提供。
+    <string name="revanced_ryd_attribution_summary">"資料由 Return YouTube Dislike API 提供
 
-點擊這裡打開 ReturnYouTubeDislike.com"</string>
+點擊這裡開啟 ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">「喜歡」按鈕樣式設為最佳外觀</string>
     <string name="revanced_ryd_compact_layout_summary_on">「喜歡」按鈕樣式設為最小寬度</string>
@@ -2417,6 +2422,9 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_show_settings_button_index_title">隱藏「音訊軌道」選單頁尾</string>
     <string name="revanced_show_settings_button_title">隱藏「音訊軌道」選單</string>
     <string name="revanced_show_settings_button_type_title">設定按鈕動作</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">設定按鈕位置</string>
+    <string name="revanced_show_toolbar_settings_button_title">顯示設定按鈕</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">設定按鈕動作</string>
     <string name="revanced_show_video_title_section_summary">"在全螢幕模式下顯示影片標題部分。
 
 限制：點擊後影片標題消失。"</string>

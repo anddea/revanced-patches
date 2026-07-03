@@ -15,6 +15,21 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="gms_core_settings_summary">Activa los ajustes de mensajería en la nube para recibir notificaciones.</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore no está instalado. Instálalo.</string>
+    <string name="morphe_crossfade_duration_10000ms">10 segundos</string>
+    <string name="morphe_crossfade_duration_1000ms">1 segundo</string>
+    <string name="morphe_crossfade_duration_11000ms">11 segundos</string>
+    <string name="morphe_crossfade_duration_12000ms">12 segundos</string>
+    <string name="morphe_crossfade_duration_2000ms">2 segundos</string>
+    <string name="morphe_crossfade_duration_250ms">250 milisegundos</string>
+    <string name="morphe_crossfade_duration_3000ms">3 segundos</string>
+    <string name="morphe_crossfade_duration_4000ms">4 segundos</string>
+    <string name="morphe_crossfade_duration_5000ms">5 segundos</string>
+    <string name="morphe_crossfade_duration_500ms">500 milisegundos</string>
+    <string name="morphe_crossfade_duration_6000ms">6 segundos</string>
+    <string name="morphe_crossfade_duration_7000ms">7 segundos</string>
+    <string name="morphe_crossfade_duration_750ms">750 milisegundos</string>
+    <string name="morphe_crossfade_duration_8000ms">8 segundos</string>
+    <string name="morphe_crossfade_duration_9000ms">9 segundos</string>
     <string name="morphe_disable_drc_audio_summary_off">El audio DRC está activado</string>
     <string name="morphe_disable_drc_audio_summary_on">El audio DRC está desactivado</string>
     <string name="morphe_disable_drc_audio_title">Desactivar audio DRC</string>
@@ -25,6 +40,54 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="morphe_force_original_audio_summary_off">Utilizando audio predeterminado</string>
     <string name="morphe_force_original_audio_summary_on">Usar el idioma de audio original</string>
     <string name="morphe_force_original_audio_title">Forzar idioma de audio original</string>
+    <string name="morphe_music_crossfade_about_best_summary">La reproducción normal de canción a canción y el avance automático, la repetición de una canción (la canción se funde consigo misma) y el audio local (altavoz del teléfono, auriculares con cable, Bluetooth o USB).</string>
+    <string name="morphe_music_crossfade_about_best_title">Funciona mejor con</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Función de fundido cruzado de VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">Créditos</string>
+    <string name="morphe_music_crossfade_about_how_summary">"La transición cruzada superpone el final de una canción con el comienzo de la siguiente, reduciendo el volumen de una mientras aumenta el volumen de la otra durante la duración y la curva que hayas elegido.
+
+Funciona con el avance automático (cuando una canción termina por sí sola) y con los saltos manuales, cada uno tiene su propio botón de activación.
+Con el avance automático, la mezcla comienza unos segundos antes de que termine la canción.
+
+Requiere YouTube Music 9.x o posterior."</string>
+    <string name="morphe_music_crossfade_about_how_title">Cómo funciona</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Un video musical configurado como la primera canción, o uno que se haya iniciado desde fuera de la cola actual, puede mostrarse brevemente como video antes de entrar en modo de solo audio.
+
+Pausar el fundido cruzado para ver un video musical puede dejar algunos videos en negro (los que obtienen el audio directamente del video). Pausar el fundido cruzado antes de seleccionar la canción lo evita."</string>
+    <string name="morphe_music_crossfade_about_known_title">Problemas conocidos</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"Los videos musicales se reproducen solo con audio cuando se activa el efecto de fundido cruzado (mantén presionado el botón de aleatorio para pausar si quieres ver el video).
+
+Las canciones más cortas que la duración del fundido pueden omitir el efecto.
+
+La pantalla de bloqueo o la notificación puede mostrar brevemente un estado antiguo durante la transición."</string>
+    <string name="morphe_music_crossfade_about_quirks_title">No funciona del todo bien</string>
+    <string name="morphe_music_crossfade_about_summary">Cómo funciona la transición cruzada, y cuándo no.</string>
+    <string name="morphe_music_crossfade_about_title">Información</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Emitir o duplicar audio (Chromecast, duplicación de pantalla o audio) hará que el fundido cruzado se pause porque es inestable y es posible que nunca se solucione.
+
+YouTube Music 8.x: el fundido cruzado solo funciona en la versión 9.x o posterior"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">No funciona en absoluto</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">La transición cruzada se pausa al reproducir o duplicar audio. La transición cruzada al reproducir/duplicar es inestable y es posible que nunca se pueda solucionar.</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Retención sutil</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Facilidad suave</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Potencia igual</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Curva S suave</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Entrante</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Saliente</string>
+    <string name="morphe_music_crossfade_curve_title">Curva de desvanecimiento</string>
+    <string name="morphe_music_crossfade_duration_title">Duración del desvanecimiento</string>
+    <string name="morphe_music_crossfade_enabled_title">Activar desvanecimiento cruzado</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Aplica el efecto de fundido cruzado cuando una pista termina naturalmente</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Desvanecimiento al avanzar automáticamente</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Aplica el efecto de fundido cruzado cuando saltas manualmente a la siguiente pista</string>
+    <string name="morphe_music_crossfade_on_skip_title">Desvanecimiento al saltar manualmente</string>
+    <string name="morphe_music_crossfade_paused_toast">Desvanecimiento cruzado pausado para esta sesión</string>
+    <string name="morphe_music_crossfade_resumed_toast">Desvanecimiento cruzado reanudado</string>
+    <string name="morphe_music_crossfade_screen_summary">Mezcla las pistas suavemente entre sí</string>
+    <string name="morphe_music_crossfade_screen_title">Desvanecimiento cruzado</string>
+    <string name="morphe_music_crossfade_session_control_summary">Mantén pulsado el botón de reproducción aleatoria para pausar o reanudar el fundido cruzado</string>
+    <string name="morphe_music_crossfade_session_control_title">Control de sesión</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">El modo de vídeo no está disponible mientras el desvanecimiento cruzado está activado</string>
     <string name="morphe_oauth2_connection_failure_auth_error">No se puede iniciar sesión en VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">No se puede iniciar sesión en VR, la autenticación del sitio web no se ha aprobado</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 no está disponible temporalmente</string>
@@ -156,8 +219,8 @@ Preferiblemente que sean colores oscuros, la aplicación no soporta temas claros
 Preferiblemente colores oscuros, la aplicación no soporta temas claros."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Color secundario del fondo del reproductor</string>
     <string name="revanced_custom_player_background_invalid_toast">Color de fondo del reproductor inválido.</string>
-    <string name="revanced_debug_protobuffer_summary">Incluye el búfer proto en el registro de depuración.</string>
-    <string name="revanced_debug_protobuffer_title">Búfer en el registro de depuración</string>
+    <string name="revanced_debug_protobuffer_summary">Agrega información de registro adicional para que los desarrolladores identifiquen los componentes de la app</string>
+    <string name="revanced_debug_protobuffer_title">Registrar búfer de protocolo</string>
     <string name="revanced_debug_spannable_summary">Incluye spannable dentro del registro de depuración.</string>
     <string name="revanced_debug_spannable_title">Spannable en registro</string>
     <string name="revanced_debug_summary">Muestra el registro de depuración.</string>

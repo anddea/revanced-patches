@@ -129,11 +129,11 @@ AV1 সহ ভিডিও প্লেব্যাক আটকে যেতে
     <string name="revanced_advanced_video_quality_menu_type_summary_off">পুরাতন স্টাইলের ফ্লাইআউট মেনু ব্যবহার করা হচ্ছে।</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">কাস্টম ডায়ালগ ব্যবহার করা হচ্ছে।</string>
     <string name="revanced_advanced_video_quality_menu_type_title">শর্টস-এ উন্নত ভিডিও কোয়ালিটি মেনুর ধরন।</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow YouTube ভিডিওগুলির জন্য জনগণের উৎস থেকে তৈরি থাম্বনেইল সরবরাহ করে। এই থাম্বনেইলগুলি প্রায়শই YouTube দ্বারা সরবরাহ করা থাম্বনেইলগুলির চেয়ে আরও প্রাসঙ্গিক।
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow ইউটিউব ভিডিওর জন্য ক্রাউডসোর্সড থাম্বনেইল সরবরাহ করে। এই থাম্বনেইলগুলো প্রায়শই ইউটিউবের দেওয়া থাম্বনেইলের চেয়ে বেশি প্রাসঙ্গিক হয়।
 
-যদি সক্রিয় করা হয়, তাহলে ভিডিও URLগুলি API সার্ভারে পাঠানো হবে এবং অন্য কোনও ডেটা পাঠানো হবে না। যদি কোনও ভিডিওতে DeArrow থাম্বনেইল না থাকে, তাহলে মূল বা স্থির ক্যাপচার দেখানো হবে
+এটি চালু থাকলে, ভিডিওর URL এপিআই (API) সার্ভারে পাঠানো হবে এবং অন্য কোনো তথ্য পাঠানো হবে না। কোনো ভিডিওর DeArrow থাম্বনেইল না থাকলে, মূল থাম্বনেইল বা স্থিরচিত্র দেখানো হবে।
 
-DeArrow সম্পর্কে আরও জানতে এখানে ট্যাপ করুন"</string>
+DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ করুন"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">অকার্যকর DeArrow এপিআই ইউআরএল।</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow থাম্বনেইল ক্যাশ এন্ডপয়েন্টের URL</string>
@@ -169,6 +169,11 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
     <string name="revanced_append_time_stamp_information_summary_off">Bangla</string>
     <string name="revanced_append_time_stamp_information_title">টাইমস্ট্যাম্পের তথ্য যুক্ত করুন</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">প্লেব্যাক স্পিড যুক্ত করুন</string>
+    <string name="revanced_auto_captions_style_entry_1">সেটিংস বোতামের অবস্থান</string>
+    <string name="revanced_auto_captions_style_entry_2">কখনো দেখান না</string>
+    <string name="revanced_auto_captions_style_entry_3">চালু থাকলে, সেটিংস বোতামে Morphe সেটিংস খুলবে এবং টিপুন ও ধরে রাখলে YouTube সেটিংস খুলবে, পরিবর্তন করতে অক্ষম করুন</string>
+    <string name="revanced_auto_captions_style_entry_4">মুটি অবস্থায় দেখান</string>
+    <string name="revanced_auto_captions_style_title">অটো ক্যাপশন দৃশ্যমানতা</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">অ্যাম্বিয়েন্ট মোডের শক্তি সংরক্ষণের বিধিনিষেধগুলি অতিক্রম করা হয়নি</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">অ্যাম্বিয়েন্ট মোডের শক্তি সংরক্ষণের বিধিনিষেধগুলি অতিক্রম করা হয়েছে</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">অ্যাম্বিয়েন্ট মোড সীমাবদ্ধতা বাইপাস করুন</string>
@@ -798,9 +803,9 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
 
 সীমাবদ্ধতা: পুরনো স্টাইলের 'আরো ভিডিও' ওভারলে-তে ফিরে যাবে"</string>
     <string name="revanced_restore_old_video_action_bar_title">পুরনো ভিডিও অ্যাকশন বারটি পূর্বাবস্থায় ফিরিয়ে আনুন</string>
-    <string name="revanced_ryd_attribution_summary">"ডেটা Return YouTube Dislike API দ্বারা সরবরাহ করা হয়।
+    <string name="revanced_ryd_attribution_summary">"উপাত্তসমূহ Return YouTube Dislike API দ্বারা সরবরাহকৃত।
 
-ReturnYouTubeDislike.com খুলতে এখানে ট্যাপ করুন"</string>
+ReturnYouTubeDislike.com ওপেন করতে এখানে ট্যাপ করুন"</string>
     <string name="revanced_ryd_compact_layout_summary_off">পছন্দ বোতামটি সেরা চেহারার জন্য সাজানো হয়েছে</string>
     <string name="revanced_ryd_compact_layout_summary_on">পছন্দ বোতামটি ন্যূনতম প্রস্থের জন্য সাজানো হয়েছে</string>
     <string name="revanced_ryd_compact_layout_title">সংক্ষিপ্ত লাইক বোতাম ব্যবহার করুন</string>
@@ -827,6 +832,7 @@ ReturnYouTubeDislike.com খুলতে এখানে ট্যাপ কর�
     <string name="revanced_sanitize_comments_category_bar_summary_off">মন্তব্য শ্রেণী বারে শ্রেণীর বোতামগুলো দেখানো হচ্ছে</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">\'শীর্ষ\' এবং \'নতুনতম\' ছাড়া অন্য সব শ্রেণীর বোতাম মন্তব্য শ্রেণী বারে লুকানো আছে</string>
     <string name="revanced_sanitize_comments_category_bar_title">শ্রেণী বার পরিষ্কার করুন</string>
+    <string name="revanced_sanitize_video_subtitle_title">ভিডিও সাবটাইটেল স্যানিটাইজ করুন</string>
     <string name="revanced_sb_api_url_changed">API URL পরিবর্তন হয়েছে</string>
     <string name="revanced_sb_api_url_invalid">API URL টি ভুল</string>
     <string name="revanced_sb_api_url_reset">API URL আবার সেট করুন</string>
@@ -1075,6 +1081,9 @@ ReturnYouTubeDislike.com খুলতে এখানে ট্যাপ কর�
     <string name="revanced_show_settings_button_index_title">সেটিংস বোতাম অবস্থান</string>
     <string name="revanced_show_settings_button_title">সেটিংস বাটন দেখান</string>
     <string name="revanced_show_settings_button_type_title">সেটিংস বোতাম অ্যাকশন</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">সেটিংস বোতাম অবস্থান</string>
+    <string name="revanced_show_toolbar_settings_button_title">সেটিংস বাটন দেখান</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">সেটিংস বোতাম অ্যাকশন</string>
     <string name="revanced_spoof_app_version_summary">পুরোনো ইউজার ইন্টারফেস (UI) ফিচারগুলো ফিরিয়ে আনতে সার্ভারকে এমনভাবে বিভ্রান্ত করে যেন মনে হয় আপনি অ্যাপের একটি পুরোনো সংস্করণ ব্যবহার করছেন</string>
     <string name="revanced_spoof_app_version_summary_off">সংস্করণ স্পুফ করা হয়নি</string>
     <string name="revanced_spoof_app_version_summary_on">সংস্করণ স্পুফ করা হয়েছে</string>
@@ -1142,8 +1151,8 @@ ReturnYouTubeDislike.com খুলতে এখানে ট্যাপ কর�
     <string name="revanced_switch_create_with_notifications_button_title">তৈরি বোতামকে বিজ্ঞপ্তি বোতাম দ্বারা সুইচ করুন</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">যদি এই সেটিং পরিবর্তন কার্যকর না হয়, তবে ছদ্মবেশী মোডে স্যুইচ করার চেষ্টা করুন।</string>
     <string name="revanced_vot_enabled_title">ভয়েস ওভার অনুবাদ</string>
-    <string name="revanced_vot_original_audio_volume_summary">অনুবাদ চালানোর সময় মূল YouTube অডিওর ভলিউম</string>
-    <string name="revanced_vot_original_audio_volume_title">মূল অডিওর ভলিউম</string>
-    <string name="revanced_vot_translation_volume_summary">ডাব করা অনুবাদের ভয়েসের ভলিউম</string>
+    <string name="revanced_vot_original_audio_volume_summary">অনুবাদ চলার সময় ইউটিউবের মূল অডিও ভলিউম</string>
+    <string name="revanced_vot_original_audio_volume_title">মূল অডিও ভলিউম</string>
+    <string name="revanced_vot_translation_volume_summary">ডাব করা অনূদিত ভয়েসের ভলিউম</string>
     <string name="revanced_vot_translation_volume_title">অনুবাদ ভলিউম</string>
 </resources>

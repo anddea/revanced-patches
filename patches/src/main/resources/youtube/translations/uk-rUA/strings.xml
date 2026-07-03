@@ -177,6 +177,11 @@
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">Використовується висувне меню старого стилю.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">Використовується специфічний діалог.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Тип меню якості відео</string>
+    <string name="revanced_auto_captions_style_entry_1">Завжди показувати</string>
+    <string name="revanced_auto_captions_style_entry_2">Ніколи не показувати</string>
+    <string name="revanced_auto_captions_style_entry_3">Показувати при увімкненому звуці</string>
+    <string name="revanced_auto_captions_style_entry_4">Показувати при вимкненому звуці</string>
+    <string name="revanced_auto_captions_style_title">Видимість автоматичних субтитрів</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Обмеження режиму \"Кінематографічне освітлення\" для режиму економії енергії не ігноруються</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Обмеження режиму \"Кінематографічне освітлення\" для режиму економії енергії ігноруються</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ігнорувати обмеження режиму \"Кінематографічне освітлення\"</string>
@@ -265,6 +270,7 @@
     <string name="revanced_confirm_user_dialog_title">Впевнені, що бажаєте продовжити?</string>
     <string name="revanced_copy">Скопіювати</string>
     <string name="revanced_copy_error">Не вдалось скопіювати текст</string>
+    <string name="revanced_credits_title">Кредити</string>
     <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляху компонента, які потрібно приховати, кожен з нового рядка</string>
     <string name="revanced_custom_filter_strings_title">Власний фільтр</string>
     <string name="revanced_custom_filter_summary_off">Користувацький фільтр вимкнено</string>
@@ -305,7 +311,7 @@
     <string name="revanced_debug_logs_none_found">Журнали не знайдено</string>
     <string name="revanced_debug_protobuffer_summary_off">Журнали налагодження не містять буферів протоколу</string>
     <string name="revanced_debug_protobuffer_summary_on">Журнали налагодження містять буфери протоколів</string>
-    <string name="revanced_debug_protobuffer_title">Журнал налагодження протоколу буфера</string>
+    <string name="revanced_debug_protobuffer_title">Налагоджувальний журнал протоколу буфера</string>
     <string name="revanced_debug_spannable_summary_off">Журнали налагодження не включають проміжні.</string>
     <string name="revanced_debug_spannable_summary_on">Журнали налагодження включають проміжні.</string>
     <string name="revanced_debug_spannable_title">Журнал проміжних</string>
@@ -810,6 +816,8 @@
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Показується в стрічці підписок.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Приховано в стрічці підписок.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Приховати у стрічці підписок</string>
+    <string name="revanced_hide_connect_button_summary_off">Показано кнопку Connect.</string>
+    <string name="revanced_hide_connect_button_summary_on">Кнопка Connect прихована.</string>
     <string name="revanced_hide_connect_button_title">Приховати кнопку \"Підключити\"</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Полиця магазину автора під відеоплеєром показується</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Полицю магазину автора під відеоплеєром приховано</string>
@@ -817,6 +825,9 @@
     <string name="revanced_hide_crowdfunding_box_summary_off">Скринька фінансування показується</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Скриньку фінансування приховано</string>
     <string name="revanced_hide_crowdfunding_box_title">Приховати скриню фінансування</string>
+    <string name="revanced_hide_dislike_button_summary_off">Показана кнопка «Не подобається».</string>
+    <string name="revanced_hide_dislike_button_summary_on">Кнопка «не подобається» прихована.</string>
+    <string name="revanced_hide_dislike_button_title">Кнопка «Приховати «Не подобається»</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_off">Фільтр подвійного натискання показується.</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_on">Фільтр подвійного натискання приховано.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Приховати фільтр подвійного натискання</string>
@@ -959,6 +970,9 @@
     <string name="revanced_hide_latest_videos_button_summary_off">Кнопка \"Останні відео\" показується</string>
     <string name="revanced_hide_latest_videos_button_summary_on">Кнопку \"Останні відео\" приховано</string>
     <string name="revanced_hide_latest_videos_button_title">Приховати кнопку \"Останні відео\"</string>
+    <string name="revanced_hide_like_button_summary_off">Кнопка «подобається» показана.</string>
+    <string name="revanced_hide_like_button_summary_on">Кнопка типу прихована.</string>
+    <string name="revanced_hide_like_button_title">Кнопка «Приховати лайк»</string>
     <string name="revanced_hide_like_dislike_button_summary_off">Кнопки \"Лайк\" та \"Дизлайк\" показуються</string>
     <string name="revanced_hide_like_dislike_button_summary_on">Кнопки \"Лайк\" та \"Дизлайк\" приховано</string>
     <string name="revanced_hide_like_dislike_button_title">Приховати кнопки \"Лайк\" і \"Дизлайк\"</string>
@@ -983,6 +997,8 @@
     <string name="revanced_hide_mix_playlists_summary_off">\"Мікс плейлисти\" показуються</string>
     <string name="revanced_hide_mix_playlists_summary_on">\"Мікс плейлисти\" приховано</string>
     <string name="revanced_hide_mix_playlists_title">Приховати \"Мікс плейлисти\"</string>
+    <string name="revanced_hide_more_button_summary_off">Показано ще одну кнопку.</string>
+    <string name="revanced_hide_more_button_summary_on">Більше кнопок приховано.</string>
     <string name="revanced_hide_more_button_title">Приховати кнопку \"Більше\"</string>
     <string name="revanced_hide_movie_shelf_summary_off">Полиці фільмів показується.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Полиці фільмів приховано.</string>
@@ -1175,6 +1191,9 @@
     <string name="revanced_hide_rewards_button_summary_off">Кнопку винагород показується.</string>
     <string name="revanced_hide_rewards_button_summary_on">Кнопку винагород приховано.</string>
     <string name="revanced_hide_rewards_button_title">Приховати кнопку винагород</string>
+    <string name="revanced_hide_search_bar_back_button_summary_off">Кнопка «назад» на рядку пошуку показана.</string>
+    <string name="revanced_hide_search_bar_back_button_summary_on">Кнопка «назад» у рядку пошуку прихована.</string>
+    <string name="revanced_hide_search_bar_back_button_title">Приховати кнопку пошуку назад</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">Мініатюри в історії пошукового запиту показується.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Мініатюри в історії пошукового запиту приховано.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Приховати мініатюру пошукового запиту</string>
@@ -1265,6 +1284,9 @@
     <string name="revanced_hide_settings_menu_subscription_product_summary_on">Меню Покупки й платні підписки приховано.</string>
     <string name="revanced_hide_settings_menu_subscription_product_title">Приховати меню Покупки й платні підписки</string>
     <string name="revanced_hide_settings_menu_summary">Приховати елементи в меню налаштувань YouTube.</string>
+    <string name="revanced_hide_settings_menu_time_management_summary_off">Показано меню тайм-менеджменту.</string>
+    <string name="revanced_hide_settings_menu_time_management_summary_on">Меню тайм-менеджменту приховане.</string>
+    <string name="revanced_hide_settings_menu_time_management_title">Приховати меню управління часом</string>
     <string name="revanced_hide_settings_menu_title">Приховати меню налаштувань YouTube</string>
     <string name="revanced_hide_settings_menu_video_quality_summary_off">Меню Параметри якості відео показується.</string>
     <string name="revanced_hide_settings_menu_video_quality_summary_on">Меню Параметри якості відео приховано.</string>
@@ -1709,6 +1731,15 @@
 
 Результати підсумування і транскрибування зберігаються, якщо ви не закрили програму або не використовували Gemini на іншому відео. Натисніть кнопку ще раз для перегляду результатів."</string>
     <string name="revanced_overlay_button_gemini_summarize_title">Показувати кнопку Gemini</string>
+    <string name="revanced_overlay_button_loop_segment_cleared_toast">Сегмент петлі очищено.</string>
+    <string name="revanced_overlay_button_loop_segment_copy_toast">URL сегмента циклу скопійовано.</string>
+    <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">Спочатку виберіть цикл початок і кінець.</string>
+    <string name="revanced_overlay_button_loop_segment_enabled_toast">Цикл %1$ - %2$.</string>
+    <string name="revanced_overlay_button_loop_segment_invalid_time_toast">Не можу використати поточний час відтворення.</string>
+    <string name="revanced_overlay_button_loop_segment_start_toast">Вибрано початок циклу: %s.</string>
+    <string name="revanced_overlay_button_loop_segment_summary">"Натисніть один раз, щоб вибрати старт, натисніть ще раз, щоб вибрати кінець і зациклити цей сегмент, потім втретє, щоб очистити.
+Натисніть і утримуйте, щоб скопіювати URL відео з параметрами початку та кінця.»</string>
+    <string name="revanced_overlay_button_loop_segment_title">Кнопка сегмента циклу</string>
     <string name="revanced_overlay_button_mute_volume_summary">Натисніть, щоб вимкнути звук поточного відео. Натисніть знову, щоб увімкнути.</string>
     <string name="revanced_overlay_button_mute_volume_title">Показувати кнопку вимкнення звуку</string>
     <string name="revanced_overlay_button_not_allowed_warning">Натисніть і утримуйте, щоб змінити стан кнопки.</string>
@@ -1738,6 +1769,8 @@
 Натисніть і утримуйте, щоб скинути швидкість відтворення до 1.0x. Натисніть і утримуйте ще раз, щоб скинути швидкість назад до типової."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Показувати кнопку Діалог швидкості</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">Тип діалогу швидкості</string>
+    <string name="revanced_overlay_button_vot_summary">Показувати накладку кнопки для перемикання перекладу озвучення для поточного відео</string>
+    <string name="revanced_overlay_button_vot_title">Озвучення за перекладом</string>
     <string name="revanced_overlay_button_whitelist_summary">Натисніть, щоб відкрити діалог білого списку.
 Натисніть і утримуйте, щоб відкрити діалог налаштування білого списку.</string>
     <string name="revanced_overlay_button_whitelist_title">Показувати кнопку Білого списку</string>
@@ -2013,7 +2046,7 @@
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Перейдіть до &lt;a href=%1$s&gt;Створення нового проекту&lt;/a&gt;.&lt;br&gt;2. Натисніть кнопку &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Перейдіть до &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Натисніть кнопку &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Натисніть кнопку &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Виберіть опцію &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Натисніть кнопку &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Скопіюйте ключ API.&lt;br&gt;&lt;br&gt;※ Ключ API не можна поширювати, тому він не включений у Імпорт / Експорт налаштувань.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Створення ключа розробника YouTube Data API v3</string>
     <string name="revanced_ryd_about">Про Повернення дизлайків</string>
-    <string name="revanced_ryd_attribution_summary">"Дані надаються API Return YouTube Dislike.
+    <string name="revanced_ryd_attribution_summary">"Дані надаються API Return YouTube Dislike
 
 Торкніться тут, щоб відкрити ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -2051,7 +2084,7 @@
     <string name="revanced_sanitize_comments_category_bar_title">Очистити панель категорій</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Фрази типу '#', 'Збір коштів', 'Магазин' та 'товари' показується в субтитрах відео."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Фрази типу '#', 'Збір коштів', 'Магазин' та 'товари' приховано з субтитрів відео."</string>
-    <string name="revanced_sanitize_video_subtitle_title">Обробляти субтитри відео</string>
+    <string name="revanced_sanitize_video_subtitle_title">Очищувати підзаголовок відео</string>
     <string name="revanced_sb_about">Про Спонсорблок</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Дані надаються Спонсорблок API. Натисніть тут, щоб дізнатися більше та побачити завантаження для інших платформ</string>
@@ -2411,6 +2444,9 @@
     <string name="revanced_show_settings_button_index_title">Позиція кнопки налаштувань</string>
     <string name="revanced_show_settings_button_title">Показати кнопку \"Налаштування\"</string>
     <string name="revanced_show_settings_button_type_title">Дія кнопки \"Налаштування\"</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Позиція кнопки налаштувань</string>
+    <string name="revanced_show_toolbar_settings_button_title">Показати кнопку \"Налаштування\"</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">Дія кнопки \"Налаштування\"</string>
     <string name="revanced_show_video_title_section_summary">"Показується секцію назви відео в повноекранному режимі.
 
 Застереження: Назва відео зникає при натисканні."</string>

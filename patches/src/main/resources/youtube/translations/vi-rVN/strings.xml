@@ -133,7 +133,7 @@ Nếu bạn đã mua gói Premium thì cài đặt này có thể không cần t
 
 Nếu được bật, URL video sẽ được gửi đến máy chủ API và không có dữ liệu nào khác được gửi. Nếu video không có hình thu nhỏ DeArrow, thì hình thu nhỏ gốc hoặc ảnh chụp tĩnh sẽ được hiển thị
 
-Nhấn vào đây để mở DeArrow.ajay.app"</string>
+Nhấn vào đây để truy cập DeArrow.ajay.app"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">URL của API DeArrow không hợp lệ.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL của điểm cuối bộ đệm hình thu nhỏ DeArrow</string>
@@ -177,6 +177,11 @@ Nhấn và giữ để chuyển loại thông tin cần thêm vào."</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">Trình đơn tuỳ chọn kiểu cũ được sử dụng.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">Hộp thoại tuỳ chỉnh được sử dụng.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Kiểu trình đơn chất lượng video</string>
+    <string name="revanced_auto_captions_style_entry_1">Luôn hiển thị</string>
+    <string name="revanced_auto_captions_style_entry_2">Không bao giờ hiện</string>
+    <string name="revanced_auto_captions_style_entry_3">Hiển thị khi bật tiếng</string>
+    <string name="revanced_auto_captions_style_entry_4">Hiển thị khi tắt tiếng</string>
+    <string name="revanced_auto_captions_style_title">Tự động hiển thị phụ đề</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Các hạn chế tiết kiệm pin của chế độ môi trường xung quanh chưa bị bỏ qua</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Các hạn chế tiết kiệm pin của chế độ môi trường xung quanh đã được bỏ qua</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Bỏ qua hạn chế cho chế độ môi trường xung quanh</string>
@@ -304,7 +309,7 @@ Hạn chế: Nút Quay lại trên thanh công cụ có thể không hoạt đ�
     <string name="revanced_debug_logs_none_found">Không tìm thấy nhật ký</string>
     <string name="revanced_debug_protobuffer_summary_off">Nhật ký gỡ lỗi không chứa dữ liệu protobuf</string>
     <string name="revanced_debug_protobuffer_summary_on">Nhật ký gỡ lỗi chứa cả dữ liệu protobuf</string>
-    <string name="revanced_debug_protobuffer_title">Ghi nhật ký gỡ lỗi (Protocol Buffer)</string>
+    <string name="revanced_debug_protobuffer_title">Bộ đệm giao thức nhật ký gỡ lỗi</string>
     <string name="revanced_debug_spannable_summary_off">Nhật ký gỡ lỗi không bao gồm dữ liệu spannable.</string>
     <string name="revanced_debug_spannable_summary_on">Nhật ký gỡ lỗi bao gồm dữ liệu spannable.</string>
     <string name="revanced_debug_spannable_title">Ghi nhật ký spannable</string>
@@ -2014,9 +2019,9 @@ Nhấn vào đây để xem các bước tạo khóa API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;Tạo dự án mới&lt;/a&gt;.&lt;br&gt;2. Ấn vào &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Đi tới &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Ấn vào &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Ấn vào &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Chọn &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Ấn vào &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Sao chép mã khoá API.&lt;br&gt;&lt;br&gt;※ Không nên chia sẻ mã khoá API với người khác, vì vậy chúng cũng không có mặt trong mục Nhập/Xuất cài đặt.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Tạo mã khoá</string>
     <string name="revanced_ryd_about">Giới thiệu</string>
-    <string name="revanced_ryd_attribution_summary">"Dữ liệu được cung cấp bởi Return YouTube Dislike API.
+    <string name="revanced_ryd_attribution_summary">"Dữ liệu được cung cấp bởi API Return YouTube Dislike
 
-Nhấn vào đây để mở ReturnYouTubeDislike.com"</string>
+Bấm vào đây để mở ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Nút thích được thiết kế để tối ưu ngoại hình tốt nhất</string>
     <string name="revanced_ryd_compact_layout_summary_on">Nút thích được thiết kế để tối ưu độ rộng</string>
@@ -2052,7 +2057,7 @@ Hạn chế: Số lượt không thích có thể không hiển thị nếu ngư
     <string name="revanced_sanitize_comments_category_bar_title">Thu gọn thanh danh mục</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Các tag có các cụm từ như \"#\", \"Chiến dịch gây quỹ\", \"Cửa hàng\" và \"sản phẩm\" được hiển thị trong phụ đề video."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Các tag có cụm từ như \"#\", \"Chiến dịch gây quỹ\", \"Cửa hàng\" và \"sản phẩm\" đã ẩn bên dưới tiêu đề video."</string>
-    <string name="revanced_sanitize_video_subtitle_title">Ẩn các tag bên dưới tiêu đề video</string>
+    <string name="revanced_sanitize_video_subtitle_title">Làm sạch phụ đề video</string>
     <string name="revanced_sb_about">Giới thiệu</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Dữ liệu này được cung cấp bởi API Chặn Nhà tài trợ. Nhấn vào đây để tìm hiểu thêm và xem các bản tải xuống cho các nền tảng khác.</string>
@@ -2280,6 +2285,9 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
     <string name="revanced_sb_vote_no_segments">Không có phân đoạn nào để bỏ phiếu</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s đến %2$s</string>
     <string name="revanced_sb_vote_upvote">Ủng hộ</string>
+    <string name="revanced_search_in_channel_title">Tìm kiếm kênh </string>
+    <string name="revanced_search_in_channel_use_webview_summary_on">\"Tìm kiếm kênh\"  sẽ mở trang tìm kiếm kênh trên web dành cho thiết bị di động</string>
+    <string name="revanced_search_in_channel_use_webview_title">Sử dụng WebView cho tìm kiếm kênh </string>
     <string name="revanced_search_settings_category_title">Cài đặt tìm kiếm</string>
     <string name="revanced_search_title">Tìm kiếm</string>
     <string name="revanced_send">Gửi</string>
@@ -2409,8 +2417,15 @@ Hầu hết các lỗi không thể sửa được do hạn chế tới từ ph�
     <string name="revanced_shorts_player_type_shorts">Trình phát Shorts</string>
     <string name="revanced_shorts_player_type_title">Mở Shorts bằng</string>
     <string name="revanced_show_settings_button_index_title">Vị trí nút Cài đặt</string>
+    <string name="revanced_show_settings_button_summary_off">Nút cài đặt đang không hiển thị </string>
+    <string name="revanced_show_settings_button_summary_on">Nút cài đặt đang hiển thị.</string>
     <string name="revanced_show_settings_button_title">Hiện nút Cài đặt</string>
+    <string name="revanced_show_settings_button_type_summary_off">Ấn để mở cài đặt YouTube</string>
+    <string name="revanced_show_settings_button_type_summary_on">Ấn để mở cài đặt RVX </string>
     <string name="revanced_show_settings_button_type_title">Thao tác nút cài đặt</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Vị trí nút Cài đặt</string>
+    <string name="revanced_show_toolbar_settings_button_title">Hiện nút Cài đặt</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">Thao tác nút cài đặt</string>
     <string name="revanced_show_video_title_section_summary">"Hiển thị phần tiêu đề video ở chế độ toàn màn hình.
 
 Hạn chế: Tiêu đề video sẽ biến mất khi nhấn vào."</string>
@@ -2688,7 +2703,7 @@ Miễn trừ trách nhiệm: Cookie tạo ra khi không đăng nhập có thể 
     <string name="revanced_vot_lang_auto">
 Tự động phát hiện</string>
     <string name="revanced_vot_live_voices_unavailable">Hiện không có giọng nói trực tiếp, sử dụng tiêu chuẩn</string>
-    <string name="revanced_vot_original_audio_volume_summary">Âm lượng của âm thanh YouTube gốc khi bản dịch đang phát</string>
+    <string name="revanced_vot_original_audio_volume_summary">Âm lượng của âm thanh gốc trên YouTube khi bản dịch đang phát</string>
     <string name="revanced_vot_original_audio_volume_title">Âm lượng âm thanh gốc</string>
     <string name="revanced_vot_playback_error">Không thể phát âm thanh bản dịch</string>
     <string name="revanced_vot_proxy_url_summary">Máy chủ proxy VOT. Mặc định: vot-worker.toil.cc</string>
@@ -2705,7 +2720,7 @@ Tự động phát hiện</string>
     <string name="revanced_vot_target_language_title">Ngôn ngữ mục tiêu</string>
     <string name="revanced_vot_time_min">%d phút</string>
     <string name="revanced_vot_time_sec">%d giây</string>
-    <string name="revanced_vot_translation_volume_summary">Âm lượng của giọng nói dịch lồng tiếng</string>
+    <string name="revanced_vot_translation_volume_summary">Âm lượng của giọng lồng tiếng bản dịch</string>
     <string name="revanced_vot_translation_volume_title">Âm lượng bản dịch</string>
     <string name="revanced_vot_unavailable_live">Tính năng dịch hiện không khả dụng cho các buổi trực tiếp</string>
     <string name="revanced_vot_unavailable_same_language">Âm thanh video đã được định dạng bằng ngôn ngữ mục tiêu</string>

@@ -133,7 +133,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 
 이 설정을 활성화하면 동영상 URL이 API 서버로 전송되며, 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 원본 썸네일 또는 스틸 컷 썸네일이 표시됩니다
 
-여기를 탭하여 DeArrow.ajay.app를 여세요"</string>
+자세한 정보를 보려면 여기를 탭하여 'DeArrow.ajay.app'으로 이동하세요"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">잘못된 DeArrow API URL 입니다.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow 썸네일 캐시 엔드포인트 URL입니다. 이것이 무슨 역할을 하는지 모르는 경우에는 이 URL을 변경하지 마세요</string>
@@ -177,6 +177,11 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">이전 메뉴 구성요소를 사용합니다.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">사용자 정의 다이얼로그를 사용합니다.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">듕영상 화질 메뉴 유형</string>
+    <string name="revanced_auto_captions_style_entry_1">항상 표시</string>
+    <string name="revanced_auto_captions_style_entry_2">표시 안 함</string>
+    <string name="revanced_auto_captions_style_entry_3">음소거 해제 시 표시</string>
+    <string name="revanced_auto_captions_style_entry_4">음소거 시 표시</string>
+    <string name="revanced_auto_captions_style_title">자동 자막 표시 여부</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">배터리 절전을 위한 앰비언트 모드 제한을 우회하지 않습니다</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">배터리 절전을 위한 엠비언트 모드 제한을 우회합니다</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">앰비언트 모드 제한 우회하기</string>
@@ -828,6 +833,8 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_community_posts_subscriptions_summary_off">구독 피드에서 표시됩니다.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">구독 피드에서 숨겨집니다.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">구독 피드에서 숨기기</string>
+    <string name="revanced_hide_connect_button_summary_off">연결 버튼이 표시됩니다</string>
+    <string name="revanced_hide_connect_button_summary_on">연결 버튼이 숨겨집니다</string>
     <string name="revanced_hide_connect_button_title">연결 버튼 숨기기</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">판매자(크리에이터) 스토어 선반이 표시됩니다</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">판매자(크리에이터) 스토어 선반이 숨겨집니다</string>
@@ -835,6 +842,9 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_crowdfunding_box_summary_off">모금 행사 패널이 표시됩니다</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">모금 행사 패널이 숨겨집니다</string>
     <string name="revanced_hide_crowdfunding_box_title">모금 행사 패널 숨기기</string>
+    <string name="revanced_hide_dislike_button_summary_off">싫어요 버튼이 표시됩니다</string>
+    <string name="revanced_hide_dislike_button_summary_on">싫어요 버튼이 숨겨집니다</string>
+    <string name="revanced_hide_dislike_button_title">싫어요 버튼 숨기기</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_off">두 번 탭하기 오버레이 필터가 표시됩니다.</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_on">두 번 탭하기 오버레이 필터가 숨겨집니다.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">두 번 탭하기 오버레이 필터 숨기기</string>
@@ -977,6 +987,9 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_latest_videos_button_summary_off">피드 상단에서 최신 동영상 버튼이 표시됩니다</string>
     <string name="revanced_hide_latest_videos_button_summary_on">피드 상단에서 최신 동영상 버튼이 숨겨집니다</string>
     <string name="revanced_hide_latest_videos_button_title">최신 동영상 버튼 숨기기</string>
+    <string name="revanced_hide_like_button_summary_off">좋아요 버튼이 표시됩니다</string>
+    <string name="revanced_hide_like_button_summary_on">싫어요 버튼이 숨겨집니다</string>
+    <string name="revanced_hide_like_button_title">좋아요 버튼 숨기기</string>
     <string name="revanced_hide_like_dislike_button_summary_off">좋아요 &amp; 싫어요 버튼이 표시됩니다</string>
     <string name="revanced_hide_like_dislike_button_summary_on">좋아요 &amp; 싫어요 버튼이 숨겨집니다</string>
     <string name="revanced_hide_like_dislike_button_title">좋아요 및 싫어요 버튼 숨기기</string>
@@ -1001,6 +1014,8 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_mix_playlists_summary_off">믹스 재생목록이 표시됩니다</string>
     <string name="revanced_hide_mix_playlists_summary_on">믹스 재생목록이 숨겨집니다</string>
     <string name="revanced_hide_mix_playlists_title">믹스 재생목록 숨기기</string>
+    <string name="revanced_hide_more_button_summary_off">더보기 버튼이 표시됩니다</string>
+    <string name="revanced_hide_more_button_summary_on">더보기 버튼이 숨겨집니다</string>
     <string name="revanced_hide_more_button_title">더보기 버튼 숨기기</string>
     <string name="revanced_hide_movie_shelf_summary_off">영화 선반이 표시됩니다.</string>
     <string name="revanced_hide_movie_shelf_summary_on">영화 선반이 숨겨집니다.</string>
@@ -1736,6 +1751,15 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
 
 앱을 닫거나 다른 동영상에서 Gemini를 사용하지 않는 한 요약 또는 기록된 결과는 저장됩니다. 결과를 보려면 버튼을 다시 탭하세요."</string>
     <string name="revanced_overlay_button_gemini_summarize_title">Gemini 버튼 표시하기</string>
+    <string name="revanced_overlay_button_loop_segment_cleared_toast">연속 구간이 지워졌습니다</string>
+    <string name="revanced_overlay_button_loop_segment_copy_toast">연속 구간 URL을 복사하였습니다</string>
+    <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">연속 구간의 시작과 종료를 먼저 선택하세요</string>
+    <string name="revanced_overlay_button_loop_segment_enabled_toast">%1$s - %2$s 구간을 연속하는 중</string>
+    <string name="revanced_overlay_button_loop_segment_invalid_time_toast">현재 재생 시간을 사용할 수 없습니다</string>
+    <string name="revanced_overlay_button_loop_segment_start_toast">선택된 연속 구간의 시작: %s</string>
+    <string name="revanced_overlay_button_loop_segment_summary">버튼을 한 번 탭하여 시작 시간을 선택하고, 다시 탭하여 종료 시간을 선택해 해당 구간을 연속 재생할 수 있습니다. 세 번째 탭하면 선택된 구간이 해제됩니다
+길게 탭하면 시작 및 종료 시간이 포함된 동영상 URL을 복사됩니다</string>
+    <string name="revanced_overlay_button_loop_segment_title">구간 연속 버튼 표시하기</string>
     <string name="revanced_overlay_button_mute_volume_summary">버튼을 탭하여 재생 중인 동영상을 음소거할 수 있습니다.\n다시 탭하면 음소거가 해제됩니다.</string>
     <string name="revanced_overlay_button_mute_volume_title">음소거 버튼 표시하기</string>
     <string name="revanced_overlay_button_not_allowed_warning">버튼을 길게 탭하여 버튼 상태를 변경할 수 있습니다.</string>
@@ -1770,6 +1794,12 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
     <string name="revanced_overlay_button_whitelist_summary">버튼을 탭하여 화이트리스트 다이얼로그를 열 수 있습니다.
 길게 탭하면 화이트리스트 설정 다이얼로그가 열립니다.</string>
     <string name="revanced_overlay_button_whitelist_title">화이트리스트 버튼 표시하기</string>
+    <string name="revanced_overlay_buttons_max_landscape_summary">가로 모드에서 표시할 오버레이 버튼의 최대 개수를 설정할 수 있습니다 (전체 화면 버튼 제외)
+모두 숨기려면 0를 입력하세요</string>
+    <string name="revanced_overlay_buttons_max_landscape_title">가로 모드에서 최대 버튼 수</string>
+    <string name="revanced_overlay_buttons_max_portrait_summary">세로 모드에서 표시할 오버레이 버튼의 최대 개수를 설정할 수 있습니다 (전체 화면 버튼 제외)
+모두 숨기려면 0를 입력하세요</string>
+    <string name="revanced_overlay_buttons_max_portrait_title">세로 모드에서 최대 버튼 수</string>
     <string name="revanced_override_playlist_download_button_summary_off">기본 재생목록 오프라인 저장 버튼이 표시되어 있으면, 그 버튼으로 기본 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_override_playlist_download_button_summary_on">기본 재생목록 오프라인 저장 버튼이 항상 표시되어 있으며, 공개 재생목록에서는 그 버튼으로 외부 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"기본 재생목록 오프라인 저장 버튼이 표시되어 있으면, 그 버튼으로 외부 다운로더를 실행할 수 있습니다.
@@ -2043,9 +2073,9 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;새 프로젝트 만들기&lt;/a&gt; 로 이동합니다.&lt;br&gt;2. &lt;b&gt;만들기&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;3. &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; 로 이동합니다.&lt;br&gt;4. &lt;b&gt;사용&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;5. &lt;b&gt;사용자 인증 정보 만들기&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;6. &lt;b&gt;공개 데이터&lt;/b&gt; 옵션을 선택합니다.&lt;br&gt;7. &lt;b&gt;다음&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;8. API Key를 복사합니다.&lt;br&gt;&lt;br&gt;※ API Key는 다른 사람과 공유해서는 안 되므로 가져오기 / 내보내기 설정에 포함되지 않습니다.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 Developer Key 발급받기</string>
     <string name="revanced_ryd_about">정보</string>
-    <string name="revanced_ryd_attribution_summary">"데이터는 Return YouTube Dislike API에서 제공합니다.
+    <string name="revanced_ryd_attribution_summary">"데이터는 Return YouTube Dislike API에 의해 제공됩니다
 
-ReturnYouTubeDislike.com을 열려면 여기를 탭하세요."</string>
+자세한 정보를 보려면 여기를 탭하여 'ReturnYouTubeDislike.com'으로 이동하세요"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">좋아요 버튼에서 구분선을 표시합니다</string>
     <string name="revanced_ryd_compact_layout_summary_on">좋아요 버튼에서 구분선을 표시하지 않습니다</string>
@@ -2454,8 +2484,15 @@ ReturnYouTubeDislike.com을 열려면 여기를 탭하세요."</string>
     <string name="revanced_shorts_player_type_shorts">Shorts 플레이어</string>
     <string name="revanced_shorts_player_type_title">Shorts 재생 플레이어 유형</string>
     <string name="revanced_show_settings_button_index_title">설정 버튼 위치</string>
+    <string name="revanced_show_settings_button_summary_off">설정 버튼이 표시되지 않습니다</string>
+    <string name="revanced_show_settings_button_summary_on">설정 버튼이 표시됩니다</string>
     <string name="revanced_show_settings_button_title">설정 버튼 표시하기</string>
+    <string name="revanced_show_settings_button_type_summary_off">버튼을 탭하여 YouTube 설정을 실행할 수 있습니다</string>
+    <string name="revanced_show_settings_button_type_summary_on">버튼을 탭하여 RVX 설정을 실행할 수 있습니다</string>
     <string name="revanced_show_settings_button_type_title">설정 버튼 작업</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">설정 버튼 위치</string>
+    <string name="revanced_show_toolbar_settings_button_title">설정 버튼 표시하기</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">설정 버튼 작업</string>
     <string name="revanced_show_video_title_section_summary">"전체 화면에서 동영상 제목 섹션을 표시합니다.
 
 제한 사항:
