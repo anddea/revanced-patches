@@ -1,3 +1,11 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.utils;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
@@ -144,7 +152,7 @@ public class PlaylistPatch {
             videoId = currentVideoId;
             synchronized (lastVideoIds) {
                 QueueManager[] customActionsEntries;
-                boolean canReload = PlayerType.getCurrent().isMaximizedOrFullscreen() &&
+                boolean canReload = !PlayerType.getCurrent().isNoneOrHidden() &&
                         lastVideoIds.get(VideoInformation.getVideoId()) != null;
                 if (playlistId.isEmpty() || lastVideoIds.get(currentVideoId) == null) {
                     if (canReload) {
