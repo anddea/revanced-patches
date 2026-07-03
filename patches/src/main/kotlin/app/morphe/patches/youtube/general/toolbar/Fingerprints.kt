@@ -39,9 +39,25 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.general.toolbar
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.methodCall
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.youtube.utils.resourceid.actionBarRingo
 import app.morphe.patches.youtube.utils.resourceid.actionBarRingoBackground
 import app.morphe.patches.youtube.utils.resourceid.drawerContentView
@@ -235,6 +251,49 @@ internal val searchSuggestionCollectionFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/util/Collection;", "Ljava/lang/String;"),
     literals = listOf(p13nHeader, seeMoreProceedingHeader)
+)
+
+internal object SearchBoxTypingStringFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L"),
+    filters = listOf(
+        fieldAccess(opcode = Opcode.IGET_OBJECT, type = "Ljava/util/Collection;"),
+        methodCall(
+            smali = "Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V",
+            location = MatchAfterWithin(5),
+        ),
+        fieldAccess(opcode = Opcode.IGET_OBJECT, type = "Ljava/lang/String;"),
+        methodCall(
+            smali = "Ljava/lang/String;->isEmpty()Z",
+            location = MatchAfterWithin(5),
+        ),
+        resourceLiteral(ResourceType.DIMEN, "suggestion_category_divider_height"),
+    ),
+)
+
+private object SearchSuggestionEndpointConstructorFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    returnType = "V",
+    strings = listOf("\u2026 "),
+)
+
+internal object SearchSuggestionEndpoint20_21Fingerprint : Fingerprint(
+    classFingerprint = SearchSuggestionEndpointConstructorFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = emptyList(),
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            type = "Ljava/lang/String;",
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_STATIC,
+            smali = "Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z",
+        ),
+    ),
 )
 
 /**
