@@ -1,3 +1,46 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - ILoveOpenSourceApplications (https://github.com/ILoveOpenSourceApplications)
+ * - inotia00 (https://github.com/inotia00)
+ * - VazerOG (https://github.com/VazerOG)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.patches.music.utils.settings
 
 import app.morphe.patcher.patch.ResourcePatchContext
@@ -36,6 +79,10 @@ internal object ResourceUtils {
 
     const val SWITCH_PREFERENCE_TAG_NAME =
         "com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference"
+    const val LIST_PREFERENCE_TAG_NAME =
+        "app.morphe.extension.shared.settings.preference.CustomDialogListPreference"
+    const val TEXT_PREFERENCE_TAG_NAME =
+        "app.morphe.extension.shared.settings.preference.ResettableEditTextPreference"
 
     const val ACTIVITY_HOOK_TARGET_CLASS =
         "com.google.android.gms.common.api.GoogleApiActivity"
@@ -322,6 +369,101 @@ internal object ResourceUtils {
                                 "android:targetClass",
                                 ACTIVITY_HOOK_TARGET_CLASS
                             )
+                        }
+                    }
+                }
+        }
+    }
+
+    /**
+     * Adds an in-process custom preference using its extension class as the XML tag.
+     * This is required for preferences that own their click handling and dialog lifecycle.
+     */
+    fun addCustomPreference(
+        category: String,
+        key: String,
+        tag: String,
+        dependencyKey: String,
+        setSummary: Boolean,
+    ) {
+        context.document(SETTINGS_HEADER_PATH).use { document ->
+            val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
+            List(tags.length) { tags.item(it) as Element }
+                .filter {
+                    it.getAttribute("android:key").contains("revanced_preference_screen_$category")
+                }
+                .forEach {
+                    it.adoptChild(tag) {
+                        setAttribute("android:title", "@string/${key}_title")
+                        if (setSummary) {
+                            setAttribute("android:summary", "@string/${key}_summary")
+                        }
+                        setAttribute("android:key", key)
+                        setAttribute("android:selectable", "true")
+                        if (dependencyKey.isNotEmpty()) {
+                            setAttribute("android:dependency", dependencyKey)
+                        }
+                    }
+                }
+        }
+    }
+
+    /**
+     * Adds an in-process list preference. Unlike intent-backed preferences, this keeps the
+     * dialog attached to the searchable settings activity on YouTube Music 9.15+.
+     */
+    fun addListPreference(
+        category: String,
+        key: String,
+        dependencyKey: String,
+        setSummary: Boolean,
+    ) {
+        context.document(SETTINGS_HEADER_PATH).use { document ->
+            val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
+            List(tags.length) { tags.item(it) as Element }
+                .filter {
+                    it.getAttribute("android:key").contains("revanced_preference_screen_$category")
+                }
+                .forEach {
+                    it.adoptChild(LIST_PREFERENCE_TAG_NAME) {
+                        setAttribute("android:title", "@string/${key}_title")
+                        if (setSummary) {
+                            setAttribute("android:summary", "@string/${key}_summary")
+                        }
+                        setAttribute("android:key", key)
+                        setAttribute("android:entries", "@array/${key}_entries")
+                        setAttribute("android:entryValues", "@array/${key}_entry_values")
+                        if (dependencyKey.isNotEmpty()) {
+                            setAttribute("android:dependency", dependencyKey)
+                        }
+                    }
+                }
+        }
+    }
+
+    /** Adds an in-process text dialog preference using the shared custom dialog. */
+    fun addTextPreference(
+        category: String,
+        key: String,
+        dependencyKey: String,
+        setSummary: Boolean,
+    ) {
+        context.document(SETTINGS_HEADER_PATH).use { document ->
+            val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
+            List(tags.length) { tags.item(it) as Element }
+                .filter {
+                    it.getAttribute("android:key").contains("revanced_preference_screen_$category")
+                }
+                .forEach {
+                    it.adoptChild(TEXT_PREFERENCE_TAG_NAME) {
+                        setAttribute("android:title", "@string/${key}_title")
+                        if (setSummary) {
+                            setAttribute("android:summary", "@string/${key}_summary")
+                        }
+                        setAttribute("android:key", key)
+                        setAttribute("android:inputType", "text")
+                        if (dependencyKey.isNotEmpty()) {
+                            setAttribute("android:dependency", dependencyKey)
                         }
                     }
                 }

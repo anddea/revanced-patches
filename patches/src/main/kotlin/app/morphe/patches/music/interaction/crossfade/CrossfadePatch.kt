@@ -237,18 +237,12 @@ val crossfadePatch = bytecodePatch(
             }
         }
 
-        fun Element.addCrossfadeIntentPreference(key: String) {
-            adoptChild("Preference") {
+        fun Element.addCrossfadeListPreference(key: String) {
+            adoptChild(ResourceUtils.LIST_PREFERENCE_TAG_NAME) {
                 setAttribute("android:key", key)
                 setAttribute("android:title", "@string/${key}_title")
-                adoptChild("intent") {
-                    setAttribute("android:targetPackage", ResourceUtils.musicPackageName)
-                    setAttribute("android:data", key)
-                    setAttribute(
-                        "android:targetClass",
-                        ResourceUtils.ACTIVITY_HOOK_TARGET_CLASS,
-                    )
-                }
+                setAttribute("android:entries", "@array/${key}_entries")
+                setAttribute("android:entryValues", "@array/${key}_entry_values")
             }
         }
 
@@ -276,14 +270,14 @@ val crossfadePatch = bytecodePatch(
                 setAttribute("android:summary", "@string/morphe_music_crossfade_screen_summary")
 
                 addCrossfadeSwitch("morphe_music_crossfade_enabled", "false")
-                addCrossfadeIntentPreference("morphe_music_crossfade_curve")
+                addCrossfadeListPreference("morphe_music_crossfade_curve")
                 addCrossfadeStaticPreference(
                     key = "morphe_music_crossfade_curve_preview",
                     titleKey = "morphe_music_crossfade_curve_preview_title",
                     summaryKey = null,
                     tag = "app.morphe.extension.music.settings.preference.CrossfadeCurvePreference",
                 )
-                addCrossfadeIntentPreference("morphe_music_crossfade_duration")
+                addCrossfadeListPreference("morphe_music_crossfade_duration")
                 addCrossfadeSwitch("morphe_music_crossfade_on_skip", "true", setSummary = true)
                 addCrossfadeSwitch(
                     "morphe_music_crossfade_on_auto_advance",

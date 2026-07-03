@@ -1,6 +1,41 @@
-package app.morphe.extension.shared.patches.components;
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
 
-import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_22_OR_GREATER;
+package app.morphe.extension.shared.patches.components;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,7 +50,7 @@ import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.StringTrieSearch;
 import app.morphe.extension.shared.utils.Utils;
-import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.shared.utils.PackageUtils;
 
 @SuppressWarnings("unused")
 public final class LithoFilterPatch {
@@ -39,7 +74,7 @@ public final class LithoFilterPatch {
                 }
                 builder.append(" Path: ");
                 builder.append(path);
-                if (Settings.DEBUG_PROTOBUFFER.get()) {
+                if (BaseSettings.DEBUG_PROTOBUFFER.get()) {
                     builder.append(" BufferStrings: ");
                     findAsciiStrings(builder, buffer);
                 }
@@ -107,7 +142,10 @@ public final class LithoFilterPatch {
      * Instead, parse the identifier found near the start of the buffer and use that to
      * identify the correct buffer to use when filtering.
      */
-    private static final boolean EXTRACT_IDENTIFIER_FROM_BUFFER = IS_20_22_OR_GREATER;
+    // This Litho runtime is shared by YouTube and YouTube Music. Referencing YouTube's
+    // ExtendedUtils here initializes YouTube's Settings in Music and registers duplicate keys.
+    private static final boolean EXTRACT_IDENTIFIER_FROM_BUFFER =
+            PackageUtils.isVersionOrGreater("20.22.00");
 
     /**
      * Turns on additional logging, used for development purposes only.

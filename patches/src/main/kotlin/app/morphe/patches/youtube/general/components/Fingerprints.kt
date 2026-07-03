@@ -2,6 +2,7 @@ package app.morphe.patches.youtube.general.components
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import app.morphe.patches.shared.mapping.ResourceType
@@ -152,16 +153,18 @@ internal object SyncButtonFingerprint : Fingerprint(
 internal const val TRANSLUCENT_STATUS_BAR_PRIMARY_FEATURE_FLAG = 45400535L
 internal const val TRANSLUCENT_STATUS_BAR_SECONDARY_FEATURE_FLAG = 45632194L
 
-internal val translucentStatusBarPrimaryFeatureFlagFingerprint = legacyFingerprint(
-    name = "translucentStatusBarPrimaryFeatureFlagFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal object TranslucentStatusBarPrimaryFeatureFlagFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Z",
-    literals = listOf(TRANSLUCENT_STATUS_BAR_PRIMARY_FEATURE_FLAG)
+    filters = listOf(
+        literal(TRANSLUCENT_STATUS_BAR_PRIMARY_FEATURE_FLAG)
+    )
 )
 
-internal val translucentStatusBarSecondaryFeatureFlagFingerprint = legacyFingerprint(
-    name = "translucentStatusBarSecondaryFeatureFlagFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal object TranslucentStatusBarSecondaryFeatureFlagFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Z",
-    literals = listOf(TRANSLUCENT_STATUS_BAR_SECONDARY_FEATURE_FLAG)
+    filters = listOf(
+        literal(TRANSLUCENT_STATUS_BAR_SECONDARY_FEATURE_FLAG)
+    )
 )
