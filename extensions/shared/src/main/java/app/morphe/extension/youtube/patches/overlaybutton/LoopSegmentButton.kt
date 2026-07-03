@@ -170,12 +170,16 @@ object LoopSegmentButton {
     }
 
     /**
-     * Injection point. Called when the player is closed.
+     * Injection point. Called when the player state is dismissed.
+     *
+     * A zero dismiss type is a real player close. Other values are transient state changes such
+     * as entering PiP and must preserve the active loop segment.
      */
-    @Suppress("UNUSED_PARAMETER")
     @JvmStatic
     fun onPlayerDismissed(dismissType: Int) {
         try {
+            if (dismissType != 0) return
+
             val now = System.currentTimeMillis()
             if (now - lastSegmentIntentTimeMs < INTENT_DISMISS_GRACE_PERIOD_MS) return
 
@@ -348,7 +352,7 @@ object LoopSegmentButton {
         return true
     }
 
-    private fun isSegmentActive() = segmentStartMs >= 0 && segmentEndMs > segmentStartMs
+    private fun isSegmentActive() = segmentStartMs in 0..<segmentEndMs
 
     private fun seekToSegmentStart(): Boolean {
         if (segmentStartMs < 0) return false
