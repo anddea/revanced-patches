@@ -162,6 +162,9 @@
         <!-- SETTINGS: DISABLE_AUTO_CAPTIONS
         <SwitchPreference android:title="@string/revanced_disable_auto_captions_title" android:key="revanced_disable_auto_captions" android:summaryOn="@string/revanced_disable_auto_captions_summary_on" android:summaryOff="@string/revanced_disable_auto_captions_summary_off" />SETTINGS: DISABLE_AUTO_CAPTIONS -->
 
+        <!-- SETTINGS: AUTO_CAPTIONS_STYLE
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_auto_captions_style_entries" android:title="@string/revanced_auto_captions_style_title" android:key="revanced_auto_captions_style" android:entryValues="@array/revanced_auto_captions_style_entry_values" />SETTINGS: AUTO_CAPTIONS_STYLE -->
+
         <!-- SETTINGS: DISABLE_SIGN_IN_TO_TV_POPUP
         <SwitchPreference android:title="@string/revanced_disable_signin_to_tv_popup_title" android:key="revanced_disable_signin_to_tv_popup" android:summaryOn="@string/revanced_disable_signin_to_tv_popup_summary_on" android:summaryOff="@string/revanced_disable_signin_to_tv_popup_summary_off" />SETTINGS: DISABLE_SIGN_IN_TO_TV_POPUP -->
 

@@ -10,6 +10,8 @@ import static app.morphe.extension.shared.settings.Setting.parentsAll;
 import static app.morphe.extension.shared.settings.Setting.parentsAny;
 import static app.morphe.extension.shared.settings.Setting.parentsAnyInverted;
 import static app.morphe.extension.shared.utils.StringRef.str;
+import static app.morphe.extension.shared.patches.AutoCaptionsPatch.AutoCaptionsStyle.BOTH_DISABLED;
+import static app.morphe.extension.shared.patches.AutoCaptionsPatch.AutoCaptionsStyle.BOTH_ENABLED;
 import static app.morphe.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType;
 import static app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviour.IGNORE;
 import static app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviour.MANUAL_SKIP;
@@ -22,6 +24,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.HideAudioFlyoutMenuAvailability;
+import app.morphe.extension.shared.patches.AutoCaptionsPatch.AutoCaptionsStyle;
+import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.settings.EnumSetting;
 import app.morphe.extension.shared.settings.FloatSetting;
@@ -69,6 +73,14 @@ public class Settings extends SharedYouTubeSettings {
             FALSE,
             true,
             "morphe_force_avc_codec_user_dialog_message"
+    );
+
+    // Captions.
+    // Use the legacy switch as the initial default when upgrading from a pre-20.26 installation.
+    public static final EnumSetting<AutoCaptionsStyle> AUTO_CAPTIONS_STYLE = new EnumSetting<>(
+            "revanced_auto_captions_style",
+            BaseSettings.DISABLE_AUTO_CAPTIONS.get() ? BOTH_DISABLED : BOTH_ENABLED,
+            true
     );
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_AV1 = new BooleanSetting(
             "morphe_spoof_video_streams_av1",
